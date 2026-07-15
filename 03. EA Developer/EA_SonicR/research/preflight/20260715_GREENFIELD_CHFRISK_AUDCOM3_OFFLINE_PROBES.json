@@ -1,0 +1,227 @@
+{
+  "schema_version": "greenfield_chfrisk_audcom3_r7.v1",
+  "generated_at_utc": "2026-07-15T05:45:40.796304Z",
+  "window": "2021.01.01-2025.12.31",
+  "cost_apriori_usd": 12.0,
+  "gates": {
+    "n_min": 80,
+    "pf_min": 1.3,
+    "tpw_min": 2.0,
+    "x1_5_pf_min": 1.25
+  },
+  "beta_fit": {
+    "alpha": -4.830480472174185e-06,
+    "beta": -0.771130332377738,
+    "n_fit": 12421,
+    "r2": 0.497748,
+    "window": "2019-01-01..2020-12-31",
+    "driver": "FX_RISK_BASKET_mean(EU,GU,-UJ)"
+  },
+  "params": {
+    "chf": {
+      "z_lb": 60,
+      "z_entry": 1.75,
+      "sl": 1.2,
+      "rr": 2.0,
+      "hold": 24,
+      "fire_utc": 12
+    },
+    "com3": {
+      "z_lb": 48,
+      "z_entry": 2.0,
+      "sl": 1.5,
+      "rr": 1.5,
+      "hold": 36,
+      "fire_utc": 0
+    },
+    "adr": {
+      "k": 0.9,
+      "sl": 1.5,
+      "rr": 1.5,
+      "hold": 16,
+      "fire_utc": 8
+    }
+  },
+  "parked": [
+    "W1_HL_break",
+    "M15_thick_stop_non_SB"
+  ],
+  "qfsi_parallel": "007 accumulate hb=9480 quotes=6586 deadline=2026-07-15T07:39:26.186865Z; cost freeze still GAP; login not headline.",
+  "results": [
+    {
+      "hypothesis_id": "HYP-USDCHF-H1-FXRISK-BASKET-RESID-FADE-001",
+      "setup_type": "chf_fxrisk_basket_resid_fade",
+      "symbol": "USDCHF",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 239,
+        "pf": 1.0052,
+        "net": 410.77,
+        "exp": 1.7187,
+        "tpw": 0.9167
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9693,
+          "net": -2457.23,
+          "exp": -10.2813
+        },
+        "x1_5": {
+          "pf": 0.952,
+          "net": -3891.23,
+          "exp": -16.2813
+        },
+        "x2": {
+          "pf": 0.9351,
+          "net": -5325.23,
+          "exp": -22.2813
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 158,
+          "tp": 79,
+          "time": 2
+        },
+        "by_sym": {
+          "USDCHF": 239
+        },
+        "funnel": {
+          "n_bars": 31094,
+          "n_signal": 239,
+          "n_trades": 239,
+          "n_skip_hour": 29798,
+          "n_skip_open": 0
+        },
+        "beta_fit": {
+          "alpha": -4.830480472174185e-06,
+          "beta": -0.771130332377738,
+          "n_fit": 12421,
+          "r2": 0.497748,
+          "window": "2019-01-01..2020-12-31",
+          "driver": "FX_RISK_BASKET_mean(EU,GU,-UJ)"
+        },
+        "resid_finite": 31155
+      }
+    },
+    {
+      "hypothesis_id": "HYP-AUD-COM3-H1-BASKET-RESID-MR-001",
+      "setup_type": "aud_com3_basket_resid_mr",
+      "symbol": "AUDUSD",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 107,
+        "pf": 1.052,
+        "net": 1591.49,
+        "exp": 14.8737,
+        "tpw": 0.4104
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.0098,
+          "net": 307.49,
+          "exp": 2.8737
+        },
+        "x1_5": {
+          "pf": 0.9895,
+          "net": -334.51,
+          "exp": -3.1263
+        },
+        "x2": {
+          "pf": 0.9696,
+          "net": -976.51,
+          "exp": -9.1263
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "time": 3,
+          "tp": 43,
+          "sl": 61
+        },
+        "by_sym": {
+          "AUDUSD": 107
+        },
+        "funnel": {
+          "n_bars": 31105,
+          "n_signal": 107,
+          "n_trades": 107,
+          "n_skip_hour": 29807,
+          "n_skip_open": 7
+        },
+        "spread_finite": 31153
+      }
+    },
+    {
+      "hypothesis_id": "HYP-FX3-H1-ADR-EXHAUST-FADE-001",
+      "setup_type": "fx3_h1_adr_exhaust_fade",
+      "symbol": "FX3",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 85,
+        "pf": 0.771,
+        "net": -5775.02,
+        "exp": -67.9414,
+        "tpw": 0.326
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.7372,
+          "net": -6795.02,
+          "exp": -79.9414
+        },
+        "x1_5": {
+          "pf": 0.7209,
+          "net": -7305.02,
+          "exp": -85.9414
+        },
+        "x2": {
+          "pf": 0.705,
+          "net": -7815.02,
+          "exp": -91.9414
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 51,
+          "tp": 22,
+          "time": 12
+        },
+        "by_sym": {
+          "USDJPY": 73,
+          "EURUSD": 11,
+          "GBPUSD": 1
+        },
+        "funnel": {
+          "n_bars": 31159,
+          "n_eligible": 104,
+          "n_signal": 85,
+          "n_trades": 85,
+          "n_skip_open": 0,
+          "n_skip_day": 0
+        }
+      }
+    }
+  ],
+  "any_probe_survivor": false,
+  "model0": "WITHHELD",
+  "receipt_sha256": "CBDD990E84153D85A7A38242F6CA1D8A9B55C6BAF98DA23EA7DBB1486410F397"
+}

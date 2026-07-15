@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "d:\Trading EA MT5\02. AlphaFactory\tools\qfsi_007_long_accumulate_watcher.py", line 379, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "d:\Trading EA MT5\02. AlphaFactory\tools\qfsi_007_long_accumulate_watcher.py", line 269, in main
+    log(log_path, "stop_file_seen", path=str(stop_file))
+TypeError: log() got multiple values for argument 'path'

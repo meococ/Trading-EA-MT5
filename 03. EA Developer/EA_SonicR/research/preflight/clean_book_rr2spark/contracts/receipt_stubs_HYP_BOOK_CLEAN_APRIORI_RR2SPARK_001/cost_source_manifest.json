@@ -1,0 +1,6 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-BOOK-CLEAN-APRIORI-RR2SPARK-001",
+  "status": "UNVERIFIED_TESTER_CURRENT_SPREAD",
+  "note": "Missing/zero cost fields must NOT be treated as zero friction. Screen PF is tester spread=current only; QFSI freeze still GAP."
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": "hard_pivot_w14_h4retest_asiaquiet_offline.v1",
+  "generated_at_utc": "2026-07-15T10:26:44.616680Z",
+  "freeze_sha256": "38114614321DAE47EC2DDD6FF129C1233047F397C099593E43CC5A830EBDC443",
+  "preregs": [
+    "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preregs/20260715_H_FX3_H4_SWING_BREAK_H1_RETEST_CONT_001_PREREG.md",
+    "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preregs/20260715_H_FX3_H1_ASIA_QUIET_LONDON_BREAK_CONT_001_PREREG.md",
+    "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preregs/20260715_H_BOOK_H4RETEST_ASIAQUIET_APRIORI_001_PREREG.md"
+  ],
+  "base_cost_usd": 12.0,
+  "cost_grade_status": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260715_COST_GRADE_PUSH_W13_STATUS.json",
+  "results": [
+    {
+      "hypothesis_id": "HYP-FX3-H4-SWING-BREAK-H1-RETEST-CONT-001",
+      "setup": "H4 swing-break H1 first-retest CONT RR3",
+      "symbol": "EURUSD+GBPUSD+USDJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 1105,
+        "pf": 1.2649,
+        "net": 91428.41,
+        "exp": 82.7406,
+        "tpw": 4.2384
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.2209,
+          "net": 78168.41,
+          "exp": 70.7406
+        },
+        "x1_5": {
+          "pf": 1.1996,
+          "net": 71538.41,
+          "exp": 64.7406
+        },
+        "x2": {
+          "pf": 1.1789,
+          "net": 64908.41,
+          "exp": 58.7406
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 681,
+          "tp": 259,
+          "time": 164,
+          "eod": 1
+        },
+        "by_sym": {
+          "EURUSD": 377,
+          "USDJPY": 332,
+          "GBPUSD": 396
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-FX3-H1-ASIA-QUIET-LONDON-BREAK-CONT-001",
+      "setup": "Asia-quiet London HL break CONT RR2.75",
+      "symbol": "EURUSD+GBPUSD+USDJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 0,
+        "pf": null,
+        "net": 0.0,
+        "exp": null,
+        "tpw": 0.0
+      },
+      "haircuts": {
+        "x1": {
+          "pf": null,
+          "net": 0.0,
+          "exp": 0.0
+        },
+        "x1_5": {
+          "pf": null,
+          "net": 0.0,
+          "exp": 0.0
+        },
+        "x2": {
+          "pf": null,
+          "net": 0.0,
+          "exp": 0.0
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "n_fail",
+        "pf_fail",
+        "cadence_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {},
+        "by_sym": {}
+      }
+    }
+  ],
+  "book": {
+    "hypothesis_id": "HYP-BOOK-H4RETEST-ASIAQUIET-APRIORI-001",
+    "setup": "a priori book: H4 swing-break H1-retest + Asia-quiet London break",
+    "symbol": "EURUSD+GBPUSD+USDJPY",
+    "timeframe": "H1",
+    "metrics": {
+      "n": 1105,
+      "pf": 1.2649,
+      "net": 91428.41,
+      "exp": 82.7406,
+      "tpw": 4.2384
+    },
+    "haircuts": {
+      "x1": {
+        "pf": 1.2209,
+        "net": 78168.41,
+        "exp": 70.7406
+      },
+      "x1_5": {
+        "pf": 1.1996,
+        "net": 71538.41,
+        "exp": 64.7406
+      },
+      "x2": {
+        "pf": 1.1789,
+        "net": 64908.41,
+        "exp": 58.7406
+      }
+    },
+    "verdict": "KILLED_AT_OFFLINE_PROBE",
+    "fail_notes": [
+      "pf_fail",
+      "pf12_fail",
+      "stress_fail"
+    ],
+    "pooled_after_heat": {
+      "n": 1105,
+      "dropped_heat": 0,
+      "a": 1105,
+      "b": 0
+    },
+    "pair_caps": {
+      "weekly_corr": null,
+      "overlap_frac": 0.0,
+      "caps_ok": true
+    }
+  },
+  "any_survivor": false,
+  "flags": {
+    "R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED": true,
+    "W1_W13_DENSIFY_FORBIDDEN": true,
+    "FVG_DENSIFY_FORBIDDEN": true
+  },
+  "receipt_sha256": "695F1F6E3A838B05D6AC07E49FBD156CB3670CB6DD92C25A5EFA8F22719ABAD0"
+}

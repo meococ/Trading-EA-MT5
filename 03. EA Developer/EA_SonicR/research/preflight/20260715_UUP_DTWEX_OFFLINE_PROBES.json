@@ -1,0 +1,220 @@
+{
+  "schema": "uup_dtwex_offline_probes.v1",
+  "created_at_utc": "2026-07-15T11:16:34.657868Z",
+  "campaign_status": "OFFLINE_ALL_KILL / NO_MODEL0",
+  "wave": "W27_UUP_DTWEX_DOLLAR_TWI_EXO",
+  "window": {
+    "from": "2021-01-01T00:00:00",
+    "to": "2025-12-31T23:59:59",
+    "elapsed_weeks": 260.8571
+  },
+  "cost_proxy_usd_per_trade": 12.0,
+  "panel_sha256": {
+    "uup": "5F0D2E65449FA54AB71D617AB46055207C84B0F89294F1BCB46FB376B13C41FE",
+    "dtwex": "FE0A8C77F3BDAD03B2011FFBEE8A072B3BE2786587761832BA4D887005B75F0A"
+  },
+  "contract_sha256": "251E04A75B92BE11BC175FB7E4829E537E292E5809A5EAEB248C1543DBC1CBEF",
+  "acquisition_manifest_sha256": "EE9DDAA9EA43F2319114FF54312EEF64A8EE3EE1DD442D9E70047997BD38625F",
+  "dtwex_present": true,
+  "objects": [
+    {
+      "hypothesis_id": "HYP-AUDUSD-H1-UUP-TWUSD-STRENGTH-001",
+      "class": "uup_twusd_strength",
+      "symbol": "AUDUSD",
+      "tf": "H1",
+      "funnel": {
+        "n_bias": 7502,
+        "n_displace": 628,
+        "n_trades": 628,
+        "days_used": 628,
+        "n_no_z": 0
+      },
+      "metrics": {
+        "n": 628,
+        "pf": 0.9675,
+        "net": -6320.03,
+        "exp": -10.0637,
+        "tpw": 2.4074
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9305,
+          "net": -13856.03,
+          "exp": -22.0637
+        },
+        "x1_5": {
+          "pf": 0.9127,
+          "net": -17624.03,
+          "exp": -28.0637
+        },
+        "x2": {
+          "pf": 0.8953,
+          "net": -21392.03,
+          "exp": -34.0637
+        }
+      },
+      "kill_notes": [
+        "pf_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "a_priori": {
+        "z_abs": 0.75,
+        "lookback": 60,
+        "thesis": "UUP_TWUSD_ETF_AUD_USD_strength_invert",
+        "bias_rule": "z>=+thr short AUDUSD; z<=-thr long AUDUSD (USD-strength invert)",
+        "invert": true,
+        "lag": "observation+1d (frozen panel available_at)",
+        "range_atr": 1.2,
+        "body_atr": 0.55,
+        "close_frac": 0.6,
+        "sl_atr": 1.0,
+        "rr": 2.0,
+        "max_hold": 12,
+        "not_commodity_tot": true,
+        "not_credit_move_densify": true,
+        "not_vixcls_retune": true,
+        "not_w1_w26_ohlc": true,
+        "owner_authorized_w27": true
+      },
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-AUDUSD-H1-DTWEXBGS-TWI-STRENGTH-001",
+      "class": "dtwexbgs_twi_strength",
+      "symbol": "AUDUSD",
+      "tf": "H1",
+      "funnel": {
+        "n_bias": 7391,
+        "n_displace": 603,
+        "n_trades": 603,
+        "days_used": 603,
+        "n_no_z": 0
+      },
+      "metrics": {
+        "n": 603,
+        "pf": 1.0149,
+        "net": 2881.92,
+        "exp": 4.7793,
+        "tpw": 2.3116
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.978,
+          "net": -4354.08,
+          "exp": -7.2207
+        },
+        "x1_5": {
+          "pf": 0.9601,
+          "net": -7972.08,
+          "exp": -13.2207
+        },
+        "x2": {
+          "pf": 0.9427,
+          "net": -11590.08,
+          "exp": -19.2207
+        }
+      },
+      "kill_notes": [
+        "pf_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "a_priori": {
+        "z_abs": 0.75,
+        "lookback": 60,
+        "thesis": "DTWEXBGS_broad_goods_TWI_AUD_USD_strength_invert",
+        "bias_rule": "z>=+thr short AUDUSD; z<=-thr long AUDUSD (USD-strength invert)",
+        "invert": true,
+        "lag": "observation+1d (frozen panel available_at)",
+        "range_atr": 1.2,
+        "body_atr": 0.55,
+        "close_frac": 0.6,
+        "sl_atr": 1.0,
+        "rr": 2.0,
+        "max_hold": 12,
+        "not_commodity_tot": true,
+        "not_credit_move_densify": true,
+        "not_vixcls_retune": true,
+        "not_w1_w26_ohlc": true,
+        "owner_authorized_w27": true
+      },
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-BOOK-UUP-DTWEX-APRIORI-001",
+      "class": "nested_uup_dtwex_apriori_book",
+      "symbol": "AUDUSD",
+      "tf": "H1",
+      "funnel": {
+        "n_o1": 628,
+        "n_o2": 603,
+        "n_union_days": 748,
+        "n_trades": 748
+      },
+      "metrics": {
+        "n": 748,
+        "pf": 1.0125,
+        "net": 2951.53,
+        "exp": 3.9459,
+        "tpw": 2.8675
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9751,
+          "net": -6024.47,
+          "exp": -8.0541
+        },
+        "x1_5": {
+          "pf": 0.9571,
+          "net": -10512.47,
+          "exp": -14.0541
+        },
+        "x2": {
+          "pf": 0.9395,
+          "net": -15000.47,
+          "exp": -20.0541
+        }
+      },
+      "kill_notes": [
+        "pf_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "a_priori": {
+        "composition": "union_by_day_prefer_larger_abs_z",
+        "parents": [
+          "HYP-AUDUSD-H1-UUP-TWUSD-STRENGTH-001",
+          "HYP-AUDUSD-H1-DTWEXBGS-TWI-STRENGTH-001"
+        ],
+        "nested_ok": true
+      },
+      "model0": "WITHHELD"
+    }
+  ],
+  "survivors": [],
+  "model0": "WITHHELD",
+  "banned": [
+    "commodity_yahoo_aud_tot_clones_NG_ZW_TIO_Cu_Gold_WTI_Brent",
+    "HYG_LQD_credit_z_densify",
+    "MOVE_bondvol_z_densify",
+    "VIXCLS_riskoff_retune",
+    "SPX_DGS10_retune",
+    "WALCL_ECB_MMF_G10_fred_retune",
+    "COT_size_z_retune",
+    "UUP_z_mine",
+    "DTWEX_z_mine",
+    "W1_W26_OHLC_densify",
+    "R_series_densify",
+    "invent_spreads",
+    "Phase0_without_clear"
+  ],
+  "best_shelf": "RR2_20260714_194548",
+  "clean_book_pf12": 1.184,
+  "cost_surface": "GAP_UNCHANGED",
+  "chatgpt": "AUTH_BLOCKED__LOGIN_WALL__PARALLEL_OWNER_ONLY",
+  "receipt_sha256": "D74E8876CB324EBFD8A58625A580D2D00020A87D05AEEE72CF2B46F45A20AE22"
+}

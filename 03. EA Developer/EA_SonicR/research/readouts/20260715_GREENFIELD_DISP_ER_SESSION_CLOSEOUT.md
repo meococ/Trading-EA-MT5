@@ -1,0 +1,7 @@
+# Closeout — Round 4 disp+ER greenfield
+Status: `OFFLINE_ALL_KILL__NO_MODEL0`
+Receipt: `F71DCD8CA5B083C78382742CB22A9396E0D81A18AF83E9F51A1DB7BD3B5638C1`
+- `HYP-FX3-H4-BOOKDISP-EXTREME-FADE-001` → **KILLED_AT_OFFLINE_PROBE**
+- `HYP-FX3-H4-PATH-ER-CONT-001` → **KILLED_AT_OFFLINE_PROBE**
+Do not densify disp thresholds / ER / solo / accept / majority / TS / spring / PB / AONIA / CORRA / thin3.
+Best shelf RR2 `194548`. GOAL unmet.

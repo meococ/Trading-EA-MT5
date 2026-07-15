@@ -1,0 +1,12 @@
+# VN brief — HARD PIVOT W4
+
+Thời điểm: 2026-07-15 ~14:32 ICT
+
+## Kết quả — `OFFLINE_ALL_KILL__NO_MODEL0`
+| Object | N | PF | tpw | PF@$12 | x1.5 | Verdict |
+|---|---:|---:|---:|---:|---:|---|
+| `HYP-FX3-H1-ROUND-LEVEL-ACCEPT-CONT-001` | 1956 | 1.017 | 7.5025 | 0.9775 | 0.9585 | KILL |
+| `HYP-FX3-H1-DUAL-IMPULSE-ACCEPT-CONT-001` | 827 | 1.0029 | 3.1721 | 0.9403 | 0.9106 | KILL |
+
+Receipt `8A5D11E3A539E6BE13E871B9F470ADD8D8E042A743EC7ED3FFC3E7C3F8665C3C`
+PAUSE R-series. Cấm densify FVG. Best shelf `194548`. GOAL unmet.

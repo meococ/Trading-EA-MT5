@@ -1,0 +1,65 @@
+{
+  "any_survivor": false,
+  "base_cost_usd": 12.0,
+  "generated_at_utc": "2026-07-15T02:49:30.122800Z",
+  "model0_authorized": false,
+  "panel": {
+    "aonia_sha256": "76C464CE0FA2E5C2EE6C8231AFA70F04E4582345D2DAC3D4B0E8B0D50FF72460",
+    "authority": "DBnomics FIRMMCRID AONIA + carry USD; +1bd lag. Level-follow |diff|\u22650.25pp WITH AUD richness. \u2260 CORRA \u0394bp densify; \u2260 AONIA\u2212Target wedge densify (wedge INTENDED_EMPTY).",
+    "available_at_rows": 2154,
+    "lag_business_days": 1,
+    "level_pp": 0.25,
+    "panel_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/panels/aud_usd_aonia_overnight_d1_v1.csv",
+    "panel_rows": 2154,
+    "panel_sha256": "98E8204CACE0CC38042AEB80309813FBE36377591137D443E2F3C7094212D9FE"
+  },
+  "prior_wedge": {
+    "hypothesis_id": "HYP-AUDUSD-AONIA-TARGET-WEDGE-EXPAND-H4-001",
+    "note": "AONIA tracks target; |\u0394wedge|\u22655bp almost never fires",
+    "status": "INTENDED_EMPTY_KILL"
+  },
+  "receipt_sha256": "3DBCE883C117C85D17F37E373BA0F0428C4D957130A4E4A66607033F3AE0D69D",
+  "results": [
+    {
+      "detail": {
+        "by_reason": {
+          "sl": 269,
+          "time": 215,
+          "tp": 86
+        }
+      },
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "haircuts": {
+        "x1": {
+          "exp": -24.3364,
+          "net": -13871.75,
+          "pf": 0.9076
+        },
+        "x1_5": {
+          "exp": -30.3364,
+          "net": -17291.75,
+          "pf": 0.8864
+        },
+        "x2": {
+          "exp": -36.3364,
+          "net": -20711.75,
+          "pf": 0.8658
+        }
+      },
+      "hypothesis_id": "HYP-AUDUSD-AONIA-USD-LEVEL-FOLLOW-H4-001",
+      "metrics": {
+        "exp": -12.3364,
+        "n": 570,
+        "net": -7031.75,
+        "pf": 0.9519,
+        "tpw": 2.1863
+      },
+      "setup_type": "|AONIA\u2212USD|\u22650.25pp WITH AUD; H4 SL1.5 RR2.0 \u226410",
+      "verdict": "KILLED_AT_OFFLINE_PROBE"
+    }
+  ],
+  "schema": "aud_aonia_usd_level_offline_probes.v1"
+}

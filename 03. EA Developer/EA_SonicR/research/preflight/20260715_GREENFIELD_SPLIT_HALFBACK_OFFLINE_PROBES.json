@@ -1,0 +1,121 @@
+{
+  "any_survivor": false,
+  "base_cost_usd": 12.0,
+  "generated_at_utc": "2026-07-15T05:32:34.386113Z",
+  "model0_authorized": false,
+  "nested_critic": "cursor-grok-4.5-high-fast",
+  "parent_kill": "Round1-4 ALL_KILL",
+  "receipt_sha256": "18028AD2E32043ED1C9EA4ADF71B8F60A3968DBE84516D1C0518274488AC2715",
+  "results": [
+    {
+      "detail": {
+        "by_reason": {
+          "sl": 194,
+          "time": 164,
+          "tp": 36
+        },
+        "by_sym": {
+          "EURUSD": 93,
+          "GBPUSD": 114,
+          "USDJPY": 187
+        },
+        "funnel": {
+          "n_bars": 5124,
+          "n_climax_skip": 389,
+          "n_split": 2258,
+          "n_trades": 394
+        }
+      },
+      "fail_notes": [
+        "pf_fail",
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "haircuts": {
+        "x1": {
+          "exp": -23.9464,
+          "net": -9434.87,
+          "pf": 0.9107
+        },
+        "x1_5": {
+          "exp": -29.9464,
+          "net": -11798.87,
+          "pf": 0.8898
+        },
+        "x2": {
+          "exp": -35.9464,
+          "net": -14162.87,
+          "pf": 0.8695
+        }
+      },
+      "hypothesis_id": "HYP-FX3-H4-BOOKSPLIT-LEADER-CONT-001",
+      "metrics": {
+        "exp": -11.9464,
+        "n": 394,
+        "net": -4706.87,
+        "pf": 0.9542,
+        "tpw": 1.5112
+      },
+      "setup_type": "H4 USD-sign split \u2192 leader |r| cont; SL1.2 RR2.5 Mon-Thu",
+      "symbol": "EURUSD,GBPUSD,USDJPY",
+      "timeframe": "H4",
+      "verdict": "KILLED_AT_OFFLINE_PROBE"
+    },
+    {
+      "detail": {
+        "by_reason": {
+          "sl": 337,
+          "time": 298,
+          "tp": 82
+        },
+        "by_sym": {
+          "EURUSD": 240,
+          "GBPUSD": 264,
+          "USDJPY": 213
+        },
+        "funnel": {
+          "n_expire": 2326,
+          "n_hold": 813,
+          "n_impulse": 4403,
+          "n_invalid": 1263,
+          "n_trades": 717
+        }
+      },
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "haircuts": {
+        "x1": {
+          "exp": 18.1796,
+          "net": 13034.77,
+          "pf": 1.0704
+        },
+        "x1_5": {
+          "exp": 12.1796,
+          "net": 8732.77,
+          "pf": 1.0466
+        },
+        "x2": {
+          "exp": 6.1796,
+          "net": 4430.77,
+          "pf": 1.0233
+        }
+      },
+      "hypothesis_id": "HYP-FX3-H4-IMPULSE-HALFBACK-HOLD-001",
+      "metrics": {
+        "exp": 30.1796,
+        "n": 717,
+        "net": 21638.77,
+        "pf": 1.1201,
+        "tpw": 2.7501
+      },
+      "setup_type": "H4 impulse\u2192halfback mid-reject hold; SL pad0.1 RR2.5 hold\u22646",
+      "symbol": "EURUSD,GBPUSD,USDJPY",
+      "timeframe": "H4",
+      "verdict": "KILLED_AT_OFFLINE_PROBE"
+    }
+  ],
+  "schema": "greenfield_split_halfback_offline_probes.v1",
+  "window": "2021.01.01-2025.12.31"
+}

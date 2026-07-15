@@ -2,3 +2,37 @@
 {"ts": "2026-07-15T00:39:52.683727Z", "event": "capture_launched", "pid": 31232, "segment": 1, "restarts": 0, "out_dir": "d:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260715_QFSI_REAL_007_LONG_ACCUMULATE"}
 
 === RELAUNCH 2026-07-15T07:47:33.3012063+07:00 ===
+
+=== RELAUNCH_BOOTSTRAP 2026-07-15T01:36:15Z ===
+{"ts": "2026-07-15T01:36:15.824927Z", "event": "watcher_start", "capture_id": "20260715_QFSI_REAL_007_LONG_ACCUMULATE", "wall_sec": 86400, "segment_sec": 21600, "terminal_pids": [27096], "probe": {"ok": true, "initialize_ok": true, "connected": true, "server": "FivePercentOnline-Real", "login": 26451822, "expected_server": "FivePercentOnline-Real"}}
+{"ts": "2026-07-15T01:36:16.229940Z", "event": "watcher_exit", "current_pid": null, "restarts": 0, "segment": 0}
+
+=== RELAUNCH_BOOTSTRAP 2026-07-15T01:37:14Z ===
+{"ts": "2026-07-15T01:37:15.414659Z", "event": "watcher_start", "capture_id": "20260715_QFSI_REAL_007_LONG_ACCUMULATE", "wall_sec": 86400, "segment_sec": 21600, "terminal_pids": [27096], "probe": {"ok": true, "initialize_ok": true, "connected": true, "server": "FivePercentOnline-Real", "login": 26451822, "expected_server": "FivePercentOnline-Real"}}
+{"ts": "2026-07-15T01:37:15.669527Z", "event": "capture_launched", "pid": 59872, "segment": 1, "restarts": 0, "out_dir": "d:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260715_QFSI_REAL_007_LONG_ACCUMULATE"}
+{"ts": "2026-07-15T01:37:15.929404Z", "event": "stall_detected_terminating_capture_only", "pid": 59872, "stall_sec": 180, "note": "kill capture python only — never terminal64"}
+{"ts": "2026-07-15T01:37:31.156644Z", "event": "capture_exited", "pid": 59872, "returncode": 1, "session_end": false, "session_crash": false, "restarts": 0}
+{"ts": "2026-07-15T01:37:31.338993Z", "event": "capture_launched", "pid": 52144, "segment": 2, "restarts": 1, "out_dir": "d:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260715_QFSI_REAL_007_LONG_ACCUMULATE"}
+{"ts": "2026-07-15T01:37:31.594525Z", "event": "stall_detected_terminating_capture_only", "pid": 52144, "stall_sec": 180, "note": "kill capture python only — never terminal64"}
+{"ts": "2026-07-15T01:37:46.822678Z", "event": "capture_exited", "pid": 52144, "returncode": 1, "session_end": false, "session_crash": false, "restarts": 1}
+{"ts": "2026-07-15T01:37:47.019008Z", "event": "capture_launched", "pid": 69244, "segment": 3, "restarts": 2, "out_dir": "d:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260715_QFSI_REAL_007_LONG_ACCUMULATE"}
+{"ts": "2026-07-15T01:37:47.442027Z", "event": "stall_detected_terminating_capture_only", "pid": 69244, "stall_sec": 180, "note": "kill capture python only — never terminal64"}
+{"ts": "2026-07-15T01:38:02.675335Z", "event": "capture_exited", "pid": 69244, "returncode": 1, "session_end": false, "session_crash": false, "restarts": 2}
+{"ts": "2026-07-15T01:38:02.856872Z", "event": "capture_launched", "pid": 69324, "segment": 4, "restarts": 3, "out_dir": "d:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260715_QFSI_REAL_007_LONG_ACCUMULATE"}
+{"ts": "2026-07-15T01:38:03.104748Z", "event": "stall_detected_terminating_capture_only", "pid": 69324, "stall_sec": 180, "note": "kill capture python only — never terminal64"}
+{"ts": "2026-07-15T01:38:18.345367Z", "event": "capture_exited", "pid": 69324, "returncode": 1, "session_end": false, "session_crash": false, "restarts": 3}
+{"ts": "2026-07-15T01:38:18.522417Z", "event": "capture_launched", "pid": 53568, "segment": 5, "restarts": 4, "out_dir": "d:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260715_QFSI_REAL_007_LONG_ACCUMULATE"}
+{"ts": "2026-07-15T01:38:18.775186Z", "event": "stall_detected_terminating_capture_only", "pid": 53568, "stall_sec": 180, "note": "kill capture python only — never terminal64"}
+{"ts": "2026-07-15T01:38:34.008870Z", "event": "capture_exited", "pid": 53568, "returncode": 1, "session_end": false, "session_crash": false, "restarts": 4}
+{"ts": "2026-07-15T01:38:34.212776Z", "event": "capture_launched", "pid": 58732, "segment": 6, "restarts": 5, "out_dir": "d:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260715_QFSI_REAL_007_LONG_ACCUMULATE"}
+{"ts": "2026-07-15T01:38:34.478026Z", "event": "stall_detected_terminating_capture_only", "pid": 58732, "stall_sec": 180, "note": "kill capture python only — never terminal64"}
+{"ts": "2026-07-15T01:38:49.488376Z", "event": "stop_file_seen", "stop_path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\20260715_QFSI_007_STOP.request"}
+{"ts": "2026-07-15T01:38:49.765849Z", "event": "watcher_exit", "current_pid": null, "restarts": 5, "segment": 6}
+
+=== RELAUNCH_BOOTSTRAP 2026-07-15T01:39:25Z ===
+{"ts": "2026-07-15T01:39:25.658415Z", "event": "watcher_start", "capture_id": "20260715_QFSI_REAL_007_LONG_ACCUMULATE", "wall_sec": 86400, "segment_sec": 21600, "terminal_pids": [27096], "probe": {"ok": true, "initialize_ok": true, "connected": true, "server": "FivePercentOnline-Real", "login": 26451822, "expected_server": "FivePercentOnline-Real"}}
+{"ts": "2026-07-15T01:39:25.902683Z", "event": "capture_launched", "pid": 59040, "segment": 1, "restarts": 0, "out_dir": "d:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260715_QFSI_REAL_007_LONG_ACCUMULATE"}
+
+=== RELAUNCH_BOOTSTRAP 2026-07-15T06:04:11Z ===
+{"ts": "2026-07-15T06:04:11.982927Z", "event": "watcher_start", "capture_id": "20260715_QFSI_REAL_007_LONG_ACCUMULATE", "wall_sec": 259200, "segment_sec": 21600, "terminal_pids": [27096], "probe": {"ok": true, "initialize_ok": true, "connected": true, "server": "FivePercentOnline-Real", "login": 26451822, "expected_server": "FivePercentOnline-Real"}}
+{"ts": "2026-07-15T06:04:12.219973Z", "event": "capture_launched", "pid": 72320, "segment": 1, "restarts": 0, "out_dir": "d:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260715_QFSI_REAL_007_LONG_ACCUMULATE"}

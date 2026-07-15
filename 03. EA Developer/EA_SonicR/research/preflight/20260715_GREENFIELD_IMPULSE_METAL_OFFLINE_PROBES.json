@@ -1,0 +1,102 @@
+{
+  "any_survivor": false,
+  "base_cost_usd": 12.0,
+  "generated_at_utc": "2026-07-15T01:48:38.135748Z",
+  "model0_authorized": false,
+  "receipt_sha256": "3F0EAFAEAABE8B27A076A7D5059328A0FB326D6E11484189CAEDD92268243BF7",
+  "results": [
+    {
+      "detail": {
+        "by_reason": {
+          "eod": 1,
+          "sl": 589,
+          "time": 755,
+          "tp": 261
+        },
+        "by_sym": {
+          "EURUSD": 522,
+          "GBPUSD": 541,
+          "USDJPY": 543
+        }
+      },
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "haircuts": {
+        "x1": {
+          "exp": -17.3829,
+          "net": -27916.88,
+          "pf": 0.9192
+        },
+        "x1_5": {
+          "exp": -23.3829,
+          "net": -37552.88,
+          "pf": 0.8929
+        },
+        "x2": {
+          "exp": -29.3829,
+          "net": -47188.88,
+          "pf": 0.8674
+        }
+      },
+      "hypothesis_id": "HYP-FX3-H4-CONSEC3-IMPULSE-FADE-001",
+      "metrics": {
+        "exp": -5.3829,
+        "n": 1606,
+        "net": -8644.88,
+        "pf": 0.9742,
+        "tpw": 6.16
+      },
+      "setup_type": "3 consec H4 impulse \u22651.2ATR \u2192 fade; SL1.2 RR1.5 \u22644",
+      "symbol": "EURUSD,GBPUSD,USDJPY",
+      "timeframe": "H4",
+      "verdict": "KILLED_AT_OFFLINE_PROBE"
+    },
+    {
+      "detail": {
+        "by_reason": {
+          "eod": 1,
+          "sl": 679,
+          "time": 46,
+          "tp": 230,
+          "zflat": 1531
+        }
+      },
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "haircuts": {
+        "x1": {
+          "exp": -12.1542,
+          "net": -30227.57,
+          "pf": 0.4673
+        },
+        "x1_5": {
+          "exp": -18.1542,
+          "net": -45149.57,
+          "pf": 0.3314
+        },
+        "x2": {
+          "exp": -24.1542,
+          "net": -60071.57,
+          "pf": 0.2389
+        }
+      },
+      "hypothesis_id": "HYP-XAUUSD-H1-USD-BETA-RESID-FADE-001",
+      "metrics": {
+        "exp": -0.1542,
+        "n": 2487,
+        "net": -383.57,
+        "pf": 0.99,
+        "tpw": 9.5392
+      },
+      "setup_type": "XAU vs USD-factor residual |z|\u22651.5 fade; SL1.4 RR1.8 \u226410",
+      "symbol": "XAUUSD",
+      "timeframe": "H1",
+      "verdict": "KILLED_AT_OFFLINE_PROBE"
+    }
+  ],
+  "schema": "greenfield_impulse_metal_offline_probes.v1"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": "sonic_qfsi_007_long_launch.v1",
-  "created_at_utc": "2026-07-15T00:39:52.454695Z",
+  "created_at_utc": "2026-07-15T06:04:11.982927Z",
   "status": "QFSI_007_LONG_CAPTURE_RUNNING",
   "capture_id": "20260715_QFSI_REAL_007_LONG_ACCUMULATE",
   "out_dir": "d:/Trading EA MT5/02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260715_QFSI_REAL_007_LONG_ACCUMULATE",
@@ -12,14 +12,14 @@
     "XAUUSD"
   ],
   "segment_duration_sec": 21600,
-  "watcher_wall_sec": 86400,
-  "max_restarts": 48,
+  "watcher_wall_sec": 259200,
+  "max_restarts": 96,
   "stop_file": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260715_QFSI_007_STOP.request",
   "do_not_kill_real": true,
   "real_terminal_pids": [
-    67528
+    27096
   ],
-  "real_pid_hint": 15444,
+  "real_pid_hint": 19984,
   "mt5_probe": {
     "ok": true,
     "initialize_ok": true,
@@ -43,8 +43,8 @@
     "likely": "process_crash_or_external_kill_with_stderr_discarded; concurrent_MT5_IPC_contention_possible"
   },
   "quote_days_growth_note": "QFSI 90-day gate is elapsed calendar wall-clock with PASSIVE_HEARTBEAT. Historical copy_ticks_range without heartbeat is BROKER_HISTORY_UNVERIFIED (discovery only) per data contract — cannot lawfully accelerate gate. Commission/slip still require Owner deal-export / side-referenced fills.",
-  "updated_at_utc": "2026-07-15T00:39:52.690912Z",
-  "current_pid": 31232,
+  "updated_at_utc": "2026-07-15T06:04:12.221972Z",
+  "current_pid": 72320,
   "segment": 1,
   "restarts": 0
 }

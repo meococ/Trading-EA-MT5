@@ -1,0 +1,165 @@
+{
+  "schema": "hard_pivot_w11_inventory_persist.v1",
+  "generated_at": "2026-07-15T10:14:22.957515Z",
+  "freeze_sha256": "B991CBE5AE25795071D42A1ACCEC676EB906EE5B27E69546FD4F405976FF70A1",
+  "base_cost_usd": 12.0,
+  "apriori_target_mfe": {
+    "A": 1625.0,
+    "B": 1500.0
+  },
+  "book": {
+    "hypothesis_id": "HYP-BOOK-HIGHR-INVENTORY-PERSIST-APRIORI-001",
+    "setup": "a priori high-R book: London overnight inventory + D1 persist2 PB",
+    "symbol": "EURUSD+GBPUSD+USDJPY",
+    "timeframe": "H1/H4",
+    "metrics": {
+      "n": 2016,
+      "pf": 1.0765,
+      "net": 33717.75,
+      "exp": 16.7251,
+      "tpw": 7.7326
+    },
+    "haircuts": {
+      "x1": {
+        "pf": 1.0209,
+        "net": 9525.75,
+        "exp": 4.7251
+      },
+      "x1_5": {
+        "pf": 0.9944,
+        "net": -2570.25,
+        "exp": -1.2749
+      },
+      "x2": {
+        "pf": 0.9687,
+        "net": -14666.25,
+        "exp": -7.2749
+      }
+    },
+    "verdict": "KILLED_AT_OFFLINE_PROBE",
+    "fail_notes": [
+      "pf_fail",
+      "cadence_fail",
+      "pf12_fail",
+      "stress_fail"
+    ],
+    "pooled_after_heat": {
+      "n": 2016,
+      "dropped_heat": 12,
+      "a": 1336,
+      "b": 680
+    },
+    "pair_caps": {
+      "weekly_corr": 0.1356,
+      "overlap_frac": 0.0399,
+      "caps_ok": true
+    }
+  },
+  "results": [
+    {
+      "hypothesis_id": "HYP-FX3-H1-LONDON-CLOSE-INVENTORY-ON-CONT-001",
+      "setup": "London close inventory overnight CONT high-R",
+      "symbol": "EURUSD+GBPUSD+USDJPY",
+      "timeframe": "H1/H4",
+      "metrics": {
+        "n": 1336,
+        "pf": 1.0721,
+        "net": 23545.61,
+        "exp": 17.624,
+        "tpw": 5.1244
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.0224,
+          "net": 7513.61,
+          "exp": 5.624
+        },
+        "x1_5": {
+          "pf": 0.9985,
+          "net": -502.39,
+          "exp": -0.376
+        },
+        "x2": {
+          "pf": 0.9754,
+          "net": -8518.39,
+          "exp": -6.376
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "cadence_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "time": 643,
+          "sl": 585,
+          "tp": 106,
+          "eod": 2
+        },
+        "by_sym": {
+          "GBPUSD": 522,
+          "USDJPY": 247,
+          "EURUSD": 567
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-FX3-H4-D1-PERSIST2-PB-ACCEPT-MULTIDAY-001",
+      "setup": "D1 persist2 H4 PB accept multi-day high-R",
+      "symbol": "EURUSD+GBPUSD+USDJPY",
+      "timeframe": "H1/H4",
+      "metrics": {
+        "n": 692,
+        "pf": 1.0644,
+        "net": 7613.66,
+        "exp": 11.0024,
+        "tpw": 2.6542
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9944,
+          "net": -690.34,
+          "exp": -0.9976
+        },
+        "x1_5": {
+          "pf": 0.9611,
+          "net": -4842.34,
+          "exp": -6.9976
+        },
+        "x2": {
+          "pf": 0.929,
+          "net": -8994.34,
+          "exp": -12.9976
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 181,
+          "time": 491,
+          "tp": 20
+        },
+        "by_sym": {
+          "GBPUSD": 225,
+          "USDJPY": 235,
+          "EURUSD": 232
+        }
+      }
+    }
+  ],
+  "any_survivor": false,
+  "flags": {
+    "R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED": true,
+    "W1_W10_DENSIFY_FORBIDDEN": true,
+    "FVG_DENSIFY_FORBIDDEN": true
+  },
+  "receipt_sha256": "2DA8544363AE0CFBB52EAF474C358597A792EEC746E91EFAFFD8CAE37257C645"
+}

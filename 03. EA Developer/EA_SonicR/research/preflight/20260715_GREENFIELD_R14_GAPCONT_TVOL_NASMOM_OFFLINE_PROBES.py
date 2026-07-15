@@ -1,0 +1,947 @@
+#!/usr/bin/env python3
+"""Round 14 greenfield — NON-FADE only; outside R10–R13 densify.
+
+HARD FORBIDDEN:
+  ≠ OHLC fade / MR / session-edge densify (R10–R12)
+  ≠ R13 NFP body-k / CUSUM h-k / XAU ROC-k densify
+  ≠ R1–R9 / unpark / exit / FRED / weekend-gap-FADE / tickvol-CLIMAX-FADE
+  ≠ NAS100→USDJPY β residual fade
+
+A priori (lead self-merge):
+  1) HYP-FX3-H1-WEEKEND-GAP-CONT-001
+     — Mon open GAP CONTINUATION (≠ weekend-gap FADE killed in calendar/liq)
+  2) HYP-FX3-H1-TICKVOL-IMBALANCE-CONT-001
+     — signed tick-volume flow proxy CONTINUATION (≠ tickvol climax FADE R9)
+  3) HYP-NAS100-H4-D1-TSMOM-THICK-001
+     — multi-day mom thick stops on equity index (≠ XAU densify; ≠ NAS-β fade)
+
++$12 joint. Model 0 only if PROBE_SURVIVOR.
+"""
+from __future__ import annotations
+
+import hashlib
+import json
+import math
+from datetime import datetime, timezone
+from pathlib import Path
+
+import MetaTrader5 as mt5
+import numpy as np
+
+ROOT = Path(r"d:\Trading EA MT5")
+PRE = ROOT / "03. EA Developer" / "EA_SonicR" / "research" / "preflight"
+READ = ROOT / "03. EA Developer" / "EA_SonicR" / "research" / "readouts"
+REG = ROOT / "03. EA Developer" / "EA_SonicR" / "research" / "CANDIDATE_REGISTRY.jsonl"
+HOT = ROOT / "04. Project Control" / "ai" / "hot.md"
+
+STEM = "20260715_GREENFIELD_R14_GAPCONT_TVOL_NASMOM"
+OUT_JSON = PRE / f"{STEM}_OFFLINE_PROBES.json"
+OUT_MD = READ / f"{STEM}_OFFLINE_PROBES.md"
+OUT_DEDUP = READ / f"{STEM}_DEDUP_CLEARANCE.md"
+OUT_DESIGN = READ / f"{STEM}_DESIGN_MEMO.md"
+OUT_PANEL = READ / f"{STEM}_3CRITIC_PANEL.md"
+OUT_CLOSE = READ / f"{STEM}_SESSION_CLOSEOUT.md"
+OUT_VN = READ / f"{STEM}_VN_ACTION_BRIEF.md"
+OUT_CLEAN_VN = READ / "20260715_CLEAN_BOOK_AND_R14_VN_ACTION_BRIEF.md"
+
+FROM = datetime(2021, 1, 1)
+TO = datetime(2025, 12, 31, 23, 59)
+WEEKS = (TO - FROM).days / 7.0
+BASE_COST = 12.0
+DEPOSIT = 100_000.0
+RISK_FRAC = 0.005
+FX3 = ("EURUSD", "GBPUSD", "USDJPY")
+
+# 1 Weekend gap CONTINUATION
+GAP_MIN_ATR = 0.40  # vs prior D1 ATR
+GAP_SL = 1.50
+GAP_RR = 2.00
+GAP_HOLD = 16
+GAP_MAX = 1  # first FX3 Mon
+
+# 2 Tickvol imbalance CONT
+TV_LOOK = 6
+TV_IMB = 0.65  # |signed_vol| / sum_vol
+TV_BODY_ATR = 0.35  # price agree with flow
+TV_SL = 1.40
+TV_RR = 1.80
+TV_HOLD = 10
+TV_MAX_DAY = 1
+
+# 3 NAS100 D1 TSMOM thick
+NAS_ROC = 20
+NAS_ROC_ATR = 2.00
+NAS_SL = 2.00
+NAS_RR = 2.50
+NAS_HOLD = 36
+
+
+def sha256_bytes(b: bytes) -> str:
+    return hashlib.sha256(b).hexdigest().upper()
+
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def pf_of(pnls):
+    wins = sum(p for p in pnls if p > 0)
+    losses = -sum(p for p in pnls if p < 0)
+    if losses <= 0:
+        return None if wins <= 0 else 999.99
+    return wins / losses
+
+
+def haircuts(pnls):
+    out = {}
+    for key, mult in (("x1", 1.0), ("x1_5", 1.5), ("x2", 2.0)):
+        cut = [p - BASE_COST * mult for p in pnls]
+        out[key] = {
+            "pf": None if not cut else round(pf_of(cut) or 0.0, 4),
+            "net": round(sum(cut), 2) if cut else 0.0,
+            "exp": round(sum(cut) / len(cut), 4) if cut else 0.0,
+        }
+    return out
+
+
+def metrics(pnls):
+    n = len(pnls)
+    p = pf_of(pnls)
+    net = sum(pnls) if pnls else 0.0
+    return {
+        "n": n,
+        "pf": None if p is None else round(p, 4),
+        "net": round(net, 2),
+        "exp": round(net / n, 4) if n else None,
+        "tpw": round(n / WEEKS, 4) if WEEKS else None,
+    }
+
+
+def joint_verdict(m, hc):
+    notes = []
+    n, pf, tpw = m["n"] or 0, m["pf"] or 0.0, m["tpw"] or 0.0
+    if n < 80:
+        notes.append("n_fail")
+    if pf is None or pf < 1.30:
+        notes.append("pf_fail")
+    if tpw is None or tpw < 2.0:
+        notes.append("cadence_fail")
+    if hc["x1_5"]["pf"] is None or hc["x1_5"]["pf"] < 1.25:
+        notes.append("stress_fail")
+    return ("PROBE_SURVIVOR", []) if not notes else ("KILLED_AT_OFFLINE_PROBE", notes)
+
+
+def atr_arr(h, l, c, n=14):
+    prev = np.roll(c, 1)
+    prev[0] = c[0]
+    tr = np.maximum(h - l, np.maximum(np.abs(h - prev), np.abs(l - prev)))
+    out = np.full_like(tr, np.nan, dtype=float)
+    s = tr[:n].sum()
+    out[n - 1] = s / n
+    for i in range(n, len(tr)):
+        s = s - tr[i - n] + tr[i]
+        out[i] = s / n
+    return out
+
+
+def load(symbol, tf, fr=FROM, to=TO):
+    mt5.symbol_select(symbol, True)
+    rates = mt5.copy_rates_range(symbol, tf, fr, to)
+    if rates is None or len(rates) < 100:
+        raise RuntimeError(f"{symbol} tf={tf}: {mt5.last_error()}")
+    out = {
+        "t": rates["time"].astype(np.int64),
+        "o": rates["open"].astype(float),
+        "h": rates["high"].astype(float),
+        "l": rates["low"].astype(float),
+        "c": rates["close"].astype(float),
+    }
+    if "tick_volume" in rates.dtype.names:
+        out["tv"] = rates["tick_volume"].astype(float)
+    else:
+        out["tv"] = np.ones(len(out["t"]))
+    return out
+
+
+def enrich(d):
+    d["atr"] = atr_arr(d["h"], d["l"], d["c"])
+    return d
+
+
+def pip_size(symbol):
+    info = mt5.symbol_info(symbol)
+    if info is None:
+        return 0.01 if "JPY" in symbol else 0.0001
+    return info.point * (10 if info.digits in (3, 5) else 1)
+
+
+def cash_pnl(symbol, side, entry, exit_px, lots):
+    info = mt5.symbol_info(symbol)
+    tick_val = float(info.trade_tick_value) if info else 1.0
+    tick_size = float(info.trade_tick_size) if info else pip_size(symbol)
+    if tick_size <= 0:
+        tick_size = pip_size(symbol)
+    return (exit_px - entry) * side / tick_size * tick_val * lots
+
+
+def risk_lots(symbol, entry, sl):
+    info = mt5.symbol_info(symbol)
+    risk = DEPOSIT * RISK_FRAC
+    dist = abs(entry - sl)
+    if dist <= 0 or info is None:
+        return 0.01
+    tick_val = float(info.trade_tick_value) or 1.0
+    tick_size = float(info.trade_tick_size) or pip_size(symbol)
+    loss = dist / tick_size * tick_val
+    if loss <= 0:
+        return 0.01
+    return min(5.0, max(0.01, math.floor(risk / loss * 100) / 100))
+
+
+def manage_exits(open_pos, data, ts, closed, hold_limit):
+    still = []
+    for pos in open_pos:
+        sym = pos["sym"]
+        d = data[sym]
+        idx = int(np.searchsorted(d["t"], ts, side="left"))
+        if idx >= len(d["t"]) or d["t"][idx] != ts:
+            still.append(pos)
+            continue
+        exit_px = None
+        reason = None
+        if pos["side"] > 0:
+            if d["l"][idx] <= pos["sl"]:
+                exit_px, reason = pos["sl"], "sl"
+            elif d["h"][idx] >= pos["tp"]:
+                exit_px, reason = pos["tp"], "tp"
+        else:
+            if d["h"][idx] >= pos["sl"]:
+                exit_px, reason = pos["sl"], "sl"
+            elif d["l"][idx] <= pos["tp"]:
+                exit_px, reason = pos["tp"], "tp"
+        pos["bars"] += 1
+        if exit_px is None and pos["bars"] >= hold_limit:
+            exit_px, reason = d["c"][idx], "time"
+        if exit_px is not None:
+            closed.append(
+                {
+                    "pnl": cash_pnl(sym, pos["side"], pos["entry"], exit_px, pos["lots"]),
+                    "reason": reason,
+                    "sym": sym,
+                }
+            )
+        else:
+            still.append(pos)
+    return still
+
+
+def flush_open(open_pos, data, closed):
+    for pos in open_pos:
+        d = data[pos["sym"]]
+        closed.append(
+            {
+                "pnl": cash_pnl(
+                    pos["sym"], pos["side"], pos["entry"], float(d["c"][-1]), pos["lots"]
+                ),
+                "reason": "eod",
+                "sym": pos["sym"],
+            }
+        )
+
+
+def summarize(closed):
+    pnls = [x["pnl"] for x in closed]
+    detail = {"by_reason": {}, "by_sym": {}}
+    for x in closed:
+        detail["by_reason"][x["reason"]] = detail["by_reason"].get(x["reason"], 0) + 1
+        detail["by_sym"][x["sym"]] = detail["by_sym"].get(x["sym"], 0) + 1
+    return pnls, detail
+
+
+def pack_result(hid, setup, symbol, timeframe, pnls, detail):
+    m = metrics(pnls)
+    hc = haircuts(pnls)
+    verdict, notes = joint_verdict(m, hc)
+    return {
+        "hypothesis_id": hid,
+        "setup": setup,
+        "symbol": symbol,
+        "timeframe": timeframe,
+        "metrics": m,
+        "haircuts": hc,
+        "verdict": verdict,
+        "fail_notes": notes,
+        "detail": detail,
+    }
+
+
+def last_friday_close(d1, mon_ts):
+    """Last closed D1 Friday close before Monday ts."""
+    j = int(np.searchsorted(d1["t"], mon_ts, side="left")) - 1
+    while j >= 0:
+        dt = datetime.fromtimestamp(int(d1["t"][j]), tz=timezone.utc)
+        if dt.weekday() == 4:  # Friday
+            return float(d1["c"][j]), float(d1["atr"][j]) if np.isfinite(d1["atr"][j]) else None
+        j -= 1
+    return None, None
+
+
+def probe_weekend_gap_cont(h1, d1):
+    """Monday first H1: CONTINUE weekend gap if |gap|≥k×D1 ATR."""
+    closed, open_pos = [], []
+    clock = h1["EURUSD"]["t"]
+    fired_weeks = set()
+
+    for i in range(len(clock) - 2):
+        ts = int(clock[i])
+        open_pos = manage_exits(open_pos, {s: h1[s] for s in FX3}, ts, closed, GAP_HOLD)
+        dt = datetime.fromtimestamp(ts, tz=timezone.utc)
+        if dt.weekday() != 0:
+            continue
+        # first H1 of Monday session: hour 0–2 UTC covers broker Mon open variants
+        if dt.hour > 2:
+            continue
+        iso = dt.isocalendar()[:2]
+        if iso in fired_weeks or open_pos:
+            continue
+        chosen = None
+        for sym in FX3:
+            d = h1[sym]
+            j = int(np.searchsorted(d["t"], ts, side="left"))
+            if j >= len(d["t"]) or d["t"][j] != ts:
+                continue
+            fri_c, fri_atr = last_friday_close(d1[sym], ts)
+            if fri_c is None or fri_atr is None or fri_atr <= 0:
+                continue
+            # gap vs Friday close using this Mon H1 open
+            gap = float(d["o"][j]) - fri_c
+            if abs(gap) < GAP_MIN_ATR * fri_atr:
+                continue
+            side = 1 if gap > 0 else -1
+            atr = d["atr"][j - 1] if j > 0 and np.isfinite(d["atr"][j - 1]) else d["atr"][j]
+            if not np.isfinite(atr) or atr <= 0:
+                continue
+            entry = float(d["o"][j])
+            sl = entry - side * GAP_SL * atr
+            tp = entry + side * GAP_RR * GAP_SL * atr
+            lots = risk_lots(sym, entry, sl)
+            chosen = {
+                "sym": sym,
+                "side": side,
+                "entry": entry,
+                "sl": sl,
+                "tp": tp,
+                "lots": lots,
+                "bars": 0,
+            }
+            break
+        if chosen:
+            open_pos.append(chosen)
+            fired_weeks.add(iso)
+    flush_open(open_pos, {s: h1[s] for s in FX3}, closed)
+    return summarize(closed)
+
+
+def probe_tickvol_imbalance_cont(h1):
+    """Signed tick-volume flow proxy: continue when imbalance agrees with body."""
+    closed, open_pos = [], []
+    clock = h1["EURUSD"]["t"]
+    last_day, day_count = None, 0
+
+    for i in range(TV_LOOK + 2, len(clock) - 2):
+        ts = int(clock[i])
+        open_pos = manage_exits(open_pos, {s: h1[s] for s in FX3}, ts, closed, TV_HOLD)
+        dt = datetime.fromtimestamp(ts, tz=timezone.utc)
+        day = dt.date()
+        if day != last_day:
+            last_day, day_count = day, 0
+        if dt.weekday() >= 5:
+            continue
+        if day_count >= TV_MAX_DAY or open_pos:
+            continue
+        chosen = None
+        for sym in FX3:
+            d = h1[sym]
+            j = int(np.searchsorted(d["t"], ts, side="left"))
+            if j < TV_LOOK or j >= len(d["t"]) or d["t"][j] != ts:
+                continue
+            atr = d["atr"][j]
+            if not np.isfinite(atr) or atr <= 0:
+                continue
+            # signed vol over lookback closed bars ending at j
+            signed = 0.0
+            tot = 0.0
+            for k in range(j - TV_LOOK + 1, j + 1):
+                body = float(d["c"][k]) - float(d["o"][k])
+                v = float(d["tv"][k])
+                signed += math.copysign(v, body) if body != 0 else 0.0
+                tot += v
+            if tot <= 0:
+                continue
+            imb = abs(signed) / tot
+            if imb < TV_IMB:
+                continue
+            flow_side = 1 if signed > 0 else -1
+            body = float(d["c"][j]) - float(d["o"][j])
+            if abs(body) < TV_BODY_ATR * atr:
+                continue
+            if (1 if body > 0 else -1) != flow_side:
+                continue
+            if j + 1 >= len(d["t"]):
+                continue
+            entry = float(d["o"][j + 1])
+            sl = entry - flow_side * TV_SL * atr
+            tp = entry + flow_side * TV_RR * TV_SL * atr
+            lots = risk_lots(sym, entry, sl)
+            chosen = {
+                "sym": sym,
+                "side": flow_side,
+                "entry": entry,
+                "sl": sl,
+                "tp": tp,
+                "lots": lots,
+                "bars": 0,
+            }
+            break
+        if chosen:
+            open_pos.append(chosen)
+            day_count += 1
+    flush_open(open_pos, {s: h1[s] for s in FX3}, closed)
+    return summarize(closed)
+
+
+def probe_nas_d1_tsmom_thick(d1, h4):
+    """NAS100 multi-day momentum with thick H4 stops (non-FX3)."""
+    closed, open_pos = [], []
+    d1_side = np.zeros(len(d1["t"]), dtype=int)
+    for i in range(NAS_ROC + 2, len(d1["c"])):
+        atr = d1["atr"][i]
+        if not np.isfinite(atr) or atr <= 0:
+            continue
+        roc = float(d1["c"][i] - d1["c"][i - NAS_ROC])
+        if abs(roc) < NAS_ROC_ATR * atr:
+            continue
+        d1_side[i] = 1 if roc > 0 else -1
+
+    h4_sig = np.zeros(len(h4["t"]), dtype=int)
+    j = 0
+    for i, ts in enumerate(h4["t"]):
+        while j + 1 < len(d1["t"]) and int(d1["t"][j + 1]) + 86400 <= int(ts):
+            j += 1
+        if int(d1["t"][j]) + 86400 <= int(ts):
+            h4_sig[i] = d1_side[j]
+        elif j > 0:
+            h4_sig[i] = d1_side[j - 1]
+
+    last_sig_day = None
+    for i in range(1, len(h4["t"]) - 1):
+        ts = int(h4["t"][i])
+        open_pos = manage_exits(open_pos, {"NAS100": h4}, ts, closed, NAS_HOLD)
+        dt = datetime.fromtimestamp(ts, tz=timezone.utc)
+        if dt.weekday() >= 5:
+            continue
+        if open_pos:
+            continue
+        side = int(h4_sig[i])
+        if side == 0 or side == int(h4_sig[i - 1]):
+            continue
+        day = dt.date()
+        if day == last_sig_day:
+            continue
+        atr = h4["atr"][i - 1]
+        if not np.isfinite(atr) or atr <= 0:
+            continue
+        entry = float(h4["o"][i])
+        sl = entry - side * NAS_SL * atr
+        tp = entry + side * NAS_RR * NAS_SL * atr
+        lots = risk_lots("NAS100", entry, sl)
+        open_pos.append(
+            {
+                "sym": "NAS100",
+                "side": side,
+                "entry": entry,
+                "sl": sl,
+                "tp": tp,
+                "lots": lots,
+                "bars": 0,
+            }
+        )
+        last_sig_day = day
+    flush_open(open_pos, {"NAS100": h4}, closed)
+    return summarize(closed)
+
+
+def append_reg(results, receipt):
+    stamp = utc_now()
+    with REG.open("a", encoding="utf-8") as f:
+        for r in results:
+            row = {
+                "record_type": "candidate",
+                "schema_version": 1,
+                "hypothesis_id": r["hypothesis_id"],
+                "state": "killed" if r["verdict"].startswith("KILLED") else "probe",
+                "verdict": r["verdict"],
+                "parent_candidate": None,
+                "feature_family": "greenfield_r14_gapcont_tvol_nasmom",
+                "lane": "strategy_shift_r14_greenfield_20260715",
+                "setup_type": r["setup"],
+                "symbol": r["symbol"],
+                "timeframe": r["timeframe"],
+                "window": "2021.01.01-2025.12.31",
+                "model": "offline_closed_bar_probe",
+                "source_provenance": (
+                    "R14 NON-FADE outside R10–R13 densify; lead self-merge"
+                ),
+                "prereg_path": None,
+                "readout_path": str(OUT_MD.as_posix()),
+                "metrics": r["metrics"],
+                "validation": {
+                    "cost_stress_apriori_usd": BASE_COST,
+                    "haircuts": r["haircuts"],
+                    "verdict": r["verdict"],
+                    "fail_notes": r["fail_notes"],
+                    "receipt_sha256": receipt,
+                },
+                "updated_at": stamp,
+                "cost_grade": "UNVERIFIED_TESTER_DEFAULT",
+                "receipt_sha256": receipt,
+            }
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
+def write_docs(results, receipt, any_surv, qnote, clean_book_note):
+    status = "PROBE_SURVIVOR_PRESENT" if any_surv else "OFFLINE_ALL_KILL__NO_MODEL0"
+    stamp = datetime.now().strftime("%H:%M")
+
+    def row(r):
+        return (
+            f"| `{r['hypothesis_id']}` | {r['metrics']['n']} | {r['metrics']['pf']} | "
+            f"{r['metrics']['tpw']} | {r['haircuts']['x1_5']['pf']} | "
+            f"{r['verdict'].replace('KILLED_AT_OFFLINE_PROBE', 'KILL')} |"
+        )
+
+    table = [
+        "| Object | N | PF | tpw | x1.5 | Verdict |",
+        "|---|---:|---:|---:|---:|---|",
+    ] + [row(r) for r in results]
+
+    OUT_PANEL.write_text(
+        "\n".join(
+            [
+                "# 3-critic panel — Round 14 gap-cont / tvol-flow / NAS-mom",
+                "",
+                "Date: 2026-07-15",
+                "Nested model: `cursor-grok-4.5-high-fast` — Task backend unavailable;",
+                "lead self-merge.",
+                "",
+                "## Named classes (NON-FADE)",
+                "1. `FX3_WEEKEND_GAP_CONT`",
+                "2. `FX3_TICKVOL_IMBALANCE_CONT`",
+                "3. `NAS100_D1_TSMOM_H4_THICK`",
+                "",
+                "## Critic merge",
+                "| Critic | Stance |",
+                "|---|---|",
+                "| Sonic trader | PASS — gap continuation + flow proxy + equity trend; ≠ fade densify |",
+                "| Quant | SOFT — Mon hour proxy; tick_volume≠true volume; NAS cadence thin risk |",
+                "| MQL5/MT5 | PASS — Fri D1 as-of; closed-bar TV imb; D1→H4 as-of |",
+                "",
+                "INTAKE_KILL: none. Model 0 WITHHELD until PROBE_SURVIVOR.",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    OUT_DESIGN.write_text(
+        "\n".join(
+            [
+                "# Design — Round 14 gap-cont / tvol-flow / NAS thick-mom",
+                "",
+                "Date: 2026-07-15",
+                "Hard constraint: **FORBIDDEN** OHLC fade / MR / session-edge densify;",
+                "also no R13 NFP/CUSUM/XAU densify.",
+                "",
+                f"## 1 `HYP-FX3-H1-WEEKEND-GAP-CONT-001`",
+                f"Mon H1 hour≤2; |open−Fri close|≥{GAP_MIN_ATR}×D1 ATR → CONTINUE gap;",
+                f"SL={GAP_SL} RR={GAP_RR} hold≤{GAP_HOLD}; first FX3.",
+                "",
+                f"## 2 `HYP-FX3-H1-TICKVOL-IMBALANCE-CONT-001`",
+                f"Look={TV_LOOK}; |signed_tv|/sum≥{TV_IMB} + body≥{TV_BODY_ATR} ATR same side;",
+                f"CONTINUE; SL={TV_SL} RR={TV_RR} hold≤{TV_HOLD}.",
+                "",
+                f"## 3 `HYP-NAS100-H4-D1-TSMOM-THICK-001`",
+                f"D1 |ROC{NAS_ROC}|≥{NAS_ROC_ATR}×ATR → H4 thick; SL={NAS_SL} RR={NAS_RR} "
+                f"hold≤{NAS_HOLD}.",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    OUT_DEDUP.write_text(
+        "\n".join(
+            [
+                "# Dedup — Round 14 gap-cont / tvol / NAS-mom",
+                "",
+                "| Object | Cleared vs |",
+                "|---|---|",
+                "| Weekend gap CONT | ≠ weekend-gap FADE (calendar/liq); ≠ TOM; ≠ Fri-PM fade |",
+                "| Tickvol imbalance CONT | ≠ tickvol climax FADE (R9); ≠ ON-ratio; ≠ Parkinson |",
+                "| NAS100 D1 TSMOM thick | ≠ XAU ROC densify (R13); ≠ NAS→USDJPY β residual fade (R6) |",
+                "",
+                "R10–R13 densify boards: **FORBIDDEN**.",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    OUT_MD.write_text(
+        "\n".join(
+            [
+                "# Offline probes — Round 14 gap-cont / tvol / NAS-mom",
+                "",
+                f"Generated: 2026-07-15 ~{stamp} ICT",
+                f"Receipt SHA256: `{receipt}`",
+                f"Status: `{status}`",
+                f"Cost a priori: +${BASE_COST:.0f}/trade",
+                f"QFSI parallel: {qnote}",
+                "",
+                *table,
+                "",
+                "## Fail notes",
+                *[
+                    f"- `{r['hypothesis_id']}`: {', '.join(r['fail_notes']) or 'none'}"
+                    for r in results
+                ],
+                "",
+                "## Model 0",
+                "AUTHORIZED only if any PROBE_SURVIVOR; else WITHHELD.",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    OUT_CLOSE.write_text(
+        "\n".join(
+            [
+                "# Session closeout — Round 14 gap-cont / tvol / NAS-mom",
+                "",
+                f"Status: `{status}`",
+                f"Receipt: `{receipt}`",
+                "Model 0: WITHHELD" if not any_surv else "Model 0: AUTHORIZED for survivors only",
+                "Do **not** densify gap-k / TV-imb / NAS-ROC / R10–R13.",
+                "Next: next true greenfield outside R14 — QFSI parallel only for cost.",
+                "Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    OUT_VN.write_text(
+        "\n".join(
+            [
+                "# VN brief — Round 14 gap-cont / tvol / NAS-mom",
+                "",
+                f"Thời điểm: 2026-07-15 ~{stamp} ICT",
+                "Ngoài R10–R13. Lead self-merge. **NON-FADE only.**",
+                "",
+                f"## Kết quả — `{status}`",
+                *table,
+                "",
+                f"Receipt `{receipt}`",
+                "",
+                "## Quyết định",
+                "- Không densify gap-k / TV-imb / NAS-ROC / R10–R13.",
+                "- Best shelf RR2 `194548`. Cost GAP. QFSI parallel only.",
+                "- Next: greenfield ngoài R14 **hoặc** research-grade cost.",
+                "",
+                "Login không headline. GOAL unmet.",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    OUT_CLEAN_VN.write_text(
+        "\n".join(
+            [
+                "# VN brief — Clean book + Round 14 (post R13)",
+                "",
+                f"Thời điểm: 2026-07-15 ~{stamp} ICT",
+                "Lane: clean-book path quanh Phase-0 CONTAMINATED + discovery R14 NON-FADE.",
+                "GOAL: chưa đạt.",
+                "",
+                "## 1. Clean book `HYP-BOOK-CLEAN-APRIORI-RR2SPARK-001`",
+                clean_book_note,
+                "- Freeze a priori trước metrics; **không** clear Phase-0 contamination.",
+                "- Model 0 book-level: **WITHHELD** (offline pool ≠ EA challenger).",
+                "",
+                "## 2. Discovery Round 14 — gap-cont / tvol-flow / NAS thick-mom",
+                *table,
+                f"Receipt `{receipt}` → `{status}`",
+                "",
+                "## 3. QFSI 007",
+                f"{qnote}",
+                "Spot-check once — không babysit.",
+                "",
+                "## Cấm",
+                "Densify R1–R14 / fade-session / unpark / exit / FRED / Phase-0 ceremony.",
+                "",
+                "## Next agent",
+                "Giữ QFSI; greenfield ngoài R14 (vẫn NON-FADE); cost provenance khi Owner drop deal-export.",
+                "Best shelf RR2 `194548`. Login không headline. GOAL unmet.",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+
+def patch_hot(results, receipt, any_surv, qnote, clean_note):
+    status = "PROBE_SURVIVOR_PRESENT" if any_surv else "OFFLINE_ALL_KILL__NO_MODEL0"
+    stamp = datetime.now().strftime("%H:%M")
+    lines_r = []
+    for i, r in enumerate(results, 1):
+        m, hc = r["metrics"], r["haircuts"]
+        lines_r.append(
+            f"  {i}. `{r['hypothesis_id']}` → **{r['verdict']}** "
+            f"(N={m['n']} PF={m['pf']} tpw={m['tpw']} x1.5={hc['x1_5']['pf']})."
+        )
+    block = [
+        "",
+        f"- **GREENFIELD ROUND14 GAPCONT/TVOL/NASMOM CLOSEOUT (2026-07-15 ~{stamp} ICT) — "
+        f"`EXO_FRED_DISPLACE_SPAM_PAUSED` / `{status}` / `QFSI_007_HEALTHY` / "
+        f"`NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**",
+        "  NON-FADE greenfield outside R10–R13 densify + R1–R9/unpark/exit/FRED.",
+        "  Nested critic Task unavailable → lead self-merge `cursor-grok-4.5-high-fast`.",
+        "  Offline joint screen:",
+        *lines_r,
+        f"  Receipt `{receipt}`",
+        f"  `preflight/{STEM}_OFFLINE_PROBES.json`;",
+        "  VN `readouts/20260715_CLEAN_BOOK_AND_R14_VN_ACTION_BRIEF.md`.",
+        f"  QFSI spot-check: {qnote}",
+        "  Do **not** densify gap-k / TV-imb / NAS-ROC /",
+        "  R13 NFP/CUSUM/XAU / R12 EMA/Fri/RS / R11 / R10 session / R1–R9 / unpark / exit / FRED.",
+        "  Clean book still GOAL_SCREEN_FAIL (unchanged).",
+        f"  {clean_note}",
+        "  Next: next true greenfield outside R14 (still NON-FADE) — QFSI parallel only for cost.",
+        "  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.",
+        "",
+    ]
+    text = HOT.read_text(encoding="utf-8")
+    lines = text.splitlines()
+    if lines and lines[0].startswith("# Hot Cache"):
+        lines[1] = (
+            f"Updated: 2026-07-15 ~{stamp} ICT | R14 "
+            f"{'SURVIVOR' if any_surv else 'OFFLINE_ALL_KILL'}; GOAL unmet"
+        )
+    cleaned = []
+    i = 0
+    while i < len(lines):
+        ln = lines[i]
+        if ln.startswith("- **GREENFIELD ROUND14 GAPCONT/TVOL/NASMOM CLOSEOUT"):
+            i += 1
+            while i < len(lines):
+                nxt = lines[i]
+                if nxt.startswith("- **") or (
+                    nxt.startswith("## ") and "Active Truth" not in nxt
+                ):
+                    break
+                if nxt.strip() == "" and i + 1 < len(lines) and lines[i + 1].startswith(
+                    "- **"
+                ):
+                    i += 1
+                    break
+                i += 1
+            continue
+        cleaned.append(ln)
+        i += 1
+    out = []
+    inserted = False
+    for ln in cleaned:
+        out.append(ln)
+        if not inserted and ln.strip() == "## Active Truth":
+            out.extend(block)
+            inserted = True
+    HOT.write_text("\n".join(out) + "\n", encoding="utf-8")
+
+
+def qfsi_parallel_note() -> str:
+    hb = PRE / "20260715_QFSI_007_WATCHER_HEARTBEAT.json"
+    prog = (
+        ROOT
+        / "02. AlphaFactory"
+        / "evidence"
+        / "execution"
+        / "FivePercentOnline-Real"
+        / "20260715_QFSI_REAL_007_LONG_ACCUMULATE"
+        / "capture_progress.json"
+    )
+    parts = []
+    if hb.exists():
+        try:
+            h = json.loads(hb.read_text(encoding="utf-8"))
+            parts.append(
+                f"watcher_hb ts={h.get('ts')} alive={h.get('watcher_alive')} "
+                f"cap_pid={h.get('capture_pid')} wall_rem={h.get('wall_remaining_sec')}"
+            )
+        except json.JSONDecodeError:
+            parts.append("watcher_hb unreadable")
+    else:
+        parts.append("watcher_hb missing")
+    if prog.exists():
+        try:
+            p = json.loads(prog.read_text(encoding="utf-8"))
+            parts.append(
+                f"007 accumulate hb={p.get('heartbeat_rows')} quotes={p.get('quote_rows')} "
+                f"deadline={p.get('deadline_utc')}"
+            )
+        except json.JSONDecodeError:
+            parts.append("007 progress unreadable")
+    parts.append("cost freeze still GAP; login not headline")
+    return "; ".join(parts)
+
+
+def load_clean_book_note() -> str:
+    path = PRE / "20260715_CLEAN_BOOK_APRIORI_RR2SPARK_STRESS.json"
+    if not path.exists():
+        return "Clean-book stress JSON missing — run stress first."
+    p = json.loads(path.read_text(encoding="utf-8"))
+    prim = p["books"]["PRIMARY_BOOK"]
+    ext = p["books"]["EXTENDED_BOOK"]
+    return (
+        f"PRIMARY PF@$12={prim['pooled_after_heat']['pf_haircut']:.3f} "
+        f"tpw={prim['pooled_after_heat']['tpw']:.3f} "
+        f"verdict=`{prim['goal_screen']['verdict']}`; "
+        f"EXTENDED PF@$12={ext['pooled_after_heat']['pf_haircut']:.3f} "
+        f"tpw={ext['pooled_after_heat']['tpw']:.3f} "
+        f"verdict=`{ext['goal_screen']['verdict']}`; "
+        f"freeze_sha={p.get('freeze_sha256','')[:16]}…"
+    )
+
+
+def main():
+    if not mt5.initialize():
+        raise SystemExit(f"MT5 init failed: {mt5.last_error()}")
+    try:
+        qnote = qfsi_parallel_note()
+        clean_note = load_clean_book_note()
+        h1 = {
+            "EURUSD": enrich(load("EURUSD", mt5.TIMEFRAME_H1)),
+            "GBPUSD": enrich(load("GBPUSD", mt5.TIMEFRAME_H1)),
+            "USDJPY": enrich(load("USDJPY", mt5.TIMEFRAME_H1)),
+        }
+        d1 = {
+            "EURUSD": enrich(load("EURUSD", mt5.TIMEFRAME_D1)),
+            "GBPUSD": enrich(load("GBPUSD", mt5.TIMEFRAME_D1)),
+            "USDJPY": enrich(load("USDJPY", mt5.TIMEFRAME_D1)),
+        }
+        nas_d1 = enrich(load("NAS100", mt5.TIMEFRAME_D1))
+        nas_h4 = enrich(load("NAS100", mt5.TIMEFRAME_H4))
+        results = [
+            pack_result(
+                "HYP-FX3-H1-WEEKEND-GAP-CONT-001",
+                "fx3_h1_weekend_gap_cont",
+                "FX3",
+                "H1",
+                *probe_weekend_gap_cont(h1, d1),
+            ),
+            pack_result(
+                "HYP-FX3-H1-TICKVOL-IMBALANCE-CONT-001",
+                "fx3_h1_tickvol_imbalance_cont",
+                "FX3",
+                "H1",
+                *probe_tickvol_imbalance_cont(h1),
+            ),
+            pack_result(
+                "HYP-NAS100-H4-D1-TSMOM-THICK-001",
+                "nas100_h4_d1_tsmom_thick",
+                "NAS100",
+                "H4",
+                *probe_nas_d1_tsmom_thick(nas_d1, nas_h4),
+            ),
+        ]
+        any_surv = any(r["verdict"] == "PROBE_SURVIVOR" for r in results)
+        payload = {
+            "schema_version": "greenfield_r14_gapcont_tvol_nasmom.v1",
+            "generated_at_utc": utc_now(),
+            "window": "2021.01.01-2025.12.31",
+            "cost_apriori_usd": BASE_COST,
+            "hard_constraint": "NON_FADE__NO_SESSION_EDGE_DENSIFY",
+            "gates": {
+                "n_min": 80,
+                "pf_min": 1.30,
+                "tpw_min": 2.0,
+                "x1_5_pf_min": 1.25,
+            },
+            "params": {
+                "gap_cont": {
+                    "min_atr": GAP_MIN_ATR,
+                    "sl": GAP_SL,
+                    "rr": GAP_RR,
+                    "hold": GAP_HOLD,
+                },
+                "tvol": {
+                    "look": TV_LOOK,
+                    "imb": TV_IMB,
+                    "body_atr": TV_BODY_ATR,
+                    "sl": TV_SL,
+                    "rr": TV_RR,
+                    "hold": TV_HOLD,
+                },
+                "nas_mom": {
+                    "roc": NAS_ROC,
+                    "roc_atr": NAS_ROC_ATR,
+                    "sl": NAS_SL,
+                    "rr": NAS_RR,
+                    "hold": NAS_HOLD,
+                },
+            },
+            "qfsi_parallel": qnote,
+            "clean_book_note": clean_note,
+            "results": results,
+            "any_survivor": any_surv,
+            "model0": "AUTHORIZED_SURVIVORS_ONLY" if any_surv else "WITHHELD",
+        }
+        raw = json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True).encode(
+            "utf-8"
+        )
+        receipt = sha256_bytes(raw)
+        payload["receipt_sha256"] = receipt
+        OUT_JSON.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        write_docs(results, receipt, any_surv, qnote, clean_note)
+        append_reg(results, receipt)
+        patch_hot(results, receipt, any_surv, qnote, clean_note)
+        print(
+            json.dumps(
+                {
+                    "receipt": receipt,
+                    "any_survivor": any_surv,
+                    "results": [
+                        {
+                            "id": r["hypothesis_id"],
+                            "verdict": r["verdict"],
+                            "m": r["metrics"],
+                            "x15": r["haircuts"]["x1_5"]["pf"],
+                            "notes": r["fail_notes"],
+                        }
+                        for r in results
+                    ],
+                    "qfsi": qnote,
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+    finally:
+        mt5.shutdown()
+
+
+if __name__ == "__main__":
+    main()

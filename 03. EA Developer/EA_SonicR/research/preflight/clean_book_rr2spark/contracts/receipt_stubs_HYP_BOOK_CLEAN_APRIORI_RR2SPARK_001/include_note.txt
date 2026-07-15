@@ -1,0 +1,1 @@
+EA_SBSparkBook clean-book v1.10: SB RR2/MaxKZ2 module + SparkAsian module. Heat=1 priority A>B. Trade.mqh is MT5 stdlib.

@@ -1,0 +1,190 @@
+{
+  "schema_version": "clean_book_apriori_rr2spark_stress.v1",
+  "hypothesis_id": "HYP-BOOK-CLEAN-APRIORI-RR2SPARK-001",
+  "generated_at_ict": "2026-07-15 13:10:32",
+  "status": "DIAGNOSTIC_OFFLINE_CLEAN_BOOK__NOT_PHASE0",
+  "freeze_memo": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/readouts/20260715_CLEAN_BOOK_APRIORI_UNIVERSE_FREEZE.md",
+  "freeze_sha256": "F18FAB12ECCBD3FF09A4FA03317AB13A59DFCAE00BA9491B640D69D2B728931C",
+  "excluded_a_priori": {
+    "MaxKZ2_192304": {
+      "hypothesis_id": "HYP-SB-MAXKZ2-DENSITY-002",
+      "run_id": "20260714_192304",
+      "reason": "MAXKZ2_REAL_PATH_FAIL_CLOSED_A_PRIORI"
+    },
+    "Spark_193732": {
+      "hypothesis_id": "HYP-SPARK-CAPACITY-3PD-001",
+      "run_id": "20260714_193732",
+      "reason": "PHASE0_NAMED_193358_TWIN_EXCLUDED_A_PRIORI"
+    }
+  },
+  "window": {
+    "start": "2021-01-01T00:00:00",
+    "end": "2025-12-31T00:00:00"
+  },
+  "books": {
+    "PRIMARY_BOOK": {
+      "book": "PRIMARY_BOOK",
+      "sleeves": [
+        {
+          "key": "A_RR2",
+          "run_id": "20260714_194548",
+          "hypothesis_id": "HYP-SB-MAXKZ2-RR2-FRICTION-001",
+          "n": 524,
+          "pf_raw": 1.37832062878745,
+          "pf_haircut": 1.1196917801851252,
+          "tpw": 2.00986301369863,
+          "net_haircut": 3540.3500000000004,
+          "trade_source": "report_deals",
+          "report_sha256": "49D142CF2B9531AD2F9C338277FD30B00EC74F420B23A7E288687443723397E3"
+        },
+        {
+          "key": "B_SPARK",
+          "run_id": "20260714_193358",
+          "hypothesis_id": "HYP-SPARK-CAPACITY-3PD-001",
+          "n": 325,
+          "pf_raw": 1.3803593212865342,
+          "pf_haircut": 1.2070655266758905,
+          "tpw": 1.2465753424657533,
+          "net_haircut": 5450.59,
+          "trade_source": "report_deals",
+          "report_sha256": "8E655DB0E5537F99CEB9ED7560D472FC8F45E6D862F5495A0B965D82BBDE9357"
+        }
+      ],
+      "pooled_after_heat": {
+        "n": 845,
+        "dropped_heat": 4,
+        "pf_haircut": 1.1840730181546804,
+        "tpw": 3.241095890410959,
+        "net_haircut": 10083.08
+      },
+      "pair_caps": [
+        {
+          "a": "A_RR2",
+          "b": "B_SPARK",
+          "weekly_corr": 0.030699207164363647,
+          "same_m15_overlap_frac": 0.0,
+          "corr_cap_pass": true,
+          "overlap_cap_pass": true
+        }
+      ],
+      "caps": {
+        "haircut_usd": 12.0,
+        "corr_cap": 0.35,
+        "overlap_frac_cap": 0.05,
+        "corr_fail": false,
+        "overlap_fail_after_heat": false,
+        "caps_pass": true
+      },
+      "goal_screen": {
+        "pf_gt_1_30_after_12": false,
+        "tpw_2_to_5": true,
+        "verdict": "DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL",
+        "confirmed": false,
+        "phase0_ceremony": false,
+        "cost": "APRIORI_HAIRCUT_12_TESTER_PROXY_NOT_QFSI"
+      }
+    },
+    "EXTENDED_BOOK": {
+      "book": "EXTENDED_BOOK",
+      "sleeves": [
+        {
+          "key": "A_RR2",
+          "run_id": "20260714_194548",
+          "hypothesis_id": "HYP-SB-MAXKZ2-RR2-FRICTION-001",
+          "n": 524,
+          "pf_raw": 1.37832062878745,
+          "pf_haircut": 1.1196917801851252,
+          "tpw": 2.00986301369863,
+          "net_haircut": 3540.3500000000004,
+          "trade_source": "report_deals",
+          "report_sha256": "49D142CF2B9531AD2F9C338277FD30B00EC74F420B23A7E288687443723397E3"
+        },
+        {
+          "key": "B_SPARK",
+          "run_id": "20260714_193358",
+          "hypothesis_id": "HYP-SPARK-CAPACITY-3PD-001",
+          "n": 325,
+          "pf_raw": 1.3803593212865342,
+          "pf_haircut": 1.2070655266758905,
+          "tpw": 1.2465753424657533,
+          "net_haircut": 5450.59,
+          "trade_source": "report_deals",
+          "report_sha256": "8E655DB0E5537F99CEB9ED7560D472FC8F45E6D862F5495A0B965D82BBDE9357"
+        },
+        {
+          "key": "C_ITSM",
+          "run_id": "20260714_003920",
+          "hypothesis_id": "HYP-ITSM-PULLBACK-M15-001",
+          "n": 852,
+          "pf_raw": 1.1567413506452378,
+          "pf_haircut": 0.7985441045754325,
+          "tpw": 3.2679452054794518,
+          "net_haircut": -6264.400000000001,
+          "trade_source": "report_deals",
+          "report_sha256": "97D3B57DB9269DAA930C58E34A27A675C51A8388292846F8C22F918983C3B079"
+        }
+      ],
+      "pooled_after_heat": {
+        "n": 1664,
+        "dropped_heat": 37,
+        "pf_haircut": 1.0435351129748238,
+        "tpw": 6.382465753424658,
+        "net_haircut": 3679.98
+      },
+      "pair_caps": [
+        {
+          "a": "A_RR2",
+          "b": "B_SPARK",
+          "weekly_corr": 0.030699207164363647,
+          "same_m15_overlap_frac": 0.0,
+          "corr_cap_pass": true,
+          "overlap_cap_pass": true
+        },
+        {
+          "a": "A_RR2",
+          "b": "C_ITSM",
+          "weekly_corr": 0.145714910735794,
+          "same_m15_overlap_frac": 0.0,
+          "corr_cap_pass": true,
+          "overlap_cap_pass": true
+        },
+        {
+          "a": "B_SPARK",
+          "b": "C_ITSM",
+          "weekly_corr": 0.14544152403708238,
+          "same_m15_overlap_frac": 0.0,
+          "corr_cap_pass": true,
+          "overlap_cap_pass": true
+        }
+      ],
+      "caps": {
+        "haircut_usd": 12.0,
+        "corr_cap": 0.35,
+        "overlap_frac_cap": 0.05,
+        "corr_fail": false,
+        "overlap_fail_after_heat": false,
+        "caps_pass": true
+      },
+      "goal_screen": {
+        "pf_gt_1_30_after_12": false,
+        "tpw_2_to_5": false,
+        "verdict": "DIAGNOSTIC_FAIL_GOAL_SCREEN",
+        "confirmed": false,
+        "phase0_ceremony": false,
+        "cost": "APRIORI_HAIRCUT_12_TESTER_PROXY_NOT_QFSI"
+      }
+    }
+  },
+  "model0": "WITHHELD_BOOK_LEVEL_OFFLINE_NOT_EA_CHALLENGER",
+  "phase0_contamination": "STILL_CONTAMINATED_NOT_CLEARED_BY_THIS_HYP",
+  "non_claims": [
+    "not_phase0_clearance",
+    "not_confirmed",
+    "not_goal",
+    "not_portfolio_sleeve",
+    "no_sleeve_rerank_after_metrics",
+    "no_invented_spreads",
+    "no_model0_book_glue",
+    "sibling_strategy_shift_stress_is_history_only"
+  ]
+}

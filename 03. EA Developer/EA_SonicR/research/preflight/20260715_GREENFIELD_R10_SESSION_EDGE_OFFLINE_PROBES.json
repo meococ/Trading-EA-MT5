@@ -1,0 +1,196 @@
+{
+  "schema_version": "greenfield_r10_session_edge.v1",
+  "generated_at_utc": "2026-07-15T06:10:49.526719Z",
+  "window": "2021.01.01-2025.12.31",
+  "cost_apriori_usd": 12.0,
+  "gates": {
+    "n_min": 80,
+    "pf_min": 1.3,
+    "tpw_min": 2.0,
+    "x1_5_pf_min": 1.25
+  },
+  "params": {
+    "tokyo_lunch": {
+      "impulse_hours": [
+        0,
+        1,
+        2
+      ],
+      "fire": 3,
+      "min_atr": 0.8,
+      "sl": 1.2,
+      "rr": 1.5,
+      "hold": 6
+    },
+    "london_drive": {
+      "bar_hour": 7,
+      "body_atr": 0.7,
+      "close_frac": 0.3,
+      "sl": 1.2,
+      "rr": 2.0,
+      "hold": 8
+    },
+    "ny_reopen": {
+      "am_hours": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "fire": 13,
+      "min_atr": 1.0,
+      "sl": 1.2,
+      "rr": 1.8,
+      "hold": 10
+    }
+  },
+  "qfsi_parallel": "watcher_hb ts=2026-07-15T06:10:34.486530Z alive=True cap_pid=72320 wall_rem=258817; 007 accumulate hb=1500 quotes=1107 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline",
+  "clean_book_parallel": "PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…",
+  "results": [
+    {
+      "hypothesis_id": "HYP-USDJPY-H1-TOKYO-LUNCH-FADE-001",
+      "setup": "usdjpy_h1_tokyo_lunch_fade",
+      "symbol": "USDJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 436,
+        "pf": 1.1464,
+        "net": 12785.71,
+        "exp": 29.325,
+        "tpw": 1.6723
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.0839,
+          "net": 7553.71,
+          "exp": 17.325
+        },
+        "x1_5": {
+          "pf": 1.054,
+          "net": 4937.71,
+          "exp": 11.325
+        },
+        "x2": {
+          "pf": 1.025,
+          "net": 2321.71,
+          "exp": 5.325
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "time": 171,
+          "sl": 161,
+          "tp": 104
+        },
+        "by_sym": {
+          "USDJPY": 436
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-FX3-H1-LONDON-OPEN-DRIVE-CONT-001",
+      "setup": "fx3_h1_london_open_drive_cont",
+      "symbol": "FX3",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 361,
+        "pf": 0.8353,
+        "net": -19195.12,
+        "exp": -53.1721,
+        "tpw": 1.3847
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.8031,
+          "net": -23527.12,
+          "exp": -65.1721
+        },
+        "x1_5": {
+          "pf": 0.7876,
+          "net": -25693.12,
+          "exp": -71.1721
+        },
+        "x2": {
+          "pf": 0.7725,
+          "net": -27859.12,
+          "exp": -77.1721
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "tp": 97,
+          "time": 21,
+          "sl": 243
+        },
+        "by_sym": {
+          "EURUSD": 156,
+          "GBPUSD": 74,
+          "USDJPY": 131
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-GBPUSD-H1-NY-REOPEN-CONT-001",
+      "setup": "gbpusd_h1_ny_reopen_cont",
+      "symbol": "GBPUSD",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 798,
+        "pf": 0.967,
+        "net": -8090.67,
+        "exp": -10.1387,
+        "tpw": 3.0608
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9297,
+          "net": -17666.67,
+          "exp": -22.1387
+        },
+        "x1_5": {
+          "pf": 0.9118,
+          "net": -22454.67,
+          "exp": -28.1387
+        },
+        "x2": {
+          "pf": 0.8942,
+          "net": -27242.67,
+          "exp": -34.1387
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 487,
+          "tp": 246,
+          "time": 64,
+          "eod": 1
+        },
+        "by_sym": {
+          "GBPUSD": 798
+        }
+      }
+    }
+  ],
+  "any_probe_survivor": false,
+  "model0": "WITHHELD",
+  "receipt_sha256": "2B2EF7A7767CCE751E2E1C6E080CA8D6D4711C99D22996BB55C4E254F27F1A43"
+}

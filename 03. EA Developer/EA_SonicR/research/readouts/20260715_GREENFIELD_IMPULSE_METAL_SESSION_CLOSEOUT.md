@@ -1,0 +1,7 @@
+# Closeout — impulse/metal greenfield
+Status: `OFFLINE_ALL_KILL__NO_MODEL0`
+Receipt: `3F0EAFAEAABE8B27A076A7D5059328A0FB326D6E11484189CAEDD92268243BF7`
+- `HYP-FX3-H4-CONSEC3-IMPULSE-FADE-001` → **KILLED_AT_OFFLINE_PROBE**
+- `HYP-XAUUSD-H1-USD-BETA-RESID-FADE-001` → **KILLED_AT_OFFLINE_PROBE**
+Do not densify consec/z/ATR. Next: Owner cost/tick or RBA CSV; not densify shelves.
+Best shelf RR2 `194548`. GOAL unmet.

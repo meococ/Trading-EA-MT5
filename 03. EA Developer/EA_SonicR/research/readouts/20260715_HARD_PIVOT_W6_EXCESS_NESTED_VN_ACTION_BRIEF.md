@@ -1,0 +1,12 @@
+# VN brief — HARD PIVOT W6
+
+Thời điểm: 2026-07-15 ~16:58 ICT
+
+## Kết quả — `OFFLINE_ALL_KILL__NO_MODEL0`
+| Object | N | PF | tpw | PF@$12 | x1.5 | Verdict |
+|---|---:|---:|---:|---:|---:|---|
+| `HYP-FX3-H1-LONDON-EXCESS-MID-ACCEPT-CONT-001` | 67 | 1.1049 | 0.257 | 1.0149 | 0.9725 | KILL |
+| `HYP-FX3-H1-IMPULSE-NESTED-DOUBLE-ACCEPT-CONT-001` | 1403 | 1.0583 | 5.3814 | 1.0093 | 0.9858 | KILL |
+
+Receipt `C9D28EA1332A2136AC00FB917737BC5C9E87C70DE7B02494CD907551E5E6AB98`
+PAUSE R-series. Cấm densify FVG / W1–W6 corpses. Best shelf `194548`. GOAL unmet.

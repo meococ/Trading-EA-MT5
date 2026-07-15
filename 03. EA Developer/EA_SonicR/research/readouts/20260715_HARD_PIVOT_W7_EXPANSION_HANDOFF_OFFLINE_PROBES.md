@@ -1,0 +1,18 @@
+# Offline probes — HARD PIVOT W7
+
+Generated: 2026-07-15 ~17:01 ICT
+Receipt SHA256: `3CDD263694CD8BC1F66DCAE3F6B1A111B1BE4AED9AC39861D5A9DBE50CEF7343`
+Freeze SHA256: `A5DD600BDEF3BEF144D951699C2AC324E35511C753379CE9E91F4914BA752876`
+Status: `OFFLINE_ALL_KILL__NO_MODEL0`
+QFSI: QFSI 007 parallel; cost freeze GAP (11 deals); login not headline
+
+| Object | N | PF | tpw | PF@$12 | x1.5 | Verdict |
+|---|---:|---:|---:|---:|---:|---|
+| `HYP-FX3-H1-ATR-EXPANSION-PDMID-ACCEPT-CONT-001` | 636 | 0.9038 | 2.4395 | 0.857 | 0.8347 | KILL |
+| `HYP-FX3-H1-LONDON-DISP-NY-PB-ACCEPT-CONT-001` | 427 | 1.2019 | 1.6378 | 1.1402 | 1.1106 | KILL |
+
+## Fail notes
+- `HYP-FX3-H1-ATR-EXPANSION-PDMID-ACCEPT-CONT-001`: pf_fail, pf12_fail, stress_fail
+- `HYP-FX3-H1-LONDON-DISP-NY-PB-ACCEPT-CONT-001`: pf_fail, cadence_fail, pf12_fail, stress_fail
+
+Model 0 WITHHELD unless PROBE_SURVIVOR. No corpse densify.

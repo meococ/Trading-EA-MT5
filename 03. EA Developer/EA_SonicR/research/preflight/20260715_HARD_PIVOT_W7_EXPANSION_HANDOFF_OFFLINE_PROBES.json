@@ -1,0 +1,114 @@
+{
+  "schema": "hard_pivot_w7_expansion_handoff.v1",
+  "generated_at": "2026-07-15T10:01:52.208171Z",
+  "freeze_sha256": "A5DD600BDEF3BEF144D951699C2AC324E35511C753379CE9E91F4914BA752876",
+  "base_cost_usd": 12.0,
+  "results": [
+    {
+      "hypothesis_id": "HYP-FX3-H1-ATR-EXPANSION-PDMID-ACCEPT-CONT-001",
+      "setup": "FX3 H1 ATR-expansion PD-mid accept CONT",
+      "symbol": "EURUSD+GBPUSD+USDJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 636,
+        "pf": 0.9038,
+        "net": -14390.77,
+        "exp": -22.627,
+        "tpw": 2.4395
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.857,
+          "net": -22022.77,
+          "exp": -34.627
+        },
+        "x1_5": {
+          "pf": 0.8347,
+          "net": -25838.77,
+          "exp": -40.627
+        },
+        "x2": {
+          "pf": 0.8129,
+          "net": -29654.77,
+          "exp": -46.627
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "tp": 83,
+          "sl": 268,
+          "time": 285
+        },
+        "by_sym": {
+          "USDJPY": 212,
+          "GBPUSD": 219,
+          "EURUSD": 205
+        }
+      },
+      "challenger": false
+    },
+    {
+      "hypothesis_id": "HYP-FX3-H1-LONDON-DISP-NY-PB-ACCEPT-CONT-001",
+      "setup": "FX3 H1 London-disp → NY PB-accept CONT",
+      "symbol": "EURUSD+GBPUSD+USDJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 427,
+        "pf": 1.2019,
+        "net": 18009.73,
+        "exp": 42.1773,
+        "tpw": 1.6378
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.1402,
+          "net": 12885.73,
+          "exp": 30.1773
+        },
+        "x1_5": {
+          "pf": 1.1106,
+          "net": 10323.73,
+          "exp": 24.1773
+        },
+        "x2": {
+          "pf": 1.082,
+          "net": 7761.73,
+          "exp": 18.1773
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "cadence_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 162,
+          "time": 200,
+          "tp": 65
+        },
+        "by_sym": {
+          "USDJPY": 120,
+          "EURUSD": 162,
+          "GBPUSD": 145
+        }
+      },
+      "challenger": false
+    }
+  ],
+  "any_survivor": false,
+  "flags": {
+    "R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED": true,
+    "FVG_RETEST_DENSIFY_FORBIDDEN": true,
+    "UNIVERSE_APRIORI_FREEZE": true
+  },
+  "receipt_sha256": "E70EB720698E14CE9EB2FADF2F2DBE772E47CD48C6276C760358E2C8182089BA"
+}

@@ -1,0 +1,12 @@
+# Universe freeze — HARD PIVOT W4 round + dual-impulse
+
+Date: 2026-07-15
+Status: `APRIORI_FREEZE__PRE_METRICS`
+Flag: `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED`
+
+## Children
+1. HYP-FX3-H1-ROUND-LEVEL-ACCEPT-CONT-001
+2. HYP-FX3-H1-DUAL-IMPULSE-ACCEPT-CONT-001
+
+## Forbidden
+FVG densify; W1–W3 densify; R10–R31 densify; exit/MaxKZ/ORB/IB/FRED.

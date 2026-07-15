@@ -1,0 +1,115 @@
+{
+  "schema": "hard_pivot_w2_breaker_bodymit.v1",
+  "generated_at": "2026-07-15T07:29:02.882467Z",
+  "freeze_sha256": "11D25A7AFB478C6F46151EC2A5CB85A38A606AB7C110BAC1ECD745F3009E39DA",
+  "base_cost_usd": 12.0,
+  "results": [
+    {
+      "hypothesis_id": "HYP-FX3-H1-BREAKER-RETEST-ACCEPT-CONT-001",
+      "setup": "FX3 H1 BOS breaker body retest-accept CONT; delayed entry",
+      "symbol": "EURUSD+GBPUSD+USDJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 2096,
+        "pf": 1.1131,
+        "net": 55376.54,
+        "exp": 26.4201,
+        "tpw": 8.0395
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.0599,
+          "net": 30224.54,
+          "exp": 14.4201
+        },
+        "x1_5": {
+          "pf": 1.0345,
+          "net": 17648.54,
+          "exp": 8.4201
+        },
+        "x2": {
+          "pf": 1.0098,
+          "net": 5072.54,
+          "exp": 2.4201
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "cadence_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 930,
+          "time": 749,
+          "tp": 417
+        },
+        "by_sym": {
+          "EURUSD": 742,
+          "USDJPY": 629,
+          "GBPUSD": 725
+        }
+      },
+      "challenger": false
+    },
+    {
+      "hypothesis_id": "HYP-SB-DISP-BODY-MITIGATION-ACCEPT-001",
+      "setup": "USDJPY M15 SB disp BODY mitigation accept; not FVG; RR2 MaxKZ2",
+      "symbol": "USDJPY",
+      "timeframe": "M15",
+      "metrics": {
+        "n": 785,
+        "pf": 1.0306,
+        "net": 5331.05,
+        "exp": 6.7912,
+        "tpw": 3.011
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9772,
+          "net": -4088.95,
+          "exp": -5.2088
+        },
+        "x1_5": {
+          "pf": 0.9517,
+          "net": -8798.95,
+          "exp": -11.2088
+        },
+        "x2": {
+          "pf": 0.9269,
+          "net": -13508.95,
+          "exp": -17.2088
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "pf12_fail",
+        "stress_fail",
+        "no_lift_vs_rr2_pf12",
+        "no_lift_vs_rr2_x15"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 350,
+          "tp": 139,
+          "time": 296
+        },
+        "by_sym": {
+          "USDJPY": 785
+        }
+      },
+      "challenger": true
+    }
+  ],
+  "any_survivor": false,
+  "flags": {
+    "R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED": true,
+    "EXO_FRED_DISPLACE_SPAM_PAUSED": true,
+    "FVG_RETEST_DENSIFY_FORBIDDEN": true,
+    "AUCTION_PERSIST_DENSIFY_FORBIDDEN": true
+  },
+  "receipt_sha256": "2C88751CB2784BD729EB527FF7F0EF684823A7D91CC6E8103B542C2997582475"
+}

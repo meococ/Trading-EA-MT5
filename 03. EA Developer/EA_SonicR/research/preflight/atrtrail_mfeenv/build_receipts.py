@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 from datetime import datetime, timezone
+import subprocess
 from pathlib import Path
 
 ROOT = Path(r"d:\Trading EA MT5")
@@ -135,10 +136,37 @@ def build_one(spec: dict) -> dict:
         rel = str(full.relative_to(ROOT.resolve())).replace("\\", "/")
         records.append(f"{rel}\t{sha256_file(full)}")
     prov = text_sha("\n".join(records))
-    commit = f"NOGIT-{prov}"
-    status_sha = text_sha(
-        "\n".join(["nogit=true", "dirty=true", f"provenance_sha256={prov}"])
-    )
+    commit = None
+    status_sha = None
+    try:
+        inside = subprocess.run(
+            ["git", "-C", str(ROOT), "rev-parse", "--is-inside-work-tree"],
+            capture_output=True, text=True, check=False,
+        )
+        head = subprocess.run(
+            ["git", "-C", str(ROOT), "rev-parse", "HEAD"],
+            capture_output=True, text=True, check=False,
+        )
+        if inside.returncode == 0 and inside.stdout.strip() == "true" and head.returncode == 0 and head.stdout.strip():
+            commit = head.stdout.strip()
+            # Must match alpha.ps1 Get-GitSnapshot: status --short --untracked-files=all
+            st = subprocess.run(
+                ["git", "-C", str(ROOT), "status", "--short", "--untracked-files=all"],
+                capture_output=True, text=True, check=False,
+            )
+            if st.returncode != 0:
+                raise RuntimeError("git status failed")
+            status_lines = [ln for ln in (st.stdout or "").splitlines()]
+            status_payload = "\n".join(status_lines)
+            status_sha = text_sha(status_payload)
+    except Exception:
+        commit = None
+        status_sha = None
+    if not commit:
+        commit = f"NOGIT-{prov}"
+        status_sha = text_sha(
+            "\n".join(["nogit=true", "dirty=true", f"provenance_sha256={prov}"])
+        )
 
     receipt_path = OUT / spec["receipt_name"]
     receipt = {

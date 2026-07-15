@@ -1,8 +1,1506 @@
 # Hot Cache
-
-Updated: 2026-07-15 ~07:55 ICT | GitHub private `meococ/Trading-EA-MT5` on `main` @ `b709309f8aa9`; QFSI/ATR shelf unchanged; GOAL unmet
+Updated: 2026-07-15 ~18:40 ICT | CLEAN BOOK Model0 authority bound (reuse 194548+193358); ChatGPT still LOGIN_WALL; W27 ALL_KILL stands; GOAL unmet
 
 ## Active Truth
+
+- **CLEAN BOOK MODEL0 AUTHORITY + DEEP RESEARCH AUTH RETRY (2026-07-15 ~18:40 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `CLEAN_BOOK_SLEEVE_MODEL0_BOUND` / `BOOK_GOAL_SCREEN_FAIL` / `QFSI_007_HEALTHY` / `PHASE0_STILL_CONTAMINATED` / `DEEP_RESEARCH_AUTH_BLOCKED__LOGIN_WALL`.**
+  Dual-track after W27 ALL_KILL: (1) ChatGPT auth once; (2) clean-book Model 0 path.
+  **Deep Research retry:** browser → `https://chatgpt.com/auth/login` — **LOGIN WALL** again.
+  No Sol/Pro/Nghiên cứu sâu; failure packet NOT submitted; do not stall.
+  Receipt `preflight/20260715_DEEP_RESEARCH_AUTH_CHECK_RECEIPT_W28.json`.
+  **Clean-book Model 0:** sleeve authority runs **already exist** — **NO REBURN**.
+  Bound under freeze `readouts/20260715_CLEAN_BOOK_APRIORI_UNIVERSE_FREEZE.md`
+  sha=`F18FAB12ECCBD3FF…` + offline stress sha=`5F41A94BCFC9185C…`:
+  - A_RR2 `20260714_194548` Model 0 — PF tester **1.378** / @$12 **1.120** / tpw **2.01**
+    cost=`UNVERIFIED_TESTER_CURRENT_SPREAD` (Demo/tester `spread=current`; not QFSI).
+  - B_SPARK `20260714_193358` Model 0 — PF tester **1.380** / @$12 **1.207** / tpw **1.25**
+    same honest tester/Demo label; shelf MaxPerDay=2 (not 193732 twin).
+  Offline PRIMARY (heat +$12): N=845 PF@$12=**1.184** tpw=**3.241** → still
+  `DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`.
+  RealP50 diagnostic ~**1.36** — DIAGNOSTIC only; do **not** promote GOAL.
+  Book-level Model 0 still **WITHHELD** (no portfolio EA). Phase-0 still CONTAMINATED.
+  English `readouts/20260715_CLEAN_BOOK_MODEL0_AUTHORITY_VS_OFFLINE.md`
+  (sha=`717B5302064A50DE…`);
+  receipt `preflight/20260715_CLEAN_BOOK_MODEL0_AUTHORITY_RECEIPT.json`
+  (sha=`6DA4735CB98F2000…`);
+  VN `readouts/20260715_CLEAN_BOOK_MODEL0_VN_ACTION_BRIEF.md`.
+  Cost freeze GAP (deals~11). Keep QFSI alive; do not invent cost.
+  Do **not** densify RR/MaxKZ/Spark/FVG/exit/UUP/DTWEX/quality-gate/W1–W27/R-series.
+  Next: Owner ChatGPT login (parallel) OR next independent surface outside
+  dollar-TWI / credit-MOVE / commodity ToT / quality densify; R-series paused; +$12 holds.
+  Best shelf RR2 `194548`. GOAL unmet.
+
+- **HARD PIVOT W27 DOLLAR-TWI UUP+DTWEX + SB/RR2 QUALITY-THICK (2026-07-15 ~18:25 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED` / `DEEP_RESEARCH_AUTH_BLOCKED__LOGIN_WALL`.**
+  No ChatGPT stall: login wall is Owner-parallel only.
+  **HARD RULE:** FORBIDDEN commodity→AUD ToT densify · FORBIDDEN credit-MOVE densify (HYG/LQD/^MOVE).
+  **Acquisition:** Promote W26 UUP spare → primary panel + FRED DTWEXBGS broad-goods TWI (lag +1d).
+  Manifest `v8_exogenous/manifests/20260715_UUP_DTWEX_ACQUISITION_V1.json`.
+  Panels sha uup=`5F0D2E65449FA54A…` dtwex=`FE0A8C77F3BDAD03…`.
+  **W27A offline** (AUDUSD H1 USD-strength invert CONT; +$12; nested OK):
+  1. `HYP-AUDUSD-H1-UUP-TWUSD-STRENGTH-001` → **KILLED_AT_OFFLINE_PROBE** (N=628 PF=0.9675 tpw=2.4074 PF@$12=0.9305 x1.5=0.9127).
+  2. `HYP-AUDUSD-H1-DTWEXBGS-TWI-STRENGTH-001` → **KILLED_AT_OFFLINE_PROBE** (N=603 PF=1.0149 tpw=2.3116 PF@$12=0.978 x1.5=0.9601).
+  3. `HYP-BOOK-UUP-DTWEX-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=748 PF=1.0125 tpw=2.8675 PF@$12=0.9751 x1.5=0.9571).
+  Receipt `D74E8876CB324EBFD8A58625A580D2D00020A87D05AEEE72CF2B46F45A20AE22`
+  `preflight/20260715_UUP_DTWEX_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_UUP_DTWEX_VN_ACTION_BRIEF.md`.
+  **W27B child** (immediate after A ALL_KILL — ONE SB/RR2 quality-thickness; not FVG/exit densify):
+  4. `HYP-SB-RR2-QUALITY-THICK-DISP-001` → **KILLED_AT_OFFLINE_PROBE** (parent N=524→keep 52; PF=1.0429 tpw=0.1995 PF@$12=0.8737; n+cadence starve).
+  Receipt `0816D9AC4686FA8D047F1BE393997EE03D2215979129C7AD807EBC8498533D26`
+  `preflight/20260715_SB_RR2_QUALITY_THICK_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_W27_UUP_DTWEX_QUALITY_THICK_VN_ACTION_BRIEF.md`.
+  Do **not** densify UUP/DTWEX z · quality gate after readout · FVG/exit/MaxKZ · commodity ToT · credit-MOVE · W1–W26 / R10–R31.
+  Note: RR2 parent solo tpw≈2.01 — thin quality-filter structurally hits cadence floor; no gate retune.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Cost freeze GAP (deals~11). Keep QFSI alive; do not invent cost.
+  Next: next independent surface outside dollar-TWI / credit-MOVE / commodity ToT /
+    W1–W26 / quality-gate densify — OR Owner ChatGPT login (parallel). R-series paused; +$12 holds.
+  Best shelf RR2 `194548`. GOAL unmet.
+
+- **HARD PIVOT W26 CREDIT+MOVE EXO (2026-07-15 ~18:20 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED` / `DEEP_RESEARCH_AUTH_BLOCKED__LOGIN_WALL`.**
+  No ChatGPT stall: login wall is Owner-parallel only.
+  **HARD RULE:** FORBIDDEN more Yahoo commodity→AUD ToT densify (NG/ZW/TIO/Cu/Gold/WTI/Brent clones). W23–W25 commodity/sector ToT boards ALL_KILL.
+  **Acquisition:** Owner-authorized non-commodity reopen — SHA-freeze Yahoo HYG/LQD credit relative + ^MOVE bond-vol lag +1d (UUP spare raw). ≠ VIXCLS densify twin; ≠ commodity ToT.
+  Manifest `v8_exogenous/manifests/20260715_CREDIT_MOVE_ACQUISITION_V1.json`.
+  Panels sha credit=`A2BEB287BECC64FC…` move=`7C00C1C616CD536F…`.
+  **W26 offline** (AUDUSD H1 CONT displace; MOVE invert risk-off; +$12 screen; nested OK):
+  1. `HYP-AUDUSD-H1-HYGLQD-CREDIT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=633 PF=0.9402 tpw=2.4266 PF@$12=0.904 x1.5=0.8866).
+  2. `HYP-AUDUSD-H1-MOVE-BONDVOL-RISKOFF-001` → **KILLED_AT_OFFLINE_PROBE** (N=533 PF=0.8692 tpw=2.0433 PF@$12=0.8321 x1.5=0.8143).
+  3. `HYP-BOOK-CREDIT-MOVE-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=819 PF=0.8914 tpw=3.1396 PF@$12=0.8537 x1.5=0.8356).
+  Receipt `9ACBB3D88F276ACBDC68E69B8268BC4A193B4B25D6590F1186EC116A0D2250AB`
+  `preflight/20260715_CREDIT_MOVE_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CREDIT_MOVE_VN_ACTION_BRIEF.md`.
+  Do **not** densify HYG/LQD z / MOVE z / commodity→AUD ToT / VIXCLS / W1–W25 / FVG / R10–R31.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Cost freeze GAP (deals~11). Keep QFSI alive; do not invent cost.
+  Next: superseded by W27 UUP+DTWEX + quality-thick closeout.
+  Best shelf RR2 `194548`. GOAL unmet.
+
+- **HARD PIVOT W25 NATGAS+WHEAT EXO (2026-07-15 ~18:15 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED` / `DEEP_RESEARCH_AUTH_BLOCKED__LOGIN_WALL`.**
+  No ChatGPT stall: login wall is Owner-parallel only.
+  **Acquisition:** SHA-freeze Yahoo NG=F natgas (LNG/energy ToT proxy) + ZW=F wheat
+    (ag softs ToT) lag +1d — outside ironore-cny / sector-cugold / oil / VIX-sibling /
+    killed FRED/COT boards.
+  Manifest `v8_exogenous/manifests/20260715_NATGAS_WHEAT_ACQUISITION_V1.json`.
+  Panels sha natgas=`3334E6BA1D300893…` wheat=`C4B7CFB945A9CE80…`.
+  **W25 offline** (AUDUSD H1 CONT displace; +$12 screen; nested OK):
+  1. `HYP-AUDUSD-H1-NATGAS-LNG-TOT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=613 PF=0.9213 tpw=2.3499 PF@$12=0.882 x1.5=0.8631).
+  2. `HYP-AUDUSD-H1-WHEAT-AG-TOT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=551 PF=0.98 tpw=2.1123 PF@$12=0.9407 x1.5=0.9219).
+  3. `HYP-BOOK-NATGAS-WHEAT-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=806 PF=0.9936 tpw=3.0898 PF@$12=0.9547 x1.5=0.936).
+  Receipt `D88BA9DAFBC207B28E891A384E4501A5C281855EEE695AF1A805E5447325580F`
+  `preflight/20260715_NATGAS_WHEAT_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_NATGAS_WHEAT_VN_ACTION_BRIEF.md`.
+  Do **not** densify NG/ZW z / ironore-cny / sector-cugold / oil / VIX / W1–W24 / FVG / R10–R31.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Cost freeze GAP (deals~11). Keep QFSI alive; do not invent cost.
+  Next: superseded by W26 credit+MOVE exo closeout.
+  Best shelf RR2 `194548`. GOAL unmet.
+
+- **HARD PIVOT W24 IRONORE+CNY EXO (2026-07-15 ~18:05 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED` / `DEEP_RESEARCH_AUTH_BLOCKED__LOGIN_WALL`.**
+  No ChatGPT stall: login wall is Owner-parallel only.
+  **Acquisition:** CNH=X/USDCNH=X offshore proved sparse (Yahoo n≈1) →
+  pick-next SHA-freeze Yahoo TIO=F iron ore + USDCNY→CNY strength (lag +1d).
+    Manifest `v8_exogenous/manifests/20260715_IRONORE_CNY_ACQUISITION_V1.json`.
+  Panels sha iron=`85DE1CAC628A0476…` cny=`9C173814E2453948…`.
+  **W24 offline** (AUDUSD H1 CONT displace; +$12 screen; nested OK):
+  1. `HYP-AUDUSD-H1-IRONORE-TOT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=677 PF=0.9128 tpw=2.5953 PF@$12=0.8776 x1.5=0.8606).
+  2. `HYP-AUDUSD-H1-CNYSTRENGTH-DEMAND-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=667 PF=1.0323 tpw=2.557 PF@$12=0.9933 x1.5=0.9745).
+  3. `HYP-BOOK-IRONORE-CNY-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=863 PF=0.9952 tpw=3.3083 PF@$12=0.9584 x1.5=0.9407).
+  Receipt `D9CEC93CD1C37CDDF6C2C634DDADCE002C3D0BD116EB5046E5119A603C8CF3AD`
+  `preflight/20260715_IRONORE_CNY_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_IRONORE_CNY_VN_ACTION_BRIEF.md`.
+  Do **not** densify iron/CNY z / sector-cugold / oil / VIX / W1–W23 / FVG / R10–R31.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Cost freeze GAP (deals~11). Keep QFSI alive; do not invent cost.
+  Next: superseded by W25 natgas+wheat exo closeout.
+  Best shelf RR2 `194548`. GOAL unmet.
+
+- **HARD PIVOT W23 SECTOR+CUGOLD EXO (2026-07-15 ~17:56 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED` / `DEEP_RESEARCH_AUTH_BLOCKED__LOGIN_WALL`.**
+  No ChatGPT stall: login wall is Owner-parallel only.
+  **Acquisition:** EVZCLS FX-vol proved unavailable (FRED timeout / DBnomics 404) →
+  pick-next SHA-freeze Yahoo XLK/XLF sector relative + HG/GC copper-gold ratio
+    (lag +1d). Manifest `v8_exogenous/manifests/20260715_SECTOR_CUGOLD_ACQUISITION_V1.json`.
+  Panels sha sector=`47911C4420655A8A…` cugold=`E424ABE51B82E5F5…`.
+  **W23 offline** (AUDUSD H1 CONT displace; +$12 screen; nested OK):
+  1. `HYP-AUDUSD-H1-XLKXLF-GROWTHLEAD-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=613 PF=0.9095 tpw=2.3499 PF@$12=0.871 x1.5=0.8525).
+  2. `HYP-AUDUSD-H1-CUGOLD-RATIO-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=527 PF=0.9793 tpw=2.0203 PF@$12=0.9419 x1.5=0.9239).
+  3. `HYP-BOOK-SECTOR-CUGOLD-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=809 PF=0.9344 tpw=3.1013 PF@$12=0.8952 x1.5=0.8763).
+  Receipt `7B252F9DA26EFB509605981155146F0EA726074399C64FB4E1F06FF082410799`
+  `preflight/20260715_SECTOR_CUGOLD_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_SECTOR_CUGOLD_VN_ACTION_BRIEF.md`.
+  Do **not** densify XLK/XLF z / CuGold z / W22 / W1–W21 / FVG / R10–R31 / VIX-sibling shopping.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Cost freeze GAP (deals~11). Keep QFSI alive; do not invent cost.
+  Next: superseded by W24 ironore+CNY exo closeout.
+  Best shelf RR2 `194548`. GOAL unmet.
+
+- **HARD PIVOT W22 ARCH-MONETIZE + DEEP RESEARCH AUTH-CHECK (2026-07-15 ~17:50 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED` / `DEEP_RESEARCH_AUTH_BLOCKED__LOGIN_WALL`.**
+  Dual-track: (1) ChatGPT Deep Research auth check; (2) architecture monetization offline.
+  **Deep Research:** browser → `https://chatgpt.com/auth/login` — **LOGIN WALL**.
+  No Sol/Pro/Nghiên cứu sâu UI; packet NOT submitted; do not stall.
+  Receipt `preflight/20260715_DEEP_RESEARCH_AUTH_CHECK_RECEIPT.json`.
+  **Cost-grade** still GAP (deals~11; quote days calendar-bound); keep QFSI alive; do not invent cost.
+  Clean PRIMARY PF@$12=1.184 tpw=3.241; RealP50 DIAGNOSTIC only — do NOT promote GOAL.
+  **W22 offline** after W1–W21 OHLC ALL_KILL — architecture monetization (not OHLC densify):
+  1. `HYP-RR2-SAMEDAY-FLAT-ARCH-001` → **KILLED_AT_OFFLINE_PROBE** (N=368 PF=1.1887 tpw=1.4115 PF@$12=0.9411 x1.5=0.8408).
+  2. `HYP-BOOK-CLEAN-SEQSLOT-001` → **KILLED_AT_OFFLINE_PROBE** (N=791 PF=1.3068 tpw=3.034 PF@$12=1.0942 x1.5=1.0029).
+  3. `HYP-BOOK-SAMEDAY-SEQSLOT-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=668 PF=1.2908 tpw=2.5622 PF@$12=1.0788 x1.5=0.9879).
+  Receipt `B0D7B255310DD5504447FA542467AC090587885BE81BA606C153A3500E0957EB`
+  `preflight/20260715_HARD_PIVOT_W22_ARCH_MONETIZE_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_COST_GRADE_AND_HARD_PIVOT_W22_VN_ACTION_BRIEF.md`.
+  Freeze sha=B0D7B255310DD550… QFSI spot-check `QFSI_007_HEALTHY`; cost freeze GAP (11 deals); login wall is Deep Research headline this board
+  Do **not** densify W22 / W1–W21 / H4-retest / FVG / sameday/seq rules / R10–R31.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: superseded by W23 sector+cugold exo closeout.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+- **HARD PIVOT W21 VWAP/WEEKOPEN + COST-GRADE CLOSEOUT (2026-07-15 ~17:42 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  Dual-track: (1) cost-grade distance-to-freeze; (2) HARD PIVOT W21 new class.
+  **Cost-grade** `preflight/20260715_COST_GRADE_PUSH_W13_STATUS.json`:
+  - QFSI 007: watcher_alive=True cap_pid=72320 quotes=45557 hb=60000 tick_err=0
+  - quote_days=2/90 (gap=88); raw_deals=11; freeze_eligible=False
+  - commission unique days: {'EURUSD': '2/30', 'GBPUSD': '0/30', 'USDJPY': '0/30', 'XAUUSD': '0/30', 'BTCUSD': '3/30'}
+  - slip: MISSING_NE_0 — QFSI accumulate may grow fill rows but research freeze still needs verified side/ref/fill sample
+  - verdict: `COST_FREEZE_STILL_GAP__DEALS_STILL_~11__QUOTE_DAYS_CALENDAR_BOUND`
+  - Autonomous remaining: keep QFSI alive (calendar-bound days); retry deals (still ~11=exhausted); do NOT invent cost; Owner export optional only.
+  - W21 spot-check: `QFSI_007_HEALTHY` hb_alive=True proc_alive=True pid=72320 @ 2026-07-15T10:42:58.600153Z
+  Clean PRIMARY PF@$12=1.184 tpw=3.241; RealP50 DIAGNOSTIC only — do NOT promote GOAL.
+  **W21 offline** after W1–W20 ALL_KILL — session-VWAP reclaim CONT + weekly-open break CONT:
+  1. `HYP-FX3-H1-SESSION-VWAP-RECLAIM-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1566 PF=0.9758 tpw=6.0066 PF@$12=0.942 x1.5=0.9257).
+  2. `HYP-FX3-H1-WEEKLY-OPEN-BREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=783 PF=1.1713 tpw=3.0033 PF@$12=1.1285 x1.5=1.1079).
+  3. `HYP-BOOK-VWAP-WEEKOPEN-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=2306 PF=1.0387 tpw=8.8449 PF@$12=1.0021 x1.5=0.9844).
+  Receipt `76E5CB921D716BEB6819E0D807AFCBBCB1AAABB7588E0603EAEB3248E8E88E08`
+  `preflight/20260715_HARD_PIVOT_W21_VWAP_WEEKOPEN_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_COST_GRADE_AND_HARD_PIVOT_W21_VN_ACTION_BRIEF.md`.
+  Freeze sha=E335CBFCEDEB1946… QFSI spot-check `QFSI_007_HEALTHY`; cost freeze GAP (11 deals); login not headline
+  Do **not** densify W21 / W1–W20 / H4-retest / fade / session CONT / FVG / R10–R31.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next independent class outside W1–W21; keep R-series paused; +$12 screen holds.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W20 VOLREGIME/FIXIMPULSE + COST-GRADE CLOSEOUT (2026-07-15 ~17:41 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  Dual-track: (1) cost-grade distance-to-freeze; (2) HARD PIVOT W20 new class.
+  **Cost-grade** `preflight/20260715_COST_GRADE_PUSH_W13_STATUS.json`:
+  - QFSI 007: watcher_alive=True cap_pid=72320 quotes=45557 hb=60000 tick_err=0
+  - quote_days=2/90 (gap=88); raw_deals=11; freeze_eligible=False
+  - commission unique days: {'EURUSD': '2/30', 'GBPUSD': '0/30', 'USDJPY': '0/30', 'XAUUSD': '0/30', 'BTCUSD': '3/30'}
+  - slip: MISSING_NE_0 — QFSI accumulate may grow fill rows but research freeze still needs verified side/ref/fill sample
+  - verdict: `COST_FREEZE_STILL_GAP__DEALS_STILL_~11__QUOTE_DAYS_CALENDAR_BOUND`
+  - Autonomous remaining: keep QFSI alive (calendar-bound days); retry deals (still ~11=exhausted); do NOT invent cost; Owner export optional only.
+  - W20 spot-check: `QFSI_007_HEALTHY` hb_alive=True proc_alive=True pid=72320 @ 2026-07-15T10:41:15.940997Z
+  Clean PRIMARY PF@$12=1.184 tpw=3.241; RealP50 DIAGNOSTIC only — do NOT promote GOAL.
+  **W20 offline** after W1–W19 ALL_KILL — vol-regime coil-break CONT + London-fix impulse CONT:
+  1. `HYP-FX3-H1-VOLREGIME-COIL-BREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1759 PF=1.0309 tpw=6.7468 PF@$12=0.9888 x1.5=0.9686).
+  2. `HYP-FX3-H1-LONDON-FIX-IMPULSE-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1415 PF=1.0695 tpw=5.4274 PF@$12=1.02 x1.5=0.9963).
+  3. `HYP-BOOK-VOLREGIME-FIXIMPULSE-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=3055 PF=1.0404 tpw=11.7178 PF@$12=0.9958 x1.5=0.9744).
+  Receipt `8C8D9EC3E9905995B9DB292C52F038EFF7CAB5BC6048A013D4E8FEC2A5172F85`
+  `preflight/20260715_HARD_PIVOT_W20_VOLREGIME_FIXIMPULSE_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_COST_GRADE_AND_HARD_PIVOT_W20_VN_ACTION_BRIEF.md`.
+  Freeze sha=138B618DC0080E3C… QFSI spot-check `QFSI_007_HEALTHY`; cost freeze GAP (11 deals); login not headline
+  Do **not** densify W20 / W1–W19 / H4-retest / fade / session CONT / FVG / R10–R31.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next independent class outside W1–W20; keep R-series paused; +$12 screen holds.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W19 ZSCORE/COMPFADE + COST-GRADE CLOSEOUT (2026-07-15 ~17:38 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  Dual-track: (1) cost-grade distance-to-freeze; (2) HARD PIVOT W19 new class.
+  **Cost-grade** `preflight/20260715_COST_GRADE_PUSH_W13_STATUS.json`:
+  - QFSI 007: watcher_alive=True cap_pid=72320 quotes=45557 hb=60000 tick_err=0
+  - quote_days=2/90 (gap=88); raw_deals=11; freeze_eligible=False
+  - commission unique days: {'EURUSD': '2/30', 'GBPUSD': '0/30', 'USDJPY': '0/30', 'XAUUSD': '0/30', 'BTCUSD': '3/30'}
+  - slip: MISSING_NE_0 — QFSI accumulate may grow fill rows but research freeze still needs verified side/ref/fill sample
+  - verdict: `COST_FREEZE_STILL_GAP__DEALS_STILL_~11__QUOTE_DAYS_CALENDAR_BOUND`
+  - Autonomous remaining: keep QFSI alive (calendar-bound days); retry deals (still ~11=exhausted); do NOT invent cost; Owner export optional only.
+  - W19 spot-check: `QFSI_007_HEALTHY` hb_alive=True proc_alive=True pid=72320 @ 2026-07-15T10:38:09.185473Z
+  Clean PRIMARY PF@$12=1.184 tpw=3.241; RealP50 DIAGNOSTIC only — do NOT promote GOAL.
+  **W19 offline** after W1–W18 ALL_KILL — H4 z-score fade + compression false-break fade:
+  1. `HYP-FX3-H1-H4-EMA-ZSCORE-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=882 PF=1.0245 tpw=3.383 PF@$12=0.9881 x1.5=0.9706).
+  2. `HYP-FX3-H1-COMPRESSION-FALSEBREAK-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=57 PF=1.0018 tpw=0.2186 PF@$12=0.9599 x1.5=0.9397).
+  3. `HYP-BOOK-ZSCORE-COMPFADE-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=931 PF=1.0233 tpw=3.571 PF@$12=0.9866 x1.5=0.9689).
+  Receipt `66E7D980FACBF3F7DD894B3CF6164980CA3DBC3129337D5ABEDBA8F550063D2B`
+  `preflight/20260715_HARD_PIVOT_W19_ZSCORE_COMPFADE_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_COST_GRADE_AND_HARD_PIVOT_W19_VN_ACTION_BRIEF.md`.
+  Freeze sha=8E1747829DA0DBBE… QFSI spot-check `QFSI_007_HEALTHY`; cost freeze GAP (11 deals); login not headline
+  Do **not** densify W19 / W1–W18 / H4-retest / ADR-fade / impulse-decay / FVG / R10–R31.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next independent class outside W1–W19; keep R-series paused; +$12 screen holds.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W18 ADRFADE/IMPULSEDECAY + COST-GRADE CLOSEOUT (2026-07-15 ~17:36 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  Dual-track: (1) cost-grade distance-to-freeze; (2) HARD PIVOT W18 new class.
+  **Cost-grade** `preflight/20260715_COST_GRADE_PUSH_W13_STATUS.json`:
+  - QFSI 007: watcher_alive=True cap_pid=72320 quotes=45557 hb=60000 tick_err=0
+  - quote_days=2/90 (gap=88); raw_deals=11; freeze_eligible=False
+  - commission unique days: {'EURUSD': '2/30', 'GBPUSD': '0/30', 'USDJPY': '0/30', 'XAUUSD': '0/30', 'BTCUSD': '3/30'}
+  - slip: MISSING_NE_0 — QFSI accumulate may grow fill rows but research freeze still needs verified side/ref/fill sample
+  - verdict: `COST_FREEZE_STILL_GAP__DEALS_STILL_~11__QUOTE_DAYS_CALENDAR_BOUND`
+  - Autonomous remaining: keep QFSI alive (calendar-bound days); retry deals (still ~11=exhausted); do NOT invent cost; Owner export optional only.
+  - W18 spot-check: `QFSI_007_HEALTHY` hb_alive=True proc_alive=True pid=72320 @ 2026-07-15T10:36:12.570644Z
+  Clean PRIMARY PF@$12=1.184 tpw=3.241; RealP50 DIAGNOSTIC only — do NOT promote GOAL.
+  **W18 offline** after W1–W17 ALL_KILL — MEAN-REVERT (ADR fade + impulse decay) ≠ session CONT:
+  1. `HYP-FX3-H1-ADR-COMPLETE-NY-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=241 PF=1.1051 tpw=0.9244 PF@$12=1.0609 x1.5=1.0396).
+  2. `HYP-FX3-H1-IMPULSE-DECAY-REVERSE-001` → **KILLED_AT_OFFLINE_PROBE** (N=804 PF=1.0604 tpw=3.0838 PF@$12=1.0238 x1.5=1.0061).
+  3. `HYP-BOOK-ADRFADE-IMPULSEDECAY-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=1027 PF=1.0678 tpw=3.9392 PF@$12=1.0297 x1.5=1.0113).
+  Receipt `09662DB35C2E113E4995AAF53F41975854F043005D1F2B2F2CD0433B98283DDE`
+  `preflight/20260715_HARD_PIVOT_W18_ADRFADE_IMPULSEDECAY_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_COST_GRADE_AND_HARD_PIVOT_W18_VN_ACTION_BRIEF.md`.
+  Freeze sha=ACC9ACE3CF9FDEBA… QFSI spot-check `QFSI_007_HEALTHY`; cost freeze GAP (11 deals); login not headline
+  Do **not** densify W18 / W1–W17 / H4-retest / Asia-quiet / relexp / trendday / FVG / R10–R31.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next independent class outside W1–W18; keep R-series paused; +$12 screen holds.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W17 RELEXP/TRENDDAY + COST-GRADE CLOSEOUT (2026-07-15 ~17:33 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  Dual-track: (1) cost-grade distance-to-freeze; (2) HARD PIVOT W17 new class.
+  **Cost-grade** `preflight/20260715_COST_GRADE_PUSH_W13_STATUS.json`:
+  - QFSI 007: watcher_alive=True cap_pid=72320 quotes=45557 hb=60000 tick_err=0
+  - quote_days=2/90 (gap=88); raw_deals=11; freeze_eligible=False
+  - commission unique days: {'EURUSD': '2/30', 'GBPUSD': '0/30', 'USDJPY': '0/30', 'XAUUSD': '0/30', 'BTCUSD': '3/30'}
+  - slip: MISSING_NE_0 — QFSI accumulate may grow fill rows but research freeze still needs verified side/ref/fill sample
+  - verdict: `COST_FREEZE_STILL_GAP__DEALS_STILL_~11__QUOTE_DAYS_CALENDAR_BOUND`
+  - Autonomous remaining: keep QFSI alive (calendar-bound days); retry deals (still ~11=exhausted); do NOT invent cost; Owner export optional only.
+  - W17 spot-check: `QFSI_007_HEALTHY` hb_alive=True proc_alive=True pid=72320 @ 2026-07-15T10:33:22.202672Z
+  Clean PRIMARY PF@$12=1.184 tpw=3.241; RealP50 DIAGNOSTIC only — do NOT promote GOAL.
+  **W17 offline** after W1–W16 ALL_KILL — EURGBP rel-expansion + D1 trend-day FT:
+  1. `HYP-FX3-H1-EURGBP-REL-EXPANSION-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=0 PF=None tpw=0.0 PF@$12=None x1.5=None).
+  2. `HYP-FX3-H1-D1-TRENDDAY-FOLLOWTHROUGH-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=690 PF=0.9841 tpw=2.6466 PF@$12=0.9522 x1.5=0.9369).
+  3. `HYP-BOOK-RELEXP-TRENDDAY-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=690 PF=0.9841 tpw=2.6466 PF@$12=0.9522 x1.5=0.9369).
+  Receipt `1CBB0E989A2AE0EC03F57AACBB27EBBC9E2B06BC3DDF4D9D0E7342384AFADF4F`
+  `preflight/20260715_HARD_PIVOT_W17_RELEXP_TRENDDAY_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_COST_GRADE_AND_HARD_PIVOT_W17_VN_ACTION_BRIEF.md`.
+  Freeze sha=7A9B094EE504A58B… QFSI spot-check `QFSI_007_HEALTHY`; cost freeze GAP (11 deals); login not headline
+  Do **not** densify W17 / W1–W16 / H4-retest / Asia-quiet / usdconsensus / FVG / R10–R31.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next independent class outside W1–W17; keep R-series paused; +$12 screen holds.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W16 WEEKHL/FAILBREAK + COST-GRADE CLOSEOUT (2026-07-15 ~17:31 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  Dual-track: (1) cost-grade distance-to-freeze; (2) HARD PIVOT W16 new class.
+  **Cost-grade** `preflight/20260715_COST_GRADE_PUSH_W13_STATUS.json`:
+  - QFSI 007: watcher_alive=True cap_pid=72320 quotes=45557 hb=60000 tick_err=0
+  - quote_days=2/90 (gap=88); raw_deals=11; freeze_eligible=False
+  - commission unique days: {'EURUSD': '2/30', 'GBPUSD': '0/30', 'USDJPY': '0/30', 'XAUUSD': '0/30', 'BTCUSD': '3/30'}
+  - slip: MISSING_NE_0 — QFSI accumulate may grow fill rows but research freeze still needs verified side/ref/fill sample
+  - verdict: `COST_FREEZE_STILL_GAP__DEALS_STILL_~11__QUOTE_DAYS_CALENDAR_BOUND`
+  - Autonomous remaining: keep QFSI alive (calendar-bound days); retry deals (still ~11=exhausted); do NOT invent cost; Owner export optional only.
+  - W16 spot-check: `QFSI_007_HEALTHY` hb_alive=True proc_alive=True pid=72320 @ 2026-07-15T10:31:49.825108Z
+  Clean PRIMARY PF@$12=1.184 tpw=3.241; RealP50 DIAGNOSTIC only — do NOT promote GOAL.
+  **W16 offline** after W1–W15 ALL_KILL — prior-week HL H1-retest + London fail-break NY reverse:
+  1. `HYP-FX3-H4-PRIOR-WEEK-HL-H1-RETEST-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1216 PF=1.0459 tpw=4.6641 PF@$12=1.0107 x1.5=0.9937).
+  2. `HYP-FX3-H1-LONDON-FAILBREAK-NY-REVERSE-001` → **KILLED_AT_OFFLINE_PROBE** (N=1142 PF=1.0466 tpw=4.3803 PF@$12=1.01 x1.5=0.9923).
+  3. `HYP-BOOK-WEEKHL-FAILBREAK-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=2333 PF=1.0487 tpw=8.9485 PF@$12=1.0127 x1.5=0.9954).
+  Receipt `5A2214A62A93B7AB867C0B0A0F47139C9BE2C2FDECD0B6DC71ABA6AC0077F774`
+  `preflight/20260715_HARD_PIVOT_W16_WEEKHL_FAILBREAK_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_COST_GRADE_AND_HARD_PIVOT_W16_VN_ACTION_BRIEF.md`.
+  Freeze sha=9051C994039B2AA2… QFSI spot-check `QFSI_007_HEALTHY`; cost freeze GAP (11 deals); login not headline
+  Do **not** densify W16 / W1–W15 / H4-retest / Asia-quiet / L-range NY / pivot / FVG / R10–R31.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next independent class outside W1–W16; keep R-series paused; +$12 screen holds.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W15 LRANGE/NYBREAK/PIVOT + COST-GRADE CLOSEOUT (2026-07-15 ~17:30 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  Dual-track: (1) cost-grade distance-to-freeze; (2) HARD PIVOT W15 new class.
+  **Cost-grade** `preflight/20260715_COST_GRADE_PUSH_W13_STATUS.json`:
+  - QFSI 007: watcher_alive=True cap_pid=72320 quotes=45557 hb=60000 tick_err=0
+  - quote_days=2/90 (gap=88); raw_deals=11; freeze_eligible=False
+  - commission unique days: {'EURUSD': '2/30', 'GBPUSD': '0/30', 'USDJPY': '0/30', 'XAUUSD': '0/30', 'BTCUSD': '3/30'}
+  - slip: MISSING_NE_0 — QFSI accumulate may grow fill rows but research freeze still needs verified side/ref/fill sample
+  - verdict: `COST_FREEZE_STILL_GAP__DEALS_STILL_~11__QUOTE_DAYS_CALENDAR_BOUND`
+  - Autonomous remaining: keep QFSI alive (calendar-bound days); retry deals (still ~11=exhausted); do NOT invent cost; Owner export optional only.
+  - W15 spot-check: `QFSI_007_HEALTHY` hb_alive=True proc_alive=True pid=72320 @ 2026-07-15T10:30:07.071839Z
+  Clean PRIMARY PF@$12=1.184 tpw=3.241; RealP50 DIAGNOSTIC only — do NOT promote GOAL.
+  **W15 offline** after W1–W14 ALL_KILL — London-range NY-break + prior-day pivot R1/S1:
+  1. `HYP-FX3-H1-LONDON-RANGE-NY-BREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1528 PF=1.033 tpw=5.8608 PF@$12=0.9889 x1.5=0.9677).
+  2. `HYP-FX3-H1-PRIOR-DAY-PIVOT-R1S1-BREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1434 PF=1.0006 tpw=5.5003 PF@$12=0.9639 x1.5=0.9462).
+  3. `HYP-BOOK-LRANGE-NYBREAK-PIVOT-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=2733 PF=1.005 tpw=10.4827 PF@$12=0.9652 x1.5=0.946).
+  Receipt `2083ACD337D36B06E7995BF435BE8CFD8FCD551EEE1E782B4AA978449CECF6B0`
+  `preflight/20260715_HARD_PIVOT_W15_LRANGE_NYBREAK_PIVOT_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_COST_GRADE_AND_HARD_PIVOT_W15_VN_ACTION_BRIEF.md`.
+  Freeze sha=DDD240034E1BB1CD… QFSI spot-check `QFSI_007_HEALTHY`; cost freeze GAP (11 deals); login not headline
+  Do **not** densify W15 / W1–W14 / H4-retest / Asia-quiet / FVG / absorb3 / R10–R31 / swing / Donch / Outside / VR.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next independent class outside W1–W15; keep R-series paused; +$12 screen holds.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W14 H4RETEST/ASIAQUIET + COST-GRADE CLOSEOUT (2026-07-15 ~17:26 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  Dual-track: (1) cost-grade distance-to-freeze; (2) HARD PIVOT W14 new class.
+  **Cost-grade** `preflight/20260715_COST_GRADE_PUSH_W13_STATUS.json`:
+  - QFSI 007: watcher_alive=True cap_pid=72320 quotes=45557 hb=60000 tick_err=0
+  - quote_days=2/90 (gap=88); raw_deals=11; freeze_eligible=False
+  - commission unique days: {'EURUSD': '2/30', 'GBPUSD': '0/30', 'USDJPY': '0/30', 'XAUUSD': '0/30', 'BTCUSD': '3/30'}
+  - slip: MISSING_NE_0 — QFSI accumulate may grow fill rows but research freeze still needs verified side/ref/fill sample
+  - verdict: `COST_FREEZE_STILL_GAP__DEALS_STILL_~11__QUOTE_DAYS_CALENDAR_BOUND`
+  - Autonomous remaining: keep QFSI alive (calendar-bound days); retry deals (still ~11=exhausted); do NOT invent cost; Owner export optional only.
+  Clean PRIMARY PF@$12=1.184 tpw=3.241; RealP50 DIAGNOSTIC only — do NOT promote GOAL.
+  **W14 offline** after W1–W13 ALL_KILL — H4 retest CONT + Asia-quiet London break:
+  1. `HYP-FX3-H4-SWING-BREAK-H1-RETEST-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1105 PF=1.2649 tpw=4.2384 PF@$12=1.2209 x1.5=1.1996).
+  2. `HYP-FX3-H1-ASIA-QUIET-LONDON-BREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=0 PF=None tpw=0.0 PF@$12=None x1.5=None).
+  3. `HYP-BOOK-H4RETEST-ASIAQUIET-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=1105 PF=1.2649 tpw=4.2384 PF@$12=1.2209 x1.5=1.1996).
+  Receipt `695F1F6E3A838B05D6AC07E49FBD156CB3670CB6DD92C25A5EFA8F22719ABAD0`
+  `preflight/20260715_HARD_PIVOT_W14_H4RETEST_ASIAQUIET_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_COST_GRADE_AND_HARD_PIVOT_W14_VN_ACTION_BRIEF.md`.
+  Freeze sha=38114614321DAE47… QFSI: QFSI 007 parallel; cost freeze GAP (11 deals); login not headline
+  Do **not** densify W14 / W1–W13 / FVG / absorb3 / R10–R31 / swing / Donch / Outside / VR.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next independent class outside W1–W14; keep R-series paused; +$12 screen holds.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W13 PRIOR2D/USDCONSENSUS + COST-GRADE CLOSEOUT (2026-07-15 ~17:23 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  Dual-track: (1) cost-grade distance-to-freeze; (2) HARD PIVOT W13 new class.
+  **Cost-grade** `preflight/20260715_COST_GRADE_PUSH_W13_STATUS.json`:
+  - QFSI 007: watcher_alive=True cap_pid=72320 quotes=45557 hb=60000 tick_err=0
+  - quote_days=2/90 (gap=88); raw_deals=11; freeze_eligible=False
+  - commission unique days: {'EURUSD': '2/30', 'GBPUSD': '0/30', 'USDJPY': '0/30', 'XAUUSD': '0/30', 'BTCUSD': '3/30'}
+  - slip: MISSING_NE_0 — QFSI accumulate may grow fill rows but research freeze still needs verified side/ref/fill sample
+  - verdict: `COST_FREEZE_STILL_GAP__DEALS_STILL_~11__QUOTE_DAYS_CALENDAR_BOUND`
+  - Autonomous remaining: keep QFSI alive (calendar-bound days); retry deals (still ~11=exhausted); do NOT invent cost; Owner export optional only.
+  Clean PRIMARY PF@$12=1.184 tpw=3.241; RealP50 DIAGNOSTIC only — do NOT promote GOAL.
+  **W13 offline** after W1–W12 ALL_KILL — prior-2D break CONT + USD-consensus impulse:
+  1. `HYP-FX3-H1-PRIOR2D-RANGE-BREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=2021 PF=1.0377 tpw=7.7518 PF@$12=1.0032 x1.5=0.9866).
+  2. `HYP-FX3-H1-USD-CONSENSUS-IMPULSE-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=3950 PF=1.0609 tpw=15.1507 PF@$12=1.0237 x1.5=1.0058).
+  3. `HYP-BOOK-PRIOR2D-USDCONSENSUS-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=5780 PF=1.0455 tpw=22.1699 PF@$12=1.0097 x1.5=0.9924).
+  Receipt `458A9E31285183A08288A4999FC0F4A8995EC45E8DA9087F9862C0FCA461B34F`
+  `preflight/20260715_HARD_PIVOT_W13_PRIOR2D_USDCONSENSUS_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_COST_GRADE_AND_HARD_PIVOT_W13_VN_ACTION_BRIEF.md`.
+  Freeze sha=DE2690E77AFF6E6A… QFSI: QFSI 007 parallel; cost freeze GAP (11 deals); login not headline
+  Do **not** densify W13 / W1–W12 / FVG / absorb3 / R10–R31 / swing / Donch / Outside / VR.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next independent class outside W1–W13; keep R-series paused; +$12 screen holds.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W12 WEEKDAYGAP/ABSORB + COST-LADDER CLOSEOUT (2026-07-15 ~17:19 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  Dual-track: (1) cost-ladder diagnostic RR2/clean-book; (2) HARD PIVOT W12 new class.
+  **Cost-ladder** receipt `6479B6A10B2402E972EF3B46112F3EF14BBC884453AF1A36BC9023A1B7E1BECA`
+  (`preflight/20260715_COST_LADDER_DIAGNOSTIC_RR2_CLEANBOOK.json`):
+  RR2 PF tester/RealP50/@$8/@$12 = 1.378 / 1.316 / 1.199 / **1.120**;
+  Clean PRIMARY = 1.409 / 1.356 / 1.254 / **1.184** tpw=3.241.
+  Real/QFSI P50=`$2.6168` DIAGNOSTIC only (GAP: 11 deals, ≪90d, slip MISSING≠0).
+  Verdict: $12 punitive vs thin Real sample BUT **still binding RESEARCH-GRADE** —
+  do NOT claim GOAL/confirmed from DIAGNOSTIC rows. FVG cite PF@$12=1.205 tpw=1.15 densify FORBIDDEN.
+  **W12 offline** after W1–W11 ALL_KILL — weekday D1 gap CONT + absorb3 reverse:
+  1. `HYP-FX3-H1-WEEKDAY-D1GAP-CONT-MULTIDAY-001` → **KILLED_AT_OFFLINE_PROBE** (N=528 PF=0.8337 tpw=2.0252 PF@$12=0.8066 x1.5=0.7936).
+  2. `HYP-FX3-H1-ABSORB3-WICK-REVERSE-001` → **KILLED_AT_OFFLINE_PROBE** (N=57 PF=2.2594 tpw=0.2186 PF@$12=2.1844 x1.5=2.1483) — thick/starve; no densify.
+  3. `HYP-BOOK-WEEKDAYGAP-ABSORB-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=585 PF=0.9322 tpw=2.2438 PF@$12=0.9018 x1.5=0.8872).
+  Receipt `B1E847FB64F13900D61707AD55918E1002F370C9044D4F05502901BCCA621EE8`
+  `preflight/20260715_HARD_PIVOT_W12_WEEKDAYGAP_ABSORB_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_COST_LADDER_AND_HARD_PIVOT_W12_VN_ACTION_BRIEF.md`.
+  Freeze sha=C30A76C010629ECD… QFSI: QFSI 007 parallel; cost freeze GAP (11 deals); login not headline
+  Do **not** densify W12 / W1–W11 / FVG / absorb3 / R10–R31 / swing / Donch / Outside / VR.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next independent class outside W1–W12; keep R-series paused; +$12 screen holds.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W11 INVENTORY/PERSIST CLOSEOUT (2026-07-15 ~17:14 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  HARD PIVOT W11 after W10 high-R ALL_KILL — overnight inventory + persist2 PB.
+  Offline screen:
+  1. `HYP-FX3-H1-LONDON-CLOSE-INVENTORY-ON-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1336 PF=1.0721 tpw=5.1244 PF@$12=1.0224 x1.5=0.9985).
+  2. `HYP-FX3-H4-D1-PERSIST2-PB-ACCEPT-MULTIDAY-001` → **KILLED_AT_OFFLINE_PROBE** (N=692 PF=1.0644 tpw=2.6542 PF@$12=0.9944 x1.5=0.9611).
+  BOOK. `HYP-BOOK-HIGHR-INVENTORY-PERSIST-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=2016 PF=1.0765 tpw=7.7326 PF@$12=1.0209 x1.5=0.9944 caps_ok=True).
+  Receipt `AC94A8B11FC701862D92D3F950D56BBDBF006617FF74FB3334DA337A59C63882`
+  `preflight/20260715_HARD_PIVOT_W11_INVENTORY_PERSIST_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_HARD_PIVOT_W11_VN_ACTION_BRIEF.md`.
+  Freeze sha=B991CBE5AE257950… QFSI: QFSI 007 parallel; cost freeze GAP (11 deals); login not headline
+  W10 carry: high-R book tpw~2.25 / edge neg; month thick-rare starve.
+  Do **not** densify W11 / W1–W10 / FVG / R10–R31 / swing / Donch / Outside / VR.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next independent class outside W1–W11; keep R-series paused.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W10 HIGHR MULTIDAY CLOSEOUT (2026-07-15 ~17:12 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  HARD PIVOT W10 after W9 thick-rare BOOK ALL_KILL — CHANGE COST ECONOMICS.
+  High-R / multi-day dual-setup (a priori MFE ≫ $12) + optional month thick-rare ≠ W9.
+  Offline screen:
+  1. `HYP-FX3-H4-WEEKLY-OPEN-BIAS-RETEST-MULTIDAY-001` → **KILLED_AT_OFFLINE_PROBE** (N=257 PF=0.824 tpw=0.9858 PF@$12=0.7948 x1.5=0.7808).
+  2. `HYP-FX3-H4-D1-DISPLACE-MID-RECLAIM-MULTIDAY-001` → **KILLED_AT_OFFLINE_PROBE** (N=335 PF=0.9171 tpw=1.2849 PF@$12=0.8626 x1.5=0.8367).
+  3. `HYP-FX3-H4-MONTHLY-OPEN-FIRST-ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=77 PF=0.9978 tpw=0.2953 PF@$12=0.9627 x1.5=0.9458).
+  4. `HYP-FX3-H4-PRIOR-MONTH-HL-FAILBREAK-REV-001` → **KILLED_AT_OFFLINE_PROBE** (N=116 PF=0.8782 tpw=0.4449 PF@$12=0.8343 x1.5=0.8134).
+  BOOK_HR. `HYP-BOOK-HIGHR-MULTIDAY-DUAL-SETUP-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=586 PF=0.8569 tpw=2.2477 PF@$12=0.8174 x1.5=0.7984 caps_ok=False).
+  BOOK_TR. `HYP-BOOK-THICKRARE-MONTHSTRUCT-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=193 PF=0.9349 tpw=0.7403 PF@$12=0.895 x1.5=0.8759 caps_ok=True).
+  Receipt `4AB5CB4EB996B0930001CFFC0B359ECAC3CD5E4222D12F5F273B186DAA367704`
+  `preflight/20260715_HARD_PIVOT_W10_HIGHR_MULTIDAY_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_HARD_PIVOT_W10_VN_ACTION_BRIEF.md`.
+  Freeze sha=D676485150B7F91E… QFSI: QFSI 007 parallel; cost freeze GAP (11 deals); login not headline
+  W9 carry: thick-rare topology OK / edge neg; location-accept saturated.
+  Do **not** densify W10 / W1–W9 / FVG / R10–R31 / swing / Donch / Outside / VR.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next independent class outside W1–W10 / killed high-R shelf;
+  keep R-series paused; QFSI parallel; cost autonomous retry.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W9 THICKRARE BOOK CLOSEOUT (2026-07-15 ~17:07 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  HARD PIVOT W9 after W1–W8 entry-state ALL_KILL.
+  NEW a priori thick-rare BOOK (≥2 independent location sleeves):
+  NY-Asia-raid reclaim + failed-2D reverse; optional H4 swing retest single.
+  Offline screen:
+  1. `HYP-FX3-H1-NY-ASIA-RAID-RECLAIM-ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=764 PF=0.802 tpw=2.9304 PF@$12=0.752 x1.5=0.7283).
+  2. `HYP-FX3-H1-FAILED-2D-RANGE-BREAK-REVERSE-ACCEPT-001` → **KILLED_AT_OFFLINE_PROBE** (N=34 PF=0.9134 tpw=0.1304 PF@$12=0.861 x1.5=0.8361).
+  3. `HYP-FX3-H1-H4-SWING-FIRST-RETEST-ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=15 PF=1.0423 tpw=0.0575 PF@$12=0.9856 x1.5=0.9589).
+  BOOK. `HYP-BOOK-THICKRARE-DUAL-LOC-APRIORI-001` → **KILLED_AT_OFFLINE_PROBE** (N=798 PF=0.8068 tpw=3.0608 PF@$12=0.7567 x1.5=0.733 caps_ok=True).
+  Receipt `DF70F778BB4E8A6AECDD4819DBD1B9A4C1E30F356C628CE7123E945CD94A7E5C`
+  `preflight/20260715_HARD_PIVOT_W9_THICKRARE_BOOK_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_HARD_PIVOT_W9_VN_ACTION_BRIEF.md`.
+  Freeze sha=05869F07F21AE9B5… QFSI: QFSI 007 parallel; cost freeze GAP (11 deals); login not headline
+  W8 carry: insidebar/lbox ALL_KILL; FVG FORBIDDEN densify.
+  Do **not** densify W9 / W1–W8 / FVG / R10–R31 / exit / MaxKZ.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next thick-rare book class or entry-state outside W1–W9;
+  keep R-series paused; QFSI parallel; cost autonomous retry.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W8 INSIDEBAR/LBOX CLOSEOUT (2026-07-15 ~17:03 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  HARD PIVOT W8 after W1–W7 entry-state ALL_KILL.
+  NEW classes (post-friction $/trade→cadence): insidebar mother-break +
+  London-box overlap-break accept.
+  Offline joint screen:
+  1. `HYP-FX3-H1-INSIDEBAR-MOTHER-BREAK-ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=2317 PF=1.0625 tpw=8.8871 PF@$12=1.0107 x1.5=0.9859).
+  2. `HYP-FX3-H1-LONDON-BOX-OVERLAP-BREAK-ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=779 PF=1.0692 tpw=2.9879 PF@$12=1.0057 x1.5=0.9754).
+  Receipt `B41004B3ABCD3AD4BE613A5D73E78424842ABA068792FE94493007BAF57F915D`
+  `preflight/20260715_HARD_PIVOT_W8_INSIDEBAR_LBOX_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_HARD_PIVOT_W8_VN_ACTION_BRIEF.md`.
+  Freeze sha=BB0D00C6429A41DD… QFSI: QFSI 007 parallel; cost freeze GAP (11 deals); login not headline
+  W7 carry: expansion cadenceOK/thin; handoff thicker/starve; FVG FORBIDDEN.
+  Do **not** densify insidebar-k / lbox-k / W1–W7 / FVG / R10–R31 / exit / MaxKZ.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next entry-state class outside W1–W8; keep R-series paused;
+  QFSI parallel; cost autonomous retry.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W7 EXPANSION/HANDOFF CLOSEOUT (2026-07-15 ~17:01 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  HARD PIVOT W7 after W1–W6 entry-state ALL_KILL.
+  NEW classes (post-friction $/trade→cadence): ATR-expansion PD-mid +
+  London-disp→NY PB handoff nested.
+  Offline joint screen:
+  1. `HYP-FX3-H1-ATR-EXPANSION-PDMID-ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=636 PF=0.9038 tpw=2.4395 PF@$12=0.857 x1.5=0.8347).
+  2. `HYP-FX3-H1-LONDON-DISP-NY-PB-ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=427 PF=1.2019 tpw=1.6378 PF@$12=1.1402 x1.5=1.1106).
+  Receipt `3CDD263694CD8BC1F66DCAE3F6B1A111B1BE4AED9AC39861D5A9DBE50CEF7343`
+  `preflight/20260715_HARD_PIVOT_W7_EXPANSION_HANDOFF_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_HARD_PIVOT_W7_VN_ACTION_BRIEF.md`.
+  Freeze sha=A5DD600BDEF3BEF1… QFSI: QFSI 007 parallel; cost freeze GAP (11 deals); login not headline
+  W6 carry: excess starve / nested PF@$12~1; FVG thick FORBIDDEN densify.
+  Do **not** densify expansion-k / handoff-k / W1–W6 / FVG / R10–R31 / exit / MaxKZ.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next entry-state class outside W1–W7; keep R-series paused;
+  QFSI parallel; cost autonomous retry.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W6 EXCESS/NESTED CLOSEOUT (2026-07-15 ~16:58 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  HARD PIVOT W6 after W1–W5 entry-state ALL_KILL.
+  NEW classes (thick∩cadence): London excess mid-accept + nested double-accept.
+  Offline joint screen:
+  1. `HYP-FX3-H1-LONDON-EXCESS-MID-ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=67 PF=1.1049 tpw=0.257 PF@$12=1.0149 x1.5=0.9725).
+  2. `HYP-FX3-H1-IMPULSE-NESTED-DOUBLE-ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1403 PF=1.0583 tpw=5.3814 PF@$12=1.0093 x1.5=0.9858).
+  Receipt `C9D28EA1332A2136AC00FB917737BC5C9E87C70DE7B02494CD907551E5E6AB98`
+  `preflight/20260715_HARD_PIVOT_W6_EXCESS_NESTED_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_HARD_PIVOT_W6_VN_ACTION_BRIEF.md`.
+  Freeze sha=178D9875542343F2… QFSI: QFSI 007 parallel; cost freeze GAP (11 deals); login not headline
+  W5 carry: cadenceOK but PF@$12<1; FVG thick/tpw1.15 FORBIDDEN densify.
+  Do **not** densify excess-k / nested-k / W1–W5 / FVG / R10–R31 / exit / MaxKZ.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next entry-state class outside W1–W6; keep R-series paused;
+  QFSI parallel; cost autonomous retry.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W5 ASIASWEEP/LEADLAG CLOSEOUT (2026-07-15 ~14:36 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  HARD PIVOT W5 after W1–W4 entry-state ALL_KILL.
+  NEW classes (thick∩cadence breakers): asia-sweep mid-reclaim + leadlag peer.
+  Offline joint screen:
+  1. `HYP-FX3-H1-ASIA-SWEEP-MID-RECLAIM-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=647 PF=0.994 tpw=2.4816 PF@$12=0.9524 x1.5=0.9324).
+  2. `HYP-FX3-H1-LEADLAG-PEER-ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1032 PF=1.0295 tpw=3.9584 PF@$12=0.9884 x1.5=0.9686).
+  Receipt `66BBCDF51F01A76DED575ADAE5EB6A14C9FA4BD34FEF8D01683B3B1F7CC30380`
+  `preflight/20260715_HARD_PIVOT_W5_ASIASWEEP_LEADLAG_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_HARD_PIVOT_W5_VN_ACTION_BRIEF.md`.
+  Freeze sha=083B5FBEE279C54F… QFSI: QFSI 007 parallel; cost freeze GAP (11 deals); login not headline
+  Evidence map carry: FVG near-miss thick~$53/tpw1.15 FORBIDDEN densify;
+  cadence-capable accepts die under +$12 across W1–W4.
+  Do **not** densify asiasweep-k / leadlag-k / W1–W4 / FVG / R10–R31 / exit / MaxKZ.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next entry-state class outside W1–W5; keep R-series paused;
+  QFSI parallel; cost autonomous retry.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W4 ROUND/DUALIMP CLOSEOUT (2026-07-15 ~14:32 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  HARD PIVOT W4 after W1–W3 entry-state ALL_KILL.
+  NEW classes: round-level accept-break + dual-impulse accept.
+  Offline joint screen:
+  1. `HYP-FX3-H1-ROUND-LEVEL-ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1956 PF=1.017 tpw=7.5025 PF@$12=0.9775 x1.5=0.9585).
+  2. `HYP-FX3-H1-DUAL-IMPULSE-ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=827 PF=1.0029 tpw=3.1721 PF@$12=0.9403 x1.5=0.9106).
+  Receipt `8A5D11E3A539E6BE13E871B9F470ADD8D8E042A743EC7ED3FFC3E7C3F8665C3C`
+  `preflight/20260715_HARD_PIVOT_W4_ROUND_DUALIMP_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_HARD_PIVOT_W4_VN_ACTION_BRIEF.md`.
+  Freeze sha=FC2BD3E4AE9F2927… QFSI: QFSI 007 parallel; cost freeze GAP (11 deals); login not headline
+  Evidence map carry: FVG near-miss thick~$53/tpw1.15 FORBIDDEN densify;
+  body-mit cadenceOK/thin; CISD mid; H4/breaker/auction dense-thin.
+  Do **not** densify round-k / dualimp-k / W1–W3 / FVG / R10–R31 / exit / MaxKZ.
+  Clean book still GOAL_SCREEN_FAIL. PRIMARY PF@$12=1.184 tpw=3.241.
+  Next: next entry-state class outside W1–W4; keep R-series paused;
+  QFSI parallel; cost autonomous retry.
+  Best shelf RR2 `194548`. Cost freeze GAP. GOAL unmet.
+
+
+- **HARD PIVOT W3 H4DISP/CISD CLOSEOUT (2026-07-15 ~14:31 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  HARD PIVOT W3 after W2 breaker+bodymit ALL_KILL.
+  NEW classes: H4-disp→H1-accept + SB CISD-after-PB.
+  Offline joint screen:
+  1. `HYP-FX3-H1-H4DISP-H1ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1484 PF=0.959 tpw=5.6921 PF@$12=0.8965 x1.5=0.867).
+  2. `HYP-SB-CISD-PULLBACK-ACCEPT-001` → **KILLED_AT_OFFLINE_PROBE** (N=374 PF=1.0848 tpw=1.4345 PF@$12=1.0279 x1.5=1.0008).
+  Receipt `98C44AFE26ABB444337DDC894C90A7282D18AB809A23686BCD0046B1CD65F89F`
+  `preflight/20260715_HARD_PIVOT_W3_H4DISP_CISD_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_HARD_PIVOT_W3_VN_ACTION_BRIEF.md`.
+  Panel `readouts/20260715_HARD_PIVOT_W3_H4DISP_CISD_3CRITIC_PANEL.md`.
+  Freeze sha=E6469617962CD7ED…
+  QFSI: QFSI 007 parallel accumulate; cost freeze still GAP (raw_deals≈11; freeze_eligible=False); login not headline
+  Do **not** densify h4disp-k / cisd-k / breaker-k / body-mit-k /
+  auction-persist-k / fvg-retest-k / R10–R31 / exit / MaxKZ / ORB/IB / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`.
+  Next: if ALL_KILL → next entry-state class outside W1–W3 objects;
+  keep R-series densify paused; QFSI parallel; cost autonomous retry.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **HARD PIVOT W2 BREAKER/BODYMIT CLOSEOUT (2026-07-15 ~14:29 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  HARD PIVOT W2 after auction-persist + FVG-retest ALL_KILL.
+  NEW entry-state classes (not densify of killed objects).
+  Offline joint screen:
+  1. `HYP-FX3-H1-BREAKER-RETEST-ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=2096 PF=1.1131 tpw=8.0395 PF@$12=1.0599 x1.5=1.0345).
+  2. `HYP-SB-DISP-BODY-MITIGATION-ACCEPT-001` → **KILLED_AT_OFFLINE_PROBE** (N=785 PF=1.0306 tpw=3.011 PF@$12=0.9772 x1.5=0.9517).
+  Receipt `F9B52AAAFE0A981431BA02DF91D8BB409E473F81BC2642D516080142B8ED844D`
+  `preflight/20260715_HARD_PIVOT_W2_BREAKER_BODYMIT_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_HARD_PIVOT_W2_VN_ACTION_BRIEF.md`.
+  Panel `readouts/20260715_HARD_PIVOT_W2_BREAKER_BODYMIT_3CRITIC_PANEL.md`.
+  Freeze sha=11D25A7AFB478C6F…
+  QFSI: QFSI 007 parallel accumulate; cost freeze still GAP (raw_deals≈11; freeze_eligible=False); login not headline
+  Do **not** densify breaker-k / body-mit-k / auction-persist-k /
+  fvg-retest-k / R10–R31 / exit / MaxKZ / ETH VR / ORB/IB / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`.
+  Next: if ALL_KILL → next entry-state class outside these four objects;
+  keep R-series densify paused; QFSI parallel; cost autonomous retry.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **HARD PIVOT ENTRY-STATE REBUILD CLOSEOUT (2026-07-15 ~14:26 ICT) — `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  HARD PIVOT after R10–R31 densify spam ALL_KILL. Pause R-series OHLC/
+  calendar/indicator/event densify this session. 3-critic merge → ≤2
+  entry-state rebuild children (not exit densify, not MaxKZ densify,
+  not Outside-bar clone, not ETH VR densify).
+  Offline joint screen:
+  1. `HYP-FX3-H1-AUCTION-PERSIST-CADENCE-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=3205 PF=1.0634 tpw=12.2932 PF@$12=1.0217 x1.5=1.0016).
+  2. `HYP-SB-FVG-RETEST-ACCEPT-DELAY-001` → **KILLED_AT_OFFLINE_PROBE** (N=299 PF=1.2747 tpw=1.1468 PF@$12=1.2054 x1.5=1.1724).
+  Receipt `202A33835FC62A307C199594AA71C7A7B1711BF5265F96EA9F0E15D65467A0E6`
+  `preflight/20260715_HARD_PIVOT_ENTRYSTATE_REBUILD_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_HARD_PIVOT_VN_ACTION_BRIEF.md`.
+  Panel `readouts/20260715_HARD_PIVOT_ENTRYSTATE_REBUILD_3CRITIC_PANEL.md`.
+  Book a priori freeze sha=D123520950D84C29… `readouts/20260715_HARD_PIVOT_BOOK_RR2SPARK_PERSIST_APRIORI_FREEZE.md`.
+  QFSI: QFSI 007 parallel accumulate; cost freeze still GAP (raw_deals≈11; freeze_eligible=False); login not headline
+  Near-miss note (NO densify): FVG-retest exp≈$53/trade PF@$12≈1.21 but
+  tpw≈1.15 cadence_fail; auction-persist too dense tpw≈12 PF thin.
+  Do **not** densify auction-persist-k / fvg-retest-k /
+  R10–R31 / exit / MaxKZ / ETH VR / ORB/IB / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`.
+  Next: entry-state architecture class outside these two objects;
+  keep R-series densify paused; QFSI parallel; cost autonomous retry.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND31 OUTSIDE/FIRSTDOM/TSTOPCD CLOSEOUT (2026-07-15 ~14:17 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE **non-indicator** greenfield outside R1–R30 densify
+  (structural / event / book-architecture).
+  Nested critic GO — Outside-bar / First-DOM / Post-timestop-CD (sha=18DF2BC4645E5DC9…). Lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-FX3-H1-OUTSIDE-BAR-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=3278 PF=0.9626 tpw=12.5732 x1.5=0.9034).
+  2. `HYP-GBPUSD-H1-FIRST-DOM-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=17 PF=0.3147 tpw=0.0652 x1.5=0.2883).
+  3. `HYP-FX3-H1-POST-TIMESTOP-CD-ARCH-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=3896 PF=0.9466 tpw=14.9436 x1.5=0.881).
+  Receipt `AAD9BA4043042D994B02AD9B1638C103C4FEE02000FEDC4232E8091D02527343`
+  `preflight/20260715_GREENFIELD_R31_OUTSIDE_FIRSTDOM_TSTOPCD_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R31_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T07:17:52.726794Z alive=True cap_pid=72320 wall_rem=254779; 007 accumulate hb=17100 quotes=13475 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Cost autonomous: autonomous live import `IMPORTED_LIVE_HISTORY_PARTIAL` raw_deals=11 comm EURUSD=2/30 USDJPY=0/30 slip=0 MISSING≠0; multiday_table quote_days=2/90 freeze_eligible=False; R31 retry history_deals_get raw_deals=11 comm_unique={'BTCUSD': 3, 'EURUSD': 2}; freeze_eligible=False
+  Near-miss carry (NO densify): OPEX PF≈1.35 x1.5≈1.26 but N=76 tpw≈0.29.
+  Do **not** densify outside-k / firstdom-k / tstopcd-k /
+  R30 dayopen/IMM/samedircap / R29 equal-HL/opex/oneslot /
+  R28 week-HL/monthend/losscd / H4-engulf / lead / fade-session /
+  ORB/IB / unpark / RR2-exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R31 (still NON-FADE, non-indicator) —
+  QFSI parallel; cost autonomous retry (no Owner deal-export headline).
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND30 DAYOPEN/IMM/SAMEDIRCAP CLOSEOUT (2026-07-15 ~14:15 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE **non-indicator** greenfield outside R1–R29 densify
+  (structural / event / book-architecture).
+  Nested critic GO — Prior-day Open / IMM-Wed / SameDir-Cap2 (sha=562C452F380A3303…). Lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-FX3-H1-PRIOR-DAY-OPEN-BREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1579 PF=1.0011 tpw=6.0564 x1.5=0.9373).
+  2. `HYP-EURUSD-H1-IMM-WEDNESDAY-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=27 PF=1.0405 tpw=0.1036 x1.5=0.9592).
+  3. `HYP-FX3-H1-SAMEDIR-CAP2-ARCH-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=3896 PF=0.9393 tpw=14.9436 x1.5=0.8748).
+  Receipt `DD7FE049B2D3B35F19C21F3649B99F3C750F747BE5647C463FFAD6866522F635`
+  `preflight/20260715_GREENFIELD_R30_DAYOPEN_IMM_SAMEDIRCAP_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R30_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T07:15:35.157419Z alive=True cap_pid=72320 wall_rem=254916; 007 accumulate hb=16560 quotes=13098 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Cost autonomous: autonomous live import `IMPORTED_LIVE_HISTORY_PARTIAL` raw_deals=11 comm EURUSD=2/30 USDJPY=0/30 slip=0 MISSING≠0; multiday_table quote_days=2/90 freeze_eligible=False; R30 retry history_deals_get raw_deals=11 comm_unique={'BTCUSD': 3, 'EURUSD': 2}; freeze_eligible=False
+  Near-miss carry (NO densify): OPEX PF≈1.35 x1.5≈1.26 but N=76 tpw≈0.29.
+  Do **not** densify dayopen-k / imm-k / samedircap-k /
+  R29 equal-HL/opex/oneslot / R28 week-HL/monthend/losscd /
+  R27 TA / R26 HA/Keltner/ST / H4-engulf / lead / fade-session /
+  ORB/IB / unpark / RR2-exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R30 (still NON-FADE, non-indicator) —
+  QFSI parallel; cost autonomous retry (no Owner deal-export headline).
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND29 EQUALHL/OPEX/ONESLOT CLOSEOUT (2026-07-15 ~14:12 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE **non-indicator** greenfield outside R1–R28 densify
+  (structural / event / book-architecture).
+  Nested critic GO — Equal-HL / OPEX-Friday / One-slot (sha=50FF0546E011289F…). Lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-FX3-H1-EQUAL-HL-BREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=3566 PF=1.0064 tpw=13.6778 x1.5=0.9458).
+  2. `HYP-USDJPY-H1-OPEX-FRIDAY-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=76 PF=1.3487 tpw=0.2915 x1.5=1.2578).
+  3. `HYP-FX3-H1-ONESLOT-BOOK-ARCH-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1299 PF=0.8045 tpw=4.9825 x1.5=0.7447).
+  Receipt `4DCC400EA3A2E5CA7A735C31E29AB7F097B4036976381FCF09E3FC7204D28885`
+  `preflight/20260715_GREENFIELD_R29_EQUALHL_OPEX_ONESLOT_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R29_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T07:12:16.478579Z alive=True cap_pid=72320 wall_rem=255115; 007 accumulate hb=15840 quotes=12502 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Cost autonomous: autonomous live import `IMPORTED_LIVE_HISTORY_PARTIAL` raw_deals=11 comm EURUSD=2/30 USDJPY=0/30 slip=0 MISSING≠0; multiday_table quote_days=2/90 freeze_eligible=False; R29 retry history_deals_get raw_deals=11 comm_unique={'BTCUSD': 3, 'EURUSD': 2}; freeze_eligible=False
+  Near-miss (NO densify): OPEX PF≈1.35 x1.5≈1.26 but N=76 tpw≈0.29.
+  Do **not** densify equal-HL-k / opex-window-k / oneslot-k /
+  R28 week-HL/monthend/losscd / R27 TA / R26 HA/Keltner/ST /
+  H4-engulf / lead / fade-session / ORB/IB / unpark / RR2-exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R29 (still NON-FADE, non-indicator) —
+  QFSI parallel; cost autonomous retry (no Owner deal-export headline).
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND28 WEEKSTRUCT/MONTHEND/LOSSCD CLOSEOUT (2026-07-15 ~14:10 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE **non-indicator** greenfield outside R1–R27 densify
+  (structural / event / book-architecture; TA-clone ban).
+  Nested critic GO — Prior-week HL / Month-end rebal / Loss-cooldown (sha=70BC7D16A56CB86B…). Lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-FX3-H1-PRIOR-WEEK-HL-BREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=696 PF=1.0955 tpw=2.6696 x1.5=1.025).
+  2. `HYP-EURUSD-H1-MONTHEND-REBAL-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=236 PF=0.8552 tpw=0.9052 x1.5=0.7933).
+  3. `HYP-FX3-H1-LOSS-COOLDOWN-ARCH-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=3528 PF=0.9636 tpw=13.5321 x1.5=0.8994).
+  Receipt `C9EA5C7345FB2ED0CA097E2DA877BBD59923A70134F00901F1F1EC5E48F5E733`
+  `preflight/20260715_GREENFIELD_R28_WEEKSTRUCT_MONTHEND_LOSSCD_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R28_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T07:10:28.766498Z alive=True cap_pid=72320 wall_rem=255223; 007 accumulate hb=15420 quotes=12166 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Cost autonomous: autonomous live import `IMPORTED_LIVE_HISTORY_PARTIAL` raw_deals=11 comm EURUSD=2/30 USDJPY=0/30 slip=0 MISSING≠0; multiday_table quote_days=2/90 freeze_eligible=False; R28 retry history_deals_get raw_deals=11 comm_unique={'BTCUSD': 3, 'EURUSD': 2}; freeze_eligible=False
+  Do **not** densify week-HL-k / monthend-k / losscd-k /
+  R27 Marubozu/Ichimoku/ROC / R26 HA/Keltner/ST / R25 H4-engulf /
+  lead-clones / fade-session / ORB/IB / R24–R10 / R1–R9 / unpark /
+  RR2-exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R28 (still NON-FADE, non-indicator) —
+  QFSI parallel; cost autonomous retry (no Owner deal-export headline).
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND27 MARUBOZU/ICHIMOKU/ROC CLOSEOUT (2026-07-15 ~14:07 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R1–R26 densify (incl. H4-engulf near-miss ban).
+  Nested critic GO — Marubozu / Ichimoku-TK / ROC-band (sha=22740ADE82A25A81…). Lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-FX3-H1-MARUBOZU-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=3846 PF=0.9624 tpw=14.7518 x1.5=0.8996).
+  2. `HYP-GBPUSD-H1-ICHIMOKU-TK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=472 PF=0.9292 tpw=1.8104 x1.5=0.868).
+  3. `HYP-USDJPY-H1-ROC-BAND-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1257 PF=1.0795 tpw=4.8214 x1.5=1.006).
+  Receipt `2B11B74AF40066A9D78649B54836442EAB135DE4D9EAEAC741354727BFB0F8C0`
+  `preflight/20260715_GREENFIELD_R27_MARUBOZU_ICHIMOKU_ROC_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R27_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T07:07:40.818363Z alive=True cap_pid=72320 wall_rem=255391; 007 accumulate hb=14760 quotes=11650 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Cost autonomous: autonomous live import `IMPORTED_LIVE_HISTORY_PARTIAL` raw_deals=11 comm EURUSD=2/30 USDJPY=0/30 slip=0 MISSING≠0; multiday_table quote_days=2/90 freeze_eligible=False; R27 retry history_deals_get raw_deals=11 comm_unique={'BTCUSD': 3, 'EURUSD': 2}; freeze_eligible=False
+  Do **not** densify Marubozu-k / Ichimoku-TK-k / ROC-band-k /
+  R26 Heikin/Keltner/ST / R25 RangeP80/H4-engulf/VWAP / lead-clones /
+  ORB/IB / R24–R10 / R1–R9 / unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R27 (still NON-FADE) — QFSI parallel; cost autonomous retry (no Owner deal-export headline).
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND26 HEIKIN/KELTNER/SUPERTREND CLOSEOUT (2026-07-15 ~14:06 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R1–R25 densify (incl. H4-engulf near-miss ban).
+  Nested critic GO — Heikin-streak / Keltner-walk / Supertrend-flip (sha=7E3A4DE650EB83A2…). Lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-FX3-H1-HEIKIN-STREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=3826 PF=1.0347 tpw=14.6751 x1.5=0.9685).
+  2. `HYP-EURUSD-H1-KELTNER-WALK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=807 PF=1.0591 tpw=3.0953 x1.5=0.9913).
+  3. `HYP-USDJPY-H1-SUPERTREND-FLIP-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=626 PF=1.0971 tpw=2.4011 x1.5=1.0237).
+  Receipt `79F64DA0C028D3B6DA29F9FAE8CBEBCA634D8BD8E155895531C22DD9F3765A66`
+  `preflight/20260715_GREENFIELD_R26_HEIKIN_KELTNER_SUPERTREND_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R26_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T07:06:24.437351Z alive=True cap_pid=72320 wall_rem=255467; 007 accumulate hb=14460 quotes=11418 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Cost autonomous: autonomous live import `IMPORTED_LIVE_HISTORY_PARTIAL` raw_deals=11 comm EURUSD=2/30 USDJPY=0/30 slip=0 MISSING≠0; multiday_table quote_days=2/90 freeze_eligible=False; R26 retry history_deals_get raw_deals=11 comm_unique={'BTCUSD': 3, 'EURUSD': 2}; freeze_eligible=False
+  Do **not** densify Heikin-k / Keltner-k / Supertrend-k /
+  R25 RangeP80/H4-engulf/VWAP / R24 NR7/ER/RS / lead-clones /
+  ORB/IB / R23–R10 / R1–R9 / unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R26 (still NON-FADE) — QFSI parallel; cost autonomous retry (no Owner deal-export headline).
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND25 RANGEP80/H4ENGULF/VWAP CLOSEOUT (2026-07-15 ~14:03 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R1–R24 densify.
+  Nested critic GO — RangeP80 / H4-engulf-CONT / London-VWAP-reclaim (sha=EAA8606A61B8C0E9…). Lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-FX3-H1-RANGE-P80-EXPAND-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=3783 PF=1.0517 tpw=14.5101 x1.5=0.9874).
+  2. `HYP-USDJPY-H4-ENGULF-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=764 PF=1.2409 tpw=2.9304 x1.5=1.1578).
+  3. `HYP-GBPUSD-H1-LONDON-VWAP-RECLAIM-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1297 PF=0.8783 tpw=4.9748 x1.5=0.8309).
+  Receipt `BE1AAE2C0DDA91CA534F8D36ED3C896A93360696BDF4DC89F7F5CC2D8D9940D3`
+  `preflight/20260715_GREENFIELD_R25_RANGEP80_H4ENGULF_VWAP_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R25_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T07:03:21.090478Z alive=True cap_pid=72320 wall_rem=255650; 007 accumulate hb=13740 quotes=10792 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Cost autonomous: autonomous live import `IMPORTED_LIVE_HISTORY_PARTIAL` raw_deals=11 comm EURUSD=2/30 USDJPY=0/30 slip=0 MISSING≠0; multiday_table quote_days=2/90 freeze_eligible=False; freeze_eligible=False
+  Do **not** densify RangeP80-k / H4-engulf-k / VWAP-reclaim-k /
+  R24 NR7/ER/RS / R23 MTF/fractal/postshock / lead-clones /
+  ORB/IB / R22–R10 / R1–R9 / unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R25 (still NON-FADE) — QFSI parallel; cost autonomous retry (no Owner deal-export headline).
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND24 NR7/ER/RSRANK CLOSEOUT (2026-07-15 ~14:00 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R1–R23 densify; no ORB/IB densify.
+  Nested critic GO — NR7 / Kaufman-ER / FX3 RS-rank (not lead clones) (sha=6F3103B47193D3F0…). Lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-FX3-H1-NR7-BREAKOUT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=3898 PF=0.926 tpw=14.9512 x1.5=0.8634).
+  2. `HYP-GBPUSD-H1-ER-REGIME-MOM-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=882 PF=0.9935 tpw=3.383 x1.5=0.9323).
+  3. `HYP-EURUSD-H1-RS-RANK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1203 PF=0.9543 tpw=4.6142 x1.5=0.895).
+  Receipt `CE2FEFF8435AB98C1DB98FB842176DD46C9C8BDFD8710108248D7B9EA66C9EF0`
+  `preflight/20260715_GREENFIELD_R24_NR7_ER_RSRANK_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R24_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T07:00:17.984250Z alive=True cap_pid=72320 wall_rem=255833; 007 accumulate hb=13020 quotes=10177 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Cost autonomous: autonomous live import `IMPORTED_LIVE_HISTORY_PARTIAL` raw_deals=11 comm EURUSD=2/30 USDJPY=0/30 slip=0 MISSING≠0; freeze_eligible=False (quote_days≪90)
+  Do **not** densify NR7-k / ER-k / RS-rank-k /
+  R23 MTF/fractal/postshock / R22 AC/ATR-exp/risksync / lead-clones /
+  USD-imp / ORB/IB / R21–R10 / R1–R9 / unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R24 (still NON-FADE) — QFSI parallel; cost autonomous retry (no Owner deal-export headline).
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND23 MTF/FRACTAL/POSTSHOCK CLOSEOUT (2026-07-15 ~13:56 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R10–R22 densify; quality-over-cadence.
+  **v1 INVALIDATED** (lookahead forming H4/D1); metrics below are **v2 closed-bar as-of**.
+  Nested critic GO — MTF-align / fractal5 / post-shock (not lead clones) (sha=E0ED7005E1720F0E…). Lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-FX3-H1-MULTITF-ALIGN-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1664 PF=0.9208 tpw=6.3825 x1.5=0.8596).
+  2. `HYP-USDJPY-H1-FRACTAL5-BREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1261 PF=1.0754 tpw=4.8367 x1.5=1.005).
+  3. `HYP-EURUSD-H1-POSTSHOCK-LONDON-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=24 PF=0.7966 tpw=0.0921 x1.5=0.7508).
+  Receipt `CF51E07EA6B0059FBB152180559CFBA2A5E1E0333463FC71AAAB98820687306B`
+  `preflight/20260715_GREENFIELD_R23_MTF_FRACTAL_POSTSHOCK_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R23_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T06:56:44.374993Z alive=True cap_pid=72320 wall_rem=256047; 007 accumulate hb=12180 quotes=9402 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Do **not** densify MTF-k / fractal-k / postshock-k /
+  R22 AC/ATR-exp/risksync / lead-clones / USD-imp / R21–R10 /
+  R1–R9 / unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R23 (still NON-FADE) — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND22 AC/ATREXP/RISKSYNC CLOSEOUT (2026-07-15 ~13:52 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R10–R21 densify; break lead-clone local optimum.
+  Nested critic GO — AC-regime / ATR-exp / FX3-risksync (not lead clones) (sha=77E558AD57F671F1…). Lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-FX3-H1-LAG1AC-REGIME-BODY-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1793 PF=1.0754 tpw=6.8773 x1.5=1.0045).
+  2. `HYP-GBPUSD-H1-ATREXP-BURST-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=372 PF=0.9309 tpw=1.4268 x1.5=0.8382).
+  3. `HYP-AUDUSD-H1-FX3-RISKSYNC-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1285 PF=0.9602 tpw=4.9288 x1.5=0.8987).
+  Receipt `B1FB8A0794AA0216C39B1EDB79EF461D2C204ACE72549A70B19917035AFC784D`
+  `preflight/20260715_GREENFIELD_R22_AC_ATREXP_RISKSYNC_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R22_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T06:52:39.869428Z alive=True cap_pid=72320 wall_rem=256292; 007 accumulate hb=11280 quotes=8577 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Do **not** densify AC-k / ATR-exp-k / FX3-risksync-k /
+  lead-clones / USD-imp-k / R21 accel/Donch / R20 XAU-NZD/USDJPY-inv/XTI-AUD /
+  R19–R10 / R1–R9 / unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R22 (still NON-FADE) — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND21 ACCEL/DONCH/USDIMP CLOSEOUT (2026-07-15 ~13:48 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R10–R20 densify + ETH VR near-miss ban.
+  Nested critic GO — quality/structural (not lead-impulse clones) (sha=B14D95BF5A8A95C2…). Lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-FX3-H1-TWOBAR-ACCEL-CLOSECONF-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=2116 PF=1.0382 tpw=8.1162 x1.5=0.9717).
+  2. `HYP-GBPUSD-H1-DONCH8-BREAK-BODYQ-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1241 PF=0.9787 tpw=4.76 x1.5=0.9217).
+  3. `HYP-EURJPY-H1-USD-IMPLIED-CROSS-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1242 PF=1.2021 tpw=4.7638 x1.5=1.1288).
+  Receipt `E367031F9A82EFAFD77F7928175CA431AB403885C610D0B84AC969052482171F`
+  `preflight/20260715_GREENFIELD_R21_ACCEL_DONCH_USDIMP_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R21_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T06:48:50.953852Z alive=True cap_pid=72320 wall_rem=256521; 007 accumulate hb=10320 quotes=7754 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Do **not** densify accel-k / Donch8-k / USD-imp-k /
+  R20 XAU-NZD/USDJPY-inv/XTI-AUD / R19 CRYPTO3/riskon/EURCHF /
+  ETH VR-k / R18–R10 / R1–R9 / unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R21 (still NON-FADE) — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND20 XAULEAD/USDJPYINV/XTIAUD CLOSEOUT (2026-07-15 ~13:44 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R10–R19 densify + ETH VR near-miss ban.
+  Nested critic GO after compress + US30→EUR densify reboard (sha=CCDCE3FC49CF00B4…). Lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-NZDUSD-H1-XAUUSD-IMPULSE-LEAD-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1284 PF=1.0218 tpw=4.9249 x1.5=0.9584).
+  2. `HYP-XAUUSD-H1-USDJPY-INVERSE-LEAD-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1289 PF=1.018 tpw=4.9441 x1.5=0.4678).
+  3. `HYP-AUDUSD-H1-XTI-IMPULSE-LEAD-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1290 PF=0.9237 tpw=4.9479 x1.5=0.8678).
+  Receipt `76BDA2CE5AE5B2752824DED63367CE3365AE69A3A859A42DE99DA5CB0F3D0948`
+  `preflight/20260715_GREENFIELD_R20_XAULEAD_USDJPYINV_XTIAUD_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R20_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T06:44:31.129541Z alive=True cap_pid=72320 wall_rem=256780; 007 accumulate hb=9360 quotes=6988 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Do **not** densify XAU→NZD-k / USDJPY→XAU-inv-k / XTI→AUD-k /
+  R19 CRYPTO3/riskon/EURCHF / ETH VR-k / R18–R10 /
+  R1–R9 / unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R20 (still NON-FADE) — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND19 CRYPTO3/BREADTH/RISKON CLOSEOUT (2026-07-15 ~13:38 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R10–R18 densify + ETH VR near-miss ban.
+  A priori CRYPTO3 universe freeze before metrics (sha=D6AB4A0BFCA24C58…). Nested critic GO → lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-CRYPTO3-H1-BREADTH-IMPULSE-CONT-BOOK-001` → **KILLED_AT_OFFLINE_PROBE** (N=5181 PF=0.9513 tpw=19.8723 x1.5=0.813).
+  2. `HYP-CADJPY-H1-XTI-NAS-RISKON-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1165 PF=1.0975 tpw=4.4685 x1.5=1.0256).
+  3. `HYP-EURCHF-H1-NAS-SENTIMENT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1288 PF=0.9496 tpw=4.9403 x1.5=0.8906).
+  Receipt `06966FF14AA6940E23A2248B18971C7BACD04973C64307BB048DEE683AA41017`
+  `preflight/20260715_GREENFIELD_R19_CRYPTO3_BREADTH_RISKON_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R19_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T06:37:20.089358Z alive=True cap_pid=72320 wall_rem=257211; 007 accumulate hb=7800 quotes=5763 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Do **not** densify CRYPTO3 breadth-k / CADJPY riskon-k / EURCHF nas-k /
+  ETH VR-k / R18 AUD-imp/pivot/co-mom / R17 semivar/UTC0 / R16–R10 /
+  R1–R9 / unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R19 (still NON-FADE) — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND18 AUDLEAD/PIVOT/COMOM CLOSEOUT (2026-07-15 ~13:32 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R10–R17 densify + ETH VR near-miss ban.
+  Nested critic GO → lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-NZDUSD-H1-AUD-IMPULSE-LEAD-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1300 PF=1.0654 tpw=4.9863 x1.5=0.9971).
+  2. `HYP-FX3-H1-D1-PIVOT-R1S1-BREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=0 PF=None tpw=0.0 x1.5=None).
+  3. `HYP-GBPJPY-H1-EURJPY-COMOM-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1291 PF=1.0289 tpw=4.9518 x1.5=0.9639).
+  Receipt `6226ECF5CEE777052D46BA91A10F08622698F770801950C6C7F83CD4AC60186A`
+  `preflight/20260715_GREENFIELD_R18_AUDLEAD_PIVOT_COMOM_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R18_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T06:32:45.314824Z alive=True cap_pid=72320 wall_rem=257486; 007 accumulate hb=6660 quotes=4945 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Do **not** densify AUD-imp-k / pivot-k / co-mom-k / ETH VR-k /
+  R17 semivar/UTC0 / R16 US30-break/CPI/lead / R15–R10 / R1–R9 /
+  unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R18 (still NON-FADE) — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND17 VR/SEMIVAR/UTC0 CLOSEOUT (2026-07-15 ~13:30 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R10–R16 densify + R1–R9/unpark/exit/FRED.
+  Nested critic GO → lead self-merge closeout.
+  Offline joint screen:
+  1. `HYP-ETHUSD-H4-VARIANCE-RATIO-MOM-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=87 PF=1.9779 tpw=0.3337 x1.5=1.7749).
+  2. `HYP-NZDUSD-H1-SIGNED-SEMIVAR-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1286 PF=0.9662 tpw=4.9326 x1.5=0.9036).
+  3. `HYP-ETHUSD-H1-UTC0-OPEN-DRIVE-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=223 PF=0.8937 tpw=0.8553 x1.5=0.7277).
+  Receipt `90304CEAA0C0CCBDEFE63C61A552F49A8DF950C703E0F3EC948DCCF794D79BAD`
+  `preflight/20260715_GREENFIELD_R17_VR_SEMIVAR_UTC0_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R17_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T06:29:57.417142Z alive=True cap_pid=72320 wall_rem=257654; 007 accumulate hb=6000 quotes=4401 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Do **not** densify VR-k / semivar share-k / UTC0 body-k /
+  R16 US30-break/CPI/lead / R15 streak/BTC/XAG / R14–R10 / R1–R9 /
+  unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R17 (still NON-FADE) — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND16 HLBREAK/CPI/US30LEAD CLOSEOUT (2026-07-15 ~13:27 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R10–R15 densify + R1–R9/unpark/exit/FRED.
+  Nested critic GO → lead broker-adapt DE40→US30; self-merge closeout.
+  Offline joint screen:
+  1. `HYP-US30-H4-D1-HL-BREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=37 PF=1.1296 tpw=0.1419 x1.5=1.0608).
+  2. `HYP-USDJPY-H1-CPI-IMPULSE-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=7 PF=0.393 tpw=0.0268 x1.5=0.3701).
+  3. `HYP-EURJPY-H1-US30-LEAD-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1289 PF=1.0893 tpw=4.9441 x1.5=1.0204).
+  Receipt `10169CA6ED75319D1616ECAA901D77F3A53FC275056E060730F3D6D4B534E77A`
+  `preflight/20260715_GREENFIELD_R16_HLBREAK_CPI_US30LEAD_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R16_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T06:26:54.057173Z alive=True cap_pid=72320 wall_rem=257837; 007 accumulate hb=5340 quotes=3927 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Do **not** densify US30 break-k / CPI body-k / US30 lead-lag /
+  R15 streak/BTC/XAG / R14 gap/TV/NAS / R13 NFP/CUSUM/XAU / R12–R10 / R1–R9 /
+  unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R16 (still NON-FADE) — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND15 STREAK/BTC/XAG CLOSEOUT (2026-07-15 ~13:22 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R10–R14 densify + R1–R9/unpark/exit/FRED.
+  Nested critic Task unavailable → lead self-merge `cursor-grok-4.5-high-fast`.
+  Offline joint screen:
+  1. `HYP-FX3-H1-BODYSTREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1189 PF=1.002 tpw=4.5605 x1.5=0.9403).
+  2. `HYP-BTCUSD-H4-D1-TSMOM-THICK-001` → **KILLED_AT_OFFLINE_PROBE** (N=91 PF=0.9822 tpw=0.349 x1.5=0.9261).
+  3. `HYP-XAGUSD-H4-D1-TSMOM-THICK-001` → **KILLED_AT_OFFLINE_PROBE** (N=88 PF=0.9285 tpw=0.3375 x1.5=0.7538).
+  Receipt `01F46E3C89138A0AD01176750AACE880A4BD469F9B98EBFC4B1EC1162E16992D`
+  `preflight/20260715_GREENFIELD_R15_STREAK_BTC_XAG_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R15_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T06:22:03.229042Z alive=True cap_pid=72320 wall_rem=258128; 007 accumulate hb=4200 quotes=3079 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Do **not** densify streak-N / BTC-ROC / XAG-ROC /
+  R14 gap/TV/NAS / R13 NFP/CUSUM/XAU / R12–R10 fade-session / R1–R9 / unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R15 (still NON-FADE) — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND14 GAPCONT/TVOL/NASMOM CLOSEOUT (2026-07-15 ~13:21 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R10–R13 densify + R1–R9/unpark/exit/FRED.
+  Nested critic Task unavailable → lead self-merge `cursor-grok-4.5-high-fast`.
+  Offline joint screen:
+  1. `HYP-FX3-H1-WEEKEND-GAP-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=34 PF=0.3858 tpw=0.1304 x1.5=0.36).
+  2. `HYP-FX3-H1-TICKVOL-IMBALANCE-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1243 PF=0.956 tpw=4.7677 x1.5=0.8916).
+  3. `HYP-NAS100-H4-D1-TSMOM-THICK-001` → **KILLED_AT_OFFLINE_PROBE** (N=88 PF=1.2069 tpw=0.3375 x1.5=1.1406).
+  Receipt `CA59FCB51E833DCD65240DD19283C0EB8BEFF9391FEAF09B3282776FD1823E78`
+  `preflight/20260715_GREENFIELD_R14_GAPCONT_TVOL_NASMOM_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R14_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T06:20:46.873306Z alive=True cap_pid=72320 wall_rem=258205; 007 accumulate hb=3900 quotes=2865 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Do **not** densify gap-k / TV-imb / NAS-ROC /
+  R13 NFP/CUSUM/XAU / R12 EMA/Fri/RS / R11 / R10 session / R1–R9 / unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R14 (still NON-FADE) — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND13 EVENT/CUSUM/XAUMOM CLOSEOUT (2026-07-15 ~13:19 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  NON-FADE greenfield outside R10–R12 fade/session densify + R1–R9/unpark/exit/FRED.
+  Nested critic Task unavailable → lead self-merge `cursor-grok-4.5-high-fast`.
+  Offline joint screen:
+  1. `HYP-FX3-H1-NFP-IMPULSE-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=59 PF=0.5301 tpw=0.2263 x1.5=0.4995).
+  2. `HYP-FX3-H1-CUSUM-BREAK-PERSIST-001` → **KILLED_AT_OFFLINE_PROBE** (N=776 PF=1.1293 tpw=2.9764 x1.5=1.0515).
+  3. `HYP-XAUUSD-H4-D1-TSMOM-THICK-001` → **KILLED_AT_OFFLINE_PROBE** (N=78 PF=1.4331 tpw=0.2992 x1.5=1.1341).
+  Receipt `3D638ABC311BDEF6D3CC2E7113FE41431355EAA4D4484D20735BED4CD9649721`
+  `preflight/20260715_GREENFIELD_R13_EVENT_CUSUM_XAUMOM_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R13_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T06:18:59.663021Z alive=True cap_pid=72320 wall_rem=258312; 007 accumulate hb=3480 quotes=2563 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Do **not** densify NFP body-k / CUSUM h-k / XAU ROC-k /
+  R12 EMA/Fri/RS / R11 fix/WO/closeloc / R10 session / R1–R9 / unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R13 (still NON-FADE) — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND12 EMA/FRI/RELSTR CLOSEOUT (2026-07-15 ~13:15 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  Outside R11 densify + R10/R1–R9/unpark/exit/FRED.
+  Nested critic Task unavailable → lead self-merge `cursor-grok-4.5-high-fast`.
+  Offline joint screen:
+  1. `HYP-FX3-H1-D1EMA200-DIST-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=1101 PF=0.8309 tpw=4.223 x1.5=0.7568).
+  2. `HYP-FX3-H1-FRI-PM-PROFITTAKE-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=258 PF=0.9387 tpw=0.9896 x1.5=0.8807).
+  3. `HYP-GBPUSD-H1-EUR-RELSTRENGTH-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1298 PF=0.8454 tpw=4.9786 x1.5=0.7717).
+  Receipt `8C22985107BC32C5CAEC766079233B050797D54FAF1E937D2BB5978D512B4031`
+  `preflight/20260715_GREENFIELD_R12_EMA_FRI_RELSTR_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R12_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T06:15:25.640587Z alive=True cap_pid=72320 wall_rem=258526; 007 accumulate hb=2640 quotes=1946 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Do **not** densify D1EMA-k / Fri-PM / GBP-EUR-RS /
+  R11 fix/WO/closeloc / R10 session / R1–R9 / unpark / exit / FRED.
+  Clean book still GOAL_SCREEN_FAIL (unchanged).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R12 — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND11 FIX/WO/CLOSELOC CLOSEOUT (2026-07-15 ~13:14 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  Outside R10 session densify + R1–R9/unpark/exit/FRED.
+  Nested critic Task unavailable → lead self-merge `cursor-grok-4.5-high-fast`.
+  Offline joint screen:
+  1. `HYP-FX3-H1-LONDON-FIX-REVERSION-001` → **KILLED_AT_OFFLINE_PROBE** (N=773 PF=0.9854 tpw=2.9649 x1.5=0.9179).
+  2. `HYP-FX3-H1-WEEKLY-OPEN-DIST-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=261 PF=0.9517 tpw=1.0011 x1.5=0.8857).
+  3. `HYP-FX3-H1-CLOSELOC-PRESSURE-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=2600 PF=0.9541 tpw=9.9726 x1.5=0.8922).
+  Receipt `997D65CD46FA1534ACD90F373A060261A5BE5F0A27C60F5D4EEC1D4115FF87C1`
+  `preflight/20260715_GREENFIELD_R11_FIX_WO_CLOSELOC_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R11_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T06:14:08.948862Z alive=True cap_pid=72320 wall_rem=258603; 007 accumulate hb=2340 quotes=1724 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Do **not** densify London-fix / WO-k / closeloc /
+  R10 Tokyo/London/NY / R1–R9 / unpark / triad / exit / FRED /
+  residual/corr/Parkinson/ON-ratio.
+  Clean book still GOAL_SCREEN_FAIL (unchanged this round).
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Next: next true greenfield outside R11 — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **CLEAN BOOK + R10 SESSION-EDGE CLOSEOUT (2026-07-15 ~13:10 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `CLEAN_BOOK_OFFLINE` / `OFFLINE_ALL_KILL__NO_MODEL0` / `QFSI_007_HEALTHY` / `NO_MODEL0` / `PHASE0_STILL_CONTAMINATED`.**
+  Clean-lane book hyp (NOT Phase-0 ceremony):
+  `HYP-BOOK-CLEAN-APRIORI-RR2SPARK-001` — freeze
+  `readouts/20260715_CLEAN_BOOK_APRIORI_UNIVERSE_FREEZE.md` then stress
+  `preflight/20260715_CLEAN_BOOK_APRIORI_RR2SPARK_STRESS.json`.
+  PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…
+  Model 0 book-level WITHHELD (offline pool ≠ EA challenger).
+  Phase-0 attestation still CONTAMINATED — not cleared.
+  Round10 greenfield outside R1–R9/unpark/exit/FRED densify.
+  Nested critic Task unavailable → lead self-merge `cursor-grok-4.5-high-fast`.
+  Offline joint screen:
+  1. `HYP-USDJPY-H1-TOKYO-LUNCH-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=436 PF=1.1464 tpw=1.6723 x1.5=1.054).
+  2. `HYP-FX3-H1-LONDON-OPEN-DRIVE-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=361 PF=0.8353 tpw=1.3847 x1.5=0.7876).
+  3. `HYP-GBPUSD-H1-NY-REOPEN-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=798 PF=0.967 tpw=3.0608 x1.5=0.9118).
+  Receipt `2B2EF7A7767CCE751E2E1C6E080CA8D6D4711C99D22996BB55C4E254F27F1A43`
+  `preflight/20260715_GREENFIELD_R10_SESSION_EDGE_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_CLEAN_BOOK_AND_R10_VN_ACTION_BRIEF.md`.
+  QFSI spot-check: watcher_hb ts=2026-07-15T06:10:34.486530Z alive=True cap_pid=72320 wall_rem=258817; 007 accumulate hb=1500 quotes=1107 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+  Do **not** densify Tokyo lunch / London drive / NY reopen /
+  R1–R9 / unpark / triad / exit / FRED / residual/corr/Parkinson/ON-ratio.
+  Next: next true greenfield outside R10 — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **STRATEGY SHIFT CLOSEOUT (2026-07-15 ~13:10 ICT) —
+  `EXO_FRED_DISPLACE_SPAM_PAUSED` / `TRACK_A_DIAGNOSTIC_PARTIAL` /
+  `TRACK_B_QFSI_007_RESTARTED_72H` / `NO_MODEL0` / `PHASE0_STILL_BLOCKED`.**
+  Hard pivot after R1–R9 + unpark + carry + exo ALL_KILL / near-miss-no-densify.
+  Continuing OHLC residual/corr/Parkinson/ON-ratio clones = bad quant — **banned**.
+  **Track A (predeclared):** freeze
+  `readouts/20260715_STRATEGY_SHIFT_PHASE0_SLEEVE_UNIVERSE_FREEZE.md`
+  SHA `9707ABE2B95D8D33…` — INCLUDE RR2 `20260714_194548` + Spark
+  `20260714_193358` (+ ITSM `20260714_003920` EXTENDED only); EXCLUDE MaxKZ2
+  `20260714_192304` (`MAXKZ2_REAL_PATH_FAIL_CLOSED` a priori) + Spark twin
+  `193732`. Caps frozen: +$12 haircut, weekly corr≤0.35, same-M15 overlap
+  frac≤0.05, heat=1 w/ priority A>B>C. Offline stress
+  SHA `B2286CB3C3BBDE52C9ED5FE530AA5BFD45C6983124276FCF198A1CD1D2593254`
+  `preflight/20260715_STRATEGY_SHIFT_SLEEVE_BOOK_APRIORI12_STRESS.json`:
+  PRIMARY pooled N=845 PF@$12=**1.184** tpw=**3.241** caps PASS →
+  `DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED N=1664
+  PF@$12=**1.044** tpw=**6.382** → `DIAGNOSTIC_FAIL_GOAL_SCREEN`.
+  Phase-0 contamination still CONTAMINATED — ceremony **not** run; clean path
+  documented in freeze memo (Owner clear → bind SHA → attach → then metrics).
+  **Track B:** QFSI 007 stall root-caused (watcher `path=` TypeError + orphan
+  after ~02:19Z silence; Real stayed up). Hardened watcher (defensive log,
+  72h wall, 300s stall grace, self-heartbeat). Restarted LIVE: watcher
+  **75476** / capture **72320** / Real **27096** — do not kill; same capture
+  dir; hb writing again. Cost freeze still GAP (quote-days≪90; deal-export
+  empty; no invented spreads; `--execute` NOT run). Login not headline.
+  Receipts: `readouts/20260715_STRATEGY_SHIFT_SLEEVE_BOOK_APRIORI12_STRESS.md`,
+  `readouts/20260715_STRATEGY_SHIFT_QFSI_007_STALL_RESTART.md`,
+  VN `readouts/20260715_STRATEGY_SHIFT_VN_ACTION_BRIEF.md`,
+  `preflight/20260715_STRATEGY_SHIFT_SESSION_RECEIPT.json`.
+  Do **not** densify R6–R9 / FX3 H4 path / triad z / exit packs / FRED /
+  residual/corr/Parkinson/ON-ratio clones. No Model 0 from this shift.
+  Best shelf RR2 `194548`. GOAL unmet.
+
+- **GREENFIELD ROUND9 SYNTH/ONRATIO/TVOL CLOSEOUT (2026-07-15 ~12:59 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Outside unpark + R1–R8 densify. Nested critic `cursor-grok-4.5-high-fast`.
+  Offline joint screen:
+  1. `HYP-EURUSD-H1-YENCROSS-SYNTH-RESID-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=13 PF=1.874 tpw=0.0499 x1.5=1.7676).
+  2. `HYP-FX3-H1-OVERNIGHT-RATIO-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1159 PF=0.8705 tpw=4.4455 x1.5=0.8216).
+  3. `HYP-FX3-H1-TICKVOL-CLIMAX-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=15 PF=0.9998 tpw=0.0575 x1.5=0.9417).
+  Receipt `848848D26CC00D234F694B4342F6D1E3846C66B422A8EEEDF56995204C972744`
+  `preflight/20260715_GREENFIELD_SYNTH_ONRATIO_TVOL_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_GREENFIELD_SYNTH_ONRATIO_TVOL_VN_ACTION_BRIEF.md`;
+  session `readouts/20260715_G10_ALT_GREENFIELD_SESSION_VN_BRIEF.md`;
+  panel `readouts/20260715_GREENFIELD_SYNTH_ONRATIO_TVOL_3CRITIC_PANEL.md`.
+  QFSI parallel: 007 accumulate hb=9480 quotes=6586 deadline=2026-07-15T07:39:26.186865Z; cost freeze still GAP; login not headline.
+  Do **not** densify synth z / ON ratio / tickvol z /
+  unpark W1/M15 / R1–R8 / triad / NAS / metal / FX3 H4 path /
+  carry / exit / AONIA/CORRA/thin3/FRED/LNY/XS.
+  Next: next true greenfield outside Round9 board — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **GREENFIELD ROUND8 CORR/YENX/PARK CLOSEOUT (2026-07-15 ~12:57 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Outside unpark + R1–R7 densify. Nested critic `cursor-grok-4.5-high-fast`.
+  Yen-cross β freeze EURJPY~USDJPY: α=3.81949e-06 β=0.643058 n=12421 R²=0.359421.
+  Offline joint screen:
+  1. `HYP-EURJPY-H1-USDJPY-BETA-RESID-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=134 PF=0.8521 tpw=0.514 x1.5=0.8043).
+  2. `HYP-EURGBP-H1-CORR-BREAK-RECOUPLE-001` → **KILLED_AT_OFFLINE_PROBE** (N=15 PF=0.448 tpw=0.0575 x1.5=0.423).
+  3. `HYP-FX3-H1-PARKINSON-COMPRESS-EXPAND-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=229 PF=0.8419 tpw=0.8784 x1.5=0.7937).
+  Receipt `E6A2A2090F64C63E18F9CE2EA37599AD1C0F6C3EB466CF4902042365A9774ADF`
+  `preflight/20260715_GREENFIELD_CORR_YENX_PARK_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_GREENFIELD_CORR_YENX_PARK_VN_ACTION_BRIEF.md`;
+  session `readouts/20260715_G10_ALT_GREENFIELD_SESSION_VN_BRIEF.md`;
+  panel `readouts/20260715_GREENFIELD_CORR_YENX_PARK_3CRITIC_PANEL.md`.
+  QFSI parallel: 007 accumulate hb=9480 quotes=6586 deadline=2026-07-15T07:39:26.186865Z; cost freeze still GAP; login not headline.
+  Do **not** densify corr threshold / yen β z / Parkinson pct /
+  unpark W1/M15 / R1–R7 / triad / NAS / metal / FX3 H4 path /
+  carry / exit / AONIA/CORRA/thin3/FRED/LNY/XS.
+  Next: next true greenfield outside Round8 board — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **UNPARK W1/M15 THICK CLOSEOUT (2026-07-15 ~12:51 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Owner release of Round7 PARK. Nested critic `cursor-grok-4.5-high-fast`.
+  Intake: panel PDH thick-stop sketch → **INTAKE_KILL** (PDH/SB densify).
+  Offline joint screen:
+  1. `HYP-FX3-W1-HLBREAK-D1CONF-HOLD-001` → **KILLED_AT_OFFLINE_PROBE** (N=80 PF=0.9895 tpw=0.3068 x1.5=0.898).
+  2. `HYP-USDJPY-M15-D1BIAS-RANGEEXP-THICK-001` → **KILLED_AT_OFFLINE_PROBE** (N=1247 PF=1.1857 tpw=4.783 x1.5=1.0986).
+  3. `HYP-USDJPY-D1-INSIDE-H1-BREAK-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=179 PF=1.2118 tpw=0.6866 x1.5=1.1433).
+  Receipt `CB8FBE71981DABCE680CA5CF2177BC5166BD8BE3298CAE6CB761FA822CF6D7A2`
+  `preflight/20260715_UNPARK_W1_M15_THICK_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_UNPARK_W1_M15_THICK_VN_ACTION_BRIEF.md`;
+  session `readouts/20260715_G10_ALT_GREENFIELD_SESSION_VN_BRIEF.md`;
+  panel `readouts/20260715_UNPARK_W1_M15_THICK_3CRITIC_PANEL.md`.
+  QFSI parallel: 007 accumulate hb=9480 quotes=6586 deadline=2026-07-15T07:39:26.186865Z; cost freeze still GAP; login not headline.
+  Do **not** densify W1 trail / M15 range-k / inside pattern / R6–R7 /
+  PDH / SB / Weekly-HL H4 / triad / NAS / metal / FX3 H4 path.
+  Next: next true greenfield outside unpark board — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **GREENFIELD ROUND7 CHFRISK/AUDCOM3/ADR CLOSEOUT (2026-07-15 ~12:45 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Outside Round6 densify (triad near-miss FORBIDDEN). Nested critic `cursor-grok-4.5-high-fast` (lead self-merge; Task backend unavailable).
+  CHF β freeze FX-risk-basket: α=-4.83048e-06 β=-0.77113 n=12421 R²=0.497748.
+  W1 HL-break + M15 thick-stop were PARKED here; later UNPARKED → ALL_KILL (see Unpark block above). Offline joint screen:
+  1. `HYP-USDCHF-H1-FXRISK-BASKET-RESID-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=239 PF=1.0052 tpw=0.9167 x1.5=0.952).
+  2. `HYP-AUD-COM3-H1-BASKET-RESID-MR-001` → **KILLED_AT_OFFLINE_PROBE** (N=107 PF=1.052 tpw=0.4104 x1.5=0.9895).
+  3. `HYP-FX3-H1-ADR-EXHAUST-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=85 PF=0.771 tpw=0.326 x1.5=0.7209).
+  Receipt `CBDD990E84153D85A7A38242F6CA1D8A9B55C6BAF98DA23EA7DBB1486410F397`
+  `preflight/20260715_GREENFIELD_CHFRISK_AUDCOM3_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_GREENFIELD_CHFRISK_AUDCOM3_VN_ACTION_BRIEF.md`;
+  session `readouts/20260715_G10_ALT_GREENFIELD_SESSION_VN_BRIEF.md`;
+  panel `readouts/20260715_GREENFIELD_CHFRISK_AUDCOM3_3CRITIC_PANEL.md`.
+  QFSI parallel: 007 accumulate hb=9480 quotes=6586 deadline=2026-07-15T07:39:26.186865Z; cost freeze still GAP; login not headline.
+  Do **not** densify CHF β / COM3 z / ADR k / triad / NAS β / metal /
+  FX3 H4 R1–R5 / XS / AUDNZD / AONIA/CORRA/thin3/exit/FRED/LNY/W1/M15-SB.
+  Next: next true greenfield outside Round7 board — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **GREENFIELD ROUND6 CROSSASSET/RV CLOSEOUT (2026-07-15 ~12:40 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Hard pivot after FX3 H4 R1–R5 path family **SATURATED**. Nested critic `cursor-grok-4.5-high-fast`.
+  Beta freeze NAS100→USDJPY: α=-1.39201e-05 β=0.013481 n=3193 R²=0.003364.
+  Offline joint screen:
+  1. `HYP-EUR-TRIAD-H1-PARITY-RESID-MR-001` → **KILLED_AT_OFFLINE_PROBE** (N=1107 PF=1.3288 tpw=4.246 x1.5=1.245).
+  2. `HYP-USDJPY-H1-NAS100-BETA-RESID-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=316 PF=0.7857 tpw=1.2121 x1.5=0.7412).
+  3. `HYP-XAU-XAG-H1-RATIO-ZMR-001` → **KILLED_AT_OFFLINE_PROBE** (N=127 PF=0.9868 tpw=0.4871 x1.5=0.5556).
+  Receipt `028B2721F6709E3AB519C454A7D498FEEAB5752578813A0C8DCD98488A22EC80`
+  `preflight/20260715_GREENFIELD_CROSSASSET_RV_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_GREENFIELD_CROSSASSET_RV_VN_ACTION_BRIEF.md`;
+  session `readouts/20260715_G10_ALT_GREENFIELD_SESSION_VN_BRIEF.md`;
+  panel `readouts/20260715_GREENFIELD_CROSSASSET_RV_3CRITIC_PANEL.md`.
+  Do **not** densify FX3 H4 path R1–R5 / parity z / NAS β / metal-ratio /
+  XS / AUDNZD / XAU-beta / AONIA/CORRA/thin3/exit/FRED/LNY.
+  Next: next true greenfield outside Round6 board — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **GREENFIELD ROUND5 SPLIT+HALFBACK CLOSEOUT (2026-07-15 ~12:32 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Post R1–R4 dichotomy; nested critic `cursor-grok-4.5-high-fast`.
+  Offline joint screen:
+  1. `HYP-FX3-H4-BOOKSPLIT-LEADER-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=394 PF=0.9542 tpw=1.5112 x1.5=0.8898).
+  2. `HYP-FX3-H4-IMPULSE-HALFBACK-HOLD-001` → **KILLED_AT_OFFLINE_PROBE** (N=717 PF=1.1201 tpw=2.7501 x1.5=1.0466).
+  Receipt `18028AD2E32043ED1C9EA4ADF71B8F60A3968DBE84516D1C0518274488AC2715`
+  `preflight/20260715_GREENFIELD_SPLIT_HALFBACK_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_GREENFIELD_SPLIT_HALFBACK_VN_ACTION_BRIEF.md`;
+  session `readouts/20260715_G10_ALT_GREENFIELD_SESSION_VN_BRIEF.md`.
+  Do **not** densify split/halfback / disp/ER/solo/accept / majority/TS/spring/PB /
+  AONIA/CORRA/thin3/exit/FRED/LNY/XS.
+  Next: next true greenfield outside killboard — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **GREENFIELD ROUND4 DISP+ER CLOSEOUT (2026-07-15 ~12:29 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Post R1–R3 dichotomy; nested critic `cursor-grok-4.5-high-fast`.
+  Offline joint screen:
+  1. `HYP-FX3-H4-BOOKDISP-EXTREME-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=165 PF=0.8629 tpw=0.6329 x1.5=0.7988).
+  2. `HYP-FX3-H4-PATH-ER-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=928 PF=1.152 tpw=3.5595 x1.5=1.077).
+  Receipt `F71DCD8CA5B083C78382742CB22A9396E0D81A18AF83E9F51A1DB7BD3B5638C1`
+  `preflight/20260715_GREENFIELD_DISP_ER_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_GREENFIELD_DISP_ER_VN_ACTION_BRIEF.md`;
+  session `readouts/20260715_G10_ALT_GREENFIELD_SESSION_VN_BRIEF.md`.
+  Do **not** densify disp/ER / solo/accept / majority/TS/spring/PB /
+  AONIA/CORRA/thin3/exit/FRED/LNY/XS.
+  Next: next true greenfield outside killboard — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **GREENFIELD ROUND3 SOLO+ACCEPT CLOSEOUT (2026-07-15 ~12:26 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Break thick∩cadence dichotomy after Round1–2 ALL_KILL.
+  Nested critic `cursor-grok-4.5-high-fast`. Offline joint screen:
+  1. `HYP-FX3-H4-SOLO-LEADER-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=322 PF=1.1856 tpw=1.2351 x1.5=1.1077).
+  2. `HYP-FX3-H4DISP-H1-ACCEPT-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=1904 PF=0.8698 tpw=7.303 x1.5=0.8176).
+  Receipt `ED1E0289697B14ECD4963F4D7855AFEAC7396AB3034D5BC505271F02F1BE8186`
+  `preflight/20260715_GREENFIELD_SOLO_ACCEPT_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_GREENFIELD_SOLO_ACCEPT_VN_ACTION_BRIEF.md`;
+  session `readouts/20260715_G10_ALT_GREENFIELD_SESSION_VN_BRIEF.md`.
+  Do **not** densify solo peer/lead / accept window / majority / TS / spring / PB /
+  AONIA / CORRA / thin3 / exit / FRED / LNY / XS.
+  Next: next true greenfield outside killboard — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **GREENFIELD SPRING + PB-RECLAIM CLOSEOUT (2026-07-15 ~12:21 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Post USD-lag/TSMOM thick near-miss; quality-over-densify greenfield.
+  Nested critic `cursor-grok-4.5-high-fast`. Offline joint screen:
+  1. `HYP-FX3-H4-TRENDDAY-FAILBREAK-SPRING-001` → **KILLED_AT_OFFLINE_PROBE** (N=122 PF=1.3194 tpw=0.4679 x1.5=1.2345).
+  2. `HYP-FX3-H4BIAS-H1-PB-RECLAIM-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=154 PF=1.2283 tpw=0.5907 x1.5=1.1564).
+  Receipt `C336051FFFEB1A1506C4E34E0E8D3F8F61F5929A6E8AE7CC6E9C3F09498E7E5C`
+  `preflight/20260715_GREENFIELD_SPRING_PBRECLAIM_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_GREENFIELD_SPRING_PBRECLAIM_VN_ACTION_BRIEF.md`.
+  Do **not** densify spring pierce / PB depth / RR / majority / TS / AONIA / CORRA / thin3.
+  Next: next true greenfield outside killboard — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **GREENFIELD USD-LAG + TSMOM CLOSEOUT (2026-07-15 ~10:39 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  True greenfield outside AONIA/CORRA/thin3 densify (post unlock ALL_KILL).
+  Nested critic `cursor-grok-4.5-high-fast`. Offline joint screen:
+  1. `HYP-FX3-H4-USD-MAJORITY-LAG-FOLLOW-001` → **KILLED_AT_OFFLINE_PROBE** (N=690 PF=0.9481 tpw=2.6466 x1.5=0.8736).
+  2. `HYP-FX3-H4-TSMOM-BAND-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=2263 PF=1.1671 tpw=8.68 x1.5=1.0984).
+  Receipt `D71CC8F52A4C4B45FE231FBDDF6650CCFF1DF37D1CF306AB9BA947FBA21F3561`
+  `preflight/20260715_GREENFIELD_USD_LAG_TSMOM_OFFLINE_PROBES.json`;
+  dedup `readouts/20260715_GREENFIELD_USD_LAG_TSMOM_DEDUP_CLEARANCE.md`;
+  VN `readouts/20260715_GREENFIELD_USD_LAG_TSMOM_VN_ACTION_BRIEF.md`.
+  Do **not** densify majority ATR / TS band / RR / AONIA / CORRA / thin3.
+  Next: next true greenfield outside killboard — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **GREENFIELD SPRING + PB-RECLAIM (superseded draft 09:56 ICT) — PB N=0 was post-bias
+  window bug; canonical closeout is ~12:21 ICT receipt `C336051F…` above. Do not cite N=0.**
+
+- **GREENFIELD USD-LAG + TSMOM CLOSEOUT (2026-07-15 ~09:53 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  True greenfield outside AONIA/CORRA/thin3 densify (post unlock ALL_KILL).
+  Nested critic `cursor-grok-4.5-high-fast`. Offline joint screen:
+  1. `HYP-FX3-H4-USD-MAJORITY-LAG-FOLLOW-001` → **KILLED_AT_OFFLINE_PROBE** (N=690 PF=0.9482 tpw=2.6466 x1.5=0.8737).
+  2. `HYP-FX3-H4-TSMOM-BAND-CONT-001` → **KILLED_AT_OFFLINE_PROBE** (N=2263 PF=1.1671 tpw=8.68 x1.5=1.0984).
+  Receipt `7FF7448AE3B8CF67C9022B71D0BBC5602A7227683D904814DC928447C1092225`
+  `preflight/20260715_GREENFIELD_USD_LAG_TSMOM_OFFLINE_PROBES.json`;
+  dedup `readouts/20260715_GREENFIELD_USD_LAG_TSMOM_DEDUP_CLEARANCE.md`;
+  VN `readouts/20260715_GREENFIELD_USD_LAG_TSMOM_VN_ACTION_BRIEF.md`.
+  Do **not** densify majority ATR / TS band / RR / AONIA / CORRA / thin3.
+  Next: next true greenfield outside killboard — QFSI parallel only for cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **AONIA UNLOCK + CONTINUE R&D CLOSEOUT (2026-07-15 ~09:50 ICT) —
+  `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Exhaust RBA mirrors without Owner idle: rba.gov.au still 403; **DBnomics**
+  `RBA/F1/FIRMMCRID` AONIA + `FIRMMCRTD` target SHA-frozen; BIS CBPOL AU OK.
+  Panel AUD+USD READY rows=2154 SHA `98E8204CACE0CC38…`.
+  Children (≠ CORRA densify):
+  1. `HYP-AUDUSD-AONIA-TARGET-WEDGE-EXPAND-H4-001` → **INTENDED_EMPTY/KILL** (N=0).
+  2. `HYP-AUDUSD-AONIA-USD-LEVEL-FOLLOW-H4-001` → **KILL** (N=570 PF=0.9519 tpw=2.19 x1.5=0.8864).
+  3. `HYP-FX3-H1-THIN3-JUMP-FADE-001` → **KILL** (N=17 PF=1.57 tpw=0.065 — no densify).
+  **Zero Model 0.** Do **not** densify AONIA level/wedge / CORRA bp / thin3 / TOM/gap/consec/XAU.
+  Next: research-grade cost/tick or next true greenfield — AONIA unlocked, not Owner RBA CSV.
+  Session VN `readouts/20260715_G10_ALT_GREENFIELD_SESSION_VN_BRIEF.md`.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **AUD AONIA−USD LEVEL CLOSEOUT (2026-07-15 ~09:49 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_KILL__NO_MODEL0`.**
+  AONIA panel READY (DBnomics); wedge expand INTENDED_EMPTY → level-follow child:
+  1. `HYP-AUDUSD-AONIA-USD-LEVEL-FOLLOW-H4-001` → **KILLED_AT_OFFLINE_PROBE** (N=570 PF=0.9519 tpw=2.1863 x1.5=0.8864).
+  Receipt `3DBCE883C117C85D17F37E373BA0F0428C4D957130A4E4A66607033F3AE0D69D` panel SHA `98E8204CACE0CC38…`
+  `preflight/20260715_AUD_AONIA_USD_LEVEL_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_AUD_AONIA_USD_LEVEL_VN_ACTION_BRIEF.md`.
+  Do **not** densify AONIA level pp / wedge bp / CORRA bp / hold / RR.
+  Next: research-grade cost/tick or next true greenfield — not densify shelves.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **GREENFIELD THIN3 JUMP FADE CLOSEOUT (2026-07-15 ~09:48 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_KILL__NO_MODEL0`.**
+  Independent greenfield outside densify shelves (post AONIA unlock).
+  Offline joint screen:
+  1. `HYP-FX3-H1-THIN3-JUMP-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=17 PF=1.5697 tpw=0.0652 x1.5=1.4265).
+  Receipt `FF118FB5E9501800FA0231DC1515C19A9902B00D3D9B2988B021C9991197DD47`
+  `preflight/20260715_GREENFIELD_THIN3_JUMP_FADE_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_GREENFIELD_THIN3_JUMP_FADE_VN_ACTION_BRIEF.md`.
+  Do **not** densify thin / jump ATR / RR.
+  Next: research-grade cost/tick or next true greenfield — not densify shelves.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **AUD AONIA WEDGE CLOSEOUT (2026-07-15 ~09:48 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_KILL__NO_MODEL0`.**
+  RBA unlocked via **DBnomics** mirror (rba.gov.au still 403):
+  FIRMMCRID AONIA SHA `76C464CE0FA2E5C2…`; panel rows=2154 SHA `98E8204CACE0CC38…`.
+  ONE new AUD differential child (≠ CORRA bp densify):
+  1. `HYP-AUDUSD-AONIA-TARGET-WEDGE-EXPAND-H4-001` → **KILLED_AT_OFFLINE_PROBE** (N=0 PF=None tpw=0.0 x1.5=None).
+  Receipt `0D010407D370B695BE0AD4D4E7F3FE6A0090B1A80CEC3EF68D45AC284B1FE1D7`
+  `preflight/20260715_AUD_AONIA_WEDGE_OFFLINE_PROBES.json`;
+  acquire `manifests/20260715_RBA_ALTSOURCE_EXHAUST_V3.json`;
+  VN `readouts/20260715_AUD_AONIA_WEDGE_VN_ACTION_BRIEF.md`.
+  Do **not** densify AONIA wedge bp / hold / RR / CORRA bp.
+  Next: independent greenfield outside densify OR research-grade cost.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **G10 ALT + GREENFIELD SESSION (2026-07-15 ~08:48 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Parallel tracks closed. Session VN
+  `readouts/20260715_G10_ALT_GREENFIELD_SESSION_VN_BRIEF.md`.
+  G10: BoC CORRA frozen; CAD+USD panel READY; AUD/RBA still blocked (403/BIS500).
+  CORRA child + 4 greenfield probes → all offline kill; **zero Model 0**.
+  Do **not** densify CORRA bp / TOM / gap / consec / XAU z.
+  Next: Owner RBA CSV or research-grade cost/tick — not densify shelves.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+- **GREENFIELD IMPULSE/METAL CLOSEOUT (2026-07-15 ~08:48 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Post calendar/liq + CAD CORRA cadence kill; true greenfield pack.
+  Offline joint screen:
+  1. `HYP-FX3-H4-CONSEC3-IMPULSE-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=1606 PF=0.9742 tpw=6.16 x1.5=0.8929).
+  2. `HYP-XAUUSD-H1-USD-BETA-RESID-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=2487 PF=0.99 tpw=9.5392 x1.5=0.3314).
+  Receipt `3F0EAFAEAABE8B27A076A7D5059328A0FB326D6E11484189CAEDD92268243BF7`
+  `preflight/20260715_GREENFIELD_IMPULSE_METAL_OFFLINE_PROBES.json`;
+  VN `readouts/20260715_GREENFIELD_IMPULSE_METAL_VN_ACTION_BRIEF.md`.
+  Do **not** densify consec / residual z / ATR.
+  Next: Owner-led cost/tick or RBA CSV drop — not densify kill shelves.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **CAD CORRA DIFF CLOSEOUT (2026-07-15 ~08:47 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_KILL__NO_MODEL0`.**
+  G10 alt-source: BoC CORRA `AVG.INTWO` frozen; AUD/RBA still 403/BIS500;
+  CAD+USD panel READY rows=2124 SHA `26AF77CAFD3416F0…`.
+  ONE new differential child (≠ Mon→Thu/flush/anticarry densify):
+  1. `HYP-USDCAD-CORRA-USD-DIFF-EXPAND-H4-001` → **KILLED_AT_OFFLINE_PROBE** (N=37 PF=1.4268 tpw=0.1419 x1.5=1.3213).
+  Receipt `89E7928A5036EC493DEA69017F018C09B6AE52A092590B6068F3A7B542AD496E`
+  `preflight/20260715_CAD_CORRA_DIFF_OFFLINE_PROBES.json`;
+  acquire `manifests/20260715_G10_OVERNIGHT_ALTSOURCE_ACQUIRE_V2.json`;
+  VN `readouts/20260715_CAD_CORRA_DIFF_VN_ACTION_BRIEF.md`.
+  Do **not** densify CORRA bp / hold / RR. AUD still blocked.
+  Next: true greenfield outside calendar densify OR Owner RBA CSV drop.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+- **GREENFIELD CALENDAR/LIQ CLOSEOUT (2026-07-15 ~08:45 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Independent greenfield after anti-carry ALL_KILL; parallel G10 alt-source.
+  Offline joint screen:
+  1. `HYP-FX3-H4-TURNMONTH-LIQ-BOOK-001` → **KILLED_AT_OFFLINE_PROBE** (N=599 PF=0.6998 tpw=2.2975 x1.5=0.6466).
+  2. `HYP-FX3-H1-WEEKEND-GAP-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=47 PF=4.7834 tpw=0.1803 x1.5=4.4948).
+  Receipt `93ADBDC420A196C70D8A6340C16106FC71C70C3916616911D508BC51F2655273`
+  `preflight/20260715_GREENFIELD_CALENDAR_LIQ_OFFLINE_PROBES.json`;
+  closeout `readouts/20260715_GREENFIELD_CALENDAR_LIQ_SESSION_CLOSEOUT.md`;
+  VN `readouts/20260715_GREENFIELD_CALENDAR_LIQ_VN_ACTION_BRIEF.md`.
+  Do **not** densify TOM days / gap ATR / RR.
+  Next: G10 alt-source panel child if ready; else next true greenfield — not calendar densify, not carry/D1/exit/FRED/LNY/XS.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+
+
+- **QFSI 006 DIAG + 007 LONG RELAUNCH (2026-07-15 ~08:43 ICT) —
+  `REAL_ON__QFSI_006_ROOTCAUSED__007_LONG_LIVE__REBIND_HARNESS_ARMED__STOP_DATA_FRONTIER`.**
+  **006 root cause:** EARLY_EXIT_NO_SESSION_END after ~36 min; **not** auth drop
+  (`connected=0` = 0/1932); stderr discarded (`DETACHED+DEVNULL`); likely
+  exception/IPC contention/external kill. Local fixes: `session_crash.json`,
+  IPC retries 120, tick soft-fail, logged watcher auto-restart, stall gate
+  fixed (no stale-mtime false kill). **007 LIVE:** capture
+  `20260715_QFSI_REAL_007_LONG_ACCUMULATE` watcher PID **48432** / capture
+  **59040** / Real `terminal64` **27096** — **do not kill**. Book-first
+  USDJPY→EURUSD→GBPUSD→XAUUSD; 6h segments / 24h wall; stop-file only if
+  Owner halt (prior Model0 STOP aborted relaunch — do not recreate casually).
+  Aggregate frontier: quote days **2/90**; EURUSD commission **2/30**; slip
+  **0** MISSING≠0. Historical `copy_ticks` **not** lawful to clear QFSI
+  (BROKER_HISTORY_UNVERIFIED without heartbeat; terminal ~2 tick days / bulk
+  hangs). Owner deal-export still required for commission/slip. Harness
+  `HARNESS_ARMED__GATE_STOP` SHA
+  `A72CFB81B77799192061159FE8C4B2B3D83F8EA0C35910A46B3DE8459A3D2F11`;
+  **`--execute` NOT run**. Receipt SHA
+  `5B5CB4A4045D697DAC7A270DBB5D58E68F85510B5DDFAD551456C75858C55D02`
+  `preflight/20260715_QFSI_006_DIAG_007_RELAUNCH_RECEIPT.json`; deliverable
+  `readouts/20260715_QFSI_006_DIAG_007_RELAUNCH_DELIVERABLE.md`. No densify /
+  Wave8 / COT / price twins. Next: keep Real+007; Owner deal-export; rebind
+  `--execute` only on GO. GOAL unmet.
+
+- **ANTICARRY VOL-SPIKE CLOSEOUT (2026-07-15 ~09:40 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Pivot after carry/swap-diff ALL_KILL; 6J densify INTAKE_KILL; G10 BLOCKED.
+  Offline joint screen:
+  1. `HYP-FX3-ANTICARRY-VOLSPIKE-H4-001` → **KILLED_AT_OFFLINE_PROBE** (N=791 PF=0.8383 tpw=3.034 x1.5=0.7655).
+  2. `HYP-FX3-ANTICARRY-VOLSPIKE-D1CONFIRM-001` → **KILLED_AT_OFFLINE_PROBE** (N=471 PF=0.8696 tpw=1.8066 x1.5=0.7984).
+  Receipt `822440581F0FE9FB30B29C1997CC6F596FCFD47A7B9132418B71AE305ED90EC1`
+  `preflight/20260715_ANTICARRY_VOLSPIKE_OFFLINE_PROBES.json`;
+  closeout `readouts/20260715_ANTICARRY_VOLSPIKE_SESSION_CLOSEOUT.md`;
+  VN `readouts/20260715_ANTICARRY_VOLSPIKE_VN_ACTION_BRIEF.md`.
+  Do **not** densify vol AR / deadband / hold.
+  Next class: True greenfield off kill shelf after Owner-led cost/tick acquire, or G10 daily overnight rates when RBA/BoC download unblocked — not anticarry densify, not V8/USBILL/6J/D1-breakout densify.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+- **CARRY/SWAP-AWARE DIFF CLOSEOUT (2026-07-15 ~09:25 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Named next class after D1 vol-regime ALL_KILL. Nested critic
+  `cursor-grok-4.5-high-fast`. G3 lagged rates; broker swap schedule GAP.
+  Offline joint screen:
+  1. `HYP-FX3-CARRY-FUNDPROXY-MONTHU-HARVEST-001` → **KILLED_AT_OFFLINE_PROBE** (N=278 PF=1.22 tpw=1.0663 x1.5=1.1528).
+  2. `HYP-FX3-CARRY-FLUSH-MR-MULTIDAY-001` → **KILLED_AT_OFFLINE_PROBE** (N=129 PF=0.8577 tpw=0.4948 x1.5=0.805).
+  Receipt `5FD7597B31B8EEA3B43F5858AA72A1595E9B5F9FE65B718AB712015302060026`
+  `preflight/20260715_CARRY_SWAP_DIFF_OFFLINE_PROBES.json`;
+  design `readouts/20260715_CARRY_SWAP_DIFF_DESIGN_MEMO.md`;
+  dedup `readouts/20260715_CARRY_SWAP_DIFF_DEDUP_CLEARANCE.md`;
+  closeout `readouts/20260715_CARRY_SWAP_DIFF_SESSION_CLOSEOUT.md`;
+  VN `readouts/20260715_CARRY_SWAP_DIFF_VN_ACTION_BRIEF.md`.
+  Do **not** densify carry pp / funding floor / flush K / RR.
+  Do **not** retune V8 weekly/daily/5bp/vol or USBILL.
+  Next class: Microstructure **blocked** (cost not research-grade). CME 6J =
+  **INTAKE_KILL densify** of killed FWDBASIS-ZGATE / PD-MMF-6J board. G10 daily
+  overnight acquire **BLOCKED** this session (RBA 403 / BoC 404 / FRED timeout;
+  SNB monthly-only). Named next: **anti-carry × vol-spike** H4 multi-day
+  (≠ V8 Menkhoff calm-carry) — not V8 carry densify, not D1 breakout densify.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+- **D1 VOL-REGIME BREAK CLOSEOUT (2026-07-15 ~09:05 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Named next class after swing thick ALL_KILL. Offline joint screen:
+  1. `HYP-FX3-D1-VOLREGIME-8D-BREAK-001` → **KILLED_AT_OFFLINE_PROBE** (N=28 PF=0.7508 tpw=0.1074 x1.5=0.6917).
+  2. `HYP-FX3-D1-VOLREGIME-2CLOSE-FOLLOW-001` → **KILLED_AT_OFFLINE_PROBE** (N=21 PF=1.7333 tpw=0.0805 x1.5=1.5876).
+  Receipt `3EFEA14E98BDE3E1B76DB92B6805F3B2D915484072BEEE7DAFD7DEEF9C9A635C`
+  `preflight/20260715_D1_VOLREGIME_BREAK_OFFLINE_PROBES.json`;
+  design `readouts/20260715_D1_VOLREGIME_BREAK_DESIGN_MEMO.md`;
+  closeout `readouts/20260715_D1_VOLREGIME_BREAK_SESSION_CLOSEOUT.md`;
+  VN `readouts/20260715_D1_VOLREGIME_BREAK_VN_ACTION_BRIEF.md`.
+  Do **not** densify ATR ratio / 8d / RR. Do not densify prior swing ADX/thrust/TD/ROC.
+  Next class: multi-day carry/swap-aware differential **or** microstructure after
+  research-grade cost — not another D1 breakout densify.
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+- **SWING THICK BOOK CLOSEOUT (2026-07-15 ~08:55 ICT) — `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Post entry-state ALL_KILL; new class multi-day H4–D1 swing FX3 book
+  (not SB/RR2/exit/FRED/LNY/XS densify). Nested critic
+  `cursor-grok-4.5-high-fast`. Offline joint screen:
+  1. `HYP-FX3-D1ADX-H4-THRUST3-SWING-001` → **KILLED_AT_OFFLINE_PROBE** (N=215 PF=1.0264 tpw=0.8247 x1.5=0.9322).
+  2. `HYP-FX3-D1-TRENDDAY-ROC-BOOK-001` → **KILLED_AT_OFFLINE_PROBE** (N=349 PF=1.0769 tpw=1.3386 x1.5=0.9173).
+  Receipt `793DCFEB9019102A158C8A9189930116695C25E3B9E5A437FAB805B29BA18B2B`
+  `preflight/20260715_SWING_THICK_BOOK_OFFLINE_PROBES.json`;
+  design `readouts/20260715_SWING_THICK_BOOK_DESIGN_MEMO.md`;
+  dedup `readouts/20260715_SWING_THICK_BOOK_DEDUP_CLEARANCE.md`;
+  closeout `readouts/20260715_SWING_THICK_BOOK_SESSION_CLOSEOUT.md`;
+  VN `readouts/20260715_SWING_THICK_BOOK_VN_ACTION_BRIEF.md`.
+  Do **not** densify ADX/thrust/TD/ROC. Do **not** reopen exit/FRED/LNY/XS.
+  Next class: D1 vol-regime breakout FX3 (ATR14/ATR50 + 8-day extreme).
+  Best shelf RR2 `194548`. Cost freeze GAP; login not headline. GOAL unmet.
+- **ENTRY-STATE REBUILD CLOSEOUT (2026-07-15 ~08:40 ICT) —
+  `EXO_FRED_DISPLACE_SPAM_PAUSED` / `OFFLINE_ALL_KILL__NO_MODEL0`.**
+  Post ATR-trail Model0 double KILL; exits closed; offline-first ≥3 objects
+  outside exit densify + FRED/LNY/XS. Lead memo
+  `readouts/20260715_ENTRYSTATE_3CRITIC_LEAD_MEMO.md`.
+  1. `HYP-RR2-ENTRY-IMPULSE-BODYATR-GATE-001` → **KILLED_AT_OFFLINE_PROBE** (N=167 PF=1.0613 x1.5=0.8213).
+  2. `HYP-RR2-BOOK-DROP-THINRISK-P25-001` → **KILLED_AT_OFFLINE_PROBE** (N=393 PF=1.3316 x1.5=1.0219).
+  3. `HYP-USDJPY-H1-ASIA-PDCLOSE-MAGNET-FADE-001` → **KILLED_AT_OFFLINE_PROBE** (N=766 PF=0.8953 x1.5=0.8228).
+  Receipt `85C53902CAC674BFE11369CF080BCFC8670668C5A71A310CE614B3D7CD8A246D`
+  `preflight/20260715_ENTRYSTATE_REBUILD_OFFLINE_PROBES.json`;
+  closeout `readouts/20260715_ENTRYSTATE_REBUILD_SESSION_CLOSEOUT.md`;
+  VN `readouts/20260715_ENTRYSTATE_REBUILD_VN_ACTION_BRIEF.md`.
+  Do **not** densify impulse body_atr / thinrisk pctl / magnet ATR.
+  Do **not** reopen RR2 exit family. Best shelf RR2 `194548`.
+  Cost freeze GAP; QFSI parallel; login not headline. GOAL unmet.
+
+- **ATR-TRAIL NATIVE MODEL 0 CLOSEOUT (2026-07-15 ~08:25 ICT) —
+  `EXO_FRED_DISPLACE_SPAM_PAUSED` / `MODEL0_BOTH_KILL` /
+  `OFFLINE_ENVELOPE_INVALIDATED_AS_DEPLOY`.**
+  Owner free Model 0 + brief Real pause/resume. Cost
+  **`UNVERIFIED_TESTER_DEFAULT`**. Native every-tick M15 ATR (`InpTrailBE=0`):
+  1. `HYP-RR2-EXIT-ATRTRAIL-MFEENV-ARM075-K15-001` **`20260715_081213`**
+     N=548 PF **1.100** ×1.5 **0.666** → **KILL**.
+  2. `HYP-RR2-EXIT-ATRTRAIL-MFEENV-ARM100-K20-001` **`20260715_082030`**
+     N=538 PF **1.086** ×1.5 **0.715** → **KILL**.
+  Offline envelope PF 2.53/2.22 did **not** survive. Both worse than RR2
+  shelf `194548` (PF 1.378 / ×1.5≈1.013). Readouts
+  `…ARM075…MODEL0_READOUT.md` + `…ARM100…MODEL0_READOUT.md`; closeout
+  `readouts/20260715_ATRTRAIL_MODEL0_SESSION_CLOSEOUT.md`; VN
+  `readouts/20260715_ATRTRAIL_MODEL0_VN_ACTION_BRIEF.md`. Do **not**
+  densify arm/k; RR2 exit-path family further exhausted. Best shelf RR2
+  `194548`. GOAL unmet.
 
 - **GIT REOPENED (2026-07-15 ~07:50 ICT) - Owner-authorized.** Explicit Owner
   request to create a GitHub repo for this workspace reverses the 2026-07-11
@@ -34,22 +1532,12 @@ Updated: 2026-07-15 ~07:55 ICT | GitHub private `meococ/Trading-EA-MT5` on `main
   `--execute` only on GO. GOAL unmet.
 
 - **ATR-TRAIL TICK-PROXY MONETIZATION CLOSEOUT (2026-07-15 ~01:04 ICT) —
-  `EXO_FRED_DISPLACE_SPAM_PAUSED` / `PROBE_SURVIVOR_PRESENT` /
-  `MODEL0_AUTHORIZED_NATIVE_PATH_REQUIRED`.
-  Tick unavailable; MFE-envelope authority + M1 path diagnostic. RR2 `194548`:
-  - `HYP-RR2-EXIT-ATRTRAIL-MFEENV-ARM075-K15-001` PF **2.5323** x1.5 **1.8099** → **SURVIVOR**.
-  - `HYP-RR2-EXIT-ATRTRAIL-MFEENV-ARM100-K20-001` PF **2.2173** x1.5 **1.5918** → **SURVIVOR**.
-  - `HYP-RR2-EXIT-ATRTRAIL-M1PATH-ARM075-K15-001` PF **1.55** x1.5 **1.1151** → **KILL**.
-  Audit: 101 binds / 81 loser→winner; mean rescued floor ≈1.03R (≠ BE).
-  Offline PF **not** deployable — Model 0 native ATR-trail required; do **not**
-  kill Real to run it. M1 KILL ≠ envelope veto (false early SL).
-  Native EA tick-trail **compiled** (`EA_SilverBullet_v2` every-tick M15 ATR; BE=0);
-  prereg frozen; Model 0 **QUEUED** (QFSI 006 now harvested early-exit —
-  Real still on; do not force Model 0 if it requires killing Real).
-  Receipt `1626718918088C2ED1EB1F24DD879BDB0ADA48338DADDACBB80E042923855B3B`; VN `readouts/20260715_ATRTRAIL_TICKPROXY_VN_ACTION_BRIEF.md`;
-  closeout `readouts/20260715_ATRTRAIL_TICKPROXY_SESSION_CLOSEOUT.md`.
-  Do not densify arm/k; do not revive BE@1R/MFE stall/scale/timebox/volR;
-  do not invent cost freeze. Best shelf RR2 `194548`. GOAL unmet.
+  `PROBE_SURVIVOR_PRESENT` → **superseded** by native Model 0 primary KILL
+  above; offline evidence kept.** Tick unavailable; MFE-envelope + M1 path.
+  Offline: ARM075/K15 + ARM100/K20 SURVIVOR; M1PATH KILL. Receipt
+  `1626718918088C2ED1EB1F24DD879BDB0ADA48338DADDACBB80E042923855B3B`.
+  Offline PF not deployable — confirmed by Model 0 `20260715_081213`.
+  Do not densify arm/k. Best shelf RR2 `194548`. GOAL unmet.
 
 
 - **MONETIZATION REBUILD + COST/TICK V2 CLOSEOUT (2026-07-15 ~01:55 ICT) —
@@ -1781,7 +3269,6 @@ Updated: 2026-07-15 ~07:55 ICT | GitHub private `meococ/Trading-EA-MT5` on `main
   elapsed-calendar cadence, strict Model 0 control/challenger execution,
   diagnostic-only fixed-parameter WFA/realized-P&L robustness/PBO/White Reality
   Check, producer-attributed artifact freshness, strict control bootstrap,
-  matched challenger identity, and verified broker-cost provenance.
 - MetaEditor CLI exit `1` is accepted only when the new compile log proves
   `0 errors` and a fresh non-empty EX5 is newer than compile start; exit status
   alone is never compile proof.
@@ -1969,12 +3456,23 @@ Updated: 2026-07-15 ~07:55 ICT | GitHub private `meococ/Trading-EA-MT5` on `main
 
 ## Next Move
 
-- **ACTIVE — Cost acquire + next monetization class (post rebuild board).**
+- **ACTIVE — HARD PIVOT W11 inventory/persist aftermath.** `R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED`. W11 offline `OFFLINE_ALL_KILL__NO_MODEL0` receipt `AC94A8B11FC70186…`. Do not densify FVG / W1–W11 / swing / Donch / Outside / VR. Next independent class if ALL_KILL. QFSI parallel; cost GAP. Best shelf RR2 `194548`. GOAL unmet.
+
+- **ACTIVE — STRATEGY SHIFT aftermath.** Track A PRIMARY book diagnostic partial under a priori +$12 (caps+cadence OK, PF fail) — **park compose**; do not outcome-mine densify. Phase-0 needs Owner contamination clear. Track B: QFSI 007 watcher **75476** / capture **72320** / Real **27096**. Next = greenfield **outside** R1–R31 densify (NON-FADE, non-indicator), or cost via autonomous `history_deals_get` / QFSI (no Owner deal-export headline). Cost table `readouts/20260715_COST_MULTIDAY_TABLE_R24.md` (quote_days=2/90; freeze_eligible=False). Best shelf RR2 `194548`. GOAL unmet.
+  do not outcome-mine densify. Phase-0 needs Owner contamination clear.
+  Next = greenfield **outside** R1–R25 densify (NON-FADE), or cost via
+  autonomous `history_deals_get` / QFSI (no Owner deal-export headline).
+  Cost table `readouts/20260715_COST_MULTIDAY_TABLE_R24.md`
+  Near-miss shelf (no densify): R25 H4-engulf PF≈1.24 x1.5≈1.16.
+  Best shelf RR2 `194548`. GOAL unmet.
+
+- **CLOSED — STRATEGY SHIFT Track A/B (2026-07-15 ~13:10):** freeze + offline
+  +$12 stress + QFSI restart.
+  `readouts/20260715_STRATEGY_SHIFT_VN_ACTION_BRIEF.md`.
+
+- **CLOSED — Cost acquire + next monetization class (post rebuild board).**
   `EXO_FRED_DISPLACE_SPAM_PAUSED`. Scale-out / timebox-scalp-lock / vol-regime-R
-  **3/3 KILL** (outcome-faithful). Cost freeze still blocked (quote_days=2/90; comm/slip GAP).
-  Keep QFSI accumulate. Next monetization outside this board (tick-path ATR trail
-  or new paradigm). Do **not** densify / FRED / XS / LNY. Best shelf RR2 `194548`.
-  GOAL unmet.
+  **3/3 KILL** (outcome-faithful). Superseded as ACTIVE by STRATEGY SHIFT.
 
 - **CLOSED — Monetization rebuild + cost/tick V2:** Track A diagnostic-only;
   Track B 3/3 KILL. `readouts/20260715_MONETIZATION_REBUILD_SESSION_CLOSEOUT.md`.

@@ -1,0 +1,84 @@
+{
+  "schema": "v8_sector_cugold_acquisition.v1",
+  "created_at_utc": "2026-07-15T10:55:46.720438Z",
+  "authority": "post_W22_ALL_KILL_new_exo; ChatGPT login wall parallel; no Model0 by acquire",
+  "status": "ACQUISITION_EXECUTED",
+  "surface_class": "equity_sector_relative + commodity_curve_factor_beyond_oil",
+  "evz_fx_vol_status": "UNAVAILABLE_THIS_PASS",
+  "banned_this_session": [
+    "VIXCLS_riskoff_USDJPY_retune",
+    "SPX_DGS10_equity_bond_retune",
+    "HY_OAS_MOVE_DTWEX_vix_sibling",
+    "WTI_USDCAD_z_retune",
+    "BRENT_EURUSD_importer_retune",
+    "W1_W22_OHLC_densify",
+    "invent_spreads"
+  ],
+  "files": [
+    {
+      "name": "yahoo_xlk_chart.json",
+      "bytes": 165152,
+      "sha256": "4918DE624E9B26FAF7C855904CF11B556D4E5F9872DD10A05035213A640C3268",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/XLK",
+      "note": "XLK daily chart json",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_sector\\yahoo_xlk_chart.json"
+    },
+    {
+      "name": "yahoo_xlf_chart.json",
+      "bytes": 166527,
+      "sha256": "239C749F3E9E2DAA2F510AFECB4F3C82EBC2A396D3B811F04B91F9ED87CD3B86",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/XLF",
+      "note": "XLF daily chart json",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_sector\\yahoo_xlf_chart.json"
+    },
+    {
+      "name": "yahoo_hg_f_chart.json",
+      "bytes": 161176,
+      "sha256": "46805C37E2C02F5C68E0792CE13B7725B08C672D6CC5DC573EFC91C7A585E30A",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HG=F",
+      "note": "Copper futures HG=F",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\commodity\\yahoo_hg_f_chart.json"
+    },
+    {
+      "name": "yahoo_gc_f_chart.json",
+      "bytes": 139317,
+      "sha256": "789A2E13F41DE3E9D2B67C3F99DB4D4CF075BE8717E7278C3411E189DE4B0168",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/GC=F",
+      "note": "Gold futures GC=F",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\commodity\\yahoo_gc_f_chart.json"
+    },
+    {
+      "name": "yahoo_xlk_xlf_ratio_d1_v1.csv",
+      "bytes": 97045,
+      "sha256": "47911C4420655A8A6A808F82830EEDF40156CD807F2D47DCD50D45DED8B9D15E",
+      "source_url": "derived",
+      "note": "XLK/XLF ratio lag +1d",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\panels\\yahoo_xlk_xlf_ratio_d1_v1.csv"
+    },
+    {
+      "name": "yahoo_hg_gc_cugold_ratio_d1_v1.csv",
+      "bytes": 98217,
+      "sha256": "E424ABE51B82E5F50DF421024BB4A672C601E5D36A7CB6DA7157220AECC88DF5",
+      "source_url": "derived",
+      "note": "HG/GC copper-gold ratio lag +1d",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\panels\\yahoo_hg_gc_cugold_ratio_d1_v1.csv"
+    },
+    {
+      "name": "20260715_SECTOR_CUGOLD_AVAILABLE_AT_UTC_CONTRACT_V1.json",
+      "bytes": 1624,
+      "sha256": "D0EFB7EF75E5DEA662B387E89999ADD70455AE96A372AA4F43A9B04E23A37A10",
+      "source_url": "derived",
+      "note": "lag contract + EVZ unavailable receipt",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\contracts\\20260715_SECTOR_CUGOLD_AVAILABLE_AT_UTC_CONTRACT_V1.json"
+    }
+  ],
+  "panel_sha256": {
+    "yahoo_xlk_xlf_ratio_d1_v1.csv": "47911C4420655A8A6A808F82830EEDF40156CD807F2D47DCD50D45DED8B9D15E",
+    "yahoo_hg_gc_cugold_ratio_d1_v1.csv": "E424ABE51B82E5F50DF421024BB4A672C601E5D36A7CB6DA7157220AECC88DF5"
+  },
+  "row_counts": {
+    "sector_ratio": 1508,
+    "cugold_ratio": 1510
+  },
+  "contract_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\contracts\\20260715_SECTOR_CUGOLD_AVAILABLE_AT_UTC_CONTRACT_V1.json"
+}

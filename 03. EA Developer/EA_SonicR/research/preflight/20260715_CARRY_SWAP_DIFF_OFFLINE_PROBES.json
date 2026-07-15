@@ -1,0 +1,131 @@
+{
+  "broker_swap_schedule": "GAP_USE_G3_FUNDING_PROXY",
+  "cost": {
+    "base_rt_usd": 12.0,
+    "grade": "UNVERIFIED_OFFLINE_PROXY_PLUS12"
+  },
+  "generated_at_utc": "2026-07-15T01:35:26.810802Z",
+  "intake": {
+    "ruling": "Not pure duplicate: (1) Mon\u2192Thu multi-symbol funding-floor harvest \u2260 Friday single-winner weekly / daily deadband rank / 5bp event / Menkhoff; (2) flush\u2192WITH-carry RR book \u2260 rank rebalance and \u2260 USBILL slope basket. Broker swap schedule absent \u2192 funding proxy labeled research-only.",
+    "status": "CLEARED"
+  },
+  "joint_screen": {
+    "n_min": 80,
+    "pf_min": 1.2,
+    "tpw": [
+      1.5,
+      6.0
+    ],
+    "x1_5_pf_min": 1.15
+  },
+  "model0_policy": "PROBE_SURVIVOR_ONLY",
+  "next_class_if_empty": "microstructure if research-grade cost else CME 6J spot-fwd basis multiday \u2014 not V8 carry densify",
+  "rates_panel": "d:\\Trading EA MT5\\03. EA Developer\\EA_CarryPublicRates\\carry_rates_d1.csv",
+  "receipt_sha256": "5FD7597B31B8EEA3B43F5858AA72A1595E9B5F9FE65B718AB712015302060026",
+  "results": [
+    {
+      "family": "carry_fundproxy_monthu_harvest",
+      "funnel": {
+        "by_symbol": {
+          "EURUSD": 95,
+          "USDJPY": 183
+        },
+        "n_armed": 278,
+        "n_blocked_overlap": 0,
+        "n_carry_fail": 282,
+        "n_funding_fail": 217,
+        "n_trades": 278
+      },
+      "haircuts": {
+        "x1": {
+          "exp": 52.1281,
+          "net": 14491.6,
+          "pf": 1.1747
+        },
+        "x1_5": {
+          "exp": 46.1281,
+          "net": 12823.6,
+          "pf": 1.1528
+        },
+        "x2": {
+          "exp": 40.1281,
+          "net": 11155.6,
+          "pf": 1.1314
+        }
+      },
+      "hypothesis_id": "HYP-FX3-CARRY-FUNDPROXY-MONTHU-HARVEST-001",
+      "kill_notes": [
+        "cadence_fail"
+      ],
+      "metrics": {
+        "exp": 64.1281,
+        "n": 278,
+        "net": 17827.6,
+        "pf": 1.22,
+        "tpw": 1.0663
+      },
+      "model0": "WITHHELD",
+      "n_trades_raw": 278,
+      "note": "Mon\u2192Thu with-carry; |carry|\u22650.50pp; funding proxy \u22651.5 pip/3n; SL 1.8 ATR_H4",
+      "symbol": "BOOK:EUR+GBP+USDJPY",
+      "tf": "D1\u2192H4",
+      "verdict": "KILLED_AT_OFFLINE_PROBE"
+    },
+    {
+      "family": "carry_flush_mr_multiday",
+      "funnel": {
+        "by_symbol": {
+          "EURUSD": 73,
+          "GBPUSD": 20,
+          "USDJPY": 36
+        },
+        "n_armed": 157,
+        "n_blocked_overlap": 28,
+        "n_carry_fail": 1265,
+        "n_trades": 129
+      },
+      "haircuts": {
+        "x1": {
+          "exp": -54.3551,
+          "net": -7011.81,
+          "pf": 0.8221
+        },
+        "x1_5": {
+          "exp": -60.3551,
+          "net": -7785.81,
+          "pf": 0.805
+        },
+        "x2": {
+          "exp": -66.3551,
+          "net": -8559.81,
+          "pf": 0.7883
+        }
+      },
+      "hypothesis_id": "HYP-FX3-CARRY-FLUSH-MR-MULTIDAY-001",
+      "kill_notes": [
+        "cadence_fail",
+        "pf_fail",
+        "stress_fail"
+      ],
+      "metrics": {
+        "exp": -42.3551,
+        "n": 129,
+        "net": -5463.81,
+        "pf": 0.8577,
+        "tpw": 0.4948
+      },
+      "model0": "WITHHELD",
+      "n_trades_raw": 129,
+      "note": "5d adverse flush \u22651.0 ATR_D1 vs carry \u2192 ride WITH carry; RR2.5; \u22642 book",
+      "symbol": "BOOK:EUR+GBP+USDJPY",
+      "tf": "D1\u2192H4",
+      "verdict": "KILLED_AT_OFFLINE_PROBE"
+    }
+  ],
+  "schema": "carry_swap_diff_offline_probes.v1",
+  "window": {
+    "from": "2021-01-01T00:00:00",
+    "to": "2025-12-31T23:59:00",
+    "weeks": 260.7142857142857
+  }
+}

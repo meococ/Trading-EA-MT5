@@ -1,0 +1,41 @@
+{
+  "schema_version": "sonic_atrtrail_model0_pause.v1",
+  "reason": "OWNER_AUTH_PAUSE_FOR_MODEL0",
+  "terminal_pid_before": 19984,
+  "login": 26451822,
+  "server": "FivePercentOnline-Real",
+  "action": "stop_terminal64_briefly",
+  "resume_plan": "relaunch_terminal_then_qfsi_watcher_if_needed",
+  "hypothesis_id": "HYP-RR2-EXIT-ATRTRAIL-MFEENV-ARM075-K15-001",
+  "created_at_ict": "2026-07-15T08:05:02+07:00",
+  "terminal_pid_stopped": 19984,
+  "stop_note": "Stopped blocking Real terminal64 before Model 0; leftover AlphaTester PID 53580 also cleared after failed Path race.",
+  "model0_run_id": "20260715_081213",
+  "resume_terminal_pid": 52000,
+  "alt_events": [
+    {
+      "event": "ALT_ARM100_MODEL0_PAUSE",
+      "hypothesis_id": "HYP-RR2-EXIT-ATRTRAIL-MFEENV-ARM100-K20-001",
+      "terminal_pid_before_alt": 52000,
+      "action": "stop_terminal64_briefly",
+      "reason": "OWNER_AUTH_OPTIONAL_ALT_AFTER_PRIMARY_KILL",
+      "created_at_ict": "2026-07-15T08:19:04+07:00",
+      "resume_plan": "relaunch_ProgramFiles_MT5_terminal64_auto_login_expected",
+      "note": "Append for independent a priori sibling ARM100-K20 Model 0; do not densify from primary readout."
+    },
+    {
+      "event": "ALT_ARM100_MODEL0_RESUME",
+      "hypothesis_id": "HYP-RR2-EXIT-ATRTRAIL-MFEENV-ARM100-K20-001",
+      "model0_run_id": "20260715_082030",
+      "resume_terminal_pid": 27096,
+      "resume_path": "C:\\\\Program Files\\\\MetaTrader 5\\\\terminal64.exe",
+      "created_at_ict": "2026-07-15T08:21:48+07:00",
+      "note": "Relaunched Program Files MT5 after alt ARM100 Model 0; auto-login expected; credentials not invented."
+    }
+  ],
+  "last_alt_pause_at_ict": "2026-07-15T08:19:04+07:00",
+  "last_alt_hypothesis_id": "HYP-RR2-EXIT-ATRTRAIL-MFEENV-ARM100-K20-001",
+  "alt_arm100_run_id": "20260715_082030",
+  "alt_resume_terminal_pid": 27096,
+  "alt_resume_at_ict": "2026-07-15T08:21:48+07:00"
+}

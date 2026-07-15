@@ -1,0 +1,440 @@
+{
+  "schema_version": "sonic_cost_ladder_diagnostic.v1",
+  "generated_at_utc": "2026-07-15T10:18:43.057725Z",
+  "honesty": [
+    "DIAGNOSTIC_ROWS_NOT_GOAL",
+    "DIAGNOSTIC_ROWS_NOT_CONFIRMED",
+    "COST_FREEZE_STILL_GAP",
+    "REAL_QFSI_PARTIAL_ONLY",
+    "SLIPPAGE_MISSING_NEQ_0",
+    "FVG_LADDER_NOT_RECONSTRUCTABLE"
+  ],
+  "cost_sources": {
+    "real_p50_usdjpy": 2.6167623676303218,
+    "real_p90_usdjpy": 2.925143551445483,
+    "qfsi_table": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_BROKER_SPREAD_COST_TABLE_QFSI.json",
+    "qfsi_table_sha256": "A0DD6BDBFDC311720CF963E5D05D9D5BBD7C9E42F9A99E1EAE68787334AA2964",
+    "prior_rr2_real_stress": {
+      "present": true,
+      "path": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_RR2_SHELF_20260714_194548_REAL_P50_W7CONT.json",
+      "sha256": "98FDD5CEBCE2AA8F4BBBC7E810101713B06B33B971A2D452D9670A52968796C1",
+      "cost_assumption": {
+        "base_cost_per_trade": 2.6167737797160218,
+        "spread_points": 0.0,
+        "slippage_points": 0.0,
+        "commission_round_turn": 0.0,
+        "point_value_per_lot": 1.0,
+        "lot_size": 0.01,
+        "computed_base_round_turn_cost": 2.616774,
+        "note": "FivePercentOnline-Real AGGREGATED captures 001–005 + live DPL; unit_p50=5.233548/lot (=spread+EURUSD commission clue $4.0/lot RT N=2); slippage MISSING≠0; NOT full QFSI; Wave7-continue shelf reprice",
+        "provenance": "FIVEPERCENTONLINE_REAL_PARTIAL_W7CONTINUE"
+      },
+      "verdict": "REVIEW",
+      "scenarios": [
+        {
+          "n_trades": 524,
+          "net_profit": 9828.35,
+          "profit_factor": 1.378321,
+          "win_rate_pct": 42.748092,
+          "expectancy_per_trade": 18.756393,
+          "max_drawdown_pct": 0.963788,
+          "positive_months": 42,
+          "negative_months": 18,
+          "active_months": 60,
+          "positive_month_ratio": 0.7,
+          "scenario": "base_report",
+          "cost_multiplier": 0.0,
+          "round_turn_cost_per_trade": 0.0,
+          "delta_net_vs_report": 0.0
+        },
+        {
+          "n_trades": 524,
+          "net_profit": 8457.16,
+          "profit_factor": 1.315991,
+          "win_rate_pct": 42.748092,
+          "expectancy_per_trade": 16.139619,
+          "max_drawdown_pct": 1.084769,
+          "positive_months": 40,
+          "negative_months": 20,
+          "active_months": 60,
+          "positive_month_ratio": 0.666667,
+          "scenario": "cost_x1_00",
+          "cost_multiplier": 1.0,
+          "round_turn_cost_per_trade": 2.616774,
+          "delta_net_vs_report": -1371.19
+        },
+        {
+          "n_trades": 524,
+          "net_profit": 8114.36,
+          "profit_factor": 1.300976,
+          "win_rate_pct": 42.748092,
+          "expectancy_per_trade": 15.485426,
+          "max_drawdown_pct": 1.115221,
+          "positive_months": 39,
+          "negative_months": 21,
+          "active_months": 60,
+          "positive_month_ratio": 0.65,
+          "scenario": "cost_x1_25",
+          "cost_multiplier": 1.25,
+          "round_turn_cost_per_trade": 3.270967,
+          "delta_net_vs_report": -1713.99
+        },
+        {
+          "n_trades": 524,
+          "net_profit": 7771.57,
+          "profit_factor": 1.286178,
+          "win_rate_pct": 42.748092,
+          "expectancy_per_trade": 14.831232,
+          "max_drawdown_pct": 1.145757,
+          "positive_months": 38,
+          "negative_months": 22,
+          "active_months": 60,
+          "positive_month_ratio": 0.633333,
+          "scenario": "cost_x1_50",
+          "cost_multiplier": 1.5,
+          "round_turn_cost_per_trade": 3.925161,
+          "delta_net_vs_report": -2056.78
+        },
+        {
+          "n_trades": 524,
+          "net_profit": 7085.97,
+          "profit_factor": 1.257214,
+          "win_rate_pct": 42.748092,
+          "expectancy_per_trade": 13.522846,
+          "max_drawdown_pct": 1.207079,
+          "positive_months": 38,
+          "negative_months": 22,
+          "active_months": 60,
+          "positive_month_ratio": 0.633333,
+          "scenario": "cost_x2_00",
+          "cost_multiplier": 2.0,
+          "round_turn_cost_per_trade": 5.233548,
+          "delta_net_vs_report": -2742.38
+        }
+      ],
+      "honesty": [
+        "report_only_cost_stress",
+        "PARTIAL_REAL_CAPTURE",
+        "slippage_MISSING_neq_0",
+        "NOT_FULL_QFSI",
+        "NOT_CONFIRMED_COST_PROVENANCE"
+      ]
+    }
+  },
+  "objects": [
+    {
+      "object": "RR2_SHELF_194548",
+      "n_raw": 524,
+      "ladder": [
+        {
+          "ladder_key": "tester_only",
+          "grade": "DIAGNOSTIC",
+          "provenance": "raw tester report PnL; NOT full cost",
+          "metrics": {
+            "n": 524,
+            "pf": 1.3783,
+            "net": 9828.35,
+            "exp": 18.7564,
+            "tpw": 2.0099,
+            "haircut_usd": 0.0
+          },
+          "goal_shape": {
+            "pf_gt_1_30": true,
+            "tpw_2_to_5": true,
+            "would_pass_goal_shape": true,
+            "claim_allowed": false,
+            "note": "DIAGNOSTIC rows never claim GOAL; RESEARCH-GRADE +$12 still GOAL_SCREEN only if pf&tpw pass — clean book historically fails pf>1.30"
+          }
+        },
+        {
+          "ladder_key": "real_qfsi_partial_p50",
+          "grade": "DIAGNOSTIC",
+          "provenance": "FivePercentOnline-Real PARTIAL; USDJPY unit_p50@$0.5lot; slip MISSING≠0; NOT freeze-eligible",
+          "metrics": {
+            "n": 524,
+            "pf": 1.316,
+            "net": 8457.17,
+            "exp": 16.1396,
+            "tpw": 2.0099,
+            "haircut_usd": 2.6167623676303218
+          },
+          "goal_shape": {
+            "pf_gt_1_30": true,
+            "tpw_2_to_5": true,
+            "would_pass_goal_shape": true,
+            "claim_allowed": false,
+            "note": "DIAGNOSTIC rows never claim GOAL; RESEARCH-GRADE +$12 still GOAL_SCREEN only if pf&tpw pass — clean book historically fails pf>1.30"
+          }
+        },
+        {
+          "ladder_key": "real_qfsi_partial_p90",
+          "grade": "DIAGNOSTIC",
+          "provenance": "same provenance as P50; P90 spread+EURUSD commission clue; NOT freeze-eligible",
+          "metrics": {
+            "n": 524,
+            "pf": 1.3089,
+            "net": 8295.57,
+            "exp": 15.8312,
+            "tpw": 2.0099,
+            "haircut_usd": 2.925143551445483
+          },
+          "goal_shape": {
+            "pf_gt_1_30": true,
+            "tpw_2_to_5": true,
+            "would_pass_goal_shape": true,
+            "claim_allowed": false,
+            "note": "DIAGNOSTIC rows never claim GOAL; RESEARCH-GRADE +$12 still GOAL_SCREEN only if pf&tpw pass — clean book historically fails pf>1.30"
+          }
+        },
+        {
+          "ladder_key": "apriori_8",
+          "grade": "DIAGNOSTIC",
+          "provenance": "a priori alternate haircut; NOT the frozen research screen",
+          "metrics": {
+            "n": 524,
+            "pf": 1.1986,
+            "net": 5636.35,
+            "exp": 10.7564,
+            "tpw": 2.0099,
+            "haircut_usd": 8.0
+          },
+          "goal_shape": {
+            "pf_gt_1_30": false,
+            "tpw_2_to_5": true,
+            "would_pass_goal_shape": false,
+            "claim_allowed": false,
+            "note": "DIAGNOSTIC rows never claim GOAL; RESEARCH-GRADE +$12 still GOAL_SCREEN only if pf&tpw pass — clean book historically fails pf>1.30"
+          }
+        },
+        {
+          "ladder_key": "apriori_12",
+          "grade": "RESEARCH-GRADE",
+          "provenance": "frozen a priori +$12 research screen (binding)",
+          "metrics": {
+            "n": 524,
+            "pf": 1.1197,
+            "net": 3540.35,
+            "exp": 6.7564,
+            "tpw": 2.0099,
+            "haircut_usd": 12.0
+          },
+          "goal_shape": {
+            "pf_gt_1_30": false,
+            "tpw_2_to_5": true,
+            "would_pass_goal_shape": false,
+            "claim_allowed": false,
+            "note": "DIAGNOSTIC rows never claim GOAL; RESEARCH-GRADE +$12 still GOAL_SCREEN only if pf&tpw pass — clean book historically fails pf>1.30"
+          }
+        },
+        {
+          "ladder_key": "apriori_12_x1_5",
+          "grade": "RESEARCH-GRADE",
+          "provenance": "a priori +$12 ×1.5 stress of research screen",
+          "metrics": {
+            "n": 524,
+            "pf": 1.0126,
+            "net": 396.35,
+            "exp": 0.7564,
+            "tpw": 2.0099,
+            "haircut_usd": 18.0
+          },
+          "goal_shape": {
+            "pf_gt_1_30": false,
+            "tpw_2_to_5": true,
+            "would_pass_goal_shape": false,
+            "claim_allowed": false,
+            "note": "DIAGNOSTIC rows never claim GOAL; RESEARCH-GRADE +$12 still GOAL_SCREEN only if pf&tpw pass — clean book historically fails pf>1.30"
+          }
+        }
+      ],
+      "run_id": "20260714_194548",
+      "hypothesis_id": "HYP-SB-MAXKZ2-RR2-FRICTION-001",
+      "report_sha256": "49D142CF2B9531AD2F9C338277FD30B00EC74F420B23A7E288687443723397E3",
+      "tpw_raw": 2.0099
+    },
+    {
+      "object": "CLEAN_BOOK_PRIMARY_RR2SPARK",
+      "n_raw": 845,
+      "ladder": [
+        {
+          "ladder_key": "tester_only",
+          "grade": "DIAGNOSTIC",
+          "provenance": "raw tester report PnL; NOT full cost",
+          "metrics": {
+            "n": 845,
+            "pf": 1.4088,
+            "net": 20223.08,
+            "exp": 23.9326,
+            "tpw": 3.2411,
+            "haircut_usd": 0.0
+          },
+          "goal_shape": {
+            "pf_gt_1_30": true,
+            "tpw_2_to_5": true,
+            "would_pass_goal_shape": true,
+            "claim_allowed": false,
+            "note": "DIAGNOSTIC rows never claim GOAL; RESEARCH-GRADE +$12 still GOAL_SCREEN only if pf&tpw pass — clean book historically fails pf>1.30"
+          }
+        },
+        {
+          "ladder_key": "real_qfsi_partial_p50",
+          "grade": "DIAGNOSTIC",
+          "provenance": "FivePercentOnline-Real PARTIAL; USDJPY unit_p50@$0.5lot; slip MISSING≠0; NOT freeze-eligible",
+          "metrics": {
+            "n": 845,
+            "pf": 1.3558,
+            "net": 18011.92,
+            "exp": 21.3159,
+            "tpw": 3.2411,
+            "haircut_usd": 2.6167623676303218
+          },
+          "goal_shape": {
+            "pf_gt_1_30": true,
+            "tpw_2_to_5": true,
+            "would_pass_goal_shape": true,
+            "claim_allowed": false,
+            "note": "DIAGNOSTIC rows never claim GOAL; RESEARCH-GRADE +$12 still GOAL_SCREEN only if pf&tpw pass — clean book historically fails pf>1.30"
+          }
+        },
+        {
+          "ladder_key": "real_qfsi_partial_p90",
+          "grade": "DIAGNOSTIC",
+          "provenance": "same provenance as P50; P90 spread+EURUSD commission clue; NOT freeze-eligible",
+          "metrics": {
+            "n": 845,
+            "pf": 1.3497,
+            "net": 17751.33,
+            "exp": 21.0075,
+            "tpw": 3.2411,
+            "haircut_usd": 2.925143551445483
+          },
+          "goal_shape": {
+            "pf_gt_1_30": true,
+            "tpw_2_to_5": true,
+            "would_pass_goal_shape": true,
+            "claim_allowed": false,
+            "note": "DIAGNOSTIC rows never claim GOAL; RESEARCH-GRADE +$12 still GOAL_SCREEN only if pf&tpw pass — clean book historically fails pf>1.30"
+          }
+        },
+        {
+          "ladder_key": "apriori_8",
+          "grade": "DIAGNOSTIC",
+          "provenance": "a priori alternate haircut; NOT the frozen research screen",
+          "metrics": {
+            "n": 845,
+            "pf": 1.254,
+            "net": 13463.08,
+            "exp": 15.9326,
+            "tpw": 3.2411,
+            "haircut_usd": 8.0
+          },
+          "goal_shape": {
+            "pf_gt_1_30": false,
+            "tpw_2_to_5": true,
+            "would_pass_goal_shape": false,
+            "claim_allowed": false,
+            "note": "DIAGNOSTIC rows never claim GOAL; RESEARCH-GRADE +$12 still GOAL_SCREEN only if pf&tpw pass — clean book historically fails pf>1.30"
+          }
+        },
+        {
+          "ladder_key": "apriori_12",
+          "grade": "RESEARCH-GRADE",
+          "provenance": "frozen a priori +$12 research screen (binding)",
+          "metrics": {
+            "n": 845,
+            "pf": 1.1841,
+            "net": 10083.08,
+            "exp": 11.9326,
+            "tpw": 3.2411,
+            "haircut_usd": 12.0
+          },
+          "goal_shape": {
+            "pf_gt_1_30": false,
+            "tpw_2_to_5": true,
+            "would_pass_goal_shape": false,
+            "claim_allowed": false,
+            "note": "DIAGNOSTIC rows never claim GOAL; RESEARCH-GRADE +$12 still GOAL_SCREEN only if pf&tpw pass — clean book historically fails pf>1.30"
+          }
+        },
+        {
+          "ladder_key": "apriori_12_x1_5",
+          "grade": "RESEARCH-GRADE",
+          "provenance": "a priori +$12 ×1.5 stress of research screen",
+          "metrics": {
+            "n": 845,
+            "pf": 1.0873,
+            "net": 5013.08,
+            "exp": 5.9326,
+            "tpw": 3.2411,
+            "haircut_usd": 18.0
+          },
+          "goal_shape": {
+            "pf_gt_1_30": false,
+            "tpw_2_to_5": true,
+            "would_pass_goal_shape": false,
+            "claim_allowed": false,
+            "note": "DIAGNOSTIC rows never claim GOAL; RESEARCH-GRADE +$12 still GOAL_SCREEN only if pf&tpw pass — clean book historically fails pf>1.30"
+          }
+        }
+      ],
+      "sleeves": [
+        "A_RR2",
+        "B_SPARK"
+      ],
+      "dropped_heat": 4,
+      "pair_caps": {
+        "weekly_corr_raw": 0.0414,
+        "overlap_frac": 0.0123,
+        "corr_cap": 0.35,
+        "overlap_cap": 0.05
+      }
+    }
+  ],
+  "fvg_near_miss_cite": {
+    "present": true,
+    "hypothesis_id": "HYP-SB-FVG-RETEST-ACCEPT-DELAY-001",
+    "grade_note": "Prior offline probe under a priori +$12 — RESEARCH-GRADE screen numbers only; densify FORBIDDEN; Real/QFSI ladder NOT reconstructable (no trade list).",
+    "metrics": {
+      "n": 299,
+      "pf": 1.2747,
+      "net": 15807.5,
+      "exp": 52.8679,
+      "tpw": 1.1468
+    },
+    "haircuts_apriori12": {
+      "x1": {
+        "pf": 1.2054,
+        "net": 12219.5,
+        "exp": 40.8679
+      },
+      "x1_5": {
+        "pf": 1.1724,
+        "net": 10425.5,
+        "exp": 34.8679
+      },
+      "x2": {
+        "pf": 1.1405,
+        "net": 8631.5,
+        "exp": 28.8679
+      }
+    },
+    "verdict": "KILLED_AT_OFFLINE_PROBE",
+    "ladder_reconstructable": false,
+    "source_json": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260715_HARD_PIVOT_ENTRYSTATE_REBUILD_OFFLINE_PROBES.json",
+    "source_sha256": "202A33835FC62A307C199594AA71C7A7B1711BF5265F96EA9F0E15D65467A0E6"
+  },
+  "decision": {
+    "binding_research_screen": "apriori_12",
+    "rr2_pf_tester": 1.3783,
+    "rr2_pf_real_p50": 1.316,
+    "rr2_pf_apriori_8": 1.1986,
+    "rr2_pf_apriori_12": 1.1197,
+    "book_pf_tester": 1.4088,
+    "book_pf_real_p50": 1.3558,
+    "book_pf_apriori_8": 1.254,
+    "book_pf_apriori_12": 1.1841,
+    "book_tpw": 3.2411,
+    "verdict_en": "$12 remains the binding RESEARCH-GRADE screen. DIAGNOSTIC Real/QFSI partials (~$2.62 P50) show RR2/clean-book PF much higher than under $12, so $12 is punitive vs thin Real sample — BUT freeze still GAP (11 deals, ≪90 quote days, slip MISSING). Do NOT relax GOAL/confirmed from DIAGNOSTIC. Keep +$12 as kill/survive screen until research-grade cost freeze exists."
+  },
+  "receipt_sha256": "6479B6A10B2402E972EF3B46112F3EF14BBC884453AF1A36BC9023A1B7E1BECA"
+}

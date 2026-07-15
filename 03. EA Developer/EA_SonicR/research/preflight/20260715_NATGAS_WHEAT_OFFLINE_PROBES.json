@@ -1,0 +1,220 @@
+{
+  "schema": "natgas_wheat_offline_probes.v1",
+  "created_at_utc": "2026-07-15T11:05:33.481328Z",
+  "campaign_status": "OFFLINE_ALL_KILL / NO_MODEL0",
+  "wave": "W25_NATGAS_WHEAT_EXO",
+  "window": {
+    "from": "2021-01-01T00:00:00",
+    "to": "2025-12-31T23:59:59",
+    "elapsed_weeks": 260.8571
+  },
+  "cost_proxy_usd_per_trade": 12.0,
+  "panel_sha256": {
+    "natgas": "3334E6BA1D300893BF0B27D308E3967948C08870FDA6B6646B986DC8CCF7D4F9",
+    "wheat": "C4B7CFB945A9CE80E5A85B139E92D7C27CF485D0F1173DDBA12E617CC9AC4DD5"
+  },
+  "contract_sha256": "BEA71C2F371B3F0CB947CAA9F59C6C7160291C18808D16C09C7EE1395A85D9E9",
+  "acquisition_manifest_sha256": "A51869B81AAB719287B361F225F6CC7B4DA0F3652C880FD019DD55E4D4668A1F",
+  "objects": [
+    {
+      "hypothesis_id": "HYP-AUDUSD-H1-NATGAS-LNG-TOT-CONT-001",
+      "class": "natgas_lng_tot_cont",
+      "symbol": "AUDUSD",
+      "tf": "H1",
+      "funnel": {
+        "n_bias": 7168,
+        "n_displace": 613,
+        "n_trades": 613,
+        "days_used": 613,
+        "n_no_z": 0
+      },
+      "metrics": {
+        "n": 613,
+        "pf": 0.9213,
+        "net": -13579.35,
+        "exp": -22.1523,
+        "tpw": 2.3499
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.882,
+          "net": -20935.35,
+          "exp": -34.1523
+        },
+        "x1_5": {
+          "pf": 0.8631,
+          "net": -24613.35,
+          "exp": -40.1523
+        },
+        "x2": {
+          "pf": 0.8448,
+          "net": -28291.35,
+          "exp": -46.1523
+        }
+      },
+      "kill_notes": [
+        "pf_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "a_priori": {
+        "z_abs": 0.75,
+        "lookback": 60,
+        "thesis": "NG_natgas_AUD_LNG_terms_of_trade",
+        "bias_rule": "z>=+thr long AUDUSD; z<=-thr short AUDUSD",
+        "lag": "observation+1d (frozen panel available_at)",
+        "range_atr": 1.2,
+        "body_atr": 0.55,
+        "close_frac": 0.6,
+        "sl_atr": 1.0,
+        "rr": 2.0,
+        "max_hold": 12,
+        "not_vix_riskoff": true,
+        "not_wti_brent_oil": true,
+        "not_ironore_cny": true,
+        "not_sector_cugold": true,
+        "not_w1_w24_ohlc": true
+      },
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-AUDUSD-H1-WHEAT-AG-TOT-CONT-001",
+      "class": "wheat_ag_tot_cont",
+      "symbol": "AUDUSD",
+      "tf": "H1",
+      "funnel": {
+        "n_bias": 6675,
+        "n_displace": 551,
+        "n_trades": 551,
+        "days_used": 551,
+        "n_no_z": 0
+      },
+      "metrics": {
+        "n": 551,
+        "pf": 0.98,
+        "net": -3242.31,
+        "exp": -5.8844,
+        "tpw": 2.1123
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9407,
+          "net": -9854.31,
+          "exp": -17.8844
+        },
+        "x1_5": {
+          "pf": 0.9219,
+          "net": -13160.31,
+          "exp": -23.8844
+        },
+        "x2": {
+          "pf": 0.9034,
+          "net": -16466.31,
+          "exp": -29.8844
+        }
+      },
+      "kill_notes": [
+        "pf_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "a_priori": {
+        "z_abs": 0.75,
+        "lookback": 60,
+        "thesis": "ZW_wheat_AUD_ag_terms_of_trade",
+        "bias_rule": "z>=+thr long AUDUSD; z<=-thr short AUDUSD",
+        "lag": "observation+1d (frozen panel available_at)",
+        "range_atr": 1.2,
+        "body_atr": 0.55,
+        "close_frac": 0.6,
+        "sl_atr": 1.0,
+        "rr": 2.0,
+        "max_hold": 12,
+        "not_vix_riskoff": true,
+        "not_wti_brent_oil": true,
+        "not_ironore_cny": true,
+        "not_sector_cugold": true,
+        "not_w1_w24_ohlc": true
+      },
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-BOOK-NATGAS-WHEAT-APRIORI-001",
+      "class": "nested_natgas_wheat_apriori_book",
+      "symbol": "AUDUSD",
+      "tf": "H1",
+      "funnel": {
+        "n_o1": 613,
+        "n_o2": 551,
+        "n_union_days": 806,
+        "n_trades": 806
+      },
+      "metrics": {
+        "n": 806,
+        "pf": 0.9936,
+        "net": -1542.6,
+        "exp": -1.9139,
+        "tpw": 3.0898
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9547,
+          "net": -11214.6,
+          "exp": -13.9139
+        },
+        "x1_5": {
+          "pf": 0.936,
+          "net": -16050.6,
+          "exp": -19.9139
+        },
+        "x2": {
+          "pf": 0.9177,
+          "net": -20886.6,
+          "exp": -25.9139
+        }
+      },
+      "kill_notes": [
+        "pf_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "a_priori": {
+        "composition": "union_by_day_prefer_larger_abs_z",
+        "parents": [
+          "HYP-AUDUSD-H1-NATGAS-LNG-TOT-CONT-001",
+          "HYP-AUDUSD-H1-WHEAT-AG-TOT-CONT-001"
+        ],
+        "nested_ok": true
+      },
+      "model0": "WITHHELD"
+    }
+  ],
+  "survivors": [],
+  "model0": "WITHHELD",
+  "banned": [
+    "TIO_ironore_retune",
+    "USDCNY_CNY_strength_retune",
+    "XLK_XLF_sector_retune",
+    "HG_GC_cugold_retune",
+    "VIXCLS_riskoff_retune",
+    "SPX_DGS10_retune",
+    "HY_MOVE_DTWEX_vix_sibling",
+    "WTI_BRENT_oil_retune",
+    "WALCL_ECB_MMF_G10_fred_retune",
+    "COT_size_z_retune",
+    "NG_z_mine",
+    "ZW_z_mine",
+    "W1_W24_OHLC_densify",
+    "R_series_densify",
+    "invent_spreads",
+    "Phase0_without_clear"
+  ],
+  "best_shelf": "RR2_20260714_194548",
+  "clean_book_pf12": 1.184,
+  "cost_surface": "GAP_UNCHANGED",
+  "chatgpt": "AUTH_BLOCKED__LOGIN_WALL__PARALLEL_OWNER_ONLY",
+  "receipt_sha256": "D88BA9DAFBC207B28E891A384E4501A5C281855EEE695AF1A805E5447325580F"
+}

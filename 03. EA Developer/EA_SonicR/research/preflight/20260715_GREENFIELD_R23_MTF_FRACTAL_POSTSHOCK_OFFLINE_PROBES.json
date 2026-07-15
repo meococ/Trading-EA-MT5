@@ -1,0 +1,193 @@
+{
+  "schema_version": "greenfield_r23_mtf_fractal_postshock.v2_closedbar_asof",
+  "lookahead_note": "v1 INVALIDATED: HTF used forming H4/D1 (open<ts). v2 uses last_fully_closed(open+period<=asof).",
+  "generated_at_utc": "2026-07-15T06:56:49.793932Z",
+  "window": "2021.01.01-2025.12.31",
+  "cost_apriori_usd": 12.0,
+  "freeze_sha256": "E0ED7005E1720F0EBC285E4E72543A8F67F439B93138029B83C7B48E46F88674",
+  "hard_constraint": "NON_FADE__NO_R10_R22_DENSIFY__NO_LEAD_CLONES",
+  "gates": {
+    "n_min": 80,
+    "pf_min": 1.3,
+    "tpw_min": 2.0,
+    "x1_5_pf_min": 1.25
+  },
+  "params": {
+    "mtf": {
+      "body_h1": 0.4,
+      "body_h4": 0.35,
+      "body_d1": 0.3,
+      "sl": 1.45,
+      "rr": 2.0,
+      "hold": 10
+    },
+    "fractal": {
+      "n": 5,
+      "break": 0.15,
+      "body": 0.45,
+      "sl": 1.45,
+      "rr": 2.0,
+      "hold": 10
+    },
+    "postshock": {
+      "win": 20,
+      "z": 2.5,
+      "body": 0.5,
+      "hours": [
+        7,
+        11
+      ],
+      "sl": 1.45,
+      "rr": 2.0,
+      "hold": 10
+    }
+  },
+  "qfsi_parallel": "watcher_hb ts=2026-07-15T06:56:44.374993Z alive=True cap_pid=72320 wall_rem=256047; 007 accumulate hb=12180 quotes=9402 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline",
+  "clean_book_note": "PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…",
+  "results": [
+    {
+      "hypothesis_id": "HYP-FX3-H1-MULTITF-ALIGN-CONT-001",
+      "setup": "fx3_h1_multitf_align_cont",
+      "symbol": "FX3",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 1664,
+        "pf": 0.9208,
+        "net": -35434.64,
+        "exp": -21.2949,
+        "tpw": 6.3825
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.8794,
+          "net": -55402.64,
+          "exp": -33.2949
+        },
+        "x1_5": {
+          "pf": 0.8596,
+          "net": -65386.64,
+          "exp": -39.2949
+        },
+        "x2": {
+          "pf": 0.8402,
+          "net": -75370.64,
+          "exp": -45.2949
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "time": 510,
+          "sl": 855,
+          "tp": 298,
+          "eod": 1
+        },
+        "by_sym": {
+          "EURUSD": 538,
+          "GBPUSD": 561,
+          "USDJPY": 565
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-USDJPY-H1-FRACTAL5-BREAK-CONT-001",
+      "setup": "usdjpy_h1_fractal5_break_cont",
+      "symbol": "USDJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 1261,
+        "pf": 1.0754,
+        "net": 24364.77,
+        "exp": 19.3218,
+        "tpw": 4.8367
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.0278,
+          "net": 9232.77,
+          "exp": 7.3218
+        },
+        "x1_5": {
+          "pf": 1.005,
+          "net": 1666.77,
+          "exp": 1.3218
+        },
+        "x2": {
+          "pf": 0.9827,
+          "net": -5899.23,
+          "exp": -4.6782
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 644,
+          "time": 338,
+          "tp": 278,
+          "eod": 1
+        },
+        "by_sym": {
+          "USDJPY": 1261
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-EURUSD-H1-POSTSHOCK-LONDON-CONT-001",
+      "setup": "eurusd_h1_postshock_london_cont",
+      "symbol": "EURUSD",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 24,
+        "pf": 0.7966,
+        "net": -1601.09,
+        "exp": -66.7122,
+        "tpw": 0.0921
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.7657,
+          "net": -1889.09,
+          "exp": -78.7122
+        },
+        "x1_5": {
+          "pf": 0.7508,
+          "net": -2033.09,
+          "exp": -84.7122
+        },
+        "x2": {
+          "pf": 0.7363,
+          "net": -2177.09,
+          "exp": -90.7122
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "n_fail",
+        "pf_fail",
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "tp": 5,
+          "sl": 16,
+          "time": 3
+        },
+        "by_sym": {
+          "EURUSD": 24
+        }
+      }
+    }
+  ],
+  "model0": "WITHHELD",
+  "status": "OFFLINE_ALL_KILL__NO_MODEL0",
+  "receipt_sha256": "CF51E07EA6B0059FBB152180559CFBA2A5E1E0333463FC71AAAB98820687306B"
+}

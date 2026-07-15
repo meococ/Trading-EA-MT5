@@ -1,0 +1,44 @@
+{
+  "schema": "exo_available_at_utc_contract.v1",
+  "created_at_utc": "2026-07-15T10:55:46.720438Z",
+  "series": [
+    {
+      "id": "XLK_XLF_RATIO",
+      "panel": "yahoo_xlk_xlf_ratio_d1_v1.csv",
+      "source": "Yahoo Finance chart XLK + XLF daily close",
+      "lag_rule": "available_at = observation_date + 1 calendar day",
+      "rationale": "US equity sector ETF cash close; +1d fail-closed vs same-day FX H1 use (no intraday ETF lookahead)",
+      "not_vix_riskoff_twin": true,
+      "not_spx_dgs10_twin": true
+    },
+    {
+      "id": "HG_GC_CUGOLD_RATIO",
+      "panel": "yahoo_hg_gc_cugold_ratio_d1_v1.csv",
+      "source": "Yahoo Finance chart HG=F + GC=F daily close",
+      "lag_rule": "available_at = observation_date + 1 calendar day",
+      "rationale": "Copper vs gold futures ratio as industrial/growth factor; +1d vs same-day FX; \u2260 WTI/Brent oil spot ToT",
+      "not_wti_brent_oil_clone": true
+    }
+  ],
+  "unavailable_this_pass": [
+    {
+      "id": "EVZCLS_FX_VOL",
+      "attempts": [
+        "fred.stlouisfed.org/graph/fredgraph.csv?id=EVZCLS \u2192 TimeoutError",
+        "api.db.nomics.world FRED/EVZCLS \u2192 404",
+        "Yahoo EVZ/^EVZ \u2192 no usable series this pass"
+      ],
+      "status": "UNAVAILABLE_THIS_PASS",
+      "ruling": "PROVE_UNAVAILABLE_PICK_NEXT__SECTOR_CUGOLD_SELECTED"
+    }
+  ],
+  "banned": [
+    "VIXCLS_riskoff_USDJPY_retune",
+    "SPX_DGS10_equity_bond_retune",
+    "HY_OAS_MOVE_DTWEX_vix_sibling",
+    "WTI_USDCAD_z_retune",
+    "BRENT_EURUSD_importer_retune",
+    "W1_W22_OHLC_densify",
+    "invent_spreads"
+  ]
+}

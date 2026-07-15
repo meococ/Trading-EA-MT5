@@ -484,9 +484,24 @@ function Exit-GlobalBacktestLock {
 }
 
 function Get-RunnerTerminalProcessIdentity([int]$ProcessId) {
-    $process = Get-Process -Id $ProcessId -ErrorAction Stop
-    $startTimeUtc = $process.StartTime.ToUniversalTime().ToString('o')
-    $executablePath = [System.IO.Path]::GetFullPath([string]$process.Path)
+    $executablePath = $null
+    $startTimeUtc = $null
+    for ($attempt = 1; $attempt -le 15; $attempt++) {
+        $process = Get-Process -Id $ProcessId -ErrorAction Stop
+        $startTimeUtc = $process.StartTime.ToUniversalTime().ToString('o')
+        $rawPath = [string]$process.Path
+        if ([string]::IsNullOrWhiteSpace($rawPath)) {
+            $cim = Get-CimInstance Win32_Process -Filter "ProcessId=$ProcessId" -ErrorAction SilentlyContinue
+            if ($null -ne $cim -and -not [string]::IsNullOrWhiteSpace([string]$cim.ExecutablePath)) {
+                $rawPath = [string]$cim.ExecutablePath
+            }
+        }
+        if (-not [string]::IsNullOrWhiteSpace($rawPath)) {
+            $executablePath = [System.IO.Path]::GetFullPath($rawPath)
+            break
+        }
+        Start-Sleep -Milliseconds 200
+    }
     if ([string]::IsNullOrWhiteSpace($executablePath)) {
         throw "Terminal PID $ProcessId executable path is unavailable."
     }

@@ -1,0 +1,186 @@
+{
+  "schema_version": "hard_pivot_w15_lrange_nybreak_pivot_offline.v1",
+  "generated_at_utc": "2026-07-15T10:30:07.773576Z",
+  "freeze_sha256": "DDD240034E1BB1CD163BF1D154E593F13F6843098B2A2CDD2F991ACA9C186B26",
+  "preregs": [
+    "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preregs/20260715_H_FX3_H1_LONDON_RANGE_NY_BREAK_CONT_001_PREREG.md",
+    "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preregs/20260715_H_FX3_H1_PRIOR_DAY_PIVOT_R1S1_BREAK_CONT_001_PREREG.md",
+    "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preregs/20260715_H_BOOK_LRANGE_NYBREAK_PIVOT_APRIORI_001_PREREG.md"
+  ],
+  "base_cost_usd": 12.0,
+  "cost_grade_status": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260715_COST_GRADE_PUSH_W13_STATUS.json",
+  "qfsi_spotcheck": {
+    "heartbeat": {
+      "ts": "2026-07-15T10:30:01.695319Z",
+      "watcher_alive": true,
+      "capture_pid": 72320,
+      "segment": 1,
+      "restarts": 0,
+      "wall_remaining_sec": 243250
+    },
+    "watcher_alive": true,
+    "capture_pid": 72320,
+    "proc_alive": true,
+    "spotcheck_at_utc": "2026-07-15T10:30:07.071839Z",
+    "verdict": "QFSI_007_HEALTHY"
+  },
+  "results": [
+    {
+      "hypothesis_id": "HYP-FX3-H1-LONDON-RANGE-NY-BREAK-CONT-001",
+      "setup": "London-range NY first HL-break CONT RR3",
+      "symbol": "EURUSD+GBPUSD+USDJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 1528,
+        "pf": 1.033,
+        "net": 13613.77,
+        "exp": 8.9095,
+        "tpw": 5.8608
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9889,
+          "net": -4722.23,
+          "exp": -3.0905
+        },
+        "x1_5": {
+          "pf": 0.9677,
+          "net": -13890.23,
+          "exp": -9.0905
+        },
+        "x2": {
+          "pf": 0.947,
+          "net": -23058.23,
+          "exp": -15.0905
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "cadence_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "tp": 133,
+          "time": 610,
+          "sl": 783,
+          "eod": 2
+        },
+        "by_sym": {
+          "USDJPY": 479,
+          "GBPUSD": 524,
+          "EURUSD": 525
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-FX3-H1-PRIOR-DAY-PIVOT-R1S1-BREAK-CONT-001",
+      "setup": "Prior-day floor pivot R1/S1 first-break CONT RR2.75",
+      "symbol": "EURUSD+GBPUSD+USDJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 1434,
+        "pf": 1.0006,
+        "net": 276.98,
+        "exp": 0.1932,
+        "tpw": 5.5003
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9639,
+          "net": -16931.02,
+          "exp": -11.8068
+        },
+        "x1_5": {
+          "pf": 0.9462,
+          "net": -25535.02,
+          "exp": -17.8068
+        },
+        "x2": {
+          "pf": 0.929,
+          "net": -34139.02,
+          "exp": -23.8068
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "cadence_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 912,
+          "time": 243,
+          "tp": 279
+        },
+        "by_sym": {
+          "EURUSD": 494,
+          "GBPUSD": 496,
+          "USDJPY": 444
+        }
+      }
+    }
+  ],
+  "book": {
+    "hypothesis_id": "HYP-BOOK-LRANGE-NYBREAK-PIVOT-APRIORI-001",
+    "setup": "a priori book: London-range NY-break + prior-day pivot R1/S1 break",
+    "symbol": "EURUSD+GBPUSD+USDJPY",
+    "timeframe": "H1",
+    "metrics": {
+      "n": 2733,
+      "pf": 1.005,
+      "net": 4031.06,
+      "exp": 1.475,
+      "tpw": 10.4827
+    },
+    "haircuts": {
+      "x1": {
+        "pf": 0.9652,
+        "net": -28764.94,
+        "exp": -10.525
+      },
+      "x1_5": {
+        "pf": 0.946,
+        "net": -45162.94,
+        "exp": -16.525
+      },
+      "x2": {
+        "pf": 0.9274,
+        "net": -61560.94,
+        "exp": -22.525
+      }
+    },
+    "verdict": "KILLED_AT_OFFLINE_PROBE",
+    "fail_notes": [
+      "pf_fail",
+      "cadence_fail",
+      "pf12_fail",
+      "stress_fail",
+      "caps_fail"
+    ],
+    "pooled_after_heat": {
+      "n": 2733,
+      "dropped_heat": 229,
+      "a": 1528,
+      "b": 1205
+    },
+    "pair_caps": {
+      "weekly_corr": 0.3079,
+      "overlap_frac": 0.0575,
+      "caps_ok": false
+    }
+  },
+  "any_survivor": false,
+  "flags": {
+    "R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED": true,
+    "W1_W14_DENSIFY_FORBIDDEN": true,
+    "H4RETEST_ASIAQUIET_DENSIFY_FORBIDDEN": true,
+    "FVG_DENSIFY_FORBIDDEN": true
+  },
+  "w14_near_miss_pf12": 1.2209,
+  "receipt_sha256": "2083ACD337D36B06E7995BF435BE8CFD8FCD551EEE1E782B4AA978449CECF6B0"
+}

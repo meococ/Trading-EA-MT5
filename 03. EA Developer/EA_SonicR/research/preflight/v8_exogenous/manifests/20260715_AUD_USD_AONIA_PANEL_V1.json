@@ -1,0 +1,10 @@
+{
+  "schema": "aud_usd_aonia_panel.v1",
+  "generated_at_utc": "2026-07-15T02:47:58.892811Z",
+  "contract_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/contracts/20260715_AUD_USD_AONIA_AVAILABLE_AT_UTC_V1.json",
+  "contract_sha256": "7839649C36A12127AB1326A0B5BBD5C6C27785F337AB3D1AC429DB17A82EB9CE",
+  "status": "PANEL_READY",
+  "panel_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/panels/aud_usd_aonia_overnight_d1_v1.csv",
+  "panel_sha256": "98E8204CACE0CC38042AEB80309813FBE36377591137D443E2F3C7094212D9FE",
+  "panel_rows": 2154
+}

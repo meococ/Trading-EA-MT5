@@ -1,0 +1,15 @@
+{
+  "schema": "cad_usd_corra_available_at_utc.v1",
+  "generated_at_utc": "2026-07-15T01:47:33.871582Z",
+  "status": "PANEL_READY",
+  "corra_rows_raw": 2128,
+  "usd_rows_raw": 3109,
+  "panel_rows": 2124,
+  "available_at_rows": 2124,
+  "lag_business_days": 1,
+  "panel_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/panels/cad_usd_corra_overnight_d1_v1.csv",
+  "panel_sha256": "26AF77CAFD3416F0F629CC5840C67B0B0C368CF745B1C3166628DE275CE07FD9",
+  "corra_sha256": "CC7B13E2F928613FC51C0500CD441E906F2CF21AB73717BA749CF86C9E010CC4",
+  "usd_source": "03. EA Developer/EA_CarryPublicRates/carry_rates_d1.csv",
+  "authority": "BoC Valet AVG.INTWO = CORRA overnight (daily). USD = public carry panel short-rate proxy. +1bd lag for available-at. Not RBA/AONIA; AUD still blocked."
+}

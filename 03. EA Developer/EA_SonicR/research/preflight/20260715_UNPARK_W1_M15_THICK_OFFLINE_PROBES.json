@@ -1,0 +1,185 @@
+{
+  "generated_at_utc": "2026-07-15T05:51:30.711457Z",
+  "lane": "unpark_w1_m15_thick_20260715",
+  "base_cost_usd": 12.0,
+  "window": "2021-01-01..2025-12-31",
+  "intake_killed": [
+    {
+      "hypothesis_id": "HYP-USDJPY-M15-D1BIAS-PDHPDL-THICK-001",
+      "setup_type": "panel_pdh_thickstop_sketch",
+      "reason": "INTAKE_KILL: identical surface to parked HYP-PDH-BREAK-M15-001 (D1 EMA50 + M15 beyond prior D1 H/L) + SB/session densify contamination. Replaced by RANGEEXP thick-stop + D1-inside greenfield."
+    }
+  ],
+  "results": [
+    {
+      "hypothesis_id": "HYP-FX3-W1-HLBREAK-D1CONF-HOLD-001",
+      "setup_type": "w1_hlbreak_d1conf_atr_trail_position",
+      "symbol": "FX3",
+      "timeframe": "W1+D1",
+      "metrics": {
+        "n": 80,
+        "pf": 0.9895,
+        "net": -156.24,
+        "exp": -1.953,
+        "tpw": 0.3068
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9274,
+          "net": -1116.24,
+          "exp": -13.953
+        },
+        "x1_5": {
+          "pf": 0.898,
+          "net": -1596.24,
+          "exp": -19.953
+        },
+        "x2": {
+          "pf": 0.8697,
+          "net": -2076.24,
+          "exp": -25.953
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl_trail": 43,
+          "time": 36,
+          "eod": 1
+        },
+        "by_sym": {
+          "EURUSD": 58,
+          "GBPUSD": 14,
+          "USDJPY": 8
+        },
+        "funnel": {
+          "n_w1_breaks": 365,
+          "n_d1_confirm": 80,
+          "n_trades": 80,
+          "n_skip_open": 1180,
+          "n_skip_week": 0
+        }
+      },
+      "intake": "CLEARED"
+    },
+    {
+      "hypothesis_id": "HYP-USDJPY-M15-D1BIAS-RANGEEXP-THICK-001",
+      "setup_type": "m15_d1bias_rangeexp_thickstop",
+      "symbol": "USDJPY",
+      "timeframe": "M15",
+      "metrics": {
+        "n": 1247,
+        "pf": 1.1857,
+        "net": 50608.31,
+        "exp": 40.584,
+        "tpw": 4.783
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.1268,
+          "net": 35644.31,
+          "exp": 28.584
+        },
+        "x1_5": {
+          "pf": 1.0986,
+          "net": 28162.31,
+          "exp": 22.584
+        },
+        "x2": {
+          "pf": 1.0713,
+          "net": 20680.31,
+          "exp": 16.584
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 594,
+          "time": 651,
+          "bias_flip": 1,
+          "eod": 1
+        },
+        "by_sym": {
+          "USDJPY": 1247
+        },
+        "funnel": {
+          "n_bars": 124573,
+          "n_bias_ok": 17252,
+          "n_signal": 1247,
+          "n_trades": 1247,
+          "n_skip_open": 12691
+        }
+      },
+      "intake": "CLEARED"
+    },
+    {
+      "hypothesis_id": "HYP-USDJPY-D1-INSIDE-H1-BREAK-CONT-001",
+      "setup_type": "d1_inside_h1_break_cont",
+      "symbol": "USDJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 179,
+        "pf": 1.2118,
+        "net": 10816.17,
+        "exp": 60.4255,
+        "tpw": 0.6866
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.1656,
+          "net": 8668.17,
+          "exp": 48.4255
+        },
+        "x1_5": {
+          "pf": 1.1433,
+          "net": 7594.17,
+          "exp": 42.4255
+        },
+        "x2": {
+          "pf": 1.1215,
+          "net": 6520.17,
+          "exp": 36.4255
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 106,
+          "tp": 64,
+          "time": 9
+        },
+        "by_sym": {
+          "USDJPY": 179
+        },
+        "funnel": {
+          "n_bars": 31128,
+          "n_inside_active": 2352,
+          "n_signal": 179,
+          "n_trades": 179,
+          "n_skip_open": 1101
+        }
+      },
+      "intake": "CLEARED"
+    }
+  ],
+  "any_survivor": false,
+  "model0": "WITHHELD",
+  "qfsi_parallel": "007 accumulate hb=9480 quotes=6586 deadline=2026-07-15T07:39:26.186865Z; cost freeze still GAP; login not headline.",
+  "best_shelf": "194548",
+  "nested_critic": "cursor-grok-4.5-high-fast",
+  "receipt_sha256": "CB8FBE71981DABCE680CA5CF2177BC5166BD8BE3298CAE6CB761FA822CF6D7A2"
+}

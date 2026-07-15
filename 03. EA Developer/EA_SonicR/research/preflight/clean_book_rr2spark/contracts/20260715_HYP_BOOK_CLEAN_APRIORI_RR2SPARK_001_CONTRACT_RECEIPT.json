@@ -1,0 +1,77 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-BOOK-CLEAN-APRIORI-RR2SPARK-001",
+  "task_packet_sha256": "02A7F3925CA5CAC0501D0F360655B7A46AD93C852194D458D1A529A67B87D928",
+  "git_commit": "1e4dbb6f735920cdb100492383ff6e15087cf2ef",
+  "git_status_sha256": "974669B3FD35EDC840521C604C31625B4DED88EA7F4293FFA322F01CCC355885",
+  "binding": {
+    "hypothesis_id": "HYP-BOOK-CLEAN-APRIORI-RR2SPARK-001",
+    "run_role": "control",
+    "ea_name": "EA_SBSparkBook",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "F6B2E06E4C7E126BC1584B184AE07E05D78D3DCE0BC554972C05E91D5BD34BC5"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\clean_book_rr2spark\\contracts\\receipt_stubs_HYP_BOOK_CLEAN_APRIORI_RR2SPARK_001\\task_packet.json",
+      "sha256": "02A7F3925CA5CAC0501D0F360655B7A46AD93C852194D458D1A529A67B87D928"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SBSparkBook\\EA_SBSparkBook.mq5",
+      "sha256": "C5DF97102E71EF09554B97F0253E7D9793858B21C9261D0490771EAEEC4F1D73"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\clean_book_rr2spark\\contracts\\receipt_stubs_HYP_BOOK_CLEAN_APRIORI_RR2SPARK_001\\prereg.json",
+      "sha256": "AE27F39442457638753AA4FB987CC713BABC23A82560028668A7F0332F198162"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\clean_book_rr2spark\\contracts\\receipt_stubs_HYP_BOOK_CLEAN_APRIORI_RR2SPARK_001\\cost_source_manifest.json",
+      "sha256": "B5A2DB844A88C666E0D3486B191ED0A7F19330488E40FB4D4E58BD49A4B0464E"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\clean_book_rr2spark\\contracts\\receipt_stubs_HYP_BOOK_CLEAN_APRIORI_RR2SPARK_001\\include_note.txt",
+      "sha256": "22D97838C46856A4A5D88C6493C5C6F6ECDA99D66898195BE80102C8051545B2"
+    },
+    {
+      "label": "include_0002",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SBSparkBook\\Modules\\SB_A1_Module.mqh",
+      "sha256": "82DEFD83BFAD202670DC1CD7FADB28A707CFDA766FC5761F2BB50367C5C13CCF"
+    },
+    {
+      "label": "include_0003",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SBSparkBook\\Modules\\SparkAsian_Module.mqh",
+      "sha256": "D3A2669FF56CE0C6FC0A2647D32C86F9CE2ACB48955C8F2D5486FF704A36644B"
+    }
+  ],
+  "generated_at_utc": "2026-07-15T11:31:23Z",
+  "note": "Clean-book PRIMARY Model 0 control. Sleeve authority 194548+193358 reused as offline baseline only; this run is the dual-magic book EA. Not GOAL."
+}

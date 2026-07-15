@@ -1,0 +1,73 @@
+{
+  "schema": "v8_natgas_wheat_acquisition.v1",
+  "created_at_utc": "2026-07-15T11:05:33.127756Z",
+  "authority": "post_W24_ironore_cny_ALL_KILL_new_exo; ChatGPT login wall parallel; no Model0 by acquire",
+  "status": "ACQUISITION_EXECUTED",
+  "surface_class": "aud_lng_energy_tot + aud_ag_wheat_tot",
+  "banned_this_session": [
+    "TIO_ironore_retune",
+    "USDCNY_CNY_strength_retune",
+    "XLK_XLF_sector_retune",
+    "HG_GC_cugold_retune",
+    "VIXCLS_riskoff_USDJPY_retune",
+    "SPX_DGS10_equity_bond_retune",
+    "HY_OAS_MOVE_DTWEX_vix_sibling",
+    "WTI_USDCAD_z_retune",
+    "BRENT_EURUSD_importer_retune",
+    "WALCL_ECB_MMF_G10_overnight_fred_retune",
+    "COT_size_z_retune",
+    "W1_W24_OHLC_densify",
+    "invent_spreads"
+  ],
+  "files": [
+    {
+      "name": "yahoo_ng_f_chart.json",
+      "bytes": 180982,
+      "sha256": "8178FFE9B9F6857A477DE74321952871A8AAAAF9115C7E9DACD773EA8052A7C9",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/NG=F",
+      "note": "NYMEX natgas NG=F",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\commodity\\yahoo_ng_f_chart.json"
+    },
+    {
+      "name": "yahoo_zw_f_chart.json",
+      "bytes": 81863,
+      "sha256": "484EE5FEB7DF134EC2B7840549346FA7B003E526649149E433263DAE3E451203",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ZW=F",
+      "note": "CBOT wheat ZW=F",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\commodity\\yahoo_zw_f_chart.json"
+    },
+    {
+      "name": "yahoo_ng_natgas_d1_v1.csv",
+      "bytes": 69092,
+      "sha256": "3334E6BA1D300893BF0B27D308E3967948C08870FDA6B6646B986DC8CCF7D4F9",
+      "source_url": "derived",
+      "note": "NG natgas lag +1d",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\panels\\yahoo_ng_natgas_d1_v1.csv"
+    },
+    {
+      "name": "yahoo_zw_wheat_d1_v1.csv",
+      "bytes": 72368,
+      "sha256": "C4B7CFB945A9CE80E5A85B139E92D7C27CF485D0F1173DDBA12E617CC9AC4DD5",
+      "source_url": "derived",
+      "note": "ZW wheat lag +1d",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\panels\\yahoo_zw_wheat_d1_v1.csv"
+    },
+    {
+      "name": "20260715_NATGAS_WHEAT_AVAILABLE_AT_UTC_CONTRACT_V1.json",
+      "bytes": 1504,
+      "sha256": "BEA71C2F371B3F0CB947CAA9F59C6C7160291C18808D16C09C7EE1395A85D9E9",
+      "source_url": "derived",
+      "note": "lag contract",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\contracts\\20260715_NATGAS_WHEAT_AVAILABLE_AT_UTC_CONTRACT_V1.json"
+    }
+  ],
+  "panel_sha256": {
+    "yahoo_ng_natgas_d1_v1.csv": "3334E6BA1D300893BF0B27D308E3967948C08870FDA6B6646B986DC8CCF7D4F9",
+    "yahoo_zw_wheat_d1_v1.csv": "C4B7CFB945A9CE80E5A85B139E92D7C27CF485D0F1173DDBA12E617CC9AC4DD5"
+  },
+  "row_counts": {
+    "natgas": 1644,
+    "wheat": 1642
+  },
+  "contract_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\contracts\\20260715_NATGAS_WHEAT_AVAILABLE_AT_UTC_CONTRACT_V1.json"
+}

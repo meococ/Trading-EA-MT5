@@ -1,0 +1,22 @@
+# Offline probes — Round 21 accel / Donch8 / USD-implied
+
+Generated: 2026-07-15 ~13:48 ICT
+Receipt SHA256: `E367031F9A82EFAFD77F7928175CA431AB403885C610D0B84AC969052482171F`
+Freeze SHA256: `B14D95BF5A8A95C21470967FA44FACBE9EB0CBE0E71FCDEC9DF942F3864471B0`
+Status: `OFFLINE_ALL_KILL__NO_MODEL0`
+Cost a priori: +$12/trade
+QFSI parallel: watcher_hb ts=2026-07-15T06:48:50.953852Z alive=True cap_pid=72320 wall_rem=256521; 007 accumulate hb=10320 quotes=7754 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline
+
+| Object | N | PF | tpw | x1.5 | Verdict |
+|---|---:|---:|---:|---:|---|
+| `HYP-FX3-H1-TWOBAR-ACCEL-CLOSECONF-CONT-001` | 2116 | 1.0382 | 8.1162 | 0.9717 | KILL |
+| `HYP-GBPUSD-H1-DONCH8-BREAK-BODYQ-CONT-001` | 1241 | 0.9787 | 4.76 | 0.9217 | KILL |
+| `HYP-EURJPY-H1-USD-IMPLIED-CROSS-CONT-001` | 1242 | 1.2021 | 4.7638 | 1.1288 | KILL |
+
+## Fail notes
+- `HYP-FX3-H1-TWOBAR-ACCEL-CLOSECONF-CONT-001`: pf_fail, stress_fail
+- `HYP-GBPUSD-H1-DONCH8-BREAK-BODYQ-CONT-001`: pf_fail, stress_fail
+- `HYP-EURJPY-H1-USD-IMPLIED-CROSS-CONT-001`: pf_fail, stress_fail
+
+## Model 0
+AUTHORIZED only if any PROBE_SURVIVOR; else WITHHELD.

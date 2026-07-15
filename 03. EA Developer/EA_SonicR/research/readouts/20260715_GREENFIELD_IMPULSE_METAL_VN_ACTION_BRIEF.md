@@ -1,0 +1,5 @@
+# VN brief — impulse/metal greenfield
+- `OFFLINE_ALL_KILL__NO_MODEL0`
+- `HYP-FX3-H4-CONSEC3-IMPULSE-FADE-001`: N=1606 PF=0.9742 tpw=6.16 x1.5=0.8929 → KILLED_AT_OFFLINE_PROBE
+- `HYP-XAUUSD-H1-USD-BETA-RESID-FADE-001`: N=2487 PF=0.99 tpw=9.5392 x1.5=0.3314 → KILLED_AT_OFFLINE_PROBE
+- Không densify consec/z. Best shelf RR2 `194548`. Login không headline.

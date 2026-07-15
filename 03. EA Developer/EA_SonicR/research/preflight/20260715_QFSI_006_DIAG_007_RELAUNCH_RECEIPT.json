@@ -1,0 +1,96 @@
+{
+  "schema_version": "sonic_qfsi_006_diag_007_relaunch.v1",
+  "created_at_utc": "2026-07-15T01:43:00Z",
+  "created_at_ict": "2026-07-15 ~08:43 ICT",
+  "verdict": "REAL_ON__QFSI_006_ROOTCAUSED__007_LONG_LIVE__REBIND_HARNESS_ARMED__STOP_DATA_FRONTIER",
+  "goal_claim": false,
+  "confirmed_claim": false,
+  "do_not_kill_real": true,
+  "execute_run": false,
+  "qfsi_006_root_cause": {
+    "outcome": "EARLY_EXIT_NO_SESSION_END",
+    "auth_drop": false,
+    "hb_connected0": 0,
+    "hb_rows": 1932,
+    "elapsed_min_approx": 36,
+    "session_end": false,
+    "stderr_discarded": true,
+    "launch_mode": "DETACHED_PROCESS+DEVNULL",
+    "ruled_out": [
+      "planned_duration_complete",
+      "clean_session_end",
+      "broker_auth_drop_in_heartbeats"
+    ],
+    "likely": [
+      "uncaught_exception_or_IPC_contention_stderr_discarded",
+      "external_kill_of_capture_python",
+      "concurrent_MT5_readonly_probe_contention"
+    ],
+    "local_fixes_applied": [
+      "session_crash.json on exception",
+      "max_ipc_retries 120",
+      "tick soft-fail",
+      "stdout/stderr logged",
+      "watcher auto-restart",
+      "stall gate uses segment_started_at not stale mtime",
+      "stop_file kwarg fixed"
+    ],
+    "inferred_crash_path": "d:/Trading EA MT5/02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_006_ACCUMULATE/session_crash_inferred.json"
+  },
+  "qfsi_007": {
+    "capture_id": "20260715_QFSI_REAL_007_LONG_ACCUMULATE",
+    "status": "LIVE",
+    "watcher_pid": 48432,
+    "capture_pid": 59040,
+    "terminal64_pid": 27096,
+    "server": "FivePercentOnline-Real",
+    "login": 26451822,
+    "segment_duration_sec": 21600,
+    "watcher_wall_sec": 86400,
+    "symbols_book_first": [
+      "USDJPY",
+      "EURUSD",
+      "GBPUSD",
+      "XAUUSD"
+    ],
+    "out_dir": "d:/Trading EA MT5/02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260715_QFSI_REAL_007_LONG_ACCUMULATE",
+    "hb_rows_snapshot": {
+      "USDJPY": 221,
+      "note": "growing; last_write ~08:42 ICT"
+    },
+    "stop_file": "03. EA Developer/EA_SonicR/research/preflight/20260715_QFSI_007_STOP.request",
+    "note_stop_file": "A prior Model0 pause wrote this stop file at 07:40 and aborted relaunch; do not recreate unless Owner wants halt."
+  },
+  "quote_days_growth": {
+    "contract": "04. Project Control/ai/data_contracts/20260713_EXECUTION_DATA_ACQUISITION_CONTRACT_V1.md",
+    "mechanism": "elapsed calendar wall-clock days with PASSIVE_HEARTBEAT continuity",
+    "harness_now_quote_days": 2,
+    "need": 90,
+    "historical_copy_ticks_backfill": "NOT_LAWFUL_FOR_QFSI — BROKER_HISTORY_UNVERIFIED without heartbeat; discovery only; this Real terminal only yields ~2 tick days and bulk copy_ticks hangs",
+    "commission_slip": "Owner deal-export required; live history_deals thin; MISSING slip != 0",
+    "owner_deal_export_drop": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/owner_deal_export_drop"
+  },
+  "full_qfsi": "STOP_DATA_FRONTIER",
+  "cost_grade": "PARTIAL_REAL_COST",
+  "rebind_harness": {
+    "status": "HARNESS_ARMED__GATE_STOP",
+    "execute_run": false,
+    "why_no_execute": "gate STOP_DATA_FRONTIER",
+    "latest_status_sha256": "A72CFB81B77799192061159FE8C4B2B3D83F8EA0C35910A46B3DE8459A3D2F11"
+  },
+  "bans_honored": [
+    "no_kill_Real",
+    "no_Wave8",
+    "no_densify",
+    "no_COT",
+    "no_price_twins",
+    "no_execute_rebind_on_STOP"
+  ],
+  "next_auto": [
+    "keep_Real_and_007_watcher_alive",
+    "do_not_create_007_STOP_unless_Owner_halt",
+    "Owner_deal_export_for_commission_slip",
+    "rebind_execute_only_on_GO",
+    "avoid_concurrent_heavy_copy_ticks_on_same_Real_IPC"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": "sonic_qfsi_rr2_fullcost_rebind_harness.v1",
-  "created_at_utc": "2026-07-15T00:41:20.683920Z",
+  "created_at_utc": "2026-07-15T01:41:29.293745Z",
   "status": "HARNESS_ARMED__GATE_STOP",
   "goal_claim": false,
   "confirmed_claim": false,
@@ -147,5 +147,5 @@
     "no_retune_RR2_from_partial",
     "slippage_MISSING_neq_0"
   ],
-  "receipt_sha256": "212DB5E68201EBD4CD0611980849273435013BCE23094712B49781022E395291"
+  "receipt_sha256": "034DEC61E911393A71FC8DD867FCC12D2C699742C4A3BBA889C11CA478FA6A55"
 }

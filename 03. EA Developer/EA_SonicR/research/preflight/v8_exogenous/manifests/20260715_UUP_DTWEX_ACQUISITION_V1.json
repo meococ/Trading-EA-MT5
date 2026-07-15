@@ -1,0 +1,83 @@
+{
+  "schema": "v8_uup_dtwex_acquisition.v1",
+  "created_at_utc": "2026-07-15T11:16:32.942520Z",
+  "authority": "Owner_W27_HARD_PIVOT_dollar_TWI_UUP_DTWEX_after_W26_credit_MOVE_ALL_KILL; ChatGPT login wall parallel; no Model0 by acquire; FORBIDDEN commodity_ToT + credit_MOVE densify",
+  "status": "ACQUISITION_EXECUTED",
+  "surface_class": "dollar_twi_uup + dtwexbgs_broad_goods",
+  "dtwex_fetch": {
+    "result": "OK",
+    "bytes": 103345,
+    "sha256": "15B46514271F0E8D5D721CFEE2FA5A994DB56982E042B55F66F23750B70E8951",
+    "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\usd_twi\\fred_dtwexbgs.csv"
+  },
+  "banned_this_session": [
+    "HYG_LQD_credit_z_densify",
+    "MOVE_bondvol_z_densify",
+    "NG_ZW_natgas_wheat_commodity_tot_densify",
+    "TIO_ironore_retune",
+    "USDCNY_CNY_strength_retune",
+    "XLK_XLF_sector_retune",
+    "HG_GC_cugold_retune",
+    "WTI_USDCAD_z_retune",
+    "BRENT_EURUSD_importer_retune",
+    "VIXCLS_riskoff_USDJPY_retune",
+    "SPX_DGS10_equity_bond_retune",
+    "WALCL_ECB_MMF_G10_overnight_fred_retune",
+    "COT_size_z_retune",
+    "W1_W26_OHLC_densify",
+    "commodity_yahoo_aud_tot_clones",
+    "invent_spreads"
+  ],
+  "files": [
+    {
+      "name": "yahoo_uup_chart.json",
+      "bytes": 181019,
+      "sha256": "F4FE75E6D7CBCFDE965DCE67B4A1390666E0988FC015988F0B6BBB5E0D90663B",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/UUP",
+      "note": "UUP TW-USD ETF (W26 spare \u2192 W27 primary)",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\credit\\yahoo_uup_chart.json"
+    },
+    {
+      "name": "fred_dtwexbgs.csv",
+      "bytes": 103345,
+      "sha256": "15B46514271F0E8D5D721CFEE2FA5A994DB56982E042B55F66F23750B70E8951",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTWEXBGS",
+      "note": "FRED DTWEXBGS broad-goods dollar TWI",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\usd_twi\\fred_dtwexbgs.csv"
+    },
+    {
+      "name": "fred_dtwexbgs_d1_v1.csv",
+      "bytes": 224293,
+      "sha256": "FE0A8C77F3BDAD03B2011FFBEE8A072B3BE2786587761832BA4D887005B75F0A",
+      "source_url": "derived",
+      "note": "DTWEXBGS lag +1d panel",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\panels\\fred_dtwexbgs_d1_v1.csv"
+    },
+    {
+      "name": "yahoo_uup_twusd_d1_v1.csv",
+      "bytes": 70522,
+      "sha256": "5F0D2E65449FA54AB71D617AB46055207C84B0F89294F1BCB46FB376B13C41FE",
+      "source_url": "derived",
+      "note": "UUP lag +1d panel",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\panels\\yahoo_uup_twusd_d1_v1.csv"
+    },
+    {
+      "name": "20260715_UUP_DTWEX_AVAILABLE_AT_UTC_CONTRACT_V1.json",
+      "bytes": 1997,
+      "sha256": "251E04A75B92BE11BC175FB7E4829E537E292E5809A5EAEB248C1543DBC1CBEF",
+      "source_url": "derived",
+      "note": "lag contract",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\contracts\\20260715_UUP_DTWEX_AVAILABLE_AT_UTC_CONTRACT_V1.json"
+    }
+  ],
+  "panel_sha256": {
+    "yahoo_uup_twusd_d1_v1.csv": "5F0D2E65449FA54AB71D617AB46055207C84B0F89294F1BCB46FB376B13C41FE",
+    "fred_dtwexbgs_d1_v1.csv": "FE0A8C77F3BDAD03B2011FFBEE8A072B3BE2786587761832BA4D887005B75F0A"
+  },
+  "row_counts": {
+    "uup": 1639,
+    "dtwexbgs": 5144
+  },
+  "contract_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\contracts\\20260715_UUP_DTWEX_AVAILABLE_AT_UTC_CONTRACT_V1.json",
+  "unavailable": []
+}

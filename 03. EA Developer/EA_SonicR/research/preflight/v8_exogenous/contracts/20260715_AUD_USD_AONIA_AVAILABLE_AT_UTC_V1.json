@@ -1,0 +1,38 @@
+{
+  "schema": "aud_usd_aonia_available_at_utc.v1",
+  "generated_at_utc": "2026-07-15T02:47:58.881705Z",
+  "status": "PANEL_READY",
+  "aonia_rows_raw": 3929,
+  "target_rows_raw": 3929,
+  "usd_rows_raw": 3109,
+  "panel_rows": 2154,
+  "available_at_rows": 2154,
+  "lag_business_days": 1,
+  "panel_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/panels/aud_usd_aonia_overnight_d1_v1.csv",
+  "panel_sha256": "98E8204CACE0CC38042AEB80309813FBE36377591137D443E2F3C7094212D9FE",
+  "aonia_sha256": "76C464CE0FA2E5C2EE6C8231AFA70F04E4582345D2DAC3D4B0E8B0D50FF72460",
+  "target_sha256": "F3DF5F925C524E1414070ACD26612E5AFC07DA7176BC02851C30588111377154",
+  "usd_source": "03. EA Developer/EA_CarryPublicRates/carry_rates_d1.csv",
+  "freeze": {
+    "schema": "rba_aonia_dbnomics_freeze.v1",
+    "generated_at_utc": "2026-07-15T02:47:58.843862Z",
+    "sources": [
+      {
+        "note": "DBnomics RBA/F1/FIRMMCRID Interbank Overnight Cash Rate (AONIA)",
+        "url": "https://api.db.nomics.world/v22/series/RBA/F1/FIRMMCRID.csv",
+        "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/raw/g10_overnight/rba_aonia_firmmcrid_dbnomics.csv",
+        "bytes": 61161,
+        "sha256": "76C464CE0FA2E5C2EE6C8231AFA70F04E4582345D2DAC3D4B0E8B0D50FF72460"
+      },
+      {
+        "note": "DBnomics RBA/F1/FIRMMCRTD Cash Rate Target",
+        "url": "https://api.db.nomics.world/v22/series/RBA/F1/FIRMMCRTD.csv",
+        "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/raw/g10_overnight/rba_cash_target_firmmcrtd_dbnomics.csv",
+        "bytes": 60486,
+        "sha256": "F3DF5F925C524E1414070ACD26612E5AFC07DA7176BC02851C30588111377154"
+      }
+    ],
+    "authority": "Public DBnomics mirror of RBA Statistical Table F1. FIRMMCRID = Interbank Overnight Cash Rate (AONIA). FIRMMCRTD = Cash Rate Target. rba.gov.au direct still 403."
+  },
+  "authority": "DBnomics RBA/F1 FIRMMCRID=AONIA overnight; FIRMMCRTD=cash target. USD=public carry panel short-rate proxy. +1bd available-at lag. \u2260 BoC CORRA densify; rba.gov.au direct still 403."
+}

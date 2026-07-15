@@ -1,0 +1,185 @@
+{
+  "schema_version": "hard_pivot_w19_zscore_compfade_offline.v1",
+  "generated_at_utc": "2026-07-15T10:38:09.766067Z",
+  "freeze_sha256": "8E1747829DA0DBBEE9FB78F39FC4E6495914C9BBBC7429F9EA3692C8F247D2AB",
+  "preregs": [
+    "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preregs/20260715_H_FX3_H1_H4_EMA_ZSCORE_FADE_001_PREREG.md",
+    "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preregs/20260715_H_FX3_H1_COMPRESSION_FALSEBREAK_FADE_001_PREREG.md",
+    "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preregs/20260715_H_BOOK_ZSCORE_COMPFADE_APRIORI_001_PREREG.md"
+  ],
+  "base_cost_usd": 12.0,
+  "cost_grade_status": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260715_COST_GRADE_PUSH_W13_STATUS.json",
+  "qfsi_spotcheck": {
+    "heartbeat": {
+      "ts": "2026-07-15T10:37:55.704605Z",
+      "watcher_alive": true,
+      "capture_pid": 72320,
+      "segment": 1,
+      "restarts": 0,
+      "wall_remaining_sec": 242776
+    },
+    "watcher_alive": true,
+    "capture_pid": 72320,
+    "proc_alive": true,
+    "spotcheck_at_utc": "2026-07-15T10:38:09.185473Z",
+    "verdict": "QFSI_007_HEALTHY"
+  },
+  "edge_source_note": "STAT_STRETCH + FALSEBREAK_TRAP: H4 EMA z-score fade + compression false-break fade; ≠ session-CONT densify; ≠ W18 ADR/impulse densify",
+  "results": [
+    {
+      "hypothesis_id": "HYP-FX3-H1-H4-EMA-ZSCORE-FADE-001",
+      "setup": "H4 EMA z-score stretch fade RR2.25",
+      "symbol": "EURUSD+GBPUSD+USDJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 882,
+        "pf": 1.0245,
+        "net": 7070.65,
+        "exp": 8.0166,
+        "tpw": 3.383
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9881,
+          "net": -3513.35,
+          "exp": -3.9834
+        },
+        "x1_5": {
+          "pf": 0.9706,
+          "net": -8805.35,
+          "exp": -9.9834
+        },
+        "x2": {
+          "pf": 0.9534,
+          "net": -14097.35,
+          "exp": -15.9834
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "tp": 251,
+          "sl": 584,
+          "time": 47
+        },
+        "by_sym": {
+          "GBPUSD": 274,
+          "USDJPY": 329,
+          "EURUSD": 279
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-FX3-H1-COMPRESSION-FALSEBREAK-FADE-001",
+      "setup": "Compression false-break fade RR2.50",
+      "symbol": "EURUSD+GBPUSD+USDJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 57,
+        "pf": 1.0018,
+        "net": 28.8,
+        "exp": 0.5053,
+        "tpw": 0.2186
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9599,
+          "net": -655.2,
+          "exp": -11.4947
+        },
+        "x1_5": {
+          "pf": 0.9397,
+          "net": -997.2,
+          "exp": -17.4947
+        },
+        "x2": {
+          "pf": 0.92,
+          "net": -1339.2,
+          "exp": -23.4947
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "n_fail",
+        "pf_fail",
+        "cadence_fail",
+        "pf12_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 32,
+          "tp": 22,
+          "time": 3
+        },
+        "by_sym": {
+          "EURUSD": 20,
+          "GBPUSD": 24,
+          "USDJPY": 13
+        }
+      }
+    }
+  ],
+  "book": {
+    "hypothesis_id": "HYP-BOOK-ZSCORE-COMPFADE-APRIORI-001",
+    "setup": "a priori book: H4 EMA z-score fade + compression false-break fade",
+    "symbol": "EURUSD+GBPUSD+USDJPY",
+    "timeframe": "H1",
+    "metrics": {
+      "n": 931,
+      "pf": 1.0233,
+      "net": 7035.56,
+      "exp": 7.557,
+      "tpw": 3.571
+    },
+    "haircuts": {
+      "x1": {
+        "pf": 0.9866,
+        "net": -4136.44,
+        "exp": -4.443
+      },
+      "x1_5": {
+        "pf": 0.9689,
+        "net": -9722.44,
+        "exp": -10.443
+      },
+      "x2": {
+        "pf": 0.9517,
+        "net": -15308.44,
+        "exp": -16.443
+      }
+    },
+    "verdict": "KILLED_AT_OFFLINE_PROBE",
+    "fail_notes": [
+      "pf_fail",
+      "pf12_fail",
+      "stress_fail"
+    ],
+    "pooled_after_heat": {
+      "n": 931,
+      "dropped_heat": 8,
+      "a": 882,
+      "b": 49
+    },
+    "pair_caps": {
+      "weekly_corr": -0.0908,
+      "overlap_frac": 0.0238,
+      "caps_ok": true
+    }
+  },
+  "any_survivor": false,
+  "flags": {
+    "R_SERIES_OHLC_CAL_IND_EVENT_DENSIFY_PAUSED": true,
+    "W1_W18_DENSIFY_FORBIDDEN": true,
+    "W18_ADR_IMPULSE_DENSIFY_FORBIDDEN": true,
+    "SESSION_CONT_LOCATION_ACCEPT_DENSIFY_FORBIDDEN": true,
+    "FVG_DENSIFY_FORBIDDEN": true
+  },
+  "w14_near_miss_pf12": 1.2209,
+  "receipt_sha256": "66E7D980FACBF3F7DD894B3CF6164980CA3DBC3129337D5ABEDBA8F550063D2B"
+}

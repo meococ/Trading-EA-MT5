@@ -1,0 +1,51 @@
+{
+  "schema": "exo_available_at_utc_contract.v1",
+  "created_at_utc": "2026-07-15T11:11:09.844274Z",
+  "series": [
+    {
+      "id": "HYG_LQD_CREDIT_RELATIVE",
+      "panel": "yahoo_hyg_lqd_credit_rel_d1_v1.csv",
+      "source": "Yahoo Finance chart HYG/LQD daily closes (ratio)",
+      "lag_rule": "available_at = observation_date + 1 calendar day",
+      "rationale": "Credit risk appetite: HY vs IG relative. HY outperformance (ratio\u2191) \u2192 risk-on for AUDUSD; ratio\u2193 \u2192 credit stress / risk-off. \u2260 commodity ToT; \u2260 VIXCLS equity-vol densify twin; Owner W26 reopen.",
+      "not_commodity_tot_clone": true,
+      "not_vixcls_retune": true,
+      "owner_authorized_w26": true
+    },
+    {
+      "id": "MOVE_BOND_VOL",
+      "panel": "yahoo_move_bondvol_d1_v1.csv",
+      "source": "Yahoo Finance chart ^MOVE (ICE BofA MOVE Index) daily close",
+      "lag_rule": "available_at = observation_date + 1 calendar day",
+      "rationale": "Bond/rates vol risk-off for AUD: MOVE\u2191 \u2192 short AUDUSD displace; MOVE\u2193 calm \u2192 long AUDUSD. \u2260 equity VIX densify; \u2260 commodity ToT.",
+      "not_vixcls_retune": true,
+      "not_commodity_tot_clone": true,
+      "owner_authorized_w26": true
+    }
+  ],
+  "acquired_spare_not_primary": [
+    {
+      "id": "UUP_TWUSD_ETF_PROXY",
+      "raw": "yahoo_uup_chart.json",
+      "note": "trade-weighted USD ETF proxy acquired; not used in W26 probes",
+      "present": true
+    }
+  ],
+  "unavailable_this_pass": [],
+  "banned": [
+    "NG_ZW_natgas_wheat_commodity_tot_densify",
+    "TIO_ironore_retune",
+    "USDCNY_CNY_strength_retune",
+    "XLK_XLF_sector_retune",
+    "HG_GC_cugold_retune",
+    "WTI_USDCAD_z_retune",
+    "BRENT_EURUSD_importer_retune",
+    "VIXCLS_riskoff_USDJPY_retune",
+    "SPX_DGS10_equity_bond_retune",
+    "WALCL_ECB_MMF_G10_overnight_fred_retune",
+    "COT_size_z_retune",
+    "W1_W25_OHLC_densify",
+    "commodity_yahoo_aud_tot_clones",
+    "invent_spreads"
+  ]
+}

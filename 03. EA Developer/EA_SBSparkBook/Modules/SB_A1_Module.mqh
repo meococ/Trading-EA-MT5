@@ -24,6 +24,8 @@
 //|                                                                  |
 //| All state variables prefixed g_sb to avoid master EA collisions. |
 //+------------------------------------------------------------------+
+// Clean-book sleeve A: RR2 / MaxKZ2 / weekend-flat (194548)
+// Historical A1 (002505) constants archived under EA_SBSparkBook/20260714_224302 snapshot.
 #ifndef SB_A1_MODULE_MQH
 #define SB_A1_MODULE_MQH
 
@@ -55,11 +57,11 @@
 #define SB_FVG_MAX_WAIT     8       // Max bars to wait for FVG fill
 #define SB_FVG_MIN_SIZE     0.10    // Min FVG size (ATR multiples)
 
-// SL / TP
+// SL / TP — clean-book RR2 binding (authority 20260714_194548)
 #define SB_SL_ATR           1.50    // SL in ATR multiples beyond FVG
-#define SB_TP_RR_LDN        1.50    // R:R London
-#define SB_TP_RR_NY         1.50    // R:R NY AM
-#define SB_TP_RR_DEFAULT    1.50    // Fallback
+#define SB_TP_RR_LDN        2.00    // R:R London (RR2)
+#define SB_TP_RR_NY         2.00    // R:R NY AM (RR2)
+#define SB_TP_RR_DEFAULT    2.00    // Fallback matches session RR2
 #define SB_MIN_SL_PIPS      8.0
 #define SB_MAX_SL_PIPS      60.0
 
@@ -67,23 +69,23 @@
 #define SB_USE_HTF_BIAS     true
 #define SB_HTF_EMA_PERIOD   50      // H4 EMA period
 
-// Volatility Regime — D1 ATR
+// Volatility Regime — D1 ATR (standalone defaults; unchanged vs 194548)
 #define SB_USE_VOL_REGIME   true
 #define SB_VOL_ATR_PERIOD   20      // D1 ATR period
-#define SB_VOL_ATR_MIN      0.50    // A1 binding match standalone 002505
-#define SB_VOL_ATR_MAX      2.50    // A1 binding match standalone 002505
+#define SB_VOL_ATR_MIN      0.50
+#define SB_VOL_ATR_MAX      2.50
 
 // Session / Day
 #define SB_SKIP_FRIDAY      true
 
-// A1 weekend-flat binding (run 20260714_002505)
+// Weekend-flat binding (InpUseWeekendFlat=1 @ 21:45 — 194548)
 #define SB_USE_WEEKEND_FLAT true
 #define SB_FRIDAY_FLAT_HOUR 21
 #define SB_FRIDAY_FLAT_MINUTE 45
 
-// Risk Management
+// Risk Management — MaxKZ2 (194548)
 #define SB_MAX_TRADES_DAY   3
-#define SB_MAX_TRADES_KZ    1
+#define SB_MAX_TRADES_KZ    2
 #define SB_MAX_SPREAD_PIPS  5.0
 #define SB_MAX_DAILY_DD     3.0     // % daily DD limit
 #define SB_MAX_TOTAL_DD     10.0    // % total DD from peak
@@ -91,7 +93,7 @@
 // Execution
 #define SB_RETRY_COUNT      3
 #define SB_RETRY_DELAY_MS   500
-#define SB_TRADE_COMMENT    "SB2"
+#define SB_TRADE_COMMENT    "SB_RR2"
 
 //+------------------------------------------------------------------+
 //| ENUMS                                                            |
@@ -312,7 +314,7 @@ void SB_OnTick(string symbol, ulong magic, double riskPct, double maxLot)
       {
          SB_CloseAllPositions();
          SB_ResetFVG();
-         PrintFormat("[SB-A1] Friday weekend-flat cutoff %02d:%02d — positions closed (%s)",
+         PrintFormat("[SB-RR2] Friday weekend-flat cutoff %02d:%02d — positions closed (%s)",
                      SB_FRIDAY_FLAT_HOUR, SB_FRIDAY_FLAT_MINUTE, symbol);
          return;
       }

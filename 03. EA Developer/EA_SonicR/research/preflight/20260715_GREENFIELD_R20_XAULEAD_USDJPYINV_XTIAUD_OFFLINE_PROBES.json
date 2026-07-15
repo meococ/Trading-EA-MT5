@@ -1,0 +1,177 @@
+{
+  "schema_version": "greenfield_r20_xaulead_usdjpyinv_xtiaud.v1",
+  "generated_at_utc": "2026-07-15T06:44:38.892582Z",
+  "window": "2021.01.01-2025.12.31",
+  "cost_apriori_usd": 12.0,
+  "freeze_sha256": "CCDCE3FC49CF00B4822E567D5EF184C1BE8432339CCF91B43B7738E24ADAB48A",
+  "hard_constraint": "NON_FADE__NO_R10_R19_DENSIFY__NO_ETH_VR_RESCUE",
+  "gates": {
+    "n_min": 80,
+    "pf_min": 1.3,
+    "tpw_min": 2.0,
+    "x1_5_pf_min": 1.25
+  },
+  "params": {
+    "xau_nzd": {
+      "imp": 0.7,
+      "sl": 1.4,
+      "rr": 2.0,
+      "hold": 10
+    },
+    "usdjpy_xau_inv": {
+      "imp": 0.7,
+      "sl": 1.45,
+      "rr": 2.0,
+      "hold": 10
+    },
+    "xti_aud": {
+      "imp": 0.6,
+      "sl": 1.4,
+      "rr": 2.0,
+      "hold": 10
+    }
+  },
+  "qfsi_parallel": "watcher_hb ts=2026-07-15T06:44:31.129541Z alive=True cap_pid=72320 wall_rem=256780; 007 accumulate hb=9360 quotes=6988 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline",
+  "clean_book_note": "PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…",
+  "results": [
+    {
+      "hypothesis_id": "HYP-NZDUSD-H1-XAUUSD-IMPULSE-LEAD-CONT-001",
+      "setup": "nzdusd_h1_xau_impulse_lead_cont",
+      "symbol": "NZDUSD",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 1284,
+        "pf": 1.0218,
+        "net": 7755.55,
+        "exp": 6.0401,
+        "tpw": 4.9249
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.979,
+          "net": -7652.45,
+          "exp": -5.9599
+        },
+        "x1_5": {
+          "pf": 0.9584,
+          "net": -15356.45,
+          "exp": -11.9599
+        },
+        "x2": {
+          "pf": 0.9383,
+          "net": -23060.45,
+          "exp": -17.9599
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 681,
+          "time": 324,
+          "tp": 279
+        },
+        "by_sym": {
+          "NZDUSD": 1284
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-XAUUSD-H1-USDJPY-INVERSE-LEAD-CONT-001",
+      "setup": "xauusd_h1_usdjpy_inverse_lead_cont",
+      "symbol": "XAUUSD",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 1289,
+        "pf": 1.018,
+        "net": 510.66,
+        "exp": 0.3962,
+        "tpw": 4.9441
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.6024,
+          "net": -14957.34,
+          "exp": -11.6038
+        },
+        "x1_5": {
+          "pf": 0.4678,
+          "net": -22691.34,
+          "exp": -17.6038
+        },
+        "x2": {
+          "pf": 0.3653,
+          "net": -30425.34,
+          "exp": -23.6038
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "time": 485,
+          "sl": 592,
+          "tp": 211,
+          "eod": 1
+        },
+        "by_sym": {
+          "XAUUSD": 1289
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-AUDUSD-H1-XTI-IMPULSE-LEAD-CONT-001",
+      "setup": "audusd_h1_xti_impulse_lead_cont",
+      "symbol": "AUDUSD",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 1290,
+        "pf": 0.9237,
+        "net": -29052.98,
+        "exp": -22.5217,
+        "tpw": 4.9479
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.886,
+          "net": -44532.98,
+          "exp": -34.5217
+        },
+        "x1_5": {
+          "pf": 0.8678,
+          "net": -52272.98,
+          "exp": -40.5217
+        },
+        "x2": {
+          "pf": 0.8501,
+          "net": -60012.98,
+          "exp": -46.5217
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "tp": 274,
+          "sl": 743,
+          "time": 273
+        },
+        "by_sym": {
+          "AUDUSD": 1290
+        }
+      }
+    }
+  ],
+  "model0": "WITHHELD",
+  "status": "OFFLINE_ALL_KILL__NO_MODEL0",
+  "receipt_sha256": "76BDA2CE5AE5B2752824DED63367CE3365AE69A3A859A42DE99DA5CB0F3D0948"
+}

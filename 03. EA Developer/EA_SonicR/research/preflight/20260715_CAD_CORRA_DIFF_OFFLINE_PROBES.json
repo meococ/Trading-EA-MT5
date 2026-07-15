@@ -1,0 +1,66 @@
+{
+  "any_survivor": false,
+  "base_cost_usd": 12.0,
+  "generated_at_utc": "2026-07-15T01:47:36.014612Z",
+  "model0_authorized": false,
+  "panel": {
+    "authority": "BoC Valet AVG.INTWO = CORRA overnight (daily). USD = public carry panel short-rate proxy. +1bd lag for available-at. Not RBA/AONIA; AUD still blocked.",
+    "available_at_rows": 2124,
+    "corra_rows_raw": 2128,
+    "corra_sha256": "CC7B13E2F928613FC51C0500CD441E906F2CF21AB73717BA749CF86C9E010CC4",
+    "generated_at_utc": "2026-07-15T01:47:33.871582Z",
+    "lag_business_days": 1,
+    "panel_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/panels/cad_usd_corra_overnight_d1_v1.csv",
+    "panel_rows": 2124,
+    "panel_sha256": "26AF77CAFD3416F0F629CC5840C67B0B0C368CF745B1C3166628DE275CE07FD9",
+    "schema": "cad_usd_corra_available_at_utc.v1",
+    "status": "PANEL_READY",
+    "usd_rows_raw": 3109,
+    "usd_source": "03. EA Developer/EA_CarryPublicRates/carry_rates_d1.csv"
+  },
+  "receipt_sha256": "89E7928A5036EC493DEA69017F018C09B6AE52A092590B6068F3A7B542AD496E",
+  "results": [
+    {
+      "detail": {
+        "by_reason": {
+          "sl": 14,
+          "time": 16,
+          "tp": 7
+        },
+        "events": 37
+      },
+      "fail_notes": [
+        "n_fail",
+        "cadence_fail"
+      ],
+      "haircuts": {
+        "x1": {
+          "exp": 72.2139,
+          "net": 2671.91,
+          "pf": 1.3555
+        },
+        "x1_5": {
+          "exp": 66.2139,
+          "net": 2449.91,
+          "pf": 1.3213
+        },
+        "x2": {
+          "exp": 60.2139,
+          "net": 2227.91,
+          "pf": 1.2879
+        }
+      },
+      "hypothesis_id": "HYP-USDCAD-CORRA-USD-DIFF-EXPAND-H4-001",
+      "metrics": {
+        "exp": 84.2139,
+        "n": 37,
+        "net": 3115.91,
+        "pf": 1.4268,
+        "tpw": 0.1419
+      },
+      "setup_type": "CORRA-USD |\u0394diff|\u22655bp \u2192 USDCAD with CAD richness; H4 SL1.5 RR2 \u226410",
+      "verdict": "KILLED_AT_OFFLINE_PROBE"
+    }
+  ],
+  "schema": "cad_corra_diff_offline_probes.v1"
+}

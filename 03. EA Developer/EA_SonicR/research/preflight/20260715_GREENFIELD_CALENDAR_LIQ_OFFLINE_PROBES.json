@@ -1,0 +1,118 @@
+{
+  "any_survivor": false,
+  "base_cost_usd": 12.0,
+  "generated_at_utc": "2026-07-15T01:45:29.473842Z",
+  "model0_authorized": false,
+  "parent": "anticarry_volspike_ALL_KILL__g10_altsource_parallel",
+  "receipt_sha256": "93ADBDC420A196C70D8A6340C16106FC71C70C3916616911D508BC51F2655273",
+  "results": [
+    {
+      "detail": {
+        "by_reason": {
+          "eod": 2,
+          "sl": 279,
+          "time": 271,
+          "tp": 47
+        },
+        "by_sym": {
+          "EURUSD": 227,
+          "GBPUSD": 230,
+          "USDJPY": 142
+        },
+        "n_signals": 599
+      },
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "family": "greenfield_calendar_liq_fx3",
+      "haircuts": {
+        "x1": {
+          "exp": -90.8988,
+          "net": -54448.37,
+          "pf": 0.6638
+        },
+        "x1_5": {
+          "exp": -96.8988,
+          "net": -58042.37,
+          "pf": 0.6466
+        },
+        "x2": {
+          "exp": -102.8988,
+          "net": -61636.37,
+          "pf": 0.6299
+        }
+      },
+      "hypothesis_id": "HYP-FX3-H4-TURNMONTH-LIQ-BOOK-001",
+      "metrics": {
+        "exp": -78.8988,
+        "n": 599,
+        "net": -47260.37,
+        "pf": 0.6998,
+        "tpw": 2.2975
+      },
+      "setup_type": "TOM window H4 with 5D1 mom; SL1.5 ATR RR2 hold\u22646",
+      "timeframe": "H4",
+      "verdict": "KILLED_AT_OFFLINE_PROBE"
+    },
+    {
+      "detail": {
+        "by_reason": {
+          "sl": 11,
+          "tp": 36
+        },
+        "by_sym": {
+          "EURUSD": 18,
+          "GBPUSD": 14,
+          "USDJPY": 15
+        },
+        "median_gap_atr": 0.5219,
+        "n_kept": 47,
+        "n_raw": 49
+      },
+      "fail_notes": [
+        "n_fail",
+        "cadence_fail"
+      ],
+      "family": "greenfield_calendar_liq_fx3",
+      "haircuts": {
+        "x1": {
+          "exp": 416.9445,
+          "net": 19596.39,
+          "pf": 4.5887
+        },
+        "x1_5": {
+          "exp": 410.9445,
+          "net": 19314.39,
+          "pf": 4.4948
+        },
+        "x2": {
+          "exp": 404.9445,
+          "net": 19032.39,
+          "pf": 4.4031
+        }
+      },
+      "hypothesis_id": "HYP-FX3-H1-WEEKEND-GAP-FADE-001",
+      "metrics": {
+        "exp": 428.9445,
+        "n": 47,
+        "net": 20160.39,
+        "pf": 4.7834,
+        "tpw": 0.1803
+      },
+      "setup_type": "Mon H1 fade weekend gap\u22650.35 ATR_D1; RR1.5 hold\u226412",
+      "timeframe": "H1",
+      "verdict": "KILLED_AT_OFFLINE_PROBE"
+    }
+  ],
+  "schema": "greenfield_calendar_liq_offline_probes.v1",
+  "universe": [
+    "EURUSD",
+    "GBPUSD",
+    "USDJPY"
+  ],
+  "window": {
+    "from": "2021-01-01",
+    "to": "2025-12-31"
+  }
+}

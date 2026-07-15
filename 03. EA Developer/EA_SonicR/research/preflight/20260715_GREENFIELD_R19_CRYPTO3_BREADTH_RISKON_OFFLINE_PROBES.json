@@ -1,0 +1,185 @@
+{
+  "schema_version": "greenfield_r19_crypto3_breadth_riskon.v1",
+  "generated_at_utc": "2026-07-15T06:38:05.057835Z",
+  "window": "2021.01.01-2025.12.31",
+  "cost_apriori_usd": 12.0,
+  "freeze_sha256": "D6AB4A0BFCA24C58B659C2BCC6BC7C9698A088BD9B7946B3364C6035EB653062",
+  "hard_constraint": "NON_FADE__NO_R10_R18_DENSIFY__NO_ETH_VR_RESCUE",
+  "gates": {
+    "n_min": 80,
+    "pf_min": 1.3,
+    "tpw_min": 2.0,
+    "x1_5_pf_min": 1.25
+  },
+  "params": {
+    "crypto3_book": {
+      "universe": [
+        "BTCUSD",
+        "ETHUSD",
+        "LTCUSD"
+      ],
+      "imp": 0.5,
+      "breadth": 2,
+      "sl": 1.5,
+      "rr": 2.0,
+      "hold": 10
+    },
+    "riskon": {
+      "xti": 0.55,
+      "nas": 0.45,
+      "sl": 1.45,
+      "rr": 2.0,
+      "hold": 10
+    },
+    "eurchf": {
+      "nas": 0.7,
+      "sl": 1.4,
+      "rr": 2.0,
+      "hold": 10
+    }
+  },
+  "qfsi_parallel": "watcher_hb ts=2026-07-15T06:37:20.089358Z alive=True cap_pid=72320 wall_rem=257211; 007 accumulate hb=7800 quotes=5763 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline",
+  "clean_book_note": "PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…",
+  "results": [
+    {
+      "hypothesis_id": "HYP-CRYPTO3-H1-BREADTH-IMPULSE-CONT-BOOK-001",
+      "setup": "crypto3_h1_breadth_impulse_cont_book",
+      "symbol": "CRYPTO3",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 5181,
+        "pf": 0.9513,
+        "net": -28370.04,
+        "exp": -5.4758,
+        "tpw": 19.8723
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.8557,
+          "net": -90542.04,
+          "exp": -17.4758
+        },
+        "x1_5": {
+          "pf": 0.813,
+          "net": -121628.04,
+          "exp": -23.4758
+        },
+        "x2": {
+          "pf": 0.7731,
+          "net": -152714.04,
+          "exp": -29.4758
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "tp": 854,
+          "time": 2122,
+          "sl": 2205
+        },
+        "by_sym": {
+          "BTCUSD": 1748,
+          "ETHUSD": 1752,
+          "LTCUSD": 1681
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-CADJPY-H1-XTI-NAS-RISKON-CONT-001",
+      "setup": "cadjpy_h1_xti_nas_riskon_cont",
+      "symbol": "CADJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 1165,
+        "pf": 1.0975,
+        "net": 28848.5,
+        "exp": 24.7627,
+        "tpw": 4.4685
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.0489,
+          "net": 14868.5,
+          "exp": 12.7627
+        },
+        "x1_5": {
+          "pf": 1.0256,
+          "net": 7878.5,
+          "exp": 6.7627
+        },
+        "x2": {
+          "pf": 1.0028,
+          "net": 888.5,
+          "exp": 0.7627
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 577,
+          "time": 342,
+          "tp": 246
+        },
+        "by_sym": {
+          "CADJPY": 1165
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-EURCHF-H1-NAS-SENTIMENT-CONT-001",
+      "setup": "eurchf_h1_nas_sentiment_cont",
+      "symbol": "EURCHF",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 1288,
+        "pf": 0.9496,
+        "net": -18426.72,
+        "exp": -14.3065,
+        "tpw": 4.9403
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9098,
+          "net": -33882.72,
+          "exp": -26.3065
+        },
+        "x1_5": {
+          "pf": 0.8906,
+          "net": -41610.72,
+          "exp": -32.3065
+        },
+        "x2": {
+          "pf": 0.8719,
+          "net": -49338.72,
+          "exp": -38.3065
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 708,
+          "time": 307,
+          "tp": 273
+        },
+        "by_sym": {
+          "EURCHF": 1288
+        }
+      }
+    }
+  ],
+  "any_survivor": false,
+  "model0": "WITHHELD",
+  "receipt_sha256": "06966FF14AA6940E23A2248B18971C7BACD04973C64307BB048DEE683AA41017"
+}

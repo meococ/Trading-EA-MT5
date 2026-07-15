@@ -1,8 +1,8 @@
 {
-  "created_at_utc": "2026-07-15T00:40:35.479479Z",
-  "heartbeat_rows": 120,
-  "quote_rows": 77,
+  "created_at_utc": "2026-07-15T11:30:25.147641Z",
+  "heartbeat_rows": 75840,
+  "quote_rows": 57195,
   "tick_errors": 0,
   "ipc_retries_peak_window": 0,
-  "deadline_utc": "2026-07-15T06:39:52.942272Z"
+  "deadline_utc": "2026-07-15T12:04:12.715855Z"
 }

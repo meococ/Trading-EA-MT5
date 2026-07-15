@@ -1,6 +1,6 @@
 # RR2 full-cost rebind harness
 
-Updated: 2026-07-15T00:41:20.703260Z  
+Updated: 2026-07-15T01:41:29.312822Z  
 Gate: **`STOP_DATA_FRONTIER`**  
 Execute: `False` · GOAL claim: `False` · confirmed: false
 

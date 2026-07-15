@@ -1,0 +1,173 @@
+{
+  "schema_version": "greenfield_r18_audlead_pivot_comom.v1",
+  "generated_at_utc": "2026-07-15T06:32:49.817961Z",
+  "window": "2021.01.01-2025.12.31",
+  "cost_apriori_usd": 12.0,
+  "hard_constraint": "NON_FADE__NO_R10_R17_DENSIFY__NO_ETH_VR_RESCUE",
+  "gates": {
+    "n_min": 80,
+    "pf_min": 1.3,
+    "tpw_min": 2.0,
+    "x1_5_pf_min": 1.25
+  },
+  "params": {
+    "aud_lead": {
+      "imp": 0.7,
+      "sl": 1.4,
+      "rr": 2.0,
+      "hold": 10
+    },
+    "pivot": {
+      "body": 0.5,
+      "sl": 1.5,
+      "rr": 2.0,
+      "hold": 8
+    },
+    "comom": {
+      "gj": 0.65,
+      "ej": 0.4,
+      "sl": 1.45,
+      "rr": 2.0,
+      "hold": 10
+    }
+  },
+  "qfsi_parallel": "watcher_hb ts=2026-07-15T06:32:45.314824Z alive=True cap_pid=72320 wall_rem=257486; 007 accumulate hb=6660 quotes=4945 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline",
+  "clean_book_note": "PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…",
+  "results": [
+    {
+      "hypothesis_id": "HYP-NZDUSD-H1-AUD-IMPULSE-LEAD-CONT-001",
+      "setup": "nzdusd_h1_aud_impulse_lead_cont",
+      "symbol": "NZDUSD",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 1300,
+        "pf": 1.0654,
+        "net": 22385.18,
+        "exp": 17.2194,
+        "tpw": 4.9863
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.0193,
+          "net": 6785.18,
+          "exp": 5.2194
+        },
+        "x1_5": {
+          "pf": 0.9971,
+          "net": -1014.82,
+          "exp": -0.7806
+        },
+        "x2": {
+          "pf": 0.9755,
+          "net": -8814.82,
+          "exp": -6.7806
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 657,
+          "time": 377,
+          "tp": 265,
+          "eod": 1
+        },
+        "by_sym": {
+          "NZDUSD": 1300
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-FX3-H1-D1-PIVOT-R1S1-BREAK-CONT-001",
+      "setup": "fx3_h1_d1_pivot_r1s1_break_cont",
+      "symbol": "FX3",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 0,
+        "pf": null,
+        "net": 0.0,
+        "exp": null,
+        "tpw": 0.0
+      },
+      "haircuts": {
+        "x1": {
+          "pf": null,
+          "net": 0.0,
+          "exp": 0.0
+        },
+        "x1_5": {
+          "pf": null,
+          "net": 0.0,
+          "exp": 0.0
+        },
+        "x2": {
+          "pf": null,
+          "net": 0.0,
+          "exp": 0.0
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "n_fail",
+        "pf_fail",
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {},
+        "by_sym": {}
+      }
+    },
+    {
+      "hypothesis_id": "HYP-GBPJPY-H1-EURJPY-COMOM-CONT-001",
+      "setup": "gbpjpy_h1_eurjpy_comom_cont",
+      "symbol": "GBPJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 1291,
+        "pf": 1.0289,
+        "net": 10103.93,
+        "exp": 7.8264,
+        "tpw": 4.9518
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.985,
+          "net": -5388.07,
+          "exp": -4.1736
+        },
+        "x1_5": {
+          "pf": 0.9639,
+          "net": -13134.07,
+          "exp": -10.1736
+        },
+        "x2": {
+          "pf": 0.9433,
+          "net": -20880.07,
+          "exp": -16.1736
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "time": 340,
+          "sl": 679,
+          "tp": 272
+        },
+        "by_sym": {
+          "GBPJPY": 1291
+        }
+      }
+    }
+  ],
+  "any_survivor": false,
+  "model0": "WITHHELD",
+  "receipt_sha256": "6226ECF5CEE777052D46BA91A10F08622698F770801950C6C7F83CD4AC60186A"
+}

@@ -1,0 +1,108 @@
+{
+  "attempts": [
+    {
+      "bytes": 61161,
+      "content_type": "text/csv",
+      "http_status": 200,
+      "name": "dbnomics_rba_firmmcrid.csv",
+      "path": "03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\g10_overnight\\dbnomics_rba_firmmcrid.csv",
+      "result": "OK",
+      "sha256": "76C464CE0FA2E5C2EE6C8231AFA70F04E4582345D2DAC3D4B0E8B0D50FF72460",
+      "url": "https://api.db.nomics.world/v22/series/RBA/F1/FIRMMCRID.csv"
+    },
+    {
+      "bytes": 60486,
+      "content_type": "text/csv",
+      "http_status": 200,
+      "name": "dbnomics_rba_firmmcrtd.csv",
+      "path": "03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\g10_overnight\\dbnomics_rba_firmmcrtd.csv",
+      "result": "OK",
+      "sha256": "F3DF5F925C524E1414070ACD26612E5AFC07DA7176BC02851C30588111377154",
+      "url": "https://api.db.nomics.world/v22/series/RBA/F1/FIRMMCRTD.csv"
+    },
+    {
+      "error": "HTTP Error 400: BAD REQUEST",
+      "http_status": 400,
+      "name": "dbnomics_rba_f1_meta.json",
+      "result": "FAIL",
+      "url": "https://api.db.nomics.world/v22/datasets/RBA/F1?observations=0"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "http_status": 403,
+      "name": "rba_csv_f01-data.csv",
+      "result": "FAIL",
+      "url": "https://www.rba.gov.au/statistics/tables/csv/f01-data.csv"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "http_status": 403,
+      "name": "rba_csv_f01d-data.csv",
+      "result": "FAIL",
+      "url": "https://www.rba.gov.au/statistics/tables/csv/f01d-data.csv"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "http_status": 403,
+      "name": "rba_xls_f01d.xlsx",
+      "result": "FAIL",
+      "url": "https://www.rba.gov.au/statistics/tables/xls/f01d.xlsx"
+    },
+    {
+      "error": "HTTP Error 403: Forbidden",
+      "http_status": 403,
+      "name": "rba_xls_f01hist.xls",
+      "result": "FAIL",
+      "url": "https://www.rba.gov.au/statistics/tables/xls/f01hist.xls"
+    },
+    {
+      "bytes": 12086,
+      "content_type": "application/csv",
+      "http_status": 200,
+      "name": "fred_irstci01aum.csv",
+      "path": "03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\g10_overnight\\fred_irstci01aum.csv",
+      "result": "OK",
+      "sha256": "DD86EEADE6D3F7EC40C9EC3F353D699853E6ACAD2348B0283D942215B3BB7FDE",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=IRSTCI01AUM156N"
+    },
+    {
+      "bytes": 1489438,
+      "content_type": "text/csv;charset=UTF-8",
+      "http_status": 200,
+      "name": "bis_cbpol_au.csv",
+      "path": "03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\g10_overnight\\bis_cbpol_au.csv",
+      "result": "OK",
+      "sha256": "5C1098BC43E168F05425A7EFFE34895DB40EE4CC871289CBF1E6A4B14E9D06F7",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_CBPOL/1.0/D.AU?startPeriod=2018-01-01&format=csv"
+    },
+    {
+      "error": "HTTP Error 404: Not Found",
+      "http_status": 404,
+      "name": "oecd_au_call.csv",
+      "result": "FAIL",
+      "url": "https://sdmx.oecd.org/public/rest/data/OECD.SDD.STES,DSD_STES@DF_FINMARK,1.0/AUS.M.IR.CCALL.NO.N?startPeriod=2018&dimensionAtObservation=AllDimensions&format=csvfilewithlabels"
+    },
+    {
+      "error": "HTTP Error 404: Not Found",
+      "http_status": 404,
+      "name": "github_readrba_cash",
+      "result": "FAIL",
+      "url": "https://raw.githubusercontent.com/MattCowgill/readrba/master/data-raw/rba-scraped-tables.csv"
+    }
+  ],
+  "authority": "Public DBnomics mirror of RBA Statistical Table F1. FIRMMCRID=AONIA overnight; FIRMMCRTD=cash target. rba.gov.au direct still 403.",
+  "fail_count": 7,
+  "freeze": {
+    "aonia_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/raw/g10_overnight/rba_aonia_firmmcrid_dbnomics.csv",
+    "aonia_sha256": "76C464CE0FA2E5C2EE6C8231AFA70F04E4582345D2DAC3D4B0E8B0D50FF72460",
+    "panel_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/panels/aud_usd_aonia_overnight_d1_v1.csv",
+    "panel_rows": 2154,
+    "panel_sha256": "98E8204CACE0CC38042AEB80309813FBE36377591137D443E2F3C7094212D9FE",
+    "target_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/raw/g10_overnight/rba_cash_target_firmmcrtd_dbnomics.csv",
+    "target_sha256": "F3DF5F925C524E1414070ACD26612E5AFC07DA7176BC02851C30588111377154"
+  },
+  "generated_at_utc": "2026-07-15T02:50:01.218890Z",
+  "ok_count": 4,
+  "schema": "rba_altsource_exhaust.v3",
+  "status": "AUD_AONIA_UNLOCKED_VIA_DBNOMICS"
+}

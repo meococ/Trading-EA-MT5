@@ -1,0 +1,175 @@
+{
+  "schema_version": "greenfield_r31_outside_firstdom_tstopcd.v1_closedbar",
+  "generated_at_utc": "2026-07-15T07:17:55.943564Z",
+  "window": "2021.01.01-2025.12.31",
+  "cost_apriori_usd": 12.0,
+  "freeze_sha256": "18DF2BC4645E5DC9751C719DE0F0B22AC0CB49EF3EC24744246E30446C138BE1",
+  "hard_constraint": "NON_FADE__NON_INDICATOR__NO_R1_R30_DENSIFY__NO_OPEX_WINDOW__NO_H4ENGULF__NO_LEAD__NO_FADE_SESSION__NO_FRED__NO_RR2_EXIT",
+  "gates": {
+    "n_min": 80,
+    "pf_min": 1.3,
+    "tpw_min": 2.0,
+    "x1_5_pf_min": 1.25
+  },
+  "qfsi_parallel": "watcher_hb ts=2026-07-15T07:17:52.726794Z alive=True cap_pid=72320 wall_rem=254779; 007 accumulate hb=17100 quotes=13475 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline",
+  "cost_autonomous": "autonomous live import `IMPORTED_LIVE_HISTORY_PARTIAL` raw_deals=11 comm EURUSD=2/30 USDJPY=0/30 slip=0 MISSING≠0; multiday_table quote_days=2/90 freeze_eligible=False; R31 retry history_deals_get raw_deals=11 comm_unique={'BTCUSD': 3, 'EURUSD': 2}; freeze_eligible=False",
+  "deal_retry_r31": {
+    "ok": true,
+    "login": 26451822,
+    "server": "FivePercentOnline-Real",
+    "raw_deals": 11,
+    "commission_unique_by_symbol": {
+      "BTCUSD": 3,
+      "EURUSD": 2
+    },
+    "slip_side_ref": "MISSING_NE_0",
+    "ts_utc": "2026-07-15T07:17:55.035602Z"
+  },
+  "clean_book_note": "PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…",
+  "results": [
+    {
+      "hypothesis_id": "HYP-FX3-H1-OUTSIDE-BAR-CONT-001",
+      "setup": "fx3_h1_outside_bar_cont",
+      "symbol": "FX3",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 3278,
+        "pf": 0.9626,
+        "net": -35006.41,
+        "exp": -10.6792,
+        "tpw": 12.5732
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9226,
+          "net": -74342.41,
+          "exp": -22.6792
+        },
+        "x1_5": {
+          "pf": 0.9034,
+          "net": -94010.41,
+          "exp": -28.6792
+        },
+        "x2": {
+          "pf": 0.8846,
+          "net": -113678.41,
+          "exp": -34.6792
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 1841,
+          "time": 701,
+          "tp": 736
+        },
+        "by_sym": {
+          "USDJPY": 1078,
+          "GBPUSD": 1101,
+          "EURUSD": 1099
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-GBPUSD-H1-FIRST-DOM-CONT-001",
+      "setup": "gbpusd_h1_first_dom_cont",
+      "symbol": "GBPUSD",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 17,
+        "pf": 0.3147,
+        "net": -3959.63,
+        "exp": -232.9192,
+        "tpw": 0.0652
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.2969,
+          "net": -4163.63,
+          "exp": -244.9192
+        },
+        "x1_5": {
+          "pf": 0.2883,
+          "net": -4265.63,
+          "exp": -250.9192
+        },
+        "x2": {
+          "pf": 0.2799,
+          "net": -4367.63,
+          "exp": -256.9192
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "n_fail",
+        "pf_fail",
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 11,
+          "time": 6
+        },
+        "by_sym": {
+          "GBPUSD": 17
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-FX3-H1-POST-TIMESTOP-CD-ARCH-CONT-001",
+      "setup": "fx3_h1_post_timestop_cd_arch_cont",
+      "symbol": "FX3",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 3896,
+        "pf": 0.9466,
+        "net": -53072.73,
+        "exp": -13.6224,
+        "tpw": 14.9436
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9023,
+          "net": -99824.73,
+          "exp": -25.6224
+        },
+        "x1_5": {
+          "pf": 0.881,
+          "net": -123200.73,
+          "exp": -31.6224
+        },
+        "x2": {
+          "pf": 0.8603,
+          "net": -146576.73,
+          "exp": -37.6224
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "time": 1381,
+          "sl": 1889,
+          "tp": 625,
+          "eod": 1
+        },
+        "by_sym": {
+          "EURUSD": 1298,
+          "GBPUSD": 1299,
+          "USDJPY": 1299
+        }
+      }
+    }
+  ],
+  "model0": "WITHHELD",
+  "status": "OFFLINE_ALL_KILL__NO_MODEL0",
+  "receipt_sha256": "AAD9BA4043042D994B02AD9B1638C103C4FEE02000FEDC4232E8091D02527343"
+}

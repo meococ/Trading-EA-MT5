@@ -1,0 +1,190 @@
+{
+  "schema_version": "greenfield_r13_event_cusum_xaumom.v1",
+  "generated_at_utc": "2026-07-15T06:19:11.473325Z",
+  "window": "2021.01.01-2025.12.31",
+  "cost_apriori_usd": 12.0,
+  "hard_constraint": "NON_FADE__NO_SESSION_EDGE_DENSIFY",
+  "gates": {
+    "n_min": 80,
+    "pf_min": 1.3,
+    "tpw_min": 2.0,
+    "x1_5_pf_min": 1.25
+  },
+  "params": {
+    "nfp": {
+      "body_atr": 0.8,
+      "sl": 1.6,
+      "rr": 2.0,
+      "hold": 12,
+      "event_hours_utc": [
+        12,
+        13
+      ]
+    },
+    "cusum": {
+      "k": 0.5,
+      "h": 3.5,
+      "zwin": 48,
+      "sl": 1.75,
+      "rr": 2.0,
+      "hold": 16,
+      "cooldown": 24
+    },
+    "xau_mom": {
+      "roc": 20,
+      "roc_atr": 2.5,
+      "sl": 2.0,
+      "rr": 2.5,
+      "hold": 36
+    }
+  },
+  "qfsi_parallel": "watcher_hb ts=2026-07-15T06:18:59.663021Z alive=True cap_pid=72320 wall_rem=258312; 007 accumulate hb=3480 quotes=2563 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline",
+  "clean_book_note": "PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…",
+  "results": [
+    {
+      "hypothesis_id": "HYP-FX3-H1-NFP-IMPULSE-CONT-001",
+      "setup": "fx3_h1_nfp_impulse_cont",
+      "symbol": "FX3",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 59,
+        "pf": 0.5301,
+        "net": -10229.42,
+        "exp": -173.3799,
+        "tpw": 0.2263
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.5095,
+          "net": -10937.42,
+          "exp": -185.3799
+        },
+        "x1_5": {
+          "pf": 0.4995,
+          "net": -11291.42,
+          "exp": -191.3799
+        },
+        "x2": {
+          "pf": 0.4898,
+          "net": -11645.42,
+          "exp": -197.3799
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "n_fail",
+        "pf_fail",
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 44,
+          "tp": 11,
+          "time": 4
+        },
+        "by_sym": {
+          "USDJPY": 16,
+          "GBPUSD": 25,
+          "EURUSD": 18
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-FX3-H1-CUSUM-BREAK-PERSIST-001",
+      "setup": "fx3_h1_cusum_break_persist",
+      "symbol": "FX3",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 776,
+        "pf": 1.1293,
+        "net": 23903.8,
+        "exp": 30.8039,
+        "tpw": 2.9764
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.0767,
+          "net": 14591.8,
+          "exp": 18.8039
+        },
+        "x1_5": {
+          "pf": 1.0515,
+          "net": 9935.8,
+          "exp": 12.8039
+        },
+        "x2": {
+          "pf": 1.027,
+          "net": 5279.8,
+          "exp": 6.8039
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 336,
+          "time": 305,
+          "tp": 135
+        },
+        "by_sym": {
+          "EURUSD": 319,
+          "USDJPY": 251,
+          "GBPUSD": 206
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-XAUUSD-H4-D1-TSMOM-THICK-001",
+      "setup": "xauusd_h4_d1_tsmom_thick",
+      "symbol": "XAUUSD",
+      "timeframe": "H4",
+      "metrics": {
+        "n": 78,
+        "pf": 1.4331,
+        "net": 2211.37,
+        "exp": 28.3509,
+        "tpw": 0.2992
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.2232,
+          "net": 1275.37,
+          "exp": 16.3509
+        },
+        "x1_5": {
+          "pf": 1.1341,
+          "net": 807.37,
+          "exp": 10.3509
+        },
+        "x2": {
+          "pf": 1.0536,
+          "net": 339.37,
+          "exp": 4.3509
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "n_fail",
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 45,
+          "tp": 19,
+          "time": 14
+        },
+        "by_sym": {
+          "XAUUSD": 78
+        }
+      }
+    }
+  ],
+  "any_survivor": false,
+  "model0": "WITHHELD",
+  "receipt_sha256": "3D638ABC311BDEF6D3CC2E7113FE41431355EAA4D4484D20735BED4CD9649721"
+}

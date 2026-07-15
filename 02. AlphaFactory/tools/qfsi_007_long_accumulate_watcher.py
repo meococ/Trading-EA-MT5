@@ -31,10 +31,11 @@ SYMBOLS = ["USDJPY", "EURUSD", "GBPUSD", "XAUUSD"]
 # Per-segment capture window (capture script duration). Watcher may relaunch.
 SEGMENT_DURATION_SEC = 6 * 3600  # 6h segments
 # Total wall-clock budget for this watcher session (auto-restart within).
-WATCHER_WALL_SEC = 24 * 3600  # 24h
+WATCHER_WALL_SEC = 72 * 3600  # 72h wall — 24h sessions kept dying mid-accumulate
 POLL_SEC = 15
 STALL_SEC = 180  # no CSV write for this long → treat as stalled
-MAX_RESTARTS = 48
+STALL_GRACE_SEC = 300  # wait this long after launch before stall checks
+MAX_RESTARTS = 96
 REAL_PID_HINT = 19984  # informational only; never kill terminal64
 
 
@@ -48,7 +49,12 @@ def iso_utc(value: datetime | None = None) -> str:
 
 
 def log(path: Path, event: str, **kwargs: Any) -> None:
-    row = {"ts": iso_utc(), "event": event, **kwargs}
+    # Guard: never allow kwargs to collide with positional `path`/`event`
+    # (historic TypeError: log(..., path=stop_file) killed 007 watcher).
+    safe = {k: v for k, v in kwargs.items() if k not in ("path", "event")}
+    if "path" in kwargs and "stop_path" not in safe:
+        safe["stop_path"] = kwargs["path"]
+    row = {"ts": iso_utc(), "event": event, **safe}
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as fh:
         fh.write(json.dumps(row, ensure_ascii=False) + "\n")
@@ -214,6 +220,7 @@ def main() -> int:
     restarts = 0
     segment = 0
     current: subprocess.Popen | None = None
+    segment_started_at: float | None = None
 
     launch_payload = {
         "schema_version": "sonic_qfsi_007_long_launch.v1",
@@ -266,7 +273,7 @@ def main() -> int:
     try:
         while time.time() < wall_deadline:
             if stop_file.exists():
-                log(log_path, "stop_file_seen", path=str(stop_file))
+                log(log_path, "stop_file_seen", stop_path=str(stop_file))
                 break
 
             terms = terminal_pids()
@@ -311,6 +318,7 @@ def main() -> int:
 
                 segment += 1
                 current = launch_capture(out_dir, stop_file, log_dir, segment)
+                segment_started_at = time.time()
                 log(
                     log_path,
                     "capture_launched",
@@ -332,15 +340,22 @@ def main() -> int:
                     },
                 )
 
-            # Stall detection while process claims alive.
-            mtime = newest_mtime(out_dir)
-            if mtime is not None and (time.time() - mtime) > STALL_SEC and current is not None:
-                if current.poll() is None:
+            # Stall detection: only after this segment has had time to write.
+            # Do NOT use stale mtimes from a prior dead segment (that killed 007 instantly).
+            if (
+                current is not None
+                and current.poll() is None
+                and segment_started_at is not None
+                and (time.time() - segment_started_at) > STALL_GRACE_SEC
+            ):
+                mtime = newest_mtime(out_dir)
+                if mtime is not None and (time.time() - mtime) > STALL_SEC:
                     log(
                         log_path,
                         "stall_detected_terminating_capture_only",
                         pid=current.pid,
                         stall_sec=STALL_SEC,
+                        segment_age_sec=round(time.time() - segment_started_at, 1),
                         note="kill capture python only — never terminal64",
                     )
                     try:
@@ -352,6 +367,22 @@ def main() -> int:
                     except Exception as exc:
                         log(log_path, "stall_kill_error", error=str(exc))
                     # Loop will restart if Real OK.
+
+            # Watcher self-heartbeat (detect silent death in ops).
+            try:
+                hb = {
+                    "ts": iso_utc(),
+                    "watcher_alive": True,
+                    "capture_pid": current.pid if current and current.poll() is None else None,
+                    "segment": segment,
+                    "restarts": restarts,
+                    "wall_remaining_sec": max(0, int(wall_deadline - time.time())),
+                }
+                (PRE / "20260715_QFSI_007_WATCHER_HEARTBEAT.json").write_text(
+                    json.dumps(hb, indent=2) + "\n", encoding="utf-8"
+                )
+            except Exception:
+                pass
 
             time.sleep(POLL_SEC)
     finally:

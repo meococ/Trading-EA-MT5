@@ -1,0 +1,25 @@
+{
+  "schema": "chatgpt_deep_research_auth_check.v1",
+  "created_at_utc": "2026-07-15T10:45:00Z",
+  "authority": "Owner dual-track after OHLC HARD PIVOT W1–W21 exhaustion; retry Deep Research high-EV IF logged in; if login wall do NOT stall — continue non-OHLC track",
+  "browser": {
+    "tool": "cursor-ide-browser",
+    "url_attempted": "https://chatgpt.com/",
+    "final_url": "https://chatgpt.com/auth/login",
+    "page_title": "Get started | ChatGPT",
+    "observed": "Log in or sign up wall; Continue with Google/Apple/phone; Email address field; no chat composer; no GPT-5.6 Sol / Pro / Nghiên cứu sâu UI"
+  },
+  "verdict": "AUTH_BLOCKED__LOGIN_WALL",
+  "deep_research_submitted": false,
+  "deep_research_url": null,
+  "packet_submitted": false,
+  "failure_packet_status": "NOT_SUBMITTED__AUTH_WALL",
+  "owner_prior": "Previously waived ChatGPT when auth-blocked; ordered self-research. Self-research OHLC now saturated — retry authorized IF session logged in.",
+  "autonomous_action": "Do NOT stall. Continue Track 2 non-OHLC / architecture monetization offline probe. Record this receipt. Re-attempt Deep Research only after Owner restores ChatGPT browser session.",
+  "explicit_non_actions": [
+    "No credential entry / no OAuth click-through without Owner",
+    "No densify W14/FVG/W1–W21",
+    "No wait for long Deep Research report",
+    "No Model 0 from this receipt"
+  ]
+}

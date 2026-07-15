@@ -1,0 +1,174 @@
+{
+  "schema_version": "greenfield_r29_equalhl_opex_oneslot.v1_closedbar",
+  "generated_at_utc": "2026-07-15T07:12:20.719338Z",
+  "window": "2021.01.01-2025.12.31",
+  "cost_apriori_usd": 12.0,
+  "freeze_sha256": "50FF0546E011289FD448547F0503DF57C2FB645933799EDE66AD0A4AB93C4BDF",
+  "hard_constraint": "NON_FADE__NON_INDICATOR__NO_R1_R28_DENSIFY__NO_H4ENGULF__NO_LEAD__NO_FADE_SESSION__NO_FRED__NO_RR2_EXIT",
+  "gates": {
+    "n_min": 80,
+    "pf_min": 1.3,
+    "tpw_min": 2.0,
+    "x1_5_pf_min": 1.25
+  },
+  "qfsi_parallel": "watcher_hb ts=2026-07-15T07:12:16.478579Z alive=True cap_pid=72320 wall_rem=255115; 007 accumulate hb=15840 quotes=12502 deadline=2026-07-15T12:04:12.715855Z; cost freeze still GAP; login not headline",
+  "cost_autonomous": "autonomous live import `IMPORTED_LIVE_HISTORY_PARTIAL` raw_deals=11 comm EURUSD=2/30 USDJPY=0/30 slip=0 MISSING≠0; multiday_table quote_days=2/90 freeze_eligible=False; R29 retry history_deals_get raw_deals=11 comm_unique={'BTCUSD': 3, 'EURUSD': 2}; freeze_eligible=False",
+  "deal_retry_r29": {
+    "ok": true,
+    "login": 26451822,
+    "server": "FivePercentOnline-Real",
+    "raw_deals": 11,
+    "commission_unique_by_symbol": {
+      "BTCUSD": 3,
+      "EURUSD": 2
+    },
+    "slip_side_ref": "MISSING_NE_0",
+    "ts_utc": "2026-07-15T07:12:18.278576Z"
+  },
+  "clean_book_note": "PRIMARY PF@$12=1.184 tpw=3.241 verdict=`DIAGNOSTIC_PARTIAL__CAPS_OK__GOAL_SCREEN_FAIL`; EXTENDED PF@$12=1.044 tpw=6.382 verdict=`DIAGNOSTIC_FAIL_GOAL_SCREEN`; freeze_sha=F18FAB12ECCBD3FF…",
+  "results": [
+    {
+      "hypothesis_id": "HYP-FX3-H1-EQUAL-HL-BREAK-CONT-001",
+      "setup": "fx3_h1_equal_hl_break_cont",
+      "symbol": "FX3",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 3566,
+        "pf": 1.0064,
+        "net": 6507.95,
+        "exp": 1.825,
+        "tpw": 13.6778
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9654,
+          "net": -36284.05,
+          "exp": -10.175
+        },
+        "x1_5": {
+          "pf": 0.9458,
+          "net": -57680.05,
+          "exp": -16.175
+        },
+        "x2": {
+          "pf": 0.9266,
+          "net": -79076.05,
+          "exp": -22.175
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "sl": 2018,
+          "tp": 885,
+          "time": 661,
+          "eod": 2
+        },
+        "by_sym": {
+          "EURUSD": 1193,
+          "GBPUSD": 1195,
+          "USDJPY": 1178
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-USDJPY-H1-OPEX-FRIDAY-CONT-001",
+      "setup": "usdjpy_h1_opex_friday_cont",
+      "symbol": "USDJPY",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 76,
+        "pf": 1.3487,
+        "net": 5977.32,
+        "exp": 78.649,
+        "tpw": 0.2915
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.2873,
+          "net": 5065.32,
+          "exp": 66.649
+        },
+        "x1_5": {
+          "pf": 1.2578,
+          "net": 4609.32,
+          "exp": 60.649
+        },
+        "x2": {
+          "pf": 1.2292,
+          "net": 4153.32,
+          "exp": 54.649
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "n_fail",
+        "cadence_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "time": 26,
+          "tp": 17,
+          "sl": 33
+        },
+        "by_sym": {
+          "USDJPY": 76
+        }
+      }
+    },
+    {
+      "hypothesis_id": "HYP-FX3-H1-ONESLOT-BOOK-ARCH-CONT-001",
+      "setup": "fx3_h1_oneslot_book_arch_cont",
+      "symbol": "FX3",
+      "timeframe": "H1",
+      "metrics": {
+        "n": 1299,
+        "pf": 0.8045,
+        "net": -64723.38,
+        "exp": -49.8255,
+        "tpw": 4.9825
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.7641,
+          "net": -80311.38,
+          "exp": -61.8255
+        },
+        "x1_5": {
+          "pf": 0.7447,
+          "net": -88105.38,
+          "exp": -67.8255
+        },
+        "x2": {
+          "pf": 0.7259,
+          "net": -95899.38,
+          "exp": -73.8255
+        }
+      },
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "fail_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "detail": {
+        "by_reason": {
+          "time": 530,
+          "sl": 618,
+          "tp": 151
+        },
+        "by_sym": {
+          "EURUSD": 256,
+          "GBPUSD": 334,
+          "USDJPY": 709
+        }
+      }
+    }
+  ],
+  "model0": "WITHHELD",
+  "status": "OFFLINE_ALL_KILL__NO_MODEL0",
+  "receipt_sha256": "4DCC400EA3A2E5CA7A735C31E29AB7F097B4036976381FCF09E3FC7204D28885"
+}

@@ -1,0 +1,13 @@
+# VN — HARD PIVOT W12 weekday-gap + absorb3
+
+`OFFLINE_ALL_KILL__NO_MODEL0`
+
+| Object | N | PF | tpw | PF@$12 | x1.5 | Verdict |
+|---|---:|---:|---:|---:|---:|---|
+| `HYP-FX3-H1-WEEKDAY-D1GAP-CONT-MULTIDAY-001` | 528 | 0.8337 | 2.0252 | 0.8066 | 0.7936 | KILL |
+| `HYP-FX3-H1-ABSORB3-WICK-REVERSE-001` | 57 | 2.2594 | 0.2186 | 2.1844 | 2.1483 | KILL |
+| `HYP-BOOK-WEEKDAYGAP-ABSORB-APRIORI-001` | 585 | 0.9322 | 2.2438 | 0.9018 | 0.8872 | KILL |
+
+Không densify W1–W11 / FVG / R-series / weekend-gap / D1-inside / inventory.
+Receipt `B1E847FB64F13900D61707AD55918E1002F370C9044D4F05502901BCCA621EE8`
+GOAL unmet.
