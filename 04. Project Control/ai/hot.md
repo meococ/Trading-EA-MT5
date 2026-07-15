@@ -1,16 +1,14 @@
 # Hot Cache
 
-Updated: 2026-07-15 ~07:55 ICT | Owner reopen Git + first commit/push to
-private meococ/Trading-EA-MT5; QFSI/ATR shelf unchanged; GOAL unmet
+Updated: 2026-07-15 ~07:55 ICT | GitHub private `meococ/Trading-EA-MT5` on `main` @ `b709309f8aa9`; QFSI/ATR shelf unchanged; GOAL unmet
 
 ## Active Truth
 
 - **GIT REOPENED (2026-07-15 ~07:50 ICT) - Owner-authorized.** Explicit Owner
   request to create a GitHub repo for this workspace reverses the 2026-07-11
   no-Git root policy for this checkout. Actions taken: empty private remote
-  `https://github.com/meococ/Trading-EA-MT5` (visibility PRIVATE, isEmpty
-  true); local `git init` on former empty `.git` placeholder; `origin`
-  set to that URL. **FIRST_COMMIT_PUSH (Owner follow-up):** curated initial commit of workspace with root `.gitignore` (runs/archive/Old File/secrets/scratch excluded); push to `origin/main`.
+  `https://github.com/meococ/Trading-EA-MT5` (visibility PRIVATE; initial push complete); local `git init` on former empty `.git` placeholder; `origin`
+  set to that URL. **FIRST_COMMIT_PUSH done:** `b709309f8aa901a6e6f06beba1acaeedb44f0e6d` on `main` -> `origin/main` (https://github.com/meococ/Trading-EA-MT5). `.gitignore` excludes runs/archive/Old File/secrets/scratch/zips/caches. No force-push.
 
 - **QFSI 006 HARVEST (2026-07-15 ~03:00 ICT) -
   `REAL_ON__QFSI_006_EARLY_EXIT__REBIND_HARNESS_ARMED__STOP_DATA_FRONTIER`.**
