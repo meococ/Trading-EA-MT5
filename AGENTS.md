@@ -5,10 +5,10 @@ File chỉ dẫn agent dùng chung duy nhất. **Quy tắc ở đây; chi tiết
 
 ## 1. Chuỗi đọc-trước (mọi session)
 
-1. `04. Project Control/ai/hot.md` — lane, scope, blocker, next moves (authority
+1. `04. Project Control/hot.md` — lane, scope, blocker, next moves (authority
    duy nhất của active scope).
 2. `01. GOAL/GOAL.md` — mục tiêu. `INDEX.md` — bản đồ workspace.
-3. `04. Project Control/ai/do_not_repeat_failures.md` — trước hypothesis/EA mới.
+3. `04. Project Control/do_not_repeat_failures.md` — trước hypothesis/EA mới.
 4. Git có thể tồn tại; **agent mặc định không stage/commit/push**. Xác minh bằng
    file/hash/validator/test — không “dọn GitHub” tự ý.
 
@@ -43,7 +43,10 @@ không phải tuyên bố track-record cá nhân.
 - Probe offline rẻ trước ceremony (prereg → code → Model 0).
 - Compile/backtest từ `00. Old File/` hoặc path lưu trữ = evidence **không hợp lệ**.
 - Đổi scope = quyết định Owner; cập nhật `hot.md` **trước** mọi run theo scope mới.
-- Archive kèm manifest trước khi xóa evidence; không dọn phá hủy.
+- Archive kèm manifest trước khi xóa evidence; không dọn phá hủy. Khi
+  archive/di chuyển package khỏi active tree: **đồng thời** cập nhật
+  `source_of_truth.json`+`.md` và chạy `validate_source_of_truth.py` (fail-closed
+  registry sẽ đỏ nếu path stale) — đừng chỉ sửa CLAUDE/AGENTS/INDEX/README.
 - Log lớn (>50 MB hoặc ~100k dòng): dùng `large_log_reader.py` (window ≤500);
   ưu tiên summary/datalog.
 - Batch lớn (≥5 run hoặc +1 GiB): storage inventory + cleanup dry-run; archive
@@ -76,12 +79,12 @@ Harness chính cho phát triển EA + backtest — **không invent toolchain son
   stub `.ex5`). Research ledger theo package archive — **không** còn dưới
   `03. EA Developer/`.
 - Root gọn: `CLAUDE.md`, `AGENTS.md`, `INDEX.md`, `01. GOAL/`. Doc điều khiển →
-  `04. Project Control/ai/`. Trước revive: `do_not_repeat_failures.md`.
+  `04. Project Control/`. Trước revive: `do_not_repeat_failures.md`.
 
 ## 5. Multi-agent roster
 
-Chi tiết: `04. Project Control/ai/multi_agent_roster.md` +
-`04. Project Control/ai/agents/`.
+Chi tiết: `04. Project Control/multi_agent_roster.md` +
+`04. Project Control/agents/`.
 
 - Roles: `red-team`, `research`, `impl`, `qc`; parent = coordinator.
 - **Parallel READ / serial WRITE** (chỉ `impl` hoặc parent khi chưa spawn impl).
@@ -142,15 +145,15 @@ hash-bound). Log lớn: inventory / `large_log_reader` — không dump.
 
 | Doc | Khi nào |
 |---|---|
-| `04. Project Control/ai/research_doctrine.md` | hypothesis, registry, chart-state, overfit budget, MT5/non-repaint |
-| `04. Project Control/ai/multi_agent_roster.md` | spawn roster + failure triage + chốt phiên |
-| `04. Project Control/ai/agents/` | role specs, TASK_PACKET, MERGE_MEMO, SESSION_CLOSEOUT |
-| `04. Project Control/ai/agent_ea_research_loop.md` | manager/worker loop + Failure Triage |
-| `04. Project Control/ai/sonic_validation_gates.md` | stage gates, hard invalidation, run-manifest |
-| `04. Project Control/ai/sonic_tool_runbook.md` | lệnh AlphaFactory chính xác |
-| `04. Project Control/ai/workflow.md` | vòng đời phát triển |
-| `04. Project Control/ai/ea_engineering_standard.md` | chuẩn code MQL5 |
-| `04. Project Control/ai/do_not_repeat_failures.md` | trước revive / hyp mới |
-| `04. Project Control/ai/run_data_policy.md` | giữ / archive / xóa run artifacts |
-| `04. Project Control/ai/skills/session-closeout/` | chốt phiên A/B/C checklist |
-| `04. Project Control/ai/hot.md` | sự thật sống |
+| `04. Project Control/research_doctrine.md` | hypothesis, registry, chart-state, overfit budget, MT5/non-repaint |
+| `04. Project Control/multi_agent_roster.md` | spawn roster + failure triage + chốt phiên |
+| `04. Project Control/agents/` | role specs, TASK_PACKET, MERGE_MEMO, SESSION_CLOSEOUT |
+| `04. Project Control/agent_ea_research_loop.md` | manager/worker loop + Failure Triage |
+| `04. Project Control/sonic_validation_gates.md` | stage gates, hard invalidation, run-manifest |
+| `04. Project Control/sonic_tool_runbook.md` | lệnh AlphaFactory chính xác |
+| `04. Project Control/workflow.md` | vòng đời phát triển |
+| `04. Project Control/ea_engineering_standard.md` | chuẩn code MQL5 |
+| `04. Project Control/do_not_repeat_failures.md` | trước revive / hyp mới |
+| `04. Project Control/run_data_policy.md` | giữ / archive / xóa run artifacts |
+| `04. Project Control/skills/session-closeout/` | chốt phiên A/B/C checklist |
+| `04. Project Control/hot.md` | sự thật sống |

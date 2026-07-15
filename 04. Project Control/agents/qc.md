@@ -33,7 +33,7 @@ did not sneak in as discretionary ICT patches.
 
 ## Memory
 
-`04. Project Control/ai/agents/memory/SESSION_<date>_qc.md`
+`04. Project Control/agents/memory/SESSION_<date>_qc.md`
 
 ## I/O contract
 

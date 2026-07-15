@@ -66,7 +66,7 @@ when a required artifact is missing.
 ## Roles
 
 Session roster specs (model pin, I/O, spawn budget):
-`04. Project Control/ai/agents/` and `multi_agent_roster.md`. The critic names
+`04. Project Control/agents/` and `multi_agent_roster.md`. The critic names
 below remain the review lenses; map trader/quant critique largely to
 `red-team` + `qc`, research ideation to `research`, bounded code to `impl`.
 
@@ -221,7 +221,7 @@ Do not use active weeks/months or rounded trades/year. The target band is:
 When a run fails, a gate misses, or performance is materially weak, run this
 triage **before** creating a failure packet or opening Deep Research. Skill
 pointer: `.cursor/skills/failure-triage/SKILL.md`. Roster:
-`04. Project Control/ai/multi_agent_roster.md`.
+`04. Project Control/multi_agent_roster.md`.
 
 ```text
 FAIL / MISS
@@ -270,7 +270,7 @@ just read; no rescue-tune of the failed hypothesis version.
 - Parallel critics may inspect the same frozen artifacts. MT5 backtests remain
   sequential unless terminals and data roots are physically isolated.
 - Session roster (red-team / research / impl / qc): see
-  `04. Project Control/ai/agents/`. Max 2–3 parallel readonly subs per wave;
+  `04. Project Control/agents/`. Max 2–3 parallel readonly subs per wave;
   serial WRITE; all subs default model `cursor-grok-4.5-high-fast`.
 
 ## Current Frontier Decision

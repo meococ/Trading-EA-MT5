@@ -1,7 +1,7 @@
 # Session Closeout Template
 
 Copy to `SESSION_CLOSEOUT_<YYYYMMDD>_<topic>.md`. English. Coordinator-owned.
-Skill: `04. Project Control/ai/skills/session-closeout/SKILL.md`.
+Skill: `04. Project Control/skills/session-closeout/SKILL.md`.
 Beats: AGENTS §6 / roster § E — (A) docs (B) self-improve merge (C) cleanup.
 
 ## Meta

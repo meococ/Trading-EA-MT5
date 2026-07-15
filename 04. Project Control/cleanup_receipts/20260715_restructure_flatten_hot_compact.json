@@ -1,0 +1,50 @@
+{
+  "receipt": "20260715_restructure_flatten_hot_compact",
+  "date": "2026-07-15",
+  "owner_authorized": true,
+  "scope": "GOAL rename + hot.md compaction + AlphaTester delete + Project Control flatten + source_of_truth SonicR removal",
+  "actions": [
+    {
+      "task": "GOAL rename",
+      "detail": "01. GOAL/GOAL.md title 'Mục Tiêu Bắc Đẩu' -> 'Mục Tiêu Tự Do'. Grep confirmed no other 'Bắc Đẩu' refs."
+    },
+    {
+      "task": "AlphaTester delete",
+      "detail": "Root AlphaTester/ was empty + gitignored; alpha.ps1 recreates AlphaTester\\<ts> on demand under AdvisorsRoot. rmdir (empty)."
+    },
+    {
+      "task": "hot.md compaction",
+      "detail": "2234 -> 243 lines. New structure: header + '▶ NEXT SESSION' live block + Landmines + compact Ledger table (210 entries, 1 line each). Verbatim archive: 00. Old File/hot_archive_20260715_full.md. Per-entry detail (indicator/EA param/run_id/path/SHA): 00. Old File/hot_details/hot_ledger_details.json (extracted by subagent).",
+      "owner_choice": "date-based table format"
+    },
+    {
+      "task": "Project Control flatten",
+      "detail": "Moved 04. Project Control/ai/* -> 04. Project Control/ (removed ai/ nesting layer). Verified 49/49 previously-tracked files present at new paths, 0 loss. rmdir ai OK.",
+      "owner_choice": "bỏ lớp wrapper, dời ai/ lên"
+    },
+    {
+      "task": "reference update",
+      "detail": "26 active files updated (Project Control/ai/ -> Project Control/): CLAUDE(5) AGENTS(17) INDEX(4) GOAL(2) README03(2) STATUS(1) archive_backtest_artifacts.ps1(1) + doctrine md/json(incl source_of_truth.md 31, .json 25) + agents/skills md + MEMORY.md. LEFT UNCHANGED (immutable/historical): cleanup_receipts, process_receipts, run_manifest.json, one-off qfsi_*/fix_hot_*/wave3 scripts."
+    },
+    {
+      "task": "validator base-path fix",
+      "detail": "validate_source_of_truth.py line 14 parents[2]->parents[1] (flatten made file 1 level shallower). This was the ONLY flatten-caused breakage."
+    },
+    {
+      "task": "source_of_truth SonicR removal",
+      "detail": "Removed 106 SonicR entries (105 EA_SonicR + README-SONIC-R.md) from source_of_truth.json AND .md (kept in sync). Pre-existing drift from commit 4e2dace (SonicR archived to Old File but registry not updated). Validator now GREEN: SOURCE_OF_TRUTH_OK entries=76 local=51 backup_only=10 unavailable_unresolved=15.",
+      "owner_choice": "xóa hẳn entry SonicR"
+    },
+    {
+      "task": "doctrine improvement",
+      "detail": "AGENTS §3 archive rule now requires syncing source_of_truth + running validator when archiving/moving a package (prevents the 4e2dace miss recurring)."
+    }
+  ],
+  "gates": {
+    "validate_source_of_truth": "GREEN (exit 0)",
+    "hot_md_lines": 243,
+    "flatten_file_loss": 0
+  },
+  "git": "not committed at time of write; restructure = moves + doc edits + validator/source_of_truth edits. Agent push deny-blocked; manual push required.",
+  "goal": "unmet"
+}

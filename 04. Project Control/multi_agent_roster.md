@@ -65,7 +65,7 @@ a one-line hotfix. Archive ≠ evidence; empty shelf still fail-closed via
 ## C. File layout
 
 ```text
-04. Project Control/ai/
+04. Project Control/
   multi_agent_roster.md              # this file (canonical)
   skills/session-closeout/           # canonical session closeout + self-improve
   agents/
@@ -80,7 +80,7 @@ a one-line hotfix. Archive ≠ evidence; empty shelf still fail-closed via
   skills/failure-triage/ | chart-state-probe/ | session-closeout/
 ```
 
-Specs under `04. Project Control/ai/agents/` are source of truth.
+Specs under `04. Project Control/agents/` are source of truth.
 `.cursor/agents/` are thin pointers with frontmatter model pin.
 
 ## D. Merge protocol (parent)
@@ -111,6 +111,6 @@ Promote self-improve only with evidence (repeated friction / failed call /
 better procedure). Detail → skill/doc; AGENTS stays lean. Sub model pin:
 `cursor-grok-4.5-high-fast`.
 
-Checklist / template: `04. Project Control/ai/skills/session-closeout/`
+Checklist / template: `04. Project Control/skills/session-closeout/`
 (+ local twin `.cursor/skills/session-closeout/`);
 `agents/packets/SESSION_CLOSEOUT_TEMPLATE.md`.

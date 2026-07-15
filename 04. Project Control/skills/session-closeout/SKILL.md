@@ -70,7 +70,7 @@ INVENTORY → CLASSIFY KEEP vs DROP → DRY-RUN → ARCHIVE/DELETE → NOTE hot.
    - `workspace_hygiene.ps1` — stale worktrees / sample experts
    - `large_log_reader.py` — inspect/search/window; never dump whole logs
 5. **Execute** only with clear scope; off-volume archive default for run folders.
-6. Optional receipt under `04. Project Control/ai/cleanup_receipts/` for
+6. Optional receipt under `04. Project Control/cleanup_receipts/` for
    meaningful batches; brief English bullet in `hot.md` if cleanup mattered.
 7. Fill `agents/packets/SESSION_CLOSEOUT_TEMPLATE.md` when useful.
 

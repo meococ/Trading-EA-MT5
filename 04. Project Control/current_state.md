@@ -267,7 +267,7 @@
 
 - `AGENTS.md`: cross-agent operating doctrine.
 - `README-SONIC-R.md`: slim Sonic pointer (dump archived).
-- `04. Project Control/ai/sonic_validation_gates.md`: staged validation gates.
+- `04. Project Control/sonic_validation_gates.md`: staged validation gates.
 - `03. EA Developer/EA_SonicR/research/CANDIDATE_REGISTRY.jsonl`: candidate ledger.
 - `CANDIDATE_REGISTRY.schema.json`, `PREREG_TEMPLATE.md`, `READOUT_TEMPLATE.md`:
   enforce hypothesis/readout discipline.
@@ -420,7 +420,7 @@
 ## Evidence Anchors
 
 - EA failure portfolio audit: `03. EA Developer/EA_SonicR/research/20260710_EA_FAILURE_PORTFOLIO_AUDIT.md`
-- Evidence-gated agent loop: `04. Project Control/ai/agent_ea_research_loop.md`
+- Evidence-gated agent loop: `04. Project Control/agent_ea_research_loop.md`
 - Common-USD prereg: `03. EA Developer/EA_SonicR/research/preregs/20260711_H_FX_CROSS_SECTIONAL_USD_FACTOR_001_PREREG.md`
 - Broker-cost provenance audit: `03. EA Developer/EA_SonicR/research/20260711_BROKER_COST_PROVENANCE_AUDIT.md`
 - Gemini FX context intake de-dup: `03. EA Developer/EA_SonicR/research/readouts/20260608_FX_CONTEXT_ANATOMY_GEMINI_INTAKE_DEDUP_V1.md`
@@ -451,8 +451,8 @@
 - EUR source-core casebook packet V1: `03. EA Developer/EA_SonicR/research/label_packets/20260512_eur_source_core_casebook_packet_v1_READOUT.md`
 - Source quarantine: `03. EA Developer/EA_SonicR/source_quarantine/forexfactory/20260509_232500/`
 - Sonic map: `README-SONIC-R.md` (pointer); historical dump in docs_archive.
-- Tool runbook: `04. Project Control/ai/sonic_tool_runbook.md`
-- Validation gates: `04. Project Control/ai/sonic_validation_gates.md`
+- Tool runbook: `04. Project Control/sonic_tool_runbook.md`
+- Validation gates: `04. Project Control/sonic_validation_gates.md`
 - Long-window phase readout: `03. EA Developer/EA_SonicR/research/20260503_SONICR_LONG_WINDOW_PHASE_ATTRIBUTION_011_READOUT.md`
 - GoldRegime readout: `03. EA Developer/EA_SonicR/research/20260503_SONICR_GOLD_REGIME_CONTEXT_014_READOUT.md`
 - Compression/retest/long-bias readout: `03. EA Developer/EA_SonicR/research/20260503_SONICR_COMPRESSION_RETEST_AND_LONG_BIAS_015_READOUT.md`

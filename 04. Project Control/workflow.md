@@ -255,7 +255,7 @@ Advisors/
 │       ├── data/                       ← JSON data
 │       ├── specs/                      ← Strategy specs
 │       └── registry/                   ← Candidate registry
-├── 04. Project Control/ai/            ← Control docs
+├── 04. Project Control/            ← Control docs
 │   ├── hot.md                          ← Current hot cache
 │   ├── current_state.md                ← Current state
 │   ├── workflow.md                     ← THIS FILE

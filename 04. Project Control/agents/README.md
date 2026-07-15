@@ -30,4 +30,4 @@ Operating contract: `../multi_agent_roster.md`.
 `.cursor/agents/ea-*.md` (gitignored) point here with frontmatter model pin.
 Skills: `.cursor/skills/failure-triage/`, `.cursor/skills/chart-state-probe/`,
 `.cursor/skills/session-closeout/` (canonical twin:
-`04. Project Control/ai/skills/session-closeout/`).
+`04. Project Control/skills/session-closeout/`).

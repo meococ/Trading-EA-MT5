@@ -37,7 +37,7 @@ $commonFilesRoot = $(if (-not [string]::IsNullOrWhiteSpace($env:APPDATA)) {
 
 if ($ReferenceRoots.Count -eq 0) {
     $ReferenceRoots = @(
-        (Join-Path $repoRoot '04. Project Control\ai'),
+        (Join-Path $repoRoot '04. Project Control'),
         (Join-Path $repoRoot '03. EA Developer\EA_SonicR\research'),
         (Join-Path $alphaRoot 'STRATEGY_LOG.md')
     )

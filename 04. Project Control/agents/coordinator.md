@@ -22,7 +22,7 @@ All spawned subs use `cursor-grok-4.5-high-fast`.
 
 **Launch reminder (for every sub Task):** pass
 `model: "cursor-grok-4.5-high-fast"` and point at the role file under
-`04. Project Control/ai/agents/`.
+`04. Project Control/agents/`.
 
 ## Allowed tools / skills
 

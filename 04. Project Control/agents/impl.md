@@ -39,7 +39,7 @@ prereg; compile via AlphaFactory only; return patch + compile receipt.
 
 ## Memory
 
-`04. Project Control/ai/agents/memory/SESSION_<date>_impl.md`
+`04. Project Control/agents/memory/SESSION_<date>_impl.md`
 
 ## I/O contract
 

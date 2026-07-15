@@ -34,7 +34,7 @@ Return kill reasons or pass-with-risk — never authorize code or backtest.
 
 ## Memory
 
-`04. Project Control/ai/agents/memory/SESSION_<date>_redteam.md`
+`04. Project Control/agents/memory/SESSION_<date>_redteam.md`
 (append critique themes only; no PnL claims without hash)
 
 ## I/O contract

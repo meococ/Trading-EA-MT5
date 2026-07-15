@@ -1,10 +1,10 @@
-# GOAL — Mục Tiêu Bắc Đẩu
+# GOAL — Mục Tiêu Tự Do
 
 Cập nhật: 2026-07-11
 
 File này chỉ nêu mục tiêu. Chỉ thay đổi khi Owner quyết định rõ ràng.
 Tiến độ sống, blocker, và lane đang hoạt động nằm ở
-`04. Project Control/ai/hot.md` — không bao giờ nằm ở đây.
+`04. Project Control/hot.md` — không bao giờ nằm ở đây.
 
 ## Mục tiêu
 
@@ -22,7 +22,7 @@ lúc, với evidence cấp promotion:
 | Split | train và holdout mỗi cái tự pass độc lập |
 
 Ngưỡng số, artifact theo stage, và hard invalidation có thẩm quyền nằm ở:
-`04. Project Control/ai/sonic_validation_gates.md`. Nếu bảng này và file đó
+`04. Project Control/sonic_validation_gates.md`. Nếu bảng này và file đó
 mâu thuẫn, file gates thắng.
 
 ## DONE nghĩa là gì (thang evidence)

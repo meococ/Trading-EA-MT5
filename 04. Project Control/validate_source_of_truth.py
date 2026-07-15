@@ -11,7 +11,7 @@ from collections import Counter
 from pathlib import Path, PurePosixPath
 
 
-WORKSPACE = Path(__file__).resolve().parents[2]
+WORKSPACE = Path(__file__).resolve().parents[1]
 JSON_PATH = Path(__file__).with_name("source_of_truth.json")
 MARKDOWN_PATH = Path(__file__).with_name("source_of_truth.md")
 

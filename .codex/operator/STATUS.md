@@ -1,6 +1,6 @@
 # EA SilverBullet Build Status
 
-- Authority: operational recovery ledger only; `04. Project Control/ai/hot.md`
+- Authority: operational recovery ledger only; `04. Project Control/hot.md`
   remains the sole canonical live-scope owner.
 - Goal: Focus directly on buildable `EA_SilverBullet_v2.mq5`; no Git workflow.
 - Acceptance criteria: opt-in weekend-flat and max-hold controls are fail-safe,

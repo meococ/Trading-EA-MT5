@@ -9,16 +9,16 @@ lane mới — không cập nhật cho từng run/readout mới.
 ## Chuỗi đọc-trước (mọi session)
 
 1. `CLAUDE.md` / `AGENTS.md` — quy tắc vận hành (root, entry tự nạp)
-2. `04. Project Control/ai/hot.md` — sự thật SỐNG: lane, blocker, next moves
+2. `04. Project Control/hot.md` — sự thật SỐNG: lane, blocker, next moves
 3. `01. GOAL/GOAL.md` — mục tiêu; chỉ đổi khi Owner quyết
 4. Git có thể tồn tại (Owner đã mở remote private) nhưng **agent mặc định
    không stage/commit/push** trừ khi Owner yêu cầu rõ trong message hiện tại.
    Xác minh bằng receipt/hash/validator — không “dọn GitHub” tự ý. Chi tiết:
    `AGENTS.md`.
-5. Trước hypothesis/EA mới: `04. Project Control/ai/do_not_repeat_failures.md`
+5. Trước hypothesis/EA mới: `04. Project Control/do_not_repeat_failures.md`
    + registry — tránh lặp dead end đã kill.
 
-## Doc điều khiển — `04. Project Control/ai/`
+## Doc điều khiển — `04. Project Control/`
 
 | File | Mở khi |
 |---|---|
@@ -111,4 +111,4 @@ AlphaFactory vẫn ở `02. AlphaFactory/`.
 | `docs/` | report độc lập: E8 symbol audit, EA audit, paper deploy guide, TraderViet research control, `handoff/` |
 | `00. Old File/` | **một nhà archive** — `EA_Archive/` + `docs_archive/` + `tests_archive/` + `agent_guidance_archive/` + `git_metadata_archive/`; KHÔNG BAO GIỜ là nguồn compile/evidence hợp lệ |
 | `00. Old File/docs_archive/` | gồm `README-SONIC-R*` (historical + pointer stub) và `SYNC_REPORT*` — **không** còn file README/SYNC ở root |
-| `04. Project Control/ai/cleanup_receipts/` | receipt cleanup (gồm archive moves 2026-07-15); mở khi audit move/xóa/giữ |
+| `04. Project Control/cleanup_receipts/` | receipt cleanup (gồm archive moves 2026-07-15); mở khi audit move/xóa/giữ |

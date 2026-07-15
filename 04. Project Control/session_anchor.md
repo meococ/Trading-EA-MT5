@@ -2,7 +2,7 @@
 
 Updated: 2026-05-01
 
-Read this first, then `04. Project Control/ai/hot.md`.
+Read this first, then `04. Project Control/hot.md`.
 
 ## Active frontier
 

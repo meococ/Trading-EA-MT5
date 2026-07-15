@@ -36,7 +36,7 @@ no EA code, no AlphaFactory execute)
 
 ## Memory
 
-`04. Project Control/ai/agents/memory/SESSION_<date>_research.md`
+`04. Project Control/agents/memory/SESSION_<date>_research.md`
 
 ## I/O contract
 
