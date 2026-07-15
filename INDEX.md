@@ -1,6 +1,6 @@
 # INDEX — Bản Đồ Workspace
 
-Cập nhật: 2026-07-14
+Cập nhật: 2026-07-15
 
 Mỗi entry một dòng: file gì, mở khi nào. File này chỉ chứa con trỏ; nội
 dung nằm ở đích đến. Cập nhật khi một file canonical bị di chuyển hoặc mở
@@ -11,11 +11,12 @@ lane mới — không cập nhật cho từng run/readout mới.
 1. `CLAUDE.md` / `AGENTS.md` — quy tắc vận hành (root, entry tự nạp)
 2. `04. Project Control/ai/hot.md` — sự thật SỐNG: lane, blocker, next moves
 3. `01. GOAL/GOAL.md` — mục tiêu; chỉ đổi khi Owner quyết
-4. Xác nhận root không phải Git repo: `.git` vắng mặt hoặc là placeholder
-   sandbox rỗng 0-entry, và `git rev-parse` không trả về `true`; dùng
-   receipt/snapshot hash và validator/test, không dùng stage/commit/status
-5. Nếu task dùng repo Git riêng ngoài root: giữ nguyên nhánh active; không tự
-   tạo branch/worktree/clone. Chính sách đầy đủ nằm trong `AGENTS.md`.
+4. Git có thể tồn tại (Owner đã mở remote private) nhưng **agent mặc định
+   không stage/commit/push** trừ khi Owner yêu cầu rõ trong message hiện tại.
+   Xác minh bằng receipt/hash/validator — không “dọn GitHub” tự ý. Chi tiết:
+   `AGENTS.md`.
+5. Trước hypothesis/EA mới: `04. Project Control/ai/do_not_repeat_failures.md`
+   + registry — tránh lặp dead end đã kill.
 
 ## Doc điều khiển — `04. Project Control/ai/`
 
@@ -29,9 +30,10 @@ lane mới — không cập nhật cho từng run/readout mới.
 | `ea_engineering_standard.md` | viết hoặc review code MQL5 |
 | `current_state.md` | context session sâu hơn hot.md |
 | `source_of_truth.md` / `.json` + `validate_source_of_truth.py` | registry fact canonical và validator của nó |
-| `.codex/operator/STATUS.md` + `EXPERIMENTS.jsonl` | ledger recovery cho task dài; chỉ operational, luôn nhường sự thật sống cho `hot.md` |
+| (root) `.codex/operator/STATUS.md` + `EXPERIMENTS.jsonl` | ledger recovery cho task dài; chỉ operational, luôn nhường sự thật sống cho `hot.md` |
 | `forward_test_protocol.md` | quy tắc forward/demo test |
 | `run_data_policy.md` | dữ liệu run nào được giữ hoặc xóa |
+| `do_not_repeat_failures.md` | EA/approach đã fail + pointer evidence; đọc trước khi đề xuất revive |
 | `agent_ea_research_loop.md` | contract vòng lặp EA manager/worker có gate evidence cho lane tự hành |
 | `process_receipts/20260713_FAILURE_DEEP_RESEARCH_LOOP_V1.json` | receipt hash-bound cho rule failure/hiệu suất yếu -> Deep Research hypothesis mới, không post-hoc rescue |
 | `goal_receipts/20260713_DEEP_RESEARCH_V4_DATA_ACQUISITION_GOAL.json` | receipt goal V4 đã close: foundation sẵn sàng nhưng data chưa đạt gate, không mở quyền build |
@@ -94,15 +96,16 @@ lane mới — không cập nhật cho từng run/readout mới.
 | `label_packets/`, `mt5_snapshot/` | nhãn chart-state đã khóa và snapshot |
 | các file `*_READOUT.md` có ngày | kết quả thí nghiệm cũ (registry row trỏ tới) |
 
-## Source EA — `03. EA Developer/`
+## Source EA — `03. EA Developer/` (active only)
 
 | Path | Ghi chú |
 |---|---|
 | `EA_SonicR/EA_SonicR.mq5` | source Sonic canonical (research-only) |
 | `EA_SonicR/Include/SNR_Telemetry.mqh` | writer lifecycle `sonic_telemetry.v3` (emitter v3 duy nhất) |
-| `EA_SilverBullet/EA_SilverBullet_v2.mq5` | source SilverBullet đã pin bởi shared runner contract; `_v2_Index.mq5` không bao giờ là fallback; native telemetry cũ vẫn không tương đương Sonic telemetry-off |
-| `EA_SonicR/source_quarantine/` | source public đã thu hồi — chỉ quarantine, không bao giờ compile |
-| các `EA_*/` khác | các family trên kệ, đã audit trong portfolio audit 20260710 |
+| `EA_SonicR/research/` | research ledger toàn workspace — **không archive**; registry/prereg/readout ở đây |
+| `EA_SilverBullet/EA_SilverBullet_v2.mq5` | source SilverBullet đã pin bởi shared runner contract; Index/`*_backup*` đã archive — xem package `README.md` |
+| `EA_SilverBullet/README.md` / `EA_SonicR/README.md` | pointer package-level (lane + pin / research-only) |
+| `00. Old File/EA_Archive/` | **119** package EA shelf/failed/duplicate (2026-07-15) + `EA_SilverBullet_dead_siblings/`; không phải nguồn compile/evidence hợp lệ; xem `MANIFEST_20260715_workspace_cleanup.json` |
 
 ## AlphaFactory — `02. AlphaFactory/`
 
@@ -131,17 +134,21 @@ lane mới — không cập nhật cho từng run/readout mới.
 
 ## Tests — `tests/`
 
-Bộ pytest bảo vệ pipeline: candidate registry, non-repaint audit,
-validation hardening, verified cost builder, runner, signal equivalence.
-Chạy trước khi tin bất kỳ thay đổi framework nào.
+Bộ pytest/unittest + `runner/runner_contract_tests.ps1` bảo vệ pipeline:
+candidate registry, non-repaint audit, validation hardening, verified cost
+builder, runner contract, SilverBullet exposure controls (pin
+`EA_SilverBullet_v2.mq5`), signal equivalence.
+Path EA chỉ còn `EA_SonicR` + `EA_SilverBullet` dưới `03. EA Developer/`.
+Chạy trước khi tin bất kỳ thay đổi framework nào. MT5 live không bắt buộc
+cho smoke contract/path.
 
 ## Phần còn lại
 
 | Path | Ghi chú |
 |---|---|
-| `README-SONIC R.md` | bản đồ kiến thức trader Sonic R |
+| `README-SONIC-R.md` | pointer Sonic hiện tại (không còn knowledge dump); lịch sử → `00. Old File/docs_archive/` |
+| `SYNC_REPORT.md` | stub trỏ archive; report lean-copy 2026-06-21 → `00. Old File/docs_archive/SYNC_REPORT_20260621.md` |
 | `docs/` | report độc lập: E8 symbol audit, EA audit, paper deploy guide, TraderViet research control, `handoff/` |
 | `AlphaTester/<run_id>/` | thư mục config tester thô của đợt 2026-06-21; bản evidence đã phân tích nằm ở `02. AlphaFactory/runs/` |
-| `00. Old File/` | lưu trữ — KHÔNG BAO GIỜ là nguồn compile/evidence hợp lệ; Git metadata cũ nằm tại `git_metadata_archive/20260711_owner_nogit/`; drift `.git` rỗng ngày 2026-07-12 nằm riêng tại `git_metadata_archive/20260712_root_git_drift_empty_182500/`; chỉ phục hồi khi Owner yêu cầu rõ ràng |
-| `04. Project Control/ai/cleanup_receipts/` | receipt hash-bound cho cleanup no-Git/cache; mở khi cần audit file đã move/xóa/giữ |
-| `SYNC_REPORT.md` | report đồng bộ Drive gần nhất |
+| `00. Old File/` | **một nhà archive** — README + `EA_Archive/` + `docs_archive/` + `agent_guidance_archive/` + `git_metadata_archive/`; KHÔNG BAO GIỜ là nguồn compile/evidence hợp lệ |
+| `04. Project Control/ai/cleanup_receipts/` | receipt cleanup (gồm `20260715_workspace_ea_archive.json`, `20260715_stale_surface_cleanup*`); mở khi audit move/xóa/giữ |

@@ -10,10 +10,10 @@ function Resolve-EaSourceContract {
         throw "EA name '$EaName' contains unsupported path characters."
     }
 
+    # Active-lane pins only. Shelf EA sources live under 00. Old File/EA_Archive/
+    # (compile from archive is invalid evidence per AGENTS.md / run_data_policy.md).
     $pinnedSources = @{
-        'EA_SilverBullet'         = '03. EA Developer/EA_SilverBullet/EA_SilverBullet_v2.mq5'
-        'EA_OpenHalfMom'          = '03. EA Developer/EA_OpenHalfMom/EA_OpenHalfMomentum.mq5'
-        'EA_H1LowVolDonchianMR'   = '03. EA Developer/EA_H1LowVolDonchianMR/EA_H1LowVolDonchianMR.mq5'
+        'EA_SilverBullet' = '03. EA Developer/EA_SilverBullet/EA_SilverBullet_v2.mq5'
     }
 
     $repoFull = [System.IO.Path]::GetFullPath($RepoRoot).TrimEnd([char[]]'\/')

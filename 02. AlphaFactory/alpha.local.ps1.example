@@ -1,0 +1,15 @@
+# Machine-local MT5 paths for AlphaFactory.
+# Copy this file to alpha.local.ps1 and edit for THIS machine.
+# alpha.local.ps1 is gitignored — never commit real machine paths.
+#
+#   Copy-Item "alpha.local.ps1.example" "alpha.local.ps1"
+#   # or:
+#   .\tools\init_machine_paths.ps1
+
+# Install folder that contains terminal64.exe + metaeditor64.exe
+$MT5InstallRoot = "C:\Program Files\MetaTrader 5"
+
+# Terminal data folder: %APPDATA%\MetaQuotes\Terminal\<32-hex-id>
+# Find it under: $env:APPDATA\MetaQuotes\Terminal\
+# Prefer the folder whose origin.txt matches $MT5InstallRoot.
+$MT5DataRoot = "C:\Users\YOUR_USER\AppData\Roaming\MetaQuotes\Terminal\YOUR_32_HEX_TERMINAL_ID"

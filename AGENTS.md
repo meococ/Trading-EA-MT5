@@ -12,11 +12,9 @@ nằm trong `hot.md`. Các file `CLAUDE.md` cũ, `.claude`, `docs/ai` cũ,
    nguồn/symbol canonical, blocker, next moves. Chủ sở hữu duy nhất của
    active scope.
 2. `01. GOAL/GOAL.md` — mục tiêu. `INDEX.md` (root) — bản đồ workspace.
-3. Xác nhận root **không phải Git repository**: `.git` hoặc không tồn tại,
-   hoặc chỉ là placeholder sandbox hoàn toàn rỗng (0 file, 0 thư mục) và
-   `git rev-parse --is-inside-work-tree` không trả về `true`. Dùng snapshot
-   no-Git và validator/test liên quan để xác minh trạng thái file; không lặp
-   cleanup chỉ để xóa placeholder rỗng mà sandbox tự tái tạo.
+3. Git có thể tồn tại (Owner đã mở lại remote private) nhưng **agent mặc
+   định không stage/commit/push**. Dùng file/hash/validator/test để xác minh
+   trạng thái; không “dọn GitHub” bằng commit tự ý — dễ loạn history/remote.
 
 ## Ngôn ngữ
 
@@ -80,10 +78,11 @@ nằm trong `hot.md`. Các file `CLAUDE.md` cũ, `.claude`, `docs/ai` cũ,
   inventory và cleanup dry-run. Chỉ archive/remove sau khi Owner duyệt plan,
   file được hash/verify và mọi run được doc tham chiếu đã tự động protected.
 - Không cron/schedule vòng lặp MT5 khi chưa được duyệt rõ ràng.
-- Root không được có **Git metadata thực**; không chạy `git init`, không khôi
-  phục metadata Git, không stage/commit/push trừ khi Owner mở lại Git bằng yêu
-  cầu rõ ràng. Placeholder `.git` rỗng do sandbox mount không biến root thành
-  repo và không cần bị xóa lặp lại; nếu có bất kỳ entry nào thì fail closed.
+- **Không commit/push Git** trừ khi Owner yêu cầu rõ ràng trong message hiện
+  tại (kèm scope file). Không `git init` lại, không force-push, không amend
+  remote history. Working tree dirty là bình thường khi đang phát triển local.
+- Không commit path máy-cục-bộ, secrets, deal dumps, hay artifact nặng. Đặc biệt
+  **không bao giờ** commit `02. AlphaFactory/alpha.local.ps1`.
 
 ## Mô hình dự án cá nhân: một lane, không tự phân nhánh (Owner, 2026-07-12)
 
@@ -99,8 +98,9 @@ nằm trong `hot.md`. Các file `CLAUDE.md` cũ, `.claude`, `docs/ai` cũ,
 - Lỗi `git commit` do host approval/policy không phải lỗi branch. Chỉ thử normal
   commit theo safe-commit; nếu bị policy chặn thì ghi đúng blocker, không dùng
   branch/worktree/clone hay plumbing command làm đường vòng.
-- Ưu tiên flow gọn: sửa trên lane hiện tại -> test/validator -> cập nhật docs ->
-  một commit có chủ đích. Không dựng orchestration nhiều nhánh khi một lane đủ.
+- Ưu tiên flow gọn: sửa trên lane hiện tại -> test/validator -> cập nhật docs.
+  Chỉ commit khi Owner yêu cầu rõ; không dựng orchestration nhiều nhánh khi
+  một lane đủ.
 
 ## Kỷ luật làm việc (quy tắc thường trực của Owner, 2026-07-11)
 
@@ -114,7 +114,8 @@ nằm trong `hot.md`. Các file `CLAUDE.md` cũ, `.claude`, `docs/ai` cũ,
 - Mỗi task hoàn thành kết thúc bằng: cập nhật file chỉ dẫn (`AGENTS.md`,
   `CLAUDE.md`, `INDEX.md`, `hot.md`, `research_doctrine.md` — file nào liên
   quan), chạy validator/tests đúng scope, và ghi hash/receipt/manifest đủ để
-  tái lập nguồn build. Gates đỏ thì sửa trước; không dùng Git làm closeout.
+  tái lập nguồn build. Gates đỏ thì sửa trước; **không** dùng Git commit làm
+  closeout trừ khi Owner yêu cầu.
 - Sub-agent mặc định Sonnet với reasoning effort high, luôn
   `fork_context=false`.
 
@@ -128,6 +129,26 @@ nằm trong `hot.md`. Các file `CLAUDE.md` cũ, `.claude`, `docs/ai` cũ,
 - `04. Project Control/ai/sonic_tool_runbook.md` — lệnh chính xác.
 - `04. Project Control/ai/workflow.md` — vòng đời phát triển.
 - `04. Project Control/ai/ea_engineering_standard.md` — chuẩn code MQL5.
+
+## AlphaFactory = bộ công cụ EA / backtest (Owner, 2026-07-15)
+
+Đây là harness chính Owner muốn agent dùng để hỗ trợ **phát triển EA và
+backtest** — không tự invent toolchain song song.
+
+- Entry: `02. AlphaFactory/alpha.ps1` (`status` / `compile` / `backtest` /
+  `analyze` / `validate-full` …). Runbook chi tiết:
+  `04. Project Control/ai/sonic_tool_runbook.md`.
+- Source EA canonical: `03. EA Developer/<EA>/<EA>.mq5` qua
+  `02. AlphaFactory/tools/ea_contract.ps1` (fail-closed; có pin ngoại lệ).
+- **Path MT5 theo máy**: mỗi máy có install/data root riêng. Agent cấu hình
+  local, không hardcode user path vào file sẽ đẩy GitHub.
+  - Local (gitignore): `02. AlphaFactory/alpha.local.ps1`
+  - Template: `02. AlphaFactory/alpha.local.ps1.example`
+  - Sinh/ghi đè local: `02. AlphaFactory/tools/init_machine_paths.ps1`
+  - `alpha.ps1` đọc local trước; thiếu thì auto-detect + cảnh báo.
+- Evidence / gates / registry vẫn bắt buộc theo hard rules và
+  `research_doctrine.md` — AlphaFactory là cách chạy, không phải giấy phép
+  bỏ ceremony.
 
 ## Agent và tool
 
@@ -147,7 +168,9 @@ nằm trong `hot.md`. Các file `CLAUDE.md` cũ, `.claude`, `docs/ai` cũ,
 - Team review dùng ba vai (Sonic trader critic, quant validation critic,
   MQL5/MT5 systems critic) với coordinator merge memo thành quyết định —
   xem `research_doctrine.md`.
-- Ưu tiên truth trong repo và artifact AlphaFactory hơn trí nhớ.
+- Ưu tiên truth trong workspace và artifact AlphaFactory hơn trí nhớ.
+- Compile/backtest/validate EA: ưu tiên `alpha.ps1` + tools trong
+  `02. AlphaFactory/`; không tự dựng script runner thay thế khi harness đủ.
 - Duyệt internet khi cần nghiên cứu hoặc fact có thể đã thay đổi; dẫn link
   trong note kết quả.
 - Không tải archive/indicator/executable Sonic bên ngoài khi chưa duyệt
@@ -155,13 +178,20 @@ nằm trong `hot.md`. Các file `CLAUDE.md` cũ, `.claude`, `docs/ai` cũ,
 
 ## Vệ sinh file
 
-- Root giữ gọn: `CLAUDE.md`, `AGENTS.md`, `INDEX.md`, `README-SONIC R.md`,
-  `01. GOAL/`.
+- Root giữ gọn: `CLAUDE.md`, `AGENTS.md`, `INDEX.md`, `README-SONIC-R.md`
+  (pointer-only), `SYNC_REPORT.md` (stub → docs_archive), `01. GOAL/`.
 - Doc điều khiển -> `04. Project Control/ai`.
-- Prereg/readout -> `03. EA Developer/EA_SonicR/research`.
+- Prereg/readout -> `03. EA Developer/EA_SonicR/research` (research plane
+  **không** chuyển vào archive).
+- Source EA active mặc định chỉ còn trong `03. EA Developer/`: `EA_SonicR`,
+  `EA_SilverBullet`. Mọi package shelf/failed khác -> `00. Old File/EA_Archive/`
+  (một nhà lưu trữ; xem README + manifest cleanup). Doc root lịch sử ->
+  `00. Old File/docs_archive/`.
+- Trước khi đề xuất revive EA/approach: đọc
+  `04. Project Control/ai/do_not_repeat_failures.md`.
 - Chỉ dẫn agent đã nghỉ -> `00. Old File/agent_guidance_archive/`.
-- Metadata Git lịch sử đã được đưa vào
-  `00. Old File/git_metadata_archive/20260711_owner_nogit/`; chỉ phục hồi khi
-  Owner yêu cầu rõ ràng và không bao giờ dùng archive đó làm nguồn compile.
+- Metadata Git lịch sử (nếu có) -> `00. Old File/git_metadata_archive/`; chỉ
+  phục hồi khi Owner yêu cầu rõ ràng và không bao giờ dùng archive làm nguồn
+  compile.
 - Bảo toàn evidence; lưu trữ trước khi xóa trừ khi user yêu cầu xóa không
   đảo ngược một cách rõ ràng.

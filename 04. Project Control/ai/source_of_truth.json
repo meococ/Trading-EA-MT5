@@ -3,8 +3,8 @@
   "updated_at": "2026-07-13",
   "default_status": "authoritative",
   "root_hygiene": {
-    "rule": "Keep the project root lean: only AGENTS.md (cross-agent launcher), CLAUDE.md (pointer-only Claude entry), INDEX.md (workspace map), the approved README-SONIC R.md knowledge map, the 01. GOAL folder holding the Owner-frozen GOAL.md, and the hidden .codex/operator recovery ledger for long-running operator-loop tasks. Keep MT5 sample experts out of root and treat raw AlphaFactory run storage as local operational data. The operator ledger is subordinate to hot.md. EA_SonicR remains the only strategy-development source; EA_SilverBullet is additionally open only for the Owner-approved FX portfolio Phase 0 contract lane.",
-    "graveyard": "00. Old File/markdown_graveyard/",
+    "rule": "Keep the project root lean: only AGENTS.md (cross-agent launcher), CLAUDE.md (pointer-only Claude entry), INDEX.md (workspace map), the slim README-SONIC-R.md pointer (historical dump under 00. Old File/docs_archive/), optional stub SYNC_REPORT.md, the 01. GOAL folder holding the Owner-frozen GOAL.md, and the hidden .codex/operator recovery ledger for long-running operator-loop tasks. Keep MT5 sample experts out of root and treat raw AlphaFactory run storage as local operational data. The operator ledger is subordinate to hot.md. EA_SonicR is research-only source + ledger; EA_SilverBullet_v2.mq5 is the Owner-opened active trading lane pin.",
+    "graveyard": "00. Old File/docs_archive/",
     "ai_archive": "04. Project Control/ai/archive/"
   },
   "entries": [
@@ -44,9 +44,9 @@
       "reason": "Full research/validation doctrine moved out of AGENTS.md on 2026-07-11: Sonic doctrine, research workflow, registry contract, chart-state label contract, overfit budget, team review roles, MT5 non-repaint rules, and backtest hygiene."
     },
     {
-      "path": "README-SONIC R.md",
+      "path": "README-SONIC-R.md",
       "status": "authoritative",
-      "reason": "Living Sonic R knowledge map covering research-only status, strict Model 0 evidence, sonic_telemetry.v3 deal-level cost reconciliation, diagnostic-only confirmed-stage blockers, the Source S/R switch-contract mismatch, candidate workflow, and backup-indexed historical context."
+      "reason": "Slim pointer-only Sonic status (2026-07-15). Historical Obsidian dump archived at 00. Old File/docs_archive/README-SONIC-R_historical_20260711.md. Not promotion authority; defer to hot.md / INDEX / research ledger."
     },
     {
       "path": "03. EA Developer/EA_SonicR/EA_SonicR.mq5",

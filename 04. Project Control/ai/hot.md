@@ -1,8 +1,32 @@
 # Hot Cache
 
-Updated: 2026-07-15 ~07:55 ICT | GitHub private `meococ/Trading-EA-MT5` on `main` @ `b709309f8aa9`; QFSI/ATR shelf unchanged; GOAL unmet
+Updated: 2026-07-15 ~10:55 ICT | Stale surface cleanup (README/SYNC/SB siblings/tests pointers); prior EA archive + GitHub private `main` @ `b709309f8aa9`; QFSI/ATR shelf unchanged; GOAL unmet
 
 ## Active Truth
+
+- **STALE SURFACE CLEANUP (2026-07-15) — Owner-authorized.** Archived obsolete
+  root dump `README-SONIC R.md` →
+  `00. Old File/docs_archive/README-SONIC-R_historical_20260711.md`; replaced
+  with slim pointer `README-SONIC-R.md`. Archived
+  `SYNC_REPORT.md` lean-copy → `docs_archive/SYNC_REPORT_20260621.md` (root
+  stub remains). Moved SB dead siblings
+  (`EA_SilverBullet_v1_backup.mq5`, `EA_SilverBullet_v2_Index.mq5`) →
+  `00. Old File/EA_Archive/EA_SilverBullet_dead_siblings/`; active pin remains
+  `EA_SilverBullet_v2.mq5` only. Package READMEs added for SonicR +
+  SilverBullet. Research ledger untouched. No git commit. Receipt:
+  `04. Project Control/ai/cleanup_receipts/20260715_stale_surface_cleanup.json`.
+  GOAL unmet.
+
+- **WORKSPACE CLEANUP / EA ARCHIVE (2026-07-15) — Owner-authorized.** Single
+  archive home restored at `00. Old File/` (`EA_Archive/` + README). Moved
+  **119** shelf/failed/duplicate EA packages out of `03. EA Developer/`;
+  **kept** `EA_SonicR` (research ledger untouched) and `EA_SilverBullet`
+  (active lane). Fail / do-not-repeat log:
+  `04. Project Control/ai/do_not_repeat_failures.md`. Manifest:
+  `00. Old File/EA_Archive/MANIFEST_20260715_workspace_cleanup.json`. Receipt:
+  `04. Project Control/ai/cleanup_receipts/20260715_workspace_ea_archive.json`.
+  `ea_contract.ps1` pins reduced to `EA_SilverBullet` only. No git commit in
+  this cleanup. AlphaFactory harness unchanged. GOAL unmet.
 
 - **GIT REOPENED (2026-07-15 ~07:50 ICT) - Owner-authorized.** Explicit Owner
   request to create a GitHub repo for this workspace reverses the 2026-07-11
@@ -1937,7 +1961,8 @@ Updated: 2026-07-15 ~07:55 ICT | GitHub private `meococ/Trading-EA-MT5` on `main
 - `01. GOAL/GOAL.md` is the Owner-frozen target; root `INDEX.md` is the
   workspace map. Keep both pointer/target-only — live state stays here in
   `hot.md`.
-- `README-SONIC R.md` is the Sonic R knowledge map.
+- `README-SONIC-R.md` is a pointer-only Sonic status note; historical dump is
+  under `00. Old File/docs_archive/`.
 - Candidate workflow is artifact-backed:
   - `03. EA Developer/EA_SonicR/research/CANDIDATE_REGISTRY.jsonl`
   - `CANDIDATE_REGISTRY.schema.json`

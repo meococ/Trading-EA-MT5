@@ -112,7 +112,9 @@ Assert-Contract ($loop -match 'ea_contract\.ps1') "research loop loads the share
 Assert-Contract ($loop -match 'Resolve-EaSourceContract') "research loop resolves the same exact EA main source contract"
 Assert-Contract ($loop -notmatch '"03\. EA Developer/\$RequestedEaName/\$RequestedEaName\.mq5"') "research loop does not hard-code an EAName.mq5 source path"
 Assert-Contract ($eaContract -match "EA_SilverBullet.*EA_SilverBullet_v2\.mq5") "shared source contract pins the SilverBullet v2 main file"
-Assert-Contract ($eaContract -match "EA_OpenHalfMom.*EA_OpenHalfMomentum\.mq5") "shared source contract preserves the OpenHalfMom naming exception"
+Assert-Contract ($eaContract -match "Active-lane pins only") "shared source contract documents active-lane-only pins"
+Assert-Contract ($eaContract -notmatch "EA_OpenHalfMom") "shared source contract no longer pins archived OpenHalfMom naming exception"
+Assert-Contract ($eaContract -match "00\. Old File/EA_Archive") "shared source contract notes shelf EA archive path"
 Assert-Contract ($alpha -match 'function\s+Assert-BacktestScalarContract') "alpha rejects unsafe INI-bound scalar values"
 foreach ($telemetryInput in @(
     'InpEnableTelemetry',

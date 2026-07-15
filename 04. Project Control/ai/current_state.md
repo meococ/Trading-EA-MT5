@@ -16,11 +16,13 @@
   runner contracts, and metadata-only artifact sufficiency; it does not yet
   authorize strategy development or execution.
 - Active source contracts are fail-closed. SilverBullet resolves only to
-  `EA_SilverBullet_v2.mq5`; `_v2_Index.mq5`, backups, and archives cannot be
+  `EA_SilverBullet_v2.mq5`; Index/`*_backup*` siblings are archived under
+  `00. Old File/EA_Archive/EA_SilverBullet_dead_siblings/` and cannot be
   selected as fallbacks.
 - Retired/legacy EA source and runtime EA caches are archived under `00. Old File/EA_Archive/`.
 - Root guidance is consolidated into `AGENTS.md`.
-- `README-SONIC R.md` is the active Obsidian-compatible Sonic R knowledge map.
+- `README-SONIC-R.md` is a pointer-only Sonic status note; historical dump is
+  under `00. Old File/docs_archive/`.
 - Stale Claude/doc/root guidance was archived under `00. Old File/agent_guidance_archive/20260503_1916_sonic_readme_cleanup/`.
 - `02. AlphaFactory/` remains the compile/backtest/analyze platform.
 
@@ -264,7 +266,7 @@
 ## Tooling And Workflow Delivered
 
 - `AGENTS.md`: cross-agent operating doctrine.
-- `README-SONIC R.md`: Sonic R knowledge map and debug guide.
+- `README-SONIC-R.md`: slim Sonic pointer (dump archived).
 - `04. Project Control/ai/sonic_validation_gates.md`: staged validation gates.
 - `03. EA Developer/EA_SonicR/research/CANDIDATE_REGISTRY.jsonl`: candidate ledger.
 - `CANDIDATE_REGISTRY.schema.json`, `PREREG_TEMPLATE.md`, `READOUT_TEMPLATE.md`:
@@ -448,7 +450,7 @@
 - EUR density recovery batch readout: `03. EA Developer/EA_SonicR/research/20260512_SONICR_EUR_DENSITY_RECOVERY_BATCH_V1_READOUT.md`
 - EUR source-core casebook packet V1: `03. EA Developer/EA_SonicR/research/label_packets/20260512_eur_source_core_casebook_packet_v1_READOUT.md`
 - Source quarantine: `03. EA Developer/EA_SonicR/source_quarantine/forexfactory/20260509_232500/`
-- Sonic map: `README-SONIC R.md`
+- Sonic map: `README-SONIC-R.md` (pointer); historical dump in docs_archive.
 - Tool runbook: `04. Project Control/ai/sonic_tool_runbook.md`
 - Validation gates: `04. Project Control/ai/sonic_validation_gates.md`
 - Long-window phase readout: `03. EA Developer/EA_SonicR/research/20260503_SONICR_LONG_WINDOW_PHASE_ATTRIBUTION_011_READOUT.md`
