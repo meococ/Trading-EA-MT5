@@ -28,7 +28,7 @@ Nguyên tắc nhanh:
 - Đây là dự án cá nhân: mặc định một checkout/một nhánh hiện tại; không tự tạo
   branch, worktree, clone hay nhánh riêng cho sub-agent nếu Owner chưa yêu cầu.
 - Doc điều khiển gọn 2 khu: `04. Memory/` (state: hot.md, do_not_repeat,
-  registry) + `05. Guidance/` (4 file lõi: gates, runbook, engineering_standard,
+  registry) + `05. Playbook/` (4 file lõi: gates, runbook, engineering_standard,
   research_doctrine). Doctrine cũ (workflow/roster/agents/policies/receipts) →
   archived `00. Old File/project_control_archive_20260716/`.
 - Standing: chốt phiên (cập nhật docs + dọn artifact) — parent chủ động sau

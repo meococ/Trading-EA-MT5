@@ -18,7 +18,7 @@ lane mới — không cập nhật cho từng run/readout mới.
 5. Trước hypothesis/EA mới: `04. Memory/do_not_repeat_failures.md`
    + registry — tránh lặp dead end đã kill.
 
-## Doc điều khiển — `04. Memory/` (state) + `05. Guidance/` (rules)
+## Doc điều khiển — `04. Memory/` (state) + `05. Playbook/` (rules)
 
 **`04. Memory/`** — trí nhớ sống:
 
@@ -28,7 +28,7 @@ lane mới — không cập nhật cho từng run/readout mới.
 | `do_not_repeat_failures.md` | trước khi đề xuất revive / hyp mới |
 | `source_of_truth.md`/`.json` + `validate_source_of_truth.py` | registry fact canonical + validator fail-closed |
 
-**`05. Guidance/`** — 4 file chỉ dẫn lõi:
+**`05. Playbook/`** — 4 file chỉ dẫn lõi:
 
 | File | Mở khi |
 |---|---|

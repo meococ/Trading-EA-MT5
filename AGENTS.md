@@ -79,7 +79,7 @@ Harness chính cho phát triển EA + backtest — **không invent toolchain son
   stub `.ex5`). Research ledger theo package archive — **không** còn dưới
   `03. EA Developer/`.
 - Root gọn: `CLAUDE.md`, `AGENTS.md`, `INDEX.md`, `01. GOAL/`. Doc điều khiển →
-  `04. Memory/` (state) + `05. Guidance/` (4 file lõi). Doctrine cũ archived →
+  `04. Memory/` (state) + `05. Playbook/` (4 file lõi). Doctrine cũ archived →
   `00. Old File/project_control_archive_20260716/`. Trước revive:
   `04. Memory/do_not_repeat_failures.md`.
 
@@ -130,8 +130,8 @@ chờ Owner):
 | `04. Memory/hot.md` | sự thật sống (NEXT SESSION + ledger) |
 | `04. Memory/do_not_repeat_failures.md` | trước revive / hyp mới |
 | `04. Memory/source_of_truth.md`/`.json` + `validate_source_of_truth.py` | registry canonical + validator fail-closed |
-| `05. Guidance/sonic_validation_gates.md` | stage gates, hard invalidation, run-manifest |
-| `05. Guidance/sonic_tool_runbook.md` | lệnh AlphaFactory chính xác |
-| `05. Guidance/ea_engineering_standard.md` | chuẩn code MQL5 (closed-bar, non-repaint) |
-| `05. Guidance/research_doctrine.md` | hypothesis, registry, overfit budget, MT5/non-repaint |
+| `05. Playbook/sonic_validation_gates.md` | stage gates, hard invalidation, run-manifest |
+| `05. Playbook/sonic_tool_runbook.md` | lệnh AlphaFactory chính xác |
+| `05. Playbook/ea_engineering_standard.md` | chuẩn code MQL5 (closed-bar, non-repaint) |
+| `05. Playbook/research_doctrine.md` | hypothesis, registry, overfit budget, MT5/non-repaint |
 | archived: `00. Old File/project_control_archive_20260716/` | workflow, roster+agents, policies, skills, receipts, legacy (không active) |

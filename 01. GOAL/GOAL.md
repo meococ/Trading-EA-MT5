@@ -22,7 +22,7 @@ lúc, với evidence cấp promotion:
 | Split | train và holdout mỗi cái tự pass độc lập |
 
 Ngưỡng số, artifact theo stage, và hard invalidation có thẩm quyền nằm ở:
-`05. Guidance/sonic_validation_gates.md`. Nếu bảng này và file đó
+`05. Playbook/sonic_validation_gates.md`. Nếu bảng này và file đó
 mâu thuẫn, file gates thắng.
 
 ## DONE nghĩa là gì (thang evidence)

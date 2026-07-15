@@ -11,7 +11,7 @@
     {
       "path": "AGENTS.md",
       "status": "authoritative",
-      "reason": "Single cross-agent operating doctrine. Slimmed 2026-07-11 to lean hard rules plus pointers; detailed doctrine moved to 05. Guidance/research_doctrine.md; active scope is owned by hot.md."
+      "reason": "Single cross-agent operating doctrine. Slimmed 2026-07-11 to lean hard rules plus pointers; detailed doctrine moved to 05. Playbook/research_doctrine.md; active scope is owned by hot.md."
     },
     {
       "path": "CLAUDE.md",
@@ -39,7 +39,7 @@
       "reason": "Owner-frozen north-star target: joint PF/cadence/cost-stress/exposure/evidence-window table, DONE ladder, non-goals, and probe-first operating principle. Changes only on explicit Owner decision; numeric authority remains sonic_validation_gates.md."
     },
     {
-      "path": "05. Guidance/research_doctrine.md",
+      "path": "05. Playbook/research_doctrine.md",
       "status": "authoritative",
       "reason": "Full research/validation doctrine moved out of AGENTS.md on 2026-07-11: Sonic doctrine, research workflow, registry contract, chart-state label contract, overfit budget, team review roles, MT5 non-repaint rules, and backtest hygiene."
     },
@@ -49,7 +49,7 @@
       "reason": "Fail-closed local/backup availability, SHA256, duplicate-path, and JSON-to-Markdown registry consistency validator."
     },
     {
-      "path": "05. Guidance/sonic_validation_gates.md",
+      "path": "05. Playbook/sonic_validation_gates.md",
       "status": "authoritative",
       "reason": "Stage-gate matrix for Sonic R research: probe, screen, challenger, confirmed, portfolio-sleeve, required artifacts, thresholds, and invalidations."
     },
@@ -77,12 +77,12 @@
       "reason": "Machine-readable registry"
     },
     {
-      "path": "05. Guidance/ea_engineering_standard.md",
+      "path": "05. Playbook/ea_engineering_standard.md",
       "status": "authoritative",
       "reason": "EA engineering standard"
     },
     {
-      "path": "05. Guidance/sonic_tool_runbook.md",
+      "path": "05. Playbook/sonic_tool_runbook.md",
       "status": "authoritative",
       "reason": "Practical Sonic R command runbook for AlphaFactory JSON, compare, cost stress, evidence audit, casebook, population eval, MT5 snapshots, runs DB, and cleanup."
     },
