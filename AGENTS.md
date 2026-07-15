@@ -5,10 +5,10 @@ File chỉ dẫn agent dùng chung duy nhất. **Quy tắc ở đây; chi tiết
 
 ## 1. Chuỗi đọc-trước (mọi session)
 
-1. `04. Project Control/hot.md` — lane, scope, blocker, next moves (authority
+1. `04. Memory/hot.md` — lane, scope, blocker, next moves (authority
    duy nhất của active scope).
 2. `01. GOAL/GOAL.md` — mục tiêu. `INDEX.md` — bản đồ workspace.
-3. `04. Project Control/do_not_repeat_failures.md` — trước hypothesis/EA mới.
+3. `04. Memory/do_not_repeat_failures.md` — trước hypothesis/EA mới.
 4. Git có thể tồn tại; **agent mặc định không stage/commit/push**. Xác minh bằng
    file/hash/validator/test — không “dọn GitHub” tự ý.
 
@@ -79,51 +79,33 @@ Harness chính cho phát triển EA + backtest — **không invent toolchain son
   stub `.ex5`). Research ledger theo package archive — **không** còn dưới
   `03. EA Developer/`.
 - Root gọn: `CLAUDE.md`, `AGENTS.md`, `INDEX.md`, `01. GOAL/`. Doc điều khiển →
-  `04. Project Control/`. Trước revive: `do_not_repeat_failures.md`.
+  `04. Memory/` (state) + `05. Guidance/` (4 file lõi). Doctrine cũ archived →
+  `00. Old File/project_control_archive_20260716/`. Trước revive:
+  `04. Memory/do_not_repeat_failures.md`.
 
-## 5. Multi-agent roster
+## 5. Sub-agents (lean)
 
-Chi tiết: `04. Project Control/multi_agent_roster.md` +
-`04. Project Control/agents/`.
+Roster đa-agent + role specs đã archive →
+`00. Old File/project_control_archive_20260716/` (multi_agent_roster, agents/,
+agent_ea_research_loop, skills/). Không còn quy trình roster nặng.
 
-- Roles: `red-team`, `research`, `impl`, `qc`; parent = coordinator.
-- **Parallel READ / serial WRITE** (chỉ `impl` hoặc parent khi chưa spawn impl).
-- Sub mặc định model `cursor-grok-4.5-high-fast`; Task tool **phải** truyền
-  `model: "cursor-grok-4.5-high-fast"` trừ Owner override từng task.
-  Parent giữ model session. Luôn `fork_context=false`.
-- Budget: tối đa 2–3 readonly / wave; không spawn đủ 4 cho hotfix một dòng.
-- Sau fail hợp lệ: Failure Triage (`agent_ea_research_loop.md`) **trước** Deep
-  Research. Team review map `red-team` + `qc`; merge memo:
-  `agents/packets/MERGE_MEMO_TEMPLATE.md`.
-- Launcher local (gitignored): `.cursor/agents/ea-*.md`.
-- Coordinator owns **chốt phiên** (docs + self-improve merge + cleanup) —
-  xem §6; sub không patch standing ops files unilaterally.
+- Spawn sub-agent ad-hoc khi cần fan-out READ song song; **serial WRITE**.
+- Không tự tạo branch/worktree/clone cho sub-agent.
+- Parent chủ động chốt phiên (§6) sau session có ý nghĩa.
 
-## 6. Chốt phiên nghiên cứu / cải thiện (standing)
+## 6. Chốt phiên (standing)
 
-Sau mọi session nghiên cứu/cải thiện có ý nghĩa, **parent (coordinator)
-chủ động chốt** — không chờ Owner nhắc. Ba nhịp (checklist đầy đủ:
-`skills/session-closeout` + `agents/packets/SESSION_CLOSEOUT_TEMPLATE.md`;
-roster § E):
+Sau session nghiên cứu/cải thiện có ý nghĩa, **parent chủ động chốt** (không
+chờ Owner):
 
-**(A) Docs / research closeout** — cập nhật file liên quan theo phạm vi
-thực tế (không drive-by): `hot.md` (luôn nếu truth đổi); `INDEX.md` nếu
-bản đồ đổi; doctrine/roster/role/skills nếu process đổi; receipt/manifest;
-`do_not_repeat_failures.md` nếu kill mới; `GOAL.md` **chỉ** khi Owner quyết.
-Gates đỏ → sửa trước khi tuyên bố đóng phiên.
-
-**(B) Self-improve merge** — lesson có bằng chứng (ma sát lặp / tool fail /
-procedure tốt hơn) → promote. **Chỉ parent merge** vào standing ops.
-Sub (`red-team` / `research` / `qc` / `impl`) = **propose-only** (hoặc draft
-trong packet); không tự sửa AGENTS / CLAUDE / INDEX / `hot.md` / roster /
-role specs / skill standing rules. `impl` vẫn được viết code/EA trong write
-scope packet. Detail → skill/doc; AGENTS chỉ rule ngắn + pointer. Model pin
-subs: `cursor-grok-4.5-high-fast`.
-
-**(C) Artifact cleanup** — inventory runs/analysis/scratch → giữ cái được
-cite bởi `hot.md` / receipt / registry / prereg / readout → archive hoặc
-xóa theo `run_data_policy.md` (dry-run; archive+manifest trước xóa
-hash-bound). Log lớn: inventory / `large_log_reader` — không dump.
+- **(A) Docs:** cập nhật `hot.md` (nếu truth đổi), `INDEX.md` (nếu bản đồ đổi),
+  guidance nếu process đổi, `do_not_repeat_failures.md` nếu kill mới; `GOAL.md`
+  **chỉ** khi Owner quyết. Gate đỏ (`validate_source_of_truth.py`) → sửa trước
+  khi đóng.
+- **(B) Self-improve:** lesson có bằng chứng → promote vào guidance/AGENTS
+  (rule ngắn + pointer).
+- **(C) Cleanup:** inventory runs/scratch → giữ cái được cite bởi hot.md/registry
+  → archive theo policy (archive+manifest trước xóa hash-bound).
 
 **Không** dùng Git commit làm closeout trừ Owner yêu cầu rõ.
 
@@ -145,15 +127,11 @@ hash-bound). Log lớn: inventory / `large_log_reader` — không dump.
 
 | Doc | Khi nào |
 |---|---|
-| `04. Project Control/research_doctrine.md` | hypothesis, registry, chart-state, overfit budget, MT5/non-repaint |
-| `04. Project Control/multi_agent_roster.md` | spawn roster + failure triage + chốt phiên |
-| `04. Project Control/agents/` | role specs, TASK_PACKET, MERGE_MEMO, SESSION_CLOSEOUT |
-| `04. Project Control/agent_ea_research_loop.md` | manager/worker loop + Failure Triage |
-| `04. Project Control/sonic_validation_gates.md` | stage gates, hard invalidation, run-manifest |
-| `04. Project Control/sonic_tool_runbook.md` | lệnh AlphaFactory chính xác |
-| `04. Project Control/workflow.md` | vòng đời phát triển |
-| `04. Project Control/ea_engineering_standard.md` | chuẩn code MQL5 |
-| `04. Project Control/do_not_repeat_failures.md` | trước revive / hyp mới |
-| `04. Project Control/run_data_policy.md` | giữ / archive / xóa run artifacts |
-| `04. Project Control/skills/session-closeout/` | chốt phiên A/B/C checklist |
-| `04. Project Control/hot.md` | sự thật sống |
+| `04. Memory/hot.md` | sự thật sống (NEXT SESSION + ledger) |
+| `04. Memory/do_not_repeat_failures.md` | trước revive / hyp mới |
+| `04. Memory/source_of_truth.md`/`.json` + `validate_source_of_truth.py` | registry canonical + validator fail-closed |
+| `05. Guidance/sonic_validation_gates.md` | stage gates, hard invalidation, run-manifest |
+| `05. Guidance/sonic_tool_runbook.md` | lệnh AlphaFactory chính xác |
+| `05. Guidance/ea_engineering_standard.md` | chuẩn code MQL5 (closed-bar, non-repaint) |
+| `05. Guidance/research_doctrine.md` | hypothesis, registry, overfit budget, MT5/non-repaint |
+| archived: `00. Old File/project_control_archive_20260716/` | workflow, roster+agents, policies, skills, receipts, legacy (không active) |

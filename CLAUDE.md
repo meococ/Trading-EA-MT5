@@ -4,11 +4,11 @@ File con trỏ (pointer-only) — không thêm trạng thái dự án hay doctri
 
 Chuỗi đọc-trước, theo thứ tự:
 
-1. `04. Project Control/hot.md` — sự thật SỐNG. Đọc trước mọi thứ khác.
+1. `04. Memory/hot.md` — sự thật SỐNG. Đọc trước mọi thứ khác.
 2. `01. GOAL/GOAL.md` — mục tiêu chúng ta đang hướng tới.
 3. `INDEX.md` (root) — bản đồ workspace: mọi thứ nằm ở đâu.
 4. `AGENTS.md` — quy tắc vận hành cho mọi agent làm việc trong workspace này.
-5. `04. Project Control/do_not_repeat_failures.md` — trước hypothesis/EA mới.
+5. `04. Memory/do_not_repeat_failures.md` — trước hypothesis/EA mới.
 
 Nguyên tắc nhanh:
 
@@ -27,10 +27,9 @@ Nguyên tắc nhanh:
   `EA_HybridICT_Sonic`) — xem README + `hot.md`.
 - Đây là dự án cá nhân: mặc định một checkout/một nhánh hiện tại; không tự tạo
   branch, worktree, clone hay nhánh riêng cho sub-agent nếu Owner chưa yêu cầu.
-- Multi-agent roster: `04. Project Control/multi_agent_roster.md` +
-  `04. Project Control/agents/` (subs mặc định
-  `cursor-grok-4.5-high-fast`; parent = coordinator; parallel READ / serial
-  WRITE). Launcher local (gitignored): `.cursor/agents/ea-*.md`.
-- Standing: chốt phiên (docs + self-improve merge + cleanup) — `AGENTS.md`
-  §6; parent chủ động, sub propose-only cho standing ops; skill
-  `04. Project Control/skills/session-closeout/`.
+- Doc điều khiển gọn 2 khu: `04. Memory/` (state: hot.md, do_not_repeat,
+  registry) + `05. Guidance/` (4 file lõi: gates, runbook, engineering_standard,
+  research_doctrine). Doctrine cũ (workflow/roster/agents/policies/receipts) →
+  archived `00. Old File/project_control_archive_20260716/`.
+- Standing: chốt phiên (cập nhật docs + dọn artifact) — parent chủ động sau
+  session có ý nghĩa; chi tiết `AGENTS.md` §6.

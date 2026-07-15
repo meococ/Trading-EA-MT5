@@ -13,16 +13,14 @@ Updated: 2026-07-15
 
 ## Priority order
 1. Fresh code and generated run artifacts
-2. `04. Project Control/hot.md` (fast-path session cache)
-3. `04. Project Control/current_state.md`
-4. `04. Project Control/session_anchor.md` (startup anchor; defer to hot/current_state when they disagree)
-5. This registry and `04. Project Control/source_of_truth.json`
-6. `04. Project Control/ea_engineering_standard.md`
-7. `AGENTS.md`
-8. `INDEX.md` (workspace map; replaces retired root README-SONIC-R pointer)
-9. `02. AlphaFactory/STRATEGY_LOG.md`
-10. `04. Project Control/decisions.md` (append-only decision journal)
-11. Archived documents
+2. `04. Memory/hot.md` (fast-path session cache)
+3. This registry (`04. Memory/source_of_truth.md`/`.json`)
+4. `04. Memory/do_not_repeat_failures.md`
+5. `05. Guidance/` (gates, runbook, ea_engineering_standard, research_doctrine)
+6. `AGENTS.md`
+7. `INDEX.md` (workspace map)
+8. `02. AlphaFactory/STRATEGY_LOG.md`
+9. Archived documents (`00. Old File/`)
 
 ## Root hygiene rule
 - Keep the project root lean.
@@ -37,12 +35,13 @@ Updated: 2026-07-15
 - Root must not keep MT5 sample experts such as `ExpertMACD.mq5` or their compiled `.ex5` outputs.
 - Move retired markdown to `00. Old File/docs_archive/` (preferred) or
   `00. Old File/markdown_graveyard/`.
-- Keep AI/session archive documents in `04. Project Control/archive/`.
-- Keep session anchor, handoff notes, memory fragments, and other control docs inside `04. Project Control/`.
+- Keep control docs split: state in `04. Memory/` (hot.md, do_not_repeat,
+  registry), rules in `05. Guidance/` (4 core docs). Archived doctrine + AI/session
+  archive under `00. Old File/project_control_archive_20260716/`.
 - Keep raw AlphaFactory runs and local SQLite catalogs out of git; they are operational storage, not source-of-truth documents.
-- `EA_SonicR` remains the research-only source + research ledger.
-  `EA_SilverBullet` (`EA_SilverBullet_v2.mq5` only) is the Owner-opened active
-  trading lane; this is not execution or promotion authority.
+- `EA_SonicR` (research ledger) and `EA_SilverBullet` (binary-only) are archived
+  under `00. Old File/EA_Archive/` — not active surface. Active lanes:
+  `EA_FVGConfluence`, `EA_HybridICT_Sonic`.
 - Retired or cached EA source outside an explicitly opened lane belongs under
   `00. Old File/EA_Archive/` and is archive-only.
 
@@ -51,41 +50,27 @@ Updated: 2026-07-15
 - A status of `authoritative`, `evidence`, `archive`, or `invalidated` means the path exists in this checkout.
 - `backup-only` means the local path is absent but the same relative path exists under `G:\Drive của tôi\META TRADING\Advisors` and its SHA256 is pinned in the JSON registry.
 - `unavailable-unresolved` means the path is absent both locally and at that declared backup root. It is a historical index record only, not usable evidence.
-- Run `python "04. Project Control/validate_source_of_truth.py"` before relying on this registry.
+- Run `python "04. Memory/validate_source_of_truth.py"` before relying on this registry.
 
 ## Registry
 | Path | Status | Why it matters |
 | --- | --- | --- |
-| `AGENTS.md` | authoritative | Single cross-agent operating doctrine. Slimmed 2026-07-11 to lean hard rules plus pointers; detailed doctrine moved to 04. Project Control/research_doctrine.md; active scope is owned by hot.md. |
+| `AGENTS.md` | authoritative | Single cross-agent operating doctrine. Slimmed 2026-07-11 to lean hard rules plus pointers; detailed doctrine moved to 05. Guidance/research_doctrine.md; active scope is owned by hot.md. |
 | `CLAUDE.md` | authoritative | Pointer-only session entry file for Claude agents; defers to hot.md, 01. GOAL/GOAL.md, root INDEX.md, and AGENTS.md. Added 2026-07-11. |
 | `INDEX.md` | authoritative | Root workspace map: one-line what/when pointers to control docs, research, EA source, AlphaFactory, and tests. Pointer-only; content lives at the destinations. Added 2026-07-11. |
 | `.codex/operator/STATUS.md` | evidence | Operational recovery ledger for the active long-running V2 hardening task. It is subordinate to hot.md and is not research or execution authority. |
 | `.codex/operator/EXPERIMENTS.jsonl` | evidence | Append-only bounded-experiment ledger for the active V2 hardening task, including red-first checks, diagnoses, and stop states. |
 | `01. GOAL/GOAL.md` | authoritative | Owner-frozen north-star target: joint PF/cadence/cost-stress/exposure/evidence-window table, DONE ladder, non-goals, and probe-first operating principle. Changes only on explicit Owner decision; numeric authority remains sonic_validation_gates.md. |
-| `04. Project Control/research_doctrine.md` | authoritative | Full research/validation doctrine moved out of AGENTS.md on 2026-07-11: Sonic doctrine, research workflow, registry contract, chart-state label contract, overfit budget, team review roles, MT5 non-repaint rules, and backtest hygiene. |
-| `04. Project Control/agent_ea_research_loop.md` | authoritative | Manager/worker EA research contract with strict Model 0 control/challenger execution, MetaEditor 0/1 artifact proof, sonic_telemetry.v3 deal-level verified-cost closure, diagnostic-only confirmed-stage blockers, the Source S/R mismatch stop rule, immutable task packets, and fail-closed transitions. |
-| `04. Project Control/validate_source_of_truth.py` | authoritative | Fail-closed local/backup availability, SHA256, duplicate-path, and JSON-to-Markdown registry consistency validator. |
-| `04. Project Control/data_contracts/20260713_EXECUTION_DATA_ACQUISITION_CONTRACT_V1.md` | authoritative | No-live-trading V4 execution-data contract: exact broker separation, hash-bound quote/heartbeat/commission/slippage CSV contracts, 90-day QFSI gate, sample thresholds, read-only commands, and fail-closed stop rules. |
-| `04. Project Control/sonic_validation_gates.md` | authoritative | Stage-gate matrix for Sonic R research: probe, screen, challenger, confirmed, portfolio-sleeve, required artifacts, thresholds, and invalidations. |
+| `05. Guidance/research_doctrine.md` | authoritative | Full research/validation doctrine moved out of AGENTS.md on 2026-07-11: Sonic doctrine, research workflow, registry contract, chart-state label contract, overfit budget, team review roles, MT5 non-repaint rules, and backtest hygiene. |
+| `04. Memory/validate_source_of_truth.py` | authoritative | Fail-closed local/backup availability, SHA256, duplicate-path, and JSON-to-Markdown registry consistency validator. |
+| `05. Guidance/sonic_validation_gates.md` | authoritative | Stage-gate matrix for Sonic R research: probe, screen, challenger, confirmed, portfolio-sleeve, required artifacts, thresholds, and invalidations. |
 | `00. Old File/agent_guidance_archive/20260503_1916_sonic_readme_cleanup/manifest.json` | backup-only | Local availability: absent in the lean checkout; hash-verified backup only. Original status: archive. Manifest for retired Claude/doc/root guidance layers archived during the Sonic R knowledge-map cleanup. |
-| `04. Project Control/session_anchor.md` | authoritative | Single startup anchor for durable memory, active EAs, comparator run, and carry-forward rules. |
-| `04. Project Control/current_state.md` | authoritative | Short live state |
-| `04. Project Control/hot.md` | authoritative | Fast-path session cache (<500 words). Replaces current_state header at session start. |
-| `04. Project Control/decisions.md` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. Append-only decision journal for PROMOTE/DEMOTE/BENCH/CONFIG_CHANGE/RESEARCH_DIRECTION. |
-| `04. Project Control/research_frontier.md` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. Ranked human-readable frontier used by the autonomy dispatcher when runtime state is empty or stale. |
-| `04. Project Control/autonomy_operating_model.md` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. Human-readable autonomy doctrine for scheduler split, lifecycle, frontier policy, and governance. |
-| `04. Project Control/xau_structural_continuation_spec.md` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: invalidated. Historical index only; not usable evidence. Structural XAU continuation brief preserved as a falsified thesis. Baseline plus two thesis-tight refinements failed to produce a viable candidate; final stabilization run collapsed to 15 trades and the lane was killed. |
-| `04. Project Control/source_of_truth.md` | authoritative | Human-readable registry |
-| `04. Project Control/source_of_truth.json` | authoritative | Machine-readable registry |
-| `04. Project Control/ea_engineering_standard.md` | authoritative | EA engineering standard |
-| `04. Project Control/workspace_structure.md` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. Canonical top-level workspace layout for live EA source, archive-only folders, AlphaFactory platform, and project control documents. |
-| `04. Project Control/run_data_policy.md` | authoritative | Storage, cleanup, and indexing policy for AlphaFactory runs, logs, runtime folders, and local SQLite catalogs. |
-| `04. Project Control/ea_rd_tooling_roadmap.md` | authoritative | EA R&D workflow/tooling roadmap: AlphaFactory JSON wrapper, runs DB, Sonic attribution, casebook, cost stress, and MCP backlog. |
-| `04. Project Control/sonic_tool_runbook.md` | authoritative | Practical Sonic R command runbook for AlphaFactory JSON, compare, cost stress, evidence audit, casebook, population eval, MT5 snapshots, runs DB, and cleanup. |
+| `04. Memory/hot.md` | authoritative | Fast-path session cache (<500 words). Replaces current_state header at session start. |
+| `04. Memory/source_of_truth.md` | authoritative | Human-readable registry |
+| `04. Memory/source_of_truth.json` | authoritative | Machine-readable registry |
+| `05. Guidance/ea_engineering_standard.md` | authoritative | EA engineering standard |
+| `05. Guidance/sonic_tool_runbook.md` | authoritative | Practical Sonic R command runbook for AlphaFactory JSON, compare, cost stress, evidence audit, casebook, population eval, MT5 snapshots, runs DB, and cleanup. |
 | `00. Old File/EA_Archive/README.md` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. Archive-only rule for retired/non-current EA source; confirms EA_SonicR remains the only active EA source. |
-| `04. Project Control/mcp_policy.md` | authoritative | MCP trust policy |
-| `04. Project Control/vector_memory.md` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. Vector memory guide |
-| `04. Project Control/PAPER_DEPLOY_GUIDE.md` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: archive. Historical index only; not usable evidence. Historical pre-freeze paper deployment guide for the old 4-EA stack. Not valid for the current Portfolio Brain v2 frontier. |
 | `02. AlphaFactory/STRATEGY_LOG.md` | authoritative | Experiment memory |
 | `02. AlphaFactory/tools/alpha_json.ps1` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. JSON wrapper around selected alpha.ps1 actions; separates command completion from strategy validation verdict for agent/MCP workflows. |
 | `02. AlphaFactory/tools/sonic_candidate_compare.py` | authoritative | Sonic R per-run artifact comparator against frozen baseline 20260501_000718; rejects identity mismatches and PF-only conclusions. |

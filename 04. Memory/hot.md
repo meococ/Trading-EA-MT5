@@ -1,6 +1,6 @@
 # Hot Cache
 
-Updated: 2026-07-15 | Docs↔disk reconciled · 80 pkgs archived · GOAL→"Tự Do" · hot.md compacted · Project Control flattened · GOAL unmet
+Updated: 2026-07-16 | Project Control tách → `04. Memory/` + `05. Guidance/` (lean); doctrine cũ archived; GOAL unmet
 
 Sự thật SỐNG ở block **▶ NEXT SESSION** ngay dưới. Bảng **Ledger** là lịch sử thí nghiệm nén 1-dòng/entry (đầy đủ 210 entry). Chi tiết config (indicator/EA param/run_id/path/SHA) nằm ở `00. Old File/hot_details/hot_ledger_details.json` (theo `#idx`); bản hot.md cũ nguyên si ở `00. Old File/hot_archive_20260715_full.md`.
 
@@ -11,7 +11,7 @@ Sự thật SỐNG ở block **▶ NEXT SESSION** ngay dưới. Bảng **Ledger*
 - **HIS SIGATR:** killed — PF `0.98`, N=`76`, net `−$210`, DD ~2.2%. Cadence fixed nhưng **edge chết**. KHÔNG densify Europe/hour.
 - **Best shelf:** RR2 `194548` (offline SURVIVOR PF `2.53` / x1.5 `1.81`) — **không** deployable, cần native tick-path Model 0. ⚠️ `EA_SilverBullet` source `.mq5` **mất trên đĩa** (chỉ còn `.ex5` binary; RR2 194548 evidence ở `02. AlphaFactory/runs/`).
 - **Cost frontier:** `STOP_DATA_FRONTIER` — quote_days 2/90, commission/slip GAP. QFSI accumulate khi Real an toàn; KHÔNG invent cost freeze.
-- **Housekeeping 2026-07-15:** docs↔disk sync (commit `4e2dace` đã push GitHub); 80 pkg → `00. Old File/EA_Archive/`; GOAL đổi tên; hot.md nén (file này); flatten `04. Project Control/*`→`04. Project Control/`.
+- **Housekeeping 2026-07-15/16:** docs↔disk sync (`4e2dace` pushed); 80 pkg → EA_Archive; GOAL đổi tên; hot.md nén (file này); `04. Project Control/` tách → **`04. Memory/`** (state) + **`05. Guidance/`** (4 file lõi); doctrine cũ → `00. Old File/project_control_archive_20260716/`.
 - **Next move (await Owner):** park Hybrid family **hoặc** authorize cơ chế độc lập mới (hyp id mới, KHÔNG densify). Song song: FVGConfluence lane / QFSI cost. No live / no promote.
 
 ## Landmines (do-not-repeat — full: `do_not_repeat_failures.md` + archive §Next Move 1-11)

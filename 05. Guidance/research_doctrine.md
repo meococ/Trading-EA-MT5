@@ -222,7 +222,7 @@ liền kề.
 ## Gate Promotion
 
 Không bao giờ promote một EA chỉ từ profit factor. Ngưỡng theo stage và
-artifact bắt buộc: `04. Project Control/sonic_validation_gates.md`.
+artifact bắt buộc: `05. Guidance/sonic_validation_gates.md`.
 
 Research-only là bắt buộc khi bất kỳ điều nào sau đây đúng:
 
