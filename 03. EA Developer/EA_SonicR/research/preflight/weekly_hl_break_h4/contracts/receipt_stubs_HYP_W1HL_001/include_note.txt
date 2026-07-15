@@ -1,1 +1,0 @@
-EA_WeeklyHLBreak_H4 Trade.mqh standard library stub for include closure.

@@ -1,21 +1,147 @@
 # Hot Cache
 
-Updated: 2026-07-15 ~10:55 ICT | Stale surface cleanup (README/SYNC/SB siblings/tests pointers); prior EA archive + GitHub private `main` @ `b709309f8aa9`; QFSI/ATR shelf unchanged; GOAL unmet
+Updated: 2026-07-15 ~16:55 ICT | Hybrid ICT-Sonic Model 0 EURUSD = 0 trades FAIL; GOAL unmet
 
 ## Active Truth
 
-- **STALE SURFACE CLEANUP (2026-07-15) — Owner-authorized.** Archived obsolete
-  root dump `README-SONIC R.md` →
-  `00. Old File/docs_archive/README-SONIC-R_historical_20260711.md`; replaced
-  with slim pointer `README-SONIC-R.md`. Archived
-  `SYNC_REPORT.md` lean-copy → `docs_archive/SYNC_REPORT_20260621.md` (root
-  stub remains). Moved SB dead siblings
-  (`EA_SilverBullet_v1_backup.mq5`, `EA_SilverBullet_v2_Index.mq5`) →
-  `00. Old File/EA_Archive/EA_SilverBullet_dead_siblings/`; active pin remains
-  `EA_SilverBullet_v2.mq5` only. Package READMEs added for SonicR +
-  SilverBullet. Research ledger untouched. No git commit. Receipt:
-  `04. Project Control/ai/cleanup_receipts/20260715_stale_surface_cleanup.json`.
+- **HIS SL-SIGATR MODEL0 (2026-07-15) — `KILLED_AT_MODEL_0`.**
+  Run `20260715_170714`: N=**76** PF=**0.98** net **−$210** DD~2.2%
+  tpw~0.22. SL=signal±1.0×ATR restored fills vs empty/DIAG but **no edge**.
+  Readout `research/20260715_HYP_HIS_SL_SIGATR_M15_EUR_001_READOUT.md`.
+  Do **not** densify Europe/hour from analyzer. GOAL unmet.
+
+- **HIS SL-SIGATR HYP OPEN (2026-07-15) — Owner-authorized.**
+  SUPERSEDED by Model 0 kill above.
+
+- **HIS DIAG B MODEL0 DONE (2026-07-15) — `DIAG_PASS_PLUMBING`.**
+  Run `20260715_170448`: **3 trades**, PF~4.85 toy / DD~0.2% — **not**
+  promotion. Counters: pvsra=1508 slFail=1505 slOk=3 pendingOk=3.
+  DragonSlFloor OFF unblocked path; MaxSl still kills almost all level SLs.
+  Readout `research/20260715_HYP_HIS_DIAG_GATECOUNT_M15_EUR_001_READOUT.md`.
+  No densify / no live. GOAL unmet.
+
+- **HIS DIAG B READY / MODEL0 BLOCKED (2026-07-15).**
+  SUPERSEDED by Model 0 done above (Real was closed by Owner).
+
+- **HIS DIAG B AUTHORIZED (2026-07-15) — Owner chose B.**
+  Hyp `HYP-HIS-DIAG-GATECOUNT-M15-EUR-001`. Decision surface: disable
+  antagonistic Dragon±40 SL floor (`InpUseDragonSlFloor=false`) + OnDeinit
+  gate counters. Parent empty hyp unchanged. Not promotion. GOAL unmet.
+
+- **HIS OFFLINE GATE-COUNT DONE (2026-07-15) — Owner A complete.**
+  EURUSD M15 covered `2022-07-11`→`2026-07-15` (100k bars; API gap vs
+  full Model 0 2020). Sequential AND: session 54098 → … → PVSRA **1372**
+  survivors → SL OK **0**. `N8_sl_fail_dragon40` = **1372/1372**.
+  **First hard zero = Dragon±40 pip SL vs MaxSl 2.5×ATR** (confirms council
+  rank-1). Artifact
+  `preflight/20260715_HIS_OFFLINE_GATECOUNT_EURUSD_M15.json` SHA
+  `FDCB7258A7385C97833D619209C03C25E40D8B12FE0DCF58F455857E6523D006`;
+  readout `research/20260715_HIS_OFFLINE_GATECOUNT_EURUSD_M15_READOUT.md`.
+  No densify/rescue. Optional next: Owner B DIAG hyp or C stop. GOAL unmet.
+
+- **HIS OFFLINE GATE-COUNT (2026-07-15) — Owner chose A.**
+  Offline Python sequential pass-counts for Hybrid ICT-Sonic mechanical
+  gates on EURUSD M15+H4 `2020.01.01`→`2026.07.15`. No Model 0 remint.
+  No densify/rescue of parent hyp. Probe under package research/. GOAL unmet.
+
+- **HIS ZERO-TRADE INDICATOR DIAG (2026-07-15) — council `PROBE`.**
+  Roster red-team `MIXED` + research DIAG candidate. Indicators (Dragon iMA /
+  CopyBuffer shift=1 / TimeGMT / spread) **not** sole killers. Ranked:
+  (1) silent SL veto — Dragon±40 pip always folded into SL then
+  `risk > 2.5×ATR` skips PlacePending with no Print;
+  (2) AND-stack NearLevel∩Wave∩Dragon∩PVSRA on one M15 bar.
+  Memo: `agents/packets/MERGE_MEMO_20260715_HIS_ZERO_TRADE_INDICATOR_DIAG.md`.
+  Await Owner A (offline gate counts) / B (DIAG hyp) / C (stop lane).
+  Parent remains `KILL_AT_MODEL0_EMPTY`. GOAL unmet.
+
+- **HYBRID ICT-SONIC MODEL 0 CLOSEOUT (2026-07-15) — `KILL_AT_MODEL0_EMPTY`.**
+  Owner Path-C backtest EURUSD M15 `2020.01.01`→`2026.07.15` Model 0
+  Deposit 100000: HQ **100%**, bars **162845**, ticks **102936747**,
+  **Total trades = 0**. PF/DD gates not claimable. Cost UNVERIFIED.
+  Primary run `02. AlphaFactory/runs/EA_HybridICT_Sonic/20260715_164851`.
+  Readout `03. EA Developer/EA_HybridICT_Sonic/research/20260715_HYP_HYBRID_ICT_SONIC_M15_EURGBP_001_READOUT.md`.
+  Remints with BOS/Dragon/override fixes still N=0. No live / no promote.
   GOAL unmet.
+
+- **HYBRID ICT-SONIC — OWNER PATH-C OVERRIDE (2026-07-15 ~16:55 ICT).**
+  Owner explicit in Hybrid lane: bỏ qua lịch sử hot / prior PARK; follow
+  Hybrid ICT-Sonic council report and **build now**. Active package:
+  `03. EA Developer/EA_HybridICT_Sonic/` (`EA_HybridICT_Sonic.mq5`).
+  Hyp stub: `HYP-HYBRID-ICT-SONIC-M15-EURGBP-001` (override — not de-dup
+  cleared). Mechanical core: Dragon34 + H4 BOS/FVG/liq + M15 wave +
+  tick-volume PVSRA proxy + London/NY + risk 0.25%/daily 2%. No live /
+  no promotion until cost-honest Model 0. Prior PARK memo retained as
+  critique only. GOAL unmet.
+
+- **FVG SCALP + CONFLUENCE — OWNER PATH-C OVERRIDE (2026-07-15 ~16:50 ICT).**
+  Owner explicit: bỏ qua lịch sử hot / prior PARK; follow council brief and
+  **build**. Coordinator treats as Path C revive-risk acceptance. Active
+  lane: `03. EA Developer/EA_FVGConfluence/` (`EA_FVGConfluence.mq5`).
+  Hyp id: `HYP-FVG-SCALP-CONFL-M5-EUR-001` (override stub — not de-dup
+  cleared). Prior roster PARK/KILL stand as historical record only; do not
+  use this build as promotion evidence until offline probe + Model 0 +
+  cost-honest gates. QFSI cost frontier still STOP. No live claim. GOAL unmet.
+
+- **FVG SCALP + CONFLUENCE BUILD REQUEST (2026-07-15 ~16:45 ICT) — `PARK`
+  (superseded by Owner Path-C override above).**
+  Roster red-team `KILL_RECOMMEND` / research `NO_LEGAL_CANDIDATE`. Memo:
+  `agents/packets/MERGE_MEMO_20260715_FVG_SCALP_CONFLUENCE_BUILD_REQUEST.md`.
+  Historical only.
+
+- **HYBRID ICT-SONIC BUILD REQUEST (2026-07-15 ~16:40 ICT) — `PARK`
+  (superseded by Owner Path-C override above).**
+  Roster: red-team `KILL_AS_REVIVAL`; research stripped candidate.
+  Memo: `agents/packets/MERGE_MEMO_20260715_HYBRID_ICT_SONIC_BUILD_REQUEST.md`.
+  Historical critique only under override.
+
+- **CHỐT PHIÊN NGHIÊN CỨU / CẢI THIỆN (2026-07-15) — Owner amendment.**
+  AGENTS §6 merges prior §6–§7 into one standing closeout with three beats:
+  (A) research/docs update, (B) self-improve merge via parent only,
+  (C) artifact cleanup. Parent (coordinator) drives proactively after
+  meaningful work — do not wait for Owner ask. Subs propose-only for
+  standing ops (`AGENTS`/`CLAUDE`/`INDEX`/`hot`/roster/role specs/skills);
+  `impl` may still write packet-scoped EA/code. Skill + template updated;
+  roster § E; CLAUDE/INDEX pointers. No git commit. Shelf empty /
+  fail-closed. GOAL unmet.
+
+- **SELF-IMPROVE + SESSION CLOSEOUT (2026-07-15) — superseded by chốt phiên
+  bullet above.** Prior split §6–§7 still historically accurate as precursor;
+  live rule is AGENTS §6 A/B/C.
+
+- **AGENTS.md SLIMMED (2026-07-15) — standing rules only.** Removed dated
+  Owner section headers; compressed AlphaFactory + multi-agent + hygiene into
+  pointers. Hard rules kept. Detail stays in linked docs; living truth here.
+  No git commit. GOAL unmet.
+
+- **MULTI-AGENT ROSTER + FAILURE TRIAGE (2026-07-15) — Owner-approved.**
+  Canonical: `04. Project Control/ai/multi_agent_roster.md`; role specs
+  `04. Project Control/ai/agents/` (red-team/research/impl/qc/coordinator);
+  Failure Triage inserted in `agent_ea_research_loop.md` before Deep Research.
+  Subs default model `cursor-grok-4.5-high-fast`; parent = coordinator;
+  parallel READ / serial WRITE; max 2–3 readonly per wave. Local launchers
+  (gitignored): `.cursor/agents/ea-*.md`, skills
+  `.cursor/skills/failure-triage/` + `chart-state-probe/`. DRAFT file is now a
+  pointer. No git commit. Shelf still empty / fail-closed. GOAL unmet.
+
+- **OWNER FULL SURFACE ARCHIVE (2026-07-15) — correction of prior stub
+  cleanup.** Owner intent was **remove from active surface** (move into
+  `00. Old File/`), not leave pointer stubs. Moved:
+  `README-SONIC-R.md` → `docs_archive/README-SONIC-R_pointer_stub_20260715.md`;
+  `SYNC_REPORT.md` → `docs_archive/SYNC_REPORT_root_stub_20260715.md`;
+  root `tests/` → `tests_archive/tests_20260715/`;
+  `03. EA Developer/EA_SonicR/` (full package + research ledger) →
+  `EA_Archive/EA_SonicR/`; `03. EA Developer/EA_SilverBullet/` →
+  `EA_Archive/EA_SilverBullet/`. Active `03. EA Developer/` empty (README
+  only). `ea_contract.ps1` pins cleared — fail-closed with clear empty-shelf
+  message. INDEX/AGENTS/CLAUDE/do_not_repeat updated to new paths. No root
+  README/SYNC stubs. No git commit. Receipt:
+  `04. Project Control/ai/cleanup_receipts/20260715_owner_full_surface_archive.json`.
+  GOAL unmet.
+
+- **STALE SURFACE CLEANUP (2026-07-15) — Owner-authorized (SUPERSEDED by
+  full surface archive above).** Prior agent misread “outdated” as
+  refresh/stub; historical dump/siblings moves remain valid under Old File;
+  root stubs and active EA packages removed in the correction above.
 
 - **WORKSPACE CLEANUP / EA ARCHIVE (2026-07-15) — Owner-authorized.** Single
   archive home restored at `00. Old File/` (`EA_Archive/` + README). Moved
@@ -1994,7 +2120,25 @@ Updated: 2026-07-15 ~10:55 ICT | Stale surface cleanup (README/SYNC/SB siblings/
 
 ## Next Move
 
-- **ACTIVE — Cost acquire + next monetization class (post rebuild board).**
+- **ACTIVE — HIS SIGATR killed; await Owner.** Cadence fixed, edge dead
+  (PF 0.98). Options: park Hybrid family / new independent mechanism
+  (not Europe-hour densify). GOAL unmet.
+
+- **PRIOR — HIS DIAG plumbing pass** then SIGATR Model 0 kill
+  `20260715_170714`. GOAL unmet.
+
+- **PRIOR — HIS DIAG B Model 0:** `20260715_170448` N=3 `DIAG_PASS_PLUMBING`.
+  GOAL unmet.
+
+- **PRIOR — HIS gate-count A done.** Hard zero was SL Dragon±40 vs MaxSl
+  (1372→0). Owner chose B. GOAL unmet.
+
+- **PRIOR — Hybrid ICT-Sonic Model 0 empty (Owner Path-C).** EURUSD M15
+  2020–2026: **0 trades**. Plan PF≥1.65 **FAIL**. Await Owner: park package
+  vs authorize DIAG ablation hyp (new id). Parallel: `EA_FVGConfluence` lane /
+  QFSI cost accumulate. Best prior shelf RR2 `194548`. GOAL unmet.
+
+- **PRIOR — Cost acquire + next monetization class (post rebuild board).**
   `EXO_FRED_DISPLACE_SPAM_PAUSED`. Scale-out / timebox-scalp-lock / vol-regime-R
   **3/3 KILL** (outcome-faithful). Cost freeze still blocked (quote_days=2/90; comm/slip GAP).
   Keep QFSI accumulate. Next monetization outside this board (tick-path ATR trail

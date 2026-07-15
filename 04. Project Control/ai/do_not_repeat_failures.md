@@ -7,7 +7,7 @@ Authority: evidence pointers only. Do **not** invent kill reasons. If a row has
 no pointer, treat as unknown and re-check artifacts before any revive.
 
 Companion inventory: `00. Old File/EA_Archive/MANIFEST_20260715_workspace_cleanup.json`  
-Portfolio audit: `03. EA Developer/EA_SonicR/research/20260710_EA_FAILURE_PORTFOLIO_AUDIT.md`  
+Portfolio audit: `00. Old File/EA_Archive/EA_SonicR/research/20260710_EA_FAILURE_PORTFOLIO_AUDIT.md`  
 Strategy diary (legacy S-numbers): `02. AlphaFactory/STRATEGY_LOG.md`
 
 ## How to use
@@ -23,8 +23,8 @@ Strategy diary (legacy S-numbers): `02. AlphaFactory/STRATEGY_LOG.md`
 
 | Family / EA | Verdict (evidence) | Do not revive unless |
 |---|---|---|
-| **EA_SonicR** Classic XAU route | Best short seed PF~1.40 / ~1.23 tpw; longer route PF~1.15; equity REJECT; regime pocket 2024-25 — **not survivor**. Research source **stays active** for ledger only. | New independent mechanism + cost provenance; not another Asian-range / CONTEXT / Dragon-Trend / ATR-delete-cadence patch on same fields. Audit `20260710_EA_FAILURE_PORTFOLIO_AUDIT.md`. |
-| **EA_SilverBullet** historical book | Near cadence seed PF~1.33 / ~1.99 tpw; The5ers transfer **KILL** (PF~1.02, x1.5~1.00); overnight vs scalp contract. **Code stays active** for current ATR-trail lane — do not promote historical book. | Fresh Model 0 under frozen prereg with broker cost; not tune from `131343` / The5ers kill. |
+| **EA_SonicR** Classic XAU route | Best short seed PF~1.40 / ~1.23 tpw; longer route PF~1.15; equity REJECT; regime pocket 2024-25 — **not survivor**. Full package + research ledger archived 2026-07-15 under `EA_Archive/EA_SonicR/`. | New independent mechanism + cost provenance; not another Asian-range / CONTEXT / Dragon-Trend / ATR-delete-cadence patch on same fields. Audit `20260710_EA_FAILURE_PORTFOLIO_AUDIT.md`. |
+| **EA_SilverBullet** historical book | Near cadence seed PF~1.33 / ~1.99 tpw; The5ers transfer **KILL** (PF~1.02, x1.5~1.00); overnight vs scalp contract. Full package archived 2026-07-15 under `EA_Archive/EA_SilverBullet/` — no active code lane. | Fresh Model 0 only after Owner restores package to `03. EA Developer/` + updates `hot.md`; not tune from `131343` / The5ers kill. |
 | **EA_LondonNY** | Strong PF/quality but ~0.3 tpw; cross-pair transfer killed; book ~0.42 tpw — sparse sleeve. | Cadence-capable universe redesign with prereg; not pair-add rescue. |
 | **EA_ITSM** | Holdout PF~1.05 + 2024-25 decay → **KILL**. Portfolio expansions with ITSM offline **FAIL**. | Independent thesis; not Spark/SB+ITSM densify. |
 | **EA_ChopRegime** | Untouched 2018-20 OOS PF~1.03 → **KILL_FAMILY**. | New family id + different mechanism. |
@@ -39,10 +39,12 @@ Strategy diary (legacy S-numbers): `02. AlphaFactory/STRATEGY_LOG.md`
 | Other flat `EA_*` under archive (ACF, Gold*, M15*, H1*, etc.) | Shelf after 20260710 frontier / later offline boards; many never cleared Model 0 with hypothesis_id. | Registry row + offline probe beat locked controls; no compile-from-archive as evidence. |
 
 Duplicate / index stubs archived (do not use as fallback):
-`EA_SilverBullet_Index` (full package) and
+`EA_SilverBullet_Index` (full package),
 `00. Old File/EA_Archive/EA_SilverBullet_dead_siblings/`
-(`EA_SilverBullet_v2_Index.mq5`, `EA_SilverBullet_v1_backup.mq5`). Active pin
-remains `EA_SilverBullet_v2.mq5` only.
+(`EA_SilverBullet_v2_Index.mq5`, `EA_SilverBullet_v1_backup.mq5`), and the
+full former-active package
+`00. Old File/EA_Archive/EA_SilverBullet/`. No active pin under
+`03. EA Developer/` (shelf empty 2026-07-15).
 
 ---
 
@@ -102,7 +104,10 @@ Best **shelf** reference run (not promotion): SilverBullet RR2 `20260714_194548`
 
 ## D. What is still allowed (narrow)
 
-- Active code lane: `EA_SilverBullet` (v2) under frozen prereg / Owner scope in `hot.md`.
-- Research ledger + probes under `EA_SonicR/research/` (no strategy promotion without gates).
-- New independent mechanisms after de-dup → cheap offline probe → prereg → Model 0.
+- **No active EA code lane** under `03. EA Developer/` (Owner archived 2026-07-15).
+  Restore package + update `hot.md` before any compile/Model 0.
+- Research ledger (archived): `00. Old File/EA_Archive/EA_SonicR/research/` —
+  readable for de-dup; not a promotion surface; compile-from-archive invalid.
+- New independent mechanisms after de-dup → cheap offline probe → prereg → Model 0
+  (only after Owner restores an active EA shelf).
 - Data acquisition toward research-grade bid/ask + commission + slip (QFSI frontier), without pretending gate is green.

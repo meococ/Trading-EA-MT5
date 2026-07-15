@@ -1,8 +1,0 @@
-{
-  "schema_version": "sonic_prereg.v1",
-  "hypothesis_id": "HYP-SB-SPARK-BOOK-001",
-  "status": "FROZEN_RESEARCH_SCREEN",
-  "prereg_md": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preregs\\20260714_H_SB_SPARK_BOOK_001_PREREG.md",
-  "prereg_md_sha256": "048E4165B6791C85981A48697DD82E0FB78DB7174A41BE5026D3FED603347697",
-  "overrides": ""
-}

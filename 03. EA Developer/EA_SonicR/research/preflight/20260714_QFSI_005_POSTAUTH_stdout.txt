@@ -1,1 +1,0 @@
-{"status": "OK", "payload_status": "CAPTURE_WINDOW_COMPLETE_PARTIAL", "out": "D:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260714_QFSI_REAL_005_POSTAUTH"}

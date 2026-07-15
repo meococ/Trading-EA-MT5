@@ -1,8 +1,0 @@
-{
-  "schema_version": "sonic_prereg.v1",
-  "hypothesis_id": "HYP-SB-MAXKZ2-DENSITY-002",
-  "status": "FROZEN",
-  "prereg_md": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preregs\\20260714_H_SB_MAXKZ2_DENSITY_002_PREREG.md",
-  "prereg_md_sha256": "DE535E41D5C0DF652EDFA0525EF7519FDB5BE6059F4D9047526B5DD898A1E2DA",
-  "overrides": "InpFridayFlatHour=21;InpFridayFlatMinute=45;InpMaxTradesPerKZ=2;InpRiskPct=0.5;InpUseWeekendFlat=1"
-}

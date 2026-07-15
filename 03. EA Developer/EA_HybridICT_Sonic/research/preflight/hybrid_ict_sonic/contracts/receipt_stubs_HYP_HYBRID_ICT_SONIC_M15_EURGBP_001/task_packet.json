@@ -1,0 +1,15 @@
+{
+  "schema_version": "sonic_research_task_packet.v1",
+  "hypothesis_id": "HYP-HYBRID-ICT-SONIC-M15-EURGBP-001",
+  "ea_name": "EA_HybridICT_Sonic",
+  "symbol": "EURUSD",
+  "period": "M15",
+  "from": "2020.01.01",
+  "to": "2026.07.15",
+  "model": 0,
+  "run_role": "control",
+  "overrides": "InpLevelTouchATR=0.50;InpMaxAtrRatio=3.00;InpMaxSpreadPips=4.0;InpMinAtrRatio=0.70;InpRequireMacdSlope=false;InpRequirePvsraClimax=true;InpRequireWave=true;InpVolClimaxMult=1.5",
+  "deposit": 100000,
+  "leverage": 100,
+  "note": "Owner Path-C Hybrid ICT-Sonic Model 0 control screen EURUSD M15 2020-2026 per council plan. Cost provenance UNVERIFIED."
+}

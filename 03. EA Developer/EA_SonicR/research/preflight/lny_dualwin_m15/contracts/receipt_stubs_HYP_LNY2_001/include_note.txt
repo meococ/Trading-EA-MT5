@@ -1,1 +1,0 @@
-EA_M15LNYDualWin Trade.mqh standard library stub for include closure.

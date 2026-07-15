@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-HYBRID-ICT-SONIC-M15-EURGBP-001",
+  "task_packet_sha256": "02399228CF984FFFC90563D88F2B6E902EDA9BCFADA185053670EC17FEC89DCD",
+  "git_commit": "19b8bbd0a27dffa5260c0a5a58534372eb95b93d",
+  "git_status_sha256": "125A6DD640E6750FC34490A75E366E0AF38C689B9A9A4581A66BFB69F5F29422",
+  "binding": {
+    "hypothesis_id": "HYP-HYBRID-ICT-SONIC-M15-EURGBP-001",
+    "run_role": "control",
+    "ea_name": "EA_HybridICT_Sonic",
+    "symbol": "EURUSD",
+    "period": "M15",
+    "from": "2020.01.01",
+    "to": "2026.07.15",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpLevelTouchATR=0.50;InpMaxAtrRatio=3.00;InpMaxSpreadPips=4.0;InpMinAtrRatio=0.70;InpRequireMacdSlope=false;InpRequirePvsraClimax=true;InpRequireWave=true;InpVolClimaxMult=1.5",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 1e-05,
+      "pip_size": 0.0001
+    },
+    "include_closure_sha256": "9AF41B20BC30D8BA6143419AE9DB4DE58B10C2515850327B45675DA3CE4DFA3C"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "C:\\Users\\ADMIN\\Downloads\\06. Trading\\03. EA Developer\\EA_HybridICT_Sonic\\research\\preflight\\hybrid_ict_sonic\\contracts\\receipt_stubs_HYP_HYBRID_ICT_SONIC_M15_EURGBP_001\\task_packet.json",
+      "sha256": "02399228CF984FFFC90563D88F2B6E902EDA9BCFADA185053670EC17FEC89DCD"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "C:\\Users\\ADMIN\\Downloads\\06. Trading\\03. EA Developer\\EA_HybridICT_Sonic\\EA_HybridICT_Sonic.mq5",
+      "sha256": "64CD65F9E8D32F1A2E3B08C68336A47718556115E216A284707DC6EA38B3B320"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "C:\\Users\\ADMIN\\Downloads\\06. Trading\\03. EA Developer\\EA_HybridICT_Sonic\\research\\preflight\\hybrid_ict_sonic\\contracts\\receipt_stubs_HYP_HYBRID_ICT_SONIC_M15_EURGBP_001\\prereg.json",
+      "sha256": "69743C1F1388535C830533D70C9E7DD266E6583F5ABCD0886AC1E62FDAC01F45"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "C:\\Users\\ADMIN\\Downloads\\06. Trading\\03. EA Developer\\EA_HybridICT_Sonic\\research\\preflight\\hybrid_ict_sonic\\contracts\\receipt_stubs_HYP_HYBRID_ICT_SONIC_M15_EURGBP_001\\cost_source_manifest.json",
+      "sha256": "8920ACAD1B9B01DAE7964873FB81615DB2A24521035EB85DD8764954D7F0A9AC"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "C:\\Users\\ADMIN\\Downloads\\06. Trading\\03. EA Developer\\EA_HybridICT_Sonic\\Include\\HIS_Helpers.mqh",
+      "sha256": "603546B132A61BA66AB35672150A952FDA6C28DB70190064DA524F31ED5984E6"
+    }
+  ],
+  "generated_at_utc": "2026-07-15T09:53:01Z",
+  "note": "Owner Path-C Model 0 control. Binding must match alpha.ps1. Cost UNVERIFIED. Not promotion evidence."
+}

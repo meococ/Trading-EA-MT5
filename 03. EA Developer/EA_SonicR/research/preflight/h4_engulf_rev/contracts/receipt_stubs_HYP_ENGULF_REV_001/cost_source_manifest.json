@@ -1,9 +1,0 @@
-{
-  "schema_version": "alphafactory_cost_source_manifest.v1",
-  "hypothesis_id": "HYP-H4-ENGULF-REV-001",
-  "status": "UNVERIFIED_TESTER_DEFAULT",
-  "policy": "DOCUMENTED_RESEARCH_PROXY",
-  "spread": "current",
-  "note": "Wave3 Model 0 under tester-current; a priori +$12 stress if PF>=1.20. Not Real QFSI / not GOAL.",
-  "promotion_eligible": false
-}

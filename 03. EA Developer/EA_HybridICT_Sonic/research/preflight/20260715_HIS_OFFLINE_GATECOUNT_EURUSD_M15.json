@@ -1,0 +1,88 @@
+{
+  "schema_version": "his_offline_gatecount.v1",
+  "owner_choice": "A",
+  "symbol": "EURUSD",
+  "requested_from": "2020-01-01",
+  "requested_to": "2026-07-15",
+  "coverage": {
+    "m15_bars": 100000,
+    "h4_bars": 12201,
+    "m15_first_utc": "2022-07-11T06:15:00Z",
+    "m15_last_utc": "2026-07-15T10:00:00Z",
+    "note": "Python copy_rates year-chunks: M15 usable ~2022+ on this terminal API; Model 0 tester had full 2020-2026 ticks. Gate ranking still valid on covered M15."
+  },
+  "note": "Offline only. Not Model 0. Not promotion. Mirror HIS mechanical gates.",
+  "counts": {
+    "N_bars_total": 99911,
+    "N0_session": 54098,
+    "N1_atr_regime": 53781,
+    "N2_bias": 53781,
+    "N3_level_object": 53781,
+    "N4_near_level": 34310,
+    "N5_wave": 11909,
+    "N6_dragon": 5633,
+    "N6a_mid_reclaim": 895,
+    "N6b_outer_break": 5069,
+    "N7_pvsra": 1372,
+    "N8_sl_ok": 0,
+    "N8_sl_fail_dragon40": 1372
+  },
+  "drops": [
+    {
+      "gate": "N0_session",
+      "count": 54098,
+      "prev": 99911,
+      "pass_ratio": 0.541462
+    },
+    {
+      "gate": "N1_atr_regime",
+      "count": 53781,
+      "prev": 54098,
+      "pass_ratio": 0.99414
+    },
+    {
+      "gate": "N2_bias",
+      "count": 53781,
+      "prev": 53781,
+      "pass_ratio": 1.0
+    },
+    {
+      "gate": "N3_level_object",
+      "count": 53781,
+      "prev": 53781,
+      "pass_ratio": 1.0
+    },
+    {
+      "gate": "N4_near_level",
+      "count": 34310,
+      "prev": 53781,
+      "pass_ratio": 0.637958
+    },
+    {
+      "gate": "N5_wave",
+      "count": 11909,
+      "prev": 34310,
+      "pass_ratio": 0.3471
+    },
+    {
+      "gate": "N6_dragon",
+      "count": 5633,
+      "prev": 11909,
+      "pass_ratio": 0.473004
+    },
+    {
+      "gate": "N7_pvsra",
+      "count": 1372,
+      "prev": 5633,
+      "pass_ratio": 0.243565
+    },
+    {
+      "gate": "N8_sl_ok",
+      "count": 0,
+      "prev": 1372,
+      "pass_ratio": 0.0
+    }
+  ],
+  "first_near_zero_gate": "N8_sl_ok",
+  "generated_at_utc": "2026-07-15T10:01:32Z"
+}

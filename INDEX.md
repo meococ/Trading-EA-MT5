@@ -34,7 +34,12 @@ lane mới — không cập nhật cho từng run/readout mới.
 | `forward_test_protocol.md` | quy tắc forward/demo test |
 | `run_data_policy.md` | dữ liệu run nào được giữ hoặc xóa |
 | `do_not_repeat_failures.md` | EA/approach đã fail + pointer evidence; đọc trước khi đề xuất revive |
-| `agent_ea_research_loop.md` | contract vòng lặp EA manager/worker có gate evidence cho lane tự hành |
+| `agent_ea_research_loop.md` | contract vòng lặp EA manager/worker có gate evidence + Failure Triage trước Deep Research |
+| `multi_agent_roster.md` | roster session (red-team/research/impl/qc) + model pin Grok; chốt phiên §E (docs / self-improve merge / cleanup); specs trong `agents/` |
+| `agents/` | role specs, SESSION memory, TASK_PACKET / MERGE_MEMO / SESSION_CLOSEOUT templates |
+| `skills/session-closeout/` | chốt phiên A/B/C checklist (canonical); twin local `.cursor/skills/session-closeout/` |
+| `DRAFT_multi_agent_roster_and_failure_loop_20260715.md` | pointer lịch sử → `multi_agent_roster.md` (đã approve) |
+| (local, gitignored) `.cursor/agents/ea-*.md` + `.cursor/skills/{failure-triage,chart-state-probe,session-closeout}/` | launcher mỏng + skill triage/chart-state/closeout; canonical roster/skills dưới `04.../agents/` + `04.../skills/` |
 | `process_receipts/20260713_FAILURE_DEEP_RESEARCH_LOOP_V1.json` | receipt hash-bound cho rule failure/hiệu suất yếu -> Deep Research hypothesis mới, không post-hoc rescue |
 | `goal_receipts/20260713_DEEP_RESEARCH_V4_DATA_ACQUISITION_GOAL.json` | receipt goal V4 đã close: foundation sẵn sàng nhưng data chưa đạt gate, không mở quyền build |
 | `data_contracts/20260713_EXECUTION_DATA_ACQUISITION_CONTRACT_V1.md` | contract no-live cho quote/heartbeat/commission/slippage, schema hash và stop rules QFSI |
@@ -42,70 +47,28 @@ lane mới — không cập nhật cho từng run/readout mới.
 | `mcp_policy.md` | thứ tự tin cậy cho output MCP/tool ngoài |
 | `ea_rd_tooling_roadmap.md` | roadmap tooling (2026-05-01) |
 
-## Nghiên cứu — `03. EA Developer/EA_SonicR/research/`
+## Nghiên cứu — archived ledger
 
-| File | Mở khi |
+**Owner archive 2026-07-15:** research ledger moved with the package.
+
+Base path: `00. Old File/EA_Archive/EA_SonicR/research/`
+
+| File (relative to base) | Mở khi |
 |---|---|
-| `CANDIDATE_REGISTRY.jsonl` + `.schema.json` + `validate_candidate_registry.py` | ledger nghiên cứu FX toàn workspace tại path tương thích cũ; TRƯỚC mọi run có ý nghĩa: append/validate row hypothesis |
-| `PREREG_TEMPLATE.md`, `READOUT_TEMPLATE.md` | viết prereg hoặc readout |
-| `20260712_NEW_STRATEGY_DEEP_RESEARCH_PACKET_V2.md` | packet Browser -> ChatGPT authoritative cho lane strategy mới; bắt buộc `+ -> Nghiên cứu sâu` + `Pro`, chưa cấp quyền prereg/code/run; V1 lịch sử không phải Deep Research evidence |
-| `readouts/20260713_DEEP_RESEARCH_V2_COORDINATOR_AUDIT.md` | audit local của báo cáo V2; kill benchmark-fix candidate vì trùng S214-S217/S532/S564 |
-| `20260713_NEW_STRATEGY_DEEP_RESEARCH_FAILURE_PACKET_V3.md` | failure packet cho vòng Deep Research kế tiếp; khóa toàn bộ fix/benchmark/session-timing family |
-| `preflight/20260713_NEW_STRATEGY_DEEP_RESEARCH_SUBMISSION_V3.json` | receipt UI/hash và kết quả V3 `NO_LEGAL_CANDIDATE`; frontier dừng theo contract dữ liệu/chi phí hiện tại |
-| `readouts/20260713_DEEP_RESEARCH_V3_COORDINATOR_AUDIT.md` | audit V3: cross-check local event drift/S703, chốt không có candidate hợp lệ và điều kiện dữ liệu để mở lại |
-| `readouts/20260713_DEEP_RESEARCH_V4_COORDINATOR_INTAKE.md` | intake V4: data-acquisition-only cho QFSI/GVBCI; chưa có strategy probe hay quyền build EA |
-| `readouts/20260713_V4_DATA_FOUNDATION_COORDINATOR_READOUT.md` | closeout foundation: QFSI STOP, GVBCI cost-quote-only, SCFIS excluded, không có strategy authority |
-| `readouts/20260713_DEEP_RESEARCH_V5_COORDINATOR_INTAKE.md` | intake V5: kill round-number duplicate, chỉ cho phép đúng một proxy probe Impact-per-Pressure với matched return control; chưa cấp quyền code EA |
-| `readouts/20260713_IMPACT_PRESSURE_PROXY_PROBE_READOUT.md` | probe V5 offline đã `KILL_AT_OFFLINE_PROBE`; đóng trước registry/prereg/code |
-| `readouts/20260713_REDTEAM_V5_KILL_V6_FRONTIER_COORDINATOR.md` | redteam 3 vai + coordinator: affirm kill V5; không EA build ngay; search chỉ qua V6 |
-| `20260713_NEW_STRATEGY_DEEP_RESEARCH_FAILURE_PACKET_V6.md` | failure packet V6 khóa toàn bộ rescue/rename V5 và yêu cầu đúng một hypothesis độc lập hoặc NO LEGAL CANDIDATE |
-| `preflight/20260713_NEW_STRATEGY_DEEP_RESEARCH_SUBMISSION_V6.json` | receipt UI/hash V6: GPT-5.6 Sol + Pro + Nghiên cứu sâu đã được readback trước khi chạy |
-| `preflight/20260713_NEW_STRATEGY_DEEP_RESEARCH_RESULT_V6.json` | receipt kết quả V6: `NO LEGAL CANDIDATE`, hash audit và toàn bộ quyền probe/build đều false |
-| `readouts/20260713_DEEP_RESEARCH_V6_COORDINATOR_AUDIT.md` | audit V6: ba near-miss đều sai data/timescale nếu ép vào MT5; dừng frontier, không goal/EA/V7 tự động |
-| `20260713_NEW_STRATEGY_DEEP_RESEARCH_SCOPE_EXPANSION_V7.md` | packet V7 do Owner mở scope H4/D1 đa cặp; tìm đúng một mechanism độc lập hoặc NO CANDIDATE, chưa cấp quyền probe/code/run |
-| `preflight/20260713_NEW_STRATEGY_DEEP_RESEARCH_SUBMISSION_V7.json` | receipt UI/hash V7: GPT-5.6 Sol + Pro + Nghiên cứu sâu, plan H4/D1 đang chạy tại conversation URL được ghi |
-| `readouts/20260713_V7_H4_D1_LOCAL_DEDUP_BASELINE.md` | baseline de-dup được đóng băng trước khi đọc kết quả V7; khóa các H4/D1/consensus/trend/proxy family cũ, không cấp quyền build |
-| `preflight/20260713_NEW_STRATEGY_DEEP_RESEARCH_RESULT_V7.json` | receipt kết quả V7: không candidate H4/D1, năm family bị loại và toàn bộ quyền probe/build đều false |
-| `readouts/20260713_DEEP_RESEARCH_V7_COORDINATOR_AUDIT.md` | audit V7: source mạnh cần flow/carry/liquidity/external series; price-only trùng family cũ, dừng frontier và không build EA |
-| `readouts/20260713_OWNER_1A_GROK_PANEL_V7_STOP_COORDINATOR.md` | Owner 1A fail-closed + panel grok; V8 draft carry rates; chưa compile |
-| `20260713_NEW_STRATEGY_DEEP_RESEARCH_DATA_CONTRACT_V8.md` | packet V8 rates-only; Deep Research submit `BLOCKED_BY_BROWSER_AUTH` tới khi Owner login ChatGPT |
-| `readouts/20260713_V8_EXOGENOUS_LOCAL_DEDUP_BASELINE.md` | baseline de-dup trước V8 result |
-| `readouts/20260713_V8_EXOGENOUS_DATA_ACQUISITION_INVENTORY.md` | inventory lịch sử; rates đã có — xem readiness |
-| `readouts/20260713_V8_G3_RATES_PANEL_READINESS.md` | panel G3 rates đã hash; chờ ChatGPT login rồi submit V8 |
-| `readouts/20260713_V8_RATES_ACQUISITION_READOUT.md` | acquisition hash-bound Treasury/ECB/BoE + Phase 0 identity draft |
-| `readouts/20260713_V8_CARRY_DIFF_OFFLINE_PROBE_READOUT.md` | weekly carry offline probe `KILL_AT_OFFLINE_PROBE` (PF cao, cadence chết) |
-| `preflight/20260713_PHASE0_UNIVERSE_IDENTITY_INVENTORY_DRAFT_V1.json` | draft universe identity-only 225 members; chưa freeze Phase 0 |
-| `readouts/20260713_OWNER_DECISION_CONFIRM_V8_SUBMIT.md` | blocker auth ChatGPT; Owner login Browser rồi resume submit V8 |
-| `preflight/20260713_NEW_STRATEGY_DEEP_RESEARCH_SUBMISSION_V8.json` | attempt V8: `BLOCKED_BY_BROWSER_AUTH`; packet hash đã ghi |
-| `20260713_GVBCI_DATA_ACQUISITION_FEASIBILITY.md` | assessment CME/Databento về license, cost, timestamp, roll và exact quote request cho GC |
-| `preflight/v4_data/` | probe/inventory/quote-request/receipt hash-bound của lane data V4; tester proxy không phải broker evidence |
-| `preregs/` | prereg đã đóng băng và draft được gắn nhãn rõ; luôn đọc status banner trước khi dùng |
-| `20260711_CODEX_EXECUTION_PLAN_V2.md` | kế hoạch authoritative cho lane FX portfolio/SilverBullet; Phase 0 đã implement nhưng clearance và Phase 1+ bị chặn |
-| `preflight/20260711_PHASE0_ARTIFACT_SUFFICIENCY_V1.json` | verdict machine-readable chỉ về độ đủ artifact; cả hai probe `BLOCKED` và có contamination record bắt buộc clean review |
-| `preflight/20260711_PHASE0_COORDINATION_CONTAMINATION_ATTESTATION_V1.json` | attestation hash-bound cho accidental `RunMeta` display; không chứa outcome value và buộc clean future review |
-| `preregs/20260711_H_SB_WEEKEND_FLAT_001_PREREG.md` | draft A1 weekend-flat, chưa đóng băng; A2 max-hold là child tương lai riêng |
-| `preregs/20260713_H_SB_WEEKEND_FLAT_001_RESEARCH_FREEZE.md` | research freeze Model 0 weekend-flat A1 (Owner self-research) |
-| `preflight/20260714_OWNER_MT_BACKTEST_AUTONOMY_RECEIPT.json` | Owner MT-backtest autonomy campaign receipt (status + selected path) |
-| `readouts/20260714_OWNER_MT_BACKTEST_AUTONOMY_COORDINATOR.md` | coordinator merge: path selection + Model 0 status toward GOAL |
-| `preflight/20260714_STRATEGY_REBUILD_CAMPAIGN_RECEIPT.json` | Owner rebuild/refine campaign receipt (2026-07-14); status `GOAL_NEAR_MISS` |
-| `readouts/20260714_STRATEGY_REBUILD_CAMPAIGN_COORDINATOR.md` | rebuild matrix + Model 0 results; MaxKZ2 research-bar survivor |
-| `preregs/20260711_H_PORTFOLIO_COMPOSE_001_PREREG.md` | draft composition exact-universe, cấm chọn per-EA best theo outcome |
-| `20260710_EA_FAILURE_PORTFOLIO_AUDIT.md` | vì sao 217 runs / 34 EA trượt mục tiêu; evidence về frontier |
-| `20260711_BROKER_COST_PROVENANCE_AUDIT.md` | blocker cost-data hiện tại và điều kiện mở lại |
-| `SONIC_SOURCE_INVENTORY.md`, `SONIC_RULES_MATRIX.md`, `SONIC_PARITY_SPEC.md` | spec source-parity của Sonic |
-| `label_packets/`, `mt5_snapshot/` | nhãn chart-state đã khóa và snapshot |
-| các file `*_READOUT.md` có ngày | kết quả thí nghiệm cũ (registry row trỏ tới) |
+| `CANDIDATE_REGISTRY.jsonl` + `.schema.json` + `validate_candidate_registry.py` | ledger nghiên cứu FX; TRƯỚC mọi run có ý nghĩa: append/validate row hypothesis — **path archived**, not active surface |
+| `PREREG_TEMPLATE.md`, `READOUT_TEMPLATE.md` | viết prereg hoặc readout (archive copy) |
+| `preregs/`, `readouts/`, `preflight/` | prereg/readout/preflight lịch sử (registry row trỏ tới) |
+| `20260710_EA_FAILURE_PORTFOLIO_AUDIT.md` | audit frontier 217 runs / 34 EA |
+| chi tiết file dated khác | xem folder archive; INDEX không còn liệt kê từng readout như surface active |
 
-## Source EA — `03. EA Developer/` (active only)
+## Source EA — `03. EA Developer/` (active shelf **empty**)
 
 | Path | Ghi chú |
 |---|---|
-| `EA_SonicR/EA_SonicR.mq5` | source Sonic canonical (research-only) |
-| `EA_SonicR/Include/SNR_Telemetry.mqh` | writer lifecycle `sonic_telemetry.v3` (emitter v3 duy nhất) |
-| `EA_SonicR/research/` | research ledger toàn workspace — **không archive**; registry/prereg/readout ở đây |
-| `EA_SilverBullet/EA_SilverBullet_v2.mq5` | source SilverBullet đã pin bởi shared runner contract; Index/`*_backup*` đã archive — xem package `README.md` |
-| `EA_SilverBullet/README.md` / `EA_SonicR/README.md` | pointer package-level (lane + pin / research-only) |
-| `00. Old File/EA_Archive/` | **119** package EA shelf/failed/duplicate (2026-07-15) + `EA_SilverBullet_dead_siblings/`; không phải nguồn compile/evidence hợp lệ; xem `MANIFEST_20260715_workspace_cleanup.json` |
+| `03. EA Developer/README.md` | active shelf empty (2026-07-15); pointer tới Old File + `hot.md` |
+| `00. Old File/EA_Archive/EA_SonicR/` | full SonicR package + research ledger (archived) |
+| `00. Old File/EA_Archive/EA_SilverBullet/` | full SilverBullet package (archived) |
+| `00. Old File/EA_Archive/` | shelf/failed/duplicate packages + manifests; **không** compile làm evidence |
 
 ## AlphaFactory — `02. AlphaFactory/`
 
@@ -132,23 +95,18 @@ lane mới — không cập nhật cho từng run/readout mới.
 | `DECISION_FRAMEWORK.md` | cây quyết định ITERATE/PIVOT/ABANDON (impl: `analysis/decision_framework.py`) |
 | `tools/` (còn lại) | probe/analyzer; tên file tự mô tả |
 
-## Tests — `tests/`
+## Tests — archived
 
-Bộ pytest/unittest + `runner/runner_contract_tests.ps1` bảo vệ pipeline:
-candidate registry, non-repaint audit, validation hardening, verified cost
-builder, runner contract, SilverBullet exposure controls (pin
-`EA_SilverBullet_v2.mq5`), signal equivalence.
-Path EA chỉ còn `EA_SonicR` + `EA_SilverBullet` dưới `03. EA Developer/`.
-Chạy trước khi tin bất kỳ thay đổi framework nào. MT5 live không bắt buộc
-cho smoke contract/path.
+Root `tests/` đã chuyển (2026-07-15) →
+`00. Old File/tests_archive/tests_20260715/`.
+Không còn bộ test active ở root. Harness AlphaFactory vẫn ở
+`02. AlphaFactory/`.
 
 ## Phần còn lại
 
 | Path | Ghi chú |
 |---|---|
-| `README-SONIC-R.md` | pointer Sonic hiện tại (không còn knowledge dump); lịch sử → `00. Old File/docs_archive/` |
-| `SYNC_REPORT.md` | stub trỏ archive; report lean-copy 2026-06-21 → `00. Old File/docs_archive/SYNC_REPORT_20260621.md` |
 | `docs/` | report độc lập: E8 symbol audit, EA audit, paper deploy guide, TraderViet research control, `handoff/` |
-| `AlphaTester/<run_id>/` | thư mục config tester thô của đợt 2026-06-21; bản evidence đã phân tích nằm ở `02. AlphaFactory/runs/` |
-| `00. Old File/` | **một nhà archive** — README + `EA_Archive/` + `docs_archive/` + `agent_guidance_archive/` + `git_metadata_archive/`; KHÔNG BAO GIỜ là nguồn compile/evidence hợp lệ |
-| `04. Project Control/ai/cleanup_receipts/` | receipt cleanup (gồm `20260715_workspace_ea_archive.json`, `20260715_stale_surface_cleanup*`); mở khi audit move/xóa/giữ |
+| `00. Old File/` | **một nhà archive** — `EA_Archive/` + `docs_archive/` + `tests_archive/` + `agent_guidance_archive/` + `git_metadata_archive/`; KHÔNG BAO GIỜ là nguồn compile/evidence hợp lệ |
+| `00. Old File/docs_archive/` | gồm `README-SONIC-R*` (historical + pointer stub) và `SYNC_REPORT*` — **không** còn file README/SYNC ở root |
+| `04. Project Control/ai/cleanup_receipts/` | receipt cleanup (gồm archive moves 2026-07-15); mở khi audit move/xóa/giữ |

@@ -1,6 +1,0 @@
-{
-  "schema_version": "alphafactory_cost_source_manifest.v1",
-  "hypothesis_id": "HYP-CADENCE-BOOK-M15-001",
-  "status": "UNVERIFIED_TESTER_DEFAULT",
-  "note": "Missing/zero cost fields must NOT be treated as zero friction. Screen PF is tester-reported only."
-}

@@ -1,6 +1,15 @@
 # Source of Truth Registry
 
-Updated: 2026-07-13
+Updated: 2026-07-15
+
+> **Path relocation (Owner 2026-07-15):** Active EA Developer shelf is empty.
+> Former `03. EA Developer/EA_SonicR/` (incl. research ledger) and
+> `EA_SilverBullet/` live under `00. Old File/EA_Archive/`. Root
+> `README-SONIC-R.md`, `SYNC_REPORT.md`, and `tests/` are archived under
+> `00. Old File/docs_archive/` and `tests_archive/`. Rows below that still
+> cite `03. EA Developer/EA_SonicR/...` refer to the **archived** copies at
+> `00. Old File/EA_Archive/EA_SonicR/...` — not active surface. Defer to
+> `hot.md` / `INDEX.md` for live paths.
 
 ## Priority order
 1. Fresh code and generated run artifacts
@@ -10,7 +19,7 @@ Updated: 2026-07-13
 5. This registry and `04. Project Control/ai/source_of_truth.json`
 6. `04. Project Control/ai/ea_engineering_standard.md`
 7. `AGENTS.md`
-8. `README-SONIC-R.md`
+8. `INDEX.md` (workspace map; replaces retired root README-SONIC-R pointer)
 9. `02. AlphaFactory/STRATEGY_LOG.md`
 10. `04. Project Control/ai/decisions.md` (append-only decision journal)
 11. Archived documents
@@ -18,13 +27,13 @@ Updated: 2026-07-13
 ## Root hygiene rule
 - Keep the project root lean.
 - Root should contain only: `AGENTS.md` (cross-agent launcher), `CLAUDE.md`
-  (pointer-only Claude entry), `INDEX.md` (workspace map), the slim Sonic
-  pointer `README-SONIC-R.md` (historical dump under
-  `00. Old File/docs_archive/`), optional stub `SYNC_REPORT.md`, and the
+  (pointer-only Claude entry), `INDEX.md` (workspace map), and the
   `01. GOAL/` folder holding the Owner-frozen `GOAL.md`. The hidden
   `.codex/operator/` recovery ledger is also allowed for long-running
   operator-loop tasks, but it is operational only and always defers to
   `hot.md`.
+- Do **not** keep root stubs for `README-SONIC-R.md` or `SYNC_REPORT.md`
+  (archived under `00. Old File/docs_archive/`).
 - Root must not keep MT5 sample experts such as `ExpertMACD.mq5` or their compiled `.ex5` outputs.
 - Move retired markdown to `00. Old File/docs_archive/` (preferred) or
   `00. Old File/markdown_graveyard/`.
@@ -54,7 +63,7 @@ Updated: 2026-07-13
 | `.codex/operator/EXPERIMENTS.jsonl` | evidence | Append-only bounded-experiment ledger for the active V2 hardening task, including red-first checks, diagnoses, and stop states. |
 | `01. GOAL/GOAL.md` | authoritative | Owner-frozen north-star target: joint PF/cadence/cost-stress/exposure/evidence-window table, DONE ladder, non-goals, and probe-first operating principle. Changes only on explicit Owner decision; numeric authority remains sonic_validation_gates.md. |
 | `04. Project Control/ai/research_doctrine.md` | authoritative | Full research/validation doctrine moved out of AGENTS.md on 2026-07-11: Sonic doctrine, research workflow, registry contract, chart-state label contract, overfit budget, team review roles, MT5 non-repaint rules, and backtest hygiene. |
-| `README-SONIC-R.md` | authoritative | Slim pointer-only Sonic status (2026-07-15). Historical Obsidian dump archived at 00. Old File/docs_archive/README-SONIC-R_historical_20260711.md. Not promotion authority; defer to hot.md / INDEX / research ledger. |
+| `README-SONIC-R.md` | archived | Removed from root 2026-07-15. Pointer stub at `00. Old File/docs_archive/README-SONIC-R_pointer_stub_20260715.md`; historical dump at `README-SONIC-R_historical_20260711.md`. Not promotion authority; defer to hot.md / INDEX. |
 | `03. EA Developer/EA_SonicR/EA_SonicR.mq5` | authoritative | Canonical research-only Sonic R source. Current working tree emits sonic_telemetry.v3 lifecycle rows with OrderCalcProfit-derived initial_risk_account plus entry/exit deal components and corrected gross/net semantics; Source S/R remains blocked because InpUseSourceSrInteractionV1=false does not isolate source_sr_runway_pips from Classic decision gates. |
 | `03. EA Developer/EA_SonicR/research/20260710_EA_FAILURE_PORTFOLIO_AUDIT.md` | authoritative | Exact elapsed-calendar audit of 217 identity-valid runs across 34 EAs after excluding one cross-EA timestamp/config collision from 218 physical directories; includes failure taxonomy, zero joint PF/cadence survivors, de-duplicated research boundary, and external liquidity/mechanism basis. |
 | `03. EA Developer/EA_SonicR/research/20260710_CONTROL_PLANE_RESTORE.md` | authoritative | Receipt for the seven-file lean-checkout control-plane restore, current post-restore hashes, registry health, and local/backup/unresolved availability partition. |

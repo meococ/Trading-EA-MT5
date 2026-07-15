@@ -1,8 +1,0 @@
-{
-  "schema_version": "sonic_prereg.v1",
-  "hypothesis_id": "HYP-SB-NYPM-KZ-001",
-  "status": "FROZEN",
-  "prereg_md": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preregs\\20260714_H_SB_NYPM_KZ_001_PREREG.md",
-  "prereg_md_sha256": "7C126428CFDA49CCA02CAA51785C638447E78B0FD8763598F5200A15482911F6",
-  "overrides": "InpFridayFlatHour=21;InpFridayFlatMinute=45;InpNYPM_End=22;InpNYPM_Start=20;InpUseNYPM=1;InpUseWeekendFlat=1"
-}

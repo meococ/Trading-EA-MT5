@@ -1,8 +1,0 @@
-{
-  "schema_version": "sonic_prereg.v1",
-  "hypothesis_id": "HYP-ITSM-NYONLY-STRICTALIGN-002",
-  "status": "FROZEN",
-  "prereg_md": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preregs\\20260714_H_ITSM_NYONLY_STRICTALIGN_002_PREREG.md",
-  "prereg_md_sha256": "8FFB83E6353179027EF0253B0824BC2BD90B83487CA80E8DF0BD1930BC473841",
-  "overrides": "InpKZ1_EndH=18;InpKZ1_StartH=15;InpMaxTradesDay=2;InpRiskPct=0.5;InpRR_Ratio=2.0;InpStrictAlign=1;InpTradeFri=0;InpUseKZ2=0"
-}

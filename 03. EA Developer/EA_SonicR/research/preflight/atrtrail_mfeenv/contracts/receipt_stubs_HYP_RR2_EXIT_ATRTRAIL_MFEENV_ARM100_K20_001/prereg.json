@@ -1,7 +1,0 @@
-{
-  "hypothesis_id": "HYP-RR2-EXIT-ATRTRAIL-MFEENV-ARM100-K20-001",
-  "prereg_path": "03. EA Developer/EA_SonicR/research/preregs/20260715_H_RR2_EXIT_ATRTRAIL_MFEENV_ARM100_K20_001_PREREG.md",
-  "frozen": true,
-  "probe_sha256": "1626718918088C2ED1EB1F24DD879BDB0ADA48338DADDACBB80E042923855B3B",
-  "offline_authority": "mfe_envelope_proxy_not_deployable"
-}
