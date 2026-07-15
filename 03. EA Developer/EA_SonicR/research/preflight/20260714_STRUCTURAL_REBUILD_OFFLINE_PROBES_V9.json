@@ -1,0 +1,102 @@
+{
+  "schema_version": "sonic_structural_offline_probes.v9",
+  "created_at_utc": "2026-07-14T16:30:01.446013Z",
+  "status": "OFFLINE_FIRST_V9_COMPLETE",
+  "honesty": "NOT_MODEL0_NOT_CONFIRMED_NOT_GOAL",
+  "server": "FivePercentOnline-Real",
+  "login": 26451822,
+  "dedup": "readouts/20260714_STRUCTURAL_V9_DEDUP_CLEARANCE.md",
+  "prior": "dichotomy_break 3/3 KILL; V8 empty; RR2 231750 PARK_MISS",
+  "probes": [
+    {
+      "hypothesis_id": "HYP-CHFJPY-H1-DISPLACE-CONT-001",
+      "symbol": "CHFJPY",
+      "tf": "H1",
+      "funnel": {
+        "n_displace": 1730,
+        "n_trades": 1730
+      },
+      "metrics": {
+        "n": 1730,
+        "pf": 1.077329381536491,
+        "tpw": 6.631982517392693,
+        "exp": 24.482202850613728,
+        "net": 42354.21093156175,
+        "pf_x15_cost": 1.019834144216033,
+        "pf_real_p50_haircut": 1.0697450495810767,
+        "real_p50_usd": 2.31
+      },
+      "kill_notes": [
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-USDJPY-H1-EXPANSION-BAR-CONT-001",
+      "symbol": "USDJPY",
+      "tf": "H1",
+      "funnel": {
+        "n_exp": 665,
+        "n_trades": 664
+      },
+      "metrics": {
+        "n": 664,
+        "pf": 1.2350187514591122,
+        "tpw": 2.5454545615888717,
+        "exp": 63.14100742713478,
+        "net": 41925.628931617495,
+        "pf_x15_cost": 1.1619564493586108,
+        "pf_real_p50_haircut": 1.2253535789545753,
+        "real_p50_usd": 2.31
+      },
+      "kill_notes": [
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-NZDUSD-H1-ASIA-RANGE-LONDON-FAIL-001",
+      "symbol": "NZDUSD",
+      "tf": "H1",
+      "funnel": {
+        "n_days": 1300,
+        "n_break": 1177,
+        "n_fail": 488,
+        "n_trades": 0
+      },
+      "metrics": {
+        "n": 0,
+        "pf": 0.0,
+        "tpw": 0.0,
+        "exp": 0.0,
+        "net": 0.0,
+        "pf_x15_cost": 0.0,
+        "pf_real_p50_haircut": 0.0,
+        "real_p50_usd": 2.31
+      },
+      "kill_notes": [
+        "n_fail",
+        "cadence_fail",
+        "pf_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD"
+    }
+  ],
+  "offline_survivors": [],
+  "offline_parks": [],
+  "any_model0_authorized": false,
+  "phase0_compose": "BLOCKED_REQUIRES_CLEAN_FUTURE_FREEZE_REVIEW",
+  "best_shelf": "RR2 20260714_194548 (historical); current Model0 231750 weaker",
+  "banned": [
+    "densify_rr2_maxkz_atr_spark_session",
+    "retune_v1_v8",
+    "retune_dichotomy_be_yield_corrcap",
+    "model0_on_kill",
+    "h4_outside_rerun"
+  ]
+}

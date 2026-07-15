@@ -1,0 +1,77 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-SB-NYPM-KZ-001",
+  "task_packet_sha256": "C3B1012ED646A2572E13269A61E86011E26E0D2B3455DC5087DD3960C915E9FE",
+  "git_commit": "NOGIT-AA014D4BB929F2EB8DC9BDBBC960770F9BF9E5894D504BD59E8D0FF2D92A4311",
+  "git_status_sha256": "4BBBA9F882DF1AF7F5F4A5C87928BBCF4ED4EF39F2422BF1DB3BC44159096AAF",
+  "binding": {
+    "hypothesis_id": "HYP-SB-NYPM-KZ-001",
+    "run_role": "challenger",
+    "ea_name": "EA_SilverBullet",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpFridayFlatHour=21;InpFridayFlatMinute=45;InpNYPM_End=22;InpNYPM_Start=20;InpUseNYPM=1;InpUseWeekendFlat=1",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "11D91B847EB954EA093829A93798F6A7CEB2147C20F30654D8A74B01C0E246BF"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\rebuild_campaign\\sb_nypm\\contracts\\receipt_stubs_HYP_SB_NYPM_KZ_001\\task_packet.json",
+      "sha256": "C3B1012ED646A2572E13269A61E86011E26E0D2B3455DC5087DD3960C915E9FE"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SilverBullet\\EA_SilverBullet_v2.mq5",
+      "sha256": "631F8DCEBACFC9E07CD527BCAE53F745B53121E7DC67281BAE5A9A620D9BF642"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\rebuild_campaign\\sb_nypm\\contracts\\receipt_stubs_HYP_SB_NYPM_KZ_001\\prereg.json",
+      "sha256": "DB14BF13619129DEA6279CD80C8A533CD0880CB549B5B908C4A9980703FA900B"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\rebuild_campaign\\sb_nypm\\contracts\\receipt_stubs_HYP_SB_NYPM_KZ_001\\cost_source_manifest.json",
+      "sha256": "AC645D82694EE718EF3E9A080FE69B5A5B4E43B204F991DF3FA144050BA432E4"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\rebuild_campaign\\sb_nypm\\contracts\\receipt_stubs_HYP_SB_NYPM_KZ_001\\include_note.txt",
+      "sha256": "DB6F02BF1080A77B9F781AF86966A80EB0E676763E3343F4EBEC219981CE5D6E"
+    },
+    {
+      "label": "matched_control_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_SilverBullet\\20260714_002505\\run_manifest.json",
+      "sha256": "5F0E81939F4FE02554ACBFD878FA00C4F110B7A13C9CBB12D9729EEB2DBFC9B2"
+    },
+    {
+      "label": "matched_control_report",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_SilverBullet\\20260714_002505\\report.html",
+      "sha256": "A4208F42C6B56B069CE538590EBF2D302A58FDF89EB715BD9D29E89613711BF9"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T12:20:00Z",
+  "note": "SB NYPM session expand + A1 weekend-flat; Deposit 100000."
+}

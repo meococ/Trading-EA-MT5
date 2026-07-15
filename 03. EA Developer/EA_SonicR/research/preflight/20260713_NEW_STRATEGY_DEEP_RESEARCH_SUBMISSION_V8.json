@@ -1,0 +1,32 @@
+{
+  "schema_version": "alphafactory.deep_research_submission_receipt.v1",
+  "date": "2026-07-13",
+  "status": "BLOCKED_BY_BROWSER_AUTH",
+  "conversation_url": null,
+  "prompt": {
+    "path": "03. EA Developer/EA_SonicR/research/20260713_NEW_STRATEGY_DEEP_RESEARCH_DATA_CONTRACT_V8.md",
+    "sha256": "DFC7B7F7923E4437B8735EB7F971941B6EBE801057A78B7160CB01576CF8401F",
+    "utf8_bytes": 12009,
+    "source_character_count": 11960
+  },
+  "attempt": {
+    "browser_url_observed": "https://chatgpt.com/auth/login",
+    "page_title": "Get started | ChatGPT",
+    "login_required": true,
+    "ui_readback_completed": false,
+    "submitted": false
+  },
+  "rates_prep": {
+    "readiness_readout": "03. EA Developer/EA_SonicR/research/readouts/20260713_V8_G3_RATES_PANEL_READINESS.md",
+    "panel_manifest": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/manifests/20260713_V8_G3_RATES_PANEL_READINESS_V1.json",
+    "lag_contract": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/contracts/20260713_V8_RATES_AVAILABLE_AT_UTC_CONTRACT_V1.json"
+  },
+  "authorization": {
+    "offline_probe": false,
+    "candidate_registry_or_prereg": false,
+    "ea_code_compile_backtest": false,
+    "promotion": false,
+    "live_trading": false
+  },
+  "owner_next_action": "Log in to ChatGPT in Browser, then resume V8 Deep Research submit with GPT-5.6 Sol + Pro + Nghien cuu sau UI readback."
+}

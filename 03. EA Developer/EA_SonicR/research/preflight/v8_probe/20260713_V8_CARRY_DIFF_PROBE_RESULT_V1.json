@@ -1,0 +1,65 @@
+{
+  "schema": "v8_carry_differential_offline_probe.v1",
+  "created_at_utc": "2026-07-13T16:35:52.600615+00:00",
+  "status": "KILL_AT_OFFLINE_PROBE",
+  "mt5_server": "MetaQuotes-Demo",
+  "note": "MetaQuotes-Demo falsification only; not FivePercentOnline-Real cost provenance. Not Strategy Tester. Not EA authority unless PROBE_SURVIVOR and separate prereg/cost gates.",
+  "design_frozen": {
+    "symbols": [
+      "EURUSD",
+      "GBPUSD",
+      "USDJPY"
+    ],
+    "timeframe": "D1",
+    "rebalance": "Friday_close",
+    "stress_a_pips": 1.5,
+    "stress_b_pips": 3.0,
+    "train": [
+      "2018-01-01",
+      "2022-12-31"
+    ],
+    "holdout": [
+      "2023-01-01",
+      "2025-12-31"
+    ],
+    "control": "20d_lagged_spot_return_rank_portfolio"
+  },
+  "train_candidate": {
+    "trades": 13,
+    "trades_per_week": 0.04986301369863014,
+    "expectancy_gross_pips": 123.0076923076922,
+    "expectancy_a_pips": 121.5076923076922,
+    "pf_gross": 1.7636580706781275,
+    "pf_stress_a": 1.7511174512601042,
+    "pf_stress_b": 1.7386837121212118,
+    "sum_net_a_pips": 1579.5999999999985,
+    "sum_net_b_pips": 1560.0999999999985
+  },
+  "train_control": {
+    "trades": 86,
+    "trades_per_week": 0.32986301369863014,
+    "expectancy_gross_pips": -7.4197674418605395,
+    "expectancy_a_pips": -8.91976744186054,
+    "pf_gross": 0.9150457323161713,
+    "pf_stress_a": 0.8988608496163271,
+    "pf_stress_b": 0.8829866415951729,
+    "sum_net_a_pips": -767.1000000000064,
+    "sum_net_b_pips": -896.1000000000064
+  },
+  "holdout_candidate": null,
+  "holdout_control": null,
+  "train_pass": false,
+  "kill_reasons": [
+    "train_trades<80",
+    "train_cadence_below_structural_floor"
+  ],
+  "trades_csv": "03. EA Developer/EA_SonicR/research/preflight/v8_probe/20260713_V8_CARRY_DIFF_PROBE_TRADES_V1.csv",
+  "trades_csv_sha256": "d304ca1ab02f2cda4c993a00f52c4d8684fa70ff1f88c6ae9da1fe0bc70d601e",
+  "authority_flags": {
+    "registry_append_authorized": false,
+    "prereg_freeze_authorized": false,
+    "ea_build_authorized": false,
+    "compile_authorized": false,
+    "backtest_authorized": false
+  }
+}

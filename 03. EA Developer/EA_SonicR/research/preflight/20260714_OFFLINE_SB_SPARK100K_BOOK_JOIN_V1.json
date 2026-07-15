@@ -1,0 +1,75 @@
+{
+  "probe_id": "OFFLINE_SB_SPARK100K_BOOK_JOIN_V1",
+  "generated_at_ict": "2026-07-14 19:39:07",
+  "spark_compare": {
+    "spark_10k_run": "20260714_002614",
+    "spark_10k": {
+      "n": 325,
+      "pf": 1.3053,
+      "net": 1099.38
+    },
+    "spark_100k_run": "20260714_193358",
+    "spark_100k": {
+      "n": 325,
+      "pf": 1.3804,
+      "net": 9350.59,
+      "report_sha256": "8E655DB0E5537F99CEB9ED7560D472FC8F45E6D862F5495A0B965D82BBDE9357"
+    },
+    "note": "Deposit=100000 twin landed run 20260714_193358; N identical 325; PF rose 1.31->~1.38; net ~8.5x not 10x so CAPNORM\u00d710 was imperfect."
+  },
+  "books": [
+    {
+      "book_id": "BOOK-A1-SPARK100K",
+      "sb_run": "20260714_002505",
+      "spark_run": "20260714_193358",
+      "spark_deposit": 100000,
+      "capnorm_applied": false,
+      "n": 845,
+      "pf": 1.363,
+      "net": 17226.52,
+      "tpw": 3.2411,
+      "expectancy": 20.3864,
+      "cadence_ok": true,
+      "pf_ok": true,
+      "pf_h0": 1.363,
+      "pf_h1": 1.3422,
+      "pf_h2": 1.3217,
+      "pf_h3": 1.3016,
+      "pf_h5": 1.2625,
+      "pf_x1": 1.363,
+      "pf_x1.5": 0.9086,
+      "pf_x2": 0.6815,
+      "capnorm10_proxy_pf": 1.3204,
+      "capnorm10_proxy_net": 18869.73
+    },
+    {
+      "book_id": "BOOK-MAXKZ2-SPARK100K",
+      "sb_run": "20260714_192304",
+      "spark_run": "20260714_193358",
+      "spark_deposit": 100000,
+      "capnorm_applied": false,
+      "n": 871,
+      "pf": 1.3572,
+      "net": 17473.68,
+      "tpw": 3.3408,
+      "expectancy": 20.0616,
+      "cadence_ok": true,
+      "pf_ok": true,
+      "pf_h0": 1.3572,
+      "pf_h1": 1.3364,
+      "pf_h2": 1.316,
+      "pf_h3": 1.296,
+      "pf_h5": 1.2569,
+      "pf_x1": 1.3572,
+      "pf_x1.5": 0.9048,
+      "pf_x2": 0.6786,
+      "capnorm10_proxy_pf": 1.3168,
+      "capnorm10_proxy_net": 19116.89
+    }
+  ],
+  "cost_grade": "UNVERIFIED_TESTER_DEFAULT",
+  "confirmed": false,
+  "goal": "UNMET",
+  "closeout_note": "Alpha closeout threw includes_sha256 mismatch after report ready; artifacts kept; analyze completed.",
+  "result_sha256": "10FA68A325F27B18CE875526699DD7786E694136C297070200A450E4C8DF8E44"
+}

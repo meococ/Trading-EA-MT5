@@ -1,0 +1,112 @@
+{
+  "schema_version": "qfsi_capture_hash_manifest.v1",
+  "capture_id": "20260714_QFSI_REAL_001",
+  "created_at_utc": "2026-07-14T13:51:31.461574Z",
+  "files": [
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/20260714_QFSI_REAL_001.manifest.json",
+      "bytes": 4879,
+      "sha256": "BCE364CB5016359D8401B6F23118209AB24E780D1105FC40E8C99FA4FD7F19AD"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/commission_lifecycles.csv",
+      "bytes": 358,
+      "sha256": "96D54DA8120053F1B1079B022FCF29E066E8D842B915B8EA6C7EF68B0C915B68"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/EURUSD_commission_lifecycles.csv",
+      "bytes": 358,
+      "sha256": "96D54DA8120053F1B1079B022FCF29E066E8D842B915B8EA6C7EF68B0C915B68"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/EURUSD_heartbeats.csv",
+      "bytes": 7998,
+      "sha256": "B7776BA340EA0CB9882240412A7641511B35843D83E1CA1EC8834B16083E2962"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/EURUSD_quote_ticks.csv",
+      "bytes": 7087,
+      "sha256": "5EBF417D4594D5354D9F59EC231151DC619F7E0B6F81B51DA84A7D5C152BA8C0"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/EURUSD_slippage_fills.csv",
+      "bytes": 129,
+      "sha256": "C34C307FF1E82F94EFB18E080DE3767847F8FCAABE70D76873B0DDF484DEE40F"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/GBPUSD_commission_lifecycles.csv",
+      "bytes": 118,
+      "sha256": "9FB718CD6313AB52DEA959284C99AA741280D05983A1252B8065698D16902AC4"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/GBPUSD_heartbeats.csv",
+      "bytes": 7998,
+      "sha256": "B7776BA340EA0CB9882240412A7641511B35843D83E1CA1EC8834B16083E2962"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/GBPUSD_quote_ticks.csv",
+      "bytes": 10140,
+      "sha256": "BC68CDB354AFE47D700E64185671DEE6C150F2F74509D6C00664E1FBF68235B6"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/GBPUSD_slippage_fills.csv",
+      "bytes": 129,
+      "sha256": "C34C307FF1E82F94EFB18E080DE3767847F8FCAABE70D76873B0DDF484DEE40F"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/session_end.json",
+      "bytes": 1126,
+      "sha256": "29078E1132F7992039CAD621EEEEB0215135BDDC752BC45C00841D2CCD220A0F"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/session_start.json",
+      "bytes": 860,
+      "sha256": "2615C37CEFCDCDF1E1430F97CD90975833A9B77190F902FE190EA77E3A444F73"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/slippage_fills.csv",
+      "bytes": 129,
+      "sha256": "C34C307FF1E82F94EFB18E080DE3767847F8FCAABE70D76873B0DDF484DEE40F"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/USDJPY_commission_lifecycles.csv",
+      "bytes": 118,
+      "sha256": "9FB718CD6313AB52DEA959284C99AA741280D05983A1252B8065698D16902AC4"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/USDJPY_heartbeats.csv",
+      "bytes": 7998,
+      "sha256": "B7776BA340EA0CB9882240412A7641511B35843D83E1CA1EC8834B16083E2962"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/USDJPY_quote_ticks.csv",
+      "bytes": 8473,
+      "sha256": "F98A4336816738817E9BF9B7C04E7A3985A175428FDEC1B91791142AB1E8905A"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/USDJPY_slippage_fills.csv",
+      "bytes": 129,
+      "sha256": "C34C307FF1E82F94EFB18E080DE3767847F8FCAABE70D76873B0DDF484DEE40F"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/XAUUSD_commission_lifecycles.csv",
+      "bytes": 118,
+      "sha256": "9FB718CD6313AB52DEA959284C99AA741280D05983A1252B8065698D16902AC4"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/XAUUSD_heartbeats.csv",
+      "bytes": 7998,
+      "sha256": "B7776BA340EA0CB9882240412A7641511B35843D83E1CA1EC8834B16083E2962"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/XAUUSD_quote_ticks.csv",
+      "bytes": 78202,
+      "sha256": "FF7BCF36FA5665C2E14BEDE9B82BD50CBA5BDF0C73156DF62C49B969A3DF44F6"
+    },
+    {
+      "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/XAUUSD_slippage_fills.csv",
+      "bytes": 129,
+      "sha256": "C34C307FF1E82F94EFB18E080DE3767847F8FCAABE70D76873B0DDF484DEE40F"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "sonic_research_task_packet.v1",
+  "hypothesis_id": "HYP-H4-STRUCT-BREAK-M15-001",
+  "ea_name": "EA_H4StructBreak_M15",
+  "symbol": "USDJPY",
+  "period": "M15",
+  "from": "2021.01.01",
+  "to": "2025.12.31",
+  "model": 0,
+  "run_role": "control",
+  "overrides": "",
+  "note": "Empty-shelf rebuild; H4 swing BOS + M15 accept; not H1-BOS EMA densify."
+}

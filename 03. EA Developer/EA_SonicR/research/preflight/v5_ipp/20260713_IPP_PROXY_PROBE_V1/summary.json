@@ -1,0 +1,1972 @@
+{
+  "schema_version": "alphafactory_impact_pressure_probe.v1",
+  "created_at_utc": "2026-07-13T14:07:46.365945Z",
+  "producer": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\tools\\impact_pressure_probe.py",
+    "sha256": "ADC18F5A795C103D89459DCF9ECF4828BF203249B144D9B1FB0982C902FAA6FB"
+  },
+  "status": "RESEARCH_ONLY_WRONG_BROKER_ALLOWED_FOR_FALSIFICATION",
+  "contract": {
+    "symbols": [
+      "EURUSD",
+      "GBPUSD"
+    ],
+    "timeframe": "M15",
+    "warmup_start": "2017-12-01T00:00:00Z",
+    "train": [
+      "2018-01-01T00:00:00Z",
+      "2023-01-01T00:00:00Z"
+    ],
+    "holdout": [
+      "2023-01-01T00:00:00Z",
+      "2026-01-01T00:00:00Z"
+    ],
+    "k": 2.7,
+    "c": 1.5,
+    "n_min": 30,
+    "stop_move_multiple": 0.5,
+    "target_move_multiple": 1.0,
+    "time_stop_bars": 2,
+    "same_bar_both_hit_policy": "ADVERSE_FIRST",
+    "stress_a_pips_round_turn": 0.8,
+    "stress_b_pips_round_turn": 1.2,
+    "control": "robust-z close-to-close return; train threshold matched to primary train signal count"
+  },
+  "proxy_identity_warning": {
+    "q_definition": "sign(mid_t-mid_t-1)",
+    "independent_order_flow_observed": false,
+    "interpretation": "price-path transform; cited institutional order-flow evidence does not transfer automatically"
+  },
+  "control_matching": {
+    "threshold": 2.0975609756099023,
+    "primary_train_signal_count": 50058,
+    "control_train_signal_count": 50058
+  },
+  "mt5": {
+    "observed_server": "MetaQuotes-Demo",
+    "server_fingerprint": "6B2CF3592011606B05543645EA987CD8B77DB6264DA64BAA7632667E6FB7F678",
+    "account_fingerprint": "20FA8E65C4AEF600A4345F512A66A0AFF51E84163FC7732238E44F87FEAFC13F",
+    "terminal_build": 5999,
+    "terminal_connected": true,
+    "terminal_trade_allowed": false,
+    "coverage": {
+      "EURUSD": {
+        "months": [
+          {
+            "month": "2017-12",
+            "ticks": 1674856,
+            "bars": 1896,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-01",
+            "ticks": 3529740,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-02",
+            "ticks": 3502477,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-03",
+            "ticks": 2911686,
+            "bars": 2104,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-04",
+            "ticks": 2447601,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-05",
+            "ticks": 3819713,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-06",
+            "ticks": 3533124,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-07",
+            "ticks": 2948642,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-08",
+            "ticks": 2485529,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-09",
+            "ticks": 2046592,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-10",
+            "ticks": 2720448,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-11",
+            "ticks": 2446224,
+            "bars": 2108,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-12",
+            "ticks": 2298358,
+            "bars": 1880,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-01",
+            "ticks": 2399507,
+            "bars": 2088,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-02",
+            "ticks": 1784592,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-03",
+            "ticks": 2009563,
+            "bars": 2004,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-04",
+            "ticks": 1662416,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-05",
+            "ticks": 1800455,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-06",
+            "ticks": 1801181,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-07",
+            "ticks": 1439468,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-08",
+            "ticks": 2170292,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-09",
+            "ticks": 1488781,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-10",
+            "ticks": 1305870,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-11",
+            "ticks": 895163,
+            "bars": 2012,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-12",
+            "ticks": 906354,
+            "bars": 1976,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-01",
+            "ticks": 998974,
+            "bars": 2088,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-02",
+            "ticks": 1149711,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-03",
+            "ticks": 4488814,
+            "bars": 2100,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-04",
+            "ticks": 3350459,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-05",
+            "ticks": 1535981,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-06",
+            "ticks": 2020380,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-07",
+            "ticks": 1515791,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-08",
+            "ticks": 1428426,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-09",
+            "ticks": 1433598,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-10",
+            "ticks": 1295336,
+            "bars": 2108,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-11",
+            "ticks": 1612719,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-12",
+            "ticks": 2080933,
+            "bars": 2093,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-01",
+            "ticks": 2098591,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-02",
+            "ticks": 1937579,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-03",
+            "ticks": 2475243,
+            "bars": 2200,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-04",
+            "ticks": 1378179,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-05",
+            "ticks": 1265243,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-06",
+            "ticks": 1635134,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-07",
+            "ticks": 1833640,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-08",
+            "ticks": 1311589,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-09",
+            "ticks": 1617201,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-10",
+            "ticks": 1625631,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-11",
+            "ticks": 1818793,
+            "bars": 2108,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-12",
+            "ticks": 1404098,
+            "bars": 2193,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-01",
+            "ticks": 1308709,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-02",
+            "ticks": 2120411,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-03",
+            "ticks": 2852379,
+            "bars": 2200,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-04",
+            "ticks": 1982161,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-05",
+            "ticks": 2349081,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-06",
+            "ticks": 2600019,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-07",
+            "ticks": 2898285,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-08",
+            "ticks": 2607912,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-09",
+            "ticks": 2953900,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-10",
+            "ticks": 3324023,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-11",
+            "ticks": 3072160,
+            "bars": 2108,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-12",
+            "ticks": 2519711,
+            "bars": 2076,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-01",
+            "ticks": 2319302,
+            "bars": 2084,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-02",
+            "ticks": 1924722,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-03",
+            "ticks": 2344858,
+            "bars": 2200,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-04",
+            "ticks": 1243397,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-05",
+            "ticks": 1482119,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-06",
+            "ticks": 1396008,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-07",
+            "ticks": 1447607,
+            "bars": 2010,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-08",
+            "ticks": 1754320,
+            "bars": 2207,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-09",
+            "ticks": 1466652,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-10",
+            "ticks": 1806035,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-11",
+            "ticks": 1304933,
+            "bars": 2108,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-12",
+            "ticks": 2807176,
+            "bars": 1928,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-01",
+            "ticks": 5704158,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-02",
+            "ticks": 3389037,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-03",
+            "ticks": 1761989,
+            "bars": 2003,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-04",
+            "ticks": 1268346,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-05",
+            "ticks": 871325,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-06",
+            "ticks": 812930,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-07",
+            "ticks": 1055073,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-08",
+            "ticks": 1096042,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-09",
+            "ticks": 1067725,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-10",
+            "ticks": 1073478,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-11",
+            "ticks": 1214783,
+            "bars": 2012,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-12",
+            "ticks": 1095533,
+            "bars": 2017,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-01",
+            "ticks": 1191723,
+            "bars": 2105,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-02",
+            "ticks": 1134021,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-03",
+            "ticks": 1610626,
+            "bars": 2004,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-04",
+            "ticks": 3184487,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-05",
+            "ticks": 2291339,
+            "bars": 2072,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-06",
+            "ticks": 2141447,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-07",
+            "ticks": 1861976,
+            "bars": 2155,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-08",
+            "ticks": 1546576,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-09",
+            "ticks": 1279764,
+            "bars": 2111,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-10",
+            "ticks": 1277598,
+            "bars": 2204,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-11",
+            "ticks": 1121792,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-12",
+            "ticks": 1544246,
+            "bars": 2110,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          }
+        ],
+        "empty_months": [],
+        "ticks": 191822569,
+        "bars": 200752,
+        "eligible_bars": 126037
+      },
+      "GBPUSD": {
+        "months": [
+          {
+            "month": "2017-12",
+            "ticks": 2683843,
+            "bars": 1880,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-01",
+            "ticks": 4206759,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-02",
+            "ticks": 3903186,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-03",
+            "ticks": 3465762,
+            "bars": 2105,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-04",
+            "ticks": 2771205,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-05",
+            "ticks": 4016963,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-06",
+            "ticks": 3488263,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-07",
+            "ticks": 3148305,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-08",
+            "ticks": 2921589,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-09",
+            "ticks": 2602191,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-10",
+            "ticks": 3948093,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-11",
+            "ticks": 3550481,
+            "bars": 2108,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2018-12",
+            "ticks": 3270700,
+            "bars": 1880,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-01",
+            "ticks": 3352062,
+            "bars": 2088,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-02",
+            "ticks": 2791103,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-03",
+            "ticks": 3467242,
+            "bars": 2004,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-04",
+            "ticks": 3073203,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-05",
+            "ticks": 3006012,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-06",
+            "ticks": 3021561,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-07",
+            "ticks": 2344415,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-08",
+            "ticks": 3188189,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-09",
+            "ticks": 2502406,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-10",
+            "ticks": 2373753,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-11",
+            "ticks": 1398727,
+            "bars": 2012,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2019-12",
+            "ticks": 1501146,
+            "bars": 1978,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-01",
+            "ticks": 1698351,
+            "bars": 2088,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-02",
+            "ticks": 1876627,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-03",
+            "ticks": 4309184,
+            "bars": 2100,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-04",
+            "ticks": 3039123,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-05",
+            "ticks": 1740676,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-06",
+            "ticks": 2140715,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-07",
+            "ticks": 1374097,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-08",
+            "ticks": 1287077,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-09",
+            "ticks": 1492435,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-10",
+            "ticks": 1416807,
+            "bars": 2108,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-11",
+            "ticks": 2978270,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2020-12",
+            "ticks": 2926248,
+            "bars": 2093,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-01",
+            "ticks": 2727858,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-02",
+            "ticks": 2672598,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-03",
+            "ticks": 3124938,
+            "bars": 2200,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-04",
+            "ticks": 1623071,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-05",
+            "ticks": 1665297,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-06",
+            "ticks": 2258683,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-07",
+            "ticks": 2346917,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-08",
+            "ticks": 1479149,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-09",
+            "ticks": 2147084,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-10",
+            "ticks": 2229647,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-11",
+            "ticks": 2704341,
+            "bars": 2108,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2021-12",
+            "ticks": 1575809,
+            "bars": 2193,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-01",
+            "ticks": 1811039,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-02",
+            "ticks": 2400343,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-03",
+            "ticks": 2948169,
+            "bars": 2200,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-04",
+            "ticks": 2202194,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-05",
+            "ticks": 2762649,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-06",
+            "ticks": 2887930,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-07",
+            "ticks": 3170567,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-08",
+            "ticks": 2861007,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-09",
+            "ticks": 3855283,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-10",
+            "ticks": 5478933,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-11",
+            "ticks": 5487210,
+            "bars": 2108,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2022-12",
+            "ticks": 2563633,
+            "bars": 2076,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-01",
+            "ticks": 2195055,
+            "bars": 2084,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-02",
+            "ticks": 2858942,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-03",
+            "ticks": 3313458,
+            "bars": 2200,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-04",
+            "ticks": 2114596,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-05",
+            "ticks": 2274386,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-06",
+            "ticks": 2552302,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-07",
+            "ticks": 2390180,
+            "bars": 2012,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-08",
+            "ticks": 3184159,
+            "bars": 2207,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-09",
+            "ticks": 2328597,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-10",
+            "ticks": 3069064,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-11",
+            "ticks": 2217206,
+            "bars": 2108,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2023-12",
+            "ticks": 2505976,
+            "bars": 1930,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-01",
+            "ticks": 4938581,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-02",
+            "ticks": 2751025,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-03",
+            "ticks": 1531928,
+            "bars": 2003,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-04",
+            "ticks": 1395597,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-05",
+            "ticks": 1013401,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-06",
+            "ticks": 869696,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-07",
+            "ticks": 956122,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-08",
+            "ticks": 1083522,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-09",
+            "ticks": 1159456,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-10",
+            "ticks": 1273069,
+            "bars": 2208,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-11",
+            "ticks": 1419423,
+            "bars": 2012,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2024-12",
+            "ticks": 1209243,
+            "bars": 2017,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-01",
+            "ticks": 1351706,
+            "bars": 2105,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-02",
+            "ticks": 1351870,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-03",
+            "ticks": 1674814,
+            "bars": 2004,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-04",
+            "ticks": 2945926,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-05",
+            "ticks": 2200329,
+            "bars": 2069,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-06",
+            "ticks": 1957324,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-07",
+            "ticks": 1858055,
+            "bars": 2149,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-08",
+            "ticks": 1571994,
+            "bars": 2016,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-09",
+            "ticks": 1212311,
+            "bars": 2111,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-10",
+            "ticks": 1219974,
+            "bars": 2204,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-11",
+            "ticks": 1320455,
+            "bars": 1920,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          },
+          {
+            "month": "2025-12",
+            "ticks": 1349960,
+            "bars": 2112,
+            "last_error": [
+              1,
+              "Success"
+            ]
+          }
+        ],
+        "empty_months": [],
+        "ticks": 237880820,
+        "bars": 200736,
+        "eligible_bars": 141305
+      }
+    },
+    "safety": {
+      "read_only": true,
+      "orders_sent": 0,
+      "positions_opened": 0,
+      "live_trading_authorized": false
+    }
+  },
+  "primary": {
+    "train": {
+      "trades": 46936,
+      "elapsed_calendar_weeks": 260.85714285714283,
+      "trades_per_elapsed_week": 179.92990142387734,
+      "pf_stress_a": 0.41230712390942464,
+      "pf_stress_b": 0.3495198159574974,
+      "expectancy_pips_stress_b": -2.213142896710439,
+      "expectancy_r_stress_b": -1.0176013853022488,
+      "net_pips_stress_b": -103876.07500000116,
+      "max_drawdown_r_stress_b": 47771.38980654996,
+      "year_positive_pnl_concentration": null,
+      "symbol_positive_pnl_concentration": null,
+      "side_positive_pnl_concentration": null,
+      "long_trades": 23249,
+      "short_trades": 23687
+    },
+    "holdout": {
+      "trades": 27242,
+      "elapsed_calendar_weeks": 156.57142857142858,
+      "trades_per_elapsed_week": 173.99087591240874,
+      "pf_stress_a": 0.41136424921417697,
+      "pf_stress_b": 0.33975553175549666,
+      "expectancy_pips_stress_b": -2.0106324792599923,
+      "expectancy_r_stress_b": -1.0026362787140977,
+      "net_pips_stress_b": -54773.65000000071,
+      "max_drawdown_r_stress_b": 27313.817504729395,
+      "year_positive_pnl_concentration": null,
+      "symbol_positive_pnl_concentration": null,
+      "side_positive_pnl_concentration": null,
+      "long_trades": 13475,
+      "short_trades": 13767
+    },
+    "pooled": {
+      "trades": 74178,
+      "elapsed_calendar_weeks": 417.42857142857144,
+      "trades_per_elapsed_week": 177.70225872689937,
+      "pf_stress_a": 0.4119867091428813,
+      "pf_stress_b": 0.3461815172633192,
+      "expectancy_pips_stress_b": -2.1387705923589455,
+      "expectancy_r_stress_b": -1.0121054237816576,
+      "net_pips_stress_b": -158649.72500000187,
+      "max_drawdown_r_stress_b": 75075.9561252802,
+      "year_positive_pnl_concentration": null,
+      "symbol_positive_pnl_concentration": null,
+      "side_positive_pnl_concentration": null,
+      "long_trades": 36724,
+      "short_trades": 37454
+    }
+  },
+  "return_control": {
+    "train": {
+      "trades": 46523,
+      "elapsed_calendar_weeks": 260.85714285714283,
+      "trades_per_elapsed_week": 178.34665936473166,
+      "pf_stress_a": 0.4857764894650426,
+      "pf_stress_b": 0.42058761379341814,
+      "expectancy_pips_stress_b": -2.1807267373127392,
+      "expectancy_r_stress_b": -0.7229919766373855,
+      "net_pips_stress_b": -101453.95000000056,
+      "max_drawdown_r_stress_b": 33642.62858946549,
+      "year_positive_pnl_concentration": null,
+      "symbol_positive_pnl_concentration": null,
+      "side_positive_pnl_concentration": null,
+      "long_trades": 22986,
+      "short_trades": 23537
+    },
+    "holdout": {
+      "trades": 27655,
+      "elapsed_calendar_weeks": 156.57142857142858,
+      "trades_per_elapsed_week": 176.62864963503648,
+      "pf_stress_a": 0.47779760539337374,
+      "pf_stress_b": 0.4040211487383058,
+      "expectancy_pips_stress_b": -1.9845977219309527,
+      "expectancy_r_stress_b": -0.7275832961879388,
+      "net_pips_stress_b": -54884.0500000005,
+      "max_drawdown_r_stress_b": 20123.453310979137,
+      "year_positive_pnl_concentration": null,
+      "symbol_positive_pnl_concentration": null,
+      "side_positive_pnl_concentration": null,
+      "long_trades": 13759,
+      "short_trades": 13896
+    },
+    "pooled": {
+      "trades": 74178,
+      "elapsed_calendar_weeks": 417.42857142857144,
+      "trades_per_elapsed_week": 177.70225872689937,
+      "pf_stress_a": 0.4830438211728009,
+      "pf_stress_b": 0.41487773056185684,
+      "expectancy_pips_stress_b": -2.1076060287416896,
+      "expectancy_r_stress_b": -0.7247037097950677,
+      "net_pips_stress_b": -156338.00000000105,
+      "max_drawdown_r_stress_b": 53757.07178518264,
+      "year_positive_pnl_concentration": null,
+      "symbol_positive_pnl_concentration": null,
+      "side_positive_pnl_concentration": null,
+      "long_trades": 36745,
+      "short_trades": 37433
+    }
+  },
+  "decision": {
+    "checks": {
+      "data": true,
+      "cadence": false,
+      "sample": true,
+      "pf_stress_b": false,
+      "expectancy": false,
+      "drawdown": false,
+      "concentration": false,
+      "beats_control_holdout": false
+    },
+    "verdict": "KILL_AT_OFFLINE_PROBE",
+    "failed_checks": [
+      "cadence",
+      "pf_stress_b",
+      "expectancy",
+      "drawdown",
+      "concentration",
+      "beats_control_holdout"
+    ]
+  },
+  "authorization": {
+    "candidate_registry_or_prereg": false,
+    "ea_code_compile_backtest": false,
+    "promotion": false,
+    "live_trading": false
+  },
+  "artifacts": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v5_ipp\\20260713_IPP_PROXY_PROBE_V1\\features_EURUSD.csv.gz",
+      "bytes": 18599143,
+      "sha256": "A83F05E9542C99E7CC106084EFE643E61314624EF5B88B966F0973D88B133981"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v5_ipp\\20260713_IPP_PROXY_PROBE_V1\\features_GBPUSD.csv.gz",
+      "bytes": 19668592,
+      "sha256": "282B7315292F68DD4CB81BCF5ABE48CF4EC0CF39FE9F3DE1DA66ABB073F1A030"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v5_ipp\\20260713_IPP_PROXY_PROBE_V1\\trades_primary.csv",
+      "bytes": 18672281,
+      "sha256": "FA4E7E210402305B5D8D04B6B460379FA5F0C6758D8FD52D409E1339903763D2"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v5_ipp\\20260713_IPP_PROXY_PROBE_V1\\trades_return_control.csv",
+      "bytes": 19125065,
+      "sha256": "10DD71B30A061921EEF24E575E73FC35C4F92C1BD54751B561208C027DD8D37A"
+    }
+  ]
+}

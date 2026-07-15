@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "ea_name": "EA_D1TrendH1PB",
+  "hypothesis_id": "HYP-D1-TREND-H1-PB-001",
+  "source_path": "03. EA Developer/EA_D1TrendH1PB/EA_D1TrendH1PB.mq5",
+  "source_sha256": "268946B176489B8C7B5A065DCCE87D3ECFA07C1A4981DA96A62F012361B594B5",
+  "magic": 880998,
+  "prereg_path": "03. EA Developer/EA_SonicR/research/preregs/20260714_H_D1_TREND_H1_PB_001_PREREG.md",
+  "dedup_path": "03. EA Developer/EA_SonicR/research/readouts/20260714_D1_TREND_H1_PB_DEDUP_CLEARANCE.md",
+  "frozen_at": "2026-07-14T23:10:00+07:00",
+  "symbol": "USDJPY",
+  "period": "H1",
+  "window": "2021.01.01-2025.12.31",
+  "model": 0,
+  "deposit": 100000,
+  "exact_overrides": ""
+}

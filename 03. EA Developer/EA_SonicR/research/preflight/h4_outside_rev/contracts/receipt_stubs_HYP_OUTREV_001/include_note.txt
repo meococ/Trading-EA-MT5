@@ -1,0 +1,1 @@
+EA_H4OutsideRev Trade.mqh standard library stub for include closure.

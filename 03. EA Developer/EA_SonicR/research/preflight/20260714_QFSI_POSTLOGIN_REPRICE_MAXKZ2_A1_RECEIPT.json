@@ -1,0 +1,223 @@
+{
+  "schema_version": "sonic_qfsi_postlogin_reprice_receipt.v1",
+  "created_at_utc": "2026-07-14T15:05:50.436919Z",
+  "owner_signal": "da_login",
+  "primary_verdict": "CAPTURE_INCOMPLETE",
+  "partial_diagnostic_label": "PARTIAL_DIAGNOSTIC_MAXKZ2_FAIL",
+  "goal_claim": false,
+  "confirmed_claim": false,
+  "validate_full_recommended": false,
+  "full_qfsi_gate": "STOP_DATA_FRONTIER",
+  "server": {
+    "expected": "FivePercentOnline-Real",
+    "observed": "FivePercentOnline-Real",
+    "server_match": true,
+    "probe_path": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/v4_data/20260714_MT5_READONLY_PROBE_V5_POSTLOGIN.json",
+    "probe_sha256": "F84627EF86A2D7ED2C79164A8F16A7240DDFD6F588C004258E657C2A20B259F4",
+    "probe_verdict": "TARGET_SERVER_READONLY_PROBE_COMPLETE",
+    "account_fingerprint": "09DB5E9C091F23DF9E024E684BBA994D00CBD84CDEF2CFBA0C5D064EACCB32AB",
+    "server_fingerprint": "CE114ABFB8C653A060DAD7EA33FAF948B5786F691953B2D4E230EB7986120797",
+    "trade_allowed": false,
+    "orders": 0,
+    "positions": 0
+  },
+  "inventory": {
+    "path": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/v4_data/20260714_EXECUTION_DATA_INVENTORY_V5.json",
+    "sha256": "FC064ED7DB3CFC2F6E3FD5F5AB76A1042C12DD5FBE5271E07B5782F9B1721210",
+    "eligible_bundle_count": 0,
+    "capture_manifest_count": 4,
+    "qfsi_verdict": "STOP_DATA_FRONTIER"
+  },
+  "deal_history_import": {
+    "path": "d:/Trading EA MT5/02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_DEAL_HISTORY_IMPORT_POSTLOGIN/import_manifest.json",
+    "sha256": "07CF53E0E45F30F249D92C82E2015D3C9BDB7DADE9C8053091F7663E11B835C4",
+    "status": "IMPORTED_LIVE_HISTORY_PARTIAL",
+    "raw_deal_count": 11,
+    "commission_lifecycle_counts": {
+      "EURUSD": 2,
+      "GBPUSD": 0,
+      "XAUUSD": 0,
+      "USDJPY": 0,
+      "BTCUSD": 3
+    },
+    "slippage_fills": 0
+  },
+  "capture_active": {
+    "capture_id": "20260714_QFSI_REAL_004_EXTENSION",
+    "note": "Passive quote/heartbeat accumulation still RUNNING; not eligible bundle."
+  },
+  "cost_model": {
+    "symbol": "USDJPY",
+    "lot_p50": 0.5,
+    "usdjpy_live": {
+      "observed_server": "FivePercentOnline-Real",
+      "trade_allowed": false,
+      "connected": true,
+      "terminal_build": 6006,
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01,
+      "tick_value": 0.6175889328063242,
+      "tick_size": 0.001,
+      "current_bid": 161.918,
+      "current_ask": 161.92,
+      "live_tick_sample_n": 50000,
+      "spread_price_p50": 0.0009999999999763531,
+      "spread_price_p90": 0.0020000000000095497,
+      "dollars_per_price_per_lot": 617.5889328063242,
+      "spread_usd_per_lot_p50": 0.6175889327917202,
+      "spread_usd_per_lot_p90": 1.2351778656185464,
+      "orders": 0,
+      "positions": 0
+    },
+    "commission_rt_per_lot_usd": 4.0,
+    "commission_samples_eurusd": [
+      4.0,
+      4.0
+    ],
+    "commission_source": "d:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260714_DEAL_HISTORY_IMPORT_POSTLOGIN\\EURUSD_commission_lifecycles.csv",
+    "commission_status": "EURUSD_N2_PRELIMINARY_CLUE_TRANSFERRED_TO_USDJPY",
+    "slippage_status": "MISSING_NOT_ZERO",
+    "base_round_turn_cost_per_trade_p50": 2.30879446639586,
+    "base_round_turn_cost_per_trade_p90": 2.617588932809273,
+    "caveat": "Additive haircut may double-count tester spread already in report PnL."
+  },
+  "missing_for_verified_reprice": {
+    "usdJPY_commission_lifecycles": {
+      "have": 0,
+      "need": 30
+    },
+    "eurusd_commission_lifecycles": {
+      "have": 2,
+      "need": 30
+    },
+    "slippage_fills_per_symbol": {
+      "have": 0,
+      "need": 100,
+      "status": "MISSING_NOT_ZERO_CANNOT_MINT_FROM_PASSIVE_QUOTES"
+    },
+    "quote_elapsed_days": {
+      "have_estimate": "<1 day across captures 001-004_EXTENSION",
+      "need": 90
+    },
+    "eligible_hash_bound_bundles": {
+      "have": 0,
+      "need": 1,
+      "inventory_verdict": "STOP_DATA_FRONTIER"
+    }
+  },
+  "reprice": {
+    "MAXKZ2": {
+      "label": "MAXKZ2",
+      "hypothesis_id": "HYP-SB-MAXKZ2-DENSITY-002",
+      "run_id": "20260714_192304",
+      "symbol": "USDJPY",
+      "trades": 546,
+      "tpw_elapsed": 2.0931008176893853,
+      "lot_p50": 0.5,
+      "real_p50": {
+        "base_pf": 1.333761,
+        "x1_pf": 1.274543,
+        "x1_5_pf": 1.246087,
+        "x2_pf": 1.218362,
+        "goal_x1_pf_gt_1_30": false,
+        "goal_x1_5_pf_ge_1_25": false,
+        "goal_x2_pf_ge_1_00": true,
+        "goal_cost_stress_pass": false
+      },
+      "real_p90": {
+        "base_pf": 1.333761,
+        "x1_pf": 1.266858,
+        "x1_5_pf": 1.234877,
+        "x2_pf": 1.20382,
+        "goal_x1_pf_gt_1_30": false,
+        "goal_x1_5_pf_ge_1_25": false,
+        "goal_x2_pf_ge_1_00": true,
+        "goal_cost_stress_pass": false
+      },
+      "stress_artifacts": {
+        "p50": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_MAXKZ2_20260714_192304_REAL_P50_POSTLOGIN.json",
+        "p90": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_MAXKZ2_20260714_192304_REAL_P90_POSTLOGIN.json"
+      }
+    },
+    "A1": {
+      "label": "A1",
+      "hypothesis_id": "HYP-SB-WEEKEND-FLAT-001",
+      "run_id": "20260714_002505",
+      "symbol": "USDJPY",
+      "trades": 520,
+      "tpw_elapsed": 1.9934293501803668,
+      "lot_p50": 0.5,
+      "real_p50": {
+        "base_pf": 1.344267,
+        "x1_pf": 1.283993,
+        "x1_5_pf": 1.255048,
+        "x2_pf": 1.226855,
+        "goal_x1_pf_gt_1_30": false,
+        "goal_x1_5_pf_ge_1_25": true,
+        "goal_x2_pf_ge_1_00": true,
+        "goal_cost_stress_pass": false
+      },
+      "real_p90": {
+        "base_pf": 1.344267,
+        "x1_pf": 1.276175,
+        "x1_5_pf": 1.243647,
+        "x2_pf": 1.212072,
+        "goal_x1_pf_gt_1_30": false,
+        "goal_x1_5_pf_ge_1_25": false,
+        "goal_x2_pf_ge_1_00": true,
+        "goal_cost_stress_pass": false
+      },
+      "stress_artifacts": {
+        "p50": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_A1_20260714_002505_REAL_P50_POSTLOGIN.json",
+        "p90": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_A1_20260714_002505_REAL_P90_POSTLOGIN.json"
+      }
+    },
+    "RR2": {
+      "label": "RR2",
+      "hypothesis_id": "HYP-SB-MAXKZ2-RR2-FRICTION-001",
+      "run_id": "20260714_194221",
+      "symbol": "USDJPY",
+      "trades": 524,
+      "tpw_elapsed": 2.008763422104831,
+      "lot_p50": 0.5,
+      "real_p50": {
+        "base_pf": 1.378321,
+        "x1_pf": 1.323136,
+        "x1_5_pf": 1.296605,
+        "x2_pf": 1.270746,
+        "goal_x1_pf_gt_1_30": true,
+        "goal_x1_5_pf_ge_1_25": true,
+        "goal_x2_pf_ge_1_00": true,
+        "goal_cost_stress_pass": true
+      },
+      "real_p90": {
+        "base_pf": 1.378321,
+        "x1_pf": 1.315972,
+        "x1_5_pf": 1.28615,
+        "x2_pf": 1.257178,
+        "goal_x1_pf_gt_1_30": true,
+        "goal_x1_5_pf_ge_1_25": true,
+        "goal_x2_pf_ge_1_00": true,
+        "goal_cost_stress_pass": true
+      },
+      "stress_artifacts": {
+        "p50": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_RR2_20260714_194221_REAL_P50_POSTLOGIN.json",
+        "p90": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_RR2_20260714_194221_REAL_P90_POSTLOGIN.json"
+      }
+    }
+  },
+  "owner_next_actions": [
+    "Keep FivePercentOnline-Real connected; let 004_EXTENSION finish or continue overnight for quotes.",
+    "Drop MT5 Account History export (All History, HTML/CSV with Commission) covering >=90d into owner_deal_export_drop — need >=30 commission lifecycles per FX symbol especially USDJPY.",
+    "Slippage cannot be minted from quotes: need broker execution report or side-referenced fills with pre-send BID/ASK (>=100/symbol).",
+    "Do NOT authorize validate-full / confirmed claims until eligible hash-bound bundle exists.",
+    "Do NOT densify MaxKZ2 from partial FAIL."
+  ],
+  "safety": {
+    "orders_sent": 0,
+    "positions_opened": 0,
+    "read_only": true,
+    "live_trading": false
+  }
+}

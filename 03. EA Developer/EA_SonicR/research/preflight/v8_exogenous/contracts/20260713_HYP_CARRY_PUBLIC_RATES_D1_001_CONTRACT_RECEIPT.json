@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP_CARRY_PUBLIC_RATES_D1_001",
+  "task_packet_sha256": "A6161AE52CD8F1ABEC2613FB1CBF831D7FF9A4908EE8550F25CA4645D801356F",
+  "git_commit": "NOGIT-42153491EA79E7C141D05DD37488CBBF9442A5F3F94CC53921475D1EAA69387D",
+  "git_status_sha256": "E07CF01DBE689CD1D4EC1532C326A40BBF7E37023871FE27775C8359B80DA9DC",
+  "binding": {
+    "hypothesis_id": "HYP_CARRY_PUBLIC_RATES_D1_001",
+    "run_role": "control",
+    "ea_name": "EA_CarryPublicRates",
+    "symbol": "EURUSD",
+    "period": "D1",
+    "from": "2019.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 1e-05,
+      "pip_size": 0.0001
+    },
+    "include_closure_sha256": "EBE229437E88404FF638CFAACFB21389AAFA7B165D15185A7F5D8D35CF4AB182"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\contracts\\receipt_stubs_HYP_CARRY_PUBLIC_RATES_D1_001\\task_packet.json",
+      "sha256": "A6161AE52CD8F1ABEC2613FB1CBF831D7FF9A4908EE8550F25CA4645D801356F"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CarryPublicRates\\EA_CarryPublicRates.mq5",
+      "sha256": "E70C55048AFE0305050795665294EFDCF974060F8F6AC53CE7D8C15035C31ACD"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\contracts\\receipt_stubs_HYP_CARRY_PUBLIC_RATES_D1_001\\prereg.json",
+      "sha256": "F14D1BA9010EFE51CCDCC916BA373EDBFE396846B5F1B932C7C0C31A76D2DDE6"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\contracts\\receipt_stubs_HYP_CARRY_PUBLIC_RATES_D1_001\\cost_source_manifest.json",
+      "sha256": "2BE96DB798C778783D48F070DBB829EC262EAD702444E423F46B3B2A61A55D7E"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\contracts\\receipt_stubs_HYP_CARRY_PUBLIC_RATES_D1_001\\include_note.txt",
+      "sha256": "0E3C6E7D83FEC69BDB78FC4359B2B60FE08A411BD943BEA1D8FFF6E3D1B3D249"
+    }
+  ],
+  "generated_at_utc": "2026-07-13T16:40:00Z",
+  "note": "TEMPLATE: binding must match alpha backtest invocation exactly; refresh SHA256 after any evidence edit. HypothesisId + ContractReceipt requirements remain mandatory. git_commit uses NO-GIT provenance."
+}

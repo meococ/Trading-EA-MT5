@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-ITSM-NYONLY-STRICTALIGN-002",
+  "task_packet_sha256": "0E50ED3E6746D1AE22DFAE256B36869518A12F30D24E1D9DF0DC3A80D0AE2CF4",
+  "git_commit": "NOGIT-D1AECC9AABB5441217477283750814F7C012921D855B6F31ABA3E3A96193EECF",
+  "git_status_sha256": "AC45F27EF36AF3898F5F6E786E7785E7A8DF2AA40BBE2926AA1652B27A21B958",
+  "binding": {
+    "hypothesis_id": "HYP-ITSM-NYONLY-STRICTALIGN-002",
+    "run_role": "control",
+    "ea_name": "EA_ITSM",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpKZ1_EndH=18;InpKZ1_StartH=15;InpMaxTradesDay=2;InpRiskPct=0.5;InpRR_Ratio=2.0;InpStrictAlign=1;InpTradeFri=0;InpUseKZ2=0",
+    "telemetry_tier": "off",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "3693FCD4B7D6A05C8962F8575BC6BCC12A8ED4969E1017AC80B78147FF09375D"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\itsm_nyonly\\contracts\\receipt_stubs_HYP_ITSM_NYONLY_STRICTALIGN_002\\task_packet.json",
+      "sha256": "0E50ED3E6746D1AE22DFAE256B36869518A12F30D24E1D9DF0DC3A80D0AE2CF4"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ITSM\\EA_ITSM.mq5",
+      "sha256": "6B433FC9FB7C8745E90B306DEAFFF2C28F182AE1003FB11AE66E324A0946FCE0"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\itsm_nyonly\\contracts\\receipt_stubs_HYP_ITSM_NYONLY_STRICTALIGN_002\\prereg.json",
+      "sha256": "CF89A49B9539391D330C5C175566560C6D8686925248E5E5CAFEE2A6C3C34639"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\itsm_nyonly\\contracts\\receipt_stubs_HYP_ITSM_NYONLY_STRICTALIGN_002\\cost_source_manifest.json",
+      "sha256": "23B75FEF423945E759A22E82576A4D0FE86510A7D8C494F86F0B58B29DDDFE85"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\itsm_nyonly\\contracts\\receipt_stubs_HYP_ITSM_NYONLY_STRICTALIGN_002\\include_note.txt",
+      "sha256": "1438114A5E21DE7D84747170CEA39C04DC0BFCE13E5AE2B8DD2E006B3D125CC0"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T12:18:41Z",
+  "note": "ITSM NY-only + StrictAlign structural child. Not T10 rescue."
+}

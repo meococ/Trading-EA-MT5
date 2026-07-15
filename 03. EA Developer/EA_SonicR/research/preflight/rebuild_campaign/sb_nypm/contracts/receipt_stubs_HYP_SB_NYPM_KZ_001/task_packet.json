@@ -1,0 +1,13 @@
+{
+  "schema_version": "sonic_research_task_packet.v1",
+  "hypothesis_id": "HYP-SB-NYPM-KZ-001",
+  "ea_name": "EA_SilverBullet",
+  "symbol": "USDJPY",
+  "period": "M15",
+  "from": "2021.01.01",
+  "to": "2025.12.31",
+  "model": 0,
+  "run_role": "challenger",
+  "overrides": "InpFridayFlatHour=21;InpFridayFlatMinute=45;InpNYPM_End=22;InpNYPM_Start=20;InpUseNYPM=1;InpUseWeekendFlat=1",
+  "note": "SB NYPM session expand + A1 weekend-flat; Deposit 100000."
+}

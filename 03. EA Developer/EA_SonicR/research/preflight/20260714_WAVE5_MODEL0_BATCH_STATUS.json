@@ -1,0 +1,23 @@
+[
+    {
+        "hypothesis_id":  "HYP-H1-ATR-PCTILE-BREAK-001",
+        "ea":  "EA_H1ATRPctileBreak",
+        "symbol":  "USDJPY",
+        "status":  "THROW:Required sidecar \u0027\u0027 is absent from D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_H1ATRPctileBreak\\20260714_225208\\logs.",
+        "log":  "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\20260714_WAVE5_MODEL0_HYP_H1_ATR_PCTILE_BREAK_001.log"
+    },
+    {
+        "hypothesis_id":  "HYP-EURUSD-H1-ASIA-BOX-LONDON-BREAK-001",
+        "ea":  "EA_EURUSD_H1AsiaBoxLondonBreak",
+        "symbol":  "EURUSD",
+        "status":  "THROW:Required sidecar \u0027\u0027 is absent from D:\\Trading EA MT5\\02. ",
+        "log":  "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\20260714_WAVE5_MODEL0_HYP_EURUSD_H1_ASIA_BOX_LONDON_BREAK_001.log"
+    },
+    {
+        "hypothesis_id":  "HYP-M15-NY-IB-DRIVE-BREAK-001",
+        "ea":  "EA_M15NYIBDriveBreak",
+        "symbol":  "USDJPY",
+        "status":  "THROW:Required sidecar \u0027\u0027 is absent from D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_M15NYIBDriveBreak\\20260714_225340\\logs.",
+        "log":  "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\20260714_WAVE5_MODEL0_HYP_M15_NY_IB_DRIVE_BREAK_001.log"
+    }
+]

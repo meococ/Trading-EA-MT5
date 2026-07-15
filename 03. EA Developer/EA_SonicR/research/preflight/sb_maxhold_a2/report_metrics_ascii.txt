@@ -1,0 +1,17 @@
+Expert:
+Symbol:
+History Quality:
+Symbols:
+Li nhun rng:
+H s li nhun:
+H s phc hi:
+Giao dch bn (% thng):
+Giao dch mua (% thng):
+Giao dch c li (% trn tng s):
+Giao dch thua l (% trn tng s):
+Correlation (Profits,MFE):
+Correlation (Profits,MAE):
+Symbol
+Giao dch
+Symbol
+Li nhun

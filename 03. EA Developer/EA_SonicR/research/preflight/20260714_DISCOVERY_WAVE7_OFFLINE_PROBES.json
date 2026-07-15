@@ -1,0 +1,174 @@
+{
+  "schema_version": "sonic_discovery_wave7_offline_probes.v1",
+  "created_at_utc": "2026-07-14T16:38:06.447009Z",
+  "status": "OFFLINE_WAVE7_COMPLETE",
+  "honesty": "NOT_MODEL0_NOT_CONFIRMED_NOT_GOAL",
+  "dedup": "readouts/20260714_DISCOVERY_WAVE7_DEDUP_CLEARANCE.md",
+  "server": "FivePercentOnline-Real",
+  "login": 26451822,
+  "probes": [
+    {
+      "hypothesis_id": "HYP-NZDUSD-H1-ASIA-RANGE-LONDON-BREAK-001",
+      "symbol": "NZDUSD",
+      "tf": "H1",
+      "funnel": {
+        "n_days": 1300,
+        "n_break": 1069,
+        "n_trades": 587
+      },
+      "metrics": {
+        "n": 587,
+        "pf": 1.0387616112134261,
+        "tpw": 2.250273836826307,
+        "exp": 5.776265841176104,
+        "net": 3390.6680487703734,
+        "pf_x15_cost12": 0.9228286491973051,
+        "pf_x2_cost12": 0.8872343735196477,
+        "cost_per_trade": 12.0
+      },
+      "kill_notes": [
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-W1-OPEN-H1-ACCEPT-CONT-001",
+      "symbol": "USDJPY",
+      "tf": "H1",
+      "funnel": {
+        "n_eligible": 1850,
+        "n_signal": 1848,
+        "n_trades": 233
+      },
+      "metrics": {
+        "n": 233,
+        "pf": 1.1964585193409165,
+        "tpw": 0.8932092060997096,
+        "exp": 32.96562036641079,
+        "net": 7680.989545373714,
+        "pf_x15_cost12": 1.0847264089141866,
+        "pf_x2_cost12": 1.0498795428542098,
+        "cost_per_trade": 12.0
+      },
+      "kill_notes": [
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-H1-LONDON-MID-RECLAIM-CONT-001",
+      "symbol": "USDJPY",
+      "tf": "H1",
+      "funnel": {
+        "n_days": 1299,
+        "n_pierce": 1298,
+        "n_trades": 371
+      },
+      "metrics": {
+        "n": 371,
+        "pf": 1.1357959883899567,
+        "tpw": 1.422234401128722,
+        "exp": 52.39656004298046,
+        "net": 19439.12377594575,
+        "pf_x15_cost12": 1.0864074425853245,
+        "pf_x2_cost12": 1.0706119465085517,
+        "cost_per_trade": 12.0
+      },
+      "kill_notes": [
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-AUDUSD-LEAD-EURUSD-H1-001",
+      "symbol": "EURUSD",
+      "tf": "H1",
+      "funnel": {
+        "n_lead": 5668,
+        "n_follow": 2409,
+        "n_trades": 919
+      },
+      "metrics": {
+        "n": 919,
+        "pf": 0.8331855728061521,
+        "tpw": 3.5230011176207428,
+        "exp": -42.550260206092474,
+        "net": -39103.68912939898,
+        "pf_x15_cost12": 0.7737474692277606,
+        "pf_x2_cost12": 0.7551808515944648,
+        "cost_per_trade": 12.0
+      },
+      "kill_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-EURUSD-H1-WEEKEND-GAP-FILL-001",
+      "symbol": "EURUSD",
+      "tf": "H1",
+      "funnel": {
+        "n_gaps": 139,
+        "n_trades": 123
+      },
+      "metrics": {
+        "n": 123,
+        "pf": 1.1167635416901147,
+        "tpw": 0.47152245643890245,
+        "exp": 36.6037572084228,
+        "net": 4502.2621366360045,
+        "pf_x15_cost12": 1.057259803987663,
+        "pf_x2_cost12": 1.0383435922272037,
+        "cost_per_trade": 12.0
+      },
+      "kill_notes": [
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-BOOK-COMPOSE-3DAY-LONDONDRIVE-001",
+      "symbol": "USDJPY",
+      "tf": "H1",
+      "funnel": {
+        "n_3day": 265,
+        "n_london_drive": 305,
+        "n_pooled": 570
+      },
+      "metrics": {
+        "n": 570,
+        "pf": 1.110598713044561,
+        "tpw": 2.185104066424182,
+        "exp": 24.45845301210273,
+        "net": 13941.318216898557,
+        "pf_x15_cost12": 1.0279287015904706,
+        "pf_x2_cost12": 1.0019531546438862,
+        "cost_per_trade": 12.0
+      },
+      "kill_notes": [
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD",
+      "extra": {
+        "sleeve_a_n": 265,
+        "sleeve_b_n": 305,
+        "same_day_overlap": 72,
+        "exact_entry_ts_overlap": 2,
+        "compose_rule": "a_priori_equal_join_3day_PARK_plus_london_drive_thick"
+      }
+    }
+  ],
+  "survivors": [],
+  "model0_authorized": false,
+  "screen": "PF>1.30 AND tpw[2,5] AND x1.5>=1.25 AND x2>=1.00",
+  "receipt_sha256": "EA4D74FB91D34D27D872B607C45FD2849A06A7751A65624EE05E2366EB79B757"
+}

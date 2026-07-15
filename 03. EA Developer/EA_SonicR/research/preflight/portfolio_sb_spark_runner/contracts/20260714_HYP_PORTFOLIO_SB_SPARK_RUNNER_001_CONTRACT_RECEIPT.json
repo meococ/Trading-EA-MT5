@@ -1,0 +1,77 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-PORTFOLIO-SB-SPARK-RUNNER-001",
+  "task_packet_sha256": "8977895AABD1077CEC884B59B17B5057402BAA52E5B7F6E2B7A40CCDE4813283",
+  "git_commit": "NOGIT-ED010E1CAD4AC6786B43FD750237D27270FF8637251D074F763237ADA7D1ED79",
+  "git_status_sha256": "478BBD5467BFB276248B2A0066F9CA381C772BDB94A8506F92092F0B7C5607C3",
+  "binding": {
+    "hypothesis_id": "HYP-PORTFOLIO-SB-SPARK-RUNNER-001",
+    "run_role": "control",
+    "ea_name": "EA_SBSparkBook",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "0D3E7557029DC4DDC1DBB87CB34CF26B74340BB221E69F7D3472A266F5121947"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\portfolio_sb_spark_runner\\contracts\\receipt_stubs_HYP_PORTFOLIO_SB_SPARK_RUNNER_001\\task_packet.json",
+      "sha256": "8977895AABD1077CEC884B59B17B5057402BAA52E5B7F6E2B7A40CCDE4813283"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SBSparkBook\\EA_SBSparkBook.mq5",
+      "sha256": "7342A456EED19CE057CCE5477FA435D9FDE533F06334BBE1772A5FC55CFD5860"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\portfolio_sb_spark_runner\\contracts\\receipt_stubs_HYP_PORTFOLIO_SB_SPARK_RUNNER_001\\prereg.json",
+      "sha256": "458203B63E0211868BFFA909DCAED0D9092B9327E1D4006A2B10F501C4E051B4"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\portfolio_sb_spark_runner\\contracts\\receipt_stubs_HYP_PORTFOLIO_SB_SPARK_RUNNER_001\\cost_source_manifest.json",
+      "sha256": "7C02D4A0BDCDC35712142A579A45FC6921901407CF67CEEDB37EC79FEB61C805"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\portfolio_sb_spark_runner\\contracts\\receipt_stubs_HYP_PORTFOLIO_SB_SPARK_RUNNER_001\\include_note.txt",
+      "sha256": "F25061F072BFE71B558944E52E40E4CC7F67EF0DF66C3577B961A725BB75F027"
+    },
+    {
+      "label": "include_0002",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SBSparkBook\\Modules\\SB_A1_Module.mqh",
+      "sha256": "14C6F582F552E54717EC5ED7C8137A76D5BC58DB63DEFCE9697917029936557C"
+    },
+    {
+      "label": "include_0003",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SBSparkBook\\Modules\\SparkAsian_Module.mqh",
+      "sha256": "D3A2669FF56CE0C6FC0A2647D32C86F9CE2ACB48955C8F2D5486FF704A36644B"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T15:26:40Z",
+  "note": "Dual-sleeve SB A1 + Spark Asian book. Bindings frozen to 002505/002614. Model0 requires exclusive tester (no Owner Real terminal64)."
+}

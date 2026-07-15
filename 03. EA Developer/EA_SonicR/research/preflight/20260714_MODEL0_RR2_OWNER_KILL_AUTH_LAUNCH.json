@@ -1,0 +1,37 @@
+{
+  "receipt_id": "MODEL0_RR2_OWNER_KILL_AUTH_LAUNCH",
+  "generated_at_ict": "2026-07-14 23:15+",
+  "owner_auth": "2026-07-14 23:15 — kill/close residual Real terminal64 allowed unless Strategy Tester / alpha backtest in-flight",
+  "hypothesis_id": "HYP-SB-MAXKZ2-RR2-FRICTION-001",
+  "baseline_run_ids": ["20260714_194548", "20260714_194221"],
+  "prelaunch_check": {
+    "terminal64_count": 0,
+    "metatester_count": 0,
+    "backtest_in_flight": false,
+    "kill_action": "NONE_NEEDED",
+    "prior_residual_pids_historical": [37816, 6596, 41396, 27628],
+    "assert_no_unrelated_terminal": "CLEAR_AT_PRELAUNCH"
+  },
+  "frozen_cost_contract": {
+    "label": "Real partial P50",
+    "usd_per_trade": 2.3088,
+    "caveat": "not full QFSI; diagnostic haircut only"
+  },
+  "planned_run": {
+    "ea": "EA_SilverBullet",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "deposit": 100000,
+    "overrides": "InpFridayFlatHour=21;InpFridayFlatMinute=45;InpMaxTradesPerKZ=2;InpRiskPct=0.5;InpTP_RR_LDN=2.0;InpTP_RR_NY=2.0;InpUseWeekendFlat=1"
+  },
+  "status": "COMPLETE",
+  "run_id": "20260714_231750",
+  "verdict": "PARK_MISS_RESEARCH_BAR",
+  "kill_actions_executed": [
+    {"pid": 61628, "login": 26451822, "server": "FivePercentOnline-Real"},
+    {"pid": 57064, "note": "post-run leftover"}
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "sonic_offline_compose_real_cost.v1",
+  "note": "Diagnostic equal-join pool with additive Real P50 haircut per trade; NOT Phase0 universe freeze; overlap not re-checked here.",
+  "base_cost_per_trade": 2.3087582361186474,
+  "rr2_run": "20260714_194221",
+  "spark_run": "20260714_193358",
+  "rr2": {
+    "n": 524,
+    "pf_x1": 1.3231372453291395,
+    "net": 8618.560684273829,
+    "tpw": 2.007662835249042
+  },
+  "spark": {
+    "n": 325,
+    "pf_x1": 1.3452010673313493,
+    "net": 8600.24357326144,
+    "tpw": 1.2452107279693487
+  },
+  "pooled": {
+    "n": 849,
+    "pf_x1": 1.333793237976245,
+    "net": 17218.804257535267,
+    "tpw": 3.2528735632183907,
+    "pf_x1_5": 1.3116991779599496,
+    "pf_x2": 1.2900335752491865
+  },
+  "goal_x1_pf_gt_1_30": true,
+  "goal_cadence_2_5": true,
+  "goal_cost_stress_like": true
+}

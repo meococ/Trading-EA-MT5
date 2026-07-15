@@ -1,0 +1,3 @@
+# Reproducible hashes for append-only research evidence and preregistrations.
+**/EA_SonicR/research/*.jsonl text eol=lf
+**/EA_SonicR/research/preregs/*.md text eol=lf

@@ -1,0 +1,149 @@
+{
+  "schema_version": "alphafactory_execution_data_capture.v1",
+  "created_at_utc": "2026-07-14T14:25:09.663059Z",
+  "capture_id": "20260714_QFSI_REAL_004_CONTINUATION",
+  "purpose": "QFSI_DATA_FEASIBILITY_ONLY",
+  "capture_mode": "PASSIVE_READ_ONLY",
+  "broker_identity": {
+    "expected_server": "FivePercentOnline-Real",
+    "observed_server": "FivePercentOnline-Real",
+    "server_fingerprint": "CE114ABFB8C653A060DAD7EA33FAF948B5786F691953B2D4E230EB7986120797",
+    "account_fingerprint": "09DB5E9C091F23DF9E024E684BBA994D00CBD84CDEF2CFBA0C5D064EACCB32AB",
+    "account_currency": "USD",
+    "terminal_build": 6006
+  },
+  "research_gates": {
+    "minimum_quote_elapsed_days": 90,
+    "minimum_quote_rows_per_elapsed_day": 1000,
+    "minimum_connected_heartbeat_ratio": 0.95,
+    "maximum_heartbeat_gap_ms": 60000,
+    "minimum_commission_lifecycles_per_symbol": 30,
+    "minimum_slippage_fills_per_symbol": 100,
+    "minimum_slippage_buys_per_symbol": 30,
+    "minimum_slippage_sells_per_symbol": 30,
+    "maximum_reference_age_ms": 1000
+  },
+  "symbols": [
+    {
+      "symbol": "EURUSD",
+      "digits": 5,
+      "point": 1e-05,
+      "pip_size": 0.0001,
+      "quote_ticks": {
+        "status": "PARTIAL",
+        "completeness_method": "PASSIVE_HEARTBEAT",
+        "path": "EURUSD_quote_ticks.csv",
+        "sha256": "C5008C3CDF7ED1D9F4CB62ED33247BCC495E3FF8A580603E137E8A101F0C8BC2",
+        "row_count": 551
+      },
+      "heartbeats": {
+        "status": "PARTIAL",
+        "completeness_method": "PASSIVE_HEARTBEAT",
+        "path": "EURUSD_heartbeats.csv",
+        "sha256": "AA2BBC7BB9B911B4688D1F620287FE09D1570A49A3DBD99258FF43D6E860E3A7",
+        "row_count": 574
+      },
+      "commission_lifecycles": {
+        "status": "PARTIAL",
+        "completeness_method": "ACCOUNT_HISTORY",
+        "path": "EURUSD_commission_lifecycles.csv",
+        "sha256": "96D54DA8120053F1B1079B022FCF29E066E8D842B915B8EA6C7EF68B0C915B68",
+        "row_count": 2
+      },
+      "slippage_fills": {
+        "status": "MISSING",
+        "completeness_method": "NONE"
+      }
+    },
+    {
+      "symbol": "GBPUSD",
+      "digits": 5,
+      "point": 1e-05,
+      "pip_size": 0.0001,
+      "quote_ticks": {
+        "status": "PARTIAL",
+        "completeness_method": "PASSIVE_HEARTBEAT",
+        "path": "GBPUSD_quote_ticks.csv",
+        "sha256": "8487C03867841FB67B15F135B4CC0805ED9877557ED8F1E79A37567CF5DFC424",
+        "row_count": 572
+      },
+      "heartbeats": {
+        "status": "PARTIAL",
+        "completeness_method": "PASSIVE_HEARTBEAT",
+        "path": "GBPUSD_heartbeats.csv",
+        "sha256": "AA2BBC7BB9B911B4688D1F620287FE09D1570A49A3DBD99258FF43D6E860E3A7",
+        "row_count": 574
+      },
+      "commission_lifecycles": {
+        "status": "MISSING",
+        "completeness_method": "NONE"
+      },
+      "slippage_fills": {
+        "status": "MISSING",
+        "completeness_method": "NONE"
+      }
+    },
+    {
+      "symbol": "XAUUSD",
+      "digits": 2,
+      "point": 0.01,
+      "pip_size": 0.01,
+      "quote_ticks": {
+        "status": "PARTIAL",
+        "completeness_method": "PASSIVE_HEARTBEAT",
+        "path": "XAUUSD_quote_ticks.csv",
+        "sha256": "2C55890FD7589F936B3DCF3734FEC7BAA78665EFCA7D380ABE9A794CA828E40E",
+        "row_count": 574
+      },
+      "heartbeats": {
+        "status": "PARTIAL",
+        "completeness_method": "PASSIVE_HEARTBEAT",
+        "path": "XAUUSD_heartbeats.csv",
+        "sha256": "AA2BBC7BB9B911B4688D1F620287FE09D1570A49A3DBD99258FF43D6E860E3A7",
+        "row_count": 574
+      },
+      "commission_lifecycles": {
+        "status": "MISSING",
+        "completeness_method": "NONE"
+      },
+      "slippage_fills": {
+        "status": "MISSING",
+        "completeness_method": "NONE"
+      }
+    },
+    {
+      "symbol": "USDJPY",
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01,
+      "quote_ticks": {
+        "status": "PARTIAL",
+        "completeness_method": "PASSIVE_HEARTBEAT",
+        "path": "USDJPY_quote_ticks.csv",
+        "sha256": "0E90DB45C7714E8E4946D30C1C89FDFC83BEACE6591AC7CBD3630972F0ABB9E9",
+        "row_count": 570
+      },
+      "heartbeats": {
+        "status": "PARTIAL",
+        "completeness_method": "PASSIVE_HEARTBEAT",
+        "path": "USDJPY_heartbeats.csv",
+        "sha256": "AA2BBC7BB9B911B4688D1F620287FE09D1570A49A3DBD99258FF43D6E860E3A7",
+        "row_count": 574
+      },
+      "commission_lifecycles": {
+        "status": "MISSING",
+        "completeness_method": "NONE"
+      },
+      "slippage_fills": {
+        "status": "MISSING",
+        "completeness_method": "NONE"
+      }
+    }
+  ],
+  "safety": {
+    "read_only": true,
+    "orders_sent": 0,
+    "positions_opened": 0,
+    "live_trading_authorized": false
+  }
+}

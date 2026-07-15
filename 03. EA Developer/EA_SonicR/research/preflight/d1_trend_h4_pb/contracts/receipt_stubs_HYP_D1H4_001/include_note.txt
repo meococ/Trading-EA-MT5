@@ -1,0 +1,1 @@
+EA_D1TrendH4PB Trade.mqh standard library stub for include closure.

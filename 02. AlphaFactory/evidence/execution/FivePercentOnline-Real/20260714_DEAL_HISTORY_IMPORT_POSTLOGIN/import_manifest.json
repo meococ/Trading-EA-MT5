@@ -1,0 +1,91 @@
+{
+  "schema_version": "alphafactory_deal_history_import.v1",
+  "status": "IMPORTED_LIVE_HISTORY_PARTIAL",
+  "created_at_utc": "2026-07-14T15:03:48Z",
+  "mode": "FROM_LIVE_MT5_READONLY",
+  "expected_server": "FivePercentOnline-Real",
+  "observed_server": "FivePercentOnline-Real",
+  "server_fingerprint": "CE114ABFB8C653A060DAD7EA33FAF948B5786F691953B2D4E230EB7986120797",
+  "account_fingerprint": "09DB5E9C091F23DF9E024E684BBA994D00CBD84CDEF2CFBA0C5D064EACCB32AB",
+  "account_currency": "USD",
+  "terminal_build": 6006,
+  "history_lookback_days": 3650,
+  "raw_deal_count": 11,
+  "commission_lifecycle_counts": {
+    "EURUSD": 2,
+    "GBPUSD": 0,
+    "XAUUSD": 0,
+    "USDJPY": 0,
+    "BTCUSD": 3
+  },
+  "slippage_fills": 0,
+  "slippage_status": "MISSING_NOT_ZERO_CANNOT_MINT",
+  "artifacts": {
+    "raw_history_deals": {
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260714_DEAL_HISTORY_IMPORT_POSTLOGIN\\raw_history_deals.csv",
+      "sha256": "6254FEB1C018FFD1665FDCB64526AE5C370318818AC946ED45B10B862817804E",
+      "rows": 11
+    },
+    "commission_lifecycles": {
+      "EURUSD": {
+        "path": "D:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260714_DEAL_HISTORY_IMPORT_POSTLOGIN\\EURUSD_commission_lifecycles.csv",
+        "sha256": "96D54DA8120053F1B1079B022FCF29E066E8D842B915B8EA6C7EF68B0C915B68",
+        "rows": 2
+      },
+      "GBPUSD": {
+        "path": "D:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260714_DEAL_HISTORY_IMPORT_POSTLOGIN\\GBPUSD_commission_lifecycles.csv",
+        "sha256": "9FB718CD6313AB52DEA959284C99AA741280D05983A1252B8065698D16902AC4",
+        "rows": 0
+      },
+      "XAUUSD": {
+        "path": "D:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260714_DEAL_HISTORY_IMPORT_POSTLOGIN\\XAUUSD_commission_lifecycles.csv",
+        "sha256": "9FB718CD6313AB52DEA959284C99AA741280D05983A1252B8065698D16902AC4",
+        "rows": 0
+      },
+      "USDJPY": {
+        "path": "D:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260714_DEAL_HISTORY_IMPORT_POSTLOGIN\\USDJPY_commission_lifecycles.csv",
+        "sha256": "9FB718CD6313AB52DEA959284C99AA741280D05983A1252B8065698D16902AC4",
+        "rows": 0
+      },
+      "BTCUSD": {
+        "path": "D:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260714_DEAL_HISTORY_IMPORT_POSTLOGIN\\BTCUSD_commission_lifecycles.csv",
+        "sha256": "1BF9CC01D0DBA58AB56957583678D2342115DF940ACB4CBF0FB8CDD63F64D4D5",
+        "rows": 3
+      }
+    },
+    "slippage_fills": {
+      "EURUSD": {
+        "path": "D:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260714_DEAL_HISTORY_IMPORT_POSTLOGIN\\EURUSD_slippage_fills.csv",
+        "sha256": "C34C307FF1E82F94EFB18E080DE3767847F8FCAABE70D76873B0DDF484DEE40F",
+        "rows": 0
+      },
+      "GBPUSD": {
+        "path": "D:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260714_DEAL_HISTORY_IMPORT_POSTLOGIN\\GBPUSD_slippage_fills.csv",
+        "sha256": "C34C307FF1E82F94EFB18E080DE3767847F8FCAABE70D76873B0DDF484DEE40F",
+        "rows": 0
+      },
+      "XAUUSD": {
+        "path": "D:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260714_DEAL_HISTORY_IMPORT_POSTLOGIN\\XAUUSD_slippage_fills.csv",
+        "sha256": "C34C307FF1E82F94EFB18E080DE3767847F8FCAABE70D76873B0DDF484DEE40F",
+        "rows": 0
+      },
+      "USDJPY": {
+        "path": "D:\\Trading EA MT5\\02. AlphaFactory\\evidence\\execution\\FivePercentOnline-Real\\20260714_DEAL_HISTORY_IMPORT_POSTLOGIN\\USDJPY_slippage_fills.csv",
+        "sha256": "C34C307FF1E82F94EFB18E080DE3767847F8FCAABE70D76873B0DDF484DEE40F",
+        "rows": 0
+      }
+    }
+  },
+  "gates_remaining": {
+    "commission_need_per_symbol": 30,
+    "usdJPY_commission": 0,
+    "eurusd_commission": 2,
+    "slippage_need_per_symbol": 100,
+    "quote_days_need": 90
+  },
+  "safety": {
+    "orders_sent": 0,
+    "positions_opened": 0,
+    "read_only": true
+  }
+}

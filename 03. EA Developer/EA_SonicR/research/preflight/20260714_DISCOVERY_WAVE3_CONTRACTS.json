@@ -1,0 +1,26 @@
+[
+  {
+    "hypothesis_id": "HYP-H4-OUTSIDE-REV-001",
+    "ea_name": "EA_H4OutsideRev",
+    "period": "H4",
+    "deposit": 100000,
+    "receipt": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h4_outside_rev\\contracts\\20260714_HYP_H4_OUTSIDE_REV_001_CONTRACT_RECEIPT.json",
+    "receipt_sha256": "35D6B21FC94D078F485DD28B81DBA2629DF4838962C5E022913B089B5851E267"
+  },
+  {
+    "hypothesis_id": "HYP-H4-ENGULF-REV-001",
+    "ea_name": "EA_H4EngulfRev",
+    "period": "H4",
+    "deposit": 100000,
+    "receipt": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h4_engulf_rev\\contracts\\20260714_HYP_H4_ENGULF_REV_001_CONTRACT_RECEIPT.json",
+    "receipt_sha256": "A7325C97B5A77E7C4583E379C84C78099777B534408ED31465105EE37053FEBB"
+  },
+  {
+    "hypothesis_id": "HYP-H1-PIN-PDLEVEL-001",
+    "ea_name": "EA_H1PinPDLevel",
+    "period": "H1",
+    "deposit": 100000,
+    "receipt": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_pin_pdlevel\\contracts\\20260714_HYP_H1_PIN_PDLEVEL_001_CONTRACT_RECEIPT.json",
+    "receipt_sha256": "557FFCF2ED9CDEF09080BCED4F05E3FAABE6DED4FE2F44D45F2E1C385FE3CDEE"
+  }
+]

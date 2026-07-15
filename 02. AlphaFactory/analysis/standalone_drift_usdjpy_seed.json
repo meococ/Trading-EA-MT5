@@ -1,0 +1,47 @@
+{
+  "label": "USDJPY_Standalone_DriftSeed",
+  "cost_bps": 2.0,
+  "pre_windows": [
+    30,
+    60,
+    90
+  ],
+  "post_windows": [
+    15,
+    30
+  ],
+  "pre": {
+    "30": {
+      "n": 199,
+      "mean_gross_bps": 0.1866,
+      "mean_net_bps": -1.8134,
+      "hit_rate_pct": 33.67
+    },
+    "60": {
+      "n": 199,
+      "mean_gross_bps": 0.4595,
+      "mean_net_bps": -1.5405,
+      "hit_rate_pct": 38.69
+    },
+    "90": {
+      "n": 199,
+      "mean_gross_bps": 0.5989,
+      "mean_net_bps": -1.4011,
+      "hit_rate_pct": 42.21
+    }
+  },
+  "post": {
+    "15": {
+      "n": 199,
+      "mean_gross_bps": 0.3183,
+      "mean_net_bps": -1.6817,
+      "hit_rate_pct": 31.16
+    },
+    "30": {
+      "n": 199,
+      "mean_gross_bps": 0.1206,
+      "mean_net_bps": -1.8794,
+      "hit_rate_pct": 39.2
+    }
+  }
+}

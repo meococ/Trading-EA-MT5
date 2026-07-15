@@ -1,0 +1,1 @@
+EA_SilverBullet Trade.mqh standard library stub for include closure.

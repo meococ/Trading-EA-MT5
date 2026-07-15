@@ -1,0 +1,74 @@
+{
+  "schema": "v8_cot_tff_spec_net_offline_probe.v1",
+  "probe_id": "V8_COT_TFF_SPEC_NET_CHG_V1",
+  "created_at_utc": "2026-07-13T16:43:24.521854+00:00",
+  "status": "KILL_AT_OFFLINE_PROBE",
+  "mt5_server": "MetaQuotes-Demo",
+  "contract": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/20260713_V8_COT_TFF_PROBE_CONTRACT_V1.md",
+  "note": "MetaQuotes-Demo falsification only. Not Strategy Tester. Not EA/Model 0 unless survivor + prereg/cost.",
+  "design_frozen": {
+    "symbols": [
+      "EURUSD",
+      "GBPUSD",
+      "USDJPY"
+    ],
+    "oi_threshold": 0.015,
+    "available_at": "report_date+3d_00:00Z",
+    "stress_a_pips": 1.5,
+    "stress_b_pips": 3.0,
+    "train": [
+      "2022-01-01",
+      "2023-12-31"
+    ],
+    "holdout": [
+      "2024-01-01",
+      "2025-12-31"
+    ],
+    "control": "same_calendar_threshold_5d_return_sign",
+    "cot_events": 624,
+    "cot_rows": {
+      "EURUSD": 209,
+      "GBPUSD": 209,
+      "USDJPY": 209
+    }
+  },
+  "train_candidate": {
+    "trades": 225,
+    "trades_per_week": 2.160493827160494,
+    "expectancy_gross_pips": 12.297095238095373,
+    "expectancy_a_pips": 10.797095238095373,
+    "pf_gross": 1.2238973938360376,
+    "pf_stress_a": 1.1939868433323062,
+    "pf_stress_b": 1.1648076516702741,
+    "sum_net_a_pips": 2429.346428571459,
+    "sum_net_b_pips": 2091.846428571459
+  },
+  "train_control": {
+    "trades": 225,
+    "trades_per_week": 2.160493827160494,
+    "expectancy_gross_pips": 9.68649206349216,
+    "expectancy_a_pips": 8.18649206349216,
+    "pf_gross": 1.1760705264236075,
+    "pf_stress_a": 1.146961363120222,
+    "pf_stress_b": 1.118556325294001,
+    "sum_net_a_pips": 1841.9607142857362,
+    "sum_net_b_pips": 1504.4607142857362
+  },
+  "holdout_candidate": null,
+  "holdout_control": null,
+  "train_pass": false,
+  "kill_reasons": [
+    "year_concentration>0.55"
+  ],
+  "train_year_concentration_pos_net_a": 1.0,
+  "trades_csv": "03. EA Developer/EA_SonicR/research/preflight/v8_probe/20260713_V8_COT_TFF_SPEC_NET_PROBE_TRADES_V1.csv",
+  "trades_csv_sha256": "01a7ec79b2e98d061bd38df171da81bb0930b20bfdac5bc7bbf2ae4e652b429f",
+  "authority_flags": {
+    "registry_append_authorized": false,
+    "prereg_freeze_authorized": false,
+    "ea_build_authorized": false,
+    "compile_authorized": false,
+    "backtest_authorized": false,
+    "model_0_authorized": false
+  }
+}

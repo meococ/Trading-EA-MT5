@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-D1-TREND-H1-PB-001",
+  "task_packet_sha256": "E90CE0337E20C46381102C57A7230BD963F2C8513D00D1FFD2FB46617580F0E6",
+  "git_commit": "NOGIT-A92F23C2D1DF97A13B6531007475F341671D20DA786A6A437134D244CC223228",
+  "git_status_sha256": "C447F92F371D8BA9097B275AE021A0A98ED5F16E91A7A7FB55CD9AF87D7A7EB8",
+  "binding": {
+    "hypothesis_id": "HYP-D1-TREND-H1-PB-001",
+    "run_role": "control",
+    "ea_name": "EA_D1TrendH1PB",
+    "symbol": "USDJPY",
+    "period": "H1",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "13503B23C51A274DC40AC3034C637E2D5347368F7B0D7F605FA83DCE58C9A714"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\d1_trend_h1_pb\\contracts\\receipt_stubs_HYP_D1_TREND_H1_PB_001\\task_packet.json",
+      "sha256": "E90CE0337E20C46381102C57A7230BD963F2C8513D00D1FFD2FB46617580F0E6"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_D1TrendH1PB\\EA_D1TrendH1PB.mq5",
+      "sha256": "268946B176489B8C7B5A065DCCE87D3ECFA07C1A4981DA96A62F012361B594B5"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\d1_trend_h1_pb\\contracts\\receipt_stubs_HYP_D1_TREND_H1_PB_001\\prereg.json",
+      "sha256": "5F63FBE83234C00683AD892D859170E1FF04BBCE659DB69677EF8C46D8BAD725"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\d1_trend_h1_pb\\contracts\\receipt_stubs_HYP_D1_TREND_H1_PB_001\\cost_source_manifest.json",
+      "sha256": "C07580ED387472F87CBC0284F216D83AD68CE6EA89EBB699BA5A6A0E7A1C4BA1"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\d1_trend_h1_pb\\contracts\\receipt_stubs_HYP_D1_TREND_H1_PB_001\\include_note.txt",
+      "sha256": "C9BB17CACDAEADD48A29C1725FB0E7C6F16D50B567A391596BEA86DF6EC38CD9"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T16:10:45.067728+00:00",
+  "note": "Post-Wave5 path B; D1 EMA50 + H1 EMA21 PB reclaim RR=2.5; distinct from parked H4 sibling."
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "sonic_structural_offline_probes.v4",
+  "status": "OFFLINE_V4_BOTH_KILL_ARCHIVED_FROM_CLOSEOUT",
+  "honesty": "Peer V4 batch (PWHL + H4 balance). Full machine JSON was overwritten by a concurrent five-probe batch; authoritative metrics restored from session closeout. Five-probe batch relocated to V5.",
+  "result_sha256_from_closeout": "05DC627716F1D8D61B6D9976F09F80A1DBB78706240FF1881886711803C37B60",
+  "closeout": "readouts/20260714_STRUCTURAL_REBUILD_V4_SESSION_CLOSEOUT.md",
+  "relocated_five_probe_batch": "preflight/20260714_STRUCTURAL_REBUILD_OFFLINE_PROBES_V5.json",
+  "probes": [
+    {
+      "hypothesis_id": "HYP-W1-PWHL-SWEEP-RECLAIM-H1-001",
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "metrics": {"n": 180, "pf": 0.85, "tpw": 0.69, "pf_x15_cost12": 0.79},
+      "source": "closeout_restore"
+    },
+    {
+      "hypothesis_id": "HYP-H4-BALANCE-BREAK-H1-ACCEPT-001",
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "metrics": {"n": 75, "pf": 1.67, "tpw": 0.29, "pf_x15_cost12": 1.53},
+      "source": "closeout_restore",
+      "note": "Thick PF/stress but cadence starve — do not loosen BAL_LEN"
+    }
+  ],
+  "any_model0_authorized": false,
+  "best_shelf": "RR2 20260714_194548"
+}

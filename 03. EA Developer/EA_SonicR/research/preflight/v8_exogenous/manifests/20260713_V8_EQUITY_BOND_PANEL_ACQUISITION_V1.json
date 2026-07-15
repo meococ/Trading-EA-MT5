@@ -1,0 +1,167 @@
+{
+  "schema": "v8_equity_bond_panel_acquisition.v1",
+  "created_at_utc": "2026-07-13T16:47:30.932648+00:00",
+  "authority": "Owner autonomous mandate 2026-07-13; equity-bond panel acquisition/hash-bind only; NO ChatGPT; NO git; NO probe/registry/prereg/compile/backtest",
+  "status": "ACQUISITION_EXECUTED",
+  "raw_dir": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond",
+  "files": [
+    {
+      "name": "us_treasury_yield_curve_2018.csv",
+      "bytes": 16978,
+      "sha256": "e8375524a7a8d3e8091bbe7690d0378b9365be09efff5b18b8eefddc25f718d3",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2018/all?type=daily_treasury_yield_curve&field_tdr_date_value=2018&page&_format=csv",
+      "status": "OK",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\us_treasury_yield_curve_2018.csv",
+      "approx_data_rows": 249
+    },
+    {
+      "name": "us_treasury_yield_curve_2019.csv",
+      "bytes": 17841,
+      "sha256": "83fc47c17325e222c45fd3a1eb26c69ae01f62d33b793030b4b8b350ca0a290b",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2019/all?type=daily_treasury_yield_curve&field_tdr_date_value=2019&page&_format=csv",
+      "status": "OK",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\us_treasury_yield_curve_2019.csv",
+      "approx_data_rows": 250
+    },
+    {
+      "name": "us_treasury_yield_curve_2020.csv",
+      "bytes": 17912,
+      "sha256": "edcf1c8be9622f3cd92eb7de1847aefc3977e2118e2ff9af67f46614a5c306a7",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2020/all?type=daily_treasury_yield_curve&field_tdr_date_value=2020&page&_format=csv",
+      "status": "OK",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\us_treasury_yield_curve_2020.csv",
+      "approx_data_rows": 251
+    },
+    {
+      "name": "us_treasury_yield_curve_2021.csv",
+      "bytes": 17912,
+      "sha256": "1be57e49c63a99f6002431a1030c8fbe539b71066c3eaf14f9f58ddc34492cea",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2021/all?type=daily_treasury_yield_curve&field_tdr_date_value=2021&page&_format=csv",
+      "status": "OK",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\us_treasury_yield_curve_2021.csv",
+      "approx_data_rows": 251
+    },
+    {
+      "name": "us_treasury_yield_curve_2022.csv",
+      "bytes": 18226,
+      "sha256": "c33cb2758e5e34c2c23b7ab759d18681091860f3f9e5960112859f64f31cd814",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2022/all?type=daily_treasury_yield_curve&field_tdr_date_value=2022&page&_format=csv",
+      "status": "OK",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\us_treasury_yield_curve_2022.csv",
+      "approx_data_rows": 249
+    },
+    {
+      "name": "us_treasury_yield_curve_2023.csv",
+      "bytes": 19098,
+      "sha256": "edb7f3904e11dcaa502cdcc03ad9b1b16c893802d166ce9bc5fa1118251249d4",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2023/all?type=daily_treasury_yield_curve&field_tdr_date_value=2023&page&_format=csv",
+      "status": "OK",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\us_treasury_yield_curve_2023.csv",
+      "approx_data_rows": 250
+    },
+    {
+      "name": "us_treasury_yield_curve_2024.csv",
+      "bytes": 19098,
+      "sha256": "6775840b76cd7fd41121f61d6f6c60184eca6b2ba49954ec7372c463cbeef34d",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2024/all?type=daily_treasury_yield_curve&field_tdr_date_value=2024&page&_format=csv",
+      "status": "OK",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\us_treasury_yield_curve_2024.csv",
+      "approx_data_rows": 250
+    },
+    {
+      "name": "us_treasury_yield_curve_2025.csv",
+      "bytes": 20155,
+      "sha256": "cf2fa3da7f160384b63d2ead698532b1d76cd9f789ce4911e2304db85b14e6d5",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2025/all?type=daily_treasury_yield_curve&field_tdr_date_value=2025&page&_format=csv",
+      "status": "OK",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\us_treasury_yield_curve_2025.csv",
+      "approx_data_rows": 249
+    },
+    {
+      "name": "us_treasury_yield_curve_2026.csv",
+      "bytes": 10721,
+      "sha256": "345039a71579b0b4e14562abe07942c53af0514764f9f5ef254ebb7e7b76d053",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_yield_curve&field_tdr_date_value=2026&page&_format=csv",
+      "status": "OK",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\us_treasury_yield_curve_2026.csv",
+      "approx_data_rows": 131
+    },
+    {
+      "name": "ecb_aaa_yc_sr_10y.csv",
+      "bytes": 3133717,
+      "sha256": "fa8cadb6acdb7648111801eb0d3a197b31174e017d6b1a57267b9157ef28deba",
+      "source_url": "https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y?format=csvdata",
+      "status": "OK",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\ecb_aaa_yc_sr_10y.csv",
+      "approx_data_rows": 5584
+    },
+    {
+      "name": "ecb_aaa_yc_sr_2y.csv",
+      "bytes": 3113243,
+      "sha256": "9febc698e5864a7e290d14918925d0dafdd81ceed5e13bbc786731bedbba7225",
+      "source_url": "https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y?format=csvdata",
+      "status": "OK",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\ecb_aaa_yc_sr_2y.csv",
+      "approx_data_rows": 5584
+    },
+    {
+      "name": "fred_vixcls.csv",
+      "bytes": 160439,
+      "sha256": "9d0b7ec855526bac12ed0ad5b567fddfcb5bc426402480242b6d10c766615a47",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS",
+      "status": "OK",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\fred_vixcls.csv",
+      "approx_data_rows": 9529
+    },
+    {
+      "name": "fred_sp500.csv",
+      "bytes": 48941,
+      "sha256": "cff9bcee3cd43e43c4e2f50f3fe5e5b47bce09cd0178d3465a076f484999c286",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SP500",
+      "status": "OK",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\fred_sp500.csv",
+      "approx_data_rows": 2610
+    },
+    {
+      "name": "mirror_us_dgs10_DGS10.csv",
+      "bytes": 267963,
+      "sha256": "9a175ee372b61553538749a59c6a7151281f4aa31adeec6d455491b54b187036",
+      "source_url": "local_workspace:D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\us_dgs10_DGS10.csv",
+      "status": "OK_LOCAL_MIRROR",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\mirror_us_dgs10_DGS10.csv",
+      "source_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\us_dgs10_DGS10.csv",
+      "approx_data_rows": 16833
+    },
+    {
+      "name": "mirror_us_dgs2_DGS2.csv",
+      "bytes": 208136,
+      "sha256": "08cae6e92a461c5d135d987fe270622c85fcbff3e10a2cfd029ad12793197142",
+      "source_url": "local_workspace:D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\us_dgs2_DGS2.csv",
+      "status": "OK_LOCAL_MIRROR",
+      "acquired_at_utc": "2026-07-13T16:47:30.932648+00:00",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\equity_bond\\mirror_us_dgs2_DGS2.csv",
+      "source_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\us_dgs2_DGS2.csv",
+      "approx_data_rows": 13073
+    }
+  ],
+  "summary": {
+    "file_count": 15,
+    "ok_count": 15,
+    "fail_count": 0,
+    "errors": []
+  }
+}

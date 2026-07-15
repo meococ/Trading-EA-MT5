@@ -1,0 +1,1 @@
+EA_SilverBullet_v2 Trade.mqh stdlib only. MaxKZ2 + RR 2.0 friction child.

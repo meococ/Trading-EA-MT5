@@ -1,0 +1,127 @@
+[
+  {
+    "run": "20260714_192203",
+    "status": "no_report"
+  },
+  {
+    "run": "20260714_191628",
+    "bytes": 1058734,
+    "pf": "1.33",
+    "n": "521",
+    "net": "7 540.77",
+    "hyp": "HYP-SB-MAXHOLD-A2-001",
+    "ov": "﻿InpFridayFlatHour=21;InpFridayFlatMinute=45;InpMaxHoldHours=30;InpUseMaxHold=1;InpUseWeekendFlat=1"
+  },
+  {
+    "run": "20260714_191547",
+    "bytes": 22358,
+    "pf": "0.00",
+    "n": "0",
+    "net": "0",
+    "hyp": "HYP-SB-MAXHOLD-A2-001",
+    "ov": "﻿InpFridayFlatHour=21;InpFridayFlatMinute=45;InpMaxHoldHours=30;InpUseMaxHold=1;InpUseWeekendFlat=1"
+  },
+  {
+    "run": "20260714_191429",
+    "bytes": 22358,
+    "pf": "0.00",
+    "n": "0",
+    "net": "0",
+    "hyp": "HYP-SB-MAXHOLD-A2-001",
+    "ov": "﻿InpFridayFlatHour=21;InpFridayFlatMinute=45;InpMaxHoldHours=30;InpUseMaxHold=1;InpUseWeekendFlat=1"
+  },
+  {
+    "run": "20260714_002505",
+    "bytes": 1057048,
+    "pf": "1.34",
+    "n": "520",
+    "net": "7 875.93",
+    "hyp": "HYP-SB-WEEKEND-FLAT-001",
+    "ov": "﻿InpFridayFlatHour=21;InpFridayFlatMinute=45;InpUseWeekendFlat=1"
+  },
+  {
+    "run": "20260714_002046",
+    "bytes": 1055300,
+    "pf": "1.33",
+    "n": "519",
+    "net": "7 600.35",
+    "hyp": "HYP-SB-WEEKEND-FLAT-001",
+    "ov": "﻿InpUseWeekendFlat=0"
+  },
+  {
+    "run": "20260714_001258",
+    "bytes": 1057048,
+    "pf": "1.34",
+    "n": "520",
+    "net": "7 875.93",
+    "hyp": "HYP-SB-WEEKEND-FLAT-001",
+    "ov": "﻿InpFridayFlatHour=21;InpFridayFlatMinute=45;InpUseWeekendFlat=1"
+  },
+  {
+    "run": "20260714_001029",
+    "bytes": 1057048,
+    "pf": "1.34",
+    "n": "520",
+    "net": "7 875.93",
+    "hyp": "HYP-SB-WEEKEND-FLAT-001",
+    "ov": "﻿InpFridayFlatHour=21;InpFridayFlatMinute=45;InpUseWeekendFlat=1"
+  },
+  {
+    "run": "20260714_000937",
+    "bytes": 1055300,
+    "pf": "1.33",
+    "n": "519",
+    "net": "7 600.35",
+    "hyp": "HYP-SB-WEEKEND-FLAT-001",
+    "ov": "﻿InpUseWeekendFlat=0"
+  },
+  {
+    "run": "20260714_000755",
+    "status": "no_report"
+  },
+  {
+    "run": "20260714_000703",
+    "bytes": 1055300,
+    "pf": "1.33",
+    "n": "519",
+    "net": "7 600.35",
+    "hyp": "HYP-SB-WEEKEND-FLAT-001",
+    "ov": "﻿InpUseWeekendFlat=0"
+  },
+  {
+    "run": "20260702_140026",
+    "bytes": 1575628,
+    "pf": "1.02",
+    "n": "785",
+    "net": "712.01",
+    "hyp": "",
+    "ov": ""
+  },
+  {
+    "run": "20260628_131720",
+    "bytes": 441534,
+    "pf": "1.40",
+    "n": "206",
+    "net": "3 532.12",
+    "hyp": "",
+    "ov": ""
+  },
+  {
+    "run": "20260628_131627",
+    "bytes": 652610,
+    "pf": "1.28",
+    "n": "314",
+    "net": "4 010.45",
+    "hyp": "",
+    "ov": ""
+  },
+  {
+    "run": "20260628_131532",
+    "bytes": 441534,
+    "pf": "1.40",
+    "n": "206",
+    "net": "3 532.12",
+    "hyp": "",
+    "ov": ""
+  }
+]

@@ -1,0 +1,77 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-SR-FX-USBILL-SLOPE-USD-BASKET-001",
+  "task_packet_sha256": "730449F9A022E0C9B2B4D8074FB5E6D0A6E8120F2EDEC0E5C4EFF6CF973CADD8",
+  "git_commit": "NOGIT-8D18C9BBDCE7C039FE97FF35DB99E65F5091DD67BFD32EE972C4F30462BC2E16",
+  "git_status_sha256": "6C84D775836880FB7917BF78E277A6339706EDC72D1BBA57F08BFC60D7FA81EA",
+  "binding": {
+    "hypothesis_id": "HYP-SR-FX-USBILL-SLOPE-USD-BASKET-001",
+    "run_role": "challenger",
+    "ea_name": "EA_UsBillSlopeBasket",
+    "symbol": "EURUSD",
+    "period": "D1",
+    "from": "2019.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpMode=1",
+    "telemetry_tier": "off",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 1e-05,
+      "pip_size": 0.0001
+    },
+    "include_closure_sha256": "80303A9D7852146A50909D6314D665FD4689DD6B4AB6AA3E3D72E5FF2779BC3B"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\usbill_slope_basket\\contracts\\receipt_stubs_HYP_SR_FX_USBILL_SLOPE_USD_BASKET_001_CHALLENGER\\task_packet.json",
+      "sha256": "730449F9A022E0C9B2B4D8074FB5E6D0A6E8120F2EDEC0E5C4EFF6CF973CADD8"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UsBillSlopeBasket\\EA_UsBillSlopeBasket.mq5",
+      "sha256": "53F3D8ADC7578769C2FF43EFA08019A51D83C29327057FDE64DB5B7DB3DA2D18"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\usbill_slope_basket\\contracts\\receipt_stubs_HYP_SR_FX_USBILL_SLOPE_USD_BASKET_001_CHALLENGER\\prereg.json",
+      "sha256": "821BB0DC7A763B6191E67AB14F07AB017CC065EBEB18671C8731D08103747246"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\usbill_slope_basket\\contracts\\receipt_stubs_HYP_SR_FX_USBILL_SLOPE_USD_BASKET_001_CHALLENGER\\cost_source_manifest.json",
+      "sha256": "509505252EC031822F0EBDBC2B302E86239BE3BB762C8353A458C8597754CCA7"
+    },
+    {
+      "label": "matched_control_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_UsBillSlopeBasket\\20260714_013628\\run_manifest.json",
+      "sha256": "4C07460F0A44B6F5E24D8C7CAE3949B51A923D169EF8BA11767DDB713B13E210"
+    },
+    {
+      "label": "matched_control_report",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_UsBillSlopeBasket\\20260714_013628\\report.html",
+      "sha256": "67783C33256FFE31A19A9DCF4C24C4FDF076C151F0D71FB5D18F407A17288CFF"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\usbill_slope_basket\\contracts\\receipt_stubs_HYP_SR_FX_USBILL_SLOPE_USD_BASKET_001_CHALLENGER\\include_note.txt",
+      "sha256": "AE38465A6802DF012853089C6E57BBAF8FBF8931001D54EDA476DC186A507ABF"
+    }
+  ],
+  "generated_at_utc": "2026-07-13T18:40:00Z",
+  "note": "Model 0 challenger matched to control 20260714_013628."
+}

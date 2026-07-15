@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-SB-MAXHOLD-A2-001",
+  "task_packet_sha256": "239CB3F5A66F0A74C694DC1905AB0D3DE27F02438DDF1423980F5E897A7B5663",
+  "git_commit": "NOGIT-AA014D4BB929F2EB8DC9BDBBC960770F9BF9E5894D504BD59E8D0FF2D92A4311",
+  "git_status_sha256": "4BBBA9F882DF1AF7F5F4A5C87928BBCF4ED4EF39F2422BF1DB3BC44159096AAF",
+  "binding": {
+    "hypothesis_id": "HYP-SB-MAXHOLD-A2-001",
+    "run_role": "challenger",
+    "ea_name": "EA_SilverBullet",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpUseWeekendFlat=1;InpFridayFlatHour=21;InpFridayFlatMinute=45;InpUseMaxHold=1;InpMaxHoldHours=30",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "28341A0D14D366DC917B83ABD822B983644B229A38D846DE82A9D9A463734F9E"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_maxhold_a2\\contracts\\receipt_stubs_HYP_SB_MAXHOLD_A2_001\\task_packet.json",
+      "sha256": "239CB3F5A66F0A74C694DC1905AB0D3DE27F02438DDF1423980F5E897A7B5663"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SilverBullet\\EA_SilverBullet_v2.mq5",
+      "sha256": "631F8DCEBACFC9E07CD527BCAE53F745B53121E7DC67281BAE5A9A620D9BF642"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_maxhold_a2\\contracts\\receipt_stubs_HYP_SB_MAXHOLD_A2_001\\prereg.json",
+      "sha256": "05F54904015FE1776F02B753949193654BF38D68C80EAEB2814F0006F670AE90"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_maxhold_a2\\contracts\\receipt_stubs_HYP_SB_MAXHOLD_A2_001\\cost_source_manifest.json",
+      "sha256": "23B75FEF423945E759A22E82576A4D0FE86510A7D8C494F86F0B58B29DDDFE85"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_maxhold_a2\\contracts\\receipt_stubs_HYP_SB_MAXHOLD_A2_001\\include_note.txt",
+      "sha256": "12E334CFCFF3B7D99AFB1727AF5D27C555E6693EE5A529DE0C0480181F36EAFF"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T12:30:12Z",
+  "note": "SB A2 max-hold on A1 weekend-flat; Model 0; cost unverified."
+}

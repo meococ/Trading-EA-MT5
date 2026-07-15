@@ -1,0 +1,8 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-SB-MAXKZ2-DENSITY-002",
+  "status": "UNVERIFIED_TESTER_DEFAULT",
+  "policy": "DOCUMENTED_RESEARCH_PROXY",
+  "spread": "current",
+  "promotion_eligible": false
+}

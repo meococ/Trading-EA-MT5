@@ -1,0 +1,31 @@
+{
+  "schema_version": "alphafactory.owner_authorization_receipt.v1",
+  "date": "2026-07-14",
+  "time_ict": "00:46",
+  "owner_utterance_vi": "cho phép em thoải mái backtest với mt và tự di, miễn là đạt taget",
+  "normalized_en": "Owner authorizes free MT5/AlphaFactory Model 0 backtesting and autonomous self-direction toward GOAL; no micro-approvals required.",
+  "process": "GPT_DEEP_RESEARCH_WAIVED / LOCAL_SELF_RESEARCH_ONLY",
+  "target": {
+    "source": "01. GOAL/GOAL.md",
+    "pf_after_cost": ">1.30",
+    "trades_per_elapsed_calendar_week": "2-5",
+    "joint": true
+  },
+  "integrity_unchanged": [
+    "closed-bar non-repaint",
+    "no missing-cost-as-zero",
+    "no post-hoc rescue of killed books",
+    "Model 0 for serious runs",
+    "elapsed calendar cadence",
+    "honest metrics"
+  ],
+  "subagent_model": "cursor-grok-4.5-high-fast",
+  "authorization": {
+    "compile": true,
+    "model0_backtest": true,
+    "autonomous_hypothesis_iteration": true,
+    "gpt_deep_research": false,
+    "confirmed_without_gates": false,
+    "live_trading": false
+  }
+}

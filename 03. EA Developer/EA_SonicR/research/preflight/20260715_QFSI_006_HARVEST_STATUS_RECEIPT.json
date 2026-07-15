@@ -1,0 +1,140 @@
+{
+  "schema_version": "sonic_qfsi_006_harvest_status.v1",
+  "created_at_utc": "2026-07-14T20:00:30Z",
+  "created_at_ict": "2026-07-15 ~03:00 ICT",
+  "verdict": "REAL_ON__QFSI_006_EARLY_EXIT__REBIND_HARNESS_ARMED__STOP_DATA_FRONTIER",
+  "goal_claim": false,
+  "confirmed_claim": false,
+  "do_not_kill_real": true,
+  "real": {
+    "server": "FivePercentOnline-Real",
+    "terminal64_pid": 15444,
+    "terminal_alive": true,
+    "fingerprints_from_006_start": {
+      "server": "CE114ABFB8C653A060DAD7EA33FAF948B5786F691953B2D4E230EB7986120797",
+      "account": "09DB5E9C091F23DF9E024E684BBA994D00CBD84CDEF2CFBA0C5D064EACCB32AB"
+    }
+  },
+  "qfsi_006": {
+    "capture_id": "20260714_QFSI_REAL_006_ACCUMULATE",
+    "pid": 62392,
+    "planned_duration_sec": 14400,
+    "planned_eta_ict": "~04:34 ICT",
+    "outcome": "EARLY_EXIT_NO_SESSION_END",
+    "last_file_write_ict": "2026-07-15 ~01:09 ICT",
+    "pid_gone_observed_ict": "2026-07-15 ~02:58 ICT",
+    "session_end_present": false,
+    "manifest_present": false,
+    "honest_note": "Capture stopped writing ~01:09 ICT (~35 min into 4h window); process later exited without session_end.json/manifest. Not a clean CAPTURE_WINDOW_COMPLETE_PARTIAL. Real terminal64 left untouched.",
+    "symbols_book_first": [
+      "USDJPY",
+      "EURUSD",
+      "GBPUSD",
+      "XAUUSD"
+    ],
+    "rows_final_006_only": {
+      "USDJPY": {
+        "quotes": 1286,
+        "hb": 1932,
+        "comm_unique": 0,
+        "slip": 0
+      },
+      "EURUSD": {
+        "quotes": 1028,
+        "hb": 1932,
+        "comm_unique": 2,
+        "slip": 0
+      },
+      "GBPUSD": {
+        "quotes": 1510,
+        "hb": 1932,
+        "comm_unique": 0,
+        "slip": 0
+      },
+      "XAUUSD": {
+        "quotes": 1929,
+        "hb": 1932,
+        "comm_unique": 0,
+        "slip": 0
+      }
+    },
+    "out_dir": "d:/Trading EA MT5/02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_006_ACCUMULATE"
+  },
+  "full_qfsi": "STOP_DATA_FRONTIER",
+  "cost_grade": "PARTIAL_REAL_COST",
+  "aggregate_frontier_all_captures": {
+    "quote_distinct_utc_dates": {
+      "USDJPY": [
+        "2026-07-14"
+      ],
+      "EURUSD": [
+        "2026-07-14"
+      ],
+      "GBPUSD": [
+        "2026-07-14"
+      ],
+      "XAUUSD": [
+        "2026-07-14"
+      ]
+    },
+    "quote_day_counts": {
+      "USDJPY": 1,
+      "EURUSD": 1,
+      "GBPUSD": 1,
+      "XAUUSD": 1
+    },
+    "quote_days_need": 90,
+    "quote_days_remaining": 89,
+    "commission_unique": {
+      "USDJPY": 0,
+      "EURUSD": 2,
+      "GBPUSD": 0,
+      "XAUUSD": 0
+    },
+    "commission_need_EURUSD": 28,
+    "slippage_fills": {
+      "USDJPY": 0,
+      "EURUSD": 0,
+      "GBPUSD": 0,
+      "XAUUSD": 0
+    },
+    "slippage_need_per_symbol": 100,
+    "note": "MISSING slip != 0. 4h (or partial) capture cannot clear 90 calendar quote-days."
+  },
+  "what_changed_after_006": {
+    "quote_days": "unchanged 1/90",
+    "commission_unique_EURUSD": "unchanged 2/30",
+    "commission_unique_USDJPY": "unchanged 0",
+    "slippage": "unchanged 0",
+    "gate": "still STOP_DATA_FRONTIER",
+    "partial_shelf_RR2_194548": "unchanged 1.316/1.286/1.257 — not confirmed"
+  },
+  "owner_deal_export": {
+    "drop_path": "d:/Trading EA MT5/02. AlphaFactory/evidence/execution/FivePercentOnline-Real/owner_deal_export_drop",
+    "new_owner_files": 0,
+    "ingest": "SKIPPED_NO_OWNER_FILES"
+  },
+  "rebind_harness": {
+    "status": "HARNESS_ARMED__GATE_STOP",
+    "execute_run": false,
+    "why_no_execute": "gate STOP_DATA_FRONTIER — --execute refused",
+    "path": "02. AlphaFactory/tools/qfsi_rr2_fullcost_rebind_harness.py",
+    "latest_status_receipt_sha256": "B903DE69AEB3DFE3A9F00E00D620EACDD92B0138983297FBE33753359ADCFF8B",
+    "no_signal_retune": true
+  },
+  "bans_honored": [
+    "no_kill_Real",
+    "no_Wave8_price_spam",
+    "no_densify",
+    "no_COT_revive",
+    "no_retune_RR2_from_partial",
+    "no_execute_rebind_on_STOP"
+  ],
+  "next_auto": [
+    "keep_Real_alive",
+    "optional_relaunch_long_accumulate_when_safe",
+    "Owner_deal_export_for_commission_slip",
+    "rebind_execute_only_on_GO",
+    "no_price_twins"
+  ]
+}

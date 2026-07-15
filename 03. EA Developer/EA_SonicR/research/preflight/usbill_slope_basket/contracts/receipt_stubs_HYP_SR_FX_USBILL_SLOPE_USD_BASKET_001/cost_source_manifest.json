@@ -1,0 +1,9 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-SR-FX-USBILL-SLOPE-USD-BASKET-001",
+  "status": "UNVERIFIED_TESTER_DEFAULT",
+  "broker_target": "FivePercentOnline-Real",
+  "observed_login_server": "MetaQuotes-Demo",
+  "grade": "RESEARCH_PROXY_TESTER_SPREAD_ONLY",
+  "note": "Missing/zero cost fields must NOT be treated as zero friction. Screen PF is tester-reported only. Not QFSI / Real bid-ask/commission/slippage. Stress x1.5/x2 must be applied offline or via future Real capture before confirmed."
+}

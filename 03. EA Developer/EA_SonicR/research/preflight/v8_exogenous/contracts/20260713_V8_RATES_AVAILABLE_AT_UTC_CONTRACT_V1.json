@@ -1,0 +1,101 @@
+{
+  "schema": "v8_rates_available_at_utc_contract.v1",
+  "status": "DRAFT_CONTRACT / NO_JOIN / NO_PROBE",
+  "created_at_utc": "2026-07-13T16:30:44.355827+00:00",
+  "authority": "Acquisition readiness under Owner 1A. Does not authorize Deep Research submit, offline probe, registry, prereg, EA, compile, or Model 0.",
+  "join_rule": "FX closed bar may use a rate observation only if bar_close_utc >= available_at_utc. No silent forward-fill across missing observations or policy gaps.",
+  "series": [
+    {
+      "series_id": "USD_DFF_OR_SOFR",
+      "local_files": [
+        "research/data/exogenous/us_fed_funds_DFF.csv",
+        "research/data/exogenous/us_sofr_SOFR.csv"
+      ],
+      "observation_clock": "US calendar day",
+      "publication_lag_rule": "Treat as available next US business day 15:00 UTC unless ALFRED first-release proves earlier. Prefer SOFR after 2018-04-03; DFF as longer history USD proxy with explicit mapping note in any later probe.",
+      "fail_closed": "Missing day => no carry update that day."
+    },
+    {
+      "series_id": "USD_TBILL_DAILY",
+      "local_files": [
+        "research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2018.csv",
+        "research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2019.csv",
+        "research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2020.csv",
+        "research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2021.csv",
+        "research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2022.csv",
+        "research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2023.csv",
+        "research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2024.csv",
+        "research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2025.csv"
+      ],
+      "observation_clock": "US Treasury published daily bill rates",
+      "publication_lag_rule": "available_at_utc = next calendar day 00:00 UTC after observation date (conservative). Do not use same-day T-bill for Tokyo/London bars before US publish.",
+      "fail_closed": "Missing year/day => no differential that day."
+    },
+    {
+      "series_id": "EUR_ECB_DFR",
+      "local_files": [
+        "research/preflight/v8_exogenous/raw/ecb_dfr_daily.csv",
+        "research/data/exogenous/eur_ecb_deposit_ECBDFR.csv"
+      ],
+      "observation_clock": "ECB deposit facility rate level series",
+      "publication_lag_rule": "Use effective date / series timestamp; prefer official ECB SDMX daily level. available_at_utc = max(observation_date 16:00 UTC, next bar after known announcement).",
+      "fail_closed": "Gap => hold prior known effective rate only if continuity is source-justified; else fail closed."
+    },
+    {
+      "series_id": "EUR_ESTR",
+      "local_files": [
+        "research/data/exogenous/eur_estr_ECBESTRVOLWGTTRMDMNRT.csv"
+      ],
+      "observation_clock": "Euro short-term rate",
+      "publication_lag_rule": "ESTR typically T+1 morning publication. available_at_utc = next ECB business day 08:00 UTC.",
+      "fail_closed": "Pre-2019-10-01 ESTR absent; use ECB DFR proxy only with explicit probe mapping, never silent splice."
+    },
+    {
+      "series_id": "GBP_BOE_BANK_RATE",
+      "local_files": [
+        "research/preflight/v8_exogenous/raw/boe_bank_rate.csv"
+      ],
+      "observation_clock": "BoE IUDBEDR daily export",
+      "publication_lag_rule": "Policy rate is effective-date based; daily export repeats level. available_at_utc = observation DATE 12:00 UTC (London noon) conservative.",
+      "fail_closed": "Missing DATE row => no GBP leg that day."
+    },
+    {
+      "series_id": "GBP_SONIA",
+      "local_files": [
+        "research/data/exogenous/gbp_sonia_IUDSOIA.csv"
+      ],
+      "observation_clock": "SONIA daily",
+      "publication_lag_rule": "Typically next London business morning. available_at_utc = next UK business day 09:00 UTC.",
+      "fail_closed": "Missing => no SONIA differential that day."
+    },
+    {
+      "series_id": "JPY_BOJ_CALL_ON",
+      "local_files": [
+        "research/preflight/v8_exogenous/raw/jpy_boj_uncollateralized_overnight_call_daily.csv"
+      ],
+      "observation_clock": "BoJ uncollateralized overnight call average daily",
+      "publication_lag_rule": "BoJ table updates with lag; conservative available_at_utc = next Tokyo business day 06:00 UTC. NA rows are missing, not zero.",
+      "fail_closed": "NA or missing => no JPY money-market leg that day."
+    },
+    {
+      "series_id": "JPY_BOJ_POLICY_STEPS",
+      "local_files": [
+        "research/preflight/v8_exogenous/raw/jpy_boj_basic_discount_loan_rate_steps.csv"
+      ],
+      "observation_clock": "Effective-date policy steps only",
+      "publication_lag_rule": "Rate in force only when bar_close_utc >= effective_date 00:00 Asia/Tokyo converted to UTC. Announcement may precede effective date \u2014 never backfill future effective rate.",
+      "fail_closed": "Sparse steps alone cannot hit 2-5 trades/week; money-market call series is required companion."
+    }
+  ],
+  "negative_control_reminder": "Any later probe must include a rates-zeroed or rates-shuffled control so carry differential cannot collapse to spot momentum/rank.",
+  "acquired_files_referenced": [
+    "jpy_boj_uncollateralized_overnight_call_daily.csv",
+    "jpy_boj_basic_discount_loan_rate_steps.csv",
+    "eur_ecb_deposit_ECBDFR.csv",
+    "eur_estr_ECBESTRVOLWGTTRMDMNRT.csv",
+    "gbp_sonia_IUDSOIA.csv",
+    "jpy_call_money_monthly_IRSTCI01JPM156N.csv",
+    "us_fed_funds_DFF.csv",
+    "us_sofr_SOFR.csv"
+  ]
+}

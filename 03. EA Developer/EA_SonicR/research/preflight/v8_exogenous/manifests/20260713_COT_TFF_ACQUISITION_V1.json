@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "year": 2018,
+      "bytes": 458570,
+      "sha256": "6843d130a25a17c6248df67463810f02077ef4eeafdd629299d21c18f5125e40",
+      "status": "OK"
+    },
+    {
+      "year": 2019,
+      "bytes": 454803,
+      "sha256": "631b31880d513072aa50d63117c896184dd35db3cc8fcdd6debd80197ee7a661",
+      "status": "OK"
+    },
+    {
+      "year": 2020,
+      "bytes": 430721,
+      "sha256": "c90d98d94db708772d669f263fb8061c75f8a7f681ba231fb21247e5c9798e6b",
+      "status": "OK"
+    },
+    {
+      "year": 2021,
+      "bytes": 466549,
+      "sha256": "5c929991038c70ae2501661b6d442b9e784d3c29d3166ceac2e21b45ac93d56a",
+      "status": "OK"
+    },
+    {
+      "year": 2022,
+      "bytes": 494559,
+      "sha256": "94c9c1fdee9dfbe377a09923ddfe26b88d3460605dd076081f221ad367d88601",
+      "status": "OK"
+    },
+    {
+      "year": 2023,
+      "bytes": 506931,
+      "sha256": "43c3dbdd4d01fceefad5e457003751cdc0974c7cf46097b322e26e9e2fe44d7a",
+      "status": "OK"
+    },
+    {
+      "year": 2024,
+      "bytes": 563591,
+      "sha256": "3f00585741a7cf76c207df640951d644dd91ff22a1106b38ca37a2469c765637",
+      "status": "OK"
+    },
+    {
+      "year": 2025,
+      "bytes": 627068,
+      "sha256": "2ea0cda6395f7dd6501c27422be3763e1f2f5b41b768cfd36b871f092a07d438",
+      "status": "OK"
+    }
+  ]
+}

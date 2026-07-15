@@ -1,0 +1,516 @@
+{
+  "schema_version": "sonic_qfsi_wave7continue_real_shelf_receipt.v1",
+  "created_at_utc": "2026-07-14T16:45:31.633177Z",
+  "status": "REAL_ON__QFSI_005_LIVE__PARTIAL_SHELF_REPRICE_COMPLETE",
+  "goal_claim": false,
+  "confirmed_claim": false,
+  "COST_PROVENANCE_GAP": "NARROWED_NOT_CLEARED",
+  "probe": {
+    "path": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/v4_data/20260714_MT5_READONLY_PROBE_V8_WAVE7CONTINUE.json",
+    "sha256": "06244EF4D24A417791C28F742AD6FD39D04712CA2343F7B88757E7A8E2780483",
+    "verdict": "TARGET_SERVER_READONLY_PROBE_COMPLETE",
+    "expected_server": "FivePercentOnline-Real",
+    "observed_server": "FivePercentOnline-Real",
+    "server_match": true,
+    "account_fingerprint": "09DB5E9C091F23DF9E024E684BBA994D00CBD84CDEF2CFBA0C5D064EACCB32AB",
+    "server_fingerprint": "CE114ABFB8C653A060DAD7EA33FAF948B5786F691953B2D4E230EB7986120797"
+  },
+  "live_account": {
+    "ok": true,
+    "login": 26451822,
+    "server": "FivePercentOnline-Real",
+    "currency": "USD",
+    "balance": 99971.68,
+    "trade_allowed": true,
+    "usdjpy_live_spread_usd_p50": 0.6167737796984921
+  },
+  "processes": {
+    "terminal": 29076,
+    "qfsi": 35892,
+    "metatester": {}
+  },
+  "do_not_kill_real": true,
+  "captures": {
+    "20260714_QFSI_REAL_001": {
+      "capture_id": "20260714_QFSI_REAL_001",
+      "path": "d:/Trading EA MT5/02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001",
+      "has_start": true,
+      "has_end": true,
+      "quotes": {
+        "EURUSD": 89,
+        "GBPUSD": 125,
+        "XAUUSD": 992,
+        "USDJPY": 107
+      },
+      "heartbeats": {
+        "EURUSD": 69,
+        "GBPUSD": 69,
+        "XAUUSD": 69,
+        "USDJPY": 69
+      },
+      "commission_rows": {
+        "EURUSD": 2,
+        "GBPUSD": 0,
+        "XAUUSD": 0,
+        "USDJPY": 0
+      },
+      "slippage_rows": {
+        "EURUSD": 0,
+        "GBPUSD": 0,
+        "XAUUSD": 0,
+        "USDJPY": 0
+      },
+      "totals": {
+        "quotes": 1313,
+        "heartbeats": 276,
+        "commission": 4,
+        "slippage": 0
+      },
+      "session_status": "CAPTURE_WINDOW_COMPLETE_PARTIAL",
+      "reprice_ready": false,
+      "reprice_blockers": [
+        "QFSI_SAMPLE_GATES_NOT_MET",
+        "SLIPPAGE_FILLS_MISSING",
+        "COMMISSION_SAMPLE_BELOW_30_PER_SYMBOL",
+        "QUOTE_ELAPSED_DAYS_BELOW_90"
+      ]
+    },
+    "20260714_QFSI_REAL_002": {
+      "capture_id": "20260714_QFSI_REAL_002",
+      "path": "d:/Trading EA MT5/02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_002",
+      "has_start": true,
+      "has_end": true,
+      "quotes": {
+        "EURUSD": 98,
+        "GBPUSD": 106,
+        "XAUUSD": 110,
+        "USDJPY": 107
+      },
+      "heartbeats": {
+        "EURUSD": 110,
+        "GBPUSD": 110,
+        "XAUUSD": 110,
+        "USDJPY": 110
+      },
+      "commission_rows": {
+        "EURUSD": 0,
+        "GBPUSD": 0,
+        "XAUUSD": 0,
+        "USDJPY": 0
+      },
+      "slippage_rows": {
+        "EURUSD": 0,
+        "GBPUSD": 0,
+        "XAUUSD": 0,
+        "USDJPY": 0
+      },
+      "totals": {
+        "quotes": 421,
+        "heartbeats": 440,
+        "commission": 2,
+        "slippage": 0
+      },
+      "session_status": "CAPTURE_WINDOW_COMPLETE_PARTIAL",
+      "reprice_ready": false,
+      "reprice_blockers": [
+        "QFSI_SAMPLE_GATES_NOT_MET",
+        "SLIPPAGE_FILLS_MISSING",
+        "COMMISSION_SAMPLE_BELOW_30_PER_SYMBOL",
+        "QUOTE_ELAPSED_DAYS_BELOW_90"
+      ]
+    },
+    "20260714_QFSI_REAL_003_CONTINUATION": {
+      "capture_id": "20260714_QFSI_REAL_003_CONTINUATION",
+      "path": "d:/Trading EA MT5/02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_003_CONTINUATION",
+      "has_start": true,
+      "has_end": true,
+      "quotes": {
+        "EURUSD": 809,
+        "GBPUSD": 855,
+        "XAUUSD": 861,
+        "USDJPY": 851
+      },
+      "heartbeats": {
+        "EURUSD": 861,
+        "GBPUSD": 861,
+        "XAUUSD": 861,
+        "USDJPY": 861
+      },
+      "commission_rows": {
+        "EURUSD": 2,
+        "GBPUSD": 0,
+        "XAUUSD": 0,
+        "USDJPY": 0
+      },
+      "slippage_rows": {
+        "EURUSD": 0,
+        "GBPUSD": 0,
+        "XAUUSD": 0,
+        "USDJPY": 0
+      },
+      "totals": {
+        "quotes": 3376,
+        "heartbeats": 3444,
+        "commission": 2,
+        "slippage": 0
+      },
+      "session_status": "CAPTURE_WINDOW_COMPLETE_PARTIAL",
+      "reprice_ready": false,
+      "reprice_blockers": [
+        "QFSI_SAMPLE_GATES_NOT_MET",
+        "SLIPPAGE_FILLS_MISSING",
+        "COMMISSION_SAMPLE_BELOW_30_PER_SYMBOL",
+        "QUOTE_ELAPSED_DAYS_BELOW_90"
+      ]
+    },
+    "20260714_QFSI_REAL_004_CONTINUATION": {
+      "capture_id": "20260714_QFSI_REAL_004_CONTINUATION",
+      "path": "d:/Trading EA MT5/02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_004_CONTINUATION",
+      "has_start": true,
+      "has_end": true,
+      "quotes": {
+        "EURUSD": 551,
+        "GBPUSD": 572,
+        "XAUUSD": 574,
+        "USDJPY": 570
+      },
+      "heartbeats": {
+        "EURUSD": 574,
+        "GBPUSD": 574,
+        "XAUUSD": 574,
+        "USDJPY": 574
+      },
+      "commission_rows": {
+        "EURUSD": 2,
+        "GBPUSD": 0,
+        "XAUUSD": 0,
+        "USDJPY": 0
+      },
+      "slippage_rows": {
+        "EURUSD": 0,
+        "GBPUSD": 0,
+        "XAUUSD": 0,
+        "USDJPY": 0
+      },
+      "totals": {
+        "quotes": 2267,
+        "heartbeats": 2296,
+        "commission": 2,
+        "slippage": 0
+      },
+      "session_status": "CAPTURE_WINDOW_COMPLETE_PARTIAL",
+      "reprice_ready": false,
+      "reprice_blockers": [
+        "QFSI_SAMPLE_GATES_NOT_MET",
+        "SLIPPAGE_FILLS_MISSING",
+        "COMMISSION_SAMPLE_BELOW_30_PER_SYMBOL",
+        "QUOTE_ELAPSED_DAYS_BELOW_90"
+      ]
+    },
+    "20260714_QFSI_REAL_004_EXTENSION": {
+      "capture_id": "20260714_QFSI_REAL_004_EXTENSION",
+      "path": "d:/Trading EA MT5/02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_004_EXTENSION",
+      "has_start": true,
+      "has_end": true,
+      "quotes": {
+        "EURUSD": 1270,
+        "GBPUSD": 1291,
+        "XAUUSD": 1301,
+        "USDJPY": 1290
+      },
+      "heartbeats": {
+        "EURUSD": 1339,
+        "GBPUSD": 1339,
+        "XAUUSD": 1339,
+        "USDJPY": 1339
+      },
+      "commission_rows": {
+        "EURUSD": 2,
+        "GBPUSD": 0,
+        "XAUUSD": 0,
+        "USDJPY": 0
+      },
+      "slippage_rows": {
+        "EURUSD": 0,
+        "GBPUSD": 0,
+        "XAUUSD": 0,
+        "USDJPY": 0
+      },
+      "totals": {
+        "quotes": 5152,
+        "heartbeats": 5356,
+        "commission": 2,
+        "slippage": 0
+      },
+      "session_status": "CAPTURE_WINDOW_COMPLETE_PARTIAL",
+      "reprice_ready": false,
+      "reprice_blockers": [
+        "QFSI_SAMPLE_GATES_NOT_MET",
+        "SLIPPAGE_FILLS_MISSING",
+        "COMMISSION_SAMPLE_BELOW_30_PER_SYMBOL",
+        "QUOTE_ELAPSED_DAYS_BELOW_90"
+      ]
+    },
+    "20260714_QFSI_REAL_005_POSTAUTH": {
+      "capture_id": "20260714_QFSI_REAL_005_POSTAUTH",
+      "path": "d:/Trading EA MT5/02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_005_POSTAUTH",
+      "has_start": true,
+      "has_end": false,
+      "quotes": {
+        "EURUSD": 463,
+        "GBPUSD": 607,
+        "XAUUSD": 629,
+        "USDJPY": 573
+      },
+      "heartbeats": {
+        "EURUSD": 630,
+        "GBPUSD": 630,
+        "XAUUSD": 630,
+        "USDJPY": 630
+      },
+      "commission_rows": {
+        "EURUSD": 2,
+        "GBPUSD": 0,
+        "XAUUSD": 0,
+        "USDJPY": 0
+      },
+      "slippage_rows": {
+        "EURUSD": 0,
+        "GBPUSD": 0,
+        "XAUUSD": 0,
+        "USDJPY": 0
+      },
+      "totals": {
+        "quotes": 2272,
+        "heartbeats": 2520,
+        "commission": 2,
+        "slippage": 0
+      },
+      "session_status": "CAPTURE_LIVE_OR_INCOMPLETE",
+      "duration_sec": 3600,
+      "started_at_utc": "2026-07-14T16:23:05.421337Z",
+      "observed_server": "FivePercentOnline-Real",
+      "login_hint_fingerprint": "09DB5E9C091F23DF9E024E684BBA994D00CBD84CDEF2CFBA0C5D064EACCB32AB"
+    }
+  },
+  "full_qfsi_gate": {
+    "full_qfsi_verdict": "STOP_DATA_FRONTIER",
+    "eligible_bundle_count": 0,
+    "why": [
+      "quote_distinct_utc_dates=1 << 90",
+      "commission_unique_EURUSD=2 << 30 (USDJPY=0)",
+      "slippage_fills=0 MISSING≠0"
+    ],
+    "progress": {
+      "total_quote_rows_all_captures": 14801,
+      "usdjpy_quote_distinct_dates": [
+        "2026-07-14"
+      ],
+      "commission_unique_by_symbol": {
+        "EURUSD": 2,
+        "GBPUSD": 0,
+        "XAUUSD": 0,
+        "USDJPY": 0
+      },
+      "slippage_fills_total": 0,
+      "live_captures": [
+        "20260714_QFSI_REAL_005_POSTAUTH"
+      ]
+    }
+  },
+  "cost_table_path": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_BROKER_SPREAD_COST_TABLE_QFSI_W7CONT.json",
+  "cost_table_sha256": "13B7306FE3AA4D187124C953A582676F4DCABDA3204961B260A7996E88302440",
+  "cost_unit": {
+    "usdjpy_unit_p50": 5.2335475594320435,
+    "usdjpy_unit_p90": 5.850321339148065,
+    "canonical_trade_cost_lot0_5_p50": 2.6167737797160218,
+    "commission_unique_EURUSD": 2,
+    "slippage": "MISSING_NEQ_0"
+  },
+  "books": {
+    "RR2_SHELF": {
+      "run_id": "20260714_194548",
+      "ea": "EA_SilverBullet",
+      "label": "RR2_SHELF",
+      "base_cost_per_trade": 2.6167737797160218,
+      "out": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_RR2_SHELF_20260714_194548_REAL_P50_W7CONT.json",
+      "out_sha256": "98FDD5CEBCE2AA8F4BBBC7E810101713B06B33B971A2D452D9670A52968796C1",
+      "bound_run_analysis": "d:/Trading EA MT5/02. AlphaFactory/runs/EA_SilverBullet/20260714_194548/analysis/cost_stress_real_p50_w7cont.json",
+      "base_pf": 1.378321,
+      "x1_pf": 1.315991,
+      "x1_5_pf": 1.286178,
+      "x2_pf": 1.257214,
+      "tpw": 2.007662835249042,
+      "goal_cost_stress_pass": true,
+      "goal_cadence_band": true,
+      "n_trades": 524,
+      "lot_p50": 0.5,
+      "lot_mean": 0.5,
+      "unit_usd_per_lot_p50": 5.2335475594320435,
+      "unit_usd_per_lot_p90": 5.850321339148065
+    },
+    "RR2_FRESH_MODEL0": {
+      "run_id": "20260714_231750",
+      "ea": "EA_SilverBullet",
+      "label": "RR2_FRESH_MODEL0",
+      "base_cost_per_trade": 2.6167737797160218,
+      "out": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_RR2_FRESH_MODEL0_20260714_231750_REAL_P50_W7CONT.json",
+      "out_sha256": "45FD5AC0E96F2F5C5F104025C4BD260AC08317EA16511DA8AC1365AF4FB2B9AF",
+      "bound_run_analysis": "d:/Trading EA MT5/02. AlphaFactory/runs/EA_SilverBullet/20260714_231750/analysis/cost_stress_real_p50_w7cont.json",
+      "base_pf": 1.156039,
+      "x1_pf": 1.105257,
+      "x1_5_pf": 1.080901,
+      "x2_pf": 1.057198,
+      "tpw": 1.9846743295019158,
+      "goal_cost_stress_pass": false,
+      "goal_cadence_band": false,
+      "n_trades": 518,
+      "lot_p50": 0.5,
+      "lot_mean": 0.5,
+      "unit_usd_per_lot_p50": 5.2335475594320435,
+      "unit_usd_per_lot_p90": 5.850321339148065
+    },
+    "SB_A1": {
+      "run_id": "20260714_002505",
+      "ea": "EA_SilverBullet",
+      "label": "SB_A1",
+      "base_cost_per_trade": 2.6167737797160218,
+      "out": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_SB_A1_20260714_002505_REAL_P50_W7CONT.json",
+      "out_sha256": "E3554C4960D78822B74535E68E8E7E43FD182B17E1AF3980C57B6F500E526C55",
+      "bound_run_analysis": "d:/Trading EA MT5/02. AlphaFactory/runs/EA_SilverBullet/20260714_002505/analysis/cost_stress_real_p50_w7cont.json",
+      "base_pf": 1.344267,
+      "x1_pf": 1.276195,
+      "x1_5_pf": 1.243677,
+      "x2_pf": 1.212111,
+      "tpw": 1.9923371647509578,
+      "goal_cost_stress_pass": false,
+      "goal_cadence_band": false,
+      "n_trades": 520,
+      "lot_p50": 0.5,
+      "lot_mean": 0.5,
+      "unit_usd_per_lot_p50": 5.2335475594320435,
+      "unit_usd_per_lot_p90": 5.850321339148065
+    },
+    "SPARK100K": {
+      "run_id": "20260714_193358",
+      "ea": "EA_M15SparkAsian",
+      "label": "SPARK100K",
+      "base_cost_per_trade": 5.2335475594320435,
+      "out": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_SPARK100K_20260714_193358_REAL_P50_W7CONT.json",
+      "out_sha256": "052A1EC4928EE0C49DBD449DE6C0D869DD12D570C025DEA4B1410F565D97F477",
+      "bound_run_analysis": "d:/Trading EA MT5/02. AlphaFactory/runs/EA_M15SparkAsian/20260714_193358/analysis/cost_stress_real_p50_w7cont.json",
+      "base_pf": 1.380359,
+      "x1_pf": 1.301947,
+      "x1_5_pf": 1.264418,
+      "x2_pf": 1.227963,
+      "tpw": 1.2452107279693487,
+      "goal_cost_stress_pass": true,
+      "goal_cadence_band": false,
+      "n_trades": 325,
+      "lot_p50": 1.0,
+      "lot_mean": 0.9061538461538462,
+      "unit_usd_per_lot_p50": 5.2335475594320435,
+      "unit_usd_per_lot_p90": 5.850321339148065
+    },
+    "MAXKZ2": {
+      "run_id": "20260714_192304",
+      "ea": "EA_SilverBullet",
+      "label": "MAXKZ2",
+      "base_cost_per_trade": 2.6167737797160218,
+      "out": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_MAXKZ2_20260714_192304_REAL_P50_W7CONT.json",
+      "out_sha256": "DB963217188D0A175BD30C8A68958CC640DEA1DDAB63E2480E1C7A7585B239C5",
+      "bound_run_analysis": "d:/Trading EA MT5/02. AlphaFactory/runs/EA_SilverBullet/20260714_192304/analysis/cost_stress_real_p50_w7cont.json",
+      "base_pf": 1.333761,
+      "x1_pf": 1.266878,
+      "x1_5_pf": 1.234906,
+      "x2_pf": 1.203858,
+      "tpw": 2.0919540229885056,
+      "goal_cost_stress_pass": false,
+      "goal_cadence_band": true,
+      "n_trades": 546,
+      "lot_p50": 0.5,
+      "lot_mean": 0.5,
+      "unit_usd_per_lot_p50": 5.2335475594320435,
+      "unit_usd_per_lot_p90": 5.850321339148065
+    },
+    "RR2_CONTROL_194221": {
+      "run_id": "20260714_194221",
+      "ea": "EA_SilverBullet",
+      "label": "RR2_CONTROL_194221",
+      "base_cost_per_trade": 2.6167737797160218,
+      "out": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_RR2_CONTROL_194221_20260714_194221_REAL_P50_W7CONT.json",
+      "out_sha256": "5589BB82315FF1F8CF91E6A7BE56A490846FC71C47F52B78F3E659A4FA490AB7",
+      "bound_run_analysis": "d:/Trading EA MT5/02. AlphaFactory/runs/EA_SilverBullet/20260714_194221/analysis/cost_stress_real_p50_w7cont.json",
+      "base_pf": 1.378321,
+      "x1_pf": 1.315991,
+      "x1_5_pf": 1.286178,
+      "x2_pf": 1.257214,
+      "tpw": 2.007662835249042,
+      "goal_cost_stress_pass": true,
+      "goal_cadence_band": true,
+      "n_trades": 524,
+      "lot_p50": 0.5,
+      "lot_mean": 0.5,
+      "unit_usd_per_lot_p50": 5.2335475594320435,
+      "unit_usd_per_lot_p90": 5.850321339148065
+    }
+  },
+  "compose_a1_spark": {
+    "schema_version": "sonic_offline_compose_a1_spark_real_cost.v1",
+    "note": "Diagnostic equal-join pool with per-sleeve Real partial haircut; NOT Phase-0; NOT confirmed; overlap not portfolio-simulated",
+    "a1_run": "20260714_002505",
+    "spark_run": "20260714_193358",
+    "a1_cost": 2.6167737797160218,
+    "spark_cost": 5.2335475594320435,
+    "same_day_overlap_n": 108,
+    "honesty": [
+      "PARTIAL_REAL_COST",
+      "ADDITIVE_POOL_NOT_TRUE_PORTFOLIO",
+      "SLIPPAGE_MISSING"
+    ],
+    "x1": {
+      "a1_pf": 1.2761953049084387,
+      "spark_pf": 1.3019465807773856,
+      "pooled_pf": 1.289530303665998,
+      "pooled_n": 845,
+      "pooled_tpw": 3.2375478927203063,
+      "pooled_net": 14164.89467773225
+    },
+    "x1_5": {
+      "a1_pf": 1.2436768892432875,
+      "spark_pf": 1.2644177922343913,
+      "pooled_pf": 1.254416761135233,
+      "pooled_n": 845,
+      "pooled_tpw": 3.2375478927203063,
+      "pooled_net": 12634.082016598382
+    },
+    "x2": {
+      "a1_pf": 1.2121109235950087,
+      "spark_pf": 1.2279627639134034,
+      "pooled_pf": 1.2203190719883685,
+      "pooled_n": 845,
+      "pooled_tpw": 3.2375478927203063,
+      "pooled_net": 11103.269355464508
+    },
+    "goal_cost_stress_like": false,
+    "receipt_sha256": "05B0A98AF241F761725DA4BBE2C354F825F349D37569385769027650EE5F8BFA",
+    "path": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_OFFLINE_A1_SPARK_REAL_P50_COMPOSE_W7CONT.json"
+  },
+  "friction": {
+    "label": "PARTIAL_REAL_FRICTION_STATUS",
+    "confirmed_dead_end": false,
+    "partial_real_best_shelf_goal_pass": true,
+    "partial_real_fresh_model0_goal_pass": false,
+    "rr2_shelf_x1_5_pf": 1.286178,
+    "rr2_shelf_x1_pf": 1.315991,
+    "note": "Friction dead-end NOT confirmed on Real: partial sample still leaves RR2 shelf near/at GOAL band depending on cost; full QFSI + slip still open. Demo PF is not confirmed.",
+    "fresh_model0_weak_under_partial_real": true
+  },
+  "bans": [
+    "no_densify_RR_MaxKZ_Wave6_Wave7",
+    "no_price_twin_spam",
+    "no_revive_COT_size_or_z_blindly",
+    "no_kill_Real_terminal_this_session"
+  ],
+  "receipt_sha256": "CE6DC459EE55F2E68BBB25DB737D31A0809CDDA07A37CE42FB1454FBCB76842B"
+}

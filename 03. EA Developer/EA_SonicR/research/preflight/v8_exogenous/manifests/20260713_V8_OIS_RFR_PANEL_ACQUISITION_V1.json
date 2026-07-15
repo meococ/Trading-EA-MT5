@@ -1,0 +1,116 @@
+{
+  "schema": "v8_ois_rfr_panel_acquisition.v1",
+  "created_at_utc": "2026-07-13T16:57:56.151260+00:00",
+  "authority": "Owner unlimited-GOAL self-research; no ChatGPT; no Real login",
+  "status": "ACQUIRED_HASH_BOUND",
+  "sources": [
+    {
+      "name": "fred_sofr.csv",
+      "status": "OK",
+      "bytes": 34190,
+      "sha256": "EDD4075EA9FD946A4AC86ED67636C55A51472529040FE7924CFB90BDDE8EF091",
+      "source_url": "https://fred.stlouisfed.org/series/SOFR",
+      "note": "copied_from_workspace; NY Fed SOFR via FRED mirror already on disk",
+      "relative_path": "raw/ois_rfr/fred_sofr.csv"
+    },
+    {
+      "name": "fred_estr.csv",
+      "status": "OK",
+      "bytes": 30701,
+      "sha256": "DCEDC56D19368424EBA06B8E422F2A94D83DA47FE4C51C723B36570D0F4FCE5A",
+      "source_url": "https://fred.stlouisfed.org/series/ECBESTRVOLWGTTRMDMNRT",
+      "note": "copied_from_workspace; ECB \u20acSTR via FRED mirror already on disk",
+      "relative_path": "raw/ois_rfr/fred_estr.csv"
+    },
+    {
+      "name": "fred_sonia.csv",
+      "status": "OK",
+      "bytes": 137185,
+      "sha256": "1A1FC9D109EF494598516F3D2C86CAEF95FA67836A466C8BABE9C98F36C099BB",
+      "source_url": "https://fred.stlouisfed.org/series/IUDSOIA",
+      "note": "copied_from_workspace; BoE SONIA via FRED mirror already on disk",
+      "relative_path": "raw/ois_rfr/fred_sonia.csv"
+    },
+    {
+      "name": "nyfed_sofr_avg.csv",
+      "status": "OK",
+      "bytes": 2598165,
+      "sha256": "A5EFB5CDF4A71081BDAF1ADA24A706B4B8028C23A6B8A208A6C93A7843554965",
+      "source_url": "https://markets.newyorkfed.org/api/rates/all/search.json?startDate=2018-01-01&endDate=2026-07-13&type=rate",
+      "note": "NY Fed markets API SOFR search JSON (may 403)",
+      "relative_path": "raw/ois_rfr/nyfed_sofr_avg.csv"
+    },
+    {
+      "name": "ecb_estr_sdmx.csv",
+      "status": "OK",
+      "bytes": 538733,
+      "sha256": "FACBF1B590E46542E9E67E9C1B5D414642B25559426C4195FB62CE4BF55BA45A",
+      "source_url": "https://data-api.ecb.europa.eu/service/data/EST/B.EU000A2X2A25.WT?format=csvdata&startPeriod=2019-10-01",
+      "note": "ECB SDMX \u20acSTR volume-weighted trimmed mean",
+      "relative_path": "raw/ois_rfr/ecb_estr_sdmx.csv"
+    },
+    {
+      "name": "mof_jgb_current.csv",
+      "status": "OK",
+      "bytes": 1033,
+      "sha256": "91485160D6BEE4F80421021A25505750CE282678B184837C7DBABE246B75D68C",
+      "source_url": "https://www.mof.go.jp/english/jgbs/reference/interest_rate/jgbcme.csv",
+      "note": "MoF JGB reference yields (English CSV)",
+      "relative_path": "raw/ois_rfr/mof_jgb_current.csv"
+    },
+    {
+      "name": "mof_jgb_historical.csv",
+      "status": "OK",
+      "bytes": 1172315,
+      "sha256": "683ECA5895BA4F40F9068E77B26DD042E382B621421A5FBE94206122DBE6CF4D",
+      "source_url": "https://www.mof.go.jp/jgbs/reference/interest_rate/data/jgbcm_all.csv",
+      "note": "MoF JGB historical all tenors CSV",
+      "relative_path": "raw/ois_rfr/mof_jgb_historical.csv"
+    }
+  ],
+  "panels": [
+    {
+      "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/panels/us_eu_ois_rfr_diff_d1_v1.csv",
+      "sha256": "0EFEF0C0CF0D93552FF713CA9278B924F10BA2B7FB8099D4CB594B4667496600",
+      "bytes": 101239,
+      "joined_days": 1674,
+      "first_obs": "2019-10-01",
+      "last_obs": "2026-07-10",
+      "lag": "observation_date+1_calendar_day_00Z",
+      "diff_col": "diff_sofr_minus_estr"
+    },
+    {
+      "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/panels/us_uk_ois_rfr_diff_d1_v1.csv",
+      "sha256": "706633AB236849A47135913A19111FAC9F64D797A6C5ABEDCCD4B0D310D238F5",
+      "bytes": 122196,
+      "joined_days": 2025,
+      "first_obs": "2018-04-03",
+      "last_obs": "2026-07-09",
+      "lag": "observation_date+1_calendar_day_00Z",
+      "diff_col": "diff_sofr_minus_sonia"
+    },
+    {
+      "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/panels/us_jp_bond_yield_diff_d1_v1.csv",
+      "sha256": "3FD760682D9D198FD47E465792A3092E14FC70A092FABAE529DF02E434E04625",
+      "bytes": 119850,
+      "joined_days": 1992,
+      "first_obs": "2018-01-04",
+      "last_obs": "2026-06-30",
+      "lag": "observation_date+1_calendar_day_00Z",
+      "diff_col": "diff_us_jp_10y"
+    }
+  ],
+  "lag_contract": {
+    "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/contracts/20260713_V8_OIS_RFR_AVAILABLE_AT_UTC_CONTRACT_V1.json",
+    "sha256": "CE21E7A07A2301E3A88981E60AB0DE3A2FAD521ABFFC664169DB55212BF28631"
+  },
+  "jgb_acquired": true,
+  "primary_probe_surface": "us_eu_ois_rfr_diff_d1_v1.csv",
+  "companion_surface": "us_uk_ois_rfr_diff_d1_v1.csv",
+  "not_claimed": [
+    "Not vendor FX forward points / outright forwards curve",
+    "Not multi-tenor OIS swap curve (1Y/2Y/5Y/10Y); overnight RFR proxies only",
+    "Not QFSI Real cost provenance",
+    "Not a rescue of killed weekly/daily/rate-event rank-carry books"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-SB-MAXKZ2-DENSITY-002",
+  "task_packet_sha256": "C5305E1ACD0DCDAE9384C2C85E2983A0A0BFC76A28498F78C9C665EBC9CB133A",
+  "git_commit": "NOGIT-AA014D4BB929F2EB8DC9BDBBC960770F9BF9E5894D504BD59E8D0FF2D92A4311",
+  "git_status_sha256": "4BBBA9F882DF1AF7F5F4A5C87928BBCF4ED4EF39F2422BF1DB3BC44159096AAF",
+  "binding": {
+    "hypothesis_id": "HYP-SB-MAXKZ2-DENSITY-002",
+    "run_role": "challenger",
+    "ea_name": "EA_SilverBullet",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpFridayFlatHour=21;InpFridayFlatMinute=45;InpMaxTradesPerKZ=2;InpRiskPct=0.5;InpUseWeekendFlat=1",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "791936527BE86EA1013A6F18B13F3A34A9B0535B67F587E4CE8D42E092FC31D3"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\rebuild_campaign\\sb_maxkz2\\contracts\\receipt_stubs_HYP_SB_MAXKZ2_DENSITY_002\\task_packet.json",
+      "sha256": "C5305E1ACD0DCDAE9384C2C85E2983A0A0BFC76A28498F78C9C665EBC9CB133A"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SilverBullet\\EA_SilverBullet_v2.mq5",
+      "sha256": "631F8DCEBACFC9E07CD527BCAE53F745B53121E7DC67281BAE5A9A620D9BF642"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\rebuild_campaign\\sb_maxkz2\\contracts\\receipt_stubs_HYP_SB_MAXKZ2_DENSITY_002\\prereg.json",
+      "sha256": "A22A842DE88ADAF2FB5DE09AC6D798106896138F34ED5EB6077B5669AE4A4B24"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\rebuild_campaign\\sb_maxkz2\\contracts\\receipt_stubs_HYP_SB_MAXKZ2_DENSITY_002\\cost_source_manifest.json",
+      "sha256": "2B23254C655A03542445EF9CC505418EB1080BA0B90BCC9BF14806F13130B737"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\rebuild_campaign\\sb_maxkz2\\contracts\\receipt_stubs_HYP_SB_MAXKZ2_DENSITY_002\\include_note.txt",
+      "sha256": "DB6F02BF1080A77B9F781AF86966A80EB0E676763E3343F4EBEC219981CE5D6E"
+    },
+    {
+      "label": "matched_control_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_SilverBullet\\20260714_002505\\run_manifest.json",
+      "sha256": "5F0E81939F4FE02554ACBFD878FA00C4F110B7A13C9CBB12D9729EEB2DBFC9B2"
+    },
+    {
+      "label": "matched_control_report",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_SilverBullet\\20260714_002505\\report.html",
+      "sha256": "A4208F42C6B56B069CE538590EBF2D302A58FDF89EB715BD9D29E89613711BF9"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T12:20:00Z",
+  "note": "SB MaxKZ2 density child vs A1 control; Deposit 100000."
+}

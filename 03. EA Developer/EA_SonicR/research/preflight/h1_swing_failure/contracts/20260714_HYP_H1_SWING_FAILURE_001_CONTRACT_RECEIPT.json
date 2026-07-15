@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-H1-SWING-FAILURE-001",
+  "task_packet_sha256": "7E7EE9DA8553D91079C61F0F448789208B17CF861AFF874A1BBD12FE17A79B9B",
+  "git_commit": "NOGIT-DED034E58C92AD1E8A41B6DE4C9F41B57290297E6C9B52C6392A872DEECB0059",
+  "git_status_sha256": "DF19209F3DA89577CA1B78924F7CC52FEC1570C9ACEE1D5FF6A450270546F800",
+  "binding": {
+    "hypothesis_id": "HYP-H1-SWING-FAILURE-001",
+    "run_role": "control",
+    "ea_name": "EA_H1SwingFailure",
+    "symbol": "USDJPY",
+    "period": "H1",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "BFFC78315578E7F19643B1038431148D00C714FCCD48F02EB97D3BAD18A2D91C"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_swing_failure\\contracts\\receipt_stubs_HYP_H1_SWING_FAILURE_001\\task_packet.json",
+      "sha256": "7E7EE9DA8553D91079C61F0F448789208B17CF861AFF874A1BBD12FE17A79B9B"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_H1SwingFailure\\EA_H1SwingFailure.mq5",
+      "sha256": "F537479E595D15352830DA9231A93505702C4E2B8D3629E93DFCCFE9A86E1974"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_swing_failure\\contracts\\receipt_stubs_HYP_H1_SWING_FAILURE_001\\prereg.json",
+      "sha256": "FF2E63EFC638C211598CCC881F85C14D07655F20068ADA1C000747B127CC5EC6"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_swing_failure\\contracts\\receipt_stubs_HYP_H1_SWING_FAILURE_001\\cost_source_manifest.json",
+      "sha256": "B60692A777B9CAAB3DF1C86559EADD04D6EC42B965AE68CD45535AC3806DB240"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_swing_failure\\contracts\\receipt_stubs_HYP_H1_SWING_FAILURE_001\\include_note.txt",
+      "sha256": "7C6105ECF175DDD659108ACB07593355344D6349315A0D75784A109ACC0182B0"
+    }
+  ],
+  "generated_at_utc": "2026-07-13T20:15:41.114583+00:00",
+  "note": "Model 0 H1 structural swing-failure fade; not FailedORB/LiqSweep/FractalBreak."
+}

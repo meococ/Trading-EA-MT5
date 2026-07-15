@@ -1,0 +1,1 @@
+Packet-bound include closure note for HYP-KELTNER-SQUEEZE-M15-001. Single-file EA; no custom includes beyond terminal Standard Library.

@@ -1,0 +1,129 @@
+{
+  "schema_version": "sonic_discovery_wave6_offline_probes.v1",
+  "created_at_utc": "2026-07-14T16:23:33.786455Z",
+  "status": "OFFLINE_WAVE6_COMPLETE",
+  "honesty": "NOT_MODEL0_NOT_CONFIRMED_NOT_GOAL",
+  "dedup": "readouts/20260714_DISCOVERY_WAVE6_DEDUP_CLEARANCE.md",
+  "server": "FivePercentOnline-Real",
+  "login": 26451822,
+  "joint_screen": "PF>1.30 ∧ tpw∈[2,5] ∧ x1.5≥1.25 ∧ x2≥1.00",
+  "probes": [
+    {
+      "hypothesis_id": "HYP-H1-MONO-CONTRACT-BREAK-001",
+      "symbol": "USDJPY",
+      "tf": "H1",
+      "funnel": {
+        "n_coil": 1371,
+        "n_break": 789,
+        "n_trades": 740
+      },
+      "metrics": {
+        "n": 740,
+        "pf": 1.131236807206341,
+        "tpw": 2.8368017704454296,
+        "exp": 43.07950059737979,
+        "net": 31878.830442061048,
+        "pf_cost12": 1.0925734661748343,
+        "pf_x15_cost12": 1.0738793157889202,
+        "pf_x2_cost12": 1.0555923621583345,
+        "exp_x15_cost12": 25.079500597379784,
+        "cost_per_trade": 12.0
+      },
+      "kill_notes": [
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-M15-BROKEN-LEVEL-RETEST-001",
+      "symbol": "USDJPY",
+      "tf": "M15",
+      "funnel": {
+        "n_break": 7753,
+        "n_retest": 3058,
+        "n_trades": 1464
+      },
+      "metrics": {
+        "n": 1464,
+        "pf": 1.0888749598457481,
+        "tpw": 5.612267286394742,
+        "exp": 44.22509479642732,
+        "net": 64745.5387819696,
+        "pf_cost12": 1.0636622521927401,
+        "pf_x15_cost12": 1.0513734631706049,
+        "pf_x2_cost12": 1.039289546043343,
+        "exp_x15_cost12": 26.22509479642721,
+        "cost_per_trade": 12.0
+      },
+      "kill_notes": [
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-H1-FORMING-DAY-EXT-FADE-001",
+      "symbol": "USDJPY",
+      "tf": "H1",
+      "funnel": {
+        "n_days": 1299,
+        "n_ext": 890,
+        "n_trades": 670
+      },
+      "metrics": {
+        "n": 670,
+        "pf": 0.8894839023572445,
+        "tpw": 2.568455657024916,
+        "exp": -38.3083968620655,
+        "net": -25666.625897583883,
+        "pf_cost12": 0.8586198620962542,
+        "pf_x15_cost12": 0.8437790627303933,
+        "pf_x2_cost12": 0.8293125306938596,
+        "exp_x15_cost12": -56.3083968620655,
+        "cost_per_trade": 12.0
+      },
+      "kill_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-FX3-H1-BODYATR-CONT-PORTFOLIO-001",
+      "symbol": "EURUSD+USDJPY+GBPUSD",
+      "tf": "H1",
+      "funnel": {
+        "per_symbol_raw": {
+          "EURUSD": 2316,
+          "USDJPY": 2045,
+          "GBPUSD": 2303
+        },
+        "n_pooled_raw": 6664,
+        "n_trades": 2814
+      },
+      "metrics": {
+        "n": 2814,
+        "pf": 1.074150314089296,
+        "tpw": 10.787513759504646,
+        "exp": 21.23360711373555,
+        "net": 59751.37041805184,
+        "pf_cost12": 1.0314591783558769,
+        "pf_x15_cost12": 1.0108839193685706,
+        "pf_x2_cost12": 0.9908001713265735,
+        "exp_x15_cost12": 3.233607113735533,
+        "cost_per_trade": 12.0
+      },
+      "kill_notes": [
+        "cadence_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD"
+    }
+  ],
+  "survivors": [],
+  "model0_authorized": false,
+  "receipt_sha256": "AB9ED62FC88D91AF4395E6B22DBF710FDA55EFAD823C3E9979C0FE3F07BE9176"
+}

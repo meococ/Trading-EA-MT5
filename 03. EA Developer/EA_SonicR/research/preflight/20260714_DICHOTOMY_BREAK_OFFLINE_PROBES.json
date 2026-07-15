@@ -1,0 +1,239 @@
+{
+  "schema": "dichotomy_break_offline_probes.v1",
+  "generated_at_utc": "2026-07-14T16:27:01.782178+00:00",
+  "panel_merge": "readouts/20260714_DICHOTOMY_BREAK_3CRITIC_MERGE_MEMO.md",
+  "dedup": "readouts/20260714_DICHOTOMY_BREAK_DEDUP_CLEARANCE.md",
+  "best_shelf": "RR2 20260714_194548",
+  "phase0": "BLOCKED_REQUIRES_CLEAN_FUTURE_FREEZE_REVIEW",
+  "rr2_trades_csv": "d:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_SilverBullet\\20260714_194548\\logs\\USDJPY_20260325_PX6_Trades_20210101_000000_90095968.csv",
+  "rr2_trades_sha": "BCAE4179EBD6D3F64749A6F71A53790CAF21A497B3912B3ECA9ED838A361CE80",
+  "exo_panel_sha": "3FD760682D9D198FD47E465792A3092E14FC70A092FABAE529DF02E434E04625",
+  "probes": [
+    {
+      "hypothesis_id": "HYP-RR2-EXIT-BE1R-M15PATH-001",
+      "thesis": "exit_architecture_BE_at_1R_on_frozen_RR2",
+      "de_dup": "NOT T1 cost-arm; NOT MaxKZ/RR densify; exit path only",
+      "a_priori": {
+        "BE_AT_R": 1.0,
+        "keep_original_TP": true
+      },
+      "mt5_status": "OK",
+      "n_pnl_changed": 509,
+      "baseline": {
+        "metrics": {
+          "n": 524,
+          "pf": 1.3794,
+          "net": 9851.14,
+          "exp": 18.7999,
+          "tpw": 2.0099
+        },
+        "cost_stress": {
+          "x1": {
+            "pf": 1.1205,
+            "net": 3563.14,
+            "exp": 6.7999
+          },
+          "x1_5": {
+            "pf": 1.0134,
+            "net": 419.14,
+            "exp": 0.7999
+          },
+          "x2": {
+            "pf": 0.9179,
+            "net": -2724.86,
+            "exp": -5.2001
+          }
+        }
+      },
+      "metrics": {
+        "n": 524,
+        "pf": 0.1349,
+        "net": -33730.57,
+        "exp": -64.3713,
+        "tpw": 2.0099
+      },
+      "cost_stress": {
+        "x1": {
+          "pf": 0.1076,
+          "net": -40018.57,
+          "exp": -76.3713
+        },
+        "x1_5": {
+          "pf": 0.0965,
+          "net": -43162.57,
+          "exp": -82.3713
+        },
+        "x2": {
+          "pf": 0.0867,
+          "net": -46306.57,
+          "exp": -88.3713
+        }
+      },
+      "kill_notes": [
+        "pf_fail",
+        "stress_fail",
+        "no_stress_lift_vs_baseline"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD_KILL_FAST"
+    },
+    {
+      "hypothesis_id": "HYP-RR2-USJP-YIELD-ZGATE-001",
+      "thesis": "us_jp_yield_z_allow_gate_on_frozen_RR2",
+      "de_dup": "GATE not signal; not USEU/USUK/EU-curve/VIX directional",
+      "a_priori": {
+        "YIELD_Z_ABS": 0.75,
+        "lookback": 60,
+        "panel": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\panels\\us_jp_bond_yield_diff_d1_v1.csv"
+      },
+      "panel_sha": "3FD760682D9D198FD47E465792A3092E14FC70A092FABAE529DF02E434E04625",
+      "funnel": {
+        "n_base": 524,
+        "kept": 371,
+        "skipped": 153,
+        "missing_z": 0
+      },
+      "baseline": {
+        "metrics": {
+          "n": 524,
+          "pf": 1.3794,
+          "net": 9851.14,
+          "exp": 18.7999,
+          "tpw": 2.0099
+        },
+        "cost_stress": {
+          "x1": {
+            "pf": 1.1205,
+            "net": 3563.14,
+            "exp": 6.7999
+          },
+          "x1_5": {
+            "pf": 1.0134,
+            "net": 419.14,
+            "exp": 0.7999
+          },
+          "x2": {
+            "pf": 0.9179,
+            "net": -2724.86,
+            "exp": -5.2001
+          }
+        }
+      },
+      "metrics": {
+        "n": 371,
+        "pf": 1.3804,
+        "net": 6767.36,
+        "exp": 18.2409,
+        "tpw": 1.423
+      },
+      "cost_stress": {
+        "x1": {
+          "pf": 1.114,
+          "net": 2315.36,
+          "exp": 6.2409
+        },
+        "x1_5": {
+          "pf": 1.0041,
+          "net": 89.36,
+          "exp": 0.2409
+        },
+        "x2": {
+          "pf": 0.9064,
+          "net": -2136.64,
+          "exp": -5.7591
+        }
+      },
+      "kill_notes": [
+        "stress_fail",
+        "no_stress_lift_vs_baseline"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD_KILL_FAST"
+    },
+    {
+      "hypothesis_id": "HYP-BOOK-CORRCAP-RR2-SPARK-001",
+      "thesis": "max_concurrent_1_corr_cap_book_not_phase0",
+      "de_dup": "NOT Phase-0 equal-join ceremony; NOT SBSparkBook scaffold; overlap reject",
+      "a_priori": {
+        "max_concurrent": 1,
+        "rr2": "20260714_194548",
+        "spark": "20260714_193358"
+      },
+      "contamination": {
+        "status": "BLOCKED_REQUIRES_CLEAN_FUTURE_FREEZE_REVIEW",
+        "ceremony_legal": false,
+        "note": "offline CorrCap diagnostic only; not Phase-0 compose claim"
+      },
+      "equal_join_ref": {
+        "metrics": {
+          "n": 849,
+          "pf": 1.3799,
+          "net": 19201.73,
+          "exp": 22.6169,
+          "tpw": 3.2564
+        },
+        "cost_stress": {
+          "x1": {
+            "pf": 1.1613,
+            "net": 9013.73,
+            "exp": 10.6169
+          },
+          "x1_5": {
+            "pf": 1.0669,
+            "net": 3919.73,
+            "exp": 4.6169
+          },
+          "x2": {
+            "pf": 0.9809,
+            "net": -1174.27,
+            "exp": -1.3831
+          }
+        }
+      },
+      "funnel": {
+        "n_rr2": 524,
+        "n_spark": 325,
+        "accepted": 794,
+        "rejected_overlap": 55,
+        "mix": {
+          "RR2": 524,
+          "SPARK": 270
+        }
+      },
+      "best_sleeve_pf": 1.3804,
+      "metrics": {
+        "n": 794,
+        "pf": 1.2995,
+        "net": 14207.02,
+        "exp": 17.893,
+        "tpw": 3.0455
+      },
+      "cost_stress": {
+        "x1": {
+          "pf": 1.0889,
+          "net": 4679.02,
+          "exp": 5.893
+        },
+        "x1_5": {
+          "pf": 0.9985,
+          "net": -84.98,
+          "exp": -0.107
+        },
+        "x2": {
+          "pf": 0.9163,
+          "net": -4848.98,
+          "exp": -6.107
+        }
+      },
+      "kill_notes": [
+        "stress_fail",
+        "book_pf_below_best_sleeve"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD_KILL_FAST"
+    }
+  ],
+  "survivors": [],
+  "model0_authorized": false,
+  "receipt_sha256": "ED59A610DAAA697209D2FB83262CA8E0EC50B7478759C2EC6813313A5F1A70E3"
+}

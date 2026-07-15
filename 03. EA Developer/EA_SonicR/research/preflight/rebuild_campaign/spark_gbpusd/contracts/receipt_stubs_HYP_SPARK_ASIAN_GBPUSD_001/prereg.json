@@ -1,0 +1,8 @@
+{
+  "schema_version": "sonic_prereg.v1",
+  "hypothesis_id": "HYP-SPARK-ASIAN-GBPUSD-001",
+  "status": "FROZEN",
+  "prereg_md": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preregs\\20260714_H_SPARK_ASIAN_GBPUSD_001_PREREG.md",
+  "prereg_md_sha256": "0D619B5C810D3C9DD1D812F439858F30A1F509B1D537BA48E3083EAC4B4D0563",
+  "overrides": "InpMagic=880931;InpMaxPerDay=2;InpRiskPct=0.5;InpTPRatio=1.5;InpTradeFri=0;InpTradeMon=0;InpTradeThu=1;InpTradeTue=0;InpTradeWed=1"
+}

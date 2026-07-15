@@ -1,0 +1,13 @@
+{
+  "schema_version": "sonic_research_task_packet.v1",
+  "hypothesis_id": "HYP-ENGULF-TREND-M15-001",
+  "ea_name": "EA_M15EngulfTrend",
+  "symbol": "USDJPY",
+  "period": "M15",
+  "from": "2021.01.01",
+  "to": "2025.12.31",
+  "model": 0,
+  "run_role": "control",
+  "overrides": "",
+  "note": "Engulf + D1 EMA50; CI/Chop removed; Mon-Thu."
+}

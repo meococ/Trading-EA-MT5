@@ -1,0 +1,182 @@
+{
+  "label": "DIAGNOSTIC_ONLY_NOT_MULTI_YEAR_RESEARCH_COST_SURFACE",
+  "honest_use": "single-calendar-day partial QFSI quote-tick captures; insufficient days; commission incomplete; DO NOT gate-probe RR2 with this table",
+  "capture_date_utc": [
+    "2026-07-14"
+  ],
+  "n_calendar_days": 1,
+  "sessions": [
+    "20260714_QFSI_REAL_001",
+    "20260714_QFSI_REAL_002",
+    "20260714_QFSI_REAL_003_CONTINUATION",
+    "20260714_QFSI_REAL_004_CONTINUATION",
+    "20260714_QFSI_REAL_004_EXTENSION",
+    "20260714_QFSI_REAL_005_POSTAUTH"
+  ],
+  "tick_files": [
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/EURUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/GBPUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/USDJPY_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/XAUUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_002/EURUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_002/GBPUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_002/USDJPY_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_002/XAUUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_003_CONTINUATION/EURUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_003_CONTINUATION/GBPUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_003_CONTINUATION/USDJPY_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_003_CONTINUATION/XAUUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_004_CONTINUATION/EURUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_004_CONTINUATION/GBPUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_004_CONTINUATION/USDJPY_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_004_CONTINUATION/XAUUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_004_EXTENSION/EURUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_004_EXTENSION/GBPUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_004_EXTENSION/USDJPY_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_004_EXTENSION/XAUUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_005_POSTAUTH/EURUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_005_POSTAUTH/GBPUSD_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_005_POSTAUTH/USDJPY_quote_ticks.csv",
+    "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_005_POSTAUTH/XAUUSD_quote_ticks.csv"
+  ],
+  "tick_counts_by_symbol": {
+    "EURUSD": 3091,
+    "GBPUSD": 3304,
+    "USDJPY": 3264,
+    "XAUUSD": 4203
+  },
+  "commission_lifecycle_files": 22,
+  "commission_data_rows": 14,
+  "hour_x_symbol_p50_spread_price": {
+    "EURUSD": {
+      "13": {
+        "n_ticks": 60,
+        "p50_spread_price": 0.0,
+        "mean_spread_price": 2e-06,
+        "p90_spread_price": 1e-05
+      },
+      "16": {
+        "n_ticks": 361,
+        "p50_spread_price": 2e-05,
+        "mean_spread_price": 2.6e-05,
+        "p90_spread_price": 2e-05
+      },
+      "17": {
+        "n_ticks": 2121,
+        "p50_spread_price": 2e-05,
+        "mean_spread_price": 2.3e-05,
+        "p90_spread_price": 2e-05
+      },
+      "18": {
+        "n_ticks": 275,
+        "p50_spread_price": 2e-05,
+        "mean_spread_price": 2e-05,
+        "p90_spread_price": 2e-05
+      },
+      "19": {
+        "n_ticks": 274,
+        "p50_spread_price": 2e-05,
+        "mean_spread_price": 2e-05,
+        "p90_spread_price": 2e-05
+      }
+    },
+    "GBPUSD": {
+      "13": {
+        "n_ticks": 96,
+        "p50_spread_price": 0.0,
+        "mean_spread_price": 6e-06,
+        "p90_spread_price": 2e-05
+      },
+      "16": {
+        "n_ticks": 379,
+        "p50_spread_price": 3e-05,
+        "mean_spread_price": 3.3e-05,
+        "p90_spread_price": 4e-05
+      },
+      "17": {
+        "n_ticks": 2183,
+        "p50_spread_price": 3e-05,
+        "mean_spread_price": 3e-05,
+        "p90_spread_price": 4e-05
+      },
+      "18": {
+        "n_ticks": 291,
+        "p50_spread_price": 3e-05,
+        "mean_spread_price": 2.7e-05,
+        "p90_spread_price": 3e-05
+      },
+      "19": {
+        "n_ticks": 355,
+        "p50_spread_price": 3e-05,
+        "mean_spread_price": 2.7e-05,
+        "p90_spread_price": 3e-05
+      }
+    },
+    "USDJPY": {
+      "13": {
+        "n_ticks": 78,
+        "p50_spread_price": 0.0,
+        "mean_spread_price": 0.000474,
+        "p90_spread_price": 0.001
+      },
+      "16": {
+        "n_ticks": 375,
+        "p50_spread_price": 0.002,
+        "mean_spread_price": 0.002971,
+        "p90_spread_price": 0.003
+      },
+      "17": {
+        "n_ticks": 2181,
+        "p50_spread_price": 0.002,
+        "mean_spread_price": 0.002621,
+        "p90_spread_price": 0.003
+      },
+      "18": {
+        "n_ticks": 291,
+        "p50_spread_price": 0.002,
+        "mean_spread_price": 0.002271,
+        "p90_spread_price": 0.003
+      },
+      "19": {
+        "n_ticks": 339,
+        "p50_spread_price": 0.002,
+        "mean_spread_price": 0.00241,
+        "p90_spread_price": 0.003
+      }
+    },
+    "XAUUSD": {
+      "13": {
+        "n_ticks": 963,
+        "p50_spread_price": 0.46,
+        "mean_spread_price": 0.476656,
+        "p90_spread_price": 0.53
+      },
+      "16": {
+        "n_ticks": 383,
+        "p50_spread_price": 0.52,
+        "mean_spread_price": 0.597363,
+        "p90_spread_price": 0.61
+      },
+      "17": {
+        "n_ticks": 2200,
+        "p50_spread_price": 0.52,
+        "mean_spread_price": 0.553345,
+        "p90_spread_price": 0.56
+      },
+      "18": {
+        "n_ticks": 292,
+        "p50_spread_price": 0.52,
+        "mean_spread_price": 0.533801,
+        "p90_spread_price": 0.57
+      },
+      "19": {
+        "n_ticks": 365,
+        "p50_spread_price": 0.52,
+        "mean_spread_price": 0.520164,
+        "p90_spread_price": 0.53
+      }
+    }
+  },
+  "sha_freeze_eligible_for_research_cost_surface": false,
+  "receipt_sha256": "B38F41C52BE258E2B5C80C67C98D306DB429654E3A1B7B1CD3C0AD01382E8433"
+}

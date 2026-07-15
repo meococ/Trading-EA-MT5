@@ -1,0 +1,71 @@
+{
+  "schema": "v8_cot_tff_levmoney_h4_offline_probe.v1",
+  "probe_id": "V8_COT_TFF_LEVMONEY_H4_V1",
+  "created_at_utc": "2026-07-13T16:44:15.118941+00:00",
+  "status": "KILL_AT_OFFLINE_PROBE",
+  "mt5_server": "MetaQuotes-Demo",
+  "note": "Demo falsification only. Not Model 0. COT lag +4d from Report_Date.",
+  "design_frozen": {
+    "symbols": [
+      "EURUSD",
+      "GBPUSD",
+      "USDJPY"
+    ],
+    "cot_fields": "Lev_Money_Long - Lev_Money_Short",
+    "cot_lag_days_from_report_date": 4,
+    "net_deadband_contracts": 5000,
+    "timeframe": "H4",
+    "friday_flat": true,
+    "stop": "1.5*ATR14",
+    "time_stop": 6,
+    "stress_a": 1.5,
+    "stress_b": 2.5,
+    "control": "sign_prior_20_H4_returns",
+    "train": [
+      "2021-01-01",
+      "2023-12-31"
+    ],
+    "holdout": [
+      "2024-01-01",
+      "2025-12-31"
+    ]
+  },
+  "cot_coverage": {
+    "EURUSD": 209,
+    "GBPUSD": 209,
+    "USDJPY": 209
+  },
+  "train_candidate": {
+    "trades": 392,
+    "trades_per_week": 2.5082266910420477,
+    "expectancy_a_pips": 0.5434865507423491,
+    "pf_gross": 1.0751193523879998,
+    "pf_stress_a": 1.019450898539269,
+    "pf_stress_b": 0.9839501679760536,
+    "sum_net_a_pips": 213.04672789100084
+  },
+  "train_control": {
+    "trades": 973,
+    "trades_per_week": 6.225776965265083,
+    "expectancy_a_pips": -2.1739891992244864,
+    "pf_gross": 0.9574928471625663,
+    "pf_stress_a": 0.8700177220371076,
+    "pf_stress_b": 0.8167891881580076,
+    "sum_net_a_pips": -2115.2914908454254
+  },
+  "holdout_candidate": null,
+  "holdout_control": null,
+  "train_pass": false,
+  "holdout_pass": null,
+  "kill_reasons": [
+    "train_pf_stress_a<1.10"
+  ],
+  "trades_csv": "03. EA Developer/EA_SonicR/research/preflight/v8_probe/20260713_V8_COT_TFF_LEVMONEY_H4_PROBE_TRADES_V1.csv",
+  "trades_csv_sha256": "dfb47cd3742d9ad850c6ed571b2f850ee6875a9a36c41e1f1fecd9d93595a1c3",
+  "authority_flags": {
+    "registry_append_authorized": false,
+    "prereg_freeze_authorized": false,
+    "ea_build_authorized": false,
+    "model_0_authorized": false
+  }
+}

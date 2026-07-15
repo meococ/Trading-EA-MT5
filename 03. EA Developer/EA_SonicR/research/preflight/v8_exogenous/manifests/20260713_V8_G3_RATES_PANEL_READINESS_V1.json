@@ -1,0 +1,202 @@
+{
+  "schema": "v8_g3_rates_panel_readiness.v1",
+  "created_at_utc": "2026-07-13T16:30:44.365858+00:00",
+  "status": "RATES_PANEL_MOSTLY_READY / LAG_CONTRACT_DRAFT / NO_PROBE / NO_DR_SUBMIT",
+  "v8_packet": "03. EA Developer/EA_SonicR/research/20260713_NEW_STRATEGY_DEEP_RESEARCH_DATA_CONTRACT_V8.md",
+  "authority_flags": {
+    "deep_research_submit": false,
+    "offline_probe": false,
+    "registry_append": false,
+    "prereg": false,
+    "ea_compile_model0": false
+  },
+  "verified_raw_files": [
+    {
+      "name": "ecb_dfr_daily.csv",
+      "status": "HASH_OK",
+      "bytes": 2986600,
+      "sha256": "175bdbb3f46f4cd9e42cccbc84f20e86049b320767c16833cc2fa23df8bbe63d",
+      "expected_sha256": "175bdbb3f46f4cd9e42cccbc84f20e86049b320767c16833cc2fa23df8bbe63d",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\ecb_dfr_daily.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2018.csv",
+      "status": "HASH_OK",
+      "bytes": 13875,
+      "sha256": "6f037e225a3f296613f620404667971df9f202743e70540d9ffbf5c7d30a3a51",
+      "expected_sha256": "6f037e225a3f296613f620404667971df9f202743e70540d9ffbf5c7d30a3a51",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2018.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2019.csv",
+      "status": "HASH_OK",
+      "bytes": 15520,
+      "sha256": "f0396ee6dfaa3a60ce676c593a026f8cfbb9bcd72af7b6aa8450c68a5d3ac98a",
+      "expected_sha256": "f0396ee6dfaa3a60ce676c593a026f8cfbb9bcd72af7b6aa8450c68a5d3ac98a",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2019.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2020.csv",
+      "status": "HASH_OK",
+      "bytes": 15589,
+      "sha256": "cc29ccb650fe49ce04781e97332cecba11c20e466b053a08d6fb15b6b24dbd20",
+      "expected_sha256": "cc29ccb650fe49ce04781e97332cecba11c20e466b053a08d6fb15b6b24dbd20",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2020.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2021.csv",
+      "status": "HASH_OK",
+      "bytes": 15581,
+      "sha256": "e45398cf008aeca21679fe1ebcc7d051add07f0819ef62723fe472a1ea00377d",
+      "expected_sha256": "e45398cf008aeca21679fe1ebcc7d051add07f0819ef62723fe472a1ea00377d",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2021.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2022.csv",
+      "status": "HASH_OK",
+      "bytes": 16411,
+      "sha256": "4059b158b989b5bb4d295cc5e3356434bcceba44d89365e368a2aafbf2077859",
+      "expected_sha256": "4059b158b989b5bb4d295cc5e3356434bcceba44d89365e368a2aafbf2077859",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2022.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2023.csv",
+      "status": "HASH_OK",
+      "bytes": 18074,
+      "sha256": "ca4d73d5e9856391c06ef0b3ec252d950019b1a5db97c934d92d9569fc4ba87c",
+      "expected_sha256": "ca4d73d5e9856391c06ef0b3ec252d950019b1a5db97c934d92d9569fc4ba87c",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2023.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2024.csv",
+      "status": "HASH_OK",
+      "bytes": 18074,
+      "sha256": "47cc8985d9474bbdaea37266ac5658f6b1b276d3310c54c7efd70358e80bc37b",
+      "expected_sha256": "47cc8985d9474bbdaea37266ac5658f6b1b276d3310c54c7efd70358e80bc37b",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2024.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2025.csv",
+      "status": "HASH_OK",
+      "bytes": 20297,
+      "sha256": "aa024dfde7700a971b287d7cc8284fd8c34f4dd6c66cb009cf39f501be33b562",
+      "expected_sha256": "aa024dfde7700a971b287d7cc8284fd8c34f4dd6c66cb009cf39f501be33b562",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2025.csv"
+    },
+    {
+      "name": "boe_bank_rate.csv",
+      "status": "HASH_OK",
+      "bytes": 37167,
+      "sha256": "1adcc97719c437839b678ab295f1c176234cdb91dd63f4516f2b82ac308d7806",
+      "expected_sha256": "1adcc97719c437839b678ab295f1c176234cdb91dd63f4516f2b82ac308d7806",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\boe_bank_rate.csv"
+    },
+    {
+      "name": "cot_tff_2022.zip",
+      "status": "PRESENT",
+      "v8_packet_scope": "OUT_OF_SCOPE_RATES_ONLY",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\cot_tff_2022.zip"
+    },
+    {
+      "name": "cot_tff_2023.zip",
+      "status": "PRESENT",
+      "v8_packet_scope": "OUT_OF_SCOPE_RATES_ONLY",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\cot_tff_2023.zip"
+    },
+    {
+      "name": "cot_tff_2024.zip",
+      "status": "PRESENT",
+      "v8_packet_scope": "OUT_OF_SCOPE_RATES_ONLY",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\cot_tff_2024.zip"
+    }
+  ],
+  "new_acquisitions": [
+    {
+      "name": "jpy_boj_uncollateralized_overnight_call_daily.csv",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\jpy_boj_uncollateralized_overnight_call_daily.csv",
+      "status": "OK",
+      "bytes": 167293,
+      "sha256": "9e1d2a2e1ca1a9e16e86090d3ee2c8927a05f6660bbb0b3b849cd1b16aef4482",
+      "lines": 10414,
+      "source_url": "https://www.stat-search.boj.or.jp/ssi/mtshtml/fm01_d_1.html",
+      "series_code": "FM01'STRDCLUCON",
+      "source_html_cache": "C:\\Users\\ADMIN\\.cursor\\projects\\d-Trading-EA-MT5\\agent-tools\\77a813fb-fa3e-4226-9c4a-9e137bc3f530.txt",
+      "rows_data": 10413,
+      "coverage_note": "Daily uncollateralized overnight call average; NA retained (no silent fill)."
+    },
+    {
+      "name": "jpy_boj_basic_discount_loan_rate_steps.csv",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\jpy_boj_basic_discount_loan_rate_steps.csv",
+      "status": "OK",
+      "bytes": 615,
+      "sha256": "9084f1f93907beb4adb9ac3939f8859921611210737697ed714dcb4416892e5e",
+      "lines": 13,
+      "source_url": "https://www.boj.or.jp/en/statistics/boj/other/discount/discount.htm",
+      "rows_data": 12,
+      "coverage_note": "Effective-date step series only; sparse; not a daily money-market substitute."
+    }
+  ],
+  "fred_mirror_index": [
+    {
+      "name": "eur_ecb_deposit_ECBDFR.csv",
+      "status": "OK",
+      "bytes": 163888,
+      "sha256": "cf79a5641a98062808b99b7cc3acea5165449a6e1d6f1eff09fee373b31ba447",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\eur_ecb_deposit_ECBDFR.csv",
+      "tree": "research/data/exogenous"
+    },
+    {
+      "name": "eur_estr_ECBESTRVOLWGTTRMDMNRT.csv",
+      "status": "OK",
+      "bytes": 30701,
+      "sha256": "dcedc56d19368424eba06b8e422f2a94d83da47fe4c51c723b36570d0f4fce5a",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\eur_estr_ECBESTRVOLWGTTRMDMNRT.csv",
+      "tree": "research/data/exogenous"
+    },
+    {
+      "name": "gbp_sonia_IUDSOIA.csv",
+      "status": "OK",
+      "bytes": 137185,
+      "sha256": "1a1fc9d109ef494598516f3d2c86caef95fa67836a466c8babe9c98f36c099bb",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\gbp_sonia_IUDSOIA.csv",
+      "tree": "research/data/exogenous"
+    },
+    {
+      "name": "jpy_call_money_monthly_IRSTCI01JPM156N.csv",
+      "status": "OK",
+      "bytes": 9458,
+      "sha256": "3ad7e88e3d6cc8d275672af3a47e559bb2b3052bf15306110582a46f0628b511",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\jpy_call_money_monthly_IRSTCI01JPM156N.csv",
+      "tree": "research/data/exogenous"
+    },
+    {
+      "name": "us_fed_funds_DFF.csv",
+      "status": "OK",
+      "bytes": 422747,
+      "sha256": "ab5118475661f9e834f519c5994cf841bb6fa60a56b3aec5ce90d3ee6c4fd939",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\us_fed_funds_DFF.csv",
+      "tree": "research/data/exogenous"
+    },
+    {
+      "name": "us_sofr_SOFR.csv",
+      "status": "OK",
+      "bytes": 34190,
+      "sha256": "edd4075ea9fd946a4ac86ed67636c55a51472529040fe7924cfb90bdde8ef091",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\us_sofr_SOFR.csv",
+      "tree": "research/data/exogenous"
+    }
+  ],
+  "lag_contract": {
+    "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\contracts\\20260713_V8_RATES_AVAILABLE_AT_UTC_CONTRACT_V1.json",
+    "sha256": "1595a1c3b698c06f72c64c2c5e8738ec06c3dd231fafd35fb7eb395dddf04495",
+    "status": "DRAFT_CONTRACT / NO_JOIN / NO_PROBE"
+  },
+  "remaining_gaps": [
+    "ALFRED vintage pulls not yet archived (revised-series risk for some FRED series).",
+    "EFFR / DTB3 not pulled separately (DFF/SOFR and Treasury bills used as lawful proxies pending Deep Research mapping).",
+    "COT zips claimed OK in older manifest are missing on disk; out of V8 rates packet \u2014 do not use for V8.",
+    "Same-broker cost provenance still incomplete; Model 0 blocked even after a future probe pass."
+  ],
+  "owner_decision_required": "CONFIRM_SUBMIT_DEEP_RESEARCH_V8 on rates-only data-contract packet with Browser UI readback GPT-5.6 Sol + Pro + Nghien cuu sau.",
+  "manifest_sha256": "f169bd271d3cfa7135435e9a466b21952d06088d5cb6357289323098e47d04e1"
+}

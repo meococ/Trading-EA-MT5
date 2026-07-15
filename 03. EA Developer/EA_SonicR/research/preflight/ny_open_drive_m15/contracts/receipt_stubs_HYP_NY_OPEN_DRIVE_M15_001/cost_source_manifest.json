@@ -1,0 +1,6 @@
+{
+  "cost_label": "UNVERIFIED_TESTER_DEFAULT",
+  "broker": "MetaQuotes-Demo",
+  "spread_binding": "current",
+  "note": "Missing commission/slippage fields are not zero. Not Real QFSI."
+}

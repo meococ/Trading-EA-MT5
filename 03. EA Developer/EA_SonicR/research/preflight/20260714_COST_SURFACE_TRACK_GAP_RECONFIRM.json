@@ -1,0 +1,36 @@
+{
+  "schema": "cost_surface_track_gap_reconfirm.v1",
+  "created_at_utc": "2026-07-14T17:12:05.597418Z",
+  "verdict": "GAP",
+  "sha_freeze_eligible_for_research_cost_surface": false,
+  "reason": "No reconstructable multi-month/year session×symbol spread/commission surface on disk. QFSI Real quote ticks = 1 calendar day 2026-07-14; EURUSD commission unique N=2; USDJPY commission 0; slip fills 0 MISSING≠0. Tester multi-year 'current' spread and M15 audit summaries are NOT broker session×hour evidence. Do not invent; do not re-stress RR2 under invented surface.",
+  "existing_partial_proxies": {
+    "broker_spread_cost_table_qfsi": {
+      "path": "03. EA Developer/EA_SonicR/research/preflight/20260714_BROKER_SPREAD_COST_TABLE_QFSI.json",
+      "sha256": "A0DD6BDBFDC311720CF963E5D05D9D5BBD7C9E42F9A99E1EAE68787334AA2964",
+      "label": "PARTIAL_SINGLE_DAY_PROXY_NOT_RESEARCH_SURFACE"
+    },
+    "broker_spread_cost_table_qfsi_w7cont": {
+      "path": "03. EA Developer/EA_SonicR/research/preflight/20260714_BROKER_SPREAD_COST_TABLE_QFSI_W7CONT.json",
+      "sha256": "13B7306FE3AA4D187124C953A582676F4DCABDA3204961B260A7996E88302440",
+      "label": "PARTIAL_SINGLE_DAY_PROXY_NOT_RESEARCH_SURFACE"
+    },
+    "tick_hour_diagnostic": {
+      "path": "03. EA Developer/EA_SonicR/research/preflight/20260714_QFSI_TICK_HOUR_SPREAD_DIAGNOSTIC.json",
+      "sha256": "4890B23955869EB9592FDBDC3430BD8BF1B01069ED98C8A22F4F65A9F44745DF",
+      "label": "DIAGNOSTIC_ONLY_NOT_MULTI_YEAR_RESEARCH_COST_SURFACE"
+    }
+  },
+  "missing_for_freeze": {
+    "quote_calendar_days_have": 1,
+    "quote_calendar_days_need": 90,
+    "commission_eurusd_unique_have": 2,
+    "commission_per_symbol_need": 30,
+    "usdjpy_commission_unique_have": 0,
+    "slip_fills_have": 0,
+    "slip_fills_need_per_symbol": 100
+  },
+  "rr2_restress_under_session_surface": "NOT_RUN_SURFACE_ABSENT",
+  "prior_gap_doc": "03. EA Developer/EA_SonicR/research/readouts/20260714_BROKER_SESSION_SPREAD_TABLE_GAP.md",
+  "receipt_sha256": "5F86C5AE8F5FF0AF89C0A158D0EFE8799D01A98855931D6C5A7B4A59CB659505"
+}

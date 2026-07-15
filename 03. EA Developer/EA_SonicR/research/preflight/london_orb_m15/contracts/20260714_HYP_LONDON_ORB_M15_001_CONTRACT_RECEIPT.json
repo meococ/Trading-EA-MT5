@@ -1,0 +1,11 @@
+{
+  "hypothesis_id": "HYP-LONDON-ORB-M15-001",
+  "ea": "EA_M15LondonORB",
+  "source_path": "03. EA Developer/EA_M15LondonORB/EA_M15LondonORB.mq5",
+  "source_sha256": "CBB860303883015B10EC31D166DBD44B3E8DAC14173E11DE767BF95A9A95B2CE",
+  "prereg_path": "03. EA Developer/EA_SonicR/research/preregs/20260714_H_LONDON_ORB_M15_001_PREREG.md",
+  "dedup_path": "03. EA Developer/EA_SonicR/research/readouts/20260714_LONDON_ORB_VS_SPARK_HOUROPEN_DEDUP_CLEARANCE.md",
+  "frozen_at": "2026-07-14T00:50:00+07:00",
+  "cost_label": "UNVERIFIED_TESTER_DEFAULT",
+  "model0_authorized": true
+}

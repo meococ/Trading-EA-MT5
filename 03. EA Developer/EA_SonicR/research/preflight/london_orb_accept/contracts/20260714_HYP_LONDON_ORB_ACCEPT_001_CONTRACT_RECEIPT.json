@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-LONDON-ORB-ACCEPT-001",
+  "task_packet_sha256": "44A379358937B20E1C99433A8BC8555DCD60F69C93FB7881D2A8145844EBE58D",
+  "git_commit": "NOGIT-9B72CC6FC899B9DF73A0DBCD3C9ABACAD3BB2521AF345706A073DF578862AF9A",
+  "git_status_sha256": "46806451A9E5A69D68B427006FAB62478D44EB12395EC1F81E7C70094BF91EDE",
+  "binding": {
+    "hypothesis_id": "HYP-LONDON-ORB-ACCEPT-001",
+    "run_role": "control",
+    "ea_name": "EA_M15LondonORBAccept",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "06DAED72CD13A6DCC2E164340CCB197A836C22C69B243EFA81E6AF6FDDC684FE"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\london_orb_accept\\contracts\\receipt_stubs_HYP_LORBA_001\\task_packet.json",
+      "sha256": "44A379358937B20E1C99433A8BC8555DCD60F69C93FB7881D2A8145844EBE58D"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_M15LondonORBAccept\\EA_M15LondonORBAccept.mq5",
+      "sha256": "41D8D1A131A3E554BCCB6EC59085FE32BFFEB557AFCE7C65BC1A039A5C78D8BB"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\london_orb_accept\\contracts\\receipt_stubs_HYP_LORBA_001\\prereg.json",
+      "sha256": "CCFAE1ED12694411B73F3A24407075DE17CBBAA7159581FACF6E1C887177E3B3"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\london_orb_accept\\contracts\\receipt_stubs_HYP_LORBA_001\\cost_source_manifest.json",
+      "sha256": "23B75FEF423945E759A22E82576A4D0FE86510A7D8C494F86F0B58B29DDDFE85"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\london_orb_accept\\contracts\\receipt_stubs_HYP_LORBA_001\\include_note.txt",
+      "sha256": "8FF7264194644034310EF6995B8B2E9316E19C39268664B7B055C04A370D87BA"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T12:37:42Z",
+  "note": "London ORB dual-close acceptance rebuild of parked LondonORB."
+}

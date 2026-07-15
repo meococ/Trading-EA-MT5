@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-ENGULF-TREND-M15-001",
+  "task_packet_sha256": "20E6A397724E54F7774CF8EA03BA19047E5B1674A9EFB2A5FEA0B6C2A0277F28",
+  "git_commit": "NOGIT-0075E20900D9F49B45CFA769BFE03EBF17A9917DED35140DE63265005A745AF5",
+  "git_status_sha256": "6DB23C4AC073EFB4111539A5CB3EBFAACE1A79CE3EEBAFB726FE4D594E8027B7",
+  "binding": {
+    "hypothesis_id": "HYP-ENGULF-TREND-M15-001",
+    "run_role": "control",
+    "ea_name": "EA_M15EngulfTrend",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "E46D52B6D890A182D0D26BD4BF1469B3FE421C99C4DAB69BC045BAB417EA0389"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\engulf_trend_m15\\contracts\\receipt_stubs_HYP_ENGT_001\\task_packet.json",
+      "sha256": "20E6A397724E54F7774CF8EA03BA19047E5B1674A9EFB2A5FEA0B6C2A0277F28"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_M15EngulfTrend\\EA_M15EngulfTrend.mq5",
+      "sha256": "89EC1393DE71D179801E388528795D25902C3424A1A0A2FAB3207C959E736218"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\engulf_trend_m15\\contracts\\receipt_stubs_HYP_ENGT_001\\prereg.json",
+      "sha256": "359A2AC4FBC557C0FF542809D7D0B5547040E6882D155CB359057A39FD8F1B78"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\engulf_trend_m15\\contracts\\receipt_stubs_HYP_ENGT_001\\cost_source_manifest.json",
+      "sha256": "23B75FEF423945E759A22E82576A4D0FE86510A7D8C494F86F0B58B29DDDFE85"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\engulf_trend_m15\\contracts\\receipt_stubs_HYP_ENGT_001\\include_note.txt",
+      "sha256": "41D9965ACC011FA4F570E0B8216A85449231D8C6CA2E5F004F88D93F466B9BA9"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T12:37:42Z",
+  "note": "Engulf + D1 EMA50; CI/Chop removed; Mon-Thu."
+}

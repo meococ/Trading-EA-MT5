@@ -1,0 +1,60 @@
+{
+  "schema_version": "owner_campaign_receipt.v1",
+  "receipt_id": "20260714_OWNER_MT_BACKTEST_AUTONOMY",
+  "generated_at_utc": "2026-07-13T17:12:30Z",
+  "owner_order_ict": "2026-07-14 ~00:01",
+  "owner_order_vi": "cho phép em thoải mái backtest với mt và tự đi, miễn là đạt target",
+  "interpretation": {
+    "autonomous_mt_compile_backtest": true,
+    "self_drive_toward_goal": true,
+    "target": "01. GOAL/GOAL.md North-Star table",
+    "chatgpt_deep_research": "waived",
+    "nested_worker_model": "cursor-grok-4.5-high-fast",
+    "root_git": "no-git",
+    "hard_rules_retained": [
+      "closed_bar_non_repaint",
+      "hypothesis_id_registry_frozen_prereg",
+      "no_missing_cost_as_zero",
+      "no_post_hoc_rescue_killed_families",
+      "no_fake_goal_claim"
+    ]
+  },
+  "status": "MODEL0_COMPLETE",
+  "selected_path": {
+    "rank": "b_shelf_ea_frozen_packet",
+    "hypothesis_id": "HYP-SB-WEEKEND-FLAT-001",
+    "ea": "EA_SilverBullet",
+    "source": "03. EA Developer/EA_SilverBullet/EA_SilverBullet_v2.mq5",
+    "rationale": "Already research-frozen weekend-flat A1; legal Model 0 without inventing Real cost or rescuing killed exogenous books."
+  },
+  "execution": {
+    "compile": "SUCCESS",
+    "control_run_id": "20260714_000703",
+    "challenger_run_id": "20260714_001029",
+    "control_pf": 1.33,
+    "challenger_pf": 1.34,
+    "control_trades": 519,
+    "challenger_trades": 520,
+    "trades_per_elapsed_week": 1.99,
+    "cost": "tester_current_spread_unverified",
+    "alpha_closeout": "includes_sha256_mismatch_after_report_ready",
+    "control_receipt": "03. EA Developer/EA_SonicR/research/preflight/sb_weekend_flat/20260714_HYP_SB_WEEKEND_FLAT_001_CONTROL_RECEIPT.json",
+    "challenger_receipt": "03. EA Developer/EA_SonicR/research/preflight/sb_weekend_flat/20260714_HYP_SB_WEEKEND_FLAT_001_CHALLENGER_RECEIPT.json",
+    "compare": "03. EA Developer/EA_SonicR/research/preflight/sb_weekend_flat/20260714_MODEL0_COMPARE.json",
+    "readout": "03. EA Developer/EA_SonicR/research/readouts/20260714_HYP_SB_WEEKEND_FLAT_001_MODEL0_READOUT.md"
+  },
+  "goal_claim": false,
+  "goal_gap": [
+    "cadence_1.99_below_floor_2.0",
+    "cost_provenance_unverified",
+    "no_broker_cost_stress_artifact"
+  ],
+  "next": {
+    "agent_executable": "HYP-CHOP-TREND-M15-001 Model 0 (already preregistered) OR USBILL fail-closed cost-stress probe",
+    "owner_physical": "login FivePercentOnline-Real + QFSI cost capture to unblock USBILL/USD-factor promotion-grade cost"
+  },
+  "artifacts": {
+    "hot": "04. Project Control/ai/hot.md",
+    "coordinator_readout": "03. EA Developer/EA_SonicR/research/readouts/20260714_OWNER_MT_BACKTEST_AUTONOMY_COORDINATOR.md"
+  }
+}

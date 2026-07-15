@@ -1,0 +1,1 @@
+EA_H1ThreeBarRev is single-file; Trade.mqh is MT5 standard library. Stub satisfies include_* receipt closure for Model 0 screen.

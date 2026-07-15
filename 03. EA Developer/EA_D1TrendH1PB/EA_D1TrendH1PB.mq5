@@ -1,0 +1,415 @@
+//+------------------------------------------------------------------+
+//| EA_D1TrendH1PB.mq5 — D1 EMA50 bias + H1 EMA21 PB reclaim (RR=2.5)|
+//| Symbol: USDJPY | Period: H1 | Magic: 880998                       |
+//| Hypothesis: HYP-D1-TREND-H1-PB-001                                  |
+//| Closed-bar[1] only. Mon–Thu; weekend flat; risk 0.5%; RR=2.5.     |
+//+------------------------------------------------------------------+
+#property copyright "SonicR / EA_D1TrendH1PB"
+#property version   "1.00"
+#property strict
+
+#include <Trade\Trade.mqh>
+
+input group "=== General ==="
+input ulong    InpMagic         = 880998;
+input int      InpDeviation     = 30;
+input bool     InpKillSwitch    = false;
+
+input group "=== Trend / PB ==="
+input int      InpD1EMA         = 50;
+input int      InpH1EMA         = 21;
+input int      InpPBLookback    = 4;
+input double   InpSL_ATR_Mult   = 1.25;
+input double   InpMinBodyATR    = 0.30;
+
+input group "=== Session ==="
+input int      InpFlatHour      = 22;
+input bool     InpTradeMon      = true;
+input bool     InpTradeTue      = true;
+input bool     InpTradeWed      = true;
+input bool     InpTradeThu      = true;
+input bool     InpTradeFri      = false;
+
+input group "=== Risk ==="
+input double   InpRiskPct       = 0.50;
+input double   InpMaxLot        = 1.0;
+input double   InpTP_Ratio      = 2.50;
+input int      InpATRPeriod     = 14;
+input int      InpMinSLPoints   = 100;
+input int      InpMaxSLPoints   = 5000;
+input int      InpMaxPerDay     = 2;
+input double   InpDailyDD       = 4.0;
+input int      InpMaxHoldBars   = 24;
+input int      InpMaxSpreadPts  = 80;
+
+CTrade   g_trade;
+int      g_hATRH1 = INVALID_HANDLE;
+int      g_hEMAD1 = INVALID_HANDLE;
+int      g_hEMAH1 = INVALID_HANDLE;
+datetime g_lastBar = 0;
+int      g_tradesToday = 0;
+int      g_lastTradeDay = -1;
+double   g_dayStartBalance = 0;
+int      g_holdBars = 0;
+
+int OnInit()
+{
+   if(Period() != PERIOD_H1)
+   {
+      Print("[D1H1] FAIL — chart must be H1");
+      return INIT_FAILED;
+   }
+   g_trade.SetExpertMagicNumber((long)InpMagic);
+   g_trade.SetDeviationInPoints(InpDeviation);
+   g_hATRH1 = iATR(_Symbol, PERIOD_H1, InpATRPeriod);
+   g_hEMAD1 = iMA(_Symbol, PERIOD_D1, InpD1EMA, 0, MODE_EMA, PRICE_CLOSE);
+   g_hEMAH1 = iMA(_Symbol, PERIOD_H1, InpH1EMA, 0, MODE_EMA, PRICE_CLOSE);
+   if(g_hATRH1 == INVALID_HANDLE || g_hEMAD1 == INVALID_HANDLE || g_hEMAH1 == INVALID_HANDLE)
+      return INIT_FAILED;
+   g_dayStartBalance = AccountInfoDouble(ACCOUNT_BALANCE);
+   Print("[D1H1] HYP-D1-TREND-H1-PB-001 RR=", InpTP_Ratio);
+   return INIT_SUCCEEDED;
+}
+
+void OnDeinit(const int reason)
+{
+   if(g_hATRH1 != INVALID_HANDLE) IndicatorRelease(g_hATRH1);
+   if(g_hEMAD1 != INVALID_HANDLE) IndicatorRelease(g_hEMAD1);
+   if(g_hEMAH1 != INVALID_HANDLE) IndicatorRelease(g_hEMAH1);
+}
+
+int CountPositions()
+{
+   int c = 0;
+   for(int i = PositionsTotal() - 1; i >= 0; i--)
+   {
+      ulong t = PositionGetTicket(i);
+      if(t > 0 &&
+         PositionGetInteger(POSITION_MAGIC) == (long)InpMagic &&
+         PositionGetString(POSITION_SYMBOL) == _Symbol)
+         c++;
+   }
+   return c;
+}
+
+bool IsSuccessfulRetcode(const uint retcode)
+{
+   return(retcode == TRADE_RETCODE_DONE ||
+          retcode == TRADE_RETCODE_PLACED ||
+          retcode == TRADE_RETCODE_DONE_PARTIAL);
+}
+
+bool IsRetryableRetcode(const uint retcode)
+{
+   return(retcode == TRADE_RETCODE_REQUOTE ||
+          retcode == TRADE_RETCODE_PRICE_CHANGED ||
+          retcode == TRADE_RETCODE_PRICE_OFF ||
+          retcode == TRADE_RETCODE_CONNECTION ||
+          retcode == TRADE_RETCODE_TIMEOUT ||
+          retcode == TRADE_RETCODE_TOO_MANY_REQUESTS ||
+          retcode == TRADE_RETCODE_LOCKED);
+}
+
+int ResolveFillModes(ENUM_ORDER_TYPE_FILLING &primary, ENUM_ORDER_TYPE_FILLING &secondary)
+{
+   long fillMask = 0;
+   primary = ORDER_FILLING_FOK;
+   secondary = ORDER_FILLING_IOC;
+   if(!SymbolInfoInteger(_Symbol, SYMBOL_FILLING_MODE, fillMask))
+      return 2;
+   int count = 0;
+   if((fillMask & SYMBOL_FILLING_FOK) == SYMBOL_FILLING_FOK)
+   {
+      primary = ORDER_FILLING_FOK;
+      count++;
+   }
+   if((fillMask & SYMBOL_FILLING_IOC) == SYMBOL_FILLING_IOC)
+   {
+      if(count == 0) primary = ORDER_FILLING_IOC;
+      else secondary = ORDER_FILLING_IOC;
+      count++;
+   }
+   if(count == 0)
+      return 1;
+   return count;
+}
+
+bool ValidateStops(const bool isBuy, const double entryPrice, const double sl, const double tp)
+{
+   long stopsLevel = 0;
+   long freezeLevel = 0;
+   SymbolInfoInteger(_Symbol, SYMBOL_TRADE_STOPS_LEVEL, stopsLevel);
+   SymbolInfoInteger(_Symbol, SYMBOL_TRADE_FREEZE_LEVEL, freezeLevel);
+   double minDistance = (double)MathMax(stopsLevel, freezeLevel) * _Point;
+   if(minDistance <= 0.0)
+      return true;
+   if(isBuy)
+      return ((entryPrice - sl) >= minDistance && (tp - entryPrice) >= minDistance);
+   return ((sl - entryPrice) >= minDistance && (entryPrice - tp) >= minDistance);
+}
+
+bool SendDealWithRetry(const ENUM_ORDER_TYPE type, const double volume,
+                       const double sl, const double tp, const ulong position,
+                       const string comment, MqlTradeResult &res)
+{
+   ENUM_ORDER_TYPE_FILLING primaryMode, secondaryMode;
+   int modeCount = ResolveFillModes(primaryMode, secondaryMode);
+   for(int modeIdx = 0; modeIdx < modeCount; modeIdx++)
+   {
+      ENUM_ORDER_TYPE_FILLING activeMode = (modeIdx == 0 ? primaryMode : secondaryMode);
+      for(int attempt = 0; attempt < 3; attempt++)
+      {
+         MqlTradeRequest req = {};
+         MqlTradeResult tmp = {};
+         req.action = TRADE_ACTION_DEAL;
+         req.symbol = _Symbol;
+         req.volume = volume;
+         req.type = type;
+         req.price = (type == ORDER_TYPE_BUY ? SymbolInfoDouble(_Symbol, SYMBOL_ASK)
+                                             : SymbolInfoDouble(_Symbol, SYMBOL_BID));
+         req.sl = sl;
+         req.tp = tp;
+         req.deviation = (ulong)InpDeviation;
+         req.magic = InpMagic;
+         req.position = position;
+         req.comment = comment;
+         req.type_filling = activeMode;
+         if(position == 0 && sl > 0.0 && tp > 0.0 &&
+            !ValidateStops(type == ORDER_TYPE_BUY, req.price, sl, tp))
+            return false;
+         ResetLastError();
+         bool sent = OrderSend(req, tmp);
+         res = tmp;
+         if(sent && IsSuccessfulRetcode(res.retcode))
+            return true;
+         if(sent && !IsRetryableRetcode(res.retcode))
+            return false;
+         if(!sent && attempt == 2)
+            return false;
+         Sleep(100 * (1 << attempt));
+      }
+   }
+   return false;
+}
+
+void CloseAll(const string reason)
+{
+   for(int i = PositionsTotal() - 1; i >= 0; i--)
+   {
+      ulong t = PositionGetTicket(i);
+      if(t <= 0 ||
+         PositionGetInteger(POSITION_MAGIC) != (long)InpMagic ||
+         PositionGetString(POSITION_SYMBOL) != _Symbol)
+         continue;
+      bool isBuy = (PositionGetInteger(POSITION_TYPE) == POSITION_TYPE_BUY);
+      MqlTradeResult res = {};
+      SendDealWithRetry(isBuy ? ORDER_TYPE_SELL : ORDER_TYPE_BUY,
+                        PositionGetDouble(POSITION_VOLUME), 0.0, 0.0, t,
+                        "D1H1|" + reason, res);
+   }
+}
+
+bool IsDDExceeded()
+{
+   if(g_dayStartBalance <= 0.0)
+      return false;
+   return ((g_dayStartBalance - AccountInfoDouble(ACCOUNT_EQUITY)) /
+           g_dayStartBalance * 100.0) >= InpDailyDD;
+}
+
+bool IsTradeDay(const int dow)
+{
+   if(dow == 1) return InpTradeMon;
+   if(dow == 2) return InpTradeTue;
+   if(dow == 3) return InpTradeWed;
+   if(dow == 4) return InpTradeThu;
+   if(dow == 5) return InpTradeFri;
+   return false;
+}
+
+double CalcLot(const double slDist)
+{
+   if(slDist <= 0.0)
+      return 0.0;
+   double bal = AccountInfoDouble(ACCOUNT_BALANCE);
+   double riskCash = bal * InpRiskPct / 100.0;
+   double tv = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_VALUE);
+   double ts = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_SIZE);
+   if(tv <= 0.0 || ts <= 0.0)
+      return 0.0;
+   double lot = riskCash / (slDist / ts * tv);
+   lot = MathMin(lot, InpMaxLot);
+   lot = MathMin(lot, SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_MAX));
+   lot = MathMax(lot, SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_MIN));
+   double step = SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_STEP);
+   if(step > 0.0)
+      lot = MathFloor(lot / step) * step;
+   return lot;
+}
+
+int D1Bias()
+{
+   double ema[];
+   ArraySetAsSeries(ema, true);
+   if(CopyBuffer(g_hEMAD1, 0, 1, 1, ema) < 1)
+      return 0;
+   double c = iClose(_Symbol, PERIOD_D1, 1);
+   if(c > ema[0]) return +1;
+   if(c < ema[0]) return -1;
+   return 0;
+}
+
+bool FindPullbackReclaim(const int bias, double &pbExtreme)
+{
+   pbExtreme = 0.0;
+   double ema[];
+   ArraySetAsSeries(ema, true);
+   int need = InpPBLookback + 1;
+   if(CopyBuffer(g_hEMAH1, 0, 1, need, ema) < need)
+      return false;
+
+   double c1 = iClose(_Symbol, PERIOD_H1, 1);
+   double o1 = iOpen(_Symbol, PERIOD_H1, 1);
+   bool touched = false;
+   double extreme = (bias > 0 ? 1.0e100 : -1.0e100);
+
+   for(int i = 1; i <= InpPBLookback; i++)
+   {
+      double hi = iHigh(_Symbol, PERIOD_H1, i);
+      double lo = iLow(_Symbol, PERIOD_H1, i);
+      double e = ema[i - 1];
+      if(bias > 0)
+      {
+         if(lo <= e)
+         {
+            touched = true;
+            if(lo < extreme) extreme = lo;
+         }
+      }
+      else
+      {
+         if(hi >= e)
+         {
+            touched = true;
+            if(hi > extreme) extreme = hi;
+         }
+      }
+   }
+   if(!touched)
+      return false;
+
+   if(bias > 0)
+   {
+      if(!(c1 > ema[0] && c1 > o1))
+         return false;
+   }
+   else
+   {
+      if(!(c1 < ema[0] && c1 < o1))
+         return false;
+   }
+   pbExtreme = extreme;
+   return true;
+}
+
+void OnTick()
+{
+   if(InpKillSwitch)
+      return;
+
+   datetime barTime = iTime(_Symbol, PERIOD_H1, 0);
+   if(barTime == 0 || barTime == g_lastBar)
+      return;
+   g_lastBar = barTime;
+
+   datetime bar1Time = iTime(_Symbol, PERIOD_H1, 1);
+   if(bar1Time == 0)
+      return;
+
+   MqlDateTime dt;
+   TimeToStruct(bar1Time, dt);
+   int dayKey = dt.year * 1000 + dt.day_of_year;
+   if(dayKey != g_lastTradeDay)
+   {
+      g_lastTradeDay = dayKey;
+      g_tradesToday = 0;
+      g_dayStartBalance = AccountInfoDouble(ACCOUNT_BALANCE);
+   }
+
+   if(CountPositions() > 0)
+   {
+      g_holdBars++;
+      if(g_holdBars >= InpMaxHoldBars || dt.hour >= InpFlatHour ||
+         dt.day_of_week == 5 || dt.day_of_week == 0 || dt.day_of_week == 6)
+         CloseAll("flat");
+      return;
+   }
+   g_holdBars = 0;
+
+   if(dt.hour >= InpFlatHour || dt.day_of_week == 5 ||
+      dt.day_of_week == 0 || dt.day_of_week == 6)
+      return;
+   if(!IsTradeDay(dt.day_of_week))
+      return;
+   if(g_tradesToday >= InpMaxPerDay || IsDDExceeded())
+      return;
+   if(SymbolInfoInteger(_Symbol, SYMBOL_SPREAD) > InpMaxSpreadPts)
+      return;
+
+   int bias = D1Bias();
+   if(bias == 0)
+      return;
+
+   double pbExtreme = 0.0;
+   if(!FindPullbackReclaim(bias, pbExtreme))
+      return;
+
+   double atr[];
+   ArraySetAsSeries(atr, true);
+   if(CopyBuffer(g_hATRH1, 0, 1, 1, atr) < 1 || atr[0] <= 0.0)
+      return;
+
+   double c1 = iClose(_Symbol, PERIOD_H1, 1);
+   double o1 = iOpen(_Symbol, PERIOD_H1, 1);
+   if(MathAbs(c1 - o1) < InpMinBodyATR * atr[0])
+      return;
+
+   bool isBuy = (bias > 0);
+   double entry = (isBuy ? SymbolInfoDouble(_Symbol, SYMBOL_ASK)
+                         : SymbolInfoDouble(_Symbol, SYMBOL_BID));
+   double slRaw = (isBuy ? pbExtreme - atr[0] * InpSL_ATR_Mult
+                         : pbExtreme + atr[0] * InpSL_ATR_Mult);
+   double slDist = MathAbs(entry - slRaw);
+   if(slDist < InpMinSLPoints * _Point)
+      slDist = InpMinSLPoints * _Point;
+   if(slDist > InpMaxSLPoints * _Point)
+      return;
+
+   double sl = (isBuy ? entry - slDist : entry + slDist);
+   double tp = (isBuy ? entry + slDist * InpTP_Ratio : entry - slDist * InpTP_Ratio);
+   int digits = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
+   sl = NormalizeDouble(sl, digits);
+   tp = NormalizeDouble(tp, digits);
+   double lot = CalcLot(slDist);
+   if(lot <= 0.0)
+      return;
+
+   MqlTradeResult res = {};
+   if(!SendDealWithRetry(isBuy ? ORDER_TYPE_BUY : ORDER_TYPE_SELL, lot, sl, tp, 0, "D1H1|pb", res))
+      return;
+   if(IsSuccessfulRetcode(res.retcode))
+   {
+      g_tradesToday++;
+      g_holdBars = 0;
+   }
+}
+
+double OnTester()
+{
+   double pf = TesterStatistics(STAT_PROFIT_FACTOR);
+   double n  = TesterStatistics(STAT_TRADES);
+   if(n < 20.0)
+      return 0.0;
+   return pf * MathSqrt(n);
+}
+//+------------------------------------------------------------------+

@@ -1,0 +1,90 @@
+{
+  "schema_version": "sonic_qfsi_real_reprice_a1_spark_extension.v1",
+  "created_at_utc": "2026-07-14T15:07:00.064766Z",
+  "status": "PARTIAL_REAL_COST_LOTSCALE_COMPLETE",
+  "goal_claim": false,
+  "confirmed_claim": false,
+  "full_qfsi_gate": "FAIL_SAMPLE_GATES",
+  "cost_unit": {
+    "spread_usd_per_lot_p50": 0.6175050326514141,
+    "commission_rt_per_lot": 4.0,
+    "unit_usd_per_lot": 4.617505032651414,
+    "label": "REAL_LIVE_SPREAD_PLUS_EURUSD_COMMISSION_CLUE_LOTSCALE",
+    "slippage": "MISSING_NOT_ZERO"
+  },
+  "parent_receipt": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_QFSI_REAL_REPRICE_RR2_MAXKZ2_RECEIPT.json",
+  "parent_receipt_sha256": "C549D6FE4AD296C0FFE6E8469B8BAE58F28892DF3CB467E5D992CC1ECEB4E8FE",
+  "books": {
+    "A1": {
+      "run_id": "20260714_002505",
+      "ea": "EA_SilverBullet",
+      "base_cost_per_trade": 2.308752516325707,
+      "out": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_A1_20260714_002505_REAL_P50_LOTSCALE.json",
+      "out_sha256": "84A67382779DEFB3A317F3098ADE89E43C346E5A32B8D10326D0AD13215A8D90",
+      "base_pf": 1.344267,
+      "x1_pf": 1.283994,
+      "x1_5_pf": 1.255049,
+      "x2_pf": 1.226858,
+      "goal_cost_stress_pass": false,
+      "n_trades": 520,
+      "lot_p50": 0.5,
+      "lot_mean": 0.5,
+      "unit_usd_per_lot": 4.617505032651414
+    },
+    "SPARK100K": {
+      "run_id": "20260714_193358",
+      "ea": "EA_M15SparkAsian",
+      "base_cost_per_trade": 4.617505032651414,
+      "out": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_SPARK100K_20260714_193358_REAL_P50_LOTSCALE.json",
+      "out_sha256": "B74F51EFCE9E39F2CA4145899C6BFF6934CD8AF273C456A0DF2B5616A37C8703",
+      "base_pf": 1.380359,
+      "x1_pf": 1.310938,
+      "x1_5_pf": 1.277543,
+      "x2_pf": 1.245002,
+      "goal_cost_stress_pass": true,
+      "n_trades": 325,
+      "lot_p50": 1.0,
+      "lot_mean": 0.9061538461538462,
+      "unit_usd_per_lot": 4.617505032651414
+    },
+    "MAXKZ2": {
+      "run_id": "20260714_192304",
+      "ea": "EA_SilverBullet",
+      "base_cost_per_trade": 2.308752516325707,
+      "out": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_MAXKZ2_20260714_192304_REAL_P50_LOTSCALE.json",
+      "out_sha256": "8A90A3D8E95FBD302F89D0F953EE6D0005BD2252CA3F7FF087BFB3CCB3101823",
+      "base_pf": 1.333761,
+      "x1_pf": 1.274544,
+      "x1_5_pf": 1.246089,
+      "x2_pf": 1.218364,
+      "goal_cost_stress_pass": false,
+      "n_trades": 546,
+      "lot_p50": 0.5,
+      "lot_mean": 0.5,
+      "unit_usd_per_lot": 4.617505032651414
+    },
+    "RR2": {
+      "run_id": "20260714_194221",
+      "ea": "EA_SilverBullet",
+      "base_cost_per_trade": 2.308752516325707,
+      "out": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preflight/20260714_COSTSTRESS_RR2_20260714_194221_REAL_P50_LOTSCALE.json",
+      "out_sha256": "4479ECAD79C32D61B690690EE3C8E1637320D8514AF0C39D6DE2DE6EE79E32D9",
+      "base_pf": 1.378321,
+      "x1_pf": 1.323137,
+      "x1_5_pf": 1.296607,
+      "x2_pf": 1.270748,
+      "goal_cost_stress_pass": true,
+      "n_trades": 524,
+      "lot_p50": 0.5,
+      "lot_mean": 0.5,
+      "unit_usd_per_lot": 4.617505032651414
+    }
+  },
+  "decision": {
+    "maxkz2_goal_cost_stress": false,
+    "rr2_goal_cost_stress": true,
+    "a1_goal_cost_stress": false,
+    "spark100k_goal_cost_stress": true,
+    "confirmed": false
+  }
+}

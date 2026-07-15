@@ -1,0 +1,12 @@
+
+  ALPHAFACTORY v4.2
+
+[INFO] Backtest: EA_SilverBullet on USDJPY M15
+[INFO] Compiling EA_SilverBullet...
+[WARN] Deleted 1 .ex5 file(s)
+[OK] SUCCESS: 88428 bytes (MetaEditor exit 1, log 0 errors)
+[INFO] Starting MT5...
+[INFO] MT5 started (PID: 44940)
+[INFO] Waiting... (0 s)
+[INFO] Waiting... (30 s)
+[OK] Report ready!

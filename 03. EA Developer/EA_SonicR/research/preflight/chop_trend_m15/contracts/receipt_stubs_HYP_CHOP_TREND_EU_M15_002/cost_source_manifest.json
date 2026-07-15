@@ -1,0 +1,6 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-CHOP-TREND-EU-M15-002",
+  "status": "UNVERIFIED_TESTER_DEFAULT",
+  "note": "Missing/zero cost fields must NOT be treated as zero friction."
+}

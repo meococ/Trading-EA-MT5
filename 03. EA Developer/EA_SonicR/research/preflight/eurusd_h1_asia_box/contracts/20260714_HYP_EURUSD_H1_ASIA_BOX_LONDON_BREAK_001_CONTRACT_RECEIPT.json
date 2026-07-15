@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-EURUSD-H1-ASIA-BOX-LONDON-BREAK-001",
+  "task_packet_sha256": "36DA3AB6C51FD42AFCAC3F444982341988773F749B960185A6AE1B673D2A6C75",
+  "git_commit": "NOGIT-834907ED59794B1360DFB8EA2024AD9C8EC8AAA3017C55725F9928C962D0EEC1",
+  "git_status_sha256": "71FA6D1DE30C735FA1D7C4F43A102A3772FEF5CEECAC3546A1210CC378E82454",
+  "binding": {
+    "hypothesis_id": "HYP-EURUSD-H1-ASIA-BOX-LONDON-BREAK-001",
+    "run_role": "control",
+    "ea_name": "EA_EURUSD_H1AsiaBoxLondonBreak",
+    "symbol": "EURUSD",
+    "period": "H1",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 1e-05,
+      "pip_size": 0.0001
+    },
+    "include_closure_sha256": "34E1A3EC2EC8620D9A767F916E95351EF43C082EDC2D7644EA771BA19052BD57"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\eurusd_h1_asia_box\\contracts\\receipt_stubs_HYP_ABLB_001\\task_packet.json",
+      "sha256": "36DA3AB6C51FD42AFCAC3F444982341988773F749B960185A6AE1B673D2A6C75"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_EURUSD_H1AsiaBoxLondonBreak\\EA_EURUSD_H1AsiaBoxLondonBreak.mq5",
+      "sha256": "A463B7B4DD5847ADF5C09B4F3E355548F50740C59EABF13991B22AEE4C55C521"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\eurusd_h1_asia_box\\contracts\\receipt_stubs_HYP_ABLB_001\\prereg.json",
+      "sha256": "FD302FDFAE7D1D36AA5DB9DE15A54EE8B84F027E24BAD6CA44579830D217BBF7"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\eurusd_h1_asia_box\\contracts\\receipt_stubs_HYP_ABLB_001\\cost_source_manifest.json",
+      "sha256": "C07580ED387472F87CBC0284F216D83AD68CE6EA89EBB699BA5A6A0E7A1C4BA1"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\eurusd_h1_asia_box\\contracts\\receipt_stubs_HYP_ABLB_001\\include_note.txt",
+      "sha256": "780ECDDE1CB0BB3445136DA59BA9F1AAA0491F8C3604716F7A668DF8A16F1BED"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T15:50:15.434490+00:00",
+  "note": "Wave5 Model 0; EURUSD Asia-box London break RR=2.5"
+}

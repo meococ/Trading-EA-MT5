@@ -1,0 +1,49 @@
+{
+  "schema_version": "alphafactory.self_research_frontier_receipt.v1",
+  "date": "2026-07-13",
+  "owner_instruction": "SKIP_GPT_DEEP_RESEARCH_SELF_RESEARCH_ONLY",
+  "verdict": "FIVE_OFFLINE_PROBES_KILLED / US_YIELD_CURVE_ON_DISK_UNPROBED / QFSI_STILL_BLOCKED / NO_EA_MODEL0",
+  "probes_this_lane": [
+    {
+      "probe_id": "V8_CARRY_DIFF_WEEKLY_V1",
+      "status": "KILL_AT_OFFLINE_PROBE",
+      "result": "03. EA Developer/EA_SonicR/research/preflight/v8_probe/20260713_V8_CARRY_DIFF_PROBE_RESULT_V1.json"
+    },
+    {
+      "probe_id": "V8_CARRY_DAILY_RANK_V1",
+      "status": "KILL_AT_OFFLINE_PROBE",
+      "result": "03. EA Developer/EA_SonicR/research/preflight/v8_probe/20260713_V8_CARRY_DAILY_PROBE_RESULT_V1.json"
+    },
+    {
+      "probe_id": "V8_CARRY_RATE_EVENT_5BP_V1",
+      "status": "KILL_AT_OFFLINE_PROBE",
+      "result": "03. EA Developer/EA_SonicR/research/preflight/v8_probe/20260713_V8_CARRY_RATE_EVENT_PROBE_RESULT_V1.json"
+    },
+    {
+      "probe_id": "V8_COT_TFF_SPEC_NET_CHG_V1",
+      "status": "KILL_AT_OFFLINE_PROBE",
+      "kill_reasons": ["fail_beat_control_pf_and_exp", "year_concentration>0.55"],
+      "train_trades": 203,
+      "train_tpw": 1.949,
+      "train_pf_stress_a": 1.148,
+      "control_pf_stress_a": 1.200,
+      "result": "03. EA Developer/EA_SonicR/research/preflight/v8_probe/20260713_V8_COT_TFF_PROBE_RESULT_V1.json",
+      "readout": "03. EA Developer/EA_SonicR/research/readouts/20260713_V8_COT_TFF_OFFLINE_PROBE_READOUT.md"
+    },
+    {
+      "probe_id": "V8_CARRY_VOL_REGIME_V1",
+      "status": "KILL_AT_OFFLINE_PROBE",
+      "kill_reasons": ["train_pf_stress_a<1.10"],
+      "train_trades": 423,
+      "train_tpw": 2.707,
+      "train_pf_stress_a": 0.947,
+      "result": "03. EA Developer/EA_SonicR/research/preflight/v8_probe/20260713_V8_CARRY_VOL_REGIME_PROBE_RESULT_V1.json",
+      "readout": "03. EA Developer/EA_SonicR/research/readouts/20260713_V8_CARRY_VOL_REGIME_OFFLINE_PROBE_READOUT.md"
+    }
+  ],
+  "frontier_map": "03. EA Developer/EA_SonicR/research/readouts/20260713_SELF_RESEARCH_FRONTIER_MAP_V1.md",
+  "next_auto_move": "US_YIELD_CURVE_USD_BASKET_OFFLINE_PROBE_FROM_DISK_OR_QFSI_REAL_COST_CAPTURE",
+  "gpt_deep_research_authorized": false,
+  "ea_model0_authorized": false,
+  "promotion_authorized": false
+}

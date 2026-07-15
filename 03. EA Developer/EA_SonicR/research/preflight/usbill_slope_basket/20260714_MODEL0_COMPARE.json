@@ -1,0 +1,30 @@
+{
+  "control": {
+    "run_id": "20260714_001458",
+    "run_role": "control",
+    "overrides": "InpMode=0",
+    "bars": "1818",
+    "net": "586.28",
+    "dd_eq": "1 663.10 (13.59%)",
+    "pf": "1.05",
+    "expectancy": "0.52",
+    "trades": "1124",
+    "elapsed_calendar_weeks": 365.14285714285717,
+    "tpw_leg": 3.0782472613458527,
+    "tpw_basket_proxy": 1.0260824204486176
+  },
+  "challenger": {
+    "run_id": "20260714_002655",
+    "run_role": "challenger",
+    "overrides": "﻿InpMode=1",
+    "bars": "1818",
+    "net": "383.49",
+    "dd_eq": "1 073.97 (10.63%)",
+    "pf": "1.03",
+    "expectancy": "0.39",
+    "trades": "989",
+    "elapsed_calendar_weeks": 365.14285714285717,
+    "tpw_leg": 2.7085289514866977,
+    "tpw_basket_proxy": 0.9028429838288993
+  }
+}

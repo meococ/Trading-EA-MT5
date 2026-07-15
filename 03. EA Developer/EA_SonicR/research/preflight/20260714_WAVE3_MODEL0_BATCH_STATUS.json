@@ -1,0 +1,14 @@
+[
+    {
+        "hypothesis_id":  "HYP-H4-ENGULF-REV-001",
+        "ea":  "EA_H4EngulfRev",
+        "status":  "EXIT_1",
+        "log":  "03. EA Developer\\EA_SonicR\\research\\preflight\\20260714_WAVE3_MODEL0_HYP_H4_ENGULF_REV_001.log"
+    },
+    {
+        "hypothesis_id":  "HYP-H1-PIN-PDLEVEL-001",
+        "ea":  "EA_H1PinPDLevel",
+        "status":  "EXIT_1",
+        "log":  "03. EA Developer\\EA_SonicR\\research\\preflight\\20260714_WAVE3_MODEL0_HYP_H1_PIN_PDLEVEL_001.log"
+    }
+]

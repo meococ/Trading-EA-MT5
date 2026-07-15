@@ -1,0 +1,3 @@
+account_currency,close_time_utc,conversion_method,open_time_utc,position_id,round_turn_account_per_lot,source,symbol
+USD,2026-07-09T11:57:58Z,per_trade_contemporaneous,2026-07-08T17:14:37Z,574028833,4.0,mt5_account_history_deals,EURUSD
+USD,2026-07-09T22:31:36Z,per_trade_contemporaneous,2026-07-09T19:39:29Z,574640212,4.0,mt5_account_history_deals,EURUSD

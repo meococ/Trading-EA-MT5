@@ -1,0 +1,77 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-RR2-EXIT-ATRTRAIL-MFEENV-ARM100-K20-001",
+  "task_packet_sha256": "8B508E25A6CD58891368E1EB4A3F088A2195B9CDBCC9BA709A52E42B39EF6752",
+  "git_commit": "NOGIT-42FDFC573642542C7CE608EF7AC9F322F5077DC6AE45CF4B19D06FE61F4121E6",
+  "git_status_sha256": "3890594CBC6070E4D84CC30C6F1113AB6530A427B84DFFA0B372F2EEAC3F92EF",
+  "binding": {
+    "hypothesis_id": "HYP-RR2-EXIT-ATRTRAIL-MFEENV-ARM100-K20-001",
+    "run_role": "challenger",
+    "ea_name": "EA_SilverBullet",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpFridayFlatHour=21;InpFridayFlatMinute=45;InpMaxTradesPerKZ=2;InpPartialClose=0;InpRiskPct=0.5;InpTP_RR_LDN=2.0;InpTP_RR_NY=2.0;InpTrailActivateR=1.0;InpTrailATR_Mul=2.0;InpTrailBE=0;InpUseTrail=1;InpUseWeekendFlat=1",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "8C59F6E031F70983FF192321A8E7A031CCA4721BCF337D8D0095F927DE7ABDA5"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\atrtrail_mfeenv\\contracts\\receipt_stubs_HYP_RR2_EXIT_ATRTRAIL_MFEENV_ARM100_K20_001\\task_packet.json",
+      "sha256": "8B508E25A6CD58891368E1EB4A3F088A2195B9CDBCC9BA709A52E42B39EF6752"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SilverBullet\\EA_SilverBullet_v2.mq5",
+      "sha256": "5FD2FA12EC8E1608885458389E7344C5E133EF27010CC1AF4DB1F222637246B4"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\atrtrail_mfeenv\\contracts\\receipt_stubs_HYP_RR2_EXIT_ATRTRAIL_MFEENV_ARM100_K20_001\\prereg.json",
+      "sha256": "7B5CEE6B10575D4CA0429B4D60F26B5303370163A0C9F8243852E31BFB23F2C2"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\atrtrail_mfeenv\\contracts\\receipt_stubs_HYP_RR2_EXIT_ATRTRAIL_MFEENV_ARM100_K20_001\\cost_source_manifest.json",
+      "sha256": "B1903C6787DD1D82A06CBD7B6A7AFEA09B5635C9D9F72798C14F941B01ACD443"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\atrtrail_mfeenv\\contracts\\receipt_stubs_HYP_RR2_EXIT_ATRTRAIL_MFEENV_ARM100_K20_001\\include_note.txt",
+      "sha256": "B380CC8A99F0DB8742468FF28EA1D86FDC20F518A720470349606AACA61A222A"
+    },
+    {
+      "label": "matched_control_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_SilverBullet\\20260714_194548\\run_manifest.json",
+      "sha256": "8332E91360DE469C2C5DB180387A34461D9ED3BEECA38EDBB4F534583F466C23"
+    },
+    {
+      "label": "matched_control_report",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_SilverBullet\\20260714_194548\\report.html",
+      "sha256": "49D142CF2B9531AD2F9C338277FD30B00EC74F420B23A7E288687443723397E3"
+    }
+  ],
+  "generated_at_utc": "2026-07-15T00:41:16Z",
+  "note": "ATR-trail native Model 0 alternate ARM100/K20; a priori sibling; run after primary; do not densify from primary readout."
+}

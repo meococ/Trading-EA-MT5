@@ -1,0 +1,38 @@
+{
+  "schema": "carry_level_h4_strip_probe.v1",
+  "created_at_utc": "2026-07-13T16:44:07.128224+00:00",
+  "status": "KILL_AT_OFFLINE_PROBE",
+  "mt5_server": "MetaQuotes-Demo",
+  "design_freeze": "03. EA Developer/EA_SonicR/research/preregs/20260713_H_CARRY_LEVEL_H4_STRIP_V1_PROBE_FREEZE.md",
+  "train_candidate": {
+    "trades": 3849,
+    "trades_per_week": 14.763287671232876,
+    "pf_gross": 1.038668246207048,
+    "pf_stress_a": 0.9124691807988363,
+    "pf_stress_b": 0.8017224210456458,
+    "expectancy_a": -1.0607170693686325,
+    "sum_net_a": -4082.6999999998666
+  },
+  "train_control": {
+    "trades": 3891,
+    "trades_per_week": 14.924383561643834,
+    "pf_gross": 1.0155962892589692,
+    "pf_stress_a": 0.8925213804815911,
+    "pf_stress_b": 0.7848929393894847,
+    "expectancy_a": -1.3206887689540014,
+    "sum_net_a": -5138.800000000019
+  },
+  "holdout_candidate": null,
+  "holdout_control": null,
+  "train_pass": false,
+  "kill_reasons": [
+    "train_cadence_out_of_2_6",
+    "train_pf_a<1.10",
+    "train_expectancy_a<=0"
+  ],
+  "trades_csv_sha256": "e3a0d7fdd9ad7b7156e566a6a602cfb37db2c08d906142180542717824fe2ff5",
+  "authority_flags": {
+    "registry_append_authorized": false,
+    "chatgpt_required": false
+  }
+}

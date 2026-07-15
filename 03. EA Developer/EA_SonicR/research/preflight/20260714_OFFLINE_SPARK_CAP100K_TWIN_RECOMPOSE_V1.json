@@ -1,0 +1,48 @@
+{
+  "probe_id": "OFFLINE_SPARK_CAP100K_TWIN_RECOMPOSE_V1",
+  "generated_at_ict": "2026-07-14 19:38:31",
+  "spark_twin_run": "20260714_193358",
+  "spark_twin_hyp": "HYP-SB-SPARK-BOOK-001",
+  "deposit": 100000,
+  "alpha_closeout": "includes_sha256_mismatch_after_report_ready",
+  "report_sha256": "8E655DB0E5537F99CEB9ED7560D472FC8F45E6D862F5495A0B965D82BBDE9357",
+  "cost_grade": "UNVERIFIED_TESTER_DEFAULT",
+  "confirmed": false,
+  "rows": {
+    "spark_10k_alone": {
+      "n": 325,
+      "pf": 1.3053,
+      "net": 1099.38,
+      "tpw": 1.2466
+    },
+    "spark_100k_alone": {
+      "n": 325,
+      "pf": 1.3804,
+      "net": 9350.59,
+      "tpw": 1.2466
+    },
+    "A1_plus_spark10k": {
+      "n": 845,
+      "pf": 1.339,
+      "tpw": 3.2411,
+      "net": 8975.31,
+      "dd": 0.8459
+    },
+    "A1_plus_spark100k": {
+      "n": 845,
+      "pf": 1.363,
+      "tpw": 3.2411,
+      "net": 17226.52,
+      "dd": 1.6635
+    },
+    "MaxKZ2_plus_spark100k": {
+      "n": 871,
+      "pf": 1.3572,
+      "tpw": 3.3408,
+      "net": 17473.68,
+      "dd": 1.66
+    }
+  },
+  "note": "Authoritative Spark capital twin kept despite Alpha includes_sha256 flake. Replaces CAPNORM x10 proxy for book joins.",
+  "result_sha256": "B1A242BB123D7347A21CF8674A0CF6689AA574B395FE7CA66789D52BE1F747D4"
+}

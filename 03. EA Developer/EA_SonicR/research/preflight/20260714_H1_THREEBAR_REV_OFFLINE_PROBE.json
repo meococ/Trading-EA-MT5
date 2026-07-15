@@ -1,0 +1,36 @@
+{
+  "hypothesis_id": "HYP-H1-THREEBAR-REV-001",
+  "probe": "offline_closed_bar_mirror",
+  "symbol": "USDJPY",
+  "bars": 31159,
+  "window": "2021.01.01-2025.12.31",
+  "metrics": {
+    "n": 1741,
+    "pf": 1.0371,
+    "net": 16271.83,
+    "exp": 9.35,
+    "tpw": 6.6778,
+    "win_rate": 0.3975,
+    "cost_base": 12.0,
+    "pf_cost_x1": 0.9898,
+    "pf_cost_x1_5": 0.9671,
+    "pf_cost_x2": 0.945,
+    "exp_after_12": -2.65,
+    "reasons": {
+      "tp": 161,
+      "sl": 790,
+      "flat": 433,
+      "timeout": 357
+    }
+  },
+  "gate": {
+    "kill_raw": true,
+    "hit_raw": false,
+    "cost_ok": false,
+    "verdict": "KILL_PROBE"
+  },
+  "source_sha256": "D69FFC3A2697248B7C95D53DE0B4B7DE7F5626A8957D73E1EF1F0B9642F2CD00",
+  "cost_honesty": "UNVERIFIED_SYNTHETIC_PLUS_REPORT_ONLY_12",
+  "note": "Not Model 0; fill at next-bar open; zero spread in path sim",
+  "updated_at": "2026-07-14T22:24:15"
+}

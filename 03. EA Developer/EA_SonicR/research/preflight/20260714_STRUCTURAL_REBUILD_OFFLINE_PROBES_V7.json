@@ -1,0 +1,7 @@
+{
+  "status": "SUPERSEDED_PATH_POINTER",
+  "relocated_to": "preflight/20260714_STRUCTURAL_MULTISYM_OFFLINE_PROBES.json",
+  "relocated_sha256": "C802A33A2601D65AF953814EBB02CDFE7E82840A86E4666839FA1346A1C514D3",
+  "reason": "peer V7 coil/retest owns V7 number",
+  "updated_at_utc": "2026-07-14T16:22:49.800977Z"
+}

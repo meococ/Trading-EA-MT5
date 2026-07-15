@@ -1,0 +1,162 @@
+{
+  "schema_version": "sonic_qfsi_wave7continue_status.v1",
+  "created_at_utc": "2026-07-14T17:37:58.374951Z",
+  "verdict": "REAL_ON__QFSI_006_LIVE__REBIND_HARNESS_ARMED__STOP_DATA_FRONTIER",
+  "real": {
+    "server": "FivePercentOnline-Real",
+    "terminal64_pid_now": 15444,
+    "terminal64_pid_prior_session": 29076,
+    "terminal_note": "PID changed ~00:32 ICT; 006 session_start still observed_server=FivePercentOnline-Real + same fingerprints",
+    "qfsi_005_pid": 35892,
+    "qfsi_005_status": "COMPLETE_PARTIAL",
+    "qfsi_006_pid": 62392,
+    "qfsi_006_alive": true,
+    "terminal_alive": true,
+    "do_not_kill": true
+  },
+  "full_qfsi": "STOP_DATA_FRONTIER",
+  "cost_grade": "PARTIAL_REAL_COST",
+  "unit_usdjpy_p50_per_lot": 5.2335475594320435,
+  "trade_cost_lot0_5_p50": 2.6167737797160218,
+  "capture_progress": {
+    "005": {
+      "id": "20260714_QFSI_REAL_005_POSTAUTH",
+      "status": "CAPTURE_WINDOW_COMPLETE_PARTIAL",
+      "final_rows": {
+        "EURUSD": {
+          "quotes": 1339,
+          "hb": 1719,
+          "comm": 2,
+          "slip": 0
+        },
+        "GBPUSD": {
+          "quotes": 1659,
+          "hb": 1719,
+          "comm": 0,
+          "slip": 0
+        },
+        "XAUUSD": {
+          "quotes": 1718,
+          "hb": 1719,
+          "comm": 0,
+          "slip": 0
+        },
+        "USDJPY": {
+          "quotes": 1570,
+          "hb": 1719,
+          "comm": 0,
+          "slip": 0
+        }
+      }
+    },
+    "006": {
+      "id": "20260714_QFSI_REAL_006_ACCUMULATE",
+      "pid": 62392,
+      "alive": true,
+      "duration_sec": 14400,
+      "eta_end_utc": "2026-07-14T21:33:55Z",
+      "eta_end_ict": "~04:34 ICT",
+      "symbols_book_first": [
+        "USDJPY",
+        "EURUSD",
+        "GBPUSD",
+        "XAUUSD"
+      ],
+      "out_dir_correct": true,
+      "rows_now": {
+        "EURUSD": {
+          "quotes": 104,
+          "hb": 216
+        },
+        "GBPUSD": {
+          "quotes": 161,
+          "hb": 216
+        },
+        "XAUUSD": {
+          "quotes": 216,
+          "hb": 216
+        },
+        "USDJPY": {
+          "quotes": 124,
+          "hb": 216
+        }
+      },
+      "relaunch": "QFSI_006_RELAUNCHED_CORRECT_OUTDIR after misroot quarantine",
+      "misroot_quarantine": "20260714_QFSI_REAL_006_MISROOT_PARTIAL"
+    },
+    "aggregate_frontier": {
+      "quote_distinct_utc_dates": 1,
+      "quote_days_need": 89,
+      "commission_unique_EURUSD": 2,
+      "commission_need_EURUSD": 28,
+      "commission_unique_USDJPY": 0,
+      "slippage_fills_total": 0,
+      "calendar_eta_quote_days_only": "~89 elapsed calendar days if continuous Real accumulate; commission/slip still need Owner deal-export"
+    }
+  },
+  "shelf_partial_unchanged": {
+    "RR2_194548": {
+      "x1": 1.316,
+      "x15": 1.286,
+      "x2": 1.257,
+      "goal_stress_partial": true
+    },
+    "RR2_231750": {
+      "x1": 1.105,
+      "class": "PARK_MISS"
+    },
+    "Spark100k": {
+      "x1": 1.302,
+      "x15": 1.264,
+      "x2": 1.228,
+      "goal_stress_partial": true
+    },
+    "note": "No full rebind — gate STOP; no RR2 signal retune"
+  },
+  "rebind_harness": {
+    "status": "HARNESS_ARMED__GATE_STOP",
+    "path": "02. AlphaFactory/tools/qfsi_rr2_fullcost_rebind_harness.py",
+    "receipt_sha256": "20629A27A628AFCF64B9E1A64D8631727CDB514CA0D4463E7EF4A24AE76CC923",
+    "execute_when_go": "python \"02. AlphaFactory/tools/qfsi_rr2_fullcost_rebind_harness.py\" --execute",
+    "no_signal_retune": true
+  },
+  "006_launch": {
+    "schema_version": "sonic_qfsi_006_launch_receipt.v1",
+    "created_at_utc": "2026-07-14T17:33:59.689323Z",
+    "status": "QFSI_006_RELAUNCHED_CORRECT_OUTDIR",
+    "prev_misroot_pid": 59320,
+    "misroot_quarantine": "d:/Trading EA MT5/02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_006_MISROOT_PARTIAL",
+    "new_capture_id": "20260714_QFSI_REAL_006_ACCUMULATE",
+    "new_pid": 62392,
+    "out_dir": "d:/Trading EA MT5/02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_006_ACCUMULATE",
+    "duration_sec": 14400,
+    "symbols_book_first": [
+      "USDJPY",
+      "EURUSD",
+      "GBPUSD",
+      "XAUUSD"
+    ],
+    "expected_server": "FivePercentOnline-Real",
+    "do_not_kill_real": true,
+    "terminal64_pid": 29076,
+    "mode": "PASSIVE_READ_ONLY_NO_LIVE_ORDERS"
+  },
+  "friction_dead_end_on_real": "NOT_CONFIRMED",
+  "goal_claim": false,
+  "confirmed_claim": false,
+  "bans": [
+    "no_kill_Real",
+    "no_price_twin_spam",
+    "no_densify",
+    "no_COT_revive",
+    "no_retune_RR2_from_partial",
+    "no_Wave8_price_spam"
+  ],
+  "next_auto": [
+    "keep_Real",
+    "006_4h_accumulate",
+    "rebind_execute_only_on_GO",
+    "Owner_optional_deal_export"
+  ],
+  "status_receipt_sha256": "F2421BED0F627655182E96EE4F6DC699494E6741057AC60F100059897BCB4987"
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "wave4_model0_slot_block.v1",
+  "campaign_id": "20260714_DISCOVERY_WAVE4",
+  "ict": "2026-07-14 ~22:35",
+  "ceremony": {
+    "dedup": "03. EA Developer/EA_SonicR/research/readouts/20260714_DISCOVERY_WAVE4_DEDUP_CLEARANCE.md",
+    "registry_boot": "03. EA Developer/EA_SonicR/research/preflight/20260714_DISCOVERY_WAVE4_BOOT_RECEIPT.json",
+    "contracts": "03. EA Developer/EA_SonicR/research/preflight/20260714_DISCOVERY_WAVE4_CONTRACTS.json",
+    "compile": {
+      "EA_M15IBOverlapBreak": "OK",
+      "EA_H1RVCompressBreak": "OK",
+      "EA_H1GBPJPYLead": "OK"
+    }
+  },
+  "model0_attempt": {
+    "status": "FAIL_CLOSED_UNRELATED_TERMINAL64",
+    "pid": 27628,
+    "window_title_contains": "26451822 / FivePercentOnline-Real",
+    "agent_killed_process": false,
+    "autoretry_script": "03. EA Developer/EA_SonicR/research/preflight/20260714_wave4_model0_autoretry.ps1"
+  },
+  "hypotheses_ready": [
+    "HYP-M15-IB-OVERLAP-BREAK-001",
+    "HYP-H1-RV-COMPRESS-BREAK-001",
+    "HYP-GBPJPY-LEAD-USDJPY-H1-001"
+  ],
+  "note": "Exclusive tester slot is a mechanical AlphaFactory constraint. Not a QFSI/login research gate. Discovery ceremony is frozen; Model 0 launches when terminal64 count is 0."
+}

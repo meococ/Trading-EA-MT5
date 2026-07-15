@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-SESSION-VWAP-RECLAIM-M15-001",
+  "task_packet_sha256": "B78A088988CB9010294926B429652AD86160CDC5AC96F6F78A7835B743315267",
+  "git_commit": "NOGIT-448A4C6CA1709C2E76D92E470BCF9D7B9D768D535A6F8826423AADEB26A7B853",
+  "git_status_sha256": "2EBF82429A061241A0648D0E3F699C41C67571AF781188807EFCC87E984BAC4E",
+  "binding": {
+    "hypothesis_id": "HYP-SESSION-VWAP-RECLAIM-M15-001",
+    "run_role": "control",
+    "ea_name": "EA_M15SessionVWAPReclaim",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "1FB111E828B94475CC9AAB05197A737B4E00C8498BA5725BC9795569DAF2F7DB"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\session_vwap_reclaim_m15\\contracts\\receipt_stubs_HYP_SVR_001\\task_packet.json",
+      "sha256": "B78A088988CB9010294926B429652AD86160CDC5AC96F6F78A7835B743315267"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_M15SessionVWAPReclaim\\EA_M15SessionVWAPReclaim.mq5",
+      "sha256": "B2A38301DDB1DABB4B12C64244CA82631ED82831F1BE11E7A5FA7BDD97F2160E"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\session_vwap_reclaim_m15\\contracts\\receipt_stubs_HYP_SVR_001\\prereg.json",
+      "sha256": "8718022A2F93DBA88FE1DCEF1B3643DEB353401559C2592D1655EB7432506C05"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\session_vwap_reclaim_m15\\contracts\\receipt_stubs_HYP_SVR_001\\cost_source_manifest.json",
+      "sha256": "23B75FEF423945E759A22E82576A4D0FE86510A7D8C494F86F0B58B29DDDFE85"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\session_vwap_reclaim_m15\\contracts\\receipt_stubs_HYP_SVR_001\\include_note.txt",
+      "sha256": "4A5E3EDC0AA7AA4295F8FB1A47BE2D2D9FB107F3F6CA8AC80FF497C7A8521800"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T14:12:44Z",
+  "note": "Discovery wave2; session VWAP stretch-reclaim; not SB densify."
+}

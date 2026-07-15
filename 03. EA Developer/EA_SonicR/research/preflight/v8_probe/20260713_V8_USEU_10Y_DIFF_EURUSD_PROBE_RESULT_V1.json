@@ -1,0 +1,61 @@
+{
+  "schema": "v8_useu_10y_diff_eurusd_offline_probe.v1",
+  "probe_id": "V8_USEU_10Y_DIFF_EURUSD_V1",
+  "created_at_utc": "2026-07-13T16:48:25.619876+00:00",
+  "contract": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/20260713_V8_USEU_10Y_DIFF_EURUSD_PROBE_CONTRACT_V1.md",
+  "panel": {
+    "panel_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/panels/us_eu_bond_yield_diff_d1_v1.csv",
+    "panel_sha256": "27D4BE9BAEBDE5062813D98869C886DC2E0E0CDA5E8B6967D723085308E7D18D",
+    "panel_bytes": 165911,
+    "available_obs": 2098
+  },
+  "constants": {
+    "z_thresh": 0.75,
+    "z_lookback": 60,
+    "stress_a": 1.5,
+    "stress_b": 3.0,
+    "sl_atr": 1.5,
+    "time_stop_bars": 5,
+    "max_gap_days": 3
+  },
+  "mt5_account_info": {
+    "server": "MetaQuotes-Demo",
+    "note": "Demo falsification only; not QFSI Real cost provenance"
+  },
+  "verdict": "KILL_AT_OFFLINE_PROBE",
+  "kill_reasons": [
+    "pf_stress_a<1.05",
+    "fail_beat_control_pf_a",
+    "fail_beat_control_expectancy_a"
+  ],
+  "train_candidate": {
+    "trades": 224,
+    "trades_per_week": 1.0732375085557837,
+    "expectancy_gross_pips": -15.710259724129534,
+    "expectancy_a_pips": -17.210259724129536,
+    "pf_gross": 0.6069890225603135,
+    "pf_stress_a": 0.5789170148842315,
+    "pf_stress_b": 0.5520894523665486,
+    "sum_net_a_pips": -3855.0981782050158,
+    "sum_net_b_pips": -4191.098178205016
+  },
+  "train_control": {
+    "trades": 248,
+    "trades_per_week": 1.1882272416153319,
+    "expectancy_gross_pips": -3.816021939469178,
+    "expectancy_a_pips": -5.316021939469178,
+    "pf_gross": 0.8780002215771294,
+    "pf_stress_a": 0.8344765361614133,
+    "pf_stress_b": 0.7932586950291596,
+    "sum_net_a_pips": -1318.3734409883562,
+    "sum_net_b_pips": -1690.3734409883562
+  },
+  "train_year_concentration_pos_net_a": 0.3608045131223943,
+  "holdout_candidate": null,
+  "holdout_control": null,
+  "holdout_gated": true,
+  "trades_path": "03. EA Developer/EA_SonicR/research/preflight/v8_probe/20260713_V8_USEU_10Y_DIFF_EURUSD_PROBE_TRADES_V1.csv",
+  "trades_sha256": "4DE8B9AFFEB3CC96D7240399CFF8507F6EEA9CCC279E9F93E8E3A0470352B096",
+  "candidate_trade_count_all": 443,
+  "control_trade_count_all": 501
+}

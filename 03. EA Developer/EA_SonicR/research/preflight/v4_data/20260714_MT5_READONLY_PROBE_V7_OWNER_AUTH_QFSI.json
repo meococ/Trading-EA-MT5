@@ -1,0 +1,22 @@
+{
+  "schema_version": "alphafactory_mt5_readonly_probe.v1",
+  "created_at_utc": "2026-07-14T16:22:16Z",
+  "initialize_ok": true,
+  "last_error": null,
+  "expected_server": "FivePercentOnline-Real",
+  "observed_server": "FivePercentOnline-Real",
+  "server_match": true,
+  "login": 26451822,
+  "trade_allowed": true,
+  "company": "Five Percent Online Ltd",
+  "currency": "USD",
+  "balance": 99971.68,
+  "terminal_build": 6006,
+  "terminal_path": "C:\\Program Files\\MetaTrader 5",
+  "connected": true,
+  "orders_total": 0,
+  "positions_total": 0,
+  "is_demo_name": false,
+  "verdict": "TARGET_SERVER_READONLY_PROBE_COMPLETE",
+  "account_fingerprint": "0FD8762822CBFD08510E4D2C33CEB15CA35DA5983BB5344593F55622B7AEE47C"
+}

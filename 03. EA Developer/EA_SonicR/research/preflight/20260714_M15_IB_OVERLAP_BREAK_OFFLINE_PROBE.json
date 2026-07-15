@@ -1,0 +1,54 @@
+{
+  "hypothesis_id": "HYP-M15-IB-OVERLAP-BREAK-001",
+  "ea": "EA_M15IBOverlapBreak",
+  "probe_type": "offline_closed_bar_mirror",
+  "not_model0": true,
+  "symbol": "USDJPY",
+  "tf": "M15",
+  "from": "2021-01-01T00:00:00",
+  "to": "2025-12-31T23:59:00",
+  "bars": 124604,
+  "n_trades": 990,
+  "tpw_elapsed": 3.7973,
+  "pf_zero_spread": 1.203194255915386,
+  "net_zero_spread": 41536.94,
+  "exp_zero_spread": 41.9565,
+  "cost_stress_synthetic": {
+    "base_cost_usd": 12.0,
+    "x1": {
+      "pf": 1.14067822426242,
+      "net": 29656.94,
+      "exp": 29.9565
+    },
+    "x1_5": {
+      "pf": 1.1108059636847993,
+      "net": 23716.94,
+      "exp": 23.9565
+    },
+    "x2": {
+      "pf": 1.0818117780433183,
+      "net": 17776.94,
+      "exp": 17.9565
+    }
+  },
+  "kill_reasons": [],
+  "verdict": "PROBE_SURVIVE",
+  "model0": "AUTHORIZED_IF_SURVIVE",
+  "research_hit_screen": false,
+  "params": {
+    "ib": [
+      7,
+      8
+    ],
+    "overlap": [
+      13,
+      16
+    ],
+    "min_body_atr": 0.35,
+    "min_ib_atr": 0.4,
+    "rr": 2.5,
+    "max_hold": 32,
+    "max_per_day": 2
+  },
+  "generated_at": "2026-07-14T15:29:29.915569+00:00"
+}

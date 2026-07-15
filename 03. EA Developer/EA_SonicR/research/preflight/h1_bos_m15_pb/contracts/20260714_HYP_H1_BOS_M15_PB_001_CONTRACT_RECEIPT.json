@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-H1-BOS-M15-PB-001",
+  "task_packet_sha256": "2BDDBF4D182E730F1D143D5E6201E60F40F3BC7AFD8D138EEEE9AF3012E20644",
+  "git_commit": "NOGIT-3C73FF991297F973BF643DF3C73F27DC0A293D22B4AE9DE90FCDD4817C9FA5B0",
+  "git_status_sha256": "7D3C195AF5168B723CE3CCA29C1B3E029DD05BE3DDA4713055B06554899C59C1",
+  "binding": {
+    "hypothesis_id": "HYP-H1-BOS-M15-PB-001",
+    "run_role": "control",
+    "ea_name": "EA_H1BOS_M15Pullback",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "4D61BF333AF4F0AA6D2A414C73CCFC50DC5B2184E0C0B6E22800F80197FC0644"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_bos_m15_pb\\contracts\\receipt_stubs_HYP_HBOS_001\\task_packet.json",
+      "sha256": "2BDDBF4D182E730F1D143D5E6201E60F40F3BC7AFD8D138EEEE9AF3012E20644"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_H1BOS_M15Pullback\\EA_H1BOS_M15Pullback.mq5",
+      "sha256": "EA3DF8558FEF6FA1238553AA6D146A86425333CC2A7FA01727105379418D9277"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_bos_m15_pb\\contracts\\receipt_stubs_HYP_HBOS_001\\prereg.json",
+      "sha256": "424BCD3C1B036B0A1CE9C0A15E0328FC6E204DD0DA3DCFDC58FAECDD2332A125"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_bos_m15_pb\\contracts\\receipt_stubs_HYP_HBOS_001\\cost_source_manifest.json",
+      "sha256": "23B75FEF423945E759A22E82576A4D0FE86510A7D8C494F86F0B58B29DDDFE85"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_bos_m15_pb\\contracts\\receipt_stubs_HYP_HBOS_001\\include_note.txt",
+      "sha256": "1572D8C58931AAEDB8EBC8616DD8E36F745F7F96BFB5B8799DD2D63801FA1789"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T14:12:44Z",
+  "note": "Discovery wave2; H1 BOS then M15 EMA pullback; not ITSM."
+}

@@ -1,0 +1,158 @@
+{
+  "schema": "v8_exogenous_acquisition_manifest.v2",
+  "created_at_utc": "2026-07-13T16:31:28.104441+00:00",
+  "authority": "Owner autonomous mandate 2026-07-13 + V8 rates-only contract; acquisition/hash only; NO probe/registry/prereg/compile/backtest",
+  "status": "ACQUISITION_EXECUTED",
+  "v8_scope_note": "Rates/policy/money-market only for V8. COT downloads are out of V8 packet scope even if stored elsewhere.",
+  "join_rule_note": "Do not join into probes until coordinator freezes available_at_utc rules after Deep Research V8 Owner-confirmed submit + local audit.",
+  "errors": [],
+  "files": [
+    {
+      "name": "ecb_dfr_daily.csv",
+      "status": "OK",
+      "bytes": 2986600,
+      "sha256": "175bdbb3f46f4cd9e42cccbc84f20e86049b320767c16833cc2fa23df8bbe63d",
+      "source_url": "https://data-api.ecb.europa.eu/service/data/FM/D.U2.EUR.4F.KR.DFR.LEV?format=csvdata",
+      "path": "preflight\\v8_exogenous\\raw\\ecb_dfr_daily.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2018.csv",
+      "status": "OK",
+      "bytes": 13875,
+      "sha256": "6f037e225a3f296613f620404667971df9f202743e70540d9ffbf5c7d30a3a51",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2018/all?type=daily_treasury_bill_rates&field_tdr_date_value=2018&page&_format=csv",
+      "path": "preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2018.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2019.csv",
+      "status": "OK",
+      "bytes": 15520,
+      "sha256": "f0396ee6dfaa3a60ce676c593a026f8cfbb9bcd72af7b6aa8450c68a5d3ac98a",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2019/all?type=daily_treasury_bill_rates&field_tdr_date_value=2019&page&_format=csv",
+      "path": "preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2019.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2020.csv",
+      "status": "OK",
+      "bytes": 15589,
+      "sha256": "cc29ccb650fe49ce04781e97332cecba11c20e466b053a08d6fb15b6b24dbd20",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2020/all?type=daily_treasury_bill_rates&field_tdr_date_value=2020&page&_format=csv",
+      "path": "preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2020.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2021.csv",
+      "status": "OK",
+      "bytes": 15581,
+      "sha256": "e45398cf008aeca21679fe1ebcc7d051add07f0819ef62723fe472a1ea00377d",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2021/all?type=daily_treasury_bill_rates&field_tdr_date_value=2021&page&_format=csv",
+      "path": "preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2021.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2022.csv",
+      "status": "OK",
+      "bytes": 16411,
+      "sha256": "4059b158b989b5bb4d295cc5e3356434bcceba44d89365e368a2aafbf2077859",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2022/all?type=daily_treasury_bill_rates&field_tdr_date_value=2022&page&_format=csv",
+      "path": "preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2022.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2023.csv",
+      "status": "OK",
+      "bytes": 18074,
+      "sha256": "ca4d73d5e9856391c06ef0b3ec252d950019b1a5db97c934d92d9569fc4ba87c",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2023/all?type=daily_treasury_bill_rates&field_tdr_date_value=2023&page&_format=csv",
+      "path": "preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2023.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2024.csv",
+      "status": "OK",
+      "bytes": 18074,
+      "sha256": "47cc8985d9474bbdaea37266ac5658f6b1b276d3310c54c7efd70358e80bc37b",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2024/all?type=daily_treasury_bill_rates&field_tdr_date_value=2024&page&_format=csv",
+      "path": "preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2024.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2025.csv",
+      "status": "OK",
+      "bytes": 20297,
+      "sha256": "aa024dfde7700a971b287d7cc8284fd8c34f4dd6c66cb009cf39f501be33b562",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2025/all?type=daily_treasury_bill_rates&field_tdr_date_value=2025&page&_format=csv",
+      "path": "preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2025.csv"
+    },
+    {
+      "name": "us_treasury_bill_rates_2026.csv",
+      "status": "OK",
+      "bytes": 10987,
+      "sha256": "2e92a0348d031e7af19b586b2d9e04c8759e74e09c6bebe9c3d723361939c4fb",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_bill_rates&field_tdr_date_value=2026&page&_format=csv",
+      "path": "preflight\\v8_exogenous\\raw\\us_treasury_bill_rates_2026.csv"
+    },
+    {
+      "name": "boe_bank_rate_page.html",
+      "status": "OK",
+      "bytes": 55598,
+      "sha256": "e30a9d70b5933f13c6a455c1673790da93c58a6b9ed165c22985dc4d897c646c",
+      "source_url": "https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp",
+      "path": "preflight\\v8_exogenous\\raw\\boe_bank_rate_page.html"
+    }
+  ],
+  "fred_local_mirrors": [
+    {
+      "name": "eur_ecb_deposit_ECBDFR.csv",
+      "status": "OK_LOCAL",
+      "bytes": 163888,
+      "sha256": "cf79a5641a98062808b99b7cc3acea5165449a6e1d6f1eff09fee373b31ba447",
+      "source_url": "local_fred_mirror",
+      "path": "data\\exogenous\\eur_ecb_deposit_ECBDFR.csv"
+    },
+    {
+      "name": "eur_estr_ECBESTRVOLWGTTRMDMNRT.csv",
+      "status": "OK_LOCAL",
+      "bytes": 30701,
+      "sha256": "dcedc56d19368424eba06b8e422f2a94d83da47fe4c51c723b36570d0f4fce5a",
+      "source_url": "local_fred_mirror",
+      "path": "data\\exogenous\\eur_estr_ECBESTRVOLWGTTRMDMNRT.csv"
+    },
+    {
+      "name": "gbp_sonia_IUDSOIA.csv",
+      "status": "OK_LOCAL",
+      "bytes": 137185,
+      "sha256": "1a1fc9d109ef494598516f3d2c86caef95fa67836a466c8babe9c98f36c099bb",
+      "source_url": "local_fred_mirror",
+      "path": "data\\exogenous\\gbp_sonia_IUDSOIA.csv"
+    },
+    {
+      "name": "jpy_call_money_monthly_IRSTCI01JPM156N.csv",
+      "status": "OK_LOCAL",
+      "bytes": 9458,
+      "sha256": "3ad7e88e3d6cc8d275672af3a47e559bb2b3052bf15306110582a46f0628b511",
+      "source_url": "local_fred_mirror",
+      "path": "data\\exogenous\\jpy_call_money_monthly_IRSTCI01JPM156N.csv"
+    },
+    {
+      "name": "us_fed_funds_DFF.csv",
+      "status": "OK_LOCAL",
+      "bytes": 422747,
+      "sha256": "ab5118475661f9e834f519c5994cf841bb6fa60a56b3aec5ce90d3ee6c4fd939",
+      "source_url": "local_fred_mirror",
+      "path": "data\\exogenous\\us_fed_funds_DFF.csv"
+    },
+    {
+      "name": "us_sofr_SOFR.csv",
+      "status": "OK_LOCAL",
+      "bytes": 34190,
+      "sha256": "edd4075ea9fd946a4ac86ed67636c55a51472529040fe7924cfb90bdde8ef091",
+      "source_url": "local_fred_mirror",
+      "path": "data\\exogenous\\us_sofr_SOFR.csv"
+    }
+  ],
+  "authority_flags": {
+    "probe_authorized": false,
+    "registry_append_authorized": false,
+    "prereg_freeze_authorized": false,
+    "ea_build_authorized": false,
+    "compile_authorized": false,
+    "backtest_authorized": false,
+    "deep_research_v8_submit_authorized": false
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "blocker_code": "UNRELATED_TERMINAL64_OWNER_REAL_LOGIN_FAIL_CLOSED",
+  "qfsi_totals": {
+    "20260714_QFSI_REAL_001": {
+      "quotes": 1313,
+      "heartbeats": 276,
+      "commission": 2,
+      "slippage": 0
+    },
+    "20260714_QFSI_REAL_002": {
+      "quotes": 421,
+      "heartbeats": 440,
+      "commission": 0,
+      "slippage": 0
+    },
+    "20260714_QFSI_REAL_003_CONTINUATION": {
+      "quotes": 1952,
+      "heartbeats": 1992,
+      "commission": 2,
+      "slippage": 0
+    },
+    "20260714_QFSI_REAL_004_CONTINUATION": {
+      "quotes": 428,
+      "heartbeats": 432,
+      "commission": 2,
+      "slippage": 0
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "v8_usuk_10y_diff_gbpusd_offline_probe.v1",
+  "probe_id": "V8_USUK_10Y_DIFF_GBPUSD_V1",
+  "created_at_utc": "2026-07-13T16:52:09.535426+00:00",
+  "contract": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/20260713_V8_USUK_10Y_DIFF_GBPUSD_PROBE_CONTRACT_V1.md",
+  "panel": {
+    "panel_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/panels/us_uk_bond_yield_diff_d1_v1.csv",
+    "panel_sha256": "B3FB71465C6652EA36E8E2010771473A814A4F97426FC00E2A52995E73AEBCF8",
+    "panel_bytes": 125429,
+    "available_obs": 2080
+  },
+  "constants": {
+    "z_thresh": 0.75,
+    "z_lookback": 60,
+    "stress_a": 1.5,
+    "stress_b": 3.0,
+    "sl_atr": 1.5,
+    "time_stop_bars": 5,
+    "max_gap_days": 3
+  },
+  "mt5_account_info": {
+    "server": "MetaQuotes-Demo",
+    "note": "Demo falsification only; not QFSI Real cost provenance"
+  },
+  "verdict": "KILL_AT_OFFLINE_PROBE",
+  "kill_reasons": [
+    "pf_stress_a<1.05",
+    "fail_beat_control_pf_a",
+    "fail_beat_control_expectancy_a"
+  ],
+  "train_candidate": {
+    "trades": 197,
+    "trades_per_week": 0.9438740588637918,
+    "expectancy_gross_pips": -7.653970419204968,
+    "expectancy_a_pips": -9.153970419204969,
+    "pf_gross": 0.8591052309298742,
+    "pf_stress_a": 0.8339141604033179,
+    "pf_stress_b": 0.8094557333900376,
+    "sum_net_a_pips": -1803.3321725833787,
+    "sum_net_b_pips": -2098.832172583379
+  },
+  "train_control": {
+    "trades": 209,
+    "trades_per_week": 1.001368925393566,
+    "expectancy_gross_pips": 5.030498472822676,
+    "expectancy_a_pips": 3.5304984728226767,
+    "pf_gross": 1.1109298905548883,
+    "pf_stress_a": 1.0764848409445191,
+    "pf_stress_b": 1.043228385932409,
+    "sum_net_a_pips": 737.8741808199394,
+    "sum_net_b_pips": 424.37418081993934
+  },
+  "train_year_concentration_pos_net_a": 0.40709039704014566,
+  "holdout_candidate": null,
+  "holdout_control": null,
+  "holdout_gated": true,
+  "trades_path": "03. EA Developer/EA_SonicR/research/preflight/v8_probe/20260713_V8_USUK_10Y_DIFF_GBPUSD_PROBE_TRADES_V1.csv",
+  "trades_sha256": "0AF8D0C69068AF20A33A2AFF3A5D924AEA192F12D84F2E634E7BB43227FDA082",
+  "candidate_trade_count_all": 420,
+  "control_trade_count_all": 472
+}

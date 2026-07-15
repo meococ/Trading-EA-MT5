@@ -1,0 +1,13 @@
+{
+  "schema_version": "sonic_research_task_packet.v1",
+  "hypothesis_id": "HYP-SPARK-ASIAN-GBPUSD-001",
+  "ea_name": "EA_M15SparkAsian",
+  "symbol": "GBPUSD",
+  "period": "M15",
+  "from": "2021.01.01",
+  "to": "2025.12.31",
+  "model": 0,
+  "run_role": "challenger",
+  "overrides": "InpMagic=880931;InpMaxPerDay=2;InpRiskPct=0.5;InpTPRatio=1.5;InpTradeFri=0;InpTradeMon=0;InpTradeThu=1;InpTradeTue=0;InpTradeWed=1",
+  "note": "Spark Asian GBPUSD Wed-Thu S107 transfer; not USDJPY densify."
+}

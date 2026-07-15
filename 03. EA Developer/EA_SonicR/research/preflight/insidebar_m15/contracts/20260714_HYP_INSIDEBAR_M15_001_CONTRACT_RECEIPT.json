@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-INSIDEBAR-M15-001",
+  "task_packet_sha256": "E526FB62DED00EBB945E434CD9BFDBEF101400CBF592ECE2F628FF16D3CF9EB4",
+  "git_commit": "NOGIT-3DA7250BDCF05F8C5E0E5734A27B441AE224BA2F45B4D7FD70D8FAF88888C3E8",
+  "git_status_sha256": "C472717D012ED1F77A71B67A28DA9CF3C88AD3D9D550237AC08EBA907D7805F1",
+  "binding": {
+    "hypothesis_id": "HYP-INSIDEBAR-M15-001",
+    "run_role": "control",
+    "ea_name": "EA_M15InsideBreak",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "096EB248D79E7D853AEA225084A8690FF951AF17C637559AE5705991135BD26F"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\insidebar_m15\\contracts\\receipt_stubs_HYP_INSIDEBAR_M15_001\\task_packet.json",
+      "sha256": "E526FB62DED00EBB945E434CD9BFDBEF101400CBF592ECE2F628FF16D3CF9EB4"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_M15InsideBreak\\EA_M15InsideBreak.mq5",
+      "sha256": "A3053DE3DB7CC7268C74539E39900732674F6780AB8045F8A06745BA50E4D246"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\insidebar_m15\\contracts\\receipt_stubs_HYP_INSIDEBAR_M15_001\\prereg.json",
+      "sha256": "A41862B9C4F3FDF86FBEED79BE3D000F0557AD5CE5A7765882E48AC90BC22F44"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\insidebar_m15\\contracts\\receipt_stubs_HYP_INSIDEBAR_M15_001\\cost_source_manifest.json",
+      "sha256": "23B75FEF423945E759A22E82576A4D0FE86510A7D8C494F86F0B58B29DDDFE85"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\insidebar_m15\\contracts\\receipt_stubs_HYP_INSIDEBAR_M15_001\\include_note.txt",
+      "sha256": "DE05EF13177FFBA13BF6567209D8B7F9A98CBD76D32F256C592C178E1556E149"
+    }
+  ],
+  "generated_at_utc": "2026-07-13T17:19:34Z",
+  "note": "Model 0 control screen for InsideBar M15. Binding must match alpha.ps1 invocation. Cost provenance unverified. Not Chop/VolExp/TickVol/HourOpen/SB Friday rescue."
+}

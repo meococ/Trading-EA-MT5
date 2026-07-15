@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-ITSM-NYONLY-RR3-THICK-001",
+  "task_packet_sha256": "3BFCE4F14BE521793722FCEEAFA30AF6FC04B13B4D439EFC35131DFF8EF52F01",
+  "git_commit": "NOGIT-D1AECC9AABB5441217477283750814F7C012921D855B6F31ABA3E3A96193EECF",
+  "git_status_sha256": "AC45F27EF36AF3898F5F6E786E7785E7A8DF2AA40BBE2926AA1652B27A21B958",
+  "binding": {
+    "hypothesis_id": "HYP-ITSM-NYONLY-RR3-THICK-001",
+    "run_role": "control",
+    "ea_name": "EA_ITSM",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpKZ1_EndH=18;InpKZ1_StartH=15;InpMaxTradesDay=2;InpRiskPct=0.5;InpRR_Ratio=3.0;InpStrictAlign=1;InpTradeFri=0;InpUseKZ2=0",
+    "telemetry_tier": "off",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "9BD45CF5FC6AFC3440A191CFB0C30A5FFC7ED589C93E42705C4D5E5B2D7852B2"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\itsm_nyonly_rr3\\contracts\\receipt_stubs_HYP_ITSM_NY_RR3_001\\task_packet.json",
+      "sha256": "3BFCE4F14BE521793722FCEEAFA30AF6FC04B13B4D439EFC35131DFF8EF52F01"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ITSM\\EA_ITSM.mq5",
+      "sha256": "6B433FC9FB7C8745E90B306DEAFFF2C28F182AE1003FB11AE66E324A0946FCE0"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\itsm_nyonly_rr3\\contracts\\receipt_stubs_HYP_ITSM_NY_RR3_001\\prereg.json",
+      "sha256": "F31B8829A67BEECD4FF5E188533CA4C7046D868450255626A2E06F841B91675B"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\itsm_nyonly_rr3\\contracts\\receipt_stubs_HYP_ITSM_NY_RR3_001\\cost_source_manifest.json",
+      "sha256": "EC1CF768B3AB9CFBB91B8587157C5AA52DF5293CB68FE1F38D54D0B7E654F755"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\itsm_nyonly_rr3\\contracts\\receipt_stubs_HYP_ITSM_NY_RR3_001\\include_note.txt",
+      "sha256": "1438114A5E21DE7D84747170CEA39C04DC0BFCE13E5AE2B8DD2E006B3D125CC0"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T17:24:42Z",
+  "note": "Post-cost rebuild; ITSM NY StrictAlign RR3 thick; not densify."
+}

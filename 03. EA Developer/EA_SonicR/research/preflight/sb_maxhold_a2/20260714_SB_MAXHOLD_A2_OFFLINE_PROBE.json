@@ -1,0 +1,18 @@
+{
+  "schema_version": "sb_maxhold_a2_offline_probe.v1",
+  "parent_run_id": "20260714_002505",
+  "hypothesis_candidate": "HYP-SB-MAXHOLD-A2-001",
+  "max_hold_hours": 30.0,
+  "n_round_trips": 520,
+  "baseline_net": 7892.71,
+  "sim_net_linear_path_proxy": 7696.28,
+  "delta_net": -196.43,
+  "n_clipped": 8,
+  "pct_clipped": 1.54,
+  "median_hold_h": 2.5344444444444445,
+  "p90_hold_h": 14.837777777777777,
+  "max_hold_h": 49.05694444444445,
+  "baseline_tpw": 1.9945,
+  "caveat": "Clipped trades use linear-path PnL scale \u2014 not tick-true MTM at flat.",
+  "verdict": "PROBE_PASS_TO_MODEL0_NONDESTRUCTIVE_PROXY"
+}

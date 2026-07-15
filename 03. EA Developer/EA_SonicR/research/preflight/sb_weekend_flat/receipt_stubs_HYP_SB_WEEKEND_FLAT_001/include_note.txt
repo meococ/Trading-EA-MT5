@@ -1,0 +1,1 @@
+EA_SilverBullet_v2.mq5 includes Trade.mqh (MT5 stdlib). Packet-bound include closure stub for receipt.

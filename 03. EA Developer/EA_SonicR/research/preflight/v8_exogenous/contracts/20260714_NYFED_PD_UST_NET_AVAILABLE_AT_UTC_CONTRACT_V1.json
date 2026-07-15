@@ -1,0 +1,9 @@
+{
+  "panel": "nyfed_pd_ust_net_pos_w1_v1.csv",
+  "agg_mode": "PDPOSGST-TOT",
+  "series_key": "PDPOSGST-TOT",
+  "n_dates": 692,
+  "lag_contract": "available_at = observation_date + 8 calendar days",
+  "note": "v2 GS total only; tip/frn filter VOID",
+  "panel_sha256": "946CE197290BE86FADACE548D98BCB0F879D51C8738A00381235BDDAD83981D5"
+}

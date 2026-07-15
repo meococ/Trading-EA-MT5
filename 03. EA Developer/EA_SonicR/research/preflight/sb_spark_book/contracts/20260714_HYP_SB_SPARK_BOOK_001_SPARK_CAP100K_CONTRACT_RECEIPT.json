@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-SB-SPARK-BOOK-001",
+  "task_packet_sha256": "74CF7A3934292A3707898751FA235CBA940DD686F5E012142BE171E06B2FBDBE",
+  "git_commit": "NOGIT-0FA422E293AEA6CA282424D0C29C5F576DA1A8FAFD2287D8812B008674594C85",
+  "git_status_sha256": "ACF94420DA4AFAA5EF061238683C91948588C69EEA1B970C81E44FF0B0C2B1E1",
+  "binding": {
+    "hypothesis_id": "HYP-SB-SPARK-BOOK-001",
+    "run_role": "control",
+    "ea_name": "EA_M15SparkAsian",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "0E9E58D8BE58A15C562C50A55676AEC0B89839E166C4627DAFE13FB2E437A8F5"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_spark_book\\contracts\\receipt_stubs_HYP_SB_SPARK_BOOK_001_SPARK_CAP100K\\task_packet.json",
+      "sha256": "74CF7A3934292A3707898751FA235CBA940DD686F5E012142BE171E06B2FBDBE"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_M15SparkAsian\\EA_M15SparkAsian.mq5",
+      "sha256": "F275C18D4EE0BC54F5F44636B7DC6B5818448C1CA9B4A870F71164BE024442C3"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_spark_book\\contracts\\receipt_stubs_HYP_SB_SPARK_BOOK_001_SPARK_CAP100K\\prereg.json",
+      "sha256": "C14FCF424B76C76047185ADE9A40E5D3585FE4E4F9BC926A102DB26E998B8BFD"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_spark_book\\contracts\\receipt_stubs_HYP_SB_SPARK_BOOK_001_SPARK_CAP100K\\cost_source_manifest.json",
+      "sha256": "0C9AB0E7202FB4C7F23175E0871225620A9F4041A5BA21D0944FC8ACF67B3D77"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_spark_book\\contracts\\receipt_stubs_HYP_SB_SPARK_BOOK_001_SPARK_CAP100K\\include_note.txt",
+      "sha256": "E23E85A034C7BB87FE26ED6E1919BA87EF33A7BFA67E7F1E1B4C0EE0E53EC394"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T12:35:00Z",
+  "note": "Capital twin control for SB+Spark book; Deposit 100000; no signal densify."
+}

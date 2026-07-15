@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-SPARK-ASIAN-GBPUSD-001",
+  "task_packet_sha256": "DF3A4A3F8B08FD0C81D7770B9798B23E74F8B8AD24D4C4FC5AC5F73C92FB63CA",
+  "git_commit": "NOGIT-0FA422E293AEA6CA282424D0C29C5F576DA1A8FAFD2287D8812B008674594C85",
+  "git_status_sha256": "ACF94420DA4AFAA5EF061238683C91948588C69EEA1B970C81E44FF0B0C2B1E1",
+  "binding": {
+    "hypothesis_id": "HYP-SPARK-ASIAN-GBPUSD-001",
+    "run_role": "control",
+    "ea_name": "EA_M15SparkAsian",
+    "symbol": "GBPUSD",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpMagic=880931;InpMaxPerDay=2;InpRiskPct=0.5;InpTPRatio=1.5;InpTradeFri=0;InpTradeMon=0;InpTradeThu=1;InpTradeTue=0;InpTradeWed=1",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 1e-05,
+      "pip_size": 0.0001
+    },
+    "include_closure_sha256": "C845F955FDC52CF40697C714425E90AD58D8FF56FC55B6560A3458773B079A64"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\spark_asian_gb\\contracts\\receipt_stubs_HYP_SPARK_ASIAN_GBPUSD_001\\task_packet.json",
+      "sha256": "DF3A4A3F8B08FD0C81D7770B9798B23E74F8B8AD24D4C4FC5AC5F73C92FB63CA"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_M15SparkAsian\\EA_M15SparkAsian.mq5",
+      "sha256": "F275C18D4EE0BC54F5F44636B7DC6B5818448C1CA9B4A870F71164BE024442C3"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\spark_asian_gb\\contracts\\receipt_stubs_HYP_SPARK_ASIAN_GBPUSD_001\\prereg.json",
+      "sha256": "EBF4744A37837916CF35FB314FF6FDE950928DBF2C1465A900934962B7F62DD9"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\spark_asian_gb\\contracts\\receipt_stubs_HYP_SPARK_ASIAN_GBPUSD_001\\cost_source_manifest.json",
+      "sha256": "23B75FEF423945E759A22E82576A4D0FE86510A7D8C494F86F0B58B29DDDFE85"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\spark_asian_gb\\contracts\\receipt_stubs_HYP_SPARK_ASIAN_GBPUSD_001\\include_note.txt",
+      "sha256": "AE82F8A3652707146DB5F9546AFBF9149486DD7BFEE9FF4645D3FB0752108FBB"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T12:15:03Z",
+  "note": "SparkAsian GBPUSD Wed-Thu S107 transfer. Not USDJPY day densify."
+}

@@ -1,0 +1,121 @@
+{
+  "schema_version": "sonic.exogenous_fred_manifest.v1",
+  "date": "2026-07-13",
+  "source": "https://fred.stlouisfed.org/graph/fredgraph.csv",
+  "series": [
+    {
+      "series_id": "DFF",
+      "name": "us_fed_funds",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFF",
+      "path": "03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\us_fed_funds_DFF.csv",
+      "status": "ok",
+      "bytes": 422747,
+      "lines": 26308,
+      "sha256": "ab5118475661f9e834f519c5994cf841bb6fa60a56b3aec5ce90d3ee6c4fd939",
+      "head": [
+        "observation_date,DFF",
+        "1954-07-01,1.13",
+        "1954-07-02,1.25"
+      ],
+      "tail": [
+        "2026-07-08,3.62",
+        "2026-07-09,3.62"
+      ]
+    },
+    {
+      "series_id": "ECBDFR",
+      "name": "eur_ecb_deposit",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=ECBDFR",
+      "path": "03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\eur_ecb_deposit_ECBDFR.csv",
+      "status": "ok",
+      "bytes": 163888,
+      "lines": 10057,
+      "sha256": "cf79a5641a98062808b99b7cc3acea5165449a6e1d6f1eff09fee373b31ba447",
+      "head": [
+        "observation_date,ECBDFR",
+        "1999-01-01,2.00",
+        "1999-01-02,2.00"
+      ],
+      "tail": [
+        "2026-07-12,2.25",
+        "2026-07-13,2.25"
+      ]
+    },
+    {
+      "series_id": "IUDSOIA",
+      "name": "gbp_sonia",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=IUDSOIA",
+      "path": "03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\gbp_sonia_IUDSOIA.csv",
+      "status": "ok",
+      "bytes": 137185,
+      "lines": 7702,
+      "sha256": "1a1fc9d109ef494598516f3d2c86caef95fa67836a466c8babe9c98f36c099bb",
+      "head": [
+        "observation_date,IUDSOIA",
+        "1997-01-02,5.9400",
+        "1997-01-03,6.0300"
+      ],
+      "tail": [
+        "2026-07-08,3.7303",
+        "2026-07-09,3.7311"
+      ]
+    },
+    {
+      "series_id": "ECBESTRVOLWGTTRMDMNRT",
+      "name": "eur_estr",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=ECBESTRVOLWGTTRMDMNRT",
+      "path": "03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\eur_estr_ECBESTRVOLWGTTRMDMNRT.csv",
+      "status": "ok",
+      "bytes": 30701,
+      "lines": 1770,
+      "sha256": "dcedc56d19368424eba06b8e422f2a94d83da47fe4c51c723b36570d0f4fce5a",
+      "head": [
+        "observation_date,ECBESTRVOLWGTTRMDMNRT",
+        "2019-10-01,-0.549",
+        "2019-10-02,-0.551"
+      ],
+      "tail": [
+        "2026-07-09,2.182",
+        "2026-07-10,2.182"
+      ]
+    },
+    {
+      "series_id": "SOFR",
+      "name": "us_sofr",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SOFR",
+      "path": "03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\us_sofr_SOFR.csv",
+      "status": "ok",
+      "bytes": 34190,
+      "lines": 2160,
+      "sha256": "edd4075ea9fd946a4ac86ed67636c55a51472529040fe7924cfb90bdde8ef091",
+      "head": [
+        "observation_date,SOFR",
+        "2018-04-03,1.83",
+        "2018-04-04,1.74"
+      ],
+      "tail": [
+        "2026-07-09,3.53",
+        "2026-07-10,3.55"
+      ]
+    },
+    {
+      "series_id": "IRSTCI01JPM156N",
+      "name": "jpy_call_money_monthly",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=IRSTCI01JPM156N",
+      "path": "03. EA Developer\\EA_SonicR\\research\\data\\exogenous\\jpy_call_money_monthly_IRSTCI01JPM156N.csv",
+      "status": "ok",
+      "bytes": 9458,
+      "lines": 492,
+      "sha256": "3ad7e88e3d6cc8d275672af3a47e559bb2b3052bf15306110582a46f0628b511",
+      "head": [
+        "observation_date,IRSTCI01JPM156N",
+        "1985-07-01,6.41670",
+        "1985-08-01,6.24760"
+      ],
+      "tail": [
+        "2026-04-01,0.72700",
+        "2026-05-01,0.72700"
+      ]
+    }
+  ]
+}

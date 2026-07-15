@@ -1,0 +1,39 @@
+{
+  "n_common_bars": 521028,
+  "cost_bps": 2.0,
+  "windows": {
+    "1": {
+      "n": 512806,
+      "hit_rate_pct": 16.96,
+      "expectancy_bps": -2.0189,
+      "mean_gross_bps": -0.0189
+    },
+    "3": {
+      "n": 516406,
+      "hit_rate_pct": 16.9,
+      "expectancy_bps": -2.0165,
+      "mean_gross_bps": -0.0165
+    },
+    "5": {
+      "n": 517465,
+      "hit_rate_pct": 16.87,
+      "expectancy_bps": -2.0155,
+      "mean_gross_bps": -0.0155
+    },
+    "10": {
+      "n": 518353,
+      "hit_rate_pct": 16.97,
+      "expectancy_bps": -2.0045,
+      "mean_gross_bps": -0.0045
+    },
+    "15": {
+      "n": 518975,
+      "hit_rate_pct": 16.95,
+      "expectancy_bps": -2.007,
+      "mean_gross_bps": -0.007
+    }
+  },
+  "label": "EURJPY_to_USDJPY_M5",
+  "leader_file": "c:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Advisors\\01. vectorbt\\data\\EURJPY_M5.csv",
+  "follower_file": "c:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Advisors\\01. vectorbt\\data\\USDJPY_M5.csv"
+}

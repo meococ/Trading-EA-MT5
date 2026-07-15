@@ -1,0 +1,6 @@
+{
+  "series": "WRMFSL",
+  "lag_days": 2,
+  "available_at": "observation_date + 2 calendar days",
+  "rationale": "weekly MMF assets; fail-closed vs same-week lookahead"
+}

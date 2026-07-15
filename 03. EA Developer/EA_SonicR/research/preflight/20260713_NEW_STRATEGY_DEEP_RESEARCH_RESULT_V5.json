@@ -1,0 +1,31 @@
+{
+  "schema_version": "alphafactory.deep_research_result_receipt.v1",
+  "date": "2026-07-13",
+  "conversation_url": "https://chatgpt.com/c/6a54e57c-892c-83ec-9446-cafddaa53193",
+  "browser_ui_readback_before_submission": {
+    "model": "GPT-5.6 Sol",
+    "mode": "Pro",
+    "tool": "Nghiên cứu sâu",
+    "verified": true
+  },
+  "result_readback": {
+    "title": "Deep Research V5 Strategy",
+    "status": "complete",
+    "reported_elapsed_minutes": 14,
+    "model_verdict": "MULTIPLE CURRENT-DATA HYPOTHESES; PROBE THE TOP-RANKED ONE ONLY",
+    "ranked_candidates": [
+      "Impact-per-Pressure Continuation",
+      "Round-Number Release Persistence"
+    ]
+  },
+  "coordinator_decision": {
+    "impact_per_pressure_continuation": "ONE_FROZEN_PROXY_PROBE_ONLY",
+    "round_number_release_persistence": "KILL_AT_INTAKE_DUPLICATE_S558",
+    "source_transfer_warning": "q=sign(mid change) is a price-path proxy, not the signed transaction/order flow in the cited literature",
+    "ea_code_authorized": false,
+    "compile_authorized": false,
+    "strategy_tester_authorized": false,
+    "live_trading_authorized": false
+  },
+  "coordinator_intake": "03. EA Developer/EA_SonicR/research/readouts/20260713_DEEP_RESEARCH_V5_COORDINATOR_INTAKE.md"
+}

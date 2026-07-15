@@ -1,0 +1,77 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-SPARK-CAPACITY-3PD-001",
+  "task_packet_sha256": "1924A75E43F6E6CFEC3C967DC3CF718346FEDE28A9561C35576B8FB645A6D995",
+  "git_commit": "NOGIT-0FA422E293AEA6CA282424D0C29C5F576DA1A8FAFD2287D8812B008674594C85",
+  "git_status_sha256": "ACF94420DA4AFAA5EF061238683C91948588C69EEA1B970C81E44FF0B0C2B1E1",
+  "binding": {
+    "hypothesis_id": "HYP-SPARK-CAPACITY-3PD-001",
+    "run_role": "challenger",
+    "ea_name": "EA_M15SparkAsian",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpMaxPerDay=3",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "FA8BC811855B880207C612D20F7198A0703DD7D8D0233F894D23A3239293D2A9"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\spark_capacity_3pd\\contracts\\receipt_stubs_HYP_SPARK_CAPACITY_3PD_001\\task_packet.json",
+      "sha256": "1924A75E43F6E6CFEC3C967DC3CF718346FEDE28A9561C35576B8FB645A6D995"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_M15SparkAsian\\EA_M15SparkAsian.mq5",
+      "sha256": "F275C18D4EE0BC54F5F44636B7DC6B5818448C1CA9B4A870F71164BE024442C3"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\spark_capacity_3pd\\contracts\\receipt_stubs_HYP_SPARK_CAPACITY_3PD_001\\prereg.json",
+      "sha256": "D480808E43B9297235511F6FB244731C6CC34F6388AA25832FA467BAD37A7F16"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\spark_capacity_3pd\\contracts\\receipt_stubs_HYP_SPARK_CAPACITY_3PD_001\\cost_source_manifest.json",
+      "sha256": "23B75FEF423945E759A22E82576A4D0FE86510A7D8C494F86F0B58B29DDDFE85"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\spark_capacity_3pd\\contracts\\receipt_stubs_HYP_SPARK_CAPACITY_3PD_001\\include_note.txt",
+      "sha256": "04B7FC15A8D842BB0AF0A9CF3DB7D7FC9664B66509C33E5AFD974ED96DF72A3D"
+    },
+    {
+      "label": "matched_control_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_M15SparkAsian\\20260714_002821\\run_manifest.json",
+      "sha256": "E0E795854BBA0DBAE072A93F0C18017D395CF4ED5B8092050E5CD62E4B7F8D04"
+    },
+    {
+      "label": "matched_control_report",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_M15SparkAsian\\20260714_002821\\report.html",
+      "sha256": "7CAE7A9332B551FE58360E2B89022835F23E7706345ED2E7DC02F5122D80001A"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T12:30:32Z",
+  "note": "Spark MaxPerDay=3 capacity; Tue-Wed unchanged; Model 0; cost unverified."
+}

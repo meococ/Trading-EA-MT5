@@ -1,0 +1,27 @@
+{
+  "schema": "exo_available_at_utc_contract.v1",
+  "created_at_utc": "2026-07-14T17:19:02.741407Z",
+  "series": [
+    {
+      "id": "ECBASSETSW",
+      "panel": "fred_ecbassetsw_wow_w1_v1.csv",
+      "lag_rule": "available_at = observation_date + 5 calendar days",
+      "rationale": "Weekly Eurosystem financial statement; Fri observation often Tue publish \u2192 +5d fail-closed vs same-week lookahead",
+      "not_walcl_twin": true
+    },
+    {
+      "id": "DCOILBRENTEU",
+      "panel": "fred_brent_dcoilbrenteu_d1_v1.csv",
+      "lag_rule": "available_at = observation_date + 1 calendar day",
+      "rationale": "FRED daily Brent cash; +1d vs same-day close lookahead",
+      "not_wti_usdcad_clone": true
+    }
+  ],
+  "banned": [
+    "WALCL_sign_gate_retune",
+    "WTI_USDCAD_z_retune",
+    "HY_OAS_MOVE_DTWEX_vix_sibling",
+    "PD_MMF_6J_densify",
+    "invent_spreads"
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "probe_id": "OFFLINE_SPARK_ITSM_COMPOSE_PROBE_V1",
+  "generated_at_ict": "2026-07-14 00:44:54",
+  "gpt_status": "GPT_DEEP_RESEARCH_WAIVED / LOCAL_SELF_RESEARCH_ONLY",
+  "universe_frozen": {
+    "members": [
+      {
+        "ea": "EA_M15SparkAsian",
+        "run_id": "20260714_002614",
+        "hypothesis_id": "HYP-SPARK-ASIAN-M15-001",
+        "symbol": "USDJPY",
+        "period": "M15",
+        "path": "d:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_M15SparkAsian\\20260714_002614",
+        "report_sha256_manifest": "7CAE7A9332B551FE58360E2B89022835F23E7706345ED2E7DC02F5122D80001A"
+      },
+      {
+        "ea": "EA_ITSM",
+        "run_id": "20260714_003920",
+        "hypothesis_id": "HYP-ITSM-PULLBACK-M15-001",
+        "symbol": "USDJPY",
+        "period": "M15",
+        "path": "d:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_ITSM\\20260714_003920",
+        "receipt_sha256": "0B5FBAB87648D9CA66EA168C1B891F1CCED852C7081D41A11D781DEF97FB9D31"
+      }
+    ],
+    "selection_rule": "exact Owner-named run IDs; no PF-ranked cherry-pick",
+    "excluded_explicitly": [
+      "EA_SilverBullet",
+      "any other shelf EA"
+    ]
+  },
+  "window": {
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "elapsed_calendar_days": 1825,
+    "elapsed_calendar_weeks": 260.7142857142857,
+    "overlap": "full identical tester window"
+  },
+  "cost_caveat": {
+    "status": "tester_current_spread_only",
+    "confirmed": false,
+    "note": "Missing/zero commission fields do not mean cost=0. Not Real QFSI."
+  },
+  "sleeve_metrics": {
+    "spark": {
+      "net_profit": 1099.38,
+      "gross_profit": 4700.42,
+      "gross_loss": -3601.04,
+      "profit_factor": 1.31,
+      "n_trades": 325.0,
+      "expectancy": 3.38,
+      "trades_parsed": 325,
+      "deals_parsed": 650,
+      "trades_per_week_elapsed": 1.2465753424657533,
+      "trade_level_pf": 1.3052951369604338
+    },
+    "itsm": {
+      "net_profit": 3959.6,
+      "gross_profit": 29221.6,
+      "gross_loss": -25262.0,
+      "profit_factor": 1.16,
+      "n_trades": 852.0,
+      "expectancy": 4.65,
+      "trades_parsed": 852,
+      "trades_per_week_elapsed": 3.2679452054794518,
+      "trade_level_pf": 1.1567413506452378,
+      "source": "d:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_ITSM\\20260714_003920\\logs\\USDJPY_20260331_PX6_Trades_20210101_000000_21288906.csv"
+    }
+  },
+  "pooled": {
+    "n_trades": 1177,
+    "net_profit": 5058.98,
+    "gross_profit": 33922.02,
+    "gross_loss_abs": 28863.04,
+    "pf_from_report_gross": 1.175275369469051,
+    "pf_from_trade_pnls": 1.175275369469051,
+    "trades_per_week_elapsed": 4.514520547945206,
+    "expectancy_pooled_naive": 4.298198810535259
+  },
+  "correlation_overlap": {
+    "exact_same_entry_timestamp_count": 4,
+    "same_m15_bar_entry_overlap_count": 5,
+    "same_calendar_day_entry_overlap_count": 182,
+    "spark_entries_near_itsm_within_60m": 32,
+    "itsm_entries_near_spark_within_60m": 32,
+    "spark_entry_count": 325,
+    "itsm_entry_count": 852,
+    "weekly_pnl_pearson": 0.1834876784278,
+    "weeks_both_active": 175,
+    "weeks_spark_only": 0,
+    "weeks_itsm_only": 86,
+    "weekly_series_len": 262
+  },
+  "goal_screen_research_only": {
+    "need_pooled_tpw_2_to_5": true,
+    "need_pooled_pf_gt_1_30": false,
+    "verdict": "FAIL_POOLED_PF_BELOW_1_30_CADENCE_OK",
+    "worth_coding_portfolio_ea_sleeve_next": false,
+    "note": "Pooled elapsed-calendar cadence lands in 2-5/wk, but pooled PF is dominated by denser ITSM sleeve and stays below 1.30. Coding a combined portfolio EA sleeve is NOT worth it from this probe alone."
+  }
+}

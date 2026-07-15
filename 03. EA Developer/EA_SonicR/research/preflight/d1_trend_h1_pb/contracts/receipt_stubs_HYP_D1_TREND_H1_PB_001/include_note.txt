@@ -1,0 +1,1 @@
+Trade.mqh stdlib only for HYP-D1-TREND-H1-PB-001.

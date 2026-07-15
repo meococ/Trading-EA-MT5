@@ -1,0 +1,63 @@
+{
+  "schema_version": "sonic_rr2_real_p50_offline_robustness.v1",
+  "created_at_utc": "2026-07-14T14:03:09.623491Z",
+  "hypothesis_id": "HYP-SB-MAXKZ2-RR2-FRICTION-001",
+  "run_id": "20260714_194221",
+  "promotion_eligible": false,
+  "diagnostic_only": true,
+  "cost_contract": {
+    "provenance": "FIVEPERCENTONLINE_REAL_PARTIAL_SAMPLE",
+    "base_cost_per_trade_p50": 2.3087582361186474,
+    "slippage": "MISSING_NOT_ZERO",
+    "note": "Additive report-only haircut; may double-count tester spread (conservative)."
+  },
+  "n_trades": 524,
+  "metrics": {
+    "pf_raw_report": 1.378321,
+    "pf_real_p50_x1": 1.323137,
+    "pf_real_p50_x1_5": 1.296607,
+    "pf_real_p50_x2": 1.270747,
+    "expectancy_x1": 16.447635,
+    "net_x1": 8618.56,
+    "max_dd_pct_path_order_x1": 1.07046
+  },
+  "monte_carlo_shuffle": {
+    "n_sims": 2000,
+    "seed": 20260714,
+    "max_dd_pct_p50": 1.547513,
+    "max_dd_pct_p95": 2.374026,
+    "half_sample_pf_p05": 1.117726,
+    "half_sample_pf_p50": 1.328086,
+    "note": "Order-shuffle MC DD + random half-sample PF; not genuine WFA/PBO."
+  },
+  "year_buckets_x1": {
+    "n": {
+      "2021": 122,
+      "2022": 88,
+      "2023": 109,
+      "2024": 97,
+      "2025": 108
+    },
+    "pf": {
+      "2021": 1.1713,
+      "2022": 1.5815,
+      "2023": 1.171,
+      "2024": 1.6149,
+      "2025": 1.1991
+    },
+    "pos_net_concentration": 0.228728
+  },
+  "goal_gates_diagnostic": {
+    "x1_pf_gt_1_30": true,
+    "x1_5_pf_ge_1_25": true,
+    "x2_pf_ge_1_00": true,
+    "cadence_research_proxy_ok": true,
+    "full_qfsi": false,
+    "confirmed": false
+  },
+  "verdict": "DIAGNOSTIC_ROBUST_UNDER_PARTIAL_REAL_P50__NOT_CONFIRMED",
+  "source_hashes": {
+    "report_html_sha256": "49D142CF2B9531AD2F9C338277FD30B00EC74F420B23A7E288687443723397E3",
+    "coststress_real_p50_sha256": "58AE21C1064544355049231ED3E8B934DA872950A89568EF762A26556286D233"
+  }
+}

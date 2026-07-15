@@ -1,0 +1,38 @@
+{
+  "schema_version": "alphafactory_mt5_readonly_probe.v1",
+  "created_at_utc": "2026-07-13T16:47:18.402014Z",
+  "producer": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\tools\\execution_data_foundation.py",
+    "sha256": "0A7C8225218C30F90C1EE003ED4B6570C90D6B554699B5F26E5F5A2DA2D82431"
+  },
+  "mode": "READ_ONLY_NO_ORDER_OPERATIONS",
+  "expected_server": "FivePercentOnline-Real",
+  "observed_server": "MetaQuotes-Demo",
+  "server_match": false,
+  "server_fingerprint": "6B2CF3592011606B05543645EA987CD8B77DB6264DA64BAA7632667E6FB7F678",
+  "account_fingerprint": "63132039772964551D2117919AA461338805A7696F9484CA71C1BB7301E52CC6",
+  "account_currency": "USD",
+  "terminal": {
+    "build": 5999,
+    "connected": true,
+    "trade_allowed": false
+  },
+  "symbols": [
+    {
+      "symbol": "EURUSD,GBPUSD,XAUUSD",
+      "exists": false,
+      "visible": null,
+      "digits": null,
+      "point": null,
+      "last_tick_utc": null,
+      "history_sample": null
+    }
+  ],
+  "safety": {
+    "read_only": true,
+    "orders_sent": 0,
+    "positions_opened": 0,
+    "live_trading_authorized": false
+  },
+  "verdict": "BROKER_SERVER_MISMATCH"
+}

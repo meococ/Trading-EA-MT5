@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-H4-ENGULF-REV-001",
+  "task_packet_sha256": "F16C0D7B188348C3A9410F2FF29CDC4E416EE7094805A689A83913978EE63867",
+  "git_commit": "NOGIT-F20A2C8D528AB8381501CA976DDB07D73D6E63C6AA49188FCCE89DBEB43F5F24",
+  "git_status_sha256": "5716C0FB57FA4E859DFF3495AAC844BED998A93FE95512FCB6F553F572091438",
+  "binding": {
+    "hypothesis_id": "HYP-H4-ENGULF-REV-001",
+    "run_role": "control",
+    "ea_name": "EA_H4EngulfRev",
+    "symbol": "USDJPY",
+    "period": "H4",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "C004550ECA91644769F5DE44D8AEF5A47FF2727EA1F3B6EE0B646C982B037804"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h4_engulf_rev\\contracts\\receipt_stubs_HYP_ENGULF_REV_001\\task_packet.json",
+      "sha256": "F16C0D7B188348C3A9410F2FF29CDC4E416EE7094805A689A83913978EE63867"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_H4EngulfRev\\EA_H4EngulfRev.mq5",
+      "sha256": "F0E4BF98B31FE83BDF3EFFAB5BE0127CE770E9BBC78AD6695E1D2EDCBDD8FB45"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h4_engulf_rev\\contracts\\receipt_stubs_HYP_ENGULF_REV_001\\prereg.json",
+      "sha256": "A3C4DCD63336210A04AB82214076131A78C841D239DCB00EA8B9DEC156A3789D"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h4_engulf_rev\\contracts\\receipt_stubs_HYP_ENGULF_REV_001\\cost_source_manifest.json",
+      "sha256": "3ED80C90BF69121612EE7FC148E02ABF13F73BBB8EFDED2E3B51C920C4789831"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h4_engulf_rev\\contracts\\receipt_stubs_HYP_ENGULF_REV_001\\include_note.txt",
+      "sha256": "9701EA67D49F0B75457D91A72BC1673990887BCBA2EE43E57B535D8F57E656B1"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T16:07:09Z",
+  "note": "Wave3 Model 0; H4 body-engulf accept RR=3"
+}

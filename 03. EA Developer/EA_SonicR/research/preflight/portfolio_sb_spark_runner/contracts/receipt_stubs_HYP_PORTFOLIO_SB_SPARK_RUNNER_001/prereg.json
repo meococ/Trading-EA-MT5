@@ -1,0 +1,10 @@
+{
+  "hypothesis_id": "HYP-PORTFOLIO-SB-SPARK-RUNNER-001",
+  "prereg_path": "d:/Trading EA MT5/03. EA Developer/EA_SonicR/research/preregs/20260714_H_PORTFOLIO_SB_SPARK_RUNNER_001_PREREG.md",
+  "prereg_sha256": "1C3924BA0BA4210C1FFFD5B89E4DCB07E4A1830D34114C4BDB00FBDF3A1C9F97",
+  "frozen": true,
+  "sleeve_runs": [
+    "20260714_002505",
+    "20260714_002614"
+  ]
+}

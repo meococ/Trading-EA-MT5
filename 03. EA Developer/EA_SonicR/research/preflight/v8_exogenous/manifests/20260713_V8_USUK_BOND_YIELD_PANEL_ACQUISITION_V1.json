@@ -1,0 +1,149 @@
+{
+  "schema": "v8_usuk_bond_yield_panel_acquisition_manifest.v1",
+  "acquired_at_utc": "2026-07-13T16:51:07.195557+00:00",
+  "status": "OK",
+  "probe_authority": "Authorizes hash-bound US-UK 10Y panel + one offline GBPUSD probe only. No registry/prereg/EA/Model0 without PROBE_SURVIVOR.",
+  "lag_rule": "available_at_utc = observation_date + 1 calendar day 00:00Z; FX closed bar may use row only if bar_close_utc >= available_at_utc",
+  "join_rule": "Inner join on common observation dates only; fail-closed (no forward-fill of missing US or UK leg)",
+  "boe_zip": {
+    "name": "boe_glcnominalddata.zip",
+    "bytes": 38948798,
+    "sha256": "11A7592DE94CFBE9A3F7FED9D51417188B7E8E6A4110EB2F56BD1AF592965CDE",
+    "relative_path": "03. EA Developer\\EA_SonicR\\research\\exogenous_data\\v8_public\\bonds\\boe_glcnominalddata.zip",
+    "extracted_to": "03. EA Developer\\EA_SonicR\\research\\exogenous_data\\v8_public\\bonds\\boe_glc_nominal"
+  },
+  "us_sources": [
+    {
+      "name": "daily_treasury_yield_curve_2018.csv",
+      "status": "OK",
+      "bytes": 16978,
+      "sha256": "E8375524A7A8D3E8091BBE7690D0378B9365BE09EFFF5B18B8EEFDDC25F718D3",
+      "relative_path": "03. EA Developer\\EA_SonicR\\research\\exogenous_data\\v8_public\\rates\\daily_treasury_yield_curve_2018.csv",
+      "obs_loaded": 249,
+      "year": 2018
+    },
+    {
+      "name": "daily_treasury_yield_curve_2019.csv",
+      "status": "OK",
+      "bytes": 17841,
+      "sha256": "83FC47C17325E222C45FD3A1EB26C69AE01F62D33B793030B4B8B350CA0A290B",
+      "relative_path": "03. EA Developer\\EA_SonicR\\research\\exogenous_data\\v8_public\\rates\\daily_treasury_yield_curve_2019.csv",
+      "obs_loaded": 250,
+      "year": 2019
+    },
+    {
+      "name": "daily_treasury_yield_curve_2020.csv",
+      "status": "OK",
+      "bytes": 17912,
+      "sha256": "EDCF1C8BE9622F3CD92EB7DE1847AEFC3977E2118E2FF9AF67F46614A5C306A7",
+      "relative_path": "03. EA Developer\\EA_SonicR\\research\\exogenous_data\\v8_public\\rates\\daily_treasury_yield_curve_2020.csv",
+      "obs_loaded": 251,
+      "year": 2020
+    },
+    {
+      "name": "daily_treasury_yield_curve_2021.csv",
+      "status": "OK",
+      "bytes": 17912,
+      "sha256": "1BE57E49C63A99F6002431A1030C8FBE539B71066C3EAF14F9F58DDC34492CEA",
+      "relative_path": "03. EA Developer\\EA_SonicR\\research\\exogenous_data\\v8_public\\rates\\daily_treasury_yield_curve_2021.csv",
+      "obs_loaded": 251,
+      "year": 2021
+    },
+    {
+      "name": "daily_treasury_yield_curve_2022.csv",
+      "status": "OK",
+      "bytes": 18226,
+      "sha256": "C33CB2758E5E34C2C23B7AB759D18681091860F3F9E5960112859F64F31CD814",
+      "relative_path": "03. EA Developer\\EA_SonicR\\research\\exogenous_data\\v8_public\\rates\\daily_treasury_yield_curve_2022.csv",
+      "obs_loaded": 249,
+      "year": 2022
+    },
+    {
+      "name": "daily_treasury_yield_curve_2023.csv",
+      "status": "OK",
+      "bytes": 19098,
+      "sha256": "EDB7F3904E11DCAA502CDCC03AD9B1B16C893802D166CE9BC5FA1118251249D4",
+      "relative_path": "03. EA Developer\\EA_SonicR\\research\\exogenous_data\\v8_public\\rates\\daily_treasury_yield_curve_2023.csv",
+      "obs_loaded": 250,
+      "year": 2023
+    },
+    {
+      "name": "daily_treasury_yield_curve_2024.csv",
+      "status": "OK",
+      "bytes": 19098,
+      "sha256": "6775840B76CD7FD41121F61D6F6C60184ECA6B2BA49954EC7372C463CBEEF34D",
+      "relative_path": "03. EA Developer\\EA_SonicR\\research\\exogenous_data\\v8_public\\rates\\daily_treasury_yield_curve_2024.csv",
+      "obs_loaded": 250,
+      "year": 2024
+    },
+    {
+      "name": "daily_treasury_yield_curve_2025.csv",
+      "status": "OK",
+      "bytes": 20155,
+      "sha256": "CF2FA3DA7F160384B63D2EAD698532B1D76CD9F789CE4911E2304DB85B14E6D5",
+      "relative_path": "03. EA Developer\\EA_SonicR\\research\\exogenous_data\\v8_public\\rates\\daily_treasury_yield_curve_2025.csv",
+      "obs_loaded": 249,
+      "year": 2025
+    },
+    {
+      "name": "us_treasury_yield_curve_2026.csv",
+      "status": "OK",
+      "bytes": 10721,
+      "sha256": "345039A71579B0B4E14562ABE07942C53AF0514764F9F5EF254EBB7E7B76D053",
+      "relative_path": "03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\bond_yields\\us_treasury_yield_curve_2026.csv",
+      "obs_loaded": 131,
+      "year": 2026
+    }
+  ],
+  "uk_sources": [
+    {
+      "name": "GLC Nominal daily data_2016 to 2024.xlsx",
+      "status": "OK",
+      "bytes": 9106334,
+      "sha256": "A85505C7DBF619CEA6B3CF39D4E70E8B5EAB3FC906D47914006849A1ED3D4A5C",
+      "relative_path": "03. EA Developer\\EA_SonicR\\research\\exogenous_data\\v8_public\\bonds\\boe_glc_nominal\\GLC Nominal daily data_2016 to 2024.xlsx",
+      "sheet": "4. spot curve",
+      "tenor_years": 10,
+      "obs_loaded_2018plus": 1768,
+      "series": "UK nominal spot curve (GLC / government liability)"
+    },
+    {
+      "name": "GLC Nominal daily data_2025 to present.xlsx",
+      "status": "OK",
+      "bytes": 1456343,
+      "sha256": "3F503B5A333912C4FA71CDDF1A57F07B520A420EE7E5CE54D184E51499B3E4B3",
+      "relative_path": "03. EA Developer\\EA_SonicR\\research\\exogenous_data\\v8_public\\bonds\\boe_glc_nominal\\GLC Nominal daily data_2025 to present.xlsx",
+      "sheet": "4. spot curve",
+      "tenor_years": 10,
+      "obs_loaded_2018plus": 377,
+      "series": "UK nominal spot curve (GLC / government liability)"
+    }
+  ],
+  "uk_cleaned_series": {
+    "name": "boe_glc_nominal_spot_10y_2018plus.csv",
+    "bytes": 49373,
+    "sha256": "0AA47703145CA6B06AEC17B828347222A0D37CC2CF7AB039E23AD78562B4EC4C",
+    "relative_path": "03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\raw\\bond_yields\\boe_glc_nominal_spot_10y_2018plus.csv",
+    "obs": 2145
+  },
+  "panel": {
+    "name": "us_uk_bond_yield_diff_d1_v1.csv",
+    "status": "OK",
+    "bytes": 125429,
+    "sha256": "B3FB71465C6652EA36E8E2010771473A814A4F97426FC00E2A52995E73AEBCF8",
+    "relative_path": "03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\panels\\us_uk_bond_yield_diff_d1_v1.csv",
+    "joined_observation_days": 2080,
+    "us_10y_obs": 2130,
+    "uk_10y_obs": 2145,
+    "first_observation_date": "2018-01-02",
+    "last_observation_date": "2026-06-30",
+    "columns": [
+      "observation_date",
+      "available_at_utc",
+      "us_10y",
+      "uk_10y",
+      "diff_us_uk_10y"
+    ]
+  },
+  "errors": []
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "phase0_coordination_contamination_attestation.v1",
+  "attestation_id": "PHASE0-CONTAMINATION-20260711-001",
+  "session_id": "019f515e-af25-7303-b3e0-69ee6d3a6d9f",
+  "review_status": "CONTAMINATED",
+  "scope": "COORDINATION_SESSION_ONLY_NOT_PRODUCER_SEMANTIC_ACCESS",
+  "artifact_path": "02. AlphaFactory/runs/EA_SilverBullet/20260628_131343/analysis/logs/USDJPY_20260325_RunMeta_20210101_000000_196670171.json",
+  "artifact_sha256": "270f6a84bbd4d2c607a80087595f1540e307e363ccfa7ca678b4b13a55e11531",
+  "access_mode": "accidental_metadata_display",
+  "producer_semantic_outcome_accessed": false,
+  "outcome_values_used": false,
+  "reviewed_by": "Codex coordinator",
+  "reviewed_at": "2026-07-11",
+  "clearance_effect": "BLOCKED_REQUIRES_CLEAN_FUTURE_FREEZE_REVIEW"
+}

@@ -1,0 +1,45 @@
+{
+  "label": "USDJPY_TokyoFix_M5",
+  "fix_time": "00:55",
+  "cost_bps": 2.0,
+  "pre": {
+    "5": {
+      "n": 1818,
+      "mean_gross_bps": -0.1048,
+      "mean_net_bps": -2.1048,
+      "hit_rate_pct": 6.44
+    },
+    "10": {
+      "n": 1818,
+      "mean_gross_bps": -0.1375,
+      "mean_net_bps": -2.1375,
+      "hit_rate_pct": 9.68
+    },
+    "15": {
+      "n": 1818,
+      "mean_gross_bps": -0.1484,
+      "mean_net_bps": -2.1484,
+      "hit_rate_pct": 12.6
+    }
+  },
+  "post": {
+    "5": {
+      "n": 1818,
+      "mean_gross_bps": 0.691,
+      "mean_net_bps": -1.309,
+      "hit_rate_pct": 28.0
+    },
+    "10": {
+      "n": 1818,
+      "mean_gross_bps": 0.5906,
+      "mean_net_bps": -1.4094,
+      "hit_rate_pct": 29.59
+    },
+    "15": {
+      "n": 1818,
+      "mean_gross_bps": 0.6148,
+      "mean_net_bps": -1.3852,
+      "hit_rate_pct": 32.45
+    }
+  }
+}

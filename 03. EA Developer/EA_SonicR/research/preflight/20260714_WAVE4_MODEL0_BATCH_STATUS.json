@@ -1,0 +1,20 @@
+[
+    {
+        "hypothesis_id":  "HYP-M15-IB-OVERLAP-BREAK-001",
+        "ea":  "EA_M15IBOverlapBreak",
+        "status":  "THROW:Required sidecar \u0027\u0027 is absent from D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_M15IBOverlapBreak\\20260714_223618\\logs.",
+        "log":  "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\20260714_WAVE4_MODEL0_HYP_M15_IB_OVERLAP_BREAK_001.log"
+    },
+    {
+        "hypothesis_id":  "HYP-H1-RV-COMPRESS-BREAK-001",
+        "ea":  "EA_H1RVCompressBreak",
+        "status":  "THROW:Required sidecar \u0027\u0027 is absent from D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_H1RVCompressBreak\\20260714_223714\\logs.",
+        "log":  "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\20260714_WAVE4_MODEL0_HYP_H1_RV_COMPRESS_BREAK_001.log"
+    },
+    {
+        "hypothesis_id":  "HYP-GBPJPY-LEAD-USDJPY-H1-001",
+        "ea":  "EA_H1GBPJPYLead",
+        "status":  "THROW:Required sidecar \u0027\u0027 is absent from D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_H1GBPJPYLead\\20260714_223748\\logs.",
+        "log":  "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\20260714_WAVE4_MODEL0_HYP_GBPJPY_LEAD_USDJPY_H1_001.log"
+    }
+]

@@ -1,0 +1,206 @@
+{
+  "schema": "ecb_brent_offline_probes.v1",
+  "created_at_utc": "2026-07-14T17:19:16.595168Z",
+  "campaign_status": "OFFLINE_ALL_KILL / NO_MODEL0",
+  "window": {
+    "from": "2021-01-01T00:00:00",
+    "to": "2025-12-31T23:59:59",
+    "elapsed_weeks": 260.8571
+  },
+  "cost_proxy_usd_per_trade": 12.0,
+  "panel_sha256": {
+    "ecb": "FF4F0DF35797E9E9B0B6C5DFA0F70DF28DA62B75FACE6C0D1CB905E0816C0FC4",
+    "brent": "DA7C6417D263997DDE9D5F76F0A4239FF7E6354AEE7617F90D2815ABFBC45454"
+  },
+  "contract_sha256": "96CCD87B0B5531F6C2F659CFCFE8592BD94602A57560D58C12F3419FDCEF735A",
+  "acquisition_manifest_sha256": "46BCB4B42EEF2550534652597DF71D4FC6E1933792B52F98D2E4E6106BEAB0A4",
+  "objects": [
+    {
+      "hypothesis_id": "HYP-EURUSD-H1-ECB-BS-EXPAND-DISPLACE-001",
+      "class": "ecb_bs_primary_structural_displace",
+      "symbol": "EURUSD",
+      "tf": "H1",
+      "funnel": {
+        "n_regime": 6107,
+        "n_displace": 463,
+        "n_trades": 463,
+        "days_used": 463,
+        "n_no_ecb": 0
+      },
+      "metrics": {
+        "n": 463,
+        "pf": 0.9274,
+        "net": -10320.85,
+        "exp": -22.2913,
+        "tpw": 1.7749
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.8912,
+          "net": -15876.85,
+          "exp": -34.2913
+        },
+        "x1_5": {
+          "pf": 0.8737,
+          "net": -18654.85,
+          "exp": -40.2913
+        },
+        "x2": {
+          "pf": 0.8567,
+          "net": -21432.85,
+          "exp": -46.2913
+        }
+      },
+      "kill_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "a_priori": {
+        "ecb_rule": "wow_pct > 0 expand / <=0 contract",
+        "lag": "observation+5d (frozen panel available_at)",
+        "require_expand": true,
+        "bias": "long_only_if_expand",
+        "range_atr": 1.2,
+        "body_atr": 0.55,
+        "close_frac": 0.6,
+        "sl_atr": 1.0,
+        "rr": 2.0,
+        "max_hold": 12,
+        "fail_closed_missing_ecb": true,
+        "not_walcl_rr2_gate": true,
+        "not_pd_primary_clone": true
+      },
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-EURUSD-H1-ECB-BS-CONTRACT-DISPLACE-001",
+      "class": "ecb_bs_primary_structural_displace",
+      "symbol": "EURUSD",
+      "tf": "H1",
+      "funnel": {
+        "n_regime": 6433,
+        "n_displace": 456,
+        "n_trades": 456,
+        "days_used": 456,
+        "n_no_ecb": 0
+      },
+      "metrics": {
+        "n": 456,
+        "pf": 0.9033,
+        "net": -13721.68,
+        "exp": -30.0914,
+        "tpw": 1.7481
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.8681,
+          "net": -19193.68,
+          "exp": -42.0914
+        },
+        "x1_5": {
+          "pf": 0.8511,
+          "net": -21929.68,
+          "exp": -48.0914
+        },
+        "x2": {
+          "pf": 0.8346,
+          "net": -24665.68,
+          "exp": -54.0914
+        }
+      },
+      "kill_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "a_priori": {
+        "ecb_rule": "wow_pct > 0 expand / <=0 contract",
+        "lag": "observation+5d (frozen panel available_at)",
+        "require_expand": false,
+        "bias": "short_only_if_contract",
+        "range_atr": 1.2,
+        "body_atr": 0.55,
+        "close_frac": 0.6,
+        "sl_atr": 1.0,
+        "rr": 2.0,
+        "max_hold": 12,
+        "fail_closed_missing_ecb": true,
+        "not_walcl_rr2_gate": true,
+        "not_pd_primary_clone": true
+      },
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-EURUSD-H1-BRENT-IMPORTER-TOT-001",
+      "class": "brent_importer_terms_of_trade_structural",
+      "symbol": "EURUSD",
+      "tf": "H1",
+      "funnel": {
+        "n_bias": 7733,
+        "n_displace": 579,
+        "n_trades": 579,
+        "days_used": 579
+      },
+      "metrics": {
+        "n": 579,
+        "pf": 1.0303,
+        "net": 5724.61,
+        "exp": 9.8871,
+        "tpw": 2.2196
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9937,
+          "net": -1223.39,
+          "exp": -2.1129
+        },
+        "x1_5": {
+          "pf": 0.976,
+          "net": -4697.39,
+          "exp": -8.1129
+        },
+        "x2": {
+          "pf": 0.9587,
+          "net": -8171.39,
+          "exp": -14.1129
+        }
+      },
+      "kill_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "a_priori": {
+        "brent_z_abs": 0.75,
+        "lookback": 60,
+        "thesis": "EUR_oil_importer_ToT",
+        "bias_rule": "z>=+thr short EURUSD; z<=-thr long EURUSD",
+        "lag": "observation+1d",
+        "range_atr": 1.2,
+        "body_atr": 0.55,
+        "close_frac": 0.6,
+        "sl_atr": 1.0,
+        "rr": 2.0,
+        "max_hold": 12,
+        "not_wti_usdcad_clone": true
+      },
+      "model0": "WITHHELD"
+    }
+  ],
+  "survivors": [],
+  "model0": "WITHHELD",
+  "banned": [
+    "WALCL_sign_retune",
+    "WTI_USDCAD_retune",
+    "PD_MMF_6J_densify",
+    "PD_primary_displace_retune",
+    "HY_MOVE_DTWEX_vix_sibling",
+    "Wave1_9_clones",
+    "invent_spreads",
+    "Phase0_without_clear"
+  ],
+  "best_shelf": "RR2_20260714_194548",
+  "cost_surface": "GAP_UNCHANGED",
+  "receipt_sha256": "3A0DA01E6F71EFCA298FE9073F5827B27C0F870F2BE9DDF07ECD93B13099289C"
+}

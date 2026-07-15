@@ -1,0 +1,97 @@
+{
+  "schema_version": "sonic_qfsi_post_login_receipt.v1",
+  "created_at_utc": "2026-07-14T13:52:00Z",
+  "status": "REAL_CONFIRMED_CAPTURE_RUNNING",
+  "goal_claim": false,
+  "confirmed_claim": false,
+  "process": {
+    "gpt_deep_research": "WAIVED",
+    "nested_model": "cursor-grok-4.5-high-fast",
+    "git": "NO_GIT",
+    "densify_model0": "NOT_RUN",
+    "day_hour_mining": "BANNED",
+    "strategy_logic_changed": false
+  },
+  "mt5_probe": {
+    "path": "03. EA Developer/EA_SonicR/research/preflight/v4_data/20260714_MT5_READONLY_PROBE_V4.json",
+    "sha256": "7C38E9DC2166FBAF269ABFB3E34AF30032EE04A3FC0A7CEF7BD1F3FCF3CDF6A3",
+    "expected_server": "FivePercentOnline-Real",
+    "observed_server": "FivePercentOnline-Real",
+    "server_match": true,
+    "server_fingerprint": "CE114ABFB8C653A060DAD7EA33FAF948B5786F691953B2D4E230EB7986120797",
+    "account_fingerprint": "09DB5E9C091F23DF9E024E684BBA994D00CBD84CDEF2CFBA0C5D064EACCB32AB",
+    "account_currency": "USD",
+    "terminal_build": 5999,
+    "connected": true,
+    "trade_allowed": false,
+    "orders_sent": 0,
+    "positions_opened": 0,
+    "verdict": "TARGET_SERVER_READONLY_PROBE_COMPLETE",
+    "prior_blocker_cleared": "BLOCKED_NEEDS_OWNER_REAL_LOGIN"
+  },
+  "qfsi_capture": {
+    "started": true,
+    "mode": "PASSIVE_READ_ONLY_NO_LIVE_ORDERS",
+    "tool": "02. AlphaFactory/tools/execution_data_qfsi_nolive_capture.py",
+    "seed_capture_id": "20260714_QFSI_REAL_001",
+    "seed_session_end": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/session_end.json",
+    "seed_manifest": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/20260714_QFSI_REAL_001.manifest.json",
+    "seed_manifest_sha256": "BCE364CB5016359D8401B6F23118209AB24E780D1105FC40E8C99FA4FD7F19AD",
+    "hash_manifest": "03. EA Developer/EA_SonicR/research/preflight/v4_data/20260714_QFSI_REAL_001_HASH_MANIFEST.json",
+    "symbols": ["EURUSD", "GBPUSD", "XAUUSD", "USDJPY"],
+    "seed_window": {
+      "heartbeat_rows_written": 116,
+      "quote_rows_written": 116,
+      "commission_lifecycle_counts": {
+        "EURUSD": 2,
+        "GBPUSD": 0,
+        "XAUUSD": 0,
+        "USDJPY": 0
+      },
+      "slippage_fills": 0
+    },
+    "continuation_capture_id": "20260714_QFSI_REAL_003_CONTINUATION",
+    "continuation_out_dir": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_003_CONTINUATION",
+    "continuation_duration_sec": 1800,
+    "stop_file": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/STOP_QFSI_CAPTURE.flag",
+    "orphan_partial_session": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_002"
+  },
+  "inventory": {
+    "path": "03. EA Developer/EA_SonicR/research/preflight/v4_data/20260714_EXECUTION_DATA_INVENTORY_V3.json",
+    "capture_manifest_count": 2,
+    "eligible_bundle_count": 0,
+    "qfsi_verdict": "STOP_DATA_FRONTIER",
+    "blockers": ["NO_ELIGIBLE_HASH_BOUND_EXECUTION_BUNDLE"]
+  },
+  "maxkz2_reprice": {
+    "attempted": true,
+    "completed": false,
+    "status": "BLOCKED_REPRICE_WAITING_VERIFIED_COST",
+    "survivor": {
+      "hypothesis_id": "HYP-SB-MAXKZ2-DENSITY-002",
+      "baseline_run_id": "20260714_192304",
+      "checklist": "03. EA Developer/EA_SonicR/research/preflight/20260714_MAXKZ2_QFSI_REPRICE_CHECKLIST.md"
+    },
+    "blockers": [
+      "QFSI_SAMPLE_GATES_NOT_MET",
+      "SLIPPAGE_FILLS_MISSING",
+      "COMMISSION_SAMPLE_BELOW_30_PER_SYMBOL",
+      "USDJPY_COMMISSION_LIFECYCLES_0",
+      "QUOTE_ELAPSED_DAYS_BELOW_90",
+      "NO_ELIGIBLE_HASH_BOUND_EXECUTION_BUNDLE"
+    ],
+    "honesty": "Do not manufacture fills; do not treat missing cost as zero; do not reprice under Demo/tester proxy as Real verified."
+  },
+  "hard_stops_honored": [
+    "No densify",
+    "No day/hour mining",
+    "No strategy logic change",
+    "No GOAL/confirmed claim",
+    "No live orders (orders_sent=0, positions_opened=0, trade_allowed=false)"
+  ],
+  "paths": {
+    "coordinator": "03. EA Developer/EA_SonicR/research/readouts/20260714_QFSI_POST_LOGIN_COORDINATOR.md",
+    "prior_prep_receipt": "03. EA Developer/EA_SonicR/research/preflight/20260714_QFSI_REPRICE_PREP_RECEIPT.json",
+    "contract": "04. Project Control/ai/data_contracts/20260713_EXECUTION_DATA_ACQUISITION_CONTRACT_V1.md"
+  }
+}

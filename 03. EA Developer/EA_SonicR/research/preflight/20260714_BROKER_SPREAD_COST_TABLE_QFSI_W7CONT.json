@@ -1,0 +1,111 @@
+{
+  "schema_version": "sonic_broker_spread_cost_table.v1",
+  "created_at_utc": "2026-07-14T16:45:31.241488Z",
+  "server_expected": "FivePercentOnline-Real",
+  "lot_p50_basis": 0.5,
+  "formula": "(spread_usd_per_lot + commission_rt_per_lot) * lot; slippage MISSING≠0 not added",
+  "honesty": [
+    "PARTIAL_REAL_CAPTURE_ONLY",
+    "QUOTE_ELAPSED_DAYS_FAR_BELOW_90",
+    "COMMISSION_UNIQUE_N_EURUSD_ONLY",
+    "SLIPPAGE_FILLS_MISSING",
+    "SESSION_HOUR_COVERAGE_SPARSE",
+    "NOT_FULL_QFSI",
+    "NOT_CONFIRMED_COST_PROVENANCE"
+  ],
+  "symbols": [
+    {
+      "symbol": "EURUSD",
+      "capture_valid_spreads": 3280,
+      "hours_utc_with_samples": 5,
+      "distinct_utc_dates": [
+        "2026-07-14"
+      ],
+      "spread_price_p50": 1.999999999990898e-05,
+      "spread_price_p90": 2.0000000000131024e-05,
+      "dollars_per_price_per_lot": 99999.99999999999,
+      "dpl_source": "LIVE_MT5",
+      "spread_usd_per_lot_p50": 1.9999999999908977,
+      "spread_usd_per_lot_p90": 2.000000000013102,
+      "commission_rt_per_lot": 4.0,
+      "commission_label": "EURUSD_UNIQUE_N=2",
+      "slippage_per_lot": null,
+      "slippage_label": "MISSING_NEQ_0",
+      "unit_cost_usd_per_lot_p50": 5.999999999990898,
+      "unit_cost_usd_per_lot_p90": 6.000000000013102,
+      "trade_cost_usd_at_lot_0_5_x_p50": 2.999999999995449,
+      "trade_cost_usd_at_lot_0_5_x_p90": 3.000000000006551
+    },
+    {
+      "symbol": "GBPUSD",
+      "capture_valid_spreads": 3556,
+      "hours_utc_with_samples": 5,
+      "distinct_utc_dates": [
+        "2026-07-14"
+      ],
+      "spread_price_p50": 2.999999999997449e-05,
+      "spread_price_p90": 4.0000000000040004e-05,
+      "dollars_per_price_per_lot": 99999.99999999999,
+      "dpl_source": "LIVE_MT5",
+      "spread_usd_per_lot_p50": 2.9999999999974487,
+      "spread_usd_per_lot_p90": 4.0000000000039995,
+      "commission_rt_per_lot": 4.0,
+      "commission_label": "TRANSFERRED_EURUSD_CLUE_N=2",
+      "slippage_per_lot": null,
+      "slippage_label": "MISSING_NEQ_0",
+      "unit_cost_usd_per_lot_p50": 6.999999999997449,
+      "unit_cost_usd_per_lot_p90": 8.000000000004,
+      "trade_cost_usd_at_lot_0_5_x_p50": 3.4999999999987246,
+      "trade_cost_usd_at_lot_0_5_x_p90": 4.000000000002
+    },
+    {
+      "symbol": "XAUUSD",
+      "capture_valid_spreads": 4467,
+      "hours_utc_with_samples": 5,
+      "distinct_utc_dates": [
+        "2026-07-14"
+      ],
+      "spread_price_p50": 0.5199999999999818,
+      "spread_price_p90": 0.5599999999999454,
+      "dollars_per_price_per_lot": 1.0,
+      "dpl_source": "LIVE_MT5",
+      "spread_usd_per_lot_p50": 0.5199999999999818,
+      "spread_usd_per_lot_p90": 0.5599999999999454,
+      "commission_rt_per_lot": 4.0,
+      "commission_label": "TRANSFERRED_EURUSD_CLUE_N=2",
+      "slippage_per_lot": null,
+      "slippage_label": "MISSING_NEQ_0",
+      "unit_cost_usd_per_lot_p50": 4.519999999999982,
+      "unit_cost_usd_per_lot_p90": 4.559999999999945,
+      "trade_cost_usd_at_lot_0_5_x_p50": 2.259999999999991,
+      "trade_cost_usd_at_lot_0_5_x_p90": 2.2799999999999727
+    },
+    {
+      "symbol": "USDJPY",
+      "capture_valid_spreads": 3498,
+      "hours_utc_with_samples": 5,
+      "distinct_utc_dates": [
+        "2026-07-14"
+      ],
+      "spread_price_p50": 0.0020000000000095497,
+      "spread_price_p90": 0.0030000000000143245,
+      "dollars_per_price_per_lot": 616.7737797130769,
+      "dpl_source": "LIVE_MT5",
+      "spread_usd_per_lot_p50": 1.2335475594320437,
+      "spread_usd_per_lot_p90": 1.8503213391480657,
+      "commission_rt_per_lot": 4.0,
+      "commission_label": "TRANSFERRED_EURUSD_CLUE_N=2",
+      "slippage_per_lot": null,
+      "slippage_label": "MISSING_NEQ_0",
+      "unit_cost_usd_per_lot_p50": 5.2335475594320435,
+      "unit_cost_usd_per_lot_p90": 5.850321339148065,
+      "trade_cost_usd_at_lot_0_5_x_p50": 2.6167737797160218,
+      "trade_cost_usd_at_lot_0_5_x_p90": 2.9251606695740326
+    }
+  ],
+  "canonical_usdjpy_unit_p50": 5.2335475594320435,
+  "canonical_usdjpy_unit_p90": 5.850321339148065,
+  "canonical_usdjpy_trade_cost_p50": 2.6167737797160218,
+  "canonical_usdjpy_trade_cost_p90": 2.9251606695740326,
+  "live_usdjpy_spread_usd_per_lot_p50": 0.6167737796984921
+}

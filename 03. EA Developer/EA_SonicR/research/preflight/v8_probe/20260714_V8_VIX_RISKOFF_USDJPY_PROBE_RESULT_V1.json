@@ -1,0 +1,65 @@
+{
+  "schema": "v8_vix_riskoff_usdjpy_offline_probe.v1",
+  "probe_id": "V8_VIX_RISKOFF_USDJPY_V1",
+  "created_at_utc": "2026-07-13T17:40:40.381322+00:00",
+  "contract": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/20260714_V8_VIX_RISKOFF_USDJPY_PROBE_CONTRACT_V1.md",
+  "panel": {
+    "vix_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/raw/equity_bond/fred_vixcls.csv",
+    "vix_sha256": "9D0B7EC855526BAC12ED0AD5B567FDDFCB5BC426402480242B6D10C766615A47",
+    "vix_bytes": 160439,
+    "observation_count": 9227,
+    "available_obs": 9227,
+    "lag": "observation_date + 1 calendar day"
+  },
+  "constants": {
+    "z_thresh": 0.75,
+    "z_lookback": 60,
+    "stress_a": 1.5,
+    "stress_b": 3.0,
+    "sl_atr": 1.5,
+    "time_stop_bars": 5,
+    "max_gap_days": 3,
+    "symbol": "USDJPY"
+  },
+  "mt5_account_info": {
+    "server": "MetaQuotes-Demo",
+    "note": "Demo falsification only; not QFSI Real"
+  },
+  "verdict": "KILL_AT_OFFLINE_PROBE",
+  "kill_reasons": [
+    "pf_stress_a<1.05",
+    "fail_beat_control_pf_a",
+    "fail_beat_control_expectancy_a"
+  ],
+  "train_candidate": {
+    "trades": 202,
+    "trades_per_week": 0.9678302532511978,
+    "expectancy_gross_pips": -11.044036019793156,
+    "expectancy_a_pips": -12.544036019793156,
+    "pf_gross": 0.7173110215262294,
+    "pf_stress_a": 0.6859130139763621,
+    "pf_stress_b": 0.6559835927031992,
+    "sum_net_a_pips": -2533.8952759982176,
+    "sum_net_b_pips": -2836.8952759982176
+  },
+  "train_control": {
+    "trades": 231,
+    "trades_per_week": 1.106776180698152,
+    "expectancy_gross_pips": -5.480991939619924,
+    "expectancy_a_pips": -6.980991939619924,
+    "pf_gross": 0.8433480931716344,
+    "pf_stress_a": 0.8053699403159067,
+    "pf_stress_b": 0.7694083061566308,
+    "sum_net_a_pips": -1612.6091380522023,
+    "sum_net_b_pips": -1959.1091380522023
+  },
+  "train_year_concentration_pos_net_a": 0.40376969784588684,
+  "holdout_candidate": null,
+  "holdout_control": null,
+  "holdout_gated": true,
+  "trades_path": "03. EA Developer/EA_SonicR/research/preflight/v8_probe/20260714_V8_VIX_RISKOFF_USDJPY_PROBE_TRADES_V1.csv",
+  "trades_sha256": "651ED189B38E17E4413EA2B36FE96B67B1B2DF691DAD9D125A51EC5D24B73966",
+  "candidate_trade_count_all": 436,
+  "control_trade_count_all": 487,
+  "result_sha256": "F1931775A6DD86C6BDC4FFFC13D5FBEDD35E47C92D59598D77EAB72CDA0DA579"
+}

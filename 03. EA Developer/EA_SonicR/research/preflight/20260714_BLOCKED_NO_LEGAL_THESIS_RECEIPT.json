@@ -1,0 +1,32 @@
+{
+  "receipt_id": "20260714_BLOCKED_NO_LEGAL_THESIS",
+  "created_at_ict": "2026-07-14T00:55:00+07:00",
+  "status": "BLOCKED_NO_LEGAL_THESIS",
+  "gpt_deep_research": "WAIVED",
+  "new_hypothesis_minted": false,
+  "offline_probe_run": false,
+  "model0_run": false,
+  "inventory_readout": "03. EA Developer/EA_SonicR/research/readouts/20260714_BLOCKED_NO_LEGAL_THESIS_SURFACE_INVENTORY.md",
+  "parked_near_goal": [
+    {
+      "hypothesis_id": "HYP-SB-WEEKEND-FLAT-001",
+      "pf_tester": 1.34,
+      "trades_per_week": 1.99,
+      "cost": "research_proxy_not_real_qfsi"
+    },
+    {
+      "hypothesis_id": "HYP-SPARK-ASIAN-M15-001",
+      "pf_tester": 1.31,
+      "trades_per_week": 1.25,
+      "cost": "research_proxy_not_real_qfsi"
+    },
+    {
+      "hypothesis_id": "HYP-ITSM-PULLBACK-M15-001",
+      "pf_tester": 1.16,
+      "trades_per_week": 3.27,
+      "cost": "research_proxy_not_real_qfsi"
+    }
+  ],
+  "owner_physical_unblock": "FivePercentOnline-Real + QFSI for SB then Spark",
+  "agent_executable_next": "none_without_new_independent_exogenous_or_owner_qfsi"
+}

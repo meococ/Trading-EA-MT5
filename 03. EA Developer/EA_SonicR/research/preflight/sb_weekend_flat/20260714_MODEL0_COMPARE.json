@@ -1,0 +1,47 @@
+{
+  "control": {
+    "run_id": "20260714_000703",
+    "run_role": "control",
+    "overrides": "InpUseWeekendFlat=0",
+    "pf": "1.33",
+    "expectancy": "14.64",
+    "trades": "519",
+    "net": "7 600.35",
+    "bars": "124212",
+    "ticks": "123918541",
+    "winrate": null,
+    "tpw": 1.9906849315068493,
+    "elapsed_calendar_weeks": 260.7142857142857
+  },
+  "challenger": {
+    "run_id": "20260714_001029",
+    "run_role": "challenger",
+    "overrides": "InpFridayFlatHour=21;InpFridayFlatMinute=45;InpUseWeekendFlat=1",
+    "pf": "1.34",
+    "expectancy": "15.15",
+    "trades": "520",
+    "net": "7 875.93",
+    "bars": "124212",
+    "ticks": "123918541",
+    "winrate": null,
+    "tpw": 1.9945205479452055,
+    "elapsed_calendar_weeks": 260.7142857142857
+  },
+  "alt_control": {
+    "run_id": "20260714_000937",
+    "run_role": "control",
+    "overrides": "InpUseWeekendFlat=0",
+    "pf": "1.33",
+    "expectancy": "14.64",
+    "trades": "519",
+    "net": "7 600.35",
+    "bars": "124212",
+    "ticks": "123918541",
+    "winrate": null,
+    "tpw": 1.9906849315068493,
+    "elapsed_calendar_weeks": 260.7142857142857
+  },
+  "delta_pf": 0.010000000000000009,
+  "delta_trades": 1,
+  "delta_tpw": 0.003835616438356171
+}

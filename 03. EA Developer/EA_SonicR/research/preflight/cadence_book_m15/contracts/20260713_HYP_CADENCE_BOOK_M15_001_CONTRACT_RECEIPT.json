@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-CADENCE-BOOK-M15-001",
+  "task_packet_sha256": "C637C04E5E9B64BC86A829B9FDC76B14647CA3746198802752FEB9E29AC286D1",
+  "git_commit": "NOGIT-BBF42646336D978D3B61BB482EEF7B9CCD84DBE681F69DCA86EA5F2CBA105537",
+  "git_status_sha256": "DFF1420363CFA52E8E612E85C30BB08D90C46E4DC6BE190380470ABB9257F970",
+  "binding": {
+    "hypothesis_id": "HYP-CADENCE-BOOK-M15-001",
+    "run_role": "control",
+    "ea_name": "EA_M15HourOpenBreak",
+    "symbol": "EURUSD",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 1e-05,
+      "pip_size": 0.0001
+    },
+    "include_closure_sha256": "A9D0C24E93259440906A3E58889EDB677B85EC21272B69CA196ADA481E41BD6D"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\cadence_book_m15\\contracts\\receipt_stubs_HYP_CADENCE_BOOK_M15_001\\task_packet.json",
+      "sha256": "C637C04E5E9B64BC86A829B9FDC76B14647CA3746198802752FEB9E29AC286D1"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_M15HourOpenBreak\\EA_M15HourOpenBreak.mq5",
+      "sha256": "BAD9D4A191792360FA0B8070EAD7D00EED3AAC27177E2D2A1F53FA118FB9BC81"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\cadence_book_m15\\contracts\\receipt_stubs_HYP_CADENCE_BOOK_M15_001\\prereg.json",
+      "sha256": "1EE18A75BC088EC18AA61EB902A331C061594E0D49A8738FC9D4EB4724396C25"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\cadence_book_m15\\contracts\\receipt_stubs_HYP_CADENCE_BOOK_M15_001\\cost_source_manifest.json",
+      "sha256": "70038584C628B167CED93A55817AAE99D7ED1B1A3254A6A02F67540B9C300D43"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\cadence_book_m15\\contracts\\receipt_stubs_HYP_CADENCE_BOOK_M15_001\\include_note.txt",
+      "sha256": "53ECDD37CB18E5F0BDA221EFC3C6312CDDB06119C2F27A37D48539DFCB8F0EB4"
+    }
+  ],
+  "generated_at_utc": "2026-07-13T16:46:05Z",
+  "note": "Model 0 control screen for cadence-book M15 hour-open break. Binding must match alpha.ps1 invocation. Cost provenance unverified."
+}

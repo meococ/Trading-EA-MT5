@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-SB-MAXKZ2-PARTIAL-R1-001",
+  "task_packet_sha256": "B8745C7C5B003D820B2A409FAA8CBC382676DC524A3A1D6FD98044B72ADF0223",
+  "git_commit": "NOGIT-AA014D4BB929F2EB8DC9BDBBC960770F9BF9E5894D504BD59E8D0FF2D92A4311",
+  "git_status_sha256": "4BBBA9F882DF1AF7F5F4A5C87928BBCF4ED4EF39F2422BF1DB3BC44159096AAF",
+  "binding": {
+    "hypothesis_id": "HYP-SB-MAXKZ2-PARTIAL-R1-001",
+    "run_role": "control",
+    "ea_name": "EA_SilverBullet",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpFridayFlatHour=21;InpFridayFlatMinute=45;InpMaxTradesPerKZ=2;InpPCL_ClosePct=0.5;InpPCL_TriggerR=1.0;InpPartialClose=1;InpRiskPct=0.5;InpUseTrail=0;InpUseWeekendFlat=1",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "5A03C6D8725EDCFE13142FAA05FA922CA8FFC0DF7BE37B5FF8CCF814043F86EE"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_maxkz2_partial\\contracts\\receipt_stubs_HYP_SB_PARTIAL_001\\task_packet.json",
+      "sha256": "B8745C7C5B003D820B2A409FAA8CBC382676DC524A3A1D6FD98044B72ADF0223"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SilverBullet\\EA_SilverBullet_v2.mq5",
+      "sha256": "631F8DCEBACFC9E07CD527BCAE53F745B53121E7DC67281BAE5A9A620D9BF642"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_maxkz2_partial\\contracts\\receipt_stubs_HYP_SB_PARTIAL_001\\prereg.json",
+      "sha256": "B43E1EEF802DCD30FE250FD12677A59A98FABBB7E09A1C195EC71679870C53BE"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_maxkz2_partial\\contracts\\receipt_stubs_HYP_SB_PARTIAL_001\\cost_source_manifest.json",
+      "sha256": "EC1CF768B3AB9CFBB91B8587157C5AA52DF5293CB68FE1F38D54D0B7E654F755"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_maxkz2_partial\\contracts\\receipt_stubs_HYP_SB_PARTIAL_001\\include_note.txt",
+      "sha256": "852BB1125B6E1CCF266B2C0CA96C6A07470E9987D82B404C88788C6F54969AE3"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T17:24:42Z",
+  "note": "Post-cost rebuild; MaxKZ2+Partial 50%@1R; not densify."
+}

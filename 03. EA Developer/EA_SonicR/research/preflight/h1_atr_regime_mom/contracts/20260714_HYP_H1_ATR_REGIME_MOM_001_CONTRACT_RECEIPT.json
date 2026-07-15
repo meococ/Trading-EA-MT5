@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-H1-ATR-REGIME-MOM-001",
+  "task_packet_sha256": "42C5400AB370171EFED33AF756C96EF781F988C6842290FF183CDCC262B148A0",
+  "git_commit": "NOGIT-622772037803FB17D05A3E07F3597A71B8E6A80A5DEF8B12CE5428E6095156D5",
+  "git_status_sha256": "923E4C0091C30BEBC55AD8D321F3AE83D0FCF1843A7D66226B981D5D745F1EEA",
+  "binding": {
+    "hypothesis_id": "HYP-H1-ATR-REGIME-MOM-001",
+    "run_role": "control",
+    "ea_name": "EA_H1ATRRegimeMom",
+    "symbol": "USDJPY",
+    "period": "H1",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "7F6729428FEAF88782024532CB8E2C235C70BD47A4E994464F1686BA9C2674A9"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_atr_regime_mom\\contracts\\receipt_stubs_HYP_H1_ATR_REGIME_MOM_001\\task_packet.json",
+      "sha256": "42C5400AB370171EFED33AF756C96EF781F988C6842290FF183CDCC262B148A0"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_H1ATRRegimeMom\\EA_H1ATRRegimeMom.mq5",
+      "sha256": "C8DD8959D8C1D7DD40DA97276D8E6964F454D656C11785656012575F22F76D59"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_atr_regime_mom\\contracts\\receipt_stubs_HYP_H1_ATR_REGIME_MOM_001\\prereg.json",
+      "sha256": "8B80067E3D6B21EC4C5D0DBFFF1E218C52D92EFD2974974E332977D939B2F0E9"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_atr_regime_mom\\contracts\\receipt_stubs_HYP_H1_ATR_REGIME_MOM_001\\cost_source_manifest.json",
+      "sha256": "B60692A777B9CAAB3DF1C86559EADD04D6EC42B965AE68CD45535AC3806DB240"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_atr_regime_mom\\contracts\\receipt_stubs_HYP_H1_ATR_REGIME_MOM_001\\include_note.txt",
+      "sha256": "823D6951A775C20A819F7C65409EB5B637780F1D1A8E90181EFED2C30B7B509A"
+    }
+  ],
+  "generated_at_utc": "2026-07-13T20:15:41.084513+00:00",
+  "note": "Model 0 H1 ATR-regime directional momentum; not stretch-fade/VolExp/Chop/ORB."
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "hypothesis_id": "HYP-M15-IB-OVERLAP-BREAK-001",
+    "ea_name": "EA_M15IBOverlapBreak",
+    "period": "M15",
+    "deposit": 100000,
+    "receipt": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\m15_ib_overlap_break\\contracts\\20260714_HYP_M15_IB_OVERLAP_BREAK_001_CONTRACT_RECEIPT.json",
+    "receipt_sha256": "C17FA4CBF99A5E95DBF9C68578D4EB3EC9DE043B8CA71CF65F4D9D9BD984EBBB"
+  },
+  {
+    "hypothesis_id": "HYP-H1-RV-COMPRESS-BREAK-001",
+    "ea_name": "EA_H1RVCompressBreak",
+    "period": "H1",
+    "deposit": 100000,
+    "receipt": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_rv_compress_break\\contracts\\20260714_HYP_H1_RV_COMPRESS_BREAK_001_CONTRACT_RECEIPT.json",
+    "receipt_sha256": "89BD141A7C7AE54951FBAFDCF68034DFCC90BA973A0850BB50F3F71317B6AA29"
+  },
+  {
+    "hypothesis_id": "HYP-GBPJPY-LEAD-USDJPY-H1-001",
+    "ea_name": "EA_H1GBPJPYLead",
+    "period": "H1",
+    "deposit": 100000,
+    "receipt": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_gbpjpy_lead\\contracts\\20260714_HYP_GBPJPY_LEAD_USDJPY_H1_001_CONTRACT_RECEIPT.json",
+    "receipt_sha256": "343DFD9C5C2983807C72C447657B943AA605B457015CB5179D48EC15F22ACF64"
+  }
+]

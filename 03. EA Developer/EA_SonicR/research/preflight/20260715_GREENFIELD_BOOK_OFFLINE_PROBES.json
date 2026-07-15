@@ -1,0 +1,171 @@
+{
+  "schema": "greenfield_book_offline_probes_v1",
+  "created_utc": "2026-07-14T17:49:47.859515Z",
+  "window": {
+    "from": "2021-01-01T00:00:00",
+    "to": "2025-12-31T23:59:00",
+    "weeks": 260.7142857142857
+  },
+  "survivor_bar": {
+    "n_min": 80,
+    "pf_min": 1.2,
+    "tpw_min": 1.5,
+    "tpw_max": 6.0,
+    "x15_pf_min": 1.15,
+    "cost_proxy_usd": 12.0
+  },
+  "forbidden_families": [
+    "session_overlap_ib_orb_coil_lny_fade_catchup",
+    "rr2_exit_gates",
+    "fred_displace_tot",
+    "cot_size_z"
+  ],
+  "panel": "sonic_trader+quant_validation+mql5_systems@cursor-grok-4.5-high-fast",
+  "results": [
+    {
+      "hypothesis_id": "HYP-XS-USD-RESIDUAL-H1-FADE-BOOK-001",
+      "symbol": "BOOK:EUR+GBP+AUD+USDJPY",
+      "tf": "H1",
+      "funnel": {
+        "n_decision_bars": 1297,
+        "n_armed": 831,
+        "n_trades": 831,
+        "by_symbol": {
+          "GBPUSD": 257,
+          "USDJPY": 182,
+          "EURUSD": 217,
+          "AUDUSD": 175
+        }
+      },
+      "metrics": {
+        "n": 831,
+        "pf": 1.0394,
+        "net": 9984.62,
+        "exp": 12.0152,
+        "tpw": 3.1874
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.0,
+          "net": 12.62,
+          "exp": 0.0152
+        },
+        "x1_5": {
+          "pf": 0.9811,
+          "net": -4973.38,
+          "exp": -5.9848
+        },
+        "x2": {
+          "pf": 0.9626,
+          "net": -9959.38,
+          "exp": -11.9848
+        }
+      },
+      "kill_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD",
+      "cost_proxy_usd": 12.0,
+      "note": "closed-bar H1 sync residual fade; NOT M15 XS PB-break; NOT LNY fade",
+      "n_trades_raw": 831
+    },
+    {
+      "hypothesis_id": "HYP-XS-USD-MOM-H1-TOP1-BOOK-001",
+      "symbol": "BOOK:EUR+GBP+AUD+USDJPY",
+      "tf": "H1",
+      "funnel": {
+        "n_decision_bars": 1297,
+        "n_armed": 772,
+        "n_trades": 771,
+        "by_symbol": {
+          "AUDUSD": 290,
+          "GBPUSD": 139,
+          "EURUSD": 114,
+          "USDJPY": 228
+        }
+      },
+      "metrics": {
+        "n": 771,
+        "pf": 1.0412,
+        "net": 11444.49,
+        "exp": 14.8437,
+        "tpw": 2.9573
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.0077,
+          "net": 2192.49,
+          "exp": 2.8437
+        },
+        "x1_5": {
+          "pf": 0.9915,
+          "net": -2433.51,
+          "exp": -3.1563
+        },
+        "x2": {
+          "pf": 0.9756,
+          "net": -7059.51,
+          "exp": -9.1563
+        }
+      },
+      "kill_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD",
+      "cost_proxy_usd": 12.0,
+      "note": "closed-bar H1 XS mom top1; NOT M15 XS PB-break; NOT lead-lag catch-up",
+      "n_trades_raw": 771
+    },
+    {
+      "hypothesis_id": "HYP-AUDNZD-H1-RESIDUAL-ZMR-001",
+      "symbol": "AUDUSD(vs NZDUSD spread)",
+      "tf": "H1",
+      "funnel": {
+        "n_decision_bars": 1298,
+        "n_armed": 228,
+        "n_trades": 228
+      },
+      "metrics": {
+        "n": 228,
+        "pf": 1.0934,
+        "net": 6497.65,
+        "exp": 28.4985,
+        "tpw": 0.8745
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.0529,
+          "net": 3761.65,
+          "exp": 16.4985
+        },
+        "x1_5": {
+          "pf": 1.0333,
+          "net": 2393.65,
+          "exp": 10.4985
+        },
+        "x2": {
+          "pf": 1.0141,
+          "net": 1025.65,
+          "exp": 4.4985
+        }
+      },
+      "kill_notes": [
+        "cadence_fail",
+        "pf_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD",
+      "cost_proxy_usd": 12.0,
+      "note": "AUD–NZD log-spread Z MR via AUDUSD leg; NOT EURGBP lead; NOT LNY catch-up",
+      "n_trades_raw": 228
+    }
+  ],
+  "survivors": [],
+  "model0_policy": "survivors_only",
+  "receipt_sha256": "DDB74ADE9AA6E8D9D34027E0F94D4FA7EF339AAB0EC36FB77EC3E9986CC5B0A2"
+}

@@ -1,0 +1,36 @@
+{
+  "elapsed_weeks": 260.7142857142857,
+  "control": {
+    "run_id": "20260714_002046",
+    "role": "control",
+    "n_trades": 519,
+    "tpw": 1.9906849315068493,
+    "pf": 1.328801560524172,
+    "net": 7600.350000000006,
+    "dd_pct": 0.8300676707380947,
+    "expectancy": 14.644219653179192,
+    "win_rate": 47.398843930635834
+  },
+  "challenger": {
+    "run_id": "20260714_002505",
+    "role": "challenger",
+    "n_trades": 520,
+    "tpw": 1.9945205479452055,
+    "pf": 1.3442672824717177,
+    "net": 7875.929999999993,
+    "dd_pct": 0.827951065390186,
+    "expectancy": 15.146019230769232,
+    "win_rate": 47.69230769230769
+  },
+  "delta": {
+    "trades": 1,
+    "pf": 0.015465721947545585,
+    "net": 275.5799999999872
+  },
+  "goal_checks": {
+    "pf_gt_1_30_tester": true,
+    "cadence_2_to_5": false,
+    "challenger_not_worse_pf": true,
+    "cost_provenance_verified": false
+  }
+}

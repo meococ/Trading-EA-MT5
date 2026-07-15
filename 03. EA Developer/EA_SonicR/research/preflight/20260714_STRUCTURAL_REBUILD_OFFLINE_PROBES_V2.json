@@ -1,0 +1,137 @@
+{
+  "schema": "structural_rebuild_offline_probes.v2",
+  "generated_at": "2026-07-14T16:08:53.066030+00:00",
+  "authority": "Owner_structural_rebuild_offline_first",
+  "gpt": "waived",
+  "demo_discovery_diminishing_returns": true,
+  "best_shelf": "20260714_194548",
+  "symbol": "USDJPY",
+  "de_dup_path": "03. EA Developer/EA_SonicR/research/readouts/20260714_STOPRUN_ACCEPT_LNY_EVENT_DEDUP_CLEARANCE.md",
+  "probe_a": {
+    "hypothesis_id": "HYP-H1-PDLIQ-STOPRUN-ACCEPT-001",
+    "thesis": "prior_day_liq_stoprun_multibar_continuation_accept",
+    "de_dup": "NOT AsianSweep/EQHL reclaim (opposite: continuation beyond extreme); NOT PDH-break immediate first-close; NOT PDH-retest reject; NOT LondonORB-accept (no ORB box); NOT ASR kill family",
+    "tf": "H1",
+    "params": {
+      "rr": 2.5,
+      "sweep_atr": 0.15,
+      "accept_bars": 2,
+      "entry_hours": "08-15",
+      "max_day": 1
+    },
+    "funnel": {
+      "n_stoprun": 1773,
+      "n_accept_geom": 390,
+      "n_trades": 164
+    },
+    "metrics": {
+      "n": 164,
+      "pf": 1.1115,
+      "net": 5501.15,
+      "exp": 33.5436,
+      "tpw": 0.629
+    },
+    "cost_stress": {
+      "x1": {
+        "pf": 1.0699,
+        "net": 3533.15,
+        "exp": 21.5436
+      },
+      "x1_5": {
+        "pf": 1.0498,
+        "net": 2549.15,
+        "exp": 15.5436
+      },
+      "x2": {
+        "pf": 1.0302,
+        "net": 1565.15,
+        "exp": 9.5436
+      }
+    },
+    "pass_n": true,
+    "pass_cadence": false,
+    "pass_pf": false,
+    "pass_stress": false,
+    "kill_notes": [
+      "cadence_fail",
+      "pf_fail",
+      "stress_fail"
+    ],
+    "verdict": "KILLED_AT_OFFLINE_PROBE",
+    "model0": "WITHHELD_KILL_FAST"
+  },
+  "probe_b": {
+    "hypothesis_id": "HYP-LNY-RANGE-ACCEPT-M15-001",
+    "thesis": "london_range_expansion_event_then_multibar_accept_break",
+    "de_dup": "NOT LondonNY PB entry (event=expansion+accept-break, not bias+pullback); NOT LNY DualWin window densify (single entry window [13,18)); NOT S530 Mon/day mine; NOT LondonORB ORB-box; NOT IB-overlap densify",
+    "tf": "M15",
+    "params": {
+      "rr": 2.0,
+      "london": "9-12",
+      "range_atr_d1": 1.0,
+      "close_frac": 0.33,
+      "accept_bars": 2,
+      "entry_window": "13-18",
+      "days": "Mon-Thu_a_priori_shelf",
+      "max_day": 1
+    },
+    "funnel": {
+      "n_expansion_days": 13,
+      "n_armed_bias": 11,
+      "n_trades": 4
+    },
+    "metrics": {
+      "n": 4,
+      "pf": 0.0,
+      "net": -606.82,
+      "exp": -151.705,
+      "tpw": 0.0153
+    },
+    "cost_stress": {
+      "x1": {
+        "pf": 0.0,
+        "net": -654.82,
+        "exp": -163.705
+      },
+      "x1_5": {
+        "pf": 0.0,
+        "net": -678.82,
+        "exp": -169.705
+      },
+      "x2": {
+        "pf": 0.0,
+        "net": -702.82,
+        "exp": -175.705
+      }
+    },
+    "pass_n": false,
+    "pass_cadence": false,
+    "pass_pf": false,
+    "pass_stress": false,
+    "kill_notes": [
+      "n_fail",
+      "cadence_fail",
+      "pf_fail",
+      "stress_fail"
+    ],
+    "verdict": "KILLED_AT_OFFLINE_PROBE",
+    "model0": "WITHHELD_KILL_FAST"
+  },
+  "phase0_compose": {
+    "status": "BLOCKED_REQUIRES_CLEAN_FUTURE_FREEZE_REVIEW",
+    "reopened": false
+  },
+  "banned_densify": [
+    "MaxKZ/RR/SB/Spark",
+    "ATR%ile/Asia-box/NY-IB hours",
+    "ASR/EQHL reclaim rescue",
+    "PDH-break/retest retune",
+    "LNY DualWin window densify",
+    "S530 Mon/day mine",
+    "Wave1-5 killed/parked",
+    "Phase-0 compose without Owner clear"
+  ],
+  "offline_survivors": [],
+  "any_model0_authorized": false,
+  "result_sha256": "10F0A23A85A2D8307C56F63DE080899FF340D9D57D1C5811DAC1514149B455D0"
+}

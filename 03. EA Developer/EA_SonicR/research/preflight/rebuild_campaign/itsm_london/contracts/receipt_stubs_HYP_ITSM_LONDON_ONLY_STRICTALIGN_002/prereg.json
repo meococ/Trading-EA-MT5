@@ -1,0 +1,8 @@
+{
+  "schema_version": "sonic_prereg.v1",
+  "hypothesis_id": "HYP-ITSM-LONDON-ONLY-STRICTALIGN-002",
+  "status": "FROZEN",
+  "prereg_md": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preregs\\20260714_H_ITSM_LONDON_ONLY_STRICTALIGN_002_PREREG.md",
+  "prereg_md_sha256": "A67BEB13AA1DF6ECC4F1B16CF9EF96E96D70E1D05B98FB5F85F8FAAE6D366755",
+  "overrides": "InpMaxTradesDay=2;InpRiskPct=0.5;InpRR_Ratio=2.0;InpStrictAlign=1;InpTradeFri=0;InpUseKZ2=0"
+}

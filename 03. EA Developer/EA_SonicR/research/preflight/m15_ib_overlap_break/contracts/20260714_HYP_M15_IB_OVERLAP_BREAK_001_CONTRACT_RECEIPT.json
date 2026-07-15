@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-M15-IB-OVERLAP-BREAK-001",
+  "task_packet_sha256": "94875FD566E52E677C0F601C15C64AC1B9920C7AB5FA7E73AC6F67002CB1CFEA",
+  "git_commit": "NOGIT-A2C4B71630161C8FDBE32CED537D4543673F55F0052803F72EC92A4211C1F305",
+  "git_status_sha256": "6CC024B2E70CB30A08D68B1DADCAE6FA3AB61766607422AB51D553555E9A4E6A",
+  "binding": {
+    "hypothesis_id": "HYP-M15-IB-OVERLAP-BREAK-001",
+    "run_role": "control",
+    "ea_name": "EA_M15IBOverlapBreak",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "DA76D6A53290325B3999FB89CC23A62FE4DD1DF01B135EFC7F6B45566D77E225"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\m15_ib_overlap_break\\contracts\\receipt_stubs_HYP_IBOV_001\\task_packet.json",
+      "sha256": "94875FD566E52E677C0F601C15C64AC1B9920C7AB5FA7E73AC6F67002CB1CFEA"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_M15IBOverlapBreak\\EA_M15IBOverlapBreak.mq5",
+      "sha256": "485402CAE8981206D64F663FDE69CA5B3A0DC08D828AEE310A9FD6D8EEC0C499"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\m15_ib_overlap_break\\contracts\\receipt_stubs_HYP_IBOV_001\\prereg.json",
+      "sha256": "7B651E4293E9C7B62C998BAA85B92518940AF8565EA835EF8BA69AD8A606CA9B"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\m15_ib_overlap_break\\contracts\\receipt_stubs_HYP_IBOV_001\\cost_source_manifest.json",
+      "sha256": "9E31C64580D7687D65664E0BAC0DFBA837DED4D45CBD83F3F34AF198E9B55DE7"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\m15_ib_overlap_break\\contracts\\receipt_stubs_HYP_IBOV_001\\include_note.txt",
+      "sha256": "A4C35839C0870ACF78DAC5A505794ACEF9CCF841AF5DC52125A178D64100CC53"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T15:27:41Z",
+  "note": "Wave4 Model 0; London IB \u2192 overlap break RR=2.5"
+}

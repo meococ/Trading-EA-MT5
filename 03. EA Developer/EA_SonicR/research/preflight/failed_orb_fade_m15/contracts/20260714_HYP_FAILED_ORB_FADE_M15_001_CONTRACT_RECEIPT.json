@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-FAILED-ORB-FADE-M15-001",
+  "task_packet_sha256": "20B6288951630798C9A95B41225728406FD3424C9DDC8105912594C618D61A6F",
+  "git_commit": "NOGIT-AADB48A4AF476E3CF9A4BF5F9FA37BB3ED4DEF4E94F022F3596CD521C7E65632",
+  "git_status_sha256": "2C6EB02D15A4876C201799A1C8A36026681B619ECB01F20DF7D2323680B03AD8",
+  "binding": {
+    "hypothesis_id": "HYP-FAILED-ORB-FADE-M15-001",
+    "run_role": "control",
+    "ea_name": "EA_M15FailedORBFade",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "74B7D5C6AB3506ACEA53BE0BAB28E9506E67F030C6BF56EE4A3804E601BB5058"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\failed_orb_fade_m15\\contracts\\receipt_stubs_HYP_FAILED_ORB_FADE_M15_001\\task_packet.json",
+      "sha256": "20B6288951630798C9A95B41225728406FD3424C9DDC8105912594C618D61A6F"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_M15FailedORBFade\\EA_M15FailedORBFade.mq5",
+      "sha256": "8D718A685BC450CF1B8966CDB1EB6E2F2439386C92C714A4F5C30CACA6750F19"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\failed_orb_fade_m15\\contracts\\receipt_stubs_HYP_FAILED_ORB_FADE_M15_001\\prereg.json",
+      "sha256": "BEF8F67B9071481B2C79EC8B9802B5259CFD583E8609FE6E2594E74CDA770E45"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\failed_orb_fade_m15\\contracts\\receipt_stubs_HYP_FAILED_ORB_FADE_M15_001\\cost_source_manifest.json",
+      "sha256": "B60692A777B9CAAB3DF1C86559EADD04D6EC42B965AE68CD45535AC3806DB240"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\failed_orb_fade_m15\\contracts\\receipt_stubs_HYP_FAILED_ORB_FADE_M15_001\\include_note.txt",
+      "sha256": "F7732E339646E6FCBD5AD07C3419EC5EF30614ADA596FFF4DFB77774647B45CF"
+    }
+  ],
+  "generated_at_utc": "2026-07-13T18:49:48.560268+00:00",
+  "note": "Model 0 London failed-auction OR fade; opposite of LondonORB break."
+}

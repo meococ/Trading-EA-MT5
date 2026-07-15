@@ -1,0 +1,39 @@
+{
+  "schema_version": "sonic_offline_compose_a1_spark_real_cost.v1",
+  "note": "Diagnostic equal-join pool with per-sleeve Real partial haircut; NOT Phase-0; NOT confirmed; overlap not portfolio-simulated",
+  "a1_run": "20260714_002505",
+  "spark_run": "20260714_193358",
+  "a1_cost": 2.6167737797160218,
+  "spark_cost": 5.2335475594320435,
+  "same_day_overlap_n": 108,
+  "honesty": [
+    "PARTIAL_REAL_COST",
+    "ADDITIVE_POOL_NOT_TRUE_PORTFOLIO",
+    "SLIPPAGE_MISSING"
+  ],
+  "x1": {
+    "a1_pf": 1.2761953049084387,
+    "spark_pf": 1.3019465807773856,
+    "pooled_pf": 1.289530303665998,
+    "pooled_n": 845,
+    "pooled_tpw": 3.2375478927203063,
+    "pooled_net": 14164.89467773225
+  },
+  "x1_5": {
+    "a1_pf": 1.2436768892432875,
+    "spark_pf": 1.2644177922343913,
+    "pooled_pf": 1.254416761135233,
+    "pooled_n": 845,
+    "pooled_tpw": 3.2375478927203063,
+    "pooled_net": 12634.082016598382
+  },
+  "x2": {
+    "a1_pf": 1.2121109235950087,
+    "spark_pf": 1.2279627639134034,
+    "pooled_pf": 1.2203190719883685,
+    "pooled_n": 845,
+    "pooled_tpw": 3.2375478927203063,
+    "pooled_net": 11103.269355464508
+  },
+  "goal_cost_stress_like": false
+}

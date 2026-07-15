@@ -1,0 +1,99 @@
+{
+  "schema_version": "backtest-log-mirror-dedupe-execute-receipt-v1",
+  "completed_at_local": "2026-07-12T21:50:20.1641324+07:00",
+  "workspace": "D:\\Trading EA MT5",
+  "scope": "Owner-approved conversion of 327 exact AlphaFactory log mirrors to NTFS hardlinks",
+  "approval_plan": {
+    "path": "02. AlphaFactory/runtime/cleanup_plans/dedupe_all_log_mirrors.json",
+    "sha256": "a788de9a300b708df2865f966e6251d2e5557ca6de4fbf5b0a4d585bec7aad47",
+    "candidate_pairs": 327,
+    "logical_duplicate_bytes": 1940177078
+  },
+  "preflight": {
+    "path": "02. AlphaFactory/runtime/cleanup_plans/dedupe_preflight_20260712.json",
+    "sha256": "442e6ddd35e6504cddac1f16a950a88d435278c07f66fdc032bcf02b180e599e",
+    "candidate_pairs": 327,
+    "already_hardlinked_pairs": 0,
+    "exclusive_paths_opened": 654,
+    "missing_paths": 0,
+    "alpha_backtest_lock_present": false
+  },
+  "execution": {
+    "first_phase_hardlinked_pairs": 309,
+    "interruption_recovery_missing_pairs": 0,
+    "interruption_recovery_backup_files": 0,
+    "resume_plan_path": "02. AlphaFactory/runtime/cleanup_plans/dedupe_execute_resume_20260712.json",
+    "resume_plan_sha256": "43c0edfd29e5ef869c7b59ecba740ec71f4efa6f6e9d3367377fa9ca04f2f3c3",
+    "resume_converted_pairs": 18,
+    "resume_skipped_existing_hardlinks": 309,
+    "resume_logical_duplicate_bytes": 540513168,
+    "resume_observed_drive_free_delta_bytes": 540504064,
+    "total_hardlinked_pairs": 327,
+    "total_logical_duplicate_bytes_eliminated": 1940177078,
+    "files_deleted": 0,
+    "files_moved_out_of_compatibility_paths": 0,
+    "archive_execute_runs": 0
+  },
+  "postcheck": {
+    "path": "02. AlphaFactory/runtime/cleanup_plans/dedupe_postcheck_20260712.json",
+    "sha256": "bc20a11bf64dc72ae002239d658a2724564548d96882da1469594997da0776ee",
+    "pending_physical_duplicate_pairs": 0,
+    "already_hardlinked_pairs": 327,
+    "same_file_id_pairs": 327,
+    "primary_hashes_matching_approval_plan": 327,
+    "missing_pairs": 0,
+    "backup_files_remaining": 0
+  },
+  "post_inventory": {
+    "path": "02. AlphaFactory/runtime/storage/backtest_inventory_post_dedupe.json",
+    "sha256": "fe709c4a83f169d4e15f428264ac11ead7088d895108d4285fc597b435720c50",
+    "logical_size_bytes": 5631447123,
+    "estimated_recognized_physical_size_bytes": 3691270045,
+    "file_count": 5901,
+    "hardlinked_mirror_logical_bytes": 1940177078,
+    "potential_mirror_pair_count": 0,
+    "already_hardlinked_mirror_pair_count": 327
+  },
+  "measurement_note": "The full-operation D-drive free-space delta is not used as evidence because unrelated host storage changed during the interrupted phase. Reclaim is proved from frozen per-file sizes plus 327 same-volume NTFS file identities; the isolated 18-pair resume drive delta is recorded separately.",
+  "verification": {
+    "log_storage_contract": "18/18",
+    "python_tests": "8 passed",
+    "receipt_source_hashes": "6/6",
+    "receipt_evidence_hashes": "5/5",
+    "alpha_status": "PASS; MT5 STOPPED",
+    "root_git_entries": 0,
+    "root_git_rev_parse_exit": 128
+  },
+  "source_artifacts": [
+    {
+      "path": "02. AlphaFactory/tools/log_storage.ps1",
+      "size_bytes": 6649,
+      "sha256": "e4a540ecc6a93a73bc8ee1734e33dde234a8ebff25559945ab410b260b569cbf"
+    },
+    {
+      "path": "02. AlphaFactory/tools/dedupe_backtest_log_mirrors.ps1",
+      "size_bytes": 4882,
+      "sha256": "530caa3f684ebd364c537a25b64becb10552f7ce317c473f7556a7f89e253707"
+    },
+    {
+      "path": "02. AlphaFactory/tools/backtest_storage_inventory.py",
+      "size_bytes": 6943,
+      "sha256": "be72b9b434f8ce1e623bc6de2610072f83e591e7b162740d8e25eecc69647c17"
+    },
+    {
+      "path": "tests/Test-LogStorage.ps1",
+      "size_bytes": 4159,
+      "sha256": "95cbcd321c042a99d92fb0887be9a06f8a8bf57bc594e3861f66889671daf42b"
+    },
+    {
+      "path": "tests/test_backtest_storage_inventory.py",
+      "size_bytes": 2974,
+      "sha256": "cbea7acecb49f936b5d00b336c878ee67ea5a5ee866fc4ac002129541ed97597"
+    },
+    {
+      "path": "04. Project Control/ai/hot.md",
+      "size_bytes": 36348,
+      "sha256": "90cbe8a801eba5ef576e4191bf00ad4b6b6471984bc4de717bf4500519a9b1a2"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "hypothesis_id": "HYP-H1-EMA-STACK-PB-001",
+  "probe_type": "offline_closed_bar_mirror",
+  "not_model0": true,
+  "symbol": "USDJPY",
+  "tf": "H1",
+  "n_trades": 1634,
+  "tpw_elapsed": 6.2674,
+  "pf_zero_spread": 1.0223935283406531,
+  "net_zero_spread": 10552.66,
+  "exp_zero_spread": 6.4582,
+  "cost_stress_synthetic": {
+    "base_cost_usd": 12.0,
+    "x1": {
+      "pf": 0.981278426886988,
+      "net": -9055.34,
+      "exp": -5.5418
+    },
+    "x1_5": {
+      "pf": 0.9615049383942019,
+      "net": -18859.34,
+      "exp": -11.5418
+    },
+    "x2": {
+      "pf": 0.9422298542770312,
+      "net": -28663.34,
+      "exp": -17.5418
+    }
+  },
+  "kill_reasons": [
+    "tpw=6.267 not in [1,6]"
+  ],
+  "verdict": "KILLED_AT_OFFLINE_PROBE",
+  "model0": "WITHHELD_KILL_FAST",
+  "params": {
+    "ema": [
+      8,
+      21,
+      50
+    ],
+    "rr": 2.5,
+    "sl_atr": 1.1,
+    "touch_atr": 0.25
+  },
+  "generated_at": "2026-07-14T15:31:57.162706+00:00"
+}

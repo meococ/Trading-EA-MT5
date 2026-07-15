@@ -1,0 +1,1 @@
+Trade.mqh stdlib only for HYP-H1-ATR-PCTILE-BREAK-001.

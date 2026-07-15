@@ -1,0 +1,1 @@
+EA_SilverBullet_v2 tick trail ManageTrailingStop + closed M15 ATR14; Trade.mqh stdlib; InpTrailBE=0 native ATR trail monetization.

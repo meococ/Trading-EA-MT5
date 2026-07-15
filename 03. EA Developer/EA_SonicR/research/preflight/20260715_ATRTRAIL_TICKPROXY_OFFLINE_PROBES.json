@@ -1,0 +1,259 @@
+{
+  "schema_version": "sonic_atrtrail_tickproxy_offline.v1",
+  "created_at_utc": "2026-07-14T18:02:31.220693Z",
+  "rr2_sleeve": "20260714_194548",
+  "trades_csv": "02. AlphaFactory/runs/EA_SilverBullet/20260714_194548/logs/USDJPY_20260325_PX6_Trades_20210101_000000_90095968.csv",
+  "trades_csv_sha256": "BCAE4179EBD6D3F64749A6F71A53790CAF21A497B3912B3ECA9ED838A361CE80",
+  "symbol": "USDJPY",
+  "tick_path_available": false,
+  "proxy_policy": {
+    "authority": "mfe_envelope_m1_extrema",
+    "diagnostic": "m1_ohlc_path_proxy",
+    "voided": "m15_ohlc_path_rebuild_false_sl",
+    "do_not_claim": "tick_bidask_fidelity"
+  },
+  "baseline": {
+    "metrics": {
+      "n": 524,
+      "pf": 1.3794,
+      "net": 9851.14,
+      "exp": 18.7999,
+      "tpw": 2.0099
+    },
+    "haircut_flat12": {
+      "x1": {
+        "pf": 1.1205,
+        "net": 3563.14,
+        "exp": 6.7999
+      },
+      "x1_5": {
+        "pf": 1.0134,
+        "net": 419.14,
+        "exp": 0.7999
+      },
+      "x2": {
+        "pf": 0.9179,
+        "net": -2724.86,
+        "exp": -5.2001
+      }
+    }
+  },
+  "survivor_bar": {
+    "n_ge": 80,
+    "pf_gt": 1.2,
+    "tpw_in": [
+      1.5,
+      6.0
+    ],
+    "stress_x15_ge": 1.15,
+    "require_stress_lift_vs_baseline": true
+  },
+  "probes": [
+    {
+      "hypothesis_id": "HYP-RR2-EXIT-ATRTRAIL-MFEENV-ARM075-K15-001",
+      "family": "architecture_atr_trail_mfe_envelope",
+      "contract": {
+        "method": "mfe_envelope_m1_extrema",
+        "arm_mfe_r": 0.75,
+        "atr_k": 1.5,
+        "atr_len_m15": 14,
+        "be_clamp": false,
+        "stall_timer": false,
+        "tick_path": false,
+        "authority": true,
+        "not": "BE@1R / MFE stall / scale / timebox / volR / voided M15 path"
+      },
+      "n_pnl_changed": 101,
+      "exit_reasons": {
+        "unarmed_keep": 335,
+        "trail_bind": 101,
+        "trail_not_bind": 88
+      },
+      "metrics": {
+        "n": 524,
+        "pf": 2.5323,
+        "net": 26891.88,
+        "exp": 51.3204,
+        "tpw": 2.0099
+      },
+      "haircut_flat12": {
+        "x1": {
+          "pf": 2.0201,
+          "net": 20603.88,
+          "exp": 39.3204
+        },
+        "x1_5": {
+          "pf": 1.8099,
+          "net": 17459.88,
+          "exp": 33.3204
+        },
+        "x2": {
+          "pf": 1.624,
+          "net": 14315.88,
+          "exp": 27.3204
+        }
+      },
+      "baseline_x15": 1.0134,
+      "stress_lift_vs_baseline": 0.7965,
+      "verdict": "PROBE_SURVIVOR",
+      "notes": [],
+      "model0": "AUTHORIZED_IF_SURVIVOR",
+      "n_trail_bind": 101,
+      "m1_bars": 1861882,
+      "m15_bars": 124604
+    },
+    {
+      "hypothesis_id": "HYP-RR2-EXIT-ATRTRAIL-MFEENV-ARM100-K20-001",
+      "family": "architecture_atr_trail_mfe_envelope",
+      "contract": {
+        "method": "mfe_envelope_m1_extrema",
+        "arm_mfe_r": 1.0,
+        "atr_k": 2.0,
+        "atr_len_m15": 14,
+        "be_clamp": false,
+        "stall_timer": false,
+        "tick_path": false,
+        "authority": true,
+        "not": "BE@1R / densify-after-kill / MFE stall / voided M15 path"
+      },
+      "n_pnl_changed": 80,
+      "exit_reasons": {
+        "unarmed_keep": 368,
+        "trail_bind": 80,
+        "trail_not_bind": 76
+      },
+      "metrics": {
+        "n": 524,
+        "pf": 2.2173,
+        "net": 23341.89,
+        "exp": 44.5456,
+        "tpw": 2.0099
+      },
+      "haircut_flat12": {
+        "x1": {
+          "pf": 1.7736,
+          "net": 17053.89,
+          "exp": 32.5456
+        },
+        "x1_5": {
+          "pf": 1.5918,
+          "net": 13909.89,
+          "exp": 26.5456
+        },
+        "x2": {
+          "pf": 1.4311,
+          "net": 10765.89,
+          "exp": 20.5456
+        }
+      },
+      "baseline_x15": 1.0134,
+      "stress_lift_vs_baseline": 0.5784,
+      "verdict": "PROBE_SURVIVOR",
+      "notes": [],
+      "model0": "AUTHORIZED_IF_SURVIVOR",
+      "n_trail_bind": 80,
+      "m1_bars": 1861882,
+      "m15_bars": 124604
+    },
+    {
+      "hypothesis_id": "HYP-RR2-EXIT-ATRTRAIL-M1PATH-ARM075-K15-001",
+      "family": "architecture_atr_trail_m1_path_proxy",
+      "contract": {
+        "method": "m1_ohlc_path_proxy",
+        "arm_mfe_r": 0.75,
+        "atr_k": 1.5,
+        "atr_len_m15": 14,
+        "be_clamp": false,
+        "stall_timer": false,
+        "tick_path": false,
+        "authority": false,
+        "limitations": [
+          "not_tick_bidask",
+          "intra_bar_order_unknown",
+          "dual_touch_defers_to_original"
+        ],
+        "not": "tick claim / BE@1R / MFE stall / voided M15 path authority"
+      },
+      "n_pnl_changed": 307,
+      "exit_reasons": {
+        "sl": 235,
+        "false_sl_guard_orig": 186,
+        "trail_hit": 46,
+        "orig_timeout": 31,
+        "tp": 26
+      },
+      "metrics": {
+        "n": 524,
+        "pf": 1.55,
+        "net": 12642.0,
+        "exp": 24.1259,
+        "tpw": 2.0099
+      },
+      "haircut_flat12": {
+        "x1": {
+          "pf": 1.2422,
+          "net": 6354.0,
+          "exp": 12.1259
+        },
+        "x1_5": {
+          "pf": 1.1151,
+          "net": 3210.0,
+          "exp": 6.1259
+        },
+        "x2": {
+          "pf": 1.0022,
+          "net": 66.0,
+          "exp": 0.1259
+        }
+      },
+      "baseline_x15": 1.0134,
+      "stress_lift_vs_baseline": 0.1017,
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "notes": [
+        "stress_fail"
+      ],
+      "model0": "WITHHELD",
+      "m1_bars": 1861882,
+      "orig_losers": 300,
+      "proxy_losers": 267,
+      "loser_inflation": -33
+    }
+  ],
+  "model0_policy": "PROBE_SURVIVOR_ONLY",
+  "bans": [
+    "no_BE1R_revive",
+    "no_MFE_stall_revive",
+    "no_scale_timebox_volR_densify",
+    "no_voided_M15_path_authority",
+    "no_FRED_XS_LNY_Asia_densify",
+    "no_invent_cost_freeze"
+  ],
+  "best_shelf": "RR2_20260714_194548",
+  "goal_met": false,
+  "receipt_sha256": "1626718918088C2ED1EB1F24DD879BDB0ADA48338DADDACBB80E042923855B3B",
+  "post_probe_audit": {
+    "arm075_k15": {
+      "n_bind": 101,
+      "losers_to_winners": 81,
+      "mean_trail_width_r_p50": 0.6536,
+      "mean_mfe_rescued": 1.7013,
+      "mean_floor_rescued": 1.0292,
+      "total_bind_delta_usd": 17040.74,
+      "vs_m1_path": {
+        "envelope_pf": 2.5323,
+        "m1_path_pf": 1.55,
+        "m1_path_x15": 1.1151,
+        "m1_false_sl_guard_orig": 186,
+        "interpretation": "Envelope conditions on tester-survived hold + peak-then-exit; M1 walk invents early SL (false_sl_guard) so understates trail rescue. Envelope is authority proxy but optimistic vs tick — Model 0 native path required."
+      }
+    },
+    "policy": {
+      "offline_pf_not_deployable": true,
+      "model0": "AUTHORIZED_NATIVE_ATR_TRAIL_ONLY",
+      "do_not_kill_qfsi_for_model0": true,
+      "do_not_densify_arm_k": true,
+      "do_not_claim_tick_fidelity": true
+    }
+  },
+  "model0_gate": "NATIVE_ATR_TRAIL_IMPLEMENTATION_REQUIRED; offline envelope PF not promote-grade"
+}

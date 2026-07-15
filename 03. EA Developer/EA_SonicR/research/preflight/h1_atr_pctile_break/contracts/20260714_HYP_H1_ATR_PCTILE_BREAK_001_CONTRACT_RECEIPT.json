@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-H1-ATR-PCTILE-BREAK-001",
+  "task_packet_sha256": "FE66F1E933AEE756B90D20DD14AEB2D8EE3296817297CA08F4A909A81C2152C7",
+  "git_commit": "NOGIT-AA63696F413FA741E537705F6FE3A23EBEA7603CC6C507FF5550BB9BFBCAAB76",
+  "git_status_sha256": "CD1D0617EC2955D11937378538761A2123F6E3E0DBD7755940B6012FD8755A48",
+  "binding": {
+    "hypothesis_id": "HYP-H1-ATR-PCTILE-BREAK-001",
+    "run_role": "control",
+    "ea_name": "EA_H1ATRPctileBreak",
+    "symbol": "USDJPY",
+    "period": "H1",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "6444E7FE6EAEF94615C06B22EF445DB5E98048279911D6A08F486A5DA97C0B7C"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_atr_pctile_break\\contracts\\receipt_stubs_HYP_ATRP_001\\task_packet.json",
+      "sha256": "FE66F1E933AEE756B90D20DD14AEB2D8EE3296817297CA08F4A909A81C2152C7"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_H1ATRPctileBreak\\EA_H1ATRPctileBreak.mq5",
+      "sha256": "FEE54DAF354FE2C700A35BB47E05DE9BBDB0DA1C476E5240093161402944C863"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_atr_pctile_break\\contracts\\receipt_stubs_HYP_ATRP_001\\prereg.json",
+      "sha256": "0AA34B94C2F5D51E73CC5200F8DCB2A323AA86244DF3EEAA88A44CB761146C7F"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_atr_pctile_break\\contracts\\receipt_stubs_HYP_ATRP_001\\cost_source_manifest.json",
+      "sha256": "C07580ED387472F87CBC0284F216D83AD68CE6EA89EBB699BA5A6A0E7A1C4BA1"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_atr_pctile_break\\contracts\\receipt_stubs_HYP_ATRP_001\\include_note.txt",
+      "sha256": "142DC7B6CABAF74A18CAD434D33FB3B7F891B1D0080E425E328BFBE08AFE9EB3"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T15:50:15.387735+00:00",
+  "note": "Wave5 Model 0; mid ATR%ile Donchian break RR=2.5"
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "codex_goal_receipt.v1",
+  "created_at": "2026-07-13",
+  "status": "COMPLETE_FOUNDATION_READY_DATA_NOT_READY",
+  "completed_at": "2026-07-13",
+  "thread_id": "019f571c-42a0-7ed1-8e02-5bf6f2a43669",
+  "source": {
+    "conversation_url": "https://chatgpt.com/c/6a53ce89-fba4-83ec-9d44-f2edcedeb01d",
+    "verdict": "DATA ACQUISITION REQUIRED BEFORE RESEARCH CAN CONTINUE",
+    "coordinator_intake": {
+      "path": "03. EA Developer/EA_SonicR/research/readouts/20260713_DEEP_RESEARCH_V4_COORDINATOR_INTAKE.md",
+      "sha256": "BF2141D2F60063CDDE062F66078AC2CEFC5D01873FBD3729F384EC80D1C09213"
+    }
+  },
+  "priority_order": [
+    "QFSI broker tick and execution-cost data feasibility",
+    "GVBCI COMEX GC data acquisition and synchronization feasibility",
+    "SCFIS excluded absent lawful segmented customer-flow data"
+  ],
+  "deliverables": [
+    "hash-bound data schemas and acquisition procedures",
+    "coverage, timestamp, cost, and synchronization validators",
+    "no-live-trading fill/slippage capture contract",
+    "coordinator GO_FOR_PREREG_DESIGN or STOP_DATA_FRONTIER readout"
+  ],
+  "forbidden_until_data_gate_passes": [
+    "hypothesis registry row",
+    "frozen preregistration",
+    "EA decision-logic change",
+    "compile",
+    "MT5 backtest",
+    "live trading"
+  ],
+  "closeout": {
+    "coordinator_readout": "03. EA Developer/EA_SonicR/research/readouts/20260713_V4_DATA_FOUNDATION_COORDINATOR_READOUT.md",
+    "foundation_receipt": {
+      "path": "03. EA Developer/EA_SonicR/research/preflight/v4_data/20260713_V4_DATA_FOUNDATION_RECEIPT_V1.json",
+      "sha256": "9127BBF02481564A534C03983537EE030AF73257F03E40A14DE33097573DA588"
+    },
+    "foundation": "READY",
+    "qfsi": "STOP_DATA_FRONTIER",
+    "gvbci": "GO_FOR_COST_QUOTE_ONLY",
+    "scfis": "EXCLUDED",
+    "strategy_authority": "NONE"
+  }
+}

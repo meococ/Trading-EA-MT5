@@ -1,0 +1,49 @@
+{
+  "schema": "carry_rate_change_event_h4_probe.v1b",
+  "created_at_utc": "2026-07-13T16:43:07.698570+00:00",
+  "status": "KILL_AT_OFFLINE_PROBE",
+  "mt5_server": "MetaQuotes-Demo",
+  "design_freeze": "03. EA Developer/EA_SonicR/research/preregs/20260713_H_CARRY_RATE_CHANGE_EVENT_H4_V1_PROBE_FREEZE.md",
+  "independence": "NOT weekly D1 cross-sectional rank; event \u0394carry on H4",
+  "integrity_note": "v1b enforces one position per symbol (next_free_i); v1a overlap bug discarded",
+  "min_delta_pp": 0.05,
+  "hold_h4_bars": 12,
+  "event_counts": {
+    "EURUSD": 323,
+    "GBPUSD": 327,
+    "USDJPY": 300
+  },
+  "train_candidate": {
+    "trades": 356,
+    "trades_per_week": 1.3654794520547944,
+    "pf_gross": 1.169096823574434,
+    "pf_stress_a": 1.115180605879495,
+    "pf_stress_b": 1.063761509709179,
+    "expectancy_a": 3.4646067415729926,
+    "sum_net_a": 1233.3999999999853
+  },
+  "train_control": {
+    "trades": 357,
+    "trades_per_week": 1.3693150684931505,
+    "pf_gross": 1.064399310039648,
+    "pf_stress_a": 1.0156438556466767,
+    "pf_stress_b": 0.9692451792527433,
+    "expectancy_a": 0.4974789915967117,
+    "sum_net_a": 177.60000000002609
+  },
+  "holdout_candidate": null,
+  "holdout_control": null,
+  "train_pass": false,
+  "kill_reasons": [
+    "train_cadence<1.5"
+  ],
+  "trades_csv_sha256": "3494323385efe27f9b7e4d8aec31fa2ae373392e9f23f0c407148e972efeac6e",
+  "authority_flags": {
+    "registry_append_authorized": false,
+    "prereg_freeze_authorized": false,
+    "ea_build_authorized": false,
+    "compile_authorized": false,
+    "backtest_authorized": false,
+    "chatgpt_required": false
+  }
+}

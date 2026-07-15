@@ -1,0 +1,158 @@
+{
+  "schema": "v8_usbill_slope_usd_basket_offline_probe.v1",
+  "probe_id": "V8_USBILL_SLOPE_USD_BASKET_V1",
+  "working_hypothesis_id": "HYP-SR-FX-USBILL-SLOPE-USD-BASKET-001",
+  "created_at_utc": "2026-07-13T16:46:34.191059+00:00",
+  "status": "PROBE_SURVIVOR",
+  "mt5_server": "MetaQuotes-Demo",
+  "note": "MetaQuotes-Demo falsification only. Not Strategy Tester. Not EA/Model0 authority unless PROBE_SURVIVOR + separate prereg/cost.",
+  "cost_provenance": "COST_PROVENANCE_GAP: stress A/B are synthetic pip round-trip haircuts (1.5/3.0 per leg, mean-aggregated). Not FivePercentOnline-Real bid/ask/commission/slippage. Missing broker cost fields must not be treated as zero.",
+  "contract_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/20260713_V8_USBILL_SLOPE_USD_BASKET_PROBE_CONTRACT_V1.md",
+  "dedup": {
+    "vs_HYP_SR_FX_CROSS_SECTIONAL_USD_FACTOR_001": "independent: lagged US bill slope only; no FX-return factor, no pullback-break, no strongest-pair routing",
+    "vs_V8_carry_cot_carryvol": "independent causal surface (US bill curve shape)"
+  },
+  "design_frozen": {
+    "symbols": [
+      "EURUSD",
+      "GBPUSD",
+      "USDJPY"
+    ],
+    "timeframe": "D1",
+    "signal": "z(26W-4W) threshold 0.75",
+    "lag": "observation_date+1_calendar_day",
+    "rebalance": "MonThu_D1_close_Friday_flat",
+    "basket": "equal_weight_EURUSD_GBPUSD_USDJPY_USD_direction",
+    "stop": "1.5*ATR14_D1",
+    "time_stop_bars": 5,
+    "stress_a_pips_per_leg": 1.5,
+    "stress_b_pips_per_leg": 3.0,
+    "aggregation": "mean_of_legs",
+    "train": [
+      "2019-01-01",
+      "2023-01-01"
+    ],
+    "holdout": [
+      "2023-01-01",
+      "2026-01-01"
+    ],
+    "control": "same_|z|_gate_sign_of_20d_USD_spot_proxy"
+  },
+  "data_coverage": {
+    "bill_obs_dates": 2130,
+    "slope_available_dates": 2130,
+    "z_dates": 2090,
+    "tenor_label": "26W-4W",
+    "bill_files": [
+      {
+        "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2018.csv",
+        "sha256": "6f037e225a3f296613f620404667971df9f202743e70540d9ffbf5c7d30a3a51",
+        "bytes": 13875
+      },
+      {
+        "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2019.csv",
+        "sha256": "f0396ee6dfaa3a60ce676c593a026f8cfbb9bcd72af7b6aa8450c68a5d3ac98a",
+        "bytes": 15520
+      },
+      {
+        "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2020.csv",
+        "sha256": "cc29ccb650fe49ce04781e97332cecba11c20e466b053a08d6fb15b6b24dbd20",
+        "bytes": 15589
+      },
+      {
+        "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2021.csv",
+        "sha256": "e45398cf008aeca21679fe1ebcc7d051add07f0819ef62723fe472a1ea00377d",
+        "bytes": 15581
+      },
+      {
+        "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2022.csv",
+        "sha256": "4059b158b989b5bb4d295cc5e3356434bcceba44d89365e368a2aafbf2077859",
+        "bytes": 16411
+      },
+      {
+        "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2023.csv",
+        "sha256": "ca4d73d5e9856391c06ef0b3ec252d950019b1a5db97c934d92d9569fc4ba87c",
+        "bytes": 18074
+      },
+      {
+        "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2024.csv",
+        "sha256": "47cc8985d9474bbdaea37266ac5658f6b1b276d3310c54c7efd70358e80bc37b",
+        "bytes": 18074
+      },
+      {
+        "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2025.csv",
+        "sha256": "aa024dfde7700a971b287d7cc8284fd8c34f4dd6c66cb009cf39f501be33b562",
+        "bytes": 20297
+      },
+      {
+        "path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/raw/us_treasury_bill_rates_2026.csv",
+        "sha256": "2e92a0348d031e7af19b586b2d9e04c8759e74e09c6bebe9c3d723361939c4fb",
+        "bytes": 10987
+      }
+    ],
+    "d1_bars": {
+      "EURUSD": 2206,
+      "GBPUSD": 2206,
+      "USDJPY": 2207
+    }
+  },
+  "train_candidate": {
+    "trades": 237,
+    "trades_per_week": 1.135523613963039,
+    "expectancy_gross_pips": 3.834826952730582,
+    "expectancy_a_pips": 2.3348269527305816,
+    "pf_gross": 1.1516977747000057,
+    "pf_stress_a": 1.0895634165083599,
+    "pf_stress_b": 1.0310658970838216,
+    "sum_net_a_pips": 553.3539877971479,
+    "sum_net_b_pips": 197.8539877971479
+  },
+  "train_control": {
+    "trades": 250,
+    "trades_per_week": 1.1978097193702943,
+    "expectancy_gross_pips": 3.608922344704694,
+    "expectancy_a_pips": 2.1089223447046943,
+    "pf_gross": 1.1533759188427928,
+    "pf_stress_a": 1.0868315403331625,
+    "pf_stress_b": 1.024298659549187,
+    "sum_net_a_pips": 527.2305861761736,
+    "sum_net_b_pips": 152.23058617617352
+  },
+  "train_year_concentration_pos_net_a": 0.439655488155959,
+  "holdout_candidate": {
+    "trades": 153,
+    "trades_per_week": 0.9771897810218977,
+    "expectancy_gross_pips": 9.455199695326382,
+    "expectancy_a_pips": 7.955199695326382,
+    "pf_gross": 1.277103365913808,
+    "pf_stress_a": 1.22861061650169,
+    "pf_stress_b": 1.181919261812503,
+    "sum_net_a_pips": 1217.1455533849364,
+    "sum_net_b_pips": 987.6455533849365
+  },
+  "holdout_control": {
+    "trades": 171,
+    "trades_per_week": 1.0921532846715327,
+    "expectancy_gross_pips": 6.662625131105038,
+    "expectancy_a_pips": 5.162625131105038,
+    "pf_gross": 1.216865169151059,
+    "pf_stress_a": 1.164141651774418,
+    "pf_stress_b": 1.1137550266445224,
+    "sum_net_a_pips": 882.8088974189616,
+    "sum_net_b_pips": 626.3088974189616
+  },
+  "holdout_year_concentration_pos_net_a": 0.44400507690506064,
+  "train_pass": true,
+  "holdout_pass": true,
+  "kill_reasons": [],
+  "trades_csv": "03. EA Developer/EA_SonicR/research/preflight/v8_probe/20260713_V8_USBILL_SLOPE_USD_BASKET_PROBE_TRADES_V1.csv",
+  "trades_csv_sha256": "2767228fca40f05e3a5c74a63f951641eddc71df2ab3d04029a8286135f729d9",
+  "authority_flags": {
+    "registry_append_authorized": true,
+    "prereg_freeze_authorized": true,
+    "ea_build_authorized": false,
+    "compile_authorized": false,
+    "backtest_authorized": false,
+    "model_0_authorized": false
+  }
+}

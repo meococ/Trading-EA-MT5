@@ -1,0 +1,14 @@
+{
+  "schema_version": "sonic_research_task_packet.v1",
+  "hypothesis_id": "HYP-SR-FX-USBILL-SLOPE-USD-BASKET-001",
+  "ea_name": "EA_UsBillSlopeBasket",
+  "symbol": "EURUSD",
+  "period": "D1",
+  "from": "2019.01.01",
+  "to": "2025.12.31",
+  "model": 0,
+  "run_role": "challenger",
+  "overrides": "InpMode=1",
+  "matched_control_run_id": "20260714_013628",
+  "note": "Model 0 CHALLENGER for US bill-slope USD basket. InpMode=1 = bill z sign. Matched control 20260714_013628 (InpMode=0). Cost UNVERIFIED_TESTER_DEFAULT."
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "alphafactory_mt5_readonly_probe.v1",
+  "created_at_utc": "2026-07-14T15:03:30.726740Z",
+  "producer": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\tools\\execution_data_foundation.py",
+    "sha256": "0A7C8225218C30F90C1EE003ED4B6570C90D6B554699B5F26E5F5A2DA2D82431"
+  },
+  "mode": "READ_ONLY_NO_ORDER_OPERATIONS",
+  "expected_server": "FivePercentOnline-Real",
+  "observed_server": "FivePercentOnline-Real",
+  "server_match": true,
+  "server_fingerprint": "CE114ABFB8C653A060DAD7EA33FAF948B5786F691953B2D4E230EB7986120797",
+  "account_fingerprint": "09DB5E9C091F23DF9E024E684BBA994D00CBD84CDEF2CFBA0C5D064EACCB32AB",
+  "account_currency": "USD",
+  "terminal": {
+    "build": 6006,
+    "connected": true,
+    "trade_allowed": false
+  },
+  "symbols": [
+    {
+      "symbol": "USDJPY",
+      "exists": true,
+      "visible": true,
+      "digits": 3,
+      "point": 0.001,
+      "last_tick_utc": "2026-07-14T18:03:29Z",
+      "history_sample": {
+        "from_utc": "2026-07-14T17:03:29Z",
+        "to_utc": "2026-07-14T18:03:29Z",
+        "row_count": 25121,
+        "valid_bid_ask_count": 25121,
+        "valid_bid_ask_ratio": 1.0,
+        "timestamp_monotonic": true,
+        "spread_price_p50": 0.0,
+        "spread_price_p90": 0.0010000000000047748,
+        "completeness_status": "UNPROVEN_HISTORY_SAMPLE"
+      }
+    },
+    {
+      "symbol": "EURUSD",
+      "exists": true,
+      "visible": true,
+      "digits": 5,
+      "point": 1e-05,
+      "last_tick_utc": "2026-07-14T18:03:29Z",
+      "history_sample": {
+        "from_utc": "2026-07-14T17:03:29Z",
+        "to_utc": "2026-07-14T18:03:29Z",
+        "row_count": 13082,
+        "valid_bid_ask_count": 13082,
+        "valid_bid_ask_ratio": 1.0,
+        "timestamp_monotonic": true,
+        "spread_price_p50": 0.0,
+        "spread_price_p90": 1.0000000000065512e-05,
+        "completeness_status": "UNPROVEN_HISTORY_SAMPLE"
+      }
+    },
+    {
+      "symbol": "GBPUSD",
+      "exists": true,
+      "visible": true,
+      "digits": 5,
+      "point": 1e-05,
+      "last_tick_utc": "2026-07-14T18:03:29Z",
+      "history_sample": {
+        "from_utc": "2026-07-14T17:03:29Z",
+        "to_utc": "2026-07-14T18:03:29Z",
+        "row_count": 26931,
+        "valid_bid_ask_count": 26931,
+        "valid_bid_ask_ratio": 1.0,
+        "timestamp_monotonic": true,
+        "spread_price_p50": 1.0000000000065512e-05,
+        "spread_price_p90": 2.0000000000131024e-05,
+        "completeness_status": "UNPROVEN_HISTORY_SAMPLE"
+      }
+    },
+    {
+      "symbol": "XAUUSD",
+      "exists": true,
+      "visible": true,
+      "digits": 2,
+      "point": 0.01,
+      "last_tick_utc": "2026-07-14T18:03:30Z",
+      "history_sample": {
+        "from_utc": "2026-07-14T17:03:30Z",
+        "to_utc": "2026-07-14T18:03:30Z",
+        "row_count": 112506,
+        "valid_bid_ask_count": 112506,
+        "valid_bid_ask_ratio": 1.0,
+        "timestamp_monotonic": true,
+        "spread_price_p50": 0.5,
+        "spread_price_p90": 0.5400000000004184,
+        "completeness_status": "UNPROVEN_HISTORY_SAMPLE"
+      }
+    }
+  ],
+  "safety": {
+    "read_only": true,
+    "orders_sent": 0,
+    "positions_opened": 0,
+    "live_trading_authorized": false
+  },
+  "verdict": "TARGET_SERVER_READONLY_PROBE_COMPLETE"
+}

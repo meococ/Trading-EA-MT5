@@ -1,0 +1,13 @@
+{
+  "schema_version": "sonic_research_task_packet.v1",
+  "hypothesis_id": "HYP-H4-OUTSIDE-REV-001",
+  "ea_name": "EA_H4OutsideRev",
+  "symbol": "USDJPY",
+  "period": "H4",
+  "from": "2021.01.01",
+  "to": "2025.12.31",
+  "model": 0,
+  "run_role": "control",
+  "overrides": "",
+  "note": "Post-cost rebuild; H4 outside+WR7 fade RR=3; opposite NR7."
+}

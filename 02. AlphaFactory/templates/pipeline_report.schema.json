@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Alpha Pipeline Run Report",
+  "description": "Single JSON artifact for a complete pipeline run: compile, backtest, analysis, robustness, and decision.",
+  "type": "object",
+  "required": ["version", "run_id", "ea_name", "timestamp", "compile", "backtest", "analysis"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "1.0",
+      "description": "Schema version"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "description": "Unique run identifier (e.g., 20260310_143000)"
+    },
+    "ea_name": {
+      "type": "string",
+      "description": "EA name (folder name)"
+    },
+    "strategy_id": {
+      "type": ["string", "null"],
+      "pattern": "^S\\d+$",
+      "description": "Strategy log ID (e.g., S075)"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 run start time"
+    },
+    "hypothesis": {
+      "type": ["string", "null"],
+      "description": "One-sentence hypothesis for this iteration"
+    },
+    "iteration": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Iteration number for current hypothesis"
+    },
+    "compile": {
+      "type": "object",
+      "required": ["success", "errors", "warnings"],
+      "properties": {
+        "success": { "type": "boolean" },
+        "errors": { "type": "integer", "minimum": 0 },
+        "warnings": { "type": "integer", "minimum": 0 },
+        "duration_sec": { "type": "number" },
+        "compiler_version": { "type": "string" },
+        "log_excerpt": { "type": ["string", "null"] }
+      }
+    },
+    "backtest": {
+      "type": "object",
+      "required": ["symbol", "period", "model", "date_from", "date_to"],
+      "properties": {
+        "symbol": { "type": "string", "description": "e.g., XAUUSD" },
+        "period": { "type": "string", "description": "e.g., M15, H1" },
+        "model": {
+          "type": "integer",
+          "enum": [0, 1, 2],
+          "description": "0=Every Tick, 1=OHLC 1min, 2=Open Prices"
+        },
+        "date_from": { "type": "string", "format": "date" },
+        "date_to": { "type": "string", "format": "date" },
+        "deposit": { "type": "number" },
+        "leverage": { "type": "string" },
+        "overrides": {
+          "type": "object",
+          "additionalProperties": { "type": "string" },
+          "description": "EA input overrides applied"
+        },
+        "report_path": { "type": "string" },
+        "datalog_path": { "type": ["string", "null"] },
+        "duration_sec": { "type": "number" }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "required": ["profit_factor", "max_dd_pct", "total_trades", "net_profit"],
+      "properties": {
+        "profit_factor": { "type": "number" },
+        "max_dd_pct": { "type": "number" },
+        "total_trades": { "type": "integer" },
+        "net_profit": { "type": "number" },
+        "expected_payoff": { "type": "number" },
+        "sharpe_ratio": { "type": ["number", "null"] },
+        "recovery_factor": { "type": ["number", "null"] },
+        "win_rate_pct": { "type": "number" },
+        "avg_win": { "type": "number" },
+        "avg_loss": { "type": "number" },
+        "max_consec_wins": { "type": "integer" },
+        "max_consec_losses": { "type": "integer" },
+        "long_pf": { "type": ["number", "null"] },
+        "short_pf": { "type": ["number", "null"] },
+        "trades_per_month": { "type": ["number", "null"] },
+        "session_breakdown": {
+          "type": ["object", "null"],
+          "properties": {
+            "asian": { "$ref": "#/$defs/session_stats" },
+            "london": { "$ref": "#/$defs/session_stats" },
+            "ny": { "$ref": "#/$defs/session_stats" }
+          }
+        },
+        "yearly_breakdown": {
+          "type": ["object", "null"],
+          "additionalProperties": { "$ref": "#/$defs/period_stats" }
+        }
+      }
+    },
+    "wfa": {
+      "type": ["object", "null"],
+      "properties": {
+        "windows": { "type": "integer" },
+        "is_pct": { "type": "number", "description": "In-sample percentage" },
+        "oos_pct": { "type": "number", "description": "Out-of-sample percentage" },
+        "pass_rate": { "type": "number", "description": "0.0 to 1.0" },
+        "oos_pf_avg": { "type": "number" },
+        "oos_pf_min": { "type": "number" },
+        "oos_pf_max": { "type": "number" },
+        "window_details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "window": { "type": "integer" },
+              "is_pf": { "type": "number" },
+              "oos_pf": { "type": "number" },
+              "passed": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "monte_carlo": {
+      "type": ["object", "null"],
+      "properties": {
+        "simulations": { "type": "integer" },
+        "p95_dd_pct": { "type": "number" },
+        "p99_dd_pct": { "type": ["number", "null"] },
+        "p5_pf": { "type": ["number", "null"] },
+        "median_pf": { "type": ["number", "null"] },
+        "p95_final_equity": { "type": ["number", "null"] }
+      }
+    },
+    "robustness": {
+      "type": ["object", "null"],
+      "properties": {
+        "tests_run": { "type": "integer" },
+        "tests_passed": { "type": "integer" },
+        "overall_pass": { "type": "boolean" },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["test", "passed"],
+            "properties": {
+              "test": { "type": "string" },
+              "passed": { "type": "boolean" },
+              "verdict": { "type": "string" },
+              "details": { "type": "object" }
+            }
+          }
+        }
+      }
+    },
+    "decision": {
+      "type": ["object", "null"],
+      "properties": {
+        "decision": {
+          "type": "string",
+          "enum": ["ITERATE", "PIVOT", "ABANDON", "PROMOTE"]
+        },
+        "confidence": {
+          "type": "string",
+          "enum": ["HIGH", "MEDIUM", "LOW"]
+        },
+        "reasons": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "gates_passed": {
+          "type": "object",
+          "additionalProperties": { "type": "boolean" }
+        },
+        "next_steps": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "anti_overfit_flags": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "object",
+        "properties": {
+          "flag": { "type": "string" },
+          "triggered": { "type": "boolean" },
+          "value": { "type": ["string", "number", "null"] }
+        }
+      },
+      "description": "Anti-overfitting checks from ANTI_OVERFIT_PROTOCOL.md"
+    },
+    "lessons": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "description": "Key takeaways from this run"
+    }
+  },
+  "$defs": {
+    "session_stats": {
+      "type": "object",
+      "properties": {
+        "trades": { "type": "integer" },
+        "pf": { "type": "number" },
+        "net_profit": { "type": "number" },
+        "win_rate_pct": { "type": "number" }
+      }
+    },
+    "period_stats": {
+      "type": "object",
+      "properties": {
+        "trades": { "type": "integer" },
+        "pf": { "type": "number" },
+        "net_profit": { "type": "number" }
+      }
+    }
+  }
+}

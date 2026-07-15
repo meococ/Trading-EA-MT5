@@ -1,0 +1,56 @@
+{
+  "label": "EA_SilverBullet_DriftSeed",
+  "pre_windows": [
+    30,
+    60,
+    90
+  ],
+  "post_windows": [
+    15,
+    30
+  ],
+  "buckets": {
+    "NONE": {
+      "n": 693,
+      "net_profit": 9141.78,
+      "profit_factor": 1.29,
+      "win_rate_pct": 40.26,
+      "expectancy": 13.19
+    },
+    "PRE_30M": {
+      "n": 0,
+      "net_profit": 0.0,
+      "profit_factor": 0.0,
+      "win_rate_pct": 0.0,
+      "expectancy": 0.0
+    },
+    "PRE_60M": {
+      "n": 1,
+      "net_profit": -75.89,
+      "profit_factor": 0.0,
+      "win_rate_pct": 0.0,
+      "expectancy": -75.89
+    },
+    "PRE_90M": {
+      "n": 2,
+      "net_profit": -132.77,
+      "profit_factor": 0.0,
+      "win_rate_pct": 0.0,
+      "expectancy": -66.38
+    },
+    "POST_15M": {
+      "n": 0,
+      "net_profit": 0.0,
+      "profit_factor": 0.0,
+      "win_rate_pct": 0.0,
+      "expectancy": 0.0
+    },
+    "POST_30M": {
+      "n": 0,
+      "net_profit": 0.0,
+      "profit_factor": 0.0,
+      "win_rate_pct": 0.0,
+      "expectancy": 0.0
+    }
+  }
+}

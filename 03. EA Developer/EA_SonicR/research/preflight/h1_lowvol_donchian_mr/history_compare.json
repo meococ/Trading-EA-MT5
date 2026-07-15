@@ -1,0 +1,16 @@
+{
+  "donchian_220749": {
+    "bars": "24",
+    "ticks": "6483501",
+    "hq": "99%",
+    "trades": null,
+    "pf": null
+  },
+  "atrmom_031611": {
+    "bars": "24",
+    "ticks": "123918541",
+    "hq": "99%",
+    "trades": null,
+    "pf": null
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "sonic_qfsi_accumulate_progress.v1",
+  "created_at_utc": "2026-07-14T14:26:00Z",
+  "stop_flag": false,
+  "full_qfsi_gate": "STOP_DATA_FRONTIER",
+  "why_still_stop": [
+    "quote_elapsed_days << 90",
+    "commission_lifecycles per symbol << 30 (EURUSD clue N=2 only)",
+    "slippage_fills MISSING (passive no-live cannot mint fills; MISSING!=0)"
+  ],
+  "captures": {
+    "20260714_QFSI_REAL_001": {
+      "session_end": true,
+      "totals": {"quotes": 1313, "heartbeats": 276, "commission": 2, "slippage": 0}
+    },
+    "20260714_QFSI_REAL_002": {
+      "session_end": true,
+      "totals": {"quotes": 421, "heartbeats": 440, "commission": 0, "slippage": 0}
+    },
+    "20260714_QFSI_REAL_003_CONTINUATION": {
+      "session_end": false,
+      "note": "started earlier; no session_end finalized this turn; superseded by 004 clean window"
+    },
+    "20260714_QFSI_REAL_004_CONTINUATION": {
+      "session_end": true,
+      "status": "CAPTURE_WINDOW_COMPLETE_PARTIAL",
+      "duration_sec": 1200,
+      "heartbeat_rows_written": 2296,
+      "quote_rows_written": 2267,
+      "commission_lifecycle_counts": {"EURUSD": 2, "GBPUSD": 0, "XAUUSD": 0, "USDJPY": 0},
+      "slippage_fills": 0,
+      "manifest_sha256": "A2B8AF8FEE2A40E4BE1F881D5E478E4F37E713006DDAB1B0C8971C573B4C4AF9",
+      "reprice_ready": false,
+      "totals": {"quotes": 2267, "heartbeats": 2296, "commission": 2, "slippage": 0}
+    }
+  },
+  "model0_rr2": {
+    "run_id": null,
+    "blocked": true,
+    "blocker_code": "UNRELATED_TERMINAL64_OWNER_REAL_LOGIN_FAIL_CLOSED"
+  },
+  "offline_rr2_robustness": {
+    "path": "preflight/20260714_RR2_REAL_P50_OFFLINE_ROBUSTNESS.json",
+    "sha256": "06BAAD5FA56FF719492BA2856ECEC64C97D2C0A18132870CCF20E51058A4A4EF",
+    "pf_x1_x15_x2": [1.323137, 1.296607, 1.270747],
+    "promotion_eligible": false
+  },
+  "owner_real_terminal_pid": 37816,
+  "owner_real_killed_by_agent": false
+}

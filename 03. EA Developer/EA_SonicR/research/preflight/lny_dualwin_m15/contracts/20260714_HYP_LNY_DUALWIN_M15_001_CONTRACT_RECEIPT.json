@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-LNY-DUALWIN-M15-001",
+  "task_packet_sha256": "6494D54B5C3E209AD22C81852934BE5CD33D3C6DEE9AE097583B63B47747F91A",
+  "git_commit": "NOGIT-6DF7465E344AD81E2B32761A8A4768D39DC0FC2EB2BEDE8548DB7D98CFF65FDC",
+  "git_status_sha256": "8E17E66091E9F0A61F52CF20F5E008DF6E05E8E5AB849A7595061D049D340DFF",
+  "binding": {
+    "hypothesis_id": "HYP-LNY-DUALWIN-M15-001",
+    "run_role": "control",
+    "ea_name": "EA_M15LNYDualWin",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "7AB9BE11E1AC9AD6CE5AEAC0178E86109782CFF6AC565BF2989B345735EBDB08"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\lny_dualwin_m15\\contracts\\receipt_stubs_HYP_LNY2_001\\task_packet.json",
+      "sha256": "6494D54B5C3E209AD22C81852934BE5CD33D3C6DEE9AE097583B63B47747F91A"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_M15LNYDualWin\\EA_M15LNYDualWin.mq5",
+      "sha256": "3AE6CF543D7862718B88380EBDAC47A240FA4735FB825401AAF1434A15076B13"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\lny_dualwin_m15\\contracts\\receipt_stubs_HYP_LNY2_001\\prereg.json",
+      "sha256": "29A21AE1858DB4BB0CD0A6C860887ADDE126956C7AB0361CB0EC48BE5E7DF6F7"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\lny_dualwin_m15\\contracts\\receipt_stubs_HYP_LNY2_001\\cost_source_manifest.json",
+      "sha256": "23B75FEF423945E759A22E82576A4D0FE86510A7D8C494F86F0B58B29DDDFE85"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\lny_dualwin_m15\\contracts\\receipt_stubs_HYP_LNY2_001\\include_note.txt",
+      "sha256": "FDD901F56CD6461B097A38C5D48CB19F43501FBC86EB50A7DB0FF55A8BCB3BB4"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T13:07:39Z",
+  "note": "Empty-shelf rebuild; LNY dual-window structural cadence; not day-mine."
+}

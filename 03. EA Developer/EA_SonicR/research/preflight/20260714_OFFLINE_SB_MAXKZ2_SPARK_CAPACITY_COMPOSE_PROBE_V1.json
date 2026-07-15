@@ -1,0 +1,49 @@
+{
+  "probe_id": "OFFLINE_SB_MAXKZ2_SPARK_CAPACITY_COMPOSE_PROBE_V1",
+  "generated_at_ict": "2026-07-14 19:40:53",
+  "universe": {
+    "sb_maxkz2": {
+      "run_id": "20260714_192304",
+      "deposit": 100000,
+      "n": 546,
+      "pf": 1.33,
+      "tpw": 2.0942465753424657,
+      "net": 8123.09,
+      "report_sha256": "B7E50C24C9E6853831B473971228A548F04A0777CA58A138C9793A5A43D38F51"
+    },
+    "spark_capacity": {
+      "run_id": "20260714_193732",
+      "hypothesis_id": "HYP-SPARK-CAPACITY-3PD-001",
+      "deposit": 100000,
+      "overrides": "InpMaxPerDay=3",
+      "n": 327,
+      "pf": 1.37,
+      "tpw": 1.2542465753424656,
+      "net": 9184.34,
+      "report_sha256": "A7DE389AC6837C121AE71D2E2EE4700811A2663CA5D2FFA47D76A7E0DBD4C8CF"
+    },
+    "baseline_compose_ref": "MaxKZ2+Spark002614 mixed-deposit PF1.330/~3.34tpw"
+  },
+  "pooled": {
+    "n": 873,
+    "pf_report": 1.3521105355885858,
+    "pf_trades": 1.3521105355885858,
+    "tpw": 3.3484931506849316,
+    "net": 17307.43,
+    "weekly_corr": 0.08855359024590967,
+    "same_m15_bar_overlap": 3
+  },
+  "goal_screen": {
+    "pf_gt_1_30": true,
+    "tpw_2_to_5": true,
+    "verdict": "PROBE_NEAR_GOAL_CADENCE_AND_PF_BUT_COST_UNCONFIRMED",
+    "cost": "UNVERIFIED_TESTER_DEFAULT",
+    "confirmed": false
+  },
+  "vs_baseline_mixed_deposit": {
+    "prior_n": 871,
+    "prior_pf": 1.33,
+    "prior_tpw": 3.34,
+    "note": "This probe uses Spark Deposit=100000 capacity twin; net dollars more comparable to MaxKZ2"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-H1-LOWVOL-DONCHIAN-MR-001",
+  "task_packet_sha256": "A155525D19D416707C71D64FC58E7C4C431E1F1C50E1C912206A1A112855EA83",
+  "git_commit": "NOGIT-18D68652A64937D242F8E6E3D75A13AEB4C9067A0979D0346BC14BEB8954D5C0",
+  "git_status_sha256": "209B44519AB5FCB889AF96747C848098485B850FD158B1A35B98113485BFB1BC",
+  "binding": {
+    "hypothesis_id": "HYP-H1-LOWVOL-DONCHIAN-MR-001",
+    "run_role": "control",
+    "ea_name": "EA_H1LowVolDonchianMR",
+    "symbol": "USDJPY",
+    "period": "H1",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "401ED1706BED8792678D4FA4220CDCD88BF4616DBE7E10777108EFB696F7EFAB"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_lowvol_donchian_mr\\contracts\\receipt_stubs_HYP_H1_LOWVOL_DONCHIAN_MR_001\\task_packet.json",
+      "sha256": "A155525D19D416707C71D64FC58E7C4C431E1F1C50E1C912206A1A112855EA83"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_H1LowVolDonchianMR\\EA_H1LowVolDonchianMR.mq5",
+      "sha256": "D95D0456D6B98474078B6B2297A650ED8BCBCBE3F977613B77B3FD8FEF478823"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_lowvol_donchian_mr\\contracts\\receipt_stubs_HYP_H1_LOWVOL_DONCHIAN_MR_001\\prereg.json",
+      "sha256": "05D10BDE2D015970A0483F673731A5B41D6501E05C33509DEDB88308403D27AC"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_lowvol_donchian_mr\\contracts\\receipt_stubs_HYP_H1_LOWVOL_DONCHIAN_MR_001\\cost_source_manifest.json",
+      "sha256": "C07580ED387472F87CBC0284F216D83AD68CE6EA89EBB699BA5A6A0E7A1C4BA1"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_lowvol_donchian_mr\\contracts\\receipt_stubs_HYP_H1_LOWVOL_DONCHIAN_MR_001\\include_note.txt",
+      "sha256": "CE81E34BD7523A5C79F3F3348B2D2A0AF788B3E34866C9727EFC2106174F725E"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T15:10:48.991077+00:00",
+  "note": "H1 low-vol Donchian MR; Owner refine mandate unlock."
+}

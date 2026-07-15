@@ -1,0 +1,11 @@
+
+  ALPHAFACTORY v4.2
+
+[INFO] Backtest: EA_H1BOS_M15Pullback on USDJPY M15
+[INFO] Compiling EA_H1BOS_M15Pullback...
+[WARN] Deleted 1 .ex5 file(s)
+[OK] SUCCESS: 24978 bytes (MetaEditor exit 1, log 0 errors)
+[INFO] Starting MT5...
+[INFO] MT5 started (PID: 32016)
+[INFO] Waiting... (0 s)
+[OK] Report ready!

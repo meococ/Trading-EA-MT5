@@ -1,0 +1,1 @@
+EA_M15SparkAsian is single-file; Trade.mqh is MT5 standard library. This stub satisfies include_* receipt closure for Model 0 screen.

@@ -1,0 +1,35 @@
+{
+  "label": "EA_SilverBullet_BOJ_REAL",
+  "pre_days": 2,
+  "post_days": 2,
+  "buckets": {
+    "PRE_EVENT": {
+      "n": 50,
+      "net_profit": 1154.6,
+      "profit_factor": 1.503,
+      "win_rate_pct": 42.0,
+      "expectancy": 23.09
+    },
+    "EVENT_WEEK": {
+      "n": 12,
+      "net_profit": -13.76,
+      "profit_factor": 0.982,
+      "win_rate_pct": 41.67,
+      "expectancy": -1.15
+    },
+    "POST_EVENT": {
+      "n": 17,
+      "net_profit": 1045.95,
+      "profit_factor": 2.757,
+      "win_rate_pct": 52.94,
+      "expectancy": 61.53
+    },
+    "NONE": {
+      "n": 617,
+      "net_profit": 6746.33,
+      "profit_factor": 1.24,
+      "win_rate_pct": 39.55,
+      "expectancy": 10.93
+    }
+  }
+}

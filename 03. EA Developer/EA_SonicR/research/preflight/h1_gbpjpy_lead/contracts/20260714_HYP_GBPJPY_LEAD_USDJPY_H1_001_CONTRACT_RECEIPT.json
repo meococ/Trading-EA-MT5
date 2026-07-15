@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-GBPJPY-LEAD-USDJPY-H1-001",
+  "task_packet_sha256": "E3F9F156A85574899C0EAC33FB28D739BBC48419768188473D9CBF181B741F1F",
+  "git_commit": "NOGIT-7C63F1D21C1A1BD79E7B2399F0BF74C75D32524908847DF48DE94681BC144CB2",
+  "git_status_sha256": "F99FBB541CABE6F6CA546266DA7029A96AEAD31B8F5685C9CAFF9CED2EE2A59E",
+  "binding": {
+    "hypothesis_id": "HYP-GBPJPY-LEAD-USDJPY-H1-001",
+    "run_role": "control",
+    "ea_name": "EA_H1GBPJPYLead",
+    "symbol": "USDJPY",
+    "period": "H1",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "CF5154B71D7E8137DA1AFD10A2DA604A705CBCDA882DDA5E9E73A023371AB25A"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_gbpjpy_lead\\contracts\\receipt_stubs_HYP_GBPJPY_001\\task_packet.json",
+      "sha256": "E3F9F156A85574899C0EAC33FB28D739BBC48419768188473D9CBF181B741F1F"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_H1GBPJPYLead\\EA_H1GBPJPYLead.mq5",
+      "sha256": "1B1C1252CA1D730597C09F3306EF53B513A3B61A491725D1CD0D8B4A4C431699"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_gbpjpy_lead\\contracts\\receipt_stubs_HYP_GBPJPY_001\\prereg.json",
+      "sha256": "ED61E7C2B39989CE3FF290CAD7C84B07F2692CFEAFCDE75E86E472C6119BC29A"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_gbpjpy_lead\\contracts\\receipt_stubs_HYP_GBPJPY_001\\cost_source_manifest.json",
+      "sha256": "5F0BF0740D21A3832645A3EFE0794449894DDDF37ED3811A836CDFD56D6F619A"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_gbpjpy_lead\\contracts\\receipt_stubs_HYP_GBPJPY_001\\include_note.txt",
+      "sha256": "EC96A9AA4D2F11B6C0368724DAE488ADF1E7D2C5156C20B14E1D0D9E6967F7C6"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T15:27:41Z",
+  "note": "Wave4 Model 0; GBPJPY ATR impulse lead \u2192 USDJPY lag RR=2.5"
+}

@@ -1,0 +1,77 @@
+{
+  "schema": "dichotomy_break_cot_gate_probe.v1",
+  "hypothesis_id": "HYP-RR2-CFTC-JPY-LEVMONEY-ZGATE-001",
+  "generated_at_utc": "2026-07-14T16:28:35.971716+00:00",
+  "panel_sha": "93D69F957A503B38C729F41D2E6B6D714A25EB330147383867C65A5EFC19AE54",
+  "manifest": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\manifests\\20260714_CFTC_JPY_COTFIN_ACQUISITION_V1.json",
+  "contract": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\v8_exogenous\\20260714_CFTC_JPY_COTFIN_RR2_GATE_PROBE_CONTRACT_V1.md",
+  "a_priori": {
+    "Z_ABS": 0.75,
+    "LOOKBACK_WEEKS": 52,
+    "lag_days": 4
+  },
+  "funnel": {
+    "n_base": 524,
+    "kept": 255,
+    "skipped": 269,
+    "missing_z": 0
+  },
+  "baseline": {
+    "metrics": {
+      "n": 524,
+      "pf": 1.3794,
+      "net": 9851.14,
+      "exp": 18.7999,
+      "tpw": 2.0099
+    },
+    "cost_stress": {
+      "x1": {
+        "pf": 1.1205,
+        "net": 3563.14,
+        "exp": 6.7999
+      },
+      "x1_5": {
+        "pf": 1.0134,
+        "net": 419.14,
+        "exp": 0.7999
+      },
+      "x2": {
+        "pf": 0.9179,
+        "net": -2724.86,
+        "exp": -5.2001
+      }
+    }
+  },
+  "metrics": {
+    "n": 255,
+    "pf": 1.2748,
+    "net": 3682.18,
+    "exp": 14.4399,
+    "tpw": 0.9781
+  },
+  "cost_stress": {
+    "x1": {
+      "pf": 1.041,
+      "net": 622.18,
+      "exp": 2.4399
+    },
+    "x1_5": {
+      "pf": 0.9435,
+      "net": -907.82,
+      "exp": -3.5601
+    },
+    "x2": {
+      "pf": 0.8562,
+      "net": -2437.82,
+      "exp": -9.5601
+    }
+  },
+  "kill_notes": [
+    "cadence_fail",
+    "stress_fail",
+    "no_stress_lift_vs_baseline"
+  ],
+  "verdict": "KILLED_AT_OFFLINE_PROBE",
+  "model0": "WITHHELD",
+  "receipt_sha256": "D874D8CA33D71DAF22AF18F992D9AC0C61B22AE7F1047D50ABCF9DE76162E180"
+}

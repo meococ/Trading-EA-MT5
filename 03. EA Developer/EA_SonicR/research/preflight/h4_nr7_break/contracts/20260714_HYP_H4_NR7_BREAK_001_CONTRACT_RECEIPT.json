@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-H4-NR7-BREAK-001",
+  "task_packet_sha256": "4CE17C78A7574318CFB0C65AE9E48F31AAA62C668BAFDCFCE9F2E49E639392B0",
+  "git_commit": "NOGIT-71CCC560C5A6BFD8B94A8559B61738F1BB68712AAF92E4FFC6C179C739C97A52",
+  "git_status_sha256": "CC291750A01FB111B0C4E8CABC454C18AA7AC239BBBF11840DF2276FD81118D7",
+  "binding": {
+    "hypothesis_id": "HYP-H4-NR7-BREAK-001",
+    "run_role": "control",
+    "ea_name": "EA_H4NR7Break",
+    "symbol": "USDJPY",
+    "period": "H4",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "94ED83FAAE5132348213F88DDF3391C6169BA22281A18EE6CB93B34E432570D3"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h4_nr7_break\\contracts\\receipt_stubs_HYP_NR7_001\\task_packet.json",
+      "sha256": "4CE17C78A7574318CFB0C65AE9E48F31AAA62C668BAFDCFCE9F2E49E639392B0"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_H4NR7Break\\EA_H4NR7Break.mq5",
+      "sha256": "D27CE101EDC078D9DBE4FF1E04CB86AEDD85DBF20CB8F8865BEABC5E5794D225"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h4_nr7_break\\contracts\\receipt_stubs_HYP_NR7_001\\prereg.json",
+      "sha256": "436B00567DE41EA8B6EF95D7DB806404409F2A8CD464E93576B8AD3153A4E905"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h4_nr7_break\\contracts\\receipt_stubs_HYP_NR7_001\\cost_source_manifest.json",
+      "sha256": "23B75FEF423945E759A22E82576A4D0FE86510A7D8C494F86F0B58B29DDDFE85"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h4_nr7_break\\contracts\\receipt_stubs_HYP_NR7_001\\include_note.txt",
+      "sha256": "AEC1F253F2FF0041B486BE9512EC413CA1670523FD6C3C4861046B86FF6DA22C"
+    }
+  ],
+  "generated_at_utc": "2026-07-14T13:19:06Z",
+  "note": "Thick-edge wave; H4 NR7 breakout RR=3; not VolExp/Keltner/H4-struct."
+}

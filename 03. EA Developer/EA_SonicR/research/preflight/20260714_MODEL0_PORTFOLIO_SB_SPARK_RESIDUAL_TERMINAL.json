@@ -1,0 +1,23 @@
+{
+  "schema_version": "sonic_lane_blocker.v1",
+  "hypothesis_id": "HYP-PORTFOLIO-SB-SPARK-RUNNER-001",
+  "verdict": "MODEL0_NOT_RUN__RESIDUAL_REAL_TERMINAL64_STILL_ALIVE",
+  "generated_at_utc": "2026-07-14T15:30:00Z",
+  "observed": {
+    "terminal64_pid": 27628,
+    "start_time_local": "2026-07-14 22:24:10",
+    "login": 26451822,
+    "server": "FivePercentOnline-Real",
+    "common_ini": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\config\\common.ini",
+    "metatester64": "absent",
+    "agent_action": "did_not_kill_owner_real; did_not_launch_alpha_backtest"
+  },
+  "scaffold_ready": {
+    "ea": "EA_SBSparkBook",
+    "compiled_ex5_sha256": "FB059484D8022C223553A27B2FF38FA88FB44CF263F07AFB26DCA5666FF2468E",
+    "contract_receipt_sha256": "E4F4B9ACD90CB960423355E4482161B3D286D6BD211348EE6F7399DF6D713D64",
+    "receipt_path": "03. EA Developer/EA_SonicR/research/preflight/portfolio_sb_spark_runner/contracts/20260714_HYP_PORTFOLIO_SB_SPARK_RUNNER_001_CONTRACT_RECEIPT.json"
+  },
+  "run_id": null,
+  "owner_action_required": "Close Owner Real MT5 until Get-Process terminal64 returns empty, then re-run Model0 on EA_SBSparkBook with frozen receipt."
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "hypothesis_id": "HYP-H1-ATR-PCTILE-BREAK-001",
+    "ea_name": "EA_H1ATRPctileBreak",
+    "period": "H1",
+    "symbol": "USDJPY",
+    "deposit": 100000,
+    "receipt": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\h1_atr_pctile_break\\contracts\\20260714_HYP_H1_ATR_PCTILE_BREAK_001_CONTRACT_RECEIPT.json",
+    "receipt_sha256": "0BCB70ED403663F5C72F731424868BEB74127DB5427D0FA222A44A9090473305"
+  },
+  {
+    "hypothesis_id": "HYP-EURUSD-H1-ASIA-BOX-LONDON-BREAK-001",
+    "ea_name": "EA_EURUSD_H1AsiaBoxLondonBreak",
+    "period": "H1",
+    "symbol": "EURUSD",
+    "deposit": 100000,
+    "receipt": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\eurusd_h1_asia_box\\contracts\\20260714_HYP_EURUSD_H1_ASIA_BOX_LONDON_BREAK_001_CONTRACT_RECEIPT.json",
+    "receipt_sha256": "E234B6FFB13FE5B290A407543C9604AF3E71AEA2154BF28A8455B2287CE79308"
+  },
+  {
+    "hypothesis_id": "HYP-M15-NY-IB-DRIVE-BREAK-001",
+    "ea_name": "EA_M15NYIBDriveBreak",
+    "period": "M15",
+    "symbol": "USDJPY",
+    "deposit": 100000,
+    "receipt": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\m15_ny_ib_drive\\contracts\\20260714_HYP_M15_NY_IB_DRIVE_BREAK_001_CONTRACT_RECEIPT.json",
+    "receipt_sha256": "49AD42FA3EF65EC05E12E5D81D96137433E7E6BAA30E34E27803CC5CDA5CF458"
+  }
+]

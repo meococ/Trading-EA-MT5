@@ -1,0 +1,1 @@
+EA_SBSparkBook includes Modules/SB_A1_Module.mqh and Modules/SparkAsian_Module.mqh as receipt include_* evidence. Trade.mqh is MT5 standard library.

@@ -1,0 +1,93 @@
+{
+  "hypothesis_id": "HYP-RR2-CFTC-JPY-ASSETMGR-SIZEBUDGET-001",
+  "semantics": "SIZE_BUDGET_NOT_GATE",
+  "feature": "net_asset_mgr",
+  "panel_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/panels/cftc_jpy_finfut_net_lev_spec_d1_v1.csv",
+  "panel_sha256": "93D69F957A503B38C729F41D2E6B6D714A25EB330147383867C65A5EFC19AE54",
+  "market_exact": "JAPANESE YEN - CHICAGO MERCANTILE EXCHANGE",
+  "trades_path": "02. AlphaFactory/runs/EA_SilverBullet/20260714_194548/logs/USDJPY_20260325_PX6_Trades_20210101_000000_90095968.csv",
+  "trades_sha256": "BCAE4179EBD6D3F64749A6F71A53790CAF21A497B3912B3ECA9ED838A361CE80",
+  "window": {
+    "from": "2021-01-01",
+    "to": "2025-12-31",
+    "weeks": 260.714286
+  },
+  "a_priori": {
+    "crowd_score": "percentile_rank_|net_asset_mgr|_prior_52_weekly_min40",
+    "size_mult": {
+      "lt_0.50": 1.0,
+      "0.50_to_0.80": 0.67,
+      "ge_0.80": 0.5,
+      "missing": 1.0
+    },
+    "base_cost": 12.0,
+    "cost_scales_with_size": true
+  },
+  "baseline_unscaled": {
+    "metrics": {
+      "n": 524,
+      "pf": 1.3794,
+      "net": 9851.14,
+      "exp": 18.7999,
+      "tpw": 2.0099
+    },
+    "haircuts": {
+      "x1": {
+        "pf": 1.1205,
+        "net": 3563.14,
+        "exp": 6.7999
+      },
+      "x1_5": {
+        "pf": 1.0134,
+        "net": 419.14,
+        "exp": 0.7999
+      },
+      "x2": {
+        "pf": 0.9179,
+        "net": -2724.86,
+        "exp": -5.2001
+      }
+    }
+  },
+  "sized": {
+    "metrics": {
+      "n": 524,
+      "pf": 1.3756,
+      "net": 7860.33,
+      "exp": 15.0006,
+      "tpw": 2.0099
+    },
+    "haircuts": {
+      "x1": {
+        "pf": 1.1183,
+        "net": 2819.01,
+        "exp": 5.3798
+      },
+      "x1_5": {
+        "pf": 1.0118,
+        "net": 298.35,
+        "exp": 0.5694
+      },
+      "x2": {
+        "pf": 0.9168,
+        "net": -2222.31,
+        "exp": -4.241
+      }
+    },
+    "size_mult_histogram": {
+      "0.50": 87,
+      "0.67": 183,
+      "1.00": 254
+    },
+    "missing_crowd_n": 0,
+    "n_cot_rows_jpy": 215
+  },
+  "stress_lift_x15": -0.0016,
+  "verdict": "KILLED_AT_OFFLINE_PROBE",
+  "kill_notes": [
+    "stress_fail",
+    "no_stress_lift_vs_baseline"
+  ],
+  "updated_at": "2026-07-14",
+  "receipt_sha256": "916636B3E4DE7FEA53FC28A5D3375A6A8D0FD6FB88B4DA71E5AF56865E19FFEE"
+}

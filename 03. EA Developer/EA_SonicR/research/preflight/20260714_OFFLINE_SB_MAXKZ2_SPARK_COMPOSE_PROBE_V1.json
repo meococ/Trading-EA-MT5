@@ -1,0 +1,115 @@
+{
+  "probe_id": "OFFLINE_SB_MAXKZ2_SPARK_COMPOSE_PROBE_V1",
+  "generated_at_ict": "2026-07-14 19:31:40",
+  "gpt_status": "GPT_DEEP_RESEARCH_WAIVED / LOCAL_SELF_RESEARCH_ONLY",
+  "universe_frozen": {
+    "members": [
+      {
+        "ea": "EA_SilverBullet",
+        "run_id": "20260714_192304",
+        "hypothesis_id": "HYP-SB-WEEKEND-FLAT-001",
+        "role": "weekend_flat_challenger_A1",
+        "symbol": "USDJPY",
+        "period": "M15",
+        "path": "d:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_SilverBullet\\20260714_192304",
+        "report_sha256": "B7E50C24C9E6853831B473971228A548F04A0777CA58A138C9793A5A43D38F51"
+      },
+      {
+        "ea": "EA_M15SparkAsian",
+        "run_id": "20260714_002614",
+        "hypothesis_id": "HYP-SPARK-ASIAN-M15-001",
+        "role": "phase0_twin_of_002821",
+        "symbol": "USDJPY",
+        "period": "M15",
+        "path": "d:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_M15SparkAsian\\20260714_002614",
+        "report_sha256": "7CAE7A9332B551FE58360E2B89022835F23E7706345ED2E7DC02F5122D80001A",
+        "authoritative_twin_run_id": "20260714_002821",
+        "expected_report_sha256_manifest": "7CAE7A9332B551FE58360E2B89022835F23E7706345ED2E7DC02F5122D80001A"
+      }
+    ],
+    "selection_rule": "Phase 0 HYP-PORTFOLIO-COMPOSE-001 exact subset IDs already bound (SB 002505 + Spark 002614); NOT a post-hoc swap after Spark+ITSM fail",
+    "excluded_explicitly": [
+      "EA_ITSM",
+      "EA_M15LondonORB",
+      "EA_UsBillSlopeBasket",
+      "any other shelf EA"
+    ],
+    "phase0_subset_universe_sha256": "B1A04F9C1CD7E2A7B0C8B6463AE4438A52A45DD5645046B5AA682A2F69D4D138"
+  },
+  "window": {
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "elapsed_calendar_days": 1825,
+    "elapsed_calendar_weeks": 260.7142857142857,
+    "overlap": "full identical tester window"
+  },
+  "cost_caveat": {
+    "status": "tester_current_spread_only",
+    "confirmed": false,
+    "broker_observed": "MetaQuotes-Demo",
+    "fivepercent_real_login_present": false,
+    "note": "Missing/zero commission fields do not mean cost=0. Not Real QFSI."
+  },
+  "sleeve_metrics": {
+    "sb_a1": {
+      "net_profit": 8123.09,
+      "gross_profit": 32461.17,
+      "gross_loss": -24338.08,
+      "profit_factor": 1.33,
+      "n_trades": 546.0,
+      "expectancy": 14.88,
+      "trades_parsed": 546,
+      "deals_parsed": 1092,
+      "trades_per_week_elapsed": 2.0942465753424657,
+      "trade_level_pf": 1.333760510278543
+    },
+    "spark": {
+      "net_profit": 1099.38,
+      "gross_profit": 4700.42,
+      "gross_loss": -3601.04,
+      "profit_factor": 1.31,
+      "n_trades": 325.0,
+      "expectancy": 3.38,
+      "trades_parsed": 325,
+      "deals_parsed": 650,
+      "trades_per_week_elapsed": 1.2465753424657533,
+      "trade_level_pf": 1.3052951369604338
+    }
+  },
+  "pooled": {
+    "n_trades": 871,
+    "net_profit": 9222.470000000001,
+    "gross_profit": 37161.59,
+    "gross_loss_abs": 27939.120000000003,
+    "pf_from_report_gross": 1.3300916421132802,
+    "pf_from_trade_pnls": 1.3300916421132805,
+    "trades_per_week_elapsed": 3.3408219178082192,
+    "expectancy_pooled_naive": 10.588369690011483
+  },
+  "correlation_overlap": {
+    "exact_same_entry_timestamp_count": 0,
+    "same_m15_bar_entry_overlap_count": 3,
+    "same_calendar_day_entry_overlap_count": 111,
+    "sb_entries_near_spark_within_60m": 23,
+    "spark_entries_near_sb_within_60m": 23,
+    "sb_entry_count": 546,
+    "spark_entry_count": 325,
+    "weekly_pnl_pearson": 0.09446915608593891,
+    "weeks_both_active": 161,
+    "weeks_sb_only": 76,
+    "weeks_spark_only": 14,
+    "weekly_series_len": 262
+  },
+  "goal_screen_research_only": {
+    "need_pooled_tpw_2_to_5": true,
+    "need_pooled_pf_gt_1_30": true,
+    "verdict": "PROBE_NEAR_GOAL_CADENCE_AND_PF_BUT_COST_UNCONFIRMED",
+    "worth_coding_portfolio_ea_sleeve_next": true,
+    "note": "Pooled cadence and PF both clear research bars on tester-current cost; still NOT confirmed without Real QFSI. Portfolio sleeve coding is worth considering only as research scaffold after Owner freeze \u2014 not promotion."
+  },
+  "path_a_blockers": {
+    "real_qfsi": "BLOCKED_NO_FIVEPERCENTONLINE_REAL_LOGIN",
+    "phase0_prereg_freeze": "BLOCKED_NOT_READY_FOR_PREREG_FREEZE",
+    "matched_control_disabled_signal": "MATCHED_CONTROL_PREREG_GAP_DISABLED_SIGNAL_OR_RANDOM_HOUR"
+  }
+}

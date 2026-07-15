@@ -1,0 +1,70 @@
+# Local/runtime noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
+*.bak
+__pycache__/
+*.py[cod]
+
+# Secrets and credentials
+.env
+.env.*
+*.secret
+*recovery-codes*.txt
+*.pem
+*.key
+id_rsa*
+*credentials*
+
+# MT5 / AlphaFactory heavy outputs
+*.ex5
+*.opt
+*.set
+*.hcc
+*.fxt
+02. AlphaFactory/runs/
+02. AlphaFactory/runs.db
+02. AlphaFactory/runs.db-shm
+02. AlphaFactory/runs.db-wal
+02. AlphaFactory/archive/
+02. AlphaFactory/runtime/
+02. AlphaFactory/external/
+AlphaTester/
+00. Old File/
+scratch/
+.playwright-mcp/
+worktrees/
+.claude/worktrees/
+
+# Generated analysis outputs
+**/analysis/*result*.json
+**/analysis/*results*.json
+**/analysis/*results*.csv
+**/analysis/ablation_results_*.csv
+**/analysis/*_audit_results.json
+
+# Local agent/editor state
+.serena/
+.cursor/
+.windsurf/
+.vscode/
+
+# Local scratch / peek artifacts
+_tmp_*
+_peek_*
+*.ex4
+
+
+# Test/cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+
+# Bulky archives (keep source lists elsewhere)
+*.zip
+*.7z
+*.rar
+

@@ -1,0 +1,34 @@
+{
+  "hypothesis_id": "HYP-GBPJPY-LEAD-USDJPY-H1-001",
+  "ea": "EA_H1GBPJPYLead",
+  "symbol": "USDJPY",
+  "lead_symbol": "GBPJPY",
+  "tf": "H1",
+  "n_trades": 1284,
+  "tpw_elapsed": 4.9249,
+  "pf_zero_spread": 1.1468487963658938,
+  "net_zero_spread": 41451.45,
+  "exp_zero_spread": 32.2831,
+  "cost_stress_synthetic": {
+    "base_cost_usd": 12.0,
+    "x1": {
+      "pf": 1.0895672978538375,
+      "net": 26043.45,
+      "exp": 20.2831
+    },
+    "x1_5": {
+      "pf": 1.062156253742995,
+      "net": 18339.45,
+      "exp": 14.2831
+    },
+    "x2": {
+      "pf": 1.035527412799816,
+      "net": 10635.45,
+      "exp": 8.2831
+    }
+  },
+  "kill_reasons": [],
+  "verdict": "PROBE_SURVIVE",
+  "model0": "AUTHORIZED_IF_SURVIVE",
+  "generated_at": "2026-07-14T15:31:10.710245+00:00"
+}

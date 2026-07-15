@@ -1,0 +1,199 @@
+{
+  "schema": "pd_primary_structural_offline_probes.v1",
+  "created_at_utc": "2026-07-14T17:12:05.909485Z",
+  "campaign_status": "OFFLINE_ALL_KILL / NO_MODEL0",
+  "authority": "post_PD_MMF_6J_gate_kill; PD as primary structural sleeve not RR2 gate densify; Model0 only on survivor",
+  "panel_sha256": "946CE197290BE86FADACE548D98BCB0F879D51C8738A00381235BDDAD83981D5",
+  "panel_contract_sha256": "B1239DB2E85263BB46D75BC3305E1501A3D54598B6D4A895509FDACBEF676BF9",
+  "cost_track": {
+    "verdict": "GAP",
+    "receipt_sha256": "5F86C5AE8F5FF0AF89C0A158D0EFE8799D01A98855931D6C5A7B4A59CB659505",
+    "path": "03. EA Developer/EA_SonicR/research/preflight/20260714_COST_SURFACE_TRACK_GAP_RECONFIRM.json"
+  },
+  "a_priori_params": {
+    "range_atr": 1.2,
+    "body_atr": 0.55,
+    "close_frac": 0.6,
+    "sl_atr": 1.0,
+    "rr": 2.0,
+    "max_hold": 12
+  },
+  "objects": [
+    {
+      "hypothesis_id": "HYP-USDJPY-H1-PD-GS-EXPAND-DISPLACE-001",
+      "class": "nyfed_pd_primary_structural_displace",
+      "symbol": "USDJPY",
+      "tf": "H1",
+      "funnel": {
+        "n_regime": 5493,
+        "n_displace": 481,
+        "n_trades": 481,
+        "days_used": 481,
+        "n_no_pd": 0
+      },
+      "metrics": {
+        "n": 481,
+        "pf": 0.9494,
+        "net": -7440.67,
+        "exp": -15.4692,
+        "tpw": 1.8439
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9125,
+          "net": -13212.67,
+          "exp": -27.4692
+        },
+        "x1_5": {
+          "pf": 0.8946,
+          "net": -16098.67,
+          "exp": -33.4692
+        },
+        "x2": {
+          "pf": 0.8773,
+          "net": -18984.67,
+          "exp": -39.4692
+        }
+      },
+      "kill_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "a_priori": {
+        "pd_rule": "wow_delta_mn > 0 expand / <=0 contract",
+        "lag": "observation+8d (frozen panel available_at)",
+        "require_expand": true,
+        "bias": "long_only_if_expand",
+        "range_atr": 1.2,
+        "body_atr": 0.55,
+        "close_frac": 0.6,
+        "sl_atr": 1.0,
+        "rr": 2.0,
+        "max_hold": 12,
+        "fail_closed_missing_pd": true,
+        "not_rr2_gate": true,
+        "not_pd_wow_densify": true
+      },
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-USDJPY-H1-PD-GS-CONTRACT-DISPLACE-001",
+      "class": "nyfed_pd_primary_structural_displace",
+      "symbol": "USDJPY",
+      "tf": "H1",
+      "funnel": {
+        "n_regime": 5216,
+        "n_displace": 412,
+        "n_trades": 412,
+        "days_used": 412,
+        "n_no_pd": 0
+      },
+      "metrics": {
+        "n": 412,
+        "pf": 1.0287,
+        "net": 3656.77,
+        "exp": 8.8757,
+        "tpw": 1.5794
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 0.9902,
+          "net": -1287.23,
+          "exp": -3.1243
+        },
+        "x1_5": {
+          "pf": 0.9716,
+          "net": -3759.23,
+          "exp": -9.1243
+        },
+        "x2": {
+          "pf": 0.9535,
+          "net": -6231.23,
+          "exp": -15.1243
+        }
+      },
+      "kill_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "a_priori": {
+        "pd_rule": "wow_delta_mn > 0 expand / <=0 contract",
+        "lag": "observation+8d (frozen panel available_at)",
+        "require_expand": false,
+        "bias": "short_only_if_contract",
+        "range_atr": 1.2,
+        "body_atr": 0.55,
+        "close_frac": 0.6,
+        "sl_atr": 1.0,
+        "rr": 2.0,
+        "max_hold": 12,
+        "fail_closed_missing_pd": true,
+        "not_rr2_gate": true,
+        "not_pd_wow_densify": true
+      },
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-EURJPY-H1-PD-GS-EXPAND-DISPLACE-001",
+      "class": "nyfed_pd_primary_structural_displace",
+      "symbol": "EURJPY",
+      "tf": "H1",
+      "funnel": {
+        "n_regime": 5122,
+        "n_displace": 497,
+        "n_trades": 497,
+        "days_used": 497,
+        "n_no_pd": 0
+      },
+      "metrics": {
+        "n": 497,
+        "pf": 1.0571,
+        "net": 8999.59,
+        "exp": 18.1078,
+        "tpw": 1.9053
+      },
+      "haircuts": {
+        "x1": {
+          "pf": 1.0188,
+          "net": 3035.59,
+          "exp": 6.1078
+        },
+        "x1_5": {
+          "pf": 1.0003,
+          "net": 53.59,
+          "exp": 0.1078
+        },
+        "x2": {
+          "pf": 0.9823,
+          "net": -2928.41,
+          "exp": -5.8922
+        }
+      },
+      "kill_notes": [
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "a_priori": {
+        "pd_rule": "wow_delta_mn > 0 expand / <=0 contract",
+        "lag": "observation+8d (frozen panel available_at)",
+        "require_expand": true,
+        "bias": "long_only_if_expand",
+        "range_atr": 1.2,
+        "body_atr": 0.55,
+        "close_frac": 0.6,
+        "sl_atr": 1.0,
+        "rr": 2.0,
+        "max_hold": 12,
+        "fail_closed_missing_pd": true,
+        "not_rr2_gate": true,
+        "not_pd_wow_densify": true
+      },
+      "model0": "WITHHELD"
+    }
+  ],
+  "any_survivor": false,
+  "model0": "WITHHELD",
+  "receipt_sha256": "7FFF201DA7756F6270AC1D2F329E80F92B9467ABDFB2656E2625ABFA882FA762"
+}

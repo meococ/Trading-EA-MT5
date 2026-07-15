@@ -1,0 +1,9 @@
+Run manifest includes_sha256 mismatch: recorded '0878535C9F8B77410D404A3D0B4AB7E53D535051A40D4FAAEE14B624CA22F74B', 
+actual '5F918C447D0923FAEF30DE0C59E496ABC5E10E7B14AEF25D492C1ADDDFE65874'.
+At D:\Trading EA MT5\02. AlphaFactory\alpha.ps1:956 char:9
++         throw "Run manifest includes_sha256 mismatch: recorded '$($ma ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Run manifest in...C1ADDDFE65874'.:String) [], RuntimeException
+    + FullyQualifiedErrorId : Run manifest includes_sha256 mismatch: recorded '0878535C9F8B77410D404A3D0B4AB7E53D53505 
+   1A40D4FAAEE14B624CA22F74B', actual '5F918C447D0923FAEF30DE0C59E496ABC5E10E7B14AEF25D492C1ADDDFE65874'.
+ 

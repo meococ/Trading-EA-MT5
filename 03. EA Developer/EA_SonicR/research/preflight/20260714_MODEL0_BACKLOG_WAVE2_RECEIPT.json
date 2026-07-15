@@ -1,0 +1,57 @@
+{
+  "schema_version": "sonic_campaign_receipt.v1",
+  "campaign_id": "20260714_MODEL0_BACKLOG_WAVE2",
+  "status": "MODEL0_COMPLETE",
+  "goal_met": false,
+  "generated_at_utc": "2026-07-13T17:30:00Z",
+  "authority": "Owner MT-backtest autonomy 2026-07-14; GPT waived; hard gates retained",
+  "selected_hypothesis": {
+    "hypothesis_id": "HYP-SPARK-ASIAN-M15-001",
+    "ea_name": "EA_M15SparkAsian",
+    "seed": "S111 / EA_Spark v1.4 USDJPY+ near-miss PF~1.26 / ~1.37/wk",
+    "independence_note": "Asian-range LDN/NY breakout; not InsideBar/Chop/VolExp/GoldJPY/TickVol/HourOpen/SB Friday/carry-COT rescue"
+  },
+  "rejected_alternatives": [
+    {"id": "HYP-INSIDEBAR-M15-001", "reason": "already KILL_AT_MODEL0 PF0.96"},
+    {"id": "HYP-CHOP-TREND-M15-001", "reason": "FAIL_CLOSED ChopRegime twin / killed"},
+    {"id": "HYP-VOLEXP-M15-001", "reason": "already KILLED Model 0"},
+    {"id": "HYP-SB-WEEKEND-FLAT-001", "reason": "parked; no Friday mining"},
+    {"id": "HYP-GOLDJPY-LEAD-M15-001", "reason": "already KILLED Model 0"},
+    {"id": "HYP-SR-FX-USBILL-SLOPE-USD-BASKET-001", "reason": "parallel Model 0 KILL (control PF 1.05); not Wave2 primary"}
+  ],
+  "prereg_path": "03. EA Developer/EA_SonicR/research/preregs/20260714_H_SPARK_ASIAN_M15_001_PREREG.md",
+  "contract_receipt_path": "03. EA Developer/EA_SonicR/research/preflight/spark_asian_m15/contracts/20260714_HYP_SPARK_ASIAN_M15_001_CONTRACT_RECEIPT.json",
+  "contract_receipt_sha256": "3EEE107628B00C361508459D78D66D25E6E4CD067AE65C31D2761515414AD655",
+  "compile": "SUCCESS",
+  "model0": {
+    "run_id": "20260714_002614",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "deposit": 10000,
+    "pf": 1.31,
+    "trades": 325,
+    "net": 1099.38,
+    "expectancy": 3.38,
+    "max_equity_dd_pct": 3.41,
+    "trades_per_elapsed_week": 1.25,
+    "cost_grade": "tester_current_research_proxy",
+    "note": "Verified from report.html utf-16-le (PF 1.31; trades 325; net ~1 099). Concurrent race also produced sibling EA_M15AsianRangeBreak scaffold — not authorized as rescue re-screen."
+  },
+  "verdict": "park",
+  "park_reasons": [
+    "pf_clears_1.30_research_bar_under_tester_current_only",
+    "cadence_below_GOAL_2.0_floor",
+    "cost_not_Real_QFSI"
+  ],
+  "readout_path": "03. EA Developer/EA_SonicR/research/readouts/20260714_HYP_SPARK_ASIAN_M15_001_READOUT.md",
+  "coordinator_path": "03. EA Developer/EA_SonicR/research/readouts/20260714_MODEL0_BACKLOG_WAVE2_COORDINATOR.md",
+  "explicit_non_claims": [
+    "GOAL not met",
+    "tester PF is not verified after-cost PF",
+    "missing cost is not zero",
+    "no Mon-Thu densification / range-body-hour mining authorized",
+    "no confirmed / validate-full / promotion authority"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "hypothesis_id": "HYP-H1-LOWVOL-DONCHIAN-MR-001",
+  "ea_name": "EA_H1LowVolDonchianMR",
+  "symbol": "USDJPY",
+  "period": "H1",
+  "from": "2021.01.01",
+  "to": "2025.12.31",
+  "model": 0,
+  "deposit": 10000,
+  "leverage": 100,
+  "overrides": "",
+  "run_role": "control"
+}

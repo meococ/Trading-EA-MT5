@@ -1,0 +1,7 @@
+InpMaxTradesPerDay=3
+InpMaxTradesPerKZ=1
+Tỷ số Sharpe:
+Correlation (Profits,MFE):
+Correlation (Profits,MAE):
+Deals
+balance

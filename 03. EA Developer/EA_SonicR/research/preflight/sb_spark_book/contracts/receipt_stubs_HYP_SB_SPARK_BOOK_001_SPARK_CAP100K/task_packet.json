@@ -1,0 +1,14 @@
+{
+  "schema_version": "sonic_research_task_packet.v1",
+  "hypothesis_id": "HYP-SB-SPARK-BOOK-001",
+  "ea_name": "EA_M15SparkAsian",
+  "symbol": "USDJPY",
+  "period": "M15",
+  "from": "2021.01.01",
+  "to": "2025.12.31",
+  "model": 0,
+  "run_role": "control",
+  "overrides": "",
+  "deposit": 100000,
+  "note": "Spark capital twin Deposit=100000 for honest SB+Spark book join."
+}

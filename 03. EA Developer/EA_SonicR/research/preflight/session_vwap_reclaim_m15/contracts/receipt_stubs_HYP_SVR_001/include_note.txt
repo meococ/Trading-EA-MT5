@@ -1,0 +1,1 @@
+EA_M15SessionVWAPReclaim Trade.mqh standard library stub for include closure.

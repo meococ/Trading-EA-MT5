@@ -1,0 +1,89 @@
+{
+  "schema_version": "sonic_discovery_wave6b_offline_probes.v1",
+  "created_at_utc": "2026-07-14T16:25:19.127836Z",
+  "status": "OFFLINE_WAVE6B_COMPLETE",
+  "honesty": "NOT_MODEL0_NOT_CONFIRMED_NOT_GOAL",
+  "dedup": "readouts/20260714_DISCOVERY_WAVE6B_DEDUP_CLEARANCE.md",
+  "server": "FivePercentOnline-Real",
+  "login": 26451822,
+  "probes": [
+    {
+      "hypothesis_id": "HYP-H1-MOTHER-BAR-BREAK-001",
+      "symbol": "USDJPY",
+      "tf": "H1",
+      "funnel": {
+        "n_mother": 3171,
+        "n_inside": 1019,
+        "n_break": 411,
+        "n_trades": 377
+      },
+      "metrics": {
+        "n": 377,
+        "pf": 1.3274054890359706,
+        "tpw": 1.445235496564766,
+        "exp": 68.95392743332998,
+        "net": 25995.630642365402,
+        "pf_x15_cost12": 1.232113083519833,
+        "pf_x2_cost12": 1.201986439664281,
+        "cost_per_trade": 12.0
+      },
+      "kill_notes": [
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-H1-THREE-DAY-HIGHLOW-BREAK-001",
+      "symbol": "USDJPY",
+      "tf": "H1",
+      "funnel": {
+        "n_eligible": 7254,
+        "n_break": 1262,
+        "n_trades": 265
+      },
+      "metrics": {
+        "n": 265,
+        "pf": 1.6875540643885414,
+        "tpw": 1.0158817150919444,
+        "exp": 52.23543676716104,
+        "net": 13842.390743297676,
+        "pf_x15_cost12": 1.4079964289590352,
+        "pf_x2_cost12": 1.325348474373857,
+        "cost_per_trade": 12.0
+      },
+      "kill_notes": [],
+      "verdict": "PARK_OFFLINE",
+      "model0": "WITHHELD"
+    },
+    {
+      "hypothesis_id": "HYP-USDCHF-H1-LONDON-RANGE-BREAK-001",
+      "symbol": "USDCHF",
+      "tf": "H1",
+      "funnel": {
+        "n_days": 1299,
+        "n_break": 1216,
+        "n_trades": 692
+      },
+      "metrics": {
+        "n": 692,
+        "pf": 0.9891857929379775,
+        "tpw": 2.652793006957077,
+        "exp": -2.2040427664782825,
+        "net": -1525.1975944029714,
+        "pf_x15_cost12": 0.9054677683940368,
+        "pf_x2_cost12": 0.8792992922803583,
+        "cost_per_trade": 12.0
+      },
+      "kill_notes": [
+        "pf_fail",
+        "stress_fail"
+      ],
+      "verdict": "KILLED_AT_OFFLINE_PROBE",
+      "model0": "WITHHELD"
+    }
+  ],
+  "survivors": [],
+  "model0_authorized": false,
+  "receipt_sha256": "B38AE9E3535239DF376E65DFC308EDDC533B4615E20962AEDD5AF45B04902DFF"
+}

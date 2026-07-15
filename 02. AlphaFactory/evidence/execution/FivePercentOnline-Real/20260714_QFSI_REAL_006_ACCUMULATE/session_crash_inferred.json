@@ -1,0 +1,35 @@
+{
+  "schema_version": "alphafactory_qfsi_capture_session.v1",
+  "created_at_utc": "2026-07-14T20:05:00Z",
+  "capture_id": "20260714_QFSI_REAL_006_ACCUMULATE",
+  "status": "CAPTURE_CRASH_INFERRED_POST_MORTEM",
+  "note": "Inferred after harvest: no session_end/manifest; stderr was DEVNULL on DETACHED launch so exact exception lost.",
+  "evidence": {
+    "planned_duration_sec": 14400,
+    "hb_rows": 1932,
+    "hb_connected0": 0,
+    "hb_first_utc": "2026-07-14T17:33:55.891908Z",
+    "hb_last_utc": "2026-07-14T18:09:35.885076Z",
+    "elapsed_approx_min": 36,
+    "auth_drop_observed": false,
+    "server_match_at_start": "FivePercentOnline-Real",
+    "pid_62392_alive_at_diag": false
+  },
+  "ruled_out": [
+    "planned_duration_complete",
+    "clean_session_end",
+    "broker_auth_drop_in_heartbeats"
+  ],
+  "likely_causes_ranked": [
+    "uncaught_exception_or_IPC_contention_during_tick_poll_stderr_discarded",
+    "external_process_kill_of_capture_python_only",
+    "MT5_initialize_contention_from_concurrent_readonly_probes"
+  ],
+  "not_done": [
+    "kill_Real",
+    "Wave8",
+    "densify",
+    "COT",
+    "price_twins"
+  ]
+}

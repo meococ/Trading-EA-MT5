@@ -1,0 +1,215 @@
+{
+  "as_of_date": "2026-07-11",
+  "coordination_session_attestation": {
+    "access_mode": "accidental_metadata_display",
+    "artifact_path": "02. AlphaFactory/runs/EA_SilverBullet/20260628_131343/analysis/logs/USDJPY_20260325_RunMeta_20210101_000000_196670171.json",
+    "artifact_sha256": "270f6a84bbd4d2c607a80087595f1540e307e363ccfa7ca678b4b13a55e11531",
+    "attestation_id": "PHASE0-CONTAMINATION-20260711-001",
+    "clearance_effect": "BLOCKED_REQUIRES_CLEAN_FUTURE_FREEZE_REVIEW",
+    "input_path": "03. EA Developer/EA_SonicR/research/preflight/20260711_PHASE0_COORDINATION_CONTAMINATION_ATTESTATION_V1.json",
+    "input_sha256": "a81a816e3cc0467872f0cd428a61cd69227d07feada654f0e8c8f2e9d7476ac3",
+    "outcome_values_used": false,
+    "producer_semantic_outcome_accessed": false,
+    "reasons": [
+      "BLOCKED_REQUIRES_CLEAN_FUTURE_FREEZE_REVIEW"
+    ],
+    "review_status": "CONTAMINATED",
+    "reviewed_at": "2026-07-11",
+    "reviewed_by": "Codex coordinator",
+    "schema_version": "phase0_coordination_contamination_attestation.v1",
+    "scope": "COORDINATION_SESSION_ONLY_NOT_PRODUCER_SEMANTIC_ACCESS",
+    "session_id": "019f515e-af25-7303-b3e0-69ee6d3a6d9f",
+    "status": "BLOCKED"
+  },
+  "deterministic": true,
+  "policy": {
+    "auto_discovery_used": false,
+    "candidate_selection": "EXACT_LIST_ONLY",
+    "inspections_performed": [
+      "EXACT_PATH",
+      "COORDINATION_ATTESTATION",
+      "IDENTITY_MANIFEST",
+      "CSV_HEADER",
+      "SHA256"
+    ],
+    "semantic_data_access": "FORBIDDEN"
+  },
+  "probes": [
+    {
+      "candidate_runs": [],
+      "checks": [
+        {
+          "blocked_reason": "BLOCKED_PROBE_A_EXACT_UNIVERSE_NOT_FROZEN",
+          "candidate_count": 0,
+          "check_id": "exact_candidate_universe_frozen",
+          "status": "BLOCKED"
+        }
+      ],
+      "hypothesis_id": "HYP-PORTFOLIO-COMPOSE-001",
+      "probe_id": "PROBE_A",
+      "producer_semantic_outcome_accessed": false,
+      "reasons": [
+        "BLOCKED_PROBE_A_EXACT_UNIVERSE_NOT_FROZEN"
+      ],
+      "status": "BLOCKED"
+    },
+    {
+      "candidate_runs": [
+        "EA_SilverBullet/20260628_131343"
+      ],
+      "checks": [
+        {
+          "check_id": "identity_manifest:run_manifest.json",
+          "identity": {
+            "ea_name": "EA_SilverBullet",
+            "model": 0,
+            "period": "M15",
+            "run_id": "20260628_131343",
+            "symbol": "USDJPY"
+          },
+          "identity_matches": true,
+          "inspection": "IDENTITY_MANIFEST",
+          "path": "EA_SilverBullet/20260628_131343/run_manifest.json",
+          "present": true,
+          "sha256": "1cbfac3d1edc33a9b6266f5f61bf51193cae72653cf5e09c8dd8aab835d90101",
+          "status": "PASS"
+        },
+        {
+          "check_id": "identity_manifest:config/run_manifest.json",
+          "identity": {
+            "ea_name": "EA_SilverBullet",
+            "model": 0,
+            "period": "M15",
+            "run_id": "20260628_131343",
+            "symbol": "USDJPY"
+          },
+          "identity_matches": true,
+          "inspection": "IDENTITY_MANIFEST",
+          "path": "EA_SilverBullet/20260628_131343/config/run_manifest.json",
+          "present": true,
+          "sha256": "1cbfac3d1edc33a9b6266f5f61bf51193cae72653cf5e09c8dd8aab835d90101",
+          "status": "PASS"
+        },
+        {
+          "check_id": "trade_header",
+          "header_matches": true,
+          "header_sha256": "7a968fd3e8b609d64b3d5ea52484a3c1fd93c1624e87e11d3f635a2880b21f15",
+          "inspection": "CSV_HEADER_AND_SHA256",
+          "path": "EA_SilverBullet/20260628_131343/analysis/logs/USDJPY_20260325_PX6_Trades_20210101_000000_196670171.csv",
+          "present": true,
+          "sha256": "f82895e7dea6699d905b167b88a3c68a1d64a7ca4182596b0d02f486e20c32ba",
+          "status": "PASS"
+        },
+        {
+          "blocked_reason": "BLOCKED_PROBE_B_PRICE_PATH_MANIFEST_NOT_HASH_BOUND",
+          "check_id": "price_path_manifest",
+          "hash_field": "source_trades_csv_sha256",
+          "hash_matches": false,
+          "inspection": "SHA256_BINDING",
+          "manifest_path": "EA_SilverBullet/20260628_131343/preflight/price_path_manifest.json",
+          "manifest_present": false,
+          "manifest_schema_matches": null,
+          "status": "BLOCKED",
+          "target_path": "EA_SilverBullet/20260628_131343/analysis/logs/USDJPY_20260325_PX6_Trades_20210101_000000_196670171.csv",
+          "target_present": true,
+          "target_sha256": "f82895e7dea6699d905b167b88a3c68a1d64a7ca4182596b0d02f486e20c32ba"
+        },
+        {
+          "blocked_reason": "BLOCKED_PROBE_B_SIDE_AWARE_BID_NOT_HASH_BOUND",
+          "check_id": "side_aware_bid",
+          "hash_field": "bid_path_sha256",
+          "hash_matches": false,
+          "inspection": "SHA256_BINDING",
+          "manifest_path": "EA_SilverBullet/20260628_131343/preflight/price_path_manifest.json",
+          "manifest_present": false,
+          "manifest_schema_matches": null,
+          "status": "BLOCKED",
+          "target_path": "EA_SilverBullet/20260628_131343/preflight/bid_price_path.csv",
+          "target_present": false
+        },
+        {
+          "blocked_reason": "BLOCKED_PROBE_B_SIDE_AWARE_ASK_NOT_HASH_BOUND",
+          "check_id": "side_aware_ask",
+          "hash_field": "ask_path_sha256",
+          "hash_matches": false,
+          "inspection": "SHA256_BINDING",
+          "manifest_path": "EA_SilverBullet/20260628_131343/preflight/price_path_manifest.json",
+          "manifest_present": false,
+          "manifest_schema_matches": null,
+          "status": "BLOCKED",
+          "target_path": "EA_SilverBullet/20260628_131343/preflight/ask_price_path.csv",
+          "target_present": false
+        },
+        {
+          "blocked_reason": "BLOCKED_PROBE_B_TIMEZONE_NOT_HASH_BOUND",
+          "check_id": "timezone_contract",
+          "hash_field": "timezone_contract_sha256",
+          "hash_matches": false,
+          "inspection": "SHA256_BINDING",
+          "manifest_path": "EA_SilverBullet/20260628_131343/preflight/price_path_manifest.json",
+          "manifest_present": false,
+          "manifest_schema_matches": null,
+          "status": "BLOCKED",
+          "target_path": "EA_SilverBullet/20260628_131343/preflight/timezone_contract.json",
+          "target_present": false
+        },
+        {
+          "blocked_reason": "BLOCKED_PROBE_B_SESSION_NOT_HASH_BOUND",
+          "check_id": "session_contract",
+          "hash_field": "session_contract_sha256",
+          "hash_matches": false,
+          "inspection": "SHA256_BINDING",
+          "manifest_path": "EA_SilverBullet/20260628_131343/preflight/price_path_manifest.json",
+          "manifest_present": false,
+          "manifest_schema_matches": null,
+          "status": "BLOCKED",
+          "target_path": "EA_SilverBullet/20260628_131343/preflight/session_contract.json",
+          "target_present": false
+        },
+        {
+          "blocked_reason": "BLOCKED_PROBE_B_SYMBOL_CONTRACT_NOT_HASH_BOUND",
+          "check_id": "symbol_contract",
+          "hash_field": "symbol_contract_sha256",
+          "hash_matches": false,
+          "inspection": "SHA256_BINDING",
+          "manifest_path": "EA_SilverBullet/20260628_131343/preflight/price_path_manifest.json",
+          "manifest_present": false,
+          "manifest_schema_matches": null,
+          "status": "BLOCKED",
+          "target_path": "EA_SilverBullet/20260628_131343/preflight/symbol_contract.json",
+          "target_present": false
+        },
+        {
+          "blocked_reason": "BLOCKED_PROBE_B_RESEARCH_COST_PROVENANCE_NOT_HASH_BOUND",
+          "check_id": "research_cost_provenance",
+          "hash_field": "research_cost_provenance_sha256",
+          "hash_matches": false,
+          "inspection": "SHA256_BINDING",
+          "manifest_path": "EA_SilverBullet/20260628_131343/preflight/price_path_manifest.json",
+          "manifest_present": false,
+          "manifest_schema_matches": null,
+          "status": "BLOCKED",
+          "target_path": "EA_SilverBullet/20260628_131343/preflight/research_cost_provenance.json",
+          "target_present": false
+        }
+      ],
+      "hypothesis_id": "HYP-SB-WEEKEND-FLAT-001",
+      "probe_id": "PROBE_B",
+      "producer_semantic_outcome_accessed": false,
+      "reasons": [
+        "BLOCKED_PROBE_B_PRICE_PATH_MANIFEST_NOT_HASH_BOUND",
+        "BLOCKED_PROBE_B_SIDE_AWARE_BID_NOT_HASH_BOUND",
+        "BLOCKED_PROBE_B_SIDE_AWARE_ASK_NOT_HASH_BOUND",
+        "BLOCKED_PROBE_B_TIMEZONE_NOT_HASH_BOUND",
+        "BLOCKED_PROBE_B_SESSION_NOT_HASH_BOUND",
+        "BLOCKED_PROBE_B_SYMBOL_CONTRACT_NOT_HASH_BOUND",
+        "BLOCKED_PROBE_B_RESEARCH_COST_PROVENANCE_NOT_HASH_BOUND"
+      ],
+      "status": "BLOCKED"
+    }
+  ],
+  "producer_semantic_outcome_accessed": false,
+  "schema_version": "phase0_artifact_sufficiency.v1",
+  "spec_sha256": "156995947c34f9ed40d1c8aa69b1bb603c5d925ef87ad9d1898803ef21eb976f",
+  "status": "BLOCKED"
+}

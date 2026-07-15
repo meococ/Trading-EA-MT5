@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-PDH-BREAK-M15-001",
+  "task_packet_sha256": "8D194BA679DB322632D547E7A80262D9023611AF3D0A62A62134C3934BB422CE",
+  "git_commit": "NOGIT-DD6EC7F766CDACDF104AE7D48C6A28B480AEAECE48E1F3AD99486E26994A4FD5",
+  "git_status_sha256": "52B9B5D9221114CB77C93F9FA4C719C19DC315D90BA0D751DE6A2B93BE0A67EF",
+  "binding": {
+    "hypothesis_id": "HYP-PDH-BREAK-M15-001",
+    "run_role": "control",
+    "ea_name": "EA_M15PDHBreak",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "33154A6BC50E0DAD9BD9BAF8EB714035DE5F917D937089601B76EEABCB89BDE0"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\pdh_break_m15\\contracts\\receipt_stubs_HYP_PDH_BREAK_M15_001\\task_packet.json",
+      "sha256": "8D194BA679DB322632D547E7A80262D9023611AF3D0A62A62134C3934BB422CE"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_M15PDHBreak\\EA_M15PDHBreak.mq5",
+      "sha256": "2A4EDF5158E6A7FA3A73F5EA2E0FD0222BF6F90E4435DF2AA9D2DD6FEC30B575"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\pdh_break_m15\\contracts\\receipt_stubs_HYP_PDH_BREAK_M15_001\\prereg.json",
+      "sha256": "62201B5D59671BAEADAC07E2CBCADA2DB90049CCA7D395A0FA2F44E27AA85508"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\pdh_break_m15\\contracts\\receipt_stubs_HYP_PDH_BREAK_M15_001\\cost_source_manifest.json",
+      "sha256": "B60692A777B9CAAB3DF1C86559EADD04D6EC42B965AE68CD45535AC3806DB240"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\pdh_break_m15\\contracts\\receipt_stubs_HYP_PDH_BREAK_M15_001\\include_note.txt",
+      "sha256": "355CAB06EAA45C9C25E0BD7555FEEDF2CBBCAC45C5311DC5845BC211A983335C"
+    }
+  ],
+  "generated_at_utc": "2026-07-13T18:18:27.230505+00:00",
+  "note": "Model 0 PDH/PDL continuation breakout; opposite of LiqSweep/PDLevel fade kills."
+}

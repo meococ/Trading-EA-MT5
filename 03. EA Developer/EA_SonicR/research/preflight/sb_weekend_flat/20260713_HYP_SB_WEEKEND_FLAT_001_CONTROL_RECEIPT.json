@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-SB-WEEKEND-FLAT-001",
+  "task_packet_sha256": "404C1AD1D205A6365C3E3153648C06DA7FA5B5F4C58B4B9218EB740B7B092798",
+  "git_commit": "NOGIT-AA014D4BB929F2EB8DC9BDBBC960770F9BF9E5894D504BD59E8D0FF2D92A4311",
+  "git_status_sha256": "4BBBA9F882DF1AF7F5F4A5C87928BBCF4ED4EF39F2422BF1DB3BC44159096AAF",
+  "binding": {
+    "hypothesis_id": "HYP-SB-WEEKEND-FLAT-001",
+    "run_role": "control",
+    "ea_name": "EA_SilverBullet",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpUseWeekendFlat=0",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "6AE8C99B4BE9ABE7BBDEEAE9C96620BF8BA856004CA7CC4D4CFBC3906D50E757"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_weekend_flat\\receipt_stubs_HYP_SB_WEEKEND_FLAT_001\\task_packet.json",
+      "sha256": "404C1AD1D205A6365C3E3153648C06DA7FA5B5F4C58B4B9218EB740B7B092798"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SilverBullet\\EA_SilverBullet_v2.mq5",
+      "sha256": "631F8DCEBACFC9E07CD527BCAE53F745B53121E7DC67281BAE5A9A620D9BF642"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_weekend_flat\\receipt_stubs_HYP_SB_WEEKEND_FLAT_001\\prereg.json",
+      "sha256": "F25285F28AD9DC0B19FE6544A616B66F95E870E7E4D482AEB362DEF75A447A6C"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_weekend_flat\\receipt_stubs_HYP_SB_WEEKEND_FLAT_001\\cost_source_manifest.json",
+      "sha256": "CFC4A91EE52BE7C876CEDDC7A8452578B7C0DBB4A25EC414C3B2D6F9347FDD3D"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\sb_weekend_flat\\receipt_stubs_HYP_SB_WEEKEND_FLAT_001\\include_note.txt",
+      "sha256": "8352BCD07E1CE26A0F8358073E3442F7A5A538B1FB5D2A19C5A51C9A52C05A2D"
+    }
+  ],
+  "generated_at_utc": "2026-07-13T17:20:41.532389+00:00",
+  "note": "control; NOGIT=AGENTS+GOAL+SB_v2"
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "sonic_wave3_offline_probe.v1",
+  "created_at_utc": "2026-07-14T16:08:29.852130Z",
+  "status": "OFFLINE_CLOSED_BAR_PROBE_COMPLETE",
+  "model0_status": "BLOCKED_UNRELATED_TERMINAL64_OWNER_REAL",
+  "honesty": "NOT_MODEL0_NOT_CONFIRMED_NOT_GOAL",
+  "server_observed": "FivePercentOnline-Real",
+  "login": 26451822,
+  "window": "2021.01.01-2025.12.31",
+  "elapsed_weeks": 260.8571412037037,
+  "risk_pct": 0.5,
+  "tp_rr": 3.0,
+  "results": {
+    "HYP-H4-OUTSIDE-REV-001": {
+      "ea": "EA_H4OutsideRev",
+      "tf": "H4",
+      "metrics": {
+        "n": 31,
+        "pf": 0.800144375199602,
+        "net": -1755.7204261025367,
+        "tpw": 0.11883899308622745,
+        "win_rate": 0.2903225806451613,
+        "exp": -56.636142777501185,
+        "avg_win": 781.0248160513316,
+        "avg_loss": 399.315625934751,
+        "exit_reasons": {
+          "flat": 11,
+          "sl": 17,
+          "tp": 3
+        }
+      },
+      "verdict": "KILL"
+    },
+    "HYP-H4-ENGULF-REV-001": {
+      "ea": "EA_H4EngulfRev",
+      "tf": "H4",
+      "metrics": {
+        "n": 217,
+        "pf": 1.2900289085099654,
+        "net": 16871.265794891442,
+        "tpw": 0.8318729516035921,
+        "win_rate": 0.391705069124424,
+        "exp": 77.74776864005273,
+        "avg_win": 882.8499488462085,
+        "avg_loss": 440.6892413411841,
+        "exit_reasons": {
+          "flat": 85,
+          "sl": 102,
+          "tp": 30
+        }
+      },
+      "verdict": "KILL"
+    },
+    "HYP-H1-PIN-PDLEVEL-001": {
+      "ea": "EA_H1PinPDLevel",
+      "tf": "H1",
+      "metrics": {
+        "n": 21,
+        "pf": 0.9447571534249858,
+        "net": -366.9179013154715,
+        "tpw": 0.08050383402615408,
+        "win_rate": 0.2857142857142857,
+        "exp": -17.472281015022453,
+        "avg_win": 1045.8316731764883,
+        "avg_loss": 442.79386269162677,
+        "exit_reasons": {
+          "flat": 6,
+          "sl": 12,
+          "tp": 3
+        }
+      },
+      "verdict": "KILL"
+    }
+  },
+  "source_hashes": {
+    "EA_H4OutsideRev": "174FE155C7B66DE60EC3C9A010EA162B59AC31463D6776425BD46D2E0894F32D",
+    "EA_H4EngulfRev": "F0E4BF98B31FE83BDF3EFFAB5BE0127CE770E9BBC78AD6695E1D2EDCBDD8FB45",
+    "EA_H1PinPDLevel": "402C21A1900F3D4967B84E009905D7145E5B76D0DBF59AD362FE649ED3F61887"
+  },
+  "banned": [
+    "densify_maxkz",
+    "hour_day_mine",
+    "qfsi_stall",
+    "claim_model0"
+  ]
+}

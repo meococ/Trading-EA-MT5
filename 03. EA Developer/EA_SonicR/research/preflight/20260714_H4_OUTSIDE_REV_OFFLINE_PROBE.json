@@ -1,0 +1,37 @@
+{
+  "hypothesis_id": "HYP-H4-OUTSIDE-REV-001",
+  "probe": "offline_closed_bar_mirror",
+  "symbol": "USDJPY",
+  "bars": 7795,
+  "window": "2021.01.01-2025.12.31",
+  "metrics": {
+    "n": 31,
+    "pf": 0.8094,
+    "net": -1696.99,
+    "exp": -54.74,
+    "tpw": 0.1189,
+    "win_rate": 0.2903,
+    "cost_base": 12.0,
+    "pf_cost_x1": 0.7743,
+    "pf_cost_x1_5": 0.7575,
+    "pf_cost_x2": 0.7412,
+    "exp_after_12": -66.74,
+    "reasons": {
+      "tp": 3,
+      "sl": 17,
+      "flat": 11,
+      "timeout": 0
+    }
+  },
+  "gate": {
+    "kill_raw": true,
+    "hit_raw": false,
+    "cost_ok": false,
+    "thin_expectancy": true,
+    "verdict": "KILL_PROBE"
+  },
+  "source_sha256": "174FE155C7B66DE60EC3C9A010EA162B59AC31463D6776425BD46D2E0894F32D",
+  "cost_honesty": "UNVERIFIED_SYNTHETIC_PLUS_REPORT_ONLY_12",
+  "note": "Not Model 0; fill at next-bar open; zero spread in path sim",
+  "updated_at": "2026-07-14T22:11:47"
+}

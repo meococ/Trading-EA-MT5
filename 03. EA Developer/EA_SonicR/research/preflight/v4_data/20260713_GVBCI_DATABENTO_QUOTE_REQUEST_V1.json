@@ -1,0 +1,56 @@
+{
+  "schema_version": "gvbci_vendor_quote_request.v1",
+  "created_at": "2026-07-13",
+  "status": "COST_QUOTE_ONLY_NO_PURCHASE_NO_DOWNLOAD",
+  "provider": "Databento",
+  "dataset": "GLBX.MDP3",
+  "research_use": "internal non-display quantitative research and analysis",
+  "date_range": {
+    "from": "2021-01-01T00:00:00Z",
+    "to": "2025-12-31T23:59:59Z"
+  },
+  "symbol_request": {
+    "symbols": ["GC.FUT"],
+    "stype_in": "parent",
+    "filter_after_definition": "instrument_class == FUTURE; exclude calendar spreads and options"
+  },
+  "quote_components": [
+    {
+      "schema": "definition",
+      "purpose": "point-in-time raw-symbol, expiration, tick-size and instrument mapping"
+    },
+    {
+      "schema": "bbo-1s",
+      "purpose": "lowest-volume full-window synchronized top-of-book feasibility surface"
+    },
+    {
+      "schema": "trades",
+      "purpose": "volume and activity evidence for an ex-ante roll contract"
+    },
+    {
+      "schema": "mbp-1",
+      "date_range": {
+        "from": "2025-01-01T00:00:00Z",
+        "to": "2025-01-31T23:59:59Z"
+      },
+      "purpose": "one-month sequence/timestamp and BBO-1s fidelity comparison before any full MBP-1 purchase"
+    }
+  ],
+  "timestamp_contract": {
+    "primary": "ts_event",
+    "retain": ["ts_event", "ts_recv", "sequence", "instrument_id", "raw_symbol"],
+    "spot_sync_rule": "No carry-forward at a decision bar; both venue observations must satisfy a separately frozen maximum-staleness bound."
+  },
+  "roll_contract_status": "NOT_YET_FROZEN",
+  "cost_control": {
+    "action": "Obtain an exact provider estimate for each component before ordering.",
+    "automatic_purchase": false,
+    "automatic_download": false,
+    "owner_approval_required": true
+  },
+  "licensing_control": {
+    "classification_to_confirm": "CME Category C-2 Research and Analysis / internal non-display",
+    "provider_license_manager_confirmation_required": true,
+    "redistribution": false
+  }
+}

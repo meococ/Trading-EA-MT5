@@ -1,0 +1,12 @@
+{
+  "schema_version": "sonic_research_task_packet.v1",
+  "hypothesis_id": "HYP-H1-THREEBAR-REV-001",
+  "ea_name": "EA_H1ThreeBarRev",
+  "symbol": "USDJPY",
+  "period": "H1",
+  "from": "2021.01.01",
+  "to": "2025.12.31",
+  "model": 0,
+  "run_role": "control",
+  "note": "Post-PIN independent 3-bar rev RR=3 Model 0"
+}

@@ -1,0 +1,80 @@
+{
+  "schema": "v8_carry_vol_regime_offline_probe.v1",
+  "probe_id": "V8_CARRY_VOL_REGIME_V1",
+  "created_at_utc": "2026-07-13T16:44:12.733147+00:00",
+  "status": "KILL_AT_OFFLINE_PROBE",
+  "mt5_server": "MetaQuotes-Demo",
+  "note": "MetaQuotes-Demo falsification only. Not Strategy Tester. Not EA/Model0 authority unless PROBE_SURVIVOR + separate prereg/cost.",
+  "contract_path": "03. EA Developer/EA_SonicR/research/preflight/v8_exogenous/20260713_V8_CARRY_VOL_JOIN_CONTRACT_V1.md",
+  "design_frozen": {
+    "symbols": [
+      "EURUSD",
+      "GBPUSD",
+      "USDJPY"
+    ],
+    "timeframe": "H4",
+    "rebalance": "MonThu_H4_close_Friday_flat",
+    "carry_deadband": 0.25,
+    "vol_gate": "AR1_expanding_residual_sigma_positive_flat",
+    "stop": "1.5*ATR14_H4",
+    "time_stop_bars": 6,
+    "stress_a_pips": 1.5,
+    "stress_b_pips": 2.5,
+    "train": [
+      "2021-01-01",
+      "2023-12-31"
+    ],
+    "holdout": [
+      "2024-01-01",
+      "2025-12-31"
+    ],
+    "control": "sign_prior_20_H4_returns_same_stops_costs_weekend"
+  },
+  "rates_coverage": {
+    "usd": 864,
+    "eur": 10056,
+    "gbp": 7458,
+    "jpy": 6990,
+    "sigma_days": 1946,
+    "innov_days": 1886
+  },
+  "train_candidate": {
+    "trades": 423,
+    "trades_per_week": 2.706581352833638,
+    "expectancy_gross_pips": 0.5279461357872821,
+    "expectancy_a_pips": -0.9720538642127178,
+    "pf_gross": 1.0296804770104917,
+    "pf_stress_a": 0.9474523764670691,
+    "pf_stress_b": 0.8961570268469029,
+    "sum_net_a_pips": -411.1787845619796,
+    "sum_net_b_pips": -834.1787845619797
+  },
+  "train_control": {
+    "trades": 973,
+    "trades_per_week": 6.225776965265083,
+    "expectancy_gross_pips": -0.6739891992244865,
+    "expectancy_a_pips": -2.1739891992244864,
+    "pf_gross": 0.9574928471625663,
+    "pf_stress_a": 0.8700177220371076,
+    "pf_stress_b": 0.8167891881580076,
+    "sum_net_a_pips": -2115.2914908454254,
+    "sum_net_b_pips": -3088.2914908454254
+  },
+  "holdout_candidate": null,
+  "holdout_control": null,
+  "train_pass": false,
+  "holdout_pass": null,
+  "kill_reasons": [
+    "train_pf_stress_a<1.10"
+  ],
+  "trades_csv": "03. EA Developer/EA_SonicR/research/preflight/v8_probe/20260713_V8_CARRY_VOL_REGIME_PROBE_TRADES_V1.csv",
+  "trades_csv_sha256": "a656bf2eb3cf61262e6cdcb5f66377e01e51b71cf1c4c5cd5bb9df0800c42cf0",
+  "authority_flags": {
+    "registry_append_authorized": false,
+    "prereg_freeze_authorized": false,
+    "ea_build_authorized": false,
+    "compile_authorized": false,
+    "backtest_authorized": false,
+    "model_0_authorized": false
+  }
+}

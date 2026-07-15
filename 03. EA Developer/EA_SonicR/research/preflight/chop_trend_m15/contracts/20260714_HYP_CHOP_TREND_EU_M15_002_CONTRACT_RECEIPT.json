@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-CHOP-TREND-EU-M15-002",
+  "task_packet_sha256": "359268A3CFFC0220457B4ACFB5E931CB8A9F2561BC3282CAF15F2813FF56E82E",
+  "git_commit": "NOGIT-6ADDA6493B5AB0C95721448BDC6F778B8F86BBCF19909C61792B6852164B7C54",
+  "git_status_sha256": "9F8A6D29144F96A6FE8903464D06B21E161CBEC3AF9DC0E33789574781371484",
+  "binding": {
+    "hypothesis_id": "HYP-CHOP-TREND-EU-M15-002",
+    "run_role": "control",
+    "ea_name": "EA_M15ChopTrend",
+    "symbol": "USDJPY",
+    "period": "M15",
+    "from": "2021.01.01",
+    "to": "2025.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpStartHour=10;InpEndHour=14",
+    "telemetry_tier": "off",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 3,
+      "point": 0.001,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "B7B609F6E008286B0E0E2B44BEEFAFD8CFA0CC1C99C013DC8BB225229A6C479E"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\chop_trend_m15\\contracts\\receipt_stubs_HYP_CHOP_TREND_EU_M15_002\\task_packet.json",
+      "sha256": "359268A3CFFC0220457B4ACFB5E931CB8A9F2561BC3282CAF15F2813FF56E82E"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_M15ChopTrend\\EA_M15ChopTrend.mq5",
+      "sha256": "D98BF7C3B05EFD51143952CA5EDE3D5B588B646C3CF1E74A26143AD69B32620A"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\chop_trend_m15\\contracts\\receipt_stubs_HYP_CHOP_TREND_EU_M15_002\\prereg.json",
+      "sha256": "D659E3C47FDCC007E7B7F2698267B6672D8CE57ADACEDF8F59AA0EAEA1E054C3"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\chop_trend_m15\\contracts\\receipt_stubs_HYP_CHOP_TREND_EU_M15_002\\cost_source_manifest.json",
+      "sha256": "C270777D2C0CD8CBC82E4733E09C821E6BF504E7B32946ACDF5AE1D50BCB7BFF"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\chop_trend_m15\\contracts\\receipt_stubs_HYP_CHOP_TREND_EU_M15_002\\include_note.txt",
+      "sha256": "207B54CBF2D9BA76416F04B96D2B52C08C541A9F020B7CD40304D11730EE6B5F"
+    }
+  ],
+  "generated_at_utc": "2026-07-13T17:09:46Z",
+  "note": "Model 0 Europe-hour child. Binding must match alpha.ps1. Cost unverified."
+}

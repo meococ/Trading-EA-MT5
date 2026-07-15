@@ -1,0 +1,69 @@
+{
+  "schema_version": "v4_data_foundation_receipt.v1",
+  "created_at": "2026-07-13",
+  "status": "FOUNDATION_READY_DATA_NOT_READY",
+  "goal_thread_id": "019f571c-42a0-7ed1-8e02-5bf6f2a43669",
+  "artifacts": [
+    {
+      "path": "02. AlphaFactory/tools/execution_data_foundation.py",
+      "sha256": "0A7C8225218C30F90C1EE003ED4B6570C90D6B554699B5F26E5F5A2DA2D82431",
+      "bytes": 30471
+    },
+    {
+      "path": "02. AlphaFactory/schemas/execution_data_capture_manifest.v1.schema.json",
+      "sha256": "2E53D9084471EC971533EE56461E281F7BE1E7759F190E3D72713678CAF5E739",
+      "bytes": 5454
+    },
+    {
+      "path": "tests/test_execution_data_foundation.py",
+      "sha256": "F228C900EBCC08A504885B308B88D7BA8CA1AA5A9FED8CB7517045325074B5C8",
+      "bytes": 9178
+    },
+    {
+      "path": "04. Project Control/ai/data_contracts/20260713_EXECUTION_DATA_ACQUISITION_CONTRACT_V1.md",
+      "sha256": "8EEF6F89D30E70A17740289E11885D313C2989C423FB94E3EBDA3C40F5BB9F9B",
+      "bytes": 6535
+    },
+    {
+      "path": "03. EA Developer/EA_SonicR/research/preflight/v4_data/20260713_MT5_READONLY_PROBE_V1.json",
+      "sha256": "A9D5019DBE6B98025677FBA557DD954B4F5B7F7029472DBCF70ECA7416E2F347",
+      "bytes": 2761
+    },
+    {
+      "path": "03. EA Developer/EA_SonicR/research/preflight/v4_data/20260713_EXECUTION_DATA_INVENTORY_V1.json",
+      "sha256": "17013EEEDDA1F08F566DB03BC2776DC294EE8D469C0B680CA68056DDC2DF2263",
+      "bytes": 2017
+    },
+    {
+      "path": "03. EA Developer/EA_SonicR/research/preflight/v4_data/20260713_GVBCI_DATABENTO_QUOTE_REQUEST_V1.json",
+      "sha256": "56D958300892A5046126FACC382E32793CC77FBB4C8A7DEC04B1E51222A362BC",
+      "bytes": 1959
+    },
+    {
+      "path": "03. EA Developer/EA_SonicR/research/20260713_GVBCI_DATA_ACQUISITION_FEASIBILITY.md",
+      "sha256": "C0BF80F31BE3F800E518BFA37A02C1AA1D4F64498FC1508449CD872CD0DBD9CD",
+      "bytes": 4220
+    },
+    {
+      "path": "03. EA Developer/EA_SonicR/research/readouts/20260713_V4_DATA_FOUNDATION_COORDINATOR_READOUT.md",
+      "sha256": "1FDE139D574509209ACA9F72D5160D3FF68507623E0CC4A20588092DAC201162",
+      "bytes": 5938
+    }
+  ],
+  "verification": {
+    "command": "python -m pytest -q tests/test_execution_data_foundation.py tests/test_verified_cost_builder.py",
+    "result": "11 passed in 0.28s",
+    "candidate_registry": "CANDIDATE_REGISTRY_OK expected; no row appended",
+    "compile_or_backtest_run": false,
+    "ea_source_or_include_edited": false,
+    "orders_sent": 0,
+    "positions_opened": 0
+  },
+  "verdicts": {
+    "foundation": "READY",
+    "qfsi": "STOP_DATA_FRONTIER",
+    "gvbci": "GO_FOR_COST_QUOTE_ONLY",
+    "scfis": "EXCLUDED",
+    "strategy_authority": "NONE"
+  }
+}

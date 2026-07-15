@@ -1,0 +1,151 @@
+{
+  "schema_version": "sonic_qfsi_rr2_fullcost_rebind_harness.v1",
+  "created_at_utc": "2026-07-15T00:41:20.683920Z",
+  "status": "HARNESS_ARMED__GATE_STOP",
+  "goal_claim": false,
+  "confirmed_claim": false,
+  "do_not_kill_real": true,
+  "no_signal_retune": true,
+  "processes": {
+    "terminal64_29076": false,
+    "qfsi_005_35892": false,
+    "watcher_18760": false,
+    "do_not_kill_real": true
+  },
+  "live_captures": [
+    "20260714_QFSI_REAL_006_ACCUMULATE",
+    "20260714_QFSI_REAL_006_MISROOT_PARTIAL",
+    "20260715_QFSI_REAL_007_LONG_ACCUMULATE"
+  ],
+  "capture_symbol_order_book_first": [
+    "USDJPY",
+    "EURUSD",
+    "GBPUSD",
+    "XAUUSD"
+  ],
+  "full_qfsi_gate": {
+    "full_qfsi_verdict": "STOP_DATA_FRONTIER",
+    "go": false,
+    "blockers": [
+      "EURUSD_quote_days=2<<90",
+      "EURUSD_commission_unique=2<<30",
+      "EURUSD_slippage_fills=0<<100 (MISSING≠0)",
+      "GBPUSD_quote_days=2<<90",
+      "GBPUSD_commission_unique=0<<30",
+      "GBPUSD_slippage_fills=0<<100 (MISSING≠0)",
+      "XAUUSD_quote_days=2<<90",
+      "XAUUSD_commission_unique=0<<30",
+      "XAUUSD_slippage_fills=0<<100 (MISSING≠0)",
+      "USDJPY_quote_days=2<<90 (book primary)",
+      "USDJPY_commission_unique=0<<30 (book primary)",
+      "USDJPY_slippage_fills=0<<100 (book primary; MISSING≠0)"
+    ],
+    "progress": {
+      "quote_distinct_utc_dates": {
+        "USDJPY": [
+          "2026-07-14",
+          "2026-07-15"
+        ],
+        "EURUSD": [
+          "2026-07-14",
+          "2026-07-15"
+        ],
+        "GBPUSD": [
+          "2026-07-14",
+          "2026-07-15"
+        ],
+        "XAUUSD": [
+          "2026-07-14",
+          "2026-07-15"
+        ]
+      },
+      "quote_day_counts": {
+        "USDJPY": 2,
+        "EURUSD": 2,
+        "GBPUSD": 2,
+        "XAUUSD": 2
+      },
+      "commission_unique": {
+        "USDJPY": 0,
+        "EURUSD": 2,
+        "GBPUSD": 0,
+        "XAUUSD": 0
+      },
+      "slippage_fills": {
+        "USDJPY": 0,
+        "EURUSD": 0,
+        "GBPUSD": 0,
+        "XAUUSD": 0
+      },
+      "captures": [
+        "20260714_QFSI_REAL_001",
+        "20260714_QFSI_REAL_002",
+        "20260714_QFSI_REAL_003_CONTINUATION",
+        "20260714_QFSI_REAL_004_CONTINUATION",
+        "20260714_QFSI_REAL_004_EXTENSION",
+        "20260714_QFSI_REAL_005_POSTAUTH",
+        "20260714_QFSI_REAL_006_ACCUMULATE",
+        "20260714_QFSI_REAL_006_MISROOT_PARTIAL",
+        "20260715_QFSI_REAL_007_LONG_ACCUMULATE"
+      ]
+    },
+    "remaining_frontier": {
+      "quote_days_need": {
+        "USDJPY": 88,
+        "EURUSD": 88,
+        "GBPUSD": 88,
+        "XAUUSD": 88
+      },
+      "commission_need": {
+        "USDJPY": 30,
+        "EURUSD": 28,
+        "GBPUSD": 30,
+        "XAUUSD": 30
+      },
+      "slippage_need": {
+        "USDJPY": 100,
+        "EURUSD": 100,
+        "GBPUSD": 100,
+        "XAUUSD": 100
+      },
+      "calendar_eta_quote_days_only": "~88 elapsed calendar days if continuous Real accumulate (commission/slip still Owner deal-export)"
+    },
+    "contract": "04. Project Control/ai/data_contracts/20260713_EXECUTION_DATA_ACQUISITION_CONTRACT_V1.md"
+  },
+  "books_frozen": [
+    {
+      "ea": "EA_SilverBullet",
+      "run_id": "20260714_194548",
+      "label": "RR2_SHELF",
+      "hypothesis_id": "HYP-SB-MAXKZ2-RR2-FRICTION-001"
+    },
+    {
+      "ea": "EA_SilverBullet",
+      "run_id": "20260714_194221",
+      "label": "RR2_CONTROL_194221",
+      "hypothesis_id": "HYP-SB-MAXKZ2-RR2-FRICTION-001"
+    },
+    {
+      "ea": "EA_SilverBullet",
+      "run_id": "20260714_231750",
+      "label": "RR2_FRESH_MODEL0",
+      "hypothesis_id": "HYP-SB-MAXKZ2-RR2-FRICTION-001"
+    },
+    {
+      "ea": "EA_M15SparkAsian",
+      "run_id": "20260714_193358",
+      "label": "SPARK100K",
+      "hypothesis_id": "HYP-SPARK-ASIAN-M15-001"
+    }
+  ],
+  "execute_command_when_go": "python \"02. AlphaFactory/tools/qfsi_rr2_fullcost_rebind_harness.py\" --execute",
+  "bans": [
+    "no_densify",
+    "no_price_twin_spam",
+    "no_COT_revive",
+    "no_kill_Real",
+    "no_retune_RR2_from_partial",
+    "slippage_MISSING_neq_0"
+  ],
+  "receipt_sha256": "212DB5E68201EBD4CD0611980849273435013BCE23094712B49781022E395291"
+}

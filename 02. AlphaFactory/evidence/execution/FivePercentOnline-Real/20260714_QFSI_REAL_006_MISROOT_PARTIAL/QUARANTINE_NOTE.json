@@ -1,0 +1,26 @@
+{
+  "schema_version": "sonic_qfsi_006_misroot_quarantine.v1",
+  "created_at_utc": "2026-07-14T17:33:55.678271Z",
+  "why": "Watcher passed --out-dir as evidence root instead of capture subdir; capture PID 59320 stopped (Real terminal NOT killed); files quarantined; relaunch into proper subdir",
+  "prev_pid": 59320,
+  "terminal_left_running": true,
+  "files": [
+    "session_start.json",
+    "EURUSD_quote_ticks.csv",
+    "EURUSD_heartbeats.csv",
+    "EURUSD_commission_lifecycles.csv",
+    "EURUSD_slippage_fills.csv",
+    "GBPUSD_quote_ticks.csv",
+    "GBPUSD_heartbeats.csv",
+    "GBPUSD_commission_lifecycles.csv",
+    "GBPUSD_slippage_fills.csv",
+    "XAUUSD_quote_ticks.csv",
+    "XAUUSD_heartbeats.csv",
+    "XAUUSD_commission_lifecycles.csv",
+    "XAUUSD_slippage_fills.csv",
+    "USDJPY_quote_ticks.csv",
+    "USDJPY_heartbeats.csv",
+    "USDJPY_commission_lifecycles.csv",
+    "USDJPY_slippage_fills.csv"
+  ]
+}
