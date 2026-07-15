@@ -61,14 +61,16 @@ Base path: `00. Old File/EA_Archive/EA_SonicR/research/`
 | `20260710_EA_FAILURE_PORTFOLIO_AUDIT.md` | audit frontier 217 runs / 34 EA |
 | chi tiết file dated khác | xem folder archive; INDEX không còn liệt kê từng readout như surface active |
 
-## Source EA — `03. EA Developer/` (active shelf **empty**)
+## Source EA — `03. EA Developer/` (2 lane active)
 
 | Path | Ghi chú |
 |---|---|
-| `03. EA Developer/README.md` | active shelf empty (2026-07-15); pointer tới Old File + `hot.md` |
-| `00. Old File/EA_Archive/EA_SonicR/` | full SonicR package + research ledger (archived) |
-| `00. Old File/EA_Archive/EA_SilverBullet/` | full SilverBullet package (archived) |
-| `00. Old File/EA_Archive/` | shelf/failed/duplicate packages + manifests; **không** compile làm evidence |
+| `03. EA Developer/README.md` | shelf pointer; 2 lane active (2026-07-15) |
+| `03. EA Developer/EA_FVGConfluence/` | lane active (Owner Path-C); có `.mq5` + research |
+| `03. EA Developer/EA_HybridICT_Sonic/` | lane active (Path-C stub, KILL@Model0); có `.mq5` + research |
+| `00. Old File/EA_Archive/EA_SonicR/` | full SonicR ledger (archived THẬT 2026-07-15; bản duy nhất) |
+| `00. Old File/EA_Archive/EA_SilverBullet/` | SilverBullet **binary-only** (`.ex5`; không còn source `.mq5` trên đĩa) |
+| `00. Old File/EA_Archive/` | 80 dir archived (SonicR + SilverBullet + 78 stub `.ex5`) + manifest; **không** compile làm evidence |
 
 ## AlphaFactory — `02. AlphaFactory/`
 
@@ -97,10 +99,10 @@ Base path: `00. Old File/EA_Archive/EA_SonicR/research/`
 
 ## Tests — archived
 
-Root `tests/` đã chuyển (2026-07-15) →
-`00. Old File/tests_archive/tests_20260715/`.
-Không còn bộ test active ở root. Harness AlphaFactory vẫn ở
-`02. AlphaFactory/`.
+Root `tests/` chỉ còn stale `.pyc` (không source), đã chuyển (2026-07-15) →
+`00. Old File/root_scratch_20260715/tests/`. Không có bộ test active ở root
+(source `.py` không còn trên đĩa — nếu cần xem git history). Harness
+AlphaFactory vẫn ở `02. AlphaFactory/`.
 
 ## Phần còn lại
 

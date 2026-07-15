@@ -1,7 +1,0 @@
-# Closeout — Round 5 split+halfback greenfield
-Status: `OFFLINE_ALL_KILL__NO_MODEL0`
-Receipt: `18028AD2E32043ED1C9EA4ADF71B8F60A3968DBE84516D1C0518274488AC2715`
-- `HYP-FX3-H4-BOOKSPLIT-LEADER-CONT-001` → **KILLED_AT_OFFLINE_PROBE**
-- `HYP-FX3-H4-IMPULSE-HALFBACK-HOLD-001` → **KILLED_AT_OFFLINE_PROBE**
-Do not densify split/halfback / disp/ER/solo/accept / majority/TS/spring/PB / AONIA/CORRA/thin3.
-Best shelf RR2 `194548`. GOAL unmet.

@@ -70,9 +70,11 @@ Harness chính cho phát triển EA + backtest — **không invent toolchain son
   - Template: `alpha.local.ps1.example` · init: `tools/init_machine_paths.ps1`
   - `alpha.ps1` đọc local trước; thiếu → auto-detect + cảnh báo.
 - AlphaFactory = cách chạy; ceremony (gates/registry/prereg) vẫn bắt buộc.
-- Active shelf `03. EA Developer/` empty (README). Packages archived:
-  `00. Old File/EA_Archive/` (SonicR + SilverBullet + prior). Research ledger
-  theo package archive — **không** còn dưới `03. EA Developer/`.
+- Active shelf `03. EA Developer/` = 2 lane (`EA_FVGConfluence`,
+  `EA_HybridICT_Sonic`). Packages archived THẬT (80 dir, 2026-07-15):
+  `00. Old File/EA_Archive/` (SonicR full ledger + SilverBullet binary + 78
+  stub `.ex5`). Research ledger theo package archive — **không** còn dưới
+  `03. EA Developer/`.
 - Root gọn: `CLAUDE.md`, `AGENTS.md`, `INDEX.md`, `01. GOAL/`. Doc điều khiển →
   `04. Project Control/ai/`. Trước revive: `do_not_repeat_failures.md`.
 

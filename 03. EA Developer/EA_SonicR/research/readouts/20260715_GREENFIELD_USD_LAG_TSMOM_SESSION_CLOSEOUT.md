@@ -1,8 +1,0 @@
-# Closeout — USD lag + TS-mom greenfield
-Status: `OFFLINE_ALL_KILL__NO_MODEL0`
-Receipt: `D71CC8F52A4C4B45FE231FBDDF6650CCFF1DF37D1CF306AB9BA947FBA21F3561`
-- `HYP-FX3-H4-USD-MAJORITY-LAG-FOLLOW-001` → **KILLED_AT_OFFLINE_PROBE**
-- `HYP-FX3-H4-TSMOM-BAND-CONT-001` → **KILLED_AT_OFFLINE_PROBE**
-Do not densify majority ATR / TS band / RR / hold.
-Do not densify AONIA/CORRA/thin3. QFSI parallel only for cost.
-Best shelf RR2 `194548`. GOAL unmet.

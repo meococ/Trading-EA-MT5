@@ -1,8 +1,30 @@
 # Hot Cache
 
-Updated: 2026-07-15 ~16:55 ICT | Hybrid ICT-Sonic Model 0 EURUSD = 0 trades FAIL; GOAL unmet
+Updated: 2026-07-15 | DOCS↔DISK RECONCILE + cleanup: 03. EA Developer = 2 active lanes; 80 pkgs archived; GOAL unmet
 
 ## Active Truth
+
+- **DOCS↔DISK RECONCILE + WORKSPACE CLEANUP (2026-07-15) — Owner-authorized.**
+  Ground-truth audit: docs (hot/AGENTS/INDEX/CLAUDE) described a "shelf-empty /
+  already-archived" state that **never existed on disk**. Reality found:
+  `03. EA Developer/` held **82** packages (not empty); `00. Old File/EA_Archive/`
+  and the claimed `tests_archive/` were **empty/absent** — the documented archive
+  was fiction (likely undone by the `4abce34` origin/main merge). Of the 82: **79**
+  were untracked `.ex5`+`.log` binary stubs (no `.mq5` source, 0 git impact);
+  only **3** real packages — `EA_FVGConfluence` + `EA_HybridICT_Sonic` (active,
+  have `.mq5`) and `EA_SonicR` (**835** tracked ledger files / ~59MB, sole copy,
+  no `.mq5`). Owner choices: sync docs↔disk first; keep active + archive rest;
+  SonicR → Old File (gitignored). **Actions:** moved **80** non-active dirs
+  (79 stubs + SonicR; 1075 files / 59.71MB) → `00. Old File/EA_Archive/`; moved
+  root scratch (`_tmp_*`, `_peek_v8.txt`, stale `tests/` pyc, `.pytest_cache`)
+  → `00. Old File/root_scratch_20260715/`. Active shelf now = **2 lanes**.
+  SonicR still in `origin/main` (835 files) → recoverable after any commit.
+  Git working tree = 835 SonicR deletions **uncommitted** (no commit per Owner
+  rule; stubs invisible to git). Manifest/receipt:
+  `04. Project Control/ai/cleanup_receipts/20260715_docs_disk_sync_archive.json`.
+  Docs synced: CLAUDE / AGENTS / INDEX / README(03). Open item: hot.md itself is
+  2213-line append-only — compaction proposed, **not** yet done (needs Owner OK).
+  GOAL unmet.
 
 - **HIS SL-SIGATR MODEL0 (2026-07-15) — `KILLED_AT_MODEL_0`.**
   Run `20260715_170714`: N=**76** PF=**0.98** net **−$210** DD~2.2%

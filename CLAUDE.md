@@ -21,9 +21,10 @@ Nguyên tắc nhanh:
 - Harness EA/backtest: `02. AlphaFactory/alpha.ps1` (+ `alpha.local.ps1` máy
   cục bộ, không commit). Không invent toolchain song song.
 - Không commit/push Git trừ khi Owner yêu cầu rõ trong message hiện tại.
-- Source shelf/failed (gồm SonicR + SilverBullet đã archive 2026-07-15):
-  `00. Old File/EA_Archive/` — không compile làm evidence. Active shelf
-  `03. EA Developer/` hiện empty — xem README + `hot.md`.
+- Source shelf/failed (SonicR full ledger + SilverBullet binary + 78 stub
+  `.ex5` đã archive THẬT 2026-07-15): `00. Old File/EA_Archive/` — không compile
+  làm evidence. Active shelf `03. EA Developer/` = 2 lane (`EA_FVGConfluence`,
+  `EA_HybridICT_Sonic`) — xem README + `hot.md`.
 - Đây là dự án cá nhân: mặc định một checkout/một nhánh hiện tại; không tự tạo
   branch, worktree, clone hay nhánh riêng cho sub-agent nếu Owner chưa yêu cầu.
 - Multi-agent roster: `04. Project Control/ai/multi_agent_roster.md` +

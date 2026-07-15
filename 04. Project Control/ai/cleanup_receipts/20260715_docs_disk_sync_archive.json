@@ -1,0 +1,1440 @@
+{
+  "receipt": "20260715_docs_disk_sync_archive",
+  "date": "2026-07-15",
+  "action": "MOVE 03. EA Developer non-active packages -> 00. Old File/EA_Archive",
+  "owner_authorized": true,
+  "owner_choices": {
+    "scope": "docs_disk_sync_first",
+    "packages": "keep_active_archive_rest",
+    "sonicr_dest": "old_file_gitignored"
+  },
+  "kept_active": [
+    "EA_FVGConfluence",
+    "EA_HybridICT_Sonic"
+  ],
+  "moved_count": 80,
+  "moved_total_files": 1075,
+  "moved_total_mb": 59.71,
+  "git_note": "79 stub dirs untracked (.ex5/.log gitignored, 0 git impact); EA_SonicR = 835 tracked files, remains in origin/main history after move",
+  "entries": [
+    {
+      "dir": "EA_CVDDivergence",
+      "files": 2,
+      "bytes": 25148,
+      "size_kb": 25,
+      "last_mod": "2026-06-21",
+      "file_list": [
+        {
+          "f": "EA_CVDDivergence.ex5",
+          "bytes": 21812
+        },
+        {
+          "f": "EA_CVDDivergence.log",
+          "bytes": 3336
+        }
+      ]
+    },
+    {
+      "dir": "EA_CarryPublicRates",
+      "files": 2,
+      "bytes": 50024,
+      "size_kb": 49,
+      "last_mod": "2026-07-13",
+      "file_list": [
+        {
+          "f": "EA_CarryPublicRates.ex5",
+          "bytes": 43462
+        },
+        {
+          "f": "EA_CarryPublicRates.log",
+          "bytes": 6562
+        }
+      ]
+    },
+    {
+      "dir": "EA_ChopRegime",
+      "files": 2,
+      "bytes": 24264,
+      "size_kb": 24,
+      "last_mod": "2026-07-02",
+      "file_list": [
+        {
+          "f": "EA_ChopRegime.ex5",
+          "bytes": 20964
+        },
+        {
+          "f": "EA_ChopRegime.log",
+          "bytes": 3300
+        }
+      ]
+    },
+    {
+      "dir": "EA_Cobra",
+      "files": 2,
+      "bytes": 103318,
+      "size_kb": 101,
+      "last_mod": "2026-06-21",
+      "file_list": [
+        {
+          "f": "v2\\EA_Cobra_v6_1.ex5",
+          "bytes": 92142
+        },
+        {
+          "f": "v2\\EA_Cobra_v6_1.log",
+          "bytes": 11176
+        }
+      ]
+    },
+    {
+      "dir": "EA_D1TrendH1PB",
+      "files": 2,
+      "bytes": 30756,
+      "size_kb": 30,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_D1TrendH1PB.ex5",
+          "bytes": 24254
+        },
+        {
+          "f": "EA_D1TrendH1PB.log",
+          "bytes": 6502
+        }
+      ]
+    },
+    {
+      "dir": "EA_D1TrendH4PB",
+      "files": 2,
+      "bytes": 30088,
+      "size_kb": 29,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_D1TrendH4PB.ex5",
+          "bytes": 23586
+        },
+        {
+          "f": "EA_D1TrendH4PB.log",
+          "bytes": 6502
+        }
+      ]
+    },
+    {
+      "dir": "EA_DXYGold",
+      "files": 2,
+      "bytes": 24408,
+      "size_kb": 24,
+      "last_mod": "2026-07-01",
+      "file_list": [
+        {
+          "f": "EA_DXYGold.ex5",
+          "bytes": 21144
+        },
+        {
+          "f": "EA_DXYGold.log",
+          "bytes": 3264
+        }
+      ]
+    },
+    {
+      "dir": "EA_EURUSD_H1AsiaBoxLondonBreak",
+      "files": 2,
+      "bytes": 32360,
+      "size_kb": 32,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_EURUSD_H1AsiaBoxLondonBreak.ex5",
+          "bytes": 25666
+        },
+        {
+          "f": "EA_EURUSD_H1AsiaBoxLondonBreak.log",
+          "bytes": 6694
+        }
+      ]
+    },
+    {
+      "dir": "EA_GoldCalendar",
+      "files": 2,
+      "bytes": 50498,
+      "size_kb": 49,
+      "last_mod": "2026-07-01",
+      "file_list": [
+        {
+          "f": "EA_GoldCalendar.ex5",
+          "bytes": 43984
+        },
+        {
+          "f": "EA_GoldCalendar.log",
+          "bytes": 6514
+        }
+      ]
+    },
+    {
+      "dir": "EA_GoldJPYInverse",
+      "files": 2,
+      "bytes": 24498,
+      "size_kb": 24,
+      "last_mod": "2026-07-01",
+      "file_list": [
+        {
+          "f": "EA_GoldJPYInverse.ex5",
+          "bytes": 21148
+        },
+        {
+          "f": "EA_GoldJPYInverse.log",
+          "bytes": 3350
+        }
+      ]
+    },
+    {
+      "dir": "EA_GoldSqueeze",
+      "files": 2,
+      "bytes": 48958,
+      "size_kb": 48,
+      "last_mod": "2026-07-01",
+      "file_list": [
+        {
+          "f": "EA_GoldSqueeze.ex5",
+          "bytes": 42456
+        },
+        {
+          "f": "EA_GoldSqueeze.log",
+          "bytes": 6502
+        }
+      ]
+    },
+    {
+      "dir": "EA_GoldTrendH4",
+      "files": 2,
+      "bytes": 51836,
+      "size_kb": 51,
+      "last_mod": "2026-07-01",
+      "file_list": [
+        {
+          "f": "EA_GoldTrendH4.ex5",
+          "bytes": 45334
+        },
+        {
+          "f": "EA_GoldTrendH4.log",
+          "bytes": 6502
+        }
+      ]
+    },
+    {
+      "dir": "EA_Gotobi",
+      "files": 2,
+      "bytes": 77498,
+      "size_kb": 76,
+      "last_mod": "2026-07-02",
+      "file_list": [
+        {
+          "f": "EA_Gotobi.ex5",
+          "bytes": 69844
+        },
+        {
+          "f": "EA_Gotobi.log",
+          "bytes": 7654
+        }
+      ]
+    },
+    {
+      "dir": "EA_H1ATRPctileBreak",
+      "files": 2,
+      "bytes": 31370,
+      "size_kb": 31,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_H1ATRPctileBreak.ex5",
+          "bytes": 24808
+        },
+        {
+          "f": "EA_H1ATRPctileBreak.log",
+          "bytes": 6562
+        }
+      ]
+    },
+    {
+      "dir": "EA_H1ATRRegimeMom",
+      "files": 2,
+      "bytes": 31790,
+      "size_kb": 31,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_H1ATRRegimeMom.ex5",
+          "bytes": 25252
+        },
+        {
+          "f": "EA_H1ATRRegimeMom.log",
+          "bytes": 6538
+        }
+      ]
+    },
+    {
+      "dir": "EA_H1BOS_M15Pullback",
+      "files": 2,
+      "bytes": 31552,
+      "size_kb": 31,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_H1BOS_M15Pullback.ex5",
+          "bytes": 24978
+        },
+        {
+          "f": "EA_H1BOS_M15Pullback.log",
+          "bytes": 6574
+        }
+      ]
+    },
+    {
+      "dir": "EA_H1GBPJPYLead",
+      "files": 2,
+      "bytes": 29826,
+      "size_kb": 29,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_H1GBPJPYLead.ex5",
+          "bytes": 23312
+        },
+        {
+          "f": "EA_H1GBPJPYLead.log",
+          "bytes": 6514
+        }
+      ]
+    },
+    {
+      "dir": "EA_H1LowVolDonchianMR",
+      "files": 2,
+      "bytes": 31322,
+      "size_kb": 31,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_H1LowVolDonchianMR.ex5",
+          "bytes": 24736
+        },
+        {
+          "f": "EA_H1LowVolDonchianMR.log",
+          "bytes": 6586
+        }
+      ]
+    },
+    {
+      "dir": "EA_H1OpenBreak",
+      "files": 2,
+      "bytes": 25218,
+      "size_kb": 25,
+      "last_mod": "2026-06-21",
+      "file_list": [
+        {
+          "f": "EA_H1OpenBreak.ex5",
+          "bytes": 22182
+        },
+        {
+          "f": "EA_H1OpenBreak.log",
+          "bytes": 3036
+        }
+      ]
+    },
+    {
+      "dir": "EA_H1PinPDLevel",
+      "files": 2,
+      "bytes": 29648,
+      "size_kb": 29,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_H1PinPDLevel.ex5",
+          "bytes": 23134
+        },
+        {
+          "f": "EA_H1PinPDLevel.log",
+          "bytes": 6514
+        }
+      ]
+    },
+    {
+      "dir": "EA_H1RVCompressBreak",
+      "files": 2,
+      "bytes": 31232,
+      "size_kb": 30,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_H1RVCompressBreak.ex5",
+          "bytes": 24658
+        },
+        {
+          "f": "EA_H1RVCompressBreak.log",
+          "bytes": 6574
+        }
+      ]
+    },
+    {
+      "dir": "EA_H1SwingFailure",
+      "files": 2,
+      "bytes": 31700,
+      "size_kb": 31,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_H1SwingFailure.ex5",
+          "bytes": 25162
+        },
+        {
+          "f": "EA_H1SwingFailure.log",
+          "bytes": 6538
+        }
+      ]
+    },
+    {
+      "dir": "EA_H4EngulfRev",
+      "files": 2,
+      "bytes": 29420,
+      "size_kb": 29,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_H4EngulfRev.ex5",
+          "bytes": 22918
+        },
+        {
+          "f": "EA_H4EngulfRev.log",
+          "bytes": 6502
+        }
+      ]
+    },
+    {
+      "dir": "EA_H4NR7Break",
+      "files": 2,
+      "bytes": 30274,
+      "size_kb": 30,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_H4NR7Break.ex5",
+          "bytes": 23784
+        },
+        {
+          "f": "EA_H4NR7Break.log",
+          "bytes": 6490
+        }
+      ]
+    },
+    {
+      "dir": "EA_H4OutsideRev",
+      "files": 2,
+      "bytes": 28920,
+      "size_kb": 28,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_H4OutsideRev.ex5",
+          "bytes": 22406
+        },
+        {
+          "f": "EA_H4OutsideRev.log",
+          "bytes": 6514
+        }
+      ]
+    },
+    {
+      "dir": "EA_H4Ribbon",
+      "files": 2,
+      "bytes": 49014,
+      "size_kb": 48,
+      "last_mod": "2026-07-02",
+      "file_list": [
+        {
+          "f": "EA_H4Ribbon.ex5",
+          "bytes": 42134
+        },
+        {
+          "f": "EA_H4Ribbon.log",
+          "bytes": 6880
+        }
+      ]
+    },
+    {
+      "dir": "EA_H4StructBreak_M15",
+      "files": 2,
+      "bytes": 31242,
+      "size_kb": 31,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_H4StructBreak_M15.ex5",
+          "bytes": 24668
+        },
+        {
+          "f": "EA_H4StructBreak_M15.log",
+          "bytes": 6574
+        }
+      ]
+    },
+    {
+      "dir": "EA_ITSM",
+      "files": 2,
+      "bytes": 84988,
+      "size_kb": 83,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_ITSM.ex5",
+          "bytes": 77382
+        },
+        {
+          "f": "EA_ITSM.log",
+          "bytes": 7606
+        }
+      ]
+    },
+    {
+      "dir": "EA_InsideBar",
+      "files": 2,
+      "bytes": 79154,
+      "size_kb": 77,
+      "last_mod": "2026-07-05",
+      "file_list": [
+        {
+          "f": "EA_InsideBar.ex5",
+          "bytes": 71018
+        },
+        {
+          "f": "EA_InsideBar.log",
+          "bytes": 8136
+        }
+      ]
+    },
+    {
+      "dir": "EA_KalmanTrend",
+      "files": 2,
+      "bytes": 22310,
+      "size_kb": 22,
+      "last_mod": "2026-06-21",
+      "file_list": [
+        {
+          "f": "EA_KalmanTrend.ex5",
+          "bytes": 18998
+        },
+        {
+          "f": "EA_KalmanTrend.log",
+          "bytes": 3312
+        }
+      ]
+    },
+    {
+      "dir": "EA_KeltnerSqueeze",
+      "files": 2,
+      "bytes": 23274,
+      "size_kb": 23,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_KeltnerSqueeze.ex5",
+          "bytes": 19926
+        },
+        {
+          "f": "EA_KeltnerSqueeze.log",
+          "bytes": 3348
+        }
+      ]
+    },
+    {
+      "dir": "EA_LondonNY",
+      "files": 2,
+      "bytes": 99748,
+      "size_kb": 97,
+      "last_mod": "2026-07-08",
+      "file_list": [
+        {
+          "f": "EA_LondonNY.ex5",
+          "bytes": 90726
+        },
+        {
+          "f": "EA_LondonNY.log",
+          "bytes": 9022
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15ADRCont",
+      "files": 2,
+      "bytes": 31860,
+      "size_kb": 31,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15ADRCont.ex5",
+          "bytes": 25370
+        },
+        {
+          "f": "EA_M15ADRCont.log",
+          "bytes": 6490
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15AsianRangeBreak",
+      "files": 2,
+      "bytes": 34200,
+      "size_kb": 33,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15AsianRangeBreak.ex5",
+          "bytes": 27614
+        },
+        {
+          "f": "EA_M15AsianRangeBreak.log",
+          "bytes": 6586
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15AsianSweepReclaim",
+      "files": 2,
+      "bytes": 31792,
+      "size_kb": 31,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15AsianSweepReclaim.ex5",
+          "bytes": 25182
+        },
+        {
+          "f": "EA_M15AsianSweepReclaim.log",
+          "bytes": 6610
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15AsianTailFade",
+      "files": 2,
+      "bytes": 29684,
+      "size_kb": 29,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15AsianTailFade.ex5",
+          "bytes": 23122
+        },
+        {
+          "f": "EA_M15AsianTailFade.log",
+          "bytes": 6562
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15ChopTrend",
+      "files": 2,
+      "bytes": 32604,
+      "size_kb": 32,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15ChopTrend.ex5",
+          "bytes": 26090
+        },
+        {
+          "f": "EA_M15ChopTrend.log",
+          "bytes": 6514
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15EMAStretchFade",
+      "files": 2,
+      "bytes": 30676,
+      "size_kb": 30,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15EMAStretchFade.ex5",
+          "bytes": 24102
+        },
+        {
+          "f": "EA_M15EMAStretchFade.log",
+          "bytes": 6574
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15EngulfTrend",
+      "files": 2,
+      "bytes": 30322,
+      "size_kb": 30,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15EngulfTrend.ex5",
+          "bytes": 23784
+        },
+        {
+          "f": "EA_M15EngulfTrend.log",
+          "bytes": 6538
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15FailedORBFade",
+      "files": 2,
+      "bytes": 31896,
+      "size_kb": 31,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15FailedORBFade.ex5",
+          "bytes": 25334
+        },
+        {
+          "f": "EA_M15FailedORBFade.log",
+          "bytes": 6562
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15GoldJPYLead",
+      "files": 2,
+      "bytes": 30032,
+      "size_kb": 29,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15GoldJPYLead.ex5",
+          "bytes": 23494
+        },
+        {
+          "f": "EA_M15GoldJPYLead.log",
+          "bytes": 6538
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15HourOpenBreak",
+      "files": 2,
+      "bytes": 30554,
+      "size_kb": 30,
+      "last_mod": "2026-07-13",
+      "file_list": [
+        {
+          "f": "EA_M15HourOpenBreak.ex5",
+          "bytes": 23992
+        },
+        {
+          "f": "EA_M15HourOpenBreak.log",
+          "bytes": 6562
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15IBOverlapBreak",
+      "files": 2,
+      "bytes": 30530,
+      "size_kb": 30,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15IBOverlapBreak.ex5",
+          "bytes": 23956
+        },
+        {
+          "f": "EA_M15IBOverlapBreak.log",
+          "bytes": 6574
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15InsideBreak",
+      "files": 2,
+      "bytes": 31626,
+      "size_kb": 31,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15InsideBreak.ex5",
+          "bytes": 25088
+        },
+        {
+          "f": "EA_M15InsideBreak.log",
+          "bytes": 6538
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15LNYDualWin",
+      "files": 2,
+      "bytes": 32826,
+      "size_kb": 32,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15LNYDualWin.ex5",
+          "bytes": 26300
+        },
+        {
+          "f": "EA_M15LNYDualWin.log",
+          "bytes": 6526
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15LNYDualWindow",
+      "files": 2,
+      "bytes": 33478,
+      "size_kb": 33,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15LNYDualWindow.ex5",
+          "bytes": 26916
+        },
+        {
+          "f": "EA_M15LNYDualWindow.log",
+          "bytes": 6562
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15LondonORB",
+      "files": 2,
+      "bytes": 32988,
+      "size_kb": 32,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15LondonORB.ex5",
+          "bytes": 26474
+        },
+        {
+          "f": "EA_M15LondonORB.log",
+          "bytes": 6514
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15LondonORBAccept",
+      "files": 2,
+      "bytes": 33718,
+      "size_kb": 33,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15LondonORBAccept.ex5",
+          "bytes": 27132
+        },
+        {
+          "f": "EA_M15LondonORBAccept.log",
+          "bytes": 6586
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15NYIBDriveBreak",
+      "files": 2,
+      "bytes": 31016,
+      "size_kb": 30,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15NYIBDriveBreak.ex5",
+          "bytes": 24442
+        },
+        {
+          "f": "EA_M15NYIBDriveBreak.log",
+          "bytes": 6574
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15NYOpenDrive",
+      "files": 2,
+      "bytes": 32580,
+      "size_kb": 32,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15NYOpenDrive.ex5",
+          "bytes": 26042
+        },
+        {
+          "f": "EA_M15NYOpenDrive.log",
+          "bytes": 6538
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15PDHBreak",
+      "files": 2,
+      "bytes": 31672,
+      "size_kb": 31,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15PDHBreak.ex5",
+          "bytes": 25170
+        },
+        {
+          "f": "EA_M15PDHBreak.log",
+          "bytes": 6502
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15PDHRetest",
+      "files": 2,
+      "bytes": 32278,
+      "size_kb": 32,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15PDHRetest.ex5",
+          "bytes": 25764
+        },
+        {
+          "f": "EA_M15PDHRetest.log",
+          "bytes": 6514
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15SessionVWAPReclaim",
+      "files": 2,
+      "bytes": 30672,
+      "size_kb": 30,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15SessionVWAPReclaim.ex5",
+          "bytes": 24050
+        },
+        {
+          "f": "EA_M15SessionVWAPReclaim.log",
+          "bytes": 6622
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15SparkAsian",
+      "files": 2,
+      "bytes": 47186,
+      "size_kb": 46,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15SparkAsian.ex5",
+          "bytes": 40660
+        },
+        {
+          "f": "EA_M15SparkAsian.log",
+          "bytes": 6526
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15TickVolImpulse",
+      "files": 2,
+      "bytes": 32484,
+      "size_kb": 32,
+      "last_mod": "2026-07-13",
+      "file_list": [
+        {
+          "f": "EA_M15TickVolImpulse.ex5",
+          "bytes": 25910
+        },
+        {
+          "f": "EA_M15TickVolImpulse.log",
+          "bytes": 6574
+        }
+      ]
+    },
+    {
+      "dir": "EA_M15VolExpansion",
+      "files": 2,
+      "bytes": 30268,
+      "size_kb": 30,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_M15VolExpansion.ex5",
+          "bytes": 23718
+        },
+        {
+          "f": "EA_M15VolExpansion.log",
+          "bytes": 6550
+        }
+      ]
+    },
+    {
+      "dir": "EA_NYSweepReclaim",
+      "files": 2,
+      "bytes": 75876,
+      "size_kb": 74,
+      "last_mod": "2026-06-23",
+      "file_list": [
+        {
+          "f": "EA_NYSweepReclaim.ex5",
+          "bytes": 66572
+        },
+        {
+          "f": "EA_NYSweepReclaim.log",
+          "bytes": 9304
+        }
+      ]
+    },
+    {
+      "dir": "EA_OpenHalfMom",
+      "files": 2,
+      "bytes": 44064,
+      "size_kb": 43,
+      "last_mod": "2026-07-01",
+      "file_list": [
+        {
+          "f": "EA_OpenHalfMomentum.ex5",
+          "bytes": 37532
+        },
+        {
+          "f": "EA_OpenHalfMomentum.log",
+          "bytes": 6532
+        }
+      ]
+    },
+    {
+      "dir": "EA_OpeningMomentum",
+      "files": 2,
+      "bytes": 51560,
+      "size_kb": 50,
+      "last_mod": "2026-07-01",
+      "file_list": [
+        {
+          "f": "EA_OpeningMomentum.ex5",
+          "bytes": 44128
+        },
+        {
+          "f": "EA_OpeningMomentum.log",
+          "bytes": 7432
+        }
+      ]
+    },
+    {
+      "dir": "EA_SBSparkBook",
+      "files": 2,
+      "bytes": 66058,
+      "size_kb": 65,
+      "last_mod": "2026-07-15",
+      "file_list": [
+        {
+          "f": "EA_SBSparkBook.ex5",
+          "bytes": 58416
+        },
+        {
+          "f": "EA_SBSparkBook.log",
+          "bytes": 7642
+        }
+      ]
+    },
+    {
+      "dir": "EA_Scalp001_MTFConfluence",
+      "files": 2,
+      "bytes": 68248,
+      "size_kb": 67,
+      "last_mod": "2026-06-21",
+      "file_list": [
+        {
+          "f": "EA_Scalp001_MTFConfluence.ex5",
+          "bytes": 58824
+        },
+        {
+          "f": "EA_Scalp001_MTFConfluence.log",
+          "bytes": 9424
+        }
+      ]
+    },
+    {
+      "dir": "EA_Scalp002_XAUMomentum",
+      "files": 2,
+      "bytes": 68358,
+      "size_kb": 67,
+      "last_mod": "2026-06-21",
+      "file_list": [
+        {
+          "f": "EA_Scalp002_XAUMomentum.ex5",
+          "bytes": 58966
+        },
+        {
+          "f": "EA_Scalp002_XAUMomentum.log",
+          "bytes": 9392
+        }
+      ]
+    },
+    {
+      "dir": "EA_Scalp003_VolumeBreak",
+      "files": 2,
+      "bytes": 67928,
+      "size_kb": 66,
+      "last_mod": "2026-06-27",
+      "file_list": [
+        {
+          "f": "EA_Scalp003_VolumeBreak.ex5",
+          "bytes": 58536
+        },
+        {
+          "f": "EA_Scalp003_VolumeBreak.log",
+          "bytes": 9392
+        }
+      ]
+    },
+    {
+      "dir": "EA_Scalp004_SessionMR",
+      "files": 2,
+      "bytes": 67448,
+      "size_kb": 66,
+      "last_mod": "2026-06-21",
+      "file_list": [
+        {
+          "f": "EA_Scalp004_SessionMR.ex5",
+          "bytes": 58092
+        },
+        {
+          "f": "EA_Scalp004_SessionMR.log",
+          "bytes": 9356
+        }
+      ]
+    },
+    {
+      "dir": "EA_Scalp005_SessionVWAP",
+      "files": 2,
+      "bytes": 67848,
+      "size_kb": 66,
+      "last_mod": "2026-06-27",
+      "file_list": [
+        {
+          "f": "EA_Scalp005_SessionVWAP.ex5",
+          "bytes": 58456
+        },
+        {
+          "f": "EA_Scalp005_SessionVWAP.log",
+          "bytes": 9392
+        }
+      ]
+    },
+    {
+      "dir": "EA_Scalp006_RangeSweep",
+      "files": 2,
+      "bytes": 69672,
+      "size_kb": 68,
+      "last_mod": "2026-06-21",
+      "file_list": [
+        {
+          "f": "EA_Scalp006_RangeSweep.ex5",
+          "bytes": 60298
+        },
+        {
+          "f": "EA_Scalp006_RangeSweep.log",
+          "bytes": 9374
+        }
+      ]
+    },
+    {
+      "dir": "EA_Scalp007_VolRegimeFusion",
+      "files": 2,
+      "bytes": 79776,
+      "size_kb": 78,
+      "last_mod": "2026-06-27",
+      "file_list": [
+        {
+          "f": "EA_Scalp007_VolRegimeFusion.ex5",
+          "bytes": 70312
+        },
+        {
+          "f": "EA_Scalp007_VolRegimeFusion.log",
+          "bytes": 9464
+        }
+      ]
+    },
+    {
+      "dir": "EA_Scalp009_JpyGapFill",
+      "files": 2,
+      "bytes": 43924,
+      "size_kb": 43,
+      "last_mod": "2026-06-28",
+      "file_list": [
+        {
+          "f": "EA_Scalp009_JpyGapFill.ex5",
+          "bytes": 37326
+        },
+        {
+          "f": "EA_Scalp009_JpyGapFill.log",
+          "bytes": 6598
+        }
+      ]
+    },
+    {
+      "dir": "EA_ScalperCore_Demo",
+      "files": 2,
+      "bytes": 62106,
+      "size_kb": 61,
+      "last_mod": "2026-07-04",
+      "file_list": [
+        {
+          "f": "EA_ScalperCore_Demo.ex5",
+          "bytes": 53152
+        },
+        {
+          "f": "EA_ScalperCore_Demo.log",
+          "bytes": 8954
+        }
+      ]
+    },
+    {
+      "dir": "EA_ShanghaiFixScalp",
+      "files": 2,
+      "bytes": 25000,
+      "size_kb": 24,
+      "last_mod": "2026-06-21",
+      "file_list": [
+        {
+          "f": "EA_ShanghaiFixScalp.ex5",
+          "bytes": 21924
+        },
+        {
+          "f": "EA_ShanghaiFixScalp.log",
+          "bytes": 3076
+        }
+      ]
+    },
+    {
+      "dir": "EA_SilverBullet",
+      "files": 2,
+      "bytes": 95782,
+      "size_kb": 94,
+      "last_mod": "2026-07-15",
+      "file_list": [
+        {
+          "f": "EA_SilverBullet_v2.ex5",
+          "bytes": 87520
+        },
+        {
+          "f": "EA_SilverBullet_v2.log",
+          "bytes": 8262
+        }
+      ]
+    },
+    {
+      "dir": "EA_SonicR",
+      "files": 917,
+      "bytes": 59183313,
+      "size_kb": 57796,
+      "last_mod": "2026-07-15",
+      "file_list": [
+        {
+          "f": "EA_SonicR.ex5",
+          "bytes": 432044
+        },
+        {
+          "f": "EA_SonicR.log",
+          "bytes": 9034
+        },
+        {
+          "f": "research\\exogenous_data\\v8_public\\bonds\\boe_glcnominalddata.zip",
+          "bytes": 38948798
+        },
+        {
+          "f": "research\\exogenous_data\\v8_public\\cot\\fut_fin_txt_2023.zip",
+          "bytes": 506931
+        },
+        {
+          "f": "research\\exogenous_data\\v8_public\\cot\\fut_fin_txt_2024.zip",
+          "bytes": 563591
+        },
+        {
+          "f": "research\\exogenous_data\\v8_public\\cot\\fut_fin_txt_2025.zip",
+          "bytes": 627068
+        },
+        {
+          "_truncated": 911
+        }
+      ]
+    },
+    {
+      "dir": "EA_Spark",
+      "files": 2,
+      "bytes": 84758,
+      "size_kb": 83,
+      "last_mod": "2026-07-02",
+      "file_list": [
+        {
+          "f": "EA_Spark.ex5",
+          "bytes": 76542
+        },
+        {
+          "f": "EA_Spark.log",
+          "bytes": 8216
+        }
+      ]
+    },
+    {
+      "dir": "EA_TickVolAccel",
+      "files": 2,
+      "bytes": 23684,
+      "size_kb": 23,
+      "last_mod": "2026-06-21",
+      "file_list": [
+        {
+          "f": "EA_TickVolAccel.ex5",
+          "bytes": 20360
+        },
+        {
+          "f": "EA_TickVolAccel.log",
+          "bytes": 3324
+        }
+      ]
+    },
+    {
+      "dir": "EA_TokyoFixV2",
+      "files": 2,
+      "bytes": 50680,
+      "size_kb": 49,
+      "last_mod": "2026-06-21",
+      "file_list": [
+        {
+          "f": "EA_TokyoFixV2.ex5",
+          "bytes": 44190
+        },
+        {
+          "f": "EA_TokyoFixV2.log",
+          "bytes": 6490
+        }
+      ]
+    },
+    {
+      "dir": "EA_TrendBook",
+      "files": 2,
+      "bytes": 26298,
+      "size_kb": 26,
+      "last_mod": "2026-07-02",
+      "file_list": [
+        {
+          "f": "EA_TrendBook.ex5",
+          "bytes": 23278
+        },
+        {
+          "f": "EA_TrendBook.log",
+          "bytes": 3020
+        }
+      ]
+    },
+    {
+      "dir": "EA_TrendPullback",
+      "files": 2,
+      "bytes": 77964,
+      "size_kb": 76,
+      "last_mod": "2026-06-22",
+      "file_list": [
+        {
+          "f": "EA_TrendPullback.ex5",
+          "bytes": 68694
+        },
+        {
+          "f": "EA_TrendPullback.log",
+          "bytes": 9270
+        }
+      ]
+    },
+    {
+      "dir": "EA_UsBillSlopeBasket",
+      "files": 2,
+      "bytes": 50918,
+      "size_kb": 50,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_UsBillSlopeBasket.ex5",
+          "bytes": 44344
+        },
+        {
+          "f": "EA_UsBillSlopeBasket.log",
+          "bytes": 6574
+        }
+      ]
+    },
+    {
+      "dir": "EA_VolCluster",
+      "files": 2,
+      "bytes": 23486,
+      "size_kb": 23,
+      "last_mod": "2026-06-21",
+      "file_list": [
+        {
+          "f": "EA_VolCluster.ex5",
+          "bytes": 20186
+        },
+        {
+          "f": "EA_VolCluster.log",
+          "bytes": 3300
+        }
+      ]
+    },
+    {
+      "dir": "EA_WeeklyHLBreak_H4",
+      "files": 2,
+      "bytes": 28484,
+      "size_kb": 28,
+      "last_mod": "2026-07-14",
+      "file_list": [
+        {
+          "f": "EA_WeeklyHLBreak_H4.ex5",
+          "bytes": 21922
+        },
+        {
+          "f": "EA_WeeklyHLBreak_H4.log",
+          "bytes": 6562
+        }
+      ]
+    }
+  ],
+  "completed": {
+    "status": "DONE_NO_COMMIT",
+    "archive_dest": "00. Old File/EA_Archive/",
+    "archived_dirs_verified": 80,
+    "active_shelf_now": [
+      "EA_FVGConfluence",
+      "EA_HybridICT_Sonic"
+    ],
+    "root_scratch_moved_to": "00. Old File/root_scratch_20260715",
+    "root_scratch_items": [
+      ".pytest_cache",
+      "_peek_v8.txt",
+      "_tmp_20260714_191429_metrics.json",
+      "_tmp_cfg.ini",
+      "_tmp_compose_out.txt",
+      "_tmp_metrics2.json",
+      "_tmp_parsed_reports.json",
+      "_tmp_recent_runs.json",
+      "_tmp_runmeta.txt",
+      "_tmp_runmeta_ok.json",
+      "_tmp_sb_a2_metrics.json",
+      "_tmp_sb_compare.json",
+      "_tmp_trades_head.txt",
+      "_tmp_wave_matrix.json",
+      "tests"
+    ],
+    "docs_synced": [
+      "CLAUDE.md",
+      "AGENTS.md",
+      "INDEX.md",
+      "03. EA Developer/README.md",
+      "04. Project Control/ai/hot.md"
+    ],
+    "git_working_tree": "835 EA_SonicR deletions (uncommitted) + 1 new receipt; stubs/scratch untracked",
+    "sonicr_backup": "origin/main still holds 835 SonicR files (recoverable after commit)",
+    "open_items": [
+      "hot.md 2213-line append-only compaction (needs Owner OK)",
+      "commit reconciliation (needs Owner OK)"
+    ]
+  }
+}
