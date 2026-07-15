@@ -18,6 +18,9 @@ __pycache__/
 id_rsa*
 *credentials*
 
+# Machine-local AlphaFactory paths (per-PC MT5 install/data roots)
+02. AlphaFactory/alpha.local.ps1
+
 # MT5 / AlphaFactory heavy outputs
 *.ex5
 *.opt

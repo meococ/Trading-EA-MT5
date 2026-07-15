@@ -1,1 +1,0 @@
-EA_ITSM uses Trade.mqh + ExecQualityLog.mqh + HolidayCalendar.mqh (terminal/Alpha include path). Closure stub for Model 0 screen.

@@ -1,8 +1,0 @@
-{
-  "hypothesis_id": "HYP-H1-THREEBAR-REV-001",
-  "cost_provenance": "UNVERIFIED",
-  "spread_policy": "tester_current",
-  "commission": "unknown_not_zero",
-  "slippage": "unknown_not_zero",
-  "note": "Model 0 screen; missing cost != 0."
-}

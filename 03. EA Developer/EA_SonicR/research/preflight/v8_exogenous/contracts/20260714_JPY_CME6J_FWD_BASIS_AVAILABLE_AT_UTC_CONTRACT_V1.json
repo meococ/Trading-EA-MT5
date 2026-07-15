@@ -1,8 +1,0 @@
-{
-  "fut": "Yahoo chart API 6J=F continuous",
-  "spot": "FRED DEXJPUS",
-  "field": "fwd_basis=fut/(1/DEXJPUS)-1",
-  "lag_days": 1,
-  "n": 2090,
-  "panel_sha256": "631F7AE8631A02AB7F6B4B3427ACFE8728A02185A7394B917F43EC829697CDB8"
-}

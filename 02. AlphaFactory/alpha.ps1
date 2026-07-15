@@ -64,8 +64,72 @@ $ErrorActionPreference = "Stop"
 # Config
 $AdvisorsRoot = Split-Path -Parent $PSScriptRoot
 $AlphaRoot = $PSScriptRoot
-$MT5InstallRoot = "C:\Program Files\MetaTrader 5"
-$MT5DataRoot = "C:\Users\ADMIN\AppData\Roaming\MetaQuotes\Terminal\D0E8209F77C8CF37AD8BF550E51FF075"
+# Machine-specific MT5 paths live in alpha.local.ps1 (gitignored).
+# Copy alpha.local.ps1.example or run: .\tools\init_machine_paths.ps1
+$MT5InstallRoot = $null
+$MT5DataRoot = $null
+$script:Mt5ConfigSource = "unset"
+$LocalConfigPath = Join-Path $AlphaRoot "alpha.local.ps1"
+if (Test-Path -LiteralPath $LocalConfigPath -PathType Leaf) {
+    . $LocalConfigPath
+    $script:Mt5ConfigSource = "alpha.local.ps1"
+}
+
+function Resolve-Mt5InstallRoot {
+    $candidates = @(
+        "C:\Program Files\MetaTrader 5",
+        "C:\Program Files (x86)\MetaTrader 5"
+    )
+    foreach ($root in $candidates) {
+        if (Test-Path -LiteralPath (Join-Path $root "terminal64.exe") -PathType Leaf) {
+            return $root
+        }
+    }
+    return $null
+}
+
+function Resolve-Mt5DataRoot([string]$InstallRoot) {
+    $termRoot = Join-Path $env:APPDATA "MetaQuotes\Terminal"
+    if (-not (Test-Path -LiteralPath $termRoot -PathType Container)) {
+        return $null
+    }
+    $dirs = @(Get-ChildItem -LiteralPath $termRoot -Directory -ErrorAction SilentlyContinue |
+        Where-Object { $_.Name -match '^[A-F0-9]{32}$' -and (Test-Path -LiteralPath (Join-Path $_.FullName "MQL5") -PathType Container) })
+    if ($dirs.Count -eq 0) { return $null }
+    if (-not [string]::IsNullOrWhiteSpace($InstallRoot)) {
+        $matched = @($dirs | Where-Object {
+            $origin = Join-Path $_.FullName "origin.txt"
+            if (-not (Test-Path -LiteralPath $origin -PathType Leaf)) { return $false }
+            $originVal = (Get-Content -LiteralPath $origin -Raw).Trim()
+            return ($originVal -ieq $InstallRoot)
+        })
+        if ($matched.Count -eq 1) { return $matched[0].FullName }
+        if ($matched.Count -gt 1) { return $matched[0].FullName }
+    }
+    if ($dirs.Count -gt 1) {
+        Write-Host "[WARN] Multiple MT5 terminal data folders found; using first. Pin the correct one in alpha.local.ps1." -ForegroundColor Yellow
+    }
+    return $dirs[0].FullName
+}
+
+if ([string]::IsNullOrWhiteSpace($MT5InstallRoot)) {
+    $MT5InstallRoot = Resolve-Mt5InstallRoot
+    if ($script:Mt5ConfigSource -eq "unset") { $script:Mt5ConfigSource = "auto-detect" }
+    elseif ($script:Mt5ConfigSource -eq "alpha.local.ps1") { $script:Mt5ConfigSource = "alpha.local.ps1+auto-detect" }
+}
+if ([string]::IsNullOrWhiteSpace($MT5DataRoot)) {
+    $MT5DataRoot = Resolve-Mt5DataRoot $MT5InstallRoot
+    if ($script:Mt5ConfigSource -eq "unset") { $script:Mt5ConfigSource = "auto-detect" }
+    elseif ($script:Mt5ConfigSource -eq "alpha.local.ps1") { $script:Mt5ConfigSource = "alpha.local.ps1+auto-detect" }
+}
+
+if ([string]::IsNullOrWhiteSpace($MT5InstallRoot) -or -not (Test-Path -LiteralPath (Join-Path $MT5InstallRoot "terminal64.exe") -PathType Leaf)) {
+    throw "MT5 install root not found. Create machine config: copy '02. AlphaFactory/alpha.local.ps1.example' to 'alpha.local.ps1' (or run tools\init_machine_paths.ps1) and set `$MT5InstallRoot."
+}
+if ([string]::IsNullOrWhiteSpace($MT5DataRoot) -or -not (Test-Path -LiteralPath (Join-Path $MT5DataRoot "MQL5") -PathType Container)) {
+    throw "MT5 data root not found. Create machine config: copy '02. AlphaFactory/alpha.local.ps1.example' to 'alpha.local.ps1' (or run tools\init_machine_paths.ps1) and set `$MT5DataRoot to the Terminal\<32-hex>\ folder."
+}
+
 $MT5Mql5Root = Join-Path $MT5DataRoot "MQL5"
 $MT5 = Join-Path $MT5InstallRoot "terminal64.exe"
 $MetaEditor = Join-Path $MT5InstallRoot "metaeditor64.exe"
@@ -1440,6 +1504,13 @@ function Show-Status {
     # MT5 status
     $mt5On = Get-Process terminal64 -ErrorAction SilentlyContinue
     Write-Host "MT5: $(if ($mt5On) { 'RUNNING' } else { 'STOPPED' })" -ForegroundColor $(if ($mt5On) { "Green" } else { "Yellow" })
+    Write-Host "Config source: $script:Mt5ConfigSource" -ForegroundColor DarkGray
+    Write-Host "Install: $MT5InstallRoot"
+    Write-Host "Data:    $MT5DataRoot"
+    Write-Host "Editor:  $MetaEditor"
+    if ($script:Mt5ConfigSource -notlike "alpha.local.ps1*") {
+        Write-Host "Tip: pin this machine via alpha.local.ps1 (see alpha.local.ps1.example)" -ForegroundColor Yellow
+    }
     
     # List EAs
     Write-Host "`n=== EAs ===" -ForegroundColor Cyan
@@ -1454,6 +1525,7 @@ function Show-Status {
     Write-Host "  .\alpha.ps1 compile `"EA Name`""
     Write-Host "  .\alpha.ps1 backtest `"EA Name`" -Symbol XAUUSD"
     Write-Host "  .\alpha.ps1 analyze -Report `"path`""
+    Write-Host "  .\tools\init_machine_paths.ps1   # generate alpha.local.ps1"
     Write-Host ""
 }
 

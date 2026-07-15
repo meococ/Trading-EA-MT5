@@ -1,0 +1,8 @@
+{
+  "cost_provenance": "UNVERIFIED",
+  "spread_policy": "tester_current",
+  "commission": "unknown_not_zero",
+  "slippage": "unknown_not_zero",
+  "plan_target_pf_after_slip": 1.65,
+  "note": "Council plan aspirational; missing cost != 0. Not promotion."
+}

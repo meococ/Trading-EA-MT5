@@ -63,6 +63,9 @@ For any run cited in decisions, keep these artifacts available in the run folder
 - Clean stale `Terminal/Common/Files` telemetry and sidecars after preserving required calendar/news CSVs and any artifacts cited in decisions.
 - Cleanup must not delete evidence for runs referenced by `current_state.md`, `hot.md`, `decisions.md`, or Sonic R research notes.
 - Legacy/non-current EA source belongs under `00. Old File/EA_Archive/`; do not treat that folder as active source.
+- **Session closeout:** coordinator runs end-of-session inventory/cleanup per
+  `AGENTS.md` §7 and `skills/session-closeout` (this policy remains the
+  retention authority).
 
 ## Post-backtest evidence flow
 - After any meaningful Sonic R backtest, run validation/comparison/cost artifacts first, then casebook/index artifacts, then MT5-native sampled snapshots only for selected cases.

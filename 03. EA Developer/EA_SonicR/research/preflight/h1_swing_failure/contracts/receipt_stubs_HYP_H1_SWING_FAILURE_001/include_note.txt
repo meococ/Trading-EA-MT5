@@ -1,1 +1,0 @@
-Packet-bound include closure note for HYP-H1-SWING-FAILURE-001. EA uses Trade.mqh only from terminal Standard Library.

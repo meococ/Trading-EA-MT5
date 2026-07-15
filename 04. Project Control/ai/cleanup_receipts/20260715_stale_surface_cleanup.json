@@ -1,0 +1,80 @@
+﻿{
+    "receipt_id":  "20260715_stale_surface_cleanup",
+    "updated_at":  "2026-07-15T10:55:00+07:00",
+    "scope":  "README-SONIC / SYNC_REPORT / tests layout check / EA_SilverBullet dead siblings / EA_SonicR package README",
+    "git_commit":  false,
+    "moves":  {
+                  "value":  [
+                                {
+                                    "from":  "README-SONIC R.md",
+                                    "to":  "00. Old File\\docs_archive\\README-SONIC-R_historical_20260711.md",
+                                    "sha256":  "0366455F247A3DE8927A96E344833EC27C7090E5CD79972977540421A3EA231B",
+                                    "bytes":  39232
+                                },
+                                {
+                                    "from":  "SYNC_REPORT.md",
+                                    "to":  "00. Old File\\docs_archive\\SYNC_REPORT_20260621.md",
+                                    "sha256":  "EAB8A1CBE547BEC6EF87EF72E37E642D10D92890E62F42D31DCCB929837B5D93",
+                                    "bytes":  5340
+                                },
+                                {
+                                    "from":  "03. EA Developer\\EA_SilverBullet\\EA_SilverBullet_v1_backup.mq5",
+                                    "to":  "00. Old File\\EA_Archive\\EA_SilverBullet_dead_siblings\\EA_SilverBullet_v1_backup.mq5",
+                                    "sha256":  "5EA142E152FF1C2A920ADE6689A54DCE61BB9002BF53F4B17A9412277E3EAEDB",
+                                    "bytes":  23558
+                                },
+                                {
+                                    "from":  "03. EA Developer\\EA_SilverBullet\\EA_SilverBullet_v2_Index.mq5",
+                                    "to":  "00. Old File\\EA_Archive\\EA_SilverBullet_dead_siblings\\EA_SilverBullet_v2_Index.mq5",
+                                    "sha256":  "63E4EDDA1DC78B9F4ACA9BDA34333C17E3D63E5BF6C74E19C97B994A778BDBE4",
+                                    "bytes":  28032
+                                }
+                            ],
+                  "Count":  4
+              },
+    "created":  [
+                    {
+                        "path":  "README-SONIC-R.md",
+                        "sha256":  "37B33FDEBAB946AA9EA0C5E2181C86031481D1B8B158072041DF5F391BDED2CA",
+                        "bytes":  1446
+                    },
+                    {
+                        "path":  "SYNC_REPORT.md",
+                        "sha256":  "A16EAD4ACCDF2596DB2200D3B6D50CB5830E747B25EAA81A06762781FC2BFD9E",
+                        "bytes":  348
+                    },
+                    {
+                        "path":  "03. EA Developer/EA_SilverBullet/README.md",
+                        "sha256":  "E2A62E22055FD9E368B535E3D4999F28EC9843C7EB11B69B381DBF71AF9A5B4F",
+                        "bytes":  721
+                    },
+                    {
+                        "path":  "03. EA Developer/EA_SonicR/README.md",
+                        "sha256":  "A9512E9B6EDAB9C3F02A4C4736C513D552E1E37EDDFA730E39AB8965E68EB521",
+                        "bytes":  1119
+                    },
+                    {
+                        "path":  "00. Old File/docs_archive/README.md",
+                        "sha256":  "11AF4350C0545B0D8D5616C1301D070B76E142B70A3F274B8E448AE48B29F364",
+                        "bytes":  571
+                    },
+                    {
+                        "path":  "00. Old File/EA_Archive/EA_SilverBullet_dead_siblings/README.md",
+                        "sha256":  "020F8D0E0E90AC9C8A8C7A4336E15B519CF66751151D63F35DF7B0D09228D92E",
+                        "bytes":  535
+                    }
+                ],
+    "notes":  [
+                  "Research ledger under EA_SonicR/research/ untouched",
+                  "ea_contract pin unchanged: EA_SilverBullet_v2.mq5 only",
+                  "tests already pointed at remaining active EA paths; smoke run follows"
+              ],
+    "test_smoke":  {
+                       "silverbullet_exposure":  "PASS 3/3 (direct import)",
+                       "nonrepaint_audit":  "PASS 3/3 (unittest)",
+                       "runner_contract_pin_asserts":  "PASS (SilverBullet-only pins; OpenHalfMom assert updated)",
+                       "runner_contract_summary":  "280 passed, 60 failed (pre-existing dry-run/registry fixture failures; none cite archived EA paths)",
+                       "candidate_registry":  "SKIPPED_AS_PREEXISTING_SCHEMA_DRIFT (not path-layout)",
+                       "mt5_live":  "not required"
+                   }
+}

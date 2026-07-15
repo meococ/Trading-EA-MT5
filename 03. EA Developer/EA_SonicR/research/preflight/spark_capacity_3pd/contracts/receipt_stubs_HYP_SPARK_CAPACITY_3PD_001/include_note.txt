@@ -1,1 +1,0 @@
-EA_M15SparkAsian uses Trade.mqh from MT5 standard library. Stub satisfies include_* receipt closure for Model 0 screen.

@@ -1,0 +1,65 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-HIS-SL-SIGATR-M15-EUR-001",
+  "task_packet_sha256": "96EF43BD85720EFFE5096CA9CCA862E7B8A111AC5D0B96DB304DE7B52FC44D9F",
+  "git_commit": "19b8bbd0a27dffa5260c0a5a58534372eb95b93d",
+  "git_status_sha256": "C8459C73D122EFB4DA8168B180A9891EB75D351B40912CE2ECFE53139ACDDDD1",
+  "binding": {
+    "hypothesis_id": "HYP-HIS-SL-SIGATR-M15-EUR-001",
+    "run_role": "control",
+    "ea_name": "EA_HybridICT_Sonic",
+    "symbol": "EURUSD",
+    "period": "M15",
+    "from": "2020.01.01",
+    "to": "2026.07.15",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpDiagGateLog=true;InpLevelTouchATR=0.50;InpMaxAtrRatio=3.00;InpMaxSpreadPips=4.0;InpMinAtrRatio=0.70;InpRequireMacdSlope=false;InpRequirePvsraClimax=true;InpRequireWave=true;InpSlAtrMult=1.0;InpUseDragonSlFloor=false;InpUseLevelSl=false;InpVolClimaxMult=1.5",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 1e-05,
+      "pip_size": 0.0001
+    },
+    "include_closure_sha256": "9AF41B20BC30D8BA6143419AE9DB4DE58B10C2515850327B45675DA3CE4DFA3C"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "C:\\Users\\ADMIN\\Downloads\\06. Trading\\03. EA Developer\\EA_HybridICT_Sonic\\research\\preflight\\hybrid_ict_sonic\\contracts\\receipt_stubs_HYP_HIS_SL_SIGATR_M15_EUR_001\\task_packet.json",
+      "sha256": "96EF43BD85720EFFE5096CA9CCA862E7B8A111AC5D0B96DB304DE7B52FC44D9F"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "C:\\Users\\ADMIN\\Downloads\\06. Trading\\03. EA Developer\\EA_HybridICT_Sonic\\EA_HybridICT_Sonic.mq5",
+      "sha256": "6456E3E929EF4D01EAE944C9DEDC8616B77EFD5D1B5D925578D5C14D8B4510EB"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "C:\\Users\\ADMIN\\Downloads\\06. Trading\\03. EA Developer\\EA_HybridICT_Sonic\\research\\preflight\\hybrid_ict_sonic\\contracts\\receipt_stubs_HYP_HIS_SL_SIGATR_M15_EUR_001\\prereg.json",
+      "sha256": "F83628B7E283DCC5EFA18EDC4E3B429513AE36051AB71F15AB9B5F8CBD8FF4A3"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "C:\\Users\\ADMIN\\Downloads\\06. Trading\\03. EA Developer\\EA_HybridICT_Sonic\\research\\preflight\\hybrid_ict_sonic\\contracts\\receipt_stubs_HYP_HIS_SL_SIGATR_M15_EUR_001\\cost_source_manifest.json",
+      "sha256": "F1C496ED8490D92B8124C7C294F57E733B9EDCF6D9CFDCB973EF90248EAFE780"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "C:\\Users\\ADMIN\\Downloads\\06. Trading\\03. EA Developer\\EA_HybridICT_Sonic\\Include\\HIS_Helpers.mqh",
+      "sha256": "603546B132A61BA66AB35672150A952FDA6C28DB70190064DA524F31ED5984E6"
+    }
+  ],
+  "generated_at_utc": "2026-07-15T10:07:10Z",
+  "note": "SIGATR control. Binding must match alpha.ps1."
+}

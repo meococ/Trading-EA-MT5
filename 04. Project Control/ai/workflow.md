@@ -238,7 +238,7 @@ Advisors/
 ├── INDEX.md                            ← Workspace map
 ├── 01. GOAL/
 │   └── GOAL.md                         ← Owner-frozen target
-├── README-SONIC R.md                   ← Strategy knowledge base
+├── README-SONIC-R.md                   ← Slim Sonic pointer (not strategy dump)
 ├── 02. AlphaFactory/                   ← Build & test pipeline
 │   ├── alpha.ps1                       ← Main CLI
 │   ├── runs.db                         ← Run catalog

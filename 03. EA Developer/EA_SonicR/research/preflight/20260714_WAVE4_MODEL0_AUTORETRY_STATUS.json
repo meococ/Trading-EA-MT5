@@ -1,7 +1,0 @@
-﻿{
-    "schema":  "wave4_model0_autoretry.v1",
-    "outcome":  "LAUNCHED",
-    "attempts":  7,
-    "launched_at":  "2026-07-14T22:40:30",
-    "batch_status":  "d:\\Trading EA MT5\\03. EA Developer\\EA_SonicR\\research\\preflight\\20260714_WAVE4_MODEL0_BATCH_STATUS.json"
-}

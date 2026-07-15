@@ -1,6 +1,0 @@
-{
-  "schema_version": "alphafactory_cost_source_manifest.v1",
-  "hypothesis_id": "HYP_CARRY_PUBLIC_RATES_D1_001",
-  "status": "TEMPLATE_STUB",
-  "note": "Cost fields must not be treated as zero. Replace with verified cost artifact before Model 0."
-}

@@ -1,7 +1,0 @@
-{
-  "cost_label": "UNVERIFIED_TESTER_DEFAULT",
-  "broker_target": "FivePercentOnline-Real",
-  "observed_ok_if": "MetaQuotes-Demo_or_Real_busy",
-  "spread_binding": "current",
-  "note": "Missing commission/slippage fields are not zero. Demo/tester cost label OK if Real busy; not research-grade QFSI freeze."
-}

@@ -119,7 +119,7 @@ Dùng vòng lặp này cho công việc chiến lược EA có ý nghĩa:
    `Vòng Lặp Deep Research Sau Failure`; không tune/rescue cùng hypothesis.
 10. Sau khi công việc ổn định, chỉ cập nhật các doc ngắn liên quan:
    `hot.md`, `current_state.md`, `source_of_truth.*`, một prereg/readout,
-   hoặc `README-SONIC R.md` nếu bài học lõi thay đổi.
+   hoặc `README-SONIC-R.md` nếu bài học lõi thay đổi.
 11. Lưu trữ telemetry Common Files và artifact run cũ kèm manifest sau các
     backtest có ý nghĩa.
 12. Dùng `02. AlphaFactory/tools/sonic_research_loop.ps1` cho thí nghiệm

@@ -1,6 +1,6 @@
 # Evidence-Gated EA Agent Loop
 
-Updated: 2026-07-13
+Updated: 2026-07-15
 
 ## Purpose
 
@@ -64,6 +64,11 @@ to the latest run folder, no reuse of a prior report, and no success summary
 when a required artifact is missing.
 
 ## Roles
+
+Session roster specs (model pin, I/O, spawn budget):
+`04. Project Control/ai/agents/` and `multi_agent_roster.md`. The critic names
+below remain the review lenses; map trader/quant critique largely to
+`red-team` + `qc`, research ideation to `research`, bounded code to `impl`.
 
 ### Coordinator
 
@@ -211,6 +216,35 @@ Do not use active weeks/months or rounded trades/year. The target band is:
   profitable ratio at least `0.60`, PBO below `0.20`, White Reality
   Check/SPA `p < 0.05`, and Monte Carlo P95 DD inside the risk budget.
 
+## Failure Triage (forward / backward) — before Deep Research
+
+When a run fails, a gate misses, or performance is materially weak, run this
+triage **before** creating a failure packet or opening Deep Research. Skill
+pointer: `.cursor/skills/failure-triage/SKILL.md`. Roster:
+`04. Project Control/ai/multi_agent_roster.md`.
+
+```text
+FAIL / MISS
+  -> (0) TRIAGE: invalid run vs valid strategy fail
+  -> INVALID: fix infra -> re-run same packet (AlphaFactory) -> stop
+  -> VALID:
+       (1) FORWARD: thesis -> assumptions -> expected metrics -> which gate missed?
+       (2) BACKWARD: gate fail -> concrete cause (thesis/data/exec/sample/regime)
+       (3) CLASS: bad_thesis | bad_data | bad_exec | insufficient_sample | regime | unknown
+       (4) ACTION (table below)
+       (5) only then: failure packet -> Deep Research -> new idea -> probe -> prereg
+```
+
+| When | Action |
+|------|--------|
+| Infra/config/artifact broken | **Re-run** same packet — no thesis change |
+| Gate miss; mechanism still testable another way | **Park** old version -> new child hyp -> AlphaFactory |
+| Cannot separate bad rule vs bad state read | **Chart/state probe** (locked labels only; `.cursor/skills/chart-state-probe`) — **no** EA patch from chart glance |
+| Family already killed/parked or data blocker unchanged | **Stop / NO LEGAL CANDIDATE** |
+
+Hard bans unchanged: no post-hoc hour/day/symbol/regime veto from the readout
+just read; no rescue-tune of the failed hypothesis version.
+
 ## Loop Budget And Stop Rules
 
 - One hypothesis version contains one feature family and one state separation.
@@ -222,11 +256,11 @@ Do not use active weeks/months or rounded trades/year. The target band is:
   A second identical infrastructure failure stops the run.
 - A strategy gate failure causes immediate park/kill; the coordinator does not
   spend retries tuning toward the target.
-- After a valid strategy failure or materially poor performance, the
-  coordinator creates a hash-bound failure packet and runs Browser -> ChatGPT
-  -> `GPT-5.6 Sol` -> `Pro` -> `+` -> `Nghiên cứu sâu`. The failed hypothesis
-  stays terminal; GPT may diagnose it or propose a new independent/child
-  hypothesis, but cannot rescue it through post-result tuning.
+- After a **valid** strategy failure or materially poor performance, and after
+  Failure Triage above, the coordinator creates a hash-bound failure packet and
+  runs Browser -> ChatGPT -> `GPT-5.6 Sol` -> `Pro` -> `+` -> `Nghiên cứu sâu`.
+  The failed hypothesis stays terminal; GPT may diagnose it or propose a new
+  independent/child hypothesis, but cannot rescue it through post-result tuning.
 - The new proposal receives no execution authority until source audit,
   registry de-duplication, a cheap offline probe, a new hypothesis ID, and a
   frozen preregistration all pass. The old exposed holdout is not recycled.
@@ -235,6 +269,9 @@ Do not use active weeks/months or rounded trades/year. The target band is:
   evidence, data, or a genuinely different mechanism exists.
 - Parallel critics may inspect the same frozen artifacts. MT5 backtests remain
   sequential unless terminals and data roots are physically isolated.
+- Session roster (red-team / research / impl / qc): see
+  `04. Project Control/ai/agents/`. Max 2–3 parallel readonly subs per wave;
+  serial WRITE; all subs default model `cursor-grok-4.5-high-fast`.
 
 ## Current Frontier Decision
 
