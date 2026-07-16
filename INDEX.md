@@ -82,7 +82,8 @@ Base path: `00. Old File/EA_Archive/EA_SonicR/research/`
 | `tools/backtest_storage_inventory.py` | inventory dung lượng, top file, orphan/generated file và mirror candidate; không xóa |
 | `tools/large_log_reader.py` | inspect/search/window log triệu dòng bằng streaming, output bị cap và hash-bound |
 | `tools/dedupe_backtest_log_mirrors.ps1` | dry-run/convert mirror `logs` và `analysis/logs` giống hệt thành hardlink |
-| `tools/archive_backtest_artifacts.ps1` | retention dry-run có plan; archive off-volume theo copy/hash-verify/remove |
+| `tools/archive_backtest_artifacts.ps1` | retention dry-run có plan atomic/contained; EA scope bắt buộc; protect run ID từ control docs + hot detail; archive off-volume theo copy/hash-verify/remove |
+| `tools/workspace_hygiene.ps1` | inventory root sample/stale worktree mặc định; chỉ xóa hoặc rebuild `runs.db` khi có `-Execute` |
 | `analysis/unified_validation.py` | validator; đồng thời định nghĩa artifact promotion-eligible phải trông thế nào |
 | `analysis/walk_forward.py`, `robustness_suite.py`, `cscv_pbo.py`, `white_reality_check.py` | producer diagnostic-only (`promotion_eligible=false` theo thiết kế) |
 | `tools/build_verified_cost_artifact.py` | artifact cost thực thi đã xác minh (đòi telemetry v3 + cost-source manifest) |
@@ -96,12 +97,12 @@ Base path: `00. Old File/EA_Archive/EA_SonicR/research/`
 | `DECISION_FRAMEWORK.md` | cây quyết định ITERATE/PIVOT/ABANDON (impl: `analysis/decision_framework.py`) |
 | `tools/` (còn lại) | probe/analyzer; tên file tự mô tả |
 
-## Tests — archived
+## Tests
 
-Root `tests/` chỉ còn stale `.pyc` (không source), đã chuyển (2026-07-15) →
-`00. Old File/root_scratch_20260715/tests/`. Không có bộ test active ở root
-(source `.py` không còn trên đĩa — nếu cần xem git history). Harness
-AlphaFactory vẫn ở `02. AlphaFactory/`.
+| Path | Mở khi |
+|---|---|
+| `02. AlphaFactory/tests/test_operational_hygiene.py` | regression offline cho dry-run cleanup, archive protect roots/containment, validator encoding, registry pins và runbook command surface |
+| `00. Old File/root_scratch_20260715/tests/` | stale `.pyc` lịch sử; archive-only, không dùng làm test hiện hành |
 
 ## Phần còn lại
 

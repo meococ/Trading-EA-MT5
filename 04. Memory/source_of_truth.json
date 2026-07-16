@@ -1,9 +1,9 @@
 {
-  "version": 32,
-  "updated_at": "2026-07-15",
+  "version": 33,
+  "updated_at": "2026-07-16",
   "default_status": "authoritative",
   "root_hygiene": {
-    "rule": "Keep the project root lean: only AGENTS.md (cross-agent launcher), CLAUDE.md (pointer-only Claude entry), INDEX.md (workspace map), the slim README-SONIC-R.md pointer (historical dump under 00. Old File/docs_archive/), optional stub SYNC_REPORT.md, the 01. GOAL folder holding the Owner-frozen GOAL.md, and the hidden .codex/operator recovery ledger for long-running operator-loop tasks. Keep MT5 sample experts out of root and treat raw AlphaFactory run storage as local operational data. The operator ledger is subordinate to hot.md. EA_SonicR is research-only source + ledger; EA_SilverBullet_v2.mq5 is the Owner-opened active trading lane pin.",
+    "rule": "Keep the project root lean: AGENTS.md, CLAUDE.md, INDEX.md, 01. GOAL/, and the hidden .codex/operator recovery ledger only. Keep MT5 sample experts out of root and treat raw AlphaFactory runs as local operational data. The operator ledger is subordinate to hot.md. Active EA source is limited to EA_FVGConfluence and EA_HybridICT_Sonic under 03. EA Developer/; EA_SonicR and binary-only EA_SilverBullet are archive-only under 00. Old File/EA_Archive/.",
     "graveyard": "00. Old File/docs_archive/",
     "ai_archive": "00. Old File/project_control_archive_20260716/"
   },
@@ -26,7 +26,7 @@
     {
       "path": ".codex/operator/STATUS.md",
       "status": "evidence",
-      "reason": "Operational recovery ledger for the active long-running V2 hardening task. It is subordinate to hot.md and is not research or execution authority."
+      "reason": "Operational recovery ledger for the active long-running operator task. It is subordinate to hot.md and is not research or execution authority."
     },
     {
       "path": ".codex/operator/EXPERIMENTS.jsonl",
@@ -241,7 +241,7 @@
     {
       "path": "02. AlphaFactory/tools/ea_contract.ps1",
       "status": "authoritative",
-      "reason": "Shared fail-closed resolver for exact active EA main-source paths and explicit telemetry profiles. It pins SilverBullet to EA_SilverBullet_v2.mq5, preserves the OpenHalfMom naming exception, and forbids archive or arbitrary-file fallback."
+      "reason": "Shared fail-closed resolver for exact active EA main-source paths and explicit telemetry profiles. It pins EA_FVGConfluence and EA_HybridICT_Sonic, uses canonical EA-name fallback only inside the active shelf, and forbids archive or arbitrary-file fallback."
     },
     {
       "path": "02. AlphaFactory/tools/build_verified_cost_artifact.py",
@@ -271,12 +271,17 @@
     {
       "path": "02. AlphaFactory/tools/workspace_hygiene.ps1",
       "status": "authoritative",
-      "reason": "Operational cleanup helper for MT5 sample experts, stale agent worktrees, and optional run-database rebuild."
+      "reason": "Dry-run-by-default operational cleanup helper for root MT5 sample experts and stale agent worktrees; -Execute is required for deletion or optional run-database rebuild."
     },
     {
       "path": "02. AlphaFactory/tools/archive_backtest_artifacts.ps1",
       "status": "authoritative",
-      "reason": "Archive-first cleanup helper for stale AlphaFactory runs and Terminal/Common/Files telemetry after backtests; default dry-run, -Execute moves files to Google Drive with a manifest. Keep list includes current Sonic R evidence runs."
+      "reason": "Archive-first cleanup helper for stale AlphaFactory runs and Terminal/Common/Files telemetry; default dry-run, explicit EA scope, current control-surface reference scanning, contained atomic plans, and copy/hash-verify/remove execution with a manifest."
+    },
+    {
+      "path": "02. AlphaFactory/tests/test_operational_hygiene.py",
+      "status": "authoritative",
+      "reason": "Offline regression tests for cleanup dry-run semantics, archive reference protection and path containment, Windows validator encoding, live registry pins, and runbook command-surface truth."
     },
     {
       "path": "00. Old File/markdown_graveyard/00_READ_ME_FIRST.md",

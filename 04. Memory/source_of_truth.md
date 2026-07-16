@@ -1,10 +1,11 @@
 # Source of Truth Registry
 
-Updated: 2026-07-15
+Updated: 2026-07-16
 
-> **Path relocation (Owner 2026-07-15):** Active EA Developer shelf is empty.
-> Former `03. EA Developer/EA_SonicR/` (incl. research ledger) and
-> `EA_SilverBullet/` live under `00. Old File/EA_Archive/`. Root
+> **Path relocation (Owner 2026-07-15):** Active EA Developer shelf now has
+> `EA_FVGConfluence` and `EA_HybridICT_Sonic`. Former
+> `03. EA Developer/EA_SonicR/` (incl. research ledger) and `EA_SilverBullet/`
+> live under `00. Old File/EA_Archive/`. Root
 > `README-SONIC-R.md`, `SYNC_REPORT.md`, and `tests/` are archived under
 > `00. Old File/docs_archive/` and `tests_archive/`. Rows below that still
 > cite `03. EA Developer/EA_SonicR/...` refer to the **archived** copies at
@@ -58,7 +59,7 @@ Updated: 2026-07-15
 | `AGENTS.md` | authoritative | Single cross-agent operating doctrine. Slimmed 2026-07-11 to lean hard rules plus pointers; detailed doctrine moved to 05. Playbook/research_doctrine.md; active scope is owned by hot.md. |
 | `CLAUDE.md` | authoritative | Pointer-only session entry file for Claude agents; defers to hot.md, 01. GOAL/GOAL.md, root INDEX.md, and AGENTS.md. Added 2026-07-11. |
 | `INDEX.md` | authoritative | Root workspace map: one-line what/when pointers to control docs, research, EA source, AlphaFactory, and tests. Pointer-only; content lives at the destinations. Added 2026-07-11. |
-| `.codex/operator/STATUS.md` | evidence | Operational recovery ledger for the active long-running V2 hardening task. It is subordinate to hot.md and is not research or execution authority. |
+| `.codex/operator/STATUS.md` | evidence | Operational recovery ledger for the active long-running operator task. It is subordinate to hot.md and is not research or execution authority. |
 | `.codex/operator/EXPERIMENTS.jsonl` | evidence | Append-only bounded-experiment ledger for the active V2 hardening task, including red-first checks, diagnoses, and stop states. |
 | `01. GOAL/GOAL.md` | authoritative | Owner-frozen north-star target: joint PF/cadence/cost-stress/exposure/evidence-window table, DONE ladder, non-goals, and probe-first operating principle. Changes only on explicit Owner decision; numeric authority remains sonic_validation_gates.md. |
 | `05. Playbook/research_doctrine.md` | authoritative | Full research/validation doctrine moved out of AGENTS.md on 2026-07-11: Sonic doctrine, research workflow, registry contract, chart-state label contract, overfit budget, team review roles, MT5 non-repaint rules, and backtest hygiene. |
@@ -98,14 +99,15 @@ Updated: 2026-07-15
 | `02. AlphaFactory/tools/sonic_phase_case_sampler.py` | authoritative | Builds phase-specific casebook CSVs for MT5-native snapshots, especially S1 sideway-wide losses versus S1 impulse wins. |
 | `02. AlphaFactory/tools/sonic_market_regime_profit_atlas.py` | authoritative | Multi-horizon Sonic R regime atlas joining PVSRA/SR price context to trades for macro-year, volatility, trend-efficiency, range-width, and trend-alignment attribution. |
 | `02. AlphaFactory/tools/sonic_research_loop.ps1` | authoritative | Dry-run-by-default strict Model 0 control/challenger loop: immutable task packet and execution receipt, shared exact EA source contract, physical cost-source checks, control bootstrap, matched-control proof, exact run marker, report-bound verified cost builder, direct unified validation, and fail-closed transitions. Current execution remains blocked by incomplete same-broker cost data and no eligible frozen candidate. |
-| `02. AlphaFactory/tools/ea_contract.ps1` | authoritative | Shared fail-closed resolver for exact active EA main-source paths and explicit telemetry profiles. It pins SilverBullet to EA_SilverBullet_v2.mq5, preserves the OpenHalfMom naming exception, and forbids archive or arbitrary-file fallback. |
+| `02. AlphaFactory/tools/ea_contract.ps1` | authoritative | Shared fail-closed resolver for exact active EA main-source paths and explicit telemetry profiles. It pins EA_FVGConfluence and EA_HybridICT_Sonic, uses canonical EA-name fallback only inside the active shelf, and forbids archive or arbitrary-file fallback. |
 | `02. AlphaFactory/tools/build_verified_cost_artifact.py` | authoritative | Report-bound verified cost producer for sonic_telemetry.v3 PX6/Trades lifecycles. It joins every report deal ID to lifecycle evidence; derives spread, commission P90, and side-aware slippage from raw CSV inputs or a hash-bound JSON broker contract rather than self-attested summaries; reconciles deal and gross/net semantics; emits verified_execution_cost.v1; and has 6/6 focused unit tests passing. |
 | `02. AlphaFactory/schemas/execution_data_capture_manifest.v1.schema.json` | authoritative | JSON Schema for read-only V4 execution-data bundles, including broker identity, frozen QFSI thresholds, hash-bound artifact references, required symbols, and zero-order safety fields. |
 | `02. AlphaFactory/tools/execution_data_foundation.py` | authoritative | Read-only MT5 probe plus hash/row/timestamp/lookahead/sample-gate bundle validator and inventory producer; separates tester proxies from broker evidence and never exposes a mutating trade-call surface. |
 | `02. AlphaFactory/analysis/unified_validation.py` | authoritative | Numeric/artifact validator for strict Model 0 challenger/confirmed stages: exact cadence, physical rehash, verified broker cost, non-repaint, stability, and freshness gates. It canonical-rebuilds verified cost from raw inputs and compares trade_repricing/scenarios. Current fixed-parameter WFA, realized-P/L robustness, PBO, and White Reality Check producers are diagnostic-only and block confirmed promotion. |
 | `02. AlphaFactory/tools/runs_db.py` | authoritative | Local SQLite index and query layer for large backtest history under 02. AlphaFactory/runs/. |
-| `02. AlphaFactory/tools/workspace_hygiene.ps1` | authoritative | Operational cleanup helper for MT5 sample experts, stale agent worktrees, and optional run-database rebuild. |
-| `02. AlphaFactory/tools/archive_backtest_artifacts.ps1` | authoritative | Archive-first cleanup helper for stale AlphaFactory runs and Terminal/Common/Files telemetry after backtests; default dry-run, -Execute moves files to Google Drive with a manifest. Keep list includes current Sonic R evidence runs. |
+| `02. AlphaFactory/tools/workspace_hygiene.ps1` | authoritative | Dry-run-by-default operational cleanup helper for root MT5 sample experts and stale agent worktrees; -Execute is required for deletion or optional run-database rebuild. |
+| `02. AlphaFactory/tools/archive_backtest_artifacts.ps1` | authoritative | Archive-first cleanup helper for stale AlphaFactory runs and Terminal/Common/Files telemetry; default dry-run, explicit EA scope, current control-surface reference scanning, contained atomic plans, and copy/hash-verify/remove execution with a manifest. |
+| `02. AlphaFactory/tests/test_operational_hygiene.py` | authoritative | Offline regression tests for cleanup dry-run semantics, archive reference protection and path containment, Windows validator encoding, live registry pins, and runbook command-surface truth. |
 | `00. Old File/markdown_graveyard/00_READ_ME_FIRST.md` | backup-only | Local availability: absent in the lean checkout; hash-verified backup only. Original status: invalidated. Legacy BB mean-reversion recommendation contradicted by validated local runs |
 | `00. Old File/markdown_graveyard/CHOPPY_BOT_QUICKSTART.md` | backup-only | Local availability: absent in the lean checkout; hash-verified backup only. Original status: invalidated. Legacy implementation guide for invalidated thesis |
 | `00. Old File/markdown_graveyard/CHOPPY_GOLD_INDEX.md` | backup-only | Local availability: absent in the lean checkout; hash-verified backup only. Original status: invalidated. Legacy index for invalidated package |

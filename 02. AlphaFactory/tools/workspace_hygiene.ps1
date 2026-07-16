@@ -1,6 +1,7 @@
 param(
     [switch]$BuildRunsDb,
-    [switch]$ShowSize
+    [switch]$ShowSize,
+    [switch]$Execute
 )
 
 $ErrorActionPreference = "Stop"
@@ -19,34 +20,28 @@ function Write-Status($Message, $Type = "INFO") {
     Write-Host "[$Type] $Message" -ForegroundColor $color
 }
 
-function Remove-SampleExperts {
-    $removed = 0
-    foreach ($pattern in @("Expert*.mq5", "Expert*.ex5")) {
-        Get-ChildItem -LiteralPath $repoRoot -Filter $pattern -File -ErrorAction SilentlyContinue | ForEach-Object {
-            Remove-Item -LiteralPath $_.FullName -Force -ErrorAction SilentlyContinue
-            $removed++
-        }
+function Assert-PathUnderRoot($Path, $Root, $Label) {
+    $fullPath = [System.IO.Path]::GetFullPath($Path)
+    $fullRoot = [System.IO.Path]::GetFullPath($Root).TrimEnd([char[]]'\/')
+    $prefix = $fullRoot + [System.IO.Path]::DirectorySeparatorChar
+    if (-not $fullPath.StartsWith($prefix, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw "$Label escapes the workspace root: $fullPath"
     }
-    Write-Status "Removed $removed root MT5 sample expert file(s)" "OK"
+    return $fullPath
 }
 
-function Remove-StaleWorktrees {
+function Get-SampleExperts {
+    return @(foreach ($pattern in @("Expert*.mq5", "Expert*.ex5")) {
+        Get-ChildItem -LiteralPath $repoRoot -Filter $pattern -File -Force -ErrorAction SilentlyContinue
+    })
+}
+
+function Get-StaleWorktrees {
     $candidateRoots = @(
         (Join-Path $repoRoot "agent_worktrees"),
-        (Join-Path $repoRoot ".agent\\worktrees")
+        (Join-Path $repoRoot ".agent\worktrees")
     )
-    $removed = 0
-    foreach ($worktrees in $candidateRoots) {
-        if (Test-Path $worktrees) {
-            Remove-Item -LiteralPath $worktrees -Recurse -Force -ErrorAction SilentlyContinue
-            $removed++
-        }
-    }
-    if ($removed -gt 0) {
-        Write-Status "Removed $removed stale agent worktree folder(s)" "OK"
-    } else {
-        Write-Status "No stale agent worktree directory found" "INFO"
-    }
+    return @($candidateRoots | Where-Object { Test-Path -LiteralPath $_ -PathType Container })
 }
 
 function Show-WorkspaceSizes {
@@ -58,8 +53,8 @@ function Show-WorkspaceSizes {
     )
 
     foreach ($path in $targets) {
-        if (-not (Test-Path $path)) { continue }
-        $size = (Get-ChildItem $path -Recurse -File -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum
+        if (-not (Test-Path -LiteralPath $path)) { continue }
+        $size = (Get-ChildItem -LiteralPath $path -Recurse -File -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum
         $sizeGb = [math]::Round(($size / 1GB), 2)
         Write-Host ("{0}  {1} GB" -f $path, $sizeGb)
     }
@@ -75,13 +70,42 @@ function Build-RunDatabase {
     Write-Status "Runs database refreshed" "OK"
 }
 
-Remove-SampleExperts
-Remove-StaleWorktrees
+$sampleExperts = @(Get-SampleExperts)
+$staleWorktrees = @(Get-StaleWorktrees)
+$mode = if ($Execute) { "EXECUTE" } else { "DRY-RUN" }
+Write-Status "Mode: $mode" $(if ($Execute) { "WARN" } else { "INFO" })
+Write-Status "Root sample candidates: $($sampleExperts.Count)" "INFO"
+Write-Status "Stale worktree candidates: $($staleWorktrees.Count)" "INFO"
+
+$candidateRows = @(
+    $sampleExperts | ForEach-Object { [pscustomobject]@{ Kind = 'RootSample'; FullName = $_.FullName } }
+    $staleWorktrees | ForEach-Object { [pscustomobject]@{ Kind = 'StaleWorktree'; FullName = $_ } }
+)
+if ($candidateRows.Count -gt 0) {
+    $candidateRows | Format-Table -AutoSize | Out-Host
+}
+
+if ($Execute) {
+    foreach ($sample in $sampleExperts) {
+        $safePath = Assert-PathUnderRoot $sample.FullName $repoRoot "Root sample"
+        Remove-Item -LiteralPath $safePath -Force -ErrorAction Stop
+    }
+    foreach ($worktree in $staleWorktrees) {
+        $safePath = Assert-PathUnderRoot $worktree $repoRoot "Stale worktree"
+        Remove-Item -LiteralPath $safePath -Recurse -Force -ErrorAction Stop
+    }
+    Write-Status "Removed $($sampleExperts.Count) root sample file(s) and $($staleWorktrees.Count) stale worktree folder(s)" "OK"
+} else {
+    Write-Status "Dry-run only. Re-run with -Execute after reviewing the exact candidates." "OK"
+}
 
 if ($ShowSize) {
     Show-WorkspaceSizes
 }
 
 if ($BuildRunsDb) {
+    if (-not $Execute) {
+        throw "BuildRunsDb mutates the local SQLite catalog and requires -Execute."
+    }
     Build-RunDatabase
 }

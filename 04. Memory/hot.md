@@ -12,6 +12,7 @@ Sự thật SỐNG ở block **▶ NEXT SESSION** ngay dưới. Bảng **Ledger*
 - **Best shelf:** RR2 `194548` (offline SURVIVOR PF `2.53` / x1.5 `1.81`) — **không** deployable, cần native tick-path Model 0. ⚠️ `EA_SilverBullet` source `.mq5` **mất trên đĩa** (chỉ còn `.ex5` binary; RR2 194548 evidence ở `02. AlphaFactory/runs/`).
 - **Cost frontier:** `STOP_DATA_FRONTIER` — quote_days 2/90, commission/slip GAP. QFSI accumulate khi Real an toàn; KHÔNG invent cost freeze.
 - **Housekeeping 2026-07-15/16:** docs↔disk sync (`4e2dace` pushed); 80 pkg → EA_Archive; GOAL đổi tên; hot.md nén (file này); `04. Project Control/` tách → **`04. Memory/`** (state) + **`05. Playbook/`** (4 file lõi); doctrine cũ → `00. Old File/project_control_archive_20260716/`.
+- **AlphaFactory hygiene 2026-07-16:** Grok 4.5 review council + Codex verification hardened cleanup to dry-run/explicit-scope/current-reference behavior; 7/7 offline contract tests pass. Lossless SHA-verified compression plus cache removal reclaimed `616,409,342` bytes; no run folder was archived/deleted. Post inventory: `5,280,125,523` bytes / `8,297` files. Source-of-truth gate remains RED only because declared `G:` backup root is not mounted (10 `backup-only` files cannot be verified); do not weaken or reclassify without Owner evidence.
 - **Next move (await Owner):** park Hybrid family **hoặc** authorize cơ chế độc lập mới (hyp id mới, KHÔNG densify). Song song: FVGConfluence lane / QFSI cost. No live / no promote.
 
 ## Landmines (do-not-repeat — full: `do_not_repeat_failures.md` + archive §Next Move 1-11)

@@ -1,65 +1,66 @@
-# Sonic R Tool Runbook
+# AlphaFactory / Sonic R Tool Runbook
 
-Updated: 2026-05-03
+Updated: 2026-07-16
 
-Scope: `EA_SonicR`, AlphaFactory, MetaQuotes-Demo symbols `XAUUSD`, `EURUSD`,
-`GBPUSD`.
+Scope: AlphaFactory command and evidence operations. Active EA scope always
+comes from `04. Memory/hot.md`; current active packages are
+`EA_FVGConfluence` and `EA_HybridICT_Sonic`. Sonic R commands below are
+historical analysis examples for archived evidence, not permission to compile
+or backtest from `00. Old File/`.
 
 ## Purpose
 
 Use this file when a session needs to compile, backtest, analyze, compare,
-audit, label, snapshot, or clean Sonic R evidence. AlphaFactory and MT5 tester
-artifacts remain the execution truth. These tools speed up research; they do
-not promote an EA by themselves.
+snapshot, or clean AlphaFactory evidence. AlphaFactory and MT5 tester artifacts
+remain the execution truth. These tools speed up research; they do not promote
+an EA by themselves. A command path marked unavailable in
+`04. Memory/source_of_truth.json` is historical only and must not be invoked.
 
 ## Standard Run Closure
 
-After any meaningful Sonic R backtest, use this order:
+After any meaningful backtest, use this order:
 
-1. Compile/backtest/analyze through AlphaFactory or `alpha_json.ps1`.
-2. Run `validate-full`.
-3. Compare to the frozen baseline on the same model/window.
-4. Run cost stress.
-5. Run market-phase attribution for XAU/S1/sideway questions.
-6. Run GoldRegime audit when `InpEnableGoldRegimeTelemetry=1`.
-7. Build or refresh casebook/index artifacts.
-8. Run evidence audit.
-9. Capture bounded MT5-native snapshots only for selected cases.
-10. Archive/clean stale telemetry after preserving cited evidence.
+1. Confirm `hypothesis_id`, registry row, frozen prereg, task packet, active
+   source contract, and cost-source boundary.
+2. Compile/backtest through `alpha.ps1` or the strict research loop.
+3. Run `validate-full` against the exact report.
+4. Compare to the matched control on the same model/window when applicable.
+5. Run cost stress and the relevant regime/phase analysis.
+6. Build or refresh casebook/index artifacts when the lane uses them.
+7. Capture bounded MT5-native snapshots only for selected cases.
+8. Archive/clean stale telemetry only after preserving cited evidence and
+   reviewing the cleanup plan SHA.
 
 ## Core Commands
 
-### AlphaFactory JSON Wrapper
+### AlphaFactory CLI
 
-Use when an agent or MCP needs structured output from `alpha.ps1`.
+Status:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass `
-  -File "02. AlphaFactory/tools/alpha_json.ps1" `
-  -Action status
+  -File "02. AlphaFactory/alpha.ps1" status
 ```
 
 Compile:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass `
-  -File "02. AlphaFactory/tools/alpha_json.ps1" `
-  -Action compile `
-  -Name "EA_SonicR"
+  -File "02. AlphaFactory/alpha.ps1" compile "<EA_NAME>"
 ```
 
 Validate a run:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass `
-  -File "02. AlphaFactory/tools/alpha_json.ps1" `
-  -Action validate-full `
-  -Report "02. AlphaFactory/runs/EA_SonicR/<RUN_ID>/report.html" `
-  -Out "02. AlphaFactory/runs/EA_SonicR/<RUN_ID>/analysis/alpha_json_validate_full.json"
+  -File "02. AlphaFactory/alpha.ps1" validate-full `
+  -Report "02. AlphaFactory/runs/<EA_NAME>/<RUN_ID>/report.html"
 ```
 
-Important: `success=true` means the wrapper completed. Strategy readiness is
-the `headline.validation_verdict` and gate stack, not wrapper success.
+`alpha.ps1 backtest` requires the frozen hypothesis/task/receipt contract; use
+the strict research-loop section below rather than inventing an ad-hoc command.
+Command completion is not strategy readiness; read the validation verdict and
+full gate stack.
 
 ### Candidate Compare
 
@@ -104,26 +105,14 @@ python "02. AlphaFactory/tools/sonic_cost_stress.py" `
 
 Do not call a run robust if PF collapses under small per-trade costs.
 
-### Evidence Audit
+### Unavailable Historical Audit Commands
 
-Use before a run is cited in docs or used as a baseline.
-
-```powershell
-python "02. AlphaFactory/tools/evidence_audit.py" <RUN_ID> `
-  --baseline 20260501_000718 `
-  --require-casebook `
-  --require-native-snapshot `
-  --require-compare `
-  --require-cost `
-  --out "02. AlphaFactory/runs/EA_SonicR/<RUN_ID>/analysis/evidence_audit.json"
-```
-
-Status meanings:
-
-- `PASS`: required files exist and validation has no audit warnings.
-- `REVIEW`: required files exist, but validation or another gate still blocks
-  promotion.
-- `FAIL`: required evidence is missing or empty.
+`evidence_audit.py`, `sonic_state_label_audit.py`,
+`sonic_population_eval.py`, and `sonic_s1_gate_audit.py` are recorded as
+`unavailable-unresolved` in the canonical registry. Do not call them or treat
+their old instructions as part of current closure. Use `validate-full` and the
+authoritative tools that exist on disk; restoring a retired tool is a separate
+Owner-scoped change.
 
 ### Casebook Index
 
@@ -139,48 +128,9 @@ Outputs:
 - `analysis/casebook_analysis_index.json`
 - `analysis/casebook_analysis_readout.md`
 
-### Machine Label Audit
+### S1 Deep Anatomy
 
-Use for pre-entry heuristic labels only. It must not use outcome/PnL/MFE fields
-as inputs.
-
-```powershell
-python "02. AlphaFactory/tools/sonic_state_label_audit.py" `
-  --cases "02. AlphaFactory/runs/EA_SonicR/<RUN_ID>/analysis/sonic_state/sonic_state_cases.csv" `
-  --out-labels "02. AlphaFactory/runs/EA_SonicR/<RUN_ID>/analysis/sonic_state/sonic_state_machine_labels.csv" `
-  --out-audit "02. AlphaFactory/runs/EA_SonicR/<RUN_ID>/analysis/sonic_state/sonic_state_label_audit.json" `
-  --out-md "02. AlphaFactory/runs/EA_SonicR/<RUN_ID>/analysis/sonic_state/sonic_state_label_audit.md"
-```
-
-### Population Evaluation
-
-Use to test pre-entry feature lift on the full opportunity population, not the
-biased casebook sample.
-
-```powershell
-python "02. AlphaFactory/tools/sonic_population_eval.py" `
-  --run-dir "02. AlphaFactory/runs/EA_SonicR/<RUN_ID>" `
-  --symbol XAUUSD
-```
-
-No EA rule is authorized unless a feature is stable across time splits and cost
-stress does not collapse.
-
-### S1 Gate Audit
-
-Use before coding any dedicated S1 gate or S1 risk route.
-
-```powershell
-python "02. AlphaFactory/tools/sonic_s1_gate_audit.py" <RUN_ID> `
-  --cost 0.50 `
-  --out "02. AlphaFactory/runs/EA_SonicR/<RUN_ID>/analysis/sonic_s1_gate_audit.json" `
-  --out-md "02. AlphaFactory/runs/EA_SonicR/<RUN_ID>/analysis/sonic_s1_gate_audit.md"
-```
-
-This is audit-only. A good bucket in this report is not a rule until it survives
-pre-registration, matched backtest, validation, and cost stress.
-
-For deeper S1 opportunity/trade joins, target-RR buckets, removal buckets, and
+For S1 opportunity/trade joins, target-RR buckets, removal buckets, and
 half-year cost stability:
 
 ```powershell
@@ -641,7 +591,7 @@ Dry-run duplicate physical log cleanup for one run:
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass `
   -File "02. AlphaFactory/tools/dedupe_backtest_log_mirrors.ps1" `
-  -EaName "EA_SonicR" -RunId "<RUN_ID>"
+  -EaName "<EA_NAME>" -RunId "<RUN_ID>"
 ```
 
 Review the JSON plan and reclaimable bytes. `-Execute` converts only exact
@@ -652,9 +602,12 @@ Workspace hygiene:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass `
-  -File "02. AlphaFactory/tools/workspace_hygiene.ps1" `
-  -BuildRunsDb
+  -File "02. AlphaFactory/tools/workspace_hygiene.ps1"
 ```
+
+The default is dry-run. Add `-Execute` only after reviewing the exact sample
+and stale-worktree candidates. Rebuilding `runs.db` is also mutating and uses
+`-BuildRunsDb -Execute`.
 
 Archive-first backtest cleanup, dry run first:
 
@@ -662,7 +615,7 @@ Archive-first backtest cleanup, dry run first:
 powershell -NoProfile -ExecutionPolicy Bypass `
   -File "02. AlphaFactory/tools/archive_backtest_artifacts.ps1" `
   -ArchiveRoot "X:\MT5_Archive" `
-  -EaName "EA_SonicR" `
+  -EaName "<EA_NAME>" `
   -MinAgeDays 14 `
   -IncludeCommonFiles `
   -IncludeRuns

@@ -24,6 +24,18 @@ ROW_RE = re.compile(
 )
 
 
+def configure_console_output() -> None:
+    """Keep fail-closed diagnostics printable on stock Windows consoles."""
+    for stream_name in ("stdout", "stderr"):
+        stream = getattr(sys, stream_name, None)
+        reconfigure = getattr(stream, "reconfigure", None)
+        if callable(reconfigure):
+            try:
+                reconfigure(encoding="utf-8", errors="backslashreplace")
+            except (AttributeError, OSError, ValueError):
+                pass
+
+
 def canonical_markdown_reason(value: str) -> str:
     return " ".join(value.split()).replace("|", r"\|")
 
@@ -184,4 +196,5 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    configure_console_output()
     sys.exit(main())

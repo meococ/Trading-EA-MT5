@@ -1,20 +1,28 @@
-# EA SilverBullet Build Status
+# AlphaFactory Cleanup and Quality Review Status
 
-- Authority: operational recovery ledger only; `04. Memory/hot.md`
-  remains the sole canonical live-scope owner.
-- Goal: Focus directly on buildable `EA_SilverBullet_v2.mq5`; no Git workflow.
-- Acceptance criteria: opt-in weekend-flat and max-hold controls are fail-safe,
-  preserve default behavior, compile with zero errors/warnings, and have focused
-  ordering/default tests plus a non-repaint audit.
-- Current state: DONE for the compile-only build slice. Root Git is absent. The
-  previous long-running research goal is paused; no performance verdict was
-  produced.
-- Latest evidence: exposure tests `3/3` pass; non-repaint static audit PASS;
-  MetaEditor compile `0 errors, 0 warnings`; EX5 is `88,860` bytes with SHA256
-  `CB8219D20C1E87D7D0FF004E8FAF5B7DD3C0FD9F7047CCC3C423E63C44CCCF48`.
-- Current diagnosis: the EA can now enforce a broker-server-time Friday cutoff
-  and a position-age cap, both default-off. The Friday `21:45` default remains
-  provisional and must be bound to the intended broker session before enabling.
-- Next experiment: after broker session/timezone and side-aware cost data are
-  supplied, run one fixed matched Model 0 control/challenger; no parameter scan.
-- Budget: no live execution, no AutoTrading enablement, no real-order mutation.
+- Authority: operational recovery ledger only; `04. Memory/hot.md` remains the
+  sole canonical live-scope owner.
+- Goal: review `02. AlphaFactory/` with a read-only Grok 4.5 review squad,
+  remove only proven disposable/stale files, and implement the smallest
+  evidence-backed quality hardening slice.
+- Acceptance criteria: protected runs and registry-referenced artifacts remain
+  intact; every deletion is inventory-backed; source-of-truth validation is
+  green; focused tests and `git diff --check` pass; no MT5 backtest/live action;
+  no commit/push without explicit Owner authorization.
+- Current state: cleanup and hardening slice DONE; full closeout is
+  `BLOCKED_BY_MISSING_INPUT` because the declared `G:` backup root is not
+  mounted, so 10 `backup-only` entries cannot be verified.
+- Latest evidence: 7/7 focused tests pass; dry-run archive protection scans 202
+  referenced IDs and 210 effective keep IDs; runs storage fell from
+  5,896,008,396 to 5,280,125,523 bytes; cache removal brings total reclaimed to
+  616,409,342 bytes. No run folder was archived or deleted.
+- Current diagnosis: cleanup automation now defaults dry-run, requires explicit
+  EA scope, contains plan output, writes plans atomically, and scans current
+  control surfaces plus hot-ledger details. The remaining validator failure is
+  external availability, not JSON/Markdown parity or encoding.
+- Next experiment: mount the declared Google Drive `G:` root and rerun
+  `python 04. Memory/validate_source_of_truth.py`. Only after a reviewed
+  off-volume destination exists should the 1.74 GiB Sonic archive dry-run plan
+  be considered for `-Execute`.
+- Budget: no backtest, no live terminal/order action, no unmanifested evidence
+  deletion, no branch/worktree creation, no commit/push.

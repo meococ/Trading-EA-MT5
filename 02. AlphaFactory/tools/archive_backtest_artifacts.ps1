@@ -1,6 +1,6 @@
 param(
     [string]$ArchiveRoot = "",
-    [string]$EaName = "EA_SonicR",
+    [string]$EaName = "",
     [string[]]$KeepRunIds = @(
         "20260501_000718",
         "20260501_151422",
@@ -37,10 +37,15 @@ $commonFilesRoot = $(if (-not [string]::IsNullOrWhiteSpace($env:APPDATA)) {
 
 if ($ReferenceRoots.Count -eq 0) {
     $ReferenceRoots = @(
+        (Join-Path $repoRoot '01. GOAL'),
         (Join-Path $repoRoot '04. Memory'),
-        (Join-Path $repoRoot '05. Guidance'),
-        (Join-Path $repoRoot '03. EA Developer\EA_SonicR\research'),
-        (Join-Path $alphaRoot 'STRATEGY_LOG.md')
+        (Join-Path $repoRoot '05. Playbook'),
+        (Join-Path $repoRoot '03. EA Developer'),
+        (Join-Path $repoRoot 'INDEX.md'),
+        (Join-Path $repoRoot 'AGENTS.md'),
+        (Join-Path $repoRoot 'CLAUDE.md'),
+        (Join-Path $alphaRoot 'STRATEGY_LOG.md'),
+        (Join-Path $repoRoot '00. Old File\hot_details\hot_ledger_details.json')
     )
 }
 
@@ -59,6 +64,34 @@ function Write-Status($Message, $Type = "INFO") {
         default { "Cyan" }
     }
     Write-Host "[$Type] $Message" -ForegroundColor $color
+}
+
+function Assert-PathUnderRoot($Path, $Root, $Label) {
+    $fullPath = [System.IO.Path]::GetFullPath($Path)
+    $fullRoot = [System.IO.Path]::GetFullPath($Root).TrimEnd([char[]]'\/')
+    if ($fullPath.Equals($fullRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
+        return $fullPath
+    }
+    $prefix = $fullRoot + [System.IO.Path]::DirectorySeparatorChar
+    if (-not $fullPath.StartsWith($prefix, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw "$Label must stay under ${fullRoot}: $fullPath"
+    }
+    return $fullPath
+}
+
+function Write-JsonAtomically($Value, $Path, [int]$Depth = 8) {
+    $fullPath = [System.IO.Path]::GetFullPath($Path)
+    $parent = Split-Path -Parent $fullPath
+    New-Item -ItemType Directory -Path $parent -Force | Out-Null
+    $tempPath = Join-Path $parent (".{0}.{1}.{2}.tmp" -f ([System.IO.Path]::GetFileName($fullPath)), $PID, ([guid]::NewGuid().ToString('N')))
+    try {
+        $Value | ConvertTo-Json -Depth $Depth | Set-Content -LiteralPath $tempPath -Encoding UTF8
+        Move-Item -LiteralPath $tempPath -Destination $fullPath -Force
+    } finally {
+        if (Test-Path -LiteralPath $tempPath) {
+            Remove-Item -LiteralPath $tempPath -Force -ErrorAction SilentlyContinue
+        }
+    }
 }
 
 function Resolve-DefaultArchiveRoot {
@@ -99,8 +132,10 @@ function Assert-SourceAllowed($Path) {
     $resolved = (Resolve-Path -LiteralPath $Path).Path
     $allowedRoots = @($repoRoot, $commonFilesRoot) | Where-Object { Test-Path -LiteralPath $_ }
     foreach ($root in $allowedRoots) {
-        $resolvedRoot = (Resolve-Path -LiteralPath $root).Path.TrimEnd("\")
-        if ($resolved.StartsWith($resolvedRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
+        $resolvedRoot = (Resolve-Path -LiteralPath $root).Path.TrimEnd([char[]]'\/')
+        $rootPrefix = $resolvedRoot + [System.IO.Path]::DirectorySeparatorChar
+        if ($resolved.Equals($resolvedRoot, [System.StringComparison]::OrdinalIgnoreCase) -or
+            $resolved.StartsWith($rootPrefix, [System.StringComparison]::OrdinalIgnoreCase)) {
             return
         }
     }
@@ -138,7 +173,7 @@ function Get-ReferencedRunIds {
         } else { @($item) })
         foreach ($file in $files) {
             $text = Get-Content -LiteralPath $file.FullName -Raw -ErrorAction SilentlyContinue
-            if ([string]::IsNullOrEmpty($text)) { continue }
+            if ([string]::IsNullOrEmpty([string]$text)) { continue }
             foreach ($match in [regex]::Matches($text, '\b20\d{6}_\d{6}\b')) {
                 [void]$ids.Add($match.Value)
             }
@@ -273,6 +308,9 @@ if (-not ($IncludeRuns -or $IncludeCommonFiles -or $IncludeRootSamples)) {
     Write-Status "No include switch was provided. Use -IncludeCommonFiles, -IncludeRuns, or -IncludeRootSamples." "WARN"
     return
 }
+if ($IncludeRuns -and [string]::IsNullOrWhiteSpace($EaName)) {
+    throw "IncludeRuns requires an explicit -EaName (use '*' for inventory-only dry runs)."
+}
 if ($Execute -and $EaName -eq '*') {
     throw "Execute requires an exact -EaName. Use '*' for inventory/dry-run only."
 }
@@ -305,6 +343,7 @@ if ([string]::IsNullOrWhiteSpace($PlanPath)) {
     New-Item -ItemType Directory -Path $planRoot -Force | Out-Null
     $PlanPath = Join-Path $planRoot ("archive_backtests_{0}.json" -f (Get-Date -Format 'yyyyMMdd_HHmmss'))
 }
+$PlanPath = Assert-PathUnderRoot $PlanPath $repoRoot 'PlanPath'
 $plan = [pscustomobject][ordered]@{
     schema_version = 'alpha-backtest-cleanup-plan-v2'
     created_at_utc = [datetime]::UtcNow.ToString('o')
@@ -322,9 +361,7 @@ $plan = [pscustomobject][ordered]@{
     total_size_bytes = [long]$totalBytes
     items = $candidates
 }
-$planParent = Split-Path -Parent ([IO.Path]::GetFullPath($PlanPath))
-New-Item -ItemType Directory -Path $planParent -Force | Out-Null
-$plan | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $PlanPath -Encoding UTF8
+Write-JsonAtomically $plan $PlanPath 6
 $planHash = (Get-FileHash -LiteralPath $PlanPath -Algorithm SHA256).Hash.ToLowerInvariant()
 Write-Status ("Plan: {0}" -f ([IO.Path]::GetFullPath($PlanPath))) "OK"
 Write-Status ("Plan SHA256: {0}" -f $planHash) "OK"
@@ -368,6 +405,6 @@ $manifest = [pscustomobject]@{
 }
 
 $manifestPath = Join-Path $sessionDir "manifest.json"
-$manifest | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $manifestPath -Encoding UTF8
+Write-JsonAtomically $manifest $manifestPath 8
 Write-Status ("Archived {0} item(s) to {1}" -f $candidates.Count, $sessionDir) "OK"
 Write-Status ("Manifest: {0}" -f $manifestPath) "OK"
