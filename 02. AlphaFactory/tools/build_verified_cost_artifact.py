@@ -33,7 +33,7 @@ from unified_validation import _run_identity_sha256  # noqa: E402
 
 SCHEMA_VERSION = "verified_execution_cost.v1"
 COST_SOURCE_SCHEMA = "alphafactory_cost_source_manifest.v1"
-TELEMETRY_SCHEMA = "sonic_telemetry.v3"
+TELEMETRY_SCHEMA = "alphafactory_lifecycle_telemetry.v1"
 REQUIRED_LIFECYCLE_COLUMNS = {
     "event_time",
     "action",
@@ -498,7 +498,9 @@ def lifecycle_sidecar(manifest: dict[str, Any], run_dir: Path) -> tuple[Path, st
             continue
         relative = str(row.get("path") or "")
         name = Path(relative).name
-        if "_PX6_Trades_" not in name or not name.lower().endswith(".csv"):
+        if not name.lower().endswith(".csv") or not any(
+            marker in name for marker in ("_LifecycleTrades_", "_PX6_Trades_")
+        ):
             continue
         path = Path(relative)
         if not path.is_absolute():
@@ -513,7 +515,8 @@ def lifecycle_sidecar(manifest: dict[str, Any], run_dir: Path) -> tuple[Path, st
         candidates.append((path, actual))
     if len(candidates) != 1:
         raise ValueError(
-            f"expected exactly one manifest-bound PX6 trade lifecycle sidecar; found {len(candidates)}"
+            "expected exactly one manifest-bound AlphaFactory lifecycle trade sidecar "
+            f"(generic LifecycleTrades or legacy PX6); found {len(candidates)}"
         )
     return candidates[0]
 

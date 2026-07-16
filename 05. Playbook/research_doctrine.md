@@ -93,46 +93,43 @@ phép tune hypothesis cũ.
 
 Dùng vòng lặp này cho công việc chiến lược EA có ý nghĩa:
 
-1. Nghiên cứu thesis của trader và ghi lại nguồn/provenance. Khi scope thuộc
-   strategy discovery/improvement/optimization/ideation, chạy workflow ChatGPT
-   Deep Research ở trên trước khi chốt hypothesis.
-2. Tiền đăng ký MỘT hypothesis theo
-   `03. EA Developer/EA_SonicR/research/PREREG_TEMPLATE.md`: feature thay
-   đổi, symbol/timeframe, cửa sổ ngày, model, override, gate pass/fail,
-   budget feature, luật holdout, và các chỉnh sửa hậu kết quả bị cấm.
-3. Chạy một probe/scanner offline rẻ trên artifacts sẵn có TRƯỚC mọi code
-   entry EA. Đây là gate đầu tiên mặc định cho mọi hypothesis, không phải
-   bước tùy chọn; kill nhanh ở đây là kết quả tốt.
-4. Compile qua AlphaFactory:
-   `powershell -NoProfile -ExecutionPolicy Bypass -File "02. AlphaFactory/alpha.ps1" compile "EA_SonicR"`.
-5. Chạy matched control và challenger với symbol, timeframe, ngày, model,
-   override tường minh.
-6. Model 1 chỉ dùng làm screen nhanh. Survivor nào cũng cần Model 0 xác
-   nhận và `validate-full`.
-7. So với baseline đã đóng băng/liên quan; không chấm một run đứng một
-   mình.
+1. Định lượng thesis của trader và ghi nguồn/provenance. Deep Research là công
+   cụ discovery khi cần cơ chế/nguồn mới, không phải ceremony bắt buộc cho brief
+   đã đủ rõ.
+2. De-dup với `do_not_repeat_failures.md` và registry; tạo row `idea|probe`,
+   draft MỘT prereg theo `02. AlphaFactory/templates/research/PREREG_TEMPLATE.md`.
+3. Chạy probe/scanner offline rẻ TRƯỚC code entry EA. Probe fail thì park/kill;
+   probe pass mới freeze prereg và giữ state `probe` (source có thể còn `null`).
+4. Build package canonical theo `ea_golden_path.md`, audit non-repaint, compile,
+   rồi append `screened` với source + prereg hash:
+   `powershell -NoProfile -ExecutionPolicy Bypass -File "02. AlphaFactory/alpha.ps1" compile "<EA_NAME>"`.
+5. Trước MT5, capability contract, lifecycle telemetry, cost provenance và task
+   packet phải đầy đủ; runner phải block sớm nếu thiếu.
+6. Chạy control rồi challenger cùng symbol, timeframe, window, Model 0 và data/
+   cost identity. Public strict loop chỉ chạy Model 0; evidence Model 1 từ lane
+   legacy/được Owner duyệt chỉ có thể kill/park, không promote.
+7. So với matched control đã đóng băng; không chấm một run đứng một mình.
 8. Phân tích theo lane, hướng, session, giờ, tháng, năm, pha thị trường,
    giải phẫu trade, cost stress, và evidence screenshot/casebook. Với thay
    đổi strategy-state, bắt buộc có snapshot MT5-native hoặc nhãn
    chart-state đã khóa trước mọi patch luật EA.
 9. Nếu run hợp lệ trượt gate hoặc hiệu suất yếu, đóng version hiện tại rồi chạy
    `Vòng Lặp Deep Research Sau Failure`; không tune/rescue cùng hypothesis.
-10. Sau khi công việc ổn định, chỉ cập nhật các doc ngắn liên quan:
-   `hot.md`, `current_state.md`, `source_of_truth.*`, một prereg/readout,
-   hoặc `README-SONIC-R.md` nếu bài học lõi thay đổi.
+10. Sau khi công việc ổn định, cập nhật đúng bề mặt sống: `hot.md`, registry,
+    prereg/readout, `source_of_truth.*` nếu path đổi và failure memory nếu có kill.
 11. Lưu trữ telemetry Common Files và artifact run cũ kèm manifest sau các
     backtest có ý nghĩa.
-12. Dùng `02. AlphaFactory/tools/sonic_research_loop.ps1` cho thí nghiệm
-    full-loop nghiêm túc, hoặc tái hiện tường minh các gate
-    compile/backtest/validate/cost/attribution/compare/cleanup của nó.
+12. Dùng `02. AlphaFactory/tools/ea_research_loop.ps1` cho full-loop nghiêm túc.
+    Tên `sonic_research_loop.ps1` chỉ còn là compatibility engine, không phải
+    entrypoint mới cho EA generic.
 
 ## Quy Trình Team Review
 
 Khi user yêu cầu team/agent tham gia, dùng ba vai tách biệt và giữ
 `fork_context=false` cho mọi agent được spawn:
 
-- Sonic trader critic: kiểm tra EA có đang đọc trạng thái Classic/PVSRA
-  như một trader thay vì chỉ khớp mẫu indicator.
+- Strategy/trader critic: kiểm tra EA có ánh xạ đúng setup, regime, timing và
+  invalidation của brief thay vì chỉ khớp mẫu indicator.
 - Quant validation critic: kiểm tra data mining, candidate registry,
   matched control, WFA/PBO/Reality Check/Monte Carlo, cost stress, và luật
   kill/park.
@@ -151,19 +148,18 @@ nghĩa cần registry row và prereg trước khi kết quả được dùng cho
 định.
 
 Registry bao phủ mọi hypothesis EA/portfolio FX được Owner mở rõ ràng trong
-workspace, không chỉ Sonic R. Path dưới `EA_SonicR/research` được giữ vì tương
-thích lịch sử; vị trí file không cấp quyền chạy và không thay thế `hot.md`.
+workspace, không chỉ Sonic R. Nó là append-only state ledger; vị trí file không
+cấp quyền chạy và không thay thế `hot.md`.
 
 Registry canonical:
 
-- `03. EA Developer/EA_SonicR/research/CANDIDATE_REGISTRY.jsonl`
-- schema: `03. EA Developer/EA_SonicR/research/CANDIDATE_REGISTRY.schema.json`
-- template prereg: `03. EA Developer/EA_SonicR/research/PREREG_TEMPLATE.md`
-- template readout: `03. EA Developer/EA_SonicR/research/READOUT_TEMPLATE.md`
+- `04. Memory/research/CANDIDATE_REGISTRY.jsonl`
+- schema + validator cùng thư mục; chạy
+  `python "04. Memory/research/validate_candidate_registry.py"`
+- template: `02. AlphaFactory/templates/research/`
 
-Mọi run có ý nghĩa phải gắn với một `hypothesis_id`. Mọi registry row cuối
-cùng phải chuyển về `parked`, `killed`, `confirmed`, hoặc
-`portfolio-sleeve`.
+Mọi run có ý nghĩa phải gắn với một `hypothesis_id`, `ea_name`, prereg/source
+hash và row hash. Row `parked|killed` là terminal; không được revive cùng ID.
 
 Field tối thiểu:
 
@@ -180,7 +176,8 @@ Trạng thái cho phép:
 - trạng thái kết thúc: `parked`, `killed`
 
 Probe khám phá có thể gợi ý idea, nhưng promotion đòi một run tiền đăng ký
-mới. Model 1 được kill hoặc park; không được promote.
+mới. Public strict loop không mở Model 1; evidence Model 1 legacy chỉ được kill
+hoặc park, không được promote.
 
 ## Contract Nhãn Chart-State
 

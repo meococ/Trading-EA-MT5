@@ -67,19 +67,23 @@ Harness chính cho phát triển EA + backtest — **không invent toolchain son
 - Entry: `02. AlphaFactory/alpha.ps1` (`status` / `compile` / `backtest` /
   `analyze` / `validate-full` …). Lệnh: `sonic_tool_runbook.md`.
 - Source canonical: `03. EA Developer/<EA>/<EA>.mq5` qua `tools/ea_contract.ps1`
-  (fail-closed; shelf empty → báo rõ, không pin archive).
+  (fail-closed; shelf empty → báo rõ, không pin archive). Full-loop generic:
+  `tools/ea_research_loop.ps1`; package capability:
+  `ALPHAFACTORY_EA_CONTRACT.json`.
 - Path MT5 theo máy — không hardcode user path vào file sẽ đẩy GitHub:
   - Local (gitignore): `02. AlphaFactory/alpha.local.ps1`
   - Template: `alpha.local.ps1.example` · init: `tools/init_machine_paths.ps1`
   - `alpha.ps1` đọc local trước; thiếu → auto-detect + cảnh báo.
 - AlphaFactory = cách chạy; ceremony (gates/registry/prereg) vẫn bắt buộc.
+  Registry active dùng chung: `04. Memory/research/CANDIDATE_REGISTRY.jsonl`;
+  template: `02. AlphaFactory/templates/research/`.
 - Active shelf `03. EA Developer/` = 2 lane (`EA_FVGConfluence`,
   `EA_HybridICT_Sonic`). Packages archived THẬT (80 dir, 2026-07-15):
   `00. Old File/EA_Archive/` (SonicR full ledger + SilverBullet binary + 78
-  stub `.ex5`). Research ledger theo package archive — **không** còn dưới
-  `03. EA Developer/`.
+  stub `.ex5`). Ledger Sonic cũ đi theo archive; ledger generic active ở
+  `04. Memory/research/`.
 - Root gọn: `CLAUDE.md`, `AGENTS.md`, `INDEX.md`, `01. GOAL/`. Doc điều khiển →
-  `04. Memory/` (state) + `05. Playbook/` (4 file lõi). Doctrine cũ archived →
+  `04. Memory/` (state) + `05. Playbook/` (5 file lõi). Doctrine cũ archived →
   `00. Old File/project_control_archive_20260716/`. Trước revive:
   `04. Memory/do_not_repeat_failures.md`.
 
@@ -129,7 +133,9 @@ chờ Owner):
 |---|---|
 | `04. Memory/hot.md` | sự thật sống (NEXT SESSION + ledger) |
 | `04. Memory/do_not_repeat_failures.md` | trước revive / hyp mới |
+| `04. Memory/research/CANDIDATE_REGISTRY.jsonl` + validator | ledger hypothesis generic append-only |
 | `04. Memory/source_of_truth.md`/`.json` + `validate_source_of_truth.py` | registry canonical + validator fail-closed |
+| `05. Playbook/ea_golden_path.md` | brief → probe/prereg → build → Model 0 → quyết định |
 | `05. Playbook/sonic_validation_gates.md` | stage gates, hard invalidation, run-manifest |
 | `05. Playbook/sonic_tool_runbook.md` | lệnh AlphaFactory chính xác |
 | `05. Playbook/ea_engineering_standard.md` | chuẩn code MQL5 (closed-bar, non-repaint) |

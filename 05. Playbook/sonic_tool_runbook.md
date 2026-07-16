@@ -62,9 +62,30 @@ the strict research-loop section below rather than inventing an ad-hoc command.
 Command completion is not strategy readiness; read the validation verdict and
 full gate stack.
 
+Validate the canonical hypothesis ledger before any ceremony:
+
+```powershell
+python "04. Memory/research/validate_candidate_registry.py"
+```
+
+Package capability template and prereg/readout/task-packet checklists live at
+`02. AlphaFactory/templates/research/`. `telemetry_profile=none` is compile/
+dry-run only; meaningful Model 0 requires implemented `lifecycle-v3` evidence.
+
 ### Candidate Compare
 
-Use for every challenger before reading PF in isolation.
+Generic challenger comparison is selected by the EA capability contract and is
+normally invoked by `ea_research_loop.ps1`. Manual diagnostic form:
+
+```powershell
+python "02. AlphaFactory/tools/alpha_candidate_compare.py" `
+  "02. AlphaFactory/runs/<EA_NAME>/<CHALLENGER_RUN_ID>" `
+  --baseline "02. AlphaFactory/runs/<EA_NAME>/<CONTROL_RUN_ID>" `
+  --ea "<EA_NAME>" `
+  --out "02. AlphaFactory/runs/<EA_NAME>/<CHALLENGER_RUN_ID>/analysis/candidate_compare.json"
+```
+
+The command below is only for historical Sonic-strict evidence:
 
 ```powershell
 python "02. AlphaFactory/tools/sonic_candidate_compare.py" `
@@ -315,37 +336,38 @@ joined `492/492` final trades, but every GoldRegime S1 screen failed. S1 against
 yet deleting it only lifts the portfolio to roughly breakeven. Do not code an
 S1 flow gate from this alone.
 
-### Guarded Research Loop
+### Generic Guarded Research Loop
 
-Use `sonic_research_loop.ps1` to keep future sessions from skipping gates. It
-is dry-run by default and creates a lock file while running. It can compile,
-backtest, validate-full, cost stress, market-phase attribution, GoldRegime audit
-when the sidecar exists, candidate compare, refresh `runs.db`, and optionally
-archive Common Files telemetry.
+Entry point cho mọi EA là `ea_research_loop.ps1`; file tên Sonic chỉ còn là
+compatibility engine. Loop dry-run mặc định, validate registry trước, bind hash
+source/prereg/capability/include/Git/cost/control, và giữ global MT5 lock. Xem
+toàn bộ thứ tự thiết kế → quyết định tại `ea_golden_path.md`.
 
-Dry run:
+Dry run hợp lệ nhưng bị block là kết quả preflight, không phải lỗi:
 
 ```powershell
-& "02. AlphaFactory/tools/sonic_research_loop.ps1" `
-  -Symbol XAUUSD -Period M5 -From "2024.01.01" -To "2025.12.31" -Model 1 `
-  -VariantTag "H_XAU_EXAMPLE" `
-  -Overrides "InpEnableTelemetry=1;InpVariantTag=H_XAU_EXAMPLE"
+& "02. AlphaFactory/tools/ea_research_loop.ps1" `
+  -EaName "<EA_NAME>" -HypothesisId "<HYP_ID>" -RunRole control `
+  -Symbol EURUSD -Period M15 -From "2020.01.01" -To "2025.12.31" `
+  -Model 0 -TelemetryTier trade-only -TaskPacket "<TASK_PACKET.json>" `
+  -CostSourceManifest "<same path as task packet cost_source_manifest_path>"
 ```
 
-Execute:
+Chỉ chạy sau khi JSON plan trả `execution_allowed=true`:
 
 ```powershell
-& "02. AlphaFactory/tools/sonic_research_loop.ps1" `
-  -Symbol XAUUSD -Period M5 -From "2019.01.01" -To "2025.12.31" -Model 1 `
-  -VariantTag "H_XAU_LONG_EXAMPLE" `
-  -Overrides "<explicit semicolon-separated inputs>" `
-  -CleanupCommonFiles `
+& "02. AlphaFactory/tools/ea_research_loop.ps1" `
+  -EaName "<EA_NAME>" -HypothesisId "<HYP_ID>" -RunRole control `
+  -Symbol EURUSD -Period M15 -From "2020.01.01" -To "2025.12.31" `
+  -Model 0 -TelemetryTier trade-only -TaskPacket "<TASK_PACKET.json>" `
+  -CostSourceManifest "<same path as task packet cost_source_manifest_path>" `
   -Execute
 ```
 
-Do not wire this into Windows Task Scheduler without an explicit decision. For
-now it is a manual guarded loop to avoid runaway MT5 memory and stale cache
-mistakes.
+`acceptance_contract` trong packet phải khớp chính xác registry row và được
+truyền thành ngưỡng cho unified validation. `VariantTag` chỉ hợp lệ khi package
+capability contract khai báo input tương ứng. EA không có include vẫn hợp lệ.
+Không schedule/cron loop khi Owner chưa duyệt rõ.
 
 ### State Telemetry V2
 

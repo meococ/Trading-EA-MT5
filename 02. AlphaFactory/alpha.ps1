@@ -6,7 +6,7 @@
     - Compile, Backtest, Analyze EAs
     - Quick scan strategies with VectorBT
     - Monte Carlo & Walk-Forward validation
-    - Git backup integration
+    - Read-only Git status integration
 .EXAMPLE
     .\alpha.ps1 status              # System status
     .\alpha.ps1 compile "EA Name"   # Compile EA
@@ -15,13 +15,12 @@
     .\alpha.ps1 scan                # Quick VectorBT scan
     .\alpha.ps1 monte -Report "x"   # Monte Carlo simulation
     .\alpha.ps1 wfa -Report "x"     # Walk-Forward Analysis
-    .\alpha.ps1 backup "message"    # Git commit + push
     .\alpha.ps1 help                # Show all commands
 #>
 
 param(
     [Parameter(Position=0)]
-    [ValidateSet("compile", "backtest", "analyze", "list", "status", "report", "git", "backup", "scan", "monte", "wfa", "help", "validate", "validate-full", "log", "robust", "param", "mt5data", "sensitivity")]
+    [ValidateSet("compile", "backtest", "analyze", "list", "status", "report", "git", "scan", "monte", "wfa", "help", "validate", "validate-full", "log", "robust", "param", "mt5data", "sensitivity")]
     [string]$Action = "status",
     
     [Parameter(Position=1)]
@@ -291,6 +290,18 @@ function Resolve-TelemetryTierOverrides([string]$Tier, [string]$MainFile, [strin
         }
         return ConvertFrom-NormalizedOverrideMap $map
     }
+    if ($TelemetryProfile -ceq 'lifecycle-v3') {
+        if ($Tier -notin @('off', 'trade-only')) {
+            throw "telemetry profile 'lifecycle-v3' supports only 'off' and 'trade-only'; got '$Tier'."
+        }
+        $declaration = '(?m)^\s*input\s+[^;\r\n]*\bInpEnableTelemetry\b\s*(?:=|;)'
+        if ($source -notmatch $declaration) {
+            throw "EA input 'InpEnableTelemetry' required by telemetry profile 'lifecycle-v3' is absent from $MainFile."
+        }
+        $map = ConvertTo-NormalizedOverrideMap $OverrideText
+        $map['InpEnableTelemetry'] = if ($Tier -ceq 'trade-only') { 'true' } else { 'false' }
+        return ConvertFrom-NormalizedOverrideMap $map
+    }
     if ($TelemetryProfile -cne 'sonic-strict') {
         throw "Unsupported EA telemetry profile '$TelemetryProfile'."
     }
@@ -320,7 +331,19 @@ function Resolve-TelemetryTierOverrides([string]$Tier, [string]$MainFile, [strin
     return ConvertFrom-NormalizedOverrideMap $map
 }
 
-function Get-RequiredSidecarsForTier([string]$Tier) {
+function Get-RequiredSidecarsForTier([string]$Tier, [string]$TelemetryProfile = 'sonic-strict') {
+    if ($TelemetryProfile -ceq 'none') {
+        if ($Tier -cne 'off') { throw "telemetry profile 'none' supports only tier 'off'." }
+        return @()
+    }
+    if ($TelemetryProfile -ceq 'lifecycle-v3') {
+        switch ($Tier) {
+            'off' { return @() }
+            'trade-only' { return @('*_LifecycleTrades_*.csv', '*_RunMeta_*.json') }
+            default { throw "telemetry profile 'lifecycle-v3' does not support tier '$Tier'." }
+        }
+    }
+    if ($TelemetryProfile -cne 'sonic-strict') { throw "Unsupported EA telemetry profile '$TelemetryProfile'." }
     $trade = @('*_Signals_*.csv', '*_Trades_*.csv', '*_PVSRA_SR_Fields_*.csv', '*_RunMeta_*.json')
     $lite = @($trade + @('*_Opportunities_*.csv', '*_StateTelemetry_*.csv'))
     $full = @($lite + @('*_FxClassicNearMiss_*.csv', '*_GoldRegimeContext_*.csv'))
@@ -334,7 +357,7 @@ function Get-RequiredSidecarsForTier([string]$Tier) {
     }
 }
 
-function ConvertTo-RequiredSidecarList([string]$Value, [string]$Tier) {
+function ConvertTo-RequiredSidecarList([string]$Value, [string]$Tier, [string]$TelemetryProfile = 'sonic-strict') {
     $requested = @($Value -split ';' | ForEach-Object { $_.Trim() } | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
     if ($requested.Count -ne (@($requested | Select-Object -Unique)).Count) {
         throw "RequiredSidecars contains duplicate patterns."
@@ -344,7 +367,7 @@ function ConvertTo-RequiredSidecarList([string]$Value, [string]$Tier) {
             throw "Required sidecar pattern is unsafe: $pattern"
         }
     }
-    foreach ($minimum in (Get-RequiredSidecarsForTier $Tier)) {
+    foreach ($minimum in (Get-RequiredSidecarsForTier $Tier $TelemetryProfile)) {
         if ($minimum -notin $requested) {
             throw "RequiredSidecars is missing telemetry-tier minimum '$minimum' for tier '$Tier'."
         }
@@ -783,16 +806,24 @@ function Get-SnapshotIncludeSetSha256($Snapshot) {
 }
 
 function Get-EAs {
-	# Tìm tất cả thư mục chứa file .mq5 (EA roots), bao gồm cả trong subfolders
-	# Loại bỏ các thư mục hệ thống/toolchain
-	$excludeNames = @("02. AlphaFactory", "01. vectorbt", "AlphaFactory", "vectorbt", ".windsurf")
-	
-	$eaDirs = Get-ChildItem -Path $AdvisorsRoot -Directory -Recurse | Where-Object {
-	    $_.Name -notin $excludeNames -and
-	    (Get-ChildItem -Path $_.FullName -Filter "*.mq5" -File -ErrorAction SilentlyContinue)
-	}
-	
-	return $eaDirs
+    # Only canonical packages under the active shelf are discoverable. Run
+    # snapshots and archive trees may contain .mq5 files but are never valid
+    # compile/backtest entrypoints.
+    $activeRoot = Join-Path $AdvisorsRoot "03. EA Developer"
+    if (-not (Test-Path -LiteralPath $activeRoot -PathType Container)) { return @() }
+
+    $eaDirs = New-Object System.Collections.Generic.List[object]
+    foreach ($directory in @(Get-ChildItem -LiteralPath $activeRoot -Directory -ErrorAction SilentlyContinue |
+        Where-Object { $_.Name -like 'EA_*' } |
+        Sort-Object Name)) {
+        try {
+            [void](Resolve-EaSourceContract -RepoRoot $AdvisorsRoot -EaName $directory.Name)
+            $eaDirs.Add($directory)
+        } catch {
+            Write-Warning "Ignoring invalid active EA package '$($directory.Name)': $($_.Exception.Message)"
+        }
+    }
+    return @($eaDirs.ToArray())
 }
 
 function Find-MainFile($EAName) {
@@ -828,8 +859,9 @@ function Assert-ContractReceipt($ReceiptPath, $ExpectedReceiptSha256, $Binding) 
     } catch {
         throw "Contract receipt JSON is malformed: $($_.Exception.Message)"
     }
-    if ([string]$receipt.schema_version -cne 'sonic_execution_receipt.v1') {
-        throw "Contract receipt schema_version must be 'sonic_execution_receipt.v1'."
+    $receiptSchema = [string]$receipt.schema_version
+    if ($receiptSchema -notin @('alphafactory_execution_receipt.v1', 'sonic_execution_receipt.v1')) {
+        throw "Contract receipt schema_version must be 'alphafactory_execution_receipt.v1'."
     }
 
     $evidenceByLabel = @{}
@@ -853,6 +885,12 @@ function Assert-ContractReceipt($ReceiptPath, $ExpectedReceiptSha256, $Binding) 
         $evidenceByLabel[$label] = $item
     }
     $requiredReceiptLabels = @('task_packet', 'source', 'prereg', 'cost_source_manifest')
+    if ($receiptSchema -ceq 'alphafactory_execution_receipt.v1') {
+        $requiredReceiptLabels += 'candidate_registry'
+        if ([string]$receipt.binding.telemetry_profile -cne 'none') {
+            $requiredReceiptLabels += 'ea_capability_contract'
+        }
+    }
     if ([string]$receipt.binding.run_role -ceq 'challenger') {
         $requiredReceiptLabels += @('matched_control_manifest', 'matched_control_report')
     } elseif ([string]$receipt.binding.run_role -cne 'control') {
@@ -864,9 +902,6 @@ function Assert-ContractReceipt($ReceiptPath, $ExpectedReceiptSha256, $Binding) 
         }
     }
     $includeEvidence = @($receipt.evidence | Where-Object { [string]$_.label -like 'include_*' })
-    if ($includeEvidence.Count -eq 0) {
-        throw "Contract receipt is missing packet-bound include closure evidence."
-    }
     $includeRecords = @(
         $includeEvidence | Sort-Object path | ForEach-Object {
             $path = [System.IO.Path]::GetFullPath([string]$_.path).ToLowerInvariant()
@@ -881,6 +916,9 @@ function Assert-ContractReceipt($ReceiptPath, $ExpectedReceiptSha256, $Binding) 
 
     $receiptBinding = $receipt.binding
     $scalarFields = @('hypothesis_id', 'run_role', 'ea_name', 'symbol', 'period', 'from', 'to', 'overrides', 'telemetry_tier', 'spread')
+    if ($receiptSchema -ceq 'alphafactory_execution_receipt.v1') {
+        $scalarFields += 'telemetry_profile'
+    }
     foreach ($field in $scalarFields) {
         if ([string]$receiptBinding.$field -cne [string]$Binding.$field) {
             throw "Contract receipt binding '$field' does not match the alpha invocation."
@@ -1061,6 +1099,34 @@ function Complete-RunManifest($ManifestPath) {
             throw "Required sidecar '$pattern' is absent from $logsDir."
         }
     }
+    if ([string]$manifest.telemetry_profile -ceq 'lifecycle-v3') {
+        $lifecycleTrades = @($sidecars | Where-Object { (Split-Path -Leaf ([string]$_.path)) -like '*_LifecycleTrades_*.csv' })
+        $runMetaFiles = @($sidecars | Where-Object { (Split-Path -Leaf ([string]$_.path)) -like '*_RunMeta_*.json' })
+        if ($lifecycleTrades.Count -ne 1) {
+            throw "lifecycle-v3 requires exactly one *_LifecycleTrades_*.csv; found $($lifecycleTrades.Count) in $logsDir."
+        }
+        if ($runMetaFiles.Count -ne 1) {
+            throw "lifecycle-v3 requires exactly one *_RunMeta_*.json; found $($runMetaFiles.Count) in $logsDir."
+        }
+        $runMetaPath = Join-Path ([string]$manifest.local_run_dir) ([string]$runMetaFiles[0].path)
+        try {
+            $runMeta = Get-Content -LiteralPath $runMetaPath -Raw | ConvertFrom-Json
+        } catch {
+            throw "lifecycle-v3 RunMeta JSON is malformed: $runMetaPath ($($_.Exception.Message))"
+        }
+        if ([string]$runMeta.schema_version -cne 'alphafactory_run_meta.v1') {
+            throw "lifecycle-v3 RunMeta schema_version must be 'alphafactory_run_meta.v1'."
+        }
+        if ([string]::IsNullOrWhiteSpace([string]$runMeta.run_id) -or
+            -not ([System.IO.Path]::GetFileNameWithoutExtension($runMetaPath).Contains([string]$runMeta.run_id))) {
+            throw "lifecycle-v3 RunMeta run_id is missing or is not bound to its filename."
+        }
+        if ([string]$runMeta.ea_name -cne [string]$manifest.ea_name -or
+            [string]$runMeta.symbol -cne [string]$manifest.symbol -or
+            [string]$runMeta.telemetry_profile -cne 'lifecycle-v3') {
+            throw "lifecycle-v3 RunMeta identity does not match manifest EA/symbol/telemetry profile."
+        }
+    }
 
     $identity = Get-ReportIdentity ([string]$manifest.report_path) $manifest
     $manifest.broker_fingerprint = $identity.BrokerFingerprint
@@ -1074,7 +1140,7 @@ function Complete-RunManifest($ManifestPath) {
     return $ManifestPath
 }
 
-function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $Model, $ExecutionMode, $FixedDelayMs, $TimeoutSec, $Overrides, $MainFile, $CompiledEx5File, $Ex5File, $ReportPath, $ConfigPath, $Snapshot, $HypothesisId, $RunRole, $Deposit, $Leverage, $Spread, $TelemetryTier, $RunStartUtc, $GitSnapshot, $RequiredSidecarList, $ReceiptSha256, $SymbolGeometry) {
+function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $Model, $ExecutionMode, $FixedDelayMs, $TimeoutSec, $Overrides, $MainFile, $CompiledEx5File, $Ex5File, $ReportPath, $ConfigPath, $Snapshot, $HypothesisId, $RunRole, $Deposit, $Leverage, $Spread, $TelemetryTier, $TelemetryProfile, $RunStartUtc, $GitSnapshot, $RequiredSidecarList, $ReceiptSha256, $SymbolGeometry) {
     $spreadValue = if ([string]::IsNullOrWhiteSpace($Spread)) { "current" } else { $Spread }
     $manifest = [ordered]@{
         schema_version = "alphafactory_run_manifest.v2"
@@ -1096,6 +1162,7 @@ function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $
         leverage = $Leverage
         spread = $spreadValue
         telemetry_tier = $TelemetryTier
+        telemetry_profile = $TelemetryProfile
         main_file = $MainFile
         compiled_ex5_file = $CompiledEx5File
         ex5_file = $Ex5File
@@ -1205,12 +1272,13 @@ function Do-Backtest($EAName, $Sym, $Per, $FromD, $ToD, $TimeoutSec, $Overrides 
     $sourceContract = Resolve-EaSourceContract -RepoRoot $AdvisorsRoot -EaName $EAName
     $main = $sourceContract.AbsoluteSource
     $effectiveOverrides = Resolve-TelemetryTierOverrides $TelemetryTier $main $Overrides $sourceContract.TelemetryProfile
-    $requiredSidecarList = ConvertTo-RequiredSidecarList $RequiredSidecarPatterns $TelemetryTier
+    $requiredSidecarList = ConvertTo-RequiredSidecarList $RequiredSidecarPatterns $TelemetryTier $sourceContract.TelemetryProfile
     $effectiveSpread = if ([string]::IsNullOrWhiteSpace($Spread)) { 'current' } else { $Spread }
     $receiptBinding = [pscustomobject]@{
         hypothesis_id = $HypothesisId; run_role = $RunRole; ea_name = $EAName; symbol = $Sym; period = $Per
         from = $FromD; to = $ToD; model = $Model; execution_mode = $ExecutionMode
         fixed_delay_ms = $FixedDelayMs; overrides = $effectiveOverrides; telemetry_tier = $TelemetryTier
+        telemetry_profile = $sourceContract.TelemetryProfile
         deposit = $Deposit; leverage = $Leverage; spread = $effectiveSpread
         required_sidecars = @($requiredSidecarList)
     }
@@ -1403,7 +1471,7 @@ Leverage=$Leverage
     Copy-Item $reportAbsPath (Join-Path $buildDir "report.html") -Force
     Copy-Item $iniPath (Join-Path $localRunDir "config.ini") -Force
     Copy-Item $iniPath (Join-Path $configDir "config.ini") -Force
-    $manifestPath = Write-RunManifest -RunDir $localRunDir -RunId $ts -EAName $EAName -Sym $Sym -Per $Per -FromD $FromD -ToD $ToD -Model $Model -ExecutionMode $ExecutionMode -FixedDelayMs $FixedDelayMs -TimeoutSec $TimeoutSec -Overrides $effectiveOverrides -MainFile $main -CompiledEx5File $ex5 -Ex5File $stagedEx5Path -ReportPath $localReportPath -ConfigPath $iniPath -Snapshot $snapshot -HypothesisId $HypothesisId -RunRole $RunRole -Deposit $Deposit -Leverage $Leverage -Spread $Spread -TelemetryTier $TelemetryTier -RunStartUtc $runStartUtc -GitSnapshot $receiptCheck.Git -RequiredSidecarList $requiredSidecarList -ReceiptSha256 $receiptCheck.ReceiptSha256 -SymbolGeometry $receiptCheck.Receipt.binding.symbol_geometry
+    $manifestPath = Write-RunManifest -RunDir $localRunDir -RunId $ts -EAName $EAName -Sym $Sym -Per $Per -FromD $FromD -ToD $ToD -Model $Model -ExecutionMode $ExecutionMode -FixedDelayMs $FixedDelayMs -TimeoutSec $TimeoutSec -Overrides $effectiveOverrides -MainFile $main -CompiledEx5File $ex5 -Ex5File $stagedEx5Path -ReportPath $localReportPath -ConfigPath $iniPath -Snapshot $snapshot -HypothesisId $HypothesisId -RunRole $RunRole -Deposit $Deposit -Leverage $Leverage -Spread $Spread -TelemetryTier $TelemetryTier -TelemetryProfile $sourceContract.TelemetryProfile -RunStartUtc $runStartUtc -GitSnapshot $receiptCheck.Git -RequiredSidecarList $requiredSidecarList -ReceiptSha256 $receiptCheck.ReceiptSha256 -SymbolGeometry $receiptCheck.Receipt.binding.symbol_geometry
     Copy-Item -LiteralPath $manifestPath -Destination (Join-Path $configDir "run_manifest.json") -Force
 
     if ($effectiveOverrides) {
@@ -1416,7 +1484,7 @@ Leverage=$Leverage
     $commonFilesDir = Join-Path $terminalRoot "Common\Files"
     if (Test-PathSafe $commonFilesDir) {
         try {
-            $patterns = @("${Sym}_*Signals_*.csv", "${Sym}_*Trades_*.csv", "${Sym}_*PX6_*.csv", "${Sym}_*Ghost_*.csv", "${Sym}_*Shadow_*.csv", "${Sym}_*Observers_*.csv", "${Sym}_*Activity_*.csv", "${Sym}_*EngineAudit_*.csv", "${Sym}_*PVSRA_SR_*.csv", "${Sym}_*Opportunities_*.csv", "${Sym}_*Regime_*.csv", "${Sym}_*StateTelemetry_*.csv", "${Sym}_*FxClassicNearMiss_*.csv", "${Sym}_*GoldRegimeContext_*.csv", "${Sym}_*RunMeta_*.json")
+            $patterns = @("${Sym}_*Signals_*.csv", "${Sym}_*Trades_*.csv", "*_LifecycleTrades_*.csv", "${Sym}_*PX6_*.csv", "${Sym}_*Ghost_*.csv", "${Sym}_*Shadow_*.csv", "${Sym}_*Observers_*.csv", "${Sym}_*Activity_*.csv", "${Sym}_*EngineAudit_*.csv", "${Sym}_*PVSRA_SR_*.csv", "${Sym}_*Opportunities_*.csv", "${Sym}_*Regime_*.csv", "${Sym}_*StateTelemetry_*.csv", "${Sym}_*FxClassicNearMiss_*.csv", "${Sym}_*GoldRegimeContext_*.csv", "*_RunMeta_*.json")
             foreach ($pat in $patterns) {
                 Get-ChildItem -Path $commonFilesDir -Filter $pat -File -ErrorAction SilentlyContinue |
                     Where-Object { $_.LastWriteTimeUtc -ge $runStartUtc } | ForEach-Object {
@@ -1568,20 +1636,6 @@ switch ($Action.ToLower()) {
     }
     "git" {
         & "$AlphaRoot\tools\git_sync.ps1" status
-    }
-    # ================================================================
-    # BACKUP - Git commit + push to GitHub
-    # Luôn backup sau mỗi thay đổi quan trọng
-    # ================================================================
-    "backup" {
-        $msg = if ($Name) { $Name } else { "Auto backup: $(Get-Date -Format 'yyyy-MM-dd HH:mm')" }
-        Push-Location $AdvisorsRoot
-        git add -A
-        git commit -m $msg
-        $remote = git remote -v 2>$null
-        if ($remote) { git push origin main }
-        Pop-Location
-        Write-Status "Backup complete!" "OK"
     }
     # ================================================================
     # LOG - Ghi kết quả vào STRATEGY_LOG.md
@@ -1783,8 +1837,6 @@ switch ($Action.ToLower()) {
   GIT COMMANDS:
   ─────────────────────────────────────────────────────────────────
   git                       Show git status
-  backup                    Auto commit + push to GitHub
-  backup "message"          Commit with custom message
 
   UTILITY:
   ─────────────────────────────────────────────────────────────────
@@ -1807,7 +1859,6 @@ switch ($Action.ToLower()) {
   .\alpha.ps1 analyze -Report "runs/test/report.html" -Charts
   .\alpha.ps1 monte -Report "report.html"
   .\alpha.ps1 wfa -Report "report.html"
-  .\alpha.ps1 backup "Fixed entry logic"
 
 "@ -ForegroundColor Cyan
     }

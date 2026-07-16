@@ -7,13 +7,14 @@ Sự thật SỐNG ở block **▶ NEXT SESSION** ngay dưới. Bảng **Ledger*
 ## ▶ NEXT SESSION (đọc đầu tiên — live truth)
 
 - **GOAL:** UNMET — "Mục Tiêu Tự Do": book FX PF>1.30 sau cost thật, cadence 2–5 trade/tuần, stress x1.5≥1.25 / x2≥1.00.
-- **Active lanes (`03. EA Developer/`):** `EA_FVGConfluence` (Path-C build, **not** promotion-ready) · `EA_HybridICT_Sonic` (**KILL@Model0**, 0 trades — await Owner: park vs cơ chế mới).
+- **Active lanes (`03. EA Developer/`):** `EA_FVGConfluence` (registry=`probe`, chưa de-dup/capability/cost, **not** promotion-ready) · `EA_HybridICT_Sonic` (SIGATR **KILLED_AT_MODEL_0**, N=76; không rescue cùng ID).
 - **HIS SIGATR:** killed — PF `0.98`, N=`76`, net `−$210`, DD ~2.2%. Cadence fixed nhưng **edge chết**. KHÔNG densify Europe/hour.
 - **Best shelf:** RR2 `194548` (offline SURVIVOR PF `2.53` / x1.5 `1.81`) — **không** deployable, cần native tick-path Model 0. ⚠️ `EA_SilverBullet` source `.mq5` **mất trên đĩa** (chỉ còn `.ex5` binary; RR2 194548 evidence ở `02. AlphaFactory/runs/`).
 - **Cost frontier:** `STOP_DATA_FRONTIER` — quote_days 2/90, commission/slip GAP. QFSI accumulate khi Real an toàn; KHÔNG invent cost freeze.
-- **Housekeeping 2026-07-15/16:** docs↔disk sync (`4e2dace` pushed); 80 pkg → EA_Archive; GOAL đổi tên; hot.md nén (file này); `04. Project Control/` tách → **`04. Memory/`** (state) + **`05. Playbook/`** (4 file lõi); doctrine cũ → `00. Old File/project_control_archive_20260716/`.
+- **Housekeeping 2026-07-15/16:** docs↔disk sync (`4e2dace` pushed); 80 pkg → EA_Archive; GOAL đổi tên; hot.md nén (file này); `04. Project Control/` tách → **`04. Memory/`** (state) + **`05. Playbook/`** (5 file lõi); doctrine cũ → `00. Old File/project_control_archive_20260716/`.
 - **AlphaFactory hygiene 2026-07-16:** Grok 4.5 review council + Codex verification hardened cleanup to dry-run/explicit-scope/current-reference behavior; 7/7 offline contract tests pass. Lossless SHA-verified compression plus cache removal reclaimed `616,409,342` bytes; no run folder was archived/deleted. Post inventory: `5,280,125,523` bytes / `8,297` files. Source-of-truth gate remains RED only because declared `G:` backup root is not mounted (10 `backup-only` files cannot be verified); do not weaken or reclassify without Owner evidence.
-- **Next move (await Owner):** park Hybrid family **hoặc** authorize cơ chế độc lập mới (hyp id mới, KHÔNG densify). Song song: FVGConfluence lane / QFSI cost. No live / no promote.
+- **Generic golden path 2026-07-16:** active workspace-wide registry at `04. Memory/research/`; public runner `ea_research_loop.ps1`; per-package capability contract; generic lifecycle telemetry/comparator; Sonic file retained only as compatibility engine. Acceptance gates are frozen in registry/task packet and passed to unified validation; lifecycle-v3 requires trade-only telemetry plus exactly one identity-bound LifecycleTrades/RunMeta pair. `alpha list/status` sees exactly 2 active packages; backup auto-commit/push action removed; 22/22 focused offline tests pass.
+- **Next move (await design/authority):** Owner may give an EA brief using `05. Playbook/ea_golden_path.md`; agent can design/build/test autonomously inside granted code/compile/backtest/commit scope. Current FVG stays probe-blocked; Hybrid stays terminal killed. QFSI cost frontier remains parallel. No live / no promote.
 
 ## Landmines (do-not-repeat — full: `do_not_repeat_failures.md` + archive §Next Move 1-11)
 

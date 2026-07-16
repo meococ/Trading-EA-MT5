@@ -1,5 +1,5 @@
 {
-  "version": 33,
+  "version": 34,
   "updated_at": "2026-07-16",
   "default_status": "authoritative",
   "root_hygiene": {
@@ -79,7 +79,12 @@
     {
       "path": "05. Playbook/ea_engineering_standard.md",
       "status": "authoritative",
-      "reason": "EA engineering standard"
+      "reason": "Generic MQL5 engineering standard: closed-bar signal contract, ownership/state recovery, broker geometry, risk, lifecycle telemetry, and promotion boundaries."
+    },
+    {
+      "path": "05. Playbook/ea_golden_path.md",
+      "status": "authoritative",
+      "reason": "Generic design-to-decision workflow for every EA: intake, de-dup, cheap probe, frozen prereg, canonical build, capability/cost preflight, sequential Model 0 control/challenger, validation, and closeout."
     },
     {
       "path": "05. Playbook/sonic_tool_runbook.md",
@@ -236,17 +241,47 @@
     {
       "path": "02. AlphaFactory/tools/sonic_research_loop.ps1",
       "status": "authoritative",
-      "reason": "Dry-run-by-default strict Model 0 control/challenger loop: immutable task packet and execution receipt, shared exact EA source contract, physical cost-source checks, control bootstrap, matched-control proof, exact run marker, report-bound verified cost builder, direct unified validation, and fail-closed transitions. Current execution remains blocked by incomplete same-broker cost data and no eligible frozen candidate."
+      "reason": "Compatibility engine behind the generic EA research entrypoint: dry-run-by-default strict Model 0 control/challenger loop, immutable task packet and receipt, registry/source/capability/cost binding, matched-control proof, validation, and fail-closed transitions."
+    },
+    {
+      "path": "02. AlphaFactory/tools/ea_research_loop.ps1",
+      "status": "authoritative",
+      "reason": "Generic public entrypoint for the strict AlphaFactory control/challenger loop; delegates to the compatibility engine without weakening its contract."
+    },
+    {
+      "path": "02. AlphaFactory/tools/alpha_candidate_compare.py",
+      "status": "authoritative",
+      "reason": "Generic identity-bound challenger comparator using control-relative net, PF, and net-to-drawdown improvement; absolute acceptance is frozen in the canonical registry/task packet and passed to unified validation."
     },
     {
       "path": "02. AlphaFactory/tools/ea_contract.ps1",
       "status": "authoritative",
-      "reason": "Shared fail-closed resolver for exact active EA main-source paths and explicit telemetry profiles. It pins EA_FVGConfluence and EA_HybridICT_Sonic, uses canonical EA-name fallback only inside the active shelf, and forbids archive or arbitrary-file fallback."
+      "reason": "Shared fail-closed resolver for exact active EA source and optional hash-bound per-package capability contract (telemetry, phase, comparator, variant input). It pins EA_FVGConfluence and EA_HybridICT_Sonic and forbids archive or arbitrary-file fallback."
     },
     {
       "path": "02. AlphaFactory/tools/build_verified_cost_artifact.py",
       "status": "authoritative",
-      "reason": "Report-bound verified cost producer for sonic_telemetry.v3 PX6/Trades lifecycles. It joins every report deal ID to lifecycle evidence; derives spread, commission P90, and side-aware slippage from raw CSV inputs or a hash-bound JSON broker contract rather than self-attested summaries; reconciles deal and gross/net semantics; emits verified_execution_cost.v1; and has 6/6 focused unit tests passing."
+      "reason": "Report-bound verified cost producer for generic AlphaFactory LifecycleTrades and legacy PX6 lifecycles. It joins report deals, derives cost from raw or hash-bound broker evidence, reconciles P&L/risk, and emits verified_execution_cost.v1."
+    },
+    {
+      "path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+      "status": "authoritative",
+      "reason": "Canonical append-only hypothesis state ledger shared by all active EA packages; current seed records the FVG probe and terminal Hybrid SIGATR kill."
+    },
+    {
+      "path": "04. Memory/research/CANDIDATE_REGISTRY.schema.json",
+      "status": "authoritative",
+      "reason": "Generic schema for AlphaFactory hypothesis state rows."
+    },
+    {
+      "path": "04. Memory/research/validate_candidate_registry.py",
+      "status": "authoritative",
+      "reason": "Fail-closed registry validator for strict JSON, schema, canonical source/prereg hash binding, non-weakenable structured acceptance gates, Model 0 execution states, immutable identity, terminal states, and legal append transitions."
+    },
+    {
+      "path": "02. AlphaFactory/templates/research/README.md",
+      "status": "authoritative",
+      "reason": "Canonical generic templates and lifecycle-v3 capability guidance for new EA research packages."
     },
     {
       "path": "02. AlphaFactory/schemas/execution_data_capture_manifest.v1.schema.json",
@@ -282,6 +317,11 @@
       "path": "02. AlphaFactory/tests/test_operational_hygiene.py",
       "status": "authoritative",
       "reason": "Offline regression tests for cleanup dry-run semantics, archive reference protection and path containment, Windows validator encoding, live registry pins, and runbook command-surface truth."
+    },
+    {
+      "path": "02. AlphaFactory/tests/test_ea_golden_path.py",
+      "status": "authoritative",
+      "reason": "Offline regression suite for generic EA discovery, removed backup mutation surface, registry and acceptance validation, package capability contracts, research dry-run, lifecycle RunMeta identity, and generic matched-control comparison."
     },
     {
       "path": "00. Old File/markdown_graveyard/00_READ_ME_FIRST.md",

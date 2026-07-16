@@ -1,6 +1,8 @@
 # EA_FVGConfluence
 
-**Status:** Owner Path-C override build (2026-07-15). Active shelf package for research compile — **not promotion-ready**.
+**Status:** Owner Path-C override build (2026-07-15). Registry state `probe`;
+de-dup, lifecycle capability and verified cost are not cleared — **not
+execution-eligible or promotion-ready**.
 
 | | |
 |---|---|
@@ -70,5 +72,8 @@ research/HYP-FVG-SCALP-CONFL-M5-EUR-001_PREREG.md
 ## Compile
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File "02. AlphaFactory/tools/alpha_json.ps1" -Action compile -Name "EA_FVGConfluence"
+powershell -NoProfile -ExecutionPolicy Bypass -File "02. AlphaFactory/alpha.ps1" compile "EA_FVGConfluence"
 ```
+
+Use `02. AlphaFactory/tools/ea_research_loop.ps1` only after the generic
+registry/prereg/capability/cost gates in `05. Playbook/ea_golden_path.md` clear.

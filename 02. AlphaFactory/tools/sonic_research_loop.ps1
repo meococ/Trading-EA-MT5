@@ -1,6 +1,7 @@
 param(
-    [string]$EaName = "EA_SonicR",
+    [string]$EaName = "",
     [string]$HypothesisId = "",
+    [string]$RegistryPath = "",
     [string]$TaskPacket = "",
     [ValidateSet("control", "challenger")]
     [string]$RunRole = "challenger",
@@ -9,14 +10,14 @@ param(
     [string]$From = "2024.01.01",
     [string]$To = "2025.12.31",
     [ValidateSet(0, 1, 2, 4)]
-    [int]$Model = 1,
+    [int]$Model = 0,
     [int]$ExecutionMode = 0,
     [int]$FixedDelayMs = 0,
     [int]$TimeoutSec = 7200,
     [string]$Overrides = "",
     [string]$VariantTag = "",
     [ValidateSet("off", "trade-only", "state-lite", "state-full", "snapshot-casebook")]
-    [string]$TelemetryTier = "trade-only",
+    [string]$TelemetryTier = "off",
     [int]$Deposit = 10000,
     [int]$Leverage = 100,
     [string]$Spread = "",
@@ -47,10 +48,17 @@ $alphaPs1 = Join-Path $alphaRoot "alpha.ps1"
 $validatorPath = Join-Path $alphaRoot "analysis\unified_validation.py"
 $costBuilderPath = Join-Path $toolsRoot "build_verified_cost_artifact.py"
 $nonRepaintToolPath = Join-Path $toolsRoot "audit_mql5_nonrepaint.py"
-$researchRoot = Join-Path $repoRoot "03. EA Developer\EA_SonicR\research"
-$registryPath = Join-Path $researchRoot "CANDIDATE_REGISTRY.jsonl"
+$researchRoot = Join-Path $repoRoot "04. Memory\research"
+$canonicalRegistryPath = [System.IO.Path]::GetFullPath((Join-Path $researchRoot "CANDIDATE_REGISTRY.jsonl"))
+$registryPath = if ([string]::IsNullOrWhiteSpace($RegistryPath)) {
+    $canonicalRegistryPath
+} elseif ([System.IO.Path]::IsPathRooted($RegistryPath)) {
+    [System.IO.Path]::GetFullPath($RegistryPath)
+} else {
+    [System.IO.Path]::GetFullPath((Join-Path $repoRoot $RegistryPath))
+}
 $registryValidatorPath = Join-Path $researchRoot "validate_candidate_registry.py"
-$lockPath = Join-Path $runtimeRoot "sonic_research_loop.lock"
+$lockPath = Join-Path $runtimeRoot "ea_research_loop.lock"
 $globalValidationLockPath = Join-Path $runtimeRoot "alpha_backtest.lock"
 $script:transitions = New-Object System.Collections.Generic.List[object]
 $script:transitionLogPath = $null
@@ -142,7 +150,7 @@ function Test-NoGitWorkspace {
     return $true
 }
 
-function Get-NoGitProvenanceSnapshot {
+function Get-NoGitProvenanceSnapshot([string]$ActiveSource = "") {
     $agentsPath = Join-Path $repoRoot "AGENTS.md"
     $goalPath = Join-Path $repoRoot "01. GOAL\GOAL.md"
     $provenancePaths = @($agentsPath, $goalPath)
@@ -151,9 +159,8 @@ function Get-NoGitProvenanceSnapshot {
             throw "NO-GIT provenance file missing (fail-closed): $required"
         }
     }
-    $activeEa = Join-Path $repoRoot "03. EA Developer\EA_CarryPublicRates\EA_CarryPublicRates.mq5"
-    if (Test-Path -LiteralPath $activeEa -PathType Leaf) {
-        $provenancePaths += $activeEa
+    if (-not [string]::IsNullOrWhiteSpace($ActiveSource) -and (Test-Path -LiteralPath $ActiveSource -PathType Leaf)) {
+        $provenancePaths += $ActiveSource
     }
     $records = New-Object System.Collections.Generic.List[string]
     foreach ($path in $provenancePaths) {
@@ -180,9 +187,9 @@ function Get-NoGitProvenanceSnapshot {
     }
 }
 
-function Get-GitSnapshot {
+function Get-GitSnapshot([string]$ActiveSource = "") {
     if (Test-NoGitWorkspace) {
-        return Get-NoGitProvenanceSnapshot
+        return Get-NoGitProvenanceSnapshot $ActiveSource
     }
     $oldEap = $ErrorActionPreference
     $ErrorActionPreference = "SilentlyContinue"
@@ -191,7 +198,7 @@ function Get-GitSnapshot {
         $commitExitCode = $LASTEXITCODE
         $commit = $commitOutput | Select-Object -First 1
         if (($commitExitCode -ne 0) -or [string]::IsNullOrWhiteSpace([string]$commit)) {
-            return Get-NoGitProvenanceSnapshot
+            return Get-NoGitProvenanceSnapshot $ActiveSource
         }
         $status = @(& git -C $repoRoot status --short --untracked-files=all 2>$null)
         $statusExitCode = $LASTEXITCODE
@@ -298,6 +305,18 @@ function Resolve-TelemetryTierOverrides([string]$Tier, [string]$MainFile, [strin
         }
         return ConvertFrom-NormalizedOverrideMap $map
     }
+    if ($TelemetryProfile -ceq 'lifecycle-v3') {
+        if ($Tier -notin @('off', 'trade-only')) {
+            throw "telemetry profile 'lifecycle-v3' supports only 'off' and 'trade-only'; got '$Tier'."
+        }
+        $declaration = '(?m)^\s*input\s+[^;\r\n]*\bInpEnableTelemetry\b\s*(?:=|;)'
+        if ($source -notmatch $declaration) {
+            throw "EA input 'InpEnableTelemetry' required by telemetry profile 'lifecycle-v3' is absent from $MainFile."
+        }
+        $map = ConvertTo-NormalizedOverrideMap $OverrideText
+        $map['InpEnableTelemetry'] = if ($Tier -ceq 'trade-only') { 'true' } else { 'false' }
+        return ConvertFrom-NormalizedOverrideMap $map
+    }
     if ($TelemetryProfile -cne 'sonic-strict') {
         throw "Unsupported EA telemetry profile '$TelemetryProfile'."
     }
@@ -320,7 +339,19 @@ function Resolve-TelemetryTierOverrides([string]$Tier, [string]$MainFile, [strin
     return ConvertFrom-NormalizedOverrideMap $map
 }
 
-function Get-RequiredSidecarsForTier([string]$Tier) {
+function Get-RequiredSidecarsForTier([string]$Tier, [string]$TelemetryProfile = 'sonic-strict') {
+    if ($TelemetryProfile -ceq 'none') {
+        if ($Tier -cne 'off') { throw "telemetry profile 'none' supports only tier 'off'." }
+        return @()
+    }
+    if ($TelemetryProfile -ceq 'lifecycle-v3') {
+        switch ($Tier) {
+            'off' { return @() }
+            'trade-only' { return @('*_LifecycleTrades_*.csv', '*_RunMeta_*.json') }
+            default { throw "telemetry profile 'lifecycle-v3' does not support tier '$Tier'." }
+        }
+    }
+    if ($TelemetryProfile -cne 'sonic-strict') { throw "Unsupported EA telemetry profile '$TelemetryProfile'." }
     $trade = @('*_Signals_*.csv', '*_Trades_*.csv', '*_PVSRA_SR_Fields_*.csv', '*_RunMeta_*.json')
     $lite = @($trade + @('*_Opportunities_*.csv', '*_StateTelemetry_*.csv'))
     $full = @($lite + @('*_FxClassicNearMiss_*.csv', '*_GoldRegimeContext_*.csv'))
@@ -422,6 +453,16 @@ function Resolve-EvidencePath($RawPath) {
     return $candidate
 }
 
+function Get-RepoRelativePath($Path) {
+    $fullPath = [System.IO.Path]::GetFullPath([string]$Path)
+    $fullRoot = [System.IO.Path]::GetFullPath($repoRoot).TrimEnd('\', '/')
+    $prefix = "$fullRoot\"
+    if (-not $fullPath.StartsWith($prefix, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw "Evidence path is outside the workspace: $fullPath"
+    }
+    return $fullPath.Substring($prefix.Length).Replace('\', '/')
+}
+
 function Resolve-CostEvidenceFile($RawPath, $ExpectedSha256, [string]$Label, $Blockers) {
     if ([string]::IsNullOrWhiteSpace([string]$RawPath)) {
         $Blockers.Add("$Label.source is required.")
@@ -456,7 +497,7 @@ function Assert-CandidateRegistryValid {
         throw "Candidate registry validator is missing: $registryValidatorPath"
     }
 
-    $validatorOutput = @(& python $registryValidatorPath 2>&1)
+    $validatorOutput = @(& python $registryValidatorPath --registry $registryPath 2>&1)
     $validatorExitCode = $LASTEXITCODE
     $validatorText = ($validatorOutput | ForEach-Object { $_.ToString() }) -join [Environment]::NewLine
     foreach ($line in $validatorOutput) {
@@ -494,7 +535,7 @@ function Resolve-ResearchContract($RequestedHypothesisId, $RequestedEaName) {
         }
         $rowHypothesis = Get-ObjectProperty $row 'hypothesis_id'
         if (($null -ne $rowHypothesis) -and ([string]$rowHypothesis -ceq $RequestedHypothesisId)) {
-            $matches.Add([pscustomobject]@{ Row = $row; Line = $lineNumber })
+            $matches.Add([pscustomobject]@{ Row = $row; Line = $lineNumber; Raw = [string]$line })
         }
     }
     if ($matches.Count -eq 0) {
@@ -519,13 +560,16 @@ function Resolve-ResearchContract($RequestedHypothesisId, $RequestedEaName) {
     return [pscustomobject]@{
         HypothesisId = $RequestedHypothesisId
         RegistryPath = (Resolve-Path -LiteralPath $registryPath).Path
+        RegistrySha256 = Get-Sha256IfExists $registryPath
         RegistryLine = $latest.Line
+        RegistryRowSha256 = Get-TextSha256 $latest.Raw
         LatestRow = $latestRow
         RegistryState = [string](Get-ObjectProperty $latestRow 'state')
         RegistryRecordType = [string](Get-ObjectProperty $latestRow 'record_type')
         RegistryModel = Get-ObjectProperty $latestRow 'model'
         RegistrySourcePath = [string](Get-ObjectProperty $latestRow 'source_path')
         RegistrySourceHash = [string](Get-ObjectProperty $latestRow 'source_hash')
+        AcceptanceContract = Get-ObjectProperty $latestRow 'acceptance_contract'
         RegisteredPreregPath = $registeredPreregPath
         PreregPath = $resolvedPreregPath
         PreregSha256 = Get-Sha256IfExists $resolvedPreregPath
@@ -533,14 +577,35 @@ function Resolve-ResearchContract($RequestedHypothesisId, $RequestedEaName) {
         CanonicalSourceAbsolute = $canonicalSourceAbsolute
         CurrentSourceSha256 = Get-Sha256IfExists $canonicalSourceAbsolute
         TelemetryProfile = $sourceContract.TelemetryProfile
+        MarketPhaseAdapter = $sourceContract.MarketPhaseAdapter
+        ComparisonAdapter = $sourceContract.ComparisonAdapter
+        VariantTagInput = $sourceContract.VariantTagInput
+        EaContractPath = $sourceContract.ContractRelativePath
+        EaContractAbsolutePath = $sourceContract.ContractAbsolutePath
+        EaContractSha256 = $sourceContract.ContractSha256
         SourceContractPinned = $sourceContract.IsPinned
     }
 }
 
-function Get-ResearchContractBlockers($Contract, $RequestedModel) {
+function Get-ResearchContractBlockers($Contract, $RequestedModel, $RequestedTelemetryTier) {
     $blockers = New-Object System.Collections.Generic.List[string]
     if ($Contract.RegistryState -in @('killed', 'parked')) {
         $blockers.Add("Latest registry row is terminal state '$($Contract.RegistryState)'; execution is rejected.")
+    }
+    if ($Contract.RegistryState -notin @('screened', 'challenger')) {
+        $blockers.Add("Latest registry state '$($Contract.RegistryState)' is not execution-eligible; freeze the prereg and append state 'screened' before Model 0.")
+    }
+    if ($Contract.TelemetryProfile -ceq 'none') {
+        $blockers.Add("EA has no AlphaFactory lifecycle telemetry contract; meaningful execution would fail verified-cost validation. Add ALPHAFACTORY_EA_CONTRACT.json and implement lifecycle-v3 telemetry before Model 0.")
+    }
+    if ($Contract.TelemetryProfile -ceq 'lifecycle-v3' -and $RequestedTelemetryTier -cne 'trade-only') {
+        $blockers.Add("EA telemetry profile 'lifecycle-v3' requires TelemetryTier=trade-only before MT5; got '$RequestedTelemetryTier'.")
+    }
+    if ($Contract.TelemetryProfile -ceq 'sonic-strict' -and $RequestedTelemetryTier -ceq 'off') {
+        $blockers.Add("EA telemetry profile 'sonic-strict' cannot execute with TelemetryTier=off.")
+    }
+    if ($Contract.TelemetryProfile -ne 'none' -and [string]::IsNullOrWhiteSpace($Contract.EaContractSha256)) {
+        $blockers.Add("EA telemetry capability is not bound to ALPHAFACTORY_EA_CONTRACT.json.")
     }
     if (-not (Test-IntegerValue $Contract.RegistryModel)) {
         $blockers.Add("Latest registry row does not declare an integer MT5 model; offline/non-EA rows cannot execute.")
@@ -686,7 +751,7 @@ function Resolve-MatchedControl($RunId, $ControlHypothesisId, $ExpectedManifestH
             if ($null -eq $researchLoopAttestation -or $researchLoopAttestation -isnot [pscustomobject]) {
                 $blockers.Add("Matched control completion attestation is missing from research_loop.")
             } else {
-                if ([string](Get-ObjectProperty $researchLoopAttestation 'schema_version') -cne 'sonic_research_loop_manifest.v3' -or
+                if ([string](Get-ObjectProperty $researchLoopAttestation 'schema_version') -notin @('alphafactory_research_loop_manifest.v1', 'sonic_research_loop_manifest.v3') -or
                     [string](Get-ObjectProperty $researchLoopAttestation 'run_role') -cne 'control') {
                     $blockers.Add("Matched control completion attestation has invalid schema or run_role.")
                 }
@@ -856,6 +921,7 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
             VariantsDir = $null
             ValidationStage = $null
             HoldingContract = $null
+            AcceptanceContract = $null
             MatchedControlRunId = $null
             MatchedControl = $null
             CostEvidence = @()
@@ -870,6 +936,7 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
             Present = $true; Packet = $null; PacketPath = $resolvedPacketPath; PacketSha256 = $null
             CostSourceManifestPath = $null; WfaArtifactPath = $null; VariantsDir = $null
             ValidationStage = $null; HoldingContract = $null; MatchedControlRunId = $null
+            AcceptanceContract = $null
             MatchedControl = $null
             CostEvidence = @()
             Blockers = @($blockers | ForEach-Object { $_ })
@@ -888,20 +955,61 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
             PacketSha256 = Get-Sha256IfExists $resolvedPacketPath
             CostSourceManifestPath = $null; WfaArtifactPath = $null; VariantsDir = $null
             ValidationStage = $null; HoldingContract = $null; MatchedControlRunId = $null
+            AcceptanceContract = $null
             MatchedControl = $null
             CostEvidence = @()
             Blockers = @($blockers | ForEach-Object { $_ })
         }
     }
 
-    Add-PacketMismatch $blockers $packet 'schema_version' 'sonic_research_task_packet.v1'
+    $taskPacketSchema = [string](Get-ObjectProperty $packet 'schema_version')
+    if ($taskPacketSchema -cne 'alphafactory_research_task_packet.v1') {
+        $blockers.Add("Task packet field 'schema_version' must be 'alphafactory_research_task_packet.v1'.")
+    }
     Add-PacketMismatch $blockers $packet 'hypothesis_id' $Contract.HypothesisId
     Add-PacketMismatch $blockers $packet 'run_role' $Binding.RunRole
     Add-PacketMismatch $blockers $packet 'ea_name' $Binding.EaName
     Add-PacketMismatch $blockers $packet 'source_path' $Contract.CanonicalSourcePath
     Add-PacketMismatch $blockers $packet 'source_sha256' $Contract.CurrentSourceSha256 -Hash
+    Add-PacketMismatch $blockers $packet 'registry_path' (Get-RepoRelativePath $Contract.RegistryPath)
+    Add-PacketMismatch $blockers $packet 'registry_sha256' $Contract.RegistrySha256 -Hash
+    Add-PacketMismatch $blockers $packet 'registry_row_sha256' $Contract.RegistryRowSha256 -Hash
     Add-PacketMismatch $blockers $packet 'prereg_path' $Contract.RegisteredPreregPath
     Add-PacketMismatch $blockers $packet 'prereg_sha256' $Contract.PreregSha256 -Hash
+    Add-PacketMismatch $blockers $packet 'telemetry_profile' $Contract.TelemetryProfile
+    Add-PacketMismatch $blockers $packet 'comparison_adapter' $Contract.ComparisonAdapter
+    $acceptanceFields = @(
+        'min_profit_factor', 'min_trades_per_week', 'max_trades_per_week',
+        'max_drawdown_pct', 'min_cost_pf_x1_5', 'min_cost_pf_x2',
+        'max_monte_carlo_p95_dd_pct'
+    )
+    $packetAcceptance = Get-ObjectProperty $packet 'acceptance_contract'
+    $registeredAcceptance = $Contract.AcceptanceContract
+    if (-not (Test-ProvenanceObject $registeredAcceptance)) {
+        $blockers.Add("Latest registry row has no structured acceptance_contract.")
+    }
+    if (-not (Test-ProvenanceObject $packetAcceptance)) {
+        $blockers.Add("Task packet field 'acceptance_contract' is required and must be an object.")
+    } else {
+        $packetAcceptanceNames = @($packetAcceptance.PSObject.Properties | ForEach-Object { $_.Name })
+        if ($packetAcceptanceNames.Count -ne $acceptanceFields.Count -or @($packetAcceptanceNames | Where-Object { $_ -notin $acceptanceFields }).Count -gt 0) {
+            $blockers.Add("Task packet acceptance_contract must contain exactly the seven supported gate fields.")
+        }
+        foreach ($field in $acceptanceFields) {
+            $packetValue = Get-ObjectProperty $packetAcceptance $field
+            $registeredValue = Get-ObjectProperty $registeredAcceptance $field
+            if (-not (Test-NonNegativeNumber $packetValue)) {
+                $blockers.Add("Task packet acceptance_contract.$field must be a finite non-negative number.")
+            } elseif (-not (Test-NonNegativeNumber $registeredValue) -or [double]$packetValue -ne [double]$registeredValue) {
+                $blockers.Add("Task packet acceptance_contract.$field does not match the frozen registry value '$registeredValue'.")
+            }
+        }
+    }
+    $Binding | Add-Member -MemberType NoteProperty -Name AcceptanceContract -Value $registeredAcceptance -Force
+    if (-not [string]::IsNullOrWhiteSpace($Contract.EaContractSha256)) {
+        Add-PacketMismatch $blockers $packet 'ea_contract_path' $Contract.EaContractPath
+        Add-PacketMismatch $blockers $packet 'ea_contract_sha256' $Contract.EaContractSha256 -Hash
+    }
     Add-PacketMismatch $blockers $packet 'symbol' $Binding.Symbol
     Add-PacketMismatch $blockers $packet 'period' $Binding.Period
     Add-PacketMismatch $blockers $packet 'from' $Binding.From
@@ -952,9 +1060,6 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
                 continue
             }
             $includeClosure.Add([pscustomobject]@{ Path = $includePath; Sha256 = $actualIncludeHash })
-        }
-        if ($includeClosure.Count -eq 0) {
-            $blockers.Add("Task packet include_closure must contain the Sonic EA include dependency set.")
         }
         $duplicateIncludePaths = @($includeClosure | Group-Object { $_.Path.ToLowerInvariant() } | Where-Object { $_.Count -gt 1 })
         if ($duplicateIncludePaths.Count -gt 0) {
@@ -1023,7 +1128,7 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
                 $blockers.Add("Task packet required_sidecars pattern is invalid: '$pattern'.")
             }
         }
-        foreach ($minimum in (Get-RequiredSidecarsForTier $Binding.TelemetryTier)) {
+        foreach ($minimum in (Get-RequiredSidecarsForTier $Binding.TelemetryTier $Binding.TelemetryProfile)) {
             if ($minimum -notin $requiredSidecars) {
                 $blockers.Add("Task packet required_sidecars is missing telemetry-tier minimum '$minimum'.")
             }
@@ -1533,6 +1638,7 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
         VariantsDir = $variantsPath
         ValidationStage = $validationStage
         HoldingContract = $holdingContract
+        AcceptanceContract = $registeredAcceptance
         MatchedControlRunId = $matchedControl
         MatchedControl = $matchedControlResult
         IncludeClosure = @($includeClosure | ForEach-Object { $_ })
@@ -1547,7 +1653,11 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
 function New-ExecutionReceipt($ReceiptPath, $Contract, $PacketResult, $Binding) {
     $evidence = New-Object System.Collections.Generic.List[object]
     $evidence.Add([ordered]@{ label = 'task_packet'; kind = 'file'; path = $PacketResult.PacketPath; sha256 = $PacketResult.PacketSha256 })
+    $evidence.Add([ordered]@{ label = 'candidate_registry'; kind = 'file'; path = $Contract.RegistryPath; sha256 = $Contract.RegistrySha256 })
     $evidence.Add([ordered]@{ label = 'source'; kind = 'file'; path = $Contract.CanonicalSourceAbsolute; sha256 = $Contract.CurrentSourceSha256 })
+    if (-not [string]::IsNullOrWhiteSpace($Contract.EaContractSha256)) {
+        $evidence.Add([ordered]@{ label = 'ea_capability_contract'; kind = 'file'; path = $Contract.EaContractAbsolutePath; sha256 = $Contract.EaContractSha256 })
+    }
     $includeIndex = 0
     foreach ($include in @($PacketResult.IncludeClosure)) {
         $evidence.Add([ordered]@{
@@ -1608,8 +1718,9 @@ function New-ExecutionReceipt($ReceiptPath, $Contract, $PacketResult, $Binding) 
     }
 
     $receipt = [ordered]@{
-        schema_version = 'sonic_execution_receipt.v1'
+        schema_version = 'alphafactory_execution_receipt.v1'
         hypothesis_id = $Contract.HypothesisId
+        registry_row_sha256 = $Contract.RegistryRowSha256
         task_packet_sha256 = $PacketResult.PacketSha256
         git_commit = $Binding.GitCommit
         git_status_sha256 = $Binding.GitStatusSha256
@@ -1626,6 +1737,7 @@ function New-ExecutionReceipt($ReceiptPath, $Contract, $PacketResult, $Binding) 
             fixed_delay_ms = $Binding.FixedDelayMs
             overrides = $Binding.Overrides
             telemetry_tier = $Binding.TelemetryTier
+            telemetry_profile = $Binding.TelemetryProfile
             deposit = $Binding.Deposit
             leverage = $Binding.Leverage
             spread = $Binding.Spread
@@ -1662,7 +1774,7 @@ function Assert-EvidenceUnchanged($ReceiptPath, $ExpectedReceiptSha256, $Binding
     } catch {
         throw "Execution receipt JSON is malformed: $($_.Exception.Message)"
     }
-    if ([string]$receipt.schema_version -cne 'sonic_execution_receipt.v1') {
+    if ([string]$receipt.schema_version -cne 'alphafactory_execution_receipt.v1') {
         throw "Execution receipt schema_version is invalid."
     }
     foreach ($item in @($receipt.evidence)) {
@@ -1916,7 +2028,7 @@ function Enter-ResearchLock($Plan) {
     }
     try {
         $payload = [ordered]@{
-            schema_version = "sonic_research_loop_lock.v3"
+            schema_version = "alphafactory_research_loop_lock.v1"
             pid = $PID
             started_at_utc = (Get-Date).ToUniversalTime().ToString("o")
             plan = $Plan
@@ -1930,6 +2042,43 @@ function Enter-ResearchLock($Plan) {
         Remove-Item -LiteralPath $lockPath -Force -ErrorAction SilentlyContinue
         throw
     }
+}
+
+function Enter-ImmutableEvidenceReadLocks($Paths, $Streams) {
+    $seen = @{}
+    try {
+        foreach ($rawPath in @($Paths)) {
+            if ([string]::IsNullOrWhiteSpace([string]$rawPath)) { continue }
+            $path = [System.IO.Path]::GetFullPath([string]$rawPath)
+            $key = $path.ToLowerInvariant()
+            if ($seen.ContainsKey($key)) { continue }
+            if (-not (Test-Path -LiteralPath $path -PathType Leaf)) {
+                throw "Immutable execution evidence is missing before lock acquisition: $path"
+            }
+            $stream = [System.IO.File]::Open(
+                $path,
+                [System.IO.FileMode]::Open,
+                [System.IO.FileAccess]::Read,
+                [System.IO.FileShare]::Read
+            )
+            [void]$Streams.Add($stream)
+            $seen[$key] = $true
+        }
+    } catch {
+        foreach ($stream in @($Streams)) {
+            try { $stream.Dispose() } catch {}
+        }
+        $Streams.Clear()
+        throw "Could not lock immutable execution evidence: $($_.Exception.Message)"
+    }
+}
+
+function Exit-ImmutableEvidenceReadLocks($Streams) {
+    if ($null -eq $Streams) { return }
+    foreach ($stream in @($Streams)) {
+        try { $stream.Dispose() } catch {}
+    }
+    $Streams.Clear()
 }
 
 function Exit-ResearchLock($Stream) {
@@ -1994,7 +2143,7 @@ function Add-StateTransition($State, $Detail = "") {
 function Update-RunManifestResearch($ManifestPath, $Contract, $PacketResult, $Plan, $Transitions, $TransitionLog, $Evidence) {
     $manifest = Get-Content -LiteralPath $ManifestPath -Raw | ConvertFrom-Json
     $researchLoop = [ordered]@{
-        schema_version = "sonic_research_loop_manifest.v3"
+        schema_version = "alphafactory_research_loop_manifest.v1"
         hypothesis_id = $Contract.HypothesisId
         run_role = $Plan.run_role
         prereg_path = $Contract.PreregPath
@@ -2014,6 +2163,12 @@ function Update-RunManifestResearch($ManifestPath, $Contract, $PacketResult, $Pl
     Write-JsonAtomically $manifest $ManifestPath 16
 }
 
+if ([string]::IsNullOrWhiteSpace($EaName)) {
+    throw "EaName is required before dry-run or execution."
+}
+if ($Execute -and -not [string]::Equals($registryPath, $canonicalRegistryPath, [System.StringComparison]::OrdinalIgnoreCase)) {
+    throw "Execute requires the canonical registry: $canonicalRegistryPath"
+}
 $contract = Resolve-ResearchContract $HypothesisId $EaName
 if ($Deposit -le 0) { throw "Deposit must be greater than zero." }
 if ($Leverage -le 0) { throw "Leverage must be greater than zero." }
@@ -2024,11 +2179,14 @@ Assert-BacktestScalarContract $EaName $HypothesisId $Symbol $Period $From $To $S
 
 $effectiveOverrides = $Overrides
 if (-not [string]::IsNullOrWhiteSpace($VariantTag)) {
-    $effectiveOverrides = Add-Override $effectiveOverrides "InpVariantTag" $VariantTag
+    if ([string]::IsNullOrWhiteSpace($contract.VariantTagInput)) {
+        throw "VariantTag is not supported by EA '$EaName'; declare variant_tag_input in ALPHAFACTORY_EA_CONTRACT.json or omit VariantTag."
+    }
+    $effectiveOverrides = Add-Override $effectiveOverrides $contract.VariantTagInput $VariantTag
 }
 $effectiveOverrides = Resolve-TelemetryTierOverrides $TelemetryTier $contract.CanonicalSourceAbsolute $effectiveOverrides $contract.TelemetryProfile
 $effectiveSpread = if ([string]::IsNullOrWhiteSpace($Spread)) { "current" } else { $Spread }
-$gitSnapshot = Get-GitSnapshot
+$gitSnapshot = Get-GitSnapshot $contract.CanonicalSourceAbsolute
 $binding = [pscustomobject]@{
     EaName = $EaName
     RunRole = $RunRole
@@ -2041,6 +2199,8 @@ $binding = [pscustomobject]@{
     FixedDelayMs = $FixedDelayMs
     Overrides = $effectiveOverrides
     TelemetryTier = $TelemetryTier
+    TelemetryProfile = $contract.TelemetryProfile
+    ComparisonAdapter = $contract.ComparisonAdapter
     Deposit = $Deposit
     Leverage = $Leverage
     Spread = $effectiveSpread
@@ -2056,7 +2216,7 @@ $binding = [pscustomobject]@{
 }
 
 $executionBlockers = New-Object System.Collections.Generic.List[string]
-foreach ($blocker in (Get-ResearchContractBlockers $contract $Model)) { $executionBlockers.Add($blocker) }
+foreach ($blocker in (Get-ResearchContractBlockers $contract $Model $TelemetryTier)) { $executionBlockers.Add($blocker) }
 $packetResult = Resolve-TaskPacket $TaskPacket $contract $binding
 foreach ($blocker in $packetResult.Blockers) { $executionBlockers.Add([string]$blocker) }
 if (-not (Test-Path -LiteralPath $validatorPath -PathType Leaf)) {
@@ -2096,8 +2256,14 @@ $plan = [ordered]@{
     prereg_path = $contract.PreregPath
     prereg_sha256 = $contract.PreregSha256
     current_source_sha256 = $contract.CurrentSourceSha256
+    ea_contract_path = $contract.EaContractPath
+    ea_contract_sha256 = $contract.EaContractSha256
+    telemetry_profile = $contract.TelemetryProfile
+    market_phase_adapter = $contract.MarketPhaseAdapter
+    comparison_adapter = $contract.ComparisonAdapter
+    acceptance_contract = $contract.AcceptanceContract
     include_closure_sha256 = $packetResult.IncludeClosureSha256
-    include_closure_count = @($packetResult.IncludeClosure).Count
+    include_closure_count = @($packetResult.IncludeClosure | Where-Object { $null -ne $_ }).Count
     task_packet_path = $packetResult.PacketPath
     task_packet_sha256 = $packetResult.PacketSha256
     symbol = $Symbol
@@ -2168,7 +2334,7 @@ if (-not $executionAllowed) {
 }
 
 New-Item -ItemType Directory -Path $runtimeRoot -Force | Out-Null
-$transitionDir = Join-Path $runtimeRoot "sonic_research_transitions"
+$transitionDir = Join-Path $runtimeRoot "ea_research_transitions"
 New-Item -ItemType Directory -Path $transitionDir -Force | Out-Null
 $sessionId = "{0}_{1}_{2}" -f (Get-Date -Format "yyyyMMdd_HHmmss"), $PID, ([guid]::NewGuid().ToString("N").Substring(0, 8))
 $script:transitionLogPath = Join-Path $transitionDir "$sessionId.jsonl"
@@ -2181,9 +2347,37 @@ $analysisDir = $null
 $evidence = [ordered]@{}
 $receiptRecord = $null
 $validationLock = $null
+$evidenceReadLocks = New-Object System.Collections.Generic.List[object]
 
 try {
     $researchLock = Enter-ResearchLock $plan
+    $immutableEvidencePaths = New-Object System.Collections.Generic.List[string]
+    foreach ($path in @(
+        $contract.RegistryPath,
+        $contract.CanonicalSourceAbsolute,
+        $contract.PreregPath,
+        $contract.EaContractAbsolutePath,
+        $packetResult.PacketPath,
+        $packetResult.CostSourceManifestPath,
+        $packetResult.WfaArtifactPath
+    )) {
+        if (-not [string]::IsNullOrWhiteSpace([string]$path)) { [void]$immutableEvidencePaths.Add([string]$path) }
+    }
+    foreach ($item in @($packetResult.IncludeClosure)) { [void]$immutableEvidencePaths.Add([string]$item.Path) }
+    foreach ($item in @($packetResult.CostEvidence)) { [void]$immutableEvidencePaths.Add([string]$item.Path) }
+    if (-not [string]::IsNullOrWhiteSpace([string]$packetResult.VariantsDir)) {
+        foreach ($item in @(Get-ChildItem -LiteralPath $packetResult.VariantsDir -Recurse -File -ErrorAction Stop)) {
+            [void]$immutableEvidencePaths.Add($item.FullName)
+        }
+    }
+    if ($null -ne $packetResult.MatchedControl) {
+        foreach ($path in @($packetResult.MatchedControl.ManifestPath, $packetResult.MatchedControl.ReportPath)) {
+            if (-not [string]::IsNullOrWhiteSpace([string]$path)) { [void]$immutableEvidencePaths.Add([string]$path) }
+        }
+        foreach ($item in @($packetResult.MatchedControl.Artifacts)) { [void]$immutableEvidencePaths.Add([string]$item.Path) }
+        foreach ($item in @($packetResult.MatchedControl.Sidecars)) { [void]$immutableEvidencePaths.Add([string]$item.Path) }
+    }
+    Enter-ImmutableEvidenceReadLocks $immutableEvidencePaths $evidenceReadLocks
     $existingTerminals = @(Get-Process -Name "terminal64" -ErrorAction SilentlyContinue)
     if ($existingTerminals.Count -gt 0) {
         $terminalPids = ($existingTerminals | ForEach-Object { $_.Id }) -join ","
@@ -2191,7 +2385,7 @@ try {
     }
     Add-StateTransition "execution_started" "Registry, source, prereg, task packet, and cost-source contract validated." | Out-Null
 
-    $receiptPath = Join-Path $runtimeRoot "sonic_execution_receipt_$sessionId.json"
+    $receiptPath = Join-Path $runtimeRoot "ea_execution_receipt_$sessionId.json"
     $receiptRecord = New-ExecutionReceipt $receiptPath $contract $packetResult $binding
     $evidence.execution_receipt_path = $receiptRecord.Path
     $evidence.execution_receipt_sha256 = $receiptRecord.Sha256
@@ -2288,6 +2482,15 @@ try {
         "--holding-contract", $packetResult.HoldingContract,
         "--cost-artifact", $costArtifact
     )
+    $validationArgs += @(
+        "--min-pf", [string]$packetResult.AcceptanceContract.min_profit_factor,
+        "--min-trades-per-week", [string]$packetResult.AcceptanceContract.min_trades_per_week,
+        "--max-trades-per-week", [string]$packetResult.AcceptanceContract.max_trades_per_week,
+        "--max-dd-pct", [string]$packetResult.AcceptanceContract.max_drawdown_pct,
+        "--min-cost-pf-x1-5", [string]$packetResult.AcceptanceContract.min_cost_pf_x1_5,
+        "--min-cost-pf-x2", [string]$packetResult.AcceptanceContract.min_cost_pf_x2,
+        "--max-mc-p95-dd-pct", [string]$packetResult.AcceptanceContract.max_monte_carlo_p95_dd_pct
+    )
     if (-not [string]::IsNullOrWhiteSpace($packetResult.WfaArtifactPath)) {
         $validationArgs += @("--wfa-artifact", $packetResult.WfaArtifactPath)
     }
@@ -2303,19 +2506,22 @@ try {
     $evidence.validation_summary_sha256 = Get-Sha256IfExists $validationSummary
     Add-StateTransition "unified_validation_succeeded" | Out-Null
 
-    if (-not $SkipMarketPhase) {
+    if (-not $SkipMarketPhase -and $contract.MarketPhaseAdapter -ceq 'sonic') {
         $phaseTool = Join-Path $toolsRoot "sonic_market_phase_attribution.py"
         if (-not (Test-Path -LiteralPath $phaseTool -PathType Leaf)) { throw "Required market-phase tool is missing: $phaseTool" }
-        [void](Invoke-RequiredStep "Market phase attribution $runId" { & python $phaseTool $runId } $steps)
+        [void](Invoke-RequiredStep "Market phase attribution $runId" { & python $phaseTool $runDir --ea $EaName --out $analysisDir } $steps)
         Add-StateTransition "market_phase_succeeded" | Out-Null
+    } elseif (-not $SkipMarketPhase) {
+        Add-StateTransition "market_phase_not_applicable" "EA telemetry profile '$($contract.TelemetryProfile)' has no Sonic phase sidecars." | Out-Null
     }
 
     if ($RunRole -ceq 'challenger') {
-        $compareTool = Join-Path $toolsRoot "sonic_candidate_compare.py"
+        $useSonicComparator = $contract.ComparisonAdapter -ceq 'sonic-v1'
+        $compareTool = Join-Path $toolsRoot $(if ($useSonicComparator) { 'sonic_candidate_compare.py' } else { 'alpha_candidate_compare.py' })
         if (-not (Test-Path -LiteralPath $compareTool -PathType Leaf)) { throw "Required candidate-compare tool is missing: $compareTool" }
-        $compareOut = Join-Path $analysisDir "sonic_candidate_compare.json"
+        $compareOut = Join-Path $analysisDir $(if ($useSonicComparator) { 'sonic_candidate_compare.json' } else { 'candidate_compare.json' })
         [void](Invoke-RequiredStep "Candidate compare $runId vs $($packetResult.MatchedControlRunId)" {
-            & python $compareTool $runDir --baseline $packetResult.MatchedControlRunId --out $compareOut
+            & python $compareTool $runDir --baseline $packetResult.MatchedControlRunId --ea $EaName --out $compareOut
         } $steps)
         if (-not (Test-Path -LiteralPath $compareOut -PathType Leaf)) { throw "Candidate compare did not create: $compareOut" }
         try {
@@ -2323,7 +2529,8 @@ try {
         } catch {
             throw "Candidate compare artifact is not valid JSON: $compareOut"
         }
-        if ([string]$compareResult.schema_version -cne 'sonic_candidate_compare.v1' -or
+        $expectedCompareSchema = if ($useSonicComparator) { 'sonic_candidate_compare.v1' } else { 'alphafactory_candidate_compare.v1' }
+        if ([string]$compareResult.schema_version -cne $expectedCompareSchema -or
             [string]$compareResult.verdict -cne 'RESEARCH_PASS' -or
             [string]$compareResult.candidate.run_id -cne $runId -or
             [string]$compareResult.baseline.run_id -cne $packetResult.MatchedControlRunId) {
@@ -2363,7 +2570,7 @@ try {
     }
     Add-StateTransition "completed" $completionDetail | Out-Null
     $summary = [ordered]@{
-        schema_version = "sonic_research_loop.v3"
+        schema_version = "alphafactory_research_loop.v1"
         hypothesis_id = $HypothesisId
         registry_state_at_start = $contract.RegistryState
         registry_line_at_start = $contract.RegistryLine
@@ -2381,19 +2588,19 @@ try {
         })
         finished_at_utc = (Get-Date).ToUniversalTime().ToString("o")
     }
-    $summaryPath = Join-Path $analysisDir "sonic_research_loop_summary.json"
+    $summaryPath = Join-Path $analysisDir "ea_research_loop_summary.json"
     Write-JsonAtomically $summary $summaryPath 16
     $evidence.research_loop_summary_path = $summaryPath
     $evidence.research_loop_summary_sha256 = Get-Sha256IfExists $summaryPath
-    Copy-Item -LiteralPath $script:transitionLogPath -Destination (Join-Path $analysisDir "sonic_research_state_transitions.jsonl") -Force
+    Copy-Item -LiteralPath $script:transitionLogPath -Destination (Join-Path $analysisDir "ea_research_state_transitions.jsonl") -Force
     Update-RunManifestResearch (Join-Path $runDir "run_manifest.json") $contract $packetResult $plan $script:transitions $script:transitionLogPath $evidence
-    Write-JsonAtomically $summary (Join-Path $runtimeRoot "last_sonic_research_loop.json") 16
+    Write-JsonAtomically $summary (Join-Path $runtimeRoot "last_ea_research_loop.json") 16
     Write-Status "Research loop complete: $summaryPath" "OK"
 } catch {
     $failureMessage = $_.Exception.Message
     Add-StateTransition "failed" $failureMessage | Out-Null
     $failure = [ordered]@{
-        schema_version = "sonic_research_loop_failure.v3"
+        schema_version = "alphafactory_research_loop_failure.v1"
         hypothesis_id = $HypothesisId
         task_packet_path = $packetResult.PacketPath
         run_id = $runId
@@ -2407,12 +2614,13 @@ try {
         failed_at_utc = (Get-Date).ToUniversalTime().ToString("o")
     }
     try {
-        Write-JsonAtomically $failure (Join-Path $runtimeRoot "last_failed_sonic_research_loop.json") 14
+        Write-JsonAtomically $failure (Join-Path $runtimeRoot "last_failed_ea_research_loop.json") 14
     } catch {
         Write-Status "Could not write failure summary: $($_.Exception.Message)" "ERR"
     }
     throw "Research loop failed: $failureMessage"
 } finally {
     Exit-GlobalValidationLock $validationLock
+    Exit-ImmutableEvidenceReadLocks $evidenceReadLocks
     Exit-ResearchLock $researchLock
 }

@@ -1,6 +1,6 @@
 # Do Not Repeat — Failed Strategies / Approaches
 
-Updated: 2026-07-15  
+Updated: 2026-07-16
 Language: English (evidence plane). Purpose: stop re-running dead ends.
 
 Authority: evidence pointers only. Do **not** invent kill reasons. If a row has
@@ -104,10 +104,11 @@ Best **shelf** reference run (not promotion): SilverBullet RR2 `20260714_194548`
 
 ## D. What is still allowed (narrow)
 
-- **No active EA code lane** under `03. EA Developer/` (Owner archived 2026-07-15).
-  Restore package + update `hot.md` before any compile/Model 0.
-- Research ledger (archived): `00. Old File/EA_Archive/EA_SonicR/research/` —
-  readable for de-dup; not a promotion surface; compile-from-archive invalid.
-- New independent mechanisms after de-dup → cheap offline probe → prereg → Model 0
-  (only after Owner restores an active EA shelf).
+- Active code lanes are only `EA_FVGConfluence` and `EA_HybridICT_Sonic` under
+  `03. EA Developer/`; the former is probe-blocked and the latter is terminal
+  killed. Do not infer execution eligibility from package presence.
+- Canonical active ledger: `04. Memory/research/CANDIDATE_REGISTRY.jsonl`.
+  Archived Sonic ledger remains de-dup history only; compile-from-archive invalid.
+- New independent mechanisms follow de-dup → cheap offline probe → frozen prereg
+  → capability/cost contract → sequential matched Model 0.
 - Data acquisition toward research-grade bid/ask + commission + slip (QFSI frontier), without pretending gate is green.

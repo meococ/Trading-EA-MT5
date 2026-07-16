@@ -1,6 +1,6 @@
 # INDEX — Bản Đồ Workspace
 
-Cập nhật: 2026-07-15
+Cập nhật: 2026-07-16
 
 Mỗi entry một dòng: file gì, mở khi nào. File này chỉ chứa con trỏ; nội
 dung nằm ở đích đến. Cập nhật khi một file canonical bị di chuyển hoặc mở
@@ -26,14 +26,16 @@ lane mới — không cập nhật cho từng run/readout mới.
 |---|---|
 | `hot.md` | bắt đầu session; "hiện tại cái gì đang đúng" (NEXT SESSION + ledger) |
 | `do_not_repeat_failures.md` | trước khi đề xuất revive / hyp mới |
-| `source_of_truth.md`/`.json` + `validate_source_of_truth.py` | registry fact canonical + validator fail-closed |
+| `source_of_truth.md`/`.json` + `validate_source_of_truth.py` | registry fact/path canonical + validator fail-closed |
+| `research/CANDIDATE_REGISTRY.jsonl` + schema + validator | ledger hypothesis generic append-only; validate trước mọi run có ý nghĩa |
 
-**`05. Playbook/`** — 4 file chỉ dẫn lõi:
+**`05. Playbook/`** — 5 file chỉ dẫn lõi:
 
 | File | Mở khi |
 |---|---|
 | `sonic_validation_gates.md` | chấm run: stage, ngưỡng, hard invalidation |
 | `sonic_tool_runbook.md` | lệnh chính xác: compile/backtest/validate/analyze |
+| `ea_golden_path.md` | đường generic từ brief → de-dup/probe → code → Model 0 → quyết định |
 | `ea_engineering_standard.md` | viết/review code MQL5 (closed-bar, non-repaint) |
 | `research_doctrine.md` | thiết kế hypothesis: registry, prereg, overfit budget, MT5 rules |
 
@@ -46,19 +48,14 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 |---|---|
 | `.codex/operator/STATUS.md` + `EXPERIMENTS.jsonl` | ledger recovery task dài; operational, nhường `hot.md` |
 
-## Nghiên cứu — archived ledger
+## Nghiên cứu — generic active + lịch sử archive
 
-**Owner archive 2026-07-15:** research ledger moved with the package.
-
-Base path: `00. Old File/EA_Archive/EA_SonicR/research/`
-
-| File (relative to base) | Mở khi |
+| Path | Mở khi |
 |---|---|
-| `CANDIDATE_REGISTRY.jsonl` + `.schema.json` + `validate_candidate_registry.py` | ledger nghiên cứu FX; TRƯỚC mọi run có ý nghĩa: append/validate row hypothesis — **path archived**, not active surface |
-| `PREREG_TEMPLATE.md`, `READOUT_TEMPLATE.md` | viết prereg hoặc readout (archive copy) |
-| `preregs/`, `readouts/`, `preflight/` | prereg/readout/preflight lịch sử (registry row trỏ tới) |
-| `20260710_EA_FAILURE_PORTFOLIO_AUDIT.md` | audit frontier 217 runs / 34 EA |
-| chi tiết file dated khác | xem folder archive; INDEX không còn liệt kê từng readout như surface active |
+| `04. Memory/research/CANDIDATE_REGISTRY.jsonl` + schema + validator | ledger active dùng chung mọi EA; source/prereg hash-bound, transition fail-closed |
+| `02. AlphaFactory/templates/research/` | tạo capability contract, prereg/readout và kiểm trường task packet |
+| `03. EA Developer/<EA>/research/` | prereg/readout/evidence riêng package active |
+| `00. Old File/EA_Archive/EA_SonicR/research/` | ledger và evidence Sonic lịch sử; archive-only, không chạy |
 
 ## Source EA — `03. EA Developer/` (2 lane active)
 
@@ -76,7 +73,10 @@ Base path: `00. Old File/EA_Archive/EA_SonicR/research/`
 | Path | Mở khi |
 |---|---|
 | `alpha.ps1` | lane compile / backtest / validate-full (cú pháp trong runbook) |
-| `tools/ea_contract.ps1` | resolver fail-closed cho exact main source và telemetry profile từng EA; dùng chung bởi `alpha.ps1` và research loop |
+| `tools/ea_contract.ps1` | resolver fail-closed exact source + package capability contract; archive không hợp lệ |
+| `tools/ea_research_loop.ps1` | entry generic dry-run mặc định cho control/challenger Model 0 |
+| `tools/sonic_research_loop.ps1` | compatibility engine phía sau generic entry; không dùng như workflow Sonic-only mới |
+| `tools/alpha_candidate_compare.py` | comparator generic identity + control-relative, không hardcode gate Sonic |
 | `runs/<EA>/<run_id>/` | evidence của run: report, run_manifest, `analysis/`, `logs/` |
 | `runs.db` + `tools/runs_db.py` | catalog run (chỉ là index, không phải thẩm quyền) |
 | `tools/backtest_storage_inventory.py` | inventory dung lượng, top file, orphan/generated file và mirror candidate; không xóa |
@@ -86,13 +86,12 @@ Base path: `00. Old File/EA_Archive/EA_SonicR/research/`
 | `tools/workspace_hygiene.ps1` | inventory root sample/stale worktree mặc định; chỉ xóa hoặc rebuild `runs.db` khi có `-Execute` |
 | `analysis/unified_validation.py` | validator; đồng thời định nghĩa artifact promotion-eligible phải trông thế nào |
 | `analysis/walk_forward.py`, `robustness_suite.py`, `cscv_pbo.py`, `white_reality_check.py` | producer diagnostic-only (`promotion_eligible=false` theo thiết kế) |
-| `tools/build_verified_cost_artifact.py` | artifact cost thực thi đã xác minh (đòi telemetry v3 + cost-source manifest) |
+| `tools/build_verified_cost_artifact.py` | artifact cost thực thi đã xác minh từ lifecycle telemetry generic/legacy + cost-source manifest |
 | `schemas/execution_data_capture_manifest.v1.schema.json` | schema bundle broker quote/heartbeat/commission/slippage với safety và sample gates đóng băng |
 | `tools/execution_data_foundation.py` | probe MT5 read-only, validate bundle và inventory evidence; không có mutating trade-call surface |
 | `tools/impact_pressure_probe.py` | proxy probe M15 read-only đóng băng cho V5; dùng Bid/Ask ticks, matched return-z control, hash artifact; không phải Strategy Tester hay promotion evidence |
 | `tools/sonic_cost_stress.py` | proxy cost stress cấp research (chỉ để falsify vòng đầu) |
 | `tools/audit_mql5_nonrepaint.py` | audit non-repaint sau mọi thay đổi signal/data-access |
-| `tools/sonic_research_loop.ps1` | runner full-loop cho nghiên cứu |
 | `STRATEGY_LOG.md` | sử ký toàn bộ chiến lược đã test, kết quả, bài học (tiếng Việt) |
 | `DECISION_FRAMEWORK.md` | cây quyết định ITERATE/PIVOT/ABANDON (impl: `analysis/decision_framework.py`) |
 | `tools/` (còn lại) | probe/analyzer; tên file tự mô tả |
@@ -102,6 +101,7 @@ Base path: `00. Old File/EA_Archive/EA_SonicR/research/`
 | Path | Mở khi |
 |---|---|
 | `02. AlphaFactory/tests/test_operational_hygiene.py` | regression offline cho dry-run cleanup, archive protect roots/containment, validator encoding, registry pins và runbook command surface |
+| `02. AlphaFactory/tests/test_ea_golden_path.py` | regression generic discovery, registry, capability, dry-run và comparator |
 | `00. Old File/root_scratch_20260715/tests/` | stale `.pyc` lịch sử; archive-only, không dùng làm test hiện hành |
 
 ## Phần còn lại
