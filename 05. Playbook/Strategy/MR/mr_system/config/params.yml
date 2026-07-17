@@ -1,0 +1,60 @@
+# =====================================================================
+# PARAMETER REGISTRY — theo spec v3 §13
+# label: verified | internal_calibration | engineering_default | policy
+# MỌI config đã thử phải ghi vào trial registry (input của DSR — §10)
+# =====================================================================
+alpha:
+  W: {default: 100, grid: [60, 150], label: internal_calibration}   # window SMA/sigma/HL (H1 bars)
+  Z_entry: {default: 2.0, grid: [1.6, 2.4], label: internal_calibration}
+  hl_gate_bars:
+    XAUUSD: {default: [4, 24], grid_pct: 50, label: internal_calibration}
+    EURUSD: {default: [4, 48], grid_pct: 50, label: internal_calibration}
+
+exits:
+  K_sl_atr: {default: 2.0, grid: [1.5, 2.5], label: engineering_default}
+  tp_buffer_sigma: {default: 0.2, grid: [0.1, 0.3], label: engineering_default}
+  tp_cap_R: {default: 1.5, grid: [1.2, 1.8], label: policy}
+  trailing_activate_R: {default: 0.8, grid_pct: 25, label: engineering_default}
+  trailing_atr_mult: {default: 1.2, grid_pct: 25, label: engineering_default}
+  k_ts: {default: 2.0, grid: [1.5, 3.0], label: internal_calibration}  # time-stop, bị chặn bởi night-cap
+  night_cap: {XAUUSD: 2, EURUSD: 5, label: policy}                     # spec §5.4
+  triple_day_flat_below_R: {default: 0.3, label: policy}
+  friday_flat_below_R_gold: {default: 0.3, label: policy}
+
+regime_gates:
+  adx_h1_max: {default: 23, grid: [20, 26], label: engineering_default}
+  adx_h4_max: {default: 28, grid: [24, 32], label: engineering_default}
+  atr_pctile_band: {default: [25, 75], grid_lo: [15, 35], grid_hi: [65, 85], label: engineering_default}
+  atr_pctile_lookback: {default: 250, label: engineering_default}
+  spread_guard_mult_p75: {default: 1.5, label: engineering_default}
+
+sessions_utc:        # nửa mở [start, end) — entry only; quản lý lệnh 24/5
+  EURUSD: {start: 7, end: 16}
+  XAUUSD: {start: 12, end: 20}
+
+news_filter:
+  XAUUSD: {before_min: 45, after_min: 30, label: engineering_default}
+  EURUSD: {before_min: 30, after_min: 15, label: engineering_default}
+  flatten_events: [FOMC, NFP, CPI]
+  flatten_below_R: 0.5
+
+risk:
+  per_trade_pct: {default: 0.5, first_3_months_live: 0.3, prop: 0.25, label: policy}
+  daily_stop_pct: {default: 1.5, prop: 1.2, label: policy}
+  bucket_multiplier: {default: 1.5, label: policy}
+  portfolio_cap_pct: {default: 2.5, label: policy}
+  max_positions_per_bucket: {default: 2, label: policy}
+  corr_60d_threshold: {default: 0.6, second_pos_size_pct: 50, label: policy}
+  equity_guard: {half_size_dd_pct: 8, stop_dd_pct: 12, label: policy}
+
+execution:
+  entry_deviation_guard_mult_spread_p75: {default: 0.5, grid_pct: 50, label: engineering_default}
+  gap_guard_atr_mult: {default: 4.0, grid: [3.0, 6.0], label: engineering_default}
+  reentry_cooldown: "z đóng >= 1 bar bên trong ±Z_entry sau exit"
+  slippage_guard: "median rolling 20 lệnh > 2x p75 -> size 50%; khôi phục khi <= 1x p75"
+
+diagnostics_weekly:  # §4.2 — đánh giá Chủ nhật 20:00 UTC, H4, T=512
+  vr_lags: [2, 4]
+  chow_denning_p: 0.05
+  trending_weeks_to_halve: 4
+  clean_weeks_to_restore: 2
