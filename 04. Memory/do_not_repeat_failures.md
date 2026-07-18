@@ -371,23 +371,21 @@
   Evidence: `.context/cron_20260717_2152/{TASK,PLAN,CANDIDATE_MEMO,REPORT,HERMES_VERIFY}`
   PLAN SHA `51d0eb8f70f9c543d51d8d3ab276cc29be4c62bd7a747207ba4b6ad7ff544ab5`.
 
-- Pure-OHLC orthogonal family design screen 2026-07-17
-  (`cron_20260717_2110`) sealed `NO_LEGAL_CANDIDATE — ZERO_KEEP_OHLC_ORTHOGONAL`.
-  Codex temporary refs **O1–O12 all REJECT** (design-only; **no probe**):
-  prior-session range continuation; cross-TF vol-regime momentum; calendar
-  seasonality as primary; OHLC absorption/rejection; basket residual fade;
-  vol term-structure break; jump aftershock; signed realized-semivariance;
-  early-to-late intraday momentum; close-location pressure; weekend/session
-  gap; directional-change intrinsic-time overshoot. Dominant fails:
-  **killed-family densify/rebrand** after proper-nouns removal (Sonic/Asia
-  coil/ORB, Unicorn/PO3/KLR/FVG rejection, V5 pressure, XS residual/mom,
-  MR grid, LNY/gap); secondary no paper path, structural cadence <2/week,
-  or threshold-manufactured density. Do **not** invent O13+ densify of these
-  objects; free-PIT Wave-H rebrand remains separately forbidden. Pure-OHLC
-  novelty path is at frontier unless a genuinely independent information set
-  or Owner paid/label unlock. Evidence:
-  `.context/cron_20260717_2110/{TASK,PLAN,CANDIDATE_MEMO,REPORT,HERMES_VERIFY}`
-  PLAN SHA `037c2538230741a708d413e3a5a55d423e4582d25a56ec60358be02ad2dd20b7`.
+- Pure-OHLC orthogonal design screen 2026-07-17 (`cron_20260717_2110`) — a
+  **design-only prior, NOT an evidence verdict** (no probe ran). It only says:
+  the 12 single-object refbrands it listed (prior-session range continuation;
+  cross-TF vol-regime momentum; calendar seasonality as primary; OHLC
+  absorption/rejection; basket residual fade; vol term-structure break; jump
+  aftershock; signed semivariance; early-to-late intraday momentum;
+  close-location pressure; weekend/session gap; directional-change overshoot)
+  each de-dup to a killed single-object family after proper-noun strip. It does
+  **NOT** prove OHLC lacks tradeable edge — discretionary traders profit on
+  OHLC, so edge exists; what our probes falsified is specific single-object
+  MECHANIZATIONS, not multi-factor confluence / context-conditional /
+  execution-managed objects, which remain untested. Use this only to avoid
+  re-probing the same 12 single-object rebrands, not as a reason to stop OHLC
+  research. Evidence:
+  `.context/cron_20260717_2110/{TASK,PLAN,CANDIDATE_MEMO,REPORT,HERMES_VERIFY}`.
 
 - Free/public PIT post-frontier design screen 2026-07-17
   (`cron_20260717_2031`) sealed `NO_LEGAL_CANDIDATE — ZERO_KEEP_POST_FRONTIER`.
