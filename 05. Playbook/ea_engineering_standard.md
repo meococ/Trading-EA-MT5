@@ -67,7 +67,7 @@ Cập nhật: 2026-07-16. Golden path đầy đủ: `ea_golden_path.md`.
   `ALPHAFACTORY_EA_CONTRACT.json` và emit lifecycle telemetry reconcile được với
   report; profile `none` không đủ cho research execution.
 - Tối ưu hóa giảm log; control/forensics giữ evidence đầy đủ. `OnTester()` nếu có
-  phải hướng tới robustness, không chỉ net profit.
+  nên ưu tiên robustness hơn net profit đơn thuần; khai tiêu chí robustness trong readout/plan.
 - Collector/alert-first phải default non-mutating; nếu có execution kernel thì
   mutation chỉ được mở theo authority tường minh và không được lẫn vào profile
   thu data. Casebook row/meta bind source SHA, schema/contract, event id, input

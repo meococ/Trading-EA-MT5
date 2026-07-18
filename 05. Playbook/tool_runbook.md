@@ -131,7 +131,7 @@ Execute only after the JSON plan returns `execution_allowed=true`:
 `acceptance_contract` in the packet must match the frozen registry row exactly
 and is passed through as unified-validation thresholds. `VariantTag` is valid
 only when the package capability contract declares the input. An EA without
-includes is valid. Never schedule/cron the loop without explicit approval.
+includes is valid. Scheduling/cron needs explicit approval (AGENTS §3).
 
 ### Candidate Compare
 
@@ -147,9 +147,9 @@ python "02. AlphaFactory/tools/alpha_candidate_compare.py" `
 ```
 
 `candidate_compare_engine.py` exists only to re-read archived strict-format
-evidence; new lanes use `alpha_candidate_compare.py`. Reject candidates that
-only improve PF while net, monthly economics, validation, or execution realism
-worsens.
+evidence; new lanes use `alpha_candidate_compare.py`. Do not accept a candidate
+on PF alone; weigh net and monthly economics, validation and execution realism
+together, and declare the acceptance metric in the frozen plan before comparing.
 
 ### Cost Stress
 

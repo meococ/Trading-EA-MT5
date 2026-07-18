@@ -37,10 +37,11 @@ result is broad enough to survive data-mining pressure.
   (parity instrument: `tools/research/parity_harness.py`, PASS artifact
   required before trusting a SURVIVE that leans on an indicator gate).
 - Expectancy floor is a WEEKLY bar: +0.08R/trade is calibrated to 2-5
-  trades/week (~0.16-0.40R/week). Off-band-cadence objects must hold the same
-  weekly floor — scale the per-trade threshold accordingly and declare it
-  pre-outcome. PF and stress gates do not move.
-- No EA rule patch is allowed from probe alone.
+  trades/week (~0.16-0.40R/week). For off-band cadence, preserve the weekly intent
+  by scaling the per-trade threshold and declaring the chosen floor in the
+  frozen plan pre-outcome. PF and stress gates do not move.
+- A probe alone should not drive an EA rule patch — treat it as
+  thesis-refine/kill evidence and confirm any rule change through screened+.
 
 ### Multi-simulation / grid falsification (exhaustive closure runs)
 
@@ -78,9 +79,10 @@ result is broad enough to survive data-mining pressure.
 - At least one trade, exact elapsed-day/week cadence, and report-bound cost PF
   x1/x1.5/x2 are required; a zero-trade screen must transition to kill/park,
   not remain `challenger`.
-- Must beat matched control on net and risk-adjusted behavior, not only PF.
+- Should outperform the matched control on the comparator declared in the
+  frozen `acceptance_contract` (e.g. net and net/DD, not PF alone).
 - No hidden overnight/weekend exposure.
-- Execution/TCA issues must be explained.
+- Execution/TCA anomalies should be documented and explained in the readout.
 - Sidecar/header changes must be versioned and analyzers updated.
 - `validate-full` cannot be `REVIEW 0/5` for a deploy-readiness claim.
 
@@ -139,8 +141,9 @@ Current producer boundary:
 - Model 1 used as promotion evidence.
 - Any strict control/challenger run with `model != 0`.
 - Post-hoc hour/day/year veto treated as a rule without new preregistration.
-- Context/qualification indicators used as a standalone entry trigger without
-  separate validation.
+- (Guidance) Declare each indicator's role (context/qualification vs trigger)
+  in the frozen plan; a context/qualification indicator relied on as the sole
+  entry trigger should carry its own validation before it counts.
 - Bar-zero price/buffer logic in a decision path.
 - Filling at the same historical close used to form a completed-bar signal.
 - Bar-level spread used to synthesize promotion-grade ask barriers when

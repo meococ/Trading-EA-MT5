@@ -48,20 +48,23 @@ không phải tuyên bố track-record cá nhân.
   thay human gate đã prereg.
 - Không veto giờ/ngày/năm hậu nghiệm; không sửa ngưỡng từ readout vừa đọc —
   phát hiện hậu nghiệm → `idea` mới. **Cấm post-hoc rescue** hypothesis vừa fail.
-- Probe offline rẻ trước ceremony (prereg → code → Model 0).
-- Brief discretionary/SMC/ICT phải có matrix requirement→code trước Model 0;
-  kết quả proxy chỉ kết luận đúng source/contract đã chạy, không được gọi là đã
-  test toàn bộ memo. Chi tiết: `research_doctrine.md`.
+- Ưu tiên probe offline rẻ trước ceremony đầy đủ (prereg → code → Model 0);
+  nếu cần đảo thứ tự, khai lý do trong plan đóng băng.
+- Brief discretionary/SMC/ICT: nên dựng matrix requirement→code trước Model 0
+  và khai độ phủ trong plan. Giữ nguyên (không nới): kết quả proxy chỉ kết luận
+  đúng source/contract đã chạy, không gọi là đã test toàn bộ memo. Chi tiết:
+  `research_doctrine.md`.
 - Compile/backtest từ `00. Old File/` hoặc path lưu trữ = evidence **không hợp lệ**.
 - Đổi scope = quyết định Owner; cập nhật `hot.md` **trước** mọi run theo scope mới.
 - Archive kèm manifest trước khi xóa evidence; không dọn phá hủy. Khi
   archive/di chuyển package khỏi active tree: **đồng thời** cập nhật
   `source_of_truth.json`+`.md` và chạy `validate_source_of_truth.py` (fail-closed
   registry sẽ đỏ nếu path stale) — đừng chỉ sửa CLAUDE/AGENTS/INDEX/README.
-- Log lớn (>50 MB hoặc ~100k dòng): dùng `large_log_reader.py` (window ≤500);
-  ưu tiên summary/datalog.
-- Batch lớn (≥5 run hoặc +1 GiB): storage inventory + cleanup dry-run; archive
-  chỉ sau Owner duyệt + hash/verify + protect run được doc tham chiếu.
+- Log lớn (cỡ hàng chục MB / ~100k dòng trở lên): ưu tiên summary/datalog +
+  `large_log_reader.py` thay vì nạp raw vào context. Lệnh: `tool_runbook.md`.
+- Batch lớn (rule of thumb ~≥5 run hoặc ~+1 GiB): storage inventory + cleanup
+  dry-run trước. Giữ nguyên: archive chỉ sau Owner duyệt + hash/verify + giữ
+  run được doc cite.
 - Không cron/schedule vòng lặp MT5 khi chưa được duyệt rõ.
 - Data backtest/train/dev persist về `02. AlphaFactory/data/` (D:, hash-bound
   manifest). Không lưu working dataset trên `C:` cạnh MT5 root, không

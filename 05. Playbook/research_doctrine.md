@@ -7,9 +7,10 @@ validation trước đây nằm inline trong `AGENTS.md`. Mở khi thiết kế 
 review một hypothesis, run, hay thay đổi code EA. Trạng thái sống nằm ở
 `hot.md`; ngưỡng theo stage nằm ở `validation_gates.md`.
 
-Nguyên tắc chung rút từ mọi lane: indicator context/qualification không phải
-trigger độc lập; quan sát chart phải thành feature khả kiểm trước khi code;
-sideway là một regime hạng nhất; không nới luật lõi của một setup vì regime.
+Nguyên tắc chung rút từ mọi lane: indicator context/qualification nên đóng vai qualifier hơn là
+trigger độc lập (nếu một brief thực sự dùng nó làm trigger, khai + biện minh
+trong plan); quan sát chart nên thành feature khả kiểm trước khi code;
+sideway là một regime hạng nhất; tránh nới luật lõi của một setup chỉ vì regime — nếu regime đòi điều chỉnh, coi đó là hypothesis/biến thể mới và khai trong plan.
 Doctrine riêng của lane đã archive nằm cạnh ledger lane đó trong
 `00. Old File/EA_Archive/`.
 
@@ -110,8 +111,8 @@ Dùng vòng lặp này cho công việc chiến lược EA có ý nghĩa:
 7. So với matched control đã đóng băng; không chấm một run đứng một mình.
 8. Phân tích theo lane, hướng, session, giờ, tháng, năm, pha thị trường,
    giải phẫu trade, cost stress, và evidence screenshot/casebook. Với thay
-   đổi strategy-state, bắt buộc có snapshot MT5-native hoặc nhãn
-   chart-state đã khóa trước mọi patch luật EA.
+   đổi strategy-state, ưu tiên snapshot MT5-native hoặc nhãn chart-state đã
+   khóa trước khi patch luật EA — chi tiết ở "Contract Nhãn Chart-State".
 9. Nếu run hợp lệ trượt gate hoặc hiệu suất yếu, đóng version hiện tại rồi chạy
    `Vòng Lặp Deep Research Sau Failure`; không tune/rescue cùng hypothesis.
 10. Sau khi công việc ổn định, cập nhật đúng bề mặt sống: `hot.md`, registry,
@@ -135,9 +136,9 @@ Khi user yêu cầu team/agent tham gia, dùng ba vai tách biệt và giữ
   sizing rủi ro, hình học broker, tier telemetry, dọn cache MT5, và khả
   năng tái lập artifact.
 
-Memo của agent là input review, không phải thẩm quyền. Coordinator phải
-merge chúng thành một hypothesis cụ thể, kế hoạch code/test, hoặc quyết
-định park/kill có ghi chép.
+Memo của agent là input review, không phải thẩm quyền. Coordinator tổng hợp
+chúng thành một hypothesis cụ thể, kế hoạch code/test, hoặc quyết định
+park/kill có ghi chép.
 
 ## Candidate Registry
 
@@ -181,10 +182,11 @@ Quy tắc registry bổ sung:
 - Registry `acceptance_contract` = bar GOAL/promotion (schema pin PF≥1.3,
   2-5 tpw), KHÔNG phải verdict instrument của probe. Kill-gate của probe sống
   trong plan đã SHA-bind; đọc verdict một row theo plan, không theo contract.
-- Một design-only screen (không probe/evidence, ví dụ cron O-screen) chỉ ghi
-  một prior, KHÔNG phải kill terminal. Hypothesis Owner-scoped + de-dup
-  clearance + plan đóng băng hợp pháp override nó (ghi lý do trong plan).
-  Chỉ verdict evidence-terminal (probe/Model 0 đã chạy) mới bind chống reopen.
+- Một design-only screen (không probe/evidence, ví dụ cron O-screen) thường
+  chỉ ghi một prior chứ không tự thành kill terminal; chỉ verdict
+  evidence-terminal (probe/Model 0 đã chạy) mới bind chống reopen. Khi một
+  hypothesis Owner-scoped đã de-dup clearance muốn override prior đó, khai
+  lựa chọn và lý do trong plan đóng băng.
 - Append registry = ghi nguyên dòng + newline trong một lần write; chạy
   validator ngay sau mỗi append như commit gate. Binding sai phát hiện trước
   khi đọc outcome → sửa bằng corrective append/row mới, không mutate lịch sử.
@@ -197,9 +199,9 @@ hoặc park, không được promote.
 
 ## Contract Fidelity Brief → Code
 
-Trước probe kinh tế hoặc Model 0 cho brief discretionary/SMC/ICT, phải tạo
-matrix requirement→code cho mọi hard gate, entry timing, invalidation, stop,
-target và quản trị. Mỗi hàng chỉ được phân loại `exact`, `proxy`, `missing` hoặc
+Trước probe kinh tế hoặc Model 0 cho brief discretionary/SMC/ICT, nên lập
+matrix requirement→code cho các hard gate, entry timing, invalidation, stop,
+target và quản trị trọng yếu, và khai độ phủ matrix trong plan. Mỗi hàng chỉ được phân loại `exact`, `proxy`, `missing` hoặc
 `contradictory`, kèm source line và rule định lượng. Fixed score/điểm placeholder
 không được đại diện cho một feature chưa đo.
 
@@ -218,7 +220,7 @@ không được đại diện cho một feature chưa đo.
 
 ## Contract Nhãn Chart-State
 
-Không patch luật EA nào được đến trực tiếp từ trực giác nhìn chart.
+Patch luật EA nên tựa vào feature đo được hoặc case image đã khóa, không nên đến trực tiếp từ trực giác nhìn chart.
 
 Chart-claim trong readout/prereg nên tựa vào case image đã render (review) qua
 `tools/research/chart_case_render.py` hoặc feature đo được, thay vì mô tả chart
@@ -243,9 +245,9 @@ Với mọi hypothesis dựa trên trạng thái, gán nhãn trước entry:
 - pha session và runway còn lại
 - điều kiện vô hiệu hóa
 
-Negative control là bắt buộc: các lệnh thua `SIDEWAY_WIDE`, các lệnh thắng
-impulse, trade bị bỏ lỡ high-MFE, false positive high-MAE, và các session
-liền kề.
+Nên kèm negative control khi phân tích chart-state — ví dụ các lệnh thua
+`SIDEWAY_WIDE`, lệnh thắng impulse, trade bỏ lỡ high-MFE, false positive
+high-MAE, và session liền kề; khai bộ control đã chọn trong analysis plan.
 
 Với casebook outcome-blind hoặc taxonomy discretionary:
 
@@ -317,7 +319,7 @@ roots và downstream consumer.
 
 ## Gate Promotion
 
-Không bao giờ promote một EA chỉ từ profit factor. Ngưỡng theo stage và
+Đừng promote một EA chỉ dựa trên profit factor. Ngưỡng theo stage và
 artifact bắt buộc: `05. Playbook/validation_gates.md`.
 
 Research-only là bắt buộc khi bất kỳ điều nào sau đây đúng:

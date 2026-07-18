@@ -20,8 +20,8 @@ code; chi tiết kỹ thuật an toàn có thể do lead tự chốt và ghi ass
 Đọc `do_not_repeat_failures.md`, registry và lineage liên quan. Tạo row `idea`
 hoặc `probe`, draft prereg từ template, rồi chạy probe offline rẻ trước ceremony.
 Probe mới import từ probe SDK `02. AlphaFactory/tools/research/` (indicators,
-sealed_loader, trial_log, metrics, controls, dsr, chart_case_render) — không
-copy lại code; tham số chiến lược đến từ frozen plan, không từ kit. Lane hướng
+sealed_loader, trial_log, metrics, controls, dsr, chart_case_render) — nên
+tái sử dụng thay vì copy lại code; tham số chiến lược đến từ frozen plan, không từ kit. Lane hướng
 Model 0 dùng biến thể indicator `*_mt5` (parity đã chứng minh).
 Probe dùng làm bằng chứng KILL/falsification phải có PROBE_PLAN đóng băng
 TIỀN-kết-quả, SHA-bind vào row (template
@@ -43,9 +43,10 @@ lịch sử. Sau code/audit/compile, append `screened` với cả source + prere
 Source duy nhất: `03. EA Developer/<EA>/<EA>.mq5`. Package có `research/`, preset,
 README/repro note và `ALPHAFACTORY_EA_CONTRACT.json`. Sau khi artifact code đã
 ổn định, bind source/prereg hash vào transition `screened`. Tách signal, risk,
-execution, ownership/state và telemetry. Bắt buộc xử lý magic/symbol ownership,
-netting/hedging, restart/idempotency, partial fill, retcode, volume/stop geometry,
-timezone/DST và sizing bằng `OrderCalc*` khi risk theo tiền.
+execution, ownership/state và telemetry. Cần xử lý cẩn thận magic/symbol
+ownership, netting/hedging, restart/idempotency, partial fill, retcode,
+volume/stop geometry, timezone/DST và sizing bằng `OrderCalc*` khi risk theo
+tiền; nêu rõ trong repro note nếu bỏ qua mục nào.
 
 ## 5. Gate code trước MT5
 
@@ -92,9 +93,9 @@ thể dùng để kill/park, không promote.
 
 Control phải hoàn tất và đóng băng trước challenger. Challenger giữ cùng
 symbol/TF/window/Model/data/cost identity; chỉ decision surface đã prereg được
-đổi. Generic comparator yêu cầu net, PF và net/DD không kém control; absolute
-gate được khóa trong registry `acceptance_contract` rồi truyền máy-máy vào
-unified validation. Sau đó chạy cost x1/x1.5/x2,
+đổi. Comparator (net, PF, net/DD không kém control) được khai trong
+`acceptance_contract` của registry rồi truyền máy-máy vào unified validation —
+định nghĩa chuẩn ở `validation_gates.md` (Challenger). Sau đó chạy cost x1/x1.5/x2,
 holdout/WFA, sensitivity, Monte Carlo, regime/concentration, execution audit và
 casebook theo stage.
 
