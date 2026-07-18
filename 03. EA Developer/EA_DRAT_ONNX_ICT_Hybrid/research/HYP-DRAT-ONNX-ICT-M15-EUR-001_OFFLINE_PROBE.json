@@ -1,0 +1,145 @@
+{
+  "data_provenance": {
+    "first_bar_utc": "2020-01-02T06:00:00+00:00",
+    "last_bar_utc": "2026-06-30T23:45:00+00:00",
+    "rows": 161791,
+    "server": "FivePercentOnline-Real",
+    "terminal_build": 6006,
+    "terminal_data_path": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075",
+    "trade_mode": 0
+  },
+  "feature_order": [
+    "ret4_atr",
+    "ema_gap_atr",
+    "atr_ratio",
+    "range_atr",
+    "efficiency16",
+    "volume_z20",
+    "close_location",
+    "break_distance_atr"
+  ],
+  "frozen_spec": {
+    "cost_r": 0.1,
+    "max_hold_bars": 32,
+    "max_trades_per_week": 5.0,
+    "min_model_confidence": 0.5,
+    "min_probe_pf": 1.15,
+    "min_trades_per_week": 2.0,
+    "mss_expiry_bars": 4,
+    "probe_from": "2024.01.01",
+    "probe_to": "2026.06.30",
+    "session_end_hour": 20,
+    "session_start_hour": 6,
+    "stop_atr_buffer": 0.15,
+    "stress_breakout_min": 0.65,
+    "sweep_lookback": 8,
+    "symbol": "EURUSD",
+    "target_r": 2.0,
+    "timeframe": "M15",
+    "train_from": "2020.01.01",
+    "train_to": "2023.12.31",
+    "zone_expiry_bars": 8
+  },
+  "gate": {
+    "checks": {
+      "challenger_cadence_in_goal_band": true,
+      "challenger_net_not_below_control": true,
+      "challenger_net_r_positive": false,
+      "challenger_pf_ge_probe_gate": false,
+      "challenger_pf_not_below_control": false,
+      "full_years_positive": false,
+      "model_breakout_brier_le_0_25": true
+    },
+    "verdict": "KILL_AT_OFFLINE_PROBE"
+  },
+  "generated_at_utc": "2026-07-16T05:03:30.967616+00:00",
+  "hypothesis_id": "HYP-DRAT-ONNX-ICT-M15-EUR-001",
+  "limitations": [
+    "Offline OHLC proxy only; not Strategy Tester or native tick-path evidence.",
+    "Cost is a frozen 0.10R falsification proxy, not verified broker execution cost.",
+    "Labels are causal heuristic state labels; they do not predict future returns.",
+    "Same-bar stop/target collision is scored stop-first."
+  ],
+  "model_metrics_oos": {
+    "breakout_accuracy": 0.9925515998777369,
+    "breakout_brier": 0.004486638189537842,
+    "breakout_log_loss": 0.014078003876130448,
+    "probe_regime_counts": {
+      "range": 43022,
+      "stress": 7098,
+      "trend": 12041
+    },
+    "probe_rows": 62161,
+    "regime_accuracy": 0.8708997602998665,
+    "regime_brier_by_class": {
+      "range": 0.09173420275223727,
+      "stress": 0.05523145099608807,
+      "trend": 0.05930433516680658
+    },
+    "regime_log_loss": 0.37702402906237753,
+    "train_regime_counts": {
+      "range": 67576,
+      "stress": 12901,
+      "trend": 19125
+    },
+    "train_rows": 99602
+  },
+  "onnx_gate_challenger": {
+    "by_year": {
+      "2024": {
+        "net_r": -33.67451955,
+        "profit_factor": 0.6203114326349676,
+        "trades": 114
+      },
+      "2025": {
+        "net_r": -14.002177420000004,
+        "profit_factor": 0.8195584580099721,
+        "trades": 109
+      },
+      "2026": {
+        "net_r": -5.146906860000006,
+        "profit_factor": 0.8830248440909091,
+        "trades": 64
+      }
+    },
+    "elapsed_weeks": 130.28571263227514,
+    "mean_r": -0.18405436874564463,
+    "net_r_after_proxy_cost": -52.82360383000001,
+    "profit_factor_after_proxy_cost": 0.7488051583966978,
+    "trades": 287,
+    "trades_per_elapsed_week": 2.2028509051490786,
+    "win_rate": 0.3205574912891986
+  },
+  "regime_classes": [
+    "trend",
+    "range",
+    "stress"
+  ],
+  "rules_only_control": {
+    "by_year": {
+      "2024": {
+        "net_r": -40.99039952000002,
+        "profit_factor": 0.6755992496717494,
+        "trades": 172
+      },
+      "2025": {
+        "net_r": -23.10435779000001,
+        "profit_factor": 0.778348379058569,
+        "trades": 146
+      },
+      "2026": {
+        "net_r": -3.6575261800000063,
+        "profit_factor": 0.9355048976227704,
+        "trades": 84
+      }
+    },
+    "elapsed_weeks": 130.28571263227514,
+    "mean_r": -0.1685380186318408,
+    "net_r_after_proxy_cost": -67.75228349000001,
+    "profit_factor_after_proxy_cost": 0.7641796803363852,
+    "trades": 402,
+    "trades_per_elapsed_week": 3.0855263549474894,
+    "win_rate": 0.3308457711442786
+  },
+  "schema_version": "drat_onnx_ict_probe.v1"
+}

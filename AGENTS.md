@@ -38,9 +38,17 @@ không phải tuyên bố track-record cá nhân.
 - Chỉ closed-bar; audit non-repaint sau mọi đổi signal/data-access.
 - Cadence = elapsed calendar weeks (không dùng active-week làm mẫu số).
 - Cost field = 0 hoặc thiếu ≠ cost thực = 0.
+- Zero-trade/data-acquisition không có WR/PF/expectancy. Chỉ gọi là collection
+  khi contract đã freeze, mutation/outcome tắt; casebook chỉ đủ quyền label khi
+  source SHA khớp task/receipt/manifest/meta/row, taxonomy đủ cột và extractor
+  đúng schema. Corpus cũ thiếu contract giữ diagnostic-only; AI label không
+  thay human gate đã prereg.
 - Không veto giờ/ngày/năm hậu nghiệm; không sửa ngưỡng từ readout vừa đọc —
   phát hiện hậu nghiệm → `idea` mới. **Cấm post-hoc rescue** hypothesis vừa fail.
 - Probe offline rẻ trước ceremony (prereg → code → Model 0).
+- Brief discretionary/SMC/ICT phải có matrix requirement→code trước Model 0;
+  kết quả proxy chỉ kết luận đúng source/contract đã chạy, không được gọi là đã
+  test toàn bộ memo. Chi tiết: `research_doctrine.md`.
 - Compile/backtest từ `00. Old File/` hoặc path lưu trữ = evidence **không hợp lệ**.
 - Đổi scope = quyết định Owner; cập nhật `hot.md` **trước** mọi run theo scope mới.
 - Archive kèm manifest trước khi xóa evidence; không dọn phá hủy. Khi
@@ -52,6 +60,9 @@ không phải tuyên bố track-record cá nhân.
 - Batch lớn (≥5 run hoặc +1 GiB): storage inventory + cleanup dry-run; archive
   chỉ sau Owner duyệt + hash/verify + protect run được doc tham chiếu.
 - Không cron/schedule vòng lặp MT5 khi chưa được duyệt rõ.
+- Data backtest/train/dev persist về `02. AlphaFactory/data/` (D:, hash-bound
+  manifest). Không lưu working dataset trên `C:` cạnh MT5 root, không
+  `FILE_COMMON`, không nhét trong EA package.
 - **Không commit/push** trừ Owner yêu cầu rõ trong message hiện tại (kèm scope).
   Không `git init` lại, force-push, amend remote. Dirty tree là bình thường.
   Không commit secrets, deal dumps, artifact nặng, path máy-cục-bộ —
@@ -65,7 +76,10 @@ không phải tuyên bố track-record cá nhân.
 Harness chính cho phát triển EA + backtest — **không invent toolchain song song**.
 
 - Entry: `02. AlphaFactory/alpha.ps1` (`status` / `compile` / `backtest` /
-  `analyze` / `validate-full` …). Lệnh: `sonic_tool_runbook.md`.
+  `analyze` / `validate-full` …). Lệnh: `tool_runbook.md`.
+- Tester override phải đúng type: `input string` ghi plain `key=value`; nếu log
+  MT5 nhận literal `value||value||0||value||N` thì reject run như lỗi harness,
+  không nới validation của EA. Chi tiết: `tool_runbook.md`.
 - Source canonical: `03. EA Developer/<EA>/<EA>.mq5` qua `tools/ea_contract.ps1`
   (fail-closed; shelf empty → báo rõ, không pin archive). Full-loop generic:
   `tools/ea_research_loop.ps1`; package capability:
@@ -77,8 +91,12 @@ Harness chính cho phát triển EA + backtest — **không invent toolchain son
 - AlphaFactory = cách chạy; ceremony (gates/registry/prereg) vẫn bắt buộc.
   Registry active dùng chung: `04. Memory/research/CANDIDATE_REGISTRY.jsonl`;
   template: `02. AlphaFactory/templates/research/`.
-- Active shelf `03. EA Developer/` = 2 lane (`EA_FVGConfluence`,
-  `EA_HybridICT_Sonic`). Packages archived THẬT (80 dir, 2026-07-15):
+- Active shelf `03. EA Developer/`: danh sách lane compilable (hiện 6) +
+  research-only terminal records sống ở `03. EA Developer/README.md`; count
+  sống ở `hot.md`. Mọi package trên shelf đều KHÔNG tự có quyền chạy/rerun/
+  promote/live — quyền đến từ registry state + hot.md, không từ sự tồn tại
+  của source. Không liệt kê shelf trong file này để tránh drift.
+  Packages archived THẬT (80 dir, 2026-07-15):
   `00. Old File/EA_Archive/` (SonicR full ledger + SilverBullet binary + 78
   stub `.ex5`). Ledger Sonic cũ đi theo archive; ledger generic active ở
   `04. Memory/research/`.
@@ -118,6 +136,18 @@ chờ Owner):
 - Hiểu mục tiêu trước khi làm. Có cách tốt hơn → trình bày tradeoff
   (`do-now` / `worth-adding` / `needs-owner`), không máy móc theo chữ.
 - Vai trưởng nhóm: không nịnh, phản biện bằng bằng chứng; chủ động §6.
+- Với task build/fix/complete, giữ **một outcome contract xuyên suốt** và tự chạy
+  vòng `source -> compile -> test -> backtest/probe -> analyze -> next fix` cho
+  tới DONE, kill có bằng chứng, hoặc blocker thật cần quyền/input mới. Không chờ
+  Owner nhắn `tiến hành`/`oke` giữa các bước an toàn cùng scope.
+- Status update không phải checkpoint xin duyệt. Tiến độ là delta implementation
+  đã verify hoặc verdict kinh tế mới; không phải số file, plan, audit, test hay
+  `compile 0/0` đứng riêng. Không đánh dấu goal complete khi `GOAL.md`/`hot.md`
+  còn UNMET hoặc outcome Owner yêu cầu chưa đạt.
+- Ceremony phải lean và reuse surface hiện có. Plan/research/doc chỉ được chen
+  vào khi nó mở khóa ngay bước thực thi kế tiếp; docs để closeout sau evidence.
+  Khi Owner phê bình triển khai, sửa implementation/loop trước, không phản xạ
+  bằng rule/doc/tool mới trừ khi nó chặn đúng failure vật chất đã lặp lại.
 - Deep Research strategy: Browser → ChatGPT → `GPT-5.6 Sol` → `Pro` → `+` →
   `Nghiên cứu sâu` (`research_doctrine.md`); UI readback trước khi gửi.
   Kết quả = input hypothesis/prereg — không tự cấp quyền code/backtest/promote.
@@ -136,8 +166,8 @@ chờ Owner):
 | `04. Memory/research/CANDIDATE_REGISTRY.jsonl` + validator | ledger hypothesis generic append-only |
 | `04. Memory/source_of_truth.md`/`.json` + `validate_source_of_truth.py` | registry canonical + validator fail-closed |
 | `05. Playbook/ea_golden_path.md` | brief → probe/prereg → build → Model 0 → quyết định |
-| `05. Playbook/sonic_validation_gates.md` | stage gates, hard invalidation, run-manifest |
-| `05. Playbook/sonic_tool_runbook.md` | lệnh AlphaFactory chính xác |
+| `05. Playbook/validation_gates.md` | stage gates, hard invalidation, run-manifest |
+| `05. Playbook/tool_runbook.md` | lệnh AlphaFactory chính xác |
 | `05. Playbook/ea_engineering_standard.md` | chuẩn code MQL5 (closed-bar, non-repaint) |
 | `05. Playbook/research_doctrine.md` | hypothesis, registry, overfit budget, MT5/non-repaint |
 | archived: `00. Old File/project_control_archive_20260716/` | workflow, roster+agents, policies, skills, receipts, legacy (không active) |

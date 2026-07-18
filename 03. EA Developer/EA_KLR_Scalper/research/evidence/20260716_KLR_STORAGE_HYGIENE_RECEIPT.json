@@ -1,0 +1,70 @@
+﻿{
+    "schema_version":  "klr_storage_hygiene_receipt.v1",
+    "generated_at_utc":  "2026-07-16T06:34:13.2601417Z",
+    "hypothesis_id":  "HYP-KLR-USD-PDLRAID-M5-XAU-001",
+    "portable_data_path":  "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable",
+    "file_common_allowed":  false,
+    "all_c_roots_unchanged":  false,
+    "comparison":  [
+                       {
+                           "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\Tester",
+                           "before_files":  120,
+                           "after_files":  120,
+                           "before_bytes":  1260063754,
+                           "after_bytes":  1260063754,
+                           "before_sha256":  "774D3CEB31C816EAE624515F0F3F2237A3129A4B4EFD8F0AD911B0DE820D5A3C",
+                           "after_sha256":  "774D3CEB31C816EAE624515F0F3F2237A3129A4B4EFD8F0AD911B0DE820D5A3C",
+                           "unchanged":  true
+                       },
+                       {
+                           "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\bases",
+                           "before_files":  1966,
+                           "after_files":  1966,
+                           "before_bytes":  21064742116,
+                           "after_bytes":  21064742116,
+                           "before_sha256":  "7AF25B5E487231A56361F67735CF9197541D85EBEEADFA78552DE0CDEC98D15A",
+                           "after_sha256":  "7AF25B5E487231A56361F67735CF9197541D85EBEEADFA78552DE0CDEC98D15A",
+                           "unchanged":  true
+                       },
+                       {
+                           "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Profiles\\Tester",
+                           "before_files":  1625,
+                           "after_files":  1625,
+                           "before_bytes":  277637576,
+                           "after_bytes":  277637576,
+                           "before_sha256":  "4E66168B523123521B2CF9174948478FF7FCB84D686E62BE34241A283E59FEDE",
+                           "after_sha256":  "4E66168B523123521B2CF9174948478FF7FCB84D686E62BE34241A283E59FEDE",
+                           "unchanged":  true
+                       },
+                       {
+                           "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Tester",
+                           "before_files":  882,
+                           "after_files":  882,
+                           "before_bytes":  6847158854,
+                           "after_bytes":  6847158854,
+                           "before_sha256":  "E970F243BEE7BAB725FBC7460103BDDA7954D88D64F88CCD6CFEF3323F0EC63B",
+                           "after_sha256":  "E970F243BEE7BAB725FBC7460103BDDA7954D88D64F88CCD6CFEF3323F0EC63B",
+                           "unchanged":  true
+                       },
+                       {
+                           "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common",
+                           "before_files":  137,
+                           "after_files":  139,
+                           "before_bytes":  20008308,
+                           "after_bytes":  20008521,
+                           "before_sha256":  "D079FB458D8353D80B60CB4AA87953A9AEEF8A4C590FE785A991CA3317EA5103",
+                           "after_sha256":  "5389AA418F92136E4FCA3F14921BAC13FF20BC1DB041FEFDE0E8A9156F64D053",
+                           "unchanged":  false
+                       },
+                       {
+                           "root":  "C:\\Program Files\\MetaTrader 5\\Tester",
+                           "before_files":  24,
+                           "after_files":  24,
+                           "before_bytes":  233922,
+                           "after_bytes":  233922,
+                           "before_sha256":  "B92C16E6857A34995590043CFC4D0DF22EDF088F758687968B699657A5793F53",
+                           "after_sha256":  "B92C16E6857A34995590043CFC4D0DF22EDF088F758687968B699657A5793F53",
+                           "unchanged":  true
+                       }
+                   ]
+}

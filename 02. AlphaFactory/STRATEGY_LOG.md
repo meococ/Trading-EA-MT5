@@ -5372,3 +5372,48 @@ The ITSM mechanism has now been tested on three symbols. Every non-USDJPY test f
 
 **Lesson:** Macro event momentum on USDJPY+ M15 has genuine signal (PF 1.34 on strong reactions), but ~56 events/year × ~15% trigger rate = ~6 tradeable signals/year. Calendar-driven strategies on retail CFD are frequency-constrained by definition. The workspace's documented "1.8-2.5 pip edge" finding from the earlier Python audit was correct — the edge exists but doesn't scale to standalone deployment.
 
+---
+
+## PROCESS-UPS-V123 — Unicorn source-bound casebook (2026-07-16)
+
+**Class:** non-economic data-acquisition/process record; not a strategy run
+
+**EA:** `EA_UnicornPrecisionScalper` v1.23
+
+**Collection ID:** `DATA-ACQ-UNICORN-CASEBOOK-V1-002`
+
+**Authoritative AlphaFactory run:** `20260716_155111`
+
+**Symbol / TF / window / model:** XAUUSD / M5 / 2024-01-01..2025-12-25 / Model 0 collector
+**Source SHA256:** `10E278435644E63FD6418047AC775537CECEE8BBA4A9E5D89842E0F15312CB18`
+
+**Result:** 200 unique closed-bar alerts, zero nonblank labels/outcomes, zero
+trades, exact source agreement across row/meta/manifest, portable D storage and
+all protected C roots unchanged. WR/PF/DD/expectancy are not defined and must
+not be inferred from this run. V1.2 run `20260716_153059` is preserved but is
+diagnostic-only for labeling because it lacked row/meta source hash and a
+native breaker-validity label.
+
+**Invalid precursor:** `20260716_154857` created a report but no sidecars. MT5
+received the string hash as a literal numeric optimization tuple; the EA
+correctly rejected `OnInit`, and AlphaFactory correctly rejected the run. The
+type-aware serializer was fixed red-first and bound into the successful receipt.
+
+**Lessons:**
+
+1. Data lineage must reach each row and every downstream consumer; manifest-only
+   provenance does not make a review corpus trustworthy.
+2. Freeze label taxonomy before collection. Missing breaker taxonomy required a
+   new schema and collection, not a rewrite of the old evidence.
+3. Separate infrastructure failure from strategy failure. Missing sidecars after
+   report-ready means inspect inputs/OnInit; never weaken fail-closed validation.
+4. Pre-send risk sizing is provisional. Actual fill/SL/volume/cost must be
+   reconciled immediately, while enumeration errors must not become zero state.
+5. Engineering and collection success do not improve edge. The terminal Unicorn
+   economic evidence remains WR 34.615% / full-cost PF 0.498 at 2.5R and WR
+   35.606% / full-cost PF 0.475 at 1.5R.
+
+**Next legal gate:** independent outcome-blind human labels on the V1.3 corpus,
+then a separately frozen agreement/outcome plan. No MSS/breaker/FVG/session/RR
+patch or economic rerun is authorized from this process closeout.
+

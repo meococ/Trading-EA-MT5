@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_operational_failure.v1",
+  "hypothesis_id": "HYP-CFTC-FX-H1-001",
+  "attempted_at_utc": "2026-07-16T08:45:00Z",
+  "stage": "MT5_H1_HISTORY_READINESS_BEFORE_FIRST_BAR",
+  "error": "no_h1_rates:EURUSD:(-1, 'Terminal: Call failed')",
+  "probe_script_sha256": "AB83D5EC2B48771082DAF8EE710293B01947088B6275DB7B2331894C6AA02BAE",
+  "price_bars_returned": 0,
+  "outcomes_evaluated": 0,
+  "performance_metrics_produced": false,
+  "economic_probe_consumed": false,
+  "authorized_operational_fix": "Add the already-standard MT5 timeout, symbol_select handshake and bounded copy_rates retry only. Strategy, splits, signals, costs and gates remain frozen.",
+  "status": "OPERATIONAL_RETRY_ALLOWED_NO_OUTCOME_ACCESSED"
+}

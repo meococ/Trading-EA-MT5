@@ -1,0 +1,30 @@
+{
+  "schema_version": "alphafactory_data_acquisition_task.v1",
+  "authority": "DATA_ACQUISITION_ONLY_NO_TRADING_HYPOTHESIS",
+  "hypothesis_id": "DATA-ACQ-UNICORN-CASEBOOK-V1-001",
+  "ea_name": "EA_UnicornPrecisionScalper",
+  "source_sha256": "A1AD68BC668C277D5EF85E54F61C28F0688D6FF9AC037A43368CECF45383B003",
+  "source_contract_id": "UPS_ALERT_FIRST_CASEBOOK_V1_2",
+  "symbol": "XAUUSD",
+  "period": "M5",
+  "from": "2024.01.01",
+  "to": "2025.12.25",
+  "model": 0,
+  "execution_mode": 0,
+  "fixed_delay_ms": 0,
+  "run_role": "control",
+  "telemetry_tier": "off",
+  "deposit": 10000,
+  "leverage": 100,
+  "spread": "current",
+  "overrides": "InpAlertCasebookMaxRows=200;InpAllowRetiredResearchExecution=false;InpEnableAlertCasebook=true;InpEnableTelemetry=false;InpResearchAutoMode=false",
+  "required_sidecars": [
+    "XAUUSD_AlertCasebookMeta_*.csv",
+    "XAUUSD_AlertCasebook_*.csv"
+  ],
+  "performance_analysis_authorized": false,
+  "trading_mutation_authorized": false,
+  "max_casebook_rows": 200,
+  "min_valid_rows": 100,
+  "protected_storage_rule": "C_ROOTS_MUST_BE_IDENTICAL_BEFORE_AFTER"
+}

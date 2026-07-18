@@ -84,7 +84,7 @@ def test_archive_default_reference_roots_cover_current_control_surfaces(tmp_path
     }
     references = [
         ("04. Memory/hot.md", "20260716_010101"),
-        ("05. Playbook/sonic_tool_runbook.md", "20260716_010102"),
+        ("05. Playbook/tool_runbook.md", "20260716_010102"),
         ("01. GOAL/GOAL.md", "20260716_010103"),
         ("03. EA Developer/EA_Current/research/readout.md", "20260716_010104"),
         ("INDEX.md", "20260716_010105"),
@@ -188,7 +188,7 @@ def test_registry_narrative_matches_live_active_pins() -> None:
 
 
 def test_runbook_uses_live_alpha_entrypoints() -> None:
-    runbook = (WORKSPACE / "05. Playbook" / "sonic_tool_runbook.md").read_text(encoding="utf-8")
+    runbook = (WORKSPACE / "05. Playbook" / "tool_runbook.md").read_text(encoding="utf-8")
     assert '-File "02. AlphaFactory/tools/alpha_json.ps1"' not in runbook
     assert "Run evidence audit" not in runbook
     assert '-File "02. AlphaFactory/alpha.ps1"' in runbook

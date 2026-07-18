@@ -1,0 +1,82 @@
+{
+  "schema_version": "unicorn_event_state_probe.v1",
+  "hypothesis_id": "HYP-UPS-XAU-M5-005",
+  "created_at_utc": "2026-07-16T06:52:07.325303Z",
+  "purpose": "opportunity density and state validity only; not a fill or profitability backtest",
+  "probe_script_sha256": "FA335842F4AC3EFE3A1C3C98A4CB7450BD1BCB943AB3681812EEE53C55D0F573",
+  "parent_feature_script_sha256": "FC98AA57830A9B6B2147CF00E787FC15B403DE91F92FDCDB2083B6E2C22F77A6",
+  "casebook_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\20260716_HYP_UPS_XAU_M5_005_CASEBOOK.json",
+  "casebook_sha256": "0AA3D254148DC6445CB4730AFBBF6AF7CA3F893A05DA437FC3350869298FED60",
+  "terminal": {
+    "company": "MetaQuotes Ltd.",
+    "build": 6006,
+    "connected": true,
+    "portable": true,
+    "data_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent"
+  },
+  "data": {
+    "symbol": "XAUUSD",
+    "window_from": "2024.01.01",
+    "window_to_inclusive": "2025.12.25",
+    "m5_bars": 175133,
+    "h4_bars": 4603,
+    "d1_bars": 3219,
+    "elapsed_calendar_weeks": 103.57142857142857,
+    "raw_bars_persisted_to_workspace": false,
+    "outcomes_evaluated": false
+  },
+  "result": {
+    "challenger_candidates": 251,
+    "matched_control_candidates": 159,
+    "additional_candidates": 92,
+    "candidates_per_elapsed_week": 2.4234482758620692,
+    "direction_counts": {
+      "long": 205,
+      "short": 46
+    },
+    "active_months": 24,
+    "monthly_counts": {
+      "2024-01": 13,
+      "2024-02": 8,
+      "2024-03": 12,
+      "2024-04": 12,
+      "2024-05": 11,
+      "2024-06": 6,
+      "2024-07": 16,
+      "2024-08": 18,
+      "2024-09": 9,
+      "2024-10": 9,
+      "2024-11": 5,
+      "2024-12": 10,
+      "2025-01": 14,
+      "2025-02": 6,
+      "2025-03": 18,
+      "2025-04": 10,
+      "2025-05": 6,
+      "2025-06": 5,
+      "2025-07": 12,
+      "2025-08": 11,
+      "2025-09": 18,
+      "2025-10": 7,
+      "2025-11": 4,
+      "2025-12": 11
+    },
+    "late_state_candidates": 120,
+    "late_state_share": 0.47808764940239046,
+    "maximum_sweep_age_bars": 90,
+    "invalidated_candidates": 0,
+    "casebook_rows": 200,
+    "criteria": {
+      "cadence_ge_2_0": true,
+      "cadence_le_5_0": true,
+      "active_months_ge_20": true,
+      "long_candidates_ge_30": true,
+      "short_candidates_ge_30": true,
+      "casebook_rows_100_to_200": true,
+      "late_state_share_ge_0_20": true,
+      "challenger_gt_matched_control": true,
+      "invalidated_candidates_eq_0": true
+    },
+    "verdict": "PASS"
+  }
+}

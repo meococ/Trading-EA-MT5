@@ -18,18 +18,25 @@ Nguyên tắc nhanh:
 - Không backtest có ý nghĩa nào thiếu `hypothesis_id` + registry row
   (hard rules trong `AGENTS.md`).
 - Probe rẻ và offline trước; validation nặng chỉ dành cho survivor.
+- Build/fix/complete là outcome-led: tự đi tiếp từ code → verify → chẩn đoán
+  trong scope, không chờ Owner nhắc từng bước và không kết thúc ở plan/docs khi
+  còn bước triển khai hợp lệ.
+- Ceremony phải lean. Compile/test/safety/doc không đồng nghĩa EA đã hoàn thiện;
+  chỉ claim theo đúng logic/economic outcome đã được evidence xác nhận.
 - Harness EA/backtest: `02. AlphaFactory/alpha.ps1` (+ `alpha.local.ps1` máy
   cục bộ, không commit). Không invent toolchain song song.
 - Không commit/push Git trừ khi Owner yêu cầu rõ trong message hiện tại.
 - Source shelf/failed (SonicR full ledger + SilverBullet binary + 78 stub
   `.ex5` đã archive THẬT 2026-07-15): `00. Old File/EA_Archive/` — không compile
-  làm evidence. Active shelf `03. EA Developer/` = 2 lane (`EA_FVGConfluence`,
-  `EA_HybridICT_Sonic`) — xem README + `hot.md`.
+  làm evidence. Active shelf `03. EA Developer/`: danh sách lane compilable +
+  research-only terminal records sống ở `03. EA Developer/README.md`; trạng
+  thái kill/park sống ở `hot.md` + registry. Package có mặt trên shelf không
+  cấp quyền chạy hoặc live. File này không liệt kê shelf để tránh drift.
 - Đây là dự án cá nhân: mặc định một checkout/một nhánh hiện tại; không tự tạo
   branch, worktree, clone hay nhánh riêng cho sub-agent nếu Owner chưa yêu cầu.
 - Doc điều khiển gọn 2 khu: `04. Memory/` (state: hot.md, do_not_repeat,
-  registry) + `05. Playbook/` (4 file lõi: gates, runbook, engineering_standard,
-  research_doctrine). Doctrine cũ (workflow/roster/agents/policies/receipts) →
+  registry) + `05. Playbook/` (5 file lõi: gates, runbook, golden_path,
+  engineering_standard, research_doctrine). Doctrine cũ (workflow/roster/agents/policies/receipts) →
   archived `00. Old File/project_control_archive_20260716/`.
 - Standing: chốt phiên (cập nhật docs + dọn artifact) — parent chủ động sau
   session có ý nghĩa; chi tiết `AGENTS.md` §6.

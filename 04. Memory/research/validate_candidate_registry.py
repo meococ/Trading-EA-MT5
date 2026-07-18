@@ -8,11 +8,15 @@ import hashlib
 import json
 import re
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
 from typing import Any
 
 import jsonschema
+
+# Rows updated from this instant on must satisfy the probe-prereg rules below;
+# earlier rows are grandfathered (append-only history cannot be rewritten).
+PROBE_PREREG_ENFORCEMENT_START = datetime(2026, 7, 18, tzinfo=timezone.utc)
 
 
 RESEARCH_DIR = Path(__file__).resolve().parent
@@ -99,7 +103,60 @@ def verify_binding(path_value: Any, hash_value: Any, label: str, errors: list[st
     return path
 
 
-def validate_row_bindings(row: dict[str, Any], line: int, errors: list[str]) -> None:
+def verify_source_binding(
+    row: dict[str, Any],
+    label: str,
+    errors: list[str],
+    terminal_snapshot: dict[str, Any] | None,
+) -> Path | None:
+    source_path = row.get("source_path")
+    source_hash = row.get("source_hash")
+    if source_path is None and source_hash is None:
+        return None
+    if source_path is None or source_hash is None:
+        errors.append(f"{label}: path and SHA256 must be supplied together")
+        return None
+    source_file = resolve_workspace_path(source_path, label, errors)
+    if source_file is None:
+        return None
+    if not isinstance(source_hash, str) or re.fullmatch(r"[A-Fa-f0-9]{64}", source_hash) is None:
+        errors.append(f"{label}: SHA256 is invalid")
+        return None
+    expected_hash = source_hash.upper()
+    actual_hash = sha256_file(source_file)
+    if actual_hash == expected_hash:
+        return source_file
+
+    # An append-only terminal hypothesis may outlive a changing canonical EA.
+    # Its latest terminal row must explicitly bind an immutable package-local
+    # source snapshot. Active hypotheses never receive this fallback.
+    if terminal_snapshot is not None:
+        ea_name = str(row.get("ea_name") or "")
+        snapshot_path = terminal_snapshot.get("source_snapshot_path")
+        snapshot_hash = terminal_snapshot.get("source_snapshot_sha256")
+        expected_prefix = f"03. EA Developer/{ea_name}/research/source_snapshots/"
+        if isinstance(snapshot_path, str) and snapshot_path.startswith(expected_prefix):
+            snapshot_file = verify_binding(snapshot_path, snapshot_hash, f"{label} terminal snapshot", errors)
+            if snapshot_file is not None:
+                if str(snapshot_hash).upper() != expected_hash:
+                    errors.append(f"{label}: terminal snapshot SHA256 does not match frozen source_hash")
+                else:
+                    return snapshot_file
+        else:
+            errors.append(
+                f"{label}: stale terminal source requires source_snapshot_path inside '{expected_prefix}'"
+            )
+
+    errors.append(f"{label}: SHA256 mismatch expected={expected_hash} actual={actual_hash}")
+    return None
+
+
+def validate_row_bindings(
+    row: dict[str, Any],
+    line: int,
+    errors: list[str],
+    terminal_snapshot: dict[str, Any] | None = None,
+) -> None:
     label = f"line {line} {row.get('hypothesis_id', '<unknown>')}"
     ea_name = str(row.get("ea_name") or "")
     expected_source = f"03. EA Developer/{ea_name}/{ea_name}.mq5"
@@ -107,8 +164,10 @@ def validate_row_bindings(row: dict[str, Any], line: int, errors: list[str]) -> 
     prereg_path = row.get("prereg_path")
 
     if source_path is not None and source_path != expected_source:
-        errors.append(f"{label}: source_path must be canonical '{expected_source}'")
-    source_file = verify_binding(source_path, row.get("source_hash"), f"{label} source", errors)
+        expected_snapshot_prefix = f"03. EA Developer/{ea_name}/research/source_snapshots/"
+        if terminal_snapshot is None or not str(source_path).startswith(expected_snapshot_prefix):
+            errors.append(f"{label}: source_path must be canonical '{expected_source}'")
+    source_file = verify_source_binding(row, f"{label} source", errors, terminal_snapshot)
     prereg_file = verify_binding(prereg_path, row.get("prereg_sha256"), f"{label} prereg", errors)
     if prereg_path is not None:
         expected_prefix = f"03. EA Developer/{ea_name}/research/"
@@ -119,6 +178,20 @@ def validate_row_bindings(row: dict[str, Any], line: int, errors: list[str]) -> 
             errors.append(f"{label}: execution state requires Model 0")
         if source_file is None or prereg_file is None:
             errors.append(f"{label}: execution state requires hash-bound canonical source and prereg")
+    if row.get("state") == "probe":
+        try:
+            row_ts = datetime.fromisoformat(str(row["updated_at_utc"]).replace("Z", "+00:00"))
+        except (KeyError, ValueError):
+            row_ts = None
+        if (
+            row_ts is not None
+            and row_ts >= PROBE_PREREG_ENFORCEMENT_START
+            and (row.get("prereg_path") is None or row.get("prereg_sha256") is None)
+        ):
+            errors.append(
+                f"{label}: probe state requires a SHA-bound frozen plan (PROBE_PLAN/prereg) "
+                f"from {PROBE_PREREG_ENFORCEMENT_START.date()}"
+            )
     if row.get("updated_at_utc") and not str(row["updated_at_utc"]).endswith("Z"):
         errors.append(f"{label}: updated_at_utc must use a Z timestamp")
     try:
@@ -160,6 +233,7 @@ def validate_registry(registry: Path, schema_path: Path) -> list[str]:
         return [f"schema is invalid: {exc}"]
 
     latest: dict[str, tuple[int, dict[str, Any], datetime]] = {}
+    parsed_rows: list[tuple[int, dict[str, Any]]] = []
     rows = 0
     for line_number, raw in enumerate(registry.read_text(encoding="utf-8-sig").splitlines(), 1):
         if not raw.strip():
@@ -184,7 +258,7 @@ def validate_registry(registry: Path, schema_path: Path) -> list[str]:
             errors.append(f"line {line_number} {location}: {issue.message}")
         if issues:
             continue
-        validate_row_bindings(row, line_number, errors)
+        parsed_rows.append((line_number, row))
         hypothesis_id = row["hypothesis_id"]
         timestamp = datetime.fromisoformat(row["updated_at_utc"].replace("Z", "+00:00"))
         if hypothesis_id in latest:
@@ -203,6 +277,16 @@ def validate_registry(registry: Path, schema_path: Path) -> list[str]:
                         errors.append(
                             f"line {line_number} {hypothesis_id}: frozen '{frozen}' changed from line {prior_line}"
                         )
+                if (
+                    timestamp >= PROBE_PREREG_ENFORCEMENT_START
+                    and prior.get("prereg_path") is not None
+                ):
+                    for frozen in ("prereg_path", "prereg_sha256"):
+                        if row[frozen] != prior[frozen]:
+                            errors.append(
+                                f"line {line_number} {hypothesis_id}: bound prereg '{frozen}' changed after "
+                                f"leaving idea (amend pre-outcome as _V2 at the idea->probe transition only)"
+                            )
             if prior_state in EXECUTION_STATES:
                 for frozen in ("source_path", "source_hash", "prereg_path", "prereg_sha256"):
                     if row[frozen] != prior[frozen]:
@@ -214,6 +298,18 @@ def validate_registry(registry: Path, schema_path: Path) -> list[str]:
                     f"line {line_number} {hypothesis_id}: illegal transition {prior_state}->{row['state']}"
                 )
         latest[hypothesis_id] = (line_number, row, timestamp)
+
+    terminal_snapshots: dict[str, dict[str, Any]] = {}
+    for hypothesis_id, (_, row, _) in latest.items():
+        if row.get("state") in TERMINAL_STATES and isinstance(row.get("validation"), dict):
+            terminal_snapshots[hypothesis_id] = row["validation"]
+    for line_number, row in parsed_rows:
+        validate_row_bindings(
+            row,
+            line_number,
+            errors,
+            terminal_snapshots.get(str(row.get("hypothesis_id") or "")),
+        )
 
     if rows == 0:
         errors.append("registry must contain at least one row")

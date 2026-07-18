@@ -1,0 +1,43 @@
+{
+  "schema_version": "unicorn_c_cache_cleanup_receipt.v1",
+  "hypothesis_id": "HYP-UPS-XAU-M5-002",
+  "generated_at_utc": "2026-07-16T05:32:16.8410413Z",
+  "scope": "Files created or expanded by the read-only XAU tick-coverage probe",
+  "terminal_status_before_delete": "STOPPED",
+  "deleted": [
+    {
+      "path": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\bases\\FivePercentOnline-Real\\ticks\\XAUUSD\\202604.tkc",
+      "bytes": 50223259,
+      "sha256_before_delete": "14958D2AD952FEA881E77937F723731E22D1B6AFB16FD60CA761D8E8F6219B7A",
+      "post_delete_exists": false,
+      "reason": "Created wholly by this probe and reproducible from the broker cache"
+    },
+    {
+      "path": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\bases\\FivePercentOnline-Real\\ticks\\XAUUSD\\202605.tkc",
+      "bytes": 132201622,
+      "sha256_before_delete": "78FBBBB551F9EA214B336B313894B682BC4A107651B5F0A50F68E9CFE4F15391",
+      "post_delete_exists": false,
+      "reason": "Created wholly by this probe and reproducible from the broker cache"
+    }
+  ],
+  "deleted_bytes": 182424881,
+  "protected_shared_history": [
+    {
+      "path": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\bases\\FivePercentOnline-Real\\ticks\\XAUUSD\\202606.tkc",
+      "pre_probe_bytes": 15469972,
+      "post_probe_bytes": 132504142,
+      "retained_added_bytes": 117034170
+    },
+    {
+      "path": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\bases\\FivePercentOnline-Real\\ticks\\XAUUSD\\202607.tkc",
+      "pre_probe_bytes": 64113699,
+      "post_probe_bytes": 75866296,
+      "retained_added_bytes": 11752597
+    }
+  ],
+  "protected_added_bytes": 128786767,
+  "protection_reason": "These proprietary TKC files existed before the probe; the newly downloaded records cannot be removed without deleting pre-existing shared history.",
+  "account_profiles_deleted": false,
+  "broker_config_deleted": false,
+  "shared_history_blindly_deleted": false
+}

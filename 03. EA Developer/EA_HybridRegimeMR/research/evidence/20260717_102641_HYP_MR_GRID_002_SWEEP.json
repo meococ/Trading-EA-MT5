@@ -1,0 +1,108 @@
+{
+  "schema_version": "mr_grid_falsification_sweep.v2",
+  "hypothesis_id": "HYP-MR-GRID-EURUSD-H1-002",
+  "ea_name": "EA_HybridRegimeMR",
+  "engine_version": "mr_grid_engine.v1",
+  "generated_at_utc": "2026-07-17T10:26:41Z",
+  "prereg_sha256": "FC017E4FC4085A2673BF9158C2A8DE5CB827A48EA21213EA49C17CD1705176D0",
+  "stage1": {
+    "cells": 1350,
+    "arms_per_cell": [
+      "control",
+      "gated",
+      "g_adx1",
+      "g_adx4",
+      "g_atr",
+      "g_hl"
+    ],
+    "session": [
+      7,
+      16
+    ]
+  },
+  "stage2": {
+    "routing_rule": "combined gross PF >= 1.25 and n >= 100 in any Stage-1 arm",
+    "cells_routed": 0,
+    "arms_evaluated": 0,
+    "note": "no cell passed the routing filter; Stage-2 skipped per frozen rule"
+  },
+  "total_evaluations": 8100,
+  "inputs": {
+    "h1_sha256": "71860016AF1BD1B17353B043AFF799233A787E9DF3F587913FCD2F5328BB1E08",
+    "h4_sha256": "54004265973EDF73ADC98BA9F561B05B2264C4551F119B1EC477CE4901188E22",
+    "holdout_bars_loaded": 0
+  },
+  "cost_status": "UNVERIFIED_PROXY",
+  "trial_accounting": {
+    "n_trials": 8100,
+    "sr_population": 8100,
+    "var_sr_across_trials": 0.005702,
+    "expected_max_sr": 0.28761,
+    "dsr_floor": 0.95,
+    "n_convention": "every executed simulation (config x arm), stage 1 complete + stage 2 empty; cost tiers are NOT separate trials"
+  },
+  "distribution": {
+    "routing_passers": 0,
+    "gross_pf_max": 1.2476,
+    "gross_pf_median": 0.8902,
+    "gross_pf_ge_1_25_count": 0,
+    "gross_pf_ge_1_0_count": 891,
+    "pf_x1_max": 1.0991,
+    "pf_x1_median": 0.7741,
+    "n_median": 392,
+    "n_max": 1226
+  },
+  "best_deflated": {
+    "dsr": 0.0129,
+    "cell_id": "W100_Z2.4_SL2.5_TP1.8_TS3.0_TR0_S716",
+    "arm": "gated",
+    "stage": 1,
+    "combined": {
+      "n": 48,
+      "tpw": 0.115,
+      "gross_pf": 1.0312,
+      "pf_x1": 0.9104,
+      "pf_x1_5": 0.8551,
+      "pf_x2": 0.8033,
+      "exp_x1": -0.04663,
+      "net_r_x1": -2.238,
+      "sr_trade": -0.04148,
+      "skew": 0.5684,
+      "kurt": 1.6425,
+      "by_year_net_r_x1": {
+        "2015": -2.858,
+        "2016": -0.757,
+        "2017": 1.427,
+        "2018": 7.491,
+        "2019": 0.259,
+        "2020": -4.955,
+        "2021": 0.368,
+        "2022": -3.213
+      },
+      "loo_pf_x1": 0.8406,
+      "loo_exp_x1": -0.0847,
+      "top1_win_share": 0.0767
+    },
+    "conjunction": {
+      "pass": false,
+      "checks": {
+        "n_combined": false,
+        "gross_pf": false,
+        "pf_x1": false,
+        "exp_x1": false,
+        "pf_x1_5": false,
+        "pf_x2": false,
+        "pos_years": false,
+        "concentration": false,
+        "loo_pf": false,
+        "loo_exp": false,
+        "top1_share": true
+      }
+    }
+  },
+  "flag_passers": [],
+  "verdict": "KILL_FAMILY_EXHAUSTIVE_AT_OFFLINE_GRID",
+  "promotion_eligible": false,
+  "results_file": "20260717_102352_HYP_MR_GRID_002_RESULTS.jsonl",
+  "results_sha256": "1BE2BB7DD81E9E77B9780E487068C7C7E478FE504A0831A516105747395A6F43"
+}

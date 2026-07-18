@@ -1,25 +1,17 @@
 # Doctrine Nghiên Cứu
 
-Cập nhật: 2026-07-13
+Cập nhật: 2026-07-16
 
 Doc chi tiết được `AGENTS.md` trỏ tới. Chứa toàn bộ doctrine nghiên cứu/
 validation trước đây nằm inline trong `AGENTS.md`. Mở khi thiết kế hoặc
 review một hypothesis, run, hay thay đổi code EA. Trạng thái sống nằm ở
-`hot.md`; ngưỡng theo stage nằm ở `sonic_validation_gates.md`.
+`hot.md`; ngưỡng theo stage nằm ở `validation_gates.md`.
 
-## Doctrine Sonic R
-
-- Bản Sonic R hiện tại là nghiên cứu parity được tái dựng, không phải
-  parity nguồn gốc đã xác nhận.
-- Classic là setup lõi: sóng price-action cộng góc Dragon, rồi tới Trend,
-  HTF, session, và context S/R.
-- PVSRA là context/qualification, không phải trigger vào lệnh độc lập.
-- Không biến volume spike, số tròn, hay quan sát sweep/reclaim thành entry
-  thực thi khi chưa có hypothesis tiền đăng ký riêng và evidence.
-- Sideway là một regime hạng nhất, không phải lý do nới lỏng luật Classic.
-- Chất lượng chart nhìn thấy phải được chuyển thành feature khả kiểm trước
-  khi code: độ mượt sóng, Dragon nở/nén, non-chase, runway S/R, trap/build
-  vs run-for-profits, pha session, độ thực của cost/spread.
+Nguyên tắc chung rút từ mọi lane: indicator context/qualification không phải
+trigger độc lập; quan sát chart phải thành feature khả kiểm trước khi code;
+sideway là một regime hạng nhất; không nới luật lõi của một setup vì regime.
+Doctrine riêng của lane đã archive nằm cạnh ledger lane đó trong
+`00. Old File/EA_Archive/`.
 
 ## ChatGPT Deep Research Cho Nghiên Cứu Chiến Lược
 
@@ -98,8 +90,15 @@ Dùng vòng lặp này cho công việc chiến lược EA có ý nghĩa:
    đã đủ rõ.
 2. De-dup với `do_not_repeat_failures.md` và registry; tạo row `idea|probe`,
    draft MỘT prereg theo `02. AlphaFactory/templates/research/PREREG_TEMPLATE.md`.
-3. Chạy probe/scanner offline rẻ TRƯỚC code entry EA. Probe fail thì park/kill;
-   probe pass mới freeze prereg và giữ state `probe` (source có thể còn `null`).
+3. Chạy probe/scanner offline rẻ TRƯỚC code entry EA. Probe dùng làm bằng
+   chứng KILL/falsification phải freeze PROBE_PLAN tiền-kết-quả và SHA-bind
+   vào row `idea|probe` (window/model/override/contract đóng băng ngay khi rời
+   `idea`). Plan đã bind là bất biến: amendment pre-outcome PHẢI thành file
+   `_V2.md` bind ở transition kế — không sửa in-place (validator hash-check
+   mọi row lịch sử). Probe fail thì park/kill; probe pass giữ state `probe`
+   (source có thể còn `null`); prereg Model 0 đầy đủ chỉ freeze khi thực sự
+   build EA. Probe khám phá thuần (không dùng làm verdict) không cần plan
+   đóng băng.
 4. Build package canonical theo `ea_golden_path.md`, audit non-repaint, compile,
    rồi append `screened` với source + prereg hash:
    `powershell -NoProfile -ExecutionPolicy Bypass -File "02. AlphaFactory/alpha.ps1" compile "<EA_NAME>"`.
@@ -119,9 +118,8 @@ Dùng vòng lặp này cho công việc chiến lược EA có ý nghĩa:
     prereg/readout, `source_of_truth.*` nếu path đổi và failure memory nếu có kill.
 11. Lưu trữ telemetry Common Files và artifact run cũ kèm manifest sau các
     backtest có ý nghĩa.
-12. Dùng `02. AlphaFactory/tools/ea_research_loop.ps1` cho full-loop nghiêm túc.
-    Tên `sonic_research_loop.ps1` chỉ còn là compatibility engine, không phải
-    entrypoint mới cho EA generic.
+12. Dùng `02. AlphaFactory/tools/ea_research_loop.ps1` cho full-loop nghiêm túc;
+    `research_loop_engine.ps1` là engine nội bộ phía sau, không gọi trực tiếp.
 
 ## Quy Trình Team Review
 
@@ -148,7 +146,7 @@ nghĩa cần registry row và prereg trước khi kết quả được dùng cho
 định.
 
 Registry bao phủ mọi hypothesis EA/portfolio FX được Owner mở rõ ràng trong
-workspace, không chỉ Sonic R. Nó là append-only state ledger; vị trí file không
+workspace. Nó là append-only state ledger; vị trí file không
 cấp quyền chạy và không thay thế `hot.md`.
 
 Registry canonical:
@@ -160,6 +158,9 @@ Registry canonical:
 
 Mọi run có ý nghĩa phải gắn với một `hypothesis_id`, `ea_name`, prereg/source
 hash và row hash. Row `parked|killed` là terminal; không được revive cùng ID.
+Khi canonical source tiếp tục sang hypothesis mới, row terminal cũ phải bind
+source snapshot bất biến trong `research/source_snapshots/`; row còn active vẫn
+phải bind canonical source. Không sửa ngược source hash lịch sử để làm validator xanh.
 
 Field tối thiểu:
 
@@ -175,9 +176,45 @@ Trạng thái cho phép:
 - `idea -> probe -> screened -> challenger -> confirmed -> portfolio-sleeve`
 - trạng thái kết thúc: `parked`, `killed`
 
+Quy tắc registry bổ sung:
+
+- Registry `acceptance_contract` = bar GOAL/promotion (schema pin PF≥1.3,
+  2-5 tpw), KHÔNG phải verdict instrument của probe. Kill-gate của probe sống
+  trong plan đã SHA-bind; đọc verdict một row theo plan, không theo contract.
+- Một design-only screen (không probe/evidence, ví dụ cron O-screen) chỉ ghi
+  một prior, KHÔNG phải kill terminal. Hypothesis Owner-scoped + de-dup
+  clearance + plan đóng băng hợp pháp override nó (ghi lý do trong plan).
+  Chỉ verdict evidence-terminal (probe/Model 0 đã chạy) mới bind chống reopen.
+- Append registry = ghi nguyên dòng + newline trong một lần write; chạy
+  validator ngay sau mỗi append như commit gate. Binding sai phát hiện trước
+  khi đọc outcome → sửa bằng corrective append/row mới, không mutate lịch sử.
+- `trials/trial_log.jsonl` giữ per-EA-package (không ledger chung); mỗi row
+  phải mang `hypothesis_id` + `prereg_sha256` để tự xác thực với plan.
+
 Probe khám phá có thể gợi ý idea, nhưng promotion đòi một run tiền đăng ký
 mới. Public strict loop không mở Model 1; evidence Model 1 legacy chỉ được kill
 hoặc park, không được promote.
+
+## Contract Fidelity Brief → Code
+
+Trước probe kinh tế hoặc Model 0 cho brief discretionary/SMC/ICT, phải tạo
+matrix requirement→code cho mọi hard gate, entry timing, invalidation, stop,
+target và quản trị. Mỗi hàng chỉ được phân loại `exact`, `proxy`, `missing` hoặc
+`contradictory`, kèm source line và rule định lượng. Fixed score/điểm placeholder
+không được đại diện cho một feature chưa đo.
+
+- Probe builder, EA source, preset và prereg phải dùng cùng parameter semantics.
+  Trước Model 0, so candidate identity/event id giữa builder và source; khác
+  lookback, anchor hoặc invalidation là lỗi provenance, không phải variant edge.
+- Kết quả run chỉ falsify hoặc support đúng proxy/source/config đã chạy. Không
+  được tuyên bố đã falsify toàn bộ memo khi matrix còn `missing|contradictory`;
+  đồng thời fidelity gap cũng không tự revive family hay cấp quyền rescue.
+- Điều kiện chỉ tồn tại sau formation (retest, rejection, CISD/micro-confirmation)
+  phải là state transition ở quyết định sau. Không gắn nó vào signal tại chính
+  close hình thành FVG/zone rồi gọi signal đó `entry-ready`.
+- Sửa correctness mà không đổi candidate identity không tự cấp quyền đọc lại
+  outcome. Nếu identity đổi, đó là child/idea mới và phải qua de-dup, window và
+  prereg mới; không dùng sửa bug làm đường vòng hậu nghiệm.
 
 ## Contract Nhãn Chart-State
 
@@ -204,6 +241,55 @@ Negative control là bắt buộc: các lệnh thua `SIDEWAY_WIDE`, các lệnh 
 impulse, trade bị bỏ lỡ high-MFE, false positive high-MAE, và các session
 liền kề.
 
+Với casebook outcome-blind hoặc taxonomy discretionary:
+
+- Freeze rubric, reviewer schema, sample/density/agreement gates và analysis
+  plan trước reviewer output hoặc outcome join. `ambiguous` là nhãn thật, không
+  ép thành pass/fail để làm đẹp agreement.
+- Source CSV bất biến; reviewer ghi overlay theo `event_id`. Row và metadata
+  phải bind collection id, contract/schema version, source SHA256, input identity,
+  symbol/timeframe và decision cutoff. Schema thiếu hard-gate label thì corpus
+  cũ chỉ diagnostic, không được vá label ngược vào source CSV.
+- Lưu cả server time và UTC cùng offset đã đóng băng; ghi rõ decision timestamp
+  là bar open hay close cutoff. MT5 Python history phải query theo trục broker
+  server rồi chuẩn hóa offset và chứng minh bar cuối đã đóng trước cutoff.
+- Reviewer chỉ được dùng thông tin tồn tại tại cutoff. Nhãn post-formation cần
+  packet/state sau formation; nếu chưa thể tồn tại thì phải `no`, không suy từ
+  outcome tương lai.
+- AI/rule review chỉ là `AI_EXPLORATORY` để hiệu chuẩn taxonomy. Nó không thay
+  reviewer human độc lập hoặc clear kappa/density gate nếu prereg yêu cầu human.
+- Không join PnL/forward return/fill/MFE/MAE cho tới khi label agreement và
+  accepted-density gate qua, rồi đóng băng một analysis plan riêng. Gate fail
+  thì đóng detector-to-memo gap, không tune taxonomy từ outcome.
+
+## Contract Data-Acquisition / Casebook
+
+Data collection là một lane evidence riêng, không phải economic backtest rút
+gọn. Trước khi chạy phải khóa collection id, authority, source contract, exact
+source SHA, schema/header, taxonomy label, row cap, zero-trade rule, storage
+roots và downstream consumer.
+
+- Exact source identity phải khớp xuyên suốt task, receipt, manifest, metadata,
+  từng row và extractor. Chỉ bind hash ở manifest không đủ cho label corpus.
+- Freeze toàn bộ cột cần review trước collection. Thiếu một khái niệm cốt lõi
+  làm corpus cũ `diagnostic-only`; giữ nguyên artifact cũ và thu corpus version
+  mới, không backfill/ghi đè để giả vờ prereg từ đầu.
+- Label/outcome columns phải trống; không ghi PnL, MFE, MAE, forward return hoặc
+  fill outcome. Zero trade phải được report + summary chứng minh và đồng nghĩa
+  WR/PF/expectancy không xác định, không phải bằng 0.
+- Required sidecar thiếu, `OnInit` reject, input literal sai type, hash mismatch
+  hoặc consumer schema drift đều là infrastructure-invalid. Sửa correctness rồi
+  chạy lại cùng packet chỉ khi chưa đọc outcome; không dùng lỗi harness để kết
+  luận strategy và không nới validation của EA.
+- Extractor/label rubric/analyzer phải có schema version riêng, bind exact corpus
+  và preflight actual rows trước reviewer. Parse được JSON/CSV chưa đủ.
+- Mutation authority của collector phải tắt; terminal/tester nằm đúng storage
+  contract; protected C roots có before/after inventory. Evidence D-side được
+  giữ theo manifest, không xóa phá hủy chỉ vì collection không có trade.
+- Engineering/data-lineage PASS không mở hypothesis kinh tế. Chỉ sealed human
+  labels + analysis plan đóng băng mới có thể đề xuất một feature family mới;
+  vẫn phải de-dup và dùng fresh hypothesis/window.
+
 ## Multiple Testing Và Budget Chống Overfit
 
 - Một hypothesis bằng một feature family và một phép tách trạng thái.
@@ -215,11 +301,18 @@ liền kề.
 - Cửa sổ holdout dùng để validation không được dùng để thiết kế feature.
 - Đếm các filter thất bại, veto giờ, gate pha, và các lần sweep tham số
   vào variant family khi diễn giải PBO/Reality Check.
+- Verdict multi-simulation dùng DSR (Bailey/López de Prado, floor 0.95):
+  N = MỌI simulation đã chạy (mọi stage, kể cả control và arm fail); cost
+  tier x1/x1.5/x2 KHÔNG phải trial riêng (cùng trade set); V[SR] trên tất cả
+  arm; PSR dùng skew + kurtosis non-excess, radicand ≤ 0 ⇒ fail (không skip).
+  Chuỗi primary = pooled train+validation (split đã bị search không còn là
+  OOS); implementation tự viết + self-test với ví dụ số trong paper
+  (canonical: `02. AlphaFactory/tools/research/dsr.py`).
 
 ## Gate Promotion
 
 Không bao giờ promote một EA chỉ từ profit factor. Ngưỡng theo stage và
-artifact bắt buộc: `05. Playbook/sonic_validation_gates.md`.
+artifact bắt buộc: `05. Playbook/validation_gates.md`.
 
 Research-only là bắt buộc khi bất kỳ điều nào sau đây đúng:
 
@@ -277,6 +370,11 @@ hạn đã biết được nêu thẳng.
 - Mọi compile/backtest lấy nguồn từ `00. Old File` hoặc path lưu trữ khác
   là evidence không hợp lệ và phải được đánh dấu như vậy trước khi trích
   dẫn.
+- Run Strategy Tester zero-trade chỉ được gọi data acquisition khi có prereg
+  `DATA_ACQUISITION_ONLY`, mutation false, outcome/labels blank, summary xác nhận
+  zero trades và `performance_metrics_authorized=false`. Nó không cần/không tạo
+  một economic hypothesis, không được trích PF/WR/cadence và phải dừng nếu phát
+  sinh trade hoặc outcome-like field.
 - Closure phải xác nhận: path report, check row/header sidecar,
   `validate-full`, cost stress, attribution pha/regime khi áp dụng, refresh
   `runs.db`, chuyển trạng thái registry, manifest cục bộ của run, và
@@ -292,3 +390,11 @@ hạn đã biết được nêu thẳng.
   runtime. Lưu trữ kèm manifest trước khi xóa, tránh dọn dẹp phá hủy.
 - Không schedule/cron vòng lặp MT5 khi chưa được duyệt rõ ràng. Run MT5
   dài có thể ngốn bộ nhớ và bỏ lại process tester.
+- Sau mọi pull MetaTrader5 qua python-bridge: `mt5.shutdown()` KHÔNG kết thúc
+  `terminal64.exe` mà `initialize(path=...)` tự mở. Verify không còn orphan
+  `terminal64.exe` và stop nó; receipt ghi process count before/after, không
+  chỉ "shutdown() called".
+- Probe/grid engine phải ghi raw per-trial/per-sim ra đĩa TRƯỚC bước
+  summarize/serialize (crash bước tổng hợp → re-emit bằng post-processing,
+  không re-simulate). `json.dumps` phải cast numpy (bool_/int64/float64) →
+  native hoặc set `default=`.

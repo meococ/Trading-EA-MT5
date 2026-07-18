@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_source_static_audit.v1",
+  "hypothesis_id": "HYP-UPS-XAU-M5-002",
+  "source_path": "03. EA Developer/EA_UnicornPrecisionScalper/EA_UnicornPrecisionScalper.mq5",
+  "source_sha256": "DEA7C2E3380B04E494DABD8D985C1912DA5E023F76AC277ADD6653453071376E",
+  "status": "PASS",
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "line": 158,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "decision_data_contract": "CopyRates shift=1; tick data only for spread, entry and owned-position management",
+  "generated_at_utc": "2026-07-16T05:09:06Z"
+}

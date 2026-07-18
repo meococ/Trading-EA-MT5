@@ -1,0 +1,237 @@
+{
+  "schema_version": "alphafactory_offline_probe.v1",
+  "hypothesis_id": "HYP-CME-OI-CONT-H1-FX-001",
+  "generated_at_utc": "2026-07-16T10:11:48.763853Z",
+  "verdict": "KILL_AT_OFFLINE_PROBE",
+  "all_gates_passed": false,
+  "holdout": {
+    "years": [
+      2024,
+      2025
+    ],
+    "feature_rows_loaded": 0,
+    "price_bars_loaded": 0,
+    "outcomes_evaluated": 0
+  },
+  "contract": {
+    "anchor_time_utc": "20:00:00",
+    "entry_time_utc": "17:00:00",
+    "exit_time_utc": "20:00:00",
+    "atr_period": 14,
+    "stop_atr": 1.5,
+    "risk_fraction": 0.0025,
+    "cost_x1_pips": {
+      "EURUSD": 1.5,
+      "GBPUSD": 2.0,
+      "USDJPY": 1.5
+    },
+    "cost_status": "UNVERIFIED_CONSERVATIVE_RESEARCH_PROXY_NON_PROMOTABLE"
+  },
+  "source": {
+    "manifest_path": "02. AlphaFactory/external/cme_daily_volume/source_manifest.json",
+    "manifest_sha256": "6226AE4B9BCE4379D150C0B7A627ECF4B177A960F4A7E6A1CBE099056989DDC1",
+    "feature_path": "02. AlphaFactory/external/cme_daily_volume/fx_participation.csv",
+    "feature_sha256": "0083BB12B9F0A9D679E7385D299CAB177121B6BB50FFD6186924E394CB854D50",
+    "profile_path": "02. AlphaFactory/external/cme_daily_volume/fx_participation_profile.json",
+    "profile_sha256": "9F926B9FAF8CD6E974693062A5D830E08ED324351DD7EA81C0A707BA1520FE18",
+    "profile": {
+      "schema_version": "cme_daily_fx_participation.v1",
+      "generated_at_utc": "2026-07-16T10:08:02.963833Z",
+      "source_manifest_path": "02. AlphaFactory/external/cme_daily_volume/source_manifest.json",
+      "source_manifest_sha256": "6226AE4B9BCE4379D150C0B7A627ECF4B177A960F4A7E6A1CBE099056989DDC1",
+      "output_path": "02. AlphaFactory/external/cme_daily_volume/fx_participation.csv",
+      "output_sha256": "0083BB12B9F0A9D679E7385D299CAB177121B6BB50FFD6186924E394CB854D50",
+      "date_first": "2017-01-03",
+      "date_last": "2023-12-29",
+      "date_count": 1763,
+      "row_count": 5289,
+      "rows_by_symbol": {
+        "EURUSD": 1763,
+        "GBPUSD": 1763,
+        "USDJPY": 1763
+      },
+      "failures": [],
+      "price_outcomes_accessed": false,
+      "research_authorized": false
+    }
+  },
+  "mt5_identity": {
+    "terminal_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\terminal64.exe",
+    "terminal_build": 6006,
+    "data_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent",
+    "commondata_path": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common",
+    "portable": true,
+    "server": "FivePercentOnline-Real",
+    "login": 26451822
+  },
+  "h1_identity": {
+    "EURUSD": {
+      "bars": 44038,
+      "first_utc": "2016-12-01T00:00:00+00:00",
+      "last_utc": "2023-12-29T23:00:00+00:00"
+    },
+    "GBPUSD": {
+      "bars": 44042,
+      "first_utc": "2016-12-01T00:00:00+00:00",
+      "last_utc": "2023-12-29T23:00:00+00:00"
+    },
+    "USDJPY": {
+      "bars": 44041,
+      "first_utc": "2016-12-01T00:00:00+00:00",
+      "last_utc": "2023-12-29T23:00:00+00:00"
+    }
+  },
+  "events": {
+    "eligible": {
+      "train": 887,
+      "internal_validation": 426
+    },
+    "source_signal_skips": {
+      "train": 0,
+      "internal_validation": 0
+    },
+    "price_skips": {
+      "candidate": {
+        "train": 1,
+        "internal_validation": 0
+      },
+      "control": {
+        "train": 1,
+        "internal_validation": 0
+      }
+    }
+  },
+  "metrics": {
+    "candidate": {
+      "train": {
+        "trades": 886,
+        "elapsed_calendar_weeks": 208.71428571428572,
+        "trades_per_elapsed_week": 4.245037645448323,
+        "gross_profit_factor": 1.1208414960549904,
+        "profit_factor_x1": 0.877550170536012,
+        "profit_factor_x1_5": 0.7868091997904255,
+        "profit_factor_x2": 0.7061222717002241,
+        "net_r_x1": -43.007120614988395,
+        "expectancy_r_x1": -0.048540768188474484,
+        "max_drawdown_pct_x1": 14.934957029520334,
+        "symbol_trades": {
+          "EURUSD": 203,
+          "GBPUSD": 331,
+          "USDJPY": 352
+        },
+        "net_r_by_year_x1": {
+          "2018": -30.52312983784324,
+          "2019": -12.019110856047156,
+          "2020": 0.1570802794044357,
+          "2021": -0.6219602005024618
+        },
+        "max_positive_year_share": 0.27793577223882593
+      },
+      "internal_validation": {
+        "trades": 426,
+        "elapsed_calendar_weeks": 104.28571428571429,
+        "trades_per_elapsed_week": 4.084931506849315,
+        "gross_profit_factor": 1.0686465762585589,
+        "profit_factor_x1": 0.9243491032327198,
+        "profit_factor_x1_5": 0.8535044174624749,
+        "profit_factor_x2": 0.7881789944050586,
+        "net_r_x1": -11.949684501976003,
+        "expectancy_r_x1": -0.02805090258679813,
+        "max_drawdown_pct_x1": 3.625740675710665,
+        "symbol_trades": {
+          "EURUSD": 119,
+          "GBPUSD": 146,
+          "USDJPY": 161
+        },
+        "net_r_by_year_x1": {
+          "2022": -1.7598882123351927,
+          "2023": -10.189796289640809
+        },
+        "max_positive_year_share": 0.504870846962939
+      }
+    },
+    "control": {
+      "train": {
+        "trades": 886,
+        "elapsed_calendar_weeks": 208.71428571428572,
+        "trades_per_elapsed_week": 4.245037645448323,
+        "gross_profit_factor": 0.9655236012488949,
+        "profit_factor_x1": 0.7837261730919998,
+        "profit_factor_x1_5": 0.7047175884995874,
+        "profit_factor_x2": 0.6339542272754682,
+        "net_r_x1": -74.8124362935403,
+        "expectancy_r_x1": -0.08443841568119673,
+        "max_drawdown_pct_x1": 17.876783365661865,
+        "symbol_trades": {
+          "EURUSD": 210,
+          "GBPUSD": 458,
+          "USDJPY": 218
+        },
+        "net_r_by_year_x1": {
+          "2018": -18.665354415268705,
+          "2019": -34.881798273302834,
+          "2020": -2.8415998030659058,
+          "2021": -18.42368380190286
+        },
+        "max_positive_year_share": 0.2629410315349152
+      },
+      "internal_validation": {
+        "trades": 426,
+        "elapsed_calendar_weeks": 104.28571428571429,
+        "trades_per_elapsed_week": 4.084931506849315,
+        "gross_profit_factor": 0.9914358037129749,
+        "profit_factor_x1": 0.8548550335510967,
+        "profit_factor_x1_5": 0.7933845891377616,
+        "profit_factor_x2": 0.7362518261905144,
+        "net_r_x1": -22.74079071176105,
+        "expectancy_r_x1": -0.05338213782103533,
+        "max_drawdown_pct_x1": 8.239855601414684,
+        "symbol_trades": {
+          "EURUSD": 73,
+          "GBPUSD": 139,
+          "USDJPY": 214
+        },
+        "net_r_by_year_x1": {
+          "2022": -1.7745396395439936,
+          "2023": -20.966251072217055
+        },
+        "max_positive_year_share": 0.5313313514396147
+      }
+    }
+  },
+  "gates": {
+    "train": {
+      "cadence_min_2": true,
+      "cadence_max_5": true,
+      "pf_x1_gt_1_30": false,
+      "pf_x1_5_gte_1_25": false,
+      "pf_x2_gte_1_00": false,
+      "net_r_x1_positive": false,
+      "minimum_100_trades": true,
+      "max_dd_lte_5_5_pct": false,
+      "beats_control_pf_margin_0_10": false,
+      "beats_control_net_r": true,
+      "candidate_price_skips_lte_2": true,
+      "control_price_skips_lte_2": true,
+      "positive_r_year_concentration": true
+    },
+    "internal_validation": {
+      "cadence_min_2": true,
+      "cadence_max_5": true,
+      "pf_x1_gt_1_30": false,
+      "pf_x1_5_gte_1_25": false,
+      "pf_x2_gte_1_00": false,
+      "net_r_x1_positive": false,
+      "minimum_100_trades": true,
+      "max_dd_lte_5_5_pct": true,
+      "beats_control_pf_margin_0_10": false,
+      "beats_control_net_r": true,
+      "candidate_price_skips_lte_2": true,
+      "control_price_skips_lte_2": true,
+      "positive_r_year_concentration": true
+    }
+  },
+  "gate_pass_count": 15,
+  "gate_total": 26,
+  "trades_path": "03. EA Developer/EA_CMEParticipationPulse/research/evidence/20260716_101148_HYP_CME_OI_CONT_H1_FX_001_TRADES.csv"
+}

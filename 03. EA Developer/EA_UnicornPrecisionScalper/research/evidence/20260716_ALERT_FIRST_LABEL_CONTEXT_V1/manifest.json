@@ -1,0 +1,112 @@
+{
+  "schema_version": "unicorn_alert_label_context_manifest.v1",
+  "created_at_utc": "2026-07-16T08:40:43.327584Z",
+  "authority": "PRE_OUTCOME_LABEL_CONTEXT_ONLY",
+  "outcomes_included": false,
+  "review_rows": 200,
+  "batch_size": 50,
+  "casebook": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_UnicornPrecisionScalper\\20260716_153059\\logs\\XAUUSD_AlertCasebook_HYP-UPS-XAU-M5-006_61741640.csv",
+    "sha256": "D96F556493DE008C0280907386488411D557451D8C507E1D46B6A05CB48A091E"
+  },
+  "rubric": {
+    "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\20260716_ALERT_FIRST_LABEL_RUBRIC_V1.md",
+    "sha256": "A32F2B46475E04C133F0FEE5E471177ED63D970EEB32CD1ED605D062B009A743"
+  },
+  "extractor_sha256": "2C3DB8D92E61CC909D6EEFEEE94189BF033A21B57D0035BBDE5FAAE871916030",
+  "terminal": {
+    "company": "MetaQuotes Ltd.",
+    "build": 6006,
+    "portable": true,
+    "data_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent"
+  },
+  "context_counts": {
+    "m5": 48,
+    "m15": 32,
+    "h4": 16,
+    "d1": 12
+  },
+  "time_axis": "MT5 server timestamps normalized by each row server_utc_offset_hours",
+  "future_bar_violations": 0,
+  "protected_storage": {
+    "before": [
+      {
+        "root": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files",
+        "exists": true,
+        "file_count": 137,
+        "total_bytes": 20008308,
+        "metadata_sha256": "929B3DE82957EB9458FD26366B3A79F9AB5354A35129EF03E18843234DEA34EB"
+      },
+      {
+        "root": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\Tester",
+        "exists": true,
+        "file_count": 120,
+        "total_bytes": 1260063754,
+        "metadata_sha256": "EC1C36245545277A1B9105C95BB0B7DD769FD79B75592D71E921954D9D46C1BB"
+      },
+      {
+        "root": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Tester",
+        "exists": true,
+        "file_count": 882,
+        "total_bytes": 6847158854,
+        "metadata_sha256": "8C8D825AA5E679462E31342FABB87CEB34D6D07116D46AE39A1FA7C582A5897F"
+      },
+      {
+        "root": "C:\\ProgramData\\MetaQuotes\\Tester",
+        "exists": false,
+        "file_count": 0,
+        "total_bytes": 0,
+        "metadata_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      }
+    ],
+    "after": [
+      {
+        "root": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files",
+        "exists": true,
+        "file_count": 137,
+        "total_bytes": 20008308,
+        "metadata_sha256": "929B3DE82957EB9458FD26366B3A79F9AB5354A35129EF03E18843234DEA34EB"
+      },
+      {
+        "root": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\Tester",
+        "exists": true,
+        "file_count": 120,
+        "total_bytes": 1260063754,
+        "metadata_sha256": "EC1C36245545277A1B9105C95BB0B7DD769FD79B75592D71E921954D9D46C1BB"
+      },
+      {
+        "root": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Tester",
+        "exists": true,
+        "file_count": 882,
+        "total_bytes": 6847158854,
+        "metadata_sha256": "8C8D825AA5E679462E31342FABB87CEB34D6D07116D46AE39A1FA7C582A5897F"
+      },
+      {
+        "root": "C:\\ProgramData\\MetaQuotes\\Tester",
+        "exists": false,
+        "file_count": 0,
+        "total_bytes": 0,
+        "metadata_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      }
+    ],
+    "unchanged": true
+  },
+  "batches": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\20260716_ALERT_FIRST_LABEL_CONTEXT_V1\\label_context_batch_01.json",
+      "sha256": "2A00C8EAD9BE07166F8641D575087478B4ADAE668701A7EB46779AD317648D6A"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\20260716_ALERT_FIRST_LABEL_CONTEXT_V1\\label_context_batch_02.json",
+      "sha256": "3AE280E90B3C76D717D3D785A3B1BC47CA3A1FE484D85681A453165E74D78932"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\20260716_ALERT_FIRST_LABEL_CONTEXT_V1\\label_context_batch_03.json",
+      "sha256": "ECDB2C2F1FA0C134531D2F6961F5F68894F537B5B9543183B8BCBF64F5139287"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\20260716_ALERT_FIRST_LABEL_CONTEXT_V1\\label_context_batch_04.json",
+      "sha256": "CC05568D10331896DDA89D57603400F9321F26E87D3E5F5C39CF5EC43616B6BF"
+    }
+  ]
+}

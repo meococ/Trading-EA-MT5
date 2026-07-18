@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Build a promotion-grade execution-cost artifact from raw, bound evidence.
+"""Build a report-bound execution-cost artifact from raw, bound evidence.
 
-The producer fails closed unless it can independently recompute the cost-source
-statistics, join every lifecycle telemetry row to an MT5 report deal, reconcile
-account P&L, and then reprice each completed position in R.
+Promotion-grade evidence remains the default.  A separately labelled
+``RESEARCH_PROXY`` tier is accepted only as non-promotable falsification input;
+it cannot silently impersonate observed fills.  Both tiers independently
+recompute cost-source statistics, join lifecycle telemetry to MT5 report deals,
+reconcile account P&L, and reprice each completed position in R.
 """
 
 from __future__ import annotations
@@ -32,7 +34,9 @@ from unified_validation import _run_identity_sha256  # noqa: E402
 
 
 SCHEMA_VERSION = "verified_execution_cost.v1"
+RESEARCH_PROXY_SCHEMA_VERSION = "research_execution_cost_proxy.v1"
 COST_SOURCE_SCHEMA = "alphafactory_cost_source_manifest.v1"
+RESEARCH_PROXY_TIER = "RESEARCH_PROXY"
 TELEMETRY_SCHEMA = "alphafactory_lifecycle_telemetry.v1"
 REQUIRED_LIFECYCLE_COLUMNS = {
     "event_time",
@@ -96,7 +100,10 @@ def close_enough(left: float, right: float, tolerance: float = 1e-9) -> bool:
 def resolve_evidence_path(raw: Any, anchor: Path) -> Path:
     path = Path(str(raw or ""))
     if not path.is_absolute():
-        path = anchor / path
+        anchored = (anchor / path).resolve()
+        if anchored.exists():
+            return anchored
+        path = ALPHA_ROOT.parent / path
     return path.resolve()
 
 
@@ -137,6 +144,13 @@ def read_csv(path: Path, required: set[str], label: str) -> list[dict[str, str]]
 
 def parse_timestamp(value: Any, label: str) -> datetime:
     text = str(value or "").strip()
+    try:
+        parsed = datetime.fromisoformat(text.removesuffix("Z"))
+        if parsed.tzinfo is not None:
+            parsed = parsed.replace(tzinfo=None)
+        return parsed
+    except ValueError:
+        pass
     for fmt in ("%Y.%m.%d %H:%M:%S", "%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M:%S"):
         try:
             return datetime.strptime(text, fmt)
@@ -263,6 +277,60 @@ def validate_commission_evidence(
     return result, computed
 
 
+def validate_proxy_commission_evidence(
+    node: dict[str, Any], manifest: dict[str, Any], account_currency: str
+) -> tuple[dict[str, Any], float]:
+    """Validate a deliberately conservative tester-only commission clue."""
+    rows = read_csv(
+        Path(node["source"]),
+        {
+            "position_id",
+            "symbol",
+            "account_currency",
+            "round_turn_account_per_lot",
+            "source_kind",
+        },
+        "research proxy commission evidence",
+    )
+    ids: set[str] = set()
+    values: list[float] = []
+    for index, row in enumerate(rows, start=2):
+        position_id = str(row.get("position_id") or "").strip()
+        if not position_id or position_id in ids:
+            raise ValueError(f"proxy commission row {index} has duplicate/empty position_id")
+        ids.add(position_id)
+        if str(row.get("symbol") or "") != str(manifest.get("symbol") or ""):
+            raise ValueError(f"proxy commission row {index} symbol does not match run")
+        if str(row.get("account_currency") or "") != account_currency:
+            raise ValueError(f"proxy commission row {index} account currency does not match run")
+        if str(row.get("source_kind") or "") != "strategy_tester_simulation":
+            raise ValueError(f"proxy commission row {index} must remain tester-labelled")
+        values.append(
+            positive(
+                row.get("round_turn_account_per_lot"),
+                f"proxy commission row {index} round_turn_account_per_lot",
+            )
+        )
+    if str(node.get("statistic") or "") != "maximum":
+        raise ValueError("research proxy commission statistic must equal maximum")
+    computed = max(values)
+    declared = positive(node.get("value"), "commission_provenance.value")
+    if not close_enough(declared, computed, 1e-9):
+        raise ValueError("research proxy commission value does not match raw-evidence maximum")
+    if integer(node.get("sample_count"), "proxy commission sample_count") != len(values):
+        raise ValueError("research proxy commission sample_count does not match raw evidence")
+    if (
+        len(values) < 30
+        or node.get("same_symbol_lifecycles") is not True
+        or node.get("source_kind") != "strategy_tester_simulation"
+    ):
+        raise ValueError("research proxy commission needs 30 tester-labelled same-symbol lifecycles")
+    result = dict(node)
+    result["sample_count"] = len(values)
+    result["value"] = computed
+    return result, computed
+
+
 def validate_contract_evidence(
     node: dict[str, Any], manifest: dict[str, Any], account_currency: str
 ) -> tuple[dict[str, Any], float]:
@@ -375,14 +443,128 @@ def validate_slippage_evidence(
     return result, roundturn
 
 
+def validate_quote_latency_proxy(
+    node: dict[str, Any], manifest: dict[str, Any], pip_size: float
+) -> tuple[dict[str, Any], float]:
+    """Validate adverse movement to a future executable quote, never a claimed fill."""
+    rows = read_csv(
+        Path(node["source"]),
+        {
+            "sample_id",
+            "reference_timestamp",
+            "future_timestamp",
+            "symbol",
+            "side",
+            "reference_side",
+            "reference_price",
+            "future_quote_price",
+            "pip_size",
+            "latency_ms",
+            "actual_delay_ms",
+        },
+        "research quote-latency proxy evidence",
+    )
+    fixed_latency_ms = integer(node.get("fixed_latency_ms"), "proxy fixed_latency_ms")
+    max_quote_wait_ms = integer(node.get("max_quote_wait_ms"), "proxy max_quote_wait_ms")
+    if fixed_latency_ms <= 0 or max_quote_wait_ms < 0:
+        raise ValueError("research quote proxy latency contract is invalid")
+    ids: set[str] = set()
+    by_side: dict[str, list[float]] = {"BUY": [], "SELL": []}
+    last_future_by_side: dict[str, datetime] = {}
+    for index, row in enumerate(rows, start=2):
+        sample_id = str(row.get("sample_id") or "").strip()
+        if not sample_id or sample_id in ids:
+            raise ValueError(f"quote proxy row {index} has duplicate/empty sample_id")
+        ids.add(sample_id)
+        if str(row.get("symbol") or "") != str(manifest.get("symbol") or ""):
+            raise ValueError(f"quote proxy row {index} symbol does not match run")
+        side = str(row.get("side") or "").upper()
+        expected_reference = "ask" if side == "BUY" else "bid" if side == "SELL" else ""
+        if not expected_reference or str(row.get("reference_side") or "").lower() != expected_reference:
+            raise ValueError(f"quote proxy row {index} has invalid side/reference-side pairing")
+        reference_time = parse_timestamp(
+            row.get("reference_timestamp"), f"quote proxy row {index} reference_timestamp"
+        )
+        future_time = parse_timestamp(
+            row.get("future_timestamp"), f"quote proxy row {index} future_timestamp"
+        )
+        actual_delay_ms = integer(row.get("actual_delay_ms"), f"quote proxy row {index} delay")
+        measured_delay_ms = int(round((future_time - reference_time).total_seconds() * 1000.0))
+        if actual_delay_ms != measured_delay_ms:
+            raise ValueError(f"quote proxy row {index} timestamp delay does not match actual_delay_ms")
+        if not fixed_latency_ms <= actual_delay_ms <= fixed_latency_ms + max_quote_wait_ms:
+            raise ValueError(f"quote proxy row {index} violates the fixed-latency wait contract")
+        if integer(row.get("latency_ms"), f"quote proxy row {index} latency_ms") != fixed_latency_ms:
+            raise ValueError(f"quote proxy row {index} latency_ms does not match provenance")
+        previous_future = last_future_by_side.get(side)
+        if previous_future is not None and reference_time < previous_future:
+            raise ValueError(f"quote proxy row {index} overlaps the prior {side} sample")
+        last_future_by_side[side] = future_time
+        row_pip = positive(row.get("pip_size"), f"quote proxy row {index} pip_size")
+        if not close_enough(row_pip, pip_size, 1e-12):
+            raise ValueError(f"quote proxy row {index} pip_size does not match run geometry")
+        reference = positive(row.get("reference_price"), f"quote proxy row {index} reference_price")
+        future_quote = positive(
+            row.get("future_quote_price"), f"quote proxy row {index} future_quote_price"
+        )
+        adverse = (
+            max(0.0, (future_quote - reference) / pip_size)
+            if side == "BUY"
+            else max(0.0, (reference - future_quote) / pip_size)
+        )
+        by_side[side].append(adverse)
+    buy_p90 = p90(by_side["BUY"])
+    sell_p90 = p90(by_side["SELL"])
+    roundturn = buy_p90 + sell_p90
+    expected = {
+        "sample_count": len(rows),
+        "buy_count": len(by_side["BUY"]),
+        "sell_count": len(by_side["SELL"]),
+    }
+    for field, value in expected.items():
+        if integer(node.get(field), f"quote proxy {field}") != value:
+            raise ValueError(f"quote proxy {field} does not match raw evidence")
+    if expected["sample_count"] < 100 or expected["buy_count"] < 30 or expected["sell_count"] < 30:
+        raise ValueError("research quote proxy does not meet the 100/30/30 contract")
+    for field, value in (("p90_buy", buy_p90), ("p90_sell", sell_p90), ("p90_roundturn", roundturn)):
+        if not close_enough(finite(node.get(field), f"quote proxy {field}"), value, 1e-9):
+            raise ValueError(f"quote proxy {field} does not match raw evidence")
+    if (
+        node.get("independent_reference") is not False
+        or node.get("independent_quote_reference") is not True
+        or node.get("fill_observed") is not False
+        or node.get("buy_reference_side") != "ask"
+        or node.get("sell_reference_side") != "bid"
+        or node.get("slippage_unit") != "pips"
+        or not str(node.get("method") or "").strip()
+    ):
+        raise ValueError("research quote proxy must remain explicitly non-fill and side-referenced")
+    result = dict(node)
+    result.update(expected)
+    result.update({"p90_buy": buy_p90, "p90_sell": sell_p90, "p90_roundturn": roundturn})
+    return result, roundturn
+
+
 def validate_cost_source(
     payload: dict[str, Any], source_path: Path, manifest: dict[str, Any]
 ) -> dict[str, Any]:
     if payload.get("schema_version") != COST_SOURCE_SCHEMA:
         raise ValueError(f"cost source schema must be {COST_SOURCE_SCHEMA}")
-    if payload.get("provenance_status") != "VERIFIED" or payload.get("audit_status") != "PASS" or payload.get(
-        "verdict"
-    ) != "PASS":
+    research_proxy = payload.get("evidence_tier") == RESEARCH_PROXY_TIER
+    if research_proxy:
+        if payload.get("promotion_eligible") is not False:
+            raise ValueError("RESEARCH_PROXY cost source promotion_eligible must be false")
+        if (
+            payload.get("provenance_status") != "VERIFIED_RESEARCH_PROXY"
+            or payload.get("audit_status") != "PASS_RESEARCH_ONLY"
+            or payload.get("verdict") != "PASS_RESEARCH_ONLY"
+        ):
+            raise ValueError("RESEARCH_PROXY cost source root is not explicitly research-only")
+    elif (
+        payload.get("provenance_status") != "VERIFIED"
+        or payload.get("audit_status") != "PASS"
+        or payload.get("verdict") != "PASS"
+    ):
         raise ValueError("cost source root is not VERIFIED/PASS")
     basis = manifest.get("fingerprint_basis") if isinstance(manifest.get("fingerprint_basis"), dict) else {}
     digits = integer(basis.get("digits"), "run digits")
@@ -426,7 +608,17 @@ def validate_cost_source(
 
     commission = dict(commission_raw)
     commission_value_declared = positive(commission.get("value"), "commission_provenance.value")
-    if commission.get("source"):
+    if research_proxy:
+        commission = verified_reference(commission, source_path.parent, "commission_provenance")
+        if (
+            commission.get("verification_status") != "VERIFIED_RESEARCH_PROXY"
+            or commission.get("symbol") != manifest.get("symbol")
+        ):
+            raise ValueError("research proxy commission provenance is not valid for the run symbol")
+        commission, commission_value = validate_proxy_commission_evidence(
+            commission, manifest, account_currency
+        )
+    elif commission.get("source"):
         commission = verified_reference(commission, source_path.parent, "commission_provenance")
         if commission.get("verification_status") != "VERIFIED" or commission.get("symbol") != manifest.get("symbol"):
             raise ValueError("commission provenance is not VERIFIED for the run symbol")
@@ -447,19 +639,33 @@ def validate_cost_source(
     if not close_enough(commission_value_declared, commission_value, 1e-9):
         raise ValueError("commission_provenance.value does not match verified evidence")
 
-    if slippage_ref.get("verification_status") != "VERIFIED" or slippage_ref.get("symbol") != manifest.get("symbol"):
-        raise ValueError("slippage provenance is not VERIFIED for the run symbol")
-    slippage, slippage_roundturn = validate_slippage_evidence(
-        slippage_ref, manifest, pip_size
-    )
-    if methodology.get("verification_status") != "VERIFIED" or methodology.get("direction_aware") is not True:
-        raise ValueError("direction-aware cost methodology is not VERIFIED")
+    expected_slippage_status = "VERIFIED_RESEARCH_PROXY" if research_proxy else "VERIFIED"
+    if slippage_ref.get("verification_status") != expected_slippage_status or slippage_ref.get(
+        "symbol"
+    ) != manifest.get("symbol"):
+        raise ValueError("slippage provenance is not valid for the run symbol/tier")
+    if research_proxy:
+        slippage, slippage_roundturn = validate_quote_latency_proxy(
+            slippage_ref, manifest, pip_size
+        )
+    else:
+        slippage, slippage_roundturn = validate_slippage_evidence(
+            slippage_ref, manifest, pip_size
+        )
+    expected_methodology_status = "VERIFIED_RESEARCH_PROXY" if research_proxy else "VERIFIED"
+    if (
+        methodology.get("verification_status") != expected_methodology_status
+        or methodology.get("direction_aware") is not True
+    ):
+        raise ValueError("direction-aware cost methodology is not valid for the evidence tier")
     long_treatment = str(methodology.get("long_cost_treatment") or "").strip()
     short_treatment = str(methodology.get("short_cost_treatment") or "").strip()
     if not long_treatment or not short_treatment or long_treatment == short_treatment:
         raise ValueError("direction-aware long/short cost treatments must be distinct and nonempty")
 
     return {
+        "evidence_tier": RESEARCH_PROXY_TIER if research_proxy else "PROMOTION_GRADE",
+        "promotion_eligible": not research_proxy,
         "broker": str(basis.get("broker")),
         "server": str(basis.get("server")),
         "account_currency": account_currency,
@@ -478,8 +684,14 @@ def validate_cost_source(
             **methodology,
             "description": (
                 f"Long: {long_treatment}. Short: {short_treatment}. Model-0 prices retain "
-                "historical spread; verified commission and side-referenced adverse slippage "
-                "are repriced from report-deal/account-risk lifecycles."
+                "historical spread; "
+                + (
+                    "tester-maximum commission and fixed-latency adverse quote movement are "
+                    "repriced for research falsification only; no fill is claimed."
+                    if research_proxy
+                    else "verified commission and side-referenced adverse slippage are repriced "
+                    "from report-deal/account-risk lifecycles."
+                )
             ),
         },
         "commission_value": commission_value,
@@ -738,10 +950,16 @@ def build(report: Path, cost_source_path: Path) -> dict[str, Any]:
         provenance.pop("slippage_p90_roundturn"),
     )
     x1_5 = next(row for row in scenarios if row["scenario"] == "cost_x1_50")
+    research_proxy = provenance.get("evidence_tier") == RESEARCH_PROXY_TIER
     return {
-        "schema_version": SCHEMA_VERSION,
-        "provenance_status": "VERIFIED",
-        "stress_mode": "verified_report_deal_lifecycle_r_repricing",
+        "schema_version": RESEARCH_PROXY_SCHEMA_VERSION if research_proxy else SCHEMA_VERSION,
+        "provenance_status": "VERIFIED_RESEARCH_PROXY" if research_proxy else "VERIFIED",
+        "stress_mode": (
+            "run_bound_research_cost_proxy_repricing"
+            if research_proxy
+            else "verified_report_deal_lifecycle_r_repricing"
+        ),
+        "promotion_eligible": not research_proxy,
         "report": str(report),
         "report_sha256": report_sha,
         "run_id": manifest.get("run_id"),

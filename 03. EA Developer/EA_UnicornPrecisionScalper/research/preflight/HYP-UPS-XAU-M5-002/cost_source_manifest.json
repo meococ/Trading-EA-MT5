@@ -1,0 +1,94 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "provenance_status": "MISSING_REQUIRED_PROVENANCE",
+  "audit_status": "FAIL",
+  "verdict": "BLOCKED",
+  "broker": "MetaQuotes-Demo",
+  "account_currency": "USD",
+  "broker_fingerprint": "FC306F344FFA2E4F8938B9B067ACB70CBB7424A3326BD3EB4F22B715B83E9CE5",
+  "server_fingerprint": "6B2CF3592011606B05543645EA987CD8B77DB6264DA64BAA7632667E6FB7F678",
+  "account_fingerprint": "5447ED87865E783539F8E663C68767665A07FD0F2B9DBFE9888ACE68E91923E0",
+  "data_fingerprint": "13B489588D28515705A8A15F20C135488A2637D0742EAD111BDCD3E1DEF1048D",
+  "symbol": "XAUUSD",
+  "from": "2024.01.01",
+  "to": "2026.07.15",
+  "symbol_geometry": {
+    "digits": 2,
+    "point": 0.01,
+    "pip_size": 0.01
+  },
+  "historical_spread_provenance": {
+    "verification_status": "MISSING",
+    "symbol": "XAUUSD",
+    "source": "",
+    "source_sha256": "",
+    "coverage": {
+      "from": "2024.01.01",
+      "to": "2026.07.15",
+      "sample_count": 0,
+      "total_count": 0,
+      "coverage_ratio": 0.0
+    }
+  },
+  "commission_provenance": {
+    "verification_status": "MISSING",
+    "symbol": "XAUUSD",
+    "value": null,
+    "sample_count": 0,
+    "same_symbol_lifecycles": false,
+    "method": "",
+    "source": "",
+    "source_sha256": ""
+  },
+  "slippage_provenance": {
+    "verification_status": "MISSING",
+    "symbol": "XAUUSD",
+    "source": "",
+    "source_sha256": "",
+    "sample_count": 0,
+    "independent_reference": false,
+    "buy_count": 0,
+    "sell_count": 0,
+    "buy_reference_side": "ask",
+    "sell_reference_side": "bid",
+    "slippage_unit": "pips",
+    "method": "",
+    "p90_buy": null,
+    "p90_sell": null,
+    "p90_roundturn": null
+  },
+  "unbound_candidate_spread_evidence": {
+    "verification_status": "RAW_VALIDATION_PASS_IDENTITY_NOT_BOUND",
+    "broker": "Five Percent Online Ltd",
+    "server": "FivePercentOnline-Real",
+    "source": "03. EA Developer/EA_UnicornPrecisionScalper/research/evidence/HYP-UPS-XAU-M5-002_HISTORICAL_SPREAD_M1.csv",
+    "source_sha256": "D009CC4084AE35FC004DFA68417F64E7DBCBF1CD2A21750707EA1D06E2F69C6B",
+    "sample_count": 894192,
+    "coverage_ratio": 1.0,
+    "alphafactory_builder_spread_validation": "PASS",
+    "binding_blocker": "The current task packet is MetaQuotes-bound while this evidence is FivePercent-bound; do not mix identities."
+  },
+  "unbound_candidate_tester_cost_clue": {
+    "verification_status": "NON_ADMISSIBLE_TESTER_ONLY",
+    "broker": "Five Percent Online Ltd",
+    "server": "FivePercentOnline-Real (Build 5961)",
+    "source_run": "02. AlphaFactory/runs/EA_SonicR/20260705_022757",
+    "report_sha256": "FC174B3C26847AA8EDFA912457A7AAB4AE852BCD53943141C7154D939ED8DA10",
+    "exec_sha256": "D90F3735DD725B979FF8E7C50CF20265A9C7C2AEA8034A7CA828EF9B97A15E70",
+    "trades_sha256": "ADA1EFFD4A5EA8B5AF3FFF29343F8F616B707FD3F4D788F54209E66AB41855B1",
+    "commission_lifecycles": 335,
+    "commission_p90_account_per_lot": 3.25,
+    "request_fill_samples": 335,
+    "buy_count": 171,
+    "sell_count": 164,
+    "nonzero_entry_slippage_rows": 0,
+    "promotion_eligible": false,
+    "rejection_reasons": [
+      "Strategy Tester simulation cannot prove real execution slippage is zero.",
+      "Legacy Exec rows lack independent millisecond BID/ASK reference timing.",
+      "Legacy run manifest does not bind source, EX5, include, broker/account/data fingerprints or lifecycle-v3 reconciliation."
+    ],
+    "audit": "03. EA Developer/EA_UnicornPrecisionScalper/research/HYP-UPS-XAU-M5-002_LOCAL_COST_REUSE_AUDIT.md"
+  },
+  "blocker": "A builder-valid FivePercent XAU spread source and a tester-only commission clue exist, but neither is bound to the MetaQuotes task packet. No admissible >=30 account/QFSI XAU commission lifecycles or >=100 independent-reference real XAU slippage fills are available."
+}

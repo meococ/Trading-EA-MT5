@@ -1,0 +1,65 @@
+{
+  "schema_version": "unicorn_closedbar_probe.v1",
+  "hypothesis_id": "HYP-UPS-XAU-M5-001",
+  "created_at_utc": "2026-07-16T04:59:14.688307Z",
+  "purpose": "opportunity density only; not a fill or profitability backtest",
+  "source_sha256": "FC98AA57830A9B6B2147CF00E787FC15B403DE91F92FDCDB2083B6E2C22F77A6",
+  "terminal": {
+    "company": "MetaQuotes Ltd.",
+    "build": 6006,
+    "connected": true,
+    "trade_allowed": false,
+    "data_path": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075"
+  },
+  "data": {
+    "symbol": "XAUUSD",
+    "window_from": "2024.01.01",
+    "window_to_inclusive": "2026.07.15",
+    "m5_bars": 213621,
+    "h4_bars": 5456,
+    "d1_bars": 3362,
+    "raw_bars_persisted_to_workspace": false
+  },
+  "result": {
+    "candidate_count": 65,
+    "direction_counts": {
+      "long": 55,
+      "short": 10
+    },
+    "active_months": 23,
+    "median_candidates_per_active_month": 3.0,
+    "monthly_counts": {
+      "2024-01": 3,
+      "2024-02": 4,
+      "2024-04": 3,
+      "2024-05": 3,
+      "2024-06": 1,
+      "2024-07": 5,
+      "2024-08": 3,
+      "2024-09": 1,
+      "2024-10": 3,
+      "2024-11": 4,
+      "2024-12": 1,
+      "2025-01": 2,
+      "2025-02": 1,
+      "2025-03": 7,
+      "2025-04": 2,
+      "2025-05": 3,
+      "2025-07": 3,
+      "2025-08": 3,
+      "2025-09": 6,
+      "2025-10": 3,
+      "2025-11": 1,
+      "2025-12": 2,
+      "2026-01": 1
+    },
+    "criteria": {
+      "min_candidates_120": false,
+      "min_long_20": true,
+      "min_short_20": false,
+      "min_active_months_24": false,
+      "median_candidates_per_active_month_ge_4": false
+    },
+    "verdict": "FAIL"
+  }
+}

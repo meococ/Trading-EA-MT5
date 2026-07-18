@@ -1,0 +1,3494 @@
+{
+  "schema_version": "alphafactory_offline_probe.v1",
+  "hypothesis_id": "HYP-CFTC-FX-H1-001",
+  "generated_at_utc": "2026-07-16T08:47:40.401295Z",
+  "verdict": "KILL_AT_OFFLINE_PROBE",
+  "all_gates_passed": false,
+  "holdout": {
+    "years": [
+      2024,
+      2025
+    ],
+    "archives_downloaded": false,
+    "price_bars_loaded": 0,
+    "outcomes_evaluated": 0
+  },
+  "contract": {
+    "release_lag_days": 6,
+    "entry_time_utc": "07:00:00",
+    "exit_time_utc": "16:00:00",
+    "atr_period": 14,
+    "stop_atr": 1.5,
+    "risk_fraction": 0.0025,
+    "cost_x1_pips": {
+      "EURUSD": 1.5,
+      "GBPUSD": 2.0,
+      "USDJPY": 1.5
+    },
+    "cost_status": "UNVERIFIED_CONSERVATIVE_RESEARCH_PROXY_NON_PROMOTABLE"
+  },
+  "source_manifest_path": "02. AlphaFactory/external/cftc_fx_options_tff/source_manifest.json",
+  "source_manifest_sha256": "F281B9378A9D7774B2B2246EDC4D9A12ECD43698C5A9BDF919B3F8189EB7B7FD",
+  "source_identity": [
+    {
+      "dataset": "futures_only",
+      "year": 2017,
+      "path": "02. AlphaFactory/external/cftc_fx_options_tff/raw/fut_fin_txt_2017.zip",
+      "sha256": "E6E2DD537EFCC57CDD6CDCC4E45E567FD47E65D8AFC8369D8383BF09195AE7F5",
+      "bytes": 395830
+    },
+    {
+      "dataset": "futures_options_combined",
+      "year": 2017,
+      "path": "02. AlphaFactory/external/cftc_fx_options_tff/raw/com_fin_txt_2017.zip",
+      "sha256": "A5D91B5C2A30A19DB5A293E7AA58C943058E765BE9DEE197A2FC18F83EE01C17",
+      "bytes": 399468
+    },
+    {
+      "dataset": "futures_only",
+      "year": 2018,
+      "path": "02. AlphaFactory/external/cftc_fx_options_tff/raw/fut_fin_txt_2018.zip",
+      "sha256": "6843D130A25A17C6248DF67463810F02077EF4EEAFDD629299D21C18F5125E40",
+      "bytes": 458570
+    },
+    {
+      "dataset": "futures_options_combined",
+      "year": 2018,
+      "path": "02. AlphaFactory/external/cftc_fx_options_tff/raw/com_fin_txt_2018.zip",
+      "sha256": "36DB8DE41D51D2519A3974D908CF3E3CE2FA4E83B52C562EB875506E3AF13F7B",
+      "bytes": 462370
+    },
+    {
+      "dataset": "futures_only",
+      "year": 2019,
+      "path": "02. AlphaFactory/external/cftc_fx_options_tff/raw/fut_fin_txt_2019.zip",
+      "sha256": "631B31880D513072AA50D63117C896184DD35DB3CC8FCDD6DEBD80197EE7A661",
+      "bytes": 454803
+    },
+    {
+      "dataset": "futures_options_combined",
+      "year": 2019,
+      "path": "02. AlphaFactory/external/cftc_fx_options_tff/raw/com_fin_txt_2019.zip",
+      "sha256": "51E19F6FF5FD702E060860EA06A2633EFADE68E849819E3A1CEC3EF07634AC2E",
+      "bytes": 460374
+    },
+    {
+      "dataset": "futures_only",
+      "year": 2020,
+      "path": "02. AlphaFactory/external/cftc_fx_options_tff/raw/fut_fin_txt_2020.zip",
+      "sha256": "C90D98D94DB708772D669F263FB8061C75F8A7F681BA231FB21247E5C9798E6B",
+      "bytes": 430721
+    },
+    {
+      "dataset": "futures_options_combined",
+      "year": 2020,
+      "path": "02. AlphaFactory/external/cftc_fx_options_tff/raw/com_fin_txt_2020.zip",
+      "sha256": "4C0F6B1580CBB329A4AEC3E7ADEB74D84FD8ECD65098754FA8AD39DD5B63B820",
+      "bytes": 437946
+    },
+    {
+      "dataset": "futures_only",
+      "year": 2021,
+      "path": "02. AlphaFactory/external/cftc_fx_options_tff/raw/fut_fin_txt_2021.zip",
+      "sha256": "5C929991038C70AE2501661B6D442B9E784D3C29D3166CEAC2E21B45AC93D56A",
+      "bytes": 466549
+    },
+    {
+      "dataset": "futures_options_combined",
+      "year": 2021,
+      "path": "02. AlphaFactory/external/cftc_fx_options_tff/raw/com_fin_txt_2021.zip",
+      "sha256": "A1FEE86C7E3FE7352E4ED12CF249A971AAA4543EBB089F47D4B60C80D14043BD",
+      "bytes": 473014
+    },
+    {
+      "dataset": "futures_only",
+      "year": 2022,
+      "path": "02. AlphaFactory/external/cftc_fx_options_tff/raw/fut_fin_txt_2022.zip",
+      "sha256": "94C9C1FDEE9DFBE377A09923DDFE26B88D3460605DD076081F221AD367D88601",
+      "bytes": 494559
+    },
+    {
+      "dataset": "futures_options_combined",
+      "year": 2022,
+      "path": "02. AlphaFactory/external/cftc_fx_options_tff/raw/com_fin_txt_2022.zip",
+      "sha256": "F18814368E50AED3D5C70537A934AE8C0DAA0D80936855F733B0A44C72AE000F",
+      "bytes": 498767
+    },
+    {
+      "dataset": "futures_only",
+      "year": 2023,
+      "path": "02. AlphaFactory/external/cftc_fx_options_tff/raw/fut_fin_txt_2023.zip",
+      "sha256": "43C3DBDD4D01FCEEFAD5E457003751CDC0974C7CF46097B322E26E9E2FE44D7A",
+      "bytes": 506931
+    },
+    {
+      "dataset": "futures_options_combined",
+      "year": 2023,
+      "path": "02. AlphaFactory/external/cftc_fx_options_tff/raw/com_fin_txt_2023.zip",
+      "sha256": "05424D67195882EFA87A0A4CD660860AD11F1233FE354FF830DB063C2CB38043",
+      "bytes": 512075
+    }
+  ],
+  "mt5_identity": {
+    "terminal_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\terminal64.exe",
+    "terminal_build": 6006,
+    "data_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent",
+    "commondata_path": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common",
+    "portable": true,
+    "symbols_selected": [
+      "EURUSD",
+      "GBPUSD",
+      "USDJPY"
+    ],
+    "server": "FivePercentOnline-Real",
+    "login": 26451822
+  },
+  "h1_identity": {
+    "EURUSD": {
+      "bars": 37783,
+      "first_utc": "2017-12-01T00:00:00+00:00",
+      "last_utc": "2023-12-29T23:00:00+00:00"
+    },
+    "GBPUSD": {
+      "bars": 37787,
+      "first_utc": "2017-12-01T00:00:00+00:00",
+      "last_utc": "2023-12-29T23:00:00+00:00"
+    },
+    "USDJPY": {
+      "bars": 37786,
+      "first_utc": "2017-12-01T00:00:00+00:00",
+      "last_utc": "2023-12-29T23:00:00+00:00"
+    }
+  },
+  "events": {
+    "total_unsealed": 723,
+    "eligible_candidate": {
+      "train": 418,
+      "internal_validation": 305
+    },
+    "zero_signals": {
+      "candidate": 0,
+      "control": 0
+    },
+    "source_malformed_total": 532,
+    "source_malformed": [
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-12-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-12-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-12-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-12-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-11-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-11-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-11-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-11-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-10-31",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-10-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-10-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-10-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-10-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-09-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-09-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-09-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-09-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-08-29",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-08-22",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-08-15",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-08-08",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-08-01",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-07-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-07-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-07-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-07-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-06-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-06-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-06-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-06-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-05-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-05-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-05-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-05-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-05-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-04-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-04-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-04-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-04-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-03-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-03-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-03-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-03-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-02-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-02-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-02-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-02-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-01-31",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-01-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-01-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-01-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2017-01-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-12-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-12-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-12-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-12-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-11-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-11-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-11-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-11-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-10-31",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-10-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-10-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-10-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-10-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-09-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-09-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-09-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-09-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-08-29",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-08-22",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-08-15",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-08-08",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-08-01",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-07-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-07-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-07-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-07-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-06-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-06-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-06-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-06-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-05-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-05-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-05-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-05-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-05-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-04-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-04-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-04-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-04-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-03-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-03-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-03-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-03-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-02-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-02-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-02-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-02-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-01-31",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-01-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-01-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-01-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2017-01-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-12-31",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-12-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-12-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-12-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-12-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-11-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-11-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-11-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-11-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-10-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-10-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-10-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-10-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-10-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-09-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-09-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-09-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-09-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-08-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-08-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-08-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-08-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-07-31",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-07-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-07-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-07-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-07-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-06-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-06-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-06-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-06-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-05-29",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-05-22",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-05-15",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-05-08",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-05-01",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-04-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-04-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-04-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-04-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-03-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-03-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-03-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-03-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-02-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-02-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-02-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-02-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-01-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-01-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-01-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-01-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2018-01-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-12-31",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-12-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-12-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-12-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-12-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-11-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-11-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-11-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-11-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-10-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-10-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-10-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-10-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-10-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-09-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-09-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-09-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-09-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-08-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-08-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-08-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-08-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-07-31",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-07-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-07-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-07-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-07-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-06-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-06-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-06-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-06-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-05-29",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-05-22",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-05-15",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-05-08",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-05-01",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-04-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-04-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-04-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-04-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-03-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-03-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-03-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-03-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-02-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-02-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-02-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-02-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-01-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-01-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-01-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-01-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2018-01-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-12-31",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-12-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-12-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-12-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-12-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-11-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-11-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-11-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-11-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-10-29",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-10-22",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-10-15",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-10-08",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-10-01",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-09-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-09-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-09-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-09-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-08-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-08-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-08-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-08-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-07-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-07-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-07-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-07-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-07-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-06-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-06-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-06-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-06-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-05-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-05-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-05-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-05-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-04-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-04-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-04-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-04-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-04-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-03-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-03-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-03-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-03-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-02-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-02-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-02-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-02-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-01-29",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-01-22",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-01-15",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2019-01-08",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-12-31",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-12-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-12-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-12-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-12-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-11-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-11-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-11-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-11-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-10-29",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-10-22",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-10-15",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-10-08",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-10-01",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-09-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-09-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-09-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-09-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-08-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-08-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-08-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-08-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-07-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-07-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-07-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-07-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-07-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-06-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-06-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-06-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-06-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-05-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-05-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-05-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-05-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-04-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-04-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-04-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-04-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-04-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-03-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-03-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-03-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-03-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-02-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-02-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-02-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-02-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-01-29",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-01-22",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-01-15",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2019-01-08",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-12-29",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-12-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-12-15",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-12-08",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-12-01",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-11-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-11-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-11-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-11-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-10-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-10-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-10-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-10-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-09-29",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-09-22",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-09-15",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-09-08",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-09-01",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-08-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-08-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-08-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-08-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-07-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-07-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-07-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-07-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-06-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-06-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-06-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-06-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-06-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-05-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-05-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-05-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-05-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-04-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-04-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-04-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-04-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-03-31",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-03-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-03-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-03-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-03-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-02-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-02-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-02-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-02-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-01-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-01-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-01-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2020-01-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-12-29",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-12-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-12-15",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-12-08",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-12-01",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-11-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-11-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-11-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-11-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-10-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-10-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-10-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-10-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-09-29",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-09-22",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-09-15",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-09-08",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-09-01",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-08-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-08-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-08-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-08-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-07-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-07-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-07-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-07-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-06-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-06-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-06-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-06-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-06-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-05-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-05-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-05-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-05-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-04-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-04-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-04-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-04-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-03-31",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-03-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-03-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-03-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-03-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-02-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-02-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-02-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-02-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-01-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-01-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-01-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2020-01-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-12-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-12-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-12-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-12-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-11-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-11-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-11-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-11-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-11-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-10-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-10-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-10-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-10-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-09-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-09-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-09-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-09-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-08-31",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-08-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-08-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-08-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-08-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-07-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-07-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-07-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-07-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-06-29",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-06-22",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-06-15",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-06-08",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-06-01",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-05-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-05-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-05-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-05-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-04-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-04-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-04-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-04-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-03-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-03-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-03-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-03-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-03-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-02-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-02-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-02-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-02-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-01-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-01-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-01-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2021-01-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-12-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-12-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-12-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-12-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-11-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-11-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-11-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-11-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-11-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-10-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-10-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-10-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-10-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-09-28",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-09-21",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-09-14",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-09-07",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-08-31",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-08-24",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-08-17",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-08-10",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-08-03",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-07-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-07-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-07-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-07-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-06-29",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-06-22",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-06-15",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-06-08",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-06-01",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-05-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-05-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-05-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-05-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-04-27",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-04-20",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-04-13",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-04-06",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-03-30",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-03-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-03-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-03-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-03-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-02-23",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-02-16",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-02-09",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-02-02",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-01-26",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-01-19",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-01-12",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2021-01-05",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2022-02-01",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2022-01-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2022-01-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2022-01-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_only",
+        "report_date": "2022-01-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2022-02-01",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2022-01-25",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2022-01-18",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2022-01-11",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      },
+      {
+        "dataset": "futures_options_combined",
+        "report_date": "2022-01-04",
+        "symbol": "GBPUSD",
+        "reason": "market_name_mismatch"
+      }
+    ],
+    "price_skips": {
+      "train": 8,
+      "internal_validation": 6
+    }
+  },
+  "metrics": {
+    "candidate": {
+      "train": {
+        "trades": 410,
+        "elapsed_calendar_weeks": 208.71428571428572,
+        "trades_per_elapsed_week": 1.9644079397672827,
+        "profit_factor_x1": 0.8124388452721465,
+        "profit_factor_x1_5": 0.7418278516822986,
+        "profit_factor_x2": 0.6783974818359705,
+        "net_r_x1": -43.593516393443636,
+        "max_drawdown_pct_x1": 16.78280705624382,
+        "symbol_trades": {
+          "EURUSD": 205,
+          "GBPUSD": 0,
+          "USDJPY": 205
+        },
+        "year_net_r_x1": {
+          "2018": -8.795641601339476,
+          "2019": -36.66309083065652,
+          "2020": -6.599417368698062,
+          "2021": 8.464633407250417
+        },
+        "positive_years_x1": 1
+      },
+      "internal_validation": {
+        "trades": 299,
+        "elapsed_calendar_weeks": 104.28571428571429,
+        "trades_per_elapsed_week": 2.867123287671233,
+        "profit_factor_x1": 0.7661662444497946,
+        "profit_factor_x1_5": 0.7195615280227114,
+        "profit_factor_x2": 0.6763386372192735,
+        "net_r_x1": -41.03060483510197,
+        "max_drawdown_pct_x1": 11.158984006835881,
+        "symbol_trades": {
+          "EURUSD": 102,
+          "GBPUSD": 95,
+          "USDJPY": 102
+        },
+        "year_net_r_x1": {
+          "2022": -8.797585925012413,
+          "2023": -32.233018910089555
+        },
+        "positive_years_x1": 0
+      }
+    },
+    "control": {
+      "train": {
+        "trades": 410,
+        "elapsed_calendar_weeks": 208.71428571428572,
+        "trades_per_elapsed_week": 1.9644079397672827,
+        "profit_factor_x1": 0.7956923471128069,
+        "profit_factor_x1_5": 0.7277777793253472,
+        "profit_factor_x2": 0.666654750815629,
+        "net_r_x1": -48.837126541275005,
+        "max_drawdown_pct_x1": 16.77400052717241,
+        "symbol_trades": {
+          "EURUSD": 205,
+          "GBPUSD": 0,
+          "USDJPY": 205
+        },
+        "year_net_r_x1": {
+          "2018": -0.11864171428187842,
+          "2019": -37.76167002716564,
+          "2020": -15.705096357953343,
+          "2021": 4.748281558125859
+        },
+        "positive_years_x1": 1
+      },
+      "internal_validation": {
+        "trades": 299,
+        "elapsed_calendar_weeks": 104.28571428571429,
+        "trades_per_elapsed_week": 2.867123287671233,
+        "profit_factor_x1": 0.7954915455878513,
+        "profit_factor_x1_5": 0.7465728718954139,
+        "profit_factor_x2": 0.7011318109259738,
+        "net_r_x1": -35.27886924158325,
+        "max_drawdown_pct_x1": 11.626168546358755,
+        "symbol_trades": {
+          "EURUSD": 102,
+          "GBPUSD": 95,
+          "USDJPY": 102
+        },
+        "year_net_r_x1": {
+          "2022": 6.1812244792500435,
+          "2023": -41.460093720833264
+        },
+        "positive_years_x1": 1
+      }
+    }
+  },
+  "gates": {
+    "train": {
+      "cadence_2_to_5": false,
+      "pf_x1_gt_1_30": false,
+      "pf_x1_5_gte_1_25": false,
+      "pf_x2_gte_1_00": false,
+      "net_r_x1_positive": false,
+      "max_dd_lte_5_5_pct": false,
+      "minimum_trades_each_symbol": false,
+      "positive_years": false,
+      "beats_futures_control": false,
+      "source_malformed_lte_2": false,
+      "price_skips_lte_2": false
+    },
+    "internal_validation": {
+      "cadence_2_to_5": true,
+      "pf_x1_gt_1_30": false,
+      "pf_x1_5_gte_1_25": false,
+      "pf_x2_gte_1_00": false,
+      "net_r_x1_positive": false,
+      "max_dd_lte_5_5_pct": false,
+      "minimum_trades_each_symbol": true,
+      "positive_years": false,
+      "beats_futures_control": false,
+      "source_malformed_lte_2": false,
+      "price_skips_lte_2": false
+    }
+  },
+  "gate_pass_count": 2,
+  "gate_total": 22,
+  "trades_path": "03. EA Developer/EA_CFTCOptionsPulse/research/evidence/20260716_084740_HYP_CFTC_FX_H1_001_TRADES.csv"
+}

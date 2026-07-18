@@ -1,6 +1,6 @@
 # INDEX — Bản Đồ Workspace
 
-Cập nhật: 2026-07-16
+Cập nhật: 2026-07-18
 
 Mỗi entry một dòng: file gì, mở khi nào. File này chỉ chứa con trỏ; nội
 dung nằm ở đích đến. Cập nhật khi một file canonical bị di chuyển hoặc mở
@@ -33,8 +33,8 @@ lane mới — không cập nhật cho từng run/readout mới.
 
 | File | Mở khi |
 |---|---|
-| `sonic_validation_gates.md` | chấm run: stage, ngưỡng, hard invalidation |
-| `sonic_tool_runbook.md` | lệnh chính xác: compile/backtest/validate/analyze |
+| `validation_gates.md` | chấm run: stage, ngưỡng, hard invalidation |
+| `tool_runbook.md` | lệnh chính xác: compile/backtest/validate/analyze |
 | `ea_golden_path.md` | đường generic từ brief → de-dup/probe → code → Model 0 → quyết định |
 | `ea_engineering_standard.md` | viết/review code MQL5 (closed-bar, non-repaint) |
 | `research_doctrine.md` | thiết kế hypothesis: registry, prereg, overfit budget, MT5 rules |
@@ -53,17 +53,32 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 | Path | Mở khi |
 |---|---|
 | `04. Memory/research/CANDIDATE_REGISTRY.jsonl` + schema + validator | ledger active dùng chung mọi EA; source/prereg hash-bound, transition fail-closed |
+| `04. Memory/research/20260716_GOAL_EXTERNAL_UNLOCK_BLOCKED_AUDIT.md` | evidence ba goal-turn cùng blocker; đọc trước khi resume từ Databento key/cost ceiling hoặc independent human labels |
 | `02. AlphaFactory/templates/research/` | tạo capability contract, prereg/readout và kiểm trường task packet |
 | `03. EA Developer/<EA>/research/` | prereg/readout/evidence riêng package active |
 | `00. Old File/EA_Archive/EA_SonicR/research/` | ledger và evidence Sonic lịch sử; archive-only, không chạy |
 
-## Source EA — `03. EA Developer/` (2 lane active)
+## Source EA — `03. EA Developer/` (6 compilable lanes + terminal research records)
 
 | Path | Ghi chú |
 |---|---|
-| `03. EA Developer/README.md` | shelf pointer; 2 lane active (2026-07-15) |
-| `03. EA Developer/EA_FVGConfluence/` | lane active (Owner Path-C); có `.mq5` + research |
+| `03. EA Developer/README.md` | shelf pointer; current compilable lanes and terminal research records |
+| `03. EA Developer/EA_FVGConfluence/` | Path-C compile-only scaffold retained for audit; HYP-001 terminal de-dup KILL against prior FVG-cont family; no Model 0/promotion/live authority |
 | `03. EA Developer/EA_HybridICT_Sonic/` | lane active (Path-C stub, KILL@Model0); có `.mq5` + research |
+| `03. EA Developer/EA_KLR_Scalper/` | native MT5 replication `.mq5` retained for audit; control/USD Model-0 pair terminal `KILL_AT_MODEL0_CADENCE`, no live/rerun authority |
+| `03. EA Developer/EA_UnicornPrecisionScalper/` | canonical v1.23 alert-only audit kernel; event-anchored `HYP-UPS-XAU-M5-006` remains terminal KILL, V1.3 zero-trade source-bound casebook `20260716_155111` waits for independent labels; D-only evidence |
+| `03. EA Developer/EA_UnicornPrecisionScalperControl/` | storage-safe four-bar Unicorn control; canonical `.mq5` retained with terminal Model-0 KILL readout and D-only evidence |
+| `03. EA Developer/EA_UnicornPrecisionScalperRR15/` | post-outcome HYP-008 RR1.5 exact replay terminal `KILL_DIAGNOSTIC`; source/readout retained for audit, never rerun/promotion/live authority |
+| `03. EA Developer/EA_PO3_AMD_Scalper/` | research-only `KILLED_AT_OFFLINE_PROBE`; no `.mq5` |
+| `03. EA Developer/EA_DRAT_ONNX_ICT_Hybrid/` | packet nghiên cứu đã dừng ở `KILL_AT_OFFLINE_PROBE`; chỉ giữ prereg/readout/evidence, không có source `.mq5` |
+| `03. EA Developer/EA_GoldMacroPulse/` | real-yield external-data hypothesis `KILLED_AT_OFFLINE_PROBE`; no `.mq5`, holdout or Model 0 |
+| `03. EA Developer/EA_GLDFlowPulse/` | official SPDR primary creation/redemption research-only package; HYP-001 schema kill and HYP-002 terminal offline no-edge kill; no `.mq5`, holdout or Model 0 |
+| `03. EA Developer/EA_CFTCOptionsPulse/` | CFTC TFF economic probe terminal KILL plus DTCC/CME public-SDR source-feasibility readouts; no `.mq5`, Model 0 or live authority |
+| `03. EA Developer/EA_CMEParticipationPulse/` | official CME daily-volume/OI research package; `HYP-CME-OI-CONT-H1-FX-001` terminal offline economic KILL; no `.mq5`, compile, Model 0 or holdout access |
+| `03. EA Developer/EA_SGEFixingPulse/` | official SGE SHAU fixing source-feasibility record; density passed but temporal provenance failed before hypothesis/outcomes; no `.mq5`, compile, Model 0 or holdout access |
+| `03. EA Developer/EA_HybridRegimeMR/` | MR spec lane: HYP-001 offline KILL + HYP-002 exhaustive grid KILL (family `CLOSED_EXHAUSTIVE`); no `.mq5`; EURUSD datasets now at `02. AlphaFactory/data/fivepercent/EURUSD/` |
+| `03. EA Developer/EA_EURSessionDrift/` | Breedon-Ranaldo unconditional session drift `KILL_AT_OFFLINE_PROBE` (anomaly decayed post-2017); no `.mq5`; closes the last untested MR v3 branch |
+| `03. EA Developer/EA_KalshiMacroPrint/` | Kalshi macro-print lane `HYP-KALSHI-MACRO-PRINT-H1-XAU-001` `KILL_AT_OFFLINE_PROBE` (gross PF 0.941/0.947 dead before cost); no `.mq5`/Model 0 |
 | `00. Old File/EA_Archive/EA_SonicR/` | full SonicR ledger (archived THẬT 2026-07-15; bản duy nhất) |
 | `00. Old File/EA_Archive/EA_SilverBullet/` | SilverBullet **binary-only** (`.ex5`; không còn source `.mq5` trên đĩa) |
 | `00. Old File/EA_Archive/` | 80 dir archived (SonicR + SilverBullet + 78 stub `.ex5`) + manifest; **không** compile làm evidence |
@@ -75,12 +90,21 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 | `alpha.ps1` | lane compile / backtest / validate-full (cú pháp trong runbook) |
 | `tools/ea_contract.ps1` | resolver fail-closed exact source + package capability contract; archive không hợp lệ |
 | `tools/ea_research_loop.ps1` | entry generic dry-run mặc định cho control/challenger Model 0 |
-| `tools/sonic_research_loop.ps1` | compatibility engine phía sau generic entry; không dùng như workflow Sonic-only mới |
-| `tools/alpha_candidate_compare.py` | comparator generic identity + control-relative, không hardcode gate Sonic |
+| `tools/research_loop_engine.ps1` | engine nội bộ phía sau `ea_research_loop.ps1`; không gọi trực tiếp |
+| `tools/alpha_candidate_compare.py` | comparator generic identity + control-relative |
+| `tools/research/` | research kit dùng chung: `dsr.py`, `fivepercent_server_clock.py`, `snapshot_c_roots.ps1` |
+| `data/<broker>/<symbol>/` | data shelf thị trường (parquet + manifest hash-bound); rules trong `data/README.md` |
 | `runs/<EA>/<run_id>/` | evidence của run: report, run_manifest, `analysis/`, `logs/` |
 | `runs.db` + `tools/runs_db.py` | catalog run (chỉ là index, không phải thẩm quyền) |
 | `tools/backtest_storage_inventory.py` | inventory dung lượng, top file, orphan/generated file và mirror candidate; không xóa |
 | `tools/large_log_reader.py` | inspect/search/window log triệu dòng bằng streaming, output bị cap và hash-bound |
+| `external/` | dữ liệu external machine-local bị gitignore; paid CME chain ở `external/cme_fx_options_euro/`, public CME SDR ở `external/cme_sdr_fx/`, CME daily volume ở `external/cme_daily_volume/`, SGE SHAU archive ở `external/sge_shau_auction/`, Cboe source-feasibility files ở `external/cboe_fx_vol/`; không giữ corpus trên `C:` |
+| `tools/acquire_cme_sdr_fx.py` + `profile_cme_sdr_fx_options.py` | acquisition/profile outcome-blind từ official CME FTP; exclude hourly fragments và 2024+ holdout, hash manifest, fail temporal-continuity trước prereg |
+| `tools/acquire_cme_daily_volume.py` + `extract_cme_daily_fx_participation.py` | acquire/hash official daily-volume XLSX và extract exact EC/BP/J1 futures participation rows; outcome-blind source gate trước prereg/probe |
+| `tools/acquire_sge_shau_auction.py` + `profile_sge_shau_auction.py` | acquire/parse official SGE fixing-round archive on D; density profile plus fail-closed publication/version provenance gate before prereg/outcomes |
+| `tools/cme_fx_options_inventory.py` | hash + kiểm schema/coverage fail-closed cho CVOL và full EUR/USD option chain trước hypothesis mới |
+| `tools/databento_fx_options_acquire.py` | Databento `GLBX.MDP3` plan → cost-ceiling submit → D-side download; `plan` không gọi time-series tính phí |
+| `tools/configure_databento_key.ps1` | nhập kín API key vào Windows user environment; không ghi secret vào repo/artifact/log |
 | `tools/dedupe_backtest_log_mirrors.ps1` | dry-run/convert mirror `logs` và `analysis/logs` giống hệt thành hardlink |
 | `tools/archive_backtest_artifacts.ps1` | retention dry-run có plan atomic/contained; EA scope bắt buộc; protect run ID từ control docs + hot detail; archive off-volume theo copy/hash-verify/remove |
 | `tools/workspace_hygiene.ps1` | inventory root sample/stale worktree mặc định; chỉ xóa hoặc rebuild `runs.db` khi có `-Execute` |
@@ -90,7 +114,7 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 | `schemas/execution_data_capture_manifest.v1.schema.json` | schema bundle broker quote/heartbeat/commission/slippage với safety và sample gates đóng băng |
 | `tools/execution_data_foundation.py` | probe MT5 read-only, validate bundle và inventory evidence; không có mutating trade-call surface |
 | `tools/impact_pressure_probe.py` | proxy probe M15 read-only đóng băng cho V5; dùng Bid/Ask ticks, matched return-z control, hash artifact; không phải Strategy Tester hay promotion evidence |
-| `tools/sonic_cost_stress.py` | proxy cost stress cấp research (chỉ để falsify vòng đầu) |
+| `tools/research_cost_stress.py` | proxy cost stress cấp research (chỉ để falsify vòng đầu) |
 | `tools/audit_mql5_nonrepaint.py` | audit non-repaint sau mọi thay đổi signal/data-access |
 | `STRATEGY_LOG.md` | sử ký toàn bộ chiến lược đã test, kết quả, bài học (tiếng Việt) |
 | `DECISION_FRAMEWORK.md` | cây quyết định ITERATE/PIVOT/ABANDON (impl: `analysis/decision_framework.py`) |

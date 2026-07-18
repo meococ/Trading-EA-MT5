@@ -1,0 +1,25 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-UPS-XAU-M5-006",
+  "run_id": "STATIC-HYP006-20260716",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\HYP-UPS-XAU-M5-006_STATIC_AUDIT\\audit_manifest.json",
+  "manifest_sha256": "7FB60BAFBAEF4D2927084D2610F096C442560FA20168396A10637FC304EE9ED9",
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\HYP-UPS-XAU-M5-006_STATIC_AUDIT\\snapshot\\source\\EA_UnicornPrecisionScalper.mq5",
+      "sha256": "CB51EB2A72CBD1567452F6EA33983C5EAB4C32506A6E3A1CD1E47DBFF182A7B8"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\HYP-UPS-XAU-M5-006_STATIC_AUDIT\\snapshot\\source\\EA_UnicornPrecisionScalper.mq5",
+      "line": 164,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "generated_at_utc": "2026-07-16T07:09:09.274138+00:00"
+}

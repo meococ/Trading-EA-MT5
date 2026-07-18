@@ -1,0 +1,76 @@
+{
+  "schema_version": "unicorn_signal_identity_audit.v1",
+  "created_at_utc": "2026-07-16T08:15:39.500531Z",
+  "purpose": "correctness and candidate identity only; no fills or outcomes",
+  "outcomes_evaluated": false,
+  "terminal": {
+    "company": "MetaQuotes Ltd.",
+    "build": 6006,
+    "connected": true,
+    "portable": true,
+    "data_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent"
+  },
+  "data": {
+    "symbol": "XAUUSD",
+    "window_from": "2024.01.01",
+    "window_to_inclusive": "2025.12.25",
+    "m5_bars": 175133,
+    "h4_bars": 3841,
+    "d1_bars": 641,
+    "raw_bars_persisted_to_workspace": false
+  },
+  "source_identity": {
+    "audit_script_sha256": "54C8B12C156902D56805C79453D246766AFC03D044A092D7511BC3BE1948E01C",
+    "frozen_probe_script_sha256": "FA335842F4AC3EFE3A1C3C98A4CB7450BD1BCB943AB3681812EEE53C55D0F573",
+    "canonical_ea_sha256": "DF86D6CDB00B28CBAFD7FC9540497C60EDE8CD922F9B54470BB8AAD14D11C166"
+  },
+  "protected_common_storage": {
+    "before": {
+      "root": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files",
+      "file_count": 137,
+      "total_bytes": 20008308,
+      "metadata_sha256": "0A3D9FD1DAEE9D1FF65AE1D9866C4803E0D89682529E81ED98390841FCD7B5B8"
+    },
+    "after": {
+      "root": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files",
+      "file_count": 137,
+      "total_bytes": 20008308,
+      "metadata_sha256": "0A3D9FD1DAEE9D1FF65AE1D9866C4803E0D89682529E81ED98390841FCD7B5B8"
+    },
+    "unchanged": true
+  },
+  "variants": {
+    "frozen_build_probe_breaker8_invalidation_to_left": {
+      "candidate_count": 251,
+      "unique_identity_count": 251,
+      "long_count": 205,
+      "short_count": 46
+    },
+    "model0_source_breaker6_invalidation_to_left": {
+      "candidate_count": 234,
+      "unique_identity_count": 234,
+      "long_count": 190,
+      "short_count": 44
+    },
+    "invalidation_fixed_breaker8_through_decision": {
+      "candidate_count": 251,
+      "unique_identity_count": 251,
+      "long_count": 205,
+      "short_count": 46
+    },
+    "corrected_source_breaker6_through_decision": {
+      "candidate_count": 234,
+      "unique_identity_count": 234,
+      "long_count": 190,
+      "short_count": 44
+    }
+  },
+  "identity_deltas": {
+    "probe8_vs_model0_source6_symmetric_difference": 17,
+    "probe8_removed_by_full_invalidation": 0,
+    "source6_removed_by_full_invalidation": 0,
+    "corrected_source_vs_frozen_probe_symmetric_difference": 17,
+    "source6_removed_identity_sample": []
+  },
+  "verdict": "IDENTITY_DRIFT"
+}

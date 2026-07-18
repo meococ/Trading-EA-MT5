@@ -1,0 +1,25 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "FIDELITY-UPS-M15-STRUCTURE-001",
+  "run_id": "STATIC-UPS-M15-STRUCTURE-V124-20260716",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\UNICORN_FIDELITY_M15_STRUCTURE_STATIC_AUDIT\\audit_manifest.json",
+  "manifest_sha256": "A05413621EC63B8F202922F23F30DFA03CC8FFAFE724761CF85E151668D29662",
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\UNICORN_FIDELITY_M15_STRUCTURE_STATIC_AUDIT\\snapshot\\source\\EA_UnicornPrecisionScalper.mq5",
+      "sha256": "F436770FEC0F561F776990623F78A2BB180669A8EF00AD9EF34E8ED7657DC388"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\UNICORN_FIDELITY_M15_STRUCTURE_STATIC_AUDIT\\snapshot\\source\\EA_UnicornPrecisionScalper.mq5",
+      "line": 521,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "generated_at_utc": "2026-07-16T10:07:19.601955+00:00"
+}

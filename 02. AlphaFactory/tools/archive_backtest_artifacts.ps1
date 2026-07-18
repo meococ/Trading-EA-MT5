@@ -1,5 +1,6 @@
 param(
     [string]$ArchiveRoot = "",
+    [string]$CommonFilesRoot = "",
     [string]$EaName = "",
     [string[]]$KeepRunIds = @(
         "20260501_000718",
@@ -31,9 +32,19 @@ $ErrorActionPreference = "Stop"
 $toolsRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $alphaRoot = Split-Path -Parent $toolsRoot
 $repoRoot = Split-Path -Parent $alphaRoot
-$commonFilesRoot = $(if (-not [string]::IsNullOrWhiteSpace($env:APPDATA)) {
-    Join-Path $env:APPDATA 'MetaQuotes\Terminal\Common\Files'
-} else { '' })
+if ([string]::IsNullOrWhiteSpace($CommonFilesRoot)) {
+    $localConfigPath = Join-Path $alphaRoot 'alpha.local.ps1'
+    if (Test-Path -LiteralPath $localConfigPath -PathType Leaf) {
+        . $localConfigPath
+        if (Get-Variable -Name MT5CommonFilesRoot -ErrorAction SilentlyContinue) {
+            $CommonFilesRoot = [string]$MT5CommonFilesRoot
+        }
+    }
+}
+if ([string]::IsNullOrWhiteSpace($CommonFilesRoot) -and -not [string]::IsNullOrWhiteSpace($env:APPDATA)) {
+    $CommonFilesRoot = Join-Path $env:APPDATA 'MetaQuotes\Terminal\Common\Files'
+}
+$commonFilesRoot = $CommonFilesRoot
 
 if ($ReferenceRoots.Count -eq 0) {
     $ReferenceRoots = @(

@@ -937,6 +937,7 @@ def _recomputed_cost_evidence(
         "schema_version",
         "provenance_status",
         "stress_mode",
+        "promotion_eligible",
         "report",
         "report_sha256",
         "run_id",
@@ -981,6 +982,50 @@ def _recomputed_cost_evidence(
         "cost_source_manifest": str(cost_source_path) if cost_source_path else None,
         "recomputed_trade_count": rebuilt_count,
         "mismatched_fields": mismatched_fields,
+    }
+
+
+def _cost_evidence_scope(
+    payload: Dict[str, Any], *, allow_research_cost_proxy: bool
+) -> Dict[str, Any]:
+    """Classify the cost tier without allowing a proxy to inherit promotion rights."""
+    evidence = (
+        payload.get("execution_provenance")
+        if isinstance(payload.get("execution_provenance"), dict)
+        else {}
+    )
+    is_proxy = any(
+        (
+            payload.get("schema_version") == "research_execution_cost_proxy.v1",
+            payload.get("provenance_status") == "VERIFIED_RESEARCH_PROXY",
+            evidence.get("evidence_tier") == "RESEARCH_PROXY",
+        )
+    )
+    if not is_proxy:
+        return {
+            "evidence_tier": "PROMOTION_GRADE",
+            "research_falsification_eligible": True,
+            "promotion_eligible": True,
+        }
+    if not allow_research_cost_proxy:
+        raise ValueError("RESEARCH_PROXY cost evidence requires explicit opt-in")
+    required = {
+        "schema_version": "research_execution_cost_proxy.v1",
+        "provenance_status": "VERIFIED_RESEARCH_PROXY",
+        "stress_mode": "run_bound_research_cost_proxy_repricing",
+        "promotion_eligible": False,
+    }
+    for field, expected in required.items():
+        if payload.get(field) != expected:
+            raise ValueError(f"RESEARCH_PROXY field {field} must equal {expected!r}")
+    if evidence.get("evidence_tier") != "RESEARCH_PROXY" or evidence.get(
+        "promotion_eligible"
+    ) is not False:
+        raise ValueError("RESEARCH_PROXY execution provenance must remain non-promotable")
+    return {
+        "evidence_tier": "RESEARCH_PROXY",
+        "research_falsification_eligible": True,
+        "promotion_eligible": False,
     }
 
 
@@ -1338,7 +1383,41 @@ def _cost_provenance(
     manifest: Dict[str, Any],
     thresholds: Dict[str, float],
     expected_trade_count: Optional[int],
+    allow_research_cost_proxy: bool = False,
 ) -> Dict[str, Any]:
+    try:
+        scope = _cost_evidence_scope(
+            payload,
+            allow_research_cost_proxy=allow_research_cost_proxy,
+        )
+    except ValueError as exc:
+        return {
+            "verified": False,
+            "reasons": [str(exc)],
+            "evidence_tier": "RESEARCH_PROXY",
+            "research_falsification_eligible": False,
+            "promotion_eligible": False,
+        }
+    if scope["evidence_tier"] == "RESEARCH_PROXY":
+        recomputed = _recomputed_cost_evidence(payload, report_path, expected_trade_count)
+        reasons = list(recomputed.get("reasons") or [])
+        if not _same_resolved_path(payload.get("report"), report_path):
+            reasons.append("research proxy report does not bind to the current report")
+        return {
+            "verified": not reasons,
+            "reasons": reasons,
+            **scope,
+            "schema_version": payload.get("schema_version"),
+            "provenance_status": payload.get("provenance_status"),
+            "stress_mode": payload.get("stress_mode"),
+            "report_match": not any("report" in reason for reason in reasons),
+            "canonical_rebuild": recomputed,
+            "methodology_description": (
+                payload.get("execution_provenance", {})
+                .get("cost_methodology", {})
+                .get("description")
+            ),
+        }
     expected_schema = str(VERIFIED_COST_PROVENANCE_SCHEMA["schema_version"])
     schema_version = str(payload.get("schema_version") or "").strip()
     provenance_status = str(payload.get("provenance_status") or "").strip()
@@ -1826,6 +1905,7 @@ def _cost_provenance(
     return {
         "verified": not reasons,
         "reasons": reasons,
+        **scope,
         "schema_version": schema_version or None,
         "provenance_status": provenance_status or None,
         "stress_mode": stress_mode or None,
@@ -2479,6 +2559,7 @@ def evaluate_validation_gates(
     artifact_freshness: Optional[Dict[str, Any]] = None,
     invocation_id: str = "",
     invocation_start_utc: str = "",
+    allow_research_cost_proxy: bool = False,
 ) -> Dict[str, Any]:
     """Evaluate promotion gates from bound artifacts and successful invocations."""
     normalized_stage = str(stage).strip().lower()
@@ -2638,6 +2719,7 @@ def evaluate_validation_gates(
         manifest,
         gate_thresholds,
         n_trades,
+        allow_research_cost_proxy=allow_research_cost_proxy,
     )
     min_pf = gate_thresholds["min_profit_factor"]
     min_cost_x1_5 = gate_thresholds["min_cost_pf_x1_5"]
@@ -3138,7 +3220,14 @@ def evaluate_validation_gates(
         "gates_total": len(gates),
         "non_passing_gates": non_passing,
         "verdict": verdict,
-        "promotion_eligible": verdict == "PASS",
+        "research_cost_proxy": cost_provenance.get("evidence_tier") == "RESEARCH_PROXY",
+        "research_falsification_eligible": bool(
+            cost_provenance.get("verified")
+            and cost_provenance.get("research_falsification_eligible")
+        ),
+        "promotion_eligible": bool(
+            verdict == "PASS" and cost_provenance.get("promotion_eligible") is True
+        ),
     }
 
 
@@ -3153,6 +3242,7 @@ def run_all_validations(
     cost_artifact: str = "",
     wfa_artifact: str = "",
     variants_dir: str = "",
+    allow_research_cost_proxy: bool = False,
 ) -> Dict[str, Any]:
     """Run all validation tests, optionally in parallel.
 
@@ -3268,6 +3358,7 @@ def run_all_validations(
         artifact_freshness=artifact_freshness,
         invocation_id=invocation_id,
         invocation_start_utc=invocation_start_utc,
+        allow_research_cost_proxy=allow_research_cost_proxy,
     )
     summary["total_elapsed_s"] = total_elapsed
     summary["parallel"] = parallel
@@ -3343,6 +3434,11 @@ def main():
     parser.add_argument("--cost-artifact", default="", help="Explicit cost-stress JSON path")
     parser.add_argument("--wfa-artifact", default="", help="Explicit optimization-aware WFA JSON path")
     parser.add_argument("--variants-dir", default="", help="Full tried-variant family for confirmed PBO/White RC")
+    parser.add_argument(
+        "--allow-research-cost-proxy",
+        action="store_true",
+        help="Accept explicitly non-promotable RESEARCH_PROXY cost evidence for falsification",
+    )
     parser.add_argument("--min-pf", type=float, default=DEFAULT_GATE_THRESHOLDS["min_profit_factor"])
     parser.add_argument("--min-trades-per-week", type=float, default=DEFAULT_GATE_THRESHOLDS["min_trades_per_week"])
     parser.add_argument("--max-trades-per-week", type=float, default=DEFAULT_GATE_THRESHOLDS["max_trades_per_week"])
@@ -3402,6 +3498,7 @@ def main():
         cost_artifact=args.cost_artifact,
         wfa_artifact=args.wfa_artifact,
         variants_dir=args.variants_dir,
+        allow_research_cost_proxy=args.allow_research_cost_proxy,
     )
 
     summary_path = Path(out_dir) / "validation_summary.json"

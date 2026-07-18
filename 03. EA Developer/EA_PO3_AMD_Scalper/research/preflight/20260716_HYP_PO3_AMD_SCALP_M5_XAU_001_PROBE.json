@@ -1,0 +1,97 @@
+{
+  "schema_version": "po3_amd_offline_probe.v1",
+  "hypothesis_id": "HYP-PO3-AMD-SCALP-M5-XAU-001",
+  "ea_name": "EA_PO3_AMD_Scalper",
+  "generated_at_utc": "2026-07-16T05:03:37.254061Z",
+  "verdict": "KILL_AT_OFFLINE_PROBE",
+  "promotion_eligible": false,
+  "cost_status": "UNVERIFIED_REPORT_ASSUMPTION",
+  "window": {
+    "from": "2022-01-01T00:00:00+00:00",
+    "to": "2024-12-31T23:59:59+00:00"
+  },
+  "symbol": "XAUUSD",
+  "point": 0.01,
+  "bars": {
+    "m5": 212339,
+    "h4": 4644
+  },
+  "source_hashes": {
+    "probe_spec_sha256": "17A0DEB94485F4F70BB1AE26107FECD5B60B7F55382231F4D443B6C3BA55288B",
+    "probe_script_sha256": "C0B2EA2F7B004762482178DF145329F52CA6B175BBCADD8B578C8397C4A85DCF",
+    "research_report_sha256": "17D1D5B0AA742EB0448ADF73C8D911568BBFE764E111469B8147FD04E2727277"
+  },
+  "terminal": {
+    "build": 6006,
+    "connected": true,
+    "data_path": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075",
+    "account_fingerprint": "9B6E5CB74CACD417F97BB8CE59C8694D256676B388562B4593A17EDA61E954F8"
+  },
+  "gate_counts": {
+    "days_total": 774,
+    "range_ok": 6,
+    "sweeps": 1,
+    "displacements": 1,
+    "fvgs": 1,
+    "retests": 0
+  },
+  "control": {
+    "trades": 1,
+    "trades_per_elapsed_week": 0.006392694063926941,
+    "gross_profit_r": 2.215447154471549,
+    "gross_loss_r": 0.0,
+    "profit_factor_cost_proxy": null,
+    "profit_factor_infinite": true,
+    "net_r": 2.215447154471549,
+    "expectancy_r": 2.215447154471549,
+    "max_drawdown_r": 0.0,
+    "max_drawdown_pct_at_0_25_risk": 0.0,
+    "positive_years": 1,
+    "by_year_net_r": {
+      "2023": 2.215447154471549
+    }
+  },
+  "challenger": {
+    "trades": 0,
+    "trades_per_elapsed_week": 0.0,
+    "gross_profit_r": 0.0,
+    "gross_loss_r": 0.0,
+    "profit_factor_cost_proxy": null,
+    "profit_factor_infinite": false,
+    "net_r": 0.0,
+    "expectancy_r": 0.0,
+    "max_drawdown_r": 0.0,
+    "max_drawdown_pct_at_0_25_risk": 0.0,
+    "positive_years": 0,
+    "by_year_net_r": {}
+  },
+  "gates": {
+    "cadence_min": false,
+    "cadence_max": true,
+    "pf": false,
+    "expectancy": false,
+    "drawdown": true,
+    "positive_years": false,
+    "net_positive_and_not_below_control": false,
+    "pf_margin_over_control": false
+  },
+  "trades": {
+    "control": [
+      {
+        "role": "control",
+        "trade_date": "2023-06-30",
+        "direction": -1,
+        "entry_time_utc": "2023-06-30T08:40:00+00:00",
+        "entry": 1909.02,
+        "stop": 1910.25,
+        "risk_points": 123.00000000000182,
+        "exit_time_utc": "2023-06-30T09:00:00+00:00",
+        "gross_r": 2.5,
+        "cost_r": 0.28455284552845106,
+        "net_r": 2.215447154471549,
+        "exit_reason": "TARGET_3R"
+      }
+    ],
+    "challenger": []
+  }
+}

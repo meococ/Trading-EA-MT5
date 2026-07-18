@@ -1,0 +1,47 @@
+{
+  "schema_version": "unicorn_mss_bos_probe.v1",
+  "authority": "PRE_OUTCOME_FIDELITY_PROBE_ONLY",
+  "inputs": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\20260716_ALERT_FIRST_LABEL_CONTEXT_V1\\label_context_batch_01.json",
+      "sha256": "2A00C8EAD9BE07166F8641D575087478B4ADAE668701A7EB46779AD317648D6A"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\20260716_ALERT_FIRST_LABEL_CONTEXT_V1\\label_context_batch_02.json",
+      "sha256": "3AE280E90B3C76D717D3D785A3B1BC47CA3A1FE484D85681A453165E74D78932"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\20260716_ALERT_FIRST_LABEL_CONTEXT_V1\\label_context_batch_03.json",
+      "sha256": "ECDB2C2F1FA0C134531D2F6961F5F68894F537B5B9543183B8BCBF64F5139287"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\20260716_ALERT_FIRST_LABEL_CONTEXT_V1\\label_context_batch_04.json",
+      "sha256": "CC05568D10331896DDA89D57603400F9321F26E87D3E5F5C39CF5EC43616B6BF"
+    }
+  ],
+  "result": {
+    "rows": 200,
+    "pivot_strength": 1,
+    "definition": "after the sweep, a completed M5 bar closes through the latest confirmed pre-sweep opposing swing",
+    "mss_rows": 129,
+    "mss_fraction": 0.645,
+    "m15_aligned_rows": 70,
+    "m15_plus_mss_rows": 44,
+    "m15_plus_mss_fraction": 0.22,
+    "by_direction": {
+      "long": {
+        "rows": 165,
+        "mss": 107,
+        "m15": 59,
+        "combined": 36
+      },
+      "short": {
+        "rows": 35,
+        "mss": 22,
+        "m15": 11,
+        "combined": 8
+      }
+    },
+    "outcomes_read": false
+  }
+}

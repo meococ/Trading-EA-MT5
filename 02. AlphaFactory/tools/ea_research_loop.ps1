@@ -35,11 +35,12 @@ param(
     [switch]$SkipMarketPhase,
     [switch]$SkipCompare,
     [switch]$CleanupCommonFiles,
+    [switch]$AllowResearchCostProxy,
     [switch]$Execute
 )
 
 $ErrorActionPreference = "Stop"
-$runner = Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) "sonic_research_loop.ps1"
+$runner = Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) "research_loop_engine.ps1"
 if (-not (Test-Path -LiteralPath $runner -PathType Leaf)) {
     throw "AlphaFactory research-loop engine is missing: $runner"
 }

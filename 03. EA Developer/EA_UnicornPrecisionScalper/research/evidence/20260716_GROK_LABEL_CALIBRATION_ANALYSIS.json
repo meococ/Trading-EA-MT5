@@ -1,0 +1,189 @@
+{
+  "schema_version": "unicorn_grok_label_calibration_analysis.v1",
+  "created_at_utc": "2026-07-16T08:44:31.253707Z",
+  "authority": "AI_EXPLORATORY_PRE_OUTCOME_ONLY",
+  "outcomes_seen": false,
+  "human_label_gate_satisfied": false,
+  "sample_size": 5,
+  "sample_is_random": false,
+  "sample_design": "3 objective survivors plus 2 objective rejects; objective labels hidden from Grok",
+  "grok_model": "grok-4.5",
+  "grok_stop_reason": "EndTurn",
+  "runner_success": true,
+  "artifacts": {
+    "request_sha256": "F31FC612E0602155F8AB44164E1546D9AE340BDF0117B966A245B5D3416B8956",
+    "response_sha256": "DD4FBD72963A5FF2411FCD4F34C5A6905EFC5584A241B7C821A4489061F1E842",
+    "runner_summary_sha256": "84846ED8A53A8FFD18C6C24685DE3F1115F3A2B2845BB5B60AC7DACC715F10A7",
+    "objective_summary_sha256": "C4D58275910811AE1D0F7B71ACCB84D1B5701D0CE5FCF0B8CF8409C83760420C"
+  },
+  "agreements": {
+    "label_true_sweep_liquidity": {
+      "observed_agreement": 0.4,
+      "cohen_kappa": -0.153846
+    },
+    "label_true_displacement": {
+      "observed_agreement": 1.0,
+      "cohen_kappa": 1.0
+    },
+    "label_true_mss_bos_close": {
+      "observed_agreement": 0.6,
+      "cohen_kappa": 0.411765
+    },
+    "label_valid_breaker": {
+      "observed_agreement": 0.6,
+      "cohen_kappa": 0.0
+    },
+    "label_fvg_fresh_unfilled": {
+      "observed_agreement": 1.0,
+      "cohen_kappa": 1.0
+    },
+    "label_micro_confirm_present": {
+      "observed_agreement": 1.0,
+      "cohen_kappa": 1.0
+    },
+    "label_core_setup_accept": {
+      "observed_agreement": 0.6,
+      "cohen_kappa": 0.285714
+    }
+  },
+  "disagreements": [
+    {
+      "event_id": "XAUUSD_1706182800_-1",
+      "differences": {
+        "label_valid_breaker": {
+          "objective": "ambiguous",
+          "grok": "yes"
+        },
+        "label_core_setup_accept": {
+          "objective": "ambiguous",
+          "grok": "yes"
+        }
+      },
+      "grok_notes": "SHORT. Sweep: 11:00 wick 2019.54 through clustered prior highs (10:50 2019.39; 10:55 2019.49; 10:10 2019.36) close back 2018.02. Displacement: 11:30 body meets 1.80*ATR, close in lower outer quartile. MSS: 11:30 close 2016.9 beyond pre-sweep confirmed-area low ~10:30 2017.16. Breaker: pre-disp bullish 11:20 (2018.19-2019.04) closed through on 11:30, overlaps logged FVG 2017.61-2018.49, not fully traversed before that break. FVG matches 11:25 low / 11:35 high; fresh on decision bar. Micro: no completed post-formation interaction (formation=decision)."
+    },
+    {
+      "event_id": "XAUUSD_1708954800_1",
+      "differences": {
+        "label_true_sweep_liquidity": {
+          "objective": "yes",
+          "grok": "ambiguous"
+        },
+        "label_true_mss_bos_close": {
+          "objective": "yes",
+          "grok": "ambiguous"
+        }
+      },
+      "grok_notes": "LONG. Sweep extreme 2031.65 on 13:25 only micro-beyond prior bar low 2031.69; no 2-sided confirmed pivot pool (deeper 12:00 2030.74 not taken) \u2192 ambiguous not invented liquidity. Displacement: 13:30 meets 1.67*ATR with close in upper outer quartile. MSS dual anchors: 13:05 high 2033.65 (close break yes) vs more material 12:45 high 2034.08 (13:35 close 2034.09 within spread-scale noise, not clean) \u2192 opposite answers. Breaker: 13:20/13:25 opposing candles only edge-overlap FVG 2032.66-2033.48; not clear failed OB. FVG reconciles 13:25 high / 13:35 low; fresh decision-bar. Micro: formation only, not confirmation."
+    },
+    {
+      "event_id": "XAUUSD_1704195000_1",
+      "differences": {
+        "label_true_sweep_liquidity": {
+          "objective": "no",
+          "grok": "yes"
+        },
+        "label_true_mss_bos_close": {
+          "objective": "no",
+          "grok": "ambiguous"
+        },
+        "label_valid_breaker": {
+          "objective": "ambiguous",
+          "grok": "yes"
+        },
+        "label_core_setup_accept": {
+          "objective": "no",
+          "grok": "ambiguous"
+        }
+      },
+      "grok_notes": "LONG. Sweep: 11:15 low 2072.82 beyond visible equal-lows area ~10:15-10:20 (2073.53-2073.57) with reclaim close 2073.61. Displacement: 11:20 large body 1.76*ATR, close at top of range. MSS dual anchors pre-sweep: minor down-leg high 11:10 2075.15 (11:20 close 2075.84 breaks) vs larger swing high 10:45 2076.55 (no close beyond by decision 11:25 c=2075.03) \u2192 opposite answers. Breaker: bearish 11:10 (2073.85-2075.15) fully overlaps FVG 2074.24-2074.62 (overlap_ratio 1.0), invalidated by 11:20 close through high, not pre-traversed. FVG 11:15 high / 11:25 low fresh on decision bar. Micro: no post-formation interaction."
+    },
+    {
+      "event_id": "XAUUSD_1704805800_-1",
+      "differences": {
+        "label_true_sweep_liquidity": {
+          "objective": "no",
+          "grok": "yes"
+        }
+      },
+      "grok_notes": "SHORT. Sweep: 12:20 high 2036.36 beyond prior 12:15 high 2036.28 with close back 2035.68. Displacement: 13:00 body ~1.57*ATR, close in lower outer quartile. MSS: no completed M5/M15 close by decision 13:10 beyond pre-sweep opposing lows (11:50 2033.74; 12:00 2033.95); 13:05 only wicks to 2033.38 then closes 2034.67 \u2014 wick insufficient. Breaker: last strong bullish 12:45 overlaps FVG but intermediate 12:50-12:55 bars make true breaker vs max-overlap proxy ambiguous. FVG 2035.21-2035.8 matches 12:55 low / 13:05 high; fresh decision-bar. Micro: formation not confirmation."
+    }
+  ],
+  "interpretation": "The sample is calibration only. Final-core kappa below 0.70 or any material MSS/breaker disagreement confirms that AI review cannot clear the frozen human-label gate.",
+  "grok_overlay": {
+    "reviewer_id": "grok_ai_exploratory_calibration_20260716",
+    "reviewer_type": "AI_EXPLORATORY",
+    "outcome_seen": false,
+    "labels": [
+      {
+        "event_id": "XAUUSD_1704807000_-1",
+        "label_true_sweep_liquidity": "yes",
+        "label_true_displacement": "yes",
+        "label_true_mss_bos_close": "yes",
+        "label_valid_breaker": "ambiguous",
+        "label_fvg_fresh_unfilled": "yes",
+        "label_micro_confirm_present": "no",
+        "label_core_setup_accept": "ambiguous",
+        "entry_readiness": "ambiguous",
+        "primary_reject_reason": "BREAKER_AMBIGUOUS",
+        "notes": "SHORT. Sweep: 13:00 wick to 2036.43 beyond visible prior highs (12:20 2036.36; 12:55 2036.32) with close back 2034.8. Displacement: 13:20 body meets reported 2.17*ATR and closes at range low. MSS: post-sweep M5 close 13:20 at 2032.62 beyond pre-sweep swing lows (e.g. 12:40 2034.12; 11:50 2033.74). FVG 2033.19-2034.98 reconciles as 13:15 low / 13:25 high three-candle gap formed on decision bar; unfilled through cutoff. Breaker: 13:10 bounce candle only weakly overlaps FVG (detector overlap 0.17); not labeling yes under strict breaker facts. Micro: decision-bar FVG formation is not confirmation; no post-formation zone interaction.",
+        "confidence": "medium"
+      },
+      {
+        "event_id": "XAUUSD_1706182800_-1",
+        "label_true_sweep_liquidity": "yes",
+        "label_true_displacement": "yes",
+        "label_true_mss_bos_close": "yes",
+        "label_valid_breaker": "yes",
+        "label_fvg_fresh_unfilled": "yes",
+        "label_micro_confirm_present": "no",
+        "label_core_setup_accept": "yes",
+        "entry_readiness": "limit_candidate",
+        "primary_reject_reason": "NO_MICRO_CONFIRM",
+        "notes": "SHORT. Sweep: 11:00 wick 2019.54 through clustered prior highs (10:50 2019.39; 10:55 2019.49; 10:10 2019.36) close back 2018.02. Displacement: 11:30 body meets 1.80*ATR, close in lower outer quartile. MSS: 11:30 close 2016.9 beyond pre-sweep confirmed-area low ~10:30 2017.16. Breaker: pre-disp bullish 11:20 (2018.19-2019.04) closed through on 11:30, overlaps logged FVG 2017.61-2018.49, not fully traversed before that break. FVG matches 11:25 low / 11:35 high; fresh on decision bar. Micro: no completed post-formation interaction (formation=decision).",
+        "confidence": "medium"
+      },
+      {
+        "event_id": "XAUUSD_1708954800_1",
+        "label_true_sweep_liquidity": "ambiguous",
+        "label_true_displacement": "yes",
+        "label_true_mss_bos_close": "ambiguous",
+        "label_valid_breaker": "ambiguous",
+        "label_fvg_fresh_unfilled": "yes",
+        "label_micro_confirm_present": "no",
+        "label_core_setup_accept": "ambiguous",
+        "entry_readiness": "ambiguous",
+        "primary_reject_reason": "CONTEXT_INSUFFICIENT",
+        "notes": "LONG. Sweep extreme 2031.65 on 13:25 only micro-beyond prior bar low 2031.69; no 2-sided confirmed pivot pool (deeper 12:00 2030.74 not taken) \u2192 ambiguous not invented liquidity. Displacement: 13:30 meets 1.67*ATR with close in upper outer quartile. MSS dual anchors: 13:05 high 2033.65 (close break yes) vs more material 12:45 high 2034.08 (13:35 close 2034.09 within spread-scale noise, not clean) \u2192 opposite answers. Breaker: 13:20/13:25 opposing candles only edge-overlap FVG 2032.66-2033.48; not clear failed OB. FVG reconciles 13:25 high / 13:35 low; fresh decision-bar. Micro: formation only, not confirmation.",
+        "confidence": "low"
+      },
+      {
+        "event_id": "XAUUSD_1704195000_1",
+        "label_true_sweep_liquidity": "yes",
+        "label_true_displacement": "yes",
+        "label_true_mss_bos_close": "ambiguous",
+        "label_valid_breaker": "yes",
+        "label_fvg_fresh_unfilled": "yes",
+        "label_micro_confirm_present": "no",
+        "label_core_setup_accept": "ambiguous",
+        "entry_readiness": "ambiguous",
+        "primary_reject_reason": "CONTEXT_INSUFFICIENT",
+        "notes": "LONG. Sweep: 11:15 low 2072.82 beyond visible equal-lows area ~10:15-10:20 (2073.53-2073.57) with reclaim close 2073.61. Displacement: 11:20 large body 1.76*ATR, close at top of range. MSS dual anchors pre-sweep: minor down-leg high 11:10 2075.15 (11:20 close 2075.84 breaks) vs larger swing high 10:45 2076.55 (no close beyond by decision 11:25 c=2075.03) \u2192 opposite answers. Breaker: bearish 11:10 (2073.85-2075.15) fully overlaps FVG 2074.24-2074.62 (overlap_ratio 1.0), invalidated by 11:20 close through high, not pre-traversed. FVG 11:15 high / 11:25 low fresh on decision bar. Micro: no post-formation interaction.",
+        "confidence": "medium"
+      },
+      {
+        "event_id": "XAUUSD_1704805800_-1",
+        "label_true_sweep_liquidity": "yes",
+        "label_true_displacement": "yes",
+        "label_true_mss_bos_close": "no",
+        "label_valid_breaker": "ambiguous",
+        "label_fvg_fresh_unfilled": "yes",
+        "label_micro_confirm_present": "no",
+        "label_core_setup_accept": "no",
+        "entry_readiness": "reject",
+        "primary_reject_reason": "NO_MSS_CLOSE",
+        "notes": "SHORT. Sweep: 12:20 high 2036.36 beyond prior 12:15 high 2036.28 with close back 2035.68. Displacement: 13:00 body ~1.57*ATR, close in lower outer quartile. MSS: no completed M5/M15 close by decision 13:10 beyond pre-sweep opposing lows (11:50 2033.74; 12:00 2033.95); 13:05 only wicks to 2033.38 then closes 2034.67 \u2014 wick insufficient. Breaker: last strong bullish 12:45 overlaps FVG but intermediate 12:50-12:55 bars make true breaker vs max-overlap proxy ambiguous. FVG 2035.21-2035.8 matches 12:55 low / 13:05 high; fresh decision-bar. Micro: formation not confirmation.",
+        "confidence": "high"
+      }
+    ]
+  }
+}

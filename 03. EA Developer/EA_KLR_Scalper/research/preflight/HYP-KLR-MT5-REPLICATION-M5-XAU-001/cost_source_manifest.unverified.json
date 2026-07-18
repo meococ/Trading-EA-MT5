@@ -1,0 +1,15 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "UNVERIFIED_DIAGNOSTIC",
+  "provenance_status": "UNVERIFIED",
+  "promotion_eligible": false,
+  "broker": "Five Percent Online Ltd",
+  "server": "FivePercentOnline-Real",
+  "symbol": "XAUUSD",
+  "from": "2022.01.01",
+  "to": "2024.12.31",
+  "spread_policy": "MT5 Model 0 current/historical tick spread",
+  "commission": "tester-reported only; not accepted as live fill provenance",
+  "slippage": "not independently verified",
+  "verdict": "DIAGNOSTIC_ONLY_NOT_PROMOTION_ELIGIBLE"
+}

@@ -1,0 +1,38 @@
+﻿{
+    "schema_version":  "alphafactory_mt5_storage_snapshot.v1",
+    "generated_at_utc":  "2026-07-16T08:08:16.3547045Z",
+    "roots":  [
+                  {
+                      "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files",
+                      "exists":  true,
+                      "file_count":  137,
+                      "total_bytes":  20008308,
+                      "latest_file_write_utc":  "2026-07-15T01:21:07.3928996Z",
+                      "metadata_sha256":  "B4C0D81C79DB307A47B2C94A3CA243E9943B133DB9D97C28A510FC02810E63DC"
+                  },
+                  {
+                      "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\Tester",
+                      "exists":  true,
+                      "file_count":  120,
+                      "total_bytes":  1260063754,
+                      "latest_file_write_utc":  "2026-07-16T06:11:11.1495166Z",
+                      "metadata_sha256":  "774D3CEB31C816EAE624515F0F3F2237A3129A4B4EFD8F0AD911B0DE820D5A3C"
+                  },
+                  {
+                      "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Tester",
+                      "exists":  true,
+                      "file_count":  882,
+                      "total_bytes":  6847158854,
+                      "latest_file_write_utc":  "2026-07-15T11:32:25.5545375Z",
+                      "metadata_sha256":  "E970F243BEE7BAB725FBC7460103BDDA7954D88D64F88CCD6CFEF3323F0EC63B"
+                  },
+                  {
+                      "root":  "C:\\ProgramData\\MetaQuotes\\Tester",
+                      "exists":  false,
+                      "file_count":  0,
+                      "total_bytes":  0,
+                      "latest_file_write_utc":  null,
+                      "metadata_sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  }
+              ]
+}

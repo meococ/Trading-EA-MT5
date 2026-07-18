@@ -76,6 +76,11 @@ $content = @"
 # Machine-local only - do not commit this file.
 `$MT5InstallRoot = "$install"
 `$MT5DataRoot = "$data"
+`$MT5PortableMode = `$false
+`$MT5CommonFilesRoot = Join-Path (Split-Path -Parent `$MT5DataRoot) "Common\Files"
+`$MT5AllowCommonFiles = `$true
+`$MT5TesterRoot = Join-Path `$MT5DataRoot "Tester"
+`$MT5RequiredStorageDrive = ""
 "@
 
 Set-Content -LiteralPath $OutPath -Value $content -Encoding UTF8

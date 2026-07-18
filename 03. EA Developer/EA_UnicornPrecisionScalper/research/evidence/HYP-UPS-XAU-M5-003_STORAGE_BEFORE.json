@@ -1,0 +1,30 @@
+﻿{
+    "schema_version":  "alphafactory_mt5_storage_snapshot.v1",
+    "generated_at_utc":  "2026-07-16T06:31:21.0438824Z",
+    "roots":  [
+                  {
+                      "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal",
+                      "exists":  true,
+                      "file_count":  5409,
+                      "total_bytes":  23512553131,
+                      "latest_file_write_utc":  "2026-07-16T06:31:17.1784182Z",
+                      "metadata_sha256":  "CF207B020EE10CEDA53A3B0EE34B4B644D7C9AD12530CD72827C32CE11D0A3EE"
+                  },
+                  {
+                      "root":  "C:\\Users\\ADMIN\\AppData\\Local\\MetaQuotes\\Terminal",
+                      "exists":  false,
+                      "file_count":  0,
+                      "total_bytes":  0,
+                      "latest_file_write_utc":  null,
+                      "metadata_sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "root":  "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable",
+                      "exists":  true,
+                      "file_count":  2575,
+                      "total_bytes":  21377979636,
+                      "latest_file_write_utc":  "2026-07-16T06:31:09.5430207Z",
+                      "metadata_sha256":  "BE2E9018117ACC8965A3B7306729ECE29CFF6CCE148EB836FF6E89DD0F8A3D37"
+                  }
+              ]
+}

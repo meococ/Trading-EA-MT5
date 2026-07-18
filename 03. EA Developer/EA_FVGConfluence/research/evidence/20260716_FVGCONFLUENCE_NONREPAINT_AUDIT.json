@@ -1,0 +1,23 @@
+{
+  "schema_version": "alphafactory_nonrepaint_source_audit.v1",
+  "generated_at_utc": "2026-07-16T11:14:41.4100014Z",
+  "hypothesis_id": "HYP-FVG-SCALP-CONFL-M5-EUR-001",
+  "source_path": "03. EA Developer/EA_FVGConfluence/EA_FVGConfluence.mq5",
+  "source_sha256": "0279ADE492A104803CC7279CD5D3B99A6F57822779B91273AFD666F0C784757F",
+  "status": "PASS_ENGINEERING_ONLY",
+  "checks": {
+    "entry_signal_min_shift": 1,
+    "fvg_scan_min_formed_shift": 2,
+    "atr_copybuffer_start_shift": 1,
+    "htf_decision_uses_latest_closed_bar": true,
+    "explicit_bar_zero_decision_matches": 0,
+    "new_bar_gate": "iTime(_Symbol, PERIOD_CURRENT, 1)",
+    "management_tick_path_after_position_only": true
+  },
+  "findings": [],
+  "limitations": [
+    "This audit proves closed-bar source behavior only.",
+    "It does not clear de-dup, economics, costs, or promotion authority.",
+    "The hypothesis is terminal at the de-dup gate; no Model 0 run is authorized."
+  ]
+}

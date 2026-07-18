@@ -1,0 +1,22 @@
+﻿{
+    "schema_version":  "alphafactory_mt5_storage_snapshot.v1",
+    "generated_at_utc":  "2026-07-16T08:10:01.0777116Z",
+    "roots":  [
+                  {
+                      "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files",
+                      "exists":  true,
+                      "file_count":  137,
+                      "total_bytes":  20008308,
+                      "latest_file_write_utc":  "2026-07-15T01:21:07.3928996Z",
+                      "metadata_sha256":  "B4C0D81C79DB307A47B2C94A3CA243E9943B133DB9D97C28A510FC02810E63DC"
+                  },
+                  {
+                      "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\4F957FF7D1BAC510136444153DB1E696",
+                      "exists":  true,
+                      "file_count":  2,
+                      "total_bytes":  136,
+                      "latest_file_write_utc":  "2026-07-16T08:07:46.2414316Z",
+                      "metadata_sha256":  "195EDD93B7C95CCF770D2C80F38F9D6C8BEFF4D7033AE44CC801F479A8D81A50"
+                  }
+              ]
+}

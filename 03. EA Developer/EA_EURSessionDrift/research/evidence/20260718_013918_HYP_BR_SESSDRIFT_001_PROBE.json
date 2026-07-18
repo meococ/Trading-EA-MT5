@@ -1,0 +1,395 @@
+{
+  "schema_version": "br_sessdrift_offline_probe.v1",
+  "hypothesis_id": "HYP-BR-SESSDRIFT-EURUSD-H1-001",
+  "ea_name": "EA_EURSessionDrift",
+  "generated_at_utc": "2026-07-18T01:39:19Z",
+  "prereg_sha256": "8703E6A10139009AC9FD6372BAAC70B6375C95C36EECAFF23FF6B6D639EC04D8",
+  "windows_utc": [
+    [
+      7,
+      11,
+      -1
+    ],
+    [
+      13,
+      17,
+      1
+    ]
+  ],
+  "inputs": {
+    "h1_parquet": "D:\\Trading EA MT5\\03. EA Developer\\EA_HybridRegimeMR\\research\\evidence\\EURUSD_H1_2015_now.parquet",
+    "h1_sha256": "71860016AF1BD1B17353B043AFF799233A787E9DF3F587913FCD2F5328BB1E08",
+    "bars_loaded": 49723,
+    "holdout_bars_loaded": 0,
+    "last_bar_utc_loaded": "2022-12-30 21:00:00"
+  },
+  "cost_status": "UNVERIFIED_PROXY",
+  "cost_model": "1.5 pips RT x1; no swap (intraday); stress x1.5/x2; R = 2xATR14 last closed bar",
+  "trial_accounting": {
+    "n_trials": 2,
+    "var_sr_across_trials": 2.2e-05
+  },
+  "arms": {
+    "book_nostop": {
+      "summary": {
+        "train": {
+          "n": 3107,
+          "tpw": 9.922,
+          "gross_pf": 1.0574,
+          "pf_x1": 0.9057,
+          "pf_x1_5": 0.8383,
+          "pf_x2": 0.7761,
+          "exp_x1": -0.03694,
+          "net_r_x1": -114.772,
+          "sr_trade": -0.03746,
+          "skew": 0.0758,
+          "kurt": 4.9426
+        },
+        "validation": {
+          "n": 1039,
+          "tpw": 9.963,
+          "gross_pf": 0.9767,
+          "pf_x1": 0.8413,
+          "pf_x1_5": 0.7809,
+          "pf_x2": 0.7249,
+          "exp_x1": -0.0669,
+          "net_r_x1": -69.511,
+          "sr_trade": -0.06554,
+          "skew": 0.5436,
+          "kurt": 5.8991
+        },
+        "combined": {
+          "n": 4146,
+          "tpw": 9.932,
+          "gross_pf": 1.036,
+          "pf_x1": 0.8886,
+          "pf_x1_5": 0.8232,
+          "pf_x2": 0.7626,
+          "exp_x1": -0.04445,
+          "net_r_x1": -184.283,
+          "sr_trade": -0.04468,
+          "skew": 0.2009,
+          "kurt": 5.1951,
+          "by_year_net_r_x1": {
+            "2015": 21.8,
+            "2016": -17.207,
+            "2017": 8.746,
+            "2018": -28.154,
+            "2019": -51.145,
+            "2020": -48.818,
+            "2021": -37.814,
+            "2022": -31.702
+          },
+          "top1_win_share": 0.00439
+        }
+      },
+      "partition_short": {
+        "train": {
+          "n": 1555,
+          "tpw": 4.966,
+          "gross_pf": 1.1214,
+          "pf_x1": 0.9449,
+          "pf_x1_5": 0.8675,
+          "pf_x2": 0.7966,
+          "exp_x1": -0.02068,
+          "net_r_x1": -32.159,
+          "sr_trade": -0.02181,
+          "skew": 0.0056,
+          "kurt": 3.8574
+        },
+        "validation": {
+          "n": 520,
+          "tpw": 4.986,
+          "gross_pf": 0.9657,
+          "pf_x1": 0.8194,
+          "pf_x1_5": 0.7549,
+          "pf_x2": 0.6954,
+          "exp_x1": -0.07603,
+          "net_r_x1": -39.537,
+          "sr_trade": -0.07711,
+          "skew": 0.4666,
+          "kurt": 5.574
+        },
+        "combined": {
+          "n": 2075,
+          "tpw": 4.971,
+          "gross_pf": 1.0788,
+          "pf_x1": 0.9107,
+          "pf_x1_5": 0.8369,
+          "pf_x2": 0.7691,
+          "exp_x1": -0.03455,
+          "net_r_x1": -71.696,
+          "sr_trade": -0.03607,
+          "skew": 0.1285,
+          "kurt": 4.3117,
+          "by_year_net_r_x1": {
+            "2015": 22.127,
+            "2016": -8.801,
+            "2017": -6.335,
+            "2018": -1.56,
+            "2019": -20.183,
+            "2020": -17.423,
+            "2021": -11.093,
+            "2022": -28.445
+          },
+          "top1_win_share": 0.00807
+        }
+      },
+      "partition_long": {
+        "train": {
+          "n": 1552,
+          "tpw": 4.956,
+          "gross_pf": 0.9993,
+          "pf_x1": 0.8695,
+          "pf_x1_5": 0.8112,
+          "pf_x2": 0.7569,
+          "exp_x1": -0.05323,
+          "net_r_x1": -82.613,
+          "sr_trade": -0.05205,
+          "skew": 0.1384,
+          "kurt": 5.7173
+        },
+        "validation": {
+          "n": 519,
+          "tpw": 4.977,
+          "gross_pf": 0.9875,
+          "pf_x1": 0.8631,
+          "pf_x1_5": 0.8071,
+          "pf_x2": 0.7548,
+          "exp_x1": -0.05775,
+          "net_r_x1": -29.974,
+          "sr_trade": -0.05472,
+          "skew": 0.6031,
+          "kurt": 6.1277
+        },
+        "combined": {
+          "n": 2071,
+          "tpw": 4.961,
+          "gross_pf": 0.9963,
+          "pf_x1": 0.8679,
+          "pf_x1_5": 0.8102,
+          "pf_x2": 0.7564,
+          "exp_x1": -0.05436,
+          "net_r_x1": -112.587,
+          "sr_trade": -0.05274,
+          "skew": 0.2627,
+          "kurt": 5.8217,
+          "by_year_net_r_x1": {
+            "2015": -0.327,
+            "2016": -8.406,
+            "2017": 15.081,
+            "2018": -26.594,
+            "2019": -30.962,
+            "2020": -31.395,
+            "2021": -26.721,
+            "2022": -3.257
+          },
+          "top1_win_share": 0.00873
+        }
+      },
+      "skips": {
+        "missing_bars": 834,
+        "atr_nan": 2
+      },
+      "gates": {
+        "pass_economics": false,
+        "checks": {
+          "sample_n_ge_1000": true,
+          "pf_x1_ge_1_25": false,
+          "exp_x1_ge_0_02": false,
+          "pf_x1_5_ge_1_25": false,
+          "pf_x2_ge_1_00": false,
+          "pos_years_ge_6of8": false,
+          "concentration_le_40": false,
+          "top1_share_le_5pct": true
+        },
+        "pos_years": 2,
+        "concentration": 0.7137,
+        "dsr": 0.0013,
+        "pass_all": false
+      }
+    },
+    "book_sl": {
+      "summary": {
+        "train": {
+          "n": 3107,
+          "tpw": 9.922,
+          "gross_pf": 1.0506,
+          "pf_x1": 0.896,
+          "pf_x1_5": 0.8279,
+          "pf_x2": 0.7652,
+          "exp_x1": -0.03987,
+          "net_r_x1": -123.871,
+          "sr_trade": -0.04455,
+          "skew": 0.86,
+          "kurt": 4.4973
+        },
+        "validation": {
+          "n": 1039,
+          "tpw": 9.963,
+          "gross_pf": 0.977,
+          "pf_x1": 0.8379,
+          "pf_x1_5": 0.7763,
+          "pf_x2": 0.7194,
+          "exp_x1": -0.06649,
+          "net_r_x1": -69.088,
+          "sr_trade": -0.07087,
+          "skew": 1.2221,
+          "kurt": 6.5583
+        },
+        "combined": {
+          "n": 4146,
+          "tpw": 9.932,
+          "gross_pf": 1.0311,
+          "pf_x1": 0.8807,
+          "pf_x1_5": 0.8143,
+          "pf_x2": 0.7532,
+          "exp_x1": -0.04654,
+          "net_r_x1": -192.959,
+          "sr_trade": -0.05138,
+          "skew": 0.959,
+          "kurt": 5.081,
+          "by_year_net_r_x1": {
+            "2015": 18.868,
+            "2016": -34.027,
+            "2017": 7.291,
+            "2018": -24.339,
+            "2019": -56.324,
+            "2020": -35.336,
+            "2021": -39.441,
+            "2022": -29.656
+          },
+          "top1_win_share": 0.00453
+        }
+      },
+      "partition_short": {
+        "train": {
+          "n": 1555,
+          "tpw": 4.966,
+          "gross_pf": 1.0862,
+          "pf_x1": 0.9139,
+          "pf_x1_5": 0.8387,
+          "pf_x2": 0.7698,
+          "exp_x1": -0.0326,
+          "net_r_x1": -50.699,
+          "sr_trade": -0.037,
+          "skew": 0.6318,
+          "kurt": 3.0909
+        },
+        "validation": {
+          "n": 520,
+          "tpw": 4.986,
+          "gross_pf": 0.9495,
+          "pf_x1": 0.8043,
+          "pf_x1_5": 0.7405,
+          "pf_x2": 0.6818,
+          "exp_x1": -0.08223,
+          "net_r_x1": -42.76,
+          "sr_trade": -0.08908,
+          "skew": 1.0794,
+          "kurt": 5.8272
+        },
+        "combined": {
+          "n": 2075,
+          "tpw": 4.971,
+          "gross_pf": 1.0491,
+          "pf_x1": 0.8843,
+          "pf_x1_5": 0.8122,
+          "pf_x2": 0.7461,
+          "exp_x1": -0.04504,
+          "net_r_x1": -93.459,
+          "sr_trade": -0.0505,
+          "skew": 0.752,
+          "kurt": 3.8474,
+          "by_year_net_r_x1": {
+            "2015": 9.361,
+            "2016": -14.909,
+            "2017": -4.137,
+            "2018": 2.293,
+            "2019": -28.254,
+            "2020": -15.06,
+            "2021": -13.852,
+            "2022": -28.913
+          },
+          "top1_win_share": 0.00826
+        }
+      },
+      "partition_long": {
+        "train": {
+          "n": 1552,
+          "tpw": 4.956,
+          "gross_pf": 1.0162,
+          "pf_x1": 0.8786,
+          "pf_x1_5": 0.8173,
+          "pf_x2": 0.7607,
+          "exp_x1": -0.04715,
+          "net_r_x1": -73.172,
+          "sr_trade": -0.05189,
+          "skew": 1.0703,
+          "kurt": 5.7599
+        },
+        "validation": {
+          "n": 519,
+          "tpw": 4.977,
+          "gross_pf": 1.0057,
+          "pf_x1": 0.8732,
+          "pf_x1_5": 0.8141,
+          "pf_x2": 0.7594,
+          "exp_x1": -0.05073,
+          "net_r_x1": -26.327,
+          "sr_trade": -0.05318,
+          "skew": 1.3521,
+          "kurt": 7.2098
+        },
+        "combined": {
+          "n": 2071,
+          "tpw": 4.961,
+          "gross_pf": 1.0135,
+          "pf_x1": 0.8772,
+          "pf_x1_5": 0.8165,
+          "pf_x2": 0.7603,
+          "exp_x1": -0.04804,
+          "net_r_x1": -99.5,
+          "sr_trade": -0.05222,
+          "skew": 1.1483,
+          "kurt": 6.1741,
+          "by_year_net_r_x1": {
+            "2015": 9.507,
+            "2016": -19.118,
+            "2017": 11.428,
+            "2018": -26.632,
+            "2019": -28.07,
+            "2020": -20.276,
+            "2021": -25.589,
+            "2022": -0.743
+          },
+          "top1_win_share": 0.00909
+        }
+      },
+      "skips": {
+        "missing_bars": 834,
+        "atr_nan": 2
+      },
+      "gates": {
+        "pass_economics": false,
+        "checks": {
+          "sample_n_ge_1000": true,
+          "pf_x1_ge_1_25": false,
+          "exp_x1_ge_0_02": false,
+          "pf_x1_5_ge_1_25": false,
+          "pf_x2_ge_1_00": false,
+          "pos_years_ge_6of8": false,
+          "concentration_le_40": false,
+          "top1_share_le_5pct": true
+        },
+        "pos_years": 2,
+        "concentration": 0.7213,
+        "dsr": 0.0004,
+        "pass_all": false
+      }
+    }
+  },
+  "verdict": "KILL_AT_OFFLINE_PROBE",
+  "promotion_eligible": false,
+  "trade_ledger": "20260718_013918_HYP_BR_SESSDRIFT_001_TRADES.csv"
+}

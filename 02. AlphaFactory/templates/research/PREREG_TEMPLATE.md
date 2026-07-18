@@ -3,6 +3,17 @@
 Status: draft until de-dup and the cheap offline probe are recorded. Freeze this
 file and bind its SHA256 in the registry before any meaningful Model 0 run.
 
+Versioning & immutability: once this file's SHA enters the registry it is
+immutable — the validator re-hashes ALL historical rows. Pre-outcome
+amendments become a new `_V2.md` bound at the next transition; never edit in
+place. For a probe-state row, a frozen PROBE_PLAN
+(`PROBE_PLAN.template.md`) IS the prereg: bind its SHA in the `idea|probe`
+row before the probe runs.
+
+Trial accounting & deflation: N = every executed simulation (controls and
+failed arms counted; cost tiers x1/x1.5/x2 are NOT separate trials); verdicts
+over a searched family use DSR >= 0.95 (`tools/research/dsr.py`).
+
 ## Identity
 
 - Hypothesis ID: `HYP-REPLACE-ME`

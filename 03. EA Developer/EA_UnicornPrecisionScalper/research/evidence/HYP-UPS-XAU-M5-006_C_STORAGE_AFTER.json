@@ -1,0 +1,14 @@
+﻿{
+    "schema_version":  "alphafactory_mt5_storage_snapshot.v1",
+    "generated_at_utc":  "2026-07-16T07:14:04.1321284Z",
+    "roots":  [
+                  {
+                      "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files",
+                      "exists":  true,
+                      "file_count":  137,
+                      "total_bytes":  20008308,
+                      "latest_file_write_utc":  "2026-07-15T01:21:07.3928996Z",
+                      "metadata_sha256":  "B4C0D81C79DB307A47B2C94A3CA243E9943B133DB9D97C28A510FC02810E63DC"
+                  }
+              ]
+}

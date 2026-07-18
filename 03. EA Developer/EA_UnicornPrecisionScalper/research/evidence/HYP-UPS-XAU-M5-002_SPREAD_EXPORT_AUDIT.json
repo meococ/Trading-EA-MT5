@@ -1,0 +1,42 @@
+{
+  "schema_version": "unicorn_spread_export_audit.v1",
+  "hypothesis_id": "HYP-UPS-XAU-M5-002",
+  "mode": "READ_ONLY_DEMO_NO_ORDERS",
+  "symbol": "XAUUSD",
+  "timeframe": "M1",
+  "from": "2024.01.01",
+  "to": "2026.07.15",
+  "source_method": "MT5 CopyRates M1 close bid plus the same bar's reported spread points",
+  "broker_company": "Five Percent Online Ltd",
+  "server": "FivePercentOnline-Real",
+  "terminal_build": 6006,
+  "terminal_trade_allowed": false,
+  "account_trade_mode": "DEMO",
+  "orders_sent": 0,
+  "positions_opened": 0,
+  "symbol_geometry": {
+    "digits": 2,
+    "point": 0.01,
+    "pip_size": 0.01
+  },
+  "rows": 894192,
+  "valid_rows": 894192,
+  "coverage_ratio": 1.0,
+  "alphafactory_builder_spread_validation": "PASS",
+  "unique_dates": 656,
+  "first_timestamp_utc": "2024-01-02T01:05:00",
+  "last_timestamp_utc": "2026-07-15T23:49:00",
+  "zero_spread_rows": 28,
+  "spread_points": {
+    "p50": 23,
+    "p90": 44,
+    "p99": 82,
+    "max": 319
+  },
+  "source_csv": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\HYP-UPS-XAU-M5-002_HISTORICAL_SPREAD_M1.csv",
+  "source_sha256": "D009CC4084AE35FC004DFA68417F64E7DBCBF1CD2A21750707EA1D06E2F69C6B",
+  "remaining_blockers": [
+    "No >=30 same-symbol XAUUSD commission lifecycles or explicit broker contract",
+    "No >=100 independent-reference XAUUSD slippage fills with >=30 BUY and >=30 SELL"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "market_data_manifest.v1",
+  "created_utc": "2026-07-18T02:54:39Z",
+  "broker": "FivePercentOnline-Real (demo, read-only pull)",
+  "symbol": "EURUSD",
+  "coverage": "2015-01-02 .. 2026-07-17 (H1/H4/M1, closed bars, bid)",
+  "clock_model": "02. AlphaFactory/tools/research/fivepercent_server_clock.py",
+  "pull_audit": "03. EA Developer/EA_HybridRegimeMR/research/evidence/EURUSD_PULL_AUDIT.json",
+  "spread_column_usable_as_cost": false,
+  "files": [
+    {
+      "file": "EURUSD_H1_2015_now.parquet",
+      "bytes": 2781897,
+      "sha256": "71860016AF1BD1B17353B043AFF799233A787E9DF3F587913FCD2F5328BB1E08"
+    },
+    {
+      "file": "EURUSD_H4_2015_now.parquet",
+      "bytes": 936763,
+      "sha256": "54004265973EDF73ADC98BA9F561B05B2264C4551F119B1EC477CE4901188E22"
+    },
+    {
+      "file": "EURUSD_M1_2015_now.parquet",
+      "bytes": 104965845,
+      "sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A"
+    }
+  ]
+}

@@ -67,6 +67,11 @@ $AlphaRoot = $PSScriptRoot
 # Copy alpha.local.ps1.example or run: .\tools\init_machine_paths.ps1
 $MT5InstallRoot = $null
 $MT5DataRoot = $null
+$MT5PortableMode = $false
+$MT5CommonFilesRoot = $null
+$MT5TesterRoot = $null
+$MT5RequiredStorageDrive = ""
+$MT5AllowCommonFiles = $true
 $script:Mt5ConfigSource = "unset"
 $LocalConfigPath = Join-Path $AlphaRoot "alpha.local.ps1"
 if (Test-Path -LiteralPath $LocalConfigPath -PathType Leaf) {
@@ -122,12 +127,38 @@ if ([string]::IsNullOrWhiteSpace($MT5DataRoot)) {
     elseif ($script:Mt5ConfigSource -eq "alpha.local.ps1") { $script:Mt5ConfigSource = "alpha.local.ps1+auto-detect" }
 }
 
+$Mt5StorageContractPath = Join-Path $AlphaRoot "tools\mt5_storage_contract.ps1"
+if (-not (Test-Path -LiteralPath $Mt5StorageContractPath -PathType Leaf)) {
+    throw "MT5 storage contract helper is missing: $Mt5StorageContractPath"
+}
+. $Mt5StorageContractPath
+
+if ([string]::IsNullOrWhiteSpace($MT5CommonFilesRoot)) {
+    $MT5CommonFilesRoot = if ($MT5PortableMode) {
+        Join-Path $MT5DataRoot "Common\Files"
+    } else {
+        Join-Path (Split-Path -Parent $MT5DataRoot) "Common\Files"
+    }
+}
+if ([string]::IsNullOrWhiteSpace($MT5TesterRoot)) {
+    $MT5TesterRoot = Join-Path $MT5DataRoot "Tester"
+}
+
 if ([string]::IsNullOrWhiteSpace($MT5InstallRoot) -or -not (Test-Path -LiteralPath (Join-Path $MT5InstallRoot "terminal64.exe") -PathType Leaf)) {
     throw "MT5 install root not found. Create machine config: copy '02. AlphaFactory/alpha.local.ps1.example' to 'alpha.local.ps1' (or run tools\init_machine_paths.ps1) and set `$MT5InstallRoot."
 }
 if ([string]::IsNullOrWhiteSpace($MT5DataRoot) -or -not (Test-Path -LiteralPath (Join-Path $MT5DataRoot "MQL5") -PathType Container)) {
     throw "MT5 data root not found. Create machine config: copy '02. AlphaFactory/alpha.local.ps1.example' to 'alpha.local.ps1' (or run tools\init_machine_paths.ps1) and set `$MT5DataRoot to the Terminal\<32-hex>\ folder."
 }
+
+$script:Mt5StorageContract = Assert-Mt5StorageContract `
+    -InstallRoot $MT5InstallRoot `
+    -DataRoot $MT5DataRoot `
+    -CommonFilesRoot $MT5CommonFilesRoot `
+    -TesterRoot $MT5TesterRoot `
+    -PortableMode ([bool]$MT5PortableMode) `
+    -AllowCommonFiles ([bool]$MT5AllowCommonFiles) `
+    -RequiredDrive ([string]$MT5RequiredStorageDrive)
 
 $MT5Mql5Root = Join-Path $MT5DataRoot "MQL5"
 $MT5 = Join-Path $MT5InstallRoot "terminal64.exe"
@@ -820,7 +851,14 @@ function Get-EAs {
             [void](Resolve-EaSourceContract -RepoRoot $AdvisorsRoot -EaName $directory.Name)
             $eaDirs.Add($directory)
         } catch {
-            Write-Warning "Ignoring invalid active EA package '$($directory.Name)': $($_.Exception.Message)"
+            # Research-only packages (no canonical .mq5, but a research/ dir)
+            # are a normal terminal state, not an error. Warn only when a
+            # package looks like it should compile but fails the contract.
+            $hasSource = Test-Path -LiteralPath (Join-Path $directory.FullName ("{0}.mq5" -f $directory.Name)) -PathType Leaf
+            $hasResearch = Test-Path -LiteralPath (Join-Path $directory.FullName "research") -PathType Container
+            if ($hasSource -or -not $hasResearch) {
+                Write-Warning "Ignoring invalid active EA package '$($directory.Name)': $($_.Exception.Message)"
+            }
         }
     }
     return @($eaDirs.ToArray())
@@ -1099,7 +1137,8 @@ function Complete-RunManifest($ManifestPath) {
             throw "Required sidecar '$pattern' is absent from $logsDir."
         }
     }
-    if ([string]$manifest.telemetry_profile -ceq 'lifecycle-v3') {
+    if ([string]$manifest.telemetry_profile -ceq 'lifecycle-v3' -and
+        [string]$manifest.telemetry_tier -cne 'off') {
         $lifecycleTrades = @($sidecars | Where-Object { (Split-Path -Leaf ([string]$_.path)) -like '*_LifecycleTrades_*.csv' })
         $runMetaFiles = @($sidecars | Where-Object { (Split-Path -Leaf ([string]$_.path)) -like '*_RunMeta_*.json' })
         if ($lifecycleTrades.Count -ne 1) {
@@ -1163,6 +1202,7 @@ function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $
         spread = $spreadValue
         telemetry_tier = $TelemetryTier
         telemetry_profile = $TelemetryProfile
+        mt5_storage_contract = $script:Mt5StorageContract
         main_file = $MainFile
         compiled_ex5_file = $CompiledEx5File
         ex5_file = $Ex5File
@@ -1232,7 +1272,10 @@ function Do-Compile($EAName) {
         Remove-Item -LiteralPath $log -Force
     }
     
-    $compileArgs = "/compile:`"$main`" /log:`"$log`""
+    $compileArgs = @(Get-MetaEditorCompileArguments `
+        -SourcePath $main `
+        -LogPath $log `
+        -PortableMode ([bool]$MT5PortableMode))
     # Resolve and reject archive dependencies before MetaEditor can compile.
     [void](Get-IncludeDependencyClosure $main)
 
@@ -1354,6 +1397,14 @@ Leverage=$Leverage
     # v11.3: ALWAYS write [TesterInputs] to override MT5 cached .set files
     # Without this, MT5 ignores compiled defaults and uses stale cached params
     $iniContent += "`r`n[TesterInputs]`r`n"
+    $stringInputNames = @{}
+    $mqlSourceText = Get-Content -LiteralPath $main -Raw
+    foreach ($inputMatch in [regex]::Matches(
+        $mqlSourceText,
+        '(?m)^\s*input\s+string\s+([A-Za-z_][A-Za-z0-9_]*)\b'
+    )) {
+        $stringInputNames[$inputMatch.Groups[1].Value] = $true
+    }
     if ($effectiveOverrides) {
         $pairs = $effectiveOverrides.Split(';') | ForEach-Object { $_.Trim() } | Where-Object { $_ -and $_.Contains('=') }
         foreach ($p in $pairs) {
@@ -1361,7 +1412,14 @@ Leverage=$Leverage
             $k = $kv[0].Trim()
             $v = $kv[1].Trim()
             if ($k) {
-                $iniContent += "$k=$v||$v||0||$v||N`r`n"
+                # MT5 treats the optimization tuple literally for string
+                # inputs. Numeric/bool inputs require the tuple, while strings
+                # must be serialized as a plain key/value pair.
+                if ($stringInputNames.ContainsKey($k)) {
+                    $iniContent += "$k=$v`r`n"
+                } else {
+                    $iniContent += "$k=$v||$v||0||$v||N`r`n"
+                }
             }
         }
     }
@@ -1389,7 +1447,10 @@ Leverage=$Leverage
         throw "Staged EX5 changed immediately before MT5 launch."
     }
     Write-Status "Starting MT5..."
-    $mt5Process = Start-Process -FilePath $MT5 -ArgumentList "/config:`"$iniPath`"" -WorkingDirectory $localRunDir -PassThru
+    $mt5LaunchArgs = @(Get-Mt5LaunchArguments `
+        -ConfigPath $iniPath `
+        -PortableMode ([bool]$MT5PortableMode))
+    $mt5Process = Start-Process -FilePath $MT5 -ArgumentList $mt5LaunchArgs -WorkingDirectory $localRunDir -PassThru
     $mt5Pid = $mt5Process.Id
     Register-RunnerOwnedTerminal $mt5Pid
     Write-Status "MT5 started (PID: $mt5Pid)"
@@ -1431,7 +1492,10 @@ Leverage=$Leverage
                 throw "Backtest failed: unrelated terminal64 process appeared during report flush (PID(s): $unexpectedPids)."
             }
             Write-Status "Report not flushed. Relaunching MT5 to force report export..." "WARN"
-            $mt5Relaunch = Start-Process -FilePath $MT5 -ArgumentList "/config:`"$iniPath`"" -WorkingDirectory $localRunDir -PassThru
+            $mt5RelaunchArgs = @(Get-Mt5LaunchArguments `
+                -ConfigPath $iniPath `
+                -PortableMode ([bool]$MT5PortableMode))
+            $mt5Relaunch = Start-Process -FilePath $MT5 -ArgumentList $mt5RelaunchArgs -WorkingDirectory $localRunDir -PassThru
             Register-RunnerOwnedTerminal $mt5Relaunch.Id
             for ($retry = 1; $retry -le 12; $retry++) {
                 Start-Sleep -Seconds 5
@@ -1479,31 +1543,48 @@ Leverage=$Leverage
         $effectiveOverrides | Set-Content (Join-Path $configDir "overrides.txt") -Encoding UTF8
     }
 
-    $terminalData = Split-Path -Parent $mql5Root
-    $terminalRoot = Split-Path -Parent $terminalData
-    $commonFilesDir = Join-Path $terminalRoot "Common\Files"
-    if (Test-PathSafe $commonFilesDir) {
-        try {
-            $patterns = @("${Sym}_*Signals_*.csv", "${Sym}_*Trades_*.csv", "*_LifecycleTrades_*.csv", "${Sym}_*PX6_*.csv", "${Sym}_*Ghost_*.csv", "${Sym}_*Shadow_*.csv", "${Sym}_*Observers_*.csv", "${Sym}_*Activity_*.csv", "${Sym}_*EngineAudit_*.csv", "${Sym}_*PVSRA_SR_*.csv", "${Sym}_*Opportunities_*.csv", "${Sym}_*Regime_*.csv", "${Sym}_*StateTelemetry_*.csv", "${Sym}_*FxClassicNearMiss_*.csv", "${Sym}_*GoldRegimeContext_*.csv", "*_RunMeta_*.json")
-            foreach ($pat in $patterns) {
-                Get-ChildItem -Path $commonFilesDir -Filter $pat -File -ErrorAction SilentlyContinue |
-                    Where-Object { $_.LastWriteTimeUtc -ge $runStartUtc } | ForEach-Object {
-                        $mirrorReceipt = Copy-AlphaLogWithMirror `
-                            -Source $_.FullName `
-                            -PrimaryDirectory $logsDir `
-                            -MirrorDirectory $analysisLogsDir
-                        if ($mirrorReceipt.mode -eq 'copy_fallback') {
-                            Write-Status "Hardlink unavailable; retained physical log mirror for $($_.Name)" "WARN"
-                        }
-                    }
-            }
-        } catch {
-            Write-Status "Skip Common\\Files copy (access denied): $commonFilesDir" "WARN"
+    $sidecarRoots = @(Get-Mt5SidecarRoots `
+        -CommonFilesRoot $MT5CommonFilesRoot `
+        -TesterRoot $MT5TesterRoot `
+        -IncludeCommonFiles ([bool]$MT5AllowCommonFiles))
+    $defaultSidecarPatterns = @("${Sym}_*Signals_*.csv", "${Sym}_*Trades_*.csv", "*_LifecycleTrades_*.csv", "${Sym}_*PX6_*.csv", "${Sym}_*Ghost_*.csv", "${Sym}_*Shadow_*.csv", "${Sym}_*Observers_*.csv", "${Sym}_*Activity_*.csv", "${Sym}_*EngineAudit_*.csv", "${Sym}_*PVSRA_SR_*.csv", "${Sym}_*Opportunities_*.csv", "${Sym}_*Regime_*.csv", "${Sym}_*StateTelemetry_*.csv", "${Sym}_*FxClassicNearMiss_*.csv", "${Sym}_*GoldRegimeContext_*.csv", "*_RunMeta_*.json")
+    # RequiredSidecars is part of the pre-run receipt binding. Include those
+    # patterns in collection as well as validation so opt-in research artifacts
+    # cannot be left behind in a tester-agent Files directory.
+    $patterns = @(@($defaultSidecarPatterns) + @($requiredSidecarList) | Sort-Object -Unique)
+    $sidecarSources = New-Object System.Collections.Generic.List[object]
+    foreach ($sidecarRoot in $sidecarRoots) {
+        foreach ($pat in $patterns) {
+            Get-ChildItem -LiteralPath $sidecarRoot -Filter $pat -File -ErrorAction SilentlyContinue |
+                Where-Object { $_.LastWriteTimeUtc -ge $runStartUtc } |
+                ForEach-Object { $sidecarSources.Add($_) }
+        }
+    }
+    foreach ($nameGroup in @($sidecarSources | Sort-Object FullName -Unique | Group-Object Name)) {
+        if ($nameGroup.Count -ne 1) {
+            $locations = @($nameGroup.Group | ForEach-Object { $_.FullName }) -join '; '
+            throw "Ambiguous MT5 sidecar '$($nameGroup.Name)' exists in multiple storage roots: $locations"
+        }
+        $source = $nameGroup.Group[0]
+        $mirrorReceipt = Copy-AlphaLogWithMirror `
+            -Source $source.FullName `
+            -PrimaryDirectory $logsDir `
+            -MirrorDirectory $analysisLogsDir
+        if ($mirrorReceipt.mode -eq 'copy_fallback') {
+            Write-Status "Hardlink unavailable; retained physical log mirror for $($source.Name)" "WARN"
         }
     }
 
     Complete-RunManifest $manifestPath | Out-Null
     Copy-Item -LiteralPath $manifestPath -Destination (Join-Path $configDir "run_manifest.json") -Force
+
+    $receiptAuthority = [string]$receiptCheck.Receipt.authority
+    if ($receiptAuthority -ceq 'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE') {
+        Do-AnalyzeZeroTradeCollection (Join-Path $localRunDir "report.html") $analysisDir $receiptAuthority
+        Write-Status "Data collection complete: $localRunDir" "OK"
+        Write-Output "ALPHA_RUN_DIR=$localRunDir"
+        return
+    }
 
     Do-Analyze (Join-Path $localRunDir "report.html") $analysisDir
     $datalogAnalyzer = Join-Path $AlphaRoot "analysis\datalog_analyzer.py"
@@ -1564,6 +1645,34 @@ function Do-Analyze($ReportPath, $OutDir = "") {
     Write-Host "DD:     $($s.max_drawdown_pct)%"
 }
 
+function Do-AnalyzeZeroTradeCollection($ReportPath, $OutDir, $Authority) {
+    if ([string]$Authority -cne 'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE') {
+        throw "Unsupported zero-trade collection authority '$Authority'."
+    }
+    $html = Get-Content -LiteralPath $ReportPath -Raw
+    $localizedTotalTrades = [regex]::Unescape('T\u1ED5ng s\u1ED1 giao d\u1ECBch')
+    $rawTrades = Get-ReportLabeledValue $html @('Total Trades', $localizedTotalTrades) 'total trades'
+    $tradeMatch = [regex]::Match([string]$rawTrades, '^\s*(\d+)')
+    if (-not $tradeMatch.Success) {
+        throw "Data collection report total-trades value is not numeric: '$rawTrades'."
+    }
+    $tradeCount = [int64]$tradeMatch.Groups[1].Value
+    if ($tradeCount -ne 0) {
+        throw "Data acquisition authority requires exactly zero Strategy Tester trades; found $tradeCount."
+    }
+    New-Item -ItemType Directory -Path $OutDir -Force | Out-Null
+    $summary = [ordered]@{
+        schema_version = 'alphafactory_zero_trade_collection_summary.v1'
+        analysis_mode = 'data_acquisition_only'
+        authority = [string]$Authority
+        n_trades = 0
+        performance_metrics_authorized = $false
+        generated_at_utc = [datetime]::UtcNow.ToString('o')
+    }
+    Write-JsonAtomically $summary (Join-Path $OutDir 'enhanced_summary.json') 5
+    Write-Status "Zero-trade data collection verified; economic analysis skipped." "OK"
+}
+
 function Show-Status {
     Write-Host "`n==============================" -ForegroundColor Cyan
     Write-Host "  ALPHAFACTORY" -ForegroundColor Cyan
@@ -1573,8 +1682,13 @@ function Show-Status {
     $mt5On = Get-Process terminal64 -ErrorAction SilentlyContinue
     Write-Host "MT5: $(if ($mt5On) { 'RUNNING' } else { 'STOPPED' })" -ForegroundColor $(if ($mt5On) { "Green" } else { "Yellow" })
     Write-Host "Config source: $script:Mt5ConfigSource" -ForegroundColor DarkGray
+    Write-Host "Portable: $([bool]$MT5PortableMode)"
     Write-Host "Install: $MT5InstallRoot"
     Write-Host "Data:    $MT5DataRoot"
+    Write-Host "Common:  $MT5CommonFilesRoot"
+    Write-Host "FILE_COMMON allowed: $([bool]$MT5AllowCommonFiles)"
+    Write-Host "Tester:  $MT5TesterRoot"
+    Write-Host "Required storage drive: $(if ([string]::IsNullOrWhiteSpace($MT5RequiredStorageDrive)) { '(not pinned)' } else { $MT5RequiredStorageDrive })"
     Write-Host "Editor:  $MetaEditor"
     if ($script:Mt5ConfigSource -notlike "alpha.local.ps1*") {
         Write-Host "Tip: pin this machine via alpha.local.ps1 (see alpha.local.ps1.example)" -ForegroundColor Yellow

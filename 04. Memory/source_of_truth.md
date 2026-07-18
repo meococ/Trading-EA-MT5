@@ -1,9 +1,14 @@
 # Source of Truth Registry
 
-Updated: 2026-07-16
+Updated: 2026-07-18
 
-> **Path relocation (Owner 2026-07-15):** Active EA Developer shelf now has
-> `EA_FVGConfluence` and `EA_HybridICT_Sonic`. Former
+> **Active shelf:** after the 2026-07-15 relocation and 2026-07-16 concurrent
+> research, compilable EA Developer source is `EA_FVGConfluence`,
+> `EA_HybridICT_Sonic`, `EA_KLR_Scalper`, `EA_UnicornPrecisionScalper`,
+> `EA_UnicornPrecisionScalperControl`, and `EA_UnicornPrecisionScalperRR15`.
+> The Control and RR15 packages are retained for diagnostic reproducibility;
+> the current Control hypothesis is terminal KILL. PO3-AMD and DRAT are
+> pre-code terminal research records with no `.mq5`. Former
 > `03. EA Developer/EA_SonicR/` (incl. research ledger) and `EA_SilverBullet/`
 > live under `00. Old File/EA_Archive/`. Root
 > `README-SONIC-R.md`, `SYNC_REPORT.md`, and `tests/` are archived under
@@ -17,7 +22,7 @@ Updated: 2026-07-16
 2. `04. Memory/hot.md` (fast-path session cache)
 3. This registry (`04. Memory/source_of_truth.md`/`.json`)
 4. `04. Memory/do_not_repeat_failures.md`
-5. `05. Playbook/` (gates, runbook, ea_engineering_standard, research_doctrine)
+5. `05. Playbook/` (validation_gates, tool_runbook, ea_golden_path, ea_engineering_standard, research_doctrine)
 6. `AGENTS.md`
 7. `INDEX.md` (workspace map)
 8. `02. AlphaFactory/STRATEGY_LOG.md`
@@ -41,8 +46,12 @@ Updated: 2026-07-16
   archive under `00. Old File/project_control_archive_20260716/`.
 - Keep raw AlphaFactory runs and local SQLite catalogs out of git; they are operational storage, not source-of-truth documents.
 - `EA_SonicR` (research ledger) and `EA_SilverBullet` (binary-only) are archived
-  under `00. Old File/EA_Archive/` — not active surface. Active lanes:
-  `EA_FVGConfluence`, `EA_HybridICT_Sonic`.
+  under `00. Old File/EA_Archive/` — not active surface. Active compilable lanes:
+  `EA_FVGConfluence`, `EA_HybridICT_Sonic`, `EA_KLR_Scalper` (diagnostic-only),
+  `EA_UnicornPrecisionScalper`,
+  `EA_UnicornPrecisionScalperControl` (terminal KILL; retained for evidence),
+  and `EA_UnicornPrecisionScalperRR15` (bounded diagnostic sensitivity only).
+  `EA_PO3_AMD_Scalper` and `EA_DRAT_ONNX_ICT_Hybrid` remain evidence-only kills.
 - Retired or cached EA source outside an explicitly opened lane belongs under
   `00. Old File/EA_Archive/` and is archive-only.
 
@@ -61,49 +70,34 @@ Updated: 2026-07-16
 | `INDEX.md` | authoritative | Root workspace map: one-line what/when pointers to control docs, research, EA source, AlphaFactory, and tests. Pointer-only; content lives at the destinations. Added 2026-07-11. |
 | `.codex/operator/STATUS.md` | evidence | Operational recovery ledger for the active long-running operator task. It is subordinate to hot.md and is not research or execution authority. |
 | `.codex/operator/EXPERIMENTS.jsonl` | evidence | Append-only bounded-experiment ledger for the active V2 hardening task, including red-first checks, diagnoses, and stop states. |
-| `01. GOAL/GOAL.md` | authoritative | Owner-frozen north-star target: joint PF/cadence/cost-stress/exposure/evidence-window table, DONE ladder, non-goals, and probe-first operating principle. Changes only on explicit Owner decision; numeric authority remains sonic_validation_gates.md. |
-| `05. Playbook/research_doctrine.md` | authoritative | Full research/validation doctrine moved out of AGENTS.md on 2026-07-11: Sonic doctrine, research workflow, registry contract, chart-state label contract, overfit budget, team review roles, MT5 non-repaint rules, and backtest hygiene. |
+| `01. GOAL/GOAL.md` | authoritative | Owner-frozen north-star target: joint PF/cadence/cost-stress/exposure/evidence-window table, DONE ladder, non-goals, and probe-first operating principle. Changes only on explicit Owner decision; numeric authority remains validation_gates.md. |
+| `05. Playbook/research_doctrine.md` | authoritative | Full research/validation doctrine: research workflow, registry contract, probe-plan freeze and versioning, chart-state label contract, multiple-testing budget, team review roles, MT5 non-repaint rules, and backtest hygiene. |
 | `04. Memory/validate_source_of_truth.py` | authoritative | Fail-closed local/backup availability, SHA256, duplicate-path, and JSON-to-Markdown registry consistency validator. |
-| `05. Playbook/sonic_validation_gates.md` | authoritative | Stage-gate matrix for Sonic R research: probe, screen, challenger, confirmed, portfolio-sleeve, required artifacts, thresholds, and invalidations. |
+| `05. Playbook/validation_gates.md` | authoritative | Stage-gate matrix for every EA lane: probe, screened, challenger, confirmed, portfolio-sleeve; required artifacts, thresholds, multi-simulation deflation conventions, and hard invalidations. |
 | `00. Old File/agent_guidance_archive/20260503_1916_sonic_readme_cleanup/manifest.json` | backup-only | Local availability: absent in the lean checkout; hash-verified backup only. Original status: archive. Manifest for retired Claude/doc/root guidance layers archived during the Sonic R knowledge-map cleanup. |
 | `04. Memory/hot.md` | authoritative | Fast-path session cache (<500 words). Replaces current_state header at session start. |
 | `04. Memory/source_of_truth.md` | authoritative | Human-readable registry |
 | `04. Memory/source_of_truth.json` | authoritative | Machine-readable registry |
 | `05. Playbook/ea_engineering_standard.md` | authoritative | Generic MQL5 engineering standard: closed-bar signal contract, ownership/state recovery, broker geometry, risk, lifecycle telemetry, and promotion boundaries. |
 | `05. Playbook/ea_golden_path.md` | authoritative | Generic design-to-decision workflow for every EA: intake, de-dup, cheap probe, frozen prereg, canonical build, capability/cost preflight, sequential Model 0 control/challenger, validation, and closeout. |
-| `05. Playbook/sonic_tool_runbook.md` | authoritative | Practical Sonic R command runbook for AlphaFactory JSON, compare, cost stress, evidence audit, casebook, population eval, MT5 snapshots, runs DB, and cleanup. |
+| `05. Playbook/tool_runbook.md` | authoritative | Generic AlphaFactory command runbook: CLI, guarded research loop, candidate compare, cost stress, research utilities, market-data acquisition, runs DB, and cleanup. |
 | `00. Old File/EA_Archive/README.md` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. Archive-only rule for retired/non-current EA source; confirms EA_SonicR remains the only active EA source. |
 | `02. AlphaFactory/STRATEGY_LOG.md` | authoritative | Experiment memory |
 | `02. AlphaFactory/tools/alpha_json.ps1` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. JSON wrapper around selected alpha.ps1 actions; separates command completion from strategy validation verdict for agent/MCP workflows. |
-| `02. AlphaFactory/tools/sonic_candidate_compare.py` | authoritative | Sonic R per-run artifact comparator against frozen baseline 20260501_000718; rejects identity mismatches and PF-only conclusions. |
-| `02. AlphaFactory/tools/sonic_cost_stress.py` | authoritative | Sonic R report-only cost-stress matrix; flags missing slippage telemetry and must not be treated as broker execution proof. |
-| `02. AlphaFactory/tools/sonic_repro_drift_map.py` | authoritative | Sonic R reproducibility drift mapper for comparing run identity, input hashes, metric deltas, and score-gate/telemetry effects before cadence conclusions. |
-| `02. AlphaFactory/tools/sonic_trade_forensics.py` | authoritative | Sonic R deep trade forensics tool for weak buckets, top wins/losses, and exploratory entry-rule clusters from joined trade/state telemetry. |
-| `02. AlphaFactory/tools/sonic_risk_router_sim.py` | authoritative | Report-only Sonic R risk-router simulation from forensic rule candidates; useful for falsification only because MT5 min-lot and execution constraints can invalidate linear scaling. |
-| `02. AlphaFactory/tools/sonic_trade_pair_compare.py` | authoritative | Sonic R paired trade comparator; explains exact control-vs-challenger outcome deltas by entry key when management rules change exits. |
-| `02. AlphaFactory/tools/sonic_gold_regime_context_audit.py` | authoritative | Sonic R GoldRegime sidecar audit; joins compact closed-bar gold flow context to final trades and tests S1 flow screens against cost, half-year, and year-diversity gates. |
-| `02. AlphaFactory/tools/sonic_compression_impulse_probe.py` | authoritative | Offline Sonic R compression-to-impulse, exploratory breakout, and micro-scalp probe from PVSRA/SR closed-bar sidecars before EA lane coding. |
-| `02. AlphaFactory/tools/sonic_impulse_retest_probe.py` | authoritative | Offline Sonic R post-breakout retest/reclaim probe; tests whether waiting for retest improves breakout behavior before EA code changes. |
-| `02. AlphaFactory/tools/sonic_profit_period_anatomy.py` | authoritative | Sonic R profit-period anatomy analyzer for months, years, phases, lanes, direction/session, regime buckets, and signal context. |
-| `02. AlphaFactory/tools/sonic_casebook_index.py` | authoritative | Sonic R casebook index and readout builder that connects visual evidence, blind labels, verified trade stats, execution, cost stress, validation, and baseline comparison. |
-| `02. AlphaFactory/tools/sonic_state_label_audit.py` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. Sonic R machine-suggested pre-entry label audit; assigns heuristic labels without outcome/PnL/MFE inputs, then audits them against trade/outcome fields for research only. |
-| `02. AlphaFactory/tools/sonic_population_eval.py` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. Sonic R population evaluator; joins Opportunities, opportunity labels, PVSRA/SR context, and Trades to test pre-entry feature lift across half-year splits before EA code changes. |
-| `02. AlphaFactory/tools/sonic_prepare_mt5_snapshot_cases.py` | authoritative | Prepares bounded Sonic R case requests for MT5-native screenshot capture and writes traceable run-local artifacts. |
-| `02. AlphaFactory/tools/sonic_collect_mt5_snapshots.py` | authoritative | Collects MT5-native screenshot outputs from MQL5/Files, computes SHA256, and writes run-local native screenshot manifests. |
-| `02. AlphaFactory/tools/sonic_mt5_snapshot_flow.ps1` | authoritative | Post-casebook Sonic R snapshot wrapper: prepare, compile/install MT5 script, collect screenshots, refresh casebook index, and write bounded JSON status. |
+| `02. AlphaFactory/tools/candidate_compare_engine.py` | authoritative | Per-run artifact comparator against a frozen baseline for archived strict-format evidence; rejects identity mismatches and PF-only conclusions. |
+| `02. AlphaFactory/tools/research_cost_stress.py` | authoritative | Report-only per-trade cost-stress matrix for first-pass falsification; not broker-informed unless a cost conversion is bound. |
+| `02. AlphaFactory/tools/repro_drift_map.py` | authoritative | Reproducibility drift mapper comparing run identity, input hashes, metric deltas and gate/telemetry effects before cadence conclusions. |
 | `02. AlphaFactory/tools/evidence_audit.py` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. Per-run evidence closure checker; verifies required artifacts before a Sonic R run is cited or used as a baseline. |
-| `02. AlphaFactory/tools/sonic_s1_gate_audit.py` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. S1 sweep-reclaim audit tool; measures S1 by split/session/hour/PVSRA context and report-only cost before any dedicated S1 gate patch. |
-| `02. AlphaFactory/tools/sonic_s1_deep_anatomy.py` | authoritative | S1 opportunity/trade join and bucket analyzer; reports target-RR/risk/session/PVSRA split stability and cost-adjusted keep/remove candidates before S1 geometry changes. |
-| `02. AlphaFactory/tools/sonic_sideway_range_probe.py` | authoritative | Offline sideway/range-rotation probe from PVSRA/SR sidecars; labels MFE/MAE/TP/SL before any range-entry EA patch. |
-| `02. AlphaFactory/tools/sonic_market_phase_attribution.py` | authoritative | Streams PVSRA/SR sidecars and joins actual trades to impulse/transition/sideway phase buckets plus per-trade labels for Sonic R regime research. |
-| `02. AlphaFactory/tools/sonic_s1_phase_feature_audit.py` | authoritative | Offline S1 phase/context feature screen from market-phase trade labels, including cost and half-year stability before any EA patch. |
-| `02. AlphaFactory/tools/sonic_phase_case_sampler.py` | authoritative | Builds phase-specific casebook CSVs for MT5-native snapshots, especially S1 sideway-wide losses versus S1 impulse wins. |
-| `02. AlphaFactory/tools/sonic_market_regime_profit_atlas.py` | authoritative | Multi-horizon Sonic R regime atlas joining PVSRA/SR price context to trades for macro-year, volatility, trend-efficiency, range-width, and trend-alignment attribution. |
-| `02. AlphaFactory/tools/sonic_research_loop.ps1` | authoritative | Compatibility engine behind the generic EA research entrypoint: dry-run-by-default strict Model 0 control/challenger loop, immutable task packet and receipt, registry/source/capability/cost binding, matched-control proof, validation, and fail-closed transitions. |
+| `02. AlphaFactory/tools/research_loop_engine.ps1` | authoritative | Compatibility engine behind the generic EA research entrypoint: dry-run-by-default strict Model 0 control/challenger loop, immutable task packet and receipt, registry/source/capability/cost binding, matched-control proof, validation, and fail-closed transitions. |
 | `02. AlphaFactory/tools/ea_research_loop.ps1` | authoritative | Generic public entrypoint for the strict AlphaFactory control/challenger loop; delegates to the compatibility engine without weakening its contract. |
 | `02. AlphaFactory/tools/alpha_candidate_compare.py` | authoritative | Generic identity-bound challenger comparator using control-relative net, PF, and net-to-drawdown improvement; absolute acceptance is frozen in the canonical registry/task packet and passed to unified validation. |
 | `02. AlphaFactory/tools/ea_contract.ps1` | authoritative | Shared fail-closed resolver for exact active EA source and optional hash-bound per-package capability contract (telemetry, phase, comparator, variant input). It pins EA_FVGConfluence and EA_HybridICT_Sonic and forbids archive or arbitrary-file fallback. |
 | `02. AlphaFactory/tools/build_verified_cost_artifact.py` | authoritative | Report-bound verified cost producer for generic AlphaFactory LifecycleTrades and legacy PX6 lifecycles. It joins report deals, derives cost from raw or hash-bound broker evidence, reconciles P&L/risk, and emits verified_execution_cost.v1. |
+| `02. AlphaFactory/tools/research/dsr.py` | authoritative | Canonical Deflated Sharpe Ratio implementation with the workspace trial-accounting conventions (N = every executed simulation; cost tiers not separate trials); self-tested against the paper's E[max SR] example. |
+| `02. AlphaFactory/tools/research/fivepercent_server_clock.py` | authoritative | Canonical FivePercent server-to-UTC clock model: UTC+2/+3 with EU DST calendar through 2023 and US DST calendar from 2024, verified weekly via Friday-17:00-NY close anchors. |
+| `02. AlphaFactory/tools/research/snapshot_c_roots.ps1` | authoritative | Zero-arg wrapper snapshotting the 4 protected C roots by delegating to tools/snapshot_mt5_storage.ps1; the digest implementation stays single-sourced. |
+| `02. AlphaFactory/tools/snapshot_mt5_storage.ps1` | authoritative | Canonical bounded metadata-inventory hasher for MT5 storage roots used by before/after C-root receipts. The only valid digest implementation for alphafactory_mt5_storage_snapshot.v1. |
+| `02. AlphaFactory/templates/research/PROBE_PLAN.template.md` | authoritative | Pre-outcome frozen probe-plan template: identity, de-dup, hash-bound data, frozen decision surface, trial accounting plus DSR, kill gates, exclusions, exhaustive-grid variant clauses. |
 | `04. Memory/research/CANDIDATE_REGISTRY.jsonl` | authoritative | Canonical append-only hypothesis state ledger shared by all active EA packages; current seed records the FVG probe and terminal Hybrid SIGATR kill. |
 | `04. Memory/research/CANDIDATE_REGISTRY.schema.json` | authoritative | Generic schema for AlphaFactory hypothesis state rows. |
 | `04. Memory/research/validate_candidate_registry.py` | authoritative | Fail-closed registry validator for strict JSON, schema, canonical source/prereg hash binding, non-weakenable structured acceptance gates, Model 0 execution states, immutable identity, terminal states, and legal append transitions. |

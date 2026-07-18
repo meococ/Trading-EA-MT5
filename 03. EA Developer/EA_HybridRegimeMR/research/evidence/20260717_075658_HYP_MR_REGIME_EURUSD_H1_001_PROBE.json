@@ -1,0 +1,220 @@
+{
+  "schema_version": "mr_regime_gated_offline_probe.v1",
+  "hypothesis_id": "HYP-MR-REGIME-EURUSD-H1-001",
+  "ea_name": "EA_HybridRegimeMR",
+  "engine_version": "mr_probe_engine.v1",
+  "generated_at_utc": "2026-07-17T07:57:01Z",
+  "prereg_path": "03. EA Developer/EA_HybridRegimeMR/research/HYP-MR-REGIME-EURUSD-H1-001_PROBE_PLAN_V2.md",
+  "prereg_sha256": "75917FDA78031E75A9CCA9EC7B66BD3A208AC7E1258B553669E33E28793600CA",
+  "inputs": {
+    "h1_parquet_sha256": "71860016AF1BD1B17353B043AFF799233A787E9DF3F587913FCD2F5328BB1E08",
+    "h4_parquet_sha256": "54004265973EDF73ADC98BA9F561B05B2264C4551F119B1EC477CE4901188E22",
+    "h1_bars_loaded": 49723,
+    "h4_bars_loaded": 12447,
+    "holdout_bars_loaded": 0,
+    "last_bar_utc_loaded": "2022-12-30 21:00:00"
+  },
+  "cost_status": "UNVERIFIED_PROXY",
+  "cost_model": "1.5 pips RT x1 + 0.8 pip per weighted rollover (Wed x3, Fri->Mon=1); stress x1.5/x2",
+  "risk_pct": 0.25,
+  "results": {
+    "control": {
+      "train": {
+        "trades": 503,
+        "elapsed_weeks": 313.14,
+        "trades_per_week": 1.6063,
+        "gross_pf": 0.9811,
+        "pf_x1": 0.8596,
+        "net_r_x1": -37.3119,
+        "expectancy_r_x1": -0.07418,
+        "win_rate_x1": 0.4672,
+        "max_dd_r_x1": 40.31,
+        "max_dd_pct_x1_at_risk0_25": 9.689,
+        "by_year_net_r_x1": {
+          "2015": -5.509,
+          "2016": 2.2,
+          "2017": -8.098,
+          "2018": -3.181,
+          "2019": -6.621,
+          "2020": -16.103
+        },
+        "pf_x1_5": 0.8045,
+        "net_r_x1_5": -53.6107,
+        "pf_x2": 0.7528,
+        "net_r_x2": -69.9096,
+        "exit_reasons": {
+          "SL": 314,
+          "TIME_STOP": 58,
+          "TP": 131
+        }
+      },
+      "validation": {
+        "trades": 154,
+        "elapsed_weeks": 104.29,
+        "trades_per_week": 1.4767,
+        "gross_pf": 0.9226,
+        "pf_x1": 0.8062,
+        "net_r_x1": -15.158,
+        "expectancy_r_x1": -0.09843,
+        "win_rate_x1": 0.4805,
+        "max_dd_r_x1": 27.327,
+        "max_dd_pct_x1_at_risk0_25": 6.626,
+        "by_year_net_r_x1": {
+          "2021": -19.541,
+          "2022": 4.383
+        },
+        "pf_x1_5": 0.7535,
+        "net_r_x1_5": -19.8992,
+        "pf_x2": 0.7039,
+        "net_r_x2": -24.6405,
+        "exit_reasons": {
+          "SL": 99,
+          "TIME_STOP": 22,
+          "TP": 33
+        }
+      }
+    },
+    "challenger": {
+      "train": {
+        "trades": 59,
+        "elapsed_weeks": 313.14,
+        "trades_per_week": 0.1884,
+        "gross_pf": 0.8024,
+        "pf_x1": 0.6849,
+        "net_r_x1": -10.3387,
+        "expectancy_r_x1": -0.17523,
+        "win_rate_x1": 0.4068,
+        "max_dd_r_x1": 12.449,
+        "max_dd_pct_x1_at_risk0_25": 3.071,
+        "by_year_net_r_x1": {
+          "2015": -0.759,
+          "2016": -1.656,
+          "2017": -0.382,
+          "2018": 3.057,
+          "2019": -3.479,
+          "2020": -7.121
+        },
+        "pf_x1_5": 0.633,
+        "net_r_x1_5": -12.5205,
+        "pf_x2": 0.5859,
+        "net_r_x2": -14.7022,
+        "exit_reasons": {
+          "SL": 36,
+          "TIME_STOP": 11,
+          "TP": 12
+        }
+      },
+      "validation": {
+        "trades": 23,
+        "elapsed_weeks": 104.29,
+        "trades_per_week": 0.2205,
+        "gross_pf": 0.2886,
+        "pf_x1": 0.2471,
+        "net_r_x1": -12.4917,
+        "expectancy_r_x1": -0.54312,
+        "win_rate_x1": 0.2174,
+        "max_dd_r_x1": 13.097,
+        "max_dd_pct_x1_at_risk0_25": 3.227,
+        "by_year_net_r_x1": {
+          "2021": -7.473,
+          "2022": -5.018
+        },
+        "pf_x1_5": 0.2293,
+        "net_r_x1_5": -13.221,
+        "pf_x2": 0.2127,
+        "net_r_x2": -13.9504,
+        "exit_reasons": {
+          "SL": 15,
+          "TIME_STOP": 6,
+          "TP": 2
+        }
+      }
+    }
+  },
+  "gates": [
+    {
+      "gate": "sample_min_trades",
+      "pass": false,
+      "value": 82,
+      "threshold": ">=300 train+validation"
+    },
+    {
+      "gate": "economics_pf_x1_and_expectancy",
+      "pass": false,
+      "value": {
+        "train": [
+          0.6849,
+          -0.17523
+        ],
+        "validation": [
+          0.2471,
+          -0.54312
+        ]
+      },
+      "threshold": "PF@x1>=1.25 AND exp>=0.08R in both splits"
+    },
+    {
+      "gate": "stress_x1_5_x2",
+      "pass": false,
+      "value": {
+        "train": [
+          0.633,
+          0.5859
+        ],
+        "validation": [
+          0.2293,
+          0.2127
+        ]
+      },
+      "threshold": "PF@x1.5>=1.25 AND PF@x2>=1.00 in both splits"
+    },
+    {
+      "gate": "year_concentration",
+      "pass": false,
+      "value": 1.0,
+      "threshold": "max positive-year share of positive net R <= 40%"
+    },
+    {
+      "gate": "incremental_value_vs_control",
+      "pass": false,
+      "value": {
+        "train": {
+          "challenger": [
+            0.6849,
+            -10.3387
+          ],
+          "control": [
+            0.8596,
+            -37.3119
+          ]
+        },
+        "validation": {
+          "challenger": [
+            0.2471,
+            -12.4917
+          ],
+          "control": [
+            0.8062,
+            -15.158
+          ]
+        }
+      },
+      "threshold": "challenger PF@x1 >= control+0.10 AND net_R > control, both splits"
+    },
+    {
+      "gate": "cadence_floor",
+      "pass": false,
+      "value": 0.1964,
+      "threshold": ">=0.7 trades/elapsed-week combined (single-asset floor)"
+    },
+    {
+      "gate": "cadence_ceiling",
+      "pass": true,
+      "value": 0.1964,
+      "threshold": "<=5 trades/elapsed-week combined"
+    }
+  ],
+  "verdict": "KILL_AT_OFFLINE_PROBE",
+  "promotion_eligible": false,
+  "trade_ledger": "20260717_075658_HYP_MR_REGIME_EURUSD_H1_001_TRADES.csv"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "alphafactory_mt5_storage_readback.v1",
+  "generated_at_utc": "2026-07-16T07:10:44.390987+00:00",
+  "terminal": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\terminal64.exe",
+  "required_drive": "D:",
+  "portable": true,
+  "process_appdata": null,
+  "terminal_info": {
+    "build": 6006,
+    "name": "MetaTrader 5",
+    "company": "MetaQuotes Ltd.",
+    "connected": true,
+    "trade_allowed": false,
+    "data_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent",
+    "commondata_path": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common"
+  },
+  "checks": {
+    "terminal_on_required_drive": true,
+    "data_path_on_required_drive": true,
+    "commondata_path_on_required_drive": false
+  },
+  "passed": false
+}

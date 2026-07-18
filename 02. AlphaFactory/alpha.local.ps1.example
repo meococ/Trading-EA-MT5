@@ -13,3 +13,20 @@ $MT5InstallRoot = "C:\Program Files\MetaTrader 5"
 # Find it under: $env:APPDATA\MetaQuotes\Terminal\
 # Prefer the folder whose origin.txt matches $MT5InstallRoot.
 $MT5DataRoot = "C:\Users\YOUR_USER\AppData\Roaming\MetaQuotes\Terminal\YOUR_32_HEX_TERMINAL_ID"
+
+# Portable/D-only lane example:
+#   $MT5InstallRoot = "D:\Trading EA MT5\02. AlphaFactory\runtime\mt5-portable"
+#   $MT5DataRoot = $MT5InstallRoot
+#   $MT5PortableMode = $true
+#   $MT5CommonFilesRoot = Join-Path $MT5DataRoot "Common\Files"
+#   $MT5AllowCommonFiles = $true
+#   $MT5TesterRoot = Join-Path $MT5DataRoot "Tester"
+#   $MT5RequiredStorageDrive = "D:"
+#
+# For a normal AppData installation keep PortableMode false and either leave
+# the remaining paths at these defaults or pin them explicitly.
+$MT5PortableMode = $false
+$MT5CommonFilesRoot = Join-Path (Split-Path -Parent $MT5DataRoot) "Common\Files"
+$MT5AllowCommonFiles = $true
+$MT5TesterRoot = Join-Path $MT5DataRoot "Tester"
+$MT5RequiredStorageDrive = ""

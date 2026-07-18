@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -30,11 +31,22 @@ def run_ps_file(script: Path, *args: str, cwd: Path = WORKSPACE) -> subprocess.C
     )
 
 
-def test_alpha_discovers_only_two_canonical_active_packages() -> None:
+def test_alpha_discovers_canonical_active_packages() -> None:
     result = run_ps_file(ALPHA, "list")
     assert result.returncode == 0, result.stdout + result.stderr
-    names = [line.strip() for line in result.stdout.splitlines() if line.strip().startswith("EA_")]
-    assert names == ["EA_FVGConfluence", "EA_HybridICT_Sonic"]
+    names = [
+        line.strip()
+        for line in result.stdout.splitlines()
+        if re.fullmatch(r"EA_[A-Za-z0-9_.-]+", line.strip())
+    ]
+    assert names == [
+        "EA_FVGConfluence",
+        "EA_HybridICT_Sonic",
+        "EA_KLR_Scalper",
+        "EA_UnicornPrecisionScalper",
+        "EA_UnicornPrecisionScalperControl",
+        "EA_UnicornPrecisionScalperRR15",
+    ]
     assert "EA_SonicR" not in names
 
 
@@ -70,7 +82,10 @@ def test_canonical_registry_validates() -> None:
         check=False,
     )
     assert result.returncode == 0, result.stdout + result.stderr
-    assert "CANDIDATE_REGISTRY_OK rows=2 hypotheses=2" in result.stdout
+    match = re.search(r"CANDIDATE_REGISTRY_OK rows=(\d+) hypotheses=(\d+)", result.stdout)
+    assert match, result.stdout
+    assert int(match.group(1)) >= 3
+    assert int(match.group(2)) >= 3
 
 
 def test_registry_rejects_tampered_hash_and_illegal_terminal_transition(tmp_path: Path) -> None:
@@ -119,6 +134,30 @@ def test_registry_rejects_duplicate_json_keys(tmp_path: Path) -> None:
     )
     assert result.returncode != 0
     assert "duplicate JSON key" in result.stderr
+
+
+def test_registry_rejects_tampered_terminal_source_snapshot(tmp_path: Path) -> None:
+    rows = [json.loads(line) for line in REGISTRY.read_text(encoding="utf-8").splitlines()]
+    target = next(
+        row
+        for row in reversed(rows)
+        if row["hypothesis_id"] == "HYP-UPS-XAU-M5-003" and row["state"] == "killed"
+    )
+    target["source_path"] = (
+        "03. EA Developer/EA_UnicornPrecisionScalper/research/source_snapshots/"
+        "missing.mq5"
+    )
+    path = tmp_path / "tampered-terminal-snapshot.jsonl"
+    path.write_text("\n".join(json.dumps(row) for row in rows) + "\n", encoding="utf-8")
+    result = subprocess.run(
+        [sys.executable, str(REGISTRY_VALIDATOR), "--registry", str(path)],
+        cwd=WORKSPACE,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert result.returncode != 0
+    assert "file is missing" in result.stderr
 
 
 def test_registry_rejects_weakened_acceptance_contract(tmp_path: Path) -> None:
@@ -172,7 +211,7 @@ def test_fvg_research_dry_run_is_generic_and_blocks_before_mt5() -> None:
     combined = result.stdout + result.stderr
     assert result.returncode == 0, combined
     assert '"ea":  "EA_FVGConfluence"' in combined
-    assert "Latest registry state 'probe'" in combined
+    assert "Latest registry state 'killed'" in combined
     assert "no AlphaFactory lifecycle telemetry contract" in combined
     assert "missing Sonic" not in combined
     assert '"execution_allowed":  false' in combined
@@ -286,7 +325,7 @@ def test_generic_comparator_has_no_sonic_absolute_thresholds(tmp_path: Path) -> 
 
 
 def test_standalone_ea_include_closure_is_not_rejected_by_policy_text() -> None:
-    engine = (ALPHA_ROOT / "tools" / "sonic_research_loop.ps1").read_text(encoding="utf-8-sig")
+    engine = (ALPHA_ROOT / "tools" / "research_loop_engine.ps1").read_text(encoding="utf-8-sig")
     alpha = ALPHA.read_text(encoding="utf-8-sig")
     assert "include_closure must contain the active EA include dependency set" not in engine
     assert "missing packet-bound include closure evidence" not in alpha
@@ -294,7 +333,7 @@ def test_standalone_ea_include_closure_is_not_rejected_by_policy_text() -> None:
 
 
 def test_runner_freezes_acceptance_contract_and_telemetry_tier_before_mt5() -> None:
-    engine = (ALPHA_ROOT / "tools" / "sonic_research_loop.ps1").read_text(encoding="utf-8-sig")
+    engine = (ALPHA_ROOT / "tools" / "research_loop_engine.ps1").read_text(encoding="utf-8-sig")
     assert "acceptance_contract must contain exactly the seven supported gate fields" in engine
     assert '"--min-pf"' in engine
     assert '"--max-mc-p95-dd-pct"' in engine
@@ -309,9 +348,17 @@ def test_lifecycle_manifest_requires_exact_runmeta_identity() -> None:
     assert "RunMeta identity does not match manifest EA/symbol/telemetry profile" in alpha
 
 
+def test_tester_input_serializer_does_not_append_optimization_tuple_to_strings() -> None:
+    alpha = ALPHA.read_text(encoding="utf-8-sig")
+    assert "stringInputNames" in alpha
+    assert "input\\s+string\\s+" in alpha
+    assert "$iniContent += \"$k=$v`r`n\"" in alpha
+    assert "$stringInputNames.ContainsKey($k)" in alpha
+
+
 def test_generic_runbook_commands_bind_cost_source_manifest() -> None:
     golden = (WORKSPACE / "05. Playbook" / "ea_golden_path.md").read_text(encoding="utf-8")
-    runbook = (WORKSPACE / "05. Playbook" / "sonic_tool_runbook.md").read_text(encoding="utf-8")
+    runbook = (WORKSPACE / "05. Playbook" / "tool_runbook.md").read_text(encoding="utf-8")
     assert "-CostSourceManifest <COST_SOURCE_MANIFEST.json>" in golden
     assert runbook.count("-CostSourceManifest") >= 2
 

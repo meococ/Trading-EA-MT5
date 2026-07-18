@@ -1,0 +1,23 @@
+{
+  "schema_version": "alert_first_casebook_collection_validation.v1",
+  "status": "PASS",
+  "run_id": "HYP-UPS-XAU-M5-006_62955046",
+  "alpha_run_dir": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_UnicornPrecisionScalper\\20260716_155111",
+  "detector_rows": 200,
+  "unique_event_ids": 200,
+  "human_label_cells_nonblank": 0,
+  "strategy_tester_trades": 0,
+  "terminal_data_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\Tester\\Agent-127.0.0.1-3000",
+  "source_sha256": "10E278435644E63FD6418047AC775537CECEE8BBA4A9E5D89842E0F15312CB18",
+  "casebook": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_UnicornPrecisionScalper\\20260716_155111\\logs\\XAUUSD_AlertCasebook_HYP-UPS-XAU-M5-006_62955046.csv",
+    "sha256": "F7CA7B9EB7E231CB3898F7B8AF852481663BA0A87E808C312E1DB96512BEDAC1"
+  },
+  "metadata": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_UnicornPrecisionScalper\\20260716_155111\\logs\\XAUUSD_AlertCasebookMeta_HYP-UPS-XAU-M5-006_62955046.csv",
+    "sha256": "CCBAC922FDD92694219FF179F05E81472AAE8D38FCA0E9D45B5ADBF34AD7D71D"
+  },
+  "run_manifest_sha256": "D6F960296F901DC6475C8D6341ED01BDBE3DA8F9504E6B6BC7E22F803ACC8F26",
+  "enhanced_summary_sha256": "1BDF5FFCFF0D64D9B4773F961F7EEF48DF2ADB8CD25B1813FB162991C689785A",
+  "authority": "DATA_ACQUISITION_ONLY_NO_PERFORMANCE_OR_OUTCOME_CLAIM"
+}

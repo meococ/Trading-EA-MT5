@@ -1,8 +1,9 @@
 # EA_FVGConfluence
 
-**Status:** Owner Path-C override build (2026-07-15). Registry state `probe`;
-de-dup, lifecycle capability and verified cost are not cleared — **not
-execution-eligible or promotion-ready**.
+**Status:** `KILL_AT_DEDUP_ILLEGAL_FVG_CONTINUATION_DENSIFY` (2026-07-16).
+The Owner Path-C override produced a valid compile-only scaffold, but did not
+waive the prior research-family kill. **Not execution-eligible or
+promotion-ready.**
 
 | | |
 |---|---|
@@ -77,3 +78,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File "02. AlphaFactory/alpha.ps1"
 
 Use `02. AlphaFactory/tools/ea_research_loop.ps1` only after the generic
 registry/prereg/capability/cost gates in `05. Playbook/ea_golden_path.md` clear.
+
+Current verification: AlphaFactory compile `0 errors / 0 warnings`, EX5 66,660
+bytes; source non-repaint `PASS_ENGINEERING_ONLY`. Research verdict remains
+terminal; see
+`research/HYP-FVG-SCALP-CONFL-M5-EUR-001_DEDUP_READOUT.md`. Do not backtest or
+tune this hypothesis.

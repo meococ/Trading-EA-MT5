@@ -1,0 +1,123 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-KLR-MT5-REPLICATION-M5-XAU-001",
+  "task_packet_sha256": "AF1EB46C21507276047D256563DC2E6B5F356069B168280ED155F05740ACC0A2",
+  "git_commit": "0d85a24a98c69418589d958ee0e8bcfd1a8fa461",
+  "git_status_sha256": "D26D55AB1E03C160356ED19A7F7C2E47C1A46487D2EB4BD8FB8C8AF782111471",
+  "binding": {
+    "hypothesis_id": "HYP-KLR-MT5-REPLICATION-M5-XAU-001",
+    "run_role": "challenger",
+    "ea_name": "EA_KLR_Scalper",
+    "symbol": "XAUUSD",
+    "period": "M5",
+    "from": "2022.01.01",
+    "to": "2024.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpAtrPeriod=14;InpDisplacementAtr=1.00;InpDisplacementBars=4;InpEnableTelemetry=true;InpLondonEndMinuteET=300;InpLondonStartMinuteET=120;InpMagic=5600718;InpMaxHoldBars=12;InpMaxSpreadPoints=35;InpMaxTradesPerDay=1;InpNyEndMinuteET=660;InpNyStartMinuteET=510;InpPivotStrength=2;InpRequireUsdGate=true;InpResearchAutoMode=true;InpRetestBars=6;InpRiskPercent=0.25;InpServerUsesEuropeDst=true;InpServerUtcOffsetWinterHours=2;InpStopAtrBuffer=0.10;InpTargetRR=2.00;InpUseFileCommon=false",
+    "telemetry_tier": "trade-only",
+    "telemetry_profile": "lifecycle-v3",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [
+      "*_LifecycleTrades_*.csv",
+      "*_RunMeta_*.json"
+    ],
+    "symbol_geometry": {
+      "digits": 2,
+      "point": 0.01,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "5D8CAD37D48D18B44A1C256CD6537F87F1EACA0D805C569FD76091C373B04C5B"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_KLR_Scalper\\research\\preflight\\HYP-KLR-MT5-REPLICATION-M5-XAU-001\\task_packet.challenger.json",
+      "sha256": "AF1EB46C21507276047D256563DC2E6B5F356069B168280ED155F05740ACC0A2"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_KLR_Scalper\\EA_KLR_Scalper.mq5",
+      "sha256": "02D6B3B7B99EBD0768FE2EDBC6208A541093D54EF829214538D3FA603852D2F5"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_KLR_Scalper\\research\\HYP-KLR-MT5-REPLICATION-M5-XAU-001_FROZEN_PREREG.md",
+      "sha256": "4EEFC2867A2F573E4DD13777B4031E6A5C403BB4FFD0D4AFD7C6FC66ACCFC21D"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_KLR_Scalper\\research\\preflight\\HYP-KLR-MT5-REPLICATION-M5-XAU-001\\cost_source_manifest.unverified.json",
+      "sha256": "C043D27CE4EF7B6BFD81C439D9B258554D2D98B742B908BFEBA059152CC3BEA8"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\Trade.mqh",
+      "sha256": "96E6781624534377FE7971CBA52CCA3D62D1B030BC10D5E4EBF3ED8C541399ED"
+    },
+    {
+      "label": "include_0002",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Object.mqh",
+      "sha256": "DFAD4FDB6D1BF47CF43FCBC2882E52979459F17A776F75F250A7C32D0623AB35"
+    },
+    {
+      "label": "include_0003",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\OrderInfo.mqh",
+      "sha256": "D0E479578EF91D2EF1B07AE63D28AE54E15CEBB914DD10E5D4510C269A9CA999"
+    },
+    {
+      "label": "include_0004",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\HistoryOrderInfo.mqh",
+      "sha256": "E88F6BE450462A045470315887EF751A4510DA65A5115325DC88542743FC52F8"
+    },
+    {
+      "label": "include_0005",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\PositionInfo.mqh",
+      "sha256": "DD720B755C7F23DCC109FC81BCF0772B907411D545E4A1117421737BB9FF6897"
+    },
+    {
+      "label": "include_0006",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\DealInfo.mqh",
+      "sha256": "9D6FB4E7D8754EAEE761E43943DC49CDC3A32793EE8438119D939EA7BAD71880"
+    },
+    {
+      "label": "include_0007",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\StdLibErr.mqh",
+      "sha256": "04BB2C47B1B04DCEB052E6DBA1F85E0330C53ABC602F341E2EA95EA1498AB28B"
+    },
+    {
+      "label": "include_0008",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_KLR_Scalper\\research\\generated\\KLR_DTWEXBGS_Data.mqh",
+      "sha256": "F19968EF535C8E32528E3117A349EF3AF93AFE9EA432BF2E981E50932C99DEFC"
+    },
+    {
+      "label": "matched_control_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_KLR_Scalper\\20260716_142720\\run_manifest.json",
+      "sha256": "82E402EC7771631994C90C808CBBFA2FA060B2CA6D5E332AC9CEEDEC70B43359"
+    },
+    {
+      "label": "matched_control_report",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_KLR_Scalper\\20260716_142720\\report.html",
+      "sha256": "41F602DBBF1648792503520EB9205FC4BF8D356F5550E4B802D7A172D7BD2E97"
+    }
+  ],
+  "generated_at_utc": "2026-07-16T07:28:46Z",
+  "note": "Frozen KLR matched-pair diagnostic. Cost evidence is explicitly unverified and cannot support promotion."
+}

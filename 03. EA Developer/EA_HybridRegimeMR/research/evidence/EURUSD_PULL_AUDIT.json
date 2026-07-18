@@ -1,0 +1,378 @@
+{
+  "schema_version": "mr_data_pull_audit.v1",
+  "hypothesis_id": "HYP-MR-REGIME-EURUSD-H1-001",
+  "mode": "READ_ONLY_DEMO_NO_ORDERS",
+  "symbol": "EURUSD",
+  "server": "FivePercentOnline-Real",
+  "company": "Five Percent Online Ltd",
+  "terminal_build": 6006,
+  "terminal_data_path": "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075",
+  "from_year": 2015,
+  "to_utc": "2026-07-17T23:59:59",
+  "offset_model": "server = UTC+2 winter / UTC+3 summer; EU DST <=2023, US DST >=2024 (empirical 2026-07-17)",
+  "session_utc_halfopen": [
+    7,
+    16
+  ],
+  "frames": {
+    "H1": {
+      "rows": 71785,
+      "first_server": "2015-01-02 09:00:00",
+      "last_server": "2026-07-17 10:00:00",
+      "first_utc": "2015-01-02 07:00:00",
+      "last_utc": "2026-07-17 07:00:00",
+      "years_present": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_HybridRegimeMR\\research\\evidence\\EURUSD_H1_2015_now.parquet",
+      "sha256": "71860016AF1BD1B17353B043AFF799233A787E9DF3F587913FCD2F5328BB1E08"
+    },
+    "H4": {
+      "rows": 17965,
+      "first_server": "2015-01-02 08:00:00",
+      "last_server": "2026-07-17 08:00:00",
+      "first_utc": "2015-01-02 06:00:00",
+      "last_utc": "2026-07-17 05:00:00",
+      "years_present": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_HybridRegimeMR\\research\\evidence\\EURUSD_H4_2015_now.parquet",
+      "sha256": "54004265973EDF73ADC98BA9F561B05B2264C4551F119B1EC477CE4901188E22"
+    },
+    "M1": {
+      "rows": 4293917,
+      "first_server": "2015-01-02 09:00:00",
+      "last_server": "2026-07-17 10:39:00",
+      "first_utc": "2015-01-02 07:00:00",
+      "last_utc": "2026-07-17 07:39:00",
+      "years_present": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_HybridRegimeMR\\research\\evidence\\EURUSD_M1_2015_now.parquet",
+      "sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A"
+    }
+  },
+  "spread": {
+    "unit_note": "1 pip = 10 points at 5 digits",
+    "all_hours_all_years": {
+      "n": 4293917,
+      "p50_points": 1.0,
+      "p75_points": 7.0,
+      "p90_points": 9.0,
+      "p50_pips": 0.1,
+      "p75_pips": 0.7,
+      "p90_pips": 0.9,
+      "zero_rows": 1657873
+    },
+    "session_hours_all_years": {
+      "n": 1616037,
+      "p50_points": 1.0,
+      "p75_points": 7.0,
+      "p90_points": 8.0,
+      "p50_pips": 0.1,
+      "p75_pips": 0.7,
+      "p90_pips": 0.8,
+      "zero_rows": 685918
+    },
+    "by_year_all_hours": {
+      "2015": {
+        "n": 370886,
+        "p50_points": 8.0,
+        "p75_points": 11.0,
+        "p90_points": 14.0,
+        "p50_pips": 0.8,
+        "p75_pips": 1.1,
+        "p90_pips": 1.4,
+        "zero_rows": 70
+      },
+      "2016": {
+        "n": 373151,
+        "p50_points": 7.0,
+        "p75_points": 8.0,
+        "p90_points": 10.0,
+        "p50_pips": 0.7,
+        "p75_pips": 0.8,
+        "p90_pips": 1.0,
+        "zero_rows": 371
+      },
+      "2017": {
+        "n": 370355,
+        "p50_points": 7.0,
+        "p75_points": 7.0,
+        "p90_points": 9.0,
+        "p50_pips": 0.7,
+        "p75_pips": 0.7,
+        "p90_pips": 0.9,
+        "zero_rows": 50781
+      },
+      "2018": {
+        "n": 371934,
+        "p50_points": 3.0,
+        "p75_points": 8.0,
+        "p90_points": 8.0,
+        "p50_pips": 0.3,
+        "p75_pips": 0.8,
+        "p90_pips": 0.8,
+        "zero_rows": 14
+      },
+      "2019": {
+        "n": 371475,
+        "p50_points": 8.0,
+        "p75_points": 8.0,
+        "p90_points": 9.0,
+        "p50_pips": 0.8,
+        "p75_pips": 0.8,
+        "p90_pips": 0.9,
+        "zero_rows": 2
+      },
+      "2020": {
+        "n": 373024,
+        "p50_points": 2.0,
+        "p75_points": 3.0,
+        "p90_points": 5.0,
+        "p50_pips": 0.2,
+        "p75_pips": 0.3,
+        "p90_pips": 0.5,
+        "zero_rows": 37104
+      },
+      "2021": {
+        "n": 373168,
+        "p50_points": 0.0,
+        "p75_points": 1.0,
+        "p90_points": 2.0,
+        "p50_pips": 0.0,
+        "p75_pips": 0.1,
+        "p90_pips": 0.2,
+        "zero_rows": 246304
+      },
+      "2022": {
+        "n": 373645,
+        "p50_points": 1.0,
+        "p75_points": 1.0,
+        "p90_points": 1.0,
+        "p50_pips": 0.1,
+        "p75_pips": 0.1,
+        "p90_pips": 0.1,
+        "zero_rows": 82786
+      },
+      "2023": {
+        "n": 372075,
+        "p50_points": 0.0,
+        "p75_points": 0.0,
+        "p90_points": 0.0,
+        "p50_pips": 0.0,
+        "p75_pips": 0.0,
+        "p90_pips": 0.0,
+        "zero_rows": 346967
+      },
+      "2024": {
+        "n": 373014,
+        "p50_points": 0.0,
+        "p75_points": 0.0,
+        "p90_points": 0.0,
+        "p50_pips": 0.0,
+        "p75_pips": 0.0,
+        "p90_pips": 0.0,
+        "zero_rows": 350388
+      },
+      "2025": {
+        "n": 370386,
+        "p50_points": 0.0,
+        "p75_points": 0.0,
+        "p90_points": 0.0,
+        "p50_pips": 0.0,
+        "p75_pips": 0.0,
+        "p90_pips": 0.0,
+        "zero_rows": 352912
+      },
+      "2026": {
+        "n": 200804,
+        "p50_points": 0.0,
+        "p75_points": 0.0,
+        "p90_points": 0.0,
+        "p50_pips": 0.0,
+        "p75_pips": 0.0,
+        "p90_pips": 0.0,
+        "zero_rows": 190174
+      }
+    },
+    "by_year_session_hours": {
+      "2015": {
+        "n": 139775,
+        "p50_points": 7.0,
+        "p75_points": 10.0,
+        "p90_points": 13.0,
+        "p50_pips": 0.7,
+        "p75_pips": 1.0,
+        "p90_pips": 1.3,
+        "zero_rows": 28
+      },
+      "2016": {
+        "n": 140102,
+        "p50_points": 7.0,
+        "p75_points": 7.0,
+        "p90_points": 8.0,
+        "p50_pips": 0.7,
+        "p75_pips": 0.7,
+        "p90_pips": 0.8,
+        "zero_rows": 5
+      },
+      "2017": {
+        "n": 139806,
+        "p50_points": 7.0,
+        "p75_points": 7.0,
+        "p90_points": 7.0,
+        "p50_pips": 0.7,
+        "p75_pips": 0.7,
+        "p90_pips": 0.7,
+        "zero_rows": 30302
+      },
+      "2018": {
+        "n": 139824,
+        "p50_points": 2.0,
+        "p75_points": 8.0,
+        "p90_points": 8.0,
+        "p50_pips": 0.2,
+        "p75_pips": 0.8,
+        "p90_pips": 0.8,
+        "zero_rows": 13
+      },
+      "2019": {
+        "n": 139840,
+        "p50_points": 8.0,
+        "p75_points": 8.0,
+        "p90_points": 8.0,
+        "p50_pips": 0.8,
+        "p75_pips": 0.8,
+        "p90_pips": 0.8,
+        "zero_rows": 0
+      },
+      "2020": {
+        "n": 140386,
+        "p50_points": 2.0,
+        "p75_points": 3.0,
+        "p90_points": 3.0,
+        "p50_pips": 0.2,
+        "p75_pips": 0.3,
+        "p90_pips": 0.3,
+        "zero_rows": 23485
+      },
+      "2021": {
+        "n": 140168,
+        "p50_points": 0.0,
+        "p75_points": 0.0,
+        "p90_points": 1.0,
+        "p50_pips": 0.0,
+        "p75_pips": 0.0,
+        "p90_pips": 0.1,
+        "zero_rows": 108943
+      },
+      "2022": {
+        "n": 140394,
+        "p50_points": 1.0,
+        "p75_points": 1.0,
+        "p90_points": 1.0,
+        "p50_pips": 0.1,
+        "p75_pips": 0.1,
+        "p90_pips": 0.1,
+        "zero_rows": 30955
+      },
+      "2023": {
+        "n": 139835,
+        "p50_points": 0.0,
+        "p75_points": 0.0,
+        "p90_points": 0.0,
+        "p50_pips": 0.0,
+        "p75_pips": 0.0,
+        "p90_pips": 0.0,
+        "zero_rows": 139312
+      },
+      "2024": {
+        "n": 140431,
+        "p50_points": 0.0,
+        "p75_points": 0.0,
+        "p90_points": 0.0,
+        "p50_pips": 0.0,
+        "p75_pips": 0.0,
+        "p90_pips": 0.0,
+        "zero_rows": 140068
+      },
+      "2025": {
+        "n": 139860,
+        "p50_points": 0.0,
+        "p75_points": 0.0,
+        "p90_points": 0.0,
+        "p50_pips": 0.0,
+        "p75_pips": 0.0,
+        "p90_pips": 0.0,
+        "zero_rows": 138482
+      },
+      "2026": {
+        "n": 75616,
+        "p50_points": 0.0,
+        "p75_points": 0.0,
+        "p90_points": 0.0,
+        "p50_pips": 0.0,
+        "p75_pips": 0.0,
+        "p90_pips": 0.0,
+        "zero_rows": 74325
+      }
+    }
+  },
+  "offset_verification": {
+    "offset_model": "UTC+2/+3; EU DST calendar <=2023, US DST calendar >=2024 (empirical era switch)",
+    "weeks_checked_close_anchor": 602,
+    "close_anchor_model_match": 597,
+    "close_anchor_ok_ratio": 0.9917,
+    "close_anchor_anomalies_first20": [
+      "2015-12-24 18:00:00 (expected 2015-12-24 23:00:00)",
+      "2015-12-31 20:00:00 (expected 2015-12-31 23:00:00)",
+      "2020-12-24 20:00:00 (expected 2020-12-24 23:00:00)",
+      "2020-12-31 23:00:00 (expected 2020-12-31 23:00:00)",
+      "2021-12-24 20:00:00 (expected 2021-12-24 23:00:00)"
+    ],
+    "weeks_checked_open_anchor": 602,
+    "monday_00h_server_open_ok": 598,
+    "open_anchor_ok_ratio": 0.9934,
+    "open_anchor_anomalies_first20": [
+      "2016-12-26 06:00:00",
+      "2017-12-26 06:00:00",
+      "2018-01-02 00:00:00",
+      "2024-01-02 00:00:00"
+    ],
+    "note": "Monday 00:00 server open is broker quote schedule, not DST evidence"
+  }
+}

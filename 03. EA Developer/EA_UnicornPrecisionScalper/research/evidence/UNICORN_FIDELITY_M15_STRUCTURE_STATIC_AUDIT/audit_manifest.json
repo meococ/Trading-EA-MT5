@@ -1,0 +1,9 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "FIDELITY-UPS-M15-STRUCTURE-001",
+  "run_id": "STATIC-UPS-M15-STRUCTURE-V124-20260716",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\UNICORN_FIDELITY_M15_STRUCTURE_STATIC_AUDIT\\snapshot",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\UNICORN_FIDELITY_M15_STRUCTURE_STATIC_AUDIT\\snapshot\\source\\EA_UnicornPrecisionScalper.mq5",
+  "source_sha256": "F436770FEC0F561F776990623F78A2BB180669A8EF00AD9EF34E8ED7657DC388",
+  "include_snapshots": []
+}

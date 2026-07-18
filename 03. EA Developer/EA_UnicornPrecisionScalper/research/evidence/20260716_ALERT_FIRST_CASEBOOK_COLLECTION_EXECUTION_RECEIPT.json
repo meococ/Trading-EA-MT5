@@ -1,0 +1,87 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "authority": "DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE",
+  "hypothesis_id": "DATA-ACQ-UNICORN-CASEBOOK-V1-001",
+  "task_packet_sha256": "56F5490158767C71D7E03F7B2D40446E39FC7C5E8988F1CDA2F79E3377B57E34",
+  "git_commit": "0d85a24a98c69418589d958ee0e8bcfd1a8fa461",
+  "git_status_sha256": "040FA93AF74D6B4B9FA0A3588A98E1B762AFBE0212E023F7C592A7C11CBACC70",
+  "binding": {
+    "hypothesis_id": "DATA-ACQ-UNICORN-CASEBOOK-V1-001",
+    "run_role": "control",
+    "ea_name": "EA_UnicornPrecisionScalper",
+    "symbol": "XAUUSD",
+    "period": "M5",
+    "from": "2024.01.01",
+    "to": "2025.12.25",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpAlertCasebookMaxRows=200;InpAllowRetiredResearchExecution=false;InpEnableAlertCasebook=true;InpEnableTelemetry=false;InpResearchAutoMode=false",
+    "telemetry_tier": "off",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [
+      "XAUUSD_AlertCasebookMeta_*.csv",
+      "XAUUSD_AlertCasebook_*.csv"
+    ],
+    "symbol_geometry": {
+      "digits": 2,
+      "point": 0.01,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "011775C667501EB43DB37DBA97C906F76BE09C4F38B4A1E30BF6C5B1198967DC"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\20260716_ALERT_FIRST_CASEBOOK_COLLECTION_TASK.json",
+      "sha256": "56F5490158767C71D7E03F7B2D40446E39FC7C5E8988F1CDA2F79E3377B57E34"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\EA_UnicornPrecisionScalper.mq5",
+      "sha256": "A1AD68BC668C277D5EF85E54F61C28F0688D6FF9AC037A43368CECF45383B003"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\20260716_ALERT_FIRST_CASEBOOK_V1_COLLECTION_PREREG.md",
+      "sha256": "F5BC6DBF2D057469C1FE4143CB6D75D546E235A1FD223737E41228B5DECC7887"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\20260716_ALERT_FIRST_CASEBOOK_COLLECTION_COST_NA.json",
+      "sha256": "982B5B20D626D4460C5C2F60F94ED81B7A085F6C5B17A8A2C998F14770CB572E"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "82CC9B1BAFB6722F57E1B4BE89D6B18C29FC27C8518AECDD233C4045A9ED61E5"
+    },
+    {
+      "label": "include_0002",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\ALERT_FIRST_CASEBOOK_V1_CONTRACT.md",
+      "sha256": "72A3A83E3DBCD086EA560099B99B849157921B3EF7107AD97AD58F5B425CFCA8"
+    },
+    {
+      "label": "include_0003",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\presets\\ALERT_CASEBOOK_COLLECTION_V1.set",
+      "sha256": "88DD2207659BA4C9043E8DF1154E404022D8FF3B657C922274DDA20995E7DF03"
+    },
+    {
+      "label": "include_0004",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\20260716_ALERT_FIRST_CASEBOOK_COLLECTION_STORAGE_BEFORE.json",
+      "sha256": "A3B3BB8A6BF24AD4CCD34B533D28201A4ABE48CD84E5C3A14C330933EBE9B4CA"
+    }
+  ],
+  "generated_at_utc": "2026-07-16T08:30:48Z",
+  "note": "Supported legacy receipt schema is used only to exercise the real AlphaFactory tester path. Zero-trade collection is not promotion evidence."
+}

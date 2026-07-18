@@ -1,0 +1,11 @@
+﻿{
+    "schema_version":  "alphafactory_static_audit_manifest.v1",
+    "hypothesis_id":  "HYP-UPS-XAU-M5-006",
+    "run_id":  "STATIC-UPS-ALERT-FIRST-CASEBOOK-V1-ENGINEERING-V121-FINAL2-20260716",
+    "snapshot_root":  "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\ALERT_FIRST_CASEBOOK_V1_STATIC_AUDIT_V5\\snapshot",
+    "source_snapshot":  "D:\\Trading EA MT5\\03. EA Developer\\EA_UnicornPrecisionScalper\\research\\evidence\\ALERT_FIRST_CASEBOOK_V1_STATIC_AUDIT_V5\\snapshot\\source\\EA_UnicornPrecisionScalper.mq5",
+    "source_sha256":  "DF86D6CDB00B28CBAFD7FC9540497C60EDE8CD922F9B54470BB8AAD14D11C166",
+    "include_snapshots":  [
+
+                          ]
+}

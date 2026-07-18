@@ -1,0 +1,33 @@
+{
+  "schema_version": "alphafactory_c_storage_check.v1",
+  "hypothesis_id": "HYP-UPS-XAU-M5-002",
+  "strategy_tester_executed": false,
+  "runner_owned_terminal_started": false,
+  "heavy_run_created_on_c": false,
+  "pre_inventory_bytes": {
+    "roaming_tester_agent": 6848026803,
+    "terminal_tester": 1260063328,
+    "terminal_logs": 1898496
+  },
+  "post_inventory_bytes": {
+    "roaming_tester_agent": 6836064613,
+    "terminal_tester": 1260063542,
+    "terminal_logs": 1904168
+  },
+  "files_modified_after_lane_start": {
+    "roaming_tester_agent": 0,
+    "terminal_tester": 1,
+    "terminal_tester_bytes": 214,
+    "terminal_logs": 2,
+    "terminal_logs_bytes": 243516
+  },
+  "cleanup_action": "NONE",
+  "reason": "Strict dry-run blocked before MT5, so no backtest cache/train data was created. Tiny shared terminal/MetaEditor logs were not deleted while other workspace lanes were editing concurrently; the Owner cleanup rule applies after a real runner-owned tester run and D-side evidence verification.",
+  "protected": [
+    "account credentials",
+    "broker configuration",
+    "shared chart/history bases",
+    "pre-existing tester cache not created by this lane"
+  ],
+  "generated_at_utc": "2026-07-16T05:12:00Z"
+}

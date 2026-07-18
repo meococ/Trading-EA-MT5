@@ -1,0 +1,7 @@
+{
+  "schema_version": "alphafactory_data_acquisition_cost_na.v1",
+  "cost_provenance": "NOT_APPLICABLE_ZERO_TRADE_COLLECTION",
+  "missing_cost_is_not_zero": true,
+  "performance_claim_authorized": false,
+  "note": "This sentinel cannot be reused for an economic backtest."
+}

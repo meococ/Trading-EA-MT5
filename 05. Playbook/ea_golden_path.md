@@ -2,7 +2,7 @@
 
 Cập nhật: 2026-07-16
 
-Đây là đường mặc định cho mọi EA, không phụ thuộc Sonic R. `hot.md` quyết định
+Đây là đường mặc định cho mọi EA. `hot.md` quyết định
 lane đang mở; AlphaFactory là harness; prereg/registry/gate quyết định một run có
 ý nghĩa hay không. Compile xanh không phải edge và backtest đẹp không phải quyền
 deploy.
@@ -19,6 +19,10 @@ code; chi tiết kỹ thuật an toàn có thể do lead tự chốt và ghi ass
 
 Đọc `do_not_repeat_failures.md`, registry và lineage liên quan. Tạo row `idea`
 hoặc `probe`, draft prereg từ template, rồi chạy probe offline rẻ trước ceremony.
+Probe dùng làm bằng chứng KILL/falsification phải có PROBE_PLAN đóng băng
+TIỀN-kết-quả, SHA-bind vào row (template
+`02. AlphaFactory/templates/research/PROBE_PLAN.template.md`); plan đã bind là
+bất biến — amendment pre-outcome thành file `_V2.md` bind ở transition kế.
 Không cần ép Deep Research cho brief cơ chế đã đủ rõ; dùng nó khi cần discovery,
 nguồn hoặc cơ chế mới. Probe fail thì `parked/killed`, chưa code để cứu.
 

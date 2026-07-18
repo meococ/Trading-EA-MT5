@@ -1,0 +1,54 @@
+﻿{
+    "schema_version":  "alphafactory_mt5_storage_snapshot.v1",
+    "generated_at_utc":  "2026-07-16T06:30:26.0107325Z",
+    "roots":  [
+                  {
+                      "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\Tester",
+                      "exists":  true,
+                      "file_count":  120,
+                      "total_bytes":  1260063754,
+                      "latest_file_write_utc":  "2026-07-16T06:11:11.1495166Z",
+                      "metadata_sha256":  "774D3CEB31C816EAE624515F0F3F2237A3129A4B4EFD8F0AD911B0DE820D5A3C"
+                  },
+                  {
+                      "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\bases",
+                      "exists":  true,
+                      "file_count":  1966,
+                      "total_bytes":  21064742116,
+                      "latest_file_write_utc":  "2026-07-16T06:11:11.2221684Z",
+                      "metadata_sha256":  "7AF25B5E487231A56361F67735CF9197541D85EBEEADFA78552DE0CDEC98D15A"
+                  },
+                  {
+                      "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Profiles\\Tester",
+                      "exists":  true,
+                      "file_count":  1625,
+                      "total_bytes":  277637576,
+                      "latest_file_write_utc":  "2026-07-15T11:32:26.1552132Z",
+                      "metadata_sha256":  "4E66168B523123521B2CF9174948478FF7FCB84D686E62BE34241A283E59FEDE"
+                  },
+                  {
+                      "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Tester",
+                      "exists":  true,
+                      "file_count":  882,
+                      "total_bytes":  6847158854,
+                      "latest_file_write_utc":  "2026-07-15T11:32:25.5545375Z",
+                      "metadata_sha256":  "E970F243BEE7BAB725FBC7460103BDDA7954D88D64F88CCD6CFEF3323F0EC63B"
+                  },
+                  {
+                      "root":  "C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common",
+                      "exists":  true,
+                      "file_count":  137,
+                      "total_bytes":  20008308,
+                      "latest_file_write_utc":  "2026-07-15T01:21:07.3928996Z",
+                      "metadata_sha256":  "D079FB458D8353D80B60CB4AA87953A9AEEF8A4C590FE785A991CA3317EA5103"
+                  },
+                  {
+                      "root":  "C:\\Program Files\\MetaTrader 5\\Tester",
+                      "exists":  true,
+                      "file_count":  24,
+                      "total_bytes":  233922,
+                      "latest_file_write_utc":  "2026-07-15T15:24:49.1684826Z",
+                      "metadata_sha256":  "B92C16E6857A34995590043CFC4D0DF22EDF088F758687968B699657A5793F53"
+                  }
+              ]
+}

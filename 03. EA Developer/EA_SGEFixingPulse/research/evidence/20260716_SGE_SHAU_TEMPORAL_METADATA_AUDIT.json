@@ -1,0 +1,43 @@
+{
+  "schema_version": "sge_shau_temporal_metadata_audit.v1",
+  "audited_at_utc": "2026-07-16T10:58:05Z",
+  "source": "official_sge_public_web",
+  "sampled_articles": [
+    {
+      "trade_date": "2017-01-03",
+      "url": "https://www.sge.com.cn/sjzx/shjzjhq/5140911?top=791887794807676928",
+      "http_status": 200,
+      "page_time_value": "2017-01-03",
+      "published_at_with_time_and_timezone": null,
+      "last_modified_header": null,
+      "etag_header": null
+    },
+    {
+      "trade_date": "2020-07-07",
+      "url": "https://www.sge.com.cn/sjzx/shjzjhq/5148077?top=791887794807676928",
+      "http_status": 200,
+      "published_at_with_time_and_timezone": null,
+      "last_modified_header": null,
+      "etag_header": null
+    },
+    {
+      "trade_date": "2023-12-29",
+      "url": "https://www.sge.com.cn/sjzx/shjzjhq/10005756?top=791887794807676928",
+      "http_status": 200,
+      "page_time_value": "2023-12-29",
+      "published_at_with_time_and_timezone": null,
+      "last_modified_header": null,
+      "etag_header": null
+    }
+  ],
+  "archive_listing": {
+    "url": "https://www.sge.com.cn/sjzx/shjzjhq",
+    "http_status": 200,
+    "article_list_time_precision": "date_only",
+    "last_modified_header": null,
+    "etag_header": null
+  },
+  "first_publication_lineage_available": false,
+  "revision_lineage_available": false,
+  "verdict": "FAIL_NO_POINT_IN_TIME_PUBLICATION_PROOF"
+}
