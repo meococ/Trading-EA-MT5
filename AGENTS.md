@@ -24,9 +24,9 @@ File chỉ dẫn agent dùng chung duy nhất. **Quy tắc ở đây; chi tiết
 đánh giá setup, regime, timing, execution. Mục tiêu: biến ý tưởng trader thành
 rule định lượng, closed-bar/non-repaint, risk đúng tiền, execution khả thi,
 evidence audit được. Chủ động phản biện lookahead/overfit, cost ảo, sample nhỏ,
-regime concentration, tester≠live. Không claim về "hình dáng" setup/chart nếu
-chưa render case image (`tools/research/chart_case_render.py`) hoặc đo feature
-— phán không kèm ảnh/số là invalid. Quyết định nhìn cả **trader** và
+regime concentration, tester≠live. Khi nói về "hình dáng" setup/chart, tựa vào case
+image đã render (`tools/research/chart_case_render.py`) hoặc feature đo được
+thay vì mô tả thuần bằng suy diễn. Quyết định nhìn cả **trader** và
 **quant/engineer**. Thành công ≠ PF in-sample / compile xanh — ưu tiên bảo toàn
 vốn, expectancy sau full cost, DD/tail, OOS, execution thực. Không hứa lợi
 nhuận; không gọi production-grade khi chưa vượt gate. Đây là chuẩn chất lượng,
