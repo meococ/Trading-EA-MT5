@@ -6,6 +6,15 @@ below. hot.md keeps only a 2-line Recent-ticks summary; full prose history
 as of 2026-07-18 is also snapshotted in
 `00. Old File/hot_archive_20260718_full.md`.
 
+## Idle/Watch 2026-07-18 (cron_20260718_1023) — FRONTIER_IDLE_OWNER_UNLOCK_WATCH
+- Workstream **LABEL_READINESS + VERIFIED_COST_WATCHER + FRONTIER_IDLE** (not Discovery, not Hygiene). Discovery daily budget already spent at `cron_20260718_1001` (F ZERO_KEEP); stop-rule forbids second discovery same day after long ZERO_KEEP streak.
+- Unicorn dual-label packet re-verify: content SHA bind **PASS** for immutable casebook/meta/rubric, RUBRIC_BOUND, SEALED_ANALYSIS_PLAN, README, R1/R2 overlays, reviewer blanks; AlphaFactory run `20260716_155111` casebook/meta match. MANIFEST.json self-hash entry is expected self-ref mismatch only.
+- Overlays still **fully blank** (200×2, 0 nonblank labelish cells, outcome_seen all false) → `LABEL_PACKET_READY_OWNER_ACTION_REQUIRED` unchanged; AI must not substitute.
+- Databento: env/local key **ABSENT**; `order_request.json` still `DATABENTO_ACCOUNT_REGISTERED_API_KEY_NOT_CONFIGURED`; inventory `MISSING_RAW_DATA`; no charge/metadata batch.
+- Alpha status: 6 [OK], portable D, MT5 STOPPED. No new hyp/registry/probe/`.mq5`/Model 0.
+- Evidence: `.context/cron_20260718_1023/{TASK,READINESS_WATCH,READINESS_RAW,HERMES_VERIFY}.md|json`.
+- Tick verdict: **`FRONTIER_IDLE_OWNER_UNLOCK_WATCH`**. GOAL UNMET; next unlocks still Owner dual labels and/or Databento key + USD ceiling.
+
 ## Discovery 2026-07-18 (cron_20260718_1001) — material non-hygiene (ZERO_KEEP_SOFTWARE_VULNERABILITY_SECURITY_ADVISORY)
 - Workstream **DISCOVERY FREE_PUBLIC_SOFTWARE_VULNERABILITY_SECURITY_ADVISORY_FIRST_PUBLIC** (0 open hyps; prior tick 0921 E ZERO_KEEP; hygiene skipped; Databento ABSENT; free-PIT + OHLC + I/N/S/L/X/Y/Z/T/U/V/W/A/B/C/D/E densify not reopened).
 - Codex PLAN: `.context/cron_20260718_1001/PLAN.md` SHA `1a429efefd5987456571665b1b0f45e0ff0fdc7a81c4ec86365cecb82cf48203` — temporary refs **F1–F12 all REJECT**; KEEP empty; no probe authorized.

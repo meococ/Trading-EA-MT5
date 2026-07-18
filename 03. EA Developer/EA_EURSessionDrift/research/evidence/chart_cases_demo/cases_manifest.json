@@ -1,0 +1,88 @@
+{
+  "schema_version": "chart_case_render.v1",
+  "generated_at_utc": "2026-07-18T03:40:40Z",
+  "bars": "02. AlphaFactory\\data\\fivepercent\\EURUSD\\EURUSD_H1_2015_now.parquet",
+  "bars_sha256": "71860016AF1BD1B17353B043AFF799233A787E9DF3F587913FCD2F5328BB1E08",
+  "cases": "03. EA Developer\\EA_EURSessionDrift\\research\\evidence\\chart_cases_demo\\cases.csv",
+  "cases_sha256": "1C475801F9CFDA1688EDF48655A8C3CB83D3B7D15B66B96EE200C54D822C1AAA",
+  "mode": "anatomy",
+  "pre_bars": 90,
+  "post_bars": 12,
+  "overlays": [
+    "sma:20"
+  ],
+  "results": [
+    {
+      "case_id": "br_win_20160310_13",
+      "status": "RENDERED",
+      "mode": "anatomy",
+      "png": "br_win_20160310_13_anatomy.png",
+      "sha256": "21463CA2EA6CE159DEEEB31889A22CEC205F3C9164F35151976A1DD07D4BE331",
+      "bars_drawn": 107,
+      "first_bar": "2016-03-04 19:00:00",
+      "last_bar": "2016-03-11 05:00:00",
+      "cutoff_enforced": true,
+      "note": "anatomy: outcome view, not entry-quality evidence"
+    },
+    {
+      "case_id": "br_win_20220705_07",
+      "status": "RENDERED",
+      "mode": "anatomy",
+      "png": "br_win_20220705_07_anatomy.png",
+      "sha256": "C591F80EC873D689815A05534DAD93309E57053E84562CB414D813D22A2A5EED",
+      "bars_drawn": 107,
+      "first_bar": "2022-06-29 13:00:00",
+      "last_bar": "2022-07-05 23:00:00",
+      "cutoff_enforced": true,
+      "note": "anatomy: outcome view, not entry-quality evidence"
+    },
+    {
+      "case_id": "br_win_20220203_13",
+      "status": "RENDERED",
+      "mode": "anatomy",
+      "png": "br_win_20220203_13_anatomy.png",
+      "sha256": "23C3092607300E5F2F572920BBED98E125CE834DA25553BACF6DAB8BA77DC1DB",
+      "bars_drawn": 107,
+      "first_bar": "2022-01-28 19:00:00",
+      "last_bar": "2022-02-04 05:00:00",
+      "cutoff_enforced": true,
+      "note": "anatomy: outcome view, not entry-quality evidence"
+    },
+    {
+      "case_id": "br_loss_20151106_13",
+      "status": "RENDERED",
+      "mode": "anatomy",
+      "png": "br_loss_20151106_13_anatomy.png",
+      "sha256": "466A42008C8CE369A4950035396C94E9510AE0B0158FCB55A94820972E09C79D",
+      "bars_drawn": 107,
+      "first_bar": "2015-11-02 19:00:00",
+      "last_bar": "2015-11-09 05:00:00",
+      "cutoff_enforced": true,
+      "note": "anatomy: outcome view, not entry-quality evidence"
+    },
+    {
+      "case_id": "br_loss_20150122_13",
+      "status": "RENDERED",
+      "mode": "anatomy",
+      "png": "br_loss_20150122_13_anatomy.png",
+      "sha256": "C61DFEA01C425E5E2D3E7BD811BBFD8A000DE4470E02A05056CDD019CA93284A",
+      "bars_drawn": 107,
+      "first_bar": "2015-01-16 19:00:00",
+      "last_bar": "2015-01-23 05:00:00",
+      "cutoff_enforced": true,
+      "note": "anatomy: outcome view, not entry-quality evidence"
+    },
+    {
+      "case_id": "br_loss_20170627_07",
+      "status": "RENDERED",
+      "mode": "anatomy",
+      "png": "br_loss_20170627_07_anatomy.png",
+      "sha256": "30393DE21019347E3671D6BBAEF6F52D22DC1B58DC06916EC26886D014D933C0",
+      "bars_drawn": 107,
+      "first_bar": "2017-06-21 13:00:00",
+      "last_bar": "2017-06-27 23:00:00",
+      "cutoff_enforced": true,
+      "note": "anatomy: outcome view, not entry-quality evidence"
+    }
+  ]
+}

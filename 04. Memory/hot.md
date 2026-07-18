@@ -1,6 +1,6 @@
 # Hot Cache
 
-Updated: 2026-07-18 | DISCOVERY cron_20260718_1001 F1–F12 ZERO_KEEP software vulnerability / security-advisory first-public (after E ZERO_KEEP; registry 67 rows/27 hyps; free densify frontier +F; Unicorn labels Owner-pending; Databento ABSENT; 0 open; GOAL unmet)
+Updated: 2026-07-18 | IDLE/WATCH cron_20260718_1023 frontier idle + Unicorn label integrity PASS (blank) + Databento key still ABSENT (after F ZERO_KEEP discovery budget spent today; registry 67/27; 0 open; GOAL unmet)
 
 Sự thật SỐNG ở block **▶ NEXT SESSION** ngay dưới. Sealed tick blocks: `04. Memory/hot_discovery_log.md`. Ledger: 15 entry mới nhất ở cuối file (đầy đủ 220 entry: `00. Old File/hot_archive_20260718_full.md`; detail config theo `#idx`: `00. Old File/hot_details/hot_ledger_details.json`).
 
@@ -54,8 +54,8 @@ Sự thật SỐNG ở block **▶ NEXT SESSION** ngay dưới. Sealed tick bloc
 
 ## Recent ticks (2 mới nhất — full block ở hot_discovery_log.md)
 
-- `cron_20260718_1001` (Discovery): Tick verdict: NO_LEGAL_CANDIDATE — ZERO_KEEP_SOFTWARE_VULNERABILITY_SECURITY_ADVISORY. Software vulnerability / security-advisory free-public novelty screen at frontier. GOAL UNMET; BLOCKED_EXTERNAL paid/label path uncha
-- `cron_20260718_0921` (Discovery): Tick verdict: NO_LEGAL_CANDIDATE — ZERO_KEEP_WEATHER_NWP_MET_BULLETIN. Weather NWP / official met-bulletin free-public novelty screen at frontier. GOAL UNMET; BLOCKED_EXTERNAL paid/label path unchanged.
+- `cron_20260718_1023` (Idle/Watch): Tick verdict: FRONTIER_IDLE_OWNER_UNLOCK_WATCH — discovery budget spent today (F ZERO_KEEP); label packet integrity PASS, overlays still blank; Databento key ABSENT. GOAL UNMET.
+- `cron_20260718_1001` (Discovery): Tick verdict: NO_LEGAL_CANDIDATE — ZERO_KEEP_SOFTWARE_VULNERABILITY_SECURITY_ADVISORY. Software vulnerability / security-advisory free-public novelty screen at frontier. GOAL UNMET; BLOCKED_EXTERNAL paid/label path unchanged.
 
 ## Ledger (nén — mới nhất trên cùng; `#idx` → hot_ledger_details.json)
 

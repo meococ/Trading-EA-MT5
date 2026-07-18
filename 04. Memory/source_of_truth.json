@@ -1,5 +1,5 @@
 {
-  "version": 42,
+  "version": 43,
   "updated_at": "2026-07-18",
   "default_status": "authoritative",
   "root_hygiene": {
@@ -327,6 +327,16 @@
       "path": "02. AlphaFactory/templates/research/PROBE_PLAN.template.md",
       "status": "authoritative",
       "reason": "Pre-outcome frozen probe-plan template: identity, de-dup, hash-bound data, frozen decision surface, trial accounting plus DSR, kill gates, exclusions, exhaustive-grid variant clauses."
+    },
+    {
+      "path": "02. AlphaFactory/tools/research/chart_case_render.py",
+      "status": "authoritative",
+      "reason": "Per-case candlestick renderer from hash-bound bar data plus a cases CSV; asof mode draws only bars closed before entry (decision-time information set), anatomy mode is outcome-only; emits a manifest with per-image SHA256. Required basis for any chart claim in readouts/preregs."
+    },
+    {
+      "path": "02. AlphaFactory/tools/research/log_triage.py",
+      "status": "authoritative",
+      "reason": "Streaming standard error-pattern battery for heavy tester/EA logs; one compact JSON summary so raw logs never enter agent context except targeted windows."
     }
   ],
   "availability_contract": {

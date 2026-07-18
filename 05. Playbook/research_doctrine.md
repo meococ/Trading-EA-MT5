@@ -220,6 +220,12 @@ không được đại diện cho một feature chưa đo.
 
 Không patch luật EA nào được đến trực tiếp từ trực giác nhìn chart.
 
+Không chart-claim nào được viết vào readout/prereg nếu chưa có (a) case image
+đã render qua `tools/research/chart_case_render.py` và được review, hoặc
+(b) feature đo được. Ảnh render từ chính bar data hash-bound của lane; mode
+`asof` (không vẽ bar sau decision) cho claim chất lượng setup; mode `anatomy`
+chỉ dùng cho giải phẫu outcome, không biện minh entry.
+
 Đường đi bắt buộc:
 
 ```text

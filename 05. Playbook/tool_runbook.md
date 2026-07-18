@@ -186,6 +186,16 @@ python "02. AlphaFactory/tools/repro_drift_map.py" `
 - `02. AlphaFactory/tools/research/snapshot_c_roots.ps1 -OutputPath <json>` —
   before/after receipts of the 4 protected C roots (single digest
   implementation; never reimplement the hash).
+- `02. AlphaFactory/tools/research/chart_case_render.py` — per-case candlestick
+  PNGs from hash-bound bars + a cases CSV (`case_id, entry_time_utc, direction,
+  entry[, sl, tp, exit_time_utc, exit, reason, label]`). Default `--mode asof`
+  draws only bars closed before entry (decision-time information set);
+  `--mode anatomy` is outcome view only. Emits `cases_manifest.json` with
+  per-image SHA256 and the enforced cutoff.
+- `02. AlphaFactory/tools/research/log_triage.py <log>` — streaming standard
+  error-pattern battery over heavy tester/EA logs; one compact JSON summary.
+  Run this FIRST; open raw windows only where triage points
+  (`large_log_reader.py window`).
 - Probe plans start from
   `02. AlphaFactory/templates/research/PROBE_PLAN.template.md`.
 
