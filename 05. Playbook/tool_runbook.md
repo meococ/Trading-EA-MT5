@@ -196,6 +196,14 @@ python "02. AlphaFactory/tools/repro_drift_map.py" `
   error-pattern battery over heavy tester/EA logs; one compact JSON summary.
   Run this FIRST; open raw windows only where triage points
   (`large_log_reader.py window`).
+- Probe SDK modules (`indicators.py`, `sealed_loader.py`, `trial_log.py`,
+  `metrics.py`, `controls.py`) — mechanism-neutral primitives; charter and
+  usage in `tools/research/README.md`. Indicator variants: `*_mt5` for
+  Model-0-bound lanes, `*_wilder` for literature replication.
+- `02. AlphaFactory/tools/research/parity_harness.py run --bars <parquet>` —
+  captures iATR/iADX/iRSI in the portable FivePercent terminal via a
+  [StartUp] script (`mql5/ParityDump.mq5`) and diffs against the python
+  variants on identity-proven bars; emits a PASS/FAIL parity artifact.
 - Probe plans start from
   `02. AlphaFactory/templates/research/PROBE_PLAN.template.md`.
 

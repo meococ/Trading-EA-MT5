@@ -1,5 +1,5 @@
 {
-  "version": 43,
+  "version": 44,
   "updated_at": "2026-07-18",
   "default_status": "authoritative",
   "root_hygiene": {
@@ -337,6 +337,41 @@
       "path": "02. AlphaFactory/tools/research/log_triage.py",
       "status": "authoritative",
       "reason": "Streaming standard error-pattern battery for heavy tester/EA logs; one compact JSON summary so raw logs never enter agent context except targeted windows."
+    },
+    {
+      "path": "02. AlphaFactory/tools/research/indicators.py",
+      "status": "authoritative",
+      "reason": "Single-source indicator math with two variant families: *_wilder (literature) and *_mt5 (iATR = SMA of TR, iADX = EMA of per-bar DI; parity-proven ~5e-11 against build 6006). A frozen plan must state which family it uses; Model-0-bound lanes use *_mt5."
+    },
+    {
+      "path": "02. AlphaFactory/tools/research/sealed_loader.py",
+      "status": "authoritative",
+      "reason": "Holdout-sealed parquet loading with read-time filter, post-load assert and a seal receipt; split tagging and elapsed-calendar-week helpers."
+    },
+    {
+      "path": "02. AlphaFactory/tools/research/trial_log.py",
+      "status": "authoritative",
+      "reason": "Canonical trial-log appender: hypothesis_id + prereg_sha256 required on every row, numpy-safe single serialization."
+    },
+    {
+      "path": "02. AlphaFactory/tools/research/metrics.py",
+      "status": "authoritative",
+      "reason": "Mechanism-neutral per-trade-R metrics: profit factor, expectancy, drawdown in R and percent, by-year stats, DSR inputs, top-1 win share, leave-one-out PF."
+    },
+    {
+      "path": "02. AlphaFactory/tools/research/controls.py",
+      "status": "authoritative",
+      "reason": "Negative-control entry generators (matched-random and time-shift) producing timestamps only; the lane's frozen exit engine simulates them so control and challenger share identical mechanics."
+    },
+    {
+      "path": "02. AlphaFactory/tools/research/parity_harness.py",
+      "status": "authoritative",
+      "reason": "MT5 indicator parity instrument: compiles and runs mql5/ParityDump.mq5 in the portable FivePercent terminal via a StartUp config, proves bar identity against the lane parquet, diffs iATR/iADX/iRSI vs the python *_mt5 variants and emits a PASS/FAIL parity artifact."
+    },
+    {
+      "path": "02. AlphaFactory/tools/research/mql5/ParityDump.mq5",
+      "status": "authoritative",
+      "reason": "Harness-only chart script (no trading): dumps closed-bar iATR/iADX/iRSI values to CSV on the portable data root and closes the terminal."
     }
   ],
   "availability_contract": {

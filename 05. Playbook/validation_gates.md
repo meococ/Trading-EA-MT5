@@ -31,6 +31,11 @@ result is broad enough to survive data-mining pressure.
   `02. AlphaFactory/templates/research/PROBE_PLAN.template.md`). A bound plan
   is immutable; pre-outcome amendments become a new `_V2.md` bound at the next
   transition.
+- Indicator variant is part of the frozen surface: MT5 built-ins differ from
+  Wilder formulas (iATR = SMA of TR; iADX = EMA of per-bar DI). A plan states
+  `*_mt5` or `*_wilder` per indicator; Model-0-bound lanes use `*_mt5`
+  (parity instrument: `tools/research/parity_harness.py`, PASS artifact
+  required before trusting a SURVIVE that leans on an indicator gate).
 - Expectancy floor is a WEEKLY bar: +0.08R/trade is calibrated to 2-5
   trades/week (~0.16-0.40R/week). Off-band-cadence objects must hold the same
   weekly floor — scale the per-trade threshold accordingly and declare it
