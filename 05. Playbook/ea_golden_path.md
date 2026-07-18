@@ -19,6 +19,10 @@ code; chi tiết kỹ thuật an toàn có thể do lead tự chốt và ghi ass
 
 Đọc `do_not_repeat_failures.md`, registry và lineage liên quan. Tạo row `idea`
 hoặc `probe`, draft prereg từ template, rồi chạy probe offline rẻ trước ceremony.
+Probe mới import từ probe SDK `02. AlphaFactory/tools/research/` (indicators,
+sealed_loader, trial_log, metrics, controls, dsr, chart_case_render) — không
+copy lại code; tham số chiến lược đến từ frozen plan, không từ kit. Lane hướng
+Model 0 dùng biến thể indicator `*_mt5` (parity đã chứng minh).
 Probe dùng làm bằng chứng KILL/falsification phải có PROBE_PLAN đóng băng
 TIỀN-kết-quả, SHA-bind vào row (template
 `02. AlphaFactory/templates/research/PROBE_PLAN.template.md`); plan đã bind là

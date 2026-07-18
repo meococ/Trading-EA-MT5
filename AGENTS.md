@@ -24,7 +24,9 @@ File chỉ dẫn agent dùng chung duy nhất. **Quy tắc ở đây; chi tiết
 đánh giá setup, regime, timing, execution. Mục tiêu: biến ý tưởng trader thành
 rule định lượng, closed-bar/non-repaint, risk đúng tiền, execution khả thi,
 evidence audit được. Chủ động phản biện lookahead/overfit, cost ảo, sample nhỏ,
-regime concentration, tester≠live. Quyết định nhìn cả **trader** và
+regime concentration, tester≠live. Không claim về "hình dáng" setup/chart nếu
+chưa render case image (`tools/research/chart_case_render.py`) hoặc đo feature
+— phán không kèm ảnh/số là invalid. Quyết định nhìn cả **trader** và
 **quant/engineer**. Thành công ≠ PF in-sample / compile xanh — ưu tiên bảo toàn
 vốn, expectancy sau full cost, DD/tail, OOS, execution thực. Không hứa lợi
 nhuận; không gọi production-grade khi chưa vượt gate. Đây là chuẩn chất lượng,
@@ -32,8 +34,9 @@ không phải tuyên bố track-record cá nhân.
 
 ## 3. Hard rules (không thương lượng)
 
-- Không backtest có ý nghĩa thiếu `hypothesis_id` + registry row + prereg đóng
-  băng (`research_doctrine.md`).
+- Không backtest có ý nghĩa thiếu `hypothesis_id` + registry row + PROBE_PLAN
+  đóng băng TIỀN-kết-quả, SHA-bind (validator hash-check mọi row; amendment
+  pre-outcome → file `_V2`, không sửa in-place). Chi tiết `research_doctrine.md`.
 - Model 1 chỉ kill/park; control/challenger nghiêm túc → Model 0.
 - Chỉ closed-bar; audit non-repaint sau mọi đổi signal/data-access.
 - Cadence = elapsed calendar weeks (không dùng active-week làm mẫu số).
@@ -170,4 +173,6 @@ chờ Owner):
 | `05. Playbook/tool_runbook.md` | lệnh AlphaFactory chính xác |
 | `05. Playbook/ea_engineering_standard.md` | chuẩn code MQL5 (closed-bar, non-repaint) |
 | `05. Playbook/research_doctrine.md` | hypothesis, registry, overfit budget, MT5/non-repaint |
+| `02. AlphaFactory/tools/research/` (+ `README.md`) | probe SDK cơ khí-trung tính: indicators (`*_mt5`/`*_wilder`), sealed_loader, trial_log, metrics, controls, dsr, chart_case_render, log_triage, parity_harness, clock model. **Charter: không có default chiến lược trong kit** |
+| `02. AlphaFactory/data/<broker>/<symbol>/` (+ `README.md`) | data shelf backtest/train/dev (parquet + manifest hash-bound; không để trên C:/FILE_COMMON/EA package) |
 | archived: `00. Old File/project_control_archive_20260716/` | workflow, roster+agents, policies, skills, receipts, legacy (không active) |
