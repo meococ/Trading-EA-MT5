@@ -1,0 +1,90 @@
+{
+  "hypothesis_id": "HYP-ICTVIS-EURUSD-M5-001",
+  "stage": 1,
+  "generated_at_utc": "2026-07-18T08:15:27Z",
+  "seal": {
+    "bars_path": "02. AlphaFactory/data/fivepercent/EURUSD/EURUSD_M1_2015_now.parquet",
+    "bars_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+    "holdout_start": "2023-01-01 00:00:00",
+    "m1_bars_loaded": 2977638,
+    "holdout_bars_loaded": 0,
+    "last_m1_loaded": "2022-12-30 21:59:00"
+  },
+  "params": {
+    "sweep_lookback": 12,
+    "stop_buffer_pip": 2.0,
+    "target_r": 2.0,
+    "max_hold_bars": 48,
+    "cost_r_label": 0.0,
+    "split_bounds": {
+      "DESIGN": [
+        "2015-01-01",
+        "2018-12-31"
+      ],
+      "TRAIN": [
+        "2019-01-01",
+        "2021-12-31"
+      ],
+      "VAL": [
+        "2022-01-01",
+        "2022-12-31"
+      ]
+    }
+  },
+  "timeframes": {
+    "M5": {
+      "n_bars": 596141,
+      "n_candidates_raw": 78211,
+      "n_candidates_split": 78210,
+      "DESIGN": {
+        "n": 39122,
+        "per_week": 187.443,
+        "win_rate": 0.3453,
+        "mean_r_gross": 0.0124
+      },
+      "TRAIN": {
+        "n": 29151,
+        "per_week": 186.183,
+        "win_rate": 0.3524,
+        "mean_r_gross": 0.0208
+      },
+      "VAL": {
+        "n": 9937,
+        "per_week": 190.573,
+        "win_rate": 0.3391,
+        "mean_r_gross": 0.0002
+      },
+      "bars_path": "03. EA Developer/EA_ICTVisualEdge/research/evidence/stage1/bars_M5.parquet",
+      "bars_sha256": "E5E20F0BCD01B8E97B138564520719A856F077D2173EE257F86B0D908C4B8464",
+      "candidates_path": "03. EA Developer/EA_ICTVisualEdge/research/evidence/stage1/candidates_M5.parquet",
+      "candidates_sha256": "B588A6B13A829EFFE228E4CFA5E9C54900B278B8A71DF73138615A60D77BC912"
+    },
+    "M15": {
+      "n_bars": 198837,
+      "n_candidates_raw": 28412,
+      "n_candidates_split": 28412,
+      "DESIGN": {
+        "n": 14131,
+        "per_week": 67.705,
+        "win_rate": 0.3473,
+        "mean_r_gross": 0.0238
+      },
+      "TRAIN": {
+        "n": 10712,
+        "per_week": 68.416,
+        "win_rate": 0.3471,
+        "mean_r_gross": 0.0256
+      },
+      "VAL": {
+        "n": 3569,
+        "per_week": 68.447,
+        "win_rate": 0.3253,
+        "mean_r_gross": -0.0381
+      },
+      "bars_path": "03. EA Developer/EA_ICTVisualEdge/research/evidence/stage1/bars_M15.parquet",
+      "bars_sha256": "10349FE255C10A6548A50129CCB8BED10A51B87BF31D42C25893CD039682D821",
+      "candidates_path": "03. EA Developer/EA_ICTVisualEdge/research/evidence/stage1/candidates_M15.parquet",
+      "candidates_sha256": "143C8947FCBC60885443D3D3C547A9970FE2F7CBC22C5694CFBFBEA7ACDA34AE"
+    }
+  }
+}

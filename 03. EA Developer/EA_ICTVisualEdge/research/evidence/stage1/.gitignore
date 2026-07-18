@@ -1,0 +1,4 @@
+# Reproducible bar/candidate parquets (SHA-recorded in stage1_manifest.json /
+# stage2_design_separation.json). Rebuild via stage1_data_candidates_labels.py
+# + stage2_features.py from the SHA-bound M1 source. Keep manifests + charts.
+*.parquet

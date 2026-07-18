@@ -955,3 +955,16 @@ Evidence: `03. EA Developer/EA_UnicornPrecisionScalper/research/20260716_ALERT_F
   set such as FX options-implied state/real OI or primary-market signed order
   flow. Public current-day summaries or another OHLC/ATR/ICT recombination are
   not sufficient.
+- Visual feature-discovery is a valid METHOD but does not rescue a cost-dominated
+  object (`HYP-ICTVIS-EURUSD-M5-001`, KILL). The generous M5 sweep-reversion
+  universe is near-random gross (PF 1.019 at zero cost) and its stops are too
+  tight (median 4.5 pips) for realistic EURUSD cost; even the best in-sample
+  DESIGN feature selection (range-position + wick morphology) posts PF 0.573 at
+  1.5 pip RT and dies by 0.5 pip. Do not re-probe tight-stop M5 sweep objects
+  expecting a visual/quantified feature to beat cost. Two standing lessons: (1)
+  quantify every eyeballed pattern on the full DESIGN set before believing it —
+  the "short-into-momentum-is-bad" read was refuted by population stats; (2) a
+  visually-seeded OPEN search that still cannot clear cost IN-SAMPLE is a stronger
+  kill than a memo-funnel assertion, but it is still a kill. Reopen needs a
+  different object GEOMETRY (wider stops / different entry) as its own hypothesis,
+  or a new information set — not another feature on the same tight-stop object.

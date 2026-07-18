@@ -1,0 +1,110 @@
+{
+  "split": "DESIGN",
+  "n_design": 39122,
+  "base_win": 0.3453,
+  "base_mean_r": 0.0124,
+  "features": [
+    {
+      "feature": "F1_approach_mom",
+      "n": 39117,
+      "meanR_lowbin": 0.0277,
+      "meanR_highbin": -0.01,
+      "meanR_spread": -0.0378,
+      "win_lowbin": 0.3475,
+      "win_highbin": 0.3446,
+      "monotonic_rho": -0.915,
+      "by_bin_meanR": [
+        0.0277,
+        0.0357,
+        0.0154,
+        -0.0071,
+        -0.01
+      ]
+    },
+    {
+      "feature": "F2_velocity",
+      "n": 39117,
+      "meanR_lowbin": -0.0141,
+      "meanR_highbin": 0.0285,
+      "meanR_spread": 0.0426,
+      "win_lowbin": 0.3401,
+      "win_highbin": 0.3484,
+      "monotonic_rho": 0.941,
+      "by_bin_meanR": [
+        -0.0141,
+        0.0011,
+        0.011,
+        0.0351,
+        0.0285
+      ]
+    },
+    {
+      "feature": "F3_touch",
+      "n": 39117,
+      "meanR_lowbin": 0.0088,
+      "meanR_highbin": -0.0217,
+      "meanR_spread": -0.0304,
+      "win_lowbin": 0.3483,
+      "win_highbin": 0.3313,
+      "monotonic_rho": -0.646,
+      "by_bin_meanR": [
+        0.0088,
+        0.0579,
+        0.0298,
+        -0.0163,
+        -0.0217
+      ]
+    },
+    {
+      "feature": "F4_wick",
+      "n": 39117,
+      "meanR_lowbin": 0.0634,
+      "meanR_highbin": -0.0114,
+      "meanR_spread": -0.0748,
+      "win_lowbin": 0.3551,
+      "win_highbin": 0.3472,
+      "monotonic_rho": -0.915,
+      "by_bin_meanR": [
+        0.0634,
+        0.0351,
+        0.0019,
+        -0.0274,
+        -0.0114
+      ]
+    },
+    {
+      "feature": "F5_rangepos",
+      "n": 39117,
+      "meanR_lowbin": -0.0289,
+      "meanR_highbin": 0.0506,
+      "meanR_spread": 0.0795,
+      "win_lowbin": 0.3313,
+      "win_highbin": 0.3539,
+      "monotonic_rho": 0.886,
+      "by_bin_meanR": [
+        -0.0289,
+        0.015,
+        0.011,
+        0.014,
+        0.0506
+      ]
+    },
+    {
+      "feature": "F6_compression",
+      "n": 39117,
+      "meanR_lowbin": 0.0029,
+      "meanR_highbin": 0.0115,
+      "meanR_spread": 0.0086,
+      "win_lowbin": 0.3413,
+      "win_highbin": 0.3469,
+      "monotonic_rho": 0.057,
+      "by_bin_meanR": [
+        0.0029,
+        0.0167,
+        0.0273,
+        0.0032,
+        0.0115
+      ]
+    }
+  ]
+}

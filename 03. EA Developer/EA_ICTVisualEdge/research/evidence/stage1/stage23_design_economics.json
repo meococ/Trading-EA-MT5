@@ -1,0 +1,90 @@
+{
+  "hypothesis_id": "HYP-ICTVIS-EURUSD-M5-001",
+  "stage": "2-3 design in-sample economics",
+  "split": "DESIGN 2015-2018 (in-sample; TRAIN/VAL untouched, HOLDOUT sealed unloaded)",
+  "base_universe": {
+    "n": 39122,
+    "win_gross": 0.3453,
+    "mean_r_gross": 0.0124,
+    "risk_pip_median": 4.5
+  },
+  "design_separation_top_features": {
+    "F5_rangepos": "rho +0.886 spread +0.0795",
+    "F4_wick": "rho -0.915 spread -0.0748",
+    "F1_approach_mom": "rho -0.915 (eye read REFUTED by pop stats)"
+  },
+  "cost_sensitivity_PF": {
+    "0.0pip_RT": {
+      "all": {
+        "n": 39122,
+        "pf": 1.019,
+        "mean_r_net": 0.0124,
+        "win": 0.3453
+      },
+      "top10pct_F5F4": {
+        "n": 3912,
+        "pf": 1.12,
+        "mean_r_net": 0.0768,
+        "win": 0.3594
+      }
+    },
+    "0.25pip_RT": {
+      "all": {
+        "n": 39122,
+        "pf": 0.934,
+        "mean_r_net": -0.045,
+        "win": 0.345
+      },
+      "top10pct_F5F4": {
+        "n": 3912,
+        "pf": 0.995,
+        "mean_r_net": -0.0034,
+        "win": 0.3594
+      }
+    },
+    "0.5pip_RT": {
+      "all": {
+        "n": 39122,
+        "pf": 0.858,
+        "mean_r_net": -0.1025,
+        "win": 0.3445
+      },
+      "top10pct_F5F4": {
+        "n": 3912,
+        "pf": 0.887,
+        "mean_r_net": -0.0837,
+        "win": 0.3592
+      }
+    },
+    "0.75pip_RT": {
+      "all": {
+        "n": 39122,
+        "pf": 0.79,
+        "mean_r_net": -0.1599,
+        "win": 0.3442
+      },
+      "top10pct_F5F4": {
+        "n": 3912,
+        "pf": 0.793,
+        "mean_r_net": -0.1639,
+        "win": 0.3592
+      }
+    },
+    "1.5pip_RT": {
+      "all": {
+        "n": 39122,
+        "pf": 0.62,
+        "mean_r_net": -0.3323,
+        "win": 0.3422
+      },
+      "top10pct_F5F4": {
+        "n": 3912,
+        "pf": 0.573,
+        "mean_r_net": -0.4045,
+        "win": 0.3592
+      }
+    }
+  },
+  "verdict": "KILL_AT_DESIGN_IN_SAMPLE_ECONOMICS",
+  "dedup": "NOT auto-fail: surviving features (range-position, wick morphology) are mean-reversion context, NOT ICT primitives. Honest economics kill, category (b): materially-different feature fails cost."
+}
