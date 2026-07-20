@@ -1,0 +1,46 @@
+{
+  "schema_version": "fvg_comparison_protocol.v1.1",
+  "study_id": "STUDY-FVG-COMPARE-EURUSD-M5-001",
+  "revised_at_utc": "2026-07-18",
+  "status": "RESEARCH_ONLY_NO_ECONOMIC_RUN_AUTHORITY",
+  "symbol": "EURUSD",
+  "timeframe": "M5",
+  "specimen": {
+    "source_path": "03. EA Developer/EA_FVGConfluence/EA_FVGConfluence.mq5",
+    "source_sha256": "0279ADE492A104803CC7279CD5D3B99A6F57822779B91273AFD666F0C784757F",
+    "terminal_hypothesis_id": "HYP-FVG-SCALP-CONFL-M5-EUR-001",
+    "terminal_state_must_remain": "killed"
+  },
+  "report": {
+    "path": "05. Playbook/Strategy/BaoCao_DeepResearch_Scalping_ICT_Liquidity_PropFirm_072026.docx",
+    "bytes": 18004,
+    "sha256": "44638AA4999D35AF3C4B3CCA3C1D530D2AC1CCF6901D73A4291D2649687F4070"
+  },
+  "data": {
+    "manifest_path": "02. AlphaFactory/data/fivepercent/EURUSD/manifest.json",
+    "manifest_sha256": "05904D8B89A7439B1D0C444D10CB4F49AA31D8E939F8F6A9640F50D3C5AD9BE4",
+    "m1_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+    "spread_cost_usable": false
+  },
+  "public_performance": {
+    "minimum_eligible_accounts": 5,
+    "minimum_months": 36,
+    "minimum_closed_trades": 200,
+    "grade_c_rankable": false,
+    "noninferiority_delta_sharpe_floor_90ci": -0.25,
+    "max_drawdown_excess_percentage_points": 3.0
+  },
+  "professional_reference": {
+    "primary": "Barclay Currency Traders Index",
+    "named_cta_identity_check": "NFA BASIC",
+    "darwin_role": "secondary_risk_normalized_context",
+    "target_annualized_volatility": 0.10,
+    "maximum_normalization_leverage": 2.0
+  },
+  "authority": {
+    "model0_authorized": false,
+    "economic_run_authorized": false,
+    "promotion_eligible": false,
+    "live_or_paper_attachment_authorized": false
+  }
+}

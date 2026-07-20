@@ -1,0 +1,34 @@
+{
+  "schema_version": "alphafactory_data_manifest.v1",
+  "source": "Forex Factory weekly calendar",
+  "source_rank": "C",
+  "symbol_scope": "EURUSD",
+  "local_event_date_coverage": {
+    "from": "2019-01-01",
+    "to": "2022-12-31"
+  },
+  "weekly_pages": 209,
+  "timed_high_impact_events": 1282,
+  "promotion_eligible": false,
+  "raw": {
+    "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.weekly.raw.json",
+    "bytes": 944989,
+    "sha256": "78CB2656A27278B1DA04B2C594A2C73BB1877DBA3AB52BCCFAC36A215945EA8F"
+  },
+  "normalized_csv": {
+    "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+    "bytes": 294809,
+    "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307"
+  },
+  "build_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260718_NEWS_CALENDAR_BUILD_AUDIT.json",
+    "bytes": 1714,
+    "sha256": "D5D38389CE72A443A79E63131719FAE42BAB4BFC552B792E130921870B0CBE2A",
+    "verdict": "PASS_DIAGNOSTIC_SOURCE_C"
+  },
+  "limitations": [
+    "Third-party impact ranking and timestamps are not an official release ledger.",
+    "24 untimed EUR/USD rows and 63 global rows remain audit-only.",
+    "This dataset cannot satisfy execution-cost provenance or promotion gates."
+  ]
+}

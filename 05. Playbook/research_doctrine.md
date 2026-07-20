@@ -249,24 +249,23 @@ Nên kèm negative control khi phân tích chart-state — ví dụ các lệnh 
 `SIDEWAY_WIDE`, lệnh thắng impulse, trade bỏ lỡ high-MFE, false positive
 high-MAE, và session liền kề; khai bộ control đã chọn trong analysis plan.
 
-Với casebook outcome-blind hoặc taxonomy discretionary:
+Với corpus outcome-blind hoặc taxonomy discretionary:
 
-- Freeze rubric, reviewer schema, sample/density/agreement gates và analysis
-  plan trước reviewer output hoặc outcome join. `ambiguous` là nhãn thật, không
-  ép thành pass/fail để làm đẹp agreement.
-- Source CSV bất biến; reviewer ghi overlay theo `event_id`. Row và metadata
+- Freeze rubric, annotation schema, sample/density gates và analysis plan trước
+  annotation output hoặc outcome join. `ambiguous` là nhãn thật, không ép thành
+  pass/fail để làm đẹp thống kê.
+- Source CSV bất biến; annotation ghi overlay theo `event_id`. Row và metadata
   phải bind collection id, contract/schema version, source SHA256, input identity,
   symbol/timeframe và decision cutoff. Schema thiếu hard-gate label thì corpus
   cũ chỉ diagnostic, không được vá label ngược vào source CSV.
 - Lưu cả server time và UTC cùng offset đã đóng băng; ghi rõ decision timestamp
   là bar open hay close cutoff. MT5 Python history phải query theo trục broker
   server rồi chuẩn hóa offset và chứng minh bar cuối đã đóng trước cutoff.
-- Reviewer chỉ được dùng thông tin tồn tại tại cutoff. Nhãn post-formation cần
+- Annotation chỉ được dùng thông tin tồn tại tại cutoff. Nhãn post-formation cần
   packet/state sau formation; nếu chưa thể tồn tại thì phải `no`, không suy từ
   outcome tương lai.
-- AI/rule review chỉ là `AI_EXPLORATORY` để hiệu chuẩn taxonomy. Nó không thay
-  reviewer human độc lập hoặc clear kappa/density gate nếu prereg yêu cầu human.
-- Không join PnL/forward return/fill/MFE/MAE cho tới khi label agreement và
+- AI/rule annotation phải ghi rõ provenance và không tự cấp quyền economic run.
+- Không join PnL/forward return/fill/MFE/MAE cho tới khi annotation contract và
   accepted-density gate qua, rồi đóng băng một analysis plan riêng. Gate fail
   thì đóng detector-to-memo gap, không tune taxonomy từ outcome.
 
@@ -289,14 +288,14 @@ roots và downstream consumer.
   hoặc consumer schema drift đều là infrastructure-invalid. Sửa correctness rồi
   chạy lại cùng packet chỉ khi chưa đọc outcome; không dùng lỗi harness để kết
   luận strategy và không nới validation của EA.
-- Extractor/label rubric/analyzer phải có schema version riêng, bind exact corpus
-  và preflight actual rows trước reviewer. Parse được JSON/CSV chưa đủ.
+- Extractor/analyzer phải có schema version riêng, bind exact corpus và
+  preflight actual rows trước khi tiêu thụ. Parse được JSON/CSV chưa đủ.
 - Mutation authority của collector phải tắt; terminal/tester nằm đúng storage
   contract; protected C roots có before/after inventory. Evidence D-side được
   giữ theo manifest, không xóa phá hủy chỉ vì collection không có trade.
-- Engineering/data-lineage PASS không mở hypothesis kinh tế. Chỉ sealed human
-  labels + analysis plan đóng băng mới có thể đề xuất một feature family mới;
-  vẫn phải de-dup và dùng fresh hypothesis/window.
+- Engineering/data-lineage PASS không mở hypothesis kinh tế. Feature family
+  mới phải có causal mechanism mới, analysis plan đóng băng, de-dup và fresh
+  hypothesis/window.
 
 ## Multiple Testing Và Budget Chống Overfit
 

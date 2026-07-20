@@ -61,14 +61,19 @@ in-sample / compile xanh.
   đóng băng TIỀN-kết-quả, SHA-bind (validator hash-check mọi row; amendment
   pre-outcome → file `_V2`, không sửa in-place). Chi tiết `research_doctrine.md`.
 - Model 1 chỉ kill/park; control/challenger nghiêm túc → Model 0.
+- Không gọi EA development `DONE|complete|ready` sau meaningful backtest nếu
+  chưa PASS `alpha.ps1 delivery -Packet ...`. Packet phải hash-bind logic matrix,
+  source/EX5/compile/test/non-repaint, report↔lifecycle↔RunMeta/log triage,
+  economics+cost+cadence+regime/execution, nguyên nhân thắng/thua, logic conflict
+  và chart anatomy đa khung có entry/SL/TP/exit. Zero-trade dùng funnel + chart
+  candidate bị reject; không bịa metrics. Chi tiết: `ea_golden_path.md` §9.
 - Chỉ closed-bar; audit non-repaint sau mọi đổi signal/data-access.
 - Cadence = elapsed calendar weeks (không dùng active-week làm mẫu số).
 - Cost field = 0 hoặc thiếu ≠ cost thực = 0.
 - Zero-trade/data-acquisition không có WR/PF/expectancy. Chỉ gọi là collection
-  khi contract đã freeze, mutation/outcome tắt; casebook chỉ đủ quyền label khi
-  source SHA khớp task/receipt/manifest/meta/row, taxonomy đủ cột và extractor
-  đúng schema. Corpus cũ thiếu contract giữ diagnostic-only; AI label không
-  thay human gate đã prereg.
+  khi contract đã freeze, mutation/outcome tắt, source SHA khớp
+  task/receipt/manifest/meta/row và extractor đúng schema. Corpus cũ thiếu
+  contract giữ diagnostic-only; collection không tự cấp quyền economic run.
 - Không veto giờ/ngày/năm hậu nghiệm; không sửa ngưỡng từ readout vừa đọc —
   phát hiện hậu nghiệm → `idea` mới. **Cấm post-hoc rescue** hypothesis vừa fail.
 - Ưu tiên probe offline rẻ trước ceremony đầy đủ (prereg → code → Model 0);
@@ -105,7 +110,7 @@ in-sample / compile xanh.
 Harness chính cho phát triển EA + backtest — **không invent toolchain song song**.
 
 - Entry: `02. AlphaFactory/alpha.ps1` (`status` / `compile` / `backtest` /
-  `analyze` / `validate-full` …). Lệnh: `tool_runbook.md`.
+  `analyze` / `validate-full` / `delivery` …). Lệnh: `tool_runbook.md`.
 - Tester override phải đúng type: `input string` ghi plain `key=value`; nếu log
   MT5 nhận literal `value||value||0||value||N` thì reject run như lỗi harness,
   không nới validation của EA. Chi tiết: `tool_runbook.md`.
@@ -120,7 +125,7 @@ Harness chính cho phát triển EA + backtest — **không invent toolchain son
 - AlphaFactory = cách chạy; ceremony (gates/registry/prereg) vẫn bắt buộc.
   Registry active dùng chung: `04. Memory/research/CANDIDATE_REGISTRY.jsonl`;
   template: `02. AlphaFactory/templates/research/`.
-- Active shelf `03. EA Developer/`: danh sách lane compilable (hiện 6) +
+- Active shelf `03. EA Developer/`: danh sách lane compilable (hiện 9) +
   research-only terminal records sống ở `03. EA Developer/README.md`; count
   sống ở `hot.md`. Mọi package trên shelf đều KHÔNG tự có quyền chạy/rerun/
   promote/live — quyền đến từ registry state + hot.md, không từ sự tồn tại
@@ -166,7 +171,8 @@ chờ Owner):
   (`do-now` / `worth-adding` / `needs-owner`), không máy móc theo chữ.
 - Vai trưởng nhóm: không nịnh, phản biện bằng bằng chứng; chủ động §6.
 - Với task build/fix/complete, giữ **một outcome contract xuyên suốt** và tự chạy
-  vòng `source -> compile -> test -> backtest/probe -> analyze -> next fix` cho
+  vòng `source -> compile -> test -> backtest/probe -> analyze -> log/chart
+  forensics -> delivery gate -> next fix` cho
   tới DONE, kill có bằng chứng, hoặc blocker thật cần quyền/input mới. Không chờ
   Owner nhắn `tiến hành`/`oke` giữa các bước an toàn cùng scope.
 - Status update không phải checkpoint xin duyệt. Tiến độ là delta implementation

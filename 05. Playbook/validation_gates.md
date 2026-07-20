@@ -1,6 +1,6 @@
 # Validation Gates
 
-Updated: 2026-07-18
+Updated: 2026-07-19
 
 Gate authority for every EA lane. This file is not a profit target shortcut.
 A candidate can move forward only when the required artifacts exist and the
@@ -134,6 +134,41 @@ Current producer boundary:
 - The `portfolio-sleeve` registry state is invalid without these portfolio-only
   artifacts even when every component passed individual validation.
 
+## EA Development Delivery Gate
+
+This is the mandatory completeness gate after every meaningful EA backtest. It
+does not grant promotion; it prevents an agent from closing development after a
+compile, report or attractive aggregate metric while logic/log/chart diagnosis
+is still missing.
+
+An `economic_run` delivery packet must hash-bind:
+
+- frozen prereg and logic-to-code matrix with every material requirement mapped
+  and tested;
+- canonical source, EX5, compile log, test receipt and exact-source non-repaint
+  audit;
+- Model-0 run manifest, report, LifecycleTrades, RunMeta and standard log triage;
+- reconciled analysis covering economics, cost stress, elapsed-week cadence,
+  time/year stability, session, direction, regime/context, funnel, execution,
+  win causes, loss causes, logic conflicts and limitations;
+- an anatomy casebook with at least two winners and two losers when available.
+  Every case shows entry/initial SL/TP/actual exit plus a centered HTF entry
+  candle and explicitly labeled post-entry outcome bars;
+- a readout that separates pre-outcome rule from post-outcome observation and
+  forbids direct rescue of a failed rule.
+
+A `zero_trade_terminal` packet keeps source/compile/run/log identity and
+report/lifecycle reconciliation, but economics and win/loss causes are explicitly
+`NOT_APPLICABLE_ZERO_TRADES`. Funnel attribution and representative rejected-
+candidate charts remain mandatory. Zero trades never become PF/WR/expectancy 0.
+
+Run `alpha.ps1 delivery -Packet <packet>`. A missing role, stale hash, unresolved
+logic ambiguity, report/lifecycle mismatch, unresolved material log error,
+missing analysis dimension, or incomplete chart markers makes the completion
+claim invalid. `INSUFFICIENT_EXPLAINED` is permitted only where the packet gives
+a material reason; for an economic run all dimensions except regime evidence
+must be `COMPLETE`.
+
 ## Hard Invalidations
 
 - Source compiled from `00. Old File` or any archive path.
@@ -149,6 +184,8 @@ Current producer boundary:
 - Bar-level spread used to synthesize promotion-grade ask barriers when
   chronological bid/ask quote ticks are unavailable.
 - Missing or stale run evidence after a claimed result.
+- Any EA development `DONE|complete|ready` claim after a meaningful backtest
+  without a passing `alphafactory_ea_delivery_packet.v1`.
 - Lifecycle cost evidence that is not `lifecycle-v3` telemetry (RunMeta schema
   `alphafactory_run_meta.v1`), lacks finite
   positive `initial_risk_account`, lacks entry/exit `deal_profit`,
@@ -202,4 +239,5 @@ Every serious run should have a run-local manifest or readout containing:
   contract, plus full report-deal/lifecycle join and canonical-rebuild status
 - phase/regime attribution outputs
 - casebook/snapshot outputs when applicable
+- delivery packet path/hash and `EA_DELIVERY_PACKET_OK` receipt
 - final verdict and registry state transition

@@ -1,0 +1,82 @@
+{
+  "schema_version": "alphafactory_hypothesis_result.v1",
+  "generated_at_utc": "2026-07-19T09:48:00Z",
+  "hypothesis_id": "HYP-ICT-FVG-CONTEXT-STATE-EURUSD-M5-012",
+  "verdict": "INVALID_DIAGNOSTIC_HISTORY_QUALITY_99_PERCENT_AND_KILL_CONTEXT_NO_EDGE",
+  "promotion_eligible": false,
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "sha256": "8B1C9E283B97716C91F61FCDB2A74B6168CC0671DAE896A941F0F181674E6CE1"
+  },
+  "contract": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-CONTEXT-STATE-EURUSD-M5-012_MODEL0_PLAN_V2.md",
+    "sha256": "8A50C07039C5FE2725E7CAEB29637F509773646EDEE926185BD3B308C291FDF3",
+    "control_preset_sha256": "9FC1B200E66D76309F130205B9D825B63B398C4C056541A33AE0896618FDE6D2",
+    "challenger_preset_sha256": "7230C264DE07095CB26E6404C1B12E4A6C8D5D70AFF46384FF4CC5D4F1958E8E"
+  },
+  "engineering": {
+    "tests_passed": 31,
+    "compile_errors": 0,
+    "compile_warnings": 0,
+    "source_binary_receipt_path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_SOURCE_BINARY_RECEIPT_V16.json",
+    "source_binary_receipt_sha256": "C5AEE3CC4633488E26AD54ADF6341D59F71BEDAFC25E6CE69CAA2F9385F92757",
+    "nonrepaint_audit_path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_NONREPAINT_AUDIT_V14",
+    "nonrepaint_audit_sha256": "BE31CBCB3E1A8FC76C3E3F21C39F143C8FE839DB1C9979FEADCD58B29717644F",
+    "nonrepaint_verdict": "PASS_ZERO_FINDINGS"
+  },
+  "control": {
+    "run_id": "20260719_161929",
+    "run_manifest_path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_161929/run_manifest.json",
+    "run_manifest_sha256": "F27EC42028AA81470DD055F48712377AA6A5F9D1547E96DF70AD704B962B2F27",
+    "execution_receipt_path": "02. AlphaFactory/runtime/ict_fvg_context_state_hyp012_receipts/execution_receipt.control.json",
+    "execution_receipt_sha256": "C3BAA877DCBE4C6266720528B142317C7034E8C6802EDA1C3AFE3F444F328317",
+    "report_path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_161929/report.html",
+    "report_sha256": "54765E1D586066C7E392BA7295C70EECA6B7D8E46520E8444F118CFDB406F6A6",
+    "lifecycle_sha256": "D475B6FC5145BBD79C26645A04900F3366B75961A665C36A112C6BF693A5C6A6",
+    "runmeta_sha256": "2E25238534C62EF438A79CA591C3414D920A2F7264AB9B0D790D0F9A5E7C22F3",
+    "history_quality_pct": 99,
+    "positions": 4341,
+    "profit_factor": 0.7588088983,
+    "expectancy_r": -0.1377485834,
+    "trades_per_elapsed_week": 9.7363024672,
+    "max_balance_drawdown_pct": 6.0143519273
+  },
+  "challenger": {
+    "run_id": "20260719_162104",
+    "run_manifest_path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_162104/run_manifest.json",
+    "run_manifest_sha256": "6031EE012E45476E15B197B54EF6AB13F3C1A0BADEF5301820F155434A47A6CD",
+    "execution_receipt_path": "02. AlphaFactory/runtime/ict_fvg_context_state_hyp012_receipts/execution_receipt.challenger.json",
+    "execution_receipt_sha256": "4E555FAFF51F76CC3A99E16609520659CA8AA0303E9503FED8F0A7552981C943",
+    "report_path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_162104/report.html",
+    "report_sha256": "4AEB810DC82FA338F7719FF57052121F6462672A681A3993A6670B9770B09E12",
+    "lifecycle_sha256": "AFBF381F6F621DFE017EE93BC2DC27DBF21840411E4C3E51F17351B0F5B9CBCF",
+    "runmeta_sha256": "9F2CCF8DC77A0C738F584794A31B24047FC32553AB585743DAAB5D41CAB0097D",
+    "history_quality_pct": 99,
+    "positions": 3385,
+    "profit_factor": 0.8103728298,
+    "win_rate_pct": 46.6765140325,
+    "expectancy_r": -0.097994264,
+    "trades_per_elapsed_week": 7.5921179109,
+    "max_balance_drawdown_pct": 3.3345647405,
+    "positive_years": 0,
+    "raw_sweeps": 26756,
+    "duplicate_active_state": 5703,
+    "acceptance_invalidations": 6879,
+    "three_bar_timeouts": 7758,
+    "closed_bar_confirmations": 6416,
+    "entries_opened": 3385
+  },
+  "analysis": {
+    "result_path": "02. AlphaFactory/runtime/ictfvg_hyp012_context_result/hyp012_context_result.json",
+    "result_sha256": "D131B03A6CAF736A0E348079C1F2D2DEA4E85E51F9FBFC4F93896CB774ED39CC",
+    "result_manifest_sha256": "7BE3611BAAD9B6E47F1262C0AC8CAF4924C7E08E3A41DC368A4C55C6CE740E9C",
+    "forensics_path": "02. AlphaFactory/runtime/ictfvg_hyp012_context_forensics/forensics.json",
+    "forensics_sha256": "75F4094E3C2F26940EA36B442F8D53838325BF7C90334775B4C87731422C2D93",
+    "forensics_manifest_sha256": "26CFCF4E2EF4FF591BFC331879EAED579511DCD8DBE0782FDF63A89916CA1B39",
+    "asof_chart_manifest_sha256": "0F817BA07E7D03C9B15F391E07CBA7ADE7D382FF004011BCBC11D4E79D12D5EF",
+    "anatomy_chart_manifest_sha256": "841BAEC321508A55C1353D07AF36895C5B7ED2FD6F5B1859B1F5E10E5E74C25A",
+    "readout_path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-CONTEXT-STATE-EURUSD-M5-012_READOUT.md",
+    "readout_sha256": "94187133A4BFD11729541CC78680D236440A9214992A7D8524772EEB32E3433C"
+  },
+  "boundary": "The exact HYP-012 context state is killed. The 99% history-quality failure independently makes both runs invalid for promotion. Historical same-broker spread/slippage provenance remains failed. No post-hoc filter, rerun, promotion, paper, or live authority."
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": "alphafactory_lss_ob_mt5_terminal_result.v1",
+  "hypothesis_id": "HYP-LSS-OB-REPL-MT5-EURUSD-M15-002",
+  "parent_hypothesis_id": "HYP-LSS-OB-REPL-EURUSD-M15-001",
+  "verdict": "KILL_AT_MT5_MODEL0_CADENCE_ZERO_TRADE",
+  "strategy_surface_changed": false,
+  "holdout_bars_loaded": 0,
+  "promotion_eligible": false,
+  "source": {
+    "path": "03. EA Developer/EA_LSSOBPropScalper/EA_LSSOBPropScalper.mq5",
+    "sha256": "445DE0C03AD785A31C4EE06FFA17FD36D89B7513F34160CBF78C42CDD5AFB68C",
+    "compile_errors": 0,
+    "compile_warnings": 0,
+    "contract_tests": "20/20 PASS",
+    "nonrepaint_status": "PASS",
+    "nonrepaint_sha256": "934E548D8E9F79DB06D47D023A1F8D7119DE0A7680962B66C8AD724FE208510F"
+  },
+  "invalid_engineering_attempts": [
+    {
+      "run_id": "20260719_000621",
+      "reason": "News calendar rejected distinct events sharing one epoch; OnInit stopped before ticks."
+    },
+    {
+      "run_id": "20260719_001031",
+      "reason": "Strategy Tester completed but the execution receipt lacked the required top-level authority field."
+    }
+  ],
+  "model0_runs": [
+    {
+      "run_id": "20260719_001202",
+      "run_role": "control",
+      "signal_mode": 0,
+      "report_path": "02. AlphaFactory/runs/EA_LSSOBPropScalper/20260719_001202/report.html",
+      "report_sha256": "15B182588ED81F9068A5DED3E725323920F783E68DAD16813EC5525F92DB3D98",
+      "manifest_path": "02. AlphaFactory/runs/EA_LSSOBPropScalper/20260719_001202/run_manifest.json",
+      "manifest_sha256": "32D0A9F4132BDE7EA94E070AEFE90582B72C5F0ED8D13634B67E26A9ABE34247",
+      "history_quality": "100%",
+      "bars": 99475,
+      "ticks": 79411093,
+      "sweeps": 388,
+      "displacements": 0,
+      "strict_fvgs": 0,
+      "confirmed_retests": 0,
+      "entries_opened": 0,
+      "closed_trades": 0
+    },
+    {
+      "run_id": "20260719_001306",
+      "run_role": "challenger",
+      "signal_mode": 1,
+      "matched_control_run_id": "20260719_001202",
+      "report_path": "02. AlphaFactory/runs/EA_LSSOBPropScalper/20260719_001306/report.html",
+      "report_sha256": "19EB447E40AD64FAABF713B2FACBF66B8D01BFCE3BE2BC02C72913DFFC5678E3",
+      "manifest_path": "02. AlphaFactory/runs/EA_LSSOBPropScalper/20260719_001306/run_manifest.json",
+      "manifest_sha256": "B1C67AA8573E3F987F868FDC87B0A992F47611A9B91AADB4CE0038D0A9E02874",
+      "history_quality": "100%",
+      "bars": 99475,
+      "ticks": 79411093,
+      "sweeps": 388,
+      "displacements": 0,
+      "strict_fvgs": 0,
+      "confirmed_retests": 0,
+      "entries_opened": 0,
+      "closed_trades": 0
+    }
+  ],
+  "cadence": {
+    "elapsed_calendar_weeks": 208.42857142857142,
+    "control_trades_per_elapsed_week": 0.0,
+    "challenger_trades_per_elapsed_week": 0.0,
+    "required_minimum": 2.0,
+    "status": "FAIL"
+  },
+  "parity": {
+    "offline_context_aligned_sweeps": 383,
+    "mt5_context_aligned_sweeps": 388,
+    "event_identity_absolute_parity": false,
+    "status": "FAIL",
+    "note": "The upstream sweep-count mismatch does not alter the terminal result because both surfaces produce zero displacement/FVG/trade events."
+  },
+  "economic_metrics": {
+    "profit_factor": null,
+    "win_rate": null,
+    "expectancy_r": null,
+    "sharpe": null,
+    "max_drawdown_pct": null,
+    "reason": "Zero trades; AlphaFactory enhanced analyzer correctly returned 'No trades found in report'."
+  },
+  "skipped_after_terminal_cadence_failure": [
+    "cost_repricing",
+    "split_year_session_direction_attribution",
+    "walk_forward_analysis",
+    "monte_carlo",
+    "ftmo_simulation"
+  ],
+  "provenance": {
+    "broker_fingerprint": "E464F31D4B323A66DBC18D9409052E70F3711DB8F23597441648B19296B61D54",
+    "data_fingerprint": "15872F5129E4CA62314A64280550936DB68B4977FB32525AC881D22C12122FA7",
+    "cost_status": "FAIL_SPREAD_COST_PROVENANCE_DIAGNOSTIC_ONLY",
+    "news_status": "C_DIAGNOSTIC_ONLY",
+    "source_data_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A"
+  },
+  "terminal_reason": "Both fixed MT5 Model 0 arms have zero displacement-qualified entries and zero trades over 2019-2022. The frozen cadence and minimum-trade gates fail before economics; no tuning, asset/timeframe change, holdout, promotion or live use is authorized."
+}

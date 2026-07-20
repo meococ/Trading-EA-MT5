@@ -1,0 +1,33 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-ICT-FVG-REPEATED-LEVEL-CHURN-COLLECT-EURUSD-M5-022",
+  "run_id": "STATIC-ICTFVG-REPEATED-LEVEL-CHURN-V21-20260719",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\NONREPAINT_AUDIT_MANIFEST_V21.json",
+  "manifest_sha256": "E638E6BAF065A2E49AF36D5455E5C5FBF80771A8819D8453A2D0D85676A78E1F",
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\EA_ICTFVGReportFidelity.mq5",
+      "sha256": "5FF5F8600362C95DAC66C2F1450A2B82D4E1B202F98679B9BE0C52C71039410C"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\HumanContextEngine.mqh",
+      "sha256": "A24196DD908AD83BF9CE2047C3DCE810C57FDA56C861EB0F097D11600A0998F2"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\NewsCalendar2019_2022.mqh",
+      "sha256": "29D0E757837A78346DF3D1990BDCAC3AEAA830D2B67922A968CE4F72D0E62427"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\EA_ICTFVGReportFidelity.mq5",
+      "line": 2342,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "generated_at_utc": "2026-07-19T17:45:45.955081+00:00"
+}

@@ -1,0 +1,3 @@
+case_id,entry_time_utc,direction,entry,reason,label
+HYP022_SHORT_REPEATED_20240416,2024-04-16T14:25:00,-1,1.06450,reentry_count_4,repeated_churn
+HYP022_SHORT_ORDERLY_20240416,2024-04-16T14:30:00,-1,1.06449,reentry_count_0,orderly

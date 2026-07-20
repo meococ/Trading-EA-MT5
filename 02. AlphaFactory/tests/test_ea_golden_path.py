@@ -42,7 +42,10 @@ def test_alpha_discovers_canonical_active_packages() -> None:
     assert names == [
         "EA_FVGConfluence",
         "EA_HybridICT_Sonic",
+        "EA_ICTFVGReportFidelity",
+        "EA_ICTVisualEdge",
         "EA_KLR_Scalper",
+        "EA_LSSOBPropScalper",
         "EA_UnicornPrecisionScalper",
         "EA_UnicornPrecisionScalperControl",
         "EA_UnicornPrecisionScalperRR15",

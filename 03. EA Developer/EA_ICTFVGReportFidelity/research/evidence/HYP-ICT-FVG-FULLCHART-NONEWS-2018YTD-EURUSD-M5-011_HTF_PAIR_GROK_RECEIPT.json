@@ -1,0 +1,96 @@
+{
+  "schema_version": "grok_ea_htf_pair_forensics_receipt.v1",
+  "created_utc": "2026-07-19T08:48:20Z",
+  "scope": "read_only_post_outcome_htf_pair_diagnostic_no_filter_no_rerun_authority",
+  "hypothesis_id": "HYP-ICT-FVG-FULLCHART-NONEWS-2018YTD-EURUSD-M5-011",
+  "pair": {
+    "C09_winner_position_id": 6912,
+    "C10_loser_position_id": 6906,
+    "selection": "Frozen by the prior Grok trade-forensics pass before HTF charts were rendered."
+  },
+  "skills": [
+    {
+      "name": "grok-ea-trade-forensics",
+      "path": "C:/Users/ADMIN/.agents/skills/grok-ea-trade-forensics/SKILL.md",
+      "sha256": "EFBFF58AE6BC516BB806EBF8C698754859F0F2F32A0EEFE5AD8DFBA15767FD40",
+      "analysis_contract_sha256": "389F232F8B01EB16E449368F2DE2971F8FDA8248DB9AD36D92663DC75E2715B7"
+    },
+    {
+      "name": "grok-cli-runner",
+      "path": "C:/Users/ADMIN/.codex/skills/grok-cli-runner/SKILL.md",
+      "sha256": "A1D3932F49D2729F3331EA987C1ACC38EEC93E9B8193CFF762F0BCC93D6244C7"
+    },
+    {
+      "name": "alpha-regime-buckets",
+      "path": "C:/Users/ADMIN/.codex/skills/alpha-regime-buckets/SKILL.md",
+      "sha256": "69E11E38B986A3E4609642C2BF5EF03A031F98965E8DB2910D4DEF9C7E78E282"
+    }
+  ],
+  "grok_build_cli": {
+    "backend": "grok-build",
+    "model": "grok-4.5",
+    "session_id": "019f7986-ae9d-7623-88a2-4cd2c33e3e8a",
+    "request_id": "74c67486-fc6b-40a4-9830-b6f8c1c43819",
+    "stop_reason": "EndTurn",
+    "num_turns": 2,
+    "total_cost_usd": 0.0873516,
+    "final_request_path": ".context/grok_ictfvg_hyp011_htf_pair_20260719/resume2/grok-request.json",
+    "final_request_sha256": "805F2A70D85C4CDB2A32BA2482DE22EBC4E0FD3558D444D028ED9ACA3FA9ED61",
+    "final_response_path": ".context/grok_ictfvg_hyp011_htf_pair_20260719/resume2/grok-response.json",
+    "final_response_sha256": "31CC6DF9A1CC9D4A9C8FE8FEE477F35BA738220C15C3D409339212302DBED110",
+    "final_summary_path": ".context/grok_ictfvg_hyp011_htf_pair_20260719/resume2/summary.json",
+    "final_summary_sha256": "CE7D86F355C81295E1E7D57478CC0620776D4FC19A78415EC4780A68E96B4A2A",
+    "prior_attempts": [
+      {
+        "response_sha256": "6513F12AC14F8EA9AC0A5B76C69CEC846A1978DAA753467A232EBB305EAD94E9",
+        "stop_reason": "Cancelled",
+        "accepted": false
+      },
+      {
+        "response_sha256": "497C0EB99E052FBEAC860BE43A27CD4211B9052BC2E6802C6B2904AF034E538C",
+        "stop_reason": "Cancelled",
+        "accepted": false
+      }
+    ],
+    "audited_snapshot": {
+      "builder_sha256": "D29FB8DB69ED71211CB1244699226C8671DA70821E17DE23E264D36109E97748",
+      "pair_htf_forensics_sha256": "D867A85014F87E0BC6BAF4A54FB9E661E4DD8D0A4536EBE01BEDDEC82D44EC99",
+      "short_cohort_htf_features_sha256": "253880D6203BB8B8134AB76CBD2D93496E872C3D7E5C0020B35C593AC8D72FA9",
+      "manifest_sha256": "44897E7456FFD93F549C89258AD4767A9CEB251ECA723C5D2C7804DCDDF50839"
+    },
+    "verdict": "Closed-bar leakage PASS; D1 similarity rank 1/2012 and combined rank 11/2012; maximum univariate AUC 0.5385; HTF context does not materially distinguish C09 from C10; HYP-011 remains terminal."
+  },
+  "current_local_extension": {
+    "note": "After the Grok audit, the same deterministic builder was extended only with descriptive EMA-bias and pivot-structure PF/expectancy tables. The cohort CSV and all previously audited similarity/AUC values are unchanged. The extension has no filter authority.",
+    "builder_path": "03. EA Developer/EA_ICTFVGReportFidelity/research/build_hyp011_htf_pair_forensics.py",
+    "builder_sha256": "0627DC2F42B3CAEB94D36CB13EE6A547B65BFF18332617CDBBF1AAA6B0A9953E",
+    "pair_htf_forensics_path": "02. AlphaFactory/runtime/ictfvg_hyp011_htf_pair/pair_htf_forensics.json",
+    "pair_htf_forensics_sha256": "F130723A69DCA4AB0669C70CEB7D6B55EA7FE74A674D7AFF076743E3DD8F6A3D",
+    "short_cohort_htf_features_path": "02. AlphaFactory/runtime/ictfvg_hyp011_htf_pair/short_cohort_htf_features.csv",
+    "short_cohort_htf_features_sha256": "253880D6203BB8B8134AB76CBD2D93496E872C3D7E5C0020B35C593AC8D72FA9",
+    "manifest_path": "02. AlphaFactory/runtime/ictfvg_hyp011_htf_pair/manifest.json",
+    "manifest_sha256": "50358059AACCA8F88E02DD15D2E07F7D37517B630A3FFCE48ACF85CF84E1C48F",
+    "categorical_result": "All measured M15/H1/H4/D1 EMA-bias and pivot-structure subgroups have PF below 1 and negative R expectancy."
+  },
+  "chart_manifests": {
+    "M15_sha256": "DD808182532C79E5E9FD46315BE0468F77F4D2EF961E76FB688E5B89C2E0F817",
+    "H1_sha256": "0E86BD81DC980859D0097E85AEAD299D9CF3327717103378A12FC17ECBDEE151",
+    "H4_sha256": "287B51BDEC6A2AC68B8A06041EA02FECF5839BF718C050745952451BC9FA0363",
+    "D1_sha256": "4D8349E0D1C31AD163E0712D1D88997BD7B40053748FFC71B31951672EABA501",
+    "pair_cases_sha256": "78906A7844E90594D6759546B4338F066341EC94D25AF2B28A70F96ED48767C5",
+    "verification": "8/8 RENDERED; every chart cutoff_enforced=true; each manifest's bars and cases hashes match the current files."
+  },
+  "readout": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FULLCHART-NONEWS-2018YTD-EURUSD-M5-011_HTF_PAIR_READOUT.md",
+    "sha256": "0E385D0A1E5FFFD7495299DE9ECD1AAEA9CD91D684B56A9092C2B3C8DE177F73"
+  },
+  "authority_boundary": {
+    "history_quality_pct": 99,
+    "frozen_history_quality_gate_pct": 100,
+    "hypothesis_state": "terminal_invalid_diagnostic",
+    "new_backtest_authorized": false,
+    "same_sample_filter_authorized": false,
+    "promotion_eligible": false,
+    "paper_or_live_authorized": false
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": "alphafactory.source_binary_receipt.v2",
+  "receipt_id": "RCP-LSSOB-MT5-20260718-001",
+  "created_utc": "2026-07-18T16:58:14Z",
+  "hypothesis_id": "HYP-LSS-OB-REPL-MT5-EURUSD-M15-002",
+  "source": {
+    "path": "03. EA Developer/EA_LSSOBPropScalper/EA_LSSOBPropScalper.mq5",
+    "bytes": 49936,
+    "sha256": "5CBF8897CAB34566E0ADD627068A2238B17C1498D2BBF3DF1EE2F3771FBA9CCF"
+  },
+  "compile_dependencies": [
+    {
+      "path": "03. EA Developer/EA_LSSOBPropScalper/NewsCalendar2019_2022.mqh",
+      "bytes": 15077,
+      "sha256": "248D569B981564AC0B179588C4919CD6CC196A9E7B008939A9CCDB3446F4678C"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+      "bytes": 294809,
+      "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307"
+    }
+  ],
+  "binary": {
+    "path": "03. EA Developer/EA_LSSOBPropScalper/EA_LSSOBPropScalper.ex5",
+    "bytes": 75024,
+    "sha256": "8DABB3295BDE0A6CD23A5CC73B9E60D5B5486FA50152E82F78C121564EC19C6D"
+  },
+  "compile_log": {
+    "path": "03. EA Developer/EA_LSSOBPropScalper/EA_LSSOBPropScalper.log",
+    "bytes": 6520,
+    "sha256": "5D199198567EF173F233B45AF8E4C8D2884B13CB45D7D7E9C54751FB222FBE68",
+    "errors": 0,
+    "warnings": 0,
+    "result_line": "Result: 0 errors, 0 warnings, 1051 ms elapsed, cpu='X64 Regular'"
+  },
+  "compile_command": "powershell -NoProfile -ExecutionPolicy Bypass -File 02. AlphaFactory/alpha.ps1 compile EA_LSSOBPropScalper",
+  "preregistration": {
+    "path": "03. EA Developer/EA_LSSOBPropScalper/research/HYP-LSS-OB-REPL-MT5-EURUSD-M15-002_MT5_PLAN.md",
+    "bytes": 4055,
+    "sha256": "0514AAF3D99EECFDF849A6814D18A39A901E32F62CC2A5D276B14D11FAE27ED0"
+  },
+  "contract_tests": {
+    "command": "python -X utf8 -m pytest 03. EA Developer/EA_LSSOBPropScalper/tests -q",
+    "result": "19/19 PASS"
+  },
+  "nonrepaint_audit": {
+    "path": "03. EA Developer/EA_LSSOBPropScalper/research/evidence/20260718_NONREPAINT_AUDIT_V1/nonrepaint_audit.json",
+    "bytes": 1409,
+    "sha256": "84B4A3FA80E9CA2BE4811CCE9BCE05E365D1F939D1286EDC8A9CF22955285B99",
+    "manifest_sha256": "406CC7AA5CA8D8A3B7EF317E1783B3775113117990791DD7AC1C540E70EBC8A5",
+    "status": "PASS"
+  },
+  "execution_boundary": {
+    "strategy_tester_only": true,
+    "promotion_eligible": false,
+    "cost_status": "FAIL_SPREAD_COST_PROVENANCE_DIAGNOSTIC_ONLY",
+    "live_authorized": false
+  },
+  "status": "PASS_DIAGNOSTIC_ONLY"
+}

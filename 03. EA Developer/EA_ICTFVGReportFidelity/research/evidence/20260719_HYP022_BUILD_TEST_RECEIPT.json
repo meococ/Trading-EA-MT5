@@ -1,0 +1,31 @@
+{
+  "schema_version": "alphafactory_test_receipt.v1",
+  "created_at_utc": "2026-07-19T17:47:27Z",
+  "hypothesis_id": "HYP-ICT-FVG-REPEATED-LEVEL-CHURN-COLLECT-EURUSD-M5-022",
+  "source_sha256": "5FF5F8600362C95DAC66C2F1450A2B82D4E1B202F98679B9BE0C52C71039410C",
+  "command": "python -m pytest 03. EA Developer/EA_ICTFVGReportFidelity/tests -q",
+  "tests_passed": 75,
+  "tests_failed": 0,
+  "red_first": {
+    "observed": true,
+    "initial_result": "3 formal tests passed and 7 implementation tests failed on parent v1.24 after correcting the synthetic fixture",
+    "audit_failure_recorded": "V21 first audit rejected a noncanonical new-bar-gate shape; no Model-0 run occurred",
+    "final_result": "75 passed"
+  },
+  "compile": {
+    "errors": 0,
+    "warnings": 0,
+    "ex5_bytes": 108084,
+    "ex5_sha256": "7FB626DE5FCB6874CE2E3B485125EA1EAB6F2585D5EEF10EB762FF815A8A0B96"
+  },
+  "nonrepaint": {
+    "status": "PASS",
+    "audit_sha256": "819898ECF33864B987BC064BB5A122E3E52C0B6A9E48526599C16174C33D6AC3"
+  },
+  "source_binary_receipt": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_SOURCE_BINARY_RECEIPT_V26.json",
+    "bytes": 3906,
+    "sha256": "6EDA69998066E8A510B615C3A6F0DE439831C5A4B47F1AB64FF3EB8C6B0044B7"
+  },
+  "verdict": "PASS_PRE_RUN_BUILD_ENGINEERING_ONLY"
+}

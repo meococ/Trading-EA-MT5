@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-ICT-FVG-FRIDAY-SAFE-EURUSD-M5-013",
+  "run_id": "STATIC-ICTFVG-FRIDAY-SAFE-V15-20260719",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\EA_ICTFVGReportFidelity.mq5",
+  "source_sha256": "1E04144A5E26651B993E7A13202FC85B8D5C0AB3FD7C8FAA5D890897E3B4B196",
+  "include_snapshots": [
+    {
+      "snapshot_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\NewsCalendar2019_2022.mqh",
+      "sha256": "29D0E757837A78346DF3D1990BDCAC3AEAA830D2B67922A968CE4F72D0E62427"
+    }
+  ]
+}

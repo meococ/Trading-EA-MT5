@@ -1,0 +1,91 @@
+{
+  "schema_version": "alphafactory.source_binary_receipt.v2",
+  "receipt_id": "RCP-ICT-FVG-FIDM0NEWS-20260719-009",
+  "created_utc": "2026-07-18T18:08:00Z",
+  "hypothesis_id": "HYP-ICT-FVG-FIDM0NEWS-EURUSD-M5-007",
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 52371,
+    "sha256": "E979C05A57A2C77877CF8CA50620925A4FD7A41DBACD5CD96FE078F452204B82"
+  },
+  "parent_source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/source_snapshots/EA_ICTFVGReportFidelity_HYP-ICT-FVG-FIDM0-EURUSD-M5-006.mq5",
+    "bytes": 52367,
+    "sha256": "9A4B3B5D100F62B40291F602A02F8A99DE04201F47B7D136BCC2FED6BB626C4F",
+    "verified_delta": "property_version_and_hypothesis_identity_only"
+  },
+  "compile_dependencies": [
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/NewsCalendar2019_2022.mqh",
+      "bytes": 10397,
+      "sha256": "29D0E757837A78346DF3D1990BDCAC3AEAA830D2B67922A968CE4F72D0E62427"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.weekly.raw.json",
+      "bytes": 944989,
+      "sha256": "78CB2656A27278B1DA04B2C594A2C73BB1877DBA3AB52BCCFAC36A215945EA8F"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+      "bytes": 294809,
+      "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307"
+    }
+  ],
+  "binary": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.ex5",
+    "bytes": 76832,
+    "sha256": "A821756DFF387778110B96CD718ACDCCB446BA1A6687F8946994847DF8007AC6"
+  },
+  "compile_log": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.log",
+    "bytes": 6590,
+    "sha256": "934A885D54767BC114FCF3511B48FDB51E5A972C925A7CEA1E6E9DECFF7234D7",
+    "errors": 0,
+    "warnings": 0,
+    "result_line": "Result: 0 errors, 0 warnings, 751 ms elapsed, cpu='X64 Regular'"
+  },
+  "compile_command": "AlphaFactory backtest preflight compile for challenger run 20260719_005716",
+  "preregistration": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FIDM0NEWS-EURUSD-M5-007_ENGINEERING_PLAN.md",
+    "bytes": 2968,
+    "sha256": "24D7380E9544ED64B401AA8817B92B5D95EEF01A1AE63D8B13398522DEEAC11B"
+  },
+  "contract_tests": {
+    "command": "python -m pytest 03. EA Developer/EA_ICTFVGReportFidelity/tests -q",
+    "result": "22/22 PASS"
+  },
+  "news_build_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260718_NEWS_CALENDAR_BUILD_AUDIT.json",
+    "bytes": 1800,
+    "sha256": "0A431EB3C312BA0AA29B4A1CEBD3550CE850957164FA1A92285013AC036D8FD9",
+    "event_count": 1282,
+    "calendar_timestamp_count": 869,
+    "collapsed_same_timestamp_event_count": 413,
+    "verdict": "PASS_DIAGNOSTIC_SOURCE_C",
+    "promotion_eligible": false
+  },
+  "nonrepaint_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_NONREPAINT_AUDIT_V10/nonrepaint_audit.json",
+    "bytes": 1446,
+    "sha256": "3CECF9588A9393D5B22FCD47E1EE86F603A731CB90225148B5A21C15008BA314",
+    "manifest_sha256": "C8D6DB78B023FE2964FD15E7AE4A465244F429F5F741CA7404187156B8BACCA4",
+    "status": "PASS"
+  },
+  "model0_runs": {
+    "control_run_id": "20260719_005603",
+    "control_manifest_sha256": "8129842949B7C515222B20B2B61513925E27707631EB6020E60420FDC5C43CC1",
+    "challenger_run_id": "20260719_005716",
+    "challenger_manifest_sha256": "671EE64C25527BC2D15CDB3CD09A485F01F4B84942CEF027C7FAE64405B05C3E",
+    "verdict": "KILL_AT_MODEL0_CADENCE_ZERO_TRADE"
+  },
+  "cost_context": {
+    "official_current_url": "https://help.the5ers.com/what-are-the-spreads-and-commissions/",
+    "observed_utc_date": "2026-07-18",
+    "forex_commission_usd_per_lot_round_trip": 4.0,
+    "typical_major_fx_spread_pips": [0.2, 0.9],
+    "historical_execution_provenance_verified": false,
+    "diagnostic_cost_pips_round_trip": [1.5, 2.25, 3.0],
+    "promotion_eligible": false
+  },
+  "status": "PASS_POST_MODEL0_CANONICAL_BINARY"
+}

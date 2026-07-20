@@ -2,12 +2,13 @@
 
 Updated: 2026-07-18
 
-> **Active shelf:** after the 2026-07-15 relocation and 2026-07-16 concurrent
+> **Active shelf:** after the 2026-07-15 relocation and 2026-07-18 concurrent
 > research, compilable EA Developer source is `EA_FVGConfluence`,
-> `EA_HybridICT_Sonic`, `EA_KLR_Scalper`, `EA_UnicornPrecisionScalper`,
+> `EA_HybridICT_Sonic`, `EA_ICTFVGReportFidelity`, `EA_ICTVisualEdge`,
+> `EA_KLR_Scalper`, `EA_LSSOBPropScalper`, `EA_UnicornPrecisionScalper`,
 > `EA_UnicornPrecisionScalperControl`, and `EA_UnicornPrecisionScalperRR15`.
-> The Control and RR15 packages are retained for diagnostic reproducibility;
-> the current Control hypothesis is terminal KILL. PO3-AMD and DRAT are
+> The LSS-OB, Control and RR15 packages are retained for diagnostic reproducibility;
+> their current hypotheses are terminal KILL. PO3-AMD and DRAT are
 > pre-code terminal research records with no `.mq5`. Former
 > `03. EA Developer/EA_SonicR/` (incl. research ledger) and `EA_SilverBullet/`
 > live under `00. Old File/EA_Archive/`. Root
@@ -47,7 +48,9 @@ Updated: 2026-07-18
 - Keep raw AlphaFactory runs and local SQLite catalogs out of git; they are operational storage, not source-of-truth documents.
 - `EA_SonicR` (research ledger) and `EA_SilverBullet` (binary-only) are archived
   under `00. Old File/EA_Archive/` — not active surface. Active compilable lanes:
-  `EA_FVGConfluence`, `EA_HybridICT_Sonic`, `EA_KLR_Scalper` (diagnostic-only),
+  `EA_FVGConfluence`, `EA_HybridICT_Sonic`, `EA_ICTFVGReportFidelity`,
+  `EA_ICTVisualEdge`, `EA_KLR_Scalper` (diagnostic-only),
+  `EA_LSSOBPropScalper` (terminal MT5 zero-trade replication),
   `EA_UnicornPrecisionScalper`,
   `EA_UnicornPrecisionScalperControl` (terminal KILL; retained for evidence),
   and `EA_UnicornPrecisionScalperRR15` (bounded diagnostic sensitivity only).
@@ -93,6 +96,7 @@ Updated: 2026-07-18
 | `02. AlphaFactory/tools/alpha_candidate_compare.py` | authoritative | Generic identity-bound challenger comparator using control-relative net, PF, and net-to-drawdown improvement; absolute acceptance is frozen in the canonical registry/task packet and passed to unified validation. |
 | `02. AlphaFactory/tools/ea_contract.ps1` | authoritative | Shared fail-closed resolver for exact active EA source and optional hash-bound per-package capability contract (telemetry, phase, comparator, variant input). It pins EA_FVGConfluence and EA_HybridICT_Sonic and forbids archive or arbitrary-file fallback. |
 | `02. AlphaFactory/tools/build_verified_cost_artifact.py` | authoritative | Report-bound verified cost producer for generic AlphaFactory LifecycleTrades and legacy PX6 lifecycles. It joins report deals, derives cost from raw or hash-bound broker evidence, reconciles P&L/risk, and emits verified_execution_cost.v1. |
+| `02. AlphaFactory/tools/validate_ea_delivery_packet.py` | authoritative | Fail-closed EA development completion validator. It rehashes logic/source/build/run/log/analysis/casebook bindings and rejects missing win-loss or zero-trade forensics before a DONE claim. |
 | `02. AlphaFactory/tools/research/dsr.py` | authoritative | Canonical Deflated Sharpe Ratio implementation with the workspace trial-accounting conventions (N = every executed simulation; cost tiers not separate trials); self-tested against the paper's E[max SR] example. |
 | `02. AlphaFactory/tools/research/fivepercent_server_clock.py` | authoritative | Canonical FivePercent server-to-UTC clock model: UTC+2/+3 with EU DST calendar through 2023 and US DST calendar from 2024, verified weekly via Friday-17:00-NY close anchors. |
 | `02. AlphaFactory/tools/research/snapshot_c_roots.ps1` | authoritative | Zero-arg wrapper snapshotting the 4 protected C roots by delegating to tools/snapshot_mt5_storage.ps1; the digest implementation stays single-sourced. |
@@ -111,6 +115,9 @@ Updated: 2026-07-18
 | `04. Memory/research/CANDIDATE_REGISTRY.schema.json` | authoritative | Generic schema for AlphaFactory hypothesis state rows. |
 | `04. Memory/research/validate_candidate_registry.py` | authoritative | Fail-closed registry validator for strict JSON, schema, canonical source/prereg hash binding, non-weakenable structured acceptance gates, Model 0 execution states, immutable identity, terminal states, and legal append transitions. |
 | `02. AlphaFactory/templates/research/README.md` | authoritative | Canonical generic templates and lifecycle-v3 capability guidance for new EA research packages. |
+| `02. AlphaFactory/templates/research/EA_DELIVERY_PACKET.template.json` | authoritative | Template for the hash-bound logic-to-backtest-to-forensics completion packet required after meaningful EA runs. |
+| `02. AlphaFactory/templates/research/LOGIC_TO_CODE_MATRIX.template.md` | authoritative | Pre-outcome mapping template from trader observation through quantified role, decision-time data, source, telemetry and verification. |
+| `02. AlphaFactory/schemas/ea_delivery_packet.v1.schema.json` | authoritative | Machine schema for AlphaFactory EA development delivery packets; the Python validator enforces the deeper conditional evidence rules. |
 | `02. AlphaFactory/schemas/execution_data_capture_manifest.v1.schema.json` | authoritative | JSON Schema for read-only V4 execution-data bundles, including broker identity, frozen QFSI thresholds, hash-bound artifact references, required symbols, and zero-order safety fields. |
 | `02. AlphaFactory/tools/execution_data_foundation.py` | authoritative | Read-only MT5 probe plus hash/row/timestamp/lookahead/sample-gate bundle validator and inventory producer; separates tester proxies from broker evidence and never exposes a mutating trade-call surface. |
 | `02. AlphaFactory/analysis/unified_validation.py` | authoritative | Numeric/artifact validator for strict Model 0 challenger/confirmed stages: exact cadence, physical rehash, verified broker cost, non-repaint, stability, and freshness gates. It canonical-rebuilds verified cost from raw inputs and compares trade_repricing/scenarios. Current fixed-parameter WFA, realized-P/L robustness, PBO, and White Reality Check producers are diagnostic-only and block confirmed promotion. |
@@ -119,6 +126,7 @@ Updated: 2026-07-18
 | `02. AlphaFactory/tools/archive_backtest_artifacts.ps1` | authoritative | Archive-first cleanup helper for stale AlphaFactory runs and Terminal/Common/Files telemetry; default dry-run, explicit EA scope, current control-surface reference scanning, contained atomic plans, and copy/hash-verify/remove execution with a manifest. |
 | `02. AlphaFactory/tests/test_operational_hygiene.py` | authoritative | Offline regression tests for cleanup dry-run semantics, archive reference protection and path containment, Windows validator encoding, live registry pins, and runbook command-surface truth. |
 | `02. AlphaFactory/tests/test_ea_golden_path.py` | authoritative | Offline regression suite for generic EA discovery, removed backup mutation surface, registry and acceptance validation, package capability contracts, research dry-run, lifecycle RunMeta identity, and generic matched-control comparison. |
+| `02. AlphaFactory/tests/test_ea_delivery_packet.py` | authoritative | Regression suite for valid economic and zero-trade delivery packets plus missing evidence, tampered hashes, incomplete analysis and chart-marker failures. |
 | `00. Old File/markdown_graveyard/00_READ_ME_FIRST.md` | backup-only | Local availability: absent in the lean checkout; hash-verified backup only. Original status: invalidated. Legacy BB mean-reversion recommendation contradicted by validated local runs |
 | `00. Old File/markdown_graveyard/CHOPPY_BOT_QUICKSTART.md` | backup-only | Local availability: absent in the lean checkout; hash-verified backup only. Original status: invalidated. Legacy implementation guide for invalidated thesis |
 | `00. Old File/markdown_graveyard/CHOPPY_GOLD_INDEX.md` | backup-only | Local availability: absent in the lean checkout; hash-verified backup only. Original status: invalidated. Legacy index for invalidated package |

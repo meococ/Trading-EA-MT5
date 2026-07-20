@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-ICT-FVG-FIDEXEC-EURUSD-M5-003",
+  "run_id": "STATIC-ICTFVG-FIDEXEC-V6-20260718",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\research\\evidence\\20260718_NONREPAINT_AUDIT_V6\\snapshot",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\research\\evidence\\20260718_NONREPAINT_AUDIT_V6\\snapshot\\source\\EA_ICTFVGReportFidelity.mq5",
+  "source_sha256": "75EA4B7D8394CCEC6BA5E13643A4340CFAA594BA7934250EC7C5C6D92B3D6541",
+  "include_snapshots": [
+    {
+      "snapshot_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\research\\evidence\\20260718_NONREPAINT_AUDIT_V6\\snapshot\\include\\NewsCalendar2019_2022.mqh",
+      "sha256": "248D569B981564AC0B179588C4919CD6CC196A9E7B008939A9CCDB3446F4678C"
+    }
+  ]
+}

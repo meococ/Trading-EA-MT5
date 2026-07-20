@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-LSS-OB-REPL-MT5-EURUSD-M15-002",
+  "run_id": "STATIC-LSSOB-MT5-V1-20260718",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_LSSOBPropScalper\\research\\evidence\\20260718_NONREPAINT_AUDIT_V1\\snapshot",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_LSSOBPropScalper\\research\\evidence\\20260718_NONREPAINT_AUDIT_V1\\snapshot\\source\\EA_LSSOBPropScalper.mq5",
+  "source_sha256": "5CBF8897CAB34566E0ADD627068A2238B17C1498D2BBF3DF1EE2F3771FBA9CCF",
+  "include_snapshots": [
+    {
+      "snapshot_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_LSSOBPropScalper\\research\\evidence\\20260718_NONREPAINT_AUDIT_V1\\snapshot\\include\\NewsCalendar2019_2022.mqh",
+      "sha256": "248D569B981564AC0B179588C4919CD6CC196A9E7B008939A9CCDB3446F4678C"
+    }
+  ]
+}

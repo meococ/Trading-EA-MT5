@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_test_receipt.v1",
+  "created_at_utc": "2026-07-19T16:47:00Z",
+  "hypothesis_id": "HYP-ICT-FVG-TICK-INIT-COLLECT-EURUSD-M5-018",
+  "source_sha256": "41536FFC43BE85B1250A627197BD63FED5C7D5C7CF87D8965163F5449EACDA40",
+  "command": "python -m pytest 03. EA Developer/EA_ICTFVGReportFidelity/tests -q",
+  "tests_passed": 60,
+  "tests_failed": 0,
+  "red_first": {
+    "observed": true,
+    "initial_result": "7 failed on parent v1.23 before tick-path implementation",
+    "compile_failure_recorded": "HYP018-COMPILE-E001",
+    "final_result": "60 passed"
+  },
+  "compile": {
+    "errors": 0,
+    "warnings": 0,
+    "ex5_bytes": 102272,
+    "ex5_sha256": "C1072AA639FF3C556392C032DC9A4DB25C80C900727DB73CAC3CDD4931A02BAF"
+  },
+  "nonrepaint": {
+    "status": "PASS",
+    "audit_sha256": "24D75F557EB602C1CBA401DC782953978DD003997AB34574A41663A8CA5C45A9"
+  },
+  "verdict": "PASS_PRE_RUN_BUILD_ENGINEERING_ONLY"
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": "alphafactory.source_binary_receipt.v2",
+  "receipt_id": "RCP-ICT-FVG-FULLCHART-MICRORISK-20260719-013",
+  "created_utc": "2026-07-19T06:33:00Z",
+  "hypothesis_id": "HYP-ICT-FVG-FULLCHART-MICRORISK-EURUSD-M5-010",
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 55792,
+    "sha256": "E41BEBC01276BFFE6E844563272AAD08A38BD05AB0674939E4D5D42C84412C2F"
+  },
+  "parent_source": {
+    "path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_125626/snapshot/source/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 55782,
+    "sha256": "7F5AD64F2C622B0426BA475B855257AAB560026C2882C1D45D7C6826DAF33EAE",
+    "verified_delta": "embedded_hypothesis_identity_and_version_only"
+  },
+  "compile_dependencies": [
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/NewsCalendar2019_2022.mqh",
+      "bytes": 10397,
+      "sha256": "29D0E757837A78346DF3D1990BDCAC3AEAA830D2B67922A968CE4F72D0E62427"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.weekly.raw.json",
+      "bytes": 944989,
+      "sha256": "78CB2656A27278B1DA04B2C594A2C73BB1877DBA3AB52BCCFAC36A215945EA8F"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+      "bytes": 294809,
+      "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307"
+    }
+  ],
+  "binary": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.ex5",
+    "bytes": 78938,
+    "sha256": "DB3AC3C8C05508193C2839A2F325593322EBB9BB00839700B487BB152D66685C"
+  },
+  "compile_log": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.log",
+    "bytes": 6590,
+    "sha256": "0E6AD9917649516EC767F393FEDCA801402D9A9FF92C643D2E5A80582BD67607",
+    "errors": 0,
+    "warnings": 0,
+    "result_line": "Result: 0 errors, 0 warnings, 853 ms elapsed, cpu='X64 Regular'"
+  },
+  "compile_command": "AlphaFactory HYP-010 control backtest preflight compile for run 20260719_133139",
+  "preregistration": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FULLCHART-MICRORISK-EURUSD-M5-010_DIAGNOSTIC_PLAN.md",
+    "bytes": 3209,
+    "sha256": "90DD326837EC644305A0FFAF23436C223BFA4BE12D7339ABC4D571E99DFABF18"
+  },
+  "contract_tests": {
+    "command": "python -m pytest 03. EA Developer/EA_ICTFVGReportFidelity/tests -q",
+    "result": "26/26 PASS_AFTER_POSTRUN_RECEIPT_BINDING"
+  },
+  "news_build_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260718_NEWS_CALENDAR_BUILD_AUDIT.json",
+    "bytes": 1800,
+    "sha256": "0A431EB3C312BA0AA29B4A1CEBD3550CE850957164FA1A92285013AC036D8FD9",
+    "event_count": 1282,
+    "calendar_timestamp_count": 869,
+    "collapsed_same_timestamp_event_count": 413,
+    "verdict": "PASS_DIAGNOSTIC_SOURCE_C",
+    "promotion_eligible": false
+  },
+  "nonrepaint_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_NONREPAINT_AUDIT_V12/nonrepaint_audit.json",
+    "bytes": 1222,
+    "sha256": "11D80875A3D2583453D8BEB053962DEACCF71D724A5B17D9C721A9C35DA535F3",
+    "manifest_sha256": "547ABCBD626D211BB744D0B45604614F29598837628F381F1B9D79BCDB586E0A",
+    "status": "PASS"
+  },
+  "cost_context": {
+    "historical_execution_provenance_verified": false,
+    "diagnostic_cost_pips_round_trip": [
+      1.5,
+      2.25,
+      3
+    ],
+    "promotion_eligible": false
+  },
+  "status": "PASS_POST_MODEL0_FULLCHART_DIAGNOSTIC",
+  "parent_failed_diagnostic": {
+    "run_id": "20260719_131410",
+    "manifest_sha256": "83B1DE92CF59527482871C528BFFEF8F439A09AD501FC2402B67C6CCCA65D2E4",
+    "result_sha256": "3BF804FEF151C533C2A5467CC5919FF1B423B56CAB2DB6F9A90774D475903187",
+    "verdict": "INVALID_DIAGNOSTIC_EARLY_BROKER_STOP_OUT_AND_RUNMETA_IDENTITY_MISMATCH"
+  },
+  "model0_run": {
+    "run_id": "20260719_133139",
+    "manifest_path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_133139/run_manifest.json",
+    "manifest_sha256": "8323188DAE0878E4B60A23287933CE51C0AE1D6CAC1B8E3170C88D5004D766EA",
+    "report_path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_133139/report.html",
+    "report_sha256": "39D22F9F73060CDC64F2084A16D9BC12B567529805026BF6A12CBD912EE09CEC",
+    "execution_receipt_sha256": "04664B14FB8E048EA1C1B51A0E642C659C25572D92CF75F35F17AE42836E2740",
+    "lifecycle_sha256": "C08F2C95C990E21188E2497B02A2B783A5B0893B279CE453F0551B5FF4C6C1EF",
+    "runmeta_sha256": "D9B4496710385CD7FE58063EF213E21E06320D382617561B5F9D35484B1E0609",
+    "chart_sha256": "1EF20E3C3DBB52E2119B6110B1D4BBAC7680E0CD379FD4214C3F1B5FF5638D97"
+  },
+  "diagnostic_result": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/HYP-ICT-FVG-FULLCHART-MICRORISK-EURUSD-M5-010_DIAGNOSTIC_RESULT.json",
+    "bytes": 5552,
+    "sha256": "78626324656AB803858F9D4B345F21AC75B0D120095DEF270E2F79F9C9512A8E",
+    "verdict": "DIAGNOSTIC_COMPLETE_FULL_CHART_PARENT_KILL_CONFIRMED"
+  },
+  "readout": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FULLCHART-MICRORISK-EURUSD-M5-010_READOUT.md",
+    "bytes": 3022,
+    "sha256": "2A3C658A30739289B0E0B46423CADD4341550C11E489559E365F91D8F893AF19"
+  }
+}

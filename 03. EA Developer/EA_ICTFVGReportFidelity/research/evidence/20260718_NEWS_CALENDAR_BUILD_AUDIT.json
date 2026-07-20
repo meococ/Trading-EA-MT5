@@ -1,0 +1,39 @@
+{
+  "schema_version": "alphafactory.news_calendar.build_audit.v1",
+  "generated_at_utc": "2026-07-18T17:50:33.925682+00:00",
+  "source_rank": "C",
+  "promotion_eligible": false,
+  "verdict": "PASS_DIAGNOSTIC_SOURCE_C",
+  "raw_path": "02. AlphaFactory\\data\\forexfactory\\EURUSD\\news_events\\forexfactory_high_impact_eurusd_2019_2022.weekly.raw.json",
+  "raw_sha256": "78CB2656A27278B1DA04B2C594A2C73BB1877DBA3AB52BCCFAC36A215945EA8F",
+  "csv_path": "02. AlphaFactory\\data\\forexfactory\\EURUSD\\news_events\\forexfactory_high_impact_eurusd_2019_2022.csv",
+  "csv_sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307",
+  "include_path": "03. EA Developer\\EA_ICTFVGReportFidelity\\NewsCalendar2019_2022.mqh",
+  "include_sha256": "29D0E757837A78346DF3D1990BDCAC3AEAA830D2B67922A968CE4F72D0E62427",
+  "metrics": {
+    "week_count": 209,
+    "event_count": 1282,
+    "unique_event_ids": 1282,
+    "calendar_timestamp_count": 869,
+    "collapsed_same_timestamp_event_count": 413,
+    "first_event_time_utc": "2019-01-03T15:00:00.000Z",
+    "last_event_time_utc": "2022-12-23T13:30:00.000Z",
+    "untimed_eurusd_audit_count": 24,
+    "global_event_audit_count": 63,
+    "anchors": {
+      "nfp_exact": 48,
+      "fomc_statement": 33,
+      "ecb_main_refinancing_rate": 23,
+      "dec_2022_cpi": 4,
+      "dec_2022_fomc": 4,
+      "dec_2022_ecb": 3
+    },
+    "validation_errors": []
+  },
+  "limitations": [
+    "Third-party calendar ranking; not an official central-bank/statistics release ledger.",
+    "Times are displayed by the source as approximate and subject to change.",
+    "Untimed EUR/USD and global All-currency events are audit-only and excluded from timestamp blackout rows.",
+    "This artifact is diagnostic-only and does not make the EA promotion eligible."
+  ]
+}

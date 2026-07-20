@@ -1,9 +1,9 @@
 {
-  "version": 44,
-  "updated_at": "2026-07-18",
+  "version": 45,
+  "updated_at": "2026-07-19",
   "default_status": "authoritative",
   "root_hygiene": {
-    "rule": "Keep the project root lean: AGENTS.md, CLAUDE.md, INDEX.md, 01. GOAL/, and the hidden .codex/operator recovery ledger only. Keep MT5 sample experts out of root and treat raw AlphaFactory runs as local operational data. The operator ledger is subordinate to hot.md. Active compilable EA source is limited to EA_FVGConfluence, EA_HybridICT_Sonic, diagnostic-only EA_KLR_Scalper, EA_UnicornPrecisionScalper, the terminal-killed reproducibility package EA_UnicornPrecisionScalperControl, and the bounded diagnostic package EA_UnicornPrecisionScalperRR15 under 03. EA Developer/; EA_PO3_AMD_Scalper and EA_DRAT_ONNX_ICT_Hybrid are pre-code killed research records without .mq5; EA_SonicR and binary-only EA_SilverBullet are archive-only under 00. Old File/EA_Archive/.",
+    "rule": "Keep the project root lean: AGENTS.md, CLAUDE.md, INDEX.md, 01. GOAL/, and the hidden .codex/operator recovery ledger only. Keep MT5 sample experts out of root and treat raw AlphaFactory runs as local operational data. The operator ledger is subordinate to hot.md. Active compilable EA source is limited to EA_FVGConfluence, EA_HybridICT_Sonic, EA_ICTFVGReportFidelity, EA_ICTVisualEdge, diagnostic-only EA_KLR_Scalper, terminal MT5-replication package EA_LSSOBPropScalper, EA_UnicornPrecisionScalper, the terminal-killed reproducibility package EA_UnicornPrecisionScalperControl, and the bounded diagnostic package EA_UnicornPrecisionScalperRR15 under 03. EA Developer/; EA_PO3_AMD_Scalper and EA_DRAT_ONNX_ICT_Hybrid are pre-code killed research records without .mq5; EA_SonicR and binary-only EA_SilverBullet are archive-only under 00. Old File/EA_Archive/.",
     "graveyard": "00. Old File/docs_archive/",
     "ai_archive": "00. Old File/project_control_archive_20260716/"
   },
@@ -158,6 +158,11 @@
       "reason": "Report-bound verified cost producer for generic AlphaFactory LifecycleTrades and legacy PX6 lifecycles. It joins report deals, derives cost from raw or hash-bound broker evidence, reconciles P&L/risk, and emits verified_execution_cost.v1."
     },
     {
+      "path": "02. AlphaFactory/tools/validate_ea_delivery_packet.py",
+      "status": "authoritative",
+      "reason": "Fail-closed EA development completion validator. It rehashes logic/source/build/run/log/analysis/casebook bindings and rejects missing win-loss or zero-trade forensics before a DONE claim."
+    },
+    {
       "path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
       "status": "authoritative",
       "reason": "Canonical append-only hypothesis state ledger shared by all active EA packages; current seed records the FVG probe and terminal Hybrid SIGATR kill."
@@ -176,6 +181,21 @@
       "path": "02. AlphaFactory/templates/research/README.md",
       "status": "authoritative",
       "reason": "Canonical generic templates and lifecycle-v3 capability guidance for new EA research packages."
+    },
+    {
+      "path": "02. AlphaFactory/templates/research/EA_DELIVERY_PACKET.template.json",
+      "status": "authoritative",
+      "reason": "Template for the hash-bound logic-to-backtest-to-forensics completion packet required after meaningful EA runs."
+    },
+    {
+      "path": "02. AlphaFactory/templates/research/LOGIC_TO_CODE_MATRIX.template.md",
+      "status": "authoritative",
+      "reason": "Pre-outcome mapping template from trader observation through quantified role, decision-time data, source, telemetry and verification."
+    },
+    {
+      "path": "02. AlphaFactory/schemas/ea_delivery_packet.v1.schema.json",
+      "status": "authoritative",
+      "reason": "Machine schema for AlphaFactory EA development delivery packets; the Python validator enforces the deeper conditional evidence rules."
     },
     {
       "path": "02. AlphaFactory/schemas/execution_data_capture_manifest.v1.schema.json",
@@ -216,6 +236,11 @@
       "path": "02. AlphaFactory/tests/test_ea_golden_path.py",
       "status": "authoritative",
       "reason": "Offline regression suite for generic EA discovery, removed backup mutation surface, registry and acceptance validation, package capability contracts, research dry-run, lifecycle RunMeta identity, and generic matched-control comparison."
+    },
+    {
+      "path": "02. AlphaFactory/tests/test_ea_delivery_packet.py",
+      "status": "authoritative",
+      "reason": "Regression suite for valid economic and zero-trade delivery packets plus missing evidence, tampered hashes, incomplete analysis and chart-marker failures."
     },
     {
       "path": "00. Old File/markdown_graveyard/00_READ_ME_FIRST.md",

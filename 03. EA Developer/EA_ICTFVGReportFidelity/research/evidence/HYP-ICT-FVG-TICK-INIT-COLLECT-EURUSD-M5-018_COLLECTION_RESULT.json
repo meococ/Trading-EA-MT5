@@ -1,0 +1,113 @@
+{
+  "allowed_inputs": [
+    "run manifest identity, history quality, tick count, and sidecar seal",
+    "TickInitiation frozen columns",
+    "HumanContext decision_time, direction, valid, context_state",
+    "RunMeta identity and frozen counters",
+    "LifecycleTrades row count only",
+    "engineering receipt and pre-run tick coverage"
+  ],
+  "counts": {
+    "confirmation_rows": 6401,
+    "defined_rows": 6401,
+    "lifecycle_data_rows": 0,
+    "sign_agree_rows": 5435,
+    "sign_nonagree_rows": 966,
+    "tester_ticks": 206517809
+  },
+  "defined_fraction": 1.0,
+  "elapsed_calendar_weeks": 446.0,
+  "failed_gates": [
+    "materiality"
+  ],
+  "gates": {
+    "agree_density_and_coverage": {
+      "pass": true
+    },
+    "defined_fraction": {
+      "pass": true
+    },
+    "deterministic_replay": {
+      "pass": true
+    },
+    "engineering": {
+      "pass": true
+    },
+    "identity_and_reconciliation": {
+      "pass": true
+    },
+    "input_allowlist": {
+      "pass": true
+    },
+    "materiality": {
+      "pass": false
+    },
+    "run_identity_and_real_ticks": {
+      "pass": true
+    },
+    "zero_trade": {
+      "pass": true
+    }
+  },
+  "hypothesis_id": "HYP-ICT-FVG-TICK-INIT-COLLECT-EURUSD-M5-018",
+  "limitations": [
+    "Quote-mid tick-rule imbalance is a broker-feed path proxy, not signed transaction flow or depth.",
+    "This zero-trade collection does not estimate economic edge.",
+    "Historical cost provenance remains independently unresolved."
+  ],
+  "manifest_sha256": "A39295E89B44CF37AC7B52A8190A21116FABD4F2B27D85C5F41F0C235D60D702",
+  "materiality_shares": {
+    "2018-2022": {
+      "defined_rows": 3745,
+      "sign_agree_rows": 3366,
+      "sign_agree_share": 0.8987983978638184,
+      "sign_nonagree_rows": 379,
+      "sign_nonagree_share": 0.10120160213618158
+    },
+    "2023-YTD": {
+      "defined_rows": 2656,
+      "sign_agree_rows": 2069,
+      "sign_agree_share": 0.7789909638554217,
+      "sign_nonagree_rows": 587,
+      "sign_nonagree_share": 0.2210090361445783
+    },
+    "pooled": {
+      "defined_rows": 6401,
+      "sign_agree_rows": 5435,
+      "sign_agree_share": 0.8490860802999531,
+      "sign_nonagree_rows": 966,
+      "sign_nonagree_share": 0.15091391970004686
+    }
+  },
+  "parser_seed": 5600718,
+  "run_id": "20260719_235851",
+  "schema_version": "alphafactory_hyp018_collection_result.v1",
+  "sidecar_sha256": {
+    "EURUSD_HumanContext_HYP-ICT-FVG-TICK-INIT-COLLECT-EURUSD-M5-018_13982750.csv": "E8A1AB15F8075ECBE067F67B99B929A1DDA5C50E286D083216D34891D3C23A80",
+    "EURUSD_LifecycleTrades_HYP-ICT-FVG-TICK-INIT-COLLECT-EURUSD-M5-018_13982750.csv": "5B0F7F5CF31C27B6705B1A149C9842D9063179B594971AC0101213DC7FB7739F",
+    "EURUSD_RunMeta_HYP-ICT-FVG-TICK-INIT-COLLECT-EURUSD-M5-018_13982750.json": "DBBAF4E5486BCFE2D43E5097777020F1306D6A5823889B301D5FAF1F42B16341",
+    "EURUSD_TickInitiation_HYP-ICT-FVG-TICK-INIT-COLLECT-EURUSD-M5-018_13982750.csv": "1827EBDE58BBA2F8C6EC5E12A3FBF3A4C3A490E7B9DE6E4FADEE072D932A9C92"
+  },
+  "sign_agree_cadence_per_week": 12.18609865470852,
+  "sign_agree_directions": [
+    -1,
+    1
+  ],
+  "sign_agree_sessions": [
+    "LONDON",
+    "NEW_YORK"
+  ],
+  "sign_agree_years": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "source_sha256": "41536FFC43BE85B1250A627197BD63FED5C7D5C7CF87D8965163F5449EACDA40",
+  "verdict": "KILL_AT_HYP018_COLLECTION_DATA_DENSITY_OR_REDUNDANCY"
+}

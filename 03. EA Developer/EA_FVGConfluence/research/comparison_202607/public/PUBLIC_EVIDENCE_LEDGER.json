@@ -1,0 +1,167 @@
+{
+  "schema_version": "public_evidence_ledger.v1",
+  "study_id": "STUDY-FVG-COMPARE-EURUSD-M5-001",
+  "access_date": "2026-07-18",
+  "deep_research_response_sha256": "D95BFBDDBCB6360276883FD00C5E0B4880232DA1D1D441C77606A9A7108F43F0",
+  "entities": [
+    {
+      "candidate_id": "EA-F01-LIQUIDITY-SWEEPER",
+      "access_date": "2026-07-18",
+      "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/161755", "https://www.mql5.com/en/signals/2348439"],
+      "months_observed": 0,
+      "closed_trades": 0,
+      "history_complete": false,
+      "custom_start_absent": false,
+      "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false,
+      "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "EXACT_PRODUCT_ATTRIBUTION_FAILED", "MIXED_EA_ACCOUNT"],
+      "strongest_public_evidence": "Same-author signal showed 40 weeks and 226 trades, but provider disclosed multiple EAs and no product linkage; entity-level months/trades therefore remain zero.",
+      "confidence": "high"
+    },
+    {
+      "candidate_id": "EA-F02-TIME-RANGE-SWEEP",
+      "access_date": "2026-07-18", "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/111406"],
+      "months_observed": 0, "closed_trades": 0, "history_complete": false, "custom_start_absent": false, "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false, "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "VENDOR_SCREENSHOTS_ONLY", "NO_HASH_BOUND_EXPERIMENT"],
+      "strongest_public_evidence": "Vendor backtest screenshots only; no full statement, trade list, or reproducible package.", "confidence": "high"
+    },
+    {
+      "candidate_id": "EA-F03-APEX-LIQUIDITY-TRADER", "access_date": "2026-07-18", "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/179951"], "months_observed": 0, "closed_trades": 0,
+      "history_complete": false, "custom_start_absent": false, "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false, "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "VENDOR_CLAIMS_ONLY"],
+      "strongest_public_evidence": "Vendor SMC/ICT feature description; no valid performance series.", "confidence": "high"
+    },
+    {
+      "candidate_id": "EA-F04-FAITHIFY-PRO", "access_date": "2026-07-18", "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/178498"], "months_observed": 0, "closed_trades": 0,
+      "history_complete": false, "custom_start_absent": false, "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false, "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "VENDOR_CLAIMS_ONLY"],
+      "strongest_public_evidence": "Vendor rule/risk description only.", "confidence": "high"
+    },
+    {
+      "candidate_id": "EA-F05-SMC-AUTOMATO", "access_date": "2026-07-18", "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/166963"], "months_observed": 0, "closed_trades": 0,
+      "history_complete": false, "custom_start_absent": false, "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false, "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "CUSTOMER_SELF_TEST_NOT_EVIDENCE"],
+      "strongest_public_evidence": "Vendor recommends demo self-testing; no qualifying monitor.", "confidence": "high"
+    },
+    {
+      "candidate_id": "EA-F06-STRATUM", "access_date": "2026-07-18", "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/164627"], "months_observed": 0, "closed_trades": 0,
+      "history_complete": false, "custom_start_absent": false, "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false, "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "NO_QUALIFYING_LIVE_MONITOR"],
+      "strongest_public_evidence": "Vendor states tester limitations and recommends demo; no qualifying live monitor.", "confidence": "high"
+    },
+    {
+      "candidate_id": "EA-F07-SMC-GENESIS", "access_date": "2026-07-18", "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/161178"], "months_observed": 0, "closed_trades": 0,
+      "history_complete": false, "custom_start_absent": false, "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false, "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "TARGETS_NOT_REALIZED_HISTORY"],
+      "strongest_public_evidence": "Marketing targets and validation-mode claims, not realized account history.", "confidence": "high"
+    },
+    {
+      "candidate_id": "EA-F08-EXHAUSTION-TRAP", "access_date": "2026-07-18", "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/171288"], "months_observed": 0, "closed_trades": 0,
+      "history_complete": false, "custom_start_absent": false, "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false, "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "QUALITATIVE_CLAIM_ONLY"],
+      "strongest_public_evidence": "Qualitative liquidity-sweep claim only.", "confidence": "high"
+    },
+    {
+      "candidate_id": "EA-F09-PHOENIX-ENGINE", "access_date": "2026-07-18", "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/166706"], "months_observed": 0, "closed_trades": 0,
+      "history_complete": false, "custom_start_absent": false, "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false, "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "NO_CLEAN_ATTRIBUTION_MONITOR"],
+      "strongest_public_evidence": "Feature copy with optional signal inversion/operator intervention; no clean monitor.", "confidence": "high"
+    },
+    {
+      "candidate_id": "EA-F10-ICT-SILVER-BULLET-CRT", "access_date": "2026-07-18", "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/141221"], "months_observed": 0, "closed_trades": 0,
+      "history_complete": false, "custom_start_absent": false, "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false, "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "VENDOR_CLAIMS_ONLY"],
+      "strongest_public_evidence": "Strategy-name and feature description only.", "confidence": "high"
+    },
+    {
+      "candidate_id": "EA-F11-ORDER-BLOCKS-SCALPER", "access_date": "2026-07-18", "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/128057"], "months_observed": 0, "closed_trades": 0,
+      "history_complete": false, "custom_start_absent": false, "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false, "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "REVIEWS_EXCLUDED"],
+      "strongest_public_evidence": "Vendor copy and user reviews; reviews excluded by protocol.", "confidence": "high"
+    },
+    {
+      "candidate_id": "EA-F12-LUNOX-KILLZONE", "access_date": "2026-07-18", "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/161899"], "months_observed": 0, "closed_trades": 0,
+      "history_complete": false, "custom_start_absent": false, "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false, "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "FEATURE_LIST_ONLY"],
+      "strongest_public_evidence": "Session/killzone feature list only.", "confidence": "high"
+    },
+    {
+      "candidate_id": "EA-F13-QHYPER-9", "access_date": "2026-07-18", "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/175949"], "months_observed": 0, "closed_trades": 0,
+      "history_complete": false, "custom_start_absent": false, "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false, "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "VENDOR_CLAIMS_ONLY"],
+      "strongest_public_evidence": "Nine claimed SMC modules; no valid account history.", "confidence": "high"
+    },
+    {
+      "candidate_id": "EA-F14-EURUSD-LONDON-BREAKOUT", "access_date": "2026-07-18", "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/147093"], "months_observed": 0, "closed_trades": 0,
+      "history_complete": false, "custom_start_absent": false, "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false, "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "NO_REPORT_OR_DATA_MANIFEST"],
+      "strongest_public_evidence": "Vendor warns about broker/data sensitivity but supplies no report or manifest.", "confidence": "high"
+    },
+    {
+      "candidate_id": "EA-F15-PO3-SESSION-PROTRACTION", "access_date": "2026-07-18", "source_grade": "C",
+      "evidence_urls": ["https://www.mql5.com/en/market/product/164952"], "months_observed": 0, "closed_trades": 0,
+      "history_complete": false, "custom_start_absent": false, "cashflows_observable": false,
+      "verification": {"myfxbook_track_record": false, "myfxbook_trading_privileges": false, "mql5_real_monitored": false, "mql5_full_history": false},
+      "reproducibility": {"source_or_demo_available": false, "data_hash_bound": false, "procedure_reproducible": false},
+      "delisted_or_terminated": false, "decision": "FEATURE_ONLY",
+      "rejection_reasons": ["GRADE_C_FEATURE_ONLY", "LT_36_MONTHS", "LT_200_CLOSED_TRADES", "HISTORY_NOT_COMPLETE", "CUSTOM_START_OR_UNKNOWN", "CASHFLOWS_NOT_OBSERVABLE", "NO_HASH_BOUND_EXPERIMENT"],
+      "strongest_public_evidence": "Tester capability claimed, but no hash-bound source/binary, data, preset, build, or full output.", "confidence": "high"
+    }
+  ]
+}

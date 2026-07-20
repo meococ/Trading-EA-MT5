@@ -1,0 +1,267 @@
+{
+  "all_gates_pass": false,
+  "base_r_distribution": {
+    "buckets": {
+      "le_-1_25R": 42,
+      "mid_win": 2,
+      "minus1R_zone": 1912,
+      "near_2R_or_more": 643,
+      "small_loss": 2,
+      "small_win": 1102
+    },
+    "mean": -0.14152117287498286,
+    "median": -0.9942060345799898,
+    "p05": -1.1831995030668463,
+    "p25": -1.0904845483687837,
+    "p75": 0.41076042047414263,
+    "p95": 1.8923538581949617
+  },
+  "by_context_state_primary_cost": {
+    "EXTERNAL_SWEEP_WITH_ROOM": {
+      "mean": -3.8395749440715883,
+      "net": -3432.58,
+      "profit_factor": 0.45585946045343717,
+      "trades": 894,
+      "win_rate": 0.41387024608501116
+    },
+    "INTERNAL_SWEEP_WITH_ROOM": {
+      "mean": -5.481936632253471,
+      "net": -15398.76,
+      "profit_factor": 0.3222925608137369,
+      "trades": 2809,
+      "win_rate": 0.3175507297970808
+    }
+  },
+  "by_direction_primary_cost": {
+    "LONG": {
+      "mean": -5.291763367463026,
+      "net": -9302.92,
+      "profit_factor": 0.32424179029886746,
+      "trades": 1758,
+      "win_rate": 0.34186575654152446
+    },
+    "SHORT": {
+      "mean": -4.89893059125964,
+      "net": -9528.42,
+      "profit_factor": 0.3757365630073391,
+      "trades": 1945,
+      "win_rate": 0.3398457583547558
+    }
+  },
+  "by_session_primary_cost": {
+    "LONDON": {
+      "mean": -5.509331144850226,
+      "net": -13426.24,
+      "profit_factor": 0.32301213372918547,
+      "trades": 2437,
+      "win_rate": 0.3282724661469019
+    },
+    "NEW_YORK": {
+      "mean": -4.269431279620854,
+      "net": -5405.1,
+      "profit_factor": 0.41234732728984597,
+      "trades": 1266,
+      "win_rate": 0.36492890995260663
+    }
+  },
+  "by_year_primary_cost": {
+    "2018": {
+      "mean": -4.671659192825112,
+      "net": -2083.56,
+      "profit_factor": 0.39091618651722837,
+      "trades": 446,
+      "win_rate": 0.38565022421524664
+    },
+    "2019": {
+      "mean": -6.355778894472362,
+      "net": -2529.6,
+      "profit_factor": 0.27535235476108627,
+      "trades": 398,
+      "win_rate": 0.2964824120603015
+    },
+    "2020": {
+      "mean": -4.901946308724832,
+      "net": -2191.17,
+      "profit_factor": 0.35927516864873404,
+      "trades": 447,
+      "win_rate": 0.3512304250559284
+    },
+    "2021": {
+      "mean": -5.680749414519906,
+      "net": -2425.68,
+      "profit_factor": 0.3111779388838247,
+      "trades": 427,
+      "win_rate": 0.28337236533957844
+    },
+    "2022": {
+      "mean": -3.0895021645021643,
+      "net": -1427.35,
+      "profit_factor": 0.5234112316481521,
+      "trades": 462,
+      "win_rate": 0.4393939393939394
+    },
+    "2023": {
+      "mean": -4.151946902654867,
+      "net": -1876.68,
+      "profit_factor": 0.4457841999415272,
+      "trades": 452,
+      "win_rate": 0.3606194690265487
+    },
+    "2024": {
+      "mean": -6.124152334152335,
+      "net": -2492.53,
+      "profit_factor": 0.2758693820632753,
+      "trades": 407,
+      "win_rate": 0.29238329238329236
+    },
+    "2025": {
+      "mean": -5.332609699769053,
+      "net": -2309.02,
+      "profit_factor": 0.31511944521892854,
+      "trades": 433,
+      "win_rate": 0.3348729792147806
+    },
+    "2026": {
+      "mean": -6.475108225108225,
+      "net": -1495.75,
+      "profit_factor": 0.2455347460063656,
+      "trades": 231,
+      "win_rate": 0.27705627705627706
+    }
+  },
+  "canonical_result_sha256": "DAF6D51EA1AE51925E3E55A8F0B34CFB2BA17E08241C8F5CC02A876E4EC52C5E",
+  "context_join": {
+    "ambiguous_keys": 0,
+    "matched": 3703,
+    "unmatched": 0,
+    "within_5m_delayed_tick_matches": 1
+  },
+  "cost_diagnostics": {
+    "cost_1_5p": {
+      "expectancy_r_per_trade": -0.5213948368392284,
+      "expectancy_usd_per_trade": -5.085428031325952,
+      "incremental_round_turn_pips": 1.5,
+      "net": -18831.34,
+      "profit_factor": 0.35131673676632186,
+      "trades": 3703,
+      "win_rate": 0.34080475290305157
+    },
+    "cost_2_25p": {
+      "expectancy_r_per_trade": -0.7113316688213511,
+      "expectancy_usd_per_trade": -6.938452605995139,
+      "incremental_round_turn_pips": 2.25,
+      "net": -25693.09,
+      "profit_factor": 0.24698070154845697,
+      "trades": 3703,
+      "win_rate": 0.2643802322441264
+    },
+    "cost_3_0p": {
+      "expectancy_r_per_trade": -0.9012685008034738,
+      "expectancy_usd_per_trade": -8.791477180664327,
+      "incremental_round_turn_pips": 3.0,
+      "net": -32554.84,
+      "profit_factor": 0.17680945403145357,
+      "trades": 3703,
+      "win_rate": 0.21172022684310018
+    }
+  },
+  "funnel": {
+    "entries_attempted": 3703,
+    "entries_opened": 3703,
+    "exposure_rejections": 579,
+    "ordercheck_rejections": 11,
+    "ordercheck_zero_successes": 3703,
+    "policy_accepts": 10694,
+    "policy_rejections": 16035,
+    "prop_rejections": 5830,
+    "risk_rejections": 12,
+    "session_rejections": 280,
+    "spread_rejections": 290,
+    "sweeps": 26729
+  },
+  "gates": {
+    "at_least_6_positive_years": false,
+    "cadence_2_to_5_per_week": false,
+    "identity_and_history": true,
+    "lifecycle_report_reconciled": true,
+    "max_account_dd_le_8pct": true,
+    "min_200_trades": true,
+    "positive_profit_concentration_le_40pct": false,
+    "primary_cost_pf_ge_1_30": false,
+    "primary_expectancy_positive": false,
+    "stress_2_25p_pf_ge_1_25": false,
+    "stress_3_0p_pf_ge_1_00": false
+  },
+  "gates_passed": 4,
+  "gates_total": 11,
+  "hypothesis_id": "HYP-ICT-FVG-HUMAN-CONTEXT-POLICY-EURUSD-M5-017",
+  "input_hashes": {
+    "enhanced_summary": "05F18C31667DBE4F29FBC5A9705A4B7128F13AFC6791CB2FF69543CEEF3B6D4A",
+    "human_context": "461C97C0D5F56F506AC864CD5FB2D55AC8B5BE4F8EF1E50B81B9AF0C1475A4B7",
+    "lifecycle_trades": "BEFD5810BCFBF8BE1310FE1721D995872E398DC01AAB037B3998AF09E0D9E24C",
+    "run_manifest": "DF246FDC501AEFD5B734723438AC96F23696B9E01BE900C4CA798BCA9193A20C",
+    "run_meta": "623900BDB1FAE01C90D550347735557289FC47FDDAD00B068849764E9DBBA090",
+    "server_clock": "A7F179935102B57BA3B629345209F6B0D668D1F7FD828A5ED6003207F41A2F52"
+  },
+  "limitations": [
+    "Design-after-family-history diagnostic, not an independent sealed holdout.",
+    "Historical broker spread/slippage provenance is not verified.",
+    "Incremental pip costs are conservative because tester spread is already embedded.",
+    "No failed subgroup may be removed post hoc to rescue HYP-017."
+  ],
+  "native": {
+    "bars": 636544,
+    "cadence_per_week": 8.31259932358586,
+    "elapsed_calendar_weeks": 445.46836144179895,
+    "expectancy_usd_per_trade": -1.3793788819875776,
+    "history_quality_pct": 99.0,
+    "lifecycle_net": -5107.84,
+    "max_drawdown_pct": 5.110478576659312,
+    "net": -5107.8399999999965,
+    "profit_factor": 0.7552574812196878,
+    "ticks": 206517809,
+    "trades": 3703,
+    "win_rate_pct": 47.15095868214961
+  },
+  "positive_profit_concentration": null,
+  "positive_years": [],
+  "primary_cost_r_distribution": {
+    "buckets": {
+      "le_-1_25R": 1666,
+      "mid_win": 309,
+      "minus1R_zone": 290,
+      "near_2R_or_more": 335,
+      "small_loss": 443,
+      "small_win": 660
+    },
+    "mean": -0.5213948368392284,
+    "median": -1.1686600117744539,
+    "p05": -1.7887739067086676,
+    "p25": -1.4556444776505462,
+    "p75": 0.15378450504132313,
+    "p95": 1.6150792589363323
+  },
+  "promotion_eligible": false,
+  "risk_metrics_primary_cost": {
+    "calmar_r": -0.11713193560972715,
+    "cvar_5pct_r_per_trade": -1.9296524763038858,
+    "max_drawdown_r": 1930.7250808156614,
+    "mean_hold_minutes": 18.666783688900892,
+    "median_hold_minutes": 8.7,
+    "weekly_sharpe": -9.142172804918621,
+    "weekly_sortino": -5.711080514082176
+  },
+  "run_id": "20260719_215636",
+  "schema_version": "hyp017_model0_economic_result.v1",
+  "verdict": "KILL_AT_HYP017_MODEL0_NO_STABLE_EDGE",
+  "week_block_bootstrap_primary_cost": {
+    "calendar_week_blocks": 446,
+    "ci95": [
+      -0.5599776042219871,
+      -0.48316706322065545
+    ],
+    "mean_r_per_trade": -0.5213948368392284,
+    "repetitions": 10000,
+    "seed": 20260719
+  }
+}

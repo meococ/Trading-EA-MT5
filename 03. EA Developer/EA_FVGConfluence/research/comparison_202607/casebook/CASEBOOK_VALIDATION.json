@@ -1,0 +1,21 @@
+{
+  "schema_version": "fvg_casebook_validation.v2",
+  "study_id": "STUDY-FVG-COMPARE-EURUSD-M5-001",
+  "status": "PASS",
+  "errors": [],
+  "counts": {
+    "cases": 400,
+    "charts": 400,
+    "calibration": 100,
+    "evaluation": 300,
+    "strata": {
+      "near_miss_control": 147,
+      "high_recall_fvg_reject": 147,
+      "ea_source_signal_core": 106
+    }
+  },
+  "bindings": {
+    "internal_sha256": "59820D3A1B455D39FAA0C22B97041634E27D1703A0BD88B0B42F4EB26F97FC8A",
+    "packet_manifest_sha256": "5F11324BD2E7ADE8706D490F2482C6F59C3BBD332E5074E3B022A188822EDC78"
+  }
+}

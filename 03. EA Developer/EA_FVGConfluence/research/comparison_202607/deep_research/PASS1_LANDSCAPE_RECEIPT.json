@@ -1,0 +1,22 @@
+{
+  "schema_version": "deep_research_receipt.v1",
+  "study_id": "STUDY-FVG-COMPARE-EURUSD-M5-001",
+  "pass": 1,
+  "research_date": "2026-07-18",
+  "browser_conversation_url": "https://chatgpt.com/c/6a5b5c85-999c-83ec-aaef-44be6ee0af5d",
+  "browser_conversation_title": "Landscape Discovery for EAs",
+  "ui_readback_before_send": {
+    "model": "GPT-5.6 Sol",
+    "mode": "Pro",
+    "deep_research": true
+  },
+  "reported_processing_duration": "22m 24s",
+  "response_chars": 19627,
+  "response_sha256_utf8": "B50CA8985A1B8956B447024A4752D6900B115FDEC4C32C59E54BB07D6C779136",
+  "frozen_entities": 15,
+  "distinct_vendors": 15,
+  "exact_product_linked_public_monitors_located": 0,
+  "performance_fields_ranked": false,
+  "completed": true
+}
+

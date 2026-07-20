@@ -1,0 +1,40 @@
+{
+  "schema_version": "hyp014.casebook_receipt.v1",
+  "hypothesis_id": "HYP-ICT-FVG-PROB-RANK-EURUSD-M5-014",
+  "purpose": "post-run visual forensics only; no threshold, feature or rerun authority",
+  "selection": "top three accepted x1-cost winners and top three accepted x1-cost non-winners by frozen model score",
+  "cases": {
+    "path": "02. AlphaFactory/runtime/ictfvg_hyp014_casebook/cases.csv",
+    "bytes": 2469,
+    "sha256": "904D633F9014C6CEAD2842C465F307426CD6571B28582C88CD6DFD2CA4E1280E"
+  },
+  "selection_receipt": {
+    "path": "02. AlphaFactory/runtime/ictfvg_hyp014_casebook/selection_receipt.json",
+    "bytes": 780,
+    "sha256": "FF72B2EB1ECA4635E4822C7B7DFB02423908A3C739ADB399196F4809E0BA9BC1"
+  },
+  "chart_manifest": {
+    "path": "02. AlphaFactory/runtime/ictfvg_hyp014_casebook/charts_h1_anatomy/cases_manifest.json",
+    "bytes": 18619,
+    "sha256": "0FF240AE20073999C0C02BE5CF8AFD48CBF41D2A3A124F03A3F59CF6055FB602",
+    "schema_version": "chart_case_render.v2",
+    "bars_sha256": "AAF14451A0AA3671C5037A19ECB30E3A1A27B115A0F16CACBBB4D4209F921C73",
+    "rendered": 6,
+    "skipped": 0,
+    "setup_chain_sequence_pass": 6,
+    "entry_markers_pass": 6,
+    "exit_markers_pass": 6,
+    "h1_entry_centered": 6,
+    "h1_post_entry_bars": 24
+  },
+  "images": {
+    "PRW01": "C107FD54ADCF776328F079FF43D50B81F97F4EF25F60A2D22B9A5171EE62751B",
+    "PRW02": "7FA63C66378CE9B7520B8FCD5B2F9F0FDF56D5909407FE948206619A58FF4554",
+    "PRW03": "292816A21718950BF1819E93FAA935051894388B65A418632CED8C1D30B4317D",
+    "PRL01": "08B74BB5F3393E9EF62B64181E2EA09ED475F2825A06E4D4E94AC05A53F193BC",
+    "PRL02": "839545A3AE79F35AD7553A369D05DE9DB78CAF876C3C3113172B55859CF35B1A",
+    "PRL03": "28FC44BB4D3ACA63F67059644D6E5D6868CB183A00CFAC9152848D513C83B395"
+  },
+  "audit_boundary": "Anatomy charts disclose outcomes. Only bars left of the decision cutoff, setup-chain fields, blue H1 partial hatch and closed-bar H1 metrics are valid entry-time evidence."
+}
+

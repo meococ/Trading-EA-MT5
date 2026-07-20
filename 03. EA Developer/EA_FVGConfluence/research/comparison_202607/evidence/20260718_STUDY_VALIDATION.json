@@ -1,0 +1,65 @@
+{
+  "schema_version": "fvg_comparison_validation.v1",
+  "study_id": "STUDY-FVG-COMPARE-EURUSD-M5-001",
+  "verdict": "PASS",
+  "checked_artifacts": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FVGConfluence\\research\\comparison_202607\\BENCHMARK_PROTOCOL_V1.md",
+      "sha256": "7E9D204CEB8A28872AD2F0024B75D7B2EB5852ECEB2C6DE8FC44D2D6E9C6E9C1"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FVGConfluence\\research\\comparison_202607\\BENCHMARK_PROTOCOL_V1.json",
+      "sha256": "4E7854E5F68A9C6E1CEF07FFC20634316B4F47DD429DDB46671D3694C478479D"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FVGConfluence\\research\\comparison_202607\\ARCHITECTURE_MATRIX.md",
+      "sha256": "2A86EEC0163CBC0FEBA5F647AA8BE2CE1F6BF259DFAEFFD8F61AE3178CD0E044"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FVGConfluence\\EA_FVGConfluence.mq5",
+      "sha256": "0279ADE492A104803CC7279CD5D3B99A6F57822779B91273AFD666F0C784757F"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FVGConfluence\\Include\\FVG_Detect.mqh",
+      "sha256": "6E53855CF0182A9DD6E48B24DED8ADF00A95BDA892208F7C3C4C51C643ABD06D"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FVGConfluence\\Include\\FVG_Execution.mqh",
+      "sha256": "B8173DE66EF55836DEBB5DDBC8598F50E19DD4CD203F68B96AB36A2115F78B9E"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FVGConfluence\\Include\\FVG_HTF.mqh",
+      "sha256": "82DBC3BA2840C1B825630628F597052AA7380866B160E3619A88646375D15ABE"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FVGConfluence\\Include\\FVG_OrderBlock.mqh",
+      "sha256": "5D8A312C410FF720797394F22A79544A70947FDA7D3192D0B17E70B022253245"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FVGConfluence\\Include\\FVG_PremiumDiscount.mqh",
+      "sha256": "B609827BB7AFE382D2FBA8B5A9ECEC25D120BFAF947F679217C88633A64D36D9"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FVGConfluence\\Include\\FVG_Risk.mqh",
+      "sha256": "1783517757E745A2036D4802372F24A703BC3175175564167B4DA6B8317874A6"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FVGConfluence\\Include\\FVG_Session.mqh",
+      "sha256": "510D6FC94962198495613D536FB9F351DBB9F2913284682BA46C39D30119E96A"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FVGConfluence\\Include\\FVG_Types.mqh",
+      "sha256": "BEBCF0620F6ED116DA3CEBA22BE0A98E137AE533ADB14130B97758DF173F2157"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FVGConfluence\\EA_FVGConfluence.ex5",
+      "sha256": "BC3DF495A5E6763A3FDFC02D18A2567BD7D3C3657E27DF5174D710B71E69004D"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FVGConfluence\\EA_FVGConfluence.log",
+      "sha256": "32FB207E8B9D767AD96F5D19D168E353150B684F4D70A70E586304F12C0A4041"
+    }
+  ],
+  "economic_run_authorized": false,
+  "promotion_eligible": false
+}

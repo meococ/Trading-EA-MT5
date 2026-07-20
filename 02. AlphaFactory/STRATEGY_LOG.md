@@ -5413,7 +5413,47 @@ type-aware serializer was fixed red-first and bound into the successful receipt.
    economic evidence remains WR 34.615% / full-cost PF 0.498 at 2.5R and WR
    35.606% / full-cost PF 0.475 at 1.5R.
 
-**Next legal gate:** independent outcome-blind human labels on the V1.3 corpus,
-then a separately frozen agreement/outcome plan. No MSS/breaker/FVG/session/RR
-patch or economic rerun is authorized from this process closeout.
+**Next legal gate:** none for this terminal family. Any future lane requires a
+materially new causal mechanism, de-duplication, and fresh preregistration. No
+MSS/breaker/FVG/session/RR patch or economic rerun is authorized from this
+process closeout.
+
+## HYP-017 — Human Context natural policy terminal Model 0 (2026-07-19)
+
+**EA / run:** `EA_ICTFVGReportFidelity` v1.23 / `20260719_215636`
+
+**Symbol / TF / window / model:** EURUSD / M5 / 2018-01-01..2026-07-19 / Model 0
+
+**Source SHA256:**
+`FF02340C65CBB0E36B1794CB8263023FDD9B7F9218492E749F1F8875C826A5C6`
+
+**Frozen policy:** high-recall M5 sweep/reclaim; accept only
+`EXTERNAL_SWEEP_WITH_ROOM` or `INTERNAL_SWEEP_WITH_ROOM`; market entry,
+sweep-extreme stop, 2R target, 0.01% risk, maximum two entries/day. The policy
+was selected from an outcome-blind no-trade collection; no optimization ran.
+
+**Result:** 3,703 reconciled trades, 8.3126 per elapsed week, native PF 0.7553,
+net -USD 5,107.84, WR 47.151%, max DD 5.110%. The frozen additional 1.5-pip
+diagnostic produces PF 0.3513, net -USD 18,831.34 and -0.52139R/trade; paired
+week-block bootstrap 95% CI `[-0.55998,-0.48317]`. Stress PF is 0.2470/0.1768.
+Zero of nine years is positive. Verdict:
+`KILL_AT_HYP017_MODEL0_NO_STABLE_EDGE`; promotion remains false.
+
+**Lessons:**
+
+1. Available room and liquidity taxonomy describe location/destination but do
+   not establish a causal initiation sequence at the entry bar.
+2. Tight sweep-extreme stops plus immediate market entry are incompatible with
+   observed M5 noise/cost: the native median is already near -1R and primary
+   cost pushes the median below -1R.
+3. Internal context is the largest and weakest group; external context is
+   relatively better but still decisively negative. No subgroup can rescue the
+   policy.
+4. Engineering controls and Human Context telemetry work, but risk/execution
+   hygiene cannot manufacture signal expectancy.
+
+**Next legal gate:** none for HYP-017. A successor needs a materially new
+decision-time information contract and fresh outcome-blind feasibility/prereg;
+no confirmation, stop, RR, session, weekday, year or state filter may be
+derived from these outcomes.
 

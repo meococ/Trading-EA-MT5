@@ -1,0 +1,78 @@
+{
+  "schema_version": "alphafactory.source_binary_receipt.v2",
+  "receipt_id": "RCP-ICT-FVG-FIDREC-20260718-006",
+  "created_utc": "2026-07-18T17:00:30Z",
+  "hypothesis_id": "HYP-ICT-FVG-FIDREC-EURUSD-M5-005",
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 52368,
+    "sha256": "C6A05F4124029A38A7FC80B83D8697B6B58E87CF3FAEDD9FD53BE43DA87522E2"
+  },
+  "compile_dependencies": [
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/NewsCalendar2019_2022.mqh",
+      "bytes": 15077,
+      "sha256": "248D569B981564AC0B179588C4919CD6CC196A9E7B008939A9CCDB3446F4678C"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.weekly.raw.json",
+      "bytes": 944989,
+      "sha256": "78CB2656A27278B1DA04B2C594A2C73BB1877DBA3AB52BCCFAC36A215945EA8F"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+      "bytes": 294809,
+      "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307"
+    }
+  ],
+  "binary": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.ex5",
+    "bytes": 76798,
+    "sha256": "EEC0E1435C42BAF1C53A1677451107488CDB2D20717BE2C6020F54BB4535728E"
+  },
+  "compile_log": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.log",
+    "bytes": 6590,
+    "sha256": "34ABF10B3F6AEA567976BCB169663A4C62CEBE243E21FAA34E409E22624368A2",
+    "errors": 0,
+    "warnings": 0,
+    "result_line": "Result: 0 errors, 0 warnings, 895 ms elapsed, cpu='X64 Regular'"
+  },
+  "compile_command": "powershell -NoProfile -ExecutionPolicy Bypass -File 02. AlphaFactory/alpha.ps1 compile EA_ICTFVGReportFidelity",
+  "preregistration": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FIDREC-EURUSD-M5-005_ENGINEERING_PLAN.md",
+    "bytes": 1610,
+    "sha256": "DDCCF4BDCFD55A216E952D6234A9376281D6501585573C0AB848839A5AF2329C"
+  },
+  "contract_tests": {
+    "command": "python -m pytest -q",
+    "result": "20/20 PASS"
+  },
+  "news_build_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260718_NEWS_CALENDAR_BUILD_AUDIT.json",
+    "bytes": 1714,
+    "sha256": "D5D38389CE72A443A79E63131719FAE42BAB4BFC552B792E130921870B0CBE2A",
+    "verdict": "PASS_DIAGNOSTIC_SOURCE_C",
+    "promotion_eligible": false
+  },
+  "nonrepaint_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260718_NONREPAINT_AUDIT_V8/nonrepaint_audit.json",
+    "bytes": 1435,
+    "sha256": "0B4BBC0C4615AF272F31963FF348EFFB06E24EDD534A9084AD72C6D7069B8C4C",
+    "manifest_sha256": "DD38CAD4303D1146DFE37DA0D93603101FA825875D39D19B2E096FCCFB172549",
+    "status": "PASS"
+  },
+  "execution_hardening": {
+    "loss_streak_survives_utc_day_rollover": true,
+    "lifecycle_net_rebuilt_by_position_id": true,
+    "position_identifier_persisted_losslessly": true,
+    "last_classified_position_id_persisted_losslessly": true,
+    "offline_close_replay_idempotent": true,
+    "cooldown_anchored_to_final_deal_time": true,
+    "daily_cap_recounted_from_unique_actual_entry_positions": true,
+    "server_retcode_and_pending_order_guards": true,
+    "restart_safe_fill_risk_close_retry": true,
+    "unrecoverable_state_fails_closed": true
+  },
+  "status": "PASS_DIAGNOSTIC_ONLY"
+}

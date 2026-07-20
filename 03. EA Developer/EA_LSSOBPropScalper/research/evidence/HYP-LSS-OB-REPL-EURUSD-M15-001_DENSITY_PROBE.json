@@ -1,0 +1,157 @@
+{
+  "authority": "PRE_OUTCOME_FIDELITY_CADENCE_ONLY",
+  "contract_id": "lss_ob_m15_fidelity_density.v1",
+  "density": {
+    "pooled": {
+      "elapsed_calendar_days": 1459,
+      "elapsed_calendar_weeks": 208.42857142857142,
+      "event_count": 0,
+      "events_per_elapsed_week": 0.0
+    },
+    "train": {
+      "elapsed_calendar_days": 729,
+      "elapsed_calendar_weeks": 104.14285714285714,
+      "event_count": 0,
+      "events_per_elapsed_week": 0.0
+    },
+    "validation": {
+      "elapsed_calendar_days": 730,
+      "elapsed_calendar_weeks": 104.28571428571429,
+      "event_count": 0,
+      "events_per_elapsed_week": 0.0
+    }
+  },
+  "event_count_all_arms": 0,
+  "events_path": "03. EA Developer/EA_LSSOBPropScalper/research/evidence/HYP-LSS-OB-REPL-EURUSD-M15-001_DENSITY_EVENTS.csv",
+  "events_sha256": "6C98AB2B5D0DD4D1983798FA2303F029255D0E3A44869BA57D9E25DFD53C0699",
+  "frozen_spec": {
+    "adx_period": 14,
+    "atr_period": 14,
+    "confirmation_body_ratio": 0.6,
+    "confirmation_outer_fraction": 0.25,
+    "displacement_atr_multiple": 1.8,
+    "displacement_bars": 3,
+    "max_stop_pips": 12.0,
+    "min_adx": 25.0,
+    "min_stop_pips": 8.0,
+    "news_blackout_minutes": 30,
+    "pivot_strength": 2,
+    "retest_bars": 12,
+    "stop_buffer_pips": 1.5,
+    "sweep_lookback": 20
+  },
+  "funnel": {
+    "adx_rejections": 0,
+    "challenger_ready": 0,
+    "confirmed_retests": 0,
+    "context_aligned_bars": 383,
+    "control_ready": 0,
+    "displacement_fvg": 0,
+    "expiries": 132,
+    "first_overlap_touches": 0,
+    "invalidations": 251,
+    "m15_bars": 99467,
+    "news_rejections": 0,
+    "risk_geometry_rejections": 0,
+    "session_bars": 24901,
+    "sweeps": 383,
+    "valid_ob_fvg_overlap": 0
+  },
+  "gates": [
+    {
+      "actual": 0,
+      "gate": "pooled_minimum_count",
+      "status": "FAIL",
+      "threshold": 300
+    },
+    {
+      "actual": 0.0,
+      "gate": "pooled_cadence_floor",
+      "status": "FAIL",
+      "threshold": 2.0
+    },
+    {
+      "actual": 0.0,
+      "gate": "pooled_cadence_ceiling",
+      "status": "PASS",
+      "threshold": 5.0
+    },
+    {
+      "actual": 0,
+      "gate": "train_minimum_count",
+      "status": "FAIL",
+      "threshold": 100
+    },
+    {
+      "actual": 0.0,
+      "gate": "train_cadence_floor",
+      "status": "FAIL",
+      "threshold": 2.0
+    },
+    {
+      "actual": 0.0,
+      "gate": "train_cadence_ceiling",
+      "status": "PASS",
+      "threshold": 5.0
+    },
+    {
+      "actual": 0,
+      "gate": "validation_minimum_count",
+      "status": "FAIL",
+      "threshold": 100
+    },
+    {
+      "actual": 0.0,
+      "gate": "validation_cadence_floor",
+      "status": "FAIL",
+      "threshold": 2.0
+    },
+    {
+      "actual": 0.0,
+      "gate": "validation_cadence_ceiling",
+      "status": "PASS",
+      "threshold": 5.0
+    }
+  ],
+  "hypothesis_id": "HYP-LSS-OB-REPL-EURUSD-M15-001",
+  "input_identity": {
+    "engine_sha256": "3F183F3270D2F12201720A9F2CD433087A68C26C80CC6C494F73255C3CC384E7",
+    "m1_path": "02. AlphaFactory/data/fivepercent/EURUSD/EURUSD_M1_2015_now.parquet",
+    "m1_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+    "manifest_path": "02. AlphaFactory/data/fivepercent/EURUSD/manifest.json",
+    "manifest_sha256": "2CD996FD4416B1E888BF1C9D272BF49056DB3A4CE477CF74FA4E31D474A41B54",
+    "news_path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+    "news_sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307",
+    "ohlc_parity_status": "PASS_NATIVE_M1_UTC_REPLAY",
+    "parity_path": "03. EA Developer/EA_LSSOBPropScalper/research/evidence/HYP-LSS-OB-REPL-EURUSD-M15-001_NATIVE_MT5_PARITY.json",
+    "parity_sha256": "4E916DE8AE800262CFF9C98D0DF38030D786D7BE9B929BAFE6E34A5397054694",
+    "prereg_path": "03. EA Developer/EA_LSSOBPropScalper/research/HYP-LSS-OB-REPL-EURUSD-M15-001_PROBE_PLAN.md",
+    "prereg_sha256": "7F051DE01B89E6A41A01B0C7EC023ED7435AF74420EA2E6D89AB9348279C26BD",
+    "runner_sha256": "FF4A1BEAB07759E47A74FB961356DC5993CA7D848EDF8680835B106029B965D7"
+  },
+  "model0_authorized": false,
+  "outcomes_included": false,
+  "performance_metrics_authorized": false,
+  "promotion_eligible": false,
+  "resample": {
+    "bar_labels": "UTC_OPEN_LEFT_CLOSED",
+    "h1_bars": 24871,
+    "h4_bars": 6431,
+    "m15_bars": 99467,
+    "m15_partial_nonempty_bins": 709
+  },
+  "schema_version": "lss_ob_no_outcome_density_probe.v1",
+  "seal": {
+    "bars_loaded": 2977638,
+    "bars_loaded_in_frozen_window": 1490113,
+    "bars_path": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\fivepercent\\EURUSD\\EURUSD_M1_2015_now.parquet",
+    "bars_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+    "first_bar_loaded": "2019-01-03 00:00:00",
+    "holdout_bars_loaded": 0,
+    "holdout_start": "2023-01-01 00:00:00",
+    "last_bar_loaded": "2022-12-30 21:59:00",
+    "time_col": "time_utc"
+  },
+  "source_build_authorized": false,
+  "verdict": "TERMINAL_STOP_FIDELITY_CADENCE_NO_BUILD_NO_MODEL0"
+}

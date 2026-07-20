@@ -1,0 +1,89 @@
+{
+  "schema_version": "alphafactory.source_binary_receipt.v2",
+  "receipt_id": "RCP-ICT-FVG-TIME-WEIGHTED-LEVEL-RESILIENCE-20260719-028",
+  "created_utc": "2026-07-19T18:29:30Z",
+  "hypothesis_id": "HYP-ICT-FVG-TIME-WEIGHTED-LEVEL-RESILIENCE-COLLECT-EURUSD-M5-024",
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 94784,
+    "sha256": "3BC2130CE8F84AF44C6D3EFEC0639A7B461907A096A6AE90636479E6BB40E77B"
+  },
+  "parent_receipt": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_SOURCE_BINARY_RECEIPT_V27.json",
+    "bytes": 4699,
+    "sha256": "202B0C4100D89469BFB5CCBC3D587E5DF9D3E9BDDBE3176A72FD03B67754B66A",
+    "purpose": "terminal HYP-022 source, run and collection lineage"
+  },
+  "compile_dependencies": [
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/HumanContextEngine.mqh",
+      "bytes": 17904,
+      "sha256": "A24196DD908AD83BF9CE2047C3DCE810C57FDA56C861EB0F097D11600A0998F2"
+    },
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/NewsCalendar2019_2022.mqh",
+      "bytes": 10397,
+      "sha256": "29D0E757837A78346DF3D1990BDCAC3AEAA830D2B67922A968CE4F72D0E62427"
+    }
+  ],
+  "binary": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.ex5",
+    "bytes": 112780,
+    "sha256": "13BA2CAC4CAC55347BA5D646CF2A4FF4D60C6A1AF1F9BB76C0ADD85F02C78D44"
+  },
+  "compile_log": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.log",
+    "bytes": 6980,
+    "sha256": "146D275246C47B199CBDF1D43D9DAA5A0CAFD53A9D7CADF438887185C032A2B7",
+    "errors": 0,
+    "warnings": 0,
+    "result_line": "Result: 0 errors, 0 warnings, 924 ms elapsed, cpu='X64 Regular'"
+  },
+  "compile_command": "02. AlphaFactory/alpha.ps1 compile EA_ICTFVGReportFidelity",
+  "preregistration": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-TIME-WEIGHTED-LEVEL-RESILIENCE-COLLECT-EURUSD-M5-024_COLLECTION_PLAN.md",
+    "bytes": 8189,
+    "sha256": "6A80E4C97D19D901F6D96112114B0979F5065323E307D5907620FC77906E8269"
+  },
+  "logic_matrix": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-TIME-WEIGHTED-LEVEL-RESILIENCE-COLLECT-EURUSD-M5-024_LOGIC_TO_CODE_MATRIX.md",
+    "bytes": 1751,
+    "sha256": "9BBE43380CFC24A35101A6CEBEE559572EAC6B97467E37853570EEEC667847E8"
+  },
+  "preset": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/presets/EURUSD_M5_HYP024_TIME_RESILIENCE_COLLECT.set",
+    "bytes": 1008,
+    "sha256": "7192B0BC4963C8593B7F1C84D5D370EAC5EC45DEB28D7DBCAB4112649297A6BE"
+  },
+  "tick_coverage": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/HYP-ICT-FVG-TICK-INIT-COLLECT-EURUSD-M5-018_TICK_COVERAGE.json",
+    "bytes": 1075,
+    "sha256": "9A68530745B40F6B8E1AC4768F23FE6C052A2F99A5BC3654C4AF8A0E325191F6",
+    "monthly_files": 103,
+    "aggregate_sha256": "81A8A79671A4023BA904F825ED5EAEB77B1642BB65388A351C1899D90D13F508"
+  },
+  "nonrepaint_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_NONREPAINT_AUDIT_V22.json",
+    "bytes": 1455,
+    "sha256": "257BA151A1ACA674744D5ADA559F32DD3961B36A108F2B8E7644CB982D812C10",
+    "manifest_path": "03. EA Developer/EA_ICTFVGReportFidelity/NONREPAINT_AUDIT_MANIFEST_V22.json",
+    "manifest_bytes": 958,
+    "manifest_sha256": "603042D066DFCD54250F9D93C42F17741F2EA1A59485861388E867A32CA8B4D8",
+    "status": "PASS"
+  },
+  "authorized_run": {
+    "purpose": "one outcome-blind zero-trade Model-0 time-weighted level-resilience collection",
+    "window": "2018.01.01-2026.07.19",
+    "required_sidecars": [
+      "*_LifecycleTrades_*.csv",
+      "*_HumanContext_*.csv",
+      "*_TickInitiation_*.csv",
+      "*_LevelPath_*.csv",
+      "*_LevelResilience_*.csv",
+      "*_RunMeta_*.json"
+    ],
+    "performance_metrics_authorized": false
+  },
+  "status": "PASS_PRE_RUN_HYP024_SOURCE_BINARY_COMPILE_NONREPAINT_BOUND",
+  "promotion_eligible": false
+}

@@ -2,6 +2,12 @@
 
 - Workspace GOAL: `ACTIVE / UNMET`. A completed KLR implementation cycle is
   terminal failure evidence, not completion of `01. GOAL/GOAL.md`.
+- Latest experiment: HYP-017 Human Context natural policy is terminal
+  `KILL_AT_HYP017_MODEL0_NO_STABLE_EDGE`. Single authorized run
+  `20260719_215636` reconciled 3,703 trades: native PF 0.7553 and, after the
+  frozen additional 1.5-pip diagnostic, PF 0.3513 / -0.52139R with week-block
+  95% CI `[-0.55998,-0.48317]`. Both sessions, directions, context states and
+  all 2018-2026 years lose. No subgroup rescue, second run or live route.
 - Operator correction: the thread goal was incorrectly marked `complete` after
   925,764 tokens / 3,343 seconds while the Owner outcome and workspace GOAL were
   still unmet. That status is rejected; intermediate tests, artifacts and
@@ -12,18 +18,20 @@
   promotion evidence stack. Do not close the operator goal for a compile pass,
   one backtest, or a terminal strategy verdict.
 - Latest experiment: `GOAL-BLOCK-E003` completed the required third consecutive
-  live-state audit. `DATABENTO_API_KEY` is still absent, no independent Unicorn
-  human-label artifact exists, and the registry has zero open hypotheses
-  (canonical counts: run `04. Memory/research/validate_candidate_registry.py`;
-  do not hard-code counts in this ledger). AI calibration/context
-  files do not clear the human gate.
+  live-state audit. `DATABENTO_API_KEY` is still absent and the registry has
+  zero open hypotheses (canonical counts: run
+  `04. Memory/research/validate_candidate_registry.py`; do not hard-code counts
+  in this ledger).
 - Operator stop state:
   `BLOCKED_EXTERNAL_INPUT_AFTER_THREE_CONSECUTIVE_GOAL_TURNS`. The workspace
   GOAL remains UNMET and must not be marked complete. Resume the same full
   objective only after the Owner configures the Databento key locally and later
-  approves an explicit live USD ceiling, or supplies contract-compliant
-  independent human labels. Audit SHA256:
+  approves an explicit live USD ceiling, or supplies a materially new
+  information set. Audit SHA256:
   `4AE44E7D3C646E556191D415A8134BC4DBD51B62A18B5CC94990B5B24E58F17E`.
+- FVG comparison state: report fidelity `INFERIOR`; similar-EA and professional
+  performance `INSUFFICIENT_VERIFIED_DATA`. The old FVG hypothesis remains
+  terminal KILL and no economic rerun was authorized.
 - Delivery correction is outcome-led: continue the next safe source/compile/
   test/backtest-or-probe/analyze step without Owner micro-prompts. Status updates
   are informational, not approval gates; process changes are justified only by
@@ -132,9 +140,8 @@
   snapshot-bound non-repaint PASS, 132 OPEN/132 CLOSE and zero zero-risk
   rows. Protected C Common was metadata-identical before/after; zero files
   needed deletion. No live, promotion, rerun or subsequent RR/filter sweep.
-- Next economic action: none for the terminal Unicorn hypotheses. The only open
-  non-economic gate is independent outcome-blind review of the source-bound
-  V1.3 casebook plus a separately frozen agreement/outcome analysis plan.
+- Next economic action: none for the terminal Unicorn hypotheses. A future lane
+  requires a materially new causal mechanism and a fresh preregistration.
 - Fresh research closeout: the Owner-requested Grok 4.5 runner completed with
   exit 0, a non-empty response and `NO_LEGAL_CANDIDATE`; primary-source checks
   agreed that COT is too slow for M5 and relevant COMEX order-flow/depth is not
@@ -149,8 +156,7 @@
   compile 0 errors/0 warnings and exact-source non-repaint PASS at source SHA
   `DF86D6CDB00B28CBAFD7FC9540497C60EDE8CD922F9B54470BB8AAD14D11C166`.
   No Tester run, new trading hypothesis, live attach or performance claim was
-  created. Next legal gate is at least 100 sealed human labels plus a separate
-  pre-outcome analysis plan. A rejected direct-Python nonportable probe created
+  created. A rejected direct-Python nonportable probe created
   360,407,524 bytes on C; the traced run-owned profile was deleted, protected C
   Common remained metadata-identical and terminal count is zero.
 

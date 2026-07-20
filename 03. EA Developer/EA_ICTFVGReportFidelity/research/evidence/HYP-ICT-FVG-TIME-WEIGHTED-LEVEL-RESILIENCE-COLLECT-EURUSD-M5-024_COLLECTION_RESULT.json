@@ -1,0 +1,137 @@
+{
+  "allowed_inputs": [
+    "run manifest identity, history quality, tick count and sidecar seal",
+    "LevelResilience frozen columns",
+    "HumanContext decision_time, direction, valid and context_state",
+    "RunMeta identity and frozen counters",
+    "LifecycleTrades, TickInitiation and LevelPath row counts only",
+    "engineering receipt and pre-run tick coverage"
+  ],
+  "counts": {
+    "adverse_dominant_rows": 3,
+    "confirmation_rows": 6401,
+    "defined_rows": 6399,
+    "favorable_dominant_rows": 6396,
+    "level_path_data_rows": 0,
+    "lifecycle_data_rows": 0,
+    "tester_ticks": 206517809,
+    "tick_initiation_data_rows": 0
+  },
+  "defined_fraction": 0.9996875488204968,
+  "elapsed_calendar_weeks": 446.0,
+  "failed_gates": [
+    "label_density_and_coverage",
+    "materiality"
+  ],
+  "gates": {
+    "defined_fraction": {
+      "pass": true
+    },
+    "deterministic_replay": {
+      "pass": true
+    },
+    "engineering": {
+      "pass": true
+    },
+    "identity_and_reconciliation": {
+      "pass": true
+    },
+    "input_allowlist": {
+      "pass": true
+    },
+    "label_density_and_coverage": {
+      "pass": false
+    },
+    "materiality": {
+      "pass": false
+    },
+    "run_identity_and_real_ticks": {
+      "pass": true
+    },
+    "zero_trade": {
+      "pass": true
+    }
+  },
+  "hypothesis_id": "HYP-ICT-FVG-TIME-WEIGHTED-LEVEL-RESILIENCE-COLLECT-EURUSD-M5-024",
+  "label_coverage": {
+    "ADVERSE_DOMINANT": {
+      "cadence_per_week": 0.006726457399103139,
+      "directions": [
+        -1
+      ],
+      "sessions": [
+        "LONDON"
+      ],
+      "years": [
+        2020,
+        2021,
+        2023
+      ]
+    },
+    "FAVORABLE_DOMINANT": {
+      "cadence_per_week": 14.340807174887892,
+      "directions": [
+        -1,
+        1
+      ],
+      "sessions": [
+        "LONDON",
+        "NEW_YORK"
+      ],
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ]
+    }
+  },
+  "limitations": [
+    "Quote-mid dwell is a broker-feed path proxy, not signed transaction flow or depth.",
+    "Last-valid-side carry assigns sparse quote gaps to the prior side; gap telemetry is diagnostic only and cannot rescue the hypothesis.",
+    "This zero-trade collection does not estimate economic edge.",
+    "Historical cost provenance remains independently unresolved."
+  ],
+  "manifest_sha256": "B060751F6D833FCA949D9EFAF1D65509D00D658B9349E7737B7FFAA51A5ADD76",
+  "materiality_shares": {
+    "2018-2022": {
+      "adverse_dominant_rows": 2,
+      "adverse_dominant_share": 0.000534045393858478,
+      "defined_rows": 3745,
+      "favorable_dominant_rows": 3743,
+      "favorable_dominant_share": 0.9994659546061415
+    },
+    "2023-YTD": {
+      "adverse_dominant_rows": 1,
+      "adverse_dominant_share": 0.00037678975131876413,
+      "defined_rows": 2654,
+      "favorable_dominant_rows": 2653,
+      "favorable_dominant_share": 0.9996232102486813
+    },
+    "pooled": {
+      "adverse_dominant_rows": 3,
+      "adverse_dominant_share": 0.00046882325363338024,
+      "defined_rows": 6399,
+      "favorable_dominant_rows": 6396,
+      "favorable_dominant_share": 0.9995311767463666
+    }
+  },
+  "parser_seed": 5600724,
+  "run_id": "20260720_013805",
+  "schema_version": "alphafactory_hyp024_collection_result.v1",
+  "sidecar_sha256": {
+    "EURUSD_HumanContext_HYP-ICT-FVG-TIME-WEIGHTED-LEVEL-RESILIENCE-COLLECT-EURUSD-M5-024_19932265.csv": "2E2EC88DB832F9756A37BB23AFB3C1C4A3979E279A6FDA5579204767AA9CEA7D",
+    "EURUSD_LevelPath_HYP-ICT-FVG-TIME-WEIGHTED-LEVEL-RESILIENCE-COLLECT-EURUSD-M5-024_19932265.csv": "4F7BD5A0E527ABEEF1E37CD7F64E0A97B830D71C3EB44B2953A60D429556D52B",
+    "EURUSD_LevelResilience_HYP-ICT-FVG-TIME-WEIGHTED-LEVEL-RESILIENCE-COLLECT-EURUSD-M5-024_19932265.csv": "CD36EE1DC1EBE6D2F778E9AC63F99A399F8F0535194525021B0C27772C27A655",
+    "EURUSD_LifecycleTrades_HYP-ICT-FVG-TIME-WEIGHTED-LEVEL-RESILIENCE-COLLECT-EURUSD-M5-024_19932265.csv": "5B0F7F5CF31C27B6705B1A149C9842D9063179B594971AC0101213DC7FB7739F",
+    "EURUSD_RunMeta_HYP-ICT-FVG-TIME-WEIGHTED-LEVEL-RESILIENCE-COLLECT-EURUSD-M5-024_19932265.json": "820875E9626C5C61A9DFF662E0129682158CD3C3F66B67614049B91D40D16126",
+    "EURUSD_TickInitiation_HYP-ICT-FVG-TIME-WEIGHTED-LEVEL-RESILIENCE-COLLECT-EURUSD-M5-024_19932265.csv": "718BB19E317EC840FD1C0311418DB1D47308A023D939B60B3FD540ABFFB1BCBA"
+  },
+  "source_sha256": "3BC2130CE8F84AF44C6D3EFEC0639A7B461907A096A6AE90636479E6BB40E77B",
+  "verdict": "KILL_AT_HYP024_COLLECTION_DATA_DENSITY_OR_REDUNDANCY"
+}

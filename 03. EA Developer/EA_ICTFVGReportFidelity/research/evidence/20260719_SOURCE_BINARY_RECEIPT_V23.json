@@ -1,0 +1,113 @@
+{
+  "schema_version": "alphafactory.source_binary_receipt.v2",
+  "receipt_id": "RCP-ICT-FVG-HUMAN-CONTEXT-POLICY-20260719-023",
+  "created_utc": "2026-07-19T15:12:00Z",
+  "hypothesis_id": "HYP-ICT-FVG-HUMAN-CONTEXT-POLICY-EURUSD-M5-017",
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 69051,
+    "sha256": "FF02340C65CBB0E36B1794CB8263023FDD9B7F9218492E749F1F8875C826A5C6"
+  },
+  "parent_receipt": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_SOURCE_BINARY_RECEIPT_V22.json",
+    "bytes": 3253,
+    "sha256": "BB99254CB7B6684D423AA098C3205BDB11FEF4A137F14B595ECEA419DC2541E6",
+    "purpose": "pre-run compile identity"
+  },
+  "compile_dependencies": [
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/HumanContextEngine.mqh",
+      "bytes": 17904,
+      "sha256": "A24196DD908AD83BF9CE2047C3DCE810C57FDA56C861EB0F097D11600A0998F2"
+    },
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/NewsCalendar2019_2022.mqh",
+      "bytes": 10397,
+      "sha256": "29D0E757837A78346DF3D1990BDCAC3AEAA830D2B67922A968CE4F72D0E62427"
+    }
+  ],
+  "binary": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.ex5",
+    "bytes": 96656,
+    "sha256": "0DB0604E85FE11C447B34EB616F9797D00764DB75697F7C8C4F2B0BBDE74EFED"
+  },
+  "compile_log": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.log",
+    "bytes": 6982,
+    "sha256": "BC4F90CDED9DEF2C5CDDE0D84F9B904BF3F9009397C96357722E5D01090B6590",
+    "errors": 0,
+    "warnings": 0,
+    "result_line": "Result: 0 errors, 0 warnings, 1225 ms elapsed, cpu='X64 Regular'"
+  },
+  "compile_command": "AlphaFactory receipt-bound compile embedded in run 20260719_215636",
+  "preregistration": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-HUMAN-CONTEXT-POLICY-EURUSD-M5-017_MODEL0_PLAN.md",
+    "bytes": 5158,
+    "sha256": "0FF4BABC96257BAC7B70F2A017320832F25CC53546868946F7F3E235B8392FF2"
+  },
+  "preset": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/presets/EURUSD_M5_HYP017_HUMAN_CONTEXT_POLICY.set",
+    "bytes": 1007,
+    "sha256": "AA97D48D9999EF6303B8E9849BEF87FDAA399BCAF4A106E4574073BBEBF74EEC"
+  },
+  "nonrepaint_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_NONREPAINT_AUDIT_V19",
+    "bytes": 1427,
+    "sha256": "08C4E0398A6F68B1FD45E7CA55D2A45E910C89033EF66962E79303A35F858C7D",
+    "manifest_path": "03. EA Developer/EA_ICTFVGReportFidelity/NONREPAINT_AUDIT_MANIFEST_V19.json",
+    "manifest_bytes": 930,
+    "manifest_sha256": "AEB0B9C877E350863EDFD38253112D066EF121140E2707569A1EEF04182E2080",
+    "status": "PASS"
+  },
+  "economic_run_bindings": [
+    {
+      "run_id": "20260719_215636",
+      "run_manifest": {
+        "path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_215636/run_manifest.json",
+        "bytes": 47960,
+        "sha256": "DF246FDC501AEFD5B734723438AC96F23696B9E01BE900C4CA798BCA9193A20C"
+      },
+      "report": {
+        "path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_215636/report.html",
+        "bytes": 7718510,
+        "sha256": "2CAD465DF9B38ABD93CED95EDF2B7312825340C53716BF2653DB46E7A20F2C29"
+      },
+      "enhanced_summary": {
+        "path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_215636/analysis/enhanced_summary.json",
+        "bytes": 564,
+        "sha256": "05F18C31667DBE4F29FBC5A9705A4B7128F13AFC6791CB2FF69543CEEF3B6D4A"
+      },
+      "human_context": {
+        "path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_215636/analysis/logs/EURUSD_HumanContext_HYP-ICT-FVG-HUMAN-CONTEXT-POLICY-EURUSD-M5-017_6646359.csv",
+        "bytes": 12471967,
+        "sha256": "461C97C0D5F56F506AC864CD5FB2D55AC8B5BE4F8EF1E50B81B9AF0C1475A4B7"
+      },
+      "lifecycle_trades": {
+        "path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_215636/analysis/logs/EURUSD_LifecycleTrades_HYP-ICT-FVG-HUMAN-CONTEXT-POLICY-EURUSD-M5-017_6646359.csv",
+        "bytes": 1100244,
+        "sha256": "BEFD5810BCFBF8BE1310FE1721D995872E398DC01AAB037B3998AF09E0D9E24C"
+      },
+      "run_meta": {
+        "path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_215636/analysis/logs/EURUSD_RunMeta_HYP-ICT-FVG-HUMAN-CONTEXT-POLICY-EURUSD-M5-017_6646359.json",
+        "bytes": 1570,
+        "sha256": "623900BDB1FAE01C90D550347735557289FC47FDDAD00B068849764E9DBBA090"
+      }
+    }
+  ],
+  "economic_result": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/HYP-ICT-FVG-HUMAN-CONTEXT-POLICY-EURUSD-M5-017_MODEL0_RESULT.json",
+    "bytes": 8247,
+    "sha256": "D011DBCE0A85F8341AFC323EF5F16DFB04E7FB0B4D5564C5B6317DDA9D5627BD",
+    "canonical_result_sha256": "DAF6D51EA1AE51925E3E55A8F0B34CFB2BA17E08241C8F5CC02A876E4EC52C5E",
+    "verdict": "KILL_AT_HYP017_MODEL0_NO_STABLE_EDGE"
+  },
+  "casebook": {
+    "manifest_path": "02. AlphaFactory/runtime/ictfvg_hyp017_casebook/charts/cases_manifest.json",
+    "manifest_bytes": 10045,
+    "manifest_sha256": "92FF8F7FF37570E7BE897A44F1EAB99DB8D93F8F0BDA3F16A479BE1B4E4B3E97",
+    "scope": "post-outcome anatomy only; no rule or rerun authority"
+  },
+  "status": "PASS_TERMINAL_HYP017_RUN_BOUND",
+  "terminal_verdict": "KILL_AT_HYP017_MODEL0_NO_STABLE_EDGE",
+  "promotion_eligible": false
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "alphafactory.source_binary_receipt.v2",
+  "receipt_id": "RCP-LSSOB-MT5-20260718-003",
+  "created_utc": "2026-07-18T17:14:00Z",
+  "hypothesis_id": "HYP-LSS-OB-REPL-MT5-EURUSD-M15-002",
+  "source": {
+    "path": "03. EA Developer/EA_LSSOBPropScalper/EA_LSSOBPropScalper.mq5",
+    "bytes": 50080,
+    "sha256": "445DE0C03AD785A31C4EE06FFA17FD36D89B7513F34160CBF78C42CDD5AFB68C"
+  },
+  "compile_dependencies": [
+    {
+      "path": "03. EA Developer/EA_LSSOBPropScalper/NewsCalendar2019_2022.mqh",
+      "bytes": 15077,
+      "sha256": "248D569B981564AC0B179588C4919CD6CC196A9E7B008939A9CCDB3446F4678C"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+      "bytes": 294809,
+      "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307"
+    }
+  ],
+  "binary": {
+    "path": "03. EA Developer/EA_LSSOBPropScalper/EA_LSSOBPropScalper.ex5",
+    "bytes": 75640,
+    "sha256": "FE8D78914B151AD5F6ACD8BF55D319B6C4F1C0460411037D88875B49CCC8AA50"
+  },
+  "compile_log": {
+    "path": "03. EA Developer/EA_LSSOBPropScalper/EA_LSSOBPropScalper.log",
+    "bytes": 6518,
+    "sha256": "4CE01D7D6B5EFB79A13F4307376FE53F94248111CFDB281B15A8F623E26B583D",
+    "errors": 0,
+    "warnings": 0,
+    "result_line": "Result: 0 errors, 0 warnings, 680 ms elapsed, cpu='X64 Regular'"
+  },
+  "executed_snapshot": {
+    "run_id": "20260719_001306",
+    "source_path": "02. AlphaFactory/runs/EA_LSSOBPropScalper/20260719_001306/snapshot/source/EA_LSSOBPropScalper.mq5",
+    "source_sha256": "445DE0C03AD785A31C4EE06FFA17FD36D89B7513F34160CBF78C42CDD5AFB68C",
+    "binary_path": "02. AlphaFactory/runs/EA_LSSOBPropScalper/20260719_001306/snapshot/build/EA_LSSOBPropScalper.ex5",
+    "binary_sha256": "FE8D78914B151AD5F6ACD8BF55D319B6C4F1C0460411037D88875B49CCC8AA50"
+  },
+  "preregistration": {
+    "path": "03. EA Developer/EA_LSSOBPropScalper/research/HYP-LSS-OB-REPL-MT5-EURUSD-M15-002_MT5_PLAN.md",
+    "bytes": 4055,
+    "sha256": "0514AAF3D99EECFDF849A6814D18A39A901E32F62CC2A5D276B14D11FAE27ED0"
+  },
+  "contract_tests": {
+    "command": "python -m pytest 03. EA Developer/EA_LSSOBPropScalper/tests -q",
+    "result": "20/20 PASS"
+  },
+  "nonrepaint_audit": {
+    "path": "03. EA Developer/EA_LSSOBPropScalper/research/evidence/20260718_NONREPAINT_AUDIT_V2/nonrepaint_audit.json",
+    "sha256": "934E548D8E9F79DB06D47D023A1F8D7119DE0A7680962B66C8AD724FE208510F",
+    "status": "PASS"
+  },
+  "execution_boundary": {
+    "strategy_tester_only": true,
+    "promotion_eligible": false,
+    "cost_status": "FAIL_SPREAD_COST_PROVENANCE_DIAGNOSTIC_ONLY",
+    "live_authorized": false
+  },
+  "status": "PASS_DIAGNOSTIC_ONLY"
+}

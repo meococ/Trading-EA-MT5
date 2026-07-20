@@ -46,7 +46,7 @@ KILL; không được dùng hardening kỹ thuật để tuyên bố edge đã h
 - Bounded reject-reason summary thay cho log từng bar.
 - Lifecycle telemetry profile `lifecycle-v3`, mặc định tắt trong alert-only để
   không sinh log giao dịch rỗng; không dùng `FILE_COMMON`.
-- `ALERT_FIRST_CASEBOOK_V1` ghi context pre-outcome và cột nhãn trống, không ghi
+- `ALERT_FIRST_CASEBOOK_V1` ghi context pre-outcome, không ghi
   PnL/MFE/MAE/forward return và không thay đổi signal.
 - Casebook có metadata riêng để khóa source-contract, run id, broker/server,
   terminal data path, UTC offset và toàn bộ input detector; sweep age dùng cùng
@@ -60,8 +60,8 @@ KILL; không được dùng hardening kỹ thuật để tuyên bố edge đã h
   khi cả hai override nghiên cứu bật; quét position/order/history lỗi thì
   fail-closed; deviation dùng slippage budget; risk tiền được đối chiếu ngay
   theo fill thật và đóng ngay nếu vượt budget.
-- Casebook V1.3 ghi exact source SHA256 ở metadata và từng row, bổ sung cột
-  nhãn trống `label_true_breaker_valid`; không thay detector hay thêm outcome.
+- Casebook V1.3 ghi exact source SHA256 ở metadata và từng row; không thay
+  detector hay thêm outcome.
 
 ## Alert-first collection status
 
@@ -69,9 +69,8 @@ The authoritative D-portable, zero-trade collection is V1.3 under
 `DATA-ACQ-UNICORN-CASEBOOK-V1-002`. AlphaFactory run `20260716_155111`
 harvested 200 unique detector rows, zero prefilled labels and zero Strategy
 Tester trades while every protected C-drive inventory remained identical.
-V1.2 run `20260716_153059` is preserved but diagnostic-only for labeling
-because it did not bind source SHA in row/meta and lacked the breaker label.
-Independent labels and a separately sealed analysis plan are still required.
+V1.2 run `20260716_153059` is preserved as diagnostic-only because it did not
+bind source SHA in row/meta. Neither collection is an active research gate.
 See `research/20260716_ALERT_FIRST_CASEBOOK_V123_COLLECTION_READOUT.md`.
 
 ## Evidence
@@ -105,7 +104,6 @@ See `research/20260716_ALERT_FIRST_CASEBOOK_V123_COLLECTION_READOUT.md`.
 - Không có historical news source hash-bound hay live fill-cost provenance.
 - Candidate kinh tế tiếp theo phải có hypothesis và causal mechanism mới; compile
   xanh không đồng nghĩa deploy-ready.
-- Không đọc outcome của casebook trước khi đủ mẫu và khóa analysis plan; nhãn
-  không phải quyền chỉnh threshold hậu nghiệm.
+- Không dùng collection này để chỉnh threshold hậu nghiệm hoặc mở lại family.
 - Model-0 cũ chỉ falsify proxy đã code, không falsify đầy đủ memo discretionary;
   đồng thời không được dùng kết luận này để tự ý thêm MSS/retest rồi chạy lại.

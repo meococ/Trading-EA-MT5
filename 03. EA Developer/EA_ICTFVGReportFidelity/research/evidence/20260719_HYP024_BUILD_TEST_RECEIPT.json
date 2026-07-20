@@ -1,0 +1,31 @@
+{
+  "schema_version": "alphafactory_test_receipt.v1",
+  "created_at_utc": "2026-07-19T18:31:00Z",
+  "hypothesis_id": "HYP-ICT-FVG-TIME-WEIGHTED-LEVEL-RESILIENCE-COLLECT-EURUSD-M5-024",
+  "source_sha256": "3BC2130CE8F84AF44C6D3EFEC0639A7B461907A096A6AE90636479E6BB40E77B",
+  "command": "python -m pytest 03. EA Developer/EA_ICTFVGReportFidelity/tests -q",
+  "tests_passed": 91,
+  "tests_failed": 0,
+  "red_first": {
+    "observed": true,
+    "initial_result": "5 mathematical/reference tests passed and 7 source-specific tests failed on parent v1.25",
+    "final_contract_result": "12 passed",
+    "final_package_result": "91 passed"
+  },
+  "compile": {
+    "errors": 0,
+    "warnings": 0,
+    "ex5_bytes": 112780,
+    "ex5_sha256": "13BA2CAC4CAC55347BA5D646CF2A4FF4D60C6A1AF1F9BB76C0ADD85F02C78D44"
+  },
+  "nonrepaint": {
+    "status": "PASS",
+    "audit_sha256": "257BA151A1ACA674744D5ADA559F32DD3961B36A108F2B8E7644CB982D812C10"
+  },
+  "source_binary_receipt": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_SOURCE_BINARY_RECEIPT_V28.json",
+    "bytes": 4002,
+    "sha256": "F969A70AACFBE30AC5A7FA2C461F6654603228B21E999DE1331CBA9E097A9E15"
+  },
+  "verdict": "PASS_PRE_RUN_BUILD_ENGINEERING_ONLY"
+}

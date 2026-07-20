@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    AlphaFactory v4.2 - Centralized EA Development CLI
+    AlphaFactory v4.3 - Centralized EA Development CLI
 .DESCRIPTION
     Complete toolchain for MT5 EA development:
     - Compile, Backtest, Analyze EAs
@@ -20,13 +20,14 @@
 
 param(
     [Parameter(Position=0)]
-    [ValidateSet("compile", "backtest", "analyze", "list", "status", "report", "git", "scan", "monte", "wfa", "help", "validate", "validate-full", "log", "robust", "param", "mt5data", "sensitivity")]
+    [ValidateSet("compile", "backtest", "analyze", "list", "status", "report", "git", "scan", "monte", "wfa", "help", "validate", "validate-full", "delivery", "log", "robust", "param", "mt5data", "sensitivity")]
     [string]$Action = "status",
     
     [Parameter(Position=1)]
     [string]$Name = "",
     
     [string]$Report = "",
+    [string]$Packet = "",
     [string]$Symbol = "XAUUSD",
     [string]$Period = "M15",
     [string]$From = "2020.01.01",
@@ -1712,7 +1713,7 @@ function Show-Status {
 }
 
 # Main
-Write-Host "`n  ALPHAFACTORY v4.2`n" -ForegroundColor Cyan
+Write-Host "`n  ALPHAFACTORY v4.3`n" -ForegroundColor Cyan
 
 switch ($Action.ToLower()) {
     "status" { Show-Status }
@@ -1905,6 +1906,22 @@ switch ($Action.ToLower()) {
             throw "Unified validation failed with exit code $validationExitCode."
         }
     }
+    "delivery" {
+        if ([string]::IsNullOrWhiteSpace($Packet)) {
+            throw "EA delivery packet required. Use: .\alpha.ps1 delivery -Packet '<EA_DELIVERY_PACKET.json>'"
+        }
+        $validator = Join-Path $AlphaRoot "tools\validate_ea_delivery_packet.py"
+        if (-not (Test-Path -LiteralPath $validator -PathType Leaf)) {
+            throw "EA delivery validator not found: $validator"
+        }
+        $resolvedPacket = (Resolve-Path -LiteralPath $Packet).Path
+        $global:LASTEXITCODE = 0
+        & python $validator --packet $resolvedPacket
+        $deliveryExitCode = $LASTEXITCODE
+        if ($deliveryExitCode -ne 0) {
+            throw "EA delivery validation failed with exit code $deliveryExitCode."
+        }
+    }
     "validate" {
         Write-Status "Validating Python environment..."
         $required = @("numpy", "pandas", "matplotlib")
@@ -1928,7 +1945,7 @@ switch ($Action.ToLower()) {
         Write-Host @"
 
   ╔═══════════════════════════════════════════════════════════════╗
-  ║          ALPHAFACTORY v4.2 - EA DEVELOPMENT CLI              ║
+  ║          ALPHAFACTORY v4.3 - EA DEVELOPMENT CLI              ║
   ╚═══════════════════════════════════════════════════════════════╝
 
   CORE COMMANDS:
@@ -1942,6 +1959,7 @@ switch ($Action.ToLower()) {
   ─────────────────────────────────────────────────────────────────
   analyze -Report "path"    Full analysis of backtest report
   validate-full -Report "p" ALL gates parallel (analyze+equity+MC+WFA+robust)
+  delivery -Packet "p"     Fail-closed logic/run/log/chart completion gate
   scan                      Quick VectorBT strategy scan (all)
   scan "sma"               Scan specific strategy (sma/ema/rsi/macd)
   monte -Report "path"      Monte Carlo simulation (1000 runs)
@@ -1965,12 +1983,14 @@ switch ($Action.ToLower()) {
   -To         Backtest end date (default: 2025.12.25)
   -Charts     Generate visual charts
   -Report     Path to HTML report file
+  -Packet     Hash-bound EA development delivery packet
 
   EXAMPLES:
   ─────────────────────────────────────────────────────────────────
   .\alpha.ps1 compile "EA_SMC_Confluence"
   .\alpha.ps1 backtest "EA_SMC_Confluence" -Symbol XAUUSD -Period M15
   .\alpha.ps1 analyze -Report "runs/test/report.html" -Charts
+  .\alpha.ps1 delivery -Packet "03. EA Developer/EA_Name/research/EA_DELIVERY_PACKET.json"
   .\alpha.ps1 monte -Report "report.html"
   .\alpha.ps1 wfa -Report "report.html"
 

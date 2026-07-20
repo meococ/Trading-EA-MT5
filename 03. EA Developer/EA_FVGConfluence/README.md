@@ -79,8 +79,13 @@ powershell -NoProfile -ExecutionPolicy Bypass -File "02. AlphaFactory/alpha.ps1"
 Use `02. AlphaFactory/tools/ea_research_loop.ps1` only after the generic
 registry/prereg/capability/cost gates in `05. Playbook/ea_golden_path.md` clear.
 
-Current verification: AlphaFactory compile `0 errors / 0 warnings`, EX5 66,660
+Current verification: AlphaFactory compile `0 errors / 0 warnings`, EX5 66,836
 bytes; source non-repaint `PASS_ENGINEERING_ONLY`. Research verdict remains
 terminal; see
 `research/HYP-FVG-SCALP-CONFL-M5-EUR-001_DEDUP_READOUT.md`. Do not backtest or
 tune this hypothesis.
+
+Read-only comparison study:
+`research/comparison_202607/COMPARATIVE_READOUT.md`. It finds report fidelity
+`INFERIOR`, similar-EA performance and professional comparison
+`INSUFFICIENT_VERIFIED_DATA`. The study does not reopen the killed hypothesis.

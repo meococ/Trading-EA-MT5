@@ -1,0 +1,33 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-ICT-FVG-PIVOT-RECLAIM-DWELL-COLLECT-EURUSD-M5-026",
+  "run_id": "STATIC-ICTFVG-PIVOT-RECLAIM-DWELL-V23-20260719",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\NONREPAINT_AUDIT_MANIFEST_V23.json",
+  "manifest_sha256": "93CC2A5075C5E69DD246F6DF991AB91395BAB7CE2EC3C1481F0A80519695573B",
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\EA_ICTFVGReportFidelity.mq5",
+      "sha256": "227A52E93713731EF639D9484DABC89B85006660F436C0F232117C60F1528127"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\HumanContextEngine.mqh",
+      "sha256": "A24196DD908AD83BF9CE2047C3DCE810C57FDA56C861EB0F097D11600A0998F2"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\NewsCalendar2019_2022.mqh",
+      "sha256": "29D0E757837A78346DF3D1990BDCAC3AEAA830D2B67922A968CE4F72D0E62427"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\EA_ICTFVGReportFidelity.mq5",
+      "line": 2609,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "generated_at_utc": "2026-07-19T19:04:33.156442+00:00"
+}

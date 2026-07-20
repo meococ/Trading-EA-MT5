@@ -1,0 +1,35 @@
+{
+  "schema_version": "alphafactory.nonrepaint_audit.v1",
+  "audit_id": "NRA-ICT-FVG-FID-20260718-001",
+  "created_utc": "2026-07-18T14:16:00Z",
+  "hypothesis_id": "HYP-ICT-FVG-FID-EURUSD-M5-001",
+  "source_path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+  "source_sha256": "FB3FEE4846B4280E76C6FA98E3F80B09077BEB74D7581EDB7E3AF23B1E93EAEF",
+  "status": "PASS_ENGINEERING_ONLY",
+  "decision_clock": {
+    "timeframe": "M5",
+    "new_bar_clock": "iTime(_Symbol, PERIOD_M5, 0)",
+    "bar_zero_role": "clock_only",
+    "signal_data": "CopyRates(_Symbol, PERIOD_M5, 1, requested, bars)"
+  },
+  "closed_bar_accesses": [
+    "line 530: CopyRates M15 start_pos=1",
+    "line 553: CopyBuffer ADX buffer=0 start_pos=1 count=1",
+    "line 563: CopyBuffer ATR buffer=0 start_pos=1 count=1",
+    "line 755: CopyRates M15 start_pos=1 count=1",
+    "line 844: CopyRates M5 start_pos=1"
+  ],
+  "future_bar_scan": {
+    "copyrates_start_pos_zero": 0,
+    "direct_ohlc_shift_zero": 0,
+    "negative_shift_or_future_index": 0
+  },
+  "mtf_alignment": {
+    "status": "PASS",
+    "rule": "M15 break may advance only after the copied closed M15 bar close time is later than the M5 displacement time"
+  },
+  "limitations": [
+    "This is a static engineering audit, not proof of economic edge.",
+    "Historical news guard remains UNMET and promotion_eligible stays false."
+  ]
+}

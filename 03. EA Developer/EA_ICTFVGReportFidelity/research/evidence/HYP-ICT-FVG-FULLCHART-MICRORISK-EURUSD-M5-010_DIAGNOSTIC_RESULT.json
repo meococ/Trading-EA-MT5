@@ -1,0 +1,112 @@
+{
+  "schema_version": "alphafactory_diagnostic_result.v1",
+  "hypothesis_id": "HYP-ICT-FVG-FULLCHART-MICRORISK-EURUSD-M5-010",
+  "parent_hypothesis_id": "HYP-ICT-FVG-FULLCHART-NODD-EURUSD-M5-009",
+  "verdict": "DIAGNOSTIC_COMPLETE_FULL_CHART_PARENT_KILL_CONFIRMED",
+  "scope": {
+    "object": "high-recall sweep/reclaim control",
+    "not_tested_object": "full report-fidelity challenger, which remains pre-execution zero-trade",
+    "symbol": "EURUSD",
+    "timeframe": "M5",
+    "from": "2019.01.01",
+    "to": "2022.12.31",
+    "model": 0,
+    "deposit": 100000,
+    "leverage": 100,
+    "risk_percent": 0.01,
+    "max_account_drawdown_pct": 100.0,
+    "diagnostic_only": true,
+    "promotion_eligible": false,
+    "holdout_bars_loaded": 0
+  },
+  "source_binding": {
+    "source_sha256": "E41BEBC01276BFFE6E844563272AAD08A38BD05AB0674939E4D5D42C84412C2F",
+    "parent_source_sha256": "7F5AD64F2C622B0426BA475B855257AAB560026C2882C1D45D7C6826DAF33EAE",
+    "source_delta": "version and embedded HYP-010 identity only",
+    "preset_path": "03. EA Developer/EA_ICTFVGReportFidelity/presets/EURUSD_M5_CONTROL_FULLCHART_MICRORISK.set",
+    "preset_sha256": "DD00FEBEC100D40B3B148A2AB4804A7696700B3A95F1FA46EE6587DF92E7CCAC",
+    "preset_delta_from_hyp008_control": [
+      "InpRiskPercent: 0.25 -> 0.01",
+      "InpMaxAccountDrawdownPct: 8.00 -> 100.00"
+    ]
+  },
+  "run": {
+    "run_id": "20260719_133139",
+    "manifest_path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_133139/run_manifest.json",
+    "manifest_sha256": "8323188DAE0878E4B60A23287933CE51C0AE1D6CAC1B8E3170C88D5004D766EA",
+    "report_path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_133139/report.html",
+    "report_sha256": "39D22F9F73060CDC64F2084A16D9BC12B567529805026BF6A12CBD912EE09CEC",
+    "execution_receipt_sha256": "04664B14FB8E048EA1C1B51A0E642C659C25572D92CF75F35F17AE42836E2740",
+    "run_ex5_sha256": "DB3AC3C8C05508193C2839A2F325593322EBB9BB00839700B487BB152D66685C",
+    "history_quality": "100%",
+    "bars": 298483,
+    "ticks": 79486116,
+    "days_seen": 1248,
+    "tester_stop_out": false,
+    "manifest_hypothesis_id": "HYP-ICT-FVG-FULLCHART-MICRORISK-EURUSD-M5-010",
+    "runmeta_hypothesis_id": "HYP-ICT-FVG-FULLCHART-MICRORISK-EURUSD-M5-010"
+  },
+  "lifecycle": {
+    "path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_133139/logs/EURUSD_LifecycleTrades_HYP-ICT-FVG-FULLCHART-MICRORISK-EURUSD-M5-010_87527171.csv",
+    "sha256": "C08F2C95C990E21188E2497B02A2B783A5B0893B279CE453F0551B5FF4C6C1EF",
+    "data_rows": 4140,
+    "positions": 2070,
+    "open_rows": 2070,
+    "final_close_rows": 2070,
+    "exactly_one_open_and_final_close_per_position": true,
+    "lifecycle_net": -2752.44,
+    "report_net": -2752.44,
+    "first_entry": "2019.01.02 09:20:00",
+    "last_entry": "2022.12.30 09:35:00"
+  },
+  "runmeta": {
+    "path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_133139/logs/EURUSD_RunMeta_HYP-ICT-FVG-FULLCHART-MICRORISK-EURUSD-M5-010_87527171.json",
+    "sha256": "D9B4496710385CD7FE58063EF213E21E06320D382617561B5F9D35484B1E0609",
+    "sweeps": 12340,
+    "news_rejections": 698,
+    "session_rejections": 283,
+    "prop_rejections": 8577,
+    "exposure_rejections": 698,
+    "spread_rejections": 11,
+    "risk_rejections": 3,
+    "entries_attempted": 2070,
+    "entries_opened": 2070,
+    "ordercheck_zero_successes": 2070,
+    "top_level_reconciliation": "12340 = 698 + 283 + 8577 + 698 + 11 + 3 + 2070",
+    "granular_risk_rejections": {
+      "stop_direction": 1,
+      "ordercheck": 2
+    }
+  },
+  "performance": {
+    "trades": 2070,
+    "elapsed_calendar_weeks": 208.57142857142858,
+    "trades_per_elapsed_week": 9.9246575342,
+    "net_profit_micro_risk_usd": -2752.44,
+    "profit_factor": 0.7625411625858515,
+    "win_rate_pct": 46.61835748792271,
+    "max_drawdown_pct_micro_risk": 2.848895145536778,
+    "expectancy_usd_per_trade_micro_risk": -1.32968115942029,
+    "expectancy_r_per_trade": -0.1347695827,
+    "years": {
+      "2019": {"trades": 517, "net_usd": -1331.37, "profit_factor": 0.5853359994, "win_rate_pct": 42.5531914894, "expectancy_r": -0.2591878096},
+      "2020": {"trades": 517, "net_usd": -448.26, "profit_factor": 0.8398402189, "win_rate_pct": 47.9690522244, "expectancy_r": -0.0880102549},
+      "2021": {"trades": 520, "net_usd": -873.88, "profit_factor": 0.7089210948, "win_rate_pct": 45.3846153846, "expectancy_r": -0.1718016490},
+      "2022": {"trades": 516, "net_usd": -98.93, "profit_factor": 0.9616471601, "win_rate_pct": 50.5813953488, "expectancy_r": -0.0196410453}
+    }
+  },
+  "charts": {
+    "performance_chart_path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_133139/analysis/analysis_charts.png",
+    "performance_chart_sha256": "1EF20E3C3DBB52E2119B6110B1D4BBAC7680E0CD379FD4214C3F1B5FF5638D97",
+    "hour_chart_path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_133139/analysis/hour_analysis.png",
+    "hour_chart_sha256": "5F0B9F50881C503C9FC3A3BFF6DF48F394C217B0867614755480362D43FC4D41"
+  },
+  "decision": {
+    "full_chart_completed": true,
+    "parent_hyp008_kill_reopened": false,
+    "reason": "The high-recall control is negative overall and in every calendar year at 9.925 trades per elapsed week. The report-fidelity challenger remains zero-trade before execution. Micro-risk and missing historical execution-cost provenance forbid economic promotion.",
+    "cost_status": "FAIL_HISTORICAL_EXECUTION_PROVENANCE_DIAGNOSTIC_ONLY",
+    "wfa_monte_carlo_required": false,
+    "live_or_paper_authorized": false
+  }
+}

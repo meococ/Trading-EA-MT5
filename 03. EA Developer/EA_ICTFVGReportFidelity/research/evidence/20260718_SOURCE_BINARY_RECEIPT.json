@@ -1,0 +1,30 @@
+{
+  "schema_version": "alphafactory.source_binary_receipt.v1",
+  "receipt_id": "RCP-ICT-FVG-FID-20260718-001",
+  "created_utc": "2026-07-18T14:15:10Z",
+  "hypothesis_id": "HYP-ICT-FVG-FID-EURUSD-M5-001",
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 39084,
+    "sha256": "FB3FEE4846B4280E76C6FA98E3F80B09077BEB74D7581EDB7E3AF23B1E93EAEF"
+  },
+  "binary": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.ex5",
+    "bytes": 63628,
+    "sha256": "36997A9F0F7AB6EB48714C160A54E1ED7D249B056499FC746A1023791815A444"
+  },
+  "compile_log": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.log",
+    "bytes": 6194,
+    "sha256": "8448751B6138BC86048E79C531BC2B4671446F58ADC1C75C5AAD309FB90B9148",
+    "errors": 0,
+    "warnings": 0,
+    "result_line": "Result: 0 errors, 0 warnings, 906 ms elapsed, cpu='X64 Regular'"
+  },
+  "compile_command": "powershell -NoProfile -ExecutionPolicy Bypass -File 02. AlphaFactory/alpha.ps1 compile EA_ICTFVGReportFidelity",
+  "preregistration": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FID-EURUSD-M5-001_PROBE_PLAN.md",
+    "sha256": "EC8A89D5E9EB45504A716B1DA920FED43498F0AEC60DE96970971F1EDFDAEB85"
+  },
+  "status": "PASS"
+}

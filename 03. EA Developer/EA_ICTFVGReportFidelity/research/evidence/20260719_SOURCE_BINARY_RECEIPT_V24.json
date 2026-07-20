@@ -1,0 +1,87 @@
+{
+  "schema_version": "alphafactory.source_binary_receipt.v2",
+  "receipt_id": "RCP-ICT-FVG-TICK-INIT-COLLECT-20260719-024",
+  "created_utc": "2026-07-19T16:46:30Z",
+  "hypothesis_id": "HYP-ICT-FVG-TICK-INIT-COLLECT-EURUSD-M5-018",
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 76718,
+    "sha256": "41536FFC43BE85B1250A627197BD63FED5C7D5C7CF87D8965163F5449EACDA40"
+  },
+  "parent_receipt": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_SOURCE_BINARY_RECEIPT_V23.json",
+    "bytes": 5369,
+    "sha256": "CD1C400989E08A9E2E6C236A56884DDF117B371C5417C91ADC0BDFBB439E6596",
+    "purpose": "terminal HYP-017 economic source and binary binding"
+  },
+  "compile_dependencies": [
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/HumanContextEngine.mqh",
+      "bytes": 17904,
+      "sha256": "A24196DD908AD83BF9CE2047C3DCE810C57FDA56C861EB0F097D11600A0998F2"
+    },
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/NewsCalendar2019_2022.mqh",
+      "bytes": 10397,
+      "sha256": "29D0E757837A78346DF3D1990BDCAC3AEAA830D2B67922A968CE4F72D0E62427"
+    }
+  ],
+  "binary": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.ex5",
+    "bytes": 102272,
+    "sha256": "C1072AA639FF3C556392C032DC9A4DB25C80C900727DB73CAC3CDD4931A02BAF"
+  },
+  "compile_log": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.log",
+    "bytes": 6980,
+    "sha256": "2AAF58E60A3AAE0A5DB1D6CBB2FCE033694F7133FF2F41B5A76AA7E02533F759",
+    "errors": 0,
+    "warnings": 0,
+    "result_line": "Result: 0 errors, 0 warnings, 901 ms elapsed, cpu='X64 Regular'"
+  },
+  "compile_command": "powershell -NoProfile -ExecutionPolicy Bypass -File 02. AlphaFactory/alpha.ps1 compile EA_ICTFVGReportFidelity",
+  "preregistration": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-TICK-INIT-COLLECT-EURUSD-M5-018_COLLECTION_PLAN.md",
+    "bytes": 5937,
+    "sha256": "E7B4000A45090EC01253AB430867756B3B1623A0A74DFF593E05C4B3B5B471B5"
+  },
+  "logic_matrix": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-TICK-INIT-COLLECT-EURUSD-M5-018_LOGIC_TO_CODE_MATRIX.md",
+    "bytes": 3129,
+    "sha256": "85BA86E1F8918A8023204D4525AF147326645B7CF8C615A1E1979AEF54CFF00A"
+  },
+  "preset": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/presets/EURUSD_M5_HYP018_TICK_INIT_COLLECT.set",
+    "bytes": 1008,
+    "sha256": "EE1E6ECFE911A25FA3A919BDF901E50729BE4F3D43F41D32C8578FC0FA79258A"
+  },
+  "tick_coverage": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/HYP-ICT-FVG-TICK-INIT-COLLECT-EURUSD-M5-018_TICK_COVERAGE.json",
+    "bytes": 1075,
+    "sha256": "9A68530745B40F6B8E1AC4768F23FE6C052A2F99A5BC3654C4AF8A0E325191F6",
+    "monthly_files": 103,
+    "aggregate_sha256": "81A8A79671A4023BA904F825ED5EAEB77B1642BB65388A351C1899D90D13F508"
+  },
+  "nonrepaint_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_NONREPAINT_AUDIT_V20",
+    "bytes": 1421,
+    "sha256": "24D75F557EB602C1CBA401DC782953978DD003997AB34574A41663A8CA5C45A9",
+    "manifest_path": "03. EA Developer/EA_ICTFVGReportFidelity/NONREPAINT_AUDIT_MANIFEST_V20.json",
+    "manifest_bytes": 924,
+    "manifest_sha256": "0201AFC42DC7B9A22A8D6832B230005C107205CD92B072F2A4B91359678DC92C",
+    "status": "PASS"
+  },
+  "authorized_run": {
+    "purpose": "one outcome-blind zero-trade Model-0 collection",
+    "window": "2018.01.01-2026.07.19",
+    "required_sidecars": [
+      "*_LifecycleTrades_*.csv",
+      "*_HumanContext_*.csv",
+      "*_TickInitiation_*.csv",
+      "*_RunMeta_*.json"
+    ],
+    "performance_metrics_authorized": false
+  },
+  "status": "PASS_PRE_RUN_HYP018_COLLECTION_BUILD_BOUND",
+  "promotion_eligible": false
+}

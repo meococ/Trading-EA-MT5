@@ -1,0 +1,46 @@
+{
+  "schema_version": "alphafactory.engineering_result.v1",
+  "hypothesis_id": "HYP-ICT-FVG-FRIDAY-SAFE-EURUSD-M5-013",
+  "parent_hypothesis_id": "HYP-ICT-FVG-CONTEXT-STATE-EURUSD-M5-012",
+  "verdict": "PASS_ENGINEERING_FRIDAY_PRECLOSE_SAFETY_NO_ECONOMIC_AUTHORITY",
+  "frozen_plan": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FRIDAY-SAFE-EURUSD-M5-013_ENGINEERING_PLAN.md",
+    "sha256": "5586588685FDA9E5BCB6C94ED70786580D68CBED3B1B62235826DDC58FB1C10C"
+  },
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "sha256": "1E04144A5E26651B993E7A13202FC85B8D5C0AB3FD7C8FAA5D890897E3B4B196",
+    "parent_sha256": "8B1C9E283B97716C91F61FCDB2A74B6168CC0671DAE896A941F0F181674E6CE1",
+    "friday_cutoff_utc": "20:55",
+    "signal_geometry_unchanged": true
+  },
+  "verification": {
+    "red_first": "3 failed, 1 passed against frozen parent; 4 passed after implementation",
+    "package_tests": "35 passed",
+    "compile_errors": 0,
+    "compile_warnings": 0,
+    "ex5_bytes": 81848,
+    "nonrepaint_status": "PASS",
+    "nonrepaint_findings": 0,
+    "receipt_path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_SOURCE_BINARY_RECEIPT_V18.json",
+    "receipt_sha256": "80080355227E780286F9FC0D2C2D526E77D24EFECBEBF3A28A8DFBCA1AB32C70"
+  },
+  "deterministic_parent_replay": {
+    "input_path": "02. AlphaFactory/runtime/ictfvg_hyp012_context_forensics/positions_with_context.csv",
+    "input_bytes": 2580003,
+    "input_sha256": "1661ECE481CC1D52BE7751F445602ECE79AC1CA1F6F92AA6C2BF28594645B5B6",
+    "diagnosed_weekend_crossings": 37,
+    "rows_subject_to_friday_2055_cutoff": 37,
+    "coverage_fraction": 1.0,
+    "parent_rows_r_sum": -13.6189227234454,
+    "first_entry_utc": "2018-04-20T16:55:00",
+    "last_entry_utc": "2026-01-16T15:25:00",
+    "hypothetical_close_price_computed": false,
+    "parent_economics_recomputed": false
+  },
+  "model0_run_ids": [],
+  "performance_metrics_authorized": false,
+  "promotion_eligible": false,
+  "paper_live_authorized": false
+}
+

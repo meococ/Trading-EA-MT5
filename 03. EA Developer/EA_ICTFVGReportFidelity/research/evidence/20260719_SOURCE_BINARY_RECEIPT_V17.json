@@ -1,0 +1,114 @@
+{
+  "schema_version": "alphafactory.source_binary_receipt.v2",
+  "receipt_id": "RCP-ICT-FVG-CONTEXT-STATE-20260719-017",
+  "created_utc": "2026-07-19T09:55:00Z",
+  "hypothesis_id": "HYP-ICT-FVG-CONTEXT-STATE-EURUSD-M5-012",
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 59648,
+    "sha256": "8B1C9E283B97716C91F61FCDB2A74B6168CC0671DAE896A941F0F181674E6CE1"
+  },
+  "parent_source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/source_snapshots/EA_ICTFVGReportFidelity_HYP-ICT-FVG-FULLCHART-NONEWS-2018YTD-EURUSD-M5-011.mq5",
+    "bytes": 55797,
+    "sha256": "EFEA68F7763873B5F880BBCB2919A3A2DF629289E06F69A525FA91396C9674A6",
+    "verified_delta": "HYP-012 identity/version plus frozen mode-2 context state, three inputs, fail-closed validation and funnel telemetry"
+  },
+  "compile_dependencies": [
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/NewsCalendar2019_2022.mqh",
+      "bytes": 10397,
+      "sha256": "29D0E757837A78346DF3D1990BDCAC3AEAA830D2B67922A968CE4F72D0E62427"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.weekly.raw.json",
+      "bytes": 944989,
+      "sha256": "78CB2656A27278B1DA04B2C594A2C73BB1877DBA3AB52BCCFAC36A215945EA8F"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+      "bytes": 294809,
+      "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307"
+    }
+  ],
+  "binary": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.ex5",
+    "bytes": 81612,
+    "sha256": "96FDC0B086D4052EFC8F61CA1607435A964905167EF327A7A726F2D88383DE12"
+  },
+  "compile_log": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.log",
+    "bytes": 6590,
+    "sha256": "4AB223F0C529CE84B050872FBDEC0C89FBFF2EF5F3EA5BC44CFDFC24C7E34790",
+    "errors": 0,
+    "warnings": 0,
+    "result_line": "Result: 0 errors, 0 warnings, 769 ms elapsed, cpu='X64 Regular'"
+  },
+  "compile_command": "AlphaFactory compile performed inside challenger backtest 20260719_162104",
+  "parent_preregistration": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-CONTEXT-STATE-EURUSD-M5-012_MODEL0_PLAN.md",
+    "bytes": 5795,
+    "sha256": "86B0353905751BE905326DB1116D4B89401FF8F6C861755071D7CE4034F47FF5"
+  },
+  "preregistration": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-CONTEXT-STATE-EURUSD-M5-012_MODEL0_PLAN_V2.md",
+    "bytes": 1584,
+    "sha256": "8A50C07039C5FE2725E7CAEB29637F509773646EDEE926185BD3B308C291FDF3"
+  },
+  "presets": [
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/presets/EURUSD_M5_CONTEXT_CONTROL_2018YTD.set",
+      "bytes": 859,
+      "sha256": "9FC1B200E66D76309F130205B9D825B63B398C4C056541A33AE0896618FDE6D2"
+    },
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/presets/EURUSD_M5_CONTEXT_CHALLENGER_2018YTD.set",
+      "bytes": 859,
+      "sha256": "7230C264DE07095CB26E6404C1B12E4A6C8D5D70AFF46384FF4CC5D4F1958E8E"
+    }
+  ],
+  "contract_tests": {
+    "command": "python -m pytest 03. EA Developer/EA_ICTFVGReportFidelity/tests -q",
+    "pre_receipt_result": "30/30 PASS with receipt-rebind test deselected",
+    "red_first_result": "new HYP-012 contract observed 4 failures / 1 pass before source implementation"
+  },
+  "news_build_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260718_NEWS_CALENDAR_BUILD_AUDIT.json",
+    "bytes": 1800,
+    "sha256": "0A431EB3C312BA0AA29B4A1CEBD3550CE850957164FA1A92285013AC036D8FD9",
+    "event_count": 1282,
+    "calendar_timestamp_count": 869,
+    "verdict": "COMPILE_DEPENDENCY_ONLY_DISABLED_BY_BOTH_FROZEN_PRESETS",
+    "promotion_eligible": false
+  },
+  "nonrepaint_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_NONREPAINT_AUDIT_V14",
+    "bytes": 1210,
+    "sha256": "BE31CBCB3E1A8FC76C3E3F21C39F143C8FE839DB1C9979FEADCD58B29717644F",
+    "manifest_sha256": "DB830F0D2BC120773941633DA0504459645CF47F689CAC3752B3651EB2710BA0",
+    "status": "PASS"
+  },
+  "run_bindings": [
+    {
+      "role": "control",
+      "run_id": "20260719_161929",
+      "run_manifest_sha256": "F27EC42028AA81470DD055F48712377AA6A5F9D1547E96DF70AD704B962B2F27",
+      "source_sha256": "8B1C9E283B97716C91F61FCDB2A74B6168CC0671DAE896A941F0F181674E6CE1",
+      "ex5_sha256": "C05127B7FE35ED26E2B4567E268CDBCE0767329BBCA9EE4705B582B1C4047A2B"
+    },
+    {
+      "role": "challenger",
+      "run_id": "20260719_162104",
+      "run_manifest_sha256": "6031EE012E45476E15B197B54EF6AB13F3C1A0BADEF5301820F155434A47A6CD",
+      "source_sha256": "8B1C9E283B97716C91F61FCDB2A74B6168CC0671DAE896A941F0F181674E6CE1",
+      "ex5_sha256": "96FDC0B086D4052EFC8F61CA1607435A964905167EF327A7A726F2D88383DE12"
+    }
+  ],
+  "binary_rebind_note": "V16 remains the immutable pre-run compile receipt. AlphaFactory recompiles inside each backtest; V17 binds the current canonical EX5 and compile log left by the frozen challenger run without any source change.",
+  "cost_context": {
+    "historical_execution_provenance_verified": false,
+    "diagnostic_cost_pips_round_trip": [1.5, 2.25, 3.0],
+    "promotion_eligible": false
+  },
+  "status": "PASS_POST_MODEL0_CANONICAL_REBIND"
+}

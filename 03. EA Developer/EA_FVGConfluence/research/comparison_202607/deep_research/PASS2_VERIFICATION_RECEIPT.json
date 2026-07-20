@@ -1,0 +1,25 @@
+{
+  "schema_version": "deep_research_result_receipt.v1",
+  "study_id": "STUDY-FVG-COMPARE-EURUSD-M5-001",
+  "pass": 2,
+  "captured_at_utc": "2026-07-18T12:01:33.0544776Z",
+  "browser_conversation_url": "https://chatgpt.com/c/6a5b635e-f0c4-83ec-8323-9ecfc3b1cfa2",
+  "browser_conversation_title": "Performance Verification Process",
+  "ui_readback_before_send": {
+    "model": "GPT-5.6 Sol",
+    "model_checked": true,
+    "mode": "Pro",
+    "mode_checked": true,
+    "deep_research": true
+  },
+  "reported_processing_duration": "25m 0s",
+  "assistant_response_chars": 15141,
+  "assistant_response_sha256_utf8": "D95BFBDDBCB6360276883FD00C5E0B4880232DA1D1D441C77606A9A7108F43F0",
+  "frozen_cohort_sha256": "1AC7248D56FFD5DC83511EE69D6475CDC3213F9EFD2924A7FCEFEBD8127A2E53",
+  "frozen_entities": 15,
+  "grade_a": 0,
+  "grade_b": 0,
+  "grade_c": 15,
+  "verdict": "INSUFFICIENT_VERIFIED_DATA",
+  "browser_tabs_finalized": true
+}

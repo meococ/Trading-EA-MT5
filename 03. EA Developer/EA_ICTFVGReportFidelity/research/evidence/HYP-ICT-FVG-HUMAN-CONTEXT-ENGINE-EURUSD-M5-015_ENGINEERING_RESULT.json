@@ -1,0 +1,71 @@
+{
+  "schema_version": "alphafactory.engineering_result.v1",
+  "hypothesis_id": "HYP-ICT-FVG-HUMAN-CONTEXT-ENGINE-EURUSD-M5-015",
+  "parent_source_sha256": "1E04144A5E26651B993E7A13202FC85B8D5C0AB3FD7C8FAA5D890897E3B4B196",
+  "preregistration": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-HUMAN-CONTEXT-ENGINE-EURUSD-M5-015_ENGINEERING_PLAN.md",
+    "bytes": 4934,
+    "sha256": "72D58A4D1EABB43F6188B38E1835E2562E5434FF84166FC625BA1EFBBFCD7799"
+  },
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 67022,
+    "sha256": "17E8C20F323402C60B830E47109AD265212869E2E0A8526F21EFDA4734AA1450"
+  },
+  "human_context_engine": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/HumanContextEngine.mqh",
+    "bytes": 17904,
+    "sha256": "A24196DD908AD83BF9CE2047C3DCE810C57FDA56C861EB0F097D11600A0998F2"
+  },
+  "binary": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.ex5",
+    "bytes": 96130,
+    "sha256": "DC00141A5C94D6CB91F8E4F78DAF42A115B6B18302A7D07E409F4964B2599206"
+  },
+  "compile_log": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.log",
+    "bytes": 6982,
+    "sha256": "15757E861A7210B26AC3102BBE13BBACC1AE179F5F3204681D9A08740914BEDC",
+    "errors": 0,
+    "warnings": 0,
+    "result_line": "Result: 0 errors, 0 warnings, 4837 ms elapsed, cpu='X64 Regular'"
+  },
+  "nonrepaint_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_NONREPAINT_AUDIT_V16",
+    "bytes": 1420,
+    "sha256": "245C5240E6DEB621F18904F6EF6A21BA45519916FACCA0848CBD905214F82DC6",
+    "manifest_sha256": "E5ACFE4C16BEEAE50E2F22B5E9DBCDB6B1FC5EEF29FFE416EE575F3A69CAF891",
+    "status": "PASS",
+    "findings": 0
+  },
+  "reference_builder": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/build_hyp015_human_context_reference.py",
+    "bytes": 17882,
+    "sha256": "C9387BC8B0C55268EEC5104ABC60955CE72D99F2DE9399A9064A201C3B3DC20B",
+    "outcome_blind_columns_enforced": true
+  },
+  "reference": {
+    "path": "02. AlphaFactory/runtime/ictfvg_hyp015_human_context/human_context_reference.csv",
+    "bytes": 1003673,
+    "sha256": "6736C1C054C9EF09EB40C19A83B3556C0BA908A90D1EBA494712505A9E5C393E",
+    "result_path": "02. AlphaFactory/runtime/ictfvg_hyp015_human_context/human_context_reference_result.json",
+    "result_sha256": "A0D93AF878FEEDD6D80134165B15761EB610D411A29296E1BB4E2E8C336A3173",
+    "rows": 3385,
+    "unique_position_ids": 3385,
+    "complete_rows": 3354,
+    "complete_fraction": 0.9908419497784343,
+    "six_case_h1_range_location_max_abs_error": 0.0,
+    "exact_repeat_csv_hash": true,
+    "exact_repeat_result_hash": true
+  },
+  "policy_boundary": {
+    "observe_only": true,
+    "trade_veto": false,
+    "position_resize": false,
+    "direction_change": false,
+    "economic_run_count": 0,
+    "model0_authorized": false,
+    "promotion_eligible": false
+  },
+  "verdict": "PASS_ENGINEERING_HUMAN_CONTEXT_OBSERVATION_NO_EDGE_CLAIM"
+}

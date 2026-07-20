@@ -1,0 +1,30 @@
+{
+  "schema_version": "alphafactory_test_receipt.v1",
+  "created_at_utc": "2026-07-19T17:14:30Z",
+  "hypothesis_id": "HYP-ICT-FVG-TICK-INIT-COLLECT-EURUSD-M5-018",
+  "source_sha256": "41536FFC43BE85B1250A627197BD63FED5C7D5C7CF87D8965163F5449EACDA40",
+  "command": "python -m pytest 03. EA Developer/EA_ICTFVGReportFidelity/tests -q",
+  "tests_passed": 65,
+  "tests_failed": 0,
+  "red_first": {
+    "mode4_source_contract": "7 failed on parent v1.23 before implementation",
+    "collection_analyzer_contract": "5 failed before analyzer existed",
+    "final_result": "65 passed"
+  },
+  "compile": {
+    "errors": 0,
+    "warnings": 0,
+    "ex5_bytes": 102562,
+    "ex5_sha256": "693282DAAF593E311315B30107B5C36D51020987E7BF547BBDB3FED36125CB4C"
+  },
+  "nonrepaint": {
+    "status": "PASS",
+    "audit_sha256": "24D75F557EB602C1CBA401DC782953978DD003997AB34574A41663A8CA5C45A9"
+  },
+  "collection_parser": {
+    "run_id": "20260719_235851",
+    "repeat_sha256": "947F1B8102ED595083C838262B19B67A7C26336221437E9064BE4BBF1FE7932E",
+    "failed_gates": ["materiality"]
+  },
+  "verdict": "PASS_ENGINEERING_AND_REPRODUCTION_TERMINAL_COLLECTION_KILL"
+}

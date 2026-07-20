@@ -1,5 +1,199 @@
 # Do Not Repeat — Failed Strategies / Approaches
 
+- `HYP-ICT-FVG-PIVOT-RECLAIM-DWELL-COLLECT-EURUSD-M5-026` is terminal
+  `KILL_AT_HYP026_COLLECTION_DATA_DENSITY_OR_REDUNDANCY` and closes the HYP-012
+  EURUSD M5 sweep-confirmation/pivot-dwell branch at `FRONTIER_STOP`
+  (2026-07-19). Its valid zero-trade Model-0 collection defined 6,398/6,401
+  paths, but pivot-relative `ADVERSE_DOMINANT` was only 181 (2.8290%,
+  0.40583/week) versus 6,217 favorable rows. The rare share was stable at
+  2.7503% in 2018-2022 and 2.9401% in 2023-YTD and covered both directions,
+  London/NY and all years, so this is a scaffold-selection effect rather than
+  a missing-era/feed defect. Delayed confirmation, HTF composition and the rare
+  cases are diagnostics only. Do not move the level again, lower gates, trade
+  or invert the rare class, add lag/session/year/direction/HTF filters, rerun,
+  open HYP-027 economics, disable BE as a child, or migrate entry to pivot/FVG
+  retracement from this readout. HYP-012 economics, HYP-014 ranking and HYP-017
+  context already failed the same broad event branch. Future work requires a
+  fully independent causal mechanism and cheap outcome-blind feasibility probe,
+  not another feature/management/entry variation on this family. Readout:
+  `03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-PIVOT-RECLAIM-DWELL-COLLECT-EURUSD-M5-026_READOUT.md`.
+
+- `HYP-ICT-FVG-TIME-WEIGHTED-LEVEL-RESILIENCE-COLLECT-EURUSD-M5-024` is terminal
+  `KILL_AT_HYP024_COLLECTION_DATA_DENSITY_OR_REDUNDANCY` (2026-07-19). Its one
+  valid zero-trade Model-0 collection defined 6,399/6,401 profiles, but dwell
+  around the sweep wick tip was `FAVORABLE_DOMINANT` in 6,396 and
+  `ADVERSE_DOMINANT` in only 3 (0.04688%, 0.006726/week), short-only, no NY and
+  only three years. This is not a clock/feed failure: the confirmation and
+  invalidation rules mechanically select survivors that remain inside the
+  sweep extreme and later close through its opposite side, so the label is
+  near-tautological despite being formally non-OHLC. Do not retry the extreme
+  level with duration/tick/gap floors, threshold changes or subgroup filters,
+  and do not open HYP-025 economics. A single fresh pivot-level successor is
+  allowed only because the exact breached/reclaimed pivot lies inside the wick
+  and defines materially different structural geometry; if that collection
+  fails, no further migration of the measured level is allowed. Readout:
+  `03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-TIME-WEIGHTED-LEVEL-RESILIENCE-COLLECT-EURUSD-M5-024_READOUT.md`.
+
+- `HYP-ICT-FVG-LEVEL-PATH-ORDER-COLLECT-EURUSD-M5-020` is terminal
+  `KILL_AT_HYP020_PRE_SOURCE_OHLC_REDUNDANT_BINARY_RECROSS` (2026-07-19).
+  After a closed sweep/reclaim the first post-sweep mid is normally favorable,
+  so `0` versus `>=1` adverse re-entry is equivalent to whether a later M5
+  low/high pierces the sweep extreme; OHLC extrema recover the bit. It was
+  killed before source, compile, tester run or outcome access. Do not implement
+  it, create an in-place V2, or defend it with rare gap/bid-mid edge cases. A
+  genuinely new child must distinguish identical-OHLC paths; HYP-022 uses one
+  versus at least two re-entry multiplicity under a separate prereg. Readout:
+  `03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-LEVEL-PATH-ORDER-COLLECT-EURUSD-M5-020_READOUT.md`.
+
+- `HYP-ICT-FVG-TICK-INIT-COLLECT-EURUSD-M5-018` is terminal
+  `KILL_AT_HYP018_COLLECTION_DATA_DENSITY_OR_REDUNDANCY` (2026-07-19). Its one
+  valid zero-trade Model-0 collection produced 6,401 fully defined quote-mid
+  tick-rule profiles, but the sign-only field was not materially distinct from
+  the already-directional HYP-012 confirmation candle: sign-nonagree was only
+  15.0914% pooled and 10.1202% in 2018-2022 versus the frozen 20% floor. Do not
+  mine imbalance magnitude, tick count, spread, year, session or direction,
+  lower the 20% gate, repeat the collection, or open HYP-019 economics. A later
+  tick child must measure a different pre-outcome mechanism such as event order
+  around the swept level; relabeling the same full-bar net sign is not new
+  information. Readout:
+  `03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-TICK-INIT-COLLECT-EURUSD-M5-018_READOUT.md`.
+
+- `HYP-ICT-FVG-HUMAN-CONTEXT-POLICY-EURUSD-M5-017` is terminal
+  `KILL_AT_HYP017_MODEL0_NO_STABLE_EDGE` (2026-07-19). Its two natural context
+  states were chosen outcome-blind from the HYP-016R1 zero-trade ledger, then
+  tested once on EURUSD M5 2018-YTD. The 3,703 reconciled trades were already
+  negative natively (PF 0.7553); after the frozen additional 1.5-pip diagnostic
+  PF was 0.3513 and expectancy -0.52139R/trade with week-block 95% CI
+  `[-0.55998,-0.48317]`. London/NY, long/short, internal/external states and all
+  nine years were negative. Do not delete the internal state, add an
+  outcome-derived confirmation, widen the stop, alter RR, filter sessions/
+  weekdays/years or rerun this ID. The engine quantified available room but not
+  a validated initiation sequence, while tight sweep-extreme stops were highly
+  sensitive to M5 noise and cost. A future child requires materially new
+  pre-outcome information and its own feasibility/prereg; it cannot be a
+  threshold rescue. Readout:
+  `03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-HUMAN-CONTEXT-POLICY-EURUSD-M5-017_READOUT.md`.
+
+- `HYP-ICT-FVG-PROB-RANK-EURUSD-M5-014` is terminal
+  `KILL_AT_ROLLING_OOS_DIAGNOSTIC_NO_CODE` (2026-07-19). One fixed expanding
+  annual L2-logistic policy ranked the 3,385 entries already accepted by
+  HYP-012 using 12 decision-time M5/H1/H4 features plus four frozen
+  interactions. On 2,551 rolling evaluation opportunities it accepted only 15
+  (`0.044/week`) and remained negative at 1.5-pip cost: PF 0.9577,
+  -0.01577R/accepted trade and -0.0000927R/opportunity; stress PF fell to
+  0.8571/0.7661. Pooled AUC was 0.4879 and ten of fourteen gates failed.
+  Relative avoidance improved versus the all-entry control, but no positive,
+  sufficiently dense subset exists under this policy. Do not lower the
+  0.6048-0.6208 payoff-derived probability threshold, change the 60th
+  percentile, select good years, add feature/threshold variants or code this
+  model into the EA. A future child needs a materially new decision-time
+  information set or opportunity universe, not tuning of these same features.
+  Readout:
+  `03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-PROB-RANK-EURUSD-M5-014_READOUT.md`.
+
+- `HYP-ICT-FVG-CONTEXT-STATE-EURUSD-M5-012` is terminal diagnostic
+  (2026-07-19). Its materially new three-bar post-sweep state passed 31/31
+  tests, compile and exact-source nonrepaint, then completed exactly one frozen
+  matched control/challenger pair. The challenger reduced loss severity versus
+  immediate entry but remained negative: 3,385 positions, PF 0.8104,
+  -0.09799R/position, 7.592 trades/week and zero positive entry years; history
+  quality was only 99% versus the frozen 100% gate. Winner/loser confirmation
+  body, close location, range, lag, sweep depth/reclaim and risk medians were
+  nearly identical; every measured M5 and completed H1/H4 quartile stayed PF<1.
+  Do not rescue by tuning body multiple, three-bar timeout, outer-close fraction,
+  HTF alignment, hours/years, stop or management on the same outcomes. A
+  tick-driven Friday flatten defect caused 37 weekend crossings (-13.62R).
+  HYP-013 has now repaired the operational defect at Friday 20:55 UTC, but the
+  repair does not rescue roughly -332R total expectancy. HYP-014 subsequently
+  tested and killed the fixed rolling probability/no-trade policy described
+  above. Readout:
+  `03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-CONTEXT-STATE-EURUSD-M5-012_READOUT.md`.
+
+- `HYP-ICT-FVG-FULLCHART-NONEWS-2018YTD-EURUSD-M5-011` is terminal
+  diagnostic (2026-07-19). Owner-authorized control run `20260719_142214`
+  covered the available EURUSD M5 chart from 2018 through 2026-07-19 with news
+  disabled consistently, 0.01% micro-risk and no effective account-DD stop.
+  It reconciled 4,341 opens/final closes but returned PF 0.7588,
+  -0.13775R per defined-risk position, 9.736 trades/week and PF<1 after
+  commission in every entry year; 2024-2026 were especially weak. MT5 history
+  quality was 99% versus the frozen 100% gate, so verdict is
+  `INVALID_DIAGNOSTIC_HISTORY_QUALITY_99_PERCENT`. Do not rescue by cherry
+  picking 2018/2022/2023 before commission, disabling bad years/hours/days,
+  changing RR/stops, or treating a no-news high-recall control as full report
+  fidelity. Readout:
+  `03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FULLCHART-NONEWS-2018YTD-EURUSD-M5-011_READOUT.md`.
+  Grok Build CLI plus independent lifecycle/context reconstruction later proved
+  why: deal P&L was already negative before explicit commission (PF 0.9007),
+  the observed payoff required 53.79% winners versus 46.90% achieved, 2,285
+  positions realized near-full stops, and the +0.5R lock compressed 1,237 wins
+  to about +0.4R net. Every populated pre-entry context quartile remained PF<1.
+  Do not turn the post-outcome clock, stop-width, context, holding-time or
+  management diagnostics into same-sample filters. Forensic readout:
+  `03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FULLCHART-NONEWS-2018YTD-EURUSD-M5-011_TRADE_FORENSICS_READOUT.md`.
+  A later closed-bar HTF audit also found the selected C09 winner and C10 loser
+  extremely similar: combined 44-feature rank 11/2,012, D1 rank 1/2,012, H4
+  rank 30/2,065, and maximum short-cohort univariate AUC only 0.5385. Every
+  M15/H1/H4/D1 EMA-bias and pivot subgroup had PF<1. Do not invent a winner
+  rule from their differing M15/H1/H4 pivot labels; C09/C10 cannot legally
+  seed a same-sample HTF rescue. HTF readout:
+  `03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FULLCHART-NONEWS-2018YTD-EURUSD-M5-011_HTF_PAIR_READOUT.md`.
+
+- `HYP-ICT-FVG-FULLCHART-MICRORISK-EURUSD-M5-010` is terminal diagnostic
+  (2026-07-19). Owner-requested no-account-DD control run `20260719_133139`
+  completed the full EURUSD M5 2019-2022 chart at 100% history quality / 298,483
+  bars / 79,486,116 ticks using 0.01% micro-risk solely to avoid tester
+  stop-out. It produced 2,070 exactly reconciled positions, 9.925 trades per
+  elapsed week, PF 0.7625, -0.1348R/trade and negative net/PF<1 in every year
+  (2019 0.585; 2020 0.840; 2021 0.709; 2022 0.962). Do not rescue by selecting
+  the improved 2022 segment, filtering hours/days/years from the readout,
+  restoring larger risk, changing RR/stops, or calling this high-recall
+  sweep/reclaim control the full report-fidelity strategy. The latter remains
+  zero-trade upstream of execution. HYP-009's 0.25%-risk no-DD run is invalid:
+  broker/tester stop-out ended it after 7% of the chart and RunMeta identity
+  mismatched. Readout:
+  `03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FULLCHART-MICRORISK-EURUSD-M5-010_READOUT.md`.
+
+- `HYP-ICT-FVG-FIDM0EXEC-EURUSD-M5-008` supersedes the old HYP-007 matched
+  control interpretation. Correct `OrderCheck` semantics turned the 8%-DD
+  control from zero into 122 trades, but it lost USD 7,944.29 at PF 0.5774 and
+  0.585 trades/week before exhausting the account-DD budget. The unchanged
+  full-fidelity arm still had one valid retest, one ADX rejection and zero
+  trades. Do not reuse HYP-007's zero-trade control as economic evidence, and
+  do not treat the execution repair as a strategy rescue.
+
+- `HYP-ICT-FVG-FIDM0NEWS-EURUSD-M5-007` is terminal for its exact signal
+  funnel, but its matched control execution was later invalidated and
+  superseded by HYP-008
+  (2026-07-19). After the frozen news-runtime repair, matched FivePercent
+  EURUSD M5 runs `20260719_005603` control and `20260719_005716` challenger
+  each completed 2019-2022 at 100% history quality, 298,483 bars and
+  79,486,116 ticks. The full ordered chain produced 12,340 sweeps, 293
+  displacement/FVG events, 149 closed-M15 MSS events, 144 pre-MSS mitigations,
+  one valid first retest, one ADX rejection and zero entries/trades. PF, WR,
+  expectancy, Sharpe and economic DD are undefined; do not invent empty-set
+  economics. Do not rescue by loosening FVG, freshness, MSS, retest, ADX,
+  session, stop/risk or execution thresholds, rerunning the frozen window, or
+  opening 2023+. WFA, Monte Carlo, cost stress and prop simulation are
+  inapplicable after the zero-trade cadence/sample failure. This kills the
+  exact quantified report-fidelity object, not all discretionary ICT/FVG or
+  OHLC/context trading. Readout:
+  `03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FIDM0NEWS-EURUSD-M5-007_READOUT.md`.
+
+- `HYP-LSS-OB-REPL-MT5-EURUSD-M15-002` is terminal at native MT5 Model 0
+  (2026-07-18). Owner-required matched runs `20260719_001202` control and
+  `20260719_001306` challenger each used FivePercent EURUSD M15 2019-2022,
+  Model 0, 100% history quality, 99,475 bars and 79,411,093 ticks. Both
+  produced 388 context-aligned sweeps but zero 1.8x-ATR displacement/FVG,
+  zero entries and zero trades. PF, WR, expectancy, Sharpe and DD are
+  undefined; tiny/empty-set metric invention is forbidden. The earlier
+  offline detector also had zero downstream events, while its 383-vs-388
+  upstream sweep count fails absolute native parity. Do not rescue by lowering
+  displacement, changing sessions/direction/confirmation/SL/RR, moving to M5
+  or XAU, or opening 2023+. Cost stress, WFA, Monte Carlo and FTMO simulation
+  are inapplicable after the terminal cadence/minimum-trade failure. The
+  retained `.mq5` and Model-0 reports are audit evidence only. Readout:
+  `03. EA Developer/EA_LSSOBPropScalper/research/HYP-LSS-OB-REPL-MT5-EURUSD-M15-002_READOUT.md`.
+
 - Free public software vulnerability / security-advisory first-public
   design screen 2026-07-18 (`cron_20260718_1001`) sealed
   `NO_LEGAL_CANDIDATE — ZERO_KEEP_SOFTWARE_VULNERABILITY_SECURITY_ADVISORY`.
@@ -427,7 +621,7 @@
   labels**; **no probe** authorized. Free path at frontier after #1–#44 + this
   anti-rebrand screen. Do **not** invent Wave-H rebrands; reopen free only with
   **new** official free evidence curing a sealed class's first hard fail, or
-  Owner paid unlock / Unicorn human labels. Evidence:
+  Owner paid unlock or a materially new information set. Evidence:
   `.context/cron_20260717_1818/{TASK,PLAN,HERMES_VERIFY}` PLAN SHA
   `9cb261622a68a386de1d5c9eeca8aa4b04121631cbf638c4c073fd2b043a26e6`.
 
@@ -821,9 +1015,9 @@ full former-active package
 | Unicorn exact-adjacency XAU M5 (`HYP-UPS-XAU-M5-001`) | `PARKED_BEFORE_BUILD`: 65 candidates, 55 long/10 short, 23 active months, median 3/month; failed 4/5 frozen density gates | `03. EA Developer/EA_UnicornPrecisionScalper/research/HYP-UPS-XAU-M5-001_READOUT.md` | Do not lower score/displacement/overlap or revive 001. The materially different stateful-sweep 002 is the only open Unicorn mapping and remains cost-blocked before Model 0. |
 | Unicorn four-closed-bar control (`HYP-UPSC-XAU-M5-002`) | `KILL_AT_MODEL0_RESEARCH_FALSIFICATION`: N=138, 1.334/week, report PF 0.986/net -$233.83; research full-cost PF 0.688, x1.5 0.574, x2 0.481; robustness 0%, MC P95 DD 5.654% | `03. EA Developer/EA_UnicornPrecisionScalperControl/research/HYP-UPSC-XAU-M5-002_READOUT.md` | Do not disable weak hours/weekdays/years, lower filters, change RR/session, or rerun this ID. The separately preregistered event-anchored Unicorn lane must stand on its own identity and cannot inherit post-outcome tuning. |
 | Unicorn event-anchored sweep (`HYP-UPS-XAU-M5-006`) | `KILL_AT_MODEL0_RESEARCH_FALSIFICATION`: N=130, 1.257/week, report PF 0.724/net -$4,396.90; research full-cost PF 0.498, x1.5 0.413, x2 0.343; robustness 0%, MC P95 DD 7.118%, equity REJECT. It was diagnostically worse than the already-killed four-bar control. | `03. EA Developer/EA_UnicornPrecisionScalper/research/HYP-UPS-XAU-M5-006_READOUT.md` | Unicorn fixed-expiry/event-expiry family is closed. Do not try another sweep-age threshold, price-invalidation variant, weak day/hour veto, RR/session/score tune, or rename. Require a materially different causal mechanism and fresh preregistration. |
-| Unicorn report-to-code fidelity audit | Prior Model-0 kills apply to the coded proxy, not the unimplemented discretionary memo. Missing MSS/BOS close, true breaker geometry, FVG freshness/fill and micro-confirmation cannot be silently added as a rescue. The build probe also used breaker scan 8 while Model-0 source used 6 (17 candidate identities differ); corrected full-bar invalidation changed zero candidates. | `03. EA Developer/EA_UnicornPrecisionScalper/research/20260716_UNICORN_REPORT_TO_CODE_FIDELITY_AUDIT.md` | Do not claim the memo is falsified, but also do not run an “MSS/retest fidelity” child without sealed labels, de-dup against PO3/KLR, one frozen feature family and a fresh hypothesis/window. |
-| Unicorn alert-label taxonomy gate | V1.2 run `20260716_153059` proved the taxonomy problem but is diagnostic-only for future labeling: objective review found only 22/200 rows passing sweep+displacement+MSS+FVG before breaker judgment; sealed Grok calibration gave final-core kappa 0.286, sweep -0.154 and breaker 0.000, while binary human kappa was not estimable. V1.3 run `20260716_155111` is the authoritative source-bound, breaker-complete blank corpus and remains unlabeled. The detector emits on FVG formation, before post-formation micro-confirmation can exist. | `03. EA Developer/EA_UnicornPrecisionScalper/research/20260716_ALERT_FIRST_LABEL_GATE_READOUT.md`; `20260716_ALERT_FIRST_CASEBOOK_V123_COLLECTION_READOUT.md` | Do not treat AI labels as independent human review; do not add MSS/retest/breaker or open HYP-009/Model 0. Label only immutable V1.3 rows through overlays. Do not query MT5 context by logged UTC as broker bar time: use decision server time, normalize the frozen offset and treat decision time as the M5 close cutoff. |
-| Unicorn FVG-CE resting limit (`HYP-UPS-XAU-M5-007`) | `KILL_AT_FILL_FEASIBILITY_PROBE`: 115/251 fills in 3 bars, 45.82% fill rate, 1.110/week, 87 long/28 short. Failed fill-rate, cadence and short-count gates before PnL/source/backtest. | `03. EA Developer/EA_UnicornPrecisionScalper/research/HYP-UPS-XAU-M5-007_READOUT.md` | Do not extend expiry, move away from CE, add market fallback/chase, remove shorts or filter hours/days. Current memo needs an alert-first labeled-quality program or a materially new causal information set, not another execution variant. |
+| Unicorn report-to-code fidelity audit | Prior Model-0 kills apply to the coded proxy, not the unimplemented discretionary memo. Missing MSS/BOS close, true breaker geometry, FVG freshness/fill and micro-confirmation cannot be silently added as a rescue. The build probe also used breaker scan 8 while Model-0 source used 6 (17 candidate identities differ); corrected full-bar invalidation changed zero candidates. | `03. EA Developer/EA_UnicornPrecisionScalper/research/20260716_UNICORN_REPORT_TO_CODE_FIDELITY_AUDIT.md` | Do not claim the memo is falsified, but also do not run an “MSS/retest fidelity” child without de-dup against PO3/KLR, one frozen feature family and a fresh hypothesis/window. |
+| Unicorn context audit | V1.2 run `20260716_153059` found only 22/200 rows passing sweep+displacement+MSS+FVG before breaker judgment. The detector emits on FVG formation, before post-formation micro-confirmation can exist. V1.3 run `20260716_155111` is retained as source-bound engineering evidence only. | `03. EA Developer/EA_UnicornPrecisionScalper/research/20260716_UNICORN_REPORT_TO_CODE_FIDELITY_AUDIT.md` | Do not add MSS/retest/breaker or open HYP-009/Model 0 from this corpus. Do not query MT5 context by logged UTC as broker bar time: use decision server time, normalize the frozen offset and treat decision time as the M5 close cutoff. |
+| Unicorn FVG-CE resting limit (`HYP-UPS-XAU-M5-007`) | `KILL_AT_FILL_FEASIBILITY_PROBE`: 115/251 fills in 3 bars, 45.82% fill rate, 1.110/week, 87 long/28 short. Failed fill-rate, cadence and short-count gates before PnL/source/backtest. | `03. EA Developer/EA_UnicornPrecisionScalper/research/HYP-UPS-XAU-M5-007_READOUT.md` | Do not extend expiry, move away from CE, add market fallback/chase, remove shorts or filter hours/days. Current memo needs a materially new causal information set, not another execution variant. |
 | Unicorn owner-directed RR1.5 replay (`HYP-UPS-XAU-M5-008`) | `KILL_DIAGNOSTIC`: exact HYP-006 replay N=132, WR 35.606%, report PF 0.697/net -$4,904.75, full-cost PF 0.475/x1.5 0.391/x2 0.322, robustness 0%, MC P95 DD 7.315%. WR rose only 0.991 pp versus 2.5R while PF/net/DD worsened. | `03. EA Developer/EA_UnicornPrecisionScalperRR15/research/HYP-UPS-XAU-M5-008_READOUT.md` | Do not test another RR, disable Thursday/hour/session/year/direction, or tune break-even/hold/score/sweep thresholds. The target is not the missing edge; require a materially independent causal mechanism. |
 | PO3-AMD XAU M5 report v1 | `KILL_AT_OFFLINE_PROBE`: 212,339 M5 bars / 774 ET dates, only 6 dates met the frozen 80..300-point Asian range; sweep control N=1, full PO3 N=0 | `03. EA Developer/EA_PO3_AMD_Scalper/research/HYP-PO3-AMD-SCALP-M5-XAU-001_READOUT.md` | Do not widen/reinterpret Gold points, range max, session or retest under the killed ID. ATR-relative/normalized range is a new Owner-scoped hypothesis. |
 | PO3-AMD ATR-normalized London (`HYP-PO3-AMD-SCALP-M5-XAU-002`) | `KILL_AT_OFFLINE_PROBE`: range coverage recovered to 729/774 dates, but 121 sweeps -> 1 displacement+MSS -> 1 FVG -> 0 retests; control N=36, PF 0.511, -10.71R | `03. EA Developer/EA_PO3_AMD_Scalper/research/HYP-PO3-AMD-SCALP-M5-XAU-002_READOUT.md` | Do not loosen H4 bias, displacement, MSS, FVG/retest or normalized range under 002. Only the report's independently pre-declared NY branch may receive a fresh ID. |
@@ -866,8 +1060,8 @@ Best **shelf** reference run (not promotion): SilverBullet RR2 `20260714_194548`
   compare event identities before economic execution.
 - Treating formation-time FVG alerts as if a later retest/micro-confirmation had
   already occurred.
-- Using AI agreement to clear a preregistered human-label gate, or joining
-  outcomes before taxonomy agreement and density are frozen and passed.
+- Joining outcomes before the annotation contract and density gates are frozen
+  and passed.
 - Mixing MT5 UTC log time with broker server-time bars, or leaving decision
   timestamp semantics (`open` versus `close cutoff`) implicit.
 - Calling a zero-trade casebook collection a performance backtest or citing its
@@ -938,6 +1132,43 @@ Evidence: `03. EA Developer/EA_UnicornPrecisionScalper/research/20260716_ALERT_F
 - Under tester-only mutation authority, non-tester persistence code is dormant.
   Do not claim restart-persistent peak equity unless an authorized execution
   mode and a runtime test actually exercise that branch.
+
+### LSS-OB EURUSD M15 exact-replication cadence frontier (2026-07-18)
+
+Evidence: `03. EA Developer/EA_LSSOBPropScalper/research/HYP-LSS-OB-REPL-EURUSD-M15-001_READOUT.md`.
+
+- Do not reopen the exact strength-2 H1/H4 + M15 sweep -> 1.8 ATR
+  displacement/strict-FVG -> OB-body-overlap -> first confirmed retest object.
+  Over 2019-2022 it has only 383 upstream context-aligned sweeps versus the
+  frozen cadence floor of 417 before any downstream rejection; the full
+  challenger has zero events.
+- A broker wall-clock epoch is not UTC. Convert FivePercent MT5 timestamps with
+  the canonical +2/+3 server clock before parity. For UTC-anchored contracts,
+  replay native M1 into UTC timeframes; direct broker-native H4 is
+  server-anchored and is a different clock surface.
+- Zero downstream events is not an economic backtest. The valid conclusion is
+  `TERMINAL_STOP_FIDELITY_CADENCE_NO_BUILD_NO_MODEL0`, not zero PF/WR/expectancy.
+- Do not rescue by loosening displacement, FVG/OB overlap, timeframes, session,
+  stop band, confirmation, asset, direction or RR. A materially different
+  geometry requires a new hypothesis and adverse-prior de-dup.
+
+---
+
+## HYP-022: repeated swept-level churn is real tick information but too sparse
+
+- Terminal verdict: `KILL_AT_HYP022_COLLECTION_DATA_DENSITY_OR_REDUNDANCY`.
+- The label is genuinely non-OHLC: identical M5 OHLC paths can contain different
+  counts of favorable-to-adverse transitions around the swept level.
+- The full 2018--2026-07-19 collection nevertheless found only 659 repeated-churn
+  cases among 6,399 defined confirmations (10.2985%, 1.477578/elapsed week).
+  The share was stable rather than hidden in one era: 9.9866% in 2018--2022 and
+  10.7385% in 2023--YTD.
+- Do not reopen count >=2 by changing year, session, direction, latency window or
+  adding a post-outcome threshold. Count >=1 is not a rescue: it is the already
+  killed HYP-020 OHLC wick-pierce proxy.
+- A legal successor must measure a different point-in-time property. Time-weighted
+  dwell/resilience on each side of the swept level is allowed only as a new
+  hypothesis with a formal identical-OHLC/non-equivalence proof and frozen gates.
 
 ---
 

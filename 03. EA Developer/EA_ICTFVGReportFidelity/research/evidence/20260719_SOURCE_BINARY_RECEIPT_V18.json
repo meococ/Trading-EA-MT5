@@ -1,0 +1,81 @@
+{
+  "schema_version": "alphafactory.source_binary_receipt.v2",
+  "receipt_id": "RCP-ICT-FVG-FRIDAY-SAFE-20260719-018",
+  "created_utc": "2026-07-19T11:22:00Z",
+  "hypothesis_id": "HYP-ICT-FVG-FRIDAY-SAFE-EURUSD-M5-013",
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 60337,
+    "sha256": "1E04144A5E26651B993E7A13202FC85B8D5C0AB3FD7C8FAA5D890897E3B4B196"
+  },
+  "parent_source": {
+    "path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_162104/snapshot/source/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 59648,
+    "sha256": "8B1C9E283B97716C91F61FCDB2A74B6168CC0671DAE896A941F0F181674E6CE1",
+    "verified_delta": "HYP-013 identity/version plus frozen Friday 20:55 UTC owned-position close and entry-veto safety only"
+  },
+  "compile_dependencies": [
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/NewsCalendar2019_2022.mqh",
+      "bytes": 10397,
+      "sha256": "29D0E757837A78346DF3D1990BDCAC3AEAA830D2B67922A968CE4F72D0E62427"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.weekly.raw.json",
+      "bytes": 944989,
+      "sha256": "78CB2656A27278B1DA04B2C594A2C73BB1877DBA3AB52BCCFAC36A215945EA8F"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+      "bytes": 294809,
+      "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307"
+    }
+  ],
+  "binary": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.ex5",
+    "bytes": 81848,
+    "sha256": "8C4A57510AFAAAA231A2664A07ABFD3E6A7B433E7FCB2AC15375A21B81E072DB"
+  },
+  "compile_log": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.log",
+    "bytes": 6590,
+    "sha256": "2C23550FF8B3D22A6C203A76D5CF7991DD61C7EC02A951697F12BCB877C9A1A0",
+    "errors": 0,
+    "warnings": 0,
+    "result_line": "Result: 0 errors, 0 warnings, 703 ms elapsed, cpu='X64 Regular'"
+  },
+  "compile_command": "02. AlphaFactory/alpha.ps1 compile EA_ICTFVGReportFidelity",
+  "preregistration": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FRIDAY-SAFE-EURUSD-M5-013_ENGINEERING_PLAN.md",
+    "bytes": 3229,
+    "sha256": "5586588685FDA9E5BCB6C94ED70786580D68CBED3B1B62235826DDC58FB1C10C"
+  },
+  "contract_tests": {
+    "command": "python -m pytest 03. EA Developer/EA_ICTFVGReportFidelity/tests -q",
+    "pre_receipt_result": "34/34 PASS with receipt-rebind test pending",
+    "red_first_result": "HYP-013 contract observed 3 failures / 1 pass against the frozen parent, then 4/4 PASS after the minimal source delta"
+  },
+  "news_build_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260718_NEWS_CALENDAR_BUILD_AUDIT.json",
+    "bytes": 1800,
+    "sha256": "0A431EB3C312BA0AA29B4A1CEBD3550CE850957164FA1A92285013AC036D8FD9",
+    "event_count": 1282,
+    "calendar_timestamp_count": 869,
+    "verdict": "UNCHANGED_COMPILE_DEPENDENCY",
+    "promotion_eligible": false
+  },
+  "nonrepaint_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_NONREPAINT_AUDIT_V15",
+    "bytes": 1206,
+    "sha256": "06DFBF6AC14C4B23979676B81B610AD17618645180BB86A8FCDB18D61F97F817",
+    "manifest_sha256": "48232B7BBDAC70ACB2DF7343C636DBD32405DCC8DDA58882D48AC69852DD5368",
+    "status": "PASS"
+  },
+  "economic_run_bindings": [],
+  "cost_context": {
+    "historical_execution_provenance_verified": false,
+    "promotion_eligible": false
+  },
+  "status": "PASS_ENGINEERING_BUILD_NO_MODEL0_AUTHORITY"
+}
+

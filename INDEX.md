@@ -33,9 +33,9 @@ lane mới — không cập nhật cho từng run/readout mới.
 
 | File | Mở khi |
 |---|---|
-| `validation_gates.md` | chấm run: stage, ngưỡng, hard invalidation |
-| `tool_runbook.md` | lệnh chính xác: compile/backtest/validate/analyze |
-| `ea_golden_path.md` | đường generic từ brief → de-dup/probe → code → Model 0 → quyết định |
+| `validation_gates.md` | chấm run + delivery gate: stage, ngưỡng, evidence completeness, hard invalidation |
+| `tool_runbook.md` | lệnh chính xác: compile/backtest/validate/analyze/delivery |
+| `ea_golden_path.md` | đường generic từ brief → logic matrix → code/Model 0 → log/chart forensics → quyết định |
 | `ea_engineering_standard.md` | viết/review code MQL5 (closed-bar, non-repaint) |
 | `research_doctrine.md` | thiết kế hypothesis: registry, prereg, overfit budget, MT5 rules |
 
@@ -53,20 +53,22 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 | Path | Mở khi |
 |---|---|
 | `04. Memory/research/CANDIDATE_REGISTRY.jsonl` + schema + validator | ledger active dùng chung mọi EA; source/prereg hash-bound, transition fail-closed |
-| `04. Memory/research/20260716_GOAL_EXTERNAL_UNLOCK_BLOCKED_AUDIT.md` | evidence ba goal-turn cùng blocker; đọc trước khi resume từ Databento key/cost ceiling hoặc independent human labels |
-| `02. AlphaFactory/templates/research/` | tạo capability contract, prereg/readout và kiểm trường task packet |
+| `04. Memory/research/20260716_GOAL_EXTERNAL_UNLOCK_BLOCKED_AUDIT.md` | evidence lịch sử của ba goal-turn cùng blocker; không phải active unlock contract |
+| `02. AlphaFactory/templates/research/` | capability/prereg/task/readout + logic-to-code matrix và EA delivery packet |
 | `03. EA Developer/<EA>/research/` | prereg/readout/evidence riêng package active |
 | `00. Old File/EA_Archive/EA_SonicR/research/` | ledger và evidence Sonic lịch sử; archive-only, không chạy |
 
-## Source EA — `03. EA Developer/` (6 compilable lanes + terminal research records)
+## Source EA — `03. EA Developer/` (9 compilable lanes + terminal research records)
 
 | Path | Ghi chú |
 |---|---|
 | `03. EA Developer/README.md` | shelf pointer; current compilable lanes and terminal research records |
-| `03. EA Developer/EA_FVGConfluence/` | Path-C compile-only scaffold retained for audit; HYP-001 terminal de-dup KILL against prior FVG-cont family; no Model 0/promotion/live authority |
+| `03. EA Developer/EA_FVGConfluence/` | Path-C scaffold retained for audit; HYP-001 terminal de-dup KILL. `research/comparison_202607/` holds the read-only report/public-EA/professional comparison; no Model 0/promotion/live authority |
 | `03. EA Developer/EA_HybridICT_Sonic/` | lane active (Path-C stub, KILL@Model0); có `.mq5` + research |
+| `03. EA Developer/EA_ICTFVGReportFidelity/` | v1.23 Human Context natural policy; 53/53 tests, compile 0/0, non-repaint V19 PASS. HYP-017 single 2018-YTD Model-0 run N=3,703, native PF 0.7553 and 1.5-pip diagnostic PF 0.3513 / -0.52139R; terminal KILL, no rerun/promotion/live authority |
+| `03. EA Developer/EA_ICTVisualEdge/` | compilable visual extractor retained with terminal design-window economic KILL; no Model 0/rerun/live authority |
 | `03. EA Developer/EA_KLR_Scalper/` | native MT5 replication `.mq5` retained for audit; control/USD Model-0 pair terminal `KILL_AT_MODEL0_CADENCE`, no live/rerun authority |
-| `03. EA Developer/EA_UnicornPrecisionScalper/` | canonical v1.23 alert-only audit kernel; event-anchored `HYP-UPS-XAU-M5-006` remains terminal KILL, V1.3 zero-trade source-bound casebook `20260716_155111` waits for independent labels; D-only evidence |
+| `03. EA Developer/EA_UnicornPrecisionScalper/` | canonical v1.23 alert-only audit kernel; event-anchored `HYP-UPS-XAU-M5-006` remains terminal KILL; V1.3 zero-trade collection is retained as D-only engineering evidence, not an active gate |
 | `03. EA Developer/EA_UnicornPrecisionScalperControl/` | storage-safe four-bar Unicorn control; canonical `.mq5` retained with terminal Model-0 KILL readout and D-only evidence |
 | `03. EA Developer/EA_UnicornPrecisionScalperRR15/` | post-outcome HYP-008 RR1.5 exact replay terminal `KILL_DIAGNOSTIC`; source/readout retained for audit, never rerun/promotion/live authority |
 | `03. EA Developer/EA_PO3_AMD_Scalper/` | research-only `KILLED_AT_OFFLINE_PROBE`; no `.mq5` |
@@ -79,6 +81,7 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 | `03. EA Developer/EA_HybridRegimeMR/` | MR spec lane: HYP-001 offline KILL + HYP-002 exhaustive grid KILL (family `CLOSED_EXHAUSTIVE`); no `.mq5`; EURUSD datasets now at `02. AlphaFactory/data/fivepercent/EURUSD/` |
 | `03. EA Developer/EA_EURSessionDrift/` | Breedon-Ranaldo unconditional session drift `KILL_AT_OFFLINE_PROBE` (anomaly decayed post-2017); no `.mq5`; closes the last untested MR v3 branch |
 | `03. EA Developer/EA_KalshiMacroPrint/` | Kalshi macro-print lane `HYP-KALSHI-MACRO-PRINT-H1-XAU-001` `KILL_AT_OFFLINE_PROBE` (gross PF 0.941/0.947 dead before cost); no `.mq5`/Model 0 |
+| `03. EA Developer/EA_LSSOBPropScalper/` | LSS-OB EURUSD M15 exact-replication source + terminal MT5 evidence; control `20260719_001202` and challenger `20260719_001306` both 100% history, 388 sweeps, 0 displacement/FVG/trades; `KILL_AT_MT5_MODEL0_CADENCE_ZERO_TRADE`, no rerun/optimization/2023+/live authority |
 | `00. Old File/EA_Archive/EA_SonicR/` | full SonicR ledger (archived THẬT 2026-07-15; bản duy nhất) |
 | `00. Old File/EA_Archive/EA_SilverBullet/` | SilverBullet **binary-only** (`.ex5`; không còn source `.mq5` trên đĩa) |
 | `00. Old File/EA_Archive/` | 80 dir archived (SonicR + SilverBullet + 78 stub `.ex5`) + manifest; **không** compile làm evidence |
@@ -92,7 +95,9 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 | `tools/ea_research_loop.ps1` | entry generic dry-run mặc định cho control/challenger Model 0 |
 | `tools/research_loop_engine.ps1` | engine nội bộ phía sau `ea_research_loop.ps1`; không gọi trực tiếp |
 | `tools/alpha_candidate_compare.py` | comparator generic identity + control-relative |
-| `tools/research/` | research kit dùng chung: `dsr.py`, `fivepercent_server_clock.py`, `snapshot_c_roots.ps1` |
+| `tools/research/` | research kit dùng chung: `dsr.py`, `fivepercent_server_clock.py`, `snapshot_c_roots.ps1`; `chart_case_render.py` v2 dựng chuỗi M5 `PIVOT -> SWEEP/RECLAIM -> CONFIRM -> ENTRY -> EXIT` và panel M15/H1/H4/D1 có cây entry ở giữa; mode as-of che tương lai, mode anatomy hiện `POST-ENTRY OUTCOME`, hatch xanh giữ trạng thái partial đúng tại entry |
+| `tools/validate_ea_delivery_packet.py` | completion gate fail-closed: rehash logic/source/run/log/analysis/casebook trước khi được gọi EA development hoàn tất |
+| `schemas/ea_delivery_packet.v1.schema.json` | schema máy cho packet closeout logic → backtest → forensics |
 | `data/<broker>/<symbol>/` | data shelf thị trường (parquet + manifest hash-bound); rules trong `data/README.md` |
 | `runs/<EA>/<run_id>/` | evidence của run: report, run_manifest, `analysis/`, `logs/` |
 | `runs.db` + `tools/runs_db.py` | catalog run (chỉ là index, không phải thẩm quyền) |
@@ -126,6 +131,7 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 |---|---|
 | `02. AlphaFactory/tests/test_operational_hygiene.py` | regression offline cho dry-run cleanup, archive protect roots/containment, validator encoding, registry pins và runbook command surface |
 | `02. AlphaFactory/tests/test_ea_golden_path.py` | regression generic discovery, registry, capability, dry-run và comparator |
+| `02. AlphaFactory/tests/test_ea_delivery_packet.py` | regression packet hợp lệ, tamper/missing evidence, full chart anatomy và zero-trade branch |
 | `00. Old File/root_scratch_20260715/tests/` | stale `.pyc` lịch sử; archive-only, không dùng làm test hiện hành |
 
 ## Phần còn lại

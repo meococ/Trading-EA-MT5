@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-ICT-FVG-PIVOT-RECLAIM-DWELL-COLLECT-EURUSD-M5-026",
+  "run_id": "STATIC-ICTFVG-PIVOT-RECLAIM-DWELL-V23-20260719",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\EA_ICTFVGReportFidelity.mq5",
+  "source_sha256": "227A52E93713731EF639D9484DABC89B85006660F436C0F232117C60F1528127",
+  "include_snapshots": [
+    {
+      "snapshot_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\HumanContextEngine.mqh",
+      "sha256": "A24196DD908AD83BF9CE2047C3DCE810C57FDA56C861EB0F097D11600A0998F2"
+    },
+    {
+      "snapshot_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\NewsCalendar2019_2022.mqh",
+      "sha256": "29D0E757837A78346DF3D1990BDCAC3AEAA830D2B67922A968CE4F72D0E62427"
+    }
+  ]
+}

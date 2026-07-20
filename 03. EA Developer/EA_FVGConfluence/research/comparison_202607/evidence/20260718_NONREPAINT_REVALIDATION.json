@@ -1,0 +1,29 @@
+{
+  "schema_version": "fvg_comparison_nonrepaint_revalidation.v1",
+  "study_id": "STUDY-FVG-COMPARE-EURUSD-M5-001",
+  "generated_at_utc": "2026-07-18T11:13:23.4158394Z",
+  "status": "PASS_ENGINEERING_ONLY",
+  "source_path": "03. EA Developer/EA_FVGConfluence/EA_FVGConfluence.mq5",
+  "source_sha256": "0279ADE492A104803CC7279CD5D3B99A6F57822779B91273AFD666F0C784757F",
+  "prior_same_source_audit": {
+    "path": "03. EA Developer/EA_FVGConfluence/research/evidence/20260716_FVGCONFLUENCE_NONREPAINT_AUDIT.json",
+    "sha256": "97260F6950625DB0CBDBD2F6A7ED6F7E3E8C03D34016AFDA162436B2D01ED4F4",
+    "status": "PASS_ENGINEERING_ONLY"
+  },
+  "fresh_scan": {
+    "explicit_bar_zero_decision_matches": 0,
+    "entry_interaction_shift": 1,
+    "fvg_scan_min_formed_shift": 2,
+    "atr_decision_shift": 1,
+    "htf_latest_decision_shift": 1,
+    "new_bar_gate": "iTime(_Symbol, PERIOD_CURRENT, 1)",
+    "mtf_alignment": "latest completed H1/H4 bar only"
+  },
+  "limitations": [
+    "The generic static auditor rejects variable shift expressions and therefore was not misreported as a fresh PASS.",
+    "This revalidation binds a prior detailed audit to the identical source SHA and a fresh explicit bar-zero scan.",
+    "It proves engineering hygiene only; it does not establish fidelity, economics, cost realism, or promotion authority."
+  ],
+  "model0_authorized": false,
+  "promotion_eligible": false
+}

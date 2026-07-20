@@ -1,0 +1,37 @@
+{
+  "schema_version": "alphafactory.postrun_ranking_diagnostics.v1",
+  "hypothesis_id": "HYP-ICT-FVG-PROB-RANK-EURUSD-M5-014",
+  "probe_result_sha256": "7899F6432067B5DE235C0F2921B6BF66A356DA105D4E2AD8EEE708911EB2453D",
+  "predictions_sha256": "2AE80D37DFF9A8C302282E1061FAA903E6E5925040505B26FA6DFA371A52CA12",
+  "fold_models_sha256": "DA223741EC8A343E335C3B8799A1A488DEC5AE163C62CD8D1551BA33DF38EC99",
+  "repeat_hash_check": {
+    "exact_policy_replay_only": true,
+    "predictions_same": true,
+    "fold_models_same": true,
+    "probe_result_same": true
+  },
+  "ranking_quality": {
+    "pooled_roc_auc": 0.48790847370899504,
+    "pooled_brier": 0.25163477329280787,
+    "pooled_spearman_score_vs_r": -0.038879995067251705,
+    "annual_roc_auc": {
+      "2020": 0.48180708180708187,
+      "2021": 0.48108324372983924,
+      "2022": 0.4137806637806638,
+      "2023": 0.5355457691097829,
+      "2024": 0.528577026421854,
+      "2025": 0.47901884700665187,
+      "2026_partial": 0.5841962524654832
+    }
+  },
+  "fold_threshold_ranges": {
+    "train_p60_min": 0.472177,
+    "train_p60_max": 0.482856,
+    "probability_for_plus_0_05r_min": 0.604826,
+    "probability_for_plus_0_05r_max": 0.620763,
+    "test_score_max_min_across_folds": 0.542653,
+    "test_score_max_max_across_folds": 0.676355
+  },
+  "interpretation": "The fixed features do not rank x1-cost-positive outcomes out of sample. The payoff-and-cost-derived probability threshold is materially above ordinary model scores, leaving only 15 accepts; those accepts remain negative. No alternate threshold or feature ablation was evaluated."
+}
+

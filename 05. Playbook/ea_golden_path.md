@@ -1,6 +1,6 @@
 # Golden Path Generic — Thiết kế đến quyết định EA
 
-Cập nhật: 2026-07-16
+Cập nhật: 2026-07-19
 
 Đây là đường mặc định cho mọi EA. `hot.md` quyết định
 lane đang mở; AlphaFactory là harness; prereg/registry/gate quyết định một run có
@@ -14,6 +14,12 @@ quản trị lệnh, session, regime, symbol/TF, risk, cost và kill gate. Mọi
 định signal phải dùng bar đã đóng; tick chỉ được dùng cho execution/management
 sau khi signal hợp lệ. Điểm mơ hồ làm thay đổi thesis phải được nêu trước khi
 code; chi tiết kỹ thuật an toàn có thể do lead tự chốt và ghi assumption.
+
+Trước source change, tạo `LOGIC_TO_CODE_MATRIX`: mỗi quan sát của trader phải
+được gán đúng vai trò `context|qualification|trigger|invalidation|management|risk`,
+rule định lượng, data/bar index tại thời điểm quyết định, vị trí code, telemetry
+và test/parity proof. Context không được âm thầm thay thế trigger. Matrix còn
+`MISSING` hoặc ambiguity vật chất thì chưa được gọi là fidelity-complete.
 
 ## 2. De-dup và probe rẻ
 
@@ -99,13 +105,47 @@ symbol/TF/window/Model/data/cost identity; chỉ decision surface đã prereg đ
 holdout/WFA, sensitivity, Monte Carlo, regime/concentration, execution audit và
 casebook theo stage.
 
-## 9. Quyết định và chốt phiên
+## 9. Post-run forensics và delivery gate bắt buộc
+
+Một meaningful backtest chưa khép kín sau khi có report hoặc `validate-full`.
+Agent phải hoàn thành đủ vòng sau trên đúng source/run đã hash-bind:
+
+1. Re-read logic matrix và source để xác nhận state machine thực chạy đúng
+   intent, đúng sequencing, không có mode/default dormant hoặc proxy bị gọi nhầm
+   là full strategy.
+2. Chạy log triage trước khi mở raw log; reconcile report ↔ lifecycle ↔ RunMeta,
+   OPEN/final rows, deal P&L/cost/risk và mọi reject/error quan trọng.
+3. Phân tích economics và funnel: net/PF/WR/expectancy/R, cadence theo elapsed
+   weeks, DD/tail/holding, cost stress, time stability, year/session/direction,
+   regime/context state, concentration và execution quality.
+4. Giải thích riêng cơ chế thắng, cơ chế thua và điểm logic xung đột. Kết luận
+   từ pattern hậu nghiệm chỉ là lead cho hypothesis mới, không được patch thẳng.
+5. Render casebook anatomy tối thiểu hai winner + hai loser khi có đủ mẫu. Mỗi
+   chart phải hiện entry, initial SL, TP, actual exit; panel HTF M15/H1/H4/D1 có
+   cây entry ở giữa, trạng thái as-of-entry và các bar sau entry được đánh dấu
+   rõ là outcome. Zero-trade phải thay bằng funnel + chart candidate bị reject;
+   không được bịa economics.
+6. Hash-bind toàn bộ vào `alphafactory_ea_delivery_packet.v1` và chạy:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass `
+  -File "02. AlphaFactory/alpha.ps1" delivery `
+  -Packet "<EA_DELIVERY_PACKET.json>"
+```
+
+Thiếu bất kỳ surface nào phải trả `FAIL` hoặc `INSUFFICIENT_EXPLAINED`; cấm gọi
+EA development `DONE`, `complete`, `ready` hay đề xuất cải thiện tiếp từ outcome
+khi delivery packet chưa PASS. Gate này kiểm tính đầy đủ của quyết định; nó
+không thay thế prereg, registry, `validate-full` hoặc promotion gates.
+
+## 10. Quyết định và chốt phiên
 
 Mỗi gate là `PASS|FAIL|INSUFFICIENT`. Fail hợp lệ → append `parked/killed`; muốn
 đổi cơ chế/ngưỡng phải mở hypothesis mới. Pass research không đồng nghĩa live.
 Cập nhật `hot.md`, registry/readout, failure memory nếu có kill, source-of-truth
 nếu path đổi, rồi archive-first cleanup. Chỉ commit/push khi Owner yêu cầu rõ
-trong message hiện tại.
+trong message hiện tại. Closeout có backtest phải trỏ tới delivery packet PASS;
+không có packet PASS thì trạng thái cao nhất chỉ là `UNMET/PARTIAL`.
 
 ## Owner gửi thiết kế như thế nào
 

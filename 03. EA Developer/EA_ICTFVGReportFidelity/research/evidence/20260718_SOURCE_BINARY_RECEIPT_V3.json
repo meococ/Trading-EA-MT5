@@ -1,0 +1,61 @@
+{
+  "schema_version": "alphafactory.source_binary_receipt.v2",
+  "receipt_id": "RCP-ICT-FVG-FIDNEWS-20260718-003",
+  "created_utc": "2026-07-18T15:55:00Z",
+  "hypothesis_id": "HYP-ICT-FVG-FIDNEWS-EURUSD-M5-002",
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 40806,
+    "sha256": "8BABF2EEE803638E0832D2B6DAFBFA2E6FE6F3E88C24307CFCAE8D0E6D927BE3"
+  },
+  "compile_dependencies": [
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/NewsCalendar2019_2022.mqh",
+      "bytes": 15077,
+      "sha256": "248D569B981564AC0B179588C4919CD6CC196A9E7B008939A9CCDB3446F4678C"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.weekly.raw.json",
+      "bytes": 944989,
+      "sha256": "78CB2656A27278B1DA04B2C594A2C73BB1877DBA3AB52BCCFAC36A215945EA8F"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+      "bytes": 294809,
+      "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307"
+    }
+  ],
+  "binary": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.ex5",
+    "bytes": 70080,
+    "sha256": "B1603F15D5AFA111ED41AEC7B1BAC73FB70C8F1E27F068EF4DF8100232D27A92"
+  },
+  "compile_log": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.log",
+    "bytes": 6590,
+    "sha256": "54F10A122837039CBAE29C9A89CDDAC2AD1FF5B37CC562E6B5467785E328500C",
+    "errors": 0,
+    "warnings": 0,
+    "result_line": "Result: 0 errors, 0 warnings, 954 ms elapsed, cpu='X64 Regular'"
+  },
+  "compile_command": "powershell -NoProfile -ExecutionPolicy Bypass -File 02. AlphaFactory/alpha.ps1 compile EA_ICTFVGReportFidelity",
+  "preregistration": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FIDNEWS-EURUSD-M5-002_PROBE_PLAN.md",
+    "bytes": 3154,
+    "sha256": "16B369E090CE6C667401A81DB2BE586A72D0F4361FE489307DD8D77557783EC9"
+  },
+  "news_build_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260718_NEWS_CALENDAR_BUILD_AUDIT.json",
+    "bytes": 1714,
+    "sha256": "D5D38389CE72A443A79E63131719FAE42BAB4BFC552B792E130921870B0CBE2A",
+    "verdict": "PASS_DIAGNOSTIC_SOURCE_C",
+    "promotion_eligible": false
+  },
+  "nonrepaint_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260718_NONREPAINT_AUDIT_V3.json",
+    "bytes": 1994,
+    "sha256": "F82426BD9546D3965679D03ABB53C510B5006767029379BA001E23835CFCE031",
+    "status": "PASS_ENGINEERING_ONLY"
+  },
+  "status": "PASS_DIAGNOSTIC_ONLY"
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "alphafactory_diagnostic_result.v1",
+  "hypothesis_id": "HYP-ICT-FVG-FULLCHART-NODD-EURUSD-M5-009",
+  "parent_hypothesis_id": "HYP-ICT-FVG-FIDM0EXEC-EURUSD-M5-008",
+  "verdict": "INVALID_DIAGNOSTIC_EARLY_BROKER_STOP_OUT_AND_RUNMETA_IDENTITY_MISMATCH",
+  "purpose": "Remove the persistent 8% account-DD gate to observe control trades across the full 2019-2022 chart.",
+  "frozen_delta": {
+    "input": "InpMaxAccountDrawdownPct",
+    "parent_value": 8.0,
+    "diagnostic_value": 100.0,
+    "other_preset_fields_changed": 0
+  },
+  "control_run": {
+    "run_id": "20260719_131410",
+    "run_manifest_path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_131410/run_manifest.json",
+    "run_manifest_sha256": "83B1DE92CF59527482871C528BFFEF8F439A09AD501FC2402B67C6CCCA65D2E4",
+    "report_path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_131410/report.html",
+    "report_sha256": "3EB3D48EEF687BA03256B818ECE4E27AC3ABD8691A2FCE6D644B351C597A50F5",
+    "execution_receipt_sha256": "B283C07962191A812D0DE2E2D4FC58E7FC9EDCF9944673178A02EC0EE56E8780",
+    "source_sha256": "7F5AD64F2C622B0426BA475B855257AAB560026C2882C1D45D7C6826DAF33EAE",
+    "ex5_sha256": "3A913BCF23764AC9CFFB5CA03B060D11E4E661E21D1F3479EF10B86EA8CF7737",
+    "configured_window": "2019.01.01-2022.12.31",
+    "generated_bars": 23349,
+    "generated_ticks": 4972379,
+    "history_quality": "100%",
+    "tester_terminal_event": "2019.04.25 10:45:00 position stop out; test stopped at 7% of configured interval",
+    "first_entry": "2019.01.02 09:20:00",
+    "last_entry": "2019.04.25 10:40:00",
+    "trades": 162,
+    "net_profit": -10202.30,
+    "profit_factor": 0.5812553023906984,
+    "win_rate_pct": 42.592592592592595,
+    "max_drawdown_pct": 9.961103804872417,
+    "expectancy_per_trade": -62.97716049382716,
+    "lifecycle_path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_131410/logs/EURUSD_LifecycleTrades_HYP-ICT-FVG-FIDM0EXEC-EURUSD-M5-008_86477625.csv",
+    "lifecycle_sha256": "DED1A31CA371D0BCAE663D33BE04D1C5B183E0B8634D33023D4C0A49594D2761",
+    "lifecycle_data_rows": 323,
+    "run_meta_path": "02. AlphaFactory/runs/EA_ICTFVGReportFidelity/20260719_131410/logs/EURUSD_RunMeta_HYP-ICT-FVG-FIDM0EXEC-EURUSD-M5-008_86477625.json",
+    "run_meta_sha256": "E8619A3DE5396CC7C4BB22DD0B2C409425D90FC34FDFFC8B701035D0A9EB0DC1",
+    "run_meta_days_seen": 99,
+    "run_meta_hypothesis_id": "HYP-ICT-FVG-FIDM0EXEC-EURUSD-M5-008",
+    "manifest_hypothesis_id": "HYP-ICT-FVG-FULLCHART-NODD-EURUSD-M5-009"
+  },
+  "reconciliation": {
+    "entry_rows": 162,
+    "final_close_rows": 161,
+    "missing_final_close_reason": "Tester broker stop-out terminated the final position/test before a normal lifecycle final-close row was captured.",
+    "full_window_completed": false,
+    "identity_bound": false
+  },
+  "decision": {
+    "challenger_run_executed": false,
+    "reason": "The matched control was invalid for the frozen full-chart purpose; continuing the pair would not repair the control and the challenger is already pre-execution zero-trade under the unchanged signal path.",
+    "promotion_eligible": false,
+    "performance_metrics_authorized": false,
+    "holdout_bars_loaded": 0,
+    "next_legal_action": "Fresh identity-bound micro-risk diagnostic child may reduce only sizing enough to avoid broker/tester stop-out while retaining the no-DD chart-observation purpose."
+  }
+}

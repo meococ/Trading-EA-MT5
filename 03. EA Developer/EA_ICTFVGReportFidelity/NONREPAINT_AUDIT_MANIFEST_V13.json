@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-ICT-FVG-FULLCHART-NONEWS-2018YTD-EURUSD-M5-011",
+  "run_id": "STATIC-ICTFVG-FULLCHART-2018YTD-NONEWS-V13-20260719",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\EA_ICTFVGReportFidelity.mq5",
+  "source_sha256": "EFEA68F7763873B5F880BBCB2919A3A2DF629289E06F69A525FA91396C9674A6",
+  "include_snapshots": [
+    {
+      "snapshot_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\NewsCalendar2019_2022.mqh",
+      "sha256": "29D0E757837A78346DF3D1990BDCAC3AEAA830D2B67922A968CE4F72D0E62427"
+    }
+  ]
+}

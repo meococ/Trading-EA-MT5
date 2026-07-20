@@ -1,0 +1,86 @@
+{
+  "schema_version": "alphafactory.context_visual_receipt.v1",
+  "generated_at_utc": "2026-07-19T11:04:32Z",
+  "hypothesis_id": "HYP-ICT-FVG-CONTEXT-STATE-EURUSD-M5-012",
+  "purpose": "Post-run visual analysis only: an auditable M5 rule chain (pivot -> sweep/reclaim -> confirmation -> entry -> exit) plus a centered-entry H1 anatomy panel with the outcome-bearing region explicitly disclosed.",
+  "renderer": {
+    "path": "02. AlphaFactory/tools/research/chart_case_render.py",
+    "sha256": "EEC6598DAAA148F22548A6BE9CCE989907B1733BC1E209A8D04B875E6D2F3179",
+    "schema_version": "chart_case_render.v2"
+  },
+  "contract_test": {
+    "path": "02. AlphaFactory/tests/test_research_kit.py",
+    "sha256": "165997221E1CB8AFF0A97CAAFC2FC6BA9C424940C6E1619C2BE60C19A7C72671",
+    "result": "5 passed",
+    "red_first": "The forensic-context test first failed on unrecognized context arguments. Owner QA then exposed the missing current-H1 mapping and centered before/after semantics. The setup-chain contract finally failed on absent manifest fields before pivot, sweep/reclaim and confirmation markers were implemented."
+  },
+  "case_builder": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/build_hyp012_context_forensics.py",
+    "sha256": "1C71A54D6C97C95B10205F6678C8624998C916D4BDF17E0ABF6189216015E417",
+    "selection_rule": "six frozen winner/loser strata retained; setup timestamps and prices are derived from the existing position context ledger"
+  },
+  "inputs": {
+    "bars_path": "02. AlphaFactory/runtime/ictfvg_hyp011_forensics/EURUSD_M5_2018_2026.parquet",
+    "bars_sha256": "AAF14451A0AA3671C5037A19ECB30E3A1A27B115A0F16CACBBB4D4209F921C73",
+    "cases_path": "02. AlphaFactory/runtime/ictfvg_hyp012_context_forensics/cases.csv",
+    "cases_sha256": "CEC6326A574375B72DE0BF8613A0EE3C2D26B8A1E42EBA7AE6CFE25173D4019B"
+  },
+  "render_contract": {
+    "mode": "anatomy",
+    "m5_pre_bars": 72,
+    "m5_post_bars": 24,
+    "m5_overlays": ["ema:20", "ema:50"],
+    "context_timeframe": "H1",
+    "context_bars_before_entry": 24,
+    "context_bars_after_entry": 24,
+    "context_overlays": ["ema:20", "ema:50"],
+    "context_entry_position": "center",
+    "entry_marker": "exact deal timestamp/price mapped to the first containing M5 bar",
+    "exit_marker": "exact deal timestamp/price mapped to the containing M5 bar",
+    "m5_setup_chain": "pivot line plus distinct diamond sweep/reclaim marker, square confirmation marker and dashed connector into entry; every timestamp/price and predicate is written to the image manifest",
+    "decision_state_cutoff": "closed-bar metrics use only HTF bar_close <= entry; the blue-hatched partial overlay uses only source bars whose close <= entry",
+    "partial_style": "the full entry H1 candle is outcome-bearing; a hatched blue overlay preserves its exact as-of-entry partial state and the entry marker is placed on the same candle",
+    "future_style": "the entry H1 candle is anchored at 50% width; 24 later completed H1 candles are shown over a shaded region labeled POST-ENTRY OUTCOME"
+  },
+  "output": {
+    "directory": "02. AlphaFactory/runtime/ictfvg_hyp012_context_visual_v2_h1",
+    "manifest_path": "02. AlphaFactory/runtime/ictfvg_hyp012_context_visual_v2_h1/cases_manifest.json",
+    "manifest_sha256": "9C827AECB5458A499258395CF0FDFA8EC0BC42483BEA038DA024A9F5962E89E3",
+    "rendered": 6,
+    "skipped": 0,
+    "entry_markers": 6,
+    "exit_markers": 6,
+    "sweep_reclaim_markers": 6,
+    "confirmation_markers": 6,
+    "valid_setup_sequences": 6,
+    "reclaim_predicates_pass": 6,
+    "opposite_extreme_break_predicates_pass": 6,
+    "current_htf_partial_mappings": 6,
+    "centered_entry_anchors": 6,
+    "post_entry_outcome_regions": 6,
+    "post_entry_h1_bars_per_case": 24,
+    "decision_state_cutoff_pass": 6,
+    "images": [
+      {"case_id": "CTX01", "path": "CTX01_anatomy_h1.png", "sha256": "5E8292220201967FEA8925C5559F724388FBF513A2EFF7E988ECF3C3CAD9193E"},
+      {"case_id": "CTX02", "path": "CTX02_anatomy_h1.png", "sha256": "507CC55F6D743368A09216074BE31ACDDCBA69C626FCFE96CBC19C15F4AC3EFC"},
+      {"case_id": "CTX03", "path": "CTX03_anatomy_h1.png", "sha256": "5999C42FFB62DC52E566B24100D4A849BBB21E3225FAAECA71F72562142AC6D0"},
+      {"case_id": "CTX04", "path": "CTX04_anatomy_h1.png", "sha256": "BEC4FE68511A20EAB0DDA26AF8E1B678F82AD15B6A7AFE7B57A49644CCD53A92"},
+      {"case_id": "CTX05", "path": "CTX05_anatomy_h1.png", "sha256": "32844E392C54ED3E2C21687E542D9FFD0C4252FF39AE9527474B9DD0401EAB7A"},
+      {"case_id": "CTX06", "path": "CTX06_anatomy_h1.png", "sha256": "A8AE7A9C2FA94493EEBADEB709AAAEDAEED6E505D92D80C5D2D53A5484CA08B9"}
+    ]
+  },
+  "qa": {
+    "all_entry_markers_rendered": true,
+    "all_exit_markers_rendered": true,
+    "all_rule_chain_markers_rendered": true,
+    "all_rule_chain_sequences_and_predicates_verified": true,
+    "all_entries_mapped_to_current_htf_partial": true,
+    "all_entry_anchors_centered_at_fraction_0_5": true,
+    "all_post_entry_outcome_regions_disclosed": true,
+    "all_decision_state_cutoffs_enforced": true,
+    "visual_inspection": "PASS. Every M5 panel now identifies the pivot, sweep/reclaim candle, confirmation candle, entry and exit with distinct shapes, direct labels and a connecting rule chain. Every H1 panel shows 24 bars on each side; the full center candle and right half are visibly outcome-bearing, while the blue hatch preserves the entry-time partial state.",
+    "interpretation_boundary": "Both panels are anatomy/outcome-bearing and may be used for lifecycle diagnosis. Only the blue-hatched partial, the pre-entry H1 candles and the reported closed-bar decision metrics represent information available at entry."
+  },
+  "economic_authority": false,
+  "promotion_eligible": false
+}

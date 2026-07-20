@@ -1,0 +1,55 @@
+{
+  "schema_version": "grok_ea_trade_forensics_receipt.v1",
+  "created_utc": "2026-07-19T08:32:00Z",
+  "scope": "read_only_postmortem_no_tuning_no_rerun_authority",
+  "hypothesis_id": "HYP-ICT-FVG-FULLCHART-NONEWS-2018YTD-EURUSD-M5-011",
+  "run_id": "20260719_142214",
+  "shared_skill": {
+    "name": "grok-ea-trade-forensics",
+    "skill_path": "C:/Users/ADMIN/.agents/skills/grok-ea-trade-forensics/SKILL.md",
+    "skill_sha256": "EFBFF58AE6BC516BB806EBF8C698754859F0F2F32A0EEFE5AD8DFBA15767FD40",
+    "analysis_contract_path": "C:/Users/ADMIN/.agents/skills/grok-ea-trade-forensics/references/analysis_contract.md",
+    "analysis_contract_sha256": "389F232F8B01EB16E449368F2DE2971F8FDA8248DB9AD36D92663DC75E2715B7",
+    "validation": "quick_validate PASS; grok inspect listed the user skill"
+  },
+  "grok_build_cli": {
+    "backend": "grok-build",
+    "model": "grok-4.5",
+    "session_id": "019f795d-0138-7b11-afb1-d982795ec984",
+    "request_id": "e9efe76c-592f-42b0-81d5-909e09fbc720",
+    "stop_reason": "EndTurn",
+    "num_turns": 4,
+    "elapsed_seconds": 191.39,
+    "total_cost_usd": 0.313702,
+    "request_path": ".context/grok_ictfvg_hyp011_forensics_20260719/resume1/grok-request.json",
+    "request_sha256": "B24512B0D61E9FA875C7B5C28BE00672A56564DE162339DF47D1219EF95E84A9",
+    "response_path": ".context/grok_ictfvg_hyp011_forensics_20260719/resume1/grok-response.json",
+    "response_sha256": "3342A744D7E9C1939DA3566255585E70414D470BA2A3031151DD9E580BF52FDB",
+    "summary_path": ".context/grok_ictfvg_hyp011_forensics_20260719/resume1/summary.json",
+    "summary_sha256": "F87B6CD01404743CDA3401CBA65A2B05D922D3AF78A26C3E598378F862A8026D",
+    "first_attempt": "Rejected as incomplete because stopReason was Cancelled; the same session was resumed to EndTurn."
+  },
+  "independent_local_reconciliation": {
+    "script_path": "03. EA Developer/EA_ICTFVGReportFidelity/research/build_hyp011_trade_forensics.py",
+    "script_sha256": "6D233BE9B2A85AADB75F67E4AE0C5381FFC9103DB46AA76C12F88F4D2A2C6984",
+    "manifest_path": "02. AlphaFactory/runtime/ictfvg_hyp011_forensics/forensics_manifest.json",
+    "manifest_sha256": "AE9001DCC40BD8BD0F522A0F12A1B50605E307974AF4BBBDE3CDA171F5599B6E",
+    "trade_forensics_path": "02. AlphaFactory/runtime/ictfvg_hyp011_forensics/trade_forensics.json",
+    "trade_forensics_sha256": "434A42F9DD2D2FB23F3BE48452D404CA921CA3B84FE87175E01E2477577B89EE",
+    "readout_path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FULLCHART-NONEWS-2018YTD-EURUSD-M5-011_TRADE_FORENSICS_READOUT.md",
+    "readout_sha256": "DA73503547BA32ACDD1C36ECA9C858E483A289265F6F88E169905C10C2E5A223",
+    "asof_chart_manifest_path": "02. AlphaFactory/runtime/ictfvg_hyp011_forensics/charts_asof/cases_manifest.json",
+    "asof_chart_manifest_sha256": "D90A6B62992F3CA58CAAF2CA3CD87E5A30CC23C7BE82D3E8870D55BA1DDB6915",
+    "anatomy_chart_manifest_path": "02. AlphaFactory/runtime/ictfvg_hyp011_forensics/charts_anatomy/cases_manifest.json",
+    "anatomy_chart_manifest_sha256": "17BD930845ECC157E804BF55A3EEEAE99B37C62B883323ABB2017C368C6F8935",
+    "verification": "4341 OPEN = 4341 final CLOSE; lifecycle net and commission reconcile by position; 12/12 as-of and 12/12 anatomy charts rendered from hash-bound M1-derived M5 bars."
+  },
+  "authority_boundary": {
+    "history_quality_pct": 99,
+    "frozen_history_quality_gate_pct": 100,
+    "promotion_eligible": false,
+    "hypothesis_state": "killed",
+    "new_backtest_authorized": false,
+    "paper_or_live_authorized": false
+  }
+}

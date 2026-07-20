@@ -1,0 +1,29 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-ICT-FVG-FIDREC-EURUSD-M5-005",
+  "run_id": "STATIC-ICTFVG-FIDREC-V8-20260718",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\research\\evidence\\20260718_NONREPAINT_AUDIT_V8\\audit_manifest.json",
+  "manifest_sha256": "DD38CAD4303D1146DFE37DA0D93603101FA825875D39D19B2E096FCCFB172549",
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\research\\evidence\\20260718_NONREPAINT_AUDIT_V8\\snapshot\\source\\EA_ICTFVGReportFidelity.mq5",
+      "sha256": "C6A05F4124029A38A7FC80B83D8697B6B58E87CF3FAEDD9FD53BE43DA87522E2"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\research\\evidence\\20260718_NONREPAINT_AUDIT_V8\\snapshot\\include\\NewsCalendar2019_2022.mqh",
+      "sha256": "248D569B981564AC0B179588C4919CD6CC196A9E7B008939A9CCDB3446F4678C"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ICTFVGReportFidelity\\research\\evidence\\20260718_NONREPAINT_AUDIT_V8\\snapshot\\source\\EA_ICTFVGReportFidelity.mq5",
+      "line": 1521,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "generated_at_utc": "2026-07-18T17:00:08.488993+00:00"
+}

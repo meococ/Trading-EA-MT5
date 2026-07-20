@@ -30,7 +30,7 @@ lane's package, not here.
 | `controls.py` | Matched-random and time-shift entry generators (timestamps only; the lane's frozen exit engine simulates them) |
 | `dsr.py` | Deflated Sharpe Ratio + trial-accounting conventions |
 | `fivepercent_server_clock.py` | Measured FivePercent server→UTC model (era-hybrid DST) |
-| `chart_case_render.py` | Per-case candlestick PNGs from hash-bound bars (asof/anatomy) |
+| `chart_case_render.py` | Per-case candlestick PNGs from hash-bound bars. Optional case fields render an auditable M5 `PIVOT -> SWEEP/RECLAIM -> CONFIRM -> ENTRY` chain plus exact exit. `asof` is outcome-blind; `anatomy` discloses outcome. Optional M15/H1/H4/D1 side panel supports a centered entry candle: zero `--context-post-bars` hides the future, while a positive value shows `POST-ENTRY OUTCOME`. The blue hatch preserves the current HTF partial built only from source bars closed by entry. |
 | `log_triage.py` | Streaming error-pattern battery for heavy logs |
 | `snapshot_c_roots.ps1` | Protected-C-roots before/after receipts (single digest source) |
 | `parity_harness.py` + `mql5/ParityDump.mq5` | MT5 iATR/iADX/iRSI vs python parity: capture in-terminal values on identical bars, compare with tolerances, emit verdict artifact |

@@ -1,0 +1,71 @@
+{
+  "schema_version": "log_triage.v1",
+  "generated_at_utc": "2026-07-19T17:14:08Z",
+  "log": "02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\Tester\\Agent-127.0.0.1-3000\\logs\\20260719.log",
+  "bytes": 50050178,
+  "lines": 402873,
+  "log_sha256_first_1mb": "4FD315D1149C4DA61D19432737E10374AF7ACAD5AAEC278108A6E2924A879F36",
+  "battery": {
+    "ledger_fatal": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    },
+    "order_reject": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    },
+    "requote": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    },
+    "invalid_stops": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    },
+    "margin": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    },
+    "timeout": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    },
+    "array_range": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    },
+    "oninit_fail": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    },
+    "cannot_open": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    },
+    "hyp018": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    }
+  },
+  "clean": true
+}

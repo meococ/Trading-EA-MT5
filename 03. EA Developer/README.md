@@ -1,16 +1,19 @@
 # 03. EA Developer — Active Shelf
 
-Updated: 2026-07-18 (MR family closed, B-R + Kalshi kills recorded)
+Updated: 2026-07-19 (ICT/FVG 2018-YTD no-news diagnostic terminal at 99% history-quality invalid gate)
 
-Active compilable shelf = 6 lane. Mọi package khác đã archive THẬT sang
+Active compilable shelf = 9 lane. Mọi package khác đã archive THẬT sang
 `00. Old File/EA_Archive/` (2026-07-15) — **không** compile từ đó làm evidence.
 
 | Active package | Path | Notes |
 |---|---|---|
-| `EA_FVGConfluence` | `03. EA Developer/EA_FVGConfluence/` | Path-C scaffold compile 0/0 and closed-bar audit PASS, but `HYP-FVG-SCALP-CONFL-M5-EUR-001` terminal at de-dup as illegal densify of killed FVG-cont; no Model 0/rerun/live authority |
+| `EA_FVGConfluence` | `03. EA Developer/EA_FVGConfluence/` | Path-C scaffold compile 0/0 and closed-bar audit PASS, but `HYP-FVG-SCALP-CONFL-M5-EUR-001` stays terminal de-dup KILL. Read-only comparison study: report fidelity INFERIOR; public-EA and professional performance INSUFFICIENT; no Model 0/rerun/live authority |
 | `EA_HybridICT_Sonic` | `03. EA Developer/EA_HybridICT_Sonic/` | Path-C stub (KILL@Model0, 0 trades); lane riêng |
+| `EA_ICTFVGReportFidelity` | `03. EA Developer/EA_ICTFVGReportFidelity/` | v1.23 Human Context natural policy: 53/53 tests, compile 0/0, non-repaint V19 PASS. HYP-017 single 2018-YTD Model-0 run N=3,703, native PF 0.7553; additional 1.5-pip PF 0.3513 / -0.52139R, terminal KILL. Source retained for audit only; no rerun/promotion/live authority |
+| `EA_ICTVisualEdge` | `03. EA Developer/EA_ICTVisualEdge/` | Visual feature-discovery method record retained with a compilable extractor; hypothesis terminal design-window economic KILL, no Model 0/rerun/live authority |
 | `EA_KLR_Scalper` | `03. EA Developer/EA_KLR_Scalper/` | Native Model-0 replication terminal KILL: core N=4/0.02555 per week, USD N=1/0.00639 per week; source retained for audit, no live/rerun authority |
-| `EA_UnicornPrecisionScalper` | `03. EA Developer/EA_UnicornPrecisionScalper/` | Event-anchored Model-0 `HYP-UPS-XAU-M5-006` remains terminal KILL; canonical v1.24 is tester-only/alert-only hardening with source-bound zero-trade V1.3 casebook awaiting independent labels, not live/economic-rerun eligible |
+| `EA_LSSOBPropScalper` | `03. EA Developer/EA_LSSOBPropScalper/` | Owner-required exact EURUSD M15 replication compiled 0/0 and ran matched MT5 Model-0 control/challenger (`20260719_001202`/`20260719_001306`): each 100% history, 388 sweeps, 0 displacement/FVG, 0 trades. Terminal `KILL_AT_MT5_MODEL0_CADENCE_ZERO_TRADE`; source retained for audit only, no rerun/optimization/holdout/live authority |
+| `EA_UnicornPrecisionScalper` | `03. EA Developer/EA_UnicornPrecisionScalper/` | Event-anchored Model-0 `HYP-UPS-XAU-M5-006` remains terminal KILL; canonical v1.24 is tester-only/alert-only hardening and is not live/economic-rerun eligible |
 | `EA_UnicornPrecisionScalperControl` | `03. EA Developer/EA_UnicornPrecisionScalperControl/` | Storage-safe four-closed-bar Model-0 control; compiled/non-repaint PASS, `HYP-UPSC-XAU-M5-002` terminal KILL, not live/run eligible |
 | `EA_UnicornPrecisionScalperRR15` | `03. EA Developer/EA_UnicornPrecisionScalperRR15/` | Exact RR1.5 replay `20260716_144508` terminal `KILL_DIAGNOSTIC`: WR 35.606%, PF 0.697, net -$4,904.75, full-cost PF 0.475; no rerun/promotion/live authority |
 

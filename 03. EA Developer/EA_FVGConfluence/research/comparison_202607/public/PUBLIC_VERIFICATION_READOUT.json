@@ -1,0 +1,206 @@
+{
+  "schema_version": "public_verification_readout.v1",
+  "study_id": "STUDY-FVG-COMPARE-EURUSD-M5-001",
+  "generated_at_utc": "2026-07-18T12:25:22.918845+00:00",
+  "frozen_candidates": 15,
+  "eligible_grade_a_or_b": 0,
+  "eligible_candidate_ids": [],
+  "verdict": "INSUFFICIENT_VERIFIED_DATA",
+  "entities": [
+    {
+      "candidate_id": "EA-F01-LIQUIDITY-SWEEPER",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    },
+    {
+      "candidate_id": "EA-F02-TIME-RANGE-SWEEP",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    },
+    {
+      "candidate_id": "EA-F03-APEX-LIQUIDITY-TRADER",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    },
+    {
+      "candidate_id": "EA-F04-FAITHIFY-PRO",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    },
+    {
+      "candidate_id": "EA-F05-SMC-AUTOMATO",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    },
+    {
+      "candidate_id": "EA-F06-STRATUM",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    },
+    {
+      "candidate_id": "EA-F07-SMC-GENESIS",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    },
+    {
+      "candidate_id": "EA-F08-EXHAUSTION-TRAP",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    },
+    {
+      "candidate_id": "EA-F09-PHOENIX-ENGINE",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    },
+    {
+      "candidate_id": "EA-F10-ICT-SILVER-BULLET-CRT",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    },
+    {
+      "candidate_id": "EA-F11-ORDER-BLOCKS-SCALPER",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    },
+    {
+      "candidate_id": "EA-F12-LUNOX-KILLZONE",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    },
+    {
+      "candidate_id": "EA-F13-QHYPER-9",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    },
+    {
+      "candidate_id": "EA-F14-EURUSD-LONDON-BREAKOUT",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    },
+    {
+      "candidate_id": "EA-F15-PO3-SESSION-PROTRACTION",
+      "source_grade": "C",
+      "eligible": false,
+      "reasons": [
+        "GRADE_C_FEATURE_ONLY",
+        "LT_36_MONTHS",
+        "LT_200_CLOSED_TRADES",
+        "HISTORY_NOT_COMPLETE",
+        "CUSTOM_START_OR_UNKNOWN",
+        "CASHFLOWS_NOT_OBSERVABLE"
+      ]
+    }
+  ]
+}

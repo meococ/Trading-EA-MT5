@@ -1,0 +1,50 @@
+{
+  "schema_version": "professional_benchmark_status.v2",
+  "study_id": "STUDY-FVG-COMPARE-EURUSD-M5-001",
+  "as_of_date": "2026-07-18",
+  "deep_research_response_sha256": "D95BFBDDBCB6360276883FD00C5E0B4880232DA1D1D441C77606A9A7108F43F0",
+  "ea_monthly_oos_series_available": false,
+  "ea_terminal_hypothesis_state": "killed",
+  "model0_executed": false,
+  "benchmarks": [
+    {
+      "id": "BARCLAY_CURRENCY_TRADERS_INDEX",
+      "role": "broad_currency_professional_index",
+      "style_attribution": "not_ICT_specific",
+      "source_url": "https://portal.barclayhedge.com/cgi-bin/indices/displayCtaIndex.cgi?indexCat=Barclay-CTA-Indices&indexName=Currency-Traders-Index",
+      "monthly_series_ingested": false,
+      "admission_to_ea_ranking": false
+    },
+    {
+      "id": "NFA_VERIFIED_CTA_PROGRAMS",
+      "role": "regulated_program_cohort",
+      "identity_gate_url": "https://www.nfa.futures.org/basicnet/",
+      "performance_presentation_url": "https://www.cftc.gov/foia/fedreg03/foi030313a.htm",
+      "programs_ingested": 0,
+      "reason": "No named CTA program or legal identity existed in the frozen cohort."
+    },
+    {
+      "id": "DARWIN_FX_36M",
+      "role": "secondary_risk_normalized_context_only",
+      "style_attribution": "not_ICT_specific",
+      "definition_url": "https://help.darwinex.com/return-risk-ratio",
+      "monthly_series_ingested": false,
+      "entities_recorded": 9,
+      "limitations": ["gross_returns", "often_multi_asset", "no_ICT_style_evidence", "not_exact_EA_attribution", "not_complete_universe_census"],
+      "entities": [
+        {"code": "CKV", "url": "https://www.darwinex.com/invest/CKV", "track_record_years": 11.5, "return_since_inception_pct": 138.19, "annualized_pct": 7.84},
+        {"code": "DIY", "url": "https://www.darwinex.com/invest/DIY", "track_record_years": 6.0, "return_since_inception_pct": -20.91, "annualized_pct": -3.83},
+        {"code": "DWS", "url": "https://www.darwinex.com/invest/DWS", "track_record_years": 6.5, "return_since_inception_pct": 203.82, "annualized_pct": 18.64},
+        {"code": "GBP", "url": "https://www.darwinex.com/invest/GBP", "track_record_years": 5.0, "return_since_inception_pct": 11.22, "annualized_pct": 2.15},
+        {"code": "LRN", "url": "https://www.darwinex.com/invest/LRN", "track_record_years": 7.5, "return_since_inception_pct": 21.45, "annualized_pct": 2.62},
+        {"code": "MPQ", "url": "https://www.darwinex.com/invest/MPQ", "track_record_years": 7.0, "return_since_inception_pct": 4.85, "annualized_pct": 0.68},
+        {"code": "NTI", "url": "https://www.darwinex.com/invest/NTI", "track_record_years": 14.0, "return_since_inception_pct": 75.15, "annualized_pct": 4.08},
+        {"code": "ORT", "url": "https://www.darwinex.com/invest/ORT", "track_record_years": 9.0, "return_since_inception_pct": 1.45, "annualized_pct": 0.16},
+        {"code": "THA", "url": "https://www.darwinex.com/invest/THA", "track_record_years": 11.5, "return_since_inception_pct": 819.45, "annualized_pct": 21.28}
+      ]
+    }
+  ],
+  "normalization_status": "NOT_RUN_NO_COMMON_MONTHLY_SERIES",
+  "verdict": "INSUFFICIENT_VERIFIED_DATA",
+  "reason": "The current EA has no authorized Model-0/OOS monthly return series. Broad CTA and secondary DARWIN context cannot establish ICT/FVG style attribution or exact-EA non-inferiority."
+}

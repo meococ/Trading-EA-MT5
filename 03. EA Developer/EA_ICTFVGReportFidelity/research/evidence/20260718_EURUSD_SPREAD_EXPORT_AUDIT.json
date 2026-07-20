@@ -1,0 +1,46 @@
+{
+  "schema_version": "ictfvg_eurusd_spread_export_audit.v1",
+  "hypothesis_id": "HYP-ICT-FVG-FID-EURUSD-M5-001",
+  "mode": "READ_ONLY_DEMO_NO_ORDERS",
+  "symbol": "EURUSD",
+  "timeframe": "M1",
+  "from": "2019.01.01",
+  "to": "2022.12.31",
+  "source_method": "MT5 CopyRates M1 close bid plus same-bar reported spread points",
+  "broker_company": "Five Percent Online Ltd",
+  "server": "FivePercentOnline-Real",
+  "terminal_build": 6006,
+  "terminal_trade_allowed": false,
+  "account_trade_mode": "DEMO",
+  "orders_sent": 0,
+  "positions_opened": 0,
+  "symbol_geometry": {
+    "digits": 5,
+    "point": 1e-05,
+    "pip_size": 0.0001
+  },
+  "rows": 1491312,
+  "unique_dates": 1039,
+  "first_timestamp_utc": "2019-01-02T06:00:00",
+  "last_timestamp_utc": "2022-12-30T23:59:00",
+  "full_boundary_coverage": true,
+  "zero_spread_rows": 366196,
+  "zero_spread_ratio": 0.2455529091162681,
+  "max_zero_spread_ratio": 0.001,
+  "spread_points": {
+    "p50": 1,
+    "p90": 8,
+    "p99": 28,
+    "max": 363
+  },
+  "source_csv": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\fivepercent\\EURUSD\\cost_evidence\\EURUSD_M1_SPREAD_2019_2022.csv",
+  "source_sha256": "7A1A049A77B480157FE024ED9C6551BC01327710BFB941D367C7A36162CDA08E",
+  "spread_column_usable_as_cost": false,
+  "promotion_eligible": false,
+  "verdict": "FAIL_SPREAD_COST_PROVENANCE",
+  "remaining_requirements": [
+    "At least 30 same-symbol commission lifecycles or a hash-bound broker contract",
+    "At least 100 direction-aware slippage observations with 30 per side",
+    "Historical news feed remains a separate gate"
+  ]
+}

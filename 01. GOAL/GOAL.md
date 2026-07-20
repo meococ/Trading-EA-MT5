@@ -35,9 +35,9 @@ kết thúc bằng evidence, không phải bằng một EA được phép giao d
    luận chưa có candidate giao dịch mới hợp lệ trên data hiện có. Canonical EA
    được nâng lên v1.20 bằng `ALERT_FIRST_CASEBOOK_V1`: opt-in, alert-only,
    D-drive-only, tối đa 200 dòng, không outcome và không đổi signal. Gate kỹ
-   thuật hiện tại 34/34 test, compile 0/0 và exact-source non-repaint PASS. Chỉ
-   được mở hypothesis kinh tế mới sau khi có tối thiểu 100 nhãn pre-outcome và
-   analysis plan riêng đã đóng băng.
+   thuật hiện tại 34/34 test, compile 0/0 và exact-source non-repaint PASS. Dữ
+   liệu collection này chỉ là engineering evidence và không mở hypothesis kinh
+   tế mới.
 
 Campaign Unicorn đã hoàn tất về mặt nghiên cứu với verdict KILL; “Mục Tiêu Tự
 Do” của toàn workspace vẫn UNMET. Việc tiếp tục phát triển không đồng nghĩa

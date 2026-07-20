@@ -1,0 +1,136 @@
+{
+  "annual": [
+    {
+      "accepted": 7,
+      "entry_year": 2020,
+      "opportunities": 407,
+      "policy_r_x1_0": 1.3263634886476143
+    },
+    {
+      "accepted": 1,
+      "entry_year": 2021,
+      "opportunities": 400,
+      "policy_r_x1_0": -0.04478344404035718
+    },
+    {
+      "accepted": 4,
+      "entry_year": 2022,
+      "opportunities": 408,
+      "policy_r_x1_0": -1.0973156214377826
+    },
+    {
+      "accepted": 1,
+      "entry_year": 2023,
+      "opportunities": 391,
+      "policy_r_x1_0": -0.7976385898396636
+    },
+    {
+      "accepted": 1,
+      "entry_year": 2024,
+      "opportunities": 379,
+      "policy_r_x1_0": 0.31614646141496755
+    },
+    {
+      "accepted": 1,
+      "entry_year": 2025,
+      "opportunities": 384,
+      "policy_r_x1_0": 0.0606437056365136
+    },
+    {
+      "accepted": 0,
+      "entry_year": 2026,
+      "opportunities": 182,
+      "policy_r_x1_0": 0.0
+    }
+  ],
+  "bootstrap": {
+    "blocks": 342,
+    "paired_delta_r_per_opportunity_ci95": [
+      0.16431248818663743,
+      0.2506272344128634
+    ],
+    "policy_r_per_opportunity_ci95": [
+      -0.002599392965671374,
+      0.0025501265740313574
+    ],
+    "samples": 10000,
+    "seed": 560014
+  },
+  "cost_pips_round_trip": {
+    "x1_0": 1.5,
+    "x1_5": 2.25,
+    "x2_0": 3.0
+  },
+  "epistemic_class": "DESIGN_AFTER_PARENT_OUTCOME_ROLLING_OOS_NOT_SEALED",
+  "evaluation_years": [
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "gates": {
+    "accepted_rows_gte_300": false,
+    "bootstrap_delta_ci95_lower_gt_0": true,
+    "bootstrap_policy_ci95_lower_gt_0": false,
+    "cadence_gte_2": false,
+    "cadence_lte_5": true,
+    "expectancy_delta_gte_0_15r": true,
+    "expectancy_x1_0_gte_0_05r": false,
+    "max_drawdown_pct_lte_8": true,
+    "pf_x1_0_gte_1_30": false,
+    "pf_x1_5_gte_1_25": false,
+    "pf_x2_0_gte_1_00": false,
+    "positive_year_concentration_lte_0_35": false,
+    "positive_years_gte_5": false,
+    "r_per_opportunity_x1_0_gt_0": false
+  },
+  "hypothesis_id": "HYP-ICT-FVG-PROB-RANK-EURUSD-M5-014",
+  "input": {
+    "bytes": 2580003,
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\ictfvg_hyp012_context_forensics\\positions_with_context.csv",
+    "sha256": "1661ECE481CC1D52BE7751F445602ECE79AC1CA1F6F92AA6C2BF28594645B5B6"
+  },
+  "metrics": {
+    "accepted_expectancy_delta_vs_control_x1_0": 0.1921813012527826,
+    "accepted_expectancy_r_x1_0": -0.015772266641247232,
+    "accepted_expectancy_r_x1_5": -0.056102716372785445,
+    "accepted_expectancy_r_x2_0": -0.09643316610432363,
+    "accepted_per_elapsed_week": 0.043981935990575295,
+    "accepted_rows": 15,
+    "control_expectancy_r_x1_0": -0.20795356789402983,
+    "elapsed_calendar_weeks": 341.04910714285717,
+    "evaluation_opportunities": 2551,
+    "max_drawdown_pct_at_0_01pct_risk": 0.029660826646239844,
+    "max_drawdown_r_x1_0": 2.9660826646239844,
+    "positive_evaluation_years": 3,
+    "positive_year_concentration": 0.7787691287919528,
+    "profit_factor_x1_0": 0.9577113150821597,
+    "profit_factor_x1_5": 0.8571063983665601,
+    "profit_factor_x2_0": 0.7660927945790745,
+    "r_per_opportunity_x1_0": -9.274166978389185e-05,
+    "r_per_opportunity_x1_5": -0.0003298866113648692,
+    "r_per_opportunity_x2_0": -0.0005670315529458465
+  },
+  "model0_authorized": false,
+  "outputs": {
+    "fold_models": {
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\ictfvg_hyp014_probability_probe\\fold_models.json",
+      "sha256": "DA223741EC8A343E335C3B8799A1A488DEC5AE163C62CD8D1551BA33DF38EC99"
+    },
+    "predictions": {
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\ictfvg_hyp014_probability_probe\\rolling_oos_predictions.csv",
+      "sha256": "2AE80D37DFF9A8C302282E1061FAA903E6E5925040505B26FA6DFA371A52CA12"
+    }
+  },
+  "passed_all_gates": false,
+  "plan_sha256": "A814148BFCDFFDE12F1DA49A7BF3A8C79379FEA753BEA626C248DACA4FC9AED2",
+  "promotion_eligible": false,
+  "run_id": "HYP014-ROLLING-OOS-001",
+  "schema_version": "alphafactory.probability_probe.v1",
+  "source_build_authorized": false,
+  "trial_count": 1,
+  "verdict": "KILL_AT_ROLLING_OOS_DIAGNOSTIC_NO_CODE"
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "fvg_comparison_source_binary_receipt.v1",
+  "study_id": "STUDY-FVG-COMPARE-EURUSD-M5-001",
+  "generated_at_utc": "2026-07-18T10:51:39Z",
+  "purpose": "ENGINEERING_ONLY_NO_ECONOMIC_RUN_AUTHORITY",
+  "protocol": {
+    "owner_revision": "REMOVE_EXTERNAL_HUMAN_REVIEW_LANE",
+    "markdown_sha256": "21EF1AC307F12CC8248A77A941A675F1932612FDC085B6DE7616163E4BC793A8",
+    "json_sha256": "AE432C71A291C7B43FA0439795562B9AAC8661CECDA550CFC3DB5624D32A381E",
+    "architecture_matrix_sha256": "2A86EEC0163CBC0FEBA5F647AA8BE2CE1F6BF259DFAEFFD8F61AE3178CD0E044"
+  },
+  "source_closure": {
+    "canonical_lines_sha256": "F126D2B9B24438D769230D3FF23E422751ABBA51A2B0943B9D4B1775750CDDD8",
+    "files": [
+      {"path": "03. EA Developer/EA_FVGConfluence/EA_FVGConfluence.mq5", "bytes": 12787, "sha256": "0279ADE492A104803CC7279CD5D3B99A6F57822779B91273AFD666F0C784757F"},
+      {"path": "03. EA Developer/EA_FVGConfluence/Include/FVG_Detect.mqh", "bytes": 8448, "sha256": "6E53855CF0182A9DD6E48B24DED8ADF00A95BDA892208F7C3C4C51C643ABD06D"},
+      {"path": "03. EA Developer/EA_FVGConfluence/Include/FVG_Execution.mqh", "bytes": 6029, "sha256": "B8173DE66EF55836DEBB5DDBC8598F50E19DD4CD203F68B96AB36A2115F78B9E"},
+      {"path": "03. EA Developer/EA_FVGConfluence/Include/FVG_HTF.mqh", "bytes": 4146, "sha256": "82DBC3BA2840C1B825630628F597052AA7380866B160E3619A88646375D15ABE"},
+      {"path": "03. EA Developer/EA_FVGConfluence/Include/FVG_OrderBlock.mqh", "bytes": 2134, "sha256": "5D8A312C410FF720797394F22A79544A70947FDA7D3192D0B17E70B022253245"},
+      {"path": "03. EA Developer/EA_FVGConfluence/Include/FVG_PremiumDiscount.mqh", "bytes": 2324, "sha256": "B609827BB7AFE382D2FBA8B5A9ECEC25D120BFAF947F679217C88633A64D36D9"},
+      {"path": "03. EA Developer/EA_FVGConfluence/Include/FVG_Risk.mqh", "bytes": 6208, "sha256": "1783517757E745A2036D4802372F24A703BC3175175564167B4DA6B8317874A6"},
+      {"path": "03. EA Developer/EA_FVGConfluence/Include/FVG_Session.mqh", "bytes": 4008, "sha256": "510D6FC94962198495613D536FB9F351DBB9F2913284682BA46C39D30119E96A"},
+      {"path": "03. EA Developer/EA_FVGConfluence/Include/FVG_Types.mqh", "bytes": 1711, "sha256": "BEBCF0620F6ED116DA3CEBA22BE0A98E137AE533ADB14130B97758DF173F2157"}
+    ]
+  },
+  "compile": {
+    "tool": "02. AlphaFactory/alpha.ps1 compile EA_FVGConfluence",
+    "result": "SUCCESS",
+    "errors": 0,
+    "warnings": 0,
+    "elapsed_ms": 1275,
+    "binary_path": "03. EA Developer/EA_FVGConfluence/EA_FVGConfluence.ex5",
+    "binary_bytes": 66836,
+    "binary_sha256": "BC3DF495A5E6763A3FDFC02D18A2567BD7D3C3657E27DF5174D710B71E69004D",
+    "log_path": "03. EA Developer/EA_FVGConfluence/EA_FVGConfluence.log",
+    "log_bytes": 8918,
+    "log_sha256": "32FB207E8B9D767AD96F5D19D168E353150B684F4D70A70E586304F12C0A4041"
+  },
+  "validation": {
+    "source_closure_bound": true,
+    "fresh_binary_bound": true,
+    "historical_binary_receipt_reused": false,
+    "model0_authorized": false,
+    "promotion_eligible": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "access_boundary": {
+    "allowed_inputs": [
+      "run_manifest identity/fingerprint_basis/sidecar hashes",
+      "RunMeta identity and diagnostic counters",
+      "HumanContext ledger",
+      "LifecycleTrades header and row count"
+    ],
+    "economic_outcome_opened": false,
+    "report_opened": false
+  },
+  "all_gates_pass": true,
+  "canonical_result_sha256": "7D06E9A6A75B2226226DDC44027FE39815A8A448F8875369DE10F8AFB309C284",
+  "coverage": {
+    "collection_cadence_per_week": 60.06110321160422,
+    "complete_fraction": 1.0,
+    "context_states": {
+      "DIRECTIONAL_EXHAUSTION": 348,
+      "EXTERNAL_SWEEP_WITH_ROOM": 2035,
+      "INSUFFICIENT_ROOM": 12368,
+      "INTERNAL_SWEEP_WITH_ROOM": 8680,
+      "NO_DIRECTIONAL_TARGET": 872,
+      "STRUCTURE_CONFLICT": 2453
+    },
+    "directions": {
+      "-1": 13131,
+      "1": 13625
+    },
+    "duplicate_event_ids": 0,
+    "duplicate_identity_rows": 0,
+    "elapsed_calendar_weeks": 445.4796626984127,
+    "first_decision_utc": "2018-01-02T07:35:00",
+    "forbidden_columns_present": [],
+    "history_quality_pct": 99.0,
+    "invalid": 0,
+    "last_decision_utc": "2026-07-17T16:10:00",
+    "lifecycle_data_rows": 0,
+    "rows": 26756,
+    "sessions": {
+      "LONDON": 13027,
+      "NEW_YORK": 12977,
+      "OUTSIDE": 752
+    },
+    "valid": 26756,
+    "years": {
+      "2018": 3093,
+      "2019": 3089,
+      "2020": 3096,
+      "2021": 3118,
+      "2022": 3037,
+      "2023": 3043,
+      "2024": 3229,
+      "2025": 3283,
+      "2026": 1768
+    }
+  },
+  "gates": {
+    "all_available_years": true,
+    "both_directions": true,
+    "both_sessions": true,
+    "collection_cadence_ge_2_per_week": true,
+    "complete_fraction_ge_99pct": true,
+    "context_counter_reconciliation": true,
+    "event_ids_unique": true,
+    "history_quality_ge_99pct": true,
+    "manifest_identity": true,
+    "natural_policy_all_years": true,
+    "natural_policy_both_directions": true,
+    "natural_policy_both_sessions": true,
+    "natural_policy_cadence_ge_2_per_week": true,
+    "no_outcome_columns": true,
+    "runmeta_identity": true,
+    "zero_trades": true
+  },
+  "hypothesis_id": "HYP-ICT-FVG-HIGHRECALL-CONTEXT-COLLECT-EURUSD-M5-016R1",
+  "input_hashes": {
+    "human_context": "CC1D1DC33A33DF856D08CA648AF0DE340013003DD35CAF9D21A33E94FDC0F46B",
+    "lifecycle_trades": "5B0F7F5CF31C27B6705B1A149C9842D9063179B594971AC0101213DC7FB7739F",
+    "run_manifest": "DDA8BF5BD2FAA026979EA5DE88D6CC72B0294992012C5447674141DC44ED969D",
+    "run_meta": "77DBF31C74E3C86BD6342BC3BB19AA5A39A05E63F8A0B83ED093329FFAF4F15E",
+    "server_clock": "A7F179935102B57BA3B629345209F6B0D668D1F7FD828A5ED6003207F41A2F52"
+  },
+  "natural_policy": {
+    "cadence_per_week": 24.052725404108955,
+    "directions": {
+      "-1": 5530,
+      "1": 5185
+    },
+    "rows": 10715,
+    "rule": "valid==1 AND context_state in {EXTERNAL_SWEEP_WITH_ROOM,INTERNAL_SWEEP_WITH_ROOM}",
+    "sessions": {
+      "LONDON": 4848,
+      "NEW_YORK": 5515,
+      "OUTSIDE": 352
+    },
+    "years": {
+      "2018": 1333,
+      "2019": 1060,
+      "2020": 1221,
+      "2021": 1142,
+      "2022": 1337,
+      "2023": 1236,
+      "2024": 1174,
+      "2025": 1480,
+      "2026": 732
+    }
+  },
+  "promotion_eligible": false,
+  "run_id": "20260719_213555",
+  "schema_version": "hyp016r1_outcome_blind_collection_result.v1",
+  "verdict": "PASS_OUTCOME_BLIND_COLLECTION_OPEN_HYP017_PREREG"
+}

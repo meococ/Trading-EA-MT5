@@ -1,6 +1,6 @@
 # AlphaFactory Tool Runbook
 
-Updated: 2026-07-18
+Updated: 2026-07-19
 
 Scope: AlphaFactory command and evidence operations for every EA lane. Active
 EA scope and open lanes come from `04. Memory/hot.md`; this runbook does not
@@ -25,8 +25,13 @@ After any meaningful backtest, use this order:
 3. Run `validate-full` against the exact report.
 4. Compare to the matched control on the same model/window when applicable.
 5. Run cost stress and the relevant regime/phase analysis.
-6. Capture bounded MT5-native snapshots only for selected cases.
-7. Archive/clean stale telemetry only after preserving cited evidence and
+6. Run standard log triage, reconcile report/lifecycle/RunMeta, then explain
+   the funnel, execution anomalies, winning causes, losing causes and logic
+   conflicts.
+7. Render the mandatory multi-timeframe anatomy casebook: at least two winners
+   plus two losers when available, or representative rejections for zero-trade.
+8. Build the hash-bound EA delivery packet and require `alpha.ps1 delivery` PASS.
+9. Archive/clean stale telemetry only after preserving cited evidence and
    reviewing the cleanup plan SHA.
 
 ### Outcome-blind collection closure
@@ -39,10 +44,11 @@ report and summary prove zero trades with
 `performance_metrics_authorized=false`. Reject the collection if any trade or
 outcome-like field appears. Do not cite PF, win rate or cadence from it.
 
-Preserve the immutable source corpus and write reviewer labels as overlays by
-`event_id`. Snapshot protected C roots before/after; `FILE_COMMON` remains
-forbidden for portable collectors. A schema missing a required hard-gate label
-or source hash is diagnostic-only and must not be silently upgraded in place.
+Preserve the immutable source corpus and write any derived annotations as
+separate overlays by `event_id`. Snapshot protected C roots before/after;
+`FILE_COMMON` remains forbidden for portable collectors. A schema missing a
+required source hash is diagnostic-only and must not be silently upgraded in
+place.
 
 ## Core Commands
 
@@ -69,6 +75,20 @@ powershell -NoProfile -ExecutionPolicy Bypass `
   -File "02. AlphaFactory/alpha.ps1" validate-full `
   -Report "02. AlphaFactory/runs/<EA_NAME>/<RUN_ID>/report.html"
 ```
+
+Validate an EA development closeout after the analysis and casebook exist:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass `
+  -File "02. AlphaFactory/alpha.ps1" delivery `
+  -Packet "03. EA Developer/<EA_NAME>/research/<EA_DELIVERY_PACKET.json>"
+```
+
+Start from `EA_DELIVERY_PACKET.template.json` and
+`LOGIC_TO_CODE_MATRIX.template.md`. The completion validator rehashes every
+binding, checks source→binary→run/log identity, verifies the full analysis
+surface and inspects the casebook manifest plus each PNG hash. It is not a
+profit or promotion gate; it makes incomplete EA diagnosis fail closed.
 
 `alpha.ps1 backtest` requires the frozen hypothesis/task/receipt contract; use
 the guarded research-loop section below rather than inventing an ad-hoc
@@ -192,6 +212,10 @@ python "02. AlphaFactory/tools/repro_drift_map.py" `
   draws only bars closed before entry (decision-time information set);
   `--mode anatomy` is outcome view only. Emits `cases_manifest.json` with
   per-image SHA256 and the enforced cutoff.
+- Future delivery casebooks must use anatomy mode with `label`, `direction`,
+  `entry_marker_rendered`, `sl_line_rendered`, `tp_line_rendered`,
+  `exit_marker_rendered`, centered HTF context and visible/labeled post-entry
+  bars. As-of charts may accompany them but cannot replace outcome anatomy.
 - `02. AlphaFactory/tools/research/log_triage.py <log>` — streaming standard
   error-pattern battery over heavy tester/EA logs; one compact JSON summary.
   Run this FIRST; open raw windows only where triage points
@@ -334,3 +358,6 @@ Owner-scoped change.
 - Do not tune hour/session filters after seeing a favorable run.
 - Use entry-as-of visuals for setup labels; outcome charts are anatomy only.
 - One change, one run, one interpretation.
+- No EA closeout after a meaningful backtest without
+  `EA_DELIVERY_PACKET_OK`; report/analyze/validate-full completion alone is
+  insufficient.

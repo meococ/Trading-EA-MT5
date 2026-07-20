@@ -13,6 +13,19 @@
   values to unified validation.
 - A challenger packet adds the frozen matched-control run ID and hashes. The
   runner rejects stale registry, source, includes, Git, cost or control identity.
+- Start every implementation with `LOGIC_TO_CODE_MATRIX.template.md`. It keeps
+  trader intent, quantified rule, role, source location, decision-time data,
+  telemetry and test proof in one pre-outcome matrix.
+- A strategy-development closeout must copy
+  `EA_DELIVERY_PACKET.template.json`, replace every placeholder and pass
+  `alpha.ps1 delivery -Packet <packet>`. This gate is additional to
+  `validate-full`: it requires logic fidelity, compile/tests/non-repaint,
+  report/lifecycle/log reconciliation, full performance attribution and a
+  hash-bound multi-timeframe casebook.
+- For `zero_trade_terminal`, replace `economic_analysis` with
+  `funnel_analysis`; economics and win/loss causes are explicitly
+  `NOT_APPLICABLE_ZERO_TRADES`, while rejection causes and representative
+  rejection charts remain mandatory.
 
 Generic `lifecycle-v3` requires `InpEnableTelemetry` and exactly one
 `*_LifecycleTrades_*.csv` with the columns enforced by

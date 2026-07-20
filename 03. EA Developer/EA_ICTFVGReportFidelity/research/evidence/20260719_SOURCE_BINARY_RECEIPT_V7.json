@@ -1,0 +1,81 @@
+{
+  "schema_version": "alphafactory.source_binary_receipt.v2",
+  "receipt_id": "RCP-ICT-FVG-FIDM0-20260719-007",
+  "created_utc": "2026-07-18T17:26:46Z",
+  "hypothesis_id": "HYP-ICT-FVG-FIDM0-EURUSD-M5-006",
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 52367,
+    "sha256": "9A4B3B5D100F62B40291F602A02F8A99DE04201F47B7D136BCC2FED6BB626C4F"
+  },
+  "parent_source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/source_snapshots/EA_ICTFVGReportFidelity_HYP-ICT-FVG-FIDREC-EURUSD-M5-005.mq5",
+    "bytes": 52368,
+    "sha256": "C6A05F4124029A38A7FC80B83D8697B6B58E87CF3FAEDD9FD53BE43DA87522E2",
+    "verified_delta": "property_version_and_hypothesis_identity_only"
+  },
+  "compile_dependencies": [
+    {
+      "path": "03. EA Developer/EA_ICTFVGReportFidelity/NewsCalendar2019_2022.mqh",
+      "bytes": 15077,
+      "sha256": "248D569B981564AC0B179588C4919CD6CC196A9E7B008939A9CCDB3446F4678C"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.weekly.raw.json",
+      "bytes": 944989,
+      "sha256": "78CB2656A27278B1DA04B2C594A2C73BB1877DBA3AB52BCCFAC36A215945EA8F"
+    },
+    {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+      "bytes": 294809,
+      "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307"
+    }
+  ],
+  "binary": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.ex5",
+    "bytes": 77166,
+    "sha256": "FCA48BF3DFF34EECD329101A53A7F7341A78164D949CCA826959A49D54A0C9BB"
+  },
+  "compile_log": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.log",
+    "bytes": 6592,
+    "sha256": "4138C2AE55F34857D331A5CB8BDA1CB473BBB440E5265F694EE6FBCF85BF47E8",
+    "errors": 0,
+    "warnings": 0,
+    "result_line": "Result: 0 errors, 0 warnings, 1149 ms elapsed, cpu='X64 Regular'"
+  },
+  "compile_command": "powershell -NoProfile -ExecutionPolicy Bypass -File 02. AlphaFactory/alpha.ps1 compile EA_ICTFVGReportFidelity",
+  "preregistration": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/HYP-ICT-FVG-FIDM0-EURUSD-M5-006_MODEL0_PLAN.md",
+    "bytes": 5061,
+    "sha256": "79F1CD73FD305FD390E5491E6044DFB4027B774CF783436F52E40247E94DB93E"
+  },
+  "contract_tests": {
+    "command": "python -m pytest -q",
+    "result": "21/21 PASS"
+  },
+  "news_build_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260718_NEWS_CALENDAR_BUILD_AUDIT.json",
+    "bytes": 1714,
+    "sha256": "D5D38389CE72A443A79E63131719FAE42BAB4BFC552B792E130921870B0CBE2A",
+    "verdict": "PASS_DIAGNOSTIC_SOURCE_C",
+    "promotion_eligible": false
+  },
+  "nonrepaint_audit": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_NONREPAINT_AUDIT_V9/nonrepaint_audit.json",
+    "bytes": 1433,
+    "sha256": "60A9C0B41EEB224539D9B0356B95CFFC431DA6187D429F2D3F3D33E5B4275B87",
+    "manifest_sha256": "D8E1DE4C42C5DBB19F2837FA64F6CE9659B0A72BE9CEBCEB1F2FB1860212A8C0",
+    "status": "PASS"
+  },
+  "cost_context": {
+    "official_current_url": "https://help.the5ers.com/what-are-the-spreads-and-commissions/",
+    "observed_utc_date": "2026-07-18",
+    "forex_commission_usd_per_lot_round_trip": 4.0,
+    "typical_major_fx_spread_pips": [0.2, 0.9],
+    "historical_execution_provenance_verified": false,
+    "diagnostic_cost_pips_round_trip": [1.5, 2.25, 3.0],
+    "promotion_eligible": false
+  },
+  "status": "PASS_DIAGNOSTIC_MODEL0_BUILD"
+}

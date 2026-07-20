@@ -7,6 +7,19 @@
   "clock_model": "02. AlphaFactory/tools/research/fivepercent_server_clock.py",
   "pull_audit": "03. EA Developer/EA_HybridRegimeMR/research/evidence/EURUSD_PULL_AUDIT.json",
   "spread_column_usable_as_cost": false,
+  "cost_evidence": [
+    {
+      "file": "cost_evidence/EURUSD_M1_SPREAD_2019_2022.csv",
+      "bytes": 64126441,
+      "sha256": "7A1A049A77B480157FE024ED9C6551BC01327710BFB941D367C7A36162CDA08E",
+      "coverage": "2019-01-02 .. 2022-12-30",
+      "source": "FivePercentOnline-Real MT5 CopyRates M1 reported spread field",
+      "audit": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260718_EURUSD_SPREAD_EXPORT_AUDIT.json",
+      "audit_sha256": "BE1FE57B51285DC9921B00A1147885BB65110E89372F875C61605F38CFDD19A3",
+      "verdict": "FAIL_SPREAD_COST_PROVENANCE",
+      "reason": "366196 of 1491312 rows report zero spread (24.5553%); not usable as cost truth"
+    }
+  ],
   "files": [
     {
       "file": "EURUSD_H1_2015_now.parquet",

@@ -1,0 +1,161 @@
+{
+  "schema_version": "public_cohort_freeze.v1",
+  "study_id": "STUDY-FVG-COMPARE-EURUSD-M5-001",
+  "frozen_at_utc": "2026-07-18T11:23:32.1423734Z",
+  "discovery_pass_response_sha256": "B50CA8985A1B8956B447024A4752D6900B115FDEC4C32C59E54BB07D6C779136",
+  "selection_rule": "F01-F15 exactly; no additions after performance verification begins",
+  "candidates": [
+    {
+      "candidate_id": "EA-F01-LIQUIDITY-SWEEPER",
+      "discovery_id": "F01",
+      "name": "Liquidity Sweeper",
+      "vendor": "Filip Dockal",
+      "primary_url": "https://www.mql5.com/en/market/product/161755",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX_AND_METALS",
+      "discovery_basis": ["BOS", "liquidity_sweep", "close_back"]
+    },
+    {
+      "candidate_id": "EA-F02-TIME-RANGE-SWEEP",
+      "discovery_id": "F02",
+      "name": "Time Range Sweep EA",
+      "vendor": "Andrii Hurin",
+      "primary_url": "https://www.mql5.com/en/market/product/111406",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX_AND_METALS",
+      "discovery_basis": ["range_sweep", "MSS", "FVG", "retest"]
+    },
+    {
+      "candidate_id": "EA-F03-APEX-LIQUIDITY-TRADER",
+      "discovery_id": "F03",
+      "name": "Apex Liquidity Trader",
+      "vendor": "Noel Anjao Alube",
+      "primary_url": "https://www.mql5.com/en/market/product/179951",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX_AND_METALS",
+      "scope_uncertainty": "retained_seed_explicit_FX_scope_requires_pass2",
+      "discovery_basis": ["BOS", "MSS", "FVG", "order_block", "liquidity_sweep", "session"]
+    },
+    {
+      "candidate_id": "EA-F04-FAITHIFY-PRO",
+      "discovery_id": "F04",
+      "name": "Faithify Pro",
+      "vendor": "Saiful Izham Bin Hassan",
+      "primary_url": "https://www.mql5.com/en/market/product/178498",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX",
+      "discovery_basis": ["liquidity_sweep", "MSS", "FVG", "limit_entry"]
+    },
+    {
+      "candidate_id": "EA-F05-SMC-AUTOMATO",
+      "discovery_id": "F05",
+      "name": "SMC Automato MT5",
+      "vendor": "Jean Charles Vilhena Maia",
+      "primary_url": "https://www.mql5.com/en/market/product/166963",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX",
+      "discovery_basis": ["session", "liquidity_sweep", "CHOCH", "retest"]
+    },
+    {
+      "candidate_id": "EA-F06-STRATUM",
+      "discovery_id": "F06",
+      "name": "Stratum EA",
+      "vendor": "Kaan Caliskan",
+      "primary_url": "https://www.mql5.com/en/market/product/164627",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX",
+      "discovery_basis": ["BOS", "CHOCH", "order_block", "FVG", "breaker"]
+    },
+    {
+      "candidate_id": "EA-F07-SMC-GENESIS",
+      "discovery_id": "F07",
+      "name": "SMC Genesis",
+      "vendor": "Alex Amuyunzu Raymond",
+      "primary_url": "https://www.mql5.com/en/market/product/161178",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX",
+      "discovery_basis": ["FVG", "order_block", "liquidity_sweep", "structure_shift"]
+    },
+    {
+      "candidate_id": "EA-F08-EXHAUSTION-TRAP",
+      "discovery_id": "F08",
+      "name": "EA Exhaustion Trap",
+      "vendor": "Tran Quang Trung",
+      "primary_url": "https://www.mql5.com/en/market/product/171288",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX",
+      "discovery_basis": ["liquidity_pierce", "close_back", "wick_confirmation"]
+    },
+    {
+      "candidate_id": "EA-F09-PHOENIX-ENGINE",
+      "discovery_id": "F09",
+      "name": "Phoenix Engine",
+      "vendor": "Vignesh Mani",
+      "primary_url": "https://www.mql5.com/en/market/product/166706",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX_AND_METALS",
+      "discovery_basis": ["swing", "BOS", "displacement", "session_state"]
+    },
+    {
+      "candidate_id": "EA-F10-ICT-SILVER-BULLET-CRT",
+      "discovery_id": "F10",
+      "name": "ICT Silver Bullet CRT EA",
+      "vendor": "Mohammed Lamine Kasmi",
+      "primary_url": "https://www.mql5.com/en/market/product/141221",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX_AND_METALS",
+      "discovery_basis": ["session_pool", "liquidity_sweep", "MSS", "FVG_retracement"]
+    },
+    {
+      "candidate_id": "EA-F11-ORDER-BLOCKS-SCALPER",
+      "discovery_id": "F11",
+      "name": "Order Blocks Scalper",
+      "vendor": "Allan Munene Mutiiria",
+      "primary_url": "https://www.mql5.com/en/market/product/128057",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX",
+      "discovery_basis": ["equal_levels", "breakout", "impulse", "order_block"]
+    },
+    {
+      "candidate_id": "EA-F12-LUNOX-KILLZONE",
+      "discovery_id": "F12",
+      "name": "Lunox Killzone",
+      "vendor": "Akpofure Bright Gageche-Gold",
+      "primary_url": "https://www.mql5.com/en/market/product/161899",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX_AND_METALS",
+      "discovery_basis": ["session_range", "order_block", "false_break", "retest"]
+    },
+    {
+      "candidate_id": "EA-F13-QHYPER-9",
+      "discovery_id": "F13",
+      "name": "QHyper 9",
+      "vendor": "Domantas Juodenis",
+      "primary_url": "https://www.mql5.com/en/market/product/175949",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX_AND_METALS",
+      "discovery_basis": ["liquidity", "CHOCH", "BOS", "order_block", "FVG"]
+    },
+    {
+      "candidate_id": "EA-F14-EURUSD-LONDON-BREAKOUT",
+      "discovery_id": "F14",
+      "name": "EurUsd London Breakout Pro",
+      "vendor": "Morgana Brol Mendonca",
+      "primary_url": "https://www.mql5.com/en/market/product/147093",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX",
+      "discovery_basis": ["Asian_range", "London_breakout", "session"]
+    },
+    {
+      "candidate_id": "EA-F15-PO3-SESSION-PROTRACTION",
+      "discovery_id": "F15",
+      "name": "PO3 Session Protraction",
+      "vendor": "Austine Wasike Simiyu",
+      "primary_url": "https://www.mql5.com/en/market/product/164952",
+      "product_type": "MT5_EA",
+      "instrument_scope": "FX",
+      "discovery_basis": ["session_range", "volatility_state", "protraction", "weekly_bias"]
+    }
+  ]
+}
+

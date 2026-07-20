@@ -1,0 +1,53 @@
+{
+  "schema_version": "alphafactory.build_test_receipt.v1",
+  "hypothesis_id": "HYP-ICT-FVG-PIVOT-RECLAIM-DWELL-COLLECT-EURUSD-M5-026",
+  "created_utc": "2026-07-19T19:06:00Z",
+  "source": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+    "bytes": 96058,
+    "sha256": "227A52E93713731EF639D9484DABC89B85006660F436C0F232117C60F1528127"
+  },
+  "source_snapshot": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/source_snapshots/EA_ICTFVGReportFidelity_HYP-ICT-FVG-PIVOT-RECLAIM-DWELL-COLLECT-EURUSD-M5-026.mq5",
+    "bytes": 96058,
+    "sha256": "227A52E93713731EF639D9484DABC89B85006660F436C0F232117C60F1528127"
+  },
+  "red_first": {
+    "command": "pytest -q tests/test_hyp026_pivot_reclaim_dwell_contract.py on parent v1.26",
+    "reference_tests_passed": 5,
+    "source_contract_tests_failed": 5,
+    "status": "EXPECTED_RED"
+  },
+  "green_contract": {
+    "command": "pytest -q tests/test_hyp026_pivot_reclaim_dwell_contract.py",
+    "passed": 10,
+    "failed": 0,
+    "status": "PASS"
+  },
+  "package_regression": {
+    "command": "pytest -q tests",
+    "passed": 105,
+    "failed": 0,
+    "status": "PASS"
+  },
+  "compile": {
+    "command": "02. AlphaFactory/alpha.ps1 compile EA_ICTFVGReportFidelity",
+    "errors": 0,
+    "warnings": 0,
+    "binary_bytes": 112792,
+    "binary_sha256": "B9EE032329AEDF2B6C1195BB5964D0AF589991AC063BE30A9A9AEE67D32AE3CF"
+  },
+  "nonrepaint": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_NONREPAINT_AUDIT_V23.json",
+    "sha256": "56C626FC436370E249EF828D0C0D2F9E6807ED84BB7960257D5239797E484774",
+    "status": "PASS",
+    "findings": 0
+  },
+  "source_binary_receipt": {
+    "path": "03. EA Developer/EA_ICTFVGReportFidelity/research/evidence/20260719_SOURCE_BINARY_RECEIPT_V30.json",
+    "sha256": "9B82D1256617C5A0445541E71B2D176D5FB07FF011C7F0BEF88597D94AD92235"
+  },
+  "verdict": "PASS_HYP026_BUILD_COMPILE_NONREPAINT_PRE_RUN",
+  "economic_runs": 0,
+  "promotion_eligible": false
+}

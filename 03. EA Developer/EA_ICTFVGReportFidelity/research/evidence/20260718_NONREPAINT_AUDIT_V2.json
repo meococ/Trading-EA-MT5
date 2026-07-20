@@ -1,0 +1,45 @@
+{
+  "schema_version": "alphafactory.nonrepaint_audit.v2",
+  "audit_id": "NRA-ICT-FVG-FID-20260718-002",
+  "created_utc": "2026-07-18T15:51:00Z",
+  "hypothesis_id": "HYP-ICT-FVG-FID-EURUSD-M5-001",
+  "source_path": "03. EA Developer/EA_ICTFVGReportFidelity/EA_ICTFVGReportFidelity.mq5",
+  "source_sha256": "AD30CBFD4BA29A7D0A5258A2C71E66FE7B744AAF32D89447E15F4A1E8889E621",
+  "news_include_path": "03. EA Developer/EA_ICTFVGReportFidelity/NewsCalendar2019_2022.mqh",
+  "news_include_sha256": "248D569B981564AC0B179588C4919CD6CC196A9E7B008939A9CCDB3446F4678C",
+  "status": "PASS_ENGINEERING_ONLY",
+  "decision_clock": {
+    "timeframe": "M5",
+    "new_bar_clock": "iTime(_Symbol, PERIOD_M5, 0)",
+    "bar_zero_role": "clock_only",
+    "signal_data": "CopyRates(_Symbol, PERIOD_M5, 1, requested, bars)"
+  },
+  "closed_bar_accesses": [
+    "line 583: CopyRates M15 start_pos=1",
+    "line 606: CopyBuffer ADX buffer=0 start_pos=1 count=1",
+    "line 616: CopyBuffer ATR buffer=0 start_pos=1 count=1",
+    "line 808: CopyRates M15 start_pos=1 count=1",
+    "line 897: CopyRates M5 start_pos=1"
+  ],
+  "future_bar_scan": {
+    "copyrates_start_pos_zero": 0,
+    "direct_ohlc_shift_zero": 0,
+    "negative_shift_or_future_index": 0
+  },
+  "mtf_alignment": {
+    "status": "PASS",
+    "rule": "M15 break may advance only after the copied closed M15 bar close time is later than the M5 displacement time"
+  },
+  "news_filter": {
+    "status": "PASS_DIAGNOSTIC_SOURCE_C",
+    "uses_outcome_values": false,
+    "decision_input": "scheduled event UTC timestamps only",
+    "lookup": "sorted-array binary search with symmetric +/-30 minute window",
+    "outside_coverage": "fail closed"
+  },
+  "limitations": [
+    "This is a static engineering audit, not proof of economic edge.",
+    "Forex Factory is a third-party source-C calendar whose historical ranking and timestamps may reflect later maintenance.",
+    "Cost provenance remains failed/unverified and promotion_eligible stays false."
+  ]
+}
