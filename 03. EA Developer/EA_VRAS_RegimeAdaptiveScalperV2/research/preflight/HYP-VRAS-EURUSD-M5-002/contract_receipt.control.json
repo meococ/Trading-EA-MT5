@@ -1,0 +1,92 @@
+{
+    "schema_version":  "alphafactory_execution_receipt.v1",
+    "hypothesis_id":  "HYP-VRAS-EURUSD-M5-002",
+    "registry_row_sha256":  "79FEE5F94475E1FB8E10D34346EA23C76CD186E288FBC349E0FEAD71334EA19A",
+    "task_packet_sha256":  "DA03E1FAC83452BD5553D08960BBB357806F31CCFA6AF885264AA9761C0C0FA1",
+    "git_commit":  "cc65c790900a3dfa71cf9650a9d8cb560508a5ec",
+    "git_status_sha256":  "306F9482212A0DC58122E1BC77D9C9DDB72B48C90FE0D8285F8EB32112038A71",
+    "binding":  {
+                    "hypothesis_id":  "HYP-VRAS-EURUSD-M5-002",
+                    "run_role":  "control",
+                    "ea_name":  "EA_VRAS_RegimeAdaptiveScalperV2",
+                    "symbol":  "EURUSD",
+                    "period":  "M5",
+                    "from":  "2019.01.03",
+                    "to":  "2022.12.31",
+                    "model":  0,
+                    "execution_mode":  0,
+                    "fixed_delay_ms":  0,
+                    "overrides":  "InpAdxEnter=25.0;InpAdxExit=19.0;InpAdxPeriod=14;InpAnchorLookbackBars=60;InpAnchorMode=0;InpAtrPeriod=14;InpBandMultiplier=2.0;InpBrokerFollowsUS_DST=true;InpBrokerGMTOffsetWinter=2;InpCommissionPips=0.70;InpCostDistanceMultiple=8.0;InpDailyLossPct=1.50;InpEnableTelemetry=true;InpHypothesisId=HYP-VRAS-EURUSD-M5-002;InpMagic=5600742;InpMaxAccountDrawdownPct=6.00;InpMaxHoldBars=20;InpMaxSpreadPips=1.20;InpMaxTradesPerDay=3;InpMinRegimeDwellBars=6;InpNewsBlackoutMinutes=45;InpRangeStopAtr=0.30;InpRangeStopSd=2.50;InpRequireNewsGuard=true;InpResearchAutoMode=true;InpRiskPercent=0.25;InpRsiLongFloor=25.0;InpRsiPeriod=14;InpRsiShortCeiling=75.0;InpSdFloorAtr=0.30;InpSlippageOneWayPips=0.40;InpTrendStopAtr=0.40;InpTrendTargetR=1.80;InpUseM15Bias=true;InpVariantTag=PRIMARY_TICK_LONDON;InpVolumeMode=0;InpWarmupBars=15",
+                    "telemetry_tier":  "trade-only",
+                    "telemetry_profile":  "lifecycle-v3",
+                    "deposit":  100000,
+                    "leverage":  100,
+                    "spread":  "current",
+                    "required_sidecars":  [
+                                              "*_LifecycleTrades_*.csv",
+                                              "*_RunMeta_*.json"
+                                          ],
+                    "broker_fingerprint":  "UNVERIFIED_DIAGNOSTIC",
+                    "server_fingerprint":  "UNVERIFIED_DIAGNOSTIC",
+                    "account_fingerprint":  "UNVERIFIED_DIAGNOSTIC",
+                    "data_fingerprint":  "UNVERIFIED_DIAGNOSTIC",
+                    "symbol_geometry":  {
+                                            "digits":  5,
+                                            "point":  1E-05,
+                                            "pip_size":  0.0001
+                                        },
+                    "include_closure_sha256":  "080F3C4E7BB40F9A39A6F256462888D1779C7FBDCD7A73401ECEE740969686D8"
+                },
+    "evidence":  [
+                     {
+                         "label":  "task_packet",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV2\\research\\preflight\\HYP-VRAS-EURUSD-M5-002\\task_packet.control.json",
+                         "sha256":  "DA03E1FAC83452BD5553D08960BBB357806F31CCFA6AF885264AA9761C0C0FA1"
+                     },
+                     {
+                         "label":  "candidate_registry",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+                         "sha256":  "64D052940ACB03C046EF90DB8F9046B46BC1D47A1BBC114C635AB83CE4D54979"
+                     },
+                     {
+                         "label":  "source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV2\\EA_VRAS_RegimeAdaptiveScalperV2.mq5",
+                         "sha256":  "424C8AB804EB753B152FA8D39EE63B2FC333A4B1DE385478E69B1D4FF697B9C4"
+                     },
+                     {
+                         "label":  "ea_capability_contract",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV2\\ALPHAFACTORY_EA_CONTRACT.json",
+                         "sha256":  "891E6636F45B263F6163F5E703C9E87B912846B114CE25D5E45517871FD28057"
+                     },
+                     {
+                         "label":  "include_0000",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV2\\NewsCalendar2019_2022.mqh",
+                         "sha256":  "53C750A45072F540CFFE7C8CAD26D115C7D21E8E5FE1CB63B45E9FE817E93E14"
+                     },
+                     {
+                         "label":  "prereg",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV2\\research\\HYP-VRAS-EURUSD-M5-002_FROZEN_PREREG.md",
+                         "sha256":  "3DDB0E0E3D574948BEF277399C25311FF0D4AC77FAC42B3FD6BA2A09FC15C31C"
+                     },
+                     {
+                         "label":  "cost_source_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV2\\research\\preflight\\HYP-VRAS-EURUSD-M5-002\\cost_source_manifest.unverified.json",
+                         "sha256":  "6E8CB084DA6AB207722CBFBD2AC28FD0B085520B433D6917AAA2E42F084D35F1"
+                     },
+                     {
+                         "label":  "cost_evidence_0000",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\02. AlphaFactory\\data\\fivepercent\\EURUSD\\cost_evidence\\EURUSD_M1_SPREAD_2019_2022.csv",
+                         "sha256":  "7A1A049A77B480157FE024ED9C6551BC01327710BFB941D367C7A36162CDA08E",
+                         "provenance_label":  "historical_spread_with_known_zero_rows"
+                     }
+                 ],
+    "generated_at_utc":  "2026-07-22T03:33:04.8499634Z"
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": "alphafactory_grok_chart_forensics_packet.v1",
+  "created_at_utc": "2026-07-22T04:14:35.722002Z",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-003",
+  "ea_name": "EA_VRAS_RegimeAdaptiveScalperV3",
+  "run_id": "20260722_103759",
+  "authority": "ADVISORY_FORENSICS_ONLY",
+  "validity_boundary": "VALID_DIAGNOSTIC_MODEL0; PROMOTION_INELIGIBLE; TERMINAL KILL FOR NEGATIVE EXPECTANCY/CADENCE/REGIME_WHIPSAW; COST PROVENANCE UNVERIFIED",
+  "bindings": {
+    "frozen_plan": {
+      "path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV3/research/HYP-VRAS-EURUSD-M5-003_FROZEN_PREREG.md",
+      "sha256": "C56EE066280B82443263F093308B640CF2360AC4635F65B198EF582A13AEDBC6"
+    },
+    "source_snapshot": {
+      "path": "02. AlphaFactory/runs/EA_VRAS_RegimeAdaptiveScalperV3/20260722_103759/snapshot/source/EA_VRAS_RegimeAdaptiveScalperV3.mq5",
+      "sha256": "EAFB0A5962E79D7543CA7039F3C4B8597644D591CBFD08C9B19BD93B19FCD3B7"
+    },
+    "run_manifest": {
+      "path": "02. AlphaFactory/runs/EA_VRAS_RegimeAdaptiveScalperV3/20260722_103759/run_manifest.json",
+      "sha256": "6561429364CFB449F100B5F5D2702B667722598C6F5AB67A9A62A8321137CA90"
+    },
+    "report": {
+      "path": "02. AlphaFactory/runs/EA_VRAS_RegimeAdaptiveScalperV3/20260722_103759/report.html",
+      "sha256": "696826EDEFBD3E03A36DFDBFA67C7750027417EAE705F8855E93F3688193278A"
+    },
+    "lifecycle": {
+      "path": "02. AlphaFactory/runs/EA_VRAS_RegimeAdaptiveScalperV3/20260722_103759/logs/EURUSD_LifecycleTrades_HYP-VRAS-EURUSD-M5-003_141552359.csv",
+      "sha256": "62120861A0E66140A9E8949CAB46C1CD495A14490D2D05202C930016528840BF"
+    },
+    "run_meta": {
+      "path": "02. AlphaFactory/runs/EA_VRAS_RegimeAdaptiveScalperV3/20260722_103759/logs/EURUSD_RunMeta_HYP-VRAS-EURUSD-M5-003_141552359.json",
+      "sha256": "1D7CAA1A4723A9FBFF15EDFF29C8DD9ED2598E17081E8D00D64841536722688D"
+    },
+    "decision_bars": {
+      "path": "02. AlphaFactory/data/fivepercent/EURUSD/EURUSD_M1_2015_now.parquet",
+      "sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A"
+    },
+    "indicator_capture": {
+      "path": "02. AlphaFactory/runs/EA_VRAS_RegimeAdaptiveScalperV3/20260722_103759/logs/EURUSD_DecisionTelemetry_HYP-VRAS-EURUSD-M5-003_141552359.csv",
+      "sha256": "1C5F93CA266A23CB4A84958D74DFCAD6DD1FBDFCEB2B612C83E51D90887C6343",
+      "provenance": "mt5_decision_telemetry"
+    },
+    "selection_manifest": {
+      "path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV3/research/evidence/HYP-VRAS-EURUSD-M5-003_GROK_CHART_FORENSICS_10/selection_manifest.json",
+      "sha256": "ECFCB01FEC35E883906E463F8E9488E51FF890D82113E03028A080F7576B21A1"
+    },
+    "casebook_manifest": {
+      "path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV3/research/evidence/HYP-VRAS-EURUSD-M5-003_GROK_CHART_FORENSICS_10/casebook_manifest.json",
+      "sha256": "A7B57E3DFA2668B103B1EE3755A77BC42BD1CA029CA62FA1CF892F1B3340692C"
+    }
+  },
+  "sampling_contract": {
+    "frozen_before_chart_view": true,
+    "seed": 5600722,
+    "population_definition": "All 93 lifecycle positions with one OPEN, one final CLOSE, and one exact ORDER_ACCEPTED telemetry row",
+    "population_positions": 93,
+    "strata": [
+      "maximum and median positive net_R",
+      "minimum and median negative net_R",
+      "best RANGE winner and worst RANGE loser",
+      "one seeded uniform winner and one seeded uniform loser from unused positions",
+      "one disjoint minimum-distance TREND winner/loser pair matched on direction, session, risk, ATR, and date"
+    ],
+    "worker_assignment": "two disjoint sequential batches",
+    "worker_a_cases": 5,
+    "worker_b_cases": 5,
+    "outcome_based_manual_selection_forbidden": true
+  },
+  "chart_contract": {
+    "primary_timeframe": "M5",
+    "context_timeframes": [
+      "M15",
+      "H1"
+    ],
+    "time_axes": [
+      "broker_server_time_for_price_alignment",
+      "ea_telemetry_utc_in_metadata"
+    ],
+    "clock_fidelity_boundary": "parquet time_utc is not used for chart alignment because its DST convention can differ by one hour from the EA clock contract during transition weeks",
+    "decision_asof_panel": {
+      "closed_bars_only": true,
+      "outcome_hidden_inside_panel": true,
+      "future_region_hidden": true
+    },
+    "anatomy_panel": {
+      "entry_visible": true,
+      "initial_sl_visible": true,
+      "tp_visible": true,
+      "actual_exit_visible": true,
+      "mae_mfe_hold_visible": true
+    },
+    "combined_file": {
+      "outcome_aware": true,
+      "cannot_support_blind_entry_claim": true
+    },
+    "active_indicator_contract": {
+      "entry_snapshot_exact_mt5_telemetry": true,
+      "all_active_gate_values_labeled": true
+    },
+    "rendering": {
+      "canonical_high_resolution_png": true,
+      "per_image_sha256_bound": true,
+      "image_count": 10
+    }
+  },
+  "grok_runner_contract": {
+    "request_root": ".context/vras-003-grok-chart-{a|b}-20260722",
+    "dry_run_before_actual": true,
+    "cases_per_job": 5,
+    "global_backend_concurrency": 1,
+    "reasoning_effort": "high",
+    "no_subagents": true,
+    "web_search_disabled": true,
+    "timeout_seconds": 600
+  },
+  "response_acceptance": {
+    "runner_success": true,
+    "response_useful": true,
+    "schema_pass": true,
+    "exact_case_and_position_ids": true,
+    "image_opened_true_per_case": true,
+    "unique_union_matches_frozen_manifest": true,
+    "parent_lifecycle_and_source_qc": true
+  },
+  "output_contract": {
+    "evidence_labels": [
+      "OBSERVED",
+      "STRONG_INFERENCE",
+      "HYPOTHESIS",
+      "UNKNOWN"
+    ],
+    "direct_ea_patch_authorized": false,
+    "rerun_or_rescue_authorized": false,
+    "new_hypotheses_require_fresh_preregistration": true
+  }
+}

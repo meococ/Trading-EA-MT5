@@ -62,7 +62,7 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 | `03. EA Developer/<EA>/research/` | prereg/readout/evidence riêng package active |
 | `00. Old File/EA_Archive/EA_SonicR/research/` | ledger và evidence Sonic lịch sử; archive-only, không chạy |
 
-## Source EA — `03. EA Developer/` (10 compilable lanes + terminal research records)
+## Source EA — `03. EA Developer/` (13 compilable lanes + terminal research records)
 
 | Path | Ghi chú |
 |---|---|
@@ -73,6 +73,9 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 | `03. EA Developer/EA_ICTVisualEdge/` | compilable visual extractor retained with terminal design-window economic KILL; no Model 0/rerun/live authority |
 | `03. EA Developer/EA_KLR_Scalper/` | native MT5 replication `.mq5` retained for audit; control/USD Model-0 pair terminal `KILL_AT_MODEL0_CADENCE`, no live/rerun authority |
 | `03. EA Developer/EA_MZMS_Scalper/` | closed-bar EURUSD/XAUUSD M5 audit package. EURUSD HYP-003/HYP-005 terminal; XAUUSD HYP-006 parked invalid at 98% history. Four-mechanism HYP-007..010 also parked invalid (98%<99%; runs 015121/021353/023841/024229; 400-chart Grok synthesis closed); no promotion/economic authority; no retune/rerun of these IDs |
+| `03. EA Developer/EA_VRAS_RegimeAdaptiveScalper/` | HYP-001 byte-identical invalid `OrderCheck` execution record; zero-trade run has no economics and may not be rerun |
+| `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV2/` | HYP-002 byte-identical invalid OnInit identity-guard record; no bars/trades/economic verdict |
+| `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV3/` | final seven-gap VRAS HYP-003 package/readout: Model-0 N=93, PF0.5914, net -$5,243.22, cadence0.4465/week, terminal KILL; audit-only, no rerun/promotion/live authority |
 | `03. EA Developer/EA_UnicornPrecisionScalper/` | canonical v1.23 alert-only audit kernel; event-anchored `HYP-UPS-XAU-M5-006` remains terminal KILL; V1.3 zero-trade collection is retained as D-only engineering evidence, not an active gate |
 | `03. EA Developer/EA_UnicornPrecisionScalperControl/` | storage-safe four-bar Unicorn control; canonical `.mq5` retained with terminal Model-0 KILL readout and D-only evidence |
 | `03. EA Developer/EA_UnicornPrecisionScalperRR15/` | post-outcome HYP-008 RR1.5 exact replay terminal `KILL_DIAGNOSTIC`; source/readout retained for audit, never rerun/promotion/live authority |

@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-002",
+  "run_id": "STATIC-VRAS-ORDERCHK-V1-20260722-EXACT-CANONICAL",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV2",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV2\\EA_VRAS_RegimeAdaptiveScalperV2.mq5",
+  "source_sha256": "424C8AB804EB753B152FA8D39EE63B2FC333A4B1DE385478E69B1D4FF697B9C4",
+  "include_snapshots": [
+    {
+      "snapshot_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV2\\NewsCalendar2019_2022.mqh",
+      "sha256": "53C750A45072F540CFFE7C8CAD26D115C7D21E8E5FE1CB63B45E9FE817E93E14"
+    }
+  ]
+}

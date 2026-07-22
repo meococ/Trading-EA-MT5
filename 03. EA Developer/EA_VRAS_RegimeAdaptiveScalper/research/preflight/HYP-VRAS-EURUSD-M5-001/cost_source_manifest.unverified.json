@@ -1,0 +1,15 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "UNVERIFIED_DIAGNOSTIC",
+  "provenance_status": "UNVERIFIED",
+  "promotion_eligible": false,
+  "broker": "Five Percent Online Ltd",
+  "server": "FivePercentOnline-Real",
+  "symbol": "EURUSD",
+  "from": "2019.01.03",
+  "to": "2022.12.31",
+  "spread_policy": "MT5 Model 0 current/historical tick spread; historical zero-spread rows remain a known provenance failure",
+  "commission": "EA entry filter assumes 0.70 pip round trip; tester-reported deals only, not verified live fill provenance",
+  "slippage": "EA entry and sizing assume 0.40 pip one way; not independently verified",
+  "verdict": "DIAGNOSTIC_ONLY_NOT_PROMOTION_ELIGIBLE"
+}

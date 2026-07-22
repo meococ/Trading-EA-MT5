@@ -1289,6 +1289,34 @@ Evidence:
 
 ---
 
+## VRAS seven-gap EURUSD M5 object is terminal after Model 0 (2026-07-22)
+
+Evidence: `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV3/research/HYP-VRAS-EURUSD-M5-003_READOUT.md`.
+The earlier de-dup-only veto is historical/superseded, not the final authority.
+
+- Do not rerun, tune or rename the exact tick-volume London-anchor Session
+  VWAP/SD + ADX 25/19/dwell6 + confirmed fractal AVWAP + rejection + M15-bias
+  object. Valid Model 0 produced N=93, PF0.5914, net -$5,243.22 and only
+  0.4465 trades/elapsed week; Range PF0.1331 and Trend PF0.6412 both failed.
+- Do not rescue it by disabling 2020, Monday/Tuesday/Friday, Europe/New York,
+  hours 11/16/17, one direction or one branch. Those suggestions were observed
+  after outcome and are explicitly illegal under the terminal ID.
+- The report's ADX hysteresis patch did not solve the intended regime problem:
+  10,090 switches equal 6.92 per elapsed calendar day, above the frozen >4/day
+  whipsaw red flag. A new threshold/dwell grid would be post-hoc tuning.
+- HYP-001 and HYP-002 are mechanical invalid records only (wrong OrderCheck
+  retcode contract; stale OnInit identity guard). They are not economic runs
+  and their byte-identical packages remain audit evidence, not rerun targets.
+- EURUSD cost truth is still invalid for promotion: 24.55% zero-spread rows,
+  assumed 0.70-pip commission and no independent slippage samples. Strict TCA
+  remains BLOCKED even though manual report/lifecycle count and net reconcile.
+- Failure radius is the exact seven-gap EURUSD M5 primary configuration and its
+  obvious filter/threshold rescues, not every VWAP/AVWAP or regime mechanism.
+  Reopening requires a materially new causal mechanism or information set with
+  a fresh ID; it cannot be a sensitivity arm from this failed object.
+
+---
+
 ## D. What is still allowed (narrow)
 
 - Six compilable packages remain under `03. EA Developer/`, but package

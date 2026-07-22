@@ -1,0 +1,23 @@
+{
+  "schema_version": "vras_lifecycle_reconciliation.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-003",
+  "run_id": "20260722_103759",
+  "report_sha256": "696826EDEFBD3E03A36DFDBFA67C7750027417EAE705F8855E93F3688193278A",
+  "run_manifest_sha256": "6561429364CFB449F100B5F5D2702B667722598C6F5AB67A9A62A8321137CA90",
+  "lifecycle_sha256": "62120861A0E66140A9E8949CAB46C1CD495A14490D2D05202C930016528840BF",
+  "decision_telemetry_sha256": "1C5F93CA266A23CB4A84958D74DFCAD6DD1FBDFCEB2B612C83E51D90887C6343",
+  "report_completed_positions": 93,
+  "lifecycle_rows": 186,
+  "lifecycle_open_rows": 93,
+  "lifecycle_final_close_rows": 93,
+  "unique_position_ids": 93,
+  "report_net_profit_usd": -5243.22,
+  "lifecycle_all_deals_net_usd": -5243.22,
+  "position_count_gap": 0,
+  "open_close_gap": 0,
+  "net_profit_gap_usd": 0.0,
+  "manual_reconciliation_verdict": "PASS_REPORT_LIFECYCLE_EXACT",
+  "strict_execution_gate": "BLOCKED",
+  "strict_gate_reason": "Generic TCA does not consume this lifecycle-v3 column set and there are no independent slippage samples; manual equality does not manufacture execution provenance.",
+  "promotion_eligible": false
+}

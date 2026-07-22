@@ -1,8 +1,8 @@
 # 03. EA Developer — Active Shelf
 
-Updated: 2026-07-22 (MZMS XAU four-mechanism 007-010 park-invalid closeout)
+Updated: 2026-07-22 (VRAS seven-gap Model-0 terminal closeout)
 
-Active compilable shelf = 10 lane. Mọi package khác đã archive THẬT sang
+Active compilable shelf = 13 lane. Mọi package khác đã archive THẬT sang
 `00. Old File/EA_Archive/` (2026-07-15) — **không** compile từ đó làm evidence.
 
 | Active package | Path | Notes |
@@ -14,6 +14,9 @@ Active compilable shelf = 10 lane. Mọi package khác đã archive THẬT sang
 | `EA_KLR_Scalper` | `03. EA Developer/EA_KLR_Scalper/` | Native Model-0 replication terminal KILL: core N=4/0.02555 per week, USD N=1/0.00639 per week; source retained for audit, no live/rerun authority |
 | `EA_LSSOBPropScalper` | `03. EA Developer/EA_LSSOBPropScalper/` | Owner-required exact EURUSD M15 replication compiled 0/0 and ran matched MT5 Model-0 control/challenger (`20260719_001202`/`20260719_001306`): each 100% history, 388 sweeps, 0 displacement/FVG, 0 trades. Terminal `KILL_AT_MT5_MODEL0_CADENCE_ZERO_TRADE`; source retained for audit only, no rerun/optimization/holdout/live authority |
 | `EA_MZMS_Scalper` | `03. EA Developer/EA_MZMS_Scalper/` | EURUSD HYP-003/HYP-005 remain terminal. XAUUSD HYP-006 parked invalid at 98% history. Fresh four-mechanism campaign HYP-007..010 also parked invalid at 98%<99% (bound runs 20260722_015121/021353/023841/024229 only; 015320 excluded). Diagnostic metrics: 007 N=3409 PF0.81 net-$2065; 008 N=80 PF1.07 net+$25 under-cadence; 009 N=1041 PF0.93; 010 N=2 sparse. 400 Grok forensic charts closed; no promotion/economic authority; no retune/rerun of these IDs |
+| `EA_VRAS_RegimeAdaptiveScalper` | `03. EA Developer/EA_VRAS_RegimeAdaptiveScalper/` | HYP-001 terminal invalid-engineering record: successful `OrderCheck` was compared to `OrderSend` retcodes, producing zero trades; byte-identical source retained, no rerun |
+| `EA_VRAS_RegimeAdaptiveScalperV2` | `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV2/` | HYP-002 terminal OnInit identity-guard failure; no bars/trades/economics, byte-identical source retained |
+| `EA_VRAS_RegimeAdaptiveScalperV3` | `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV3/` | Final exact seven-gap VRAS Model-0 KILL: HYP-003 N=93, PF0.5914, net -$5,243.22, 0.4465/week, DD5.67%, regime flips 6.92/calendar-day; robustness 0/7, WFA insufficient, no rerun/promotion/live authority |
 | `EA_UnicornPrecisionScalper` | `03. EA Developer/EA_UnicornPrecisionScalper/` | Event-anchored Model-0 `HYP-UPS-XAU-M5-006` remains terminal KILL; canonical v1.24 is tester-only/alert-only hardening and is not live/economic-rerun eligible |
 | `EA_UnicornPrecisionScalperControl` | `03. EA Developer/EA_UnicornPrecisionScalperControl/` | Storage-safe four-closed-bar Model-0 control; compiled/non-repaint PASS, `HYP-UPSC-XAU-M5-002` terminal KILL, not live/run eligible |
 | `EA_UnicornPrecisionScalperRR15` | `03. EA Developer/EA_UnicornPrecisionScalperRR15/` | Exact RR1.5 replay `20260716_144508` terminal `KILL_DIAGNOSTIC`: WR 35.606%, PF 0.697, net -$4,904.75, full-cost PF 0.475; no rerun/promotion/live authority |

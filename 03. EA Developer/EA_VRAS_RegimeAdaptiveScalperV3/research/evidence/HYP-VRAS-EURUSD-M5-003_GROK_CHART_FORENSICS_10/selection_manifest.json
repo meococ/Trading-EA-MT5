@@ -1,0 +1,56 @@
+{
+  "schema_version": "vras_grok_chart_selection.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-003",
+  "run_id": "20260722_103759",
+  "frozen_before_chart_render": true,
+  "frozen_at_utc": "2026-07-22T04:12:47.980829Z",
+  "seed": 5600722,
+  "population_definition": "All 93 lifecycle positions with one OPEN, one final CLOSE, and one exact ORDER_ACCEPTED telemetry row",
+  "population_positions": 93,
+  "sample_size": 10,
+  "sampling_rule": [
+    "maximum and median positive net_R",
+    "minimum and median negative net_R",
+    "best RANGE winner and worst RANGE loser",
+    "one seeded uniform winner and one seeded uniform loser from unused positions",
+    "one disjoint minimum-distance TREND winner/loser pair matched on direction, session, risk, ATR, and date"
+  ],
+  "manual_chart_view_before_freeze": false,
+  "outcome_based_manual_selection_forbidden": true,
+  "case_ids": [
+    "VRAS-003-C01-P88",
+    "VRAS-003-C02-P86",
+    "VRAS-003-C03-P176",
+    "VRAS-003-C04-P14",
+    "VRAS-003-C05-P60",
+    "VRAS-003-C06-P58",
+    "VRAS-003-C07-P74",
+    "VRAS-003-C08-P124",
+    "VRAS-003-C09-P144",
+    "VRAS-003-C10-P132"
+  ],
+  "position_ids": [
+    88,
+    86,
+    176,
+    14,
+    60,
+    58,
+    74,
+    124,
+    144,
+    132
+  ],
+  "strata": [
+    "winner_tail",
+    "loser_tail",
+    "winner_median",
+    "loser_median",
+    "range_winner",
+    "range_loser",
+    "seeded_random_winner",
+    "seeded_random_loser",
+    "matched_trend_winner",
+    "matched_trend_loser"
+  ]
+}

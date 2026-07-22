@@ -1,0 +1,110 @@
+{
+  "schema_version": "vras_grok_chart_forensics_qc.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-003",
+  "run_id": "20260722_103759",
+  "authority": "ADVISORY_FORENSICS_ONLY",
+  "parent_verdict": "PASS_GROK_10_OF_10_KEEP_TERMINAL_KILL",
+  "selection": {
+    "population_positions": 93,
+    "selected_positions": 10,
+    "frozen_before_render": true,
+    "selection_manifest_sha256": "ECFCB01FEC35E883906E463F8E9488E51FF890D82113E03028A080F7576B21A1",
+    "case_ids": [
+      "VRAS-003-C01-P88",
+      "VRAS-003-C02-P86",
+      "VRAS-003-C03-P176",
+      "VRAS-003-C04-P14",
+      "VRAS-003-C05-P60",
+      "VRAS-003-C06-P58",
+      "VRAS-003-C07-P74",
+      "VRAS-003-C08-P124",
+      "VRAS-003-C09-P144",
+      "VRAS-003-C10-P132"
+    ],
+    "position_ids": [88, 86, 176, 14, 60, 58, 74, 124, 144, 132]
+  },
+  "chart_qc": {
+    "image_count": 10,
+    "unique_case_ids": 10,
+    "unique_position_ids": 10,
+    "all_png_dimensions": "3240x2160",
+    "all_manifest_hashes_verified": true,
+    "casebook_manifest_sha256": "A7B57E3DFA2668B103B1EE3755A77BC42BD1CA029CA62FA1CF892F1B3340692C",
+    "clock_alignment": "broker_server_time",
+    "clock_boundary": "Parquet time_utc is not used for chart price alignment because its DST convention differs from the EA telemetry clock during transition weeks."
+  },
+  "batch_a": {
+    "request_sha256": "C18D9FFBA8818FD08CE1C67D6AE843C2752874CA6E1DDB67DD5AE903D591952A",
+    "summary_sha256": "ED40CD255DCEA470E6428180456CC00A8A4C94A0292C360CEB45FD246C5F82BA",
+    "response_sha256": "15823F10E27E472BDE878B5768D1D82C78191BC94497A0FD88C1C85170B20E8C",
+    "runner_success": true,
+    "response_useful": true,
+    "structured_schema_pass": true,
+    "stop_reason": "EndTurn",
+    "expected_images": 5,
+    "images_opened": 5,
+    "case_ids_exact": true,
+    "position_ids_exact": true,
+    "elapsed_seconds": 175.672,
+    "turns": 5,
+    "backend_model": "grok-4.5-build"
+  },
+  "batch_b": {
+    "request_sha256": "F20EFED25260FA93B1F2DAAB7AB1E076EBD7D7A5CE223D390F28F5932F832692",
+    "summary_sha256": "82E8FE9B6F0C197C55E74FA6DAADF90F1834911FDEC6B472CA5266C04D4D118A",
+    "response_sha256": "6D28F3FBF97BD874C7D0FB2597F35852CB63134F7537B8FB3BAC278A6611467D",
+    "runner_success": true,
+    "response_useful": true,
+    "structured_schema_pass": true,
+    "stop_reason": "EndTurn",
+    "expected_images": 5,
+    "images_opened": 5,
+    "case_ids_exact": true,
+    "position_ids_exact": true,
+    "elapsed_seconds": 147.75,
+    "turns": 4,
+    "backend_model": "grok-4.5-build"
+  },
+  "union_acceptance": {
+    "images_opened": 10,
+    "expected_images": 10,
+    "union_equals_frozen_manifest": true,
+    "duplicates": 0,
+    "missing_cases": 0,
+    "all_pass": true
+  },
+  "population_reconciliation": {
+    "trades": 93,
+    "wins": 32,
+    "losses": 61,
+    "win_rate_pct": 34.4086021505,
+    "net_usd": -5243.22,
+    "expectancy_usd": -56.3787096774,
+    "mean_net_R": -0.2309722135,
+    "profit_factor": 0.591353869,
+    "trend": {
+      "trades": 83,
+      "wins": 28,
+      "net_usd": -4152.31,
+      "mean_net_R": -0.2048861277,
+      "profit_factor": 0.641185727
+    },
+    "range": {
+      "trades": 10,
+      "wins": 4,
+      "net_usd": -1090.91,
+      "mean_net_R": -0.4474867261,
+      "profit_factor": 0.1330975842
+    }
+  },
+  "parent_corrections": [
+    "C03 bid-bar MFE is 1.392R, below the planned 1.8R target; it did not reach or exceed the target region.",
+    "C07 bid-bar MFE is 1.807R but lifecycle exit is NON_LEVEL_FINAL_CLOSE; bid MFE does not prove an executable short target because the closing side is ask and run-level spread truth is incomplete.",
+    "C02 high risk_pts and ATR are descriptive context, not evidence that wider absolute stop distance caused the loss.",
+    "The ten-case sample is deliberately stratified and must not be used for population rates or effect sizes.",
+    "All combined PNGs are outcome-aware; their decision subpanels cannot be treated as a blinded review."
+  ],
+  "promotion_eligible": false,
+  "rerun_authorized": false,
+  "source_patch_authorized": false
+}
