@@ -1,0 +1,112 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "authority": "OWNER_DIRECTED_DIAGNOSTIC_NO_PROMOTION",
+  "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006",
+  "task_packet_sha256": "DFB068CED0D15ED02174F1E790218F3EAF8B74ABBCB6374E430155C2E0EF01F1",
+  "git_commit": "bb39384bb2cdecca73f69455c1545cddb14629be",
+  "git_status_sha256": "CA9FD94AF1CAAC830AFC3B985F37AA37FD05A3B46DB030191D7045796E08CFBD",
+  "binding": {
+    "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006",
+    "run_role": "control",
+    "ea_name": "EA_MZMS_Scalper",
+    "symbol": "XAUUSD",
+    "period": "M5",
+    "from": "2018.01.01",
+    "to": "2026.07.21",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpAdxPeriod=14;InpAtrPeriod=14;InpBreakEvenR=1.00;InpCooldownBars=5;InpDailyLossPct=1.50;InpEmaPeriod=200;InpEnableTelemetry=true;InpFlattenUtcHour=18;InpFlattenUtcMinute=15;InpMacdFast=12;InpMacdSignal=9;InpMacdSlow=26;InpMagic=5600722;InpMaxAccountDrawdownPct=8.00;InpMaxHoldBars=15;InpMaxSpreadPips=35.00;InpMaxTradesPerDay=5;InpMinAdx=18.0;InpMinHistDeltaAtr=0.01;InpNewsBlackoutMinutes=15;InpRequireNewsGuard=false;InpResearchAutoMode=true;InpRiskPercent=0.01;InpRsiLower=42.0;InpRsiPeriod=14;InpRsiUpper=58.0;InpServerUsesEuropeDst=true;InpServerUtcOffsetWinterHours=2;InpSessionEndUtcHour=17;InpSessionStartUtcHour=8;InpSignalMode=0;InpStopAtrMultiple=1.50;InpStopBufferPips=40.00;InpStopLookbackBars=5;InpTargetRR=1.60;InpUseBreakEven=false",
+    "telemetry_tier": "trade-only",
+    "telemetry_profile": "lifecycle-v3",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [
+      "*_LifecycleTrades_*.csv",
+      "*_RunMeta_*.json"
+    ],
+    "symbol_geometry": {
+      "digits": 2,
+      "point": 0.01,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "2D4FE2F5BB5232CA992A46BC339F7DB74D053E4DB1CFD81AB0778D326BBD9A4B"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\preflight\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006\\task_packet.control.json",
+      "sha256": "DFB068CED0D15ED02174F1E790218F3EAF8B74ABBCB6374E430155C2E0EF01F1"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\EA_MZMS_Scalper.mq5",
+      "sha256": "10FCDBD3C90A94991CF8EB83AAF284F1D2D5DD323D6A535B9758A2A0124A266F"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_FROZEN_PREREG.md",
+      "sha256": "FA6BB35DDA1FE44891A56FF73853DA2F66A46E4C13E397E9495ED33893D6ADA1"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\preflight\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006\\cost_source_manifest.unverified.json",
+      "sha256": "FF214B238AE25B3872B7275F19C645CDDF6982544292855D35EC0D50B81F485A"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\Trade.mqh",
+      "sha256": "96E6781624534377FE7971CBA52CCA3D62D1B030BC10D5E4EBF3ED8C541399ED"
+    },
+    {
+      "label": "include_0002",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Object.mqh",
+      "sha256": "DFAD4FDB6D1BF47CF43FCBC2882E52979459F17A776F75F250A7C32D0623AB35"
+    },
+    {
+      "label": "include_0003",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\OrderInfo.mqh",
+      "sha256": "D0E479578EF91D2EF1B07AE63D28AE54E15CEBB914DD10E5D4510C269A9CA999"
+    },
+    {
+      "label": "include_0004",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\HistoryOrderInfo.mqh",
+      "sha256": "E88F6BE450462A045470315887EF751A4510DA65A5115325DC88542743FC52F8"
+    },
+    {
+      "label": "include_0005",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\PositionInfo.mqh",
+      "sha256": "DD720B755C7F23DCC109FC81BCF0772B907411D545E4A1117421737BB9FF6897"
+    },
+    {
+      "label": "include_0006",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\DealInfo.mqh",
+      "sha256": "9D6FB4E7D8754EAEE761E43943DC49CDC3A32793EE8438119D939EA7BAD71880"
+    },
+    {
+      "label": "include_0007",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\StdLibErr.mqh",
+      "sha256": "04BB2C47B1B04DCEB052E6DBA1F85E0330C53ABC602F341E2EA95EA1498AB28B"
+    },
+    {
+      "label": "include_0008",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\NewsCalendar2019_2022.mqh",
+      "sha256": "248D569B981564AC0B179588C4919CD6CC196A9E7B008939A9CCDB3446F4678C"
+    }
+  ],
+  "generated_at_utc": "2026-07-21T11:58:37Z",
+  "note": "Owner-directed 2018-YTD XAUUSD transfer diagnostic. News guard is disabled uniformly because no point-in-time XAU calendar covers the window. No promotion authority."
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "mzms_lifecycle_reconciliation.v1",
+  "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006",
+  "status": "PASS_LIFECYCLE_RECONCILIATION_INVALID_HISTORY_QUALITY",
+  "requested_window": {
+    "from": "2018.01.01",
+    "to": "2026.07.21"
+  },
+  "tester_data": {
+    "history_quality_pct": 98,
+    "bars": 601621,
+    "ticks": 560751415,
+    "data_fingerprint": "2D717432F539F429BDD89AB5A00712D2169942BD70891D39DE7D585F904DB448",
+    "frozen_min_history_quality_pct": 99,
+    "history_quality_gate_passed": false
+  },
+  "control": {
+    "run_id": "20260721_185854",
+    "lifecycle_path": "02. AlphaFactory/runs/EA_MZMS_Scalper/20260721_185854/logs/XAUUSD_LifecycleTrades_HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_85209921.csv",
+    "lifecycle_sha256": "CF6A520E641133A0672520FD3E5CA29490ABDEB5888DA7392BFDBE24B9470198",
+    "rows": 20562,
+    "positions": 10281,
+    "rows_per_position": 2,
+    "lifecycle_net_usd": -7863.03,
+    "report_net_usd": -7863.03,
+    "gap_usd": 0.0,
+    "net_commission_profit_factor": 0.813481,
+    "net_commission_win_rate_pct": 40.57971
+  },
+  "challenger": {
+    "run_id": "20260721_190051",
+    "lifecycle_path": "02. AlphaFactory/runs/EA_MZMS_Scalper/20260721_190051/logs/XAUUSD_LifecycleTrades_HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_85323953.csv",
+    "lifecycle_sha256": "C18AB2052889172FAAE4433780CC5C7008E59DF1EFFECD757D373665050F1752",
+    "rows": 10156,
+    "positions": 5078,
+    "rows_per_position": 2,
+    "lifecycle_net_usd": -4483.77,
+    "report_net_usd": -4483.77,
+    "gap_usd": 0.0,
+    "net_commission_profit_factor": 0.799378,
+    "net_commission_win_rate_pct": 40.252068,
+    "directions": {
+      "SELL": {
+        "trades": 2305,
+        "net_usd": -1851.38,
+        "profit_factor": 0.821104
+      },
+      "BUY": {
+        "trades": 2773,
+        "net_usd": -2632.39,
+        "profit_factor": 0.780643
+      }
+    },
+    "calendar_years": {
+      "2018": {"trades": 584, "net_usd": -1229.92, "profit_factor": 0.598245},
+      "2019": {"trades": 636, "net_usd": -1026.39, "profit_factor": 0.669032},
+      "2020": {"trades": 651, "net_usd": -581.44, "profit_factor": 0.795147},
+      "2021": {"trades": 668, "net_usd": -585.09, "profit_factor": 0.795903},
+      "2022": {"trades": 648, "net_usd": 83.65, "profit_factor": 1.031392},
+      "2023": {"trades": 656, "net_usd": -553.30, "profit_factor": 0.807358},
+      "2024": {"trades": 648, "net_usd": -390.56, "profit_factor": 0.856248},
+      "2025": {"trades": 553, "net_usd": -151.98, "profit_factor": 0.926984},
+      "2026": {"trades": 34, "net_usd": -48.74, "profit_factor": 0.667440}
+    }
+  },
+  "interpretation": "Lifecycle positions and P/L reconcile exactly, but the frozen 99% history-quality gate failed at 98%; all economic values remain non-authoritative diagnostics."
+}

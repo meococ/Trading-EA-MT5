@@ -1,0 +1,29 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-004",
+  "run_id": "20260721_MZMS_OWNER_FULL_HISTORY_DIAGNOSTIC_V4",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\20260721_NONREPAINT_AUDIT_V4\\audit_manifest.json",
+  "manifest_sha256": "CFB409D687C1027194C1145A5EBD3781467FFA49FF00816FE82A199806F43618",
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\20260721_NONREPAINT_AUDIT_V4\\snapshot\\EA_MZMS_Scalper.mq5",
+      "sha256": "2E6A1B5680656ADFC11D6FC6F021E9D6D9EAE543E91090AF81A8323954A95530"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\20260721_NONREPAINT_AUDIT_V4\\snapshot\\NewsCalendar2019_2022.mqh",
+      "sha256": "248D569B981564AC0B179588C4919CD6CC196A9E7B008939A9CCDB3446F4678C"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\20260721_NONREPAINT_AUDIT_V4\\snapshot\\EA_MZMS_Scalper.mq5",
+      "line": 689,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "generated_at_utc": "2026-07-21T09:42:12.146637+00:00"
+}

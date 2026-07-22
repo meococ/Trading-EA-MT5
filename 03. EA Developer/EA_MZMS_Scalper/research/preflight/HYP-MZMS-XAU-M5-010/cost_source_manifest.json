@@ -1,0 +1,81 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "RESEARCH_PROXY",
+  "provenance_status": "VERIFIED_RESEARCH_PROXY",
+  "audit_status": "PASS_RESEARCH_ONLY",
+  "verdict": "PASS_RESEARCH_ONLY",
+  "promotion_eligible": false,
+  "broker": "Five Percent Online Ltd",
+  "server": "FivePercentOnline-Real (Build 6006)",
+  "account_currency": "USD",
+  "broker_fingerprint": "E464F31D4B323A66DBC18D9409052E70F3711DB8F23597441648B19296B61D54",
+  "server_fingerprint": "9A5FF2C4C87709651E1E576FC6F87603238710F1B7B2F011F5377CD106F6EC3F",
+  "account_fingerprint": "0A603E7B316F58B39FEA0A1710FE6F250E544909DA2B91967C93AD984317A073",
+  "data_fingerprint": "3C1E1ACF7218038A6295A9B97A0240CD332A0165CB61422EA1F59EE37F17CDE3",
+  "symbol": "XAUUSD",
+  "from": "2018.01.01",
+  "to": "2026.07.22",
+  "symbol_geometry": {
+    "digits": 2,
+    "point": 0.01,
+    "pip_size": 0.01
+  },
+  "historical_spread_provenance": {
+    "verification_status": "VERIFIED",
+    "symbol": "XAUUSD",
+    "source": "03. EA Developer/EA_MZMS_Scalper/research/evidence/HYP-MZMS-XAU-M5-007-010_HISTORICAL_SPREAD_M1.csv",
+    "source_sha256": "548AD14EDFA8A0486C4B29AD95E24A40FCFE06C8CE0EDB40F47A669BD2F1F06F",
+    "coverage": {
+      "from": "2018.01.01",
+      "to": "2026.07.22",
+      "sample_count": 3007812,
+      "total_count": 3007812,
+      "coverage_ratio": 1.0
+    },
+    "actual_first_timestamp_utc": "2018-01-02T09:00:00",
+    "actual_last_timestamp_utc": "2026-07-21T21:39:00",
+    "missing_calendar_days_count": 25,
+    "calendar_coverage_ratio": 0.9888042991491267
+  },
+  "commission_provenance": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "symbol": "XAUUSD",
+    "value": 4.4,
+    "statistic": "maximum",
+    "sample_count": 335,
+    "same_symbol_lifecycles": true,
+    "source_kind": "strategy_tester_simulation",
+    "method": "Maximum tester-observed round-turn commission per lot; research falsification only; not observed live fills",
+    "source": "03. EA Developer/EA_MZMS_Scalper/research/evidence/HYP-MZMS-XAU-M5-007-010_TESTER_COMMISSION_MAX.csv",
+    "source_sha256": "EE5BD051D400D0E49177671DA9AC9C082DC3EBA54F0D45E39566B4AA2744CCEF"
+  },
+  "slippage_provenance": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "symbol": "XAUUSD",
+    "source": "03. EA Developer/EA_MZMS_Scalper/research/evidence/HYP-MZMS-XAU-M5-007-010_QUOTE_LATENCY_1000MS.csv",
+    "source_sha256": "515619377D67EADAC3B4A55AFCEE49FC2C5A7EE3D39BBE07B54316D9B9A4836E",
+    "sample_count": 31176,
+    "buy_count": 15588,
+    "sell_count": 15588,
+    "independent_reference": false,
+    "independent_quote_reference": true,
+    "fill_observed": false,
+    "buy_reference_side": "ask",
+    "sell_reference_side": "bid",
+    "slippage_unit": "pips",
+    "fixed_latency_ms": 1000,
+    "max_quote_wait_ms": 500,
+    "method": "Non-overlapping fixed-latency future executable quote proxy; no fill claimed",
+    "p90_buy": 40.000000000009095,
+    "p90_sell": 40.000000000009095,
+    "p90_roundturn": 80.00000000001819
+  },
+  "direction_aware_methodology": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "direction_aware": true,
+    "long_cost_treatment": "Model-0 spread plus maximum tester commission and ask-to-future-ask adverse quote movement",
+    "short_cost_treatment": "Model-0 spread plus maximum tester commission and bid-to-future-bid adverse quote movement"
+  },
+  "lineage_receipt": "03. EA Developer/EA_MZMS_Scalper/research/evidence/HYP-MZMS-XAU-M5-007-010_RESEARCH_COST_PROXY_RECEIPT.json",
+  "blocker": "Research-only cost proxy. No observed XAU fill/commission sample exists; promotion remains blocked under every result."
+}

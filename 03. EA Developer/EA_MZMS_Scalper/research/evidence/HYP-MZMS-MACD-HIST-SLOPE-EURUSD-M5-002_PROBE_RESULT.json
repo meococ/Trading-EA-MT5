@@ -1,0 +1,188 @@
+{
+  "arms": {
+    "CONTROL": {
+      "funnel": {
+        "closed_bars": 298483,
+        "executed": 3944,
+        "news_pass": 51097,
+        "ownership_cooldown_pass": 3944,
+        "raw_signal": 136701,
+        "session_pass": 53173,
+        "spread_pass": 35775
+      },
+      "metrics": {
+        "design": {
+          "expectancy_r_x1": -0.20038851507407146,
+          "longs": 1447,
+          "max_drawdown_pct_at_0_3pct": 174.28833932111365,
+          "net_r_x1": -580.9263051997332,
+          "pf_x1": 0.6567285798997373,
+          "pf_x1_5": 0.528679155078217,
+          "pf_x2": 0.42526654451943485,
+          "shorts": 1452,
+          "trades": 2899,
+          "trades_per_elapsed_week": 18.5324200913242
+        },
+        "exit_kinds": {
+          "STOP": 1604,
+          "TARGET": 848,
+          "TIME": 1492
+        },
+        "pooled": {
+          "expectancy_r_x1": -0.18878809251556322,
+          "longs": 1952,
+          "max_drawdown_pct_at_0_3pct": 224.3491273590314,
+          "net_r_x1": -744.5802368813813,
+          "pf_x1": 0.6717251382169006,
+          "pf_x1_5": 0.5528744401613221,
+          "pf_x2": 0.4551275181929267,
+          "shorts": 1992,
+          "trades": 3944,
+          "trades_per_elapsed_week": 18.922549691569568
+        },
+        "positive_year_profit_concentration": null,
+        "validation": {
+          "expectancy_r_x1": -0.15660663318818,
+          "longs": 505,
+          "max_drawdown_pct_at_0_3pct": 49.717098717529694,
+          "net_r_x1": -163.6539316816481,
+          "pf_x1": 0.7157983893295541,
+          "pf_x1_5": 0.6264074706918624,
+          "pf_x2": 0.548698442558464,
+          "shorts": 540,
+          "trades": 1045,
+          "trades_per_elapsed_week": 20.096153846153847
+        },
+        "year_net_r_x1": {
+          "2019": -330.5770478655243,
+          "2020": -163.386174577825,
+          "2021": -86.96308275638387,
+          "2022": -163.6539316816481
+        }
+      }
+    },
+    "MZMS_CHALLENGER": {
+      "funnel": {
+        "closed_bars": 298483,
+        "executed": 1809,
+        "news_pass": 3258,
+        "ownership_cooldown_pass": 1809,
+        "raw_signal": 9624,
+        "session_pass": 3391,
+        "spread_pass": 2275
+      },
+      "metrics": {
+        "design": {
+          "expectancy_r_x1": -0.21499796611892985,
+          "longs": 658,
+          "max_drawdown_pct_at_0_3pct": 85.9366626828974,
+          "net_r_x1": -285.3023010398199,
+          "pf_x1": 0.6687500196519289,
+          "pf_x1_5": 0.5362583390486194,
+          "pf_x2": 0.42954766690495894,
+          "shorts": 669,
+          "trades": 1327,
+          "trades_per_elapsed_week": 8.483105022831051
+        },
+        "exit_kinds": {
+          "STOP": 858,
+          "TARGET": 507,
+          "TIME": 444
+        },
+        "pooled": {
+          "expectancy_r_x1": -0.1956103569888216,
+          "longs": 903,
+          "max_drawdown_pct_at_0_3pct": 106.41617377685559,
+          "net_r_x1": -353.85913579277826,
+          "pf_x1": 0.6930114426975791,
+          "pf_x1_5": 0.5686033077956524,
+          "pf_x2": 0.4666396079698151,
+          "shorts": 906,
+          "trades": 1809,
+          "trades_per_elapsed_week": 8.679232350925291
+        },
+        "positive_year_profit_concentration": null,
+        "validation": {
+          "expectancy_r_x1": -0.14223409699783898,
+          "longs": 245,
+          "max_drawdown_pct_at_0_3pct": 21.43704365301969,
+          "net_r_x1": -68.5568347529584,
+          "pf_x1": 0.764723663854898,
+          "pf_x1_5": 0.6674197101735251,
+          "pf_x2": 0.5833522136640391,
+          "shorts": 237,
+          "trades": 482,
+          "trades_per_elapsed_week": 9.26923076923077
+        },
+        "year_net_r_x1": {
+          "2019": -169.12332477977031,
+          "2020": -81.44190679561085,
+          "2021": -34.73706946443872,
+          "2022": -68.5568347529584
+        }
+      }
+    }
+  },
+  "cost_status": "UNVERIFIED_DIAGNOSTIC_ONLY",
+  "gate_pass_count": 7,
+  "gate_total": 26,
+  "gates": {
+    "beats_control_net_r": true,
+    "design_both_directions": true,
+    "design_cadence_2_to_5": false,
+    "design_dd_le_6pct": false,
+    "design_expectancy_ge_0_18r": false,
+    "design_pf_x1_5_ge_1_25": false,
+    "design_pf_x1_ge_1_35": false,
+    "design_pf_x2_ge_1": false,
+    "pf_not_below_control": true,
+    "pooled_both_directions": true,
+    "pooled_cadence_2_to_5": false,
+    "pooled_dd_le_6pct": false,
+    "pooled_expectancy_ge_0_18r": false,
+    "pooled_n_ge_350": true,
+    "pooled_pf_x1_5_ge_1_25": false,
+    "pooled_pf_x1_ge_1_35": false,
+    "pooled_pf_x2_ge_1": false,
+    "positive_year_concentration_le_40pct": false,
+    "validation_both_directions": true,
+    "validation_cadence_2_to_5": false,
+    "validation_dd_le_6pct": false,
+    "validation_expectancy_ge_0_18r": false,
+    "validation_n_ge_100": true,
+    "validation_pf_x1_5_ge_1_25": false,
+    "validation_pf_x1_ge_1_35": false,
+    "validation_pf_x2_ge_1": false
+  },
+  "hashes": {
+    "data_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+    "news_sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307",
+    "plan_sha256": "CAD185D47EED73A17B6DC956D3C0576EA979801ED2F82C7DD3622EB0308BAA9B",
+    "probe_sha256": "95E539879F30902A85AD526113A898DD1379440BFBC505D8E5BA322F9C6FD045",
+    "report_sha256": "0D8D8314273320FF2305557844C8200A9D4052F26D5F30039558B5951A361050",
+    "source_sha256": "F9F4C9EB33CF5B6DFF492210A62B491289F25C9CDBA144285E8AF45EF3FE058E"
+  },
+  "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-002",
+  "limitations": [
+    "M1 OHLC path is bid-only; same-minute ambiguity is resolved stop-first.",
+    "The M1 spread field is used only as a fail-closed entry eligibility gate because 24.5553% of source rows are zero.",
+    "Fixed 1.5/2.25/3.0-pip round-turn costs are diagnostic assumptions, not broker-verified cost truth.",
+    "Forex Factory news is source class C and promotion_eligible=false.",
+    "No BE-on, intrabar, parameter sweep, Model-0, live, or 2023+ result is included."
+  ],
+  "model0_authorized": false,
+  "promotion_eligible": false,
+  "schema_version": "alphafactory_offline_probe_result.v1",
+  "verdict": "KILL_AT_FROZEN_OFFLINE_PROBE",
+  "windows": {
+    "design": [
+      "2019-01-02",
+      "2021-12-31"
+    ],
+    "sealed": "2023-01-01 onward was not read into the analysis frame",
+    "validation": [
+      "2022-01-01",
+      "2022-12-30"
+    ]
+  }
+}

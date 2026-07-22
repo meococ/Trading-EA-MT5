@@ -1,0 +1,74 @@
+{
+  "schema_version": "mzms_hyp007_010_campaign_metrics.v1",
+  "history_quality_pct": 98,
+  "economic_authority": "DIAGNOSTIC_ONLY",
+  "hypotheses": {
+    "HYP-MZMS-XAU-M5-007": {
+      "run_id": "20260722_015121",
+      "positions": 3409,
+      "net_usd": -2064.5899999999997,
+      "profit_factor": 0.8091258725095918,
+      "win_rate_pct": 42.03578762100323,
+      "expectancy_per_trade": -0.605629216779114,
+      "history_quality_pct": 98.0,
+      "winners": 1433,
+      "losers": 1973,
+      "flats": 3,
+      "selected_executed": 100,
+      "selected_near_miss": 0,
+      "exact_reconciliation": true
+    },
+    "HYP-MZMS-XAU-M5-008": {
+      "run_id": "20260722_021353",
+      "positions": 80,
+      "net_usd": 24.860000000000007,
+      "profit_factor": 1.0699336108923145,
+      "win_rate_pct": 42.5,
+      "expectancy_per_trade": 0.3107500000000001,
+      "history_quality_pct": 98.0,
+      "winners": 34,
+      "losers": 46,
+      "flats": 0,
+      "selected_executed": 80,
+      "selected_near_miss": 20,
+      "exact_reconciliation": true
+    },
+    "HYP-MZMS-XAU-M5-009": {
+      "run_id": "20260722_023841",
+      "positions": 1041,
+      "net_usd": -252.68,
+      "profit_factor": 0.926454579852723,
+      "win_rate_pct": 43.996157540826125,
+      "expectancy_per_trade": -0.2427281460134486,
+      "history_quality_pct": 98.0,
+      "winners": 458,
+      "losers": 581,
+      "flats": 2,
+      "selected_executed": 100,
+      "selected_near_miss": 0,
+      "exact_reconciliation": true
+    },
+    "HYP-MZMS-XAU-M5-010": {
+      "run_id": "20260722_024229",
+      "positions": 2,
+      "net_usd": -1.1199999999999992,
+      "profit_factor": 0.8758314855875833,
+      "win_rate_pct": 50.0,
+      "expectancy_per_trade": -0.5599999999999996,
+      "history_quality_pct": 98.0,
+      "winners": 1,
+      "losers": 1,
+      "flats": 0,
+      "selected_executed": 2,
+      "selected_near_miss": 98,
+      "exact_reconciliation": true
+    }
+  },
+  "artifact_paths": {
+    "out_dir": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-XAU-M5-007-010_GROK_FORENSICS_400",
+    "selection_manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-XAU-M5-007-010_GROK_FORENSICS_400\\selection_manifest.json",
+    "lifecycle_reconciliation": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-XAU-M5-007-010_GROK_FORENSICS_400\\lifecycle_reconciliation.json",
+    "casebook_manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-XAU-M5-007-010_GROK_FORENSICS_400\\casebook_manifest.json",
+    "enriched_bars": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-XAU-M5-007-010_GROK_FORENSICS_400\\data\\XAUUSD_M5_recomputed_007_010_indicators.parquet"
+  }
+}

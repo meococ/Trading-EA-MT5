@@ -7,7 +7,8 @@ the engine computed on (no broker-terminal dependency, no C-side writes).
 Modes:
 - asof (default): draws ONLY bars closed before the entry timestamp — the
   information set available at the decision. Entry price is marked at the
-  right edge. Use for setup-quality review and labeling.
+  right edge; outcome-derived label/net/exit text is hidden. Use for
+  setup-quality review and labeling.
 - anatomy: draws through the exit plus --post-bars. Outcome view only; never
   use anatomy images to justify entry-quality claims.
 
@@ -331,7 +332,7 @@ def trade_summary(case: dict, entry_t: pd.Timestamp, side: str, mode: str) -> st
         lines.append(f"Hold {hold_minutes:.1f} min | reason={case.get('reason', '')}")
     if has_value(case, "sl") and has_value(case, "tp"):
         lines.append(f"SL {float(case['sl']):.5f} | TP {float(case['tp']):.5f}")
-    if case.get("label"):
+    if mode == "anatomy" and case.get("label"):
         lines.append(str(case["label"]))
     return "\n".join(lines)
 
@@ -808,7 +809,7 @@ def render_case(
 
     fig.suptitle(
         f"{case['case_id']} | {side} | entry {entry_t}"
-        + (f" | {label}" if label else ""),
+        + (f" | {label}" if mode == "anatomy" and label else ""),
         fontsize=10,
         y=0.995,
     )
@@ -833,6 +834,9 @@ def render_case(
         "bars_drawn": int(len(window)),
         "first_bar": str(window["_t"].iloc[0]), "last_bar": str(window["_t"].iloc[-1]),
         "cutoff_enforced": bool(mode != "asof" or window["_t"].iloc[-1] < entry_t),
+        "outcome_hidden": mode == "asof",
+        "net_r_hidden": mode == "asof",
+        "label_hidden_in_image": mode == "asof",
         "setup_chain": setup_chain_result,
         "context": context_result,
         "note": cutoff_note,

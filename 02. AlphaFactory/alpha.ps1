@@ -1579,7 +1579,9 @@ Leverage=$Leverage
     Complete-RunManifest $manifestPath | Out-Null
     Copy-Item -LiteralPath $manifestPath -Destination (Join-Path $configDir "run_manifest.json") -Force
 
-    $receiptAuthority = [string]$receiptCheck.Receipt.authority
+    # Normal non-collection receipts omit authority; StrictMode must not crash on missing property.
+    $receiptAuthorityProperty = $receiptCheck.Receipt.PSObject.Properties['authority']
+    $receiptAuthority = if ($null -ne $receiptAuthorityProperty) { [string]$receiptAuthorityProperty.Value } else { '' }
     if ($receiptAuthority -ceq 'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE') {
         Do-AnalyzeZeroTradeCollection (Join-Path $localRunDir "report.html") $analysisDir $receiptAuthority
         Write-Status "Data collection complete: $localRunDir" "OK"

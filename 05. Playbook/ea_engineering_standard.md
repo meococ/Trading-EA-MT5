@@ -1,6 +1,6 @@
 # Chuẩn Engineering EA
 
-Cập nhật: 2026-07-16. Golden path đầy đủ: `ea_golden_path.md`.
+Cập nhật: 2026-07-21. Golden path đầy đủ: `ea_golden_path.md`.
 
 ## 1. Kiến trúc và data contract
 
@@ -74,6 +74,14 @@ Cập nhật: 2026-07-16. Golden path đầy đủ: `ea_golden_path.md`.
   identity, server+UTC cutoff; label và outcome để blank trong source corpus.
 - Mọi bridge/extractor MTF phải dùng đúng broker server-time axis, normalize
   offset đã bind và test rằng bar cuối đóng không muộn hơn decision cutoff.
+- Telemetry phục vụ chart forensics phải capture tại decision time: exact bar
+  shifts, OHLC, indicator buffers, threshold/gate PASS|FAIL, spread, server+UTC
+  time, source/contract ID và lifecycle position ID. Post-run Python recompute
+  không được giả làm MT5 decision truth khi chưa có parity artifact.
+- Mỗi casebook case tách `decision_asof` (không outcome/net_R) khỏi `anatomy`
+  (entry/initial SL/TP/exit/MAE/MFE/hold). Canonical PNG giữ độ phân giải cao;
+  có thể sinh model-review copy nhẹ hơn nhưng manifest phải bind cả hai hash và
+  renderer version. Contact sheet không thay được chart indicator đọc rõ.
 
 ## 6. Gate trước khi gọi “ready”
 

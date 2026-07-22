@@ -1,11 +1,37 @@
 # Golden Path Generic — Thiết kế đến quyết định EA
 
-Cập nhật: 2026-07-19
+Cập nhật: 2026-07-22
 
-Đây là đường mặc định cho mọi EA. `hot.md` quyết định
-lane đang mở; AlphaFactory là harness; prereg/registry/gate quyết định một run có
-ý nghĩa hay không. Compile xanh không phải edge và backtest đẹp không phải quyền
-deploy.
+Đây là đường mặc định cho mọi EA. Scope Owner hiện tại + active lock + prereg/
+registry/task packet quyết định lane/run được phép; `hot.md` chỉ giúp định tuyến
+và có thể trễ. AlphaFactory là harness. Compile xanh không phải edge và backtest
+đẹp không phải quyền deploy.
+
+## 0. Mở lane EA mới — không để prior biến thành blanket veto
+
+Flow mặc định:
+
+`Owner intent → kiểm lock/artifact hiện tại → failure-radius classification →
+logic matrix → probe rẻ → freeze prereg/registry → Grok/worker build →
+test + compile + non-repaint → một Model 0 đóng băng → report/log/casebook →
+Grok/human forensics → delivery gate → PASS hoặc park/kill → lesson + ID mới`
+
+Trước khi từ chối hoặc mở một EA mới, lead phải:
+
+1. Viết outcome contract từ yêu cầu Owner; không lấy `hot.md` làm scope thay thế.
+2. Kiểm active MT5/registry/source lock để không race shared lane.
+3. Đọc `hot.md`, failure memory và registry như prior, rồi so candidate identity:
+   mechanism, information/data source, decision timing/surface, symbol/TF/window,
+   execution/cost và risk/exit.
+4. Chặn exact replay và post-hoc rescue. Run vô hiệu chỉ mở sửa correctness.
+5. Nếu delta là materially new, cho phép package/ID mới; khai prior nào liên quan,
+   vì sao không phải rescue, probe nào có thể falsify rẻ và trial budget bao nhiêu.
+6. Owner có thể yêu cầu build-first; khi đó freeze lý do, identity và gate trước
+   khi đọc outcome, không dùng ngoại lệ để bỏ registry/non-repaint/delivery.
+
+Kết quả “no edge” chỉ có hiệu lực trong tested object đã bind. Nó không cấm agent
+tạo EA mới; nó buộc EA mới phải giải thích thông tin/cơ chế mới và trả chi phí
+bằng chứng cao hơn.
 
 ## 1. Intake thiết kế
 
@@ -23,8 +49,10 @@ và test/parity proof. Context không được âm thầm thay thế trigger. Ma
 
 ## 2. De-dup và probe rẻ
 
-Đọc `do_not_repeat_failures.md`, registry và lineage liên quan. Tạo row `idea`
-hoặc `probe`, draft prereg từ template, rồi chạy probe offline rẻ trước ceremony.
+Đọc `do_not_repeat_failures.md`, registry và lineage liên quan để xác định failure
+radius, không để lập blacklist indicator/family. Ghi classification và material
+delta; tạo row `idea` hoặc `probe`, draft prereg từ template, rồi chạy probe
+offline rẻ trước ceremony.
 Probe mới import từ probe SDK `02. AlphaFactory/tools/research/` (indicators,
 sealed_loader, trial_log, metrics, controls, dsr, chart_case_render) — nên
 tái sử dụng thay vì copy lại code; tham số chiến lược đến từ frozen plan, không từ kit. Lane hướng
@@ -53,6 +81,16 @@ execution, ownership/state và telemetry. Cần xử lý cẩn thận magic/symb
 ownership, netting/hedging, restart/idempotency, partial fill, retcode,
 volume/stop geometry, timezone/DST và sizing bằng `OrderCalc*` khi risk theo
 tiền; nêu rõ trong repro note nếu bỏ qua mục nào.
+
+Grok `builder/coder` có thể sở hữu trọn implementation loop thay parent. Handoff
+phải đóng băng: input artifacts, candidate/hypothesis identity, write-set,
+forbidden actions, exact tests, quyền compile/backtest, giới hạn một Model-0 và
+result packet phải trả. Trong biên này Grok tự code, sửa test, compile và xử lý
+lỗi implementation; parent làm commander/integrator, không viết song song cùng
+file và không giám sát từng dòng. Parent chỉ nhận khi verify độc lập source hash,
+test, compile, non-repaint và run/receipt identity. Grok `forensic reviewer` là
+task stateless/read-only riêng, không được dùng outcome để patch chính terminal
+object. Mọi MT5 mutation/backtest vẫn serial dưới global lock.
 
 ## 5. Gate code trước MT5
 
@@ -120,12 +158,33 @@ Agent phải hoàn thành đủ vòng sau trên đúng source/run đã hash-bind
    regime/context state, concentration và execution quality.
 4. Giải thích riêng cơ chế thắng, cơ chế thua và điểm logic xung đột. Kết luận
    từ pattern hậu nghiệm chỉ là lead cho hypothesis mới, không được patch thẳng.
-5. Render casebook anatomy tối thiểu hai winner + hai loser khi có đủ mẫu. Mỗi
-   chart phải hiện entry, initial SL, TP, actual exit; panel HTF M15/H1/H4/D1 có
-   cây entry ở giữa, trạng thái as-of-entry và các bar sau entry được đánh dấu
-   rõ là outcome. Zero-trade phải thay bằng funnel + chart candidate bị reject;
-   không được bịa economics.
-6. Hash-bind toàn bộ vào `alphafactory_ea_delivery_packet.v1` và chạy:
+5. Freeze sampling trước khi xem ảnh, rồi render casebook. Mức delivery tối
+   thiểu vẫn là hai winner + hai loser khi có đủ mẫu; postmortem lớn nên có
+   random population, tail, median, matched winner/loser cùng direction,
+   session, volatility/risk bucket và anomaly/rejection. Profile mở rộng
+   `2 Grok workers × 100 case disjoint` chỉ dùng khi population đủ lớn, không
+   thay thế population statistics và không được hand-pick.
+6. Mỗi case có hai lớp tách biệt: `decision_asof` kết thúc ở bar entry, không
+   hiện outcome/net_R; `anatomy` mới hiện entry, initial SL, TP, actual exit,
+   MAE/MFE/hold và post-entry path. Combined human view được phép nhưng không
+   được dùng làm bằng chứng đánh giá entry outcome-blind. Với M5, context tối
+   thiểu là M5 + M15 + H1; thêm H4/D1 khi thesis dùng regime đó.
+7. Chart phải hiện toàn bộ indicator/gate thực sự tham gia decision, giá trị
+   shift, threshold và PASS/FAIL. Ưu tiên telemetry/MT5 CopyBuffer capture tại
+   decision time; post-run recompute chỉ được gắn `NON_PARITY_DIAGNOSTIC` cho
+   tới khi parity harness chứng minh khớp. Manifest bind source, bars,
+   renderer, indicator source, time axis, case IDs và từng PNG hash.
+8. Fan-out visual review theo vai: Grok A ưu tiên timing/price/indicator
+   context; Grok B ưu tiên adverse path, risk/exit/execution và phản biện.
+   Mặc định 5 case/job, chạy Grok backend serial, request artifact + dry-run,
+   validate exact coverage/IDs/image-open. Parent Lead Quant đối chiếu lại với
+   lifecycle/population/source, sửa mọi count sai và giữ verdict cuối. Raw
+   output ở `.context/`; parent chỉ nạp aggregate, contradiction và case đại
+   diện để tránh cạn context.
+9. Zero-trade phải thay bằng funnel + chart candidate bị reject; không được bịa
+   economics. Grok review hoặc chart pattern chỉ mở tối đa ba hypothesis mới
+   có cơ chế và prereg fresh; không patch trực tiếp terminal object.
+10. Hash-bind toàn bộ vào `alphafactory_ea_delivery_packet.v1` và chạy:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass `

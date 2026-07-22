@@ -31,6 +31,7 @@ BASE_BINDINGS = {
     "run_meta",
     "log_triage",
     "casebook_manifest",
+    "decision_casebook_manifest",
     "readout",
 }
 ANALYSIS_DIMENSIONS = {
@@ -369,6 +370,113 @@ def validate_casebook(
             )
 
 
+def validate_decision_casebook(
+    payload: dict[str, Any], paths: dict[str, Path], errors: list[str]
+) -> None:
+    contract = as_dict(payload.get("chart_contract"), "chart_contract", errors)
+    for key in (
+        "decision_asof_separate",
+        "decision_outcome_hidden",
+        "decision_net_r_hidden",
+        "decision_active_indicators_visible",
+    ):
+        if contract.get(key) is not True:
+            errors.append(f"chart_contract {key} must be true")
+    provenance = contract.get("decision_indicator_provenance")
+    if provenance not in {
+        "mt5_decision_telemetry",
+        "parity_proven_mt5_export",
+        "diagnostic_recompute_nonparity_labeled",
+    }:
+        errors.append("chart_contract decision_indicator_provenance is invalid")
+
+    decision_path = paths.get("decision_casebook_manifest")
+    anatomy_path = paths.get("casebook_manifest")
+    if not decision_path or not decision_path.is_file():
+        return
+    try:
+        decision = load_json(decision_path)
+    except (ValueError, OSError) as exc:
+        errors.append(f"decision casebook manifest cannot be parsed: {exc}")
+        return
+    if decision.get("schema_version") != "chart_case_render.v2":
+        errors.append("decision casebook manifest must use chart_case_render.v2")
+    if decision.get("mode") != "asof":
+        errors.append("decision casebook must be rendered in asof mode")
+    results = decision.get("results")
+    if not isinstance(results, list) or not results:
+        errors.append("decision casebook results must contain rendered cases")
+        return
+
+    anatomy_ids: set[str] = set()
+    if anatomy_path and anatomy_path.is_file():
+        try:
+            anatomy = load_json(anatomy_path)
+        except (ValueError, OSError):
+            anatomy = {}
+        anatomy_results = anatomy.get("results")
+        if isinstance(anatomy_results, list):
+            anatomy_ids = {
+                str(row.get("case_id")) for row in anatomy_results if isinstance(row, dict)
+            }
+
+    decision_ids: set[str] = set()
+    for row in results:
+        if not isinstance(row, dict):
+            errors.append("decision casebook result must be an object")
+            continue
+        case_id = str(row.get("case_id", "UNKNOWN"))
+        if case_id in decision_ids:
+            errors.append(f"decision casebook duplicate case_id: {case_id}")
+        decision_ids.add(case_id)
+        if row.get("status") != "RENDERED":
+            errors.append(f"decision casebook {case_id} is not RENDERED")
+            continue
+        if row.get("mode") != "asof":
+            errors.append(f"decision casebook {case_id} mode must be asof")
+        png_name = row.get("png")
+        if not isinstance(png_name, str) or not png_name:
+            errors.append(f"decision casebook {case_id} missing PNG path")
+        else:
+            png = (decision_path.parent / png_name).resolve()
+            try:
+                png.relative_to(decision_path.parent.resolve())
+            except ValueError:
+                errors.append(f"decision casebook {case_id} PNG escapes casebook directory")
+            else:
+                if not png.is_file():
+                    errors.append(f"decision casebook {case_id} PNG is missing")
+                elif sha256(png) != str(row.get("sha256", "")).upper():
+                    errors.append(f"decision casebook {case_id} PNG SHA256 mismatch")
+        if row.get("entry_marker_rendered") is not True:
+            errors.append(f"decision casebook {case_id} missing entry marker")
+        for key in ("cutoff_enforced", "outcome_hidden", "net_r_hidden", "label_hidden_in_image"):
+            if row.get(key) is not True:
+                errors.append(f"decision casebook {case_id} {key} must be true")
+        context = row.get("context")
+        if not isinstance(context, dict):
+            errors.append(f"decision casebook {case_id} missing higher-timeframe context")
+        else:
+            if context.get("timeframe") != contract.get("higher_timeframe"):
+                errors.append(f"decision casebook {case_id} higher-timeframe mismatch")
+            if context.get("entry_position") != "center":
+                errors.append(f"decision casebook {case_id} HTF entry candle is not centered")
+            if context.get("future_region_hidden") is not True:
+                errors.append(f"decision casebook {case_id} future region is not hidden")
+            if context.get("post_entry_outcome_region") is not False:
+                errors.append(f"decision casebook {case_id} discloses post-entry outcome")
+            if context.get("post_entry_bars_drawn") != 0:
+                errors.append(f"decision casebook {case_id} draws post-entry bars")
+            if context.get("decision_state_cutoff_enforced") is not True:
+                errors.append(f"decision casebook {case_id} lacks decision-time cutoff proof")
+
+    if anatomy_ids and decision_ids != anatomy_ids:
+        errors.append(
+            "decision/anatomy case coverage mismatch: "
+            f"decision={sorted(decision_ids)} anatomy={sorted(anatomy_ids)}"
+        )
+
+
 def validate_log_triage(paths: dict[str, Path], bindings: dict[str, dict[str, Any]], errors: list[str]) -> None:
     path = paths.get("log_triage")
     if not path or not path.is_file():
@@ -420,6 +528,7 @@ def validate_packet(packet: Path, workspace: Path) -> tuple[list[str], dict[str,
     validate_run(payload, delivery_class, errors)
     validate_analysis(payload, delivery_class, errors)
     validate_casebook(payload, delivery_class, paths, errors)
+    validate_decision_casebook(payload, paths, errors)
     validate_log_triage(paths, bindings, errors)
     validate_anti_overfit(payload, errors)
     limitations = payload.get("limitations")

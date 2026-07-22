@@ -1,0 +1,43 @@
+{
+  "schema_version": "alphafactory_research_cost_proxy_evidence.v1",
+  "campaign_id": "HYP-MZMS-XAU-M5-007-010",
+  "promotion_eligible": false,
+  "fill_observed": false,
+  "symbol": "XAUUSD",
+  "window": {
+    "from": "2018.01.01",
+    "to": "2026.07.22"
+  },
+  "reuse_policy": "Copied already-hashed Unicorn XAU research-only commission and quote-latency proxy sources. Explicit non-fill / tester-simulation limitations are preserved; no fill provenance is claimed.",
+  "tester_commission_proxy": {
+    "source_kind": "strategy_tester_simulation",
+    "statistic_used": "maximum",
+    "value": 4.4,
+    "sample_count": 335,
+    "source_original": "03. EA Developer/EA_UnicornPrecisionScalper/research/evidence/HYP-UPS-XAU-M5-003_TESTER_COMMISSION_MAX.csv",
+    "source_original_sha256": "EE5BD051D400D0E49177671DA9AC9C082DC3EBA54F0D45E39566B4AA2744CCEF",
+    "output": "03. EA Developer/EA_MZMS_Scalper/research/evidence/HYP-MZMS-XAU-M5-007-010_TESTER_COMMISSION_MAX.csv",
+    "output_sha256": "EE5BD051D400D0E49177671DA9AC9C082DC3EBA54F0D45E39566B4AA2744CCEF",
+    "limitation": "Strategy Tester simulation only; not observed live fills"
+  },
+  "quote_latency_proxy": {
+    "fill_observed": false,
+    "independent_quote_reference": true,
+    "independent_reference": false,
+    "fixed_latency_ms": 1000,
+    "max_quote_wait_ms": 500,
+    "sample_count": 31176,
+    "buy_count": 15588,
+    "sell_count": 15588,
+    "p90_buy": 40.000000000009095,
+    "p90_sell": 40.000000000009095,
+    "p90_roundturn": 80.00000000001819,
+    "source_original": "03. EA Developer/EA_UnicornPrecisionScalper/research/evidence/HYP-UPS-XAU-M5-003_QUOTE_LATENCY_1000MS.csv",
+    "source_original_sha256": "515619377D67EADAC3B4A55AFCEE49FC2C5A7EE3D39BBE07B54316D9B9A4836E",
+    "output": "03. EA Developer/EA_MZMS_Scalper/research/evidence/HYP-MZMS-XAU-M5-007-010_QUOTE_LATENCY_1000MS.csv",
+    "output_sha256": "515619377D67EADAC3B4A55AFCEE49FC2C5A7EE3D39BBE07B54316D9B9A4836E",
+    "limitation": "Non-overlapping fixed-latency future executable quote proxy; no fill claimed"
+  },
+  "lineage_receipt_original": "03. EA Developer/EA_UnicornPrecisionScalper/research/evidence/HYP-UPS-XAU-M5-003_RESEARCH_COST_PROXY_RECEIPT.json",
+  "generated_at_utc": "2026-07-21T18:41:01Z"
+}

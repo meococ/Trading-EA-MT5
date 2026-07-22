@@ -1,11 +1,11 @@
 # Source of Truth Registry
 
-Updated: 2026-07-18
+Updated: 2026-07-21
 
 > **Active shelf:** after the 2026-07-15 relocation and 2026-07-18 concurrent
 > research, compilable EA Developer source is `EA_FVGConfluence`,
 > `EA_HybridICT_Sonic`, `EA_ICTFVGReportFidelity`, `EA_ICTVisualEdge`,
-> `EA_KLR_Scalper`, `EA_LSSOBPropScalper`, `EA_UnicornPrecisionScalper`,
+> `EA_KLR_Scalper`, `EA_LSSOBPropScalper`, `EA_MZMS_Scalper`, `EA_UnicornPrecisionScalper`,
 > `EA_UnicornPrecisionScalperControl`, and `EA_UnicornPrecisionScalperRR15`.
 > The LSS-OB, Control and RR15 packages are retained for diagnostic reproducibility;
 > their current hypotheses are terminal KILL. PO3-AMD and DRAT are
@@ -51,6 +51,8 @@ Updated: 2026-07-18
   `EA_FVGConfluence`, `EA_HybridICT_Sonic`, `EA_ICTFVGReportFidelity`,
   `EA_ICTVisualEdge`, `EA_KLR_Scalper` (diagnostic-only),
   `EA_LSSOBPropScalper` (terminal MT5 zero-trade replication),
+  `EA_MZMS_Scalper` (terminal full-history Model-0 diagnostic KILL;
+  audit-only source),
   `EA_UnicornPrecisionScalper`,
   `EA_UnicornPrecisionScalperControl` (terminal KILL; retained for evidence),
   and `EA_UnicornPrecisionScalperRR15` (bounded diagnostic sensitivity only).

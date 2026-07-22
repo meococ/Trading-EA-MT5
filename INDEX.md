@@ -1,6 +1,6 @@
 # INDEX — Bản Đồ Workspace
 
-Cập nhật: 2026-07-18
+Cập nhật: 2026-07-22
 
 Mỗi entry một dòng: file gì, mở khi nào. File này chỉ chứa con trỏ; nội
 dung nằm ở đích đến. Cập nhật khi một file canonical bị di chuyển hoặc mở
@@ -9,14 +9,18 @@ lane mới — không cập nhật cho từng run/readout mới.
 ## Chuỗi đọc-trước (mọi session)
 
 1. `CLAUDE.md` / `AGENTS.md` — quy tắc vận hành (root, entry tự nạp)
-2. `04. Memory/hot.md` — sự thật SỐNG: lane, blocker, next moves
-3. `01. GOAL/GOAL.md` — mục tiêu; chỉ đổi khi Owner quyết
-4. Git có thể tồn tại (Owner đã mở remote private) nhưng **agent mặc định
+2. `01. GOAL/GOAL.md` — mục tiêu; chỉ đổi khi Owner quyết
+3. Registry/prereg/task packet liên quan + AlphaFactory status/lock — contract
+   và quyền thực thi hiện tại
+4. `04. Memory/hot.md` — cache tham khảo lane/blocker/next moves, không phải
+   authority hay blanket veto
+5. Git có thể tồn tại (Owner đã mở remote private) nhưng **agent mặc định
    không stage/commit/push** trừ khi Owner yêu cầu rõ trong message hiện tại.
    Xác minh bằng receipt/hash/validator — không “dọn GitHub” tự ý. Chi tiết:
    `AGENTS.md`.
-5. Trước hypothesis/EA mới: `04. Memory/do_not_repeat_failures.md`
-   + registry — tránh lặp dead end đã kill.
+6. Trước hypothesis/EA mới: `04. Memory/do_not_repeat_failures.md`
+   + registry — xác định failure radius; tránh exact replay/rescue nhưng không
+   chặn mechanism/data contract mới.
 
 ## Doc điều khiển — `04. Memory/` (state) + `05. Playbook/` (rules)
 
@@ -24,8 +28,8 @@ lane mới — không cập nhật cho từng run/readout mới.
 
 | File | Mở khi |
 |---|---|
-| `hot.md` | bắt đầu session; "hiện tại cái gì đang đúng" (NEXT SESSION + ledger) |
-| `do_not_repeat_failures.md` | trước khi đề xuất revive / hyp mới |
+| `hot.md` | cache tham khảo đầu session (NEXT SESSION + ledger); phải verify, không cấp/veto quyền |
+| `do_not_repeat_failures.md` | prior + failure radius trước revive/hyp mới; không phải blacklist |
 | `source_of_truth.md`/`.json` + `validate_source_of_truth.py` | registry fact/path canonical + validator fail-closed |
 | `research/CANDIDATE_REGISTRY.jsonl` + schema + validator | ledger hypothesis generic append-only; validate trước mọi run có ý nghĩa |
 
@@ -35,7 +39,7 @@ lane mới — không cập nhật cho từng run/readout mới.
 |---|---|
 | `validation_gates.md` | chấm run + delivery gate: stage, ngưỡng, evidence completeness, hard invalidation |
 | `tool_runbook.md` | lệnh chính xác: compile/backtest/validate/analyze/delivery |
-| `ea_golden_path.md` | đường generic từ brief → logic matrix → code/Model 0 → log/chart forensics → quyết định |
+| `ea_golden_path.md` | flow mở EA mới + failure radius → brief/matrix → probe/prereg → build/Model 0 → forensics/delivery |
 | `ea_engineering_standard.md` | viết/review code MQL5 (closed-bar, non-repaint) |
 | `research_doctrine.md` | thiết kế hypothesis: registry, prereg, overfit budget, MT5 rules |
 
@@ -46,7 +50,7 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 
 | Khác | Mở khi |
 |---|---|
-| `.codex/operator/STATUS.md` + `EXPERIMENTS.jsonl` | ledger recovery task dài; operational, nhường `hot.md` |
+| `.codex/operator/STATUS.md` + `EXPERIMENTS.jsonl` | ledger recovery task dài; operational reference, không cấp quyền EA |
 
 ## Nghiên cứu — generic active + lịch sử archive
 
@@ -54,11 +58,11 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 |---|---|
 | `04. Memory/research/CANDIDATE_REGISTRY.jsonl` + schema + validator | ledger active dùng chung mọi EA; source/prereg hash-bound, transition fail-closed |
 | `04. Memory/research/20260716_GOAL_EXTERNAL_UNLOCK_BLOCKED_AUDIT.md` | evidence lịch sử của ba goal-turn cùng blocker; không phải active unlock contract |
-| `02. AlphaFactory/templates/research/` | capability/prereg/task/readout + logic-to-code matrix và EA delivery packet |
+| `02. AlphaFactory/templates/research/` | capability/prereg/task/readout + logic-to-code matrix, EA delivery packet và Grok chart-forensics packet |
 | `03. EA Developer/<EA>/research/` | prereg/readout/evidence riêng package active |
 | `00. Old File/EA_Archive/EA_SonicR/research/` | ledger và evidence Sonic lịch sử; archive-only, không chạy |
 
-## Source EA — `03. EA Developer/` (9 compilable lanes + terminal research records)
+## Source EA — `03. EA Developer/` (10 compilable lanes + terminal research records)
 
 | Path | Ghi chú |
 |---|---|
@@ -68,6 +72,7 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 | `03. EA Developer/EA_ICTFVGReportFidelity/` | v1.23 Human Context natural policy; 53/53 tests, compile 0/0, non-repaint V19 PASS. HYP-017 single 2018-YTD Model-0 run N=3,703, native PF 0.7553 and 1.5-pip diagnostic PF 0.3513 / -0.52139R; terminal KILL, no rerun/promotion/live authority |
 | `03. EA Developer/EA_ICTVisualEdge/` | compilable visual extractor retained with terminal design-window economic KILL; no Model 0/rerun/live authority |
 | `03. EA Developer/EA_KLR_Scalper/` | native MT5 replication `.mq5` retained for audit; control/USD Model-0 pair terminal `KILL_AT_MODEL0_CADENCE`, no live/rerun authority |
+| `03. EA Developer/EA_MZMS_Scalper/` | closed-bar EURUSD/XAUUSD M5 audit package. EURUSD HYP-003/HYP-005 terminal; XAUUSD HYP-006 parked invalid at 98% history. Four-mechanism HYP-007..010 also parked invalid (98%<99%; runs 015121/021353/023841/024229; 400-chart Grok synthesis closed); no promotion/economic authority; no retune/rerun of these IDs |
 | `03. EA Developer/EA_UnicornPrecisionScalper/` | canonical v1.23 alert-only audit kernel; event-anchored `HYP-UPS-XAU-M5-006` remains terminal KILL; V1.3 zero-trade collection is retained as D-only engineering evidence, not an active gate |
 | `03. EA Developer/EA_UnicornPrecisionScalperControl/` | storage-safe four-bar Unicorn control; canonical `.mq5` retained with terminal Model-0 KILL readout and D-only evidence |
 | `03. EA Developer/EA_UnicornPrecisionScalperRR15/` | post-outcome HYP-008 RR1.5 exact replay terminal `KILL_DIAGNOSTIC`; source/readout retained for audit, never rerun/promotion/live authority |

@@ -47,8 +47,14 @@ def _binding(workspace: Path, role: str, path: Path) -> dict:
     }
 
 
-def _casebook(workspace: Path, *, outcome: str = "trades", root: Path | None = None) -> Path:
-    root = (root or workspace) / "casebook"
+def _casebook(
+    workspace: Path,
+    *,
+    outcome: str = "trades",
+    mode: str = "anatomy",
+    root: Path | None = None,
+) -> Path:
+    root = (root or workspace) / ("decision_casebook" if mode == "asof" else "casebook")
     results = []
     labels = ["WIN", "WIN", "LOSS", "LOSS"] if outcome == "trades" else ["REJECTION", "REJECTION"]
     for i, label in enumerate(labels, 1):
@@ -57,7 +63,7 @@ def _casebook(workspace: Path, *, outcome: str = "trades", root: Path | None = N
             {
                 "case_id": f"case_{i}",
                 "status": "RENDERED",
-                "mode": "anatomy",
+                "mode": mode,
                 "label": label,
                 "direction": 1 if i % 2 else -1,
                 "png": png.name,
@@ -65,19 +71,24 @@ def _casebook(workspace: Path, *, outcome: str = "trades", root: Path | None = N
                 "entry_marker_rendered": True,
                 "sl_line_rendered": outcome == "trades",
                 "tp_line_rendered": outcome == "trades",
-                "exit_marker_rendered": outcome == "trades",
+                "exit_marker_rendered": outcome == "trades" and mode == "anatomy",
+                "cutoff_enforced": True,
+                "outcome_hidden": mode == "asof",
+                "net_r_hidden": mode == "asof",
+                "label_hidden_in_image": mode == "asof",
                 "context": {
                     "timeframe": "H1",
                     "entry_position": "center",
-                    "post_entry_outcome_region": True,
-                    "post_entry_bars_drawn": 4,
+                    "future_region_hidden": mode == "asof",
+                    "post_entry_outcome_region": mode == "anatomy",
+                    "post_entry_bars_drawn": 0 if mode == "asof" else 4,
                     "decision_state_cutoff_enforced": True,
                 },
             }
         )
     manifest = {
         "schema_version": "chart_case_render.v2",
-        "mode": "anatomy",
+        "mode": mode,
         "context_timeframe": "H1",
         "context_entry_position": "center",
         "context_post_bars": 4,
@@ -109,6 +120,12 @@ def _packet(
         "casebook_manifest": _casebook(
             workspace,
             outcome="trades" if delivery_class == "economic_run" else "zero",
+            root=root,
+        ),
+        "decision_casebook_manifest": _casebook(
+            workspace,
+            outcome="trades" if delivery_class == "economic_run" else "zero",
+            mode="asof",
             root=root,
         ),
     }
@@ -196,6 +213,11 @@ def _packet(
             "entry_candle_centered": True,
             "post_entry_bars_visible": True,
             "outcome_region_labeled": True,
+            "decision_asof_separate": True,
+            "decision_outcome_hidden": True,
+            "decision_net_r_hidden": True,
+            "decision_active_indicators_visible": True,
+            "decision_indicator_provenance": "mt5_decision_telemetry",
         },
         "anti_overfit_contract": {
             "plan_frozen_pre_outcome": True,
@@ -273,6 +295,36 @@ def test_delivery_packet_rejects_chart_without_sl_tp_exit(tmp_path: Path) -> Non
     assert "casebook case_1 missing SL line" in result.stderr
 
 
+def test_delivery_packet_rejects_missing_decision_casebook_binding(tmp_path: Path) -> None:
+    packet = _packet(tmp_path)
+    payload = json.loads(packet.read_text(encoding="utf-8"))
+    payload["bindings"] = [
+        row for row in payload["bindings"] if row["role"] != "decision_casebook_manifest"
+    ]
+    packet.write_text(json.dumps(payload), encoding="utf-8")
+    result = _run(packet, tmp_path)
+    assert result.returncode != 0
+    assert "missing required binding roles: decision_casebook_manifest" in result.stderr
+
+
+def test_delivery_packet_rejects_decision_chart_that_discloses_outcome(tmp_path: Path) -> None:
+    packet = _packet(tmp_path)
+    manifest = tmp_path / "decision_casebook" / "cases_manifest.json"
+    payload = json.loads(manifest.read_text(encoding="utf-8"))
+    payload["results"][0]["outcome_hidden"] = False
+    manifest.write_text(json.dumps(payload), encoding="utf-8")
+    delivery = json.loads(packet.read_text(encoding="utf-8"))
+    binding = next(
+        row for row in delivery["bindings"] if row["role"] == "decision_casebook_manifest"
+    )
+    binding["bytes"] = manifest.stat().st_size
+    binding["sha256"] = _sha(manifest)
+    packet.write_text(json.dumps(delivery), encoding="utf-8")
+    result = _run(packet, tmp_path)
+    assert result.returncode != 0
+    assert "decision casebook case_1 outcome_hidden must be true" in result.stderr
+
+
 def test_zero_trade_delivery_requires_funnel_and_rejection_cases(tmp_path: Path) -> None:
     packet = _packet(tmp_path, delivery_class="zero_trade_terminal")
     result = _run(packet, tmp_path)
@@ -324,7 +376,7 @@ def test_delivery_templates_cover_every_required_analysis_surface() -> None:
         "logic_matrix", "source", "compiled_binary", "compile_log",
         "test_receipt", "nonrepaint_audit", "run_manifest", "tester_report",
         "lifecycle_trades", "run_meta", "log_triage", "economic_analysis",
-        "casebook_manifest", "readout",
+        "casebook_manifest", "decision_casebook_manifest", "readout",
     } <= roles
     assert set(template["analysis_contract"]["statuses"]) == ANALYSIS_DIMENSIONS
     assert schema["$id"] == "alphafactory.ea_delivery_packet.v1"

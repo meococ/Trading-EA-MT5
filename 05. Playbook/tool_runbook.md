@@ -1,11 +1,12 @@
 # AlphaFactory Tool Runbook
 
-Updated: 2026-07-19
+Updated: 2026-07-22
 
 Scope: AlphaFactory command and evidence operations for every EA lane. Active
-EA scope and open lanes come from `04. Memory/hot.md`; this runbook does not
-enumerate them. Nothing here authorizes compiling or backtesting from
-`00. Old File/`.
+scope comes from the Owner's current request plus verified locks and frozen
+registry/prereg/task packets; `04. Memory/hot.md` is a routing cache only. This
+runbook does not enumerate lanes. Nothing here authorizes compiling or
+backtesting from `00. Old File/`.
 
 ## Purpose
 
@@ -216,6 +217,49 @@ python "02. AlphaFactory/tools/repro_drift_map.py" `
   `entry_marker_rendered`, `sl_line_rendered`, `tp_line_rendered`,
   `exit_marker_rendered`, centered HTF context and visible/labeled post-entry
   bars. As-of charts may accompany them but cannot replace outcome anatomy.
+- For setup-quality review, the inverse is also mandatory: a separate
+  `decision_asof` chart must hide outcome/net_R. Grok or human reviewers record
+  the decision read before opening the anatomy image. A combined image is a
+  convenient human view only.
+- Indicator-rich casebooks show every active decision indicator and its exact
+  bar shifts/threshold/gate state, preferably from MT5 decision telemetry.
+  Recomputed values require a parity artifact or an explicit NON-PARITY label.
+  Current generic `chart_case_render.py` supplies candles, SMA/EMA overlays and
+  one HTF panel; it does not yet prove arbitrary MACD/RSI/ADX/ATR panels. Until
+  the generic panel contract is implemented, use a package renderer with the
+  same manifest/hash rules and state that limitation explicitly.
+
+### Grok large-case chart forensics
+
+Use the installed `grok-cli-runner` and
+`GROK_CHART_FORENSICS_PACKET.template.json`; never invoke an untracked ad-hoc
+prompt as final evidence.
+
+1. Freeze the population and sample before rendering. Include winners, losers,
+   matched pairs and anomalies/rejections; keep workers disjoint unless the
+   contract deliberately assigns the same cases for inter-rater agreement.
+2. Retain canonical high-resolution charts and optionally create a lighter
+   model-review copy. One chart must remain readable by itself; do not replace
+   indicator panels with a contact sheet.
+3. Put each request under `.context/<task>/grok-request.json`, run `--dry-run`,
+   then one actual backend job. Default to five cases per job, global Grok
+   concurrency one, `--no-subagents --disable-web-search`, bounded turns and
+   the normal 600-second timeout.
+4. First pass uses only `decision_asof`; second pass may expose `anatomy` and
+   asks for path/risk/execution explanation. Use evidence labels
+   `OBSERVED|STRONG_INFERENCE|HYPOTHESIS|UNKNOWN`.
+5. Accept a response only when runner success/useful is true, requested schema
+   passes when present, every expected case/position ID occurs exactly once,
+   every case reports `image_opened=true`, and union coverage equals the frozen
+   manifest. A cancelled/bootstrap response counts as zero.
+6. Never reuse a request artifact for a backend retry. Create a fresh recovery
+   artifact; if schema-heavy output repeatedly cancels, fall back to a fresh
+   five-case plain-text contract and validate headers/coverage. Do not run
+   multiple Grok backends concurrently on this host.
+7. Parent reconciles all reviewer counts to lifecycle/report, separates exact
+   metrics from non-exclusive text tags, records contradictions and retains
+   the final verdict. Raw outputs remain under `.context`; integrated compact
+   evidence goes under the EA `research/evidence/` tree.
 - `02. AlphaFactory/tools/research/log_triage.py <log>` — streaming standard
   error-pattern battery over heavy tester/EA logs; one compact JSON summary.
   Run this FIRST; open raw windows only where triage points

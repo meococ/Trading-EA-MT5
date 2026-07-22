@@ -1,0 +1,234 @@
+{
+  "schema_version": "mzms_hyp007_010_economic_analysis.v1",
+  "hypothesis_id": "HYP-MZMS-XAU-M5-007",
+  "run_id": "20260722_015121",
+  "generated_at_utc": "2026-07-21T21:45:42Z",
+  "validity_boundary": "INVALID_ENGINEERING_RUN_HISTORY_QUALITY_98_BELOW_99",
+  "economic_authority": "DIAGNOSTIC_ONLY",
+  "economic_metrics_authoritative": false,
+  "performance_metrics_authorized": false,
+  "promotion_eligible": false,
+  "history_quality_pct": 98,
+  "frozen_min_history_quality_pct": 99,
+  "economics": {
+    "trades": 3409,
+    "net_profit_usd": -2064.59,
+    "profit_factor": 0.8091258725,
+    "win_rate_pct": 42.0358,
+    "expectancy_usd_per_trade": -0.605629,
+    "max_drawdown_pct": 2.191,
+    "enhanced_summary": {
+      "n_trades": 3409,
+      "net_profit": -2064.5899999999965,
+      "profit_factor": 0.8091258725095918,
+      "win_rate_pct": 42.03578762100323,
+      "avg_win": 6.107404047452896,
+      "avg_loss": -5.48226051697922,
+      "max_drawdown_pct": 2.1910623728917544,
+      "max_drawdown_abs": 2193.6199999996315,
+      "expectancy_per_trade": -0.6056292167791139,
+      "start_equity": 100000.0,
+      "final_equity": 97935.41,
+      "streaks": {
+        "max_win_streak": 8,
+        "max_loss_streak": 12,
+        "current_streak": 1,
+        "current_streak_type": "win"
+      },
+      "weaknesses_count": 14
+    },
+    "lifecycle_reconciliation": {
+      "exact_reconciliation": true,
+      "positions": 3409,
+      "net_usd_lifecycle": -2064.5899999999997,
+      "profit_factor_lifecycle": 0.8091258725095918
+    }
+  },
+  "cadence": {
+    "trades_per_elapsed_calendar_week": 7.64,
+    "window": {
+      "from": "2018.01.01",
+      "to": "2026.07.22"
+    },
+    "elapsed_weeks_approx": 446.3,
+    "band_frozen": [
+      2.0,
+      5.0
+    ],
+    "note": "Cadence uses elapsed calendar weeks, not active weeks. Diagnostic only under invalid history quality."
+  },
+  "cost_stress": {
+    "status": "COMPLETE",
+    "analysis_basis": "diagnostic_only_research_proxy_and_tca_if_present",
+    "promotion_grade_cost_authority": false,
+    "note": "Cost stress is completed at diagnostic depth from available TCA/research-proxy artifacts. Historical XAU verified commission/slippage provenance remains failed, so this COMPLETE status does not authorize promotion or live economics.",
+    "tca_summary_present": false,
+    "tca_summary": null,
+    "native_report_economics_already_include_tester_costs": true,
+    "x1_5_x2_stress_authorized": false
+  },
+  "time_stability": {
+    "by_hour_csv_present": true,
+    "by_weekday_csv_present": true,
+    "by_hour_preview": "hour,n,net_profit,profit_factor,win_rate_pct\n0,0,0.00,0.00,0.0\n1,0,0.00,0.00,0.0\n2,0,0.00,0.00,0.0\n3,0,0.00,0.00,0.0\n4,0,0.00,0.00,0.0\n5,0,0.00,0.00,0.0\n6,0,0.00,0.00,0.0\n7,0,0.00,0.00,0.0\n8,0,0.00,0.00,0.0\n9,0,0.00,0.00,0.0\n10,229,-130.12,0.79,41.9\n11,318,252.18,1.40,52.8\n12,312,-418.57,0.55,40.7\n13,377,-351.18,0.73,39.0\n14,533,-398.60,0.82,39.4\n15,674,-427.21,0.82,42.0\n16,429,-394.30,0.73,38.7\n17,299,-113.84,0.85,44.1\n18,160,13.79,1.05,44.4\n19,78,-96.74,0.61,42.3\n20,0,0.00,0.00,0.0\n21,0,0.00,0.00,0.0\n22,0,0.00,0.00,0.0\n23,0,0.00,0.00,0.0\n",
+    "by_weekday_preview": "weekday,n,net_profit,profit_factor,win_rate_pct\nMonday,721,-663.17,0.71,40.6\nTuesday,700,-478.52,0.79,41.1\nWednesday,672,-492.13,0.77,41.7\nThursday,689,-338.14,0.85,41.5\nFriday,627,-92.63,0.95,45.6\nSaturday,0,0.00,0.00,0.0\nSunday,0,0.00,0.00,0.0\n",
+    "note": "Breakdowns are diagnostic shape only under HQ 98%."
+  },
+  "session_breakdown": {
+    "by_session_csv_present": true,
+    "by_session_preview": "session,n,net_profit,profit_factor,win_rate_pct,avg_win,avg_loss\nAsia,0,0.00,0.00,0.0,0.00,0.00\nEurope,1236,-647.69,0.81,43.5,5.24,-4.97\nNewYork,2173,-1416.90,0.81,41.2,6.63,-5.76\nOffHours,0,0.00,0.00,0.0,0.00,0.00\n"
+  },
+  "direction_breakdown": {
+    "source": "lifecycle population winners/losers in campaign_metrics + executed sample labels",
+    "note": "No post-hoc direction veto authorized."
+  },
+  "regime_breakdown": {
+    "status": "INSUFFICIENT_EXPLAINED",
+    "reason": "No independent regime classifier was frozen for this campaign; ADX/ATR observations in chart forensics remain visual diagnostics only."
+  },
+  "execution_quality": {
+    "lifecycle_exact_open_close_pairs": true,
+    "report_trades_equal_positions": true,
+    "telemetry_equals_entries": true,
+    "spread_ceiling_frozen_xau_points": 35,
+    "news_guard": "OFF consistently for XAU campaign"
+  },
+  "funnel": {
+    "accepted_entries": 3409,
+    "selected_forensics_executed": 100,
+    "selected_forensics_near_miss": 0,
+    "note": "Near-miss rows are OFFLINE_NEAR_MISS_DIAGNOSTIC only; not invented fills."
+  },
+  "winning_trade_causes": {
+    "source": "Grok validated chunk findings + dual-panel forensics on executed winners",
+    "summary": "See GROK_SYNTHESIS_RESULT.json per-hypothesis dominant anatomy and supported case IDs."
+  },
+  "losing_trade_causes": {
+    "source": "Grok validated chunk findings + dual-panel forensics on executed losers",
+    "weaknesses_artifact": [
+      {
+        "type": "overall",
+        "severity": "CRITICAL",
+        "area": "Strategy Edge",
+        "metric": "PF=0.81",
+        "trades": 3409,
+        "recommendation": "Strategy has minimal/no edge. Consider fundamental changes."
+      },
+      {
+        "type": "session",
+        "severity": "HIGH",
+        "area": "Europe",
+        "metric": "PF=0.81",
+        "trades": 1236,
+        "recommendation": "Consider disabling Europe session trading"
+      },
+      {
+        "type": "session",
+        "severity": "HIGH",
+        "area": "NewYork",
+        "metric": "PF=0.81",
+        "trades": 2173,
+        "recommendation": "Consider disabling NewYork session trading"
+      },
+      {
+        "type": "year",
+        "severity": "HIGH",
+        "area": "2019",
+        "metric": "PF=0.71, Net=-477",
+        "trades": 488,
+        "recommendation": "Strategy struggled in 2019 - review market regime"
+      },
+      {
+        "type": "year",
+        "severity": "HIGH",
+        "area": "2020",
+        "metric": "PF=0.72, Net=-397",
+        "trades": 426,
+        "recommendation": "Strategy struggled in 2020 - review market regime"
+      },
+      {
+        "type": "year",
+        "severity": "HIGH",
+        "area": "2021",
+        "metric": "PF=0.76, Net=-355",
+        "trades": 470,
+        "recommendation": "Strategy struggled in 2021 - review market regime"
+      },
+      {
+        "type": "year",
+        "severity": "HIGH",
+        "area": "2022",
+        "metric": "PF=0.82, Net=-259",
+        "trades": 471,
+        "recommendation": "Strategy struggled in 2022 - review market regime"
+      },
+      {
+        "type": "year",
+        "severity": "HIGH",
+        "area": "2023",
+        "metric": "PF=0.86, Net=-198",
+        "trades": 431,
+        "recommendation": "Strategy struggled in 2023 - review market regime"
+      },
+      {
+        "type": "year",
+        "severity": "HIGH",
+        "area": "2024",
+        "metric": "PF=0.84, Net=-210",
+        "trades": 411,
+        "recommendation": "Strategy struggled in 2024 - review market regime"
+      },
+      {
+        "type": "hour",
+        "severity": "MEDIUM",
+        "area": "Hours [10, 12, 13, 16, 19]",
+        "metric": "PF < 0.8",
+        "trades": 1425,
+        "recommendation": "Avoid trading at hours: [10, 12, 13, 16, 19]"
+      },
+      {
+        "type": "weekday",
+        "severity": "MEDIUM",
+        "area": "Monday",
+        "metric": "PF=0.71",
+        "trades": 721,
+        "recommendation": "Review Monday trading rules"
+      },
+      {
+        "type": "weekday",
+        "severity": "MEDIUM",
+        "area": "Tuesday",
+        "metric": "PF=0.79",
+        "trades": 700,
+        "recommendation": "Review Tuesday trading rules"
+      },
+      {
+        "type": "weekday",
+        "severity": "MEDIUM",
+        "area": "Wednesday",
+        "metric": "PF=0.77",
+        "trades": 672,
+        "recommendation": "Review Wednesday trading rules"
+      },
+      {
+        "type": "weekday",
+        "severity": "MEDIUM",
+        "area": "Thursday",
+        "metric": "PF=0.85",
+        "trades": 689,
+        "recommendation": "Review Thursday trading rules"
+      }
+    ],
+    "summary": "Adverse selection / late entry / TIME_EXIT under-harvest dominate diagnostic anatomy."
+  },
+  "logic_conflicts": {
+    "status": "NONE_MATERIAL_IN_SOURCE_CONTRACT",
+    "note": "Non-repaint audit V8 PASS with zero findings on exact source snapshot 96A4E8D0CADB0A8B229C124CEB9C70146266A583EEC3D98BB5C406617C80692A. Offline indicator recompute on charts is visualization-only, not parity conflict."
+  },
+  "limitations": [
+    "History quality 98% < 99% => DIAGNOSTIC ONLY; no promotion or economic-kill authority.",
+    "Unverified historical XAU cost provenance.",
+    "No post-hoc rescue/retune/rerun of HYP-007..010.",
+    "Chart indicator panels use offline recomputed values labeled non-parity."
+  ]
+}

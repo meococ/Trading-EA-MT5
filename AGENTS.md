@@ -1,16 +1,27 @@
 # Quy Tắc Vận Hành Agent — Workspace
 
 File chỉ dẫn agent dùng chung duy nhất. **Quy tắc ở đây; chi tiết ở doc
-được trỏ tới; sự thật sống ở `hot.md`.** Không nhồi procedure dài vào file này.
+được trỏ tới; `hot.md` chỉ là cache tham khảo về trạng thái gần nhất.** Quyền
+thực thi đến từ scope Owner hiện tại, hard safety/lock, prereg + registry/task
+packet đã đóng băng và artifact thực tế — không đến từ một câu tóm tắt trong
+`hot.md`. Không nhồi procedure dài vào file này.
 
 ## 1. Chuỗi đọc-trước (mọi session)
 
-1. `04. Memory/hot.md` — lane, scope, blocker, next moves (authority
-   duy nhất của active scope).
-2. `01. GOAL/GOAL.md` — mục tiêu. `INDEX.md` — bản đồ workspace.
-3. `04. Memory/do_not_repeat_failures.md` — trước hypothesis/EA mới.
-4. Git có thể tồn tại; **agent mặc định không stage/commit/push**. Xác minh bằng
+1. `01. GOAL/GOAL.md` — mục tiêu. `INDEX.md` — bản đồ workspace.
+2. Registry/prereg/task packet liên quan + AlphaFactory status/lock — quyền và
+   contract thực thi hiện tại.
+3. `04. Memory/hot.md` — cache tham khảo lane/blocker/next moves; phải kiểm lại
+   bằng artifact, không dùng nó làm veto hay giấy phép.
+4. `04. Memory/do_not_repeat_failures.md` — prior/failure radius trước
+   hypothesis/EA mới; không phải blacklist toàn bộ family.
+5. Git có thể tồn tại; **agent mặc định không stage/commit/push**. Xác minh bằng
    file/hash/validator/test — không “dọn GitHub” tự ý.
+
+**Thứ tự thẩm quyền:** yêu cầu Owner hiện tại → hard safety + active lock →
+prereg/registry/task packet đã đóng băng → source/run/receipt/validator thực tế.
+`hot.md`, `do_not_repeat_failures.md`, report cũ và memo agent là context để
+phản biện/de-dup; chúng không được tự mở hoặc tự đóng một EA mới.
 
 ## 2. Ngôn ngữ + vai trò
 
@@ -83,7 +94,9 @@ in-sample / compile xanh.
   đúng source/contract đã chạy, không gọi là đã test toàn bộ memo. Chi tiết:
   `research_doctrine.md`.
 - Compile/backtest từ `00. Old File/` hoặc path lưu trữ = evidence **không hợp lệ**.
-- Đổi scope = quyết định Owner; cập nhật `hot.md` **trước** mọi run theo scope mới.
+- Đổi scope = quyết định Owner. Trước meaningful run phải tạo/freeze contract và
+  registry row đúng scope; cập nhật `hot.md` để handoff/audit nhưng độ trễ của
+  cache này không được thay thế hoặc phủ quyết contract đã xác minh.
 - Archive kèm manifest trước khi xóa evidence; không dọn phá hủy. Khi
   archive/di chuyển package khỏi active tree: **đồng thời** cập nhật
   `source_of_truth.json`+`.md` và chạy `validate_source_of_truth.py` (fail-closed
@@ -125,11 +138,12 @@ Harness chính cho phát triển EA + backtest — **không invent toolchain son
 - AlphaFactory = cách chạy; ceremony (gates/registry/prereg) vẫn bắt buộc.
   Registry active dùng chung: `04. Memory/research/CANDIDATE_REGISTRY.jsonl`;
   template: `02. AlphaFactory/templates/research/`.
-- Active shelf `03. EA Developer/`: danh sách lane compilable (hiện 9) +
+- Active shelf `03. EA Developer/`: danh sách lane compilable +
   research-only terminal records sống ở `03. EA Developer/README.md`; count
-  sống ở `hot.md`. Mọi package trên shelf đều KHÔNG tự có quyền chạy/rerun/
-  promote/live — quyền đến từ registry state + hot.md, không từ sự tồn tại
-  của source. Không liệt kê shelf trong file này để tránh drift.
+  được kiểm trực tiếp từ disk/README. Mọi package trên shelf đều KHÔNG tự có
+  quyền chạy/rerun/promote/live — quyền đến từ scope Owner hiện tại + registry/
+  prereg/task packet và gate thực tế, không từ sự tồn tại của source hay `hot.md`.
+  Không liệt kê shelf trong file này để tránh drift.
   Packages archived THẬT (80 dir, 2026-07-15):
   `00. Old File/EA_Archive/` (SonicR full ledger + SilverBullet binary + 78
   stub `.ex5`). Ledger Sonic cũ đi theo archive; ledger generic active ở
@@ -147,6 +161,24 @@ agent_ea_research_loop, skills/). Không còn quy trình roster nặng.
 
 - Spawn sub-agent ad-hoc khi cần fan-out READ song song; **serial WRITE**.
 - Không tự tạo branch/worktree/clone cho sub-agent.
+- Mỗi task Grok phải khai **role** và quyền rõ ràng:
+  - `builder/coder`: được WRITE trong write-set đã đóng băng, tự quyết chi tiết
+    implementation, code/test/compile và điều khiển tối đa một Model-0 serial
+    khi task packet + lock cho phép. Parent đóng băng outcome contract,
+    prohibitions và acceptance gates, không shadow-code hay micromanage từng
+    dòng; sau handoff phải verify độc lập source/hash/test/run packet.
+  - `forensic reviewer`: read-only/advisory; không patch terminal EA và không tự
+    cấp quyền rerun/promotion/live hay biến pattern hậu nghiệm thành rule.
+- Forensics quy mô lớn dùng các **vai logic** chứ không hồi sinh roster nặng:
+  parent = Lead Quant/Integrator giữ sampling, QC và verdict; Grok A =
+  signal/price-context reviewer; Grok B = adversarial path/risk/execution
+  reviewer; MQL5/fidelity và risk/execution review được parent hoặc sub-agent
+  bounded thực hiện khi evidence cần. Tách builder và reviewer thành task
+  stateless khác nhau khi có thể; mọi MT5 WRITE vẫn serial theo global lock.
+- Casebook gửi Grok theo `ea_golden_path.md` §9 và `tool_runbook.md`: mặc định
+  5 case/job, global concurrency 1, request artifact + dry-run trước actual,
+  coverage/ID/image-open phải fail-closed. Profile 2 worker × 100 chart chỉ dùng
+  khi population đủ lớn; không phải gate cứng cho mọi run.
 - Parent chủ động chốt phiên (§6) sau session có ý nghĩa.
 
 ## 6. Chốt phiên (standing)
@@ -170,6 +202,12 @@ chờ Owner):
 - Hiểu mục tiêu trước khi làm. Có cách tốt hơn → trình bày tradeoff
   (`do-now` / `worth-adding` / `needs-owner`), không máy móc theo chữ.
 - Vai trưởng nhóm: không nịnh, phản biện bằng bằng chứng; chủ động §6.
+- Không dùng câu “data không có edge” trong `hot.md` hoặc một family kill cũ để
+  từ chối máy móc việc tạo EA mới. Trước tiên xác định **failure radius**: cùng
+  ID/cùng candidate identity hoặc post-hoc rescue thì cấm; hypothesis có cơ chế,
+  data contract hoặc decision surface mới có ý nghĩa thì được mở ID mới, probe
+  rẻ và prereg độc lập. Run vô hiệu do data/engineering không được suy rộng thành
+  kết luận thị trường không có edge.
 - Với task build/fix/complete, giữ **một outcome contract xuyên suốt** và tự chạy
   vòng `source -> compile -> test -> backtest/probe -> analyze -> log/chart
   forensics -> delivery gate -> next fix` cho
@@ -177,8 +215,9 @@ chờ Owner):
   Owner nhắn `tiến hành`/`oke` giữa các bước an toàn cùng scope.
 - Status update không phải checkpoint xin duyệt. Tiến độ là delta implementation
   đã verify hoặc verdict kinh tế mới; không phải số file, plan, audit, test hay
-  `compile 0/0` đứng riêng. Không đánh dấu goal complete khi `GOAL.md`/`hot.md`
-  còn UNMET hoặc outcome Owner yêu cầu chưa đạt.
+  `compile 0/0` đứng riêng. Không đánh dấu goal complete khi outcome Owner yêu
+  cầu chưa đạt hoặc gate/artifact có thẩm quyền còn UNMET; text cache trong
+  `hot.md` tự nó không phải completion gate.
 - Ceremony phải lean và reuse surface hiện có. Plan/research/doc chỉ được chen
   vào khi nó mở khóa ngay bước thực thi kế tiếp; docs để closeout sau evidence.
   Khi Owner phê bình triển khai, sửa implementation/loop trước, không phản xạ
@@ -196,8 +235,8 @@ chờ Owner):
 
 | Doc | Khi nào |
 |---|---|
-| `04. Memory/hot.md` | sự thật sống (NEXT SESSION + ledger) |
-| `04. Memory/do_not_repeat_failures.md` | trước revive / hyp mới |
+| `04. Memory/hot.md` | cache tham khảo (NEXT SESSION + ledger), không cấp/veto quyền |
+| `04. Memory/do_not_repeat_failures.md` | prior + failure radius; không phải blacklist hyp mới |
 | `04. Memory/research/CANDIDATE_REGISTRY.jsonl` + validator | ledger hypothesis generic append-only |
 | `04. Memory/source_of_truth.md`/`.json` + `validate_source_of_truth.py` | registry canonical + validator fail-closed |
 | `05. Playbook/ea_golden_path.md` | brief → probe/prereg → build → Model 0 → quyết định |

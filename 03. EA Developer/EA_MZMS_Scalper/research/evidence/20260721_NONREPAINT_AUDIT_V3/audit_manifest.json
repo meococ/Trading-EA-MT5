@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-003",
+  "run_id": "20260721_MZMS_BUILD_V3",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\20260721_NONREPAINT_AUDIT_V3\\snapshot",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\20260721_NONREPAINT_AUDIT_V3\\snapshot\\EA_MZMS_Scalper.mq5",
+  "source_sha256": "D5BB6B81FB347D761613C442D5EFFD8C22A862E93C050CC7D81BF55E448FE6E7",
+  "include_snapshots": [
+    {
+      "snapshot_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\20260721_NONREPAINT_AUDIT_V3\\snapshot\\NewsCalendar2019_2022.mqh",
+      "sha256": "248D569B981564AC0B179588C4919CD6CC196A9E7B008939A9CCDB3446F4678C"
+    }
+  ]
+}

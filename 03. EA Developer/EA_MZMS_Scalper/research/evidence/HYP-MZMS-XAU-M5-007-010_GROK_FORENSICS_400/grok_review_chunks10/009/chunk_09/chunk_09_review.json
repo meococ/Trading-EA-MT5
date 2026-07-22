@@ -1,0 +1,253 @@
+{
+  "hypothesis_id": "HYP-MZMS-XAU-M5-009",
+  "chunk_id": "chunk_09",
+  "validity_boundary": "INVALID_ENGINEERING_RUN_HISTORY_QUALITY_98_BELOW_99: diagnostic-only; cannot promote, go live, or authorize economic claims. Offline BB/ATR/EMA/ADX panels are visualization only, not MT5 CopyBuffer parity. Execution truth = StateTelemetry + Lifecycle.",
+  "image_inspection_supported": true,
+  "coverage": {
+    "expected_images": 10,
+    "images_opened": 10,
+    "all_cases_reported": true
+  },
+  "cases": [
+    {
+      "case_id": "009-E081-P1702",
+      "case_kind": "EXECUTED",
+      "position_id": 1702,
+      "image_opened": true,
+      "price_structure_observed": "BUY after multi-hour consolidation/reclaim into rising mid-band; decision bar near BB mid/EMA34 with prior range base ~2355-2365 then lift toward 2370. Structure is constructive grind, not a vertical impulse.",
+      "indicator_gate_observed": "Offline BB width compressed from ~6 toward ~2 into decision; ATR elevated (~3+); ADX mid (~25-35). Envelope squeeze surface visually present before entry; offline panels not MT5-parity.",
+      "path_observed": "Follow-through up after entry; peak ~2377 then time-exit at 2374.52 after 75m for +4.01 USD / +0.402R. Never reached TP 2382.60; SL 2362.89 not threatened after initial hold.",
+      "primary_mechanism": "Valid compression breakout with partial directional follow-through harvested by time-exit rather than full 1.6R target realization.",
+      "evidence_label": "OBSERVED",
+      "confidence": "HIGH",
+      "fidelity_note": "Lifecycle net/hold match chart header; TIME_EXIT_LIKE stratum consistent with 75m exit before TP/SL. Offline indicators diagnostic only."
+    },
+    {
+      "case_id": "009-E082-P1716",
+      "case_kind": "EXECUTED",
+      "position_id": 1716,
+      "image_opened": true,
+      "price_structure_observed": "BUY after a large failed upside spike (~2332) that mean-reverted back into the band; entry sits in post-impulse chop near mid-band with HTF already soft. Not a clean range expansion from a quiet base.",
+      "indicator_gate_observed": "BB width spiked ~8 then re-compressed to ~2 at decision; ATR still elevated; ADX declining from prior spike. Squeeze-after-spike, not quiet multi-bar compression.",
+      "path_observed": "After entry 2327.16 price drifts/chops lower and hits SL 2323.73 at ~51.5m for -6.96 USD / -0.698R. No sustained upside displacement toward TP 2332.65.",
+      "primary_mechanism": "Late long into post-expansion mean-reversion: false/failed envelope breakout after exhausted spike rather than fresh squeeze release.",
+      "evidence_label": "OBSERVED",
+      "confidence": "HIGH",
+      "fidelity_note": "SL exit matches lifecycle; FILL:LOSER stratum. Offline width/ATR are visual context only."
+    },
+    {
+      "case_id": "009-E083-P1760",
+      "case_kind": "EXECUTED",
+      "position_id": 1760,
+      "image_opened": true,
+      "price_structure_observed": "BUY on bounce/reclaim after a sharp prior selloff that tagged lower band; entry near mid/EMA34 while broader structure still shows recent downside displacement and failed highs.",
+      "indicator_gate_observed": "Prior BB width expansion peak ~8 then partial re-compression; ADX had spiked high (~60) on the selloff then fell; ATR still elevated. Gate looks like rebound through mid-band more than quiet squeeze breakout.",
+      "path_observed": "Brief upside probe after entry 2511.79 then rollover to SL 2508.22 at ~67m for -7.24 USD / -0.726R. TP 2517.49 never approached on a sustained basis.",
+      "primary_mechanism": "Counter-bounce long / failed mid-band reclaim after impulsive selloff; adverse selection on rebound rather than trend-aligned squeeze expansion.",
+      "evidence_label": "OBSERVED",
+      "confidence": "HIGH",
+      "fidelity_note": "Lifecycle SL fill and hold align with outcome panel. Offline ADX/BB not parity-truth."
+    },
+    {
+      "case_id": "009-E084-P1768",
+      "case_kind": "EXECUTED",
+      "position_id": 1768,
+      "image_opened": true,
+      "price_structure_observed": "BUY into tight mid-range consolidation around 2500-2502; candles overlapping, no decisive directional base break. EMA34 flat-to-soft; structure is noise range.",
+      "indicator_gate_observed": "BB width oscillates ~3-7 then compresses toward decision; ADX moderate (~20-40); ATR modest. Compression present but without clear pre-break accumulation structure.",
+      "path_observed": "Sideways chop around entry 2501.63 for full 75m; time-exit 2501.45 for -0.70 USD / -0.070R. Neither SL 2498.44 nor TP 2506.73 hit.",
+      "primary_mechanism": "Low-displacement compression breakout that fails to expand; time-exit scratch/small loss in range noise.",
+      "evidence_label": "OBSERVED",
+      "confidence": "HIGH",
+      "fidelity_note": "TIME_EXIT_LIKE anomaly matches 75m hold; small negative net is cost/path friction, not full stop geometry."
+    },
+    {
+      "case_id": "009-E085-P1788",
+      "case_kind": "EXECUTED",
+      "position_id": 1788,
+      "image_opened": true,
+      "price_structure_observed": "BUY after sharp selloff then recovery into mid-band; decision sits on re-compression after volatility event, reclaiming toward EMA34 from below rather than breakout from a multi-session quiet base.",
+      "indicator_gate_observed": "BB width spiked ~8 then compressed to ~2; ATR elevated then easing; ADX rose on selloff then decayed. Offline squeeze gate after impulse, not pristine pre-break compression.",
+      "path_observed": "Gradual grind higher after entry 2619.90; time-exit 2621.89 after 75m for +3.88 USD / +0.389R. TP 2626.36 not reached; SL 2615.86 held.",
+      "primary_mechanism": "Post-capitulation re-compression rebound harvested as partial winner via time-exit; incomplete target realization.",
+      "evidence_label": "OBSERVED",
+      "confidence": "HIGH",
+      "fidelity_note": "WINNER + TIME_EXIT_LIKE consistent with lifecycle. Offline panels diagnostic-only."
+    },
+    {
+      "case_id": "009-E086-P1814",
+      "case_kind": "EXECUTED",
+      "position_id": 1814,
+      "image_opened": true,
+      "price_structure_observed": "SELL into a clear rising structure: price riding upper band, higher highs/lows, EMA34 sloping up. Entry near local highs ~2629.63 is counter-trend relative to the visible uptrend.",
+      "indicator_gate_observed": "BB width elevated (~5-6) not deep quiet squeeze; ADX elevated on the prior advance; ATR rising. Envelope short fires against directional trend rather than after tight compression.",
+      "path_observed": "Immediate adverse continuation higher; SL 2635.05 hit in ~20.7m for -5.48 USD / -0.549R. TP 2620.96 never relevant.",
+      "primary_mechanism": "Counter-trend envelope short into established bullish structure; rapid adverse stop-out.",
+      "evidence_label": "OBSERVED",
+      "confidence": "HIGH",
+      "fidelity_note": "FILL:LOSER, short hold, SL exit match lifecycle. Offline BB/EMA used only as visual structure context."
+    },
+    {
+      "case_id": "009-E087-P1874",
+      "case_kind": "EXECUTED",
+      "position_id": 1874,
+      "image_opened": true,
+      "price_structure_observed": "SELL against a persistent multi-hour uptrend: price above rising EMA34, series of higher highs, entry 2950.70 near the upper band after continued advance from ~2925.",
+      "indicator_gate_observed": "BB width still expanded (~4-7), not a deep squeeze floor; ADX previously high and decaying but price structure remains bullish. Short trigger is envelope/fade-like vs compression release with trend.",
+      "path_observed": "Continuation higher after entry; SL 2955.14 hit at ~44.7m for -9.00 USD / -0.902R (near full risk). TP 2943.61 never approached.",
+      "primary_mechanism": "Severe adverse selection: shorting a live uptrend breakout surface; stop-out near full R.",
+      "evidence_label": "OBSERVED",
+      "confidence": "HIGH",
+      "fidelity_note": "Lifecycle net_R ~-0.90 aligns with chart. Strong visual counter-trend evidence; offline indicators not parity."
+    },
+    {
+      "case_id": "009-E088-P1892",
+      "case_kind": "EXECUTED",
+      "position_id": 1892,
+      "image_opened": true,
+      "price_structure_observed": "BUY after a completed upside impulse and rollover: price broke below rising mid/EMA34, lower highs forming; entry 3135.53 is a long into a deteriorating post-trend structure (catch-reclaim attempt).",
+      "indicator_gate_observed": "BB width compressed after prior expansion spike; ADX falling from ~50+; ATR still elevated. Long envelope/mid reclaim fires while structure is breaking down.",
+      "path_observed": "Brief bounce then progressive decline to SL 3129.85 at ~70.7m for -5.74 USD / -0.575R. TP 3144.60 unreachable on path.",
+      "primary_mechanism": "Counter-momentum long into post-impulse breakdown; failed reclaim becomes stop-out.",
+      "evidence_label": "OBSERVED",
+      "confidence": "HIGH",
+      "fidelity_note": "Stratum FILL:LOSER with TIME_EXIT_LIKE tag but lifecycle exit is SL not pure time; image confirms SL path. Prefer lifecycle exit class."
+    },
+    {
+      "case_id": "009-E089-P1902",
+      "case_kind": "EXECUTED",
+      "position_id": 1902,
+      "image_opened": true,
+      "price_structure_observed": "SELL as price rolls off local highs after a range/upswing; decision near mid-band with structure turning soft/lower. Mixed but directionally coherent for a short continuation vs pure mid-range noise.",
+      "indicator_gate_observed": "BB width moderate (~3-5), not ultra-tight; ATR elevated; ADX mid. Partial compression + roll-over rather than classic quiet squeeze.",
+      "path_observed": "Continuation lower after entry 3223.59; time-exit 3220.53 after 75m for +3.00 USD / +0.301R. TP 3213.06 not reached; SL 3230.17 not hit.",
+      "primary_mechanism": "Directional roll-over short with partial follow-through; time-exit harvest short of full target.",
+      "evidence_label": "OBSERVED",
+      "confidence": "HIGH",
+      "fidelity_note": "ANOMALY:TIME_EXIT_LIKE and +0.30R match lifecycle. Offline indicators visualization only."
+    },
+    {
+      "case_id": "009-E090-P1920",
+      "case_kind": "EXECUTED",
+      "position_id": 1920,
+      "image_opened": true,
+      "price_structure_observed": "SELL from mid-range chop after a volatile session; candles overlapping around mid-band with no clean directional base. Entry 3380.40 lacks structural displacement edge.",
+      "indicator_gate_observed": "BB width compressed to ~2 at decision after earlier expansion; ADX low (~15-25); ATR still high from prior vol. Classic low-ADX mid-band compression trigger.",
+      "path_observed": "Quick reverse higher after entry; SL 3387.28 hit in ~26.5m for -6.94 USD / -0.696R. TP 3369.39 never in play.",
+      "primary_mechanism": "Low-ADX mid-range false break / noise short after compression; immediate stop-out.",
+      "evidence_label": "OBSERVED",
+      "confidence": "HIGH",
+      "fidelity_note": "LOSER SL path matches lifecycle. Offline ADX/width support low-trend context but are not tester parity."
+    }
+  ],
+  "ranked_mechanisms": [
+    {
+      "rank": 1,
+      "label": "Counter-trend / structure-misaligned envelope entry",
+      "case_ids": [
+        "009-E086-P1814",
+        "009-E087-P1874",
+        "009-E088-P1892",
+        "009-E083-P1760"
+      ],
+      "count_in_chunk": 4,
+      "finding": "Dominant loss driver in this chunk: shorts into rising EMA34/upper-band trends (E086/E087) and longs into post-impulse breakdown or rebound-only reclaims (E088/E083). Compression/breakout gate does not enforce structure alignment, producing adverse selection and near-full or material SL losses.",
+      "confidence": "HIGH"
+    },
+    {
+      "rank": 2,
+      "label": "Post-spike re-compression false break (mean-reversion trap)",
+      "case_ids": [
+        "009-E082-P1716",
+        "009-E090-P1920",
+        "009-E083-P1760"
+      ],
+      "count_in_chunk": 3,
+      "finding": "Entries after large BB-width expansion and re-squeeze fire into residual mean-reversion or mid-range noise rather than fresh quiet-base expansion, yielding SL paths without directional follow-through.",
+      "confidence": "HIGH"
+    },
+    {
+      "rank": 3,
+      "label": "Time-exit partial realization (wins short of 1.6R TP)",
+      "case_ids": [
+        "009-E081-P1702",
+        "009-E085-P1788",
+        "009-E089-P1902"
+      ],
+      "count_in_chunk": 3,
+      "finding": "All three chunk winners exit at ~75m with only +0.30R to +0.40R; path has some follow-through but never full target. Edge, if any, is incomplete and cadence/time-bound rather than clean RR capture. Not a rescue lever—observation of path geometry only.",
+      "confidence": "HIGH"
+    },
+    {
+      "rank": 4,
+      "label": "Low-displacement range compression nowhere path",
+      "case_ids": [
+        "009-E084-P1768",
+        "009-E090-P1920"
+      ],
+      "count_in_chunk": 2,
+      "finding": "Compressed bands with flat structure produce either time-exit scratch (E084) or quick false-break stop (E090). Squeeze alone without displacement quality is not predictive in these cases.",
+      "confidence": "MEDIUM"
+    }
+  ],
+  "classification_summary": {
+    "bad_entry_or_adverse_selection": [
+      "009-E082-P1716",
+      "009-E083-P1760",
+      "009-E086-P1814",
+      "009-E087-P1874",
+      "009-E088-P1892",
+      "009-E090-P1920"
+    ],
+    "normal_stochastic_loss": [
+      "009-E084-P1768"
+    ],
+    "good_rejected_near_miss": [],
+    "cadence_bottleneck": []
+  },
+  "fresh_hypothesis_candidates": [
+    {
+      "title": "Structure-aligned closed-bar breakout (EMA34 slope + swing bias gate)",
+      "mechanism": "Require breakout side to agree with pre-decision multi-bar structure (e.g., EMA34 slope and last swing direction) so envelope triggers only with trend-context alignment; reject pure counter-structure shorts/longs.",
+      "why_not_rescue": "Not a post-hoc BB/ATR threshold, session/year/direction veto, BE/trail/timeout, or parameter retune of HYP-009. Would need a new hypothesis_id, frozen prereg, and offline probe before any Model 0.",
+      "cited_case_ids": [
+        "009-E086-P1814",
+        "009-E087-P1874",
+        "009-E088-P1892",
+        "009-E083-P1760"
+      ],
+      "confidence": "MEDIUM"
+    },
+    {
+      "title": "Quiet-base squeeze only (exclude post-spike re-compression)",
+      "mechanism": "Distinguish quiet multi-bar compression from re-squeeze after a recent width expansion spike; allow breakout only from quiet-base regime, blocking post-impulse mean-reversion traps.",
+      "why_not_rescue": "Structural regime definition for a fresh candidate, not tightening InpSignalMode=4 thresholds after seeing 009 outcomes. Requires independent prereg and sealed offline test; does not promote or salvage 007-010.",
+      "cited_case_ids": [
+        "009-E082-P1716",
+        "009-E090-P1920",
+        "009-E085-P1788"
+      ],
+      "confidence": "MEDIUM"
+    },
+    {
+      "title": "Post-break displacement confirmation before risk-on",
+      "mechanism": "After closed-bar envelope break, require measured displacement (e.g., N-bar range expansion / ATR multiple) before entry commitment so low-ADX mid-range micro-breaks are filtered.",
+      "why_not_rescue": "New entry-state machine, not timeout/BE/trail rescue or RR retune of failed 009. Must be frozen pre-outcome on a new hyp; this chunk cannot authorize economic claims.",
+      "cited_case_ids": [
+        "009-E084-P1768",
+        "009-E090-P1920",
+        "009-E082-P1716"
+      ],
+      "confidence": "MEDIUM"
+    }
+  ],
+  "chunk_verdict": "Chunk_09 (10/10 EXECUTED, images opened) is DIAGNOSTIC ONLY under 98%<99% history quality. Mechanism InpSignalMode=4 BB/ATR compression breakout shows recurring adverse selection: counter-structure entries (E086/E087/E088/E083) and post-spike or low-ADX false breaks (E082/E090) drive most losses; the three winners (E081/E085/E089) are only partial time-exit harvests (+0.30R to +0.40R), never full TP. Compression surface alone does not separate structure quality. No promotion, live, or economic authority from this sample. Fresh hypotheses must be new preregs, not rescues of 009/007-010.",
+  "limitations": [
+    "History quality 98% below frozen 99% gate => engineering/diagnostic run only; cannot promote or authorize economics.",
+    "Offline recomputed BB/ATR/EMA/ADX on charts are visualization/near-miss ranking only; not MT5 CopyBuffer/tester parity.",
+    "Execution truth is StateTelemetry + Lifecycle only; chart markers reconciled to lifecycle but not independent fill proof.",
+    "All 10 cases are EXECUTED; chunk contains zero OFFLINE_NEAR_MISS_DIAGNOSTIC samples (no good_rejected_near_miss or cadence bottleneck evidence here).",
+    "n=10 is a forensic stratum slice, not a population inference or WFO-grade stability claim.",
+    "Winner partial-R via time-exit is path observation only; must not be converted into BE/trail/timeout post-hoc rescue of 009."
+  ]
+}

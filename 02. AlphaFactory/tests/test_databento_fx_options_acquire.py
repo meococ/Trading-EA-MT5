@@ -37,11 +37,20 @@ class FakeMetadata:
 
 
 class FakeSymbology:
-    def resolve(self, **_kwargs):
+    def __init__(self):
+        self.calls = []
+
+    def resolve(self, **kwargs):
+        self.calls.append(kwargs)
+        symbols = kwargs["symbols"]
+        not_found = [symbol for symbol in symbols if symbol != "EUU.OPT"]
         return {
-            "result": {"EUU.OPT": [{"d0": "2020-01-02", "s": "EUUH0 C1100"}]},
+            "symbols": symbols,
+            "result": {
+                "EUUH0 C1100": [{"d0": "2020-01-02", "d1": "2020-01-03", "s": "123"}]
+            },
             "partial": [],
-            "not_found": ["XT.OPT"],
+            "not_found": not_found,
         }
 
 
@@ -63,7 +72,8 @@ class FakeClient:
 
 def test_plan_uses_free_discovery_and_contains_no_api_key() -> None:
     module = load_module()
-    plan = module.build_plan(FakeClient())
+    client = FakeClient()
+    plan = module.build_plan(client)
 
     assert plan["status"] == "ESTIMATED_NOT_SUBMITTED"
     assert plan["symbology"]["resolved_option_parents"] == ["EUU.OPT"]
@@ -71,6 +81,17 @@ def test_plan_uses_free_discovery_and_contains_no_api_key() -> None:
     assert plan["estimated_total_billable_size"] == 3_000
     assert plan["api_key_stored"] is False
     assert "db-" not in json.dumps(plan)
+    assert client.symbology.calls[0]["stype_in"] == "parent"
+    assert client.symbology.calls[0]["stype_out"] == "instrument_id"
+    assert len(client.symbology.calls) == 1
+    assert client.symbology.calls[0]["symbols"] == list(module.OPTION_PARENT_CANDIDATES)
+    assert client.symbology.calls[0]["start_date"] == module.START
+    assert client.symbology.calls[0]["end_date"] == module.SYMBOL_RESOLVE_END
+    assert plan["symbology"]["raw_contract_count"] == 1
+    assert plan["symbology"]["partial_contract_count"] == 0
+    assert sorted(plan["symbology"]["not_found"]) == sorted(
+        set(module.OPTION_PARENT_CANDIDATES) - {"EUU.OPT"}
+    )
 
 
 def test_plan_hash_detects_mutation() -> None:
@@ -110,6 +131,8 @@ def test_submit_uses_batch_csv_month_splits_after_explicit_ceiling() -> None:
     assert all(call["compression"] == "zstd" for call in client.batch.calls)
     assert all(call["split_duration"] == "month" for call in client.batch.calls)
     assert all(call["stype_in"] == "parent" for call in client.batch.calls)
+    assert all(call["stype_out"] == "instrument_id" for call in client.batch.calls)
+    assert all(call["map_symbols"] is True for call in client.batch.calls)
 
 
 def test_key_is_never_read_from_a_tracked_file(monkeypatch) -> None:

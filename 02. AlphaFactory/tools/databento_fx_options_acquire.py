@@ -20,10 +20,12 @@ from pathlib import Path
 from typing import Any, Callable, Sequence
 
 
-SCHEMA_VERSION = "databento_fx_options_acquisition.v1"
+SCHEMA_VERSION = "databento_fx_options_acquisition.v2"
 DATASET = "GLBX.MDP3"
 START = "2020-01-02"
 END = "2026-07-01"  # Exclusive; contract coverage ends 2026-06-30.
+OUTPUT_STYPE = "instrument_id"
+SYMBOL_RESOLVE_END = "2020-01-03"  # One-day capability probe; avoids full-chain API timeout.
 KEY_PATTERN = re.compile(r"^db-[A-Za-z0-9_-]{29}$")
 
 # Current CME MDP 3.0 assets plus legacy premium-quoted roots that may occur
@@ -118,15 +120,18 @@ def make_client(key: str):
     return db.Historical(key)
 
 
-def resolved_parent_symbols(response: dict[str, Any]) -> list[str]:
+def resolved_parent_symbols(
+    response: dict[str, Any], requested: Sequence[str]
+) -> list[str]:
     result = response.get("result")
-    if not isinstance(result, dict):
+    if not isinstance(result, dict) or not result:
         return []
-    return sorted(
+    not_found = {
         symbol
-        for symbol in result
-        if isinstance(symbol, str) and result.get(symbol)
-    )
+        for symbol in response.get("not_found", [])
+        if isinstance(symbol, str)
+    }
+    return sorted(symbol for symbol in requested if symbol not in not_found)
 
 
 def request_specs(option_parents: Sequence[str]) -> list[dict[str, Any]]:
@@ -178,15 +183,16 @@ def build_plan(client) -> dict[str, Any]:
     if missing_schemas:
         raise AcquisitionError(f"{DATASET} is missing schemas: {missing_schemas}")
 
+    candidates = list(OPTION_PARENT_CANDIDATES)
     symbology = client.symbology.resolve(
         dataset=DATASET,
-        symbols=list(OPTION_PARENT_CANDIDATES),
+        symbols=candidates,
         stype_in="parent",
-        stype_out="raw_symbol",
+        stype_out=OUTPUT_STYPE,
         start_date=START,
-        end_date=END,
+        end_date=SYMBOL_RESOLVE_END,
     )
-    option_parents = resolved_parent_symbols(symbology)
+    option_parents = resolved_parent_symbols(symbology, candidates)
     if not option_parents:
         raise AcquisitionError(
             "none of the official CME EUR/USD option parent roots resolved"
@@ -206,10 +212,18 @@ def build_plan(client) -> dict[str, Any]:
             "available_range": client.metadata.get_dataset_range(dataset=DATASET),
         },
         "symbology": {
+            "input_stype": "parent",
+            "output_stype": OUTPUT_STYPE,
+            "resolve_probe": {
+                "start_inclusive": START,
+                "end_exclusive": SYMBOL_RESOLVE_END,
+                "purpose": "parent capability only; full continuity requires downloaded definitions",
+            },
             "candidate_parents": list(OPTION_PARENT_CANDIDATES),
             "resolved_option_parents": option_parents,
             "not_found": symbology.get("not_found", []),
-            "partial": symbology.get("partial", []),
+            "raw_contract_count": len(symbology.get("result", {})),
+            "partial_contract_count": len(symbology.get("partial", [])),
         },
         "requests": estimates,
         "estimated_total_usd": sum(item["estimated_cost_usd"] for item in estimates),
@@ -292,7 +306,7 @@ def submit_plan(
             split_duration="month",
             delivery="download",
             stype_in=spec["stype_in"],
-            stype_out="raw_symbol",
+            stype_out=OUTPUT_STYPE,
         )
         job = {
             "name": spec["name"],

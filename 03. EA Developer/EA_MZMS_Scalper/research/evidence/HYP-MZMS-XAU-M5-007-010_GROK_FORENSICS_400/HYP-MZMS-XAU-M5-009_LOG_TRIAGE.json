@@ -1,0 +1,50 @@
+{
+  "schema_version": "log_triage.v1",
+  "generated_at_utc": "2026-07-21T21:45:56Z",
+  "hypothesis_id": "HYP-MZMS-XAU-M5-009",
+  "run_id": "20260722_023841",
+  "log": "02. AlphaFactory/runs/EA_MZMS_Scalper/20260722_023841/logs/XAUUSD_LifecycleTrades_HYP-MZMS-XAU-M5-009_112793906.csv",
+  "bytes": 310652,
+  "lines": 2083,
+  "log_sha256": "CA26F8278BC6CD528922A605E96D2065C448DCFDA0D957CF61ECD3D3468F6B6A",
+  "scope_note": "Tester agent .log was not retained inside the AlphaFactory run package. Triage is performed on identity-bound LifecycleTrades + RunMeta artifacts.",
+  "battery": {
+    "order_reject": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    },
+    "invalid_stops": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    },
+    "margin": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    },
+    "timeout": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    },
+    "oninit_fail": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    },
+    "cannot_open": {
+      "count": 0,
+      "first_line": null,
+      "last_line": null,
+      "samples": []
+    }
+  },
+  "clean": true
+}

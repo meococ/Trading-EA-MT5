@@ -1,0 +1,118 @@
+{
+  "schema_version": "alphafactory_offline_probe_analysis.v1",
+  "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-003",
+  "generated_at_utc": "2026-07-21T09:23:37Z",
+  "verdict": "KILL_AT_FROZEN_OFFLINE_PROBE",
+  "validity": {
+    "causal_ordering": "PASS",
+    "same_timestamp_reentries_control": 0,
+    "same_timestamp_reentries_challenger": 0,
+    "position_overlaps_control": 0,
+    "position_overlaps_challenger": 0,
+    "minimum_entry_utc": "2019-01-03T08:40:00",
+    "maximum_entry_utc": "2022-11-25T15:05:00",
+    "sealed_2023_plus_accessed": false
+  },
+  "funnel": {
+    "control": {
+      "closed_bars": 298483,
+      "raw_signal": 136701,
+      "session_pass": 53173,
+      "news_pass": 51097,
+      "spread_pass": 35775,
+      "executed": 3944
+    },
+    "challenger": {
+      "closed_bars": 298483,
+      "raw_signal": 9624,
+      "session_pass": 3391,
+      "news_pass": 3258,
+      "spread_pass": 2275,
+      "executed": 1808
+    }
+  },
+  "challenger": {
+    "gross": {
+      "trades": 1808,
+      "profit_factor": 1.0418674752646317,
+      "expectancy_r": 0.021316091178675802,
+      "net_r": 38.53949285104585,
+      "mean_risk_pips": 8.568441845765234,
+      "median_risk_pips": 7.691071428571616
+    },
+    "diagnostic_cost_x1_1_5_pips": {
+      "profit_factor": 0.6949185143787935,
+      "expectancy_r": -0.19367508498966612,
+      "net_r": -350.16455366131635,
+      "trades_per_elapsed_week": 8.674434544208362,
+      "max_drawdown_pct_at_0_3pct_per_r": 105.11399314091892,
+      "longs": 902,
+      "shorts": 906
+    },
+    "design_x1": {
+      "trades": 1327,
+      "profit_factor": 0.6715419279824714,
+      "expectancy_r": -0.21226347206077265,
+      "net_r": -281.6736274246453,
+      "trades_per_elapsed_week": 8.483105022831051
+    },
+    "validation_x1": {
+      "trades": 481,
+      "profit_factor": 0.7639956485361028,
+      "expectancy_r": -0.14239277803881709,
+      "net_r": -68.49092623667102,
+      "trades_per_elapsed_week": 9.25
+    },
+    "year_net_r_x1": {
+      "2019": -169.5790992289055,
+      "2020": -78.38700094298332,
+      "2021": -33.707527252756464,
+      "2022": -68.49092623667102
+    },
+    "exit_kinds": {
+      "STOP": 853,
+      "TARGET": 503,
+      "TIME": 452
+    }
+  },
+  "control": {
+    "gross": {
+      "trades": 3944,
+      "profit_factor": 0.9981670374994331,
+      "expectancy_r": -0.0008511939256565149,
+      "net_r": -3.3571088427892946
+    },
+    "diagnostic_cost_x1_1_5_pips": {
+      "profit_factor": 0.6711822162328116,
+      "expectancy_r": -0.18876848781101965,
+      "net_r": -744.5029159266616,
+      "trades_per_elapsed_week": 18.922549691569568
+    }
+  },
+  "gates": {
+    "passed": 7,
+    "total": 26,
+    "hard_failures": [
+      "cadence above 5 per elapsed week in pooled, design and validation",
+      "x1 PF below 1.35 in pooled, design and validation",
+      "x1 expectancy below 0.18R in pooled, design and validation",
+      "x1.5 PF below 1.25 in pooled, design and validation",
+      "x2 PF below 1.0 in pooled, design and validation",
+      "max drawdown above 6 percent in pooled, design and validation",
+      "no positive year, so positive-year concentration is undefined"
+    ]
+  },
+  "bindings": {
+    "result_sha256": "FE45A62C0FE6AEC100012CE2714416A30CFEA42744BED693241A90F67B7B49D5",
+    "trades_sha256": "8995148D583C1DF08D625C9964E83B81713AB46B6CB4F7FB94FD5CE1A20A93B0",
+    "source_sha256": "D5BB6B81FB347D761613C442D5EFFD8C22A862E93C050CC7D81BF55E448FE6E7",
+    "probe_sha256": "C03D5F844CDA074B74A52DB7482F6D80C393F27ED61E7CA56AB70DDFA3DDEA7A",
+    "plan_sha256": "68D75BEA0C8D2A457F4DF7B47D9D70DAC58FE0824895FD74CD3F8358AF24FBB6"
+  },
+  "limitations": [
+    "Cost results are diagnostic because the historical spread series fails provenance and commission/slippage are not broker-verified.",
+    "Bid-only M1 OHLC cannot resolve within-minute path; stop-first is conservative.",
+    "The gross PF of 1.0419 and expectancy of 0.0213R already miss the frozen absolute edge threshold before diagnostic costs.",
+    "No Model-0, break-even arm, intrabar signal, optimization, 2023+ holdout or live execution was run."
+  ]
+}

@@ -60,6 +60,9 @@ def test_render_asof_enforces_entry_cutoff(tmp_path: Path) -> None:
     for r in manifest["results"]:
         assert r["status"] == "RENDERED"
         assert r["cutoff_enforced"] is True
+        assert r["outcome_hidden"] is True
+        assert r["net_r_hidden"] is True
+        assert r["label_hidden_in_image"] is True
         entry_time = {"case_win": "2021-06-05 12:00", "case_loss": "2021-06-07 09:00"}[r["case_id"]]
         assert pd.Timestamp(r["last_bar"]) < pd.Timestamp(entry_time)
         png = tmp_path / "asof" / r["png"]
@@ -72,6 +75,9 @@ def test_render_anatomy_reaches_exit(tmp_path: Path) -> None:
     win = next(r for r in manifest["results"] if r["case_id"] == "case_win")
     assert win["status"] == "RENDERED"
     assert pd.Timestamp(win["last_bar"]) >= pd.Timestamp("2021-06-06 04:00")
+    assert win["outcome_hidden"] is False
+    assert win["net_r_hidden"] is False
+    assert win["label_hidden_in_image"] is False
 
 
 def test_render_forensic_context_panel_and_trade_markers(tmp_path: Path) -> None:

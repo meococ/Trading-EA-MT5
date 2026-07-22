@@ -1,0 +1,66 @@
+{
+  "schema_version": "alphafactory_build_receipt.v1",
+  "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-001",
+  "ea_name": "EA_MZMS_Scalper",
+  "generated_at_utc": "2026-07-21T09:05:50Z",
+  "status": "PASS_BUILD_COMPILE_NONREPAINT",
+  "promotion_eligible": false,
+  "model0_authorized": false,
+  "bindings": {
+    "plan": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-001_PROBE_PLAN.md",
+      "sha256": "6ADE175BBA2F362F50F11915866C441E1C4B6612B751ACCB73A3B7C92FB09840"
+    },
+    "logic_matrix": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/LOGIC_TO_CODE_MATRIX.md",
+      "sha256": "DD93DD47F7B10AFFD3CFAA5C357D6F4AEA8D5FD3E225A980E215BADF14D44E89"
+    },
+    "capability": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "1B4E7D3313E0DC3C90B7AD3FE1607B215C7FD2A04DA4315B395707AFB6BE8873"
+    },
+    "source": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/EA_MZMS_Scalper.mq5",
+      "sha256": "7B0B0B23AABFFF5527E0377DDF55F496F27CBBAC62A77F18AE9F695F66E69F06"
+    },
+    "binary": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/EA_MZMS_Scalper.ex5",
+      "bytes": 57502,
+      "sha256": "B524803C0BDB257DB64C208912F0409A4B460D3E52AA9150EEB8DE93759D837A"
+    },
+    "compile_log": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/EA_MZMS_Scalper.log",
+      "sha256": "0B2E6CCACD5C196A9C92072E50FB1FDA4098A6C137D4AFE2790B611075D419A5",
+      "errors": 0,
+      "warnings": 0
+    },
+    "nonrepaint_audit": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/evidence/20260721_NONREPAINT_AUDIT_V1/nonrepaint_audit.json",
+      "sha256": "176B962769068645FCC6693096D435D70AB08C64D03AF4ECEF869B995839291D",
+      "status": "PASS",
+      "findings": 0,
+      "allowed_new_bar_gates": 1
+    },
+    "tests": [
+      {
+        "path": "03. EA Developer/EA_MZMS_Scalper/tests/test_mzms_contract.py",
+        "sha256": "71486F328A6D81E14B593C922F1C6ED2A5A9C8ADD9C54D9533CCC0F9F789A667"
+      },
+      {
+        "path": "03. EA Developer/EA_MZMS_Scalper/tests/test_mzms_probe.py",
+        "sha256": "CA8F2DA58DBB3FC7696EE2D698EF31C7D32D3E16D7B292357EEBDFB8B66050FE"
+      }
+    ]
+  },
+  "verification": {
+    "package_tests_passed": 14,
+    "package_tests_failed": 0,
+    "compile_command": "powershell -NoProfile -ExecutionPolicy Bypass -File 02. AlphaFactory/alpha.ps1 compile EA_MZMS_Scalper",
+    "nonrepaint_manifest_sha256": "A9471B60F2E7B188A46A0BF1CC1D6FB7D7CE0074FDE092A273F3C39B38D4D0A7"
+  },
+  "limitations": [
+    "Build proof is not economic edge proof.",
+    "Break-even remains default-off and was not authorized as a probe arm.",
+    "Model-0 is blocked unless the frozen offline probe survives and cost provenance becomes valid."
+  ]
+}

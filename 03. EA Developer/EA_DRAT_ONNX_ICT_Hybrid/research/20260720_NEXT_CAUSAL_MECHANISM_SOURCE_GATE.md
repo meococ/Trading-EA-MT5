@@ -2,7 +2,7 @@
 
 Date: 2026-07-20
 
-Status: `LEGAL_SOURCE_FEASIBILITY_PROBE_BLOCKED_ON_LOCAL_API_KEY`
+Status: `COST_PLAN_READY_OWNER_USD_CEILING_REQUIRED`
 
 This readout selects a data-acquisition route only. It does not register or
 reopen a trading hypothesis, define entries/exits, read price outcomes, inspect
@@ -102,21 +102,46 @@ reconciled, the 90% cadence gate fails, or raw identity/replay hashes differ.
 
 ## Executable state on 2026-07-20
 
-- `test_databento_fx_options_acquire.py`: `5 passed`.
+- `test_databento_fx_options_acquire.py`: `5 passed` after two red-first API
+  contract corrections.
 - Installed D-side Databento SDK: `0.54.0`; inspected method signatures match
   the planner calls used for metadata, symbology, cost, billable size and batch.
-- `plan` exits before client creation because `DATABENTO_API_KEY` is absent.
+- The Owner configured `DATABENTO_API_KEY` in the Windows user environment. Its
+  value was never printed or written to a workspace artifact.
+- The first authenticated plan exposed invalid `parent -> raw_symbol`
+  resolution. The tool now uses Databento's supported
+  `parent -> instrument_id` route and retains raw-symbol mapping through the
+  text batch `map_symbols` contract.
+- Full-period parent resolution then exposed a Databento gateway timeout. A
+  measured one-day capability probe resolved all 38 candidate option parents
+  to 2,490 raw contracts with zero missing or partial mappings; full-period
+  continuity remains a post-download definition gate rather than a claim made
+  from the one-day probe.
+- Successful metadata/symbology-only plan:
+  - plan ID: `411B9747F39D8093308F6A12517791DC4E6B90739C5EA92EE16464B51BF4ADB5`;
+  - plan SHA-256: `400DB79AD8BB077998DFC5C6A826A608E9F88FF568B2C6EB77E5F80D035EA871`;
+  - status: `ESTIMATED_NOT_SUBMITTED`;
+  - definition: USD `4.575774885714`, `2,890,118,160` billable bytes;
+  - statistics: USD `11.450830161572`, `12,295,235,264` billable bytes;
+  - total: USD `16.026605047286`, `15,185,353,424` billable bytes;
+  - requested symbols per schema: 38 option parents plus `6E.FUT`;
+  - API key stored: false; secret-pattern scan: false.
 - No time-series request, batch job, download or charge occurred.
 - The plan/submit implementation re-estimates cost and blocks all jobs when the
   live total exceeds the explicit Owner ceiling.
 
-Minimum external unlock:
+The local-key unlock is complete. The remaining financial gate is an explicit
+numeric Owner ceiling. A USD `17.00` ceiling is the recommended smallest
+practical bound above the live estimate; it does not authorize any amount above
+USD `17.00`, and submission fails closed if the immediate re-estimate exceeds
+that value.
+
+Completed local-key command:
 
 ```powershell
 & '.\02. AlphaFactory\tools\configure_databento_key.ps1'
 ```
 
-The key must be typed into the hidden local prompt and never pasted into chat.
-After configuration, the next allowed action is the metadata/symbology-only
-`plan`. Submission remains prohibited until the Owner separately approves a
-numeric USD ceiling after seeing that plan.
+The key was typed into the hidden local prompt and was not pasted into chat.
+Batch submission remains prohibited until the Owner separately approves a
+numeric USD ceiling after seeing the plan above.

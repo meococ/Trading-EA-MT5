@@ -1,0 +1,186 @@
+{
+  "schema_version": "mzms_hyp007_010_economic_analysis.v1",
+  "hypothesis_id": "HYP-MZMS-XAU-M5-010",
+  "run_id": "20260722_024229",
+  "generated_at_utc": "2026-07-21T21:46:01Z",
+  "validity_boundary": "INVALID_ENGINEERING_RUN_HISTORY_QUALITY_98_BELOW_99",
+  "economic_authority": "DIAGNOSTIC_ONLY",
+  "economic_metrics_authoritative": false,
+  "performance_metrics_authorized": false,
+  "promotion_eligible": false,
+  "history_quality_pct": 98,
+  "frozen_min_history_quality_pct": 99,
+  "economics": {
+    "trades": 2,
+    "net_profit_usd": -1.12,
+    "profit_factor": 0.8758314856,
+    "win_rate_pct": 50.0,
+    "expectancy_usd_per_trade": -0.56,
+    "max_drawdown_pct": 0.0,
+    "enhanced_summary": {
+      "n_trades": 2,
+      "net_profit": -1.1199999999953434,
+      "profit_factor": 0.8758314855875831,
+      "win_rate_pct": 50.0,
+      "avg_win": 7.9,
+      "avg_loss": -9.020000000000001,
+      "max_drawdown_pct": 0.0,
+      "max_drawdown_abs": 0.0,
+      "expectancy_per_trade": -0.5600000000000005,
+      "start_equity": 100000.0,
+      "final_equity": 99998.88,
+      "streaks": {
+        "max_win_streak": 1,
+        "max_loss_streak": 1,
+        "current_streak": 1,
+        "current_streak_type": "win"
+      },
+      "weaknesses_count": 1
+    },
+    "lifecycle_reconciliation": {
+      "exact_reconciliation": true,
+      "positions": 2,
+      "net_usd_lifecycle": -1.1199999999999992,
+      "profit_factor_lifecycle": 0.8758314855875833
+    }
+  },
+  "cadence": {
+    "trades_per_elapsed_calendar_week": 0.0045,
+    "window": {
+      "from": "2018.01.01",
+      "to": "2026.07.22"
+    },
+    "elapsed_weeks_approx": 446.3,
+    "band_frozen": [
+      2.0,
+      5.0
+    ],
+    "note": "Cadence uses elapsed calendar weeks, not active weeks. Diagnostic only under invalid history quality."
+  },
+  "cost_stress": {
+    "status": "COMPLETE",
+    "analysis_basis": "diagnostic_only_research_proxy_and_tca_if_present",
+    "promotion_grade_cost_authority": false,
+    "note": "Cost stress is completed at diagnostic depth from available TCA/research-proxy artifacts. Historical XAU verified commission/slippage provenance remains failed, so this COMPLETE status does not authorize promotion or live economics.",
+    "tca_summary_present": true,
+    "tca_summary": {
+      "generated_at": "2026-07-21T19:43:26Z",
+      "logs_dir": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_MZMS_Scalper\\20260722_024229\\analysis\\logs",
+      "token": "HYP-MZMS-XAU-M5-010_113022296",
+      "files": {
+        "exec": "",
+        "trades": "",
+        "run_meta": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_MZMS_Scalper\\20260722_024229\\analysis\\logs\\XAUUSD_RunMeta_HYP-MZMS-XAU-M5-010_113022296.json"
+      },
+      "run_meta": {
+        "stage": "",
+        "closed_trades": 0,
+        "sqn": 0.0,
+        "custom_score": 0.0,
+        "mean_achieved_r": 0.0,
+        "mean_net_profit": 0.0,
+        "mean_hold_minutes": 0.0,
+        "close_sources": {}
+      },
+      "exec": {
+        "file": "",
+        "rows": 0,
+        "phase_counts": [],
+        "retcodes": [],
+        "reasons": [],
+        "slippage_pts": {}
+      },
+      "trades": {
+        "file": "",
+        "rows": 0,
+        "final_closes": 0,
+        "partial_close_rows": 0,
+        "action_counts": [],
+        "close_sources": [],
+        "close_reasons": [],
+        "achieved_r": {},
+        "net_profit": {}
+      },
+      "reconciliation": {
+        "open_ack": 0,
+        "fill_count": 0,
+        "open_ack_minus_fill_gap": 0,
+        "modify_requests": 0,
+        "modify_applied": 0,
+        "modify_failed": 0,
+        "modify_unresolved": 0,
+        "close_requests": 0,
+        "close_failed": 0,
+        "close_deals": 0,
+        "close_partials": 0,
+        "requested_close_deals": 0,
+        "passive_final_closes": 0,
+        "close_unresolved": 0,
+        "close_ack": 0,
+        "close_ack_minus_requested_close_gap": 0
+      }
+    },
+    "native_report_economics_already_include_tester_costs": true,
+    "x1_5_x2_stress_authorized": false
+  },
+  "time_stability": {
+    "by_hour_csv_present": true,
+    "by_weekday_csv_present": true,
+    "by_hour_preview": "hour,n,net_profit,profit_factor,win_rate_pct\n0,0,0.00,0.00,0.0\n1,0,0.00,0.00,0.0\n2,0,0.00,0.00,0.0\n3,0,0.00,0.00,0.0\n4,0,0.00,0.00,0.0\n5,0,0.00,0.00,0.0\n6,0,0.00,0.00,0.0\n7,0,0.00,0.00,0.0\n8,0,0.00,0.00,0.0\n9,0,0.00,0.00,0.0\n10,0,0.00,0.00,0.0\n11,0,0.00,0.00,0.0\n12,0,0.00,0.00,0.0\n13,0,0.00,0.00,0.0\n14,0,0.00,0.00,0.0\n15,0,0.00,0.00,0.0\n16,0,0.00,0.00,0.0\n17,2,-1.12,0.88,50.0\n18,0,0.00,0.00,0.0\n19,0,0.00,0.00,0.0\n20,0,0.00,0.00,0.0\n21,0,0.00,0.00,0.0\n22,0,0.00,0.00,0.0\n23,0,0.00,0.00,0.0\n",
+    "by_weekday_preview": "weekday,n,net_profit,profit_factor,win_rate_pct\nMonday,0,0.00,0.00,0.0\nTuesday,2,-1.12,0.88,50.0\nWednesday,0,0.00,0.00,0.0\nThursday,0,0.00,0.00,0.0\nFriday,0,0.00,0.00,0.0\nSaturday,0,0.00,0.00,0.0\nSunday,0,0.00,0.00,0.0\n",
+    "note": "Breakdowns are diagnostic shape only under HQ 98%."
+  },
+  "session_breakdown": {
+    "by_session_csv_present": true,
+    "by_session_preview": "session,n,net_profit,profit_factor,win_rate_pct,avg_win,avg_loss\nAsia,0,0.00,0.00,0.0,0.00,0.00\nEurope,0,0.00,0.00,0.0,0.00,0.00\nNewYork,2,-1.12,0.88,50.0,7.90,-9.02\nOffHours,0,0.00,0.00,0.0,0.00,0.00\n"
+  },
+  "direction_breakdown": {
+    "source": "lifecycle population winners/losers in campaign_metrics + executed sample labels",
+    "note": "No post-hoc direction veto authorized."
+  },
+  "regime_breakdown": {
+    "status": "INSUFFICIENT_EXPLAINED",
+    "reason": "No independent regime classifier was frozen for this campaign; ADX/ATR observations in chart forensics remain visual diagnostics only."
+  },
+  "execution_quality": {
+    "lifecycle_exact_open_close_pairs": true,
+    "report_trades_equal_positions": true,
+    "telemetry_equals_entries": true,
+    "spread_ceiling_frozen_xau_points": 35,
+    "news_guard": "OFF consistently for XAU campaign"
+  },
+  "funnel": {
+    "accepted_entries": 2,
+    "selected_forensics_executed": 2,
+    "selected_forensics_near_miss": 98,
+    "note": "Near-miss rows are OFFLINE_NEAR_MISS_DIAGNOSTIC only; not invented fills."
+  },
+  "winning_trade_causes": {
+    "source": "Grok validated chunk findings + dual-panel forensics on executed winners",
+    "summary": "See GROK_SYNTHESIS_RESULT.json per-hypothesis dominant anatomy and supported case IDs."
+  },
+  "losing_trade_causes": {
+    "source": "Grok validated chunk findings + dual-panel forensics on executed losers",
+    "weaknesses_artifact": [
+      {
+        "type": "overall",
+        "severity": "CRITICAL",
+        "area": "Strategy Edge",
+        "metric": "PF=0.88",
+        "trades": 2,
+        "recommendation": "Strategy has minimal/no edge. Consider fundamental changes."
+      }
+    ],
+    "summary": "Adverse selection / late entry / TIME_EXIT under-harvest dominate diagnostic anatomy."
+  },
+  "logic_conflicts": {
+    "status": "NONE_MATERIAL_IN_SOURCE_CONTRACT",
+    "note": "Non-repaint audit V8 PASS with zero findings on exact source snapshot 96A4E8D0CADB0A8B229C124CEB9C70146266A583EEC3D98BB5C406617C80692A. Offline indicator recompute on charts is visualization-only, not parity conflict."
+  },
+  "limitations": [
+    "History quality 98% < 99% => DIAGNOSTIC ONLY; no promotion or economic-kill authority.",
+    "Unverified historical XAU cost provenance.",
+    "No post-hoc rescue/retune/rerun of HYP-007..010.",
+    "Chart indicator panels use offline recomputed values labeled non-parity."
+  ]
+}

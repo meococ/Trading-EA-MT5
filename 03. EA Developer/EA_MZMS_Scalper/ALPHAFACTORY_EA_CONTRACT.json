@@ -1,0 +1,7 @@
+{
+  "schema_version": "alphafactory_ea_contract.v1",
+  "telemetry_profile": "lifecycle-v3",
+  "market_phase_adapter": "none",
+  "comparison_adapter": "generic-control-improvement-v1",
+  "variant_tag_input": "InpSignalMode"
+}

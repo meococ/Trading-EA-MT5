@@ -1,0 +1,27 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "UNVERIFIED_DIAGNOSTIC",
+  "provenance_status": "UNVERIFIED",
+  "promotion_eligible": false,
+  "broker": "Five Percent Online Ltd",
+  "server": "FivePercentOnline-Real",
+  "symbol": "XAUUSD",
+  "from": "2018.01.01",
+  "to": "2026.07.22",
+  "symbol_geometry": {
+    "digits": 2,
+    "point": 0.01,
+    "pip_size": 0.01
+  },
+  "spread_policy": "MT5 Model 0 historical tick spread with frozen 35-point entry ceiling",
+  "commission": "tester-reported only; not accepted as live fill provenance",
+  "slippage": "not independently verified",
+  "history_quality_policy": {
+    "minimum_percent": 99.0,
+    "below_minimum": "INVALID_ENGINEERING_RUN_DIAGNOSTIC_ONLY",
+    "promotion_eligible_when_below_minimum": false,
+    "note": "History quality below 99% keeps the economic surface invalid/diagnostic only. No PF/net/DD/WR may be treated as authoritative backtest evidence and promotion stays false."
+  },
+  "verdict": "DIAGNOSTIC_ONLY_NOT_PROMOTION_ELIGIBLE",
+  "note": "Owner-authorized four-mechanism XAU campaign preflight. Cost remains unverified diagnostic only. History quality below 99% invalidates economic authority."
+}

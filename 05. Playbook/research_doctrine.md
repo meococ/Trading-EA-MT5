@@ -1,11 +1,12 @@
 # Doctrine Nghiên Cứu
 
-Cập nhật: 2026-07-16
+Cập nhật: 2026-07-22
 
 Doc chi tiết được `AGENTS.md` trỏ tới. Chứa toàn bộ doctrine nghiên cứu/
 validation trước đây nằm inline trong `AGENTS.md`. Mở khi thiết kế hoặc
-review một hypothesis, run, hay thay đổi code EA. Trạng thái sống nằm ở
-`hot.md`; ngưỡng theo stage nằm ở `validation_gates.md`.
+review một hypothesis, run, hay thay đổi code EA. `hot.md` chỉ là cache tham
+khảo; trạng thái có thẩm quyền nằm ở scope Owner hiện tại, registry/prereg/task
+packet và artifact hash-bound. Ngưỡng theo stage nằm ở `validation_gates.md`.
 
 Nguyên tắc chung rút từ mọi lane: indicator context/qualification nên đóng vai qualifier hơn là
 trigger độc lập (nếu một brief thực sự dùng nó làm trigger, khai + biện minh
@@ -13,6 +14,37 @@ trong plan); quan sát chart nên thành feature khả kiểm trước khi code;
 sideway là một regime hạng nhất; tránh nới luật lõi của một setup chỉ vì regime — nếu regime đòi điều chỉnh, coi đó là hypothesis/biến thể mới và khai trong plan.
 Doctrine riêng của lane đã archive nằm cạnh ledger lane đó trong
 `00. Old File/EA_Archive/`.
+
+## Authority, failure radius và quyền mở EA mới
+
+Thứ tự quyết định một hành động có hợp lệ: scope Owner hiện tại → hard safety/
+active lock → prereg + registry/task packet đã đóng băng → source/run/receipt/
+validator thực tế. `hot.md`, `do_not_repeat_failures.md`, Deep Research và memo
+review chỉ là evidence/context; chúng không tự cấp hoặc phủ quyết quyền build.
+
+Mọi failure phải được đóng khung theo đúng **tested object**: hypothesis ID,
+candidate identity, mechanism, data/source, symbol/timeframe/window, execution/
+cost contract và mức fidelity. Không được suy từ “object này không có edge”
+thành “indicator/family/thị trường này không thể có edge”. Phân loại trước khi
+quyết định:
+
+1. **Same ID / exact replay:** terminal row vẫn terminal; cấm rerun để tìm kết
+   quả khác.
+2. **Post-hoc rescue:** đổi threshold, session, direction, year, BE/SL/TP hoặc
+   filter từ outcome vừa xem; cấm dưới ID cũ và mặc định không được bọc lại bằng
+   ID mới nếu mechanism không đổi.
+3. **Invalid engineering/data run:** sửa lỗi để tái hiện đúng frozen packet được
+   phép khi outcome chưa có thẩm quyền; run vô hiệu không kết luận edge.
+4. **Materially new hypothesis:** mechanism, information set/data contract hoặc
+   decision surface thay đổi có luận cứ; được mở EA/ID mới sau khi ghi delta với
+   prior, probe rẻ và prereg độc lập. Prior xấu làm tăng burden of proof, không
+   phải blanket veto.
+5. **Owner build-first:** được phép khi Owner yêu cầu rõ và lý do đảo thứ tự được
+   freeze trước outcome; engineering vẫn phải qua test/compile/non-repaint và
+   Model 0 vẫn cần registry/prereg/task packet đầy đủ.
+
+Mục tiêu của de-dup là tránh lặp đúng dead end và budget data-snooping, không
+phải làm agent mất khả năng sáng tạo hypothesis mới.
 
 ## ChatGPT Deep Research Cho Nghiên Cứu Chiến Lược
 
@@ -89,8 +121,10 @@ Dùng vòng lặp này cho công việc chiến lược EA có ý nghĩa:
 1. Định lượng thesis của trader và ghi nguồn/provenance. Deep Research là công
    cụ discovery khi cần cơ chế/nguồn mới, không phải ceremony bắt buộc cho brief
    đã đủ rõ.
-2. De-dup với `do_not_repeat_failures.md` và registry; tạo row `idea|probe`,
-   draft MỘT prereg theo `02. AlphaFactory/templates/research/PREREG_TEMPLATE.md`.
+2. De-dup với `do_not_repeat_failures.md` và registry bằng failure-radius test:
+   ghi rõ `same replay|post-hoc rescue|invalid-run repair|materially new`; chỉ hai
+   loại đầu bị chặn. Candidate hợp lệ tạo row `idea|probe`, draft MỘT prereg theo
+   `02. AlphaFactory/templates/research/PREREG_TEMPLATE.md`.
 3. Chạy probe/scanner offline rẻ TRƯỚC code entry EA. Probe dùng làm bằng
    chứng KILL/falsification phải freeze PROBE_PLAN tiền-kết-quả và SHA-bind
    vào row `idea|probe` (window/model/override/contract đóng băng ngay khi rời
@@ -147,8 +181,9 @@ nghĩa cần registry row và prereg trước khi kết quả được dùng cho
 định.
 
 Registry bao phủ mọi hypothesis EA/portfolio FX được Owner mở rõ ràng trong
-workspace. Nó là append-only state ledger; vị trí file không
-cấp quyền chạy và không thay thế `hot.md`.
+workspace. Nó là append-only state ledger; vị trí file không tự cấp quyền chạy.
+Registry + prereg/task packet hash-bound là authority máy cho trạng thái/run;
+`hot.md` chỉ tóm tắt và có thể trễ.
 
 Registry canonical:
 

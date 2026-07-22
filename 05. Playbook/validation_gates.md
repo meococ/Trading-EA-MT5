@@ -1,6 +1,6 @@
 # Validation Gates
 
-Updated: 2026-07-19
+Updated: 2026-07-21
 
 Gate authority for every EA lane. This file is not a profit target shortcut.
 A candidate can move forward only when the required artifacts exist and the
@@ -154,6 +154,15 @@ An `economic_run` delivery packet must hash-bind:
 - an anatomy casebook with at least two winners and two losers when available.
   Every case shows entry/initial SL/TP/actual exit plus a centered HTF entry
   candle and explicitly labeled post-entry outcome bars;
+- a separate outcome-blind `decision_asof` image for every cited setup-quality
+  judgment. It must hide outcome/net_R and show every active indicator/gate
+  from decision-time telemetry or a parity-proven MT5 export. Combined charts
+  are human anatomy views, not unbiased entry evidence;
+- when Grok or another external visual reviewer is cited, a machine-validated
+  reviewer manifest must prove request/response identity, exact case and
+  position coverage, `image_opened=true`, unique sampling and parent QC against
+  lifecycle/source. Reviewer output is advisory and cannot itself authorize a
+  rule change;
 - a readout that separates pre-outcome rule from post-outcome observation and
   forbids direct rescue of a failed rule.
 

@@ -21,11 +21,17 @@
   `alpha.ps1 delivery -Packet <packet>`. This gate is additional to
   `validate-full`: it requires logic fidelity, compile/tests/non-repaint,
   report/lifecycle/log reconciliation, full performance attribution and a
-  hash-bound multi-timeframe casebook.
+  hash-bound multi-timeframe casebook. Bind both `casebook_manifest` (anatomy)
+  and `decision_casebook_manifest` (outcome-blind as-of); their case IDs must
+  match exactly.
 - For `zero_trade_terminal`, replace `economic_analysis` with
   `funnel_analysis`; economics and win/loss causes are explicitly
   `NOT_APPLICABLE_ZERO_TRADES`, while rejection causes and representative
   rejection charts remain mandatory.
+- Use `GROK_CHART_FORENSICS_PACKET.template.json` for large visual postmortems.
+  It freezes sampling, decision/anatomy separation, decision-time indicator
+  provenance, two reviewer lenses, five-case serial jobs and fail-closed
+  coverage. It is an advisory analysis packet, not run or promotion authority.
 
 Generic `lifecycle-v3` requires `InpEnableTelemetry` and exactly one
 `*_LifecycleTrades_*.csv` with the columns enforced by

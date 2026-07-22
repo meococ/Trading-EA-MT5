@@ -1,0 +1,124 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "authority": "OWNER_DIRECTED_DIAGNOSTIC_NO_PROMOTION",
+  "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-005",
+  "task_packet_sha256": "24B0778BE369FCF89E43A00A4BFE46322CDA4FD23E74F4ABF51A0C4F6246A134",
+  "git_commit": "bb39384bb2cdecca73f69455c1545cddb14629be",
+  "git_status_sha256": "52CC74A6C12E834CED5902F96CC091A9318C901D77309D5C1A35E8019BE808CA",
+  "binding": {
+    "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-005",
+    "run_role": "challenger",
+    "ea_name": "EA_MZMS_Scalper",
+    "symbol": "EURUSD",
+    "period": "M5",
+    "from": "2018.01.01",
+    "to": "2026.07.21",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpAdxPeriod=14;InpAtrPeriod=14;InpBreakEvenR=1.00;InpCooldownBars=5;InpDailyLossPct=1.50;InpEmaPeriod=200;InpEnableTelemetry=true;InpFlattenUtcHour=18;InpFlattenUtcMinute=15;InpMacdFast=12;InpMacdSignal=9;InpMacdSlow=26;InpMagic=5600721;InpMaxAccountDrawdownPct=8.00;InpMaxHoldBars=15;InpMaxSpreadPips=0.80;InpMaxTradesPerDay=5;InpMinAdx=18.0;InpMinHistDeltaAtr=0.01;InpNewsBlackoutMinutes=15;InpRequireNewsGuard=false;InpResearchAutoMode=true;InpRiskPercent=0.01;InpRsiLower=42.0;InpRsiPeriod=14;InpRsiUpper=58.0;InpServerUsesEuropeDst=true;InpServerUtcOffsetWinterHours=2;InpSessionEndUtcHour=17;InpSessionStartUtcHour=8;InpSignalMode=1;InpStopAtrMultiple=1.50;InpStopBufferPips=0.50;InpStopLookbackBars=5;InpTargetRR=1.60;InpUseBreakEven=false",
+    "telemetry_tier": "trade-only",
+    "telemetry_profile": "lifecycle-v3",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [
+      "*_LifecycleTrades_*.csv",
+      "*_RunMeta_*.json"
+    ],
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 1e-05,
+      "pip_size": 0.0001
+    },
+    "include_closure_sha256": "2D4FE2F5BB5232CA992A46BC339F7DB74D053E4DB1CFD81AB0778D326BBD9A4B"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\preflight\\HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-005\\task_packet.challenger.json",
+      "sha256": "24B0778BE369FCF89E43A00A4BFE46322CDA4FD23E74F4ABF51A0C4F6246A134"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\EA_MZMS_Scalper.mq5",
+      "sha256": "782C57D5122B1204097121D8994CDA724ED6656E6A4D7ABB1BBA4D1739D72494"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-005_FROZEN_PREREG.md",
+      "sha256": "BE47DF4A8F93CC4A11335AA7B6A93A808FEFF55C9A5CBAC7D7C5D956D635FE45"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\preflight\\HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-005\\cost_source_manifest.unverified.json",
+      "sha256": "EB47560D750FF1A7EA226481F24511875818FD335701919AA7C588742A204688"
+    },
+    {
+      "label": "include_0001",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\Trade.mqh",
+      "sha256": "96E6781624534377FE7971CBA52CCA3D62D1B030BC10D5E4EBF3ED8C541399ED"
+    },
+    {
+      "label": "include_0002",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Object.mqh",
+      "sha256": "DFAD4FDB6D1BF47CF43FCBC2882E52979459F17A776F75F250A7C32D0623AB35"
+    },
+    {
+      "label": "include_0003",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\OrderInfo.mqh",
+      "sha256": "D0E479578EF91D2EF1B07AE63D28AE54E15CEBB914DD10E5D4510C269A9CA999"
+    },
+    {
+      "label": "include_0004",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\HistoryOrderInfo.mqh",
+      "sha256": "E88F6BE450462A045470315887EF751A4510DA65A5115325DC88542743FC52F8"
+    },
+    {
+      "label": "include_0005",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\PositionInfo.mqh",
+      "sha256": "DD720B755C7F23DCC109FC81BCF0772B907411D545E4A1117421737BB9FF6897"
+    },
+    {
+      "label": "include_0006",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\DealInfo.mqh",
+      "sha256": "9D6FB4E7D8754EAEE761E43943DC49CDC3A32793EE8438119D939EA7BAD71880"
+    },
+    {
+      "label": "include_0007",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\StdLibErr.mqh",
+      "sha256": "04BB2C47B1B04DCEB052E6DBA1F85E0330C53ABC602F341E2EA95EA1498AB28B"
+    },
+    {
+      "label": "include_0008",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\NewsCalendar2019_2022.mqh",
+      "sha256": "248D569B981564AC0B179588C4919CD6CC196A9E7B008939A9CCDB3446F4678C"
+    },
+    {
+      "label": "matched_control_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_MZMS_Scalper\\20260721_165401\\run_manifest.json",
+      "sha256": "EF313959BA9D395F0736DADA810B79FDC3845FBC4BC49AF0D14534E0912B21D5"
+    },
+    {
+      "label": "matched_control_report",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_MZMS_Scalper\\20260721_165401\\report.html",
+      "sha256": "DAD8ED695C002CED7BE4E7B7297E8079D5525662AAF60EB7A8D175E0F2B49BA7"
+    }
+  ],
+  "generated_at_utc": "2026-07-21T09:55:03Z",
+  "note": "Owner-directed 2018-YTD MZMS diagnostic instrumentation replacement. News guard is disabled uniformly because the embedded calendar is incomplete. No promotion authority."
+}

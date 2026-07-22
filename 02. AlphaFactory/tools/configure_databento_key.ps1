@@ -6,6 +6,10 @@ $secure = Read-Host 'Paste Databento API key (input is hidden)' -AsSecureString
 $bstr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure)
 try {
     $plain = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($bstr)
+    if ($null -eq $plain) {
+        throw 'Databento API key input could not be read.'
+    }
+    $plain = $plain.Trim()
     if ($plain -notmatch '^db-[A-Za-z0-9_-]{29}$') {
         throw 'Unexpected key format. Expected a 32-character Databento key beginning with db-.'
     }

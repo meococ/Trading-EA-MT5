@@ -1,0 +1,813 @@
+{
+  "schema_version": "mzms_hyp007_010_grok_review_request_build.v1",
+  "chunk_requests": 40,
+  "expected_chunk_requests": 40,
+  "synthesis_request": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-synthesis\\grok-request.json",
+  "chunks": [
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-007",
+      "short_id": "007",
+      "chunk_id": "chunk_01",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c01\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c01",
+      "case_ids": [
+        "007-E001-P10",
+        "007-E002-P36",
+        "007-E003-P158",
+        "007-E004-P220",
+        "007-E005-P246",
+        "007-E006-P368",
+        "007-E007-P370",
+        "007-E008-P494",
+        "007-E009-P530",
+        "007-E010-P538"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-007",
+      "short_id": "007",
+      "chunk_id": "chunk_02",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c02\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c02",
+      "case_ids": [
+        "007-E011-P634",
+        "007-E012-P696",
+        "007-E013-P722",
+        "007-E014-P796",
+        "007-E015-P814",
+        "007-E016-P824",
+        "007-E017-P996",
+        "007-E018-P1080",
+        "007-E019-P1090",
+        "007-E020-P1116"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-007",
+      "short_id": "007",
+      "chunk_id": "chunk_03",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c03\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c03",
+      "case_ids": [
+        "007-E021-P1170",
+        "007-E022-P1188",
+        "007-E023-P1238",
+        "007-E024-P1296",
+        "007-E025-P1398",
+        "007-E026-P1516",
+        "007-E027-P1624",
+        "007-E028-P1760",
+        "007-E029-P1770",
+        "007-E030-P1782"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-007",
+      "short_id": "007",
+      "chunk_id": "chunk_04",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c04\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c04",
+      "case_ids": [
+        "007-E031-P1970",
+        "007-E032-P2056",
+        "007-E033-P2112",
+        "007-E034-P2122",
+        "007-E035-P2166",
+        "007-E036-P2188",
+        "007-E037-P2242",
+        "007-E038-P2276",
+        "007-E039-P2626",
+        "007-E040-P2630"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-007",
+      "short_id": "007",
+      "chunk_id": "chunk_05",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c05\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c05",
+      "case_ids": [
+        "007-E041-P2640",
+        "007-E042-P2726",
+        "007-E043-P2748",
+        "007-E044-P2780",
+        "007-E045-P2998",
+        "007-E046-P3058",
+        "007-E047-P3066",
+        "007-E048-P3086",
+        "007-E049-P3218",
+        "007-E050-P3274"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-007",
+      "short_id": "007",
+      "chunk_id": "chunk_06",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c06\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c06",
+      "case_ids": [
+        "007-E051-P3396",
+        "007-E052-P3580",
+        "007-E053-P3588",
+        "007-E054-P3658",
+        "007-E055-P3814",
+        "007-E056-P3850",
+        "007-E057-P3912",
+        "007-E058-P3914",
+        "007-E059-P3978",
+        "007-E060-P4056"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-007",
+      "short_id": "007",
+      "chunk_id": "chunk_07",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c07\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c07",
+      "case_ids": [
+        "007-E061-P4060",
+        "007-E062-P4122",
+        "007-E063-P4128",
+        "007-E064-P4268",
+        "007-E065-P4288",
+        "007-E066-P4408",
+        "007-E067-P4718",
+        "007-E068-P4758",
+        "007-E069-P4800",
+        "007-E070-P4806"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-007",
+      "short_id": "007",
+      "chunk_id": "chunk_08",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c08\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c08",
+      "case_ids": [
+        "007-E071-P4864",
+        "007-E072-P4898",
+        "007-E073-P4904",
+        "007-E074-P5096",
+        "007-E075-P5390",
+        "007-E076-P5398",
+        "007-E077-P5438",
+        "007-E078-P5476",
+        "007-E079-P5710",
+        "007-E080-P5730"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-007",
+      "short_id": "007",
+      "chunk_id": "chunk_09",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c09\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c09",
+      "case_ids": [
+        "007-E081-P5820",
+        "007-E082-P5968",
+        "007-E083-P6032",
+        "007-E084-P6040",
+        "007-E085-P6132",
+        "007-E086-P6136",
+        "007-E087-P6172",
+        "007-E088-P6330",
+        "007-E089-P6410",
+        "007-E090-P6430"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-007",
+      "short_id": "007",
+      "chunk_id": "chunk_10",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c10\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-007-c10",
+      "case_ids": [
+        "007-E091-P6644",
+        "007-E092-P6666",
+        "007-E093-P6706",
+        "007-E094-P6708",
+        "007-E095-P6734",
+        "007-E096-P6810",
+        "007-E097-P6812",
+        "007-E098-P6814",
+        "007-E099-P6816",
+        "007-E100-P6818"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-008",
+      "short_id": "008",
+      "chunk_id": "chunk_01",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c01\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c01",
+      "case_ids": [
+        "008-E001-P2",
+        "008-E002-P4",
+        "008-E003-P6",
+        "008-E004-P8",
+        "008-E005-P10",
+        "008-E006-P12",
+        "008-E007-P14",
+        "008-E008-P16",
+        "008-E009-P18",
+        "008-E010-P20"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-008",
+      "short_id": "008",
+      "chunk_id": "chunk_02",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c02\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c02",
+      "case_ids": [
+        "008-E011-P22",
+        "008-E012-P24",
+        "008-E013-P26",
+        "008-E014-P28",
+        "008-E015-P30",
+        "008-E016-P32",
+        "008-E017-P34",
+        "008-E018-P36",
+        "008-E019-P38",
+        "008-E020-P40"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-008",
+      "short_id": "008",
+      "chunk_id": "chunk_03",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c03\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c03",
+      "case_ids": [
+        "008-E021-P42",
+        "008-E022-P44",
+        "008-E023-P46",
+        "008-E024-P48",
+        "008-E025-P50",
+        "008-E026-P52",
+        "008-E027-P54",
+        "008-E028-P56",
+        "008-E029-P58",
+        "008-E030-P60"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-008",
+      "short_id": "008",
+      "chunk_id": "chunk_04",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c04\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c04",
+      "case_ids": [
+        "008-E031-P62",
+        "008-E032-P64",
+        "008-E033-P66",
+        "008-E034-P68",
+        "008-E035-P70",
+        "008-E036-P72",
+        "008-E037-P74",
+        "008-E038-P76",
+        "008-E039-P78",
+        "008-E040-P80"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-008",
+      "short_id": "008",
+      "chunk_id": "chunk_05",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c05\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c05",
+      "case_ids": [
+        "008-E041-P82",
+        "008-E042-P84",
+        "008-E043-P86",
+        "008-E044-P88",
+        "008-E045-P90",
+        "008-E046-P92",
+        "008-E047-P94",
+        "008-E048-P96",
+        "008-E049-P98",
+        "008-E050-P100"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-008",
+      "short_id": "008",
+      "chunk_id": "chunk_06",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c06\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c06",
+      "case_ids": [
+        "008-E051-P102",
+        "008-E052-P104",
+        "008-E053-P106",
+        "008-E054-P108",
+        "008-E055-P110",
+        "008-E056-P112",
+        "008-E057-P114",
+        "008-E058-P116",
+        "008-E059-P118",
+        "008-E060-P120"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-008",
+      "short_id": "008",
+      "chunk_id": "chunk_07",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c07\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c07",
+      "case_ids": [
+        "008-E061-P122",
+        "008-E062-P124",
+        "008-E063-P126",
+        "008-E064-P128",
+        "008-E065-P130",
+        "008-E066-P132",
+        "008-E067-P134",
+        "008-E068-P136",
+        "008-E069-P138",
+        "008-E070-P140"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-008",
+      "short_id": "008",
+      "chunk_id": "chunk_08",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c08\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c08",
+      "case_ids": [
+        "008-E071-P142",
+        "008-E072-P144",
+        "008-E073-P146",
+        "008-E074-P148",
+        "008-E075-P150",
+        "008-E076-P152",
+        "008-E077-P154",
+        "008-E078-P156",
+        "008-E079-P158",
+        "008-E080-P160"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-008",
+      "short_id": "008",
+      "chunk_id": "chunk_09",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c09\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c09",
+      "case_ids": [
+        "008-N001-B75859",
+        "008-N002-B84766",
+        "008-N003-B148552",
+        "008-N004-B175942",
+        "008-N005-B178633",
+        "008-N006-B243955",
+        "008-N007-B245917",
+        "008-N008-B324001",
+        "008-N009-B388102",
+        "008-N010-B443611"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-008",
+      "short_id": "008",
+      "chunk_id": "chunk_10",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c10\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-008-c10",
+      "case_ids": [
+        "008-N011-B453496",
+        "008-N012-B498457",
+        "008-N013-B557572",
+        "008-N014-B606787",
+        "008-N015-B618541",
+        "008-N016-B634549",
+        "008-N017-B643825",
+        "008-N018-B646081",
+        "008-N019-B658060",
+        "008-N020-B622315"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-009",
+      "short_id": "009",
+      "chunk_id": "chunk_01",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c01\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c01",
+      "case_ids": [
+        "009-E001-P8",
+        "009-E002-P22",
+        "009-E003-P34",
+        "009-E004-P50",
+        "009-E005-P56",
+        "009-E006-P92",
+        "009-E007-P94",
+        "009-E008-P114",
+        "009-E009-P138",
+        "009-E010-P188"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-009",
+      "short_id": "009",
+      "chunk_id": "chunk_02",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c02\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c02",
+      "case_ids": [
+        "009-E011-P202",
+        "009-E012-P218",
+        "009-E013-P246",
+        "009-E014-P250",
+        "009-E015-P268",
+        "009-E016-P284",
+        "009-E017-P302",
+        "009-E018-P304",
+        "009-E019-P332",
+        "009-E020-P350"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-009",
+      "short_id": "009",
+      "chunk_id": "chunk_03",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c03\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c03",
+      "case_ids": [
+        "009-E021-P370",
+        "009-E022-P404",
+        "009-E023-P418",
+        "009-E024-P454",
+        "009-E025-P486",
+        "009-E026-P494",
+        "009-E027-P522",
+        "009-E028-P564",
+        "009-E029-P584",
+        "009-E030-P600"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-009",
+      "short_id": "009",
+      "chunk_id": "chunk_04",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c04\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c04",
+      "case_ids": [
+        "009-E031-P608",
+        "009-E032-P634",
+        "009-E033-P658",
+        "009-E034-P678",
+        "009-E035-P684",
+        "009-E036-P716",
+        "009-E037-P730",
+        "009-E038-P748",
+        "009-E039-P752",
+        "009-E040-P800"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-009",
+      "short_id": "009",
+      "chunk_id": "chunk_05",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c05\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c05",
+      "case_ids": [
+        "009-E041-P866",
+        "009-E042-P902",
+        "009-E043-P904",
+        "009-E044-P924",
+        "009-E045-P932",
+        "009-E046-P938",
+        "009-E047-P994",
+        "009-E048-P1030",
+        "009-E049-P1054",
+        "009-E050-P1066"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-009",
+      "short_id": "009",
+      "chunk_id": "chunk_06",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c06\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c06",
+      "case_ids": [
+        "009-E051-P1068",
+        "009-E052-P1074",
+        "009-E053-P1116",
+        "009-E054-P1130",
+        "009-E055-P1138",
+        "009-E056-P1152",
+        "009-E057-P1186",
+        "009-E058-P1212",
+        "009-E059-P1246",
+        "009-E060-P1248"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-009",
+      "short_id": "009",
+      "chunk_id": "chunk_07",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c07\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c07",
+      "case_ids": [
+        "009-E061-P1298",
+        "009-E062-P1330",
+        "009-E063-P1338",
+        "009-E064-P1350",
+        "009-E065-P1370",
+        "009-E066-P1372",
+        "009-E067-P1382",
+        "009-E068-P1402",
+        "009-E069-P1422",
+        "009-E070-P1438"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-009",
+      "short_id": "009",
+      "chunk_id": "chunk_08",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c08\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c08",
+      "case_ids": [
+        "009-E071-P1442",
+        "009-E072-P1444",
+        "009-E073-P1488",
+        "009-E074-P1546",
+        "009-E075-P1574",
+        "009-E076-P1590",
+        "009-E077-P1610",
+        "009-E078-P1646",
+        "009-E079-P1650",
+        "009-E080-P1674"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-009",
+      "short_id": "009",
+      "chunk_id": "chunk_09",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c09\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c09",
+      "case_ids": [
+        "009-E081-P1702",
+        "009-E082-P1716",
+        "009-E083-P1760",
+        "009-E084-P1768",
+        "009-E085-P1788",
+        "009-E086-P1814",
+        "009-E087-P1874",
+        "009-E088-P1892",
+        "009-E089-P1902",
+        "009-E090-P1920"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-009",
+      "short_id": "009",
+      "chunk_id": "chunk_10",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c10\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-009-c10",
+      "case_ids": [
+        "009-E091-P1960",
+        "009-E092-P1988",
+        "009-E093-P2008",
+        "009-E094-P2050",
+        "009-E095-P2072",
+        "009-E096-P2074",
+        "009-E097-P2076",
+        "009-E098-P2078",
+        "009-E099-P2080",
+        "009-E100-P2082"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-010",
+      "short_id": "010",
+      "chunk_id": "chunk_01",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c01\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c01",
+      "case_ids": [
+        "010-E001-P2",
+        "010-E002-P4",
+        "010-N001-B105439",
+        "010-N002-B106001",
+        "010-N003-B119401",
+        "010-N004-B138120",
+        "010-N005-B189041",
+        "010-N006-B193655",
+        "010-N007-B299283",
+        "010-N008-B334912"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-010",
+      "short_id": "010",
+      "chunk_id": "chunk_02",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c02\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c02",
+      "case_ids": [
+        "010-N009-B383654",
+        "010-N010-B395454",
+        "010-N011-B420417",
+        "010-N012-B433683",
+        "010-N013-B457276",
+        "010-N014-B508291",
+        "010-N015-B508843",
+        "010-N016-B540367",
+        "010-N017-B579158",
+        "010-N018-B601611"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-010",
+      "short_id": "010",
+      "chunk_id": "chunk_03",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c03\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c03",
+      "case_ids": [
+        "010-N019-B76692",
+        "010-N020-B77779",
+        "010-N021-B83185",
+        "010-N022-B88310",
+        "010-N023-B91901",
+        "010-N024-B93235",
+        "010-N025-B95669",
+        "010-N026-B97379",
+        "010-N027-B98132",
+        "010-N028-B103569"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-010",
+      "short_id": "010",
+      "chunk_id": "chunk_04",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c04\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c04",
+      "case_ids": [
+        "010-N029-B107060",
+        "010-N030-B107681",
+        "010-N031-B109276",
+        "010-N032-B109814",
+        "010-N033-B111255",
+        "010-N034-B112814",
+        "010-N035-B115351",
+        "010-N036-B118624",
+        "010-N037-B120781",
+        "010-N038-B121874"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-010",
+      "short_id": "010",
+      "chunk_id": "chunk_05",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c05\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c05",
+      "case_ids": [
+        "010-N039-B122712",
+        "010-N040-B128622",
+        "010-N041-B130306",
+        "010-N042-B131680",
+        "010-N043-B133536",
+        "010-N044-B138725",
+        "010-N045-B143610",
+        "010-N046-B149045",
+        "010-N047-B156307",
+        "010-N048-B158228"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-010",
+      "short_id": "010",
+      "chunk_id": "chunk_06",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c06\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c06",
+      "case_ids": [
+        "010-N049-B159043",
+        "010-N050-B161190",
+        "010-N051-B164810",
+        "010-N052-B165914",
+        "010-N053-B168311",
+        "010-N054-B174662",
+        "010-N055-B176209",
+        "010-N056-B182471",
+        "010-N057-B182805",
+        "010-N058-B185563"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-010",
+      "short_id": "010",
+      "chunk_id": "chunk_07",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c07\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c07",
+      "case_ids": [
+        "010-N059-B187422",
+        "010-N060-B191279",
+        "010-N061-B191758",
+        "010-N062-B196201",
+        "010-N063-B197006",
+        "010-N064-B197540",
+        "010-N065-B199111",
+        "010-N066-B200240",
+        "010-N067-B204037",
+        "010-N068-B204484"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-010",
+      "short_id": "010",
+      "chunk_id": "chunk_08",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c08\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c08",
+      "case_ids": [
+        "010-N069-B205350",
+        "010-N070-B218785",
+        "010-N071-B239093",
+        "010-N072-B248336",
+        "010-N073-B258989",
+        "010-N074-B260314",
+        "010-N075-B264754",
+        "010-N076-B267713",
+        "010-N077-B269918",
+        "010-N078-B271284"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-010",
+      "short_id": "010",
+      "chunk_id": "chunk_09",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c09\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c09",
+      "case_ids": [
+        "010-N079-B272694",
+        "010-N080-B275349",
+        "010-N081-B281219",
+        "010-N082-B287016",
+        "010-N083-B290806",
+        "010-N084-B297127",
+        "010-N085-B303950",
+        "010-N086-B305874",
+        "010-N087-B309659",
+        "010-N088-B314227"
+      ],
+      "image_count": 10
+    },
+    {
+      "hypothesis_id": "HYP-MZMS-XAU-M5-010",
+      "short_id": "010",
+      "chunk_id": "chunk_10",
+      "request_path": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c10\\grok-request.json",
+      "task_dir": "D:\\Trading EA MT5\\.context\\mzms-xau-007-010-vision-010-c10",
+      "case_ids": [
+        "010-N089-B315590",
+        "010-N090-B321309",
+        "010-N091-B321865",
+        "010-N092-B326000",
+        "010-N093-B328322",
+        "010-N094-B329746",
+        "010-N095-B332479",
+        "010-N096-B343569",
+        "010-N097-B346893",
+        "010-N098-B349597"
+      ],
+      "image_count": 10
+    }
+  ],
+  "context_prefix": "mzms-xau-007-010-vision",
+  "chunks_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-XAU-M5-007-010_GROK_FORENSICS_400\\grok_review_chunks10",
+  "casebook_sha256": "D28DFFCCDA9009778C78EB8A964AE4D27436D137825697BF2AA2BEF5B31CE202",
+  "selection_sha256": "9AC988B3D8A00F4A69DCFFEECE115E6E15AE24763EC29BC43F705C48E3C5FDE3",
+  "campaign_metrics_sha256": "2963D21D62096870AC7DB0F759292A4484B4D4B43D80ECC36D3EF0E80E855356"
+}

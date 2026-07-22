@@ -1,5 +1,90 @@
 # Do Not Repeat — Failed Strategies / Approaches
 
+> **Scope note:** this is an evidence catalog, not an indicator/family blacklist
+> and not an execution authority. Each entry blocks only its bound hypothesis/
+> candidate identity and direct post-hoc rescue. A materially new mechanism,
+> information/data contract or decision surface may proceed under a new ID after
+> explicitly stating the delta, running a cheap falsification probe and freezing
+> an independent prereg. Invalid data/engineering runs do not prove no edge.
+
+- `HYP-MZMS-XAU-M5-007`..`010` are parked as
+  `PARK_INVALID_ENGINEERING_RUN_HISTORY_QUALITY_98_BELOW_99` (2026-07-22).
+  Owner-authorized four-mechanism XAUUSD M5 campaign completed one standalone
+  Model-0 run per frozen ID on shared source SHA `96A4E8D0...`, but every report
+  was 98% history quality versus the frozen 99% gate: valid economic runs = 0,
+  `economic_metrics_authoritative=false`, `promotion_eligible=false`. Bound runs
+  only: 007=`20260722_015121` (N=3409, PF 0.8091, net -$2064.59, ~7.64/week;
+  exclude partial non-outcome `20260722_015320`), 008=`20260722_021353` (N=80,
+  PF 1.0699, net +$24.86, ~0.18/week; strongest relative diagnostic shape but
+  under-cadence and not promotable), 009=`20260722_023841` (N=1041, PF 0.9265,
+  net -$252.68, ~2.33/week inside band but negative expectancy),
+  010=`20260722_024229` (N=2, PF 0.8758, net -$1.12, ~0.0045/week — too sparse).
+  400 PNG charts rendered; all 400 had `image_opened=true` in 40 schema-valid
+  Grok chunks (007/009: 100 executed each; 008: 80 executed + 20 near-miss;
+  010: 2 executed + 98 near-miss). STOP retune/re-threshold/session/year/
+  direction/BE/timeout rescue or any re-run of these four IDs. Next legal work
+  is history-quality data repair or materially new hypothesis IDs. Synthesis:
+  `03. EA Developer/EA_MZMS_Scalper/research/HYP-MZMS-XAU-M5-007-010_GROK_SYNTHESIS_READOUT.md`.
+
+- `HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006` is parked as
+  `PARK_INVALID_ENGINEERING_RUN_HISTORY_QUALITY_98_BELOW_99` (2026-07-21).
+  The Owner-directed XAUUSD M5 transfer executed exactly one frozen control and
+  challenger, but both reports missed the preregistered 99% history-quality
+  minimum at 98%; valid economic runs therefore remain zero. Do not quote its
+  PF/net/DD as an authoritative backtest or rerun HYP-006. Available-history
+  diagnostics were adverse anyway: challenger N=5,078 / 11.382 per requested-
+  window week / PF 0.7994 / -$4,483.77 / DD 4.5525%, eight of nine year buckets
+  lose, WFA 1/5, robustness 1/7 and equity audit FAIL. A future XAU test needs
+  a fresh hypothesis plus a pre-run data source that can satisfy the history
+  gate; no parameter/session/year/direction/BE/intrabar rescue. Readout:
+  `03. EA Developer/EA_MZMS_Scalper/research/HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_READOUT.md`.
+
+- `HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-005` is terminal
+  `KILL_DIAGNOSTIC_FULL_HISTORY_CONFIRMS_NO_EDGE` (2026-07-21). The
+  Owner-directed 2018-01-01--2026-07-21 EURUSD M5 Model-0 matched pair used
+  the unchanged closed-bar V1 logic, BE off and a uniform news-disabled
+  contract. Control N=8,979 / PF 0.8126 / -$7,942.38 / DD 7.9990%; challenger
+  N=4,678 / 10.485 per week / PF 0.8253 / -$4,363.87 / DD 4.4428%. Every
+  2018--2026 year bucket lost, fixed-parameter OOS passed only 1/5 windows,
+  robustness passed 1/7 and the equity audit failed. Do not mistake lower
+  total loss/DD from fewer trades for an edge: challenger expectancy per trade
+  worsened to -$0.93285. Do not rescue with selected hours/days/years,
+  directions, intrabar signals, weaker delta/extremum rules, BE/trailing,
+  parameter sweeps, another symbol or another run. Readout:
+  `03. EA Developer/EA_MZMS_Scalper/research/HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-005_READOUT.md`.
+
+- `HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-003` is terminal
+  `KILL_AT_FROZEN_OFFLINE_PROBE` (2026-07-21). The fresh Owner-requested V1
+  implemented closed-bar MACD histogram local extrema, ATR-normalized delta,
+  RSI14 42-58 direction, EMA200 bias, ADX14>=18, five-bar cooldown, EU-DST UTC
+  session conversion, 0.8-pip spread fail-close, farther 5-bar/1.5-ATR stop,
+  1.6R target and BE off. Engineering passed 17/17 tests, compile 0/0 and
+  nonrepaint. The valid causal probe produced 1,808 trades / 8.674 per elapsed
+  week: gross PF 1.0419 / +0.0213R, then 1.5-pip diagnostic PF 0.6949 /
+  -0.1937R / -350.16R. Design PF 0.6715, validation PF 0.7640 and every
+  2019-2022 year lost; only 7/26 gates passed. The challenger slightly beats a
+  gross-flat control but has no usable absolute edge. Do not rescue with
+  intrabar evaluation, removal/lowering of local-extremum or delta rules, BE,
+  trailing, hour/day/year/direction/symbol/2023+ selection or parameter sweeps.
+  Readout: `03. EA Developer/EA_MZMS_Scalper/research/HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-003_READOUT.md`.
+
+- Free historical Fed-versus-ECB policy-communication differential is
+  `NO_LEGAL_HISTORICAL_CANDIDATE` at source/transmission gate (2026-07-20).
+  Fed has exact-clock `For release on delivery` examples, but the mandatory
+  official ECB speech archive supplies original publication date only, is
+  updated monthly and has no historical `published_at`/timezone/version/
+  correction lineage. Raw merged cadence is therefore not causally measurable.
+  Official research supports policy-tone transmission in aggregate but uses
+  communication surprises, market-rate information and/or a six-month smoothed
+  differential; it does not establish a stable event sign from raw speech tone.
+  Do not invent an ECB clock, treat the current CSV as a historical vintage,
+  tune NLP thresholds, add rate/OHLC/session filters, join price outcomes or
+  open a historical hypothesis. The only retained path is a forward-only,
+  immutable first-seen/revision corpus; scheduled collection requires explicit
+  Owner approval and at least 12 elapsed weeks of source/cadence evidence before
+  any hypothesis. Readout:
+  `04. Memory/research/20260720_POLICY_COMMUNICATION_FRONTIER_READOUT.md`.
+
 - `HYP-ICT-FVG-PIVOT-RECLAIM-DWELL-COLLECT-EURUSD-M5-026` is terminal
   `KILL_AT_HYP026_COLLECTION_DATA_DENSITY_OR_REDUNDANCY` and closes the HYP-012
   EURUSD M5 sweep-confirmation/pivot-dwell branch at `FRONTIER_STOP`
@@ -1169,6 +1254,38 @@ Evidence: `03. EA Developer/EA_LSSOBPropScalper/research/HYP-LSS-OB-REPL-EURUSD-
 - A legal successor must measure a different point-in-time property. Time-weighted
   dwell/resilience on each side of the swept level is allowed only as a new
   hypothesis with a formal identical-OHLC/non-equivalence proof and frozen gates.
+
+---
+
+## MZMS HYP-006 large-chart forensics workflow lessons (2026-07-21)
+
+Evidence:
+`03. EA Developer/EA_MZMS_Scalper/research/evidence/HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200/`.
+
+- Do not use one combined outcome-visible image to claim an unbiased entry
+  read. Future casebooks require a decision-as-of image first, then a separate
+  outcome anatomy image. Combined views remain useful for humans only.
+- Do not treat post-run Python indicator reconstruction as MT5 decision truth.
+  Only 107/200 rendered cases matched the full source-direction conditions;
+  the 93 NON-PARITY cases are a chart-data/formula boundary, not proof that the
+  EA violated its signal code. Capture indicator buffers/gates at decision
+  time or bind a parity-proven MT5 export.
+- Do not send 100 images or schema-heavy ten-case batches as one Grok job on
+  this host. They repeatedly returned `Cancelled` bootstrap output with zero
+  opened images. Five-case jobs, global backend concurrency one, dry-run first
+  and fresh artifacts for every retry completed the missing coverage.
+- Grok process success is not forensic acceptance. Require useful output,
+  exact case/position IDs, `image_opened=true`, manifest union, unique sampling
+  and parent readback. A cancelled response counts as zero even if it contains
+  plausible placeholders.
+- Reviewer text tags are non-exclusive and may disagree with lifecycle truth.
+  Parent QC corrected broader timeout language to 24 exact 75-minute exits for
+  Worker A and 17 for Worker B. Exact counts always come from the reconciled
+  position ledger; reviewer labels explain mechanisms only.
+- Large loser-only review is diagnostic anatomy, not population evidence and
+  not a rule generator. Future professional review must include winners,
+  losers and matched pairs, then open any improvement as a fresh preregistered
+  hypothesis rather than patching the terminal object.
 
 ---
 

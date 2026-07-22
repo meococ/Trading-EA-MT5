@@ -1,0 +1,13 @@
+{
+  "schema_version": "alphafactory_package_test_receipt.v1",
+  "generated_at_utc": "2026-07-21T21:45:35Z",
+  "ea_name": "EA_MZMS_Scalper",
+  "campaign": "HYP-MZMS-XAU-M5-007-010",
+  "command": "C:\\Program Files\\Python312\\python.exe -m pytest -q D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\tests\\test_mzms_contract.py D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\tests\\test_mzms_variants.py D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\tests\\test_mzms_probe.py D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\tests\\test_hyp007_010_forensics_400.py D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\tests\\test_build_hyp007_010_task_packets_ids.py D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\tests\\test_run_frozen_hyp_once.py",
+  "tests_passed": 60,
+  "tests_failed": 0,
+  "status": "PASS",
+  "stdout_tail": "\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m             [100%]\u001b[0m\n\u001b[32m\u001b[32m\u001b[1m60 passed\u001b[0m\u001b[32m in 1.14s\u001b[0m\u001b[0m\n\n",
+  "source_sha256": "96A4E8D0CADB0A8B229C124CEB9C70146266A583EEC3D98BB5C406617C80692A",
+  "note": "Honest receipt from local package test execution during delivery closeout."
+}

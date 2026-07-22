@@ -1,0 +1,1821 @@
+{
+  "schema_version": "mzms_strategy_indicator_casebook.v1",
+  "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006",
+  "worker": "worker_a",
+  "validity_boundary": "INVALID_ENGINEERING_RUN_HISTORY_QUALITY_98_BELOW_99",
+  "selection_manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\selection_manifest.json",
+  "selection_manifest_sha256": "8D85467B526F71582795EA481987592C7B3C400BDE322628195149960843FEB2",
+  "bars": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\data\\XAUUSD_M5_with_recomputed_strategy_indicators.parquet",
+  "bars_sha256": "8D4FEEFDE69D130F80C8DA630E65178C8F48087FD392E3A6F339B57770D2A3CC",
+  "source_snapshot": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_MZMS_Scalper\\20260721_190051\\snapshot\\source\\EA_MZMS_Scalper.mq5",
+  "source_snapshot_sha256": "10FCDBD3C90A94991CF8EB83AAF284F1D2D5DD323D6A535B9758A2A0124A266F",
+  "case_csv": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\worker_a_cases.csv",
+  "case_csv_sha256": "420D28BC9718DE9825048B281321B84FA5DFC61A023D00CF5981B6CB4211D281",
+  "image_count": 100,
+  "one_png_per_position": true,
+  "decision_region_outcome_blind": true,
+  "combined_png_contains_outcome_region": true,
+  "indicator_fidelity_boundary": "Recomputed from post-run M5 bar export; not MT5 CopyBuffer or tester tick parity.",
+  "results": [
+    {
+      "case_id": "A-001-P8926",
+      "position_id": 8926,
+      "side": "BUY",
+      "image": "A-001-P8926_strategy_indicators.png",
+      "sha256": "6F0C819AA970D5BE03CB58D3C8350B4BBA9550EC020874F6B7D3AC2E9E2C5FBB",
+      "decision_bars": 180,
+      "outcome_bars": 58,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-002-P460",
+      "position_id": 460,
+      "side": "BUY",
+      "image": "A-002-P460_strategy_indicators.png",
+      "sha256": "B58B291D6B0D11F43A872BAB93C6376CF7BC5CAE39ED5E6EEE9119F3D0850EE4",
+      "decision_bars": 180,
+      "outcome_bars": 65,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-003-P10118",
+      "position_id": 10118,
+      "side": "SELL",
+      "image": "A-003-P10118_strategy_indicators.png",
+      "sha256": "4F346EF57EFC5574AE5EAE33227669A8730C41D452E82F9CB7A1561D30B6D46D",
+      "decision_bars": 180,
+      "outcome_bars": 68,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-004-P9016",
+      "position_id": 9016,
+      "side": "SELL",
+      "image": "A-004-P9016_strategy_indicators.png",
+      "sha256": "4FBAD1CE2A7B99E66A8207F5C092F8BE0D90D489A263C78D4A5E53E29CC7C123",
+      "decision_bars": 180,
+      "outcome_bars": 59,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-005-P6292",
+      "position_id": 6292,
+      "side": "BUY",
+      "image": "A-005-P6292_strategy_indicators.png",
+      "sha256": "66FB458F08D002F3883BB26FF6B998AE817778393E2C459858BB481D3A5A534C",
+      "decision_bars": 180,
+      "outcome_bars": 62,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-006-P3868",
+      "position_id": 3868,
+      "side": "SELL",
+      "image": "A-006-P3868_strategy_indicators.png",
+      "sha256": "2C226C3E4CA50ED3CB02BC0339AA3CC01C61D26783E9A4136FCE4069C9FB8E0E",
+      "decision_bars": 180,
+      "outcome_bars": 59,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-007-P3320",
+      "position_id": 3320,
+      "side": "BUY",
+      "image": "A-007-P3320_strategy_indicators.png",
+      "sha256": "47DDBEDC243168E08E42B6CB255E586A0F02CC121ACA486E3AE5623FD9588501",
+      "decision_bars": 180,
+      "outcome_bars": 60,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-008-P334",
+      "position_id": 334,
+      "side": "BUY",
+      "image": "A-008-P334_strategy_indicators.png",
+      "sha256": "4CF6B110279681B7A6D7A6C25C10B3DEA60F3D2CF70FB35BD6E087D63CA61CF4",
+      "decision_bars": 180,
+      "outcome_bars": 66,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-009-P6842",
+      "position_id": 6842,
+      "side": "SELL",
+      "image": "A-009-P6842_strategy_indicators.png",
+      "sha256": "2A8986A605C53D8008FA64907C262CEB4416B5A9E10A9070859E3B9CD1FF4E7E",
+      "decision_bars": 180,
+      "outcome_bars": 59,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-010-P4486",
+      "position_id": 4486,
+      "side": "SELL",
+      "image": "A-010-P4486_strategy_indicators.png",
+      "sha256": "FA0369A3A54C72876E20E69F4D6F44FCC987F3359AAE550D0C91FB51946466A2",
+      "decision_bars": 180,
+      "outcome_bars": 62,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-011-P3566",
+      "position_id": 3566,
+      "side": "BUY",
+      "image": "A-011-P3566_strategy_indicators.png",
+      "sha256": "32721EA1AEE610AACC71EC930E08CDB3614873F4FAF12C590D40B65DA0F48252",
+      "decision_bars": 180,
+      "outcome_bars": 66,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-012-P4872",
+      "position_id": 4872,
+      "side": "BUY",
+      "image": "A-012-P4872_strategy_indicators.png",
+      "sha256": "73DC1866F3E9507852BFCAAC02AC8092C8CE44FB286F135C44F226056EBDBA04",
+      "decision_bars": 180,
+      "outcome_bars": 59,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-013-P4064",
+      "position_id": 4064,
+      "side": "BUY",
+      "image": "A-013-P4064_strategy_indicators.png",
+      "sha256": "7821ACA5D29ED8512BC35463805BA13DB6C802D1C97295641041F5BB4F821951",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-014-P5718",
+      "position_id": 5718,
+      "side": "SELL",
+      "image": "A-014-P5718_strategy_indicators.png",
+      "sha256": "6D7AC0D2DBEA49B8133F823FBB9D85402FFA608221C28F5CB3D79235E05F23EC",
+      "decision_bars": 180,
+      "outcome_bars": 60,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-015-P5274",
+      "position_id": 5274,
+      "side": "BUY",
+      "image": "A-015-P5274_strategy_indicators.png",
+      "sha256": "ADCD986094F07A8EDCE55CE3B35BF9191D283EAF9139661014CE21A4F3A7A64D",
+      "decision_bars": 180,
+      "outcome_bars": 57,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-016-P4204",
+      "position_id": 4204,
+      "side": "SELL",
+      "image": "A-016-P4204_strategy_indicators.png",
+      "sha256": "4453FA75ACC4FD67BC46CB43A1A4CC7D62AF90FFC88D540FEFC73D0BE8DFDA31",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-017-P9614",
+      "position_id": 9614,
+      "side": "SELL",
+      "image": "A-017-P9614_strategy_indicators.png",
+      "sha256": "80697AAD3CA54AA74E73AC87DC7C369189AF090A32D9AB1E8F2EE9940D4E017B",
+      "decision_bars": 180,
+      "outcome_bars": 63,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-018-P8594",
+      "position_id": 8594,
+      "side": "SELL",
+      "image": "A-018-P8594_strategy_indicators.png",
+      "sha256": "D80CF7FEBFD1F20BAE2588C70EE0412572D1D45F95C15462F1565CC26998A0AB",
+      "decision_bars": 180,
+      "outcome_bars": 65,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-019-P9292",
+      "position_id": 9292,
+      "side": "BUY",
+      "image": "A-019-P9292_strategy_indicators.png",
+      "sha256": "D142F2380670E48F6720F82487D4A32AB3C6D1A5417DFD730B5319F1B8530AD9",
+      "decision_bars": 180,
+      "outcome_bars": 58,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-020-P8912",
+      "position_id": 8912,
+      "side": "BUY",
+      "image": "A-020-P8912_strategy_indicators.png",
+      "sha256": "417B669F0E07E64A711014CF5A4B5FBE22D77FC39FD20AE4E30578A1E05AD3D7",
+      "decision_bars": 180,
+      "outcome_bars": 60,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-021-P7020",
+      "position_id": 7020,
+      "side": "BUY",
+      "image": "A-021-P7020_strategy_indicators.png",
+      "sha256": "88335BC890CB5846D98146ADFFBC71375D324C3FC6D4651C4CE3A3A09DD9404D",
+      "decision_bars": 180,
+      "outcome_bars": 66,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-022-P6768",
+      "position_id": 6768,
+      "side": "BUY",
+      "image": "A-022-P6768_strategy_indicators.png",
+      "sha256": "20B37C08D2BD0CAD575E7D619CC7058519B4F91ED6A2CBAE38767AEB4558D792",
+      "decision_bars": 180,
+      "outcome_bars": 68,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-023-P5264",
+      "position_id": 5264,
+      "side": "BUY",
+      "image": "A-023-P5264_strategy_indicators.png",
+      "sha256": "223125B212D8ACC9378029A65C471C053CC07943482F071BAB198B99DBB1B6D7",
+      "decision_bars": 180,
+      "outcome_bars": 63,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-024-P8172",
+      "position_id": 8172,
+      "side": "BUY",
+      "image": "A-024-P8172_strategy_indicators.png",
+      "sha256": "BFF1E6993D93CE47EAA9AE2C69F697624A241B9D92B6D66A61813EE828C82937",
+      "decision_bars": 180,
+      "outcome_bars": 61,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-025-P7890",
+      "position_id": 7890,
+      "side": "BUY",
+      "image": "A-025-P7890_strategy_indicators.png",
+      "sha256": "95BBB29C3303034412EDEAAA32F38CE1F24C6BC6380CF05DCE05AA3755C86E73",
+      "decision_bars": 180,
+      "outcome_bars": 60,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-026-P3604",
+      "position_id": 3604,
+      "side": "BUY",
+      "image": "A-026-P3604_strategy_indicators.png",
+      "sha256": "4F7E90BA18B36158FB48A048C3C009203BFF8C7352707DBA602594EB09CBCCA9",
+      "decision_bars": 180,
+      "outcome_bars": 58,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-027-P4038",
+      "position_id": 4038,
+      "side": "BUY",
+      "image": "A-027-P4038_strategy_indicators.png",
+      "sha256": "E26F19F9F56F0122917C77F08239775B3EF3C6D477013D6CF4F033C3126F2069",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-028-P1222",
+      "position_id": 1222,
+      "side": "SELL",
+      "image": "A-028-P1222_strategy_indicators.png",
+      "sha256": "F89B5EAE05A95864543A11CB015855CBE3C37AE0E4E68D83B91F39BAC381645A",
+      "decision_bars": 180,
+      "outcome_bars": 57,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-029-P4682",
+      "position_id": 4682,
+      "side": "SELL",
+      "image": "A-029-P4682_strategy_indicators.png",
+      "sha256": "2E61797ED10D7CF9907ECE15D886103311F97E310FA4028C8A683BB3BD0B88B9",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-030-P6716",
+      "position_id": 6716,
+      "side": "SELL",
+      "image": "A-030-P6716_strategy_indicators.png",
+      "sha256": "FF93F33757037FEF8D47EFCA45C8A1C6EEB2268ACBDE030A0473F192CF94BED3",
+      "decision_bars": 180,
+      "outcome_bars": 65,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-031-P10008",
+      "position_id": 10008,
+      "side": "BUY",
+      "image": "A-031-P10008_strategy_indicators.png",
+      "sha256": "35B0A66BDA3C3F1BE0B1678CA73DDEEC900457C36BC1E7452341944ECCB6A662",
+      "decision_bars": 180,
+      "outcome_bars": 68,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-032-P1628",
+      "position_id": 1628,
+      "side": "SELL",
+      "image": "A-032-P1628_strategy_indicators.png",
+      "sha256": "E297F95CBC4C4C3C956400644745FD0E759B919A1E9B6AE8905FAE5B3F8B8598",
+      "decision_bars": 180,
+      "outcome_bars": 59,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-033-P1882",
+      "position_id": 1882,
+      "side": "BUY",
+      "image": "A-033-P1882_strategy_indicators.png",
+      "sha256": "7B998A23E6FBC049EA21A8C203F265A657E605A86E28C5029B2954C534681E60",
+      "decision_bars": 180,
+      "outcome_bars": 57,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-034-P842",
+      "position_id": 842,
+      "side": "SELL",
+      "image": "A-034-P842_strategy_indicators.png",
+      "sha256": "3C5210D179E887E395B138A6A8A73BE4E428510963441F78AF52BA88EA52C0EE",
+      "decision_bars": 180,
+      "outcome_bars": 60,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-035-P4324",
+      "position_id": 4324,
+      "side": "BUY",
+      "image": "A-035-P4324_strategy_indicators.png",
+      "sha256": "FA248ADCFBAFB8C2508CC9F7DD54DF9C0EDDCB92F40634F3763EB05C83475E6C",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-036-P2580",
+      "position_id": 2580,
+      "side": "BUY",
+      "image": "A-036-P2580_strategy_indicators.png",
+      "sha256": "FB0E41525EE495CC168057B12A0776683539DF15F077898EA37D6038A3CFE9AD",
+      "decision_bars": 180,
+      "outcome_bars": 59,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-037-P5402",
+      "position_id": 5402,
+      "side": "SELL",
+      "image": "A-037-P5402_strategy_indicators.png",
+      "sha256": "BB442F688349C50C62BF946BF1887A1FDBB29FB49149085EB6D1054E59F8B55B",
+      "decision_bars": 180,
+      "outcome_bars": 66,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-038-P580",
+      "position_id": 580,
+      "side": "BUY",
+      "image": "A-038-P580_strategy_indicators.png",
+      "sha256": "11063C7064F786DF490161FF8103146BB448560A42A6642202533EE74DF8D32E",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-039-P2762",
+      "position_id": 2762,
+      "side": "BUY",
+      "image": "A-039-P2762_strategy_indicators.png",
+      "sha256": "C6E7DA1B902648136370F6D4D93F01BED5F18DF8EFD44E488C4495453CFB2ED8",
+      "decision_bars": 180,
+      "outcome_bars": 63,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-040-P8844",
+      "position_id": 8844,
+      "side": "BUY",
+      "image": "A-040-P8844_strategy_indicators.png",
+      "sha256": "57784B779C4C3A87F0AABF48FCB154DCBB2F765A4BCB6711DE40B56380A7E904",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-041-P9146",
+      "position_id": 9146,
+      "side": "SELL",
+      "image": "A-041-P9146_strategy_indicators.png",
+      "sha256": "D3FEFAA13C86099308C2286EE139A96DAD6543B0656C6DDAB4B9012C03A478FB",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-042-P8952",
+      "position_id": 8952,
+      "side": "BUY",
+      "image": "A-042-P8952_strategy_indicators.png",
+      "sha256": "4996BF24EFC478F8823E4D540FAD74D4B8E6674B46CF86A817102BAAEAC2AC6B",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-043-P138",
+      "position_id": 138,
+      "side": "SELL",
+      "image": "A-043-P138_strategy_indicators.png",
+      "sha256": "AA341280402DB28BC82603D3C7CE8962F2228C222D68C9C615B11E40DB687200",
+      "decision_bars": 180,
+      "outcome_bars": 61,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-044-P418",
+      "position_id": 418,
+      "side": "SELL",
+      "image": "A-044-P418_strategy_indicators.png",
+      "sha256": "F85741926423ED176A134678E699ECE1EAFE7ADEFF24B8E64949ECA2E4A383C9",
+      "decision_bars": 180,
+      "outcome_bars": 63,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-045-P8968",
+      "position_id": 8968,
+      "side": "BUY",
+      "image": "A-045-P8968_strategy_indicators.png",
+      "sha256": "5C2DE2ED72A5F59C9DAD7CE5C8BA7D1410647E5CA0408E861AB12F69B49C9A78",
+      "decision_bars": 180,
+      "outcome_bars": 62,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-046-P8960",
+      "position_id": 8960,
+      "side": "SELL",
+      "image": "A-046-P8960_strategy_indicators.png",
+      "sha256": "73558F1202AD234A2E0BD1D11518F1379E6A7517C912E62ED57AEF2AE918D8D3",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-047-P6524",
+      "position_id": 6524,
+      "side": "SELL",
+      "image": "A-047-P6524_strategy_indicators.png",
+      "sha256": "348D88288152BBC0C9E270F502575D3DC116145A518999B249B9C7B9392F888D",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-048-P8214",
+      "position_id": 8214,
+      "side": "BUY",
+      "image": "A-048-P8214_strategy_indicators.png",
+      "sha256": "FDB3A6C54DB1EB7109395DD164BB1C47D7D3FCEB5DCB048F0DF9C119C91ABDAC",
+      "decision_bars": 180,
+      "outcome_bars": 59,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-049-P3176",
+      "position_id": 3176,
+      "side": "SELL",
+      "image": "A-049-P3176_strategy_indicators.png",
+      "sha256": "BF9FFD8E4AD95234259633012AFE7B0D2CAAAF0D5D6E2D43105B77937F5A1E70",
+      "decision_bars": 180,
+      "outcome_bars": 58,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-050-P2090",
+      "position_id": 2090,
+      "side": "BUY",
+      "image": "A-050-P2090_strategy_indicators.png",
+      "sha256": "4B904C4FFA3957E245FF0479A6371969775BC4EAB5FBC5ABB4AAE2BD643656B3",
+      "decision_bars": 180,
+      "outcome_bars": 57,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-051-P448",
+      "position_id": 448,
+      "side": "BUY",
+      "image": "A-051-P448_strategy_indicators.png",
+      "sha256": "792D6F73CBFC46425CC78C7D6C5076F29C3CE08A69DD7D86EF10E2E275FC4732",
+      "decision_bars": 180,
+      "outcome_bars": 60,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-052-P1620",
+      "position_id": 1620,
+      "side": "BUY",
+      "image": "A-052-P1620_strategy_indicators.png",
+      "sha256": "AED87FCA0AA02224B7AF4EBFF34712913E1BAF6B289C98E761EDCAAFC0305511",
+      "decision_bars": 180,
+      "outcome_bars": 57,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-053-P7764",
+      "position_id": 7764,
+      "side": "SELL",
+      "image": "A-053-P7764_strategy_indicators.png",
+      "sha256": "A4DF4707FE15E7E81E80D16E4D3A1D2FEF941368419DDF7B3DEC7E9F794A1A12",
+      "decision_bars": 180,
+      "outcome_bars": 65,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-054-P7736",
+      "position_id": 7736,
+      "side": "BUY",
+      "image": "A-054-P7736_strategy_indicators.png",
+      "sha256": "B70FA47B75E2919D8477790C6165E9ADCE4721ABC0A4CB747C6878DE91B26484",
+      "decision_bars": 180,
+      "outcome_bars": 61,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-055-P2386",
+      "position_id": 2386,
+      "side": "BUY",
+      "image": "A-055-P2386_strategy_indicators.png",
+      "sha256": "7BCDC15D640A5CC9D37E1D5B281290C58DF9927655455692BB0D53EE21837C22",
+      "decision_bars": 180,
+      "outcome_bars": 58,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-056-P804",
+      "position_id": 804,
+      "side": "BUY",
+      "image": "A-056-P804_strategy_indicators.png",
+      "sha256": "95BFAAF63B11A72DBB7495FDBD9E81DCA6C9544B6BC36886193F361D84562F4E",
+      "decision_bars": 180,
+      "outcome_bars": 64,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-057-P7758",
+      "position_id": 7758,
+      "side": "BUY",
+      "image": "A-057-P7758_strategy_indicators.png",
+      "sha256": "DF9C1C3EBC1A23BB07DA7A5510AD8CE42136C077BCFEB96AC847B93E864E5258",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-058-P3656",
+      "position_id": 3656,
+      "side": "BUY",
+      "image": "A-058-P3656_strategy_indicators.png",
+      "sha256": "5888A1346CCBC6A67CCA41C386F6677F566661F25CA962AE2675B685B88BCBE3",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-059-P8860",
+      "position_id": 8860,
+      "side": "BUY",
+      "image": "A-059-P8860_strategy_indicators.png",
+      "sha256": "C660CD314849E6E275040E0C78EF33D32EAA13F5AA80F3F4E382470F20B1D7FD",
+      "decision_bars": 180,
+      "outcome_bars": 66,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-060-P2834",
+      "position_id": 2834,
+      "side": "SELL",
+      "image": "A-060-P2834_strategy_indicators.png",
+      "sha256": "9E0D51040D31C86B826DEE2B55E9AB732B71249986C598F631CFB38954A10E6F",
+      "decision_bars": 180,
+      "outcome_bars": 65,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-061-P2466",
+      "position_id": 2466,
+      "side": "SELL",
+      "image": "A-061-P2466_strategy_indicators.png",
+      "sha256": "BC077E2F475A83DC310D4D02689AFC4D88A47231BE1897BEB94A4CF2E3ACF9E6",
+      "decision_bars": 180,
+      "outcome_bars": 58,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-062-P1094",
+      "position_id": 1094,
+      "side": "SELL",
+      "image": "A-062-P1094_strategy_indicators.png",
+      "sha256": "946E08FF57EAE37281FED6F9BB14DBB5D364921B928B1E338E80D54081F52606",
+      "decision_bars": 180,
+      "outcome_bars": 71,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-063-P6642",
+      "position_id": 6642,
+      "side": "BUY",
+      "image": "A-063-P6642_strategy_indicators.png",
+      "sha256": "54E890657BC92D6F95BDBEB5A2A8EA5FEC14EB3764DD04A72F1B634357C6D46B",
+      "decision_bars": 180,
+      "outcome_bars": 70,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-064-P5480",
+      "position_id": 5480,
+      "side": "SELL",
+      "image": "A-064-P5480_strategy_indicators.png",
+      "sha256": "435BF5B3071DBC1895F4F03A4C6F7CFEFF737FA9D59900D41BD1376056D2A0AD",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-065-P1826",
+      "position_id": 1826,
+      "side": "SELL",
+      "image": "A-065-P1826_strategy_indicators.png",
+      "sha256": "390E625896A11AC62BCE6C2C2ABB78FDB0365CB2747C85021C338D419D25EFDF",
+      "decision_bars": 180,
+      "outcome_bars": 65,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-066-P7310",
+      "position_id": 7310,
+      "side": "SELL",
+      "image": "A-066-P7310_strategy_indicators.png",
+      "sha256": "E1D464E0A67186BD3D8E4CB7DF6A01F3EEB8D05848E000AB8815B674F81D53A5",
+      "decision_bars": 180,
+      "outcome_bars": 60,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-067-P4554",
+      "position_id": 4554,
+      "side": "SELL",
+      "image": "A-067-P4554_strategy_indicators.png",
+      "sha256": "1E4B6D8B79BBB20659CF67F04A5C8A83A1CDA1AD877B8D2EB4478BB862D32B8D",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-068-P3572",
+      "position_id": 3572,
+      "side": "BUY",
+      "image": "A-068-P3572_strategy_indicators.png",
+      "sha256": "F28D8A1A5CEF46ABD790B8241F2BD2A814FECF90D30FD673AD359755465FFB61",
+      "decision_bars": 180,
+      "outcome_bars": 69,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-069-P8514",
+      "position_id": 8514,
+      "side": "BUY",
+      "image": "A-069-P8514_strategy_indicators.png",
+      "sha256": "305BA19FAB90A8D1A9DF4B252EB58FB5AD8062107CBB2ED7D3AFDAF291FE7C26",
+      "decision_bars": 180,
+      "outcome_bars": 67,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-070-P610",
+      "position_id": 610,
+      "side": "SELL",
+      "image": "A-070-P610_strategy_indicators.png",
+      "sha256": "AEE9CA5DEE8D6E661B1BEB8B2ADB19CFCD6241F31631735656F9FD1DC026304D",
+      "decision_bars": 180,
+      "outcome_bars": 64,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-071-P9218",
+      "position_id": 9218,
+      "side": "BUY",
+      "image": "A-071-P9218_strategy_indicators.png",
+      "sha256": "1A69F456A2741D6EB49FF090158195EE0A64332E9AEEEAD33C8E820CCD4D11BA",
+      "decision_bars": 180,
+      "outcome_bars": 58,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-072-P7822",
+      "position_id": 7822,
+      "side": "SELL",
+      "image": "A-072-P7822_strategy_indicators.png",
+      "sha256": "981CD894AC885663004FCE592A5DE54AEF3C2BEF423768C88DCA28397188CCA7",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-073-P10144",
+      "position_id": 10144,
+      "side": "BUY",
+      "image": "A-073-P10144_strategy_indicators.png",
+      "sha256": "8EE231B866C7FF8275E1BBE5AB28C84ED8892A82B56EC7CD9F87D36DBF6DA0CA",
+      "decision_bars": 180,
+      "outcome_bars": 57,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-074-P5674",
+      "position_id": 5674,
+      "side": "BUY",
+      "image": "A-074-P5674_strategy_indicators.png",
+      "sha256": "CA4BBE1F400A2F01EA701F1BF7F721BAFDB9B8DF9BD188563DA7907FC86ABCCE",
+      "decision_bars": 180,
+      "outcome_bars": 68,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-075-P5672",
+      "position_id": 5672,
+      "side": "BUY",
+      "image": "A-075-P5672_strategy_indicators.png",
+      "sha256": "0D762B7BB992C34C2BC7BC8913131B2E8CFFD341071643DE0DAD172159F426E9",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-076-P5898",
+      "position_id": 5898,
+      "side": "BUY",
+      "image": "A-076-P5898_strategy_indicators.png",
+      "sha256": "FED9FC9AF0E3D2430A1FC1A28D6BB08B1F0B5FA7EA79D7A7164844647722ED9B",
+      "decision_bars": 180,
+      "outcome_bars": 70,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-077-P6980",
+      "position_id": 6980,
+      "side": "SELL",
+      "image": "A-077-P6980_strategy_indicators.png",
+      "sha256": "3EC47993CFFEFC7CDB6EEAC8A8582A1B75C24D46E3DB728D7CE8862378FC77C3",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-078-P7116",
+      "position_id": 7116,
+      "side": "SELL",
+      "image": "A-078-P7116_strategy_indicators.png",
+      "sha256": "C656BFE04D937C37E7133D0157E71A9E20656DF5A61A176A18DC7F9352C92208",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-079-P3684",
+      "position_id": 3684,
+      "side": "BUY",
+      "image": "A-079-P3684_strategy_indicators.png",
+      "sha256": "E50CEF15069DF245A44C19E6CF9F7FF8FFB6FB4B719043727B55E4BD6E51A4AB",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-080-P4336",
+      "position_id": 4336,
+      "side": "SELL",
+      "image": "A-080-P4336_strategy_indicators.png",
+      "sha256": "DC0E049CB1C3AE8287A79A8059C5BEAC38839FB223B0211D1F70D5062DE07AB9",
+      "decision_bars": 180,
+      "outcome_bars": 63,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-081-P3542",
+      "position_id": 3542,
+      "side": "SELL",
+      "image": "A-081-P3542_strategy_indicators.png",
+      "sha256": "A45157CE5D487EF93AFF2B10A91AD6C3491D4124601502473389FC8F26420A48",
+      "decision_bars": 180,
+      "outcome_bars": 65,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-082-P684",
+      "position_id": 684,
+      "side": "BUY",
+      "image": "A-082-P684_strategy_indicators.png",
+      "sha256": "6A17A37165EEFA2E2B336955F4F754CEBEA8A04E5771600A6C19FBF1E776791E",
+      "decision_bars": 180,
+      "outcome_bars": 58,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-083-P220",
+      "position_id": 220,
+      "side": "BUY",
+      "image": "A-083-P220_strategy_indicators.png",
+      "sha256": "0E7A22BC984387F32CBEC391B3FDD5FF4B3587060FC595CB2C55CA5EB63EEAD3",
+      "decision_bars": 180,
+      "outcome_bars": 59,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-084-P758",
+      "position_id": 758,
+      "side": "BUY",
+      "image": "A-084-P758_strategy_indicators.png",
+      "sha256": "6F0338ACD57E50A2A896DD6D469AF5E9BC7CB1B693DF05A9E218F40BD924C46D",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-085-P2724",
+      "position_id": 2724,
+      "side": "BUY",
+      "image": "A-085-P2724_strategy_indicators.png",
+      "sha256": "C1721E2F0731A788A8AE7A9ED6EC200AE4BA7494356B2C6910ECDC27FC93D226",
+      "decision_bars": 180,
+      "outcome_bars": 63,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-086-P3104",
+      "position_id": 3104,
+      "side": "BUY",
+      "image": "A-086-P3104_strategy_indicators.png",
+      "sha256": "E4E00CEBDB15C5F2D0D74C57B5212EDBE1065C48E56B4DBE021064F47D747B74",
+      "decision_bars": 180,
+      "outcome_bars": 59,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-087-P4972",
+      "position_id": 4972,
+      "side": "BUY",
+      "image": "A-087-P4972_strategy_indicators.png",
+      "sha256": "52BBB408FBC28216DB24DFDFF7852B21E31BF667E4E0AE9E8C4BE22D4FA077A0",
+      "decision_bars": 180,
+      "outcome_bars": 66,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-088-P9940",
+      "position_id": 9940,
+      "side": "BUY",
+      "image": "A-088-P9940_strategy_indicators.png",
+      "sha256": "284EB9E1F5BEA09E9ACA23809EC24D213F08AA19DB6771C566553AC5FF6F4B7D",
+      "decision_bars": 180,
+      "outcome_bars": 62,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-089-P9472",
+      "position_id": 9472,
+      "side": "SELL",
+      "image": "A-089-P9472_strategy_indicators.png",
+      "sha256": "22A1C85BE9CAAA26C40A1A69FCE7C61D0D9B651ED5BFB1F4451AAD2A52D28550",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-090-P6378",
+      "position_id": 6378,
+      "side": "BUY",
+      "image": "A-090-P6378_strategy_indicators.png",
+      "sha256": "46BCDC2E27EB461EC2A4FC2C1CCDC82D56B20A0747F2557D5CB5F722BD575E57",
+      "decision_bars": 180,
+      "outcome_bars": 58,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-091-P3366",
+      "position_id": 3366,
+      "side": "BUY",
+      "image": "A-091-P3366_strategy_indicators.png",
+      "sha256": "B6E2F5CB10CC6DC915656C032CAE8CFD3B4F76C7A9BF4E5BEB61E5271665F5BA",
+      "decision_bars": 180,
+      "outcome_bars": 61,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-092-P2546",
+      "position_id": 2546,
+      "side": "BUY",
+      "image": "A-092-P2546_strategy_indicators.png",
+      "sha256": "6F3406D2F6CA7379B856317D4010E28F5FBCE98F1785D747104D71F20660907B",
+      "decision_bars": 180,
+      "outcome_bars": 59,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-093-P2490",
+      "position_id": 2490,
+      "side": "SELL",
+      "image": "A-093-P2490_strategy_indicators.png",
+      "sha256": "9D4BDEBD2E14420ED38D473992502BA8AC499DC8D6F0DD047C87471B308D8E10",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-094-P6848",
+      "position_id": 6848,
+      "side": "SELL",
+      "image": "A-094-P6848_strategy_indicators.png",
+      "sha256": "438FE9826BD21259435FDF3E4256C16A88B392C442F515F143F8E53ED844A39B",
+      "decision_bars": 180,
+      "outcome_bars": 64,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-095-P1248",
+      "position_id": 1248,
+      "side": "BUY",
+      "image": "A-095-P1248_strategy_indicators.png",
+      "sha256": "7C733E69B2227836359B255475ED1315D375A4E8EEB8C005C5907ACB038F83E7",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-096-P3606",
+      "position_id": 3606,
+      "side": "BUY",
+      "image": "A-096-P3606_strategy_indicators.png",
+      "sha256": "B6D4EE540A57C7A75E6261565536EC3EF36A1E2A77E3146DC8775A0BDAB5AEDA",
+      "decision_bars": 180,
+      "outcome_bars": 66,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-097-P4162",
+      "position_id": 4162,
+      "side": "BUY",
+      "image": "A-097-P4162_strategy_indicators.png",
+      "sha256": "CD18D74E2EC619078B7C4097E73464D016F6828DD6CD4B44EB61673BF25B3BDD",
+      "decision_bars": 180,
+      "outcome_bars": 59,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-098-P3816",
+      "position_id": 3816,
+      "side": "BUY",
+      "image": "A-098-P3816_strategy_indicators.png",
+      "sha256": "47EEDEB9F276B6E704A0AB354CA7435A99B9020976B092855269786AD270F0EF",
+      "decision_bars": 180,
+      "outcome_bars": 58,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true
+    },
+    {
+      "case_id": "A-099-P8776",
+      "position_id": 8776,
+      "side": "BUY",
+      "image": "A-099-P8776_strategy_indicators.png",
+      "sha256": "DBB675673F17E7D09F06D31DA01E0BF76AF418AD7DDF7DA068A72976CA42CA23",
+      "decision_bars": 180,
+      "outcome_bars": 60,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    },
+    {
+      "case_id": "A-100-P4550",
+      "position_id": 4550,
+      "side": "SELL",
+      "image": "A-100-P4550_strategy_indicators.png",
+      "sha256": "D7B6C2C229DE905600E2BA29C063B03794C6B382D54593C27365CDB8564F56CE",
+      "decision_bars": 180,
+      "outcome_bars": 62,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false
+    }
+  ]
+}

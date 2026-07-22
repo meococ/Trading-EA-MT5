@@ -1,0 +1,144 @@
+{
+  "schema_version": "mzms_hyp007_010_grok_synthesis_result.v1",
+  "materialized_at_utc": "2026-07-21T21:42:43.421679+00:00",
+  "source_response_artifact": ".context/mzms-xau-007-010-vision-synthesis/grok-response.json",
+  "extraction_path": "response.parsed_stdout.structuredOutput",
+  "synthesis": {
+    "campaign_id": "HYP-MZMS-XAU-M5-007-010_GROK_FORENSICS_400",
+    "validity_boundary": "DIAGNOSTIC_ONLY — all four Model-0 runs report history quality 98% < frozen 99% gate (INVALID_ENGINEERING_RUN_HISTORY_QUALITY_98_BELOW_99). Lifecycle reconciliation is exact, but economics, cadence, and chart anatomy have no promotion or economic-kill authority. Post-hoc rescue of HYP-007..010 is blocked.",
+    "promotion_blocked": true,
+    "post_hoc_rescue_blocked": true,
+    "per_hypothesis": [
+      {
+        "hypothesis_id": "HYP-MZMS-XAU-M5-007",
+        "mechanism_name": "Mode2 Donchian fresh-impulse + expanding ATR + rising mid-band ADX (InpSignalMode=2)",
+        "economic_shape_diagnostic": "DIAGNOSTIC ONLY (HQ 98%): n=3409, net≈−$2064.59, PF≈0.809, WR≈42.04%, expectancy≈−$0.606/trade (exact lifecycle↔report reconciliation). Large negative shape at high density; not an economic kill authority under invalid history.",
+        "cadence_verdict": "DIAGNOSTIC OVER-CADENCE: ≈7.64 trades per elapsed calendar week (3409 / ≈446.3 weeks) vs frozen band 2.0–5.0 — too hot; not a promotion cadence pass.",
+        "dominant_failure_anatomy": "Mode fidelity non-modal: entries often late/exhausted chase, mid-range/false break, or counter-DI/counter-structure rather than first Donchian initiation with rising ADX/ATR. Among 100 validated executed charts, bad_entry_or_adverse_selection≈47; modal economic path is 75m TIME_EXIT partial R scrape (under-harvest vs 1.6R TP), not clean impulse completion. Clean Mode2 exemplars exist but are rare (e.g. full-target-like paths).",
+        "supported_by_case_ids": [
+          "007-E002-P36",
+          "007-E007-P370",
+          "007-E011-P634",
+          "007-E018-P1080",
+          "007-E047-P3066",
+          "007-E001-P10",
+          "007-E005-P246",
+          "007-E012-P696"
+        ],
+        "evidence_label": "STRONG_INFERENCE",
+        "confidence": "HIGH"
+      },
+      {
+        "hypothesis_id": "HYP-MZMS-XAU-M5-008",
+        "mechanism_name": "Mode3 EMA20/EMA100 trend pullback + closed-bar pivot reclaim (InpSignalMode=3)",
+        "economic_shape_diagnostic": "DIAGNOSTIC ONLY (HQ 98%): n=80, net≈+$24.86, PF≈1.070, WR=42.5%, expectancy≈+$0.311/trade. Only campaign arm with positive diagnostic PF/net; sample small and history-invalid — not promotion evidence.",
+        "cadence_verdict": "DIAGNOSTIC UNDER-CADENCE / STARVATION: ≈0.18 trades per elapsed calendar week (80 / ≈446.3 weeks) far below band 2.0–5.0. Chart casebook includes 20 OFFLINE_NEAR_MISS with full offline Mode3 signals (failed_gates=0) blocked operationally/cadence-wise.",
+        "dominant_failure_anatomy": "Dual anatomy: (1) among executed fills, adverse/late reclaim selection dominates (late/exhausted continuation, post-vertical-displacement buys, weak/flat stack, chop) — classification bad_entry_or_adverse_selection≈44; (2) population density failure via cadence/operational block of full offline signals (cadence_bottleneck≈19). Conditional success is real when mature co-directional stack + mid-leg pullback reclaim hits full-ish TP.",
+        "supported_by_case_ids": [
+          "008-E001-P2",
+          "008-E015-P30",
+          "008-E042-P84",
+          "008-E050-P100",
+          "008-E023-P46",
+          "008-E029-P58",
+          "008-N011-B453496",
+          "008-N012-B498457"
+        ],
+        "evidence_label": "STRONG_INFERENCE",
+        "confidence": "MEDIUM"
+      },
+      {
+        "hypothesis_id": "HYP-MZMS-XAU-M5-009",
+        "mechanism_name": "Mode4 Bollinger/ATR compression → closed-bar envelope breakout (InpSignalMode=4)",
+        "economic_shape_diagnostic": "DIAGNOSTIC ONLY (HQ 98%): n=1041, net≈−$252.68, PF≈0.926, WR≈44.00%, expectancy≈−$0.243/trade. Mildly negative shape at medium density; exact reconciliation; not promotion-eligible.",
+        "cadence_verdict": "DIAGNOSTIC INSIDE CADENCE BAND: ≈2.33 trades per elapsed calendar week (1041 / ≈446.3 weeks) sits in 2.0–5.0. Cadence alone is not a pass under invalid history and sub-1 PF shape.",
+        "dominant_failure_anatomy": "Archetype mismatch + adverse selection: many fills are late-extension, mean-reversion fade, failed bounce, or HTF-opposed envelope tags rather than true squeeze→expansion. bad_entry_or_adverse_selection≈50; TIME_EXIT partial/small-R paths recur; clean HTF-aligned squeeze continuations exist (conditional) but are not modal.",
+        "supported_by_case_ids": [
+          "009-E001-P8",
+          "009-E005-P56",
+          "009-E006-P92",
+          "009-E002-P22",
+          "009-E043-P904",
+          "009-E029-P584",
+          "009-E038-P748",
+          "009-E093-P2008"
+        ],
+        "evidence_label": "STRONG_INFERENCE",
+        "confidence": "HIGH"
+      },
+      {
+        "hypothesis_id": "HYP-MZMS-XAU-M5-010",
+        "mechanism_name": "Mode5 RSI/wick/ADX-roll exhaustion rejection mean reversion (InpSignalMode=5)",
+        "economic_shape_diagnostic": "DIAGNOSTIC ONLY (HQ 98%) and SAMPLE_DEGENERATE: n=2 executed (1 win / 1 loss), net≈−$1.12, PF≈0.876, WR=50%, expectancy≈−$0.56/trade. Economics have no inferential power; population evidence is almost entirely near-miss anatomy.",
+        "cadence_verdict": "DIAGNOSTIC SEVERE UNDER-CADENCE: ≈0.0045 trades per elapsed calendar week (2 / ≈446.3 weeks). Density collapse vs band 2.0–5.0; mechanism essentially non-firing under frozen multi-gate stack.",
+        "dominant_failure_anatomy": "Gate-stack non-completion, not a simple session veto: near-misses cluster as incomplete RSI/wick/ADX-roll packages (systematic failed_gates≈2/6, dist≈0) and countertrend fades into still-expanding impulse (ADX rising / mid-waterfall knife-catch). Classification good_rejected_near_miss≈70 vs executed=2; protective non-fire often looks correct. Sole executed loser is adverse exhaustion sell into momentum reclaim.",
+        "supported_by_case_ids": [
+          "010-E001-P2",
+          "010-E002-P4",
+          "010-N031-B109276",
+          "010-N039-B122712",
+          "010-N066-B200240",
+          "010-N079-B272694"
+        ],
+        "evidence_label": "STRONG_INFERENCE",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "cross_mechanism_comparison": {
+      "strongest_mechanism": "HYP-MZMS-XAU-M5-008 Mode3 EMA20/EMA100 pullback-reclaim — only arm with positive diagnostic PF/expectancy/net; recurrent clean mature-stack continuation winners in validated charts; still history-invalid, under-cadence, and non-promotable.",
+      "weakest_mechanism": "HYP-MZMS-XAU-M5-007 Mode2 Donchian fresh-impulse — largest n, worst diagnostic PF/expectancy/net, over-cadence, and non-modal mode fidelity (late/counter-structure + TIME_EXIT scrape). HYP-010 is weakest by density (n=2) but lacks economic sample size to rank as primary economic failure.",
+      "comparison_finding": "Across 400 validated images (100/hyp, all image_opened in validated packet) and frozen metrics: (1) 007/009 fire enough to show negative diagnostic expectancy with adverse-selection-heavy anatomy and TIME_EXIT R truncation; (2) 008 is the only positive-shape arm but starves on cadence while full offline signals are blocked; (3) 010 almost never completes its multi-gate exhaustion stack and is research-starved, not 'edge-proven'. No arm clears PF≥1.35 + valid HQ + verified cost. Ranking is diagnostic shape only — not a promotion ranking.",
+      "evidence_label": "STRONG_INFERENCE",
+      "confidence": "HIGH"
+    },
+    "fresh_prereg_candidates": [
+      {
+        "title": "Compression-base first-expansion Donchian initiation (not mid-leg channel chase)",
+        "mechanism": "New structural initiation family: multi-bar ATR compression base → first closed-bar Donchian extreme expansion with ADX rising from a local trough and DI side concordance; explicitly exclude already-extended channel rides, mid-range tags, and post-peak ADX fades. Separate process from Mode2 as frozen on 007.",
+        "why_materially_new": "Redefines impulse as a phase-state machine (compression→first expansion) rather than any Donchian break + mid-band ADX level; splits chase vs initiation into distinct generative processes.",
+        "why_not_007_010_rescue": "Does not retune 007 ADX/ATR/Donchian thresholds, session/year/direction vetoes, BE/trail/timeout, or re-run 007–010; requires new hypothesis_id, offline density probe, and pre-outcome freeze.",
+        "cited_evidence": "Validated 007 charts: clean compression/fresh paths 007-E005-P246, 007-E012-P696, 007-E024-P1296, 007-E025-P1398 vs late/chase/counter 007-E002-P36, 007-E007-P370, 007-E011-P634, 007-E047-P3066; population diagnostic shape PF≈0.81 / n=3409 / over-cadence.",
+        "confidence": "MEDIUM"
+      },
+      {
+        "title": "Mature co-directional EMA-stack pullback-reclaim with post-vertical-displacement exclusion",
+        "mechanism": "Fresh Mode3-class mechanism: require closed-bar stack maturity (minimum stable EMA20 vs EMA100 age + absolute stack distance in ATR + same-side slopes) AND veto BUY/SELL reclaim immediately after multi-ATR vertical climax into the local extreme; entry only on mid-leg pullback + pivot reclaim under non-compressed stack.",
+        "why_materially_new": "Combines stack-age maturity state machine with impulse-extension exclusion — not the bare EMA20/100 + pivot reclaim frozen as 008; targets the observed split between textbook winners and late/exhausted losers plus density design as separate offline question.",
+        "why_not_007_010_rescue": "Not a post-hoc tighten of 008 parameters, not cadence rescue by re-running 008, not BE/timeout management patch; new ID + offline regime/density probe first.",
+        "cited_evidence": "008 clean winners 008-E023-P46, 008-E029-P58; adverse late/post-impulse 008-E001-P2, 008-E015-P30, 008-E042-P84, 008-E050-P100; cadence near-miss full signals 008-N011-B453496, 008-N012-B498457; metrics n=80 PF≈1.07 under-cadence (diagnostic only).",
+        "confidence": "MEDIUM"
+      },
+      {
+        "title": "HTF-coaligned true BB/ATR squeeze → envelope expansion only",
+        "mechanism": "Define eligible Mode4-class entry only when (a) closed-bar BB width / ATR compression state is true, (b) first closed-bar envelope break with expansion follow-through, and (c) higher-timeframe structure co-aligned; treat late post-spike 're-coils', mid-band fades, and counter-HTF envelope tags as a different class (or kill), not as squeeze-breakout successes.",
+        "why_materially_new": "Makes HTF co-alignment and true compression phase hard structural requirements and splits false-break / mean-rev masquerades from expansion breakout — material redesign vs frozen 009 envelope mode.",
+        "why_not_007_010_rescue": "Does not retune 009 BB/ATR periods, RR, session, or time-exit after reading 009 losses; forbids promoting conditional winners on the same 2018–2026 window under ID 009.",
+        "cited_evidence": "009 adverse/archetype-mismatch 009-E001-P8, 009-E005-P56, 009-E006-P92, 009-E043-P904; conditional clean/aligned 009-E029-P584, 009-E038-P748, 009-E093-P2008; metrics n=1041 PF≈0.926 in-band cadence (diagnostic only).",
+        "confidence": "MEDIUM"
+      },
+      {
+        "title": "Impulse-completion ADX-roll + closed-bar structural reclaim exhaustion MR",
+        "mechanism": "New mean-reversion family: arm only after (1) multi-bar ADX peak-then-roll (not single-bar flicker), (2) decision bar at sealed swing extreme with rejection-reclaim close, (3) HTF not mid-displacement against the fade. Explicitly exclude mid-impulse RSI extremes while ADX/ATR still expand (knife-catch ban). Symmetric long-floor vs short-ceiling may later split.",
+        "why_materially_new": "Replaces the frozen 010 6-gate simultaneous stack with a sequenced climax-completion state machine; changes entry object from RSI-extreme-with-wick to completed exhaustion + reclaim.",
+        "why_not_007_010_rescue": "Does not loosen RSI 70/30, wick fraction, ADX floor, or Ext_ATR from 010 near-misses; not a session/year veto; requires offline gate-completion density probe under a new hypothesis_id before any Model 0.",
+        "cited_evidence": "010 executed adverse 010-E001-P2; sparse win 010-E002-P4; good/near-miss climax anatomy 010-N031-B109276, 010-N039-B122712, 010-N066-B200240; mid-impulse incomplete packages 010-N079-B272694; population n=2 + 98 near-misses (diagnostic only).",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "stop_recommendation": {
+      "recommend_stop": true,
+      "reason": "STOP any re-run, retune, threshold/session/direction veto, BE/trail/timeout patch, or economic promotion of HYP-MZMS-XAU-M5-007..010. All four runs are PARK_INVALID under history quality 98%<99%; promotion_blocked and post_hoc_rescue_blocked remain hard. Diagnostic forensics already delivered (400 charts, exact lifecycle reconciliation). Next legal work is engineering data/history-quality remediation and/or NEW hypothesis IDs with offline probes — not another Model-0 pass on these four frozen IDs."
+    },
+    "owner_facing_markdown_vi": "# Báo cáo tổng hợp chẩn đoán — Campaign HYP-MZMS-XAU-M5-007..010\n\n**Ranh giới hiệu lực (OBSERVED):** Cả bốn run Model-0 có **history quality 98% < 99%** → `INVALID_ENGINEERING_RUN_HISTORY_QUALITY_98_BELOW_99` → **DIAGNOSTIC ONLY**. `promotion_blocked=true`, `post_hoc_rescue_blocked=true`. Không promote, không live, không kill kinh tế có thẩm quyền, **không** rescue/retune/re-run 007–010.\n\n**Phạm vi bằng chứng:** 400 chart đã validate (100/hyp), lifecycle reconcile exact từng arm, metrics đóng băng trong `campaign_metrics.json`. Offline indicator trên chart = visualization only (không parity CopyBuffer).\n\n---\n\n## 1. Kết luận có nhãn bằng chứng\n\n| Hypothesis | Mechanism | Shape kinh tế (diagnostic) | Cadence (diagnostic) | Anatomy thất bại chính |\n|---|---|---|---|---|\n| **007** | Donchian fresh-impulse + ATR expand + ADX mid rising | n=3409, PF≈0.81, E≈−$0.61, net≈−$2065 | **OVER** ≈7.64 tpw (>5) | Adverse late/counter-structure + TIME_EXIT scrape; Mode2 hiếm khi pure |\n| **008** | EMA20/100 pullback + pivot reclaim | n=80, PF≈1.07, E≈+$0.31, net≈+$25 | **UNDER** ≈0.18 tpw | Late/exhausted reclaim + **cadence bottleneck** full offline signal |\n| **009** | BB/ATR compression → envelope break | n=1041, PF≈0.93, E≈−$0.24, net≈−$253 | **IN-BAND** ≈2.33 tpw | Archetype mismatch (fade/late) + TIME_EXIT partial R |\n| **010** | RSI/wick/ADX-roll exhaustion MR | n=2, PF≈0.88, E≈−$0.56, net≈−$1.12 | **SEVERE UNDER** ≈0.0045 tpw | Incomplete multi-gate stack; fade vào impulse còn expand |\n\n- **OBSERVED:** HQ 98%, counts n/PF/WR/net, exact reconciliation, coverage 100 images/hyp.\n- **STRONG_INFERENCE:** adverse-selection-heavy 007/009; 008 conditional clean winners + starvation; 010 gate non-completion.\n- **HYPOTHESIS (chưa test):** bốn prereg candidate mới bên dưới — **không** phải patch 007–010.\n\n---\n\n## 2. Verdict từng hypothesis (shape only)\n\n### HYP-007 — yếu nhất về shape kinh tế quy mô lớn\n- **Kinh tế (diagnostic):** PF < 1, expectancy âm, thua lỗ lớn, n rất lớn.\n- **Cadence:** quá dày so với band 2–5.\n- **Anatomy:** `bad_entry_or_adverse_selection≈47/100`; TIME_EXIT partial R lặp lại; exemplar sạch (007-E005-P246, 007-E012-P696) **không** modal.\n- **Case hỗ trợ:** 007-E002-P36, 007-E007-P370, 007-E011-P634, 007-E018-P1080, 007-E047-P3066, 007-E001-P10.\n\n### HYP-008 — mạnh nhất *tương đối* (vẫn không promote)\n- **Kinh tế (diagnostic):** PF hơi >1, net dương nhỏ; **n=80** + HQ invalid → không có quyền promote.\n- **Cadence:** đói lệnh; near-miss full signal bị chặn (008-N011-B453496, 008-N012-B498457).\n- **Anatomy:** winner khi stack chín + pullback giữa chân (008-E023-P46, 008-E029-P58); loser late/post-climax (008-E015-P30, 008-E042-P84).\n\n### HYP-009 — cadence đạt band nhưng edge diagnostic âm\n- **Kinh tế:** PF≈0.93, expectancy âm.\n- **Cadence:** duy nhất nằm trong 2–5 tpw (diagnostic).\n- **Anatomy:** breakout giả / counter-HTF / late-extension trộn với squeeze sạch thỉnh thoảng (009-E029-P584, 009-E038-P748, 009-E093-P2008).\n\n### HYP-010 — suy sụp mật độ / stack gate\n- **Kinh tế:** n=2 → không suy luận expectancy.\n- **Cadence:** gần như zero-fire.\n- **Anatomy:** `good_rejected_near_miss≈70`; incomplete gates + knife-catch risk (010-E001-P2).\n\n---\n\n## 3. So sánh chéo\n\n- **Strongest (diagnostic shape):** **008** — PF/net dương + winner anatomy có điều kiện.\n- **Weakest (diagnostic economics at scale):** **007** — n lớn, PF/E xấu, over-cadence, fidelity non-modal.\n- **010** yếu nhất về *khả dụng mật độ*; **009** “trung tính xấu” (cadence ổn, expectancy diagnostic âm).\n- **Không** có arm nào vượt PF≥1.35 + HQ≥99% + cost verified → **không ranking promote**.\n\n---\n\n## 4. Tối đa 4 prereg candidate *mới* (không rescue 007–010)\n\n1. **Compression-base first-expansion Donchian initiation** — phase nén→mở rộng đầu tiên + DI concordance (tách chase). Evidence: 007 clean vs late cases trên.\n2. **Mature EMA-stack pullback-reclaim + post-vertical-displacement exclusion** — stack-age/maturity + cấm reclaim sau climax. Evidence: 008 winners vs late losers + near-miss cadence.\n3. **HTF-coaligned true squeeze→envelope expansion only** — nén thật + envelope break + HTF đồng hướng. Evidence: 009 mismatch vs clean aligned.\n4. **Impulse-completion ADX-roll + structural reclaim exhaustion MR** — hoàn tất impulse rồi mới fade; cấm RSI extreme mid-waterfall. Evidence: 010 near-miss/executed.\n\nMỗi candidate cần **hypothesis_id mới**, probe offline rẻ, freeze pre-outcome — **cấm** gắn lại ID 007–010.\n\n---\n\n## 5. Khuyến nghị STOP\n\n**`recommend_stop = true`** cho vòng 007–010:\n\n1. HQ 98% khóa toàn bộ authority kinh tế/promote.\n2. Forensics 400 case đã đủ để mô tả failure anatomy — không cần re-run cùng ID.\n3. Post-hoc rescue bị cấm cứng bởi prereg + doctrine.\n4. Việc tiếp theo hợp lệ: **sửa history quality / data engineering**, rồi (nếu Owner muốn) **ID mới** + offline probe — không Model-0 “vá” 007–010.\n\n---\n\n## 6. Hạn chế\n\n- History quality 98% → diagnostic only.\n- Cost provenance unverified; news guard off → promotion blocked dù HQ đạt.\n- Offline indicators ≠ MT5 parity.\n- Casebook stratified / full-pop / near-miss — không phải population effect-size đầy đủ cho mọi nhãn mechanism.\n- 008 n=80 và 010 n=2: khoảng tin cậy hẹp.\n- TIME_EXIT partial R là quan sát geometry; **không** cấp quyền kéo timeout/BE hậu nghiệm.\n",
+    "limitations": [
+      "History quality 98% < 99% on all four runs → entire campaign DIAGNOSTIC ONLY; no promotion, live, or economic-kill authority.",
+      "Unverified/missing cost provenance and InpRequireNewsGuard=false remain independent promotion blockers even if HQ were fixed.",
+      "Offline recomputed indicators on charts are visualization/near-miss ranking only — not MT5 CopyBuffer/tester parity.",
+      "Mechanism label counts are non-exclusive chunk aggregations; not population base rates.",
+      "HYP-008 n=80 and HYP-010 n=2 limit economic inference; 010 evidence is primarily near-miss anatomy.",
+      "Cadence uses elapsed calendar weeks over requested window 2018-01-01→2026-07-22 (~446.3 weeks); diagnostic only under invalid HQ.",
+      "TIME_EXIT under-harvest observations must not be converted into post-hoc hold/BE/trail rescue of 007–010.",
+      "No web sources; synthesis uses only local validated_results, synthesis_input, campaign_metrics, lifecycle_reconciliation, casebook/selection manifests, prereg, and design bindings."
+    ]
+  }
+}

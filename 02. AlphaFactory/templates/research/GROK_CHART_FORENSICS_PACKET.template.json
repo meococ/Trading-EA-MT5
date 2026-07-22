@@ -1,0 +1,173 @@
+{
+  "schema_version": "alphafactory_grok_chart_forensics_packet.v1",
+  "created_at_utc": "REPLACE_WITH_UTC_TIMESTAMP",
+  "hypothesis_id": "REPLACE_WITH_HYPOTHESIS_ID",
+  "ea_name": "EA_REPLACE_ME",
+  "run_id": "REPLACE_WITH_RUN_ID",
+  "authority": "ADVISORY_FORENSICS_ONLY",
+  "validity_boundary": "REPLACE_WITH_RUN_VALIDITY_VERDICT",
+  "bindings": {
+    "frozen_plan": {
+      "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH",
+      "sha256": "REPLACE_WITH_64_HEX"
+    },
+    "source_snapshot": {
+      "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH",
+      "sha256": "REPLACE_WITH_64_HEX"
+    },
+    "run_manifest": {
+      "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH",
+      "sha256": "REPLACE_WITH_64_HEX"
+    },
+    "report": {
+      "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH",
+      "sha256": "REPLACE_WITH_64_HEX"
+    },
+    "lifecycle": {
+      "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH",
+      "sha256": "REPLACE_WITH_64_HEX"
+    },
+    "run_meta": {
+      "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH",
+      "sha256": "REPLACE_WITH_64_HEX"
+    },
+    "decision_bars": {
+      "path": "REPLACE_WITH_D_SIDE_DATA_PATH",
+      "sha256": "REPLACE_WITH_64_HEX"
+    },
+    "indicator_capture": {
+      "path": "REPLACE_WITH_DECISION_TIME_TELEMETRY_OR_PARITY_EXPORT",
+      "sha256": "REPLACE_WITH_64_HEX",
+      "provenance": "mt5_decision_telemetry|parity_proven_mt5_export|diagnostic_recompute"
+    }
+  },
+  "sampling_contract": {
+    "frozen_before_chart_view": true,
+    "seed": 0,
+    "population_definition": "REPLACE_WITH_POSITION_TRUTH_TABLE_RULE",
+    "population_positions": 0,
+    "strata": [
+      "random_population",
+      "winner_tail_and_median",
+      "loser_tail_and_median",
+      "matched_winner_loser",
+      "telemetry_or_fidelity_anomaly",
+      "rejected_candidate_when_applicable"
+    ],
+    "match_fields": [
+      "direction",
+      "session",
+      "volatility_or_risk_bucket",
+      "nearby_date"
+    ],
+    "worker_assignment": "disjoint|inter_rater_overlap",
+    "worker_a_cases": 0,
+    "worker_b_cases": 0,
+    "large_case_profile": "optional_2_workers_x_100_when_population_supports",
+    "outcome_based_manual_selection_forbidden": true
+  },
+  "chart_contract": {
+    "primary_timeframe": "REPLACE_WITH_TF",
+    "context_timeframes": [
+      "REPLACE_WITH_CONTEXT_TF_1",
+      "REPLACE_WITH_CONTEXT_TF_2"
+    ],
+    "time_axes": [
+      "broker_server_time",
+      "utc"
+    ],
+    "decision_asof": {
+      "required": true,
+      "closed_bars_only": true,
+      "ends_at_entry_decision": true,
+      "outcome_hidden": true,
+      "net_r_hidden": true,
+      "entry_candle_centered": true
+    },
+    "anatomy": {
+      "required": true,
+      "entry_visible": true,
+      "initial_sl_visible": true,
+      "tp_visible": true,
+      "actual_exit_visible": true,
+      "mae_mfe_hold_visible": true,
+      "post_entry_region_labeled": true
+    },
+    "human_combined_view": {
+      "optional": true,
+      "cannot_support_outcome_blind_entry_claim": true
+    },
+    "active_indicator_contract": {
+      "all_decision_indicators_visible": true,
+      "exact_shift_values_visible": true,
+      "thresholds_visible": true,
+      "gate_pass_fail_visible": true,
+      "indicator_source": "mt5_decision_telemetry|parity_proven_mt5_export|diagnostic_recompute",
+      "nonparity_label_required_for_diagnostic_recompute": true
+    },
+    "execution_context": {
+      "spread_at_entry_visible": true,
+      "slippage_and_cost_visible_when_available": true,
+      "risk_points_and_account_risk_visible": true,
+      "session_and_regime_visible": true
+    },
+    "rendering": {
+      "canonical_high_resolution_png": true,
+      "model_review_copy_optional": true,
+      "contact_sheet_cannot_replace_case_chart": true,
+      "renderer_version_bound": true,
+      "per_image_sha256_bound": true
+    }
+  },
+  "team_roles": {
+    "parent_lead_quant": "freeze sample, validate artifacts, reconcile population/source, integrate contradictions, own final verdict",
+    "grok_worker_a": "signal timing, price location, multi-timeframe context and active-indicator confluence",
+    "grok_worker_b": "adversarial path, risk/exit/execution anatomy and alternative explanations",
+    "mql5_fidelity_reviewer": "map findings to exact active source functions, modes and decision-time buffers",
+    "risk_execution_reviewer": "cost, stop/target geometry, sizing, MAE/MFE, spread/slippage and tail risk",
+    "qc_verifier": "prove exact case/image coverage, hashes, unique sampling and response quality",
+    "role_note": "These are logical hats; do not spawn a heavy roster when one bounded reviewer or the parent can cover a role."
+  },
+  "grok_runner_contract": {
+    "request_root": ".context/<task>/",
+    "request_artifact": "grok-request.json",
+    "dry_run_before_actual": true,
+    "cases_per_job_default": 5,
+    "global_backend_concurrency": 1,
+    "reasoning_effort": "high",
+    "no_subagents": true,
+    "web_search_disabled": true,
+    "timeout_seconds": 600,
+    "one_backend_job_per_request_artifact": true,
+    "fresh_artifact_for_retry": true,
+    "schema_first_when_stable": true,
+    "plain_text_fallback_after_schema_cancellation": true
+  },
+  "response_acceptance": {
+    "runner_success": true,
+    "response_useful": true,
+    "schema_pass_when_requested": true,
+    "exact_case_ids": true,
+    "exact_position_ids": true,
+    "image_opened_true_per_case": true,
+    "unique_union_matches_frozen_manifest": true,
+    "cancelled_or_bootstrap_output_counts_as_zero": true,
+    "parent_lifecycle_and_source_qc": true
+  },
+  "output_contract": {
+    "evidence_labels": [
+      "OBSERVED",
+      "STRONG_INFERENCE",
+      "HYPOTHESIS",
+      "UNKNOWN"
+    ],
+    "separate_exact_metrics_from_nonexclusive_text_tags": true,
+    "compare_winners_and_matched_losers": true,
+    "state_invalidity_and_unknowns": true,
+    "raw_responses_remain_in_context": true,
+    "compact_integrated_readout_under_research_evidence": true,
+    "direct_ea_patch_authorized": false,
+    "new_hypotheses_max": 3,
+    "new_hypotheses_require_fresh_preregistration": true
+  }
+}

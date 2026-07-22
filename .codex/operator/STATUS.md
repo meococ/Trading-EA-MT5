@@ -1,5 +1,23 @@
 # Workspace GOAL Recovery Status
 
+- Owner-directed XAU transfer `HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006`
+  is parked `INVALID_ENGINEERING_RUN`: its exact one-pair Model-0 execution
+  returned 98% history quality below the frozen 99% gate. Diagnostic-only
+  challenger `20260721_190051` was N=5,078 / PF 0.7994 / -$4,483.77 /
+  DD 4.5525%, with eight of nine years negative, WFA 1/5, robustness 1/7 and
+  equity audit FAIL. Lifecycle and non-repaint checks pass, but valid economic
+  runs remain zero. No third run or rescue; the workspace GOAL remains UNMET.
+
+- Owner-directed MZMS full-history diagnostic reached terminal
+  `KILL_DIAGNOSTIC_FULL_HISTORY_CONFIRMS_NO_EDGE` on HYP-005. The matched
+  EURUSD M5 Model-0 pair covered 2018-01-01--2026-07-21 at 99% history.
+  Control: N=8,979, PF 0.8126, -$7,942.38, DD 7.9990%. Challenger: N=4,678,
+  PF 0.8253, -$4,363.87, DD 4.4428%, 10.485/week; all nine calendar years
+  lose, WFA 1/5 OOS windows profitable, robustness 1/7, equity audit FAIL.
+  HYP-003 remains terminal and all rerun/rescue/live routes stay closed.
+  Workspace GOAL remains ACTIVE / UNMET; this terminal diagnostic is not
+  project-goal completion.
+
 - Workspace GOAL: `ACTIVE / UNMET`. A completed KLR implementation cycle is
   terminal failure evidence, not completion of `01. GOAL/GOAL.md`.
 - Latest experiment: HYP-017 Human Context natural policy is terminal

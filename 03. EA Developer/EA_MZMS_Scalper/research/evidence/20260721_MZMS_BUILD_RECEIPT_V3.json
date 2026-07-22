@@ -1,0 +1,72 @@
+{
+  "schema_version": "alphafactory_build_receipt.v1",
+  "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-003",
+  "ea_name": "EA_MZMS_Scalper",
+  "generated_at_utc": "2026-07-21T09:20:31Z",
+  "status": "PASS_BUILD_COMPILE_NONREPAINT_CAUSAL_SIMULATOR",
+  "promotion_eligible": false,
+  "model0_authorized": false,
+  "bindings": {
+    "plan": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-003_PROBE_PLAN_V3.md",
+      "sha256": "68D75BEA0C8D2A457F4DF7B47D9D70DAC58FE0824895FD74CD3F8358AF24FBB6"
+    },
+    "logic_matrix": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/LOGIC_TO_CODE_MATRIX.md",
+      "sha256": "DD93DD47F7B10AFFD3CFAA5C357D6F4AEA8D5FD3E225A980E215BADF14D44E89"
+    },
+    "capability": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "1B4E7D3313E0DC3C90B7AD3FE1607B215C7FD2A04DA4315B395707AFB6BE8873"
+    },
+    "source": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/EA_MZMS_Scalper.mq5",
+      "sha256": "D5BB6B81FB347D761613C442D5EFFD8C22A862E93C050CC7D81BF55E448FE6E7"
+    },
+    "binary": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/EA_MZMS_Scalper.ex5",
+      "bytes": 57306,
+      "sha256": "2CC99BF26DE6B8DFCB5AF33EC793D5ADC71D001B62C1A87EB3B304A871120921"
+    },
+    "compile_log": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/EA_MZMS_Scalper.log",
+      "sha256": "D142BA2512DFA23D4E15D6C72F23C3506B0B34CC6F722D2F5E1CDB6390EB88C6",
+      "errors": 0,
+      "warnings": 0
+    },
+    "probe": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/mzms_offline_probe.py",
+      "sha256": "C03D5F844CDA074B74A52DB7482F6D80C393F27ED61E7CA56AB70DDFA3DDEA7A"
+    },
+    "nonrepaint_audit": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/evidence/20260721_NONREPAINT_AUDIT_V3/nonrepaint_audit.json",
+      "sha256": "56B778C1B64B2D236DE056BB560FC430A511329251468C72368F435DBD32C2D2",
+      "status": "PASS",
+      "findings": 0,
+      "allowed_new_bar_gates": 1
+    },
+    "tests": [
+      {
+        "path": "03. EA Developer/EA_MZMS_Scalper/tests/test_mzms_contract.py",
+        "sha256": "0F8487EB09D9216C927D38AA1B41E425A01E6E21F0C15952B3A5BEDBF187CC68"
+      },
+      {
+        "path": "03. EA Developer/EA_MZMS_Scalper/tests/test_mzms_probe.py",
+        "sha256": "841C78417183F4E3ADE3261D0107ED7993F7EB3F9C8703C1CB715CFE8864942A"
+      }
+    ]
+  },
+  "verification": {
+    "package_tests_passed": 17,
+    "package_tests_failed": 0,
+    "causal_order_tests_passed": 3,
+    "compile_errors": 0,
+    "compile_warnings": 0,
+    "nonrepaint_manifest_sha256": "7C717701803DD508E5BC13AE352E4E891573D1DB54BFBA26F9EABAC116ED0F6C"
+  },
+  "limitations": [
+    "V3 changes simulator causality only; strategy parameters are unchanged.",
+    "Build proof is not economic edge proof.",
+    "Break-even remains default-off and Model-0/live are unauthorized."
+  ]
+}

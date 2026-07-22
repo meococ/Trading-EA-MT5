@@ -1,0 +1,183 @@
+{
+  "schema_version": "alphafactory_ea_delivery_packet.v1",
+  "created_at_utc": "2026-07-21T21:45:49Z",
+  "hypothesis_id": "HYP-MZMS-XAU-M5-008",
+  "ea_name": "EA_MZMS_Scalper",
+  "delivery_class": "economic_run",
+  "completion_claim": true,
+  "verdict": "PARKED",
+  "bindings": [
+    {
+      "role": "preregistration",
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/HYP-MZMS-XAU-M5-007-010_FROZEN_PREREG.md",
+      "bytes": 6955,
+      "sha256": "ADF33F53F9976FCD12DFA2C78D42F9EBB5D9F09CE1EC5937F00332C4043748F9"
+    },
+    {
+      "role": "logic_matrix",
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/LOGIC_TO_CODE_MATRIX.md",
+      "bytes": 3941,
+      "sha256": "ABE83CB9CA43174D99B325EC7D72E15C7BD443FF2D722625D76F7396887045F5"
+    },
+    {
+      "role": "source",
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/source_snapshots/EA_MZMS_Scalper_HYP-MZMS-XAU-M5-007-010.mq5",
+      "bytes": 52999,
+      "sha256": "96A4E8D0CADB0A8B229C124CEB9C70146266A583EEC3D98BB5C406617C80692A"
+    },
+    {
+      "role": "compiled_binary",
+      "path": "02. AlphaFactory/runs/EA_MZMS_Scalper/20260722_021353/snapshot/build/EA_MZMS_Scalper.ex5",
+      "bytes": 79936,
+      "sha256": "89431435A9019E968DE9930F8CB09316B856CAE1D385920C0F25C8D9652698E0"
+    },
+    {
+      "role": "compile_log",
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/evidence/HYP-MZMS-XAU-M5-007-010_GROK_FORENSICS_400/COMPILE_SUMMARY_UTF8.log",
+      "bytes": 3557,
+      "sha256": "593BEA3F701466852A4CFAED58CCFD20D4621BA5FF83E2A8940C0B43B0926488"
+    },
+    {
+      "role": "test_receipt",
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/evidence/HYP-MZMS-XAU-M5-007-010_GROK_FORENSICS_400/PACKAGE_TEST_RECEIPT.json",
+      "bytes": 2390,
+      "sha256": "D1F4DA69DD5A96EA162264FFB405CEA5CCB708192CF1367DA999E85CD7274E00"
+    },
+    {
+      "role": "nonrepaint_audit",
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/evidence/20260722_NONREPAINT_AUDIT_V8/nonrepaint_audit.json",
+      "bytes": 1356,
+      "sha256": "395C8E67D995C5432F579EE32AC524276494FBB9E08A1F7861B1138448E17C3F"
+    },
+    {
+      "role": "run_manifest",
+      "path": "02. AlphaFactory/runs/EA_MZMS_Scalper/20260722_021353/run_manifest.json",
+      "bytes": 96219,
+      "sha256": "DD51D8B7B3DC0C3C208D640209BC80A02DE19434187DC1F15DDCFFDD692B8A1B"
+    },
+    {
+      "role": "tester_report",
+      "path": "02. AlphaFactory/runs/EA_MZMS_Scalper/20260722_021353/report.html",
+      "bytes": 194614,
+      "sha256": "88D7CA41E272FF16BBFE53D17F382ED3EBAF7BA0F6514FB0136A17FAC079DAC4"
+    },
+    {
+      "role": "lifecycle_trades",
+      "path": "02. AlphaFactory/runs/EA_MZMS_Scalper/20260722_021353/logs/XAUUSD_LifecycleTrades_HYP-MZMS-XAU-M5-008_111305312.csv",
+      "bytes": 23750,
+      "sha256": "A5764662D33B792EDC01843949ED6B28592B1516D1D316F4B10695F1641D952E"
+    },
+    {
+      "role": "run_meta",
+      "path": "02. AlphaFactory/runs/EA_MZMS_Scalper/20260722_021353/logs/XAUUSD_RunMeta_HYP-MZMS-XAU-M5-008_111305312.json",
+      "bytes": 979,
+      "sha256": "08F9692867AB788F0DC899BA76C3EE6748466DB23C1C917B757AA1AB49734B97"
+    },
+    {
+      "role": "log_triage",
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/evidence/HYP-MZMS-XAU-M5-007-010_GROK_FORENSICS_400/HYP-MZMS-XAU-M5-008_LOG_TRIAGE.json",
+      "bytes": 1353,
+      "sha256": "6ACACF46A929AEEA5E7603678C39D57DF6DB8EE7EAEDA6E9451F475CB3FFD5D1"
+    },
+    {
+      "role": "economic_analysis",
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/evidence/HYP-MZMS-XAU-M5-007-010_GROK_FORENSICS_400/HYP-MZMS-XAU-M5-008_ECONOMIC_ANALYSIS.json",
+      "bytes": 7991,
+      "sha256": "F79FAD06187DAF9A0A5523CF08A5DC083C9D20A6DC76966EBB44D3A4A3A29FAD"
+    },
+    {
+      "role": "casebook_manifest",
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/evidence/HYP-MZMS-XAU-M5-007-010_GROK_FORENSICS_400/HYP-MZMS-XAU-M5-008/delivery_charts_anatomy/cases_manifest.json",
+      "bytes": 11113,
+      "sha256": "E41B0BB67680EC2126B6EA65AFD488A75E4641EE397A92ED73A29202B32BD823"
+    },
+    {
+      "role": "decision_casebook_manifest",
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/evidence/HYP-MZMS-XAU-M5-007-010_GROK_FORENSICS_400/HYP-MZMS-XAU-M5-008/delivery_charts_asof/cases_manifest.json",
+      "bytes": 10836,
+      "sha256": "42CC1DB1142DB746871AC38B49AAD4A8997B9BC59D0F27B1D25F8FD2E636FB54"
+    },
+    {
+      "role": "readout",
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/HYP-MZMS-XAU-M5-007-010_GROK_SYNTHESIS_READOUT.md",
+      "bytes": 6759,
+      "sha256": "B89F5A20397D773124DF3570F09D9F58DF61BA0BE0874EECC3320716F4D54DE7"
+    }
+  ],
+  "logic_contract": {
+    "requirements_total": 31,
+    "requirements_mapped_to_code": 31,
+    "requirements_tested": 31,
+    "closed_bar_decisions": true,
+    "unresolved_material_ambiguities": 0
+  },
+  "engineering_contract": {
+    "tests_passed": 60,
+    "tests_failed": 0,
+    "compile_errors": 0,
+    "compile_warnings": 0,
+    "nonrepaint_status": "PASS"
+  },
+  "run_contract": {
+    "run_id": "20260722_021353",
+    "model": 0,
+    "trades": 80,
+    "report_lifecycle_reconciled": true,
+    "lifecycle_open_rows": 80,
+    "lifecycle_final_rows": 80,
+    "unresolved_log_errors": 0
+  },
+  "analysis_contract": {
+    "statuses": {
+      "economics": "COMPLETE",
+      "cost_stress": "COMPLETE",
+      "cadence": "COMPLETE",
+      "time_stability": "COMPLETE",
+      "session_breakdown": "COMPLETE",
+      "direction_breakdown": "COMPLETE",
+      "regime_breakdown": "INSUFFICIENT_EXPLAINED",
+      "execution_quality": "COMPLETE",
+      "funnel": "COMPLETE",
+      "winning_trade_causes": "COMPLETE",
+      "losing_trade_causes": "COMPLETE",
+      "logic_conflicts": "COMPLETE",
+      "limitations": "COMPLETE"
+    },
+    "exceptions": {
+      "regime_breakdown": "No independent frozen regime classifier for this campaign; ADX/ATR chart observations stay diagnostic visualization only under invalid history quality."
+    }
+  },
+  "chart_contract": {
+    "sample_basis": "wins_and_losses",
+    "available_winners": 34,
+    "available_losers": 46,
+    "rendered_winners": 2,
+    "rendered_losers": 2,
+    "available_rejections": 0,
+    "rendered_rejections": 0,
+    "minimum_each": 2,
+    "entry_sl_tp_exit_visible": true,
+    "higher_timeframe_context": true,
+    "higher_timeframe": "H1",
+    "entry_candle_centered": true,
+    "post_entry_bars_visible": true,
+    "outcome_region_labeled": true,
+    "decision_asof_separate": true,
+    "decision_outcome_hidden": true,
+    "decision_net_r_hidden": true,
+    "decision_active_indicators_visible": true,
+    "decision_indicator_provenance": "diagnostic_recompute_nonparity_labeled"
+  },
+  "anti_overfit_contract": {
+    "plan_frozen_pre_outcome": true,
+    "one_change_one_run": true,
+    "posthoc_rule_change_authorized": false
+  },
+  "limitations": [
+    "History quality 98% < frozen 99% gate => PARK_INVALID / DIAGNOSTIC ONLY.",
+    "economic_metrics_authoritative=false; performance_metrics_authorized=false; promotion_eligible=false.",
+    "No post-hoc rescue, retune, threshold/session/year/direction veto, or rerun of this hypothesis ID.",
+    "Delivery completeness does not grant economic promotion authority.",
+    "Forensics campaign sample: executed=80, near_miss=20."
+  ]
+}

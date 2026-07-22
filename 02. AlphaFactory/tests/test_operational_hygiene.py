@@ -192,3 +192,80 @@ def test_runbook_uses_live_alpha_entrypoints() -> None:
     assert '-File "02. AlphaFactory/tools/alpha_json.ps1"' not in runbook
     assert "Run evidence audit" not in runbook
     assert '-File "02. AlphaFactory/alpha.ps1"' in runbook
+
+
+def test_receipt_authority_lookup_is_strictmode_safe_when_missing() -> None:
+    """Missing/null receipt.authority must not crash under StrictMode; collection branch still works.
+
+    Old alpha.ps1 used ``[string]$receiptCheck.Receipt.authority`` which throws under
+    Set-StrictMode -Version Latest when a normal non-collection receipt omits the field.
+    """
+    assert POWERSHELL, "PowerShell is required for AlphaFactory contract tests"
+    alpha = (ALPHA_ROOT / "alpha.ps1").read_text(encoding="utf-8-sig")
+    # Guarded lookup must be present; unguarded direct missing-property access must not.
+    assert "$receiptCheck.Receipt.PSObject.Properties['authority']" in alpha
+    assert "[string]$receiptCheck.Receipt.authority" not in alpha
+    assert "DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE" in alpha
+
+    script = r"""
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
+
+function Get-ReceiptAuthority($Receipt) {
+    $receiptAuthorityProperty = $Receipt.PSObject.Properties['authority']
+    if ($null -ne $receiptAuthorityProperty) { return [string]$receiptAuthorityProperty.Value }
+    return ''
+}
+
+# --- Prove old unsafe direct access fails when property is absent ---
+$missing = '{"schema":"normal_receipt","binding":{}}' | ConvertFrom-Json
+$oldThrew = $false
+try {
+    $null = [string]$missing.authority
+} catch {
+    $oldThrew = $true
+}
+if (-not $oldThrew) {
+    throw 'EXPECTED_STRICTMODE_THROW_ON_MISSING_AUTHORITY'
+}
+
+# --- Guarded lookup: missing => empty => normal analysis path ---
+$authMissing = Get-ReceiptAuthority $missing
+if ($authMissing -ne '') { throw "missing authority should be empty, got '$authMissing'" }
+if ($authMissing -ceq 'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE') {
+    throw 'missing authority must not take collection branch'
+}
+
+# --- Guarded lookup: explicit null => empty => normal analysis ---
+$nullAuth = '{"authority":null}' | ConvertFrom-Json
+$authNull = Get-ReceiptAuthority $nullAuth
+if ($authNull -ne '') { throw "null authority should be empty, got '$authNull'" }
+
+# --- Guarded lookup: collection authority preserved ---
+$collection = '{"authority":"DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE"}' | ConvertFrom-Json
+$authCollection = Get-ReceiptAuthority $collection
+if ($authCollection -cne 'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE') {
+    throw "collection authority not preserved: '$authCollection'"
+}
+
+Write-Output 'PASS'
+"""
+    result = subprocess.run(
+        [
+            POWERSHELL,
+            "-NoProfile",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-Command",
+            script,
+        ],
+        cwd=WORKSPACE,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        check=False,
+    )
+    combined = (result.stdout or "") + (result.stderr or "")
+    assert result.returncode == 0, combined
+    assert "PASS" in result.stdout

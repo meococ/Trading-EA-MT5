@@ -1,0 +1,37 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "FAIL",
+  "hypothesis_id": "HYP-MZMS-XAU-M5-007-010",
+  "run_id": "20260722_MZMS_XAU_FOUR_MECHANISM_V7",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\20260722_NONREPAINT_AUDIT_V7\\audit_manifest.json",
+  "manifest_sha256": "A7A568BC9D4661AEC3CB0C9CEDF30AB229FE984B099F6364C267038D8054CC76",
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\20260722_NONREPAINT_AUDIT_V7\\snapshot\\EA_MZMS_Scalper.mq5",
+      "sha256": "E94D30AB8B0638ED05CE275906852E7206774BA826F1160901BD1BF134CD4A34"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\20260722_NONREPAINT_AUDIT_V7\\snapshot\\NewsCalendar2019_2022.mqh",
+      "sha256": "248D569B981564AC0B179588C4919CD6CC196A9E7B008939A9CCDB3446F4678C"
+    }
+  ],
+  "findings": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\20260722_NONREPAINT_AUDIT_V7\\snapshot\\EA_MZMS_Scalper.mq5",
+      "line": 310,
+      "rule": "unproven_closed_bar_shift",
+      "function": "CopyBuffer",
+      "shift_expression": "shift"
+    }
+  ],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\20260722_NONREPAINT_AUDIT_V7\\snapshot\\EA_MZMS_Scalper.mq5",
+      "line": 1311,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "generated_at_utc": "2026-07-21T18:06:39.668260+00:00"
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": "alphafactory_build_receipt.v1",
+  "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-002",
+  "ea_name": "EA_MZMS_Scalper",
+  "generated_at_utc": "2026-07-21T09:12:27Z",
+  "status": "PASS_BUILD_COMPILE_NONREPAINT",
+  "promotion_eligible": false,
+  "model0_authorized": false,
+  "bindings": {
+    "plan": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-002_PROBE_PLAN_V2.md",
+      "sha256": "CAD185D47EED73A17B6DC956D3C0576EA979801ED2F82C7DD3622EB0308BAA9B"
+    },
+    "logic_matrix": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/LOGIC_TO_CODE_MATRIX.md",
+      "sha256": "DD93DD47F7B10AFFD3CFAA5C357D6F4AEA8D5FD3E225A980E215BADF14D44E89"
+    },
+    "capability": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "1B4E7D3313E0DC3C90B7AD3FE1607B215C7FD2A04DA4315B395707AFB6BE8873"
+    },
+    "source": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/EA_MZMS_Scalper.mq5",
+      "sha256": "F9F4C9EB33CF5B6DFF492210A62B491289F25C9CDBA144285E8AF45EF3FE058E"
+    },
+    "binary": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/EA_MZMS_Scalper.ex5",
+      "bytes": 57536,
+      "sha256": "E7E47C97A2294D1BFC925A78485016A469065F40366F0AC711E4859B38A6A1ED"
+    },
+    "compile_log": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/EA_MZMS_Scalper.log",
+      "sha256": "A8E7CAF1E5D6A5E3B7669F5DEF26494F311D5310EBCD0E9AEA87AFFC003D26F7",
+      "errors": 0,
+      "warnings": 0
+    },
+    "probe": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/mzms_offline_probe.py",
+      "sha256": "95E539879F30902A85AD526113A898DD1379440BFBC505D8E5BA322F9C6FD045"
+    },
+    "nonrepaint_audit": {
+      "path": "03. EA Developer/EA_MZMS_Scalper/research/evidence/20260721_NONREPAINT_AUDIT_V2/nonrepaint_audit.json",
+      "sha256": "13AF6C0D8DF3D7DC9446E2EED9DFA75969ACCD105D49301DF8BD82B23A58CDC2",
+      "status": "PASS",
+      "findings": 0,
+      "allowed_new_bar_gates": 1
+    },
+    "tests": [
+      {
+        "path": "03. EA Developer/EA_MZMS_Scalper/tests/test_mzms_contract.py",
+        "sha256": "8FF856498EE3AA5A8D37360E6A73DE9A211A3ED9A508441DFA1865073D6C5EBE"
+      },
+      {
+        "path": "03. EA Developer/EA_MZMS_Scalper/tests/test_mzms_probe.py",
+        "sha256": "CA8F2DA58DBB3FC7696EE2D698EF31C7D32D3E16D7B292357EEBDFB8B66050FE"
+      }
+    ]
+  },
+  "verification": {
+    "package_tests_passed": 14,
+    "package_tests_failed": 0,
+    "compile_errors": 0,
+    "compile_warnings": 0,
+    "nonrepaint_manifest_sha256": "709D6821453C195CB78A6152EEE5001B743DB904F57EBA00927E7FC79FBD3106"
+  },
+  "limitations": [
+    "This is an administrative V2 identity and corrected news-SHA rebind; strategy logic is unchanged from parked ID 001.",
+    "Build proof is not economic edge proof.",
+    "Break-even remains default-off and Model-0/live are unauthorized."
+  ]
+}

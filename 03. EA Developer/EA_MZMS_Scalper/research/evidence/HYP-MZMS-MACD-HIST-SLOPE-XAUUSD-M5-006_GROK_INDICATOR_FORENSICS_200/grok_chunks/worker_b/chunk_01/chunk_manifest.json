@@ -1,0 +1,487 @@
+{
+  "schema_version": "mzms_grok_indicator_chunk.v1",
+  "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006",
+  "worker": "worker_b",
+  "chunk_id": "chunk_01",
+  "validity_boundary": "INVALID_ENGINEERING_RUN_HISTORY_QUALITY_98_BELOW_99",
+  "source_casebook": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\casebook_manifest.json",
+  "image_count": 25,
+  "images": [
+    {
+      "case_id": "B-001-P1812",
+      "position_id": 1812,
+      "side": "BUY",
+      "image": "B-001-P1812_strategy_indicators.png",
+      "sha256": "46CAC17F39B268D1133E395AFB359ACE940549F3BEA4AB9E7029C06CE6089F1B",
+      "decision_bars": 180,
+      "outcome_bars": 60,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-001-P1812_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-002-P2844",
+      "position_id": 2844,
+      "side": "SELL",
+      "image": "B-002-P2844_strategy_indicators.png",
+      "sha256": "84F44816759D7940032577BE476FAF8FD5C7533B22386BC99D752A2E19306EF5",
+      "decision_bars": 180,
+      "outcome_bars": 69,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-002-P2844_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-003-P7206",
+      "position_id": 7206,
+      "side": "SELL",
+      "image": "B-003-P7206_strategy_indicators.png",
+      "sha256": "BB6AD58034F01586D9E7123CB2C0CB10D56E44A88869FD7CE761AA6247450F7A",
+      "decision_bars": 180,
+      "outcome_bars": 62,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-003-P7206_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-004-P9360",
+      "position_id": 9360,
+      "side": "BUY",
+      "image": "B-004-P9360_strategy_indicators.png",
+      "sha256": "66BB30D050FF07B1A8F1DED60E11E776B54BBEDC9A353BE521D819C54F13BB21",
+      "decision_bars": 180,
+      "outcome_bars": 58,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-004-P9360_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-005-P1530",
+      "position_id": 1530,
+      "side": "SELL",
+      "image": "B-005-P1530_strategy_indicators.png",
+      "sha256": "70325072EC8BEFFC7B09F21A7A0CD0262E1B2782D57919CFD35BD18A032DEED2",
+      "decision_bars": 180,
+      "outcome_bars": 57,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-005-P1530_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-006-P2984",
+      "position_id": 2984,
+      "side": "SELL",
+      "image": "B-006-P2984_strategy_indicators.png",
+      "sha256": "55589B6C4F92D26BD9E1B2DD5D5B8711BC93B168CFDCFE85DD9380C4C9DC3DBE",
+      "decision_bars": 180,
+      "outcome_bars": 62,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-006-P2984_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-007-P2802",
+      "position_id": 2802,
+      "side": "BUY",
+      "image": "B-007-P2802_strategy_indicators.png",
+      "sha256": "7005A51EBFF0EAC69877AEB42D4D7AA413241AD7F079DA5D5781A5DEBB42CAFB",
+      "decision_bars": 180,
+      "outcome_bars": 57,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-007-P2802_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-008-P6724",
+      "position_id": 6724,
+      "side": "SELL",
+      "image": "B-008-P6724_strategy_indicators.png",
+      "sha256": "5B8DA69EB3C673F6B4291C87BEFDEBBF25055427D228317A785BB940F20C5C77",
+      "decision_bars": 180,
+      "outcome_bars": 60,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-008-P6724_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-009-P186",
+      "position_id": 186,
+      "side": "BUY",
+      "image": "B-009-P186_strategy_indicators.png",
+      "sha256": "9FBA7E9E126D46A577496D81F749CAD81208866132DF8CFA6D7167D43005A09B",
+      "decision_bars": 180,
+      "outcome_bars": 58,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-009-P186_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-010-P7466",
+      "position_id": 7466,
+      "side": "BUY",
+      "image": "B-010-P7466_strategy_indicators.png",
+      "sha256": "89125A97C7A266025ACD569BF67FB251DFA66966C2EA645884094D11559D9961",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-010-P7466_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-011-P5014",
+      "position_id": 5014,
+      "side": "SELL",
+      "image": "B-011-P5014_strategy_indicators.png",
+      "sha256": "E0F022BFAD38CDE6F05E8828B58CF80029B03622EDE720E1B9482FE7B82D0D6C",
+      "decision_bars": 180,
+      "outcome_bars": 62,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-011-P5014_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-012-P2424",
+      "position_id": 2424,
+      "side": "BUY",
+      "image": "B-012-P2424_strategy_indicators.png",
+      "sha256": "11A8D0E88D0ED3E06EFD18CAA131EC9A284FAECC0F31A8D65E465BF826F74C88",
+      "decision_bars": 180,
+      "outcome_bars": 61,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-012-P2424_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-013-P2722",
+      "position_id": 2722,
+      "side": "BUY",
+      "image": "B-013-P2722_strategy_indicators.png",
+      "sha256": "9821E5D25CD17C36786A6FA9E6C7CFFA623E2E0CD530DC2F181E0CC21E0E1D3A",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-013-P2722_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-014-P9868",
+      "position_id": 9868,
+      "side": "BUY",
+      "image": "B-014-P9868_strategy_indicators.png",
+      "sha256": "A0CBD122A96E7B3778ADF9A79EA5CB5C026ADBB6AA328C7C2122E26F0366372E",
+      "decision_bars": 180,
+      "outcome_bars": 62,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-014-P9868_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-015-P5100",
+      "position_id": 5100,
+      "side": "SELL",
+      "image": "B-015-P5100_strategy_indicators.png",
+      "sha256": "DD83D14AB22CA0930A8283E70139715B82EE950F40093FB6CCF63A30E1E8D9BD",
+      "decision_bars": 180,
+      "outcome_bars": 68,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-015-P5100_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-016-P2052",
+      "position_id": 2052,
+      "side": "BUY",
+      "image": "B-016-P2052_strategy_indicators.png",
+      "sha256": "4F54571DC090FC17C717FD27D0E88692622040351E08D1C29BDAA481BE355BEB",
+      "decision_bars": 180,
+      "outcome_bars": 60,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-016-P2052_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-017-P3848",
+      "position_id": 3848,
+      "side": "SELL",
+      "image": "B-017-P3848_strategy_indicators.png",
+      "sha256": "FE63787967A9455AA75B16E3C357680C52F0AE3EE2C1764D40168CE4A5009729",
+      "decision_bars": 180,
+      "outcome_bars": 68,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-017-P3848_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-018-P8382",
+      "position_id": 8382,
+      "side": "SELL",
+      "image": "B-018-P8382_strategy_indicators.png",
+      "sha256": "4590B37ACB8A75AF18C6D0F74A93DC67FD1971329C9A1089E01F106784968B51",
+      "decision_bars": 180,
+      "outcome_bars": 58,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-018-P8382_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-019-P3072",
+      "position_id": 3072,
+      "side": "BUY",
+      "image": "B-019-P3072_strategy_indicators.png",
+      "sha256": "C8FBC955B080225657CFCBBF86804DAE25CE37D90B84A119D1D94B79D6456035",
+      "decision_bars": 180,
+      "outcome_bars": 61,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-019-P3072_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-020-P4948",
+      "position_id": 4948,
+      "side": "BUY",
+      "image": "B-020-P4948_strategy_indicators.png",
+      "sha256": "BA58EF9776D289FC84904189B454D46587AE195C45DE004EC89C6D512EDAD5DA",
+      "decision_bars": 180,
+      "outcome_bars": 62,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-020-P4948_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-021-P3748",
+      "position_id": 3748,
+      "side": "BUY",
+      "image": "B-021-P3748_strategy_indicators.png",
+      "sha256": "E0F9DF7D2DA89B0D7C80332A9D9B3E939606989D82A661B2D4DF1946089CBC9B",
+      "decision_bars": 180,
+      "outcome_bars": 62,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": true,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-021-P3748_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-022-P6406",
+      "position_id": 6406,
+      "side": "BUY",
+      "image": "B-022-P6406_strategy_indicators.png",
+      "sha256": "45CABD2AE71BFF10A4333D58516F52192267C1E7132F3696CCAE4A9D5743F220",
+      "decision_bars": 180,
+      "outcome_bars": 59,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-022-P6406_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-023-P7028",
+      "position_id": 7028,
+      "side": "BUY",
+      "image": "B-023-P7028_strategy_indicators.png",
+      "sha256": "4FD2467A4E6CCB78ACD178DB9ED4B1D0FEA3155AB85DB555ADEE334623A3DAFB",
+      "decision_bars": 180,
+      "outcome_bars": 68,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-023-P7028_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-024-P9848",
+      "position_id": 9848,
+      "side": "SELL",
+      "image": "B-024-P9848_strategy_indicators.png",
+      "sha256": "EE6E15B6771928E45CE0A6033545667081D1B6E0D3D424A8AA982621FDCE1513",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-024-P9848_strategy_indicators.png"
+    },
+    {
+      "case_id": "B-025-P7238",
+      "position_id": 7238,
+      "side": "SELL",
+      "image": "B-025-P7238_strategy_indicators.png",
+      "sha256": "FA2EE92C4FD46904A7CF08B58AAC6446CAD220DF9F7B26A4CDBA4339200B385A",
+      "decision_bars": 180,
+      "outcome_bars": 72,
+      "decision_cutoff_enforced": true,
+      "indicators": [
+        "EMA200",
+        "MACD12/26/9",
+        "RSI14",
+        "ADX14",
+        "ATR14"
+      ],
+      "recomputed_signal_parity": false,
+      "absolute_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MZMS_Scalper\\research\\evidence\\HYP-MZMS-MACD-HIST-SLOPE-XAUUSD-M5-006_GROK_INDICATOR_FORENSICS_200\\charts\\worker_b\\B-025-P7238_strategy_indicators.png"
+    }
+  ],
+  "indicator_fidelity_boundary": "Recomputed from post-run M5 bars; not MT5 CopyBuffer/tester parity. Lifecycle and exact source are execution truth."
+}

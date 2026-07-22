@@ -1,0 +1,47 @@
+{
+  "schema_version": "mzms_lifecycle_reconciliation.v1",
+  "hypothesis_id": "HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-005",
+  "generated_at_utc": "2026-07-21T10:10:00Z",
+  "method": "Group lifecycle rows by position_id, sum deal_net across OPEN and CLOSE rows, then aggregate the paired position net by run and exit calendar year.",
+  "control": {
+    "run_id": "20260721_165401",
+    "lifecycle_path": "02. AlphaFactory/runs/EA_MZMS_Scalper/20260721_165401/logs/EURUSD_LifecycleTrades_HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-005_77713281.csv",
+    "lifecycle_sha256": "C21C600B89281C7002132D01D188BA69FA12AA1E01AFE911ED66375E2841096B",
+    "lifecycle_data_rows": 17958,
+    "unique_positions": 8979,
+    "expected_rows_per_position": 2,
+    "row_count_reconciled": true,
+    "report_net_profit_usd": -7942.38,
+    "recomputed_net_profit_usd": -7942.38,
+    "net_profit_delta_usd": 0.0,
+    "profit_factor_from_paired_net": 0.81263451,
+    "net_win_rate_pct": 40.8954
+  },
+  "challenger": {
+    "run_id": "20260721_165515",
+    "lifecycle_path": "02. AlphaFactory/runs/EA_MZMS_Scalper/20260721_165515/logs/EURUSD_LifecycleTrades_HYP-MZMS-MACD-HIST-SLOPE-EURUSD-M5-005_77789484.csv",
+    "lifecycle_sha256": "DD6F716293F12F4E984BA25F1AB391B31844680BE4C323BDA59D5CFAAFC73193",
+    "lifecycle_data_rows": 9356,
+    "unique_positions": 4678,
+    "expected_rows_per_position": 2,
+    "row_count_reconciled": true,
+    "report_net_profit_usd": -4363.87,
+    "recomputed_net_profit_usd": -4363.87,
+    "net_profit_delta_usd": 0.0,
+    "profit_factor_from_paired_net": 0.82528985,
+    "net_win_rate_pct": 40.0385,
+    "by_exit_year": [
+      {"year": 2018, "trades": 519, "net_profit_usd": -520.94, "profit_factor": 0.8183, "net_win_rate_pct": 39.88},
+      {"year": 2019, "trades": 456, "net_profit_usd": -328.42, "profit_factor": 0.8697, "net_win_rate_pct": 41.45},
+      {"year": 2020, "trades": 653, "net_profit_usd": -332.56, "profit_factor": 0.9016, "net_win_rate_pct": 41.04},
+      {"year": 2021, "trades": 655, "net_profit_usd": -995.76, "profit_factor": 0.7265, "net_win_rate_pct": 37.25},
+      {"year": 2022, "trades": 614, "net_profit_usd": -260.77, "profit_factor": 0.9168, "net_win_rate_pct": 41.53},
+      {"year": 2023, "trades": 562, "net_profit_usd": -527.72, "profit_factor": 0.8207, "net_win_rate_pct": 40.93},
+      {"year": 2024, "trades": 443, "net_profit_usd": -370.31, "profit_factor": 0.8416, "net_win_rate_pct": 41.31},
+      {"year": 2025, "trades": 500, "net_profit_usd": -616.79, "profit_factor": 0.7674, "net_win_rate_pct": 38.80},
+      {"year": 2026, "trades": 276, "net_profit_usd": -410.60, "profit_factor": 0.7268, "net_win_rate_pct": 37.32}
+    ]
+  },
+  "status": "PASS_EXACT_POSITION_COUNT_AND_NET_PROFIT_RECONCILIATION",
+  "promotion_note": "This reconciles position counts and realized net P/L only. Slippage samples and independently verified broker cost provenance remain absent, so execution promotion gates stay blocked."
+}

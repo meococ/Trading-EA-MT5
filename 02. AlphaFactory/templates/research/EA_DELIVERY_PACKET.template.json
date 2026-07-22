@@ -21,6 +21,7 @@
     {"role": "log_triage", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
     {"role": "economic_analysis", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
     {"role": "casebook_manifest", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "decision_casebook_manifest", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
     {"role": "readout", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"}
   ],
   "logic_contract": {
@@ -78,7 +79,12 @@
     "higher_timeframe": "H1",
     "entry_candle_centered": true,
     "post_entry_bars_visible": true,
-    "outcome_region_labeled": true
+    "outcome_region_labeled": true,
+    "decision_asof_separate": true,
+    "decision_outcome_hidden": true,
+    "decision_net_r_hidden": true,
+    "decision_active_indicators_visible": true,
+    "decision_indicator_provenance": "mt5_decision_telemetry"
   },
   "anti_overfit_contract": {
     "plan_frozen_pre_outcome": true,

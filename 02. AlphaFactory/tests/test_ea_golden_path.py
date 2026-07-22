@@ -46,6 +46,7 @@ def test_alpha_discovers_canonical_active_packages() -> None:
         "EA_ICTVisualEdge",
         "EA_KLR_Scalper",
         "EA_LSSOBPropScalper",
+        "EA_MZMS_Scalper",
         "EA_UnicornPrecisionScalper",
         "EA_UnicornPrecisionScalperControl",
         "EA_UnicornPrecisionScalperRR15",
