@@ -80,7 +80,7 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 | `03. EA Developer/EA_UnicornPrecisionScalper/` | canonical v1.23 alert-only audit kernel; event-anchored `HYP-UPS-XAU-M5-006` remains terminal KILL; V1.3 zero-trade collection is retained as D-only engineering evidence, not an active gate |
 | `03. EA Developer/EA_UnicornPrecisionScalperControl/` | storage-safe four-bar Unicorn control; canonical `.mq5` retained with terminal Model-0 KILL readout and D-only evidence |
 | `03. EA Developer/EA_UnicornPrecisionScalperRR15/` | post-outcome HYP-008 RR1.5 exact replay terminal `KILL_DIAGNOSTIC`; source/readout retained for audit, never rerun/promotion/live authority |
-| `03. EA Developer/EA_ECRS_CompressionReleaseScalper/` | research-only `PARK_STAGE0_CADENCE_INFEASIBLE_NO_OUTCOME_READ` (2026-07-22): outcome-blind Stage-0 funnel, 0.0383 tpw at report defaults; no `.mq5`, no probe, no Model 0; economic edge untested |
+| `03. EA Developer/EA_ECRS_CompressionReleaseScalper/` | research-only, family closed at Stage-0 (2026-07-23): HYP-001 (report defaults, 0.0383 tpw) + HYP-002 (no-volume-gate, 0.1437 tpw) both `PARK_STAGE0_CADENCE_INFEASIBLE_NO_OUTCOME_READ`; ceiling = core 2.08/wk all-hours × 9% session share; no `.mq5`, no probe, no Model 0; economic edge untested |
 | `03. EA Developer/EA_PO3_AMD_Scalper/` | research-only `KILLED_AT_OFFLINE_PROBE`; no `.mq5` |
 | `03. EA Developer/EA_DRAT_ONNX_ICT_Hybrid/` | packet nghiên cứu đã dừng ở `KILL_AT_OFFLINE_PROBE`; chỉ giữ prereg/readout/evidence, không có source `.mq5` |
 | `03. EA Developer/EA_GoldMacroPulse/` | real-yield external-data hypothesis `KILLED_AT_OFFLINE_PROBE`; no `.mq5`, holdout or Model 0 |

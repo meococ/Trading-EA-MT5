@@ -7,6 +7,25 @@
 > explicitly stating the delta, running a cheap falsification probe and freezing
 > an independent prereg. Invalid data/engineering runs do not prove no edge.
 
+- `HYP-VRAS-EURUSD-M5-008` is `FULL_HORIZON_CONFIRMS_NO_EDGE_BOTH_ARMS_NEGATIVE` (2026-07-22).
+  Tester-only DD-entry-halt bypass plus cash-risk-preserving account scale delivered the complete 2019-2022 Model-0 sample. Control N4841/PF0.7736/gross-price-PF0.8803/meanR-0.1096; ATR-structural challenger N3611/PF0.7722/gross-price-PF0.8870/meanR-0.1184. Every year, session, direction and telemetry volatility/context quartile loses. Nominal TP1.5R realizes only payoff1.0586, requiring WR48.58% versus 42.20%. Challenger initial-stop share is worse and its lower DD is exposure reduction from 3,835 structural rejects. STOP treating the old DD latch as a hidden-edge explanation or rerunning this exact decision surface with alternate R:R, SL/ATR, session/year/direction filters. Weekend gaps expose a separate future engineering requirement, but adding a Friday flatten/wall-clock rule to HYP008 is post-hoc rescue; it needs a new mechanism ID and prereg.
+
+- `HYP-ECRS-EURUSD-M5-002` is `PARK_STAGE0_CADENCE_INFEASIBLE_NO_OUTCOME_READ`
+  (2026-07-23) — **in-session ECRS family frontier CLOSED at Stage-0**. Owner-
+  approved pre-outcome re-scope removed the tick-volume gate entirely; frequency
+  rose only 3.75× to 30 entries/208.71 weeks (0.1437/week) vs the pre-declared
+  ≥1.0/week floor. Structural ceiling: core ER-shift∧compression∧breakout∧bias
+  = 434 events/4yr (2.08/week ALL hours) × 9% London–NY session share ≈
+  0.19/week — no peripheral gate softening changes it, and ER-pair/ATR-ratio/
+  lookback retunes are pre-listed forbidden rescues in both ECRS memos. Median
+  tickvol_ratio of finals 0.846 (19/30 fire on below-baseline volume): the
+  report's volume-surge narrative does not describe its own core. Still zero
+  outcomes read across the whole family — economic edge untested, this is
+  frequency-plane closure only. Remaining legal openings: off-session object
+  22:00–00:00 UTC (adverse rollover-cost prior, contradicts report session
+  thesis) or a genuinely different mechanism under a new family. Readout:
+  `03. EA Developer/EA_ECRS_CompressionReleaseScalper/research/HYP-ECRS-EURUSD-M5-002_STAGE0_READOUT.md`.
+
 - `HYP-ECRS-EURUSD-M5-001` is `PARK_STAGE0_CADENCE_INFEASIBLE_NO_OUTCOME_READ` (2026-07-22).
   Report-default ECRS object (Kaufman ER10 shift 0.28→0.38 + ATR14≤0.70×SMA20
   compression + 12-bar range breakout + 1.7× tick-volume surge + EMA20 bias +
