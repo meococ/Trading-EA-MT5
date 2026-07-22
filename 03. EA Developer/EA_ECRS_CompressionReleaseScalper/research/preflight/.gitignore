@@ -1,0 +1,3 @@
+# Derived rendering parquet (16MB) — rebuildable deterministically from the
+# canonical M1 shelf via stage0_scan.py; SHA recorded in stage0_funnel.json.
+stage0_bars_m5.parquet

@@ -1,8 +1,8 @@
 # 03. EA Developer — Active Shelf
 
-Updated: 2026-07-22 (VRAS seven-gap Model-0 terminal closeout)
+Updated: 2026-07-22 (VRAS HYP-006 stop-geometry terminal closeout)
 
-Active compilable shelf = 13 lane. Mọi package khác đã archive THẬT sang
+Active compilable shelf = 16 lanes. Mọi package khác đã archive THẬT sang
 `00. Old File/EA_Archive/` (2026-07-15) — **không** compile từ đó làm evidence.
 
 | Active package | Path | Notes |
@@ -17,6 +17,9 @@ Active compilable shelf = 13 lane. Mọi package khác đã archive THẬT sang
 | `EA_VRAS_RegimeAdaptiveScalper` | `03. EA Developer/EA_VRAS_RegimeAdaptiveScalper/` | HYP-001 terminal invalid-engineering record: successful `OrderCheck` was compared to `OrderSend` retcodes, producing zero trades; byte-identical source retained, no rerun |
 | `EA_VRAS_RegimeAdaptiveScalperV2` | `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV2/` | HYP-002 terminal OnInit identity-guard failure; no bars/trades/economics, byte-identical source retained |
 | `EA_VRAS_RegimeAdaptiveScalperV3` | `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV3/` | Final exact seven-gap VRAS Model-0 KILL: HYP-003 N=93, PF0.5914, net -$5,243.22, 0.4465/week, DD5.67%, regime flips 6.92/calendar-day; robustness 0/7, WFA insufficient, no rerun/promotion/live authority |
+| `EA_VRAS_PathConfirmedTrend` | `03. EA Developer/EA_VRAS_PathConfirmedTrend/` | HYP-004 fresh-window matched Model-0 KILL: control N=261/PF0.8927, challenger N=252/PF0.8996/net-$2,677.24/cadence1.385/week; one-bar path filter misses all frozen relative gates, delivery PASS verdict KILLED; no rerun/rescue/promotion/live authority |
+| `EA_VRAS_H1StructuralScalper` | `03. EA Developer/EA_VRAS_H1StructuralScalper/` | HYP-005 terminal KILL: authoritative report N322/PF0.74/net-$10,040.86/DD12.71%; prior positive readout invalid from incomplete lifecycle telemetry; retained for audit only, no rerun/rescue/promotion/live authority |
+| `EA_VRAS_VolatilityNormalizedStop` | `03. EA Developer/EA_VRAS_VolatilityNormalizedStop/` | HYP-006 matched Model-0 KILL: control N240/PF0.7881; ATR-structural challenger N158/PF0.7313/net-$6,059.53/meanR-0.1570/DD7.66%. Stop-share worsened 11.05pp; delivery PASS KILLED; no retune/rerun/promotion/live authority |
 | `EA_UnicornPrecisionScalper` | `03. EA Developer/EA_UnicornPrecisionScalper/` | Event-anchored Model-0 `HYP-UPS-XAU-M5-006` remains terminal KILL; canonical v1.24 is tester-only/alert-only hardening and is not live/economic-rerun eligible |
 | `EA_UnicornPrecisionScalperControl` | `03. EA Developer/EA_UnicornPrecisionScalperControl/` | Storage-safe four-closed-bar Model-0 control; compiled/non-repaint PASS, `HYP-UPSC-XAU-M5-002` terminal KILL, not live/run eligible |
 | `EA_UnicornPrecisionScalperRR15` | `03. EA Developer/EA_UnicornPrecisionScalperRR15/` | Exact RR1.5 replay `20260716_144508` terminal `KILL_DIAGNOSTIC`: WR 35.606%, PF 0.697, net -$4,904.75, full-cost PF 0.475; no rerun/promotion/live authority |
@@ -25,6 +28,7 @@ Research-only terminal records (no `.mq5`, not returned by `alpha list`):
 
 | Record | Verdict |
 |---|---|
+| `EA_ECRS_CompressionReleaseScalper/` | `HYP-ECRS-EURUSD-M5-001` `PARK_STAGE0_CADENCE_INFEASIBLE_NO_OUTCOME_READ` (2026-07-22): report-default ECRS object 0.0383 tpw (8 entries/208.71wk, ceiling 0.35 tpw without session/news/spread gates); outcome-blind — no PnL ever computed, economic edge untested; no code/compile/probe/Model 0; successor requires new ID + fresh dedup/prereg |
 | `EA_PO3_AMD_Scalper/` | HYP-001/002/003 `KILLED_AT_OFFLINE_PROBE`; no code/compile/backtest |
 | `EA_DRAT_ONNX_ICT_Hybrid/` | `KILLED_AT_OFFLINE_PROBE`; no code/Model 0 |
 | `EA_GoldMacroPulse/` | HYP-GMP real-yield challenger `KILLED_AT_OFFLINE_PROBE`; no code/holdout/Model 0 |

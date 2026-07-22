@@ -7,6 +7,29 @@
 > explicitly stating the delta, running a cheap falsification probe and freezing
 > an independent prereg. Invalid data/engineering runs do not prove no edge.
 
+- `HYP-ECRS-EURUSD-M5-001` is `PARK_STAGE0_CADENCE_INFEASIBLE_NO_OUTCOME_READ` (2026-07-22).
+  Report-default ECRS object (Kaufman ER10 shift 0.28→0.38 + ATR14≤0.70×SMA20
+  compression + 12-bar range breakout + 1.7× tick-volume surge + EMA20 bias +
+  London–NY session) on EURUSD M5/FivePercent: outcome-blind Stage-0 funnel over
+  2019–2022 found 8 eligible entries in 208.71 elapsed weeks (0.0383/week) —
+  26× below the tpw≥1.0 floor; ceiling with session/news/spread gates removed is
+  73 (0.35/week), still infeasible. Mechanism fires off-session 22:00–00:00 UTC
+  (47/73) where the tick-volume baseline is thinnest (rollover cost trap). NO
+  trade outcome/PnL/excursion was ever computed; frozen probe never ran — this
+  park is frequency-plane only and says NOTHING about economic edge. Deep-research
+  report's "2–5 setups/day" claim falsified ~3 orders of magnitude at its own
+  defaults. STOP re-running this exact object or citing its Stage-0 frequency
+  data in a successor prereg without declaring it. A re-scoped ECRS (e.g. no/weaker
+  volume-surge gate, different release trigger) is a NEW hypothesis: fresh ID,
+  fresh de-dup, own prereg. Readout:
+  `03. EA Developer/EA_ECRS_CompressionReleaseScalper/research/HYP-ECRS-EURUSD-M5-001_STAGE0_READOUT.md`.
+
+- HYP-VRAS-EURUSD-M5-006 is KILL_VOLATILITY_NORMALIZED_STOP_WORSE_THAN_CONTROL (2026-07-22).
+  A fresh frozen Model-0 pair tested control swing SL clamped 4–15 pips versus challenger structural SL floored at ATR14 with >3ATR rejection. Control N240/PF0.7881/net -USD6,033.32/meanR-0.1026/DD8.28%; challenger N158/PF0.7313/net -USD6,059.53/meanR-0.1570/DD7.66%. Challenger PF and mean R worsened; initial-stop share increased 11.05pp. ATR14 reached 2.5 pips, below the control four-pip floor, and 199 wide structures were rejected. Report/lifecycle reconciliation and delivery gate pass with terminal KILLED. STOP alternate ATR floor/multiple, minimum stop, R:R, session/day/year/direction/filter rescue or any rerun under this ID. A future candidate must change the entry information/decision surface, not merely repackage stop geometry.
+
+- `HYP-VRAS-EURUSD-M5-005` is `KILL_CURRENT_HYP005_INVALID_AND_LOSS_MAKING` (2026-07-22).
+  Owner forensic audit proved the initial positive readout (+ $3,964.92) was a fatal telemetry bug: `WriteLifecycleTrade()` was called only in `CheckTimeExits()`, failing to log 207 SL/TP deals (reconciliation gap -$14,005.78). Genuine MT5 Strategy Tester report `20260722_203342` (EURUSD M5 2019-2022, FivePercent Model 0) completed 322 trades / 644 deals over 11.22 weeks before account stop-out / DD guard halted execution on 2019-03-21 ($89,959.14 final balance). MT5 economics: Net Profit -$10,040.86, PF 0.74, WR 44.72% (144W/178L), Expectancy -$31.18/trade, Equity DD 12.71%, Balance DD 12.45%, Cadence 28.69 trades/week (severe whipsaw over-trading). Engineering defects: rolling 48-bar VWAP breached London anchor prereg; DD/daily/max-trade guards lacked execution call-paths; source hash `09D4...` drifted from tested `93DC...`; control receipt referenced HYP-004. STOP retune/rescue/rerun/cost-stress/Monte-Carlo under this ID.
+
 - `HYP-MZMS-XAU-M5-007`..`010` are parked as
   `PARK_INVALID_ENGINEERING_RUN_HISTORY_QUALITY_98_BELOW_99` (2026-07-22).
   Owner-authorized four-mechanism XAUUSD M5 campaign completed one standalone
@@ -1317,9 +1340,34 @@ The earlier de-dup-only veto is historical/superseded, not the final authority.
 
 ---
 
+## VRAS one-bar Trend path confirmation is terminal (2026-07-22)
+
+Evidence: `03. EA Developer/EA_VRAS_PathConfirmedTrend/research/HYP-VRAS-EURUSD-M5-004_READOUT.md`.
+
+- Do not rerun or tune the exact next-closed-M5 confirmation that combines raw
+  extreme break, session VWAP, frozen-anchor AVWAP and closed-M15 VWAP bias.
+  On the fresh 2023-2026 window it retained 639/1,940 raw Trend candidates and
+  opened 224 Trend positions, but full challenger PF was 0.8996 with negative
+  expectancy, only 1.385 trades/week and 252 total trades.
+- The filter improved PF by only 0.0069 and mean realized R by 0.0065R; stop
+  exits fell 8.58 percentage points. These miss the predeclared 0.15 PF,
+  0.10R and 10pp relative gates. DD reduction alone is not independent edge.
+- Do not rescue the ID with another delay, extreme threshold, ADX/dwell,
+  direction, session/hour/day/year veto, stop/target, Range deletion or cost
+  gate. Those are outcome-informed variants after the frozen pair.
+- The control's account-DD guard latched after June 2025. A common-horizon
+  diagnostic still remained negative and missed the relative gates; disabling
+  the guard or shortening the window is not a legal repair.
+- Failure radius is this exact one-bar static continuation confirmation on the
+  HYP-003 signal surface. A later proposal needs a genuinely new causal state
+  or information set and a fresh preregistration; it is not permission to claim
+  all path-dependent VWAP trading is dead.
+
+---
+
 ## D. What is still allowed (narrow)
 
-- Six compilable packages remain under `03. EA Developer/`, but package
+- Active compilable packages remain under `03. EA Developer/`, but package
   presence is not execution authority. `EA_FVGConfluence`, Hybrid, KLR and all
   Unicorn packages are terminal/audit-only.
 - Canonical active ledger: `04. Memory/research/CANDIDATE_REGISTRY.jsonl`.

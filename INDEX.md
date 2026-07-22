@@ -62,7 +62,7 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 | `03. EA Developer/<EA>/research/` | prereg/readout/evidence riêng package active |
 | `00. Old File/EA_Archive/EA_SonicR/research/` | ledger và evidence Sonic lịch sử; archive-only, không chạy |
 
-## Source EA — `03. EA Developer/` (13 compilable lanes + terminal research records)
+## Source EA — `03. EA Developer/` (16 compilable lanes + terminal research records)
 
 | Path | Ghi chú |
 |---|---|
@@ -76,9 +76,11 @@ data_contracts, current_state, session_anchor, ea_rd_tooling_roadmap, DRAFT.
 | `03. EA Developer/EA_VRAS_RegimeAdaptiveScalper/` | HYP-001 byte-identical invalid `OrderCheck` execution record; zero-trade run has no economics and may not be rerun |
 | `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV2/` | HYP-002 byte-identical invalid OnInit identity-guard record; no bars/trades/economic verdict |
 | `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV3/` | final seven-gap VRAS HYP-003 package/readout: Model-0 N=93, PF0.5914, net -$5,243.22, cadence0.4465/week, terminal KILL; audit-only, no rerun/promotion/live authority |
+| `03. EA Developer/EA_VRAS_PathConfirmedTrend/` | HYP-004 one-bar Trend path-confirmation matched pair: control `20260722_155551`, challenger `20260722_155635`; PF0.8996 and all frozen relative gates fail, terminal KILL with delivery evidence; no rerun/rescue/promotion/live authority |
 | `03. EA Developer/EA_UnicornPrecisionScalper/` | canonical v1.23 alert-only audit kernel; event-anchored `HYP-UPS-XAU-M5-006` remains terminal KILL; V1.3 zero-trade collection is retained as D-only engineering evidence, not an active gate |
 | `03. EA Developer/EA_UnicornPrecisionScalperControl/` | storage-safe four-bar Unicorn control; canonical `.mq5` retained with terminal Model-0 KILL readout and D-only evidence |
 | `03. EA Developer/EA_UnicornPrecisionScalperRR15/` | post-outcome HYP-008 RR1.5 exact replay terminal `KILL_DIAGNOSTIC`; source/readout retained for audit, never rerun/promotion/live authority |
+| `03. EA Developer/EA_ECRS_CompressionReleaseScalper/` | research-only `PARK_STAGE0_CADENCE_INFEASIBLE_NO_OUTCOME_READ` (2026-07-22): outcome-blind Stage-0 funnel, 0.0383 tpw at report defaults; no `.mq5`, no probe, no Model 0; economic edge untested |
 | `03. EA Developer/EA_PO3_AMD_Scalper/` | research-only `KILLED_AT_OFFLINE_PROBE`; no `.mq5` |
 | `03. EA Developer/EA_DRAT_ONNX_ICT_Hybrid/` | packet nghiên cứu đã dừng ở `KILL_AT_OFFLINE_PROBE`; chỉ giữ prereg/readout/evidence, không có source `.mq5` |
 | `03. EA Developer/EA_GoldMacroPulse/` | real-yield external-data hypothesis `KILLED_AT_OFFLINE_PROBE`; no `.mq5`, holdout or Model 0 |
