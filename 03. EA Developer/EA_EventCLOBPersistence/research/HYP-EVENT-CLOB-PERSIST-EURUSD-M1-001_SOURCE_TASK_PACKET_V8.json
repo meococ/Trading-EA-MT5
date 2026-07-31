@@ -1,0 +1,47 @@
+{
+  "schema_version": "event_clob_source_task_packet_amendment.v1",
+  "task_id": "EVENT_CLOB_FREE_METADATA_TRANSIENT_RETRY_20260728_V8",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001_SOURCE_TASK_PACKET_V7.json",
+  "supersedes_amendment_sha256": "9D8C118583108ABFEB719E82D805C41643447AD29284677EC6BBFA29B2193BD6",
+  "amendment_reason": "The first V7 free quote failed all-or-nothing after 453 seconds when one metadata.get_billable_size call returned HTTP 504. This is a no-cost transient source-infrastructure error. Add bounded, auditable retries only for free metadata endpoints; never extend retry authority to paid time-series or batch calls.",
+  "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+  "registry_sha256_at_amendment": "795F164DC4096732FD8FABBB5E6CC4DD6089450C568C51112CB44E9AA1142971",
+  "bound_origin_row_sha256": "F120C70E6D8AEB1C7194D599E970721946C32DACFA2EEDA6BAE0C4B4B811FAA3",
+  "bound_latest_row_sha256": "1859C425800FE94327AF4FE34D3D36769E4D3A4E063CE80E5F8814A87592F082",
+  "write_set": [
+    "03. EA Developer/EA_EventCLOBPersistence/research/acquire_event_cme6e_mbp10.py",
+    "03. EA Developer/EA_EventCLOBPersistence/tests/test_event_cme6e_mbp10_acquisition.py",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob/acquisition_plan.json"
+  ],
+  "required_behavior": [
+    "Retry only metadata.get_cost and metadata.get_billable_size for explicitly classified transient HTTP 429, 502, 503, 504, timeout or connection errors.",
+    "Maximum three attempts per endpoint call: one initial attempt plus two retries, with bounded backoff. Permanent/auth/schema errors fail immediately.",
+    "Count and persist every free metadata attempt by method; require at least 630 and at most 1890 attempts for each per-window method, while quote coverage remains exactly 630 unique canonical windows.",
+    "Dataset-range and symbology remain single-attempt unless separately amended. Paid timeseries.get_range and batch methods remain zero during quote and retain no automatic retry under download.",
+    "All-or-nothing plan/receipt persistence remains unchanged."
+  ],
+  "red_first_acceptance_tests": [
+    "A transient 504 on get_billable_size succeeds on retry and receipt counters expose the extra attempt.",
+    "A permanent error fails without retry.",
+    "Three transient failures exhaust the bound and fail without plan/receipt mutation.",
+    "No test path calls or retries timeseries.get_range.",
+    "All prior 29 tests remain green and the offline plan is regenerated with final tool SHA and deterministic plan ID."
+  ],
+  "authority_unchanged": {
+    "free_metadata_quote_authorized": true,
+    "paid_timeseries_authorized": false,
+    "ea_source_build_authorized": false,
+    "economic_outcome_read_authorized": false,
+    "model0_authorized": false,
+    "live_or_paper_authorized": false,
+    "git_commit_or_push_authorized": false
+  },
+  "prohibitions": [
+    "Do not call any remote endpoint while implementing or testing V8.",
+    "Do not add automatic retry to paid time-series or batch operations.",
+    "Do not modify registry, preregistration, event clock, strategy logic, docs, MQL5, MT5 or unrelated files.",
+    "Do not stage, commit, push, create a branch, worktree or clone."
+  ]
+}

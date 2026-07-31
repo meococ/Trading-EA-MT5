@@ -1,0 +1,50 @@
+{
+  "schema_version": "alphafactory_build_receipt.v1",
+  "hypothesis_id": "HYP-SCC-MT5-REPLICATION-EURUSD-M5-002",
+  "generated_at_utc": "2026-07-25T13:40:10Z",
+  "prereg": {
+    "path": "03. EA Developer/EA_SweepCascadeContinuation/research/HYP-SCC-MT5-REPLICATION-EURUSD-M5-002_FROZEN_PREREG.md",
+    "sha256": "12B13C309B60BDA6AD4BC88A11F7389DB3E8EE18E9493CC2950DDB95AED53796"
+  },
+  "logic_matrix": {
+    "path": "03. EA Developer/EA_SweepCascadeContinuation/research/LOGIC_TO_CODE_MATRIX.md",
+    "sha256": "831D7CEA70851B9BFB53FFE92FE5751F35A217776B0036544855F3DA2004E3CD"
+  },
+  "source": {
+    "path": "03. EA Developer/EA_SweepCascadeContinuation/EA_SweepCascadeContinuation.mq5",
+    "sha256": "6DFEDEF3DC3FE45B8DE897DBBD02C20A98AE495D140968799ACAC0F9C75FD1CF"
+  },
+  "ex5": {
+    "path": "03. EA Developer/EA_SweepCascadeContinuation/EA_SweepCascadeContinuation.ex5",
+    "sha256": "5B10C12FA3313127B0F8BACD347C2850DD8314C5026707F622416EDDFCE46EB3",
+    "bytes": 36448
+  },
+  "compile": {
+    "path": "03. EA Developer/EA_SweepCascadeContinuation/EA_SweepCascadeContinuation.log",
+    "sha256": "B49B432E387B930DFCFE99897A8CD3247576DF6182E3E4FFDCC9ACD80166B41E",
+    "errors": 0,
+    "warnings": 0
+  },
+  "tests": {
+    "command": "python -X utf8 -m pytest -p no:cacheprovider \"03. EA Developer\\EA_SweepCascadeContinuation\\tests\" -q",
+    "source_sha256": "9A179654EE12322F50E1C659800DE7E937F717AA01BFC12169D09909455BB0A9",
+    "passed": 13,
+    "failed": 0
+  },
+  "capability_contract": {
+    "path": "03. EA Developer/EA_SweepCascadeContinuation/ALPHAFACTORY_EA_CONTRACT.json",
+    "sha256": "891E6636F45B263F6163F5E703C9E87B912846B114CE25D5E45517871FD28057"
+  },
+  "nonrepaint": {
+    "status": "PASS",
+    "manifest_path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-002_BUILD/nonrepaint_manifest_v2.json",
+    "manifest_sha256": "2FCFB2D4BF2E074DA5BF5B336F9D61A5899DF7C8E46FB8BD17A6F9B3BB1547E4",
+    "audit_path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-002_BUILD/nonrepaint_audit_v2.json",
+    "audit_sha256": "57CD904E0DAB4EB21CA93D650E07B4BED62AFA78296C596CA04527891F8F18E6",
+    "findings": 0,
+    "allowed_new_bar_gates": 1
+  },
+  "failed_audit_preserved": true,
+  "model0_runs": 0,
+  "promotion_eligible": false
+}

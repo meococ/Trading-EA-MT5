@@ -222,53 +222,51 @@ def run_monte_carlo(report: str, out_dir: str) -> Dict[str, Any]:
 
 
 
-def run_walk_forward(report: str, out_dir: str) -> Dict[str, Any]:
+def run_walk_forward(report: str, out_dir: str, variant_manifest: str = "") -> Dict[str, Any]:
     """Gate 5: Walk-Forward Analysis (5 windows, 70/30 split)."""
+    args = ["--report", report, "--windows", "5", "--out", out_dir]
+    if variant_manifest:
+        args.extend(["--variant-manifest", variant_manifest])
     return _run_python(
         "walk_forward.py",
-        ["--report", report, "--windows", "5", "--out", out_dir],
+        args,
         "walk_forward",
     )
 
 
 
-def run_robustness(report: str, out_dir: str) -> Dict[str, Any]:
+def run_robustness(report: str, out_dir: str, variant_manifest: str = "") -> Dict[str, Any]:
     """Gate 6: Robustness suite (7 tests)."""
+    args = ["--report", report, "--test", "all", "--seed", str(DEFAULT_RANDOM_SEED), "--out", out_dir]
+    if variant_manifest:
+        args.extend(["--variant-manifest", variant_manifest])
     return _run_python(
         "robustness_suite.py",
-        ["--report", report, "--test", "all", "--seed", str(DEFAULT_RANDOM_SEED), "--out", out_dir],
+        args,
         "robustness_suite",
     )
 
 
-def run_cscv_pbo(variants_dir: str, out_dir: str) -> Dict[str, Any]:
+def run_cscv_pbo(variants_dir: str, out_dir: str, variant_manifest: str = "") -> Dict[str, Any]:
     """Generate a deterministic PBO artifact from the full supplied variant family."""
+    args = ["--variants-dir", variants_dir, "--seed", str(DEFAULT_RANDOM_SEED), "--out", out_dir]
+    if variant_manifest:
+        args.extend(["--variant-manifest", variant_manifest])
     return _run_python(
         "cscv_pbo.py",
-        [
-            "--variants-dir",
-            variants_dir,
-            "--seed",
-            str(DEFAULT_RANDOM_SEED),
-            "--out",
-            out_dir,
-        ],
+        args,
         "cscv_pbo",
     )
 
 
-def run_white_reality_check(variants_dir: str, out_dir: str) -> Dict[str, Any]:
+def run_white_reality_check(variants_dir: str, out_dir: str, variant_manifest: str = "") -> Dict[str, Any]:
     """Generate a deterministic White Reality Check artifact for supplied variants."""
+    args = ["--variants-dir", variants_dir, "--seed", str(DEFAULT_RANDOM_SEED), "--out", out_dir]
+    if variant_manifest:
+        args.extend(["--variant-manifest", variant_manifest])
     return _run_python(
         "white_reality_check.py",
-        [
-            "--variants-dir",
-            variants_dir,
-            "--seed",
-            str(DEFAULT_RANDOM_SEED),
-            "--out",
-            out_dir,
-        ],
+        args,
         "white_reality_check",
     )
 
@@ -2289,6 +2287,9 @@ def _variant_artifact_binding(
     report_path: Path,
     manifest: Dict[str, Any],
 ) -> Tuple[bool, Dict[str, Any]]:
+    variant_manifest_path = variants_dir / "variant_manifest.json"
+    current_variant_manifest_sha = _file_sha256(variant_manifest_path)
+    declared_variant_manifest_sha = str(payload.get("variant_manifest_sha256") or "").strip()
     actual_variants_sha = _directory_tree_sha256(variants_dir)
     declared_variants_sha = str(payload.get("variants_sha256") or "").strip()
     actual_report_sha = _file_sha256(report_path)
@@ -2299,6 +2300,10 @@ def _variant_artifact_binding(
     artifact_hypothesis_id = str(payload.get("hypothesis_id") or "").strip()
     manifest_run_id = str(manifest.get("run_id") or "").strip()
     manifest_hypothesis_id = str(manifest.get("hypothesis_id") or "").strip()
+    artifact_source_sha = str(payload.get("source_sha256") or "").strip()
+    manifest_source_sha = str(
+        _first_value(manifest, ("source_sha256", "main_file_sha256", "canonical_source_sha256")) or ""
+    ).strip()
     binding = {
         "schema_version": payload.get("schema_version"),
         "schema_match": payload.get("schema_version") == expected_schema,
@@ -2311,6 +2316,14 @@ def _variant_artifact_binding(
             actual_variants_sha
             and _is_sha256(declared_variants_sha)
             and declared_variants_sha.lower() == actual_variants_sha.lower()
+        ),
+        "variant_manifest_match": _same_resolved_path(
+            payload.get("variant_manifest"), variant_manifest_path
+        ),
+        "variant_manifest_sha256_match": bool(
+            current_variant_manifest_sha
+            and _is_sha256(declared_variant_manifest_sha)
+            and declared_variant_manifest_sha.lower() == current_variant_manifest_sha.lower()
         ),
         "report_match": _same_resolved_path(payload.get("report"), report_path),
         "report_sha256_match": bool(
@@ -2326,6 +2339,11 @@ def _variant_artifact_binding(
             and manifest_hypothesis_id
             and artifact_hypothesis_id == manifest_hypothesis_id
         ),
+        "source_sha256_match": bool(
+            _is_sha256(artifact_source_sha)
+            and _is_sha256(manifest_source_sha)
+            and artifact_source_sha.lower() == manifest_source_sha.lower()
+        ),
         "run_identity_sha256_match": bool(
             _is_sha256(declared_run_identity)
             and declared_run_identity.lower() == actual_run_identity.lower()
@@ -2336,10 +2354,13 @@ def _variant_artifact_binding(
             binding["schema_match"],
             binding["variants_dir_match"],
             binding["variants_sha256_match"],
+            binding["variant_manifest_match"],
+            binding["variant_manifest_sha256_match"],
             binding["report_match"],
             binding["report_sha256_match"],
             binding["run_id_match"],
             binding["hypothesis_id_match"],
+            binding["source_sha256_match"],
             binding["run_identity_sha256_match"],
         )
     ), binding
@@ -2360,6 +2381,35 @@ def _bind_variant_artifact(
     variants_sha = _directory_tree_sha256(variants_dir)
     if not report_sha or not variants_sha:
         raise ValueError("Report or variant-family evidence cannot be hashed")
+    expected_promotion_kinds = {
+        "alphafactory_optimization_wfa.v1": "optimization_aware_walk_forward",
+        "alphafactory_robustness_promotion.v1": "matched_ea_rerun_parameter_sensitivity",
+        "alphafactory_cscv_pbo.v1": "preregistered_aligned_variant_matrix_cscv",
+        "alphafactory_white_reality_check.v1": "preregistered_aligned_white_reality_check",
+    }
+    variant_manifest_path = variants_dir / "variant_manifest.json"
+    variant_manifest_sha = _file_sha256(variant_manifest_path)
+    declared_manifest_sha = str(payload.get("variant_manifest_sha256") or "").strip()
+    expected_kind = expected_promotion_kinds.get(schema_version)
+    manifest_source_sha = str(
+        _first_value(manifest, ("source_sha256", "main_file_sha256", "canonical_source_sha256")) or ""
+    ).strip()
+    producer_is_promotion_grade = all(
+        (
+            payload.get("promotion_eligible") is True,
+            payload.get("analysis_kind") == expected_kind,
+            variant_manifest_path.is_file(),
+            bool(variant_manifest_sha),
+            _same_resolved_path(payload.get("variant_manifest"), variant_manifest_path),
+            _is_sha256(declared_manifest_sha),
+            declared_manifest_sha.lower() == str(variant_manifest_sha).lower(),
+            str(payload.get("hypothesis_id") or "").strip()
+            == str(manifest.get("hypothesis_id") or "").strip(),
+            _is_sha256(str(payload.get("source_sha256") or "").strip()),
+            str(payload.get("source_sha256") or "").strip().lower()
+            == manifest_source_sha.lower(),
+        )
+    )
     payload.update(
         {
             "schema_version": schema_version,
@@ -2370,18 +2420,19 @@ def _bind_variant_artifact(
             "run_id": str(manifest.get("run_id") or "").strip(),
             "hypothesis_id": str(manifest.get("hypothesis_id") or "").strip(),
             "run_identity_sha256": _run_identity_sha256(manifest, report_sha),
-            "analysis_kind": (
+            "analysis_kind": payload.get("analysis_kind") if producer_is_promotion_grade else (
                 "posthoc_trade_csv_cscv_proxy"
                 if schema_version == "alphafactory_cscv_pbo.v1"
                 else "independent_variant_resampling_proxy"
             ),
-            "promotion_eligible": False,
-            "limitation": (
-                "Diagnostic only: the current producer does not prove a preregistered, aligned "
-                "variant matrix with selection-process provenance."
-            ),
+            "promotion_eligible": producer_is_promotion_grade,
         }
     )
+    if not producer_is_promotion_grade:
+        payload["limitation"] = (
+            "Diagnostic only: producer output did not prove a preregistered, hash-bound, "
+            "aligned full variant family tied to the current run source."
+        )
     _write_json(artifact_path, payload)
 
 
@@ -2608,12 +2659,12 @@ def evaluate_validation_gates(
     gates["mt5_real_ticks_model"] = _gate(
         "PASS" if manifest_model == 0 else "BLOCKED",
         actual=manifest_model,
-        required="run_manifest.model == 0 (MT5 real ticks)",
+        required="run_manifest.model == 0 (every tick generated from M1 bars; not broker real ticks)",
         artifact=str(manifest_path),
         reason=(
             ""
             if manifest_model == 0
-            else "Challenger and confirmed validation require Model 0; faster tester models cannot promote."
+            else "Challenger and confirmed validation require Model 0 under the current contract; faster tester models cannot promote. Model 4 is a separate broker-real-tick fidelity contract."
         ),
     )
     nonrepaint_evidence = _nonrepaint_audit_evidence(
@@ -2755,6 +2806,18 @@ def evaluate_validation_gates(
         "analysis_kind": robustness.get("analysis_kind"),
         "promotion_eligible": robustness.get("promotion_eligible"),
     }
+    robustness_bound, robustness_binding = (
+        _variant_artifact_binding(
+            robustness,
+            expected_schema="alphafactory_robustness_promotion.v1",
+            variants_dir=variants_path,
+            report_path=report_path,
+            manifest=manifest,
+        )
+        if normalized_stage == "confirmed" and variants_path is not None and robustness
+        else (False, {})
+    )
+    robustness_actual["binding"] = robustness_binding
     if normalized_stage == "confirmed" and (
         robustness.get("analysis_kind") != "matched_ea_rerun_parameter_sensitivity"
         or robustness.get("promotion_eligible") is not True
@@ -2771,6 +2834,17 @@ def evaluate_validation_gates(
                 "The current robustness suite is a realized-P/L diagnostic proxy and cannot support "
                 "confirmed promotion."
             ),
+        )
+    elif normalized_stage == "confirmed" and not robustness_bound:
+        gates["robustness_pass_rate"] = _gate(
+            "BLOCKED",
+            actual=robustness_actual,
+            required=(
+                "fresh hash-bound matched EA reruns over the preregistered full variant family "
+                f"with pass_rate >= {min_robustness}"
+            ),
+            artifact=str(robustness_path),
+            reason="Robustness artifact is not bound to the current variant family and run identity.",
         )
     else:
         gates["robustness_pass_rate"] = _numeric_gate(
@@ -2943,12 +3017,25 @@ def evaluate_validation_gates(
             wfa.get("promotion_eligible") is True
             and wfa_kind == "optimization_aware_walk_forward"
         )
-        wfa_bound, wfa_binding = _wfa_binding(wfa, report_path, manifest)
+        wfa_run_bound, wfa_binding = _wfa_binding(wfa, report_path, manifest)
+        wfa_family_bound, wfa_family_binding = (
+            _variant_artifact_binding(
+                wfa,
+                expected_schema="alphafactory_optimization_wfa.v1",
+                variants_dir=variants_path,
+                report_path=report_path,
+                manifest=manifest,
+            )
+            if variants_path is not None and wfa
+            else (False, {})
+        )
+        wfa_bound = wfa_run_bound and wfa_family_bound
         wfa_actual = {
             "analysis_kind": wfa_kind or None,
             "promotion_eligible": wfa.get("promotion_eligible"),
             "oos_profitable_ratio": wfa_ratio,
             "binding": wfa_binding,
+            "variant_family_binding": wfa_family_binding,
         }
         min_wfa_ratio = gate_thresholds["min_wfa_oos_profitable_ratio"]
         if not wfa:
@@ -3253,20 +3340,48 @@ def run_all_validations(
 
     All Layer 0 and 1 tests are independent — run them all in parallel.
     """
+    normalized_stage = str(stage).strip().lower()
+    promotion_manifest_path = (
+        (Path(variants_dir).resolve() / "variant_manifest.json")
+        if normalized_stage == "confirmed" and variants_dir
+        else None
+    )
+    promotion_manifest = (
+        str(promotion_manifest_path)
+        if promotion_manifest_path is not None and promotion_manifest_path.is_file()
+        else ""
+    )
     tests = [
         ("enhanced_analysis", run_enhanced_analysis),
         ("equity_curve_audit", run_equity_audit),
         ("monte_carlo", run_monte_carlo),
-        ("walk_forward", run_walk_forward),
-        ("robustness_suite", run_robustness),
+        (
+            "walk_forward",
+            lambda current_report, output: run_walk_forward(
+                current_report, output, promotion_manifest
+            ),
+        ),
+        (
+            "robustness_suite",
+            lambda current_report, output: run_robustness(
+                current_report, output, promotion_manifest
+            ),
+        ),
     ]
-    if str(stage).strip().lower() == "confirmed" and variants_dir:
+    if normalized_stage == "confirmed" and variants_dir:
         tests.extend(
             [
-                ("cscv_pbo", lambda _report, output: run_cscv_pbo(variants_dir, output)),
+                (
+                    "cscv_pbo",
+                    lambda _report, output: run_cscv_pbo(
+                        variants_dir, output, promotion_manifest
+                    ),
+                ),
                 (
                     "white_reality_check",
-                    lambda _report, output: run_white_reality_check(variants_dir, output),
+                    lambda _report, output: run_white_reality_check(
+                        variants_dir, output, promotion_manifest
+                    ),
                 ),
             ]
         )
@@ -3301,18 +3416,30 @@ def run_all_validations(
             print(f"  Running {name}...")
             results[name] = fn(report, out_dir)
 
-    if str(stage).strip().lower() == "confirmed" and variants_dir:
+    if normalized_stage == "confirmed" and variants_dir:
         report_path = Path(report).resolve()
         manifest = _load_json(report_path.parent / "run_manifest.json")
         variants_path = Path(variants_dir).resolve()
-        for runner_name, artifact_name, schema_version in (
+        binding_targets = [
             ("cscv_pbo", "cscv_pbo.json", "alphafactory_cscv_pbo.v1"),
             (
                 "white_reality_check",
                 "white_reality_check.json",
                 "alphafactory_white_reality_check.v1",
             ),
-        ):
+        ]
+        if promotion_manifest:
+            binding_targets.extend(
+                [
+                    ("walk_forward", "wfa_results.json", "alphafactory_optimization_wfa.v1"),
+                    (
+                        "robustness_suite",
+                        "robustness_results.json",
+                        "alphafactory_robustness_promotion.v1",
+                    ),
+                ]
+            )
+        for runner_name, artifact_name, schema_version in binding_targets:
             if _invocation_succeeded(results.get(runner_name)):
                 try:
                     _bind_variant_artifact(

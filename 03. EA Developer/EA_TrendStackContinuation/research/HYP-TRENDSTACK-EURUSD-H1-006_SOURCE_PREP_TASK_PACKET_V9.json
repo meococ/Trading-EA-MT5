@@ -1,0 +1,57 @@
+{
+  "schema_version": "trendstack_hyp006_source_prep_task_packet_amendment.v1",
+  "task_id": "TRENDSTACK_HYP006_DYNAMIC_PUBLIC_EXTRA_DATE_RECONCILIATION_20260728_V9",
+  "created_at_utc": "2026-07-28T12:55:00.000Z",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-006",
+  "collection_id": "DATASET-FIVEPERCENT-EURUSD-H1-SPLITVAULT-002",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-006_SOURCE_PREP_TASK_PACKET_V8.json",
+  "supersedes_amendment_sha256": "F46B3ACE52C81A063C88291F9BAC7260043247C9CDD4F29A289827276071D046",
+  "reviewed_input_snapshot": {
+    "h1_custodian_sha256": "C14AC89B4F4E5ED62A69B90F3B1C890F69EA20D1ACD186B7499DCEF0A2CDDF06",
+    "h1_supervisor_sha256": "5F0BF62CE86EA6695B068B37CDCF03E415B1774EDDA2B8C9E4573E0B739F55AF",
+    "design_builder_sha256": "427C10581FEEBBEB3B16256D358678DD9AF673EBA06A6D34161D1D1ED32672BC",
+    "independent_validator_sha256": "0FD23D43EC27BA6504522AD24B922D13739365ECCC066805A15ACA081975E159",
+    "h1_custodian_tests_sha256": "57CD816039EA90F83C2F678C50CD6E2C9B757323AE87D2A360D5BDA5AAECF24F",
+    "h1_supervisor_tests_sha256": "239CAE513A01278C3E261595F11AB2E87752D0816D13FFE04BF653F488926C2C",
+    "design_builder_tests_sha256": "1704049826BF46F30B08667D72DD6D710A3EA649BEDE6CAAA516B7F18A64D22C",
+    "independent_validator_tests_sha256": "0C30250993A4F201DC15B7326D6E90E4C7DCD89843A29F62D5931FCFC1903012",
+    "focused_tests": "69 passed",
+    "v8_review_verdict": "PASS",
+    "clean_dependency_attestation_sha256": "A9FC694873A3C8D205DA617742F641E3ACA6D77FA28B854A30539690514C8A3E",
+    "sentinel": "REVIEWED_RUN_PACKET_SHA256: str | None = None"
+  },
+  "write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/h1_splitvault_002_supervisor.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_h1_splitvault_002_supervisor.py"
+  ],
+  "must_fix": [
+    {
+      "id": "X1-REMOVE-PREOUTCOME-EXTRA-DATE-GUESS",
+      "finding": "The full packet currently requires expected_extra_design_dates even though collection plan V2 freezes that the exact H1 extra-date count is public_design_date_count minus 1297 and must be recorded from post-custody public metadata rather than assumed before the one-shot raw read.",
+      "contract": "Remove expected_extra_design_dates entirely from FULL_PACKET_FIELDS, packet validation, detached authority and source-run authoring surface. After the durable attempt marker and successful generic custody, parse the exact public receipt and public manifest metadata, compute actual_extra_design_dates = public_design_date_count - 1297, require it is a nonnegative integer, reconcile every public DESIGN manifest date exactly once, require all 1297 selected dates map exactly once, and require every remaining public date is classified as unselected with payload-open count zero. Carry the actual count through the narrow capability, attempt evidence and terminal receipt. Never compare it with a predeclared guess."
+    }
+  ],
+  "mandatory_tests": [
+    "A packet containing expected_extra_design_dates is rejected as an extra field; canonical packet without it validates.",
+    "Synthetic custody cases with 0, 3 and many public extra dates derive exact actual counts from public metadata, open each selected shard once and every unselected shard zero times.",
+    "Missing/duplicate selected date, public receipt/manifest count mismatch, negative count, extra manifest duplicate, selected hash drift or any unselected payload read fails after marker and cannot yield READY.",
+    "Attempt marker contains no guessed extra count; terminal/source receipt contains actual_extra_design_dates bound to reconciled public metadata.",
+    "V8 B1/B2, V7 D2, V6 A1/A3 and S2-S6 remain green; clean production-mode synthetic one-shot and dependency attestation remain green.",
+    "All four focused test files pass; other six files remain byte-identical and sentinel finishes exactly None."
+  ],
+  "unchanged": {
+    "v8_task_packet_sha256": "F46B3ACE52C81A063C88291F9BAC7260043247C9CDD4F29A289827276071D046",
+    "registry_schema_and_registry_file_must_not_change": true,
+    "supervisor_must_finish_disarmed": true,
+    "real_source_or_output_authorized": false,
+    "all_plans_preregs_source_contract_and_s1_s6_gates_unchanged": true
+  },
+  "prohibitions": [
+    "Abort before edit if supervisor or supervisor-test SHA drifts.",
+    "Do not use Grok or any Grok skill/worker.",
+    "Do not create a real source-run packet/arm manifest, arm the real supervisor, access/hash/decode the real H1 source or create real vault/output/evidence.",
+    "Do not modify the other six reviewed files, registry/schema/validator, plans, preregs, source data or unrelated files.",
+    "No economics, validation/HOLDOUT data, network, subprocess, MT5, Git or trading mutation."
+  ]
+}

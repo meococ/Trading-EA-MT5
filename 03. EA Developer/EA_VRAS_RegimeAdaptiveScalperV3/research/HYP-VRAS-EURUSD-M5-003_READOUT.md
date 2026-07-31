@@ -104,3 +104,32 @@ telemetry clock by one hour during DST transition weeks and otherwise places
 fills on the wrong candles. The integrated readout and hard QC are under:
 
 `research/evidence/HYP-VRAS-EURUSD-M5-003_GROK_CHART_FORENSICS_10/`
+
+### Indicator-rich 100-image census
+
+Owner then expanded the visual review to 100 images. Because the run contains
+only 93 executed positions, the corpus uses the complete 93-trade census plus
+seven mechanically selected `COST_DISTANCE_REJECT` diagnostics explicitly
+marked `NOT TRADED`; the rejects are excluded from every economic statistic.
+Each chart shows continuous session VWAP/SD, shadow VWAP, confirmed AVWAP when
+active, ADX14 hysteresis, RSI14, ATR14/SD floor and the active M15 or Range-bias
+panel. All 100 entry snapshots pass exact 9/9 telemetry parity.
+
+Grok 4.5 autonomously reviewed 20 serial five-image packets and produced one
+final synthesis. Hard acceptance confirms 100/100 images opened, 20/20 packet
+results, exact case-ID reconciliation and 100 parity manifests checked. The
+review confirms the existing failure anatomy rather than changing the verdict:
+55 stop exits overwhelm 13 target exits, Trend and Range remain negative, the
+same decision-time VWAP/AVWAP/M15 fingerprints occur in winners and losers,
+ADX hysteresis is code-consistent but the population still switches regime
+about 6.92 times per elapsed day, and the cost-distance gate explains rejected
+funnel cases without creating counterfactual PnL.
+
+Validated report and QC:
+
+`research/evidence/HYP-VRAS-EURUSD-M5-003_GROK_CHART_FORENSICS_100/`
+
+Terminal verdict remains
+`KILL_MODEL0_NEGATIVE_EXPECTANCY_UNDER_CADENCE_REGIME_WHIPSAW`; no tuning,
+session/year veto, rerun, source rescue, promotion or live authority follows
+from the visual review.

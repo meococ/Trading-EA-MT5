@@ -1,0 +1,128 @@
+{
+  "schema_version": "alphafactory_prelaunch_xau_model4_execute_gate_hardening.v4",
+  "hypothesis_id": "HYP-PTR-T2-DATA-EPOCH-D0-M5-005",
+  "classification": "PRELAUNCH_XAU_MODEL4_REGISTRY_LOCK_TOCTOU_TARGETED_HARDENING",
+  "authority": "DATA_ACQUISITION_ONLY_NO_PERFORMANCE",
+  "verdict": "PASS_XAU_REGISTRY_LOCK_TOCTOU_TARGETED_GATE",
+  "execution_authorized": false,
+  "full_suite_attested": false,
+  "prior_registry": {
+    "path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+    "line": 458,
+    "sha256": "B7319F487CD46AFCAFA5EB2EA21A81280A3674F745E959063EFE102F1AE48687",
+    "row_sha256": "47B28DC5D15B88EA387563ED58F856D89B7D54109574FFA6568F7AF127045F49"
+  },
+  "prior_execute_gate_receipt": {
+    "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/evidence/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/HYP005_XAU_MODEL4_EXECUTE_GATE_HARDENING_RECEIPT_V3.json",
+    "sha256": "753B17C27DA8B498E25D235282C483ACC896D8C06A2988EE779511FD94F67E3B"
+  },
+  "prior_authority_receipt": {
+    "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/evidence/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/HYP005_XAU_MODEL4_COLLECTION_AUTHORITY_RECEIPT.json",
+    "sha256": "0F4F8C6B2EBA2307A40CB20DFD4656935A476A0C9CBB9336F958208CC3BCA8D3"
+  },
+  "authorized_git_status": {
+    "current_sha256": "014B3861BBBFB56A1F233CF95DA381030350849A5B7006FAB3BC0511B09C6C04"
+  },
+  "control_plane": {
+    "runner": {
+      "path": "02. AlphaFactory/tools/research_loop_engine.ps1",
+      "sha256": "A24C99E5C89E6CBE22C43FB0C0DC07F6CBADE81ED33F6B106BEDFC66805C7071"
+    },
+    "candidate_registry_validator": {
+      "path": "04. Memory/research/validate_candidate_registry.py",
+      "sha256": "2FBE2F1239DCA899D72A4BE24B9ECD14D5B34BC852217B10722555D7D69641B9"
+    },
+    "alpha_entrypoint": {
+      "path": "02. AlphaFactory/alpha.ps1",
+      "sha256": "B24D2FB853DC46DC4F301F1B4C9CA8A27E162876E6DDB7C52BDECDDEB6034377"
+    },
+    "execution_dependency_bindings": [
+      {
+        "path": "02. AlphaFactory/alpha.ps1",
+        "sha256": "B24D2FB853DC46DC4F301F1B4C9CA8A27E162876E6DDB7C52BDECDDEB6034377"
+      },
+      {
+        "path": "02. AlphaFactory/alpha.local.ps1",
+        "sha256": "DE3BB03773B3DB5FB6BD0B41466EE1C23E622716684B2D0F0B36520AC2CE324C"
+      },
+      {
+        "path": "02. AlphaFactory/tools/mt5_storage_contract.ps1",
+        "sha256": "61FDB458E6ABC9225725977F56EF24101438AD92B218260509C4A0A0EAE39D67"
+      },
+      {
+        "path": "02. AlphaFactory/tools/ea_contract.ps1",
+        "sha256": "E0DC563BBB8F2A2F13883E5590E9E2FEB7CE4C03D3EBBAC07B093F2BE52CE3BD"
+      },
+      {
+        "path": "02. AlphaFactory/tools/log_storage.ps1",
+        "sha256": "E4A540ECC6A93A73BC8EE1734E33DDE234A8EBFF25559945AB410B260B569CBF"
+      },
+      {
+        "path": "02. AlphaFactory/tools/audit_mql5_nonrepaint.py",
+        "sha256": "AEF5DDDAC0B6288F7A082D59E89F123461809B79AD28C008591D7B16F912349D"
+      }
+    ]
+  },
+  "bound_tests": [
+    {
+      "path": "02. AlphaFactory/tests/test_ea_golden_path.py",
+      "sha256": "05FAF8C736C885319612DC19B8C74A95EBD2DF9E6C9ECAF9468D810F46B253C2"
+    },
+    {
+      "path": "02. AlphaFactory/tests/test_nonrepaint_collection_probe.py",
+      "sha256": "23295088250E7EBDAF67C4F19DBEF274546BD2A6518B5017B706CBACAF2B1830"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/tests/test_mql5_contract.py",
+      "sha256": "C79F9499889C05AEE06DE711B3FB6E3705394FE63B852490FB477AD5E0FF3F2A"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_append_t2_data_epoch_evidence.py",
+      "sha256": "824FEC57AF14DBE0143B64AF76F18E65B67DAAA4D6B4EB791E10FD620BDAB168"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_append_t2_data_epoch_model4_evidence.py",
+      "sha256": "364CA559FCFF2B2CD6056279DB1F26930AAAE7F21A4AFADA85AB104E76F17913"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_t2_d0_model4_wrappers.py",
+      "sha256": "79656AA05FC009332CA3011AB310EFDFA0A0CBCDCBBDFDCA39E0F8FBD0995513"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_t2_d0_hyp005_wrappers.py",
+      "sha256": "4CDB01D8F5AF2A1B5154D27A32EFA27C14F2241789DEA4DC1045C68E1F463F59"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_data_epoch.py",
+      "sha256": "E926FA8DE3522E5FBFFCD9A7154199B5E87E2FF1956D120D02575FF3EBEF8C9C"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_campaign_exposure.py",
+      "sha256": "F668849104A60C8F5ED78D9C4661BDF42623A3365F663A69EF3BE940C9A0ACE2"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_candidate_registry_model4_collection.py",
+      "sha256": "CC36E1B796E85B2AB2D2D52C0C85C0C4BC4A4A3F0D069C5ED7745C672845C4CB"
+    }
+  ],
+  "launch_claim_path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/evidence/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/HYP005_XAU_MODEL4_LAUNCH_CLAIM.json",
+  "exact_test_run": {
+    "framework": "pytest",
+    "result": "PASS",
+    "passed": 9,
+    "failed": 0,
+    "declared_test_selector_count": 3,
+    "purpose": "REGISTRY_LOCK_TOCTOU_TARGETED",
+    "symbol": "XAUUSD",
+    "model": 4,
+    "run_role": "control",
+    "authority": "DATA_ACQUISITION_ONLY_NO_PERFORMANCE"
+  },
+  "exposure_readback": {
+    "hyp005_execution_receipts": 0,
+    "hyp005_run_manifests": 0,
+    "launch_claims": 0,
+    "trades_executed": 0,
+    "economic_trials_consumed": 0
+  }
+}

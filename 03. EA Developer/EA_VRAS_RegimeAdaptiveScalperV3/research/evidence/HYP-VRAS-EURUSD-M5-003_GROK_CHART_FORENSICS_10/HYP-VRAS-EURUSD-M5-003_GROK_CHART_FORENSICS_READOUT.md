@@ -108,6 +108,28 @@ Both are Trend-long, London-early, mid-risk, mid-ATR positions with similar stop
 4. The sample is deliberately stratified, so its five winners/five losers are not a win-rate estimate and its mechanism counts are non-exclusive.
 5. Cost fields are EA estimates; strict execution/TCA truth remains blocked. The negative Model-0 result remains diagnostic and promotion-ineligible.
 
+## Indicator-rich rendering correction
+
+Owner review correctly rejected the original combined PNG format as an
+indicator-overview chart. The ten Grok-bound files remain usable for candle
+path anatomy, entry/SL/TP/exit, M15/H1 price context, and the exact MT5 entry
+snapshot printed in their footer. They do **not** visualize the continuous
+ADX/ATR/RSI/VWAP trajectories and therefore cannot support claims about how
+those indicator paths evolved before or after entry.
+
+An additive V2 renderer now produces a true indicator-rich chart without
+overwriting the Grok-bound files. The C07 validation chart displays continuous
+tick-weighted session VWAP and bands, equal-weight shadow VWAP, confirmed
+AVWAP, ADX14 with 25/19 hysteresis, RSI14, ATR14/session SD, and M5/M15 VWAP
+bias distances. All nine reconstructed entry values match exact MT5 telemetry
+within frozen tolerances (`ENTRY PARITY PASS 9/9`). Artifact:
+
+`indicator_rich_v2/VRAS-003-C07-P74_indicator_rich.png`
+
+Until the remaining nine cases are rendered in V2 and re-reviewed, the Grok
+10/10 verdict must be read as price-path plus entry-snapshot forensics, not
+continuous-indicator trajectory forensics.
+
 ## Legal next work
 
 No change to the killed object is legal from this evidence. If the Owner later opens a new research lane, the only defensible lead is an independently preregistered mechanism testing whether causal multi-timeframe directional continuity adds information beyond the current local VWAP/AVWAP/M15 gate stack. It must use a new hypothesis identity, fresh OOS data, a sealed definition, and no thresholds mined from these ten charts.

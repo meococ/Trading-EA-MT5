@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-004",
+  "run_id": "STATIC-VRAS-PATHCONFIRM-V1-20260722",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_PathConfirmedTrend",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_PathConfirmedTrend\\EA_VRAS_PathConfirmedTrend.mq5",
+  "source_sha256": "F222A120D71EADB9E177DCE6F7AE3C80D13687D39C2EFF0C4F73CA0DF7D418E2",
+  "include_snapshots": [
+    {
+      "snapshot_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_PathConfirmedTrend\\NewsCalendar2019_2022.mqh",
+      "sha256": "53C750A45072F540CFFE7C8CAD26D115C7D21E8E5FE1CB63B45E9FE817E93E14"
+    }
+  ]
+}

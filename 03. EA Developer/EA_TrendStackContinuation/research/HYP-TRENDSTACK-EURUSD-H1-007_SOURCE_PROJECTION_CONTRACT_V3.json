@@ -1,0 +1,218 @@
+{
+  "schema_version": "trendstack_007_source_projection_contract_overlay.v3",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "base_contract_v2_sha256": "8E1B3A909F9B87C045EC2A5B25D6E5F22F853F021B04148C72D6F6AB7977D6A4",
+  "overlay_semantics": "Apply operations in order using RFC6902 replace semantics. Every unlisted V2 field remains binding. Missing target paths fail closed.",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "/machine_allowlist/workspace_root",
+      "value": "AUTHORITY_RESOLVED_FROM_REVIEWED_SUPERVISOR_LOCATION_AND_TASK_PACKET;_LITERAL_ABSOLUTE_ROOT_FORBIDDEN"
+    },
+    {
+      "op": "replace",
+      "path": "/data_tree_hash_algorithm",
+      "value": "SHA256(canonical_json({schema_version:'trendstack_007_projection_data_tree.v1',files:exactly 1297 sorted output-shard manifest projections [{relative_path,bytes,sha256}]})); request, manifest, trace, reconciliation, receipts and attempt markers are excluded"
+    },
+    {
+      "op": "replace",
+      "path": "/actor_scoped_access/independent_validator",
+      "value": {
+        "contract_v2_reads": 1,
+        "contract_v3_reads": 1,
+        "task_packet_reads": 1,
+        "public_receipt_reads": 1,
+        "public_manifest_reads": 1,
+        "selection_manifest_reads": 1,
+        "stage_metadata_file_reads": 6,
+        "staged_output_shard_opens": 1297,
+        "public_shard_opens": 0,
+        "raw_source_opens": 0,
+        "sealed_validation_opens": 0,
+        "sealed_holdout_opens": 0,
+        "feature_or_economics_opens": 0
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/actor_scoped_access/supervisor",
+      "value": {
+        "public_shard_opens": 0,
+        "staged_output_shard_opens": 0,
+        "final_output_shard_payload_opens": 0,
+        "post_publish_output_shard_lstats": 1297,
+        "post_publish_metadata_file_reads": 6,
+        "sealed_validation_opens": 0,
+        "sealed_holdout_opens": 0,
+        "feature_or_economics_opens": 0
+      }
+    }
+  ],
+  "independent_lineage_gate": {
+    "validator_derives_selected_mapping_from": [
+      "immutable public receipt",
+      "immutable public manifest",
+      "immutable exact selection manifest"
+    ],
+    "validator_required_hashes": {
+      "public_receipt_sha256": "623328512F0CB77B52B155F6CD314EA2B47DAC40636A7714BD38167BEA807B13",
+      "public_manifest_sha256": "DA513911B01B1C4232611225C77A4F22E9E3C89E719EE530923BD574D06451E5",
+      "selection_manifest_sha256": "D99C21ED2611A70D9F225170997EAADDD6567827B69759A1DFA9EA7F73C7A135",
+      "selection_date_set_sha256": "4F30B5E09C8C21C3FCB63F4D5A016EB514D689710589077427464B92CD99A06A"
+    },
+    "exact_comparisons": [
+      "request date/path equals independently derived selected mapping",
+      "trace input date/path/bytes/SHA equals independently derived public-manifest row",
+      "trace output path/bytes/SHA equals output manifest row",
+      "output shard bytes/SHA equals trace and manifest before Parquet decode",
+      "all 1297 selected mappings consumed once in strictly increasing date and request-index order",
+      "all 258 unselected public mappings remain unopened and absent from request/trace/output"
+    ]
+  },
+  "attempt_evidence_root_template": "03. EA Developer/EA_TrendStackContinuation/research/evidence/HYP-TRENDSTACK-EURUSD-H1-007_SOURCE_PROJECTION_ATTEMPTS/{projection_attempt_id}",
+  "evidence_artifact_schemas": {
+    "validation_receipt": {
+      "path": "validation_receipt.json",
+      "schema_version": "trendstack_007_projection_validation_receipt.v1",
+      "exact_fields": [
+        "active_contract_v2_sha256",
+        "active_contract_v3_sha256",
+        "data_tree_sha256",
+        "hypothesis_id",
+        "manifest_sha256",
+        "output_rows",
+        "output_shards",
+        "projection_attempt_id",
+        "projector_receipt_sha256",
+        "reconciliation_sha256",
+        "request_sha256",
+        "schema_version",
+        "stage_path",
+        "task_packet_sha256",
+        "trace_sha256",
+        "validator_access",
+        "validator_tool_sha256",
+        "verdict"
+      ],
+      "verdict": "PASS_INDEPENDENT_STAGE_VALIDATION",
+      "validator_access_must_equal_active_contract": true
+    },
+    "attempt_started": {
+      "path": "attempt_started.json",
+      "schema_version": "trendstack_007_projection_attempt_started.v1",
+      "exact_fields": [
+        "active_contract_v2_sha256",
+        "active_contract_v3_sha256",
+        "active_plan_sha256",
+        "economics_authorized",
+        "hypothesis_id",
+        "projection_attempt_id",
+        "registry_row_index",
+        "registry_row_sha256",
+        "schema_version",
+        "source_run_authorized",
+        "started_at_utc",
+        "supervisor_runtime_sha256",
+        "task_packet_sha256"
+      ],
+      "frozen_values": {
+        "source_run_authorized": true,
+        "economics_authorized": false
+      }
+    },
+    "attempt_terminal_pass": {
+      "path": "attempt_terminal.json",
+      "schema_version": "trendstack_007_projection_attempt_terminal_pass.v1",
+      "exact_fields": [
+        "attempt_started_sha256",
+        "completed_at_utc",
+        "data_tree_sha256",
+        "economics_opened",
+        "final_output_root",
+        "final_output_root_identity",
+        "hypothesis_id",
+        "manifest_sha256",
+        "market_verdict",
+        "post_publish_metadata_hashes",
+        "post_publish_output_shard_lstats",
+        "projection_attempt_id",
+        "projector_receipt_sha256",
+        "reconciliation_sha256",
+        "research_holdout_opened",
+        "research_validation_opened",
+        "schema_version",
+        "source_projection_attempts_consumed",
+        "trace_sha256",
+        "validation_receipt_sha256",
+        "verdict"
+      ],
+      "frozen_values": {
+        "verdict": "ENGINEERING_VALID_SOURCE_PROJECTION",
+        "market_verdict": null,
+        "source_projection_attempts_consumed": 1,
+        "economics_opened": false,
+        "research_validation_opened": false,
+        "research_holdout_opened": false,
+        "post_publish_output_shard_lstats": 1297
+      }
+    },
+    "attempt_terminal_fail": {
+      "path": "attempt_terminal.json",
+      "schema_version": "trendstack_007_projection_attempt_terminal_fail.v1",
+      "exact_fields": [
+        "attempt_started_sha256",
+        "completed_at_utc",
+        "economics_opened",
+        "error_class",
+        "error_message_sha256",
+        "failure_phase",
+        "final_output_absent",
+        "hypothesis_id",
+        "market_verdict",
+        "partial_stage_inventory_sha256",
+        "projection_attempt_id",
+        "research_holdout_opened",
+        "research_validation_opened",
+        "schema_version",
+        "source_projection_attempts_consumed",
+        "verdict"
+      ],
+      "frozen_values": {
+        "verdict": "SOURCE_PROJECTION_FAILED_ENGINEERING_NO_MARKET_VERDICT",
+        "market_verdict": null,
+        "source_projection_attempts_consumed": 1,
+        "economics_opened": false,
+        "research_validation_opened": false,
+        "research_holdout_opened": false
+      }
+    }
+  },
+  "acyclic_hash_order": [
+    "output shards",
+    "request and request receipt",
+    "manifest and trace",
+    "reconciliation",
+    "projector receipt",
+    "validation receipt",
+    "attempt started is independently pre-existing and referenced by terminal only",
+    "attempt terminal"
+  ],
+  "post_publish_readback": {
+    "parquet_payload_decode_or_open_forbidden": true,
+    "output_shard_lstats": 1297,
+    "metadata_files_rehashed": [
+      "projection_requests.jsonl",
+      "projection_request_receipt.json",
+      "design_1200_manifest.jsonl",
+      "design_1200_source_trace.jsonl",
+      "design_1200_reconciliation.json",
+      "design_1200_projector_receipt.json"
+    ],
+    "require_same_file_identity_as_validated_stage_after_atomic_rename": true
+  },
+  "source_build_authorized_by_contract_alone": false,
+  "source_run_authorized_by_contract_alone": false,
+  "economics_authorized": false,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false
+}

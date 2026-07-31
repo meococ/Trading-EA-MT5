@@ -1,0 +1,264 @@
+{
+  "arms": {
+    "CHALLENGER_TOP50_TRANSITION_SCORE": {
+      "by_direction": {
+        "BUY": {
+          "count": 133,
+          "mean_realized_r": -0.2326824639696976,
+          "net": -297.86,
+          "profit_factor": 0.6800266411713521
+        },
+        "SELL": {
+          "count": 125,
+          "mean_realized_r": -0.0742283625554387,
+          "net": -84.97000000000001,
+          "profit_factor": 0.8973482331621866
+        }
+      },
+      "by_year": {
+        "2021": {
+          "count": 133,
+          "mean_realized_r": -0.22550187505883904,
+          "net": -286.05,
+          "profit_factor": 0.6968267763269459
+        },
+        "2022": {
+          "count": 125,
+          "mean_realized_r": -0.08186850915659225,
+          "net": -96.78000000000002,
+          "profit_factor": 0.8812690156050643
+        }
+      },
+      "cadence_per_elapsed_week": 2.477366255144033,
+      "cost_stress": {
+        "0.5": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -734.1300000000001,
+          "profit_factor": 0.6317787853861123,
+          "round_trip_pips": 0.5
+        },
+        "1.5": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -1436.73,
+          "profit_factor": 0.4181300523254873,
+          "round_trip_pips": 1.5
+        },
+        "2.25": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -1963.68,
+          "profit_factor": 0.3062145255857418,
+          "round_trip_pips": 2.25
+        },
+        "3.0": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -2490.63,
+          "profit_factor": 0.2223318522866715,
+          "round_trip_pips": 3.0
+        }
+      },
+      "count": 258,
+      "elapsed_weeks": 104.14285714285714,
+      "native": {
+        "count": 258,
+        "gross_loss": -1758.64,
+        "gross_profit": 1375.81,
+        "mean_realized_r": -0.15591206599767296,
+        "median_realized_r": -1.0696059431524547,
+        "net": -382.83000000000004,
+        "non_excess_kurtosis": 1.6866037528556945,
+        "per_trade_sharpe": -0.11665798519149433,
+        "profit_factor": 0.7823147432106627,
+        "skew": 0.7372044913369364,
+        "win_rate": 0.35271317829457366
+      }
+    },
+    "CONTROL_QUALITY_ELIGIBLE": {
+      "by_direction": {
+        "BUY": {
+          "count": 246,
+          "mean_realized_r": -0.277323066093694,
+          "net": -653.42,
+          "profit_factor": 0.6258367452114411
+        },
+        "SELL": {
+          "count": 270,
+          "mean_realized_r": -0.026558273871718788,
+          "net": -63.09000000000004,
+          "profit_factor": 0.9630629259267933
+        }
+      },
+      "by_year": {
+        "2021": {
+          "count": 258,
+          "mean_realized_r": -0.18519494089174884,
+          "net": -454.79,
+          "profit_factor": 0.7455378624262838
+        },
+        "2022": {
+          "count": 258,
+          "mean_realized_r": -0.1070229203656651,
+          "net": -261.72,
+          "profit_factor": 0.8430116427633118
+        }
+      },
+      "cadence_per_elapsed_week": 4.954732510288066,
+      "cost_stress": {
+        "0.5": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -1391.66,
+          "profit_factor": 0.6426463979868271,
+          "round_trip_pips": 0.5
+        },
+        "1.5": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -2741.96,
+          "profit_factor": 0.4270286761494595,
+          "round_trip_pips": 1.5
+        },
+        "2.25": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -3754.685,
+          "profit_factor": 0.3128183400471093,
+          "round_trip_pips": 2.25
+        },
+        "3.0": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -4767.41,
+          "profit_factor": 0.22643147359675997,
+          "round_trip_pips": 3.0
+        }
+      },
+      "count": 516,
+      "elapsed_weeks": 104.14285714285714,
+      "native": {
+        "count": 516,
+        "gross_loss": -3454.39,
+        "gross_profit": 2737.88,
+        "mean_realized_r": -0.14610893062870697,
+        "median_realized_r": -1.0689655172413794,
+        "net": -716.51,
+        "non_excess_kurtosis": 1.6842840512011588,
+        "per_trade_sharpe": -0.11062430065563669,
+        "profit_factor": 0.7925798766207638,
+        "skew": 0.7268345786712243,
+        "win_rate": 0.35852713178294576
+      }
+    },
+    "NEGATIVE_CONTROL_BOTTOM50_TRANSITION_SCORE": {
+      "by_direction": {
+        "BUY": {
+          "count": 113,
+          "mean_realized_r": -0.32986465974406143,
+          "net": -355.56,
+          "profit_factor": 0.5639761606945772
+        },
+        "SELL": {
+          "count": 145,
+          "mean_realized_r": 0.014536630165970801,
+          "net": 21.87999999999998,
+          "profit_factor": 1.0248554453645957
+        }
+      },
+      "by_year": {
+        "2021": {
+          "count": 125,
+          "mean_realized_r": -0.1423083629379649,
+          "net": -168.74,
+          "profit_factor": 0.8000094815938559
+        },
+        "2022": {
+          "count": 133,
+          "mean_realized_r": -0.13066428428396668,
+          "net": -164.94,
+          "profit_factor": 0.8064107228788395
+        }
+      },
+      "cadence_per_elapsed_week": 2.477366255144033,
+      "cost_stress": {
+        "0.5": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -657.53,
+          "profit_factor": 0.6540462899143967,
+          "round_trip_pips": 0.5
+        },
+        "1.5": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -1305.23,
+          "profit_factor": 0.4365143436872666,
+          "round_trip_pips": 1.5
+        },
+        "2.25": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -1791.005,
+          "profit_factor": 0.31991585358675984,
+          "round_trip_pips": 2.25
+        },
+        "3.0": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -2276.78,
+          "profit_factor": 0.23086693759522192,
+          "round_trip_pips": 3.0
+        }
+      },
+      "count": 258,
+      "elapsed_weeks": 104.14285714285714,
+      "native": {
+        "count": 258,
+        "gross_loss": -1695.75,
+        "gross_profit": 1362.07,
+        "mean_realized_r": -0.13630579525974099,
+        "median_realized_r": -1.0655737704918034,
+        "net": -333.68,
+        "non_excess_kurtosis": 1.681871288102281,
+        "per_trade_sharpe": -0.10425869234370241,
+        "profit_factor": 0.8032257113371664,
+        "skew": 0.7166225155466519,
+        "win_rate": 0.3643410852713178
+      }
+    }
+  },
+  "dsr": {
+    "arm_per_trade_sharpes": [
+      -0.11062430065563669,
+      -0.11665798519149433,
+      -0.10425869234370241
+    ],
+    "kurtosis_convention": "non-excess",
+    "n_trials": 3,
+    "value": 0.03047061938782797,
+    "var_sr_trials": 3.844479689741967e-05
+  },
+  "elapsed_weeks": 104.14285714285714,
+  "epistemic_class": "VALID_OFFLINE_DESIGN_ECONOMIC_PROBE_UNVERIFIED_PROXY_COSTS_NO_HOLDOUT",
+  "frozen_threshold": -0.012342488801680875,
+  "gate_result": {
+    "gates": {
+      "both_directions_pf_gt_1_mean_r_gt_0": false,
+      "both_years_pf_gt_1_mean_r_gt_0": false,
+      "challenger_n258_cadence_2_to_5": true,
+      "dsr_gte_0_95": false,
+      "integrity": true,
+      "native_mean_r_gte_0_08": false,
+      "native_pf_gte_1_30": false,
+      "stress_1_5_pf_gte_1_25": false,
+      "stress_2_25_pf_gte_1_00": false,
+      "vs_bottom_pf_lift_0_20_mean_r_lift_0_15": false,
+      "vs_quality_control_pf_lift_0_15_mean_r_lift_0_10": false
+    },
+    "passed": 2,
+    "total": 11,
+    "verdict": "KILL_DESIGN_BREAKBAR_BOOK_TRANSITION_NO_POSITIVE_EXPECTANCY"
+  },
+  "generated_at_utc": "2026-07-27T14:30:49.775365Z",
+  "hypothesis_id": "HYP-CME6E-RAWBREAK-BOOKTRANSITION-002",
+  "prohibitions": [
+    "no alternate threshold or subgroup rescue under this hypothesis",
+    "no claim that HYP-001 was reopened or amended",
+    "no MQL5, Model 0, promotion, paper or live authority",
+    "cost stresses are UNVERIFIED_PROXY and not broker cost truth",
+    "a survivor needs separately preregistered fresh validation data"
+  ],
+  "run_id": "CME6E_BREAKBAR_DESIGN_20260727_143049Z",
+  "schema_version": "cme6e_breakbar_transition_design_probe.v1",
+  "verdict": "KILL_DESIGN_BREAKBAR_BOOK_TRANSITION_NO_POSITIVE_EXPECTANCY"
+}

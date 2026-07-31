@@ -1,0 +1,9 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-006",
+  "run_id": "STATIC-VRAS-VOLSTOP-V1-20260722",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_VolatilityNormalizedStop",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_VolatilityNormalizedStop\\EA_VRAS_VolatilityNormalizedStop.mq5",
+  "source_sha256": "83107ED33F1A6861D364947DA9D75E047142C478E1123575EC56B59B84A29406",
+  "include_snapshots": []
+}

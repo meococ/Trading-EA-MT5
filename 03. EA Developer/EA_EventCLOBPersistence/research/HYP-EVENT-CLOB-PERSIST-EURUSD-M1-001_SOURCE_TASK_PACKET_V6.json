@@ -1,0 +1,45 @@
+{
+  "schema_version": "event_clob_source_task_packet_amendment.v1",
+  "task_id": "EVENT_CLOB_FREE_QUOTE_REGISTRY_DRIFT_20260728_V6",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001_SOURCE_TASK_PACKET_V5.json",
+  "supersedes_amendment_sha256": "9E3FA3B7A95376DF6098E79ED2BFCFAFAD863032AD9B52051888CF0873D74A75",
+  "amendment_reason": "A 636-second all-or-nothing free metadata quote completed its remote work but was discarded because an unrelated HYP-TRENDSTACK-EURUSD-H1-002 row was appended during the quote. The generic registry remains valid and the bound EVENT-CLOB row is byte-identical. Prevent unrelated append-only activity from invalidating a no-cost, no-outcome quote while preserving exact global-registry gating before every paid boundary.",
+  "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+  "registry_sha256_at_amendment": "DC29CEEDB55E25DA7C83A1051DF1ED5BB6F58D42503E6B70EE5D7F0C8DEB02D5",
+  "registry_validation": "CANDIDATE_REGISTRY_OK rows=266 hypotheses=89",
+  "bound_hypothesis_row_sha256": "F120C70E6D8AEB1C7194D599E970721946C32DACFA2EEDA6BAE0C4B4B811FAA3",
+  "write_set": [
+    "03. EA Developer/EA_EventCLOBPersistence/research/acquire_event_cme6e_mbp10.py",
+    "03. EA Developer/EA_EventCLOBPersistence/tests/test_event_cme6e_mbp10_acquisition.py",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob/acquisition_plan.json"
+  ],
+  "contract_change": [
+    "At free-quote start, require the exact V6 global registry SHA, exact bound hypothesis row, frozen packets, clock, preregistration, and tool bindings.",
+    "At free-quote completion, permit append-only global registry drift only when the bound EVENT-CLOB row and every frozen binding remain exact. Record start and end registry SHA values in the quoted plan and receipt; never hide drift.",
+    "Before download authority and again after the live re-quote but before the first timeseries.get_range call, require the exact V6 global registry SHA. Any drift there must stop before paid access.",
+    "No partial quote checkpoint is authorized; final quote coverage remains exactly 630 of 630 and all paid/time-series/batch counters remain zero."
+  ],
+  "red_first_acceptance_tests": [
+    "Free quote succeeds when only the global registry SHA changes after remote metadata completion but the bound row and frozen bindings remain exact, and it records both registry SHAs.",
+    "Free quote fails if the bound hypothesis row changes at completion.",
+    "Download fails before timeseries.get_range when the global registry changes during its live re-quote.",
+    "All prior 21 hardening tests remain green and the offline plan is regenerated with the final tool SHA and deterministic plan ID."
+  ],
+  "authority_unchanged": {
+    "free_metadata_quote_authorized": true,
+    "paid_timeseries_authorized": false,
+    "ea_source_build_authorized": false,
+    "economic_outcome_read_authorized": false,
+    "model0_authorized": false,
+    "live_or_paper_authorized": false,
+    "git_commit_or_push_authorized": false
+  },
+  "prohibitions": [
+    "Do not call any remote endpoint while implementing or testing V6.",
+    "Do not make any paid, batch, or time-series request.",
+    "Do not change strategy logic, preregistration, event clock, registry rows, MQL5, MT5, docs, or unrelated files.",
+    "Do not stage, commit, push, create a branch, worktree, or clone."
+  ]
+}

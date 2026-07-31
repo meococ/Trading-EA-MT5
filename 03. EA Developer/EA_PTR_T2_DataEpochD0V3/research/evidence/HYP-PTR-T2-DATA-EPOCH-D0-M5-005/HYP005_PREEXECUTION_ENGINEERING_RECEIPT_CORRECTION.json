@@ -1,0 +1,30 @@
+{
+  "schema_version": "alphafactory_preexecution_engineering_receipt_correction.v1",
+  "hypothesis_id": "HYP-PTR-T2-DATA-EPOCH-D0-M5-005",
+  "classification": "PRELAUNCH_EVIDENCE_METADATA_CORRECTION",
+  "original_receipt": {
+    "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/evidence/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/HYP005_PREEXECUTION_ENGINEERING_RECEIPT.json",
+    "sha256": "9E36BF290B995400D03FF1114B46615C3C9CDAF530B1399630B3E6FFABFFBA82"
+  },
+  "correction_reason": "The original receipt was updated from 115 to 116 passed tests after adding one campaign-binding test, but its duration remained the earlier 115-test duration. This immutable supplement records the exact full rerun without rewriting the hash-bound original.",
+  "exact_rerun": {
+    "framework": "pytest",
+    "result": "PASS",
+    "passed": 116,
+    "failed": 0,
+    "duration_seconds": 32.14
+  },
+  "post_rerun_validators": {
+    "candidate_registry": "CANDIDATE_REGISTRY_OK rows=450 hypotheses=163",
+    "campaign_exposure": "CAMPAIGN_EXPOSURE_OK rows=9",
+    "data_epoch": "DATA_EPOCH_OK rows=1 aggregate_ready=false missing=9"
+  },
+  "exposure_readback": {
+    "hyp005_execution_receipts": 0,
+    "hyp005_run_manifests": 0,
+    "trades_executed": 0,
+    "economic_trials_consumed": 0
+  },
+  "verdict": "PASS_PRELAUNCH_CONTROL_PLANE",
+  "created_at_utc": "2026-07-31T02:56:00Z"
+}

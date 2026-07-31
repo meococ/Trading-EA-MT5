@@ -1,0 +1,24 @@
+{
+  "schema_version": "event_clob_source_task_packet_amendment.v1",
+  "task_id": "EVENT_CLOB_SOURCE_HARDENING_20260728_V5_REGISTRY_REBIND",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001_SOURCE_TASK_PACKET_V4.json",
+  "supersedes_amendment_sha256": "DB71C24864E01782BDB7F02D6DC46B2F54AC26EB38B11C0B9A0ACCF4079FDC74",
+  "amendment_reason": "An unrelated HYP-TRENDSTACK-EURUSD-H1-001 terminal transition was appended while the V4 green suite was running. The generic registry validator remains PASS and the bound EVENT-CLOB row is byte-identical. Rebind only the global append-only registry SHA; do not change V4 scope or authority.",
+  "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+  "registry_sha256": "0236F9C5DD645D3967B098A3C9161F5BCC22B12FBB3762A03BC9293B47D0D8FB",
+  "registry_validation": "CANDIDATE_REGISTRY_OK rows=265 hypotheses=88",
+  "bound_hypothesis_row_sha256": "F120C70E6D8AEB1C7194D599E970721946C32DACFA2EEDA6BAE0C4B4B811FAA3",
+  "authority_unchanged": {
+    "offline_hardening_authorized": true,
+    "free_metadata_quote_authorized": true,
+    "paid_timeseries_authorized": false,
+    "ea_source_build_authorized": false,
+    "economic_outcome_read_authorized": false,
+    "model0_authorized": false,
+    "live_or_paper_authorized": false,
+    "git_commit_or_push_authorized": false
+  },
+  "instruction": "Continue the exact V4 hardening write-set and acceptance tests. Bind this V5 packet and the new global registry SHA. No remote call is authorized during hardening; all other V4 prohibitions remain unchanged."
+}

@@ -26,6 +26,10 @@ id_rsa*
 02. AlphaFactory/data/**/*.csv
 02. AlphaFactory/data/**/*.jsonl
 02. AlphaFactory/data/**/*.json
+02. AlphaFactory/data/**/*.dbn
+02. AlphaFactory/data/**/*.dbn.zst
+02. AlphaFactory/data/**/*.zst
+02. AlphaFactory/data/**/*.partial
 !02. AlphaFactory/data/**/manifest.json
 03. EA Developer/**/research/evidence/*_HISTORICAL_SPREAD_M1.csv
 03. EA Developer/**/research/evidence/*_QUOTE_LATENCY_*.csv
@@ -63,6 +67,9 @@ worktrees/
 .cursor/
 .windsurf/
 .vscode/
+.claude/settings.local.json
+.codex/config.toml
+.codex/tmp/
 
 # Local scratch / peek artifacts
 _tmp_*

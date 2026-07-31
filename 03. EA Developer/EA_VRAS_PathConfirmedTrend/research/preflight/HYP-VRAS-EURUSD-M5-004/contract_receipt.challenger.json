@@ -1,0 +1,122 @@
+{
+    "schema_version":  "alphafactory_execution_receipt.v1",
+    "hypothesis_id":  "HYP-VRAS-EURUSD-M5-004",
+    "registry_row_sha256":  "4C54BED58868D896F1E39DB1B69E967E31AE1412F8F26BAAEBE97B4CC9032B69",
+    "task_packet_sha256":  "93161BE10026BE2F45A757A337ACF524669F667CD0ADD82D4D0E80D6EB782554",
+    "git_commit":  "cd16849de36b06f12369c5017579491962a9afc7",
+    "git_status_sha256":  "EDF9D2DE0F32450A76D146A7818E4F9CFA9DAA0AF5538F2E4B4ACE2B666342E9",
+    "binding":  {
+                    "hypothesis_id":  "HYP-VRAS-EURUSD-M5-004",
+                    "run_role":  "challenger",
+                    "ea_name":  "EA_VRAS_PathConfirmedTrend",
+                    "symbol":  "EURUSD",
+                    "period":  "M5",
+                    "from":  "2023.01.03",
+                    "to":  "2026.06.30",
+                    "model":  0,
+                    "execution_mode":  0,
+                    "fixed_delay_ms":  0,
+                    "overrides":  "InpAdxEnter=25.0;InpAdxExit=19.0;InpAdxPeriod=14;InpAnchorLookbackBars=60;InpAnchorMode=0;InpAtrPeriod=14;InpBandMultiplier=2.0;InpBrokerFollowsUS_DST=true;InpBrokerGMTOffsetWinter=2;InpCommissionPips=0.70;InpCostDistanceMultiple=8.0;InpDailyLossPct=1.50;InpEnableTelemetry=true;InpHypothesisId=HYP-VRAS-EURUSD-M5-004;InpMagic=5600744;InpMaxAccountDrawdownPct=6.00;InpMaxHoldBars=20;InpMaxSpreadPips=1.20;InpMaxTradesPerDay=3;InpMinRegimeDwellBars=6;InpNewsBlackoutMinutes=45;InpRangeStopAtr=0.30;InpRangeStopSd=2.50;InpRequireNewsGuard=false;InpResearchAutoMode=true;InpRiskPercent=0.25;InpRsiLongFloor=25.0;InpRsiPeriod=14;InpRsiShortCeiling=75.0;InpSdFloorAtr=0.30;InpSlippageOneWayPips=0.40;InpTrendStopAtr=0.40;InpTrendTargetR=1.80;InpUseM15Bias=true;InpUsePathConfirmation=true;InpVariantTag=CHALLENGER_PATH_CONFIRM;InpVolumeMode=0;InpWarmupBars=15",
+                    "telemetry_tier":  "trade-only",
+                    "telemetry_profile":  "lifecycle-v3",
+                    "deposit":  100000,
+                    "leverage":  100,
+                    "spread":  "current",
+                    "required_sidecars":  [
+                                              "*_LifecycleTrades_*.csv",
+                                              "*_RunMeta_*.json",
+                                              "*_DecisionTelemetry_*.csv"
+                                          ],
+                    "broker_fingerprint":  "UNVERIFIED_DIAGNOSTIC",
+                    "server_fingerprint":  "UNVERIFIED_DIAGNOSTIC",
+                    "account_fingerprint":  "UNVERIFIED_DIAGNOSTIC",
+                    "data_fingerprint":  "UNVERIFIED_DIAGNOSTIC",
+                    "symbol_geometry":  {
+                                            "digits":  5,
+                                            "point":  1E-05,
+                                            "pip_size":  0.0001
+                                        },
+                    "include_closure_sha256":  "67567476D8CA9809CDFE4F40077C3945A1FC01F5AC3CA9FF7BA65E77B84CBF37"
+                },
+    "evidence":  [
+                     {
+                         "label":  "task_packet",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_PathConfirmedTrend\\research\\preflight\\HYP-VRAS-EURUSD-M5-004\\task_packet.challenger.json",
+                         "sha256":  "93161BE10026BE2F45A757A337ACF524669F667CD0ADD82D4D0E80D6EB782554"
+                     },
+                     {
+                         "label":  "candidate_registry",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+                         "sha256":  "E8064B13C894ED811F57B28FB2E46B44C445850E317E50E9A122CF575DFDCF29"
+                     },
+                     {
+                         "label":  "source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_PathConfirmedTrend\\EA_VRAS_PathConfirmedTrend.mq5",
+                         "sha256":  "F222A120D71EADB9E177DCE6F7AE3C80D13687D39C2EFF0C4F73CA0DF7D418E2"
+                     },
+                     {
+                         "label":  "compiled_binary",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_PathConfirmedTrend\\EA_VRAS_PathConfirmedTrend.ex5",
+                         "sha256":  "F1C7535B2F021917C73935EB475DE5DED0A571597510546726517B101FE3859A"
+                     },
+                     {
+                         "label":  "ea_capability_contract",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_PathConfirmedTrend\\ALPHAFACTORY_EA_CONTRACT.json",
+                         "sha256":  "891E6636F45B263F6163F5E703C9E87B912846B114CE25D5E45517871FD28057"
+                     },
+                     {
+                         "label":  "include_0000",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_PathConfirmedTrend\\NewsCalendar2019_2022.mqh",
+                         "sha256":  "53C750A45072F540CFFE7C8CAD26D115C7D21E8E5FE1CB63B45E9FE817E93E14"
+                     },
+                     {
+                         "label":  "prereg",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_PathConfirmedTrend\\research\\HYP-VRAS-EURUSD-M5-004_FROZEN_PREREG.md",
+                         "sha256":  "8548E9FA1ECC75D49A152589833F990D577BE58270D06D863AAB951CB2D5955F"
+                     },
+                     {
+                         "label":  "probe_plan",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_PathConfirmedTrend\\research\\HYP-VRAS-EURUSD-M5-004_PROBE_PLAN.md",
+                         "sha256":  "F69A021862DB6BFFC7F561C73C9EBDA736584EAF59E996E634F92D6E084D73D6"
+                     },
+                     {
+                         "label":  "nonrepaint_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_PathConfirmedTrend\\NONREPAINT_AUDIT_V1_manifest.json",
+                         "sha256":  "A27E37F66A1FD6545BC448EAC54A10D6715E5495EBF96923376F7A74C768783A"
+                     },
+                     {
+                         "label":  "nonrepaint_audit",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_PathConfirmedTrend\\research\\evidence\\20260722_NONREPAINT_AUDIT_V1\\nonrepaint_audit.json",
+                         "sha256":  "7000E1C493FD2C5C1A6BD7BBD0B35F4A2C42990C5B4ECF84F0F26E17577A967E"
+                     },
+                     {
+                         "label":  "cost_source_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_PathConfirmedTrend\\research\\preflight\\HYP-VRAS-EURUSD-M5-004\\cost_source_manifest.unverified.json",
+                         "sha256":  "16E2E9BB2683CC0C1DF69DAE7986F763432D25DE71600DF6866504DC661B4DCA"
+                     },
+                     {
+                         "label":  "matched_control_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_VRAS_PathConfirmedTrend\\20260722_155551\\run_manifest.json",
+                         "sha256":  "543BCBB4AC8F625C78B7E3ACE5B6104F218F88226F9ED7496CB4B39553901B6F"
+                     },
+                     {
+                         "label":  "matched_control_report",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_VRAS_PathConfirmedTrend\\20260722_155551\\report.html",
+                         "sha256":  "452239FAD0CBA4E8770D6A582F478373445B69B715587C76C5D6277C0F9E0C25"
+                     }
+                 ],
+    "generated_at_utc":  "2026-07-22T08:56:21.3526073Z"
+}

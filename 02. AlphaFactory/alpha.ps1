@@ -20,7 +20,7 @@
 
 param(
     [Parameter(Position=0)]
-    [ValidateSet("compile", "backtest", "analyze", "list", "status", "report", "git", "scan", "monte", "wfa", "help", "validate", "validate-full", "delivery", "log", "robust", "param", "mt5data", "sensitivity")]
+    [ValidateSet("compile", "backtest", "analyze", "list", "status", "report", "git", "scan", "monte", "wfa", "help", "validate", "validate-full", "fast-kill", "delivery", "log", "robust", "param", "mt5data", "sensitivity")]
     [string]$Action = "status",
     
     [Parameter(Position=1)]
@@ -903,6 +903,43 @@ function Assert-ContractReceipt($ReceiptPath, $ExpectedReceiptSha256, $Binding) 
         throw "Contract receipt schema_version must be 'alphafactory_execution_receipt.v1'."
     }
 
+    $authorityProperties = @($receipt.PSObject.Properties | Where-Object { $_.Name -ieq 'authority' })
+    $exactAuthorityProperties = @($receipt.PSObject.Properties | Where-Object { $_.Name -ceq 'authority' })
+    if ($authorityProperties.Count -gt 0 -and $exactAuthorityProperties.Count -ne 1) {
+        throw "Contract receipt authority field must be exactly case-sensitive 'authority'."
+    }
+    $receiptAuthority = if ($exactAuthorityProperties.Count -eq 1) { [string]$exactAuthorityProperties[0].Value } else { '' }
+    if (-not [string]::IsNullOrWhiteSpace($receiptAuthority) -and
+        $receiptAuthority -notin @(
+            'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE',
+            'DATA_ACQUISITION_ONLY_NO_PERFORMANCE'
+        )) {
+        throw "Unsupported contract receipt authority '$receiptAuthority'."
+    }
+    if ($receiptAuthority -in @(
+        'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE',
+        'DATA_ACQUISITION_ONLY_NO_PERFORMANCE'
+    )) {
+        $dataQualityContract = $receipt.binding.data_quality_contract
+        $expectedModel = if ($receiptAuthority -ceq 'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE') { 0 } else { 4 }
+        if ($receiptSchema -cne 'alphafactory_execution_receipt.v1' -or
+            [string]$receipt.binding.run_role -cne 'control' -or
+            [int]$receipt.binding.model -ne $expectedModel -or
+            [string]$receipt.binding.telemetry_profile -cne 'none' -or
+            [string]$receipt.binding.telemetry_tier -cne 'off' -or
+            @($receipt.binding.required_sidecars).Count -ne 0) {
+            throw "Data-acquisition receipt authority '$receiptAuthority' requires AlphaFactory control/Model$expectedModel/telemetry-none/off with no sidecars."
+        }
+        if ($null -eq $dataQualityContract -or
+            [string]$dataQualityContract.history_quality.operator -cne 'gt' -or
+            [double]$dataQualityContract.history_quality.value -lt 97.0 -or
+            [string]$dataQualityContract.coverage_mode -cne 'all_available_asof' -or
+            [string]$dataQualityContract.requested_from -cne '1970.01.01' -or
+            $dataQualityContract.require_tester_journal_bounds -ne $true) {
+            throw "Data-acquisition receipt lacks the required all-available History Quality >97 contract."
+        }
+    }
+
     $evidenceByLabel = @{}
     foreach ($item in @($receipt.evidence)) {
         $label = [string]$item.label
@@ -939,6 +976,21 @@ function Assert-ContractReceipt($ReceiptPath, $ExpectedReceiptSha256, $Binding) 
         if (-not $evidenceByLabel.ContainsKey($requiredLabel)) {
             throw "Contract receipt is missing required evidence '$requiredLabel'."
         }
+    }
+    $taskPacketPath = [System.IO.Path]::GetFullPath([string]$evidenceByLabel['task_packet'].path)
+    try {
+        $receiptTaskPacket = Get-Content -LiteralPath $taskPacketPath -Raw | ConvertFrom-Json
+    } catch {
+        throw "Contract receipt task_packet evidence is malformed JSON: $($_.Exception.Message)"
+    }
+    $packetAuthorityProperties = @($receiptTaskPacket.PSObject.Properties | Where-Object { $_.Name -ieq 'authority' })
+    $packetExactAuthorityProperties = @($receiptTaskPacket.PSObject.Properties | Where-Object { $_.Name -ceq 'authority' })
+    if ($packetAuthorityProperties.Count -gt 0 -and $packetExactAuthorityProperties.Count -ne 1) {
+        throw "Task packet authority field must be exactly case-sensitive 'authority'."
+    }
+    $taskPacketAuthority = if ($packetExactAuthorityProperties.Count -eq 1) { [string]$packetExactAuthorityProperties[0].Value } else { '' }
+    if ($taskPacketAuthority -cne $receiptAuthority) {
+        throw "Contract receipt authority does not match its hash-bound task packet."
     }
     $includeEvidence = @($receipt.evidence | Where-Object { [string]$_.label -like 'include_*' })
     $includeRecords = @(
@@ -988,6 +1040,7 @@ function Assert-ContractReceipt($ReceiptPath, $ExpectedReceiptSha256, $Binding) 
     if ([string]::Join("`n", $receiptSidecars) -cne [string]::Join("`n", $bindingSidecars)) {
         throw "Contract receipt binding 'required_sidecars' does not match the alpha invocation."
     }
+    $dataQualityContract = Resolve-DataQualityContract $receipt $Binding
 
     $sourceForNogit = ""
     $sourceEvidenceForNogit = @($receipt.evidence | Where-Object { [string]$_.label -ceq 'source' })
@@ -1003,6 +1056,7 @@ function Assert-ContractReceipt($ReceiptPath, $ExpectedReceiptSha256, $Binding) 
         ReceiptPath = $resolvedReceipt
         ReceiptSha256 = $actualReceiptHash
         Git = $git
+        DataQualityContract = $dataQualityContract
     }
 }
 
@@ -1015,6 +1069,414 @@ function Assert-ReceiptSourceMatchesMain($ReceiptCheck, [string]$MainFile) {
     $resolvedMain = [System.IO.Path]::GetFullPath($MainFile)
     if (-not [string]::Equals($receiptSource, $resolvedMain, [System.StringComparison]::OrdinalIgnoreCase)) {
         throw "Contract receipt source '$receiptSource' does not match resolved EA main '$resolvedMain'."
+    }
+}
+
+function Get-ObjectPropertyValue($Object, [string[]]$Names, [switch]$Required, [string]$Label = "") {
+    if ($null -eq $Object) {
+        if ($Required) { throw "$Label is required." }
+        return $null
+    }
+    foreach ($name in $Names) {
+        $prop = $Object.PSObject.Properties[$name]
+        if ($null -ne $prop) { return $prop.Value }
+    }
+    if ($Required) {
+        $fieldLabel = if ([string]::IsNullOrWhiteSpace($Label)) { [string]::Join("/", $Names) } else { $Label }
+        throw "$fieldLabel is required."
+    }
+    return $null
+}
+
+function ConvertTo-ResearchDate([string]$Value, [string]$Label) {
+    $culture = [System.Globalization.CultureInfo]::InvariantCulture
+    $styles = [System.Globalization.DateTimeStyles]::None
+    $parsed = [datetime]::MinValue
+    if (-not [datetime]::TryParseExact($Value, 'yyyy.MM.dd', $culture, $styles, [ref]$parsed)) {
+        throw "$Label must use a real yyyy.MM.dd date."
+    }
+    return $parsed.Date
+}
+
+function ConvertTo-FiniteInvariantDouble($Value, [string]$Label) {
+    $text = ([string]$Value).Trim()
+    if ($text.EndsWith('%')) { $text = $text.Substring(0, $text.Length - 1).Trim() }
+    $parsed = 0.0
+    if (-not [double]::TryParse($text, [System.Globalization.NumberStyles]::Float, [System.Globalization.CultureInfo]::InvariantCulture, [ref]$parsed) -or
+        [double]::IsNaN($parsed) -or [double]::IsInfinity($parsed)) {
+        throw "$Label must be a finite invariant-culture number."
+    }
+    return $parsed
+}
+
+function Resolve-DataQualityContract($Receipt, $Binding) {
+    $bindingObject = $Receipt.binding
+    $contractCandidates = @(
+        if ($null -ne $bindingObject) {
+            $bindingObject.PSObject.Properties | Where-Object { $_.Name -ieq 'data_quality_contract' }
+        }
+    )
+    $contractExact = @($contractCandidates | Where-Object { $_.Name -ceq 'data_quality_contract' })
+    if ($contractCandidates.Count -eq 0) {
+        return $null
+    }
+    if ($contractCandidates.Count -ne 1 -or $contractExact.Count -ne 1 -or $null -eq $contractExact[0].Value) {
+        throw "Receipt binding optional field name must be exactly case-sensitive 'data_quality_contract'."
+    }
+    $contractProperty = $contractExact[0]
+    $contract = $contractProperty.Value
+    $contractKeys = @($contract.PSObject.Properties.Name | Sort-Object)
+    $expectedKeys = @('availability_asof_utc', 'coverage_mode', 'history_quality', 'requested_from', 'requested_to', 'require_tester_journal_bounds')
+    $expectedKeys = @($expectedKeys | Sort-Object)
+    if ([string]::Join("`n", $contractKeys) -cne [string]::Join("`n", $expectedKeys)) {
+        throw "data_quality_contract must contain exactly: $([string]::Join(', ', $expectedKeys))."
+    }
+    $symbol = [string]$Binding.symbol
+    if ($symbol -notmatch '^[A-Za-z0-9][A-Za-z0-9._+-]{0,63}$') {
+        throw "alpha invocation symbol contains unsupported characters for data_quality_contract."
+    }
+
+    $requestedFrom = [string](Get-ObjectPropertyValue $contract @('requested_from') -Required -Label "data_quality_contract.requested_from")
+    $requestedTo = [string](Get-ObjectPropertyValue $contract @('requested_to') -Required -Label "data_quality_contract.requested_to")
+    if ($requestedFrom -cne [string]$Binding.from -or $requestedTo -cne [string]$Binding.to) {
+        throw "data_quality_contract requested_from/requested_to must match the alpha invocation range."
+    }
+    $fromDate = ConvertTo-ResearchDate $requestedFrom "data_quality_contract.requested_from"
+    $toDate = ConvertTo-ResearchDate $requestedTo "data_quality_contract.requested_to"
+    if ($fromDate -gt $toDate) {
+        throw "data_quality_contract requested_from must not be later than requested_to."
+    }
+
+    $hq = Get-ObjectPropertyValue $contract @('history_quality') -Required -Label "data_quality_contract.history_quality"
+    $hqKeys = @($hq.PSObject.Properties.Name | Sort-Object)
+    $expectedHqKeys = @('operator', 'value')
+    $expectedHqKeys = @($expectedHqKeys | Sort-Object)
+    if ([string]::Join("`n", $hqKeys) -cne [string]::Join("`n", $expectedHqKeys)) {
+        throw "data_quality_contract.history_quality must contain exactly operator and value."
+    }
+    if ([string]$hq.operator -cne 'gt') {
+        throw "data_quality_contract.history_quality.operator must be 'gt'."
+    }
+    $threshold = ConvertTo-FiniteInvariantDouble $hq.value "data_quality_contract.history_quality.value"
+    if ($threshold -lt 97 -or $threshold -ge 100) {
+        throw "data_quality_contract.history_quality.value must be >= 97 and < 100."
+    }
+    if ([string]$contract.coverage_mode -cne 'all_available_asof') {
+        throw "data_quality_contract.coverage_mode must be 'all_available_asof'."
+    }
+    $asofText = [string]$contract.availability_asof_utc
+    $asof = [datetimeoffset]::MinValue
+    if ($asofText -notmatch '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$' -or
+        -not [datetimeoffset]::TryParse($asofText, [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::RoundtripKind, [ref]$asof) -or
+        $asof.Offset -ne [timespan]::Zero) {
+        throw "data_quality_contract.availability_asof_utc must be a valid Z timestamp."
+    }
+    if ($asof.UtcDateTime -gt (Get-Date).ToUniversalTime()) {
+        throw "data_quality_contract.availability_asof_utc must not be in the future at preflight."
+    }
+    if ($requestedFrom -cne '1970.01.01') {
+        throw "data_quality_contract all_available_asof requested_from must equal the frozen sentinel '1970.01.01'."
+    }
+    $asofDate = $asof.UtcDateTime.ToString('yyyy.MM.dd')
+    if ($requestedTo -cne $asofDate) {
+        throw "data_quality_contract.requested_to must equal the UTC calendar date of availability_asof_utc '$asofDate'."
+    }
+    $journalBounds = $contract.require_tester_journal_bounds
+    if ($journalBounds -isnot [bool] -or (-not [bool]$journalBounds)) {
+        throw "data_quality_contract.require_tester_journal_bounds must be true."
+    }
+
+    return [pscustomobject]@{
+        schema_version = "alphafactory_data_quality_contract.v1"
+        symbol = $symbol
+        requested_from = $requestedFrom
+        requested_to = $requestedTo
+        history_quality_threshold = $threshold
+        coverage_mode = [string]$contract.coverage_mode
+        availability_asof_utc = $asof.UtcDateTime.ToString('o')
+        require_tester_journal_bounds = $true
+        max_journal_delta_bytes = 1048576L
+    }
+}
+
+function Get-Mt5JournalLogFiles([string[]]$Roots) {
+    $resolvedRoots = @(
+        $Roots |
+            Where-Object { -not [string]::IsNullOrWhiteSpace([string]$_) -and (Test-Path -LiteralPath $_ -PathType Container) } |
+            ForEach-Object { [System.IO.Path]::GetFullPath([string]$_).TrimEnd('\', '/') } |
+            Sort-Object -Unique
+    )
+    $filesByPath = @{}
+    foreach ($root in $resolvedRoots) {
+        Get-ChildItem -LiteralPath $root -Recurse -Filter "*.log" -File -ErrorAction SilentlyContinue |
+            ForEach-Object {
+                $full = [System.IO.Path]::GetFullPath($_.FullName)
+                if ($full.StartsWith($root, [System.StringComparison]::OrdinalIgnoreCase)) {
+                    $filesByPath[$full.ToLowerInvariant()] = $_
+                }
+            }
+    }
+    return @($filesByPath.Values | Sort-Object FullName)
+}
+
+function New-Mt5JournalLogSnapshot([string[]]$Roots) {
+    return @(
+        Get-Mt5JournalLogFiles $Roots | ForEach-Object {
+            [pscustomobject]@{
+                path = [System.IO.Path]::GetFullPath($_.FullName)
+                length = [int64]$_.Length
+            }
+        }
+    )
+}
+
+function ConvertFrom-Mt5LogBytes([byte[]]$Bytes) {
+    if ($null -eq $Bytes -or $Bytes.Length -eq 0) { return "" }
+    if ($Bytes.Length -ge 2 -and $Bytes[0] -eq 0xFF -and $Bytes[1] -eq 0xFE) {
+        return [System.Text.Encoding]::Unicode.GetString($Bytes, 2, $Bytes.Length - 2)
+    }
+    if ($Bytes.Length -ge 3 -and $Bytes[0] -eq 0xEF -and $Bytes[1] -eq 0xBB -and $Bytes[2] -eq 0xBF) {
+        return [System.Text.UTF8Encoding]::new($false, $false).GetString($Bytes, 3, $Bytes.Length - 3)
+    }
+    $sample = [Math]::Min($Bytes.Length, 200)
+    $oddNulls = 0
+    for ($i = 1; $i -lt $sample; $i += 2) {
+        if ($Bytes[$i] -eq 0) { $oddNulls++ }
+    }
+    if ($sample -ge 20 -and $oddNulls -ge [Math]::Max(5, [int]($sample / 6))) {
+        return [System.Text.Encoding]::Unicode.GetString($Bytes)
+    }
+    return [System.Text.UTF8Encoding]::new($false, $false).GetString($Bytes)
+}
+
+function Export-Mt5JournalLogDelta($Snapshot, [string[]]$Roots, [string]$OutputPath, [int64]$MaxBytes = 1048576) {
+    if ($MaxBytes -le 0) { throw "MT5 journal delta MaxBytes must be positive." }
+    $offsetByPath = @{}
+    foreach ($entry in @($Snapshot)) {
+        $path = [System.IO.Path]::GetFullPath([string]$entry.path)
+        $offsetByPath[$path.ToLowerInvariant()] = [int64]$entry.length
+    }
+    $currentFiles = @(Get-Mt5JournalLogFiles $Roots)
+    $fileSlices = New-Object System.Collections.Generic.List[object]
+    $totalAvailable = 0L
+    foreach ($file in $currentFiles) {
+        $full = [System.IO.Path]::GetFullPath($file.FullName)
+        $key = $full.ToLowerInvariant()
+        $offset = if ($offsetByPath.ContainsKey($key)) { [int64]$offsetByPath[$key] } else { 0L }
+        if ([int64]$file.Length -lt $offset) { $offset = 0L }
+        $available = [int64]$file.Length - $offset
+        if ($available -le 0) { continue }
+        $fileSlices.Add([pscustomobject]@{ path = $full; offset = $offset; available = $available })
+        $totalAvailable += $available
+    }
+    $remaining = [int64]$MaxBytes
+    $segments = New-Object System.Collections.Generic.List[string]
+    $filesRead = 0
+    $bytesRead = 0L
+    foreach ($slice in $fileSlices) {
+        if ($remaining -le 0) { break }
+        $take = [int64][Math]::Min([int64]$slice.available, $remaining)
+        $buffer = New-Object byte[] $take
+        $stream = [System.IO.File]::Open([string]$slice.path, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read, [System.IO.FileShare]::ReadWrite)
+        try {
+            [void]$stream.Seek([int64]$slice.offset, [System.IO.SeekOrigin]::Begin)
+            $read = 0
+            while ($read -lt $take) {
+                $chunk = $stream.Read($buffer, $read, [int]($take - $read))
+                if ($chunk -le 0) { break }
+                $read += $chunk
+            }
+        } finally {
+            $stream.Dispose()
+        }
+        if ($read -gt 0) {
+            if ($read -ne $buffer.Length) {
+                $actual = New-Object byte[] $read
+                [Array]::Copy($buffer, $actual, $read)
+                $buffer = $actual
+            }
+            $segments.Add((ConvertFrom-Mt5LogBytes $buffer))
+            $filesRead++
+            $bytesRead += $read
+            $remaining -= $read
+        }
+    }
+    $outDir = Split-Path -Parent $OutputPath
+    if (-not [string]::IsNullOrWhiteSpace($outDir)) {
+        New-Item -ItemType Directory -Path $outDir -Force | Out-Null
+    }
+    [System.IO.File]::WriteAllText($OutputPath, [string]::Join("`n", @($segments)), [System.Text.UTF8Encoding]::new($false))
+    return [pscustomobject]@{
+        path = $OutputPath
+        sha256 = Get-Sha256Required $OutputPath "MT5 journal delta"
+        bytes_read = $bytesRead
+        files_read = $filesRead
+        truncated = ($totalAvailable -gt $MaxBytes -or $bytesRead -lt [Math]::Min($totalAvailable, $MaxBytes))
+    }
+}
+
+function Get-DataQualityHistoryRange([string]$JournalText, [string]$Symbol) {
+    $symbolPattern = [regex]::Escape($Symbol)
+    $exactPattern = '(?im)(?<![A-Za-z0-9._+-])' + $symbolPattern + ':\s+history synchronized from (?<from>\d{4}\.\d{2}\.\d{2}) to (?<to>\d{4}\.\d{2}\.\d{2})'
+    $exactMatches = @([regex]::Matches($JournalText, $exactPattern))
+    $ranges = @(
+        $exactMatches | ForEach-Object {
+            "{0}|{1}" -f $_.Groups['from'].Value, $_.Groups['to'].Value
+        } | Sort-Object -Unique
+    )
+    if ($ranges.Count -eq 0) {
+        throw "MT5 journal delta has no exact-symbol history synchronization line for '$Symbol'."
+    }
+    if ($ranges.Count -gt 1) {
+        throw "MT5 journal delta has ambiguous history synchronization ranges for '$Symbol': $([string]::Join(', ', $ranges))"
+    }
+    $parts = $ranges[0].Split('|', 2)
+    return [pscustomobject]@{
+        actual_from = $parts[0]
+        actual_to = $parts[1]
+        exact_match_count = $exactMatches.Count
+        distinct_range_count = $ranges.Count
+    }
+}
+
+function Get-DataQualitySeriesProof([string]$JournalText, [string]$Symbol, [string]$ActualFrom) {
+    $symbolPattern = [regex]::Escape($Symbol)
+    $pattern = '(?im)DATA_EPOCH_D0_SERIES_PROOF\s+symbol=' + $symbolPattern +
+        '\s+m5_synchronized=(?<sync>[01])' +
+        '\s+m5_first_epoch=(?<m5first>\d+)' +
+        '\s+m5_terminal_first_epoch=(?<m5terminal>\d+)' +
+        '\s+m1_server_first_epoch=(?<m1server>\d+)' +
+        '\s+m1_terminal_first_epoch=(?<m1terminal>\d+)' +
+        '\s+m5_bars=(?<bars>\d+)' +
+        '\s+terminal_maxbars=(?<maxbars>\d+)' +
+        '\s+copytime_from_epoch=(?<copyfrom>\d+)' +
+        '\s+copytime_count=(?<copycount>-?\d+)' +
+        '\s+copytime_result=(?<copyresult>-?\d+)' +
+        '\s+copytime_first_epoch=(?<copyfirst>\d+)' +
+        '\s+copytime_last_error=(?<copyerror>\d+)'
+    $matches = @([regex]::Matches($JournalText, $pattern))
+    $records = @($matches | ForEach-Object { $_.Value } | Sort-Object -Unique)
+    if ($records.Count -ne 1) {
+        throw "MT5 journal delta requires one distinct D0 series proof for '$Symbol'; found $($records.Count)."
+    }
+    $match = $matches[0]
+    $proof = [ordered]@{
+        symbol = $Symbol
+        m5_synchronized = [int]$match.Groups['sync'].Value
+        m5_first_epoch = [int64]$match.Groups['m5first'].Value
+        m5_terminal_first_epoch = [int64]$match.Groups['m5terminal'].Value
+        m1_server_first_epoch = [int64]$match.Groups['m1server'].Value
+        m1_terminal_first_epoch = [int64]$match.Groups['m1terminal'].Value
+        m5_bars = [int64]$match.Groups['bars'].Value
+        terminal_maxbars = [int64]$match.Groups['maxbars'].Value
+        copytime_from_epoch = [int64]$match.Groups['copyfrom'].Value
+        copytime_count = [int]$match.Groups['copycount'].Value
+        copytime_result = [int]$match.Groups['copyresult'].Value
+        copytime_first_epoch = [int64]$match.Groups['copyfirst'].Value
+        copytime_last_error = [int]$match.Groups['copyerror'].Value
+    }
+    if ($proof.m5_synchronized -ne 1 -or $proof.m5_bars -le 0 -or $proof.terminal_maxbars -le 0 -or
+        $proof.copytime_from_epoch -ne $proof.m5_first_epoch -or $proof.copytime_count -ne 1 -or
+        $proof.copytime_result -ne 1 -or $proof.copytime_last_error -ne 0 -or
+        $proof.m5_first_epoch -le 0 -or $proof.m5_terminal_first_epoch -le 0 -or
+        $proof.m1_server_first_epoch -le 0 -or $proof.m1_terminal_first_epoch -le 0 -or
+        $proof.copytime_first_epoch -le 0) {
+        throw "INVALID_TRUNCATED_TERMINAL_CACHE: D0 series proof has unsynchronized, empty, failed-copy, or invalid first-date fields."
+    }
+
+    $actualFromDate = ConvertTo-ResearchDate $ActualFrom "journal actual_from"
+    $m5FirstDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m5_first_epoch).UtcDateTime.Date
+    $m5TerminalDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m5_terminal_first_epoch).UtcDateTime.Date
+    $m1ServerDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m1_server_first_epoch).UtcDateTime.Date
+    $m1TerminalDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m1_terminal_first_epoch).UtcDateTime.Date
+    $copyFirstDate = [datetimeoffset]::FromUnixTimeSeconds($proof.copytime_first_epoch).UtcDateTime.Date
+    if ($actualFromDate -ne $m5FirstDate -or $m5FirstDate -ne $m5TerminalDate -or $m5FirstDate -ne $copyFirstDate) {
+        throw "INVALID_TRUNCATED_TERMINAL_CACHE: journal, M5 series, terminal series, and CopyTime first dates disagree."
+    }
+    if ($m1TerminalDate -ne $m1ServerDate -or $m1ServerDate -gt $m5FirstDate) {
+        throw "INVALID_TRUNCATED_TERMINAL_CACHE: terminal M1 first date does not match the server or begins after M5 history."
+    }
+
+    $reportingFloor = [datetime]::new(2018, 1, 1)
+    $coverageClass = 'FULL_2018_PLUS'
+    if ($actualFromDate -gt $reportingFloor) {
+        if ($m1ServerDate -le $reportingFloor -or ($m5FirstDate - $m1ServerDate).TotalDays -gt 7) {
+            throw "INVALID_TRUNCATED_TERMINAL_CACHE: post-2018 M5 start is not justified by the MT5 server first date."
+        }
+        $coverageClass = 'BROKER_LIMITED_START'
+    }
+    return [pscustomobject]@{
+        coverage_class = $coverageClass
+        series_proof = [pscustomobject]$proof
+    }
+}
+
+function Assert-DataQualityRunEvidence($Manifest) {
+    $contract = $Manifest.data_quality_contract
+    if ($null -eq $contract) { return $null }
+    if ([string]$contract.requested_from -cne [string]$Manifest.from -or [string]$contract.requested_to -cne [string]$Manifest.to) {
+        throw "data_quality_contract requested_from/requested_to must match run manifest from/to."
+    }
+    $journal = $Manifest.data_quality_journal_delta
+    if ($null -eq $journal -or [string]::IsNullOrWhiteSpace([string]$journal.path)) {
+        throw "data_quality_contract requires a run-local MT5 journal delta."
+    }
+    if ([string]$journal.path -cne 'logs/tester_journal_delta.log') {
+        throw "MT5 journal delta path must be the fixed run-local path 'logs/tester_journal_delta.log'."
+    }
+    if ($journal.truncated -isnot [bool] -or [bool]$journal.truncated) {
+        throw "MT5 journal delta must be present and complete; truncated or untyped evidence is invalid."
+    }
+    if ([int64]$journal.files_read -le 0 -or [int64]$journal.bytes_read -le 0) {
+        throw "MT5 journal delta must bind positive files_read and bytes_read evidence."
+    }
+    $runRoot = [System.IO.Path]::GetFullPath([string]$Manifest.local_run_dir).TrimEnd('\', '/')
+    $journalPath = [System.IO.Path]::GetFullPath((Join-Path $runRoot ([string]$journal.path)))
+    $runPrefix = "$runRoot\"
+    if (-not $journalPath.StartsWith($runPrefix, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw "MT5 journal delta resolves outside the run-local root."
+    }
+    if (-not (Test-Path -LiteralPath $journalPath -PathType Leaf)) {
+        throw "MT5 journal delta is missing: $journalPath"
+    }
+    $journalSha = Get-Sha256Required $journalPath "MT5 journal delta"
+    if ([string]$journal.sha256 -ine $journalSha) {
+        throw "MT5 journal delta SHA256 mismatch."
+    }
+    $journalText = Get-Content -LiteralPath $journalPath -Raw
+    $range = Get-DataQualityHistoryRange $journalText ([string]$contract.symbol)
+    $actualFrom = ConvertTo-ResearchDate ([string]$range.actual_from) "journal actual_from"
+    $actualTo = ConvertTo-ResearchDate ([string]$range.actual_to) "journal actual_to"
+    if ($actualFrom -gt $actualTo) {
+        throw "MT5 synchronized history actual_from must not be later than actual_to."
+    }
+    $requestedTo = ConvertTo-ResearchDate ([string]$contract.requested_to) "data_quality_contract.requested_to"
+    if ($actualTo -lt $requestedTo) {
+        throw "MT5 synchronized history ends before requested_to: actual '$($range.actual_to)', requested '$($contract.requested_to)'."
+    }
+    $seriesProof = Get-DataQualitySeriesProof $journalText ([string]$contract.symbol) ([string]$range.actual_from)
+
+    $rawHistoryQuality = Get-ReportLabeledValue (Get-Content -LiteralPath ([string]$Manifest.report_path) -Raw) @('History Quality') 'history quality'
+    $historyQuality = ConvertTo-FiniteInvariantDouble $rawHistoryQuality "Report History Quality"
+    $threshold = ConvertTo-FiniteInvariantDouble $contract.history_quality_threshold "data_quality_contract.history_quality_threshold"
+    if ($historyQuality -le $threshold) {
+        throw "Report History Quality $historyQuality is not greater than threshold $threshold."
+    }
+
+    return [pscustomobject]@{
+        contract = $contract
+        history_quality = $historyQuality
+        actual_from = [string]$range.actual_from
+        actual_to = [string]$range.actual_to
+        coverage_class = [string]$seriesProof.coverage_class
+        series_proof = $seriesProof.series_proof
+        journal_path = [string]$journal.path
+        journal_sha256 = [string]$journal.sha256
+        journal_bytes_read = [int64]$journal.bytes_read
+        journal_files_read = [int]$journal.files_read
+        journal_truncated = [bool]$journal.truncated
+        exact_match_count = [int]$range.exact_match_count
+        distinct_range_count = [int]$range.distinct_range_count
     }
 }
 
@@ -1175,12 +1637,35 @@ function Complete-RunManifest($ManifestPath) {
     $manifest.data_fingerprint = $identity.DataFingerprint
     $manifest.sidecars = @($sidecars)
     $manifest | Add-Member -MemberType NoteProperty -Name fingerprint_basis -Value $identity.Basis -Force
+    $dataQuality = Assert-DataQualityRunEvidence $manifest
+    if ($null -ne $dataQuality) {
+        $manifest | Add-Member -MemberType NoteProperty -Name data_quality_gate -Value $dataQuality -Force
+        $dataQualityFingerprintBasis = [ordered]@{
+            schema_version = 'alphafactory_data_quality_fingerprint.v1'
+            base_data_fingerprint = [string]$identity.DataFingerprint
+            contract = $dataQuality.contract
+            history_quality = [double]$dataQuality.history_quality
+            actual_from = [string]$dataQuality.actual_from
+            actual_to = [string]$dataQuality.actual_to
+            coverage_class = [string]$dataQuality.coverage_class
+            series_proof = $dataQuality.series_proof
+            journal_sha256 = [string]$dataQuality.journal_sha256
+            journal_bytes_read = [int64]$dataQuality.journal_bytes_read
+            journal_files_read = [int]$dataQuality.journal_files_read
+            journal_truncated = [bool]$dataQuality.journal_truncated
+            exact_match_count = [int]$dataQuality.exact_match_count
+            distinct_range_count = [int]$dataQuality.distinct_range_count
+        }
+        $manifest.fingerprint_basis | Add-Member -MemberType NoteProperty -Name data_quality_gate -Value $dataQualityFingerprintBasis -Force
+        $manifest | Add-Member -MemberType NoteProperty -Name data_quality_fingerprint_basis -Value $dataQualityFingerprintBasis -Force
+        $manifest | Add-Member -MemberType NoteProperty -Name data_quality_fingerprint -Value (Get-TextSha256 (($dataQualityFingerprintBasis | ConvertTo-Json -Depth 12 -Compress))) -Force
+    }
     $manifest.generated_at_utc = (Get-Date).ToUniversalTime().ToString('o')
     Write-JsonAtomically $manifest $ManifestPath 16
     return $ManifestPath
 }
 
-function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $Model, $ExecutionMode, $FixedDelayMs, $TimeoutSec, $Overrides, $MainFile, $CompiledEx5File, $Ex5File, $ReportPath, $ConfigPath, $Snapshot, $HypothesisId, $RunRole, $Deposit, $Leverage, $Spread, $TelemetryTier, $TelemetryProfile, $RunStartUtc, $GitSnapshot, $RequiredSidecarList, $ReceiptSha256, $SymbolGeometry) {
+function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $Model, $ExecutionMode, $FixedDelayMs, $TimeoutSec, $Overrides, $MainFile, $CompiledEx5File, $Ex5File, $ReportPath, $ConfigPath, $Snapshot, $HypothesisId, $RunRole, $Deposit, $Leverage, $Spread, $TelemetryTier, $TelemetryProfile, $RunStartUtc, $GitSnapshot, $RequiredSidecarList, $ReceiptSha256, $SymbolGeometry, $DataQualityContract = $null, $DataQualityJournalDelta = $null) {
     $spreadValue = if ([string]::IsNullOrWhiteSpace($Spread)) { "current" } else { $Spread }
     $manifest = [ordered]@{
         schema_version = "alphafactory_run_manifest.v2"
@@ -1229,7 +1714,10 @@ function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $
         server_fingerprint = $null
         account_fingerprint = $null
         data_fingerprint = $null
-        required_sidecars = @($RequiredSidecarList)
+        required_sidecars = @(
+            $RequiredSidecarList |
+                Where-Object { $null -ne $_ -and -not [string]::IsNullOrWhiteSpace([string]$_) }
+        )
         sidecars = @()
         contract_receipt_sha256 = $ReceiptSha256
         contract_symbol_geometry = [ordered]@{
@@ -1237,6 +1725,8 @@ function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $
             point = [double]$SymbolGeometry.point
             pip_size = [double]$SymbolGeometry.pip_size
         }
+        data_quality_contract = $DataQualityContract
+        data_quality_journal_delta = $DataQualityJournalDelta
         artifact_collection_not_before_utc = $RunStartUtc.ToUniversalTime().ToString("o")
         generated_at_utc = (Get-Date).ToUniversalTime().ToString("o")
         doctrine = [ordered]@{
@@ -1447,6 +1937,14 @@ Leverage=$Leverage
     if ((Get-Sha256Required $stagedEx5Path "Staged EX5") -ine $stagedEx5Hash) {
         throw "Staged EX5 changed immediately before MT5 launch."
     }
+    $dataQualityContract = $receiptCheck.DataQualityContract
+    # The portable tester root is nested below the data root. Scan the terminal
+    # journal directory plus the tester tree once; never recurse the install root.
+    $journalRoots = @((Join-Path $MT5DataRoot 'logs'), $MT5TesterRoot)
+    $journalSnapshot = $null
+    if ($null -ne $dataQualityContract) {
+        $journalSnapshot = @(New-Mt5JournalLogSnapshot $journalRoots)
+    }
     Write-Status "Starting MT5..."
     $mt5LaunchArgs = @(Get-Mt5LaunchArguments `
         -ConfigPath $iniPath `
@@ -1528,6 +2026,22 @@ Leverage=$Leverage
     if ((Get-Sha256Required $stagedEx5Path "Staged EX5") -ine $stagedEx5Hash) {
         throw "Staged EX5 changed during MT5 execution."
     }
+    $dataQualityJournalDelta = $null
+    if ($null -ne $dataQualityContract) {
+        $deltaPath = Join-Path $logsDir "tester_journal_delta.log"
+        $deltaReceipt = Export-Mt5JournalLogDelta `
+            -Snapshot $journalSnapshot `
+            -Roots $journalRoots `
+            -OutputPath $deltaPath `
+            -MaxBytes ([int64]$dataQualityContract.max_journal_delta_bytes)
+        $dataQualityJournalDelta = [ordered]@{
+            path = "logs/tester_journal_delta.log"
+            sha256 = $deltaReceipt.sha256
+            bytes_read = [int64]$deltaReceipt.bytes_read
+            files_read = [int]$deltaReceipt.files_read
+            truncated = [bool]$deltaReceipt.truncated
+        }
+    }
     
     # --- Report found - process results ---
     Write-Status "Report ready!" "OK"
@@ -1536,7 +2050,7 @@ Leverage=$Leverage
     Copy-Item $reportAbsPath (Join-Path $buildDir "report.html") -Force
     Copy-Item $iniPath (Join-Path $localRunDir "config.ini") -Force
     Copy-Item $iniPath (Join-Path $configDir "config.ini") -Force
-    $manifestPath = Write-RunManifest -RunDir $localRunDir -RunId $ts -EAName $EAName -Sym $Sym -Per $Per -FromD $FromD -ToD $ToD -Model $Model -ExecutionMode $ExecutionMode -FixedDelayMs $FixedDelayMs -TimeoutSec $TimeoutSec -Overrides $effectiveOverrides -MainFile $main -CompiledEx5File $ex5 -Ex5File $stagedEx5Path -ReportPath $localReportPath -ConfigPath $iniPath -Snapshot $snapshot -HypothesisId $HypothesisId -RunRole $RunRole -Deposit $Deposit -Leverage $Leverage -Spread $Spread -TelemetryTier $TelemetryTier -TelemetryProfile $sourceContract.TelemetryProfile -RunStartUtc $runStartUtc -GitSnapshot $receiptCheck.Git -RequiredSidecarList $requiredSidecarList -ReceiptSha256 $receiptCheck.ReceiptSha256 -SymbolGeometry $receiptCheck.Receipt.binding.symbol_geometry
+    $manifestPath = Write-RunManifest -RunDir $localRunDir -RunId $ts -EAName $EAName -Sym $Sym -Per $Per -FromD $FromD -ToD $ToD -Model $Model -ExecutionMode $ExecutionMode -FixedDelayMs $FixedDelayMs -TimeoutSec $TimeoutSec -Overrides $effectiveOverrides -MainFile $main -CompiledEx5File $ex5 -Ex5File $stagedEx5Path -ReportPath $localReportPath -ConfigPath $iniPath -Snapshot $snapshot -HypothesisId $HypothesisId -RunRole $RunRole -Deposit $Deposit -Leverage $Leverage -Spread $Spread -TelemetryTier $TelemetryTier -TelemetryProfile $sourceContract.TelemetryProfile -RunStartUtc $runStartUtc -GitSnapshot $receiptCheck.Git -RequiredSidecarList $requiredSidecarList -ReceiptSha256 $receiptCheck.ReceiptSha256 -SymbolGeometry $receiptCheck.Receipt.binding.symbol_geometry -DataQualityContract $dataQualityContract -DataQualityJournalDelta $dataQualityJournalDelta
     Copy-Item -LiteralPath $manifestPath -Destination (Join-Path $configDir "run_manifest.json") -Force
 
     if ($effectiveOverrides) {
@@ -1582,7 +2096,10 @@ Leverage=$Leverage
     # Normal non-collection receipts omit authority; StrictMode must not crash on missing property.
     $receiptAuthorityProperty = $receiptCheck.Receipt.PSObject.Properties['authority']
     $receiptAuthority = if ($null -ne $receiptAuthorityProperty) { [string]$receiptAuthorityProperty.Value } else { '' }
-    if ($receiptAuthority -ceq 'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE') {
+    if ($receiptAuthority -in @(
+        'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE',
+        'DATA_ACQUISITION_ONLY_NO_PERFORMANCE'
+    )) {
         Do-AnalyzeZeroTradeCollection (Join-Path $localRunDir "report.html") $analysisDir $receiptAuthority
         Write-Status "Data collection complete: $localRunDir" "OK"
         Write-Output "ALPHA_RUN_DIR=$localRunDir"
@@ -1649,7 +2166,10 @@ function Do-Analyze($ReportPath, $OutDir = "") {
 }
 
 function Do-AnalyzeZeroTradeCollection($ReportPath, $OutDir, $Authority) {
-    if ([string]$Authority -cne 'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE') {
+    if ([string]$Authority -notin @(
+        'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE',
+        'DATA_ACQUISITION_ONLY_NO_PERFORMANCE'
+    )) {
         throw "Unsupported zero-trade collection authority '$Authority'."
     }
     $html = Get-Content -LiteralPath $ReportPath -Raw
@@ -1924,6 +2444,22 @@ switch ($Action.ToLower()) {
             throw "EA delivery validation failed with exit code $deliveryExitCode."
         }
     }
+    "fast-kill" {
+        if ([string]::IsNullOrWhiteSpace($Packet)) {
+            throw "Fast-kill closeout packet required. Use: .\alpha.ps1 fast-kill -Packet '<FAST_KILL_CLOSEOUT.json>'"
+        }
+        $validator = Join-Path $AlphaRoot "tools\validate_fast_kill_closeout.py"
+        if (-not (Test-Path -LiteralPath $validator -PathType Leaf)) {
+            throw "Fast-kill closeout validator not found: $validator"
+        }
+        $resolvedPacket = (Resolve-Path -LiteralPath $Packet).Path
+        $global:LASTEXITCODE = 0
+        & python $validator --packet $resolvedPacket
+        $fastKillExitCode = $LASTEXITCODE
+        if ($fastKillExitCode -ne 0) {
+            throw "Fast-kill closeout validation failed with exit code $fastKillExitCode."
+        }
+    }
     "validate" {
         Write-Status "Validating Python environment..."
         $required = @("numpy", "pandas", "matplotlib")
@@ -1961,7 +2497,8 @@ switch ($Action.ToLower()) {
   ─────────────────────────────────────────────────────────────────
   analyze -Report "path"    Full analysis of backtest report
   validate-full -Report "p" ALL gates parallel (analyze+equity+MC+WFA+robust)
-  delivery -Packet "p"     Fail-closed logic/run/log/chart completion gate
+  fast-kill -Packet "p"    Lean hash-bound closeout for an early-killed cell
+  delivery -Packet "p"     Heavy survivor logic/run/log/chart completion gate
   scan                      Quick VectorBT strategy scan (all)
   scan "sma"               Scan specific strategy (sma/ema/rsi/macd)
   monte -Report "path"      Monte Carlo simulation (1000 runs)
@@ -1985,13 +2522,14 @@ switch ($Action.ToLower()) {
   -To         Backtest end date (default: 2025.12.25)
   -Charts     Generate visual charts
   -Report     Path to HTML report file
-  -Packet     Hash-bound EA development delivery packet
+  -Packet     Hash-bound fast-kill closeout or heavy delivery packet
 
   EXAMPLES:
   ─────────────────────────────────────────────────────────────────
   .\alpha.ps1 compile "EA_SMC_Confluence"
   .\alpha.ps1 backtest "EA_SMC_Confluence" -Symbol XAUUSD -Period M15
   .\alpha.ps1 analyze -Report "runs/test/report.html" -Charts
+  .\alpha.ps1 fast-kill -Packet "03. EA Developer/EA_Name/research/FAST_KILL_CLOSEOUT.json"
   .\alpha.ps1 delivery -Packet "03. EA Developer/EA_Name/research/EA_DELIVERY_PACKET.json"
   .\alpha.ps1 monte -Report "report.html"
   .\alpha.ps1 wfa -Report "report.html"

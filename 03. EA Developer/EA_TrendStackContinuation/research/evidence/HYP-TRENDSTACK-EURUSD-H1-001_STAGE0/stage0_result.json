@@ -1,0 +1,188 @@
+{
+  "artifacts": {
+    "opportunity_ledger": "opportunity_ledger.csv",
+    "opportunity_ledger_rows": 2554,
+    "opportunity_ledger_sha256": "F5966A48FB46CE3BC719C2DDB88A370B7E1DA54E3D00017907050AD61D638BE0",
+    "reconciliation_receipt": "reconciliation_receipt.json"
+  },
+  "causal_access_proof": {
+    "access_contract": "CAUSAL_BOUNDED_STREAM_V1",
+    "access_trace_sha256": "06623A5EAE3D22E32DA55B519BBFC72199C09E3E0BD9D65994AA24E8C40A65F3",
+    "access_trace_storage": "opportunity_ledger.csv per-decision access_* columns",
+    "causal_decisions_passed": 2554,
+    "cursor_receipt": {
+      "access_method": "pyarrow.dataset.Scanner.to_batches",
+      "bars_path": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\fivepercent\\EURUSD\\EURUSD_H1_2015_now.parquet",
+      "batch_size_rows": 1,
+      "data_sha256": "71860016AF1BD1B17353B043AFF799233A787E9DF3F587913FCD2F5328BB1E08",
+      "first_row_returned": "2015-01-02T07:00:00",
+      "holdout_opened": false,
+      "holdout_rows_returned": 0,
+      "last_row_returned": "2022-12-30T21:00:00",
+      "max_internal_lookahead_rows": 1,
+      "predicate": "time_utc < 2023-01-01T00:00:00",
+      "rows_returned_to_decision_state": 49723,
+      "timeframe": "H1"
+    },
+    "decision_count": 2554,
+    "full_frame_materialization": false,
+    "future_rows_returned_to_decision_state": 0,
+    "holdout_rows_returned_to_decision_state": 0,
+    "immutable_prior_row_rechecks_passed": 2554,
+    "max_visible_strictly_before_every_cutoff": true,
+    "per_decision_trace_columns": [
+      "decision_time_utc",
+      "access_rows_released",
+      "access_cumulative_visible_rows",
+      "access_max_visible_time_utc",
+      "access_causal_pass",
+      "prior_finalized_rows_immutable",
+      "opportunity_snapshot_sha256"
+    ]
+  },
+  "causality_attestation": {
+    "decision_clock": "12:00:00 UTC",
+    "latest_current_day_h1_input": "11:00:00 UTC",
+    "m252_uses_dates_strictly_before_opportunity": true,
+    "prior_opportunity_rows_mutated_after_finalization": false,
+    "row_at_or_after_decision_cutoff_returned_to_state": false
+  },
+  "completed_entry_observation": {
+    "DESIGN": null,
+    "VALIDATION": null,
+    "opened": false,
+    "reason": "M1_FORBIDDEN_IN_STAGE0_H1_ONLY"
+  },
+  "data_hashes": {
+    "h1": "71860016AF1BD1B17353B043AFF799233A787E9DF3F587913FCD2F5328BB1E08"
+  },
+  "data_path": "02. AlphaFactory/data/fivepercent/EURUSD/EURUSD_H1_2015_now.parquet",
+  "data_quality": {
+    "daily_exclusion_counts": {
+      "PARTIAL_DAY_LT20": 422
+    },
+    "duplicate_utc_opens_in_finalized_days": 0,
+    "first_h1_bar_released": "2015-01-02T07:00:00",
+    "h1_rows_released_to_decision_state": 49723,
+    "invalid_daily_closes": 422,
+    "last_h1_bar_released": "2022-12-30T21:00:00",
+    "valid_daily_closes": 2069
+  },
+  "economic_metrics_computed": false,
+  "failed_gates": [],
+  "gates": {
+    "design_challenger_count": {
+      "actual": 661,
+      "maximum": 1302,
+      "minimum": 522,
+      "passed": true
+    },
+    "design_long_coverage": {
+      "actual": 263,
+      "minimum": 50,
+      "passed": true
+    },
+    "design_short_coverage": {
+      "actual": 398,
+      "minimum": 50,
+      "passed": true
+    },
+    "validation_challenger_count": {
+      "actual": 267,
+      "maximum": 521,
+      "minimum": 209,
+      "passed": true
+    },
+    "validation_long_coverage": {
+      "actual": 82,
+      "minimum": 50,
+      "passed": true
+    },
+    "validation_short_coverage": {
+      "actual": 185,
+      "minimum": 50,
+      "passed": true
+    }
+  },
+  "holdout_opened": false,
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-001",
+  "load_receipt": {
+    "access_method": "pyarrow.dataset.Scanner.to_batches",
+    "bars_path": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\fivepercent\\EURUSD\\EURUSD_H1_2015_now.parquet",
+    "batch_size_rows": 1,
+    "data_sha256": "71860016AF1BD1B17353B043AFF799233A787E9DF3F587913FCD2F5328BB1E08",
+    "first_row_returned": "2015-01-02T07:00:00",
+    "holdout_opened": false,
+    "holdout_rows_returned": 0,
+    "last_row_returned": "2022-12-30T21:00:00",
+    "max_internal_lookahead_rows": 1,
+    "predicate": "time_utc < 2023-01-01T00:00:00",
+    "rows_returned_to_decision_state": 49723,
+    "timeframe": "H1"
+  },
+  "m1_opened": false,
+  "manifest_path": "02. AlphaFactory/data/fivepercent/EURUSD/manifest.json",
+  "manifest_sha256": "2CD996FD4416B1E888BF1C9D272BF49056DB3A4CE477CF74FA4E31D474A41B54",
+  "opportunity_reconciliation": {
+    "arm_counts": {
+      "DESIGN": {
+        "challenger_stack_eligible": 661,
+        "control_m252_eligible": 1297,
+        "control_m6_eligible": 1292,
+        "negative_disagree_eligible": 631
+      },
+      "VALIDATION": {
+        "challenger_stack_eligible": 267,
+        "control_m252_eligible": 520,
+        "control_m6_eligible": 519,
+        "negative_disagree_eligible": 252
+      }
+    },
+    "base_eligible": 1817,
+    "base_exclusion_counts": {
+      "MISSING_SIX_HOUR_BAR": 737
+    },
+    "calendar_rows": 2554,
+    "challenger_rejection_counts": {
+      "M252_M6_DISAGREE": 883,
+      "M6_EQUALITY": 6,
+      "MISSING_SIX_HOUR_BAR": 737
+    },
+    "split_direction_counts": {
+      "DESIGN": {
+        "challenger": 661,
+        "long": 263,
+        "short": 398
+      },
+      "VALIDATION": {
+        "challenger": 267,
+        "long": 82,
+        "short": 185
+      }
+    }
+  },
+  "outcomes_opened": false,
+  "plan_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-001_PROBE_PLAN.md",
+  "plan_sha256": "891291042FB326EF67411A0763015B4E3E68654F59E4B323C2217F1E8015B6F0",
+  "promotion_eligible": false,
+  "scanner_path": "03. EA Developer/EA_TrendStackContinuation/research/stage0_trendstack.py",
+  "scanner_sha256": "6E13BC10B1A1CEF17FA6DB3F5C388BD28CDB5301B08C0C7B2CD69A803E9F476F",
+  "schema_version": "trendstack_stage0_outcome_blind.v2",
+  "split_windows": {
+    "DESIGN": {
+      "end_exclusive": "2021-01-01",
+      "start": "2016-01-04"
+    },
+    "HOLDOUT": {
+      "opened": false,
+      "start": "2023-01-01"
+    },
+    "VALIDATION": {
+      "end_exclusive": "2023-01-01",
+      "start": "2021-01-01"
+    }
+  },
+  "stage": "STAGE0_H1_OBSERVATION_ONLY",
+  "verdict": "PASS",
+  "verdict_reason": "FROZEN_STAGE0_OBSERVATION_GATES_PASS"
+}

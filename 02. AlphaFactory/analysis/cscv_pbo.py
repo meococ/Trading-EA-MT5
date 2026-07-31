@@ -19,6 +19,8 @@ from itertools import combinations
 from pathlib import Path
 from typing import Dict, List, Tuple
 
+from aligned_variant_evidence import load_aligned_variant_evidence
+
 
 def _parse_dt(s: str) -> datetime:
     return datetime.fromisoformat(s.strip().replace("Z", "+00:00"))
@@ -176,6 +178,32 @@ def cscv_pbo(variants: Dict[str, List[Tuple[datetime, float]]], n_slices: int, i
     }
 
 
+def aligned_cscv_pbo(manifest_path: Path) -> dict:
+    evidence = load_aligned_variant_evidence(manifest_path)
+    variants = {
+        variant_id: [(_parse_dt(day + "T00:00:00+00:00"), value) for day, value in zip(evidence.dates, values)]
+        for variant_id, values in evidence.series.items()
+    }
+    result = cscv_pbo(
+        variants=variants,
+        n_slices=evidence.cscv_slices,
+        is_ratio=0.5,
+        min_trades_per_slice=1,
+        metric="mean",
+        max_combos=evidence.cscv_max_combinations,
+        seed=evidence.random_seed,
+    )
+    result.update(
+        {
+            "analysis_kind": "preregistered_aligned_variant_matrix_cscv",
+            "promotion_eligible": True,
+            "selection_process_provenance": "full frozen variant family",
+            **evidence.promotion_metadata(),
+        }
+    )
+    return result
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="CSCV & PBO for strategy variants")
     ap.add_argument("--variants-dir", required=True, help="Directory containing variant folders or trades.csv files")
@@ -186,22 +214,42 @@ def main() -> int:
     ap.add_argument("--max-combos", type=int, default=200, help="Max combinations to sample (0 = all)")
     ap.add_argument("--seed", type=int, default=42, help="Random seed")
     ap.add_argument("--out", default="", help="Output directory")
+    ap.add_argument(
+        "--variant-manifest",
+        default="",
+        help="Preregistered aligned variant manifest; enables promotion-grade CSCV/PBO",
+    )
     args = ap.parse_args()
 
     variants_dir = Path(args.variants_dir)
     if not variants_dir.exists():
         raise SystemExit(f"variants-dir not found: {variants_dir}")
 
-    variants = _collect_variants(variants_dir)
-    result = cscv_pbo(
-        variants=variants,
-        n_slices=args.slices,
-        is_ratio=args.is_ratio,
-        min_trades_per_slice=args.min_trades_per_slice,
-        metric=args.metric,
-        max_combos=args.max_combos,
-        seed=args.seed,
-    )
+    try:
+        if args.variant_manifest:
+            result = aligned_cscv_pbo(Path(args.variant_manifest))
+        else:
+            variants = _collect_variants(variants_dir)
+            result = cscv_pbo(
+                variants=variants,
+                n_slices=args.slices,
+                is_ratio=args.is_ratio,
+                min_trades_per_slice=args.min_trades_per_slice,
+                metric=args.metric,
+                max_combos=args.max_combos,
+                seed=args.seed,
+            )
+            result.update(
+                {
+                    "analysis_kind": "posthoc_trade_csv_cscv_proxy",
+                    "promotion_eligible": False,
+                    "limitation": (
+                        "Diagnostic only: no preregistered aligned variant manifest was supplied."
+                    ),
+                }
+            )
+    except ValueError as exc:
+        result = {"error": str(exc), "promotion_eligible": False}
 
     out_dir = Path(args.out) if args.out else variants_dir
     out_dir.mkdir(parents=True, exist_ok=True)

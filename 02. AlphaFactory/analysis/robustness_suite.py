@@ -34,9 +34,44 @@ from datetime import timedelta
 from copy import deepcopy
 
 from quant_analyzer import parse_deals, deals_to_trades, Trade, bucket_stats
+from aligned_variant_evidence import load_aligned_variant_evidence
 
 
 DEFAULT_RANDOM_SEED = 1729
+
+
+def matched_rerun_parameter_sensitivity(manifest_path: Path) -> Dict:
+    """Score actual preregistered Model-0 variant reruns, never synthetic P/L perturbations."""
+    evidence = load_aligned_variant_evidence(manifest_path)
+    variants = []
+    for variant_id in evidence.robustness_variant_ids:
+        values = evidence.series[variant_id]
+        mean_net_r = sum(values) / len(values)
+        variants.append(
+            {
+                "variant_id": variant_id,
+                "mean_daily_net_r": round(mean_net_r, 10),
+                "minimum_mean_daily_net_r": evidence.minimum_variant_mean_net_r,
+                "passed": mean_net_r >= evidence.minimum_variant_mean_net_r,
+            }
+        )
+    passed = sum(1 for row in variants if row["passed"])
+    pass_rate = passed / len(variants)
+    return {
+        "schema_version": "alphafactory_robustness_promotion.v1",
+        "analysis_kind": "matched_ea_rerun_parameter_sensitivity",
+        "promotion_eligible": True,
+        "methodology": "actual hash-bound Model-0 reruns from the frozen variant family",
+        "variants": variants,
+        "summary": {
+            "passed": passed,
+            "total": len(variants),
+            "pass_rate": round(pass_rate, 6),
+            "minimum_pass_rate": evidence.minimum_robustness_pass_ratio,
+            "verdict": "PASS" if pass_rate >= evidence.minimum_robustness_pass_ratio else "FAIL",
+        },
+        **evidence.promotion_metadata(),
+    }
 
 
 # ============================================================
@@ -564,6 +599,11 @@ def main():
     parser.add_argument("--out", "-o", default="", help="Output directory")
     parser.add_argument("--seed", type=int, default=DEFAULT_RANDOM_SEED, help="Deterministic random seed")
     parser.add_argument("--quiet", "-q", action="store_true", help="Suppress output")
+    parser.add_argument(
+        "--variant-manifest",
+        default="",
+        help="Preregistered aligned variant manifest; enables matched-rerun sensitivity",
+    )
     args = parser.parse_args()
     
     report_path = Path(args.report)
@@ -571,17 +611,21 @@ def main():
         print(f"ERROR: Report not found: {report_path}")
         return 1
     
-    # Parse trades
-    deals = parse_deals(report_path)
-    trades = deals_to_trades(deals)
-    
-    if len(trades) < 100:
-        print(f"WARNING: Only {len(trades)} trades. Results may be unreliable.")
-    
-    # Run tests
-    if args.test == "all":
-        results = run_full_suite(trades, seed=args.seed)
-    else:
+    try:
+        if args.variant_manifest:
+            results = matched_rerun_parameter_sensitivity(Path(args.variant_manifest))
+            trades = []
+        else:
+            deals = parse_deals(report_path)
+            trades = deals_to_trades(deals)
+            if len(trades) < 100:
+                print(f"WARNING: Only {len(trades)} trades. Results may be unreliable.")
+            results = run_full_suite(trades, seed=args.seed) if args.test == "all" else None
+    except ValueError as exc:
+        print(f"ERROR: {exc}")
+        return 1
+
+    if not args.variant_manifest and args.test != "all":
         test_map = {
             "sample_size": sample_size_test,
             "noise": noise_test,
@@ -608,7 +652,7 @@ def main():
             "tests": {args.test: test_result},
         }
     
-    if not args.quiet:
+    if not args.quiet and not args.variant_manifest:
         print_suite_report(results)
     
     # Save results

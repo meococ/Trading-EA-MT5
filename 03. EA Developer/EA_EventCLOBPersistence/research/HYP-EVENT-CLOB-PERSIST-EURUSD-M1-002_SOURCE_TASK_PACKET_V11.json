@@ -1,0 +1,65 @@
+{
+  "schema_version": "event_clob_source_task_packet_amendment.v1",
+  "task_id": "EVENT_CLOB_DESIGN_SEGMENTS_HTTP500_RETRY_20260728_V11",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_SOURCE_TASK_PACKET_V10.json",
+  "supersedes_amendment_sha256": "2DED3AE4DE5DABF7D6FCF54F234E72BE2B8CAFC9FD410AEE30ECCE9C741CD161",
+  "amendment_reason": "The first real free metadata quote failed closed after 254.4 seconds when Databento metadata.get_cost returned HTTP 500. The frozen V10 retry set excluded 500, so exactly one attempt was made and no quote artifact was committed. No price, market, DBN, paid or economic outcome was opened. V11 changes only free-metadata server-error handling and error observability; every trading and source request invariant remains exact.",
+  "failure_evidence_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_SOURCE_QUOTE_ATTEMPT_01_FAILURE.json",
+  "failure_evidence_sha256": "6B3863373881624467A720AC05E6708D0D8C07E851C6B66B3831E2429F473930",
+  "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+  "registry_sha256_at_amendment": "824EA0DB704443B12D6FA52C0E3F2E1F549BEAE9BB07F98A1958AC7F72E6FDE0",
+  "registry_validation": "CANDIDATE_REGISTRY_OK rows=270 hypotheses=90",
+  "bound_successor_row_sha256_sequence": [
+    "B352E22DE06889E3FDF139A7857CEAECB123944E42CDF1564C9CE3B54AF01F3D",
+    "8B88B70C26060FF8A2A13F506990ADE3C6A27C2860C5618E51FBD77115B109CF"
+  ],
+  "prereg_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_PROBE_PLAN.md",
+  "prereg_sha256": "62A3AB66C64083D9967D91A0D634DEF29641AE7F3A05D3C59CBC153AAF4B3CBF",
+  "input_tool_sha256": "240DF958338CDFD1895396B58A32E2BF262D14837DEF3D38A64F8E85FF705799",
+  "input_tests_sha256": "9DC83BCCA575A96B857B5F2B53FD5776D5AB8327E86321D3E28903D5D4B5615F",
+  "input_offline_plan_id": "9883D92CA842D937A3C77DA20AD256AC2E41AB66BA8F763DF016CE93A26009D7",
+  "input_offline_plan_sha256": "7C21C21F1F168EA4823E9FCEACF88BDFE3BE57B522899C8A78141BADF8CE60C0",
+  "write_set": [
+    "03. EA Developer/EA_EventCLOBPersistence/research/acquire_event_cme6e_mbp10.py",
+    "03. EA Developer/EA_EventCLOBPersistence/tests/test_event_cme6e_mbp10_acquisition.py",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/acquisition_plan.json"
+  ],
+  "required_behavior": [
+    "Bind V11 and the exact failed-attempt evidence in addition to every V10, prereg, clock, registry, parent-V9 and F8 binding.",
+    "Add HTTP 500 to the free metadata transient HTTP set. The complete set becomes exactly 429, 500, 502, 503 and 504.",
+    "Keep max attempts exactly 3 and backoff exactly 0.25 then 1.0 seconds per free metadata call. Do not widen retries for any paid, batch, timeseries, dataset-range or symbology method.",
+    "Keep all other HTTP statuses fail-fast after one attempt, including authentication, permission, validation and missing-resource responses.",
+    "On terminal free metadata failure, include request_id when present, event_clock_id, segment when present, start, end, method, attempt count, HTTP status and disposition in the error without exposing the API key.",
+    "A failed quote must leave the active offline plan byte-valid with zero quotes and must not create receipt, storage assessment, evidence, raw DBN or lock residue.",
+    "Regenerate the offline design plan with the new tool/task/failure-evidence bindings before any remote rerun.",
+    "After tests and independent review pass, one new free metadata quote attempt is authorized for the exact regenerated 658-request plan. Paid/time-series/outcome authority remains false."
+  ],
+  "red_first_acceptance_tests": [
+    "Strict fake HTTP 500 responses from get_cost and get_billable_size are each retried only within their own free-metadata call and can succeed on attempt two; counters record every actual attempt for that identity.",
+    "Three consecutive HTTP 500 responses fail with transient retry budget exhausted and exact request/method/status context.",
+    "HTTP 400, 401, 403, 404 and 422 each fail after one attempt and are never classified transient.",
+    "The retry policy serialized into the plan is exactly statuses 429/500/502/503/504, max attempts 3 and backoff [0.25,1.0].",
+    "Mutation or absence of V11/failure-evidence bindings fails before client creation or remote access.",
+    "All 74 V10 tests remain green; parent V9 download guard, design paid guard, append-drift handling, path containment, finalize lock and F8 evidence remain exact."
+  ],
+  "authority": {
+    "offline_plan_authorized": true,
+    "free_metadata_quote_authorized": true,
+    "free_metadata_quote_rerun_limit": 1,
+    "paid_timeseries_authorized": false,
+    "ea_source_build_authorized": false,
+    "economic_outcome_read_authorized": false,
+    "model0_authorized": false,
+    "live_or_paper_authorized": false,
+    "git_commit_or_push_authorized": false
+  },
+  "prohibitions": [
+    "Do not change the 329 clocks, 658 identities, segment bounds, mechanism, features, gates, controls, risk, costs or validation seal.",
+    "Do not persist partial quote results or infer source density/cost from the failed attempt.",
+    "Do not retry any paid, batch or timeseries request.",
+    "Do not modify registry, preregistration, event clock, strategy logic, MQL5, MT5 or unrelated files.",
+    "Do not stage, commit, push, create a branch, worktree or clone."
+  ]
+}

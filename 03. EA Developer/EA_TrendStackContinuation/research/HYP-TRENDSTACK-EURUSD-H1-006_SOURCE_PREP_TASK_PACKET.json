@@ -1,0 +1,122 @@
+{
+  "schema_version": "trendstack_hyp006_source_prep_task_packet.v1",
+  "task_id": "TRENDSTACK_HYP006_SOURCE_PREP_HARDENING_20260728",
+  "created_at_utc": "2026-07-28T10:57:36.340Z",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-006",
+  "collection_id": "DATASET-FIVEPERCENT-EURUSD-H1-SPLITVAULT-002",
+  "role": "builder/coder",
+  "purpose": "Close the independent-review blockers in the outcome-blind H1 custody, narrowing, source projection and validation implementation without opening any raw H1 source content or granting a source run.",
+  "authority": {
+    "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+    "registry_observed_rows": 282,
+    "registry_observed_sha256": "4E67307720293261DC57835C41D8DB4ABFE0FD9DD1232F752DD65FEAF58040D8",
+    "hyp006_idea_row": 281,
+    "hyp006_idea_row_sha256": "FCCDBB4B7F9F3AFBA866E506296ECA677099CBE25FC125F706451CA2266446D5",
+    "hyp006_probe_row": 282,
+    "hyp006_probe_row_sha256": "5251227378A4192AB58364591603B2C1B1EED306DCC3BD4976DB943FDFDC8A1E",
+    "latest_state": "probe",
+    "latest_verdict": "FROZEN_H1_SPLITVAULT_002_SOURCE_PREP_IMPLEMENTATION_AUTHORIZED",
+    "source_build_authorized": true,
+    "source_run_authorized": false,
+    "registry_rule": "Require canonical validator PASS and the exact unchanged two-row HYP006 history. The observed global SHA is audit evidence only; unrelated validator-clean appends are tolerated. Do not append or modify the registry in this implementation task."
+  },
+  "frozen_plans": {
+    "collection_plan_v1_path": "03. EA Developer/EA_TrendStackContinuation/research/DATASET-FIVEPERCENT-EURUSD-H1-SPLITVAULT-002_PLAN.md",
+    "collection_plan_v1_sha256": "A8A768D529A4569BDD508BFA0722BFA1ACEF25C3098A91FF78B98EA209E3510F",
+    "collection_plan_v2_path": "03. EA Developer/EA_TrendStackContinuation/research/DATASET-FIVEPERCENT-EURUSD-H1-SPLITVAULT-002_PLAN_V2.md",
+    "collection_plan_v2_sha256": "E8E364ECBCD27321C4F51A0B7564E13FD88AB748E72F3859E36E40CA29B32F63",
+    "probe_plan_v1_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-006_PROBE_PLAN.md",
+    "probe_plan_v1_sha256": "2BFB0E0B3CF5F929ABE6320433A10C9DC84731A35E327E94F8D46D08CFD00FF4",
+    "probe_plan_v2_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-006_PROBE_PLAN_V2.md",
+    "probe_plan_v2_sha256": "78771B09C8BB8A259E5F372E36407C342194491208E1D374B10EA8FE05755428"
+  },
+  "frozen_source_contract": {
+    "raw_h1_path": "02. AlphaFactory/data/fivepercent/EURUSD/EURUSD_H1_2015_now.parquet",
+    "raw_h1_sha256": "71860016AF1BD1B17353B043AFF799233A787E9DF3F587913FCD2F5328BB1E08",
+    "raw_h1_bytes": 2781897,
+    "raw_h1_rows": 71785,
+    "raw_h1_row_groups": 1,
+    "footer_length": 5392,
+    "footer_start": 2776497,
+    "footer_sha256": "01C090CF494A45AC99603E8A4BBE3447884253DEF3828964AE5555086FF91E3B",
+    "root_manifest_path": "02. AlphaFactory/data/fivepercent/EURUSD/manifest.json",
+    "root_manifest_sha256": "2CD996FD4416B1E888BF1C9D272BF49056DB3A4CE477CF74FA4E31D474A41B54",
+    "clock_path": "02. AlphaFactory/tools/research/fivepercent_server_clock.py",
+    "clock_sha256": "A7F179935102B57BA3B629345209F6B0D668D1F7FD828A5ED6003207F41A2F52",
+    "feature_ledger_path": "03. EA Developer/EA_TrendStackContinuation/research/evidence/HYP-TRENDSTACK-EURUSD-H1-002_STAGE0/stage0_eligibility_ledger.jsonl",
+    "feature_ledger_sha256": "3092A6FCFADE0DA23E4470C4BF3B1D7750190358CF6ED09A2BB942937A7CD3C7",
+    "feature_receipt_path": "03. EA Developer/EA_TrendStackContinuation/research/evidence/HYP-TRENDSTACK-EURUSD-H1-002_STAGE0/stage0_receipt.json",
+    "feature_receipt_sha256": "5AEA570736361EF22BF2F090A5C05EF2974F482B5CB34A1186F27D9B43AAF5CE",
+    "design_dates": 1297,
+    "design_date_set_sha256": "4F30B5E09C8C21C3FCB63F4D5A016EB514D689710589077427464B92CD99A06A",
+    "required_h1_rows": 9079,
+    "expected_source_schema": "time_server_ns|time_utc_ns|utc_offset_h_i8|open_f64|high_f64|low_f64|close_f64|tick_volume_u64|spread_i32|real_volume_u64"
+  },
+  "pre_review_snapshot": {
+    "h1_custodian_sha256": "E8AD3EC88F6C7A4C73908DB2C330D0BFC79B45BBE3E3B7ADEBAF4F970CBC4FF9",
+    "h1_supervisor_sha256": "7ECE1AE90DD67170650CBE542F6549D80B25FF7D2E248B21193442CD24D94A9D",
+    "h1_custodian_tests_sha256": "52E1028ACBDB31CE9D261556DD24A8AFBB4A909CC4FF98D2D4587085D737B030",
+    "h1_supervisor_tests_sha256": "53E2FD419178A4A58783CB7866720DC57E605F6E60D0B8367845AA4A5EE228FB",
+    "design_builder_sha256": "788FC18965BC37A008EC33A2F2837DDB34F7DB6E13599FC8C133D03012EE70F1",
+    "independent_validator_sha256": "37E980EFA336A3A0C647BC006AC21B8A88F671768D45D018626A4FAB95567EF6",
+    "design_builder_tests_sha256": "76BFD2F4EE2C2345885A80A31588C465B02C2C9142EC81610685B45E5E1E0A4A",
+    "independent_validator_tests_sha256": "3A04D76A024BF6F61A85BE940891C00CE23DE87D4FBF9192E9B78249D82DA23A",
+    "tests": "13 passed",
+    "review_verdict": "FAIL_MUST_FIX_BEFORE_SOURCE_RUN_PACKET"
+  },
+  "write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/h1_splitvault_002_custodian.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/h1_splitvault_002_supervisor.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/build_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/validate_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_h1_splitvault_002_custodian.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_h1_splitvault_002_supervisor.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_build_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_validate_trendstack_006_design_source.py"
+  ],
+  "must_fix": [
+    {
+      "id": "S1-ONE-SHOT-SUPERVISOR",
+      "contract": "Remove every production override for REVIEWED_RUN_PACKET_SHA256. Disarmed None must block. Implement the complete in-process one-shot executor: exact canonical packet byte/hash validation and all frozen identity bindings; preflight with no raw content read; exclusive attempt marker written with file and directory fsync plus exact readback; first-and-only raw read; custody, metadata narrowing, selected projection and independent validation; sanitized terminal success/failure evidence; guaranteed self-disarm in finally. The reviewed base remains None and no real packet is created or armed in this task."
+    },
+    {
+      "id": "S2-CONSUME-BEFORE-READ",
+      "contract": "Raw monolith and each selected shard capability are consumed before invoking a reader or validating bytes. Any read/hash/schema/decoder failure permanently consumes that capability and a second call fails. Counters record attempted opens, not only successful opens."
+    },
+    {
+      "id": "S3-FULL-CUSTODY-CONTRACT",
+      "contract": "Use a sealed packet-derived authority with exact constants, not caller-provided arbitrary values. The durable marker binds plans, preregs, registry row/hash, source path/bytes/SHA/footer, root manifest, clock, all tool/test hashes, review-base/runtime supervisor hashes, evidence/stage/output identities and ATTEMPT_CONSUMED. Decode the single in-memory monolith buffer and enforce exact Arrow schema/order/types, 71,785 rows, one row group, null/finite/positive/OHLC/volume/spread/clock/BID invariants and exact-once PRE_DESIGN/DESIGN/VALIDATION/HOLDOUT reconciliation."
+    },
+    {
+      "id": "S4-METADATA-NARROWING",
+      "contract": "Before any selected shard content open, validate an exact-key metadata-only 1,297-date selection manifest derived from the bound Stage0 ledger/receipt; require unique canonical dates and exact date-set SHA. Parse the public custody receipt/manifest as metadata, freeze exact selected date to regular path/hash/bytes mapping and exact extra-date count, then expose only selected shards. Reject missing/duplicate dates, manifest mismatch, extra/nested payload keys and recursive feature/direction/ATR/arm/economics/path-capability leakage. Selected opens exactly once; extras zero."
+    },
+    {
+      "id": "S5-CREATE-NEW-PATH-INTEGRITY",
+      "contract": "Production wrapper hard-binds exact 1297 dates, 9079 rows, schema and canonical evidence/stage/output roots. Stage and final output must be completely absent; an empty existing directory is failure. Walk every component without following symlink/junction/reparse/mount/ADS, reject hardlinks where relevant, capture and recheck file/directory identities around all reads and atomic publication, and fail on any TOCTOU change."
+    },
+    {
+      "id": "S6-INDEPENDENT-VALIDATOR",
+      "contract": "Independently enumerate the exact regular-file output/evidence tree without following reparse points; reject every extra file, ADS, link or directory. Enforce exact JSON key/type schemas; recompute design-date set, request/trace/tree hashes and counters; validate every Parquet shard schema, one row group, rows, null/finite/OHLC/clock/source-hash and 7-times-per-date invariants. Any feature/economic field or file fails. PASS text remains engineering-only SOURCE_READY_FOR_SEPARATE_DESIGN_ECONOMIC_RUN_PACKET."
+    }
+  ],
+  "red_first_acceptance": [
+    "Disarmed global cannot be bypassed by an argument or helper; fake or modified packet and any frozen hash/path mismatch block before marker/raw read.",
+    "Raw and selected readers each fail on a second call even when the first call raises or returns bad bytes.",
+    "Marker absence, no fsync/readback, pre-marker raw read, terminal evidence omission and failed self-disarm are tested as failures.",
+    "Duplicate selection dates, wrong date-set SHA, missing/duplicate public mapping, selected hash drift, unselected read and recursive payload feature/path leakage fail before selected payload read.",
+    "Existing empty stage/output, symlink/junction/reparse/ADS/hardlink and deterministic identity swaps fail closed.",
+    "Wrong row count/group/schema/order/type, null/nonfinite/nonpositive OHLC, invalid OHLC envelope, clock mismatch, bad volume/spread and split reconciliation mismatch fail custody/validator independently.",
+    "Injected `economic_leak.json`, any extra file/directory or extra/nested JSON key makes independent validation fail.",
+    "All original tests plus adversarial tests pass without opening the real H1 monolith, any real split-vault, validation, holdout or economic payload."
+  ],
+  "prohibitions": [
+    "Do not use Grok or any Grok skill/worker.",
+    "Do not open, hash, decode or inspect the real H1 monolith content; no source run is authorized.",
+    "Do not create the real split-vault, attempt evidence, stage, design output or reviewed run packet; keep the supervisor disarmed at None.",
+    "Do not read validation/holdout payload, calculate directions/ATR/trades/returns/PnL/PF/DSR, build MQL5 or run MT5.",
+    "Do not modify plans, preregistration, registry, parent evidence, source files or unrelated files.",
+    "Do not call network, spawn nested subprocesses, stage, commit, push, branch, worktree or clone."
+  ],
+  "next_authority": "Only a fresh independent PASS on the final eight-file snapshot permits the parent to create a separate canonical source-run packet, arm the exact reviewed supervisor line once and execute the sole outcome-blind source attempt."
+}

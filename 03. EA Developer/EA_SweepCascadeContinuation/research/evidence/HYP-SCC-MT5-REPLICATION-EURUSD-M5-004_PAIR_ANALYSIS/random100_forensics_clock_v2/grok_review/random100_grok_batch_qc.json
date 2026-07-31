@@ -1,0 +1,613 @@
+{
+  "schema_version": "scc_random100_grok_batch_qc.v1",
+  "generated_at_utc": "2026-07-25T18:12:44Z",
+  "hypothesis_id": "HYP-SCC-MT5-REPLICATION-EURUSD-M5-004",
+  "run_id": "20260725_210811",
+  "status": "PASS",
+  "accepted_batches": 20,
+  "unique_cases": 100,
+  "decision_images_opened": 100,
+  "anatomy_images_opened": 100,
+  "total_images_opened": 200,
+  "accepted_cost_usd": 1.7992531999999999,
+  "accepted_runs": [
+    {
+      "batch_id": "batch01",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch01/grok-request.json",
+        "bytes": 10171,
+        "sha256": "53A7DA8173A343A5AA33C10DAA383A89DB5819140BC9123F471AD145B3D75B60"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch01/run/grok-response.json",
+        "bytes": 39622,
+        "sha256": "9EAFDDD26930F4B9759B2BF7835EE9F44A6147A91A68274754DFDFE51C6D0B58"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch01/run/summary.json",
+        "bytes": 14115,
+        "sha256": "4C4D93E9327A205132E7F74831A9B439B2CCC3E36B23A97F269749DAB4633916"
+      },
+      "case_ids": [
+        "R100_001_PID000000268",
+        "R100_002_PID000000140",
+        "R100_003_PID000000010",
+        "R100_004_PID000000304",
+        "R100_005_PID000000476"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 42.391,
+      "cost_usd": 0.0910192
+    },
+    {
+      "batch_id": "batch02",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch02/grok-request-retry1.json",
+        "bytes": 10600,
+        "sha256": "FB1EF4279EF38D17B531A36FFFA74E17B2E55D5BCB9B48B519C832D5BA8449B9"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch02/run2/grok-response.json",
+        "bytes": 52907,
+        "sha256": "ECCAB6692A91620A2CBD49325D63FB7C67B34D2BEAB6652EBFA1F7F8E439801C"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch02/run2/summary.json",
+        "bytes": 18775,
+        "sha256": "97EDBAE14103DF7DE2EFFCAB259D94B1E8465C637495B1CF3A203A839EF4A8F3"
+      },
+      "case_ids": [
+        "R100_006_PID000000258",
+        "R100_007_PID000000086",
+        "R100_008_PID000000066",
+        "R100_009_PID000000032",
+        "R100_010_PID000000480"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 57.265,
+      "cost_usd": 0.0928792
+    },
+    {
+      "batch_id": "batch03",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch03/grok-request.json",
+        "bytes": 10171,
+        "sha256": "A172B44A99276F15BA9F05B7F34AEA34593D1FECCCAFD07BA644A6152E62D2FE"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch03/run/grok-response.json",
+        "bytes": 41112,
+        "sha256": "3D929DF433185C536614BAE47E868D65130A12ED5A7150E481B56F0BFC85D445"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch03/run/summary.json",
+        "bytes": 14543,
+        "sha256": "9ED843108F59DC505A39C86711E08A7D181E184BB45DD49F19AF67952F45A763"
+      },
+      "case_ids": [
+        "R100_011_PID000000160",
+        "R100_012_PID000000500",
+        "R100_013_PID000000506",
+        "R100_014_PID000000350",
+        "R100_015_PID000000286"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 44.234,
+      "cost_usd": 0.0935404
+    },
+    {
+      "batch_id": "batch04",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch04/grok-request.json",
+        "bytes": 10171,
+        "sha256": "9BB84E8077BC0DD76A439E5E7D84863BAB5655A1B0A480A06E2087B9AB465BE4"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch04/run/grok-response.json",
+        "bytes": 42518,
+        "sha256": "6269C9A0E7DFE74582F54A2FA3EBFD3783781CB3FDCDD4378A5C2FD4C789BAE0"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch04/run/summary.json",
+        "bytes": 15002,
+        "sha256": "194E3536B57CF7F31145085FAF6150C9171E1E8A4DCAC1ABA5F43A7BF82ADBD1"
+      },
+      "case_ids": [
+        "R100_016_PID000000100",
+        "R100_017_PID000000290",
+        "R100_018_PID000000242",
+        "R100_019_PID000000114",
+        "R100_020_PID000000198"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 48.718,
+      "cost_usd": 0.0865232
+    },
+    {
+      "batch_id": "batch05",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch05/grok-request.json",
+        "bytes": 10171,
+        "sha256": "F65E76188CF570A0F27D78EAB484635C348393A3D656ED9B810C5C2373A9BB69"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch05/run/grok-response.json",
+        "bytes": 45882,
+        "sha256": "C29CFD0FD772438C46B8727FF6461E9CE1F52AFB55203E3020F7150E536EB65A"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch05/run/summary.json",
+        "bytes": 16214,
+        "sha256": "24B5805175938FA61C5FB1AA173CA18BA9E6A579B2ED614759A88F7AB975C55E"
+      },
+      "case_ids": [
+        "R100_021_PID000000036",
+        "R100_022_PID000000380",
+        "R100_023_PID000000138",
+        "R100_024_PID000000516",
+        "R100_025_PID000000438"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 48.468,
+      "cost_usd": 0.0941672
+    },
+    {
+      "batch_id": "batch06",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch06/grok-request.json",
+        "bytes": 10171,
+        "sha256": "1D7044661161AD60EE8CF0FF3AE5BD7E308BB19F1F6178D338189DE2030225B7"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch06/run/grok-response.json",
+        "bytes": 47777,
+        "sha256": "FB18945B3258C24E6CCEDDEAB4378C543668DC739076C21102E56BF3269BFC2D"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch06/run/summary.json",
+        "bytes": 16891,
+        "sha256": "5409E36FAD544885464B1BDF126203973F81DBE312910A203468874FD492E347"
+      },
+      "case_ids": [
+        "R100_026_PID000000338",
+        "R100_027_PID000000420",
+        "R100_028_PID000000324",
+        "R100_029_PID000000326",
+        "R100_030_PID000000132"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 54.391,
+      "cost_usd": 0.0887852
+    },
+    {
+      "batch_id": "batch07",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch07/grok-request.json",
+        "bytes": 10171,
+        "sha256": "981F2CFB23D39EA827CEE4E230369B4CB0DBFDF83305D0649A96C0AEBC2138BB"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch07/run/grok-response.json",
+        "bytes": 37455,
+        "sha256": "76B3F1CE8D432FC1E7972E2E79E5FECBF7938017BA4C3F0455997EF91CBB9461"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch07/run/summary.json",
+        "bytes": 13335,
+        "sha256": "B91C374B84C8202111E162586635BACA4AF4572227942C9DA9540A259AC057C5"
+      },
+      "case_ids": [
+        "R100_031_PID000000222",
+        "R100_032_PID000000166",
+        "R100_033_PID000000444",
+        "R100_034_PID000000390",
+        "R100_035_PID000000002"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 37.031,
+      "cost_usd": 0.0914284
+    },
+    {
+      "batch_id": "batch08",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch08/grok-request-retry1.json",
+        "bytes": 10600,
+        "sha256": "E5AD0C1372B4D39EC76B354E7BCEA8A1A30A656757FBBB826AC85620BCDBB13A"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch08/run2/grok-response.json",
+        "bytes": 39548,
+        "sha256": "013C51FB0B45F22AE2D1EEE08656382E7985B3199A8ADC4479DD6A392728DE7B"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch08/run2/summary.json",
+        "bytes": 13915,
+        "sha256": "2B8F9AFAF8E5678463112EA0D116B4411C3324CD3C6BBECC8794AA5AEF797A97"
+      },
+      "case_ids": [
+        "R100_036_PID000000374",
+        "R100_037_PID000000424",
+        "R100_038_PID000000218",
+        "R100_039_PID000000508",
+        "R100_040_PID000000144"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 43.313,
+      "cost_usd": 0.0847692
+    },
+    {
+      "batch_id": "batch09",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch09/grok-request.json",
+        "bytes": 10171,
+        "sha256": "11A5129401A1E0341607AAA069A5D7F31C3A331F4F3D7F0D2887B33ED8BC1CB3"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch09/run/grok-response.json",
+        "bytes": 39862,
+        "sha256": "DF0C93BCA171F8E38092134B69BB5F72A8584F07119A5C5C6822024DF35846C7"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch09/run/summary.json",
+        "bytes": 14088,
+        "sha256": "5B9A7136A36C0EE7343CB438BAE77872A3869B82ED5175259F3C5A2D15E7F71D"
+      },
+      "case_ids": [
+        "R100_041_PID000000004",
+        "R100_042_PID000000448",
+        "R100_043_PID000000344",
+        "R100_044_PID000000328",
+        "R100_045_PID000000212"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 37.938,
+      "cost_usd": 0.0848412
+    },
+    {
+      "batch_id": "batch10",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch10/grok-request.json",
+        "bytes": 10171,
+        "sha256": "947A83DB4E3CF402B0E470831F44A2EE679282E0CA60BF19A848491684305DF0"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch10/run/grok-response.json",
+        "bytes": 42411,
+        "sha256": "0F996970C72D21E2DD053168A6A22F99D60FCEC4530677D57E5B3695566D1150"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch10/run/summary.json",
+        "bytes": 15042,
+        "sha256": "8CB907C3B93FE77132F884B9D584E2801A20AA0E43091BEE5EDDA0E9748D7D28"
+      },
+      "case_ids": [
+        "R100_046_PID000000352",
+        "R100_047_PID000000260",
+        "R100_048_PID000000150",
+        "R100_049_PID000000068",
+        "R100_050_PID000000044"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 44.328,
+      "cost_usd": 0.0898172
+    },
+    {
+      "batch_id": "batch11",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch11/grok-request.json",
+        "bytes": 10171,
+        "sha256": "32CE75A2436BB9C2FF193321F4E062D56F7AC80F52155F8774D3B6F475740F4B"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch11/run/grok-response.json",
+        "bytes": 38594,
+        "sha256": "ABCDEAC913E48F22416D9BECA12628FFCE0BF1E36850B06E968F2C45FA7E8D22"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch11/run/summary.json",
+        "bytes": 13706,
+        "sha256": "D66B3DA8E69BE63E99E1AA1C6E64A97AC1555EB6DABBB5E4ECE3BADD62A717E5"
+      },
+      "case_ids": [
+        "R100_051_PID000000522",
+        "R100_052_PID000000074",
+        "R100_053_PID000000228",
+        "R100_054_PID000000454",
+        "R100_055_PID000000076"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 37.125,
+      "cost_usd": 0.0878904
+    },
+    {
+      "batch_id": "batch12",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch12/grok-request.json",
+        "bytes": 10171,
+        "sha256": "1743BAE9BD0AE3A1326565D7E64B04EB4CE662B799CCF62F8F20D221CF6F795B"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch12/run/grok-response.json",
+        "bytes": 42405,
+        "sha256": "5C1F3A1F8E4A593EE86B8132C7433CCC7F48B2091AE284A2D98BB6CADF4ACDBF"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch12/run/summary.json",
+        "bytes": 15059,
+        "sha256": "EA10D9F5838EF8C597439AD752B3DE96549430D4F87F27943472CFB6586828E7"
+      },
+      "case_ids": [
+        "R100_056_PID000000128",
+        "R100_057_PID000000408",
+        "R100_058_PID000000370",
+        "R100_059_PID000000428",
+        "R100_060_PID000000090"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 47.266,
+      "cost_usd": 0.0902524
+    },
+    {
+      "batch_id": "batch13",
+      "accepted_run_dir": "run3",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch13/grok-request-retry2.json",
+        "bytes": 10865,
+        "sha256": "DCFFF4E5E3A2EDF2D3DC8FDC1C9E6D465D577682B3F099A2EA2A843D970914DA"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch13/run3/grok-response.json",
+        "bytes": 28753,
+        "sha256": "BBD803915604E93163B0F4C6BA1604C60394726392F9C1D4F4BE49DD8C847FC8"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch13/run3/summary.json",
+        "bytes": 10178,
+        "sha256": "F9EB3879205524B1173C14DCEC1319A618D8A88DEDDC568DBFF85C2DBFF78BF2"
+      },
+      "case_ids": [
+        "R100_061_PID000000316",
+        "R100_062_PID000000422",
+        "R100_063_PID000000446",
+        "R100_064_PID000000022",
+        "R100_065_PID000000220"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 22.172,
+      "cost_usd": 0.0825904
+    },
+    {
+      "batch_id": "batch14",
+      "accepted_run_dir": "run3",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch14/grok-request-retry2.json",
+        "bytes": 10865,
+        "sha256": "200BAC6CDD0F6C56215470AD4FF94AC56A9D3EDDB124E4F6B2FA34838E342F0A"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch14/run3/grok-response.json",
+        "bytes": 28989,
+        "sha256": "B410BCB9B2DE5A31253A221DA4770EF850F550C8FC515AC2F970374E9801CDF1"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch14/run3/summary.json",
+        "bytes": 10257,
+        "sha256": "80B747C685FCA9F9C9C4F3ECD3D3D4A55B3D610337634C8528BADAB056C9CEB2"
+      },
+      "case_ids": [
+        "R100_066_PID000000356",
+        "R100_067_PID000000280",
+        "R100_068_PID000000372",
+        "R100_069_PID000000238",
+        "R100_070_PID000000266"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 24.265,
+      "cost_usd": 0.0777732
+    },
+    {
+      "batch_id": "batch15",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch15/grok-request.json",
+        "bytes": 10171,
+        "sha256": "31945675797C8E0E9A11731B741AF319C84E17935D858A056822DB836560FF6C"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch15/run/grok-response.json",
+        "bytes": 45184,
+        "sha256": "EE99B4663AAA7A4B177264AFCA52E7B95014C62C0500D68037C5F689F5E74577"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch15/run/summary.json",
+        "bytes": 16059,
+        "sha256": "BF989127BFCDFEF5A9892830636299ADFC8959D01DF6C85E33F576C41B2EEA9F"
+      },
+      "case_ids": [
+        "R100_071_PID000000482",
+        "R100_072_PID000000118",
+        "R100_073_PID000000016",
+        "R100_074_PID000000322",
+        "R100_075_PID000000272"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 44.281,
+      "cost_usd": 0.0920312
+    },
+    {
+      "batch_id": "batch16",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch16/grok-request.json",
+        "bytes": 10171,
+        "sha256": "14C00DFA6892B06C813F83D037270C8476CE5E14BC5FF0576525901B71ABEFCC"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch16/run/grok-response.json",
+        "bytes": 41878,
+        "sha256": "4BFFD4CEACF7989B45E6A1AB41BEB3C8360506214DAEC57B17470BFC1EB0FE6D"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch16/run/summary.json",
+        "bytes": 14883,
+        "sha256": "7A03AD9334880DE19CD3F739EF02642E23A6BF65EC5FFA9E8FCCA9C6FE173C80"
+      },
+      "case_ids": [
+        "R100_076_PID000000078",
+        "R100_077_PID000000226",
+        "R100_078_PID000000488",
+        "R100_079_PID000000510",
+        "R100_080_PID000000470"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 41.531,
+      "cost_usd": 0.0847132
+    },
+    {
+      "batch_id": "batch17",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch17/grok-request.json",
+        "bytes": 10171,
+        "sha256": "0495A8086963F0B225D5D455CB7085DB65C787353DB85CCC3515697E639E759B"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch17/run/grok-response.json",
+        "bytes": 51469,
+        "sha256": "FAB1192BB6AAF96B80E987B7AA4DE8C653C2655AE838575C468D07EB3B4B0F12"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch17/run/summary.json",
+        "bytes": 14077,
+        "sha256": "B109C492C8AFB6EB0277A799E0B9A09C819A542A4E91E0E1D35C0DC93E478722"
+      },
+      "case_ids": [
+        "R100_081_PID000000164",
+        "R100_082_PID000000264",
+        "R100_083_PID000000312",
+        "R100_084_PID000000348",
+        "R100_085_PID000000458"
+      ],
+      "turns": 2,
+      "elapsed_seconds": 99.953,
+      "cost_usd": 0.15002
+    },
+    {
+      "batch_id": "batch18",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch18/grok-request-retry1.json",
+        "bytes": 10865,
+        "sha256": "9BBB09F287F6A312AA4CD311302FD12AF969E497CD7E10EBDEEEA46F4A097567"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch18/run2/grok-response.json",
+        "bytes": 28118,
+        "sha256": "286EACB262FAA9AE2E95902905668C33A58D8A33B45126D85218CAC38DF6DE9F"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch18/run2/summary.json",
+        "bytes": 9962,
+        "sha256": "237A7D8BC231FC0718B96AA35991A5EA7F50131141399D4AA179FFBDE440F8B2"
+      },
+      "case_ids": [
+        "R100_086_PID000000102",
+        "R100_087_PID000000148",
+        "R100_088_PID000000040",
+        "R100_089_PID000000440",
+        "R100_090_PID000000042"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 24.953,
+      "cost_usd": 0.0770772
+    },
+    {
+      "batch_id": "batch19",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch19/grok-request.json",
+        "bytes": 10171,
+        "sha256": "1A90D0550548DDC3B4072E351F3A45C9A10529FDF207F41F4F9B29A1E67281C6"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch19/run/grok-response.json",
+        "bytes": 46989,
+        "sha256": "AC7C57C9A07AC0430B7A01DA262935313E57AFE282C2B514A2FAB3331CEA2895"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch19/run/summary.json",
+        "bytes": 16509,
+        "sha256": "24228AF10D35F5AA5B72D290F005E43F2F1C5EFF9B90AAA604854A85A081FBF4"
+      },
+      "case_ids": [
+        "R100_091_PID000000254",
+        "R100_092_PID000000460",
+        "R100_093_PID000000096",
+        "R100_094_PID000000176",
+        "R100_095_PID000000034"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 45.781,
+      "cost_usd": 0.0886892
+    },
+    {
+      "batch_id": "batch20",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch20/grok-request-retry1.json",
+        "bytes": 10865,
+        "sha256": "9ADAB7590CFB9C522696E1C45050974BCAD172125D6BF789298057022FF4A5D2"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch20/run2/grok-response.json",
+        "bytes": 29228,
+        "sha256": "D730973036D045310F5772A9F82CF7D72C17043E03026276A47FD206EB941B00"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi-clock-v2-r3-acp/batch20/run2/summary.json",
+        "bytes": 10337,
+        "sha256": "2957C807AD6345D94892A21C0E1BE2CB924D2DDB40B410A602C742E84C386934"
+      },
+      "case_ids": [
+        "R100_096_PID000000502",
+        "R100_097_PID000000332",
+        "R100_098_PID000000298",
+        "R100_099_PID000000490",
+        "R100_100_PID000000484"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 29.953,
+      "cost_usd": 0.0704456
+    }
+  ],
+  "outputs": {
+    "case_reviews_jsonl": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/random100_forensics_clock_v2/grok_review/random100_grok_case_reviews.jsonl",
+      "bytes": 148639,
+      "sha256": "A71F5BA796B0114470B855090DCCBC32C76666D24C8DBC13454ABE69909AB307"
+    },
+    "case_reviews_csv": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/random100_forensics_clock_v2/grok_review/random100_grok_case_reviews.csv",
+      "bytes": 28448,
+      "sha256": "10E290265545D0EA4695F7D54E5CD0A3FE0B6F175D017663A851A84EB2BAA0E3"
+    },
+    "descriptive_stats": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/random100_forensics_clock_v2/grok_review/random100_grok_descriptive_stats.json",
+      "bytes": 2472,
+      "sha256": "F76C531ED354870E9D8EE370ACA67D16A60E50F780B279AA811605D37C063E2F"
+    }
+  },
+  "errors": []
+}

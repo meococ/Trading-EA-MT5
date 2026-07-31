@@ -1,0 +1,117 @@
+{
+  "schema_version": "alphafactory_prepacket_control_plane_receipt.v1",
+  "hypothesis_id": "HYP-PTR-T2-DATA-EPOCH-D0-M5-005",
+  "classification": "PRELAUNCH_PACKET_AUTHORITY",
+  "authority": "DATA_ACQUISITION_ONLY_NO_PERFORMANCE",
+  "campaign_data_repair_row_sha256": "A83A533981F29961BCB5C3C33A2DBD3DC80F926B05F376880FDCAF95D480E298",
+  "frozen_contract": {
+    "source": {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/EA_PTR_T2_DataEpochD0V3.mq5",
+      "sha256": "07EF04835CC7624FC8632A0B6E1958A754A93205FB679751B4748D45E6EA4B29"
+    },
+    "compiled_ex5": {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/EA_PTR_T2_DataEpochD0V3.ex5",
+      "sha256": "08E637F824B2B6A4CB3EBE30F665EA44C60A0D4FAF5E9B6A7F2ECE2313733B6B"
+    },
+    "prereg": {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/HYP-PTR-T2-DATA-EPOCH-D0-M5-005_PREREG.md",
+      "sha256": "A5C00BFEF60C3B2EC5F1DAA702E406EFB3B2F6C9A7E6A4C11A2D7A074C9D63BE"
+    },
+    "epoch": {
+      "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_DATA_EPOCH_V3.json",
+      "sha256": "AEBB0EC6AEBEBE5D0ECA81FC42CB1765CF67835BA1FC134D12827E7B87C3A43E"
+    },
+    "cost_source_manifest": {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/COLLECTION_ONLY_COST_SOURCE_MANIFEST_MODEL4_HYP005.json",
+      "sha256": "ABDB28B038D468E650F89A8C854AC5BDAB6161DD31B0354A034344F974CBACD2"
+    },
+    "ea_contract": {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "974EE2B3D642805C552B6FCB27E6238CE6D4E1340B98FDC44562A02EE96DA969"
+    }
+  },
+  "control_plane": [
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/build_t2_d0_model4_hyp005_task_packets.py",
+      "sha256": "7DE31091ABC38100755AB7BC25741C072F367BB4ACD7166CD9AF3A7F12674B75"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V2/research/build_t2_d0_task_packets.py",
+      "sha256": "DAFF657B53596FC52D44AB5336499BF9009CF0DB22C1DF391444D3B252D9D180"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/append_t2_data_epoch_model4_hyp005_evidence.py",
+      "sha256": "F0A16117E7A22BC8B74F2B94E8B1A314653CEF9B374E00FE51289EE31F22B0A3"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/append_t2_data_epoch_evidence.py",
+      "sha256": "8363725DBFF9EDB37566681057E250980AB2D1BC0B8C02DD415A67681E46FA07"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/rebind_t2_d0_model4_hyp005_packet_identity.py",
+      "sha256": "5839055CFFB7101C53F40A400A9C71A90E634221E845D3FD3CC90E6AE3021D9C"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/rebind_t2_d0_packet_identity.py",
+      "sha256": "5DC545315FC6AAD0C3EAC94A676CFD50B70DEFB6A65911653175D197C374695B"
+    },
+    {
+      "path": "04. Memory/research/data_epoch_journal.py",
+      "sha256": "040037D29ECBD404C5A8D71E5FA7084D809366C062B8B9ED7E0798590745DADE"
+    },
+    {
+      "path": "04. Memory/research/validate_data_epoch.py",
+      "sha256": "602D8F7253B8B2BD6CC8AAACB228D3DBB129D6F0ED68C4BFC3975AEF8D840AEE"
+    },
+    {
+      "path": "02. AlphaFactory/tools/research_loop_engine.ps1",
+      "sha256": "8D7DE490EFEFC131DDF2115F0B5532BBDD73A1B1B2AF908F8DAA840AF5A0C662"
+    },
+    {
+      "path": "04. Memory/research/validate_candidate_registry.py",
+      "sha256": "2DAF8D940828F903AA8ADD5FBFDF10D146D90577939C0D1DDF4175EB5BB28916"
+    },
+    {
+      "path": "04. Memory/research/validate_campaign_exposure.py",
+      "sha256": "DBF47B9E07DDC976BF2A3DBF1A7AAE39EC722E3EDFE85194D550CD3194EA7F68"
+    }
+  ],
+  "test_run": {
+    "framework": "pytest",
+    "result": "PASS",
+    "passed": 121,
+    "failed": 0,
+    "duration_seconds": 28.17
+  },
+  "post_test_validators": {
+    "candidate_registry": "CANDIDATE_REGISTRY_OK rows=451 hypotheses=163",
+    "campaign_exposure": "CAMPAIGN_EXPOSURE_OK rows=9",
+    "data_epoch": "DATA_EPOCH_OK rows=1 aggregate_ready=false missing=9"
+  },
+  "gates": {
+    "structured_tester_component_required": true,
+    "bound_symbol_required": true,
+    "bound_period_required": "M5",
+    "bound_server_required": "FivePercentOnline-Real",
+    "exact_mode_required": "generating based on real ticks",
+    "bare_mode_rejected": true,
+    "wrong_symbol_rejected": true,
+    "wrong_period_rejected": true,
+    "wrong_server_rejected": true,
+    "generated_mode_rejected": true,
+    "prereg_hash_tamper_rejected": true,
+    "cost_hash_tamper_rejected": true,
+    "registry_packet_authority_required": true,
+    "mt5_authorized": false,
+    "performance_metrics_authorized": false,
+    "economics_authorized": false
+  },
+  "exposure_readback": {
+    "hyp005_execution_receipts": 0,
+    "hyp005_run_manifests": 0,
+    "trades_executed": 0,
+    "economic_trials_consumed": 0
+  },
+  "verdict": "PASS_COLLECTION_PACKET_PRECONDITIONS",
+  "created_at_utc": "2026-07-31T03:13:26Z"
+}

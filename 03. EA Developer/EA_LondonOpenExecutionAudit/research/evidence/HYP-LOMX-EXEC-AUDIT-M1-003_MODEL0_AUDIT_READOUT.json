@@ -1,0 +1,329 @@
+{
+  "audit_only": true,
+  "hypothesis_id": "HYP-LOMX-EXEC-AUDIT-M1-003",
+  "passed": true,
+  "performance_metrics_authorized": false,
+  "scenario_results": [
+    {
+      "counts": {
+        "decision_rows": 9049,
+        "entry_deals": 1292,
+        "entry_requests": 1292,
+        "exit_deals": 1292,
+        "exit_requests": 1292,
+        "lifecycle_final_closes": 1292,
+        "lifecycle_opens": 1292,
+        "minimum_completed_lifecycles": 1000,
+        "report_entry_deals": 1292,
+        "report_exit_deals": 1292,
+        "signals_ready": 1292
+      },
+      "errors": [],
+      "files": [
+        {
+          "bytes": 3024782,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190022\\logs\\EURUSD_DecisionTelemetry_HYP-LOMX-EXEC-AUDIT-M1-003_558897750.csv",
+          "sha256": "9D63423F1B2709023A02D94E19A64DCB6045E3CBCA401754C67E5693B8E6A981"
+        },
+        {
+          "bytes": 332602,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190022\\logs\\EURUSD_LifecycleTrades_HYP-LOMX-EXEC-AUDIT-M1-003_558897750.csv",
+          "sha256": "BB90F8591CFFC92BACB2D0E17BD99AD95822440E6057D75EF51E8C5B13409410"
+        },
+        {
+          "bytes": 1264,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190022\\logs\\EURUSD_RunMeta_HYP-LOMX-EXEC-AUDIT-M1-003_558897750.json",
+          "sha256": "BA6A7830C2C4CA0E0809EF99C9D3174405A90DEB76A04E1E0AC5D919C744D6AD"
+        },
+        {
+          "bytes": 2640816,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190022\\report.html",
+          "sha256": "516A7C959990ABDA6081E00FD010F390953F22C7F2706398B18564924E0B0987"
+        }
+      ],
+      "passed": true,
+      "run_dir": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190022",
+      "run_meta": {
+        "audit_only": true,
+        "base_prereg_sha256": "039178106824BD8F2610B55F6AA54DED0CCAB3CE688A77B12142A9C897AC209B",
+        "closed_bar": true,
+        "cost_status": "UNVERIFIED_DIAGNOSTIC_ONLY",
+        "diagnostic": {
+          "days_seen": 1555,
+          "entries_attempted": 1292,
+          "entries_closed": 1292,
+          "entries_opened": 1292,
+          "entry_rejections": 0,
+          "exit_rejections": 0,
+          "exit_requests": 1292,
+          "exposure_rejections": 0,
+          "missing_source_days": 0,
+          "overnight_violations": 0,
+          "signal_window_misses": 1,
+          "signals_ready": 1292,
+          "ticks_seen": 118088456,
+          "weekend_days_skipped": 258,
+          "zero_signals": 4
+        },
+        "ea_name": "EA_LondonOpenExecutionAudit",
+        "entry_latency_minutes": 1,
+        "hypothesis_id": "HYP-LOMX-EXEC-AUDIT-M1-003",
+        "magic": 5601303,
+        "parent_metrics_sha256": "6577299078F4ECB7009B2DD846C21118750D95DAABCEA2A66E5E702773C51261",
+        "parent_prereg_sha256": "87671236C8481111992FAA20476A118AB1A7ABFEFBC3FC11B51E7CBAA1BF8D91",
+        "parent_trades_sha256": "32EE3D1A642D2F5F46A6309358CD35B1B7DC8D23FC215A179C97EE52D77EC4D6",
+        "performance_metrics_authorized": false,
+        "prereg_sha256": "FA5745BAFFD8FBBE8238D82B143E5F6DFC4E9CD7DD1D9A5557F3B3E01310CABA",
+        "promotion_eligible": false,
+        "run_id": "HYP-LOMX-EXEC-AUDIT-M1-003_558897750",
+        "schema_version": "alphafactory_run_meta.v1",
+        "set_name": "MIDDAY",
+        "symbol": "EURUSD",
+        "telemetry_profile": "lifecycle-v3",
+        "variant_tag": "EURUSD_MIDDAY_CONT"
+      },
+      "scenario": "EURUSD_MIDDAY_CONT"
+    },
+    {
+      "counts": {
+        "decision_rows": 9055,
+        "entry_deals": 1293,
+        "entry_requests": 1293,
+        "exit_deals": 1293,
+        "exit_requests": 1293,
+        "lifecycle_final_closes": 1293,
+        "lifecycle_opens": 1293,
+        "minimum_completed_lifecycles": 1000,
+        "report_entry_deals": 1293,
+        "report_exit_deals": 1293,
+        "signals_ready": 1293
+      },
+      "errors": [],
+      "files": [
+        {
+          "bytes": 3032135,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190128\\logs\\GBPUSD_DecisionTelemetry_HYP-LOMX-EXEC-AUDIT-M1-003_558965609.csv",
+          "sha256": "B5B90B70C546F102877C0DBB98E2D0F567CD5DA99CB88F363762E11511771768"
+        },
+        {
+          "bytes": 332985,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190128\\logs\\GBPUSD_LifecycleTrades_HYP-LOMX-EXEC-AUDIT-M1-003_558965609.csv",
+          "sha256": "8550561E73CA4062B6427FB40333CC2B2FC0CF4C9890049BD16BEAB37D721B6B"
+        },
+        {
+          "bytes": 1263,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190128\\logs\\GBPUSD_RunMeta_HYP-LOMX-EXEC-AUDIT-M1-003_558965609.json",
+          "sha256": "F90CD7CB58EA6E9843950953828D31A01AE3FCD123AA2F42A210CB599FB1B8AB"
+        },
+        {
+          "bytes": 2642872,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190128\\report.html",
+          "sha256": "ACE19428365F898DF0B5A3D46C5BA8EE2CC047A90C7A60E5D355D8118308F501"
+        }
+      ],
+      "passed": true,
+      "run_dir": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190128",
+      "run_meta": {
+        "audit_only": true,
+        "base_prereg_sha256": "039178106824BD8F2610B55F6AA54DED0CCAB3CE688A77B12142A9C897AC209B",
+        "closed_bar": true,
+        "cost_status": "UNVERIFIED_DIAGNOSTIC_ONLY",
+        "diagnostic": {
+          "days_seen": 1555,
+          "entries_attempted": 1293,
+          "entries_closed": 1293,
+          "entries_opened": 1293,
+          "entry_rejections": 0,
+          "exit_rejections": 0,
+          "exit_requests": 1293,
+          "exposure_rejections": 0,
+          "missing_source_days": 0,
+          "overnight_violations": 0,
+          "signal_window_misses": 1,
+          "signals_ready": 1293,
+          "ticks_seen": 134979093,
+          "weekend_days_skipped": 258,
+          "zero_signals": 3
+        },
+        "ea_name": "EA_LondonOpenExecutionAudit",
+        "entry_latency_minutes": 1,
+        "hypothesis_id": "HYP-LOMX-EXEC-AUDIT-M1-003",
+        "magic": 5601303,
+        "parent_metrics_sha256": "6577299078F4ECB7009B2DD846C21118750D95DAABCEA2A66E5E702773C51261",
+        "parent_prereg_sha256": "87671236C8481111992FAA20476A118AB1A7ABFEFBC3FC11B51E7CBAA1BF8D91",
+        "parent_trades_sha256": "32EE3D1A642D2F5F46A6309358CD35B1B7DC8D23FC215A179C97EE52D77EC4D6",
+        "performance_metrics_authorized": false,
+        "prereg_sha256": "FA5745BAFFD8FBBE8238D82B143E5F6DFC4E9CD7DD1D9A5557F3B3E01310CABA",
+        "promotion_eligible": false,
+        "run_id": "HYP-LOMX-EXEC-AUDIT-M1-003_558965609",
+        "schema_version": "alphafactory_run_meta.v1",
+        "set_name": "MIDDAY",
+        "symbol": "GBPUSD",
+        "telemetry_profile": "lifecycle-v3",
+        "variant_tag": "GBPUSD_MIDDAY_REV"
+      },
+      "scenario": "GBPUSD_MIDDAY_REV"
+    },
+    {
+      "counts": {
+        "decision_rows": 9055,
+        "entry_deals": 1293,
+        "entry_requests": 1293,
+        "exit_deals": 1293,
+        "exit_requests": 1293,
+        "lifecycle_final_closes": 1293,
+        "lifecycle_opens": 1293,
+        "minimum_completed_lifecycles": 1000,
+        "report_entry_deals": 1293,
+        "report_exit_deals": 1293,
+        "signals_ready": 1293
+      },
+      "errors": [],
+      "files": [
+        {
+          "bytes": 3068340,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190227\\logs\\GBPUSD_DecisionTelemetry_HYP-LOMX-EXEC-AUDIT-M1-003_559023468.csv",
+          "sha256": "6A63A859A1D684EC02BA66D4C9FCCBF1C1D16CD9225CD3B8D9AEA3AC816C6540"
+        },
+        {
+          "bytes": 332925,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190227\\logs\\GBPUSD_LifecycleTrades_HYP-LOMX-EXEC-AUDIT-M1-003_559023468.csv",
+          "sha256": "B0017F9A6F801025EC038D57747E27D02307765EA26DB0B026B9213BE632D250"
+        },
+        {
+          "bytes": 1267,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190227\\logs\\GBPUSD_RunMeta_HYP-LOMX-EXEC-AUDIT-M1-003_559023468.json",
+          "sha256": "4A9C5CF68B1BCBD6DD10C776DBA265BE94D20BEA0AD705122EBB33713277669A"
+        },
+        {
+          "bytes": 2642810,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190227\\report.html",
+          "sha256": "3327006D8B9834FDCC183AD988B2D4CAF3860C480017A422EFEE5E2F9FC8193E"
+        }
+      ],
+      "passed": true,
+      "run_dir": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190227",
+      "run_meta": {
+        "audit_only": true,
+        "base_prereg_sha256": "039178106824BD8F2610B55F6AA54DED0CCAB3CE688A77B12142A9C897AC209B",
+        "closed_bar": true,
+        "cost_status": "UNVERIFIED_DIAGNOSTIC_ONLY",
+        "diagnostic": {
+          "days_seen": 1555,
+          "entries_attempted": 1293,
+          "entries_closed": 1293,
+          "entries_opened": 1293,
+          "entry_rejections": 0,
+          "exit_rejections": 0,
+          "exit_requests": 1293,
+          "exposure_rejections": 0,
+          "missing_source_days": 0,
+          "overnight_violations": 0,
+          "signal_window_misses": 1,
+          "signals_ready": 1293,
+          "ticks_seen": 134979093,
+          "weekend_days_skipped": 258,
+          "zero_signals": 3
+        },
+        "ea_name": "EA_LondonOpenExecutionAudit",
+        "entry_latency_minutes": 0,
+        "hypothesis_id": "HYP-LOMX-EXEC-AUDIT-M1-003",
+        "magic": 5601303,
+        "parent_metrics_sha256": "6577299078F4ECB7009B2DD846C21118750D95DAABCEA2A66E5E702773C51261",
+        "parent_prereg_sha256": "87671236C8481111992FAA20476A118AB1A7ABFEFBC3FC11B51E7CBAA1BF8D91",
+        "parent_trades_sha256": "32EE3D1A642D2F5F46A6309358CD35B1B7DC8D23FC215A179C97EE52D77EC4D6",
+        "performance_metrics_authorized": false,
+        "prereg_sha256": "FA5745BAFFD8FBBE8238D82B143E5F6DFC4E9CD7DD1D9A5557F3B3E01310CABA",
+        "promotion_eligible": false,
+        "run_id": "HYP-LOMX-EXEC-AUDIT-M1-003_559023468",
+        "schema_version": "alphafactory_run_meta.v1",
+        "set_name": "LATE_FIX",
+        "symbol": "GBPUSD",
+        "telemetry_profile": "lifecycle-v3",
+        "variant_tag": "GBPUSD_LATE_FIX_REV"
+      },
+      "scenario": "GBPUSD_LATE_FIX_REV"
+    },
+    {
+      "counts": {
+        "decision_rows": 9055,
+        "entry_deals": 1293,
+        "entry_requests": 1293,
+        "exit_deals": 1293,
+        "exit_requests": 1293,
+        "lifecycle_final_closes": 1293,
+        "lifecycle_opens": 1293,
+        "minimum_completed_lifecycles": 1000,
+        "report_entry_deals": 1293,
+        "report_exit_deals": 1293,
+        "signals_ready": 1293
+      },
+      "errors": [],
+      "files": [
+        {
+          "bytes": 3140810,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190328\\logs\\GBPUSD_DecisionTelemetry_HYP-LOMX-EXEC-AUDIT-M1-003_559087921.csv",
+          "sha256": "76965E078370C7B883451BBA9B8A5C457007C46BB3FC895F545F5900E9676D5A"
+        },
+        {
+          "bytes": 333133,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190328\\logs\\GBPUSD_LifecycleTrades_HYP-LOMX-EXEC-AUDIT-M1-003_559087921.csv",
+          "sha256": "BE01E4F255D244F050FDE70F8E7705CFF505BC2EBD2B620A38795A1252847841"
+        },
+        {
+          "bytes": 1275,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190328\\logs\\GBPUSD_RunMeta_HYP-LOMX-EXEC-AUDIT-M1-003_559087921.json",
+          "sha256": "873F8AE1F5BC99266912B0F72CBC5F8DF1F73624386AE0E2288658B0A41B0DFD"
+        },
+        {
+          "bytes": 2643038,
+          "path": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190328\\report.html",
+          "sha256": "CB4D99C779990CA99D351920F61B00C9A7E151871722898DB42B16E1905FE7A9"
+        }
+      ],
+      "passed": true,
+      "run_dir": "02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_190328",
+      "run_meta": {
+        "audit_only": true,
+        "base_prereg_sha256": "039178106824BD8F2610B55F6AA54DED0CCAB3CE688A77B12142A9C897AC209B",
+        "closed_bar": true,
+        "cost_status": "UNVERIFIED_DIAGNOSTIC_ONLY",
+        "diagnostic": {
+          "days_seen": 1555,
+          "entries_attempted": 1293,
+          "entries_closed": 1293,
+          "entries_opened": 1293,
+          "entry_rejections": 0,
+          "exit_rejections": 0,
+          "exit_requests": 1293,
+          "exposure_rejections": 0,
+          "missing_source_days": 0,
+          "overnight_violations": 0,
+          "signal_window_misses": 1,
+          "signals_ready": 1293,
+          "ticks_seen": 134979093,
+          "weekend_days_skipped": 258,
+          "zero_signals": 3
+        },
+        "ea_name": "EA_LondonOpenExecutionAudit",
+        "entry_latency_minutes": 1,
+        "hypothesis_id": "HYP-LOMX-EXEC-AUDIT-M1-003",
+        "magic": 5601303,
+        "parent_metrics_sha256": "6577299078F4ECB7009B2DD846C21118750D95DAABCEA2A66E5E702773C51261",
+        "parent_prereg_sha256": "87671236C8481111992FAA20476A118AB1A7ABFEFBC3FC11B51E7CBAA1BF8D91",
+        "parent_trades_sha256": "32EE3D1A642D2F5F46A6309358CD35B1B7DC8D23FC215A179C97EE52D77EC4D6",
+        "performance_metrics_authorized": false,
+        "prereg_sha256": "FA5745BAFFD8FBBE8238D82B143E5F6DFC4E9CD7DD1D9A5557F3B3E01310CABA",
+        "promotion_eligible": false,
+        "run_id": "HYP-LOMX-EXEC-AUDIT-M1-003_559087921",
+        "schema_version": "alphafactory_run_meta.v1",
+        "set_name": "FULL_SESSION",
+        "symbol": "GBPUSD",
+        "telemetry_profile": "lifecycle-v3",
+        "variant_tag": "GBPUSD_FULL_SESSION_REV"
+      },
+      "scenario": "GBPUSD_FULL_SESSION_REV"
+    }
+  ],
+  "schema_version": "lomx_execution_audit.v1"
+}

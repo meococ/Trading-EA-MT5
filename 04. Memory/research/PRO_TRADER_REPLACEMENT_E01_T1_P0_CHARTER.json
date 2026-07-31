@@ -1,0 +1,258 @@
+{
+  "schema_version": "pro_trader_replacement_generation_charter.v1",
+  "campaign_id": "CAMPAIGN-PTR-E01",
+  "generation": 1,
+  "generation_id": "T1",
+  "status": "FROZEN_PRE_OUTCOME",
+  "frozen_at_utc": "2026-07-30T18:32:19Z",
+  "owner_goal": "Build at least one confirmed M5 or M15 symbol sleeve with PF above 1.30 after verified cost, cadence of 2 to 5 executed trades per elapsed calendar week on every relevant split, and strict robustness against overfitting. T1 through T100 are sequential generations and stop only after a valid target pass.",
+  "capability_target": "Distinguish a QAWAP-aligned displacement caused by a persistent and temporally asymmetric state from short-memory noise, then trade or abstain with calibrated uncertainty.",
+  "mechanism_boundary": {
+    "claim": "Broker quote activity, causal price location and return-path irreversibility may jointly identify a short-lived continuation state after cost.",
+    "not_claimed": [
+      "VWAP alone predicts direction",
+      "broker tick volume is centralized traded volume or signed order flow",
+      "a point Hurst estimate above 0.5 proves persistence",
+      "Model 0 contains broker real ticks",
+      "intrabar first-hit ordering is known",
+      "one profitable aggregate can rescue a losing symbol"
+    ],
+    "prior_failure_radius_excluded": [
+      "single-window classical R/S Hurst filter on USDJPY M15",
+      "Hurst substitution inside a killed regime-gated mean-reversion object",
+      "session-VWAP bounce, reclaim or standard-deviation-band rule",
+      "terminal VRAS seven-gap object and its one-bar path-confirmation child",
+      "post-outcome session, weekday, year, stop, target or direction rescue"
+    ]
+  },
+  "universe_contract": {
+    "mandatory_symbols": [
+      "XAUUSD",
+      "BTCUSD",
+      "EURUSD",
+      "USDJPY",
+      "GBPUSD",
+      "USDCHF",
+      "USDCAD",
+      "AUDUSD",
+      "NZDUSD"
+    ],
+    "primary_timeframe": "M5",
+    "m15_status": "OUT_OF_T1_INITIAL_FAMILY_AND_NOT_AN_IMPLICIT_RESCUE",
+    "tester_model": 0,
+    "tester_model_semantics": "Every tick generated from M1 bars; not broker real ticks.",
+    "requested_from": "1970.01.01",
+    "availability_cutoff_utc": "2026-07-30T23:59:59Z",
+    "coverage_mode": "ALL_AVAILABLE_AS_OF_CUTOFF",
+    "exact_coverage_proof": "Per-symbol tester-journal history-synchronized start/end, report, run manifest and hashes must agree.",
+    "history_quality_operator": "gt",
+    "history_quality_pct": 97.0,
+    "quality_failure_route": "INVALID_REPAIR_NOT_NO_EDGE",
+    "required_attribution": [
+      "per-symbol all-available history",
+      "per-symbol 2018-current intersection when covered",
+      "per-symbol train, calibration, validation, OOS and T1-locked holdout"
+    ],
+    "no_skip_rule": "No mandatory symbol may be omitted because Model 4, verified cost or long real-tick coverage is missing. Missing promotion evidence limits the claim; it does not remove the Model-0 cell.",
+    "symbol_specific_permissions": [
+      "point, tick size, tick value and volume geometry",
+      "observed trading schedule",
+      "hash-bound cost manifest",
+      "train-only median and MAD normalization"
+    ],
+    "symbol_specific_prohibitions": [
+      "session",
+      "feature window",
+      "coefficient",
+      "probability threshold",
+      "holding horizon",
+      "stop or target geometry"
+    ]
+  },
+  "clock_and_cadence": {
+    "time_basis": "UTC",
+    "qawap_reset": "00:00",
+    "eligible_decision_closes": "Every 30 minutes from 07:00 through 15:30 Monday-Friday",
+    "entry": "First available tick/open of the M5 bar after the completed decision bar",
+    "daily_limit": 1,
+    "same_day_selection": "First qualifying upward probability crossing wins; later signals are ignored.",
+    "btc_weekends": "Observed but not eligible; BTC uses the same Monday-Friday decision contract.",
+    "cadence_gate": "2 to 5 executed trades per elapsed calendar week on each claimed symbol and each relevant split; no active-week or pooled-symbol denominator."
+  },
+  "feature_contract": {
+    "price": "Typical price equals (high + low + close) / 3 on completed M5 bars.",
+    "qawap": "Cumulative typical-price times broker tick-volume divided by cumulative broker tick-volume since 00:00 UTC.",
+    "directional_candidate": {
+      "slope": "QAWAP_t - QAWAP_t_minus_6",
+      "long": "slope > 0 and close_t > QAWAP_t",
+      "short": "slope < 0 and close_t < QAWAP_t",
+      "otherwise": "SKIP",
+      "magnitude_threshold": "NONE"
+    },
+    "memory": {
+      "input": "Latest 256 valid completed-M5 log returns; exclude the first return after a gap over 15 minutes.",
+      "local_whittle": "N=256, m=32, d in [-0.45, 0.45]",
+      "dfa1_scales": [8, 16, 32, 64],
+      "lo_modified_rs_lags": [1, 3, 6, 12],
+      "uncertain_rule": "UNCERTAIN when local-Whittle and DFA differ by more than 0.10 or Lo/surrogate controls do not support persistence.",
+      "binary_hurst_threshold": "FORBIDDEN"
+    },
+    "directed_hvg": {
+      "window": 64,
+      "input": "(close - QAWAP) / ATR14 on contiguous completed M5 bars",
+      "features": [
+        "smoothed in/out-degree KL divergence",
+        "normalized degree entropy",
+        "four-node time-reversal motif imbalance"
+      ],
+      "gap_behavior": "SKIP"
+    },
+    "normalization": "Train-only median and MAD by symbol; pooled model receives no symbol identifier.",
+    "pooling_weight": "Each symbol has total weight 1/9 and each calendar year within a symbol has equal weight in the training objective."
+  },
+  "label_exit_and_risk": {
+    "cost_unit": "c_s_t = max(observed spread_t, train P90 non-zero spread_s) + commission proxy_s + 2 * tick_size_s, from a hash-bound non-zero cost manifest.",
+    "risk_unit": "R_t = max(ATR14_t, 8 * c_s_t)",
+    "entry_price": "Actual next-M5-open MT5 fill",
+    "close_only_path": [
+      "For completed bars j=1..6 compute signed z_j = direction * (close_j - entry_price).",
+      "If z_j <= -1.00R, emit CLOSE_STOP and execute at the next M5 open.",
+      "Else if z_j >= +1.25R, emit CLOSE_TARGET and execute at the next M5 open.",
+      "Else after bar 6 emit TIME_EXIT and execute at the next M5 open."
+    ],
+    "label": "Y=1 only for target-before-stop-before-timeout under the close-only sequence; adverse-first and timeout are Y=0.",
+    "break_even_probability": "p_BE = (1 + c_s_t / R_t) / 2.25",
+    "trade_threshold": "Calibrated probability must cross upward through p_BE + 0.05.",
+    "forbidden_management": [
+      "broker-side intrabar SL or TP",
+      "trailing stop",
+      "break-even move",
+      "partial exit",
+      "intrabar first-hit label"
+    ],
+    "cash_risk_pct_initial_balance": 0.25,
+    "min_lot_max_planned_risk_pct_initial_balance": 0.30,
+    "min_lot_failure": "SKIP_AND_LOG_MIN_LOT_RISK_REJECT",
+    "equity_compounding": false,
+    "tail_treatment": "Retain next-open gaps and realized losses without clipping."
+  },
+  "model_and_arms": {
+    "model": "L2 logistic regression with lambda=1, common coefficients across symbols and no optimizer.",
+    "calibration": "One pooled sigmoid calibrator fitted only on calibration portions with equal symbol weighting.",
+    "arms": [
+      {
+        "id": "A0_SIMPLE",
+        "role": "simple control",
+        "features": "equal-weight/session-open displacement, six-bar return, ATR14, session age, cost and variance ratio"
+      },
+      {
+        "id": "A1_QAWAP",
+        "role": "strict primary control",
+        "features": "QAWAP distance and slope, relative tick activity, ATR14, session age and cost"
+      },
+      {
+        "id": "A2_QAWAP_MEMORY",
+        "role": "memory ablation",
+        "features": "A1 plus local-Whittle, DFA and Lo uncertainty state"
+      },
+      {
+        "id": "A3_QAWAP_GRAPH",
+        "role": "graph ablation",
+        "features": "A1 plus the three frozen directed-HVG features"
+      },
+      {
+        "id": "A4_FULL",
+        "role": "primary challenger",
+        "features": "A1 plus memory plus graph"
+      }
+    ],
+    "trial_family": "5 arms x 9 symbols = 45 performance cells",
+    "trial_total": 45,
+    "alpha_ppm_total": 50000,
+    "multiplicity_n": 45,
+    "mt5_program": "After train/calibration coefficients are frozen, every one of the 45 arm-symbol cells receives one serial all-available-history MT5 Model-0 run. Split and cost-stress attribution from the same frozen trade sequence do not create a new strategy trial.",
+    "invalid_run_rule": "A data or engineering invalid run consumes its attempt identity but no economic conclusion; only a bounded logic-identical repair is allowed.",
+    "selection_rule": "Any arm may survive absolute gates, but component value is claimed only through its matched ablation. Simpler survivors are preferred when added complexity fails incremental gates."
+  },
+  "split_contract": {
+    "basis": "Per-symbol elapsed UTC coverage after warm-up, not bar count.",
+    "train_pct": 50,
+    "calibration_pct": 15,
+    "validation_pct": 15,
+    "oos_pct": 10,
+    "t1_locked_holdout_pct": 10,
+    "holdout_label": "T1-locked holdout, not globally virgin workspace history",
+    "fit_permissions": [
+      "model coefficients on train only",
+      "per-symbol median/MAD on train only",
+      "sigmoid calibrator on calibration only"
+    ],
+    "post_calibration_mutation": "FORBIDDEN",
+    "holdout_open": "Open once after source, coefficients, calibrator, task packets, cost contract and all identities are frozen.",
+    "minimum_confirmed_coverage_months": 84
+  },
+  "pre_outcome_gates": [
+    "Exact broker symbol mapping and a proposed all-available-history boundary exist for all nine symbols.",
+    "The harness can capture and hash report History Quality plus tester-journal synchronized start/end.",
+    "Strict numeric History Quality >97 is fail-closed for T1 task packets.",
+    "QAWAP, ATR, memory and HVG Python-reference to MQL5 parity passes frozen tolerances.",
+    "Short-memory, ARMA, GARCH and regime-break synthetic false persistence is <=5%.",
+    "Power at simulated d=0.10 is >=80% and median local-Whittle bias is <=0.05.",
+    "Reversible-surrogate HVG false irreversibility is <=5%.",
+    "No feature, label, entry or exit reads an incomplete bar or future graph edge.",
+    "Outcome-blind candidate days are at least 3 per elapsed week in each mandatory symbol and split.",
+    "The same unit-normalized logic can execute on all symbols without symbol-specific strategy parameters.",
+    "Cost fields are non-zero or explicitly marked unavailable; unavailable verified cost blocks promotion."
+  ],
+  "economic_success_contract": {
+    "profit_factor_verified_cost_x1": ">1.30",
+    "profit_factor_cost_x1_5": ">=1.25",
+    "profit_factor_cost_x2": ">=1.00",
+    "cadence": "2 to 5 executed trades per elapsed calendar week in train, validation, OOS, T1-locked holdout, all history and relevant 2018-current attribution",
+    "mean_expectancy_r_per_trade": ">=0.08",
+    "directional_stability": "Positive net expectancy in long and short directions.",
+    "time_stability": "Positive expectancy in a majority of half-years and no single half-year is allowed to create the whole positive result.",
+    "historical_drawdown_pct": "<=6.0",
+    "monte_carlo_p95_drawdown_pct": "<=8.0",
+    "calibration": "Block-bootstrap 95% lower bound of Brier skill over climatology >0; slope 0.8..1.2; absolute intercept <=0.10; ECE <=0.05.",
+    "robustness": "WFA, PBO, Reality Check/DSR with multiplicity 45, parameter-neighborhood stability, cost/execution audit, non-repaint audit and independent QC all pass.",
+    "forensics": "At least 100 seed-frozen random executed trade episodes with decision-asof and anatomy images bound to report/log IDs.",
+    "promotion_limit": "Research proxy cost may kill but cannot confirm. Confirmed status requires verified same-broker spread, commission and slippage evidence."
+  },
+  "incremental_component_gates": {
+    "A4_vs_A1": [
+      "PF lift >=0.10",
+      "mean realized-R lift >=0.05R",
+      "positive Brier and log-loss improvement",
+      "cadence remains 2 to 5 per elapsed week"
+    ],
+    "A2_vs_A1": "Required before claiming memory adds value.",
+    "A3_vs_A1": "Required before claiming graph structure adds value.",
+    "exposure_only_improvement": "A drawdown improvement caused only by fewer trades is not incremental edge."
+  },
+  "verdict_routes": {
+    "TARGET_PASS": "At least one arm-symbol sleeve passes every absolute, split, cost, robustness, overfit, forensic and independent-QC gate. All nine symbol results remain reported.",
+    "VALID_FAIL_T1": "All required data and engineering are valid but no symbol sleeve survives. Close only the exact T1 object, write failure radius and open T2.",
+    "INVALID_REPAIR_T1": "History quality, coverage, identity, implementation, parity, log or cost mechanics invalidate inference. Repair the frozen object without changing market logic.",
+    "INSUFFICIENT_T1": "Frozen all-history evidence cannot decide due coverage or observation limits. Do not call it no-edge and do not post-hoc extend the object."
+  },
+  "outcome_authority": {
+    "hypothesis_id": null,
+    "registry_row": null,
+    "preregistration": null,
+    "task_packet": null,
+    "mt5_outcomes_authorized": false,
+    "paper_or_live_authorized": false
+  },
+  "source_register": [
+    "https://www.jstor.org/stable/2938368",
+    "https://doi.org/10.1017/S0266466699153027",
+    "https://doi.org/10.1073/pnas.0709247105",
+    "https://www.bis.org/publ/work271.htm",
+    "https://www.bis.org/publ/bppdf/bispap02j.pdf",
+    "https://www.mql5.com/en/docs/runtime/testing",
+    "https://www.mql5.com/en/articles/2612",
+    "https://www.reddit.com/r/algotrading/comments/1hr77sy/hurst_exponent_shows_that_95_of_the_time_in_the/",
+    "https://www.reddit.com/r/algotrading/comments/1b5zh8e"
+  ]
+}

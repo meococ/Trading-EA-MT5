@@ -1,0 +1,79 @@
+{
+  "schema_version": "alphafactory_prelaunch_xau_model4_execute_gate_hardening.v3",
+  "hypothesis_id": "HYP-PTR-T2-DATA-EPOCH-D0-M5-005",
+  "classification": "PRELAUNCH_XAU_MODEL4_FULL_SUITE_EXECUTE_AUTHORIZATION",
+  "authority": "DATA_ACQUISITION_ONLY_NO_PERFORMANCE",
+  "verdict": "PASS_ONE_SHOT_XAU_FULL_SUITE_EXECUTE_GATE",
+  "prior_registry": {
+    "path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+    "line": 457,
+    "sha256": "D4AB64EC57E6463052FD77C2E92E4EB4196A16B6130BDB175537F99BA52295B7",
+    "row_sha256": "1CAA27C13BA399FD594B225B0CE26F62FC03882ABF69D01CF949F73916C82AF5"
+  },
+  "prior_authority_receipt": {
+    "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/evidence/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/HYP005_XAU_MODEL4_COLLECTION_AUTHORITY_RECEIPT.json",
+    "sha256": "0F4F8C6B2EBA2307A40CB20DFD4656935A476A0C9CBB9336F958208CC3BCA8D3"
+  },
+  "authorized_git_status": {
+    "current_sha256": "88C917CAAFEDAF378572EDB9F68F2C3B207AB76CF02A1445D7B9CB0FFD41C57B"
+  },
+  "control_plane": {
+    "runner": {
+      "path": "02. AlphaFactory/tools/research_loop_engine.ps1",
+      "sha256": "BC4625714DA729989977CE0733128B4B53256664EDA68CB0D72BC03FD0F36EED"
+    },
+    "candidate_registry_validator": {
+      "path": "04. Memory/research/validate_candidate_registry.py",
+      "sha256": "45F23F5832F5CCE5B39AB0BED1CFDC6CE316F7573D393AA56F16150A7F661D48"
+    },
+    "alpha_entrypoint": {
+      "path": "02. AlphaFactory/alpha.ps1",
+      "sha256": "B24D2FB853DC46DC4F301F1B4C9CA8A27E162876E6DDB7C52BDECDDEB6034377"
+    },
+    "execution_dependency_bindings": [
+      {
+        "path": "02. AlphaFactory/alpha.ps1",
+        "sha256": "B24D2FB853DC46DC4F301F1B4C9CA8A27E162876E6DDB7C52BDECDDEB6034377"
+      },
+      {
+        "path": "02. AlphaFactory/alpha.local.ps1",
+        "sha256": "DE3BB03773B3DB5FB6BD0B41466EE1C23E622716684B2D0F0B36520AC2CE324C"
+      },
+      {
+        "path": "02. AlphaFactory/tools/mt5_storage_contract.ps1",
+        "sha256": "61FDB458E6ABC9225725977F56EF24101438AD92B218260509C4A0A0EAE39D67"
+      },
+      {
+        "path": "02. AlphaFactory/tools/ea_contract.ps1",
+        "sha256": "E0DC563BBB8F2A2F13883E5590E9E2FEB7CE4C03D3EBBAC07B093F2BE52CE3BD"
+      },
+      {
+        "path": "02. AlphaFactory/tools/log_storage.ps1",
+        "sha256": "E4A540ECC6A93A73BC8EE1734E33DDE234A8EBFF25559945AB410B260B569CBF"
+      },
+      {
+        "path": "02. AlphaFactory/tools/audit_mql5_nonrepaint.py",
+        "sha256": "AEF5DDDAC0B6288F7A082D59E89F123461809B79AD28C008591D7B16F912349D"
+      }
+    ]
+  },
+  "launch_claim_path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/evidence/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/HYP005_XAU_MODEL4_LAUNCH_CLAIM.json",
+  "exact_test_run": {
+    "framework": "pytest",
+    "result": "PASS",
+    "passed": 122,
+    "failed": 0,
+    "declared_test_file_count": 10,
+    "symbol": "XAUUSD",
+    "model": 4,
+    "run_role": "control",
+    "authority": "DATA_ACQUISITION_ONLY_NO_PERFORMANCE"
+  },
+  "exposure_readback": {
+    "hyp005_execution_receipts": 0,
+    "hyp005_run_manifests": 0,
+    "launch_claims": 0,
+    "trades_executed": 0,
+    "economic_trials_consumed": 0
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "aruc_001_independent_source_review.v1",
+  "generated_at_utc": "2026-07-28T22:35:54Z",
+  "hypothesis_id": "HYP-ARUC-EURUSD-M15-001",
+  "review_role": "independent_codex_quant_implementation_reviewer",
+  "verdict": "PASS_TO_PREPARE_AUTHORITY",
+  "plan_path": "03. EA Developer/EA_ActivityResponseContinuation/research/HYP-ARUC-EURUSD-M15-001_SOURCE_FEASIBILITY_PLAN.md",
+  "plan_sha256": "BAA96FF852611996ACC1074BF9955C9F570D4593C86CF66753579C3B3480F1B4",
+  "builder_path": "03. EA Developer/EA_ActivityResponseContinuation/research/build_aruc_001_source.py",
+  "builder_base_sha256": "F637073FF73107D84D7D2398F71357F48197AE765997994FEAB8F9A2072B0284",
+  "test_path": "03. EA Developer/EA_ActivityResponseContinuation/research/tests/test_build_aruc_001_source.py",
+  "test_sha256": "BD773350C23144040D84B36CC54ACA2A2ECABAFD7E3EBCDC3C93292543D5AC85",
+  "focused_tests": {
+    "command": "python -B -m pytest -q -p no:cacheprovider 03. EA Developer/EA_ActivityResponseContinuation/research/tests/test_build_aruc_001_source.py",
+    "passed": 86,
+    "failed": 0
+  },
+  "production_metadata_preflight": {
+    "m1_manifest_dates": 1555,
+    "h1_manifest_dates": 1555,
+    "weekday_decision_dates": 1298,
+    "sunday_history_dates": 257,
+    "m1_design_rows": 1859820,
+    "h1_design_rows": 31057,
+    "h1_raw_source_rows": 71785,
+    "parquet_shards_opened": 0,
+    "status": "PASS"
+  },
+  "review_rounds": [
+    "FAIL_UNKNOWN_AUTHORITY_ALIASES",
+    "FAIL_PRODUCTION_MANIFEST_AND_H1_ROW_SEMANTICS",
+    "FAIL_SHORTHAND_AUTHORITY_ALIASES",
+    "PASS_ABSOLUTE_VALIDATION_WHITELIST_AND_EXACT_PRODUCTION_METADATA"
+  ],
+  "verified_properties": [
+    "closed_bar_causal_m15_q_a_r_atr20",
+    "strict_prior20_and_shifted5_business_date_mapping",
+    "first_signal_per_arm_per_utc_date",
+    "timestamp_only_observed_bar_horizons",
+    "deterministic_primary_and_control_ledgers",
+    "public_design_path_hash_schema_clock_fail_closed",
+    "exact_registry_validation_whitelist",
+    "default_sentinel_disarmed"
+  ],
+  "prohibitions_preserved": {
+    "outcome_prices": false,
+    "economics": false,
+    "validation_or_holdout": false,
+    "private_or_sealed": false,
+    "network_or_paid": false,
+    "mql5_or_mt5": false,
+    "promotion_or_live": false
+  }
+}

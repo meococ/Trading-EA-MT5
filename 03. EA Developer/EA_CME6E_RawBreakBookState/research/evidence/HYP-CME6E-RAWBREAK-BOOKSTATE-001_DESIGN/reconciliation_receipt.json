@@ -1,0 +1,33 @@
+{
+  "cme_oos_downloaded": false,
+  "cme_oos_quoted": false,
+  "control_rows_materialized": 547,
+  "generated_at_utc": "2026-07-27T08:25:55.785300Z",
+  "hypothesis_id": "HYP-CME6E-RAWBREAK-BOOKSTATE-001",
+  "inputs": {
+    "02. AlphaFactory/data/databento/cme_6e_raw_break_design/book_features_source_only.csv": "7BE51A64CB282DD5F11719B97206173F3A0D9D37A212A043B1AC5D45ACFC8BAD",
+    "02. AlphaFactory/data/databento/cme_6e_raw_break_design/book_features_source_only_receipt.json": "801BA6B1D6627367280C614E9B64D3F2D4CAAC4F096858632487CB1F85DEE9BB",
+    "02. AlphaFactory/tools/research/dsr.py": "A0659CDCDB2EAB4F29F69A1FBF4222FE3EC12467FE4CC664E194173126A4CEEA",
+    "02. AlphaFactory/tools/research/fivepercent_server_clock.py": "A7F179935102B57BA3B629345209F6B0D668D1F7FD828A5ED6003207F41A2F52",
+    "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/control_trades.csv": "07CDBD82D9BE6B9745484E5312F534B72C883AF8B61D8FB240D28EEE72FDC0D9"
+  },
+  "oos_rows_materialized": 0,
+  "outputs": {
+    "03. EA Developer/EA_CME6E_RawBreakBookState/research/evidence/HYP-CME6E-RAWBREAK-BOOKSTATE-001_DESIGN/joined_design_trades.csv": "A28B47392E295C6D6296E4C7CC851C226C2F3060673014B37959F12407AC99B2",
+    "03. EA Developer/EA_CME6E_RawBreakBookState/research/evidence/HYP-CME6E-RAWBREAK-BOOKSTATE-001_DESIGN/probe_result.json": "DD54DD94B8EE4E008807C41AA622219607B3930000724EC4F4845E333B797782",
+    "03. EA Developer/EA_CME6E_RawBreakBookState/research/trials/trial_log.jsonl": "780E4287D3FF02F340695D03C56D39B73B3D02EA6DA6058BC254DBD0946F3193"
+  },
+  "population_counts": {
+    "CHALLENGER_TOP50_SCORE": 230,
+    "CONTROL_QUALITY_ELIGIBLE": 459,
+    "NEGATIVE_CONTROL_BOTTOM50_SCORE": 229
+  },
+  "prereg_sha256": "A1862A7173DA5AC063E0C2E23A872B69EB2966DB76EFE462D141C3177ED5E578",
+  "probe_script_sha256": "6D02E153BE745F5202D2010C1494670821A97D22A4F704C85D8E4D1C649B688D",
+  "schema_version": "cme6e_raw_break_book_state_reconciliation.v1",
+  "sealed_oos_opened": false,
+  "source_feature_threshold_changed": false,
+  "source_rows": 547,
+  "status": "PASS",
+  "trials_executed": 3
+}

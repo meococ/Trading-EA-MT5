@@ -1,0 +1,98 @@
+{
+  "schema_version": "trendstack_007_source_implementation_task_packet.v5",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "task_state": "FROZEN_NARROW_REGISTRY_INTEGRATION_PRE_SOURCE_RUN",
+  "owner_role": "builder/coder",
+  "write_authorized": true,
+  "source_build_authorized": true,
+  "source_run_authorized": false,
+  "registry_mutation_allowed": false,
+  "production_payload_access_authorized": false,
+  "economics_authorized": false,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false,
+  "mql5_authorized": false,
+  "model0_authorized": false,
+  "network_allowed": false,
+  "trading_mutation": false,
+  "active_probe_plan_v6_sha256": "FE740C0811E7060670D1F771802EAC5ADD6D5B2CD9DB0FDABD7E48A8A2D29735",
+  "active_source_contract_sha256s": [
+    "2F3D071F5E079B49B5705D47BABFFCC7F65998744AA0E1E9352389F89EA1EADB",
+    "8B9B6391A79E699DB21A80D14223B6ACAA24287390ECE4A0D8602DD758F4631C",
+    "4AC471AB7ABBCD84F008819D969EE6AF2A78DDAD15B87294CE0BECFAD6D8B828",
+    "4ABAFB55831C01354BFD432864C236C2A5B236EFF9FFDA2A1921DEABD167ED62"
+  ],
+  "authority_amendments": [
+    {"version": "v1_superseded", "sha256": "28A8CE116DA72BD80FEBD0D98112B5E1383F399C4625DB5AB68BD98C073BC479"},
+    {"version": "v2_active_base", "sha256": "F399FF28A3ADCE35FD13111EC9EA6F3C33269415379F365BEFCC58F0319F3FFD"},
+    {"version": "v3_active_cross_binding", "sha256": "FA8F5A7E65C0D54E3BE20802BEC096528C1BD424961D1C615491CAF63E90C8AE"}
+  ],
+  "superseded_task_packet_sha256s": [
+    "1A965777AF7D3E741813E3EE30E803FB55112F168280E25F07D2342A09007455",
+    "E379A9579861F655B14473FE786938ECA39FD76CC685791E81303CBB00B2753C",
+    "D5AEE13EF9DE1CC57A907C888694D5177C8AFC99222F0D01F5C8A93F73614AFC",
+    "756DE35381CADC773CB5FF6EEE5BF1F3E9531E967AA0369626E96D6572DB163A"
+  ],
+  "input_snapshot": {
+    "registry_schema_sha256": "97F066534F4780BCD6CFDDC8DF445B513881E9FBD96E0BC46B293179BC871C3B",
+    "registry_validator_sha256": "7616A2C21EFAD33B37B0DB8BB022D0867465DF6559FA72A8D96DAFF1421C9FE6",
+    "projector_tool_sha256": "F02981D66951C97C03688D87F22CC7B2439E9F8F3604BC9EFC5CB62E3AC5165F",
+    "validator_tool_sha256": "8C376DB8DF94BB16DF85931ECC1FAB6D5E3D9DE61175394577BA2C4108B1B379",
+    "supervisor_tool_sha256": "EA51B908F3744313AC99329976810EDF199C4F9FA9678F27A426B6D94AA67C96",
+    "projector_test_sha256": "3051CACC1009E763D73509A9797475AFE55256DE3B6228DE7C17F4B5F85F5BE7",
+    "validator_test_sha256": "F116462813F6220C2654729634C1C49463CF69DB10ACEBEE52B0634630BD6DCB",
+    "supervisor_test_sha256": "38972890CDED29ED74970D5873E41D5F603B20858D39FA6BCF7B728390FD436A",
+    "active_bundle_sha256": "1080BBF2D88A4FB68A293DE35C6E955A7CE2282EB0F4D44ACA26D533E11BCD2C",
+    "registry_rows": 285,
+    "registry_sha256": "55642232FBA9E3CB2A84ACA35EF8A92B771BA76601243D233E632B47269949E6",
+    "row285_sha256": "6D72D93644BF6C61D3D966013348FF272F3A78D13DE7444CB245A6809EB722DA"
+  },
+  "write_set": [
+    "04. Memory/research/CANDIDATE_REGISTRY.schema.json",
+    "04. Memory/research/validate_candidate_registry.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/supervise_trendstack_007_source_projection.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_supervise_trendstack_007_source_projection.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_hyp007_source_run_registry_transition.py"
+  ],
+  "must_implement": [
+    "Embed validation.source_run_bindings as the exact executable Draft 2020-12 nested schema from Amendment V2; legacy validation keys remain accepted but the nested object has additionalProperties false.",
+    "Keep generic probe-to-probe illegal. Add exactly one HYP007 exception only for prior row index 285/raw SHA 6D72...22DA and the Amendment V2 exact false-to-true row diff. No other hypothesis or later transition can use it.",
+    "Canonical validator manually verifies every normalized path, every required existing-file SHA, Amendment V2/V3 hashes, Task V5 hash, disarmed supervisor review-base, latest-row/one-use semantics and all outcome-blind false/zero constraints.",
+    "Supervisor replaces the impossible Task V4 exact_overrides operational parser with Amendment V2 validation.source_run_bindings validation while preserving row-285 frozen exact_overrides as hypothesis truth.",
+    "Expand detached packet fields to bind Amendment V2, Amendment V3 and Task V5 paths/hashes.",
+    "Implement the complete Amendment V3 46-of-46 row-to-packet cross-binding after stable full-registry/read-row validation and before attempt_started, stage/evidence creation or any public-shard/Parquet payload open.",
+    "Preserve all V7 exact-tree/terminal, concrete ProductionOperations, active V4 bundle, Task V4 validator read, path/reparse, identity, no-replace publish and persistent self-disarm behavior."
+  ],
+  "red_first_tests_required": [
+    "Exact synthetic successor row passes canonical registry validator and supervisor authority validation against the same registry bytes.",
+    "Current row285 remains valid baseline but fails source-run authority because its flag is false.",
+    "Generic probe-to-probe, another hypothesis, wrong prior row/hash, second authorization, true-to-true and true-to-false fail.",
+    "Every prohibited root/metrics/validation diff and any changed exact_overrides/prereg/source/model/run_ids fails.",
+    "Missing/extra binding key, invalid type/SHA, path escape/backslash/absolute path, missing file or stale file hash fails.",
+    "Every Amendment V3 packet mapping group mismatch fails before marker/payload; registry full SHA/index/raw-row hash drift fails.",
+    "Missing/drifted Amendment V2/V3 or Task V5 path/hash fails.",
+    "All prior 75 source tests remain green."
+  ],
+  "acceptance_gates": [
+    "Focused source suite plus new registry integration tests pass.",
+    "Canonical baseline registry still validates at 285 rows before the real append.",
+    "AST/import remain inert; sentinel exact None once.",
+    "Independent reviewer verifies the same synthetic successor snapshot passes both validators and all P0 mismatch paths fail pre-marker/pre-payload.",
+    "Production payload opens and marker/stage/final/evidence/receipt/packet/registry-row writes remain zero.",
+    "No branch, worktree, clone, commit or push."
+  ],
+  "prohibitions": [
+    "Do not append or edit CANDIDATE_REGISTRY.jsonl.",
+    "Do not create the implementation receipt or source-run packet.",
+    "Do not arm the supervisor or modify the sentinel away from exact None.",
+    "Do not read public Parquet shards, raw H1, HYP006 partial output, feature/economic payloads or sealed VALIDATION/HOLDOUT.",
+    "Do not alter hypothesis, source selection, signal, execution, costs, economic gates or downstream authority."
+  ],
+  "handoff_required": [
+    "Exact five paths/bytes/SHA256 and unchanged source snapshot hashes.",
+    "RED-first failures and final focused/integration pass counts.",
+    "Dual-validator synthetic successor proof and baseline 285-row validator proof.",
+    "Pre-marker/pre-payload mismatch evidence for registry identity and packet mapping groups.",
+    "Zero production access/artifact statement and any remaining blocker before receipt/row/packet."
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "schema_version": "trendstack_007_source_projection_contract.v2",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "supersedes_contract_v1_sha256": "552C38E9F3DD8087C8D0A3F04F0780449D819799982FCDF961DF1356E4C4E39A",
+  "collection_id": "DATASET-FIVEPERCENT-EURUSD-H1-SPLITVAULT-002",
+  "parent_terminal": {
+    "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-006",
+    "registry_row_index": 283,
+    "registry_row_sha256": "A0CC81B00AAD68B8814EE723066D099DC7F0C7C40B97AD8E1F3E87D187ECD5B3",
+    "verdict": "PARK_SOURCE_COMPLETENESS_FAILED_NO_MARKET_VERDICT",
+    "same_id_retry_authorized": false,
+    "failure_manifest_sha256": "6BA20A96C29FE0F6D2317A53B5E7B0893719EC1840FC3344C49461B62EF1548C",
+    "time_coverage_audit_sha256": "B9CA127800AC09316937D60EFADC653C3E7DF5ACF45128665698BCB33B3867B7"
+  },
+  "immutable_metadata_inputs": {
+    "public_receipt_path": "02. AlphaFactory/data/fivepercent/EURUSD/h1_splitvault_002/public/design_receipt.json",
+    "public_receipt_sha256": "623328512F0CB77B52B155F6CD314EA2B47DAC40636A7714BD38167BEA807B13",
+    "public_manifest_path": "02. AlphaFactory/data/fivepercent/EURUSD/h1_splitvault_002/public/design_manifest.jsonl",
+    "public_manifest_sha256": "DA513911B01B1C4232611225C77A4F22E9E3C89E719EE530923BD574D06451E5",
+    "selection_manifest_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-006_DESIGN_DATE_SELECTION.jsonl",
+    "selection_manifest_sha256": "D99C21ED2611A70D9F225170997EAADDD6567827B69759A1DFA9EA7F73C7A135",
+    "selection_manifest_row_schema": {
+      "exact_fields": ["date", "schema_version"],
+      "schema_version": "trendstack_006_design_date_selection.v1"
+    },
+    "selection_date_set_sha256": "4F30B5E09C8C21C3FCB63F4D5A016EB514D689710589077427464B92CD99A06A",
+    "selection_date_set_algorithm": "SHA256(ASCII('trendstack_002_design_date_set.v1\\n') + concat(ASCII(date+'\\n') for strictly increasing dates))",
+    "public_manifest_row_schema": {
+      "exact_fields": ["bytes", "date", "relative_path", "rows", "schema_version", "sha256"],
+      "schema_version": "h1_splitvault_002_public_design_shard.v1"
+    }
+  },
+  "machine_allowlist": {
+    "workspace_root": "D:/Trading EA MT5",
+    "allowed_public_root": "02. AlphaFactory/data/fivepercent/EURUSD/h1_splitvault_002/public",
+    "allowed_shard_root": "02. AlphaFactory/data/fivepercent/EURUSD/h1_splitvault_002/public/DESIGN",
+    "allowed_manifest_relative_path_template": "public/DESIGN/{date}/h1.parquet",
+    "allowed_workspace_relative_path_template": "02. AlphaFactory/data/fivepercent/EURUSD/h1_splitvault_002/public/DESIGN/{date}/h1.parquet",
+    "mapping_source": "exact selected-date rows from the immutable public manifest",
+    "mapping_rule": "for every exact selected date require exactly one manifest row whose date and relative path equal the frozen templates; bind its integer bytes, integer rows and uppercase SHA256 before opening the shard",
+    "selected_dates": 1297,
+    "unselected_public_dates": 258,
+    "unselected_open_limit": 0
+  },
+  "filesystem_safety": {
+    "normalized_workspace_relative_paths_only": true,
+    "resolved_path_must_remain_inside_allowed_shard_root": true,
+    "reject_path_escape": true,
+    "reject_symlink": true,
+    "reject_reparse_point": true,
+    "reject_junction": true,
+    "reject_hardlink_or_link_count_not_one": true,
+    "reject_non_regular_file": true,
+    "stable_read_required": true,
+    "stable_read_identity": "capture path and parent identities plus file size, mtime_ns, link count and platform file identity before open; require handle identity match; require unchanged handle and path identity after exact-byte read",
+    "verify_manifest_bytes_before_decode": true,
+    "verify_manifest_sha256_before_decode": true,
+    "parquet_row_group_count": 1
+  },
+  "clock_contract": {
+    "clock_path": "02. AlphaFactory/tools/research/fivepercent_server_clock.py",
+    "clock_sha256": "A7F179935102B57BA3B629345209F6B0D668D1F7FD828A5ED6003207F41A2F52",
+    "time_fields_timezone": "naive",
+    "required_time_utc_rule": "time_utc equals selected-date T12:00:00.000000000 exactly",
+    "server_offset_rule": "time_server - time_utc equals timedelta(hours=utc_offset_h)",
+    "canonical_clock_rule": "server_offset_hours(time_server) equals utc_offset_h and server_to_utc(time_server) equals time_utc",
+    "required_unique_matches_per_date": 1,
+    "missing_or_duplicate_policy": "FAIL_NO_DEDUP_NO_FILL_NO_DROP"
+  },
+  "physical_arrow_schema": [
+    {"name": "time_server", "type": "timestamp[ns]", "nullable": true},
+    {"name": "time_utc", "type": "timestamp[ns]", "nullable": true},
+    {"name": "utc_offset_h", "type": "int8", "nullable": true},
+    {"name": "open", "type": "float64", "nullable": true},
+    {"name": "high", "type": "float64", "nullable": true},
+    {"name": "low", "type": "float64", "nullable": true},
+    {"name": "close", "type": "float64", "nullable": true},
+    {"name": "tick_volume", "type": "uint64", "nullable": true},
+    {"name": "spread", "type": "int32", "nullable": true},
+    {"name": "real_volume", "type": "uint64", "nullable": true}
+  ],
+  "semantic_row_validation": {
+    "row_null_policy": "NO_NULL_VALUES",
+    "ohlc_policy": "finite positive float64 and low<=open<=high and low<=close<=high",
+    "integer_policy": "utc_offset_h exact int8; tick_volume, spread and real_volume exact nonnegative integers within physical types",
+    "input_rows_must_be_strictly_increasing_by_time_utc": true,
+    "output_rows_per_date": 1,
+    "output_total_rows": 1297
+  },
+  "projection": {
+    "price_side": "BID_CLOSED_H1",
+    "required_hours_utc": [12],
+    "first_date": "2016-01-04",
+    "last_date": "2020-12-31",
+    "no_fill": true,
+    "no_drop": true,
+    "no_interpolation": true,
+    "no_resample": true,
+    "no_deduplication": true,
+    "no_date_substitution": true,
+    "output_root": "02. AlphaFactory/data/fivepercent/EURUSD/trendstack_007_design_h1_1200",
+    "stage_root_pattern": "02. AlphaFactory/data/fivepercent/EURUSD/.trendstack_007_design_h1_1200.attempt-{projection_attempt_id}",
+    "attempt_id_pattern": "^HYP007-SOURCE-PROJECTION-[A-F0-9]{16}$"
+  },
+  "canonical_serialization": {
+    "json": "UTF-8 strict JSON with sorted keys, separators comma/colon, ensure_ascii=true, allow_nan=false",
+    "jsonl": "one canonical JSON object plus LF per row; no BOM and no blank rows",
+    "sha256": "uppercase hexadecimal"
+  },
+  "stage_layout": {
+    "request_path": "projection_requests.jsonl",
+    "request_receipt_path": "projection_request_receipt.json",
+    "output_shard_path_template": "DESIGN/{date}/h1_1200.parquet",
+    "output_shard_count": 1297,
+    "output_rows_per_shard": 1,
+    "output_parquet_row_groups_per_shard": 1,
+    "output_arrow_schema": "exactly physical_arrow_schema in the same order and nullable metadata",
+    "manifest_path": "design_1200_manifest.jsonl",
+    "trace_path": "design_1200_source_trace.jsonl",
+    "reconciliation_path": "design_1200_reconciliation.json",
+    "projector_receipt_path": "design_1200_projector_receipt.json"
+  },
+  "stage_artifact_schemas": {
+    "request_row": {
+      "schema_version": "trendstack_007_projection_request.v1",
+      "exact_fields": ["date", "input_relative_path", "request_index", "schema_version"]
+    },
+    "request_receipt": {
+      "schema_version": "trendstack_007_projection_request_receipt.v1",
+      "exact_fields": ["date_set_sha256", "first_date", "last_date", "request_count", "request_sha256", "schema_version"]
+    },
+    "manifest_row": {
+      "schema_version": "trendstack_007_projection_manifest_row.v1",
+      "exact_fields": ["bytes", "date", "relative_path", "rows", "schema_version", "sha256"]
+    },
+    "trace_row": {
+      "schema_version": "trendstack_007_projection_trace.v1",
+      "exact_fields": ["date", "input_bytes", "input_relative_path", "input_sha256", "output_bytes", "output_relative_path", "output_sha256", "request_index", "rows", "schema_version"]
+    },
+    "reconciliation": {
+      "schema_version": "trendstack_007_projection_reconciliation.v1",
+      "exact_fields": ["data_tree_sha256", "date_set_sha256", "expected_rows", "hypothesis_id", "manifest_sha256", "output_rows", "output_shards", "projection_attempt_id", "projector_selected_shard_opens", "request_count", "request_sha256", "schema_version", "trace_rows", "trace_sha256"]
+    },
+    "projector_receipt": {
+      "schema_version": "trendstack_007_projector_receipt.v1",
+      "exact_fields": ["contract_sha256", "data_tree_sha256", "economics_opened", "hypothesis_id", "manifest_sha256", "output_rows", "output_shards", "projection_attempt_id", "projector_access", "reconciliation_sha256", "research_holdout_opened", "research_validation_opened", "schema_version", "task_packet_sha256", "trace_sha256", "verdict"]
+    }
+  },
+  "data_tree_hash_algorithm": "SHA256(canonical_json({schema_version:'trendstack_007_projection_data_tree.v1',files:[{relative_path,bytes,sha256} sorted by relative_path]}))",
+  "actor_scoped_access": {
+    "projector": {
+      "public_receipt_reads": 1,
+      "public_manifest_reads": 1,
+      "selection_manifest_reads": 1,
+      "clock_tool_reads": 1,
+      "selected_public_shard_opens": 1297,
+      "unselected_public_shard_opens": 0,
+      "raw_source_opens": 0,
+      "hyp006_partial_stage_opens": 0,
+      "sealed_validation_opens": 0,
+      "sealed_holdout_opens": 0,
+      "feature_or_economics_opens": 0
+    },
+    "independent_validator": {
+      "contract_reads": 1,
+      "task_packet_reads": 1,
+      "selection_manifest_reads": 1,
+      "stage_metadata_file_reads": 6,
+      "staged_output_shard_opens": 1297,
+      "public_receipt_reads": 0,
+      "public_manifest_reads": 0,
+      "public_shard_opens": 0,
+      "raw_source_opens": 0,
+      "sealed_validation_opens": 0,
+      "sealed_holdout_opens": 0,
+      "feature_or_economics_opens": 0
+    },
+    "supervisor": {
+      "public_shard_opens": 0,
+      "staged_output_shard_opens": 0,
+      "sealed_validation_opens": 0,
+      "sealed_holdout_opens": 0,
+      "feature_or_economics_opens": 0
+    },
+    "historical_custody_lineage_raw_source_opens": 1
+  },
+  "explicit_denied_roots": [
+    "02. AlphaFactory/data/fivepercent/EURUSD/EURUSD_H1_2015_now.parquet",
+    "02. AlphaFactory/data/fivepercent/EURUSD/h1_splitvault_002/sealed",
+    "02. AlphaFactory/data/fivepercent/EURUSD/.trendstack_006_design_h1.attempt-HYP006-SOURCE-ATTEMPT-DF35D8E6977A464C",
+    "02. AlphaFactory/data/fivepercent/EURUSD/trendstack_006_design_h1",
+    "02. AlphaFactory/data/fivepercent/EURUSD/trendstack_002_design_m1"
+  ],
+  "lifecycle": [
+    "verify frozen registry probe row, plans, V2 contract, task packet and exact tool/test hashes",
+    "require final root and attempt stage root absent",
+    "create durable attempt_started marker before any public shard open",
+    "projector builds a new attempt stage without publish authority",
+    "independent validator validates the complete stage and writes a validation receipt in attempt evidence",
+    "supervisor verifies validation receipt, data-tree and artifact hashes",
+    "supervisor atomically renames stage to final root with no replacement on the same volume",
+    "supervisor performs post-publish path identity and artifact-hash readback without opening Parquet payloads",
+    "supervisor writes durable attempt_terminal marker and self-disarms"
+  ],
+  "invalid_partial_stage_policy": "preserve and inventory as failure evidence; never publish",
+  "fully_built_validated_stage_policy": "publish only after independent PASS under the same attempt and exact hashes",
+  "source_pass_verdict": "ENGINEERING_VALID_SOURCE_PROJECTION",
+  "source_pass_grants_economics": false,
+  "source_pass_grants_mql5": false,
+  "source_pass_grants_model0": false,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false
+}

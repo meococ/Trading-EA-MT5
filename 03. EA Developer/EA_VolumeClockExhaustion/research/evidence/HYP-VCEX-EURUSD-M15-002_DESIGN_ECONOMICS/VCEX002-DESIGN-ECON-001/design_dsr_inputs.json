@@ -1,0 +1,11 @@
+{
+  "dsr": 2.2247707565092867e-09,
+  "dsr_tool_sha256": "A0659CDCDB2EAB4F29F69A1FBF4222FE3EC12467FE4CC664E194173126A4CEEA",
+  "follow_control_sharpe": -0.2029136192129072,
+  "n_obs": 807,
+  "n_trials": 2,
+  "trial_variance": 3.775886318089042e-06,
+  "true_non_excess_kurtosis": 1.0457051048941148,
+  "true_sharpe": -0.20566166809096198,
+  "true_skew": -0.0008814563895768124
+}

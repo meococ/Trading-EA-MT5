@@ -1,0 +1,38 @@
+{
+  "schema_version": "alphafactory_aligned_variant_manifest.v1",
+  "hypothesis_id": "HYP-REPLACE-ME",
+  "source_sha256": "REPLACE_WITH_UPPERCASE_SHA256",
+  "frozen_pre_outcome": true,
+  "full_tried_family": true,
+  "selection_rule_frozen": true,
+  "value_semantics": "net_r",
+  "time_column": "exit_time",
+  "value_column": "net_r",
+  "preregistration": {"path": "PREREG.md", "sha256": "REPLACE_WITH_UPPERCASE_SHA256"},
+  "expected_variant_ids": ["baseline", "variant_a"],
+  "baseline_variant_id": "baseline",
+  "robustness_variant_ids": ["baseline", "variant_a"],
+  "minimum_trades_per_variant": 50,
+  "minimum_variant_mean_net_r": 0.0,
+  "minimum_robustness_pass_ratio": 0.6,
+  "analysis_settings": {
+    "wfa_windows": 5,
+    "cscv_slices": 8,
+    "cscv_max_combinations": 200,
+    "white_reality_bootstrap": 2000,
+    "white_reality_block_length": 5,
+    "random_seed": 1729
+  },
+  "variants": [
+    {
+      "variant_id": "baseline",
+      "trades_csv": {"path": "baseline/trades.csv", "sha256": "REPLACE_WITH_UPPERCASE_SHA256"},
+      "run_manifest": {"path": "baseline/run_manifest.json", "sha256": "REPLACE_WITH_UPPERCASE_SHA256"}
+    },
+    {
+      "variant_id": "variant_a",
+      "trades_csv": {"path": "variant_a/trades.csv", "sha256": "REPLACE_WITH_UPPERCASE_SHA256"},
+      "run_manifest": {"path": "variant_a/run_manifest.json", "sha256": "REPLACE_WITH_UPPERCASE_SHA256"}
+    }
+  ]
+}

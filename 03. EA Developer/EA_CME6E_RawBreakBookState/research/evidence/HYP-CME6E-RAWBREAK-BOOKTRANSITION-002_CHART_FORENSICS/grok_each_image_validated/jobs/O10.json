@@ -1,0 +1,75 @@
+{
+  "schema_version": "hyp002_grok_each_image_validated_job.v1",
+  "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+  "job": {
+    "job_id": "O10",
+    "case_id": "F010_PID000001412",
+    "position_id": "1412",
+    "direction": "BUY",
+    "image_type": "OUTCOME_ANATOMY",
+    "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F010_PID000001412_outcome.png",
+    "image_sha256": "341D5754752AA6DAE55C06E78B233719C4C5D5D5384B2B28F7E02907C4262502"
+  },
+  "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O10\\attempt-001-actual",
+  "request": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O10\\attempt-001-actual\\grok-request.json",
+    "sha256": "A89982FF0DFA1B0997F042BABAF60C38F3E0B80A3F6965E627E6F7C670E0B595"
+  },
+  "prompt_blocks": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O10\\attempt-001-actual\\prompt-blocks.json",
+    "sha256": "E55DD849FAEAE8590348471B9E844D3CC12D551AF71213C5584B1F840475F8A9"
+  },
+  "summary": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O10\\attempt-001-actual\\summary.json",
+    "sha256": "F930ADA8D82612AA2BC3EA69FDEFF4E3A3FF451CA584E477845FAB90195C46CB"
+  },
+  "response": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O10\\attempt-001-actual\\grok-response.json",
+    "sha256": "1EB1BB0612532390C6A1DCA0E0904F4C1EDF3530259BDED900BF2673EB01F3FF"
+  },
+  "runner": {
+    "model": "grok-4.5",
+    "reasoning_effort": "high",
+    "stop_reason": "EndTurn",
+    "elapsed_seconds": 59.578,
+    "total_cost_usd": 0.0573112,
+    "num_turns": 1,
+    "prompt_transport": "acp_blocks_file",
+    "image_count": 1,
+    "decoded_image_bytes": 152491
+  },
+  "result": {
+    "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+    "job_id": "O10",
+    "case_id": "F010_PID000001412",
+    "position_id": "1412",
+    "direction": "BUY",
+    "image_type": "OUTCOME_ANATOMY",
+    "image_sha256": "341D5754752AA6DAE55C06E78B233719C4C5D5D5384B2B28F7E02907C4262502",
+    "image_opened": true,
+    "visual_readability": "PASS",
+    "observations": [
+      "Title states MATCHED_BUY_LOSS with R=-1.273 and outcome-disclosing; BUY levels shown as Entry (blue solid), SL (red dashed), TP (green dashed), break-bar open (purple dotted), actual entry (blue dash-dot with diamond).",
+      "Actual entry sits near the Entry line shortly after break-bar open; price then rallies well above entry toward but not to TP, reaching roughly 0.00095–0.0010 while Entry is about 0.00068.",
+      "Price holds an elevated, choppy range above entry for an extended multi-hour stretch after the initial push, then sells off in a clear red cascade from about 07-23 01:40 into the SL zone.",
+      "Exit is marked by a purple X on the SL line near ~07-23 02:08 at about 0.00043–0.00046; TP line remains untouched through the path.",
+      "Bottom CME 6E full-break-bar trace reports early=+0.025, late=+0.043, score=+0.055 with Early 60s and Late 60s shading; direction-aligned I5 is mixed-to-mildly positive overall, not strongly adverse at the visible entry window."
+    ],
+    "confidence": "HIGH",
+    "unknowns": [
+      "Exact numeric MFE/MAE and bar timeframe are not labeled on the chart.",
+      "Whether any trail, partial scale, or time-stop logic existed is not shown.",
+      "Spread/commission/slippage components of R=-1.273 are not visually separable.",
+      "Precise reason entry R is not exactly -1.0 (fill, stop geometry, or R definition) is not disclosed on-image."
+    ],
+    "no_rule_or_rerun_authority": true,
+    "outcome_visible": true,
+    "actual_path_class": "FAVORABLE_THEN_GIVEBACK",
+    "primary_layer": "EXIT_MANAGEMENT",
+    "entry_context_assessment": "BUY is accepted after break-bar open near the horizontal Entry, into an already lifting tape; the immediate post-entry path is continuation higher rather than an instant failed break or entry-level rejection.",
+    "path_anatomy": "Break-bar open → actual BUY fill near Entry → strong favorable extension well above entry and below TP → prolonged elevated chop above entry → multi-bar breakdown through entry → stop hit at SL with realized R=-1.273.",
+    "book_trace_relevance": "The full-break-bar book score is mildly positive (early +0.025, late +0.043, score +0.055) and does not visually flag this path as adverse at acceptance; the eventual stop-out is therefore not explained by a strongly negative on-chart book discriminator.",
+    "exit_geometry_assessment": "SL is a fixed horizontal under entry; TP is far above and never engaged; the purple X lands on SL after a long favorable excursion, so the realized geometry is full giveback from deep MFE into a full stop loss.",
+    "failure_mechanism": "The trade first behaves like a continuing breakout winner, then reverses over a long holding window and runs from far above entry down through Entry to the stop, converting prior unrealized gain into a matched BUY loss without TP interaction."
+  }
+}

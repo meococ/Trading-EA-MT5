@@ -16,8 +16,16 @@
   "comparison_adapter": "generic-control-improvement-v1",
   "symbol": "EURUSD",
   "period": "M15",
-  "from": "2020.01.01",
-  "to": "2025.12.31",
+  "from": "1970.01.01",
+  "to": "REPLACE_WITH_UTC_CUTOFF_DATE_YYYY.MM.DD",
+  "data_quality_contract": {
+    "history_quality": { "operator": "gt", "value": 97.0 },
+    "coverage_mode": "all_available_asof",
+    "availability_asof_utc": "REPLACE_WITH_FROZEN_UTC_CUTOFF_Z",
+    "requested_from": "1970.01.01",
+    "requested_to": "REPLACE_WITH_UTC_CUTOFF_DATE_YYYY.MM.DD",
+    "require_tester_journal_bounds": true
+  },
   "model": 0,
   "execution_mode": 0,
   "fixed_delay_ms": 0,

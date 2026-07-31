@@ -1,0 +1,31 @@
+{
+  "schema_version": "vras_indicator_rich_casebook.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-004",
+  "run_id": "20260722_155635",
+  "selection_basis": "one representative accepted Trend trade and one fully observed path rejection; no counterfactual PnL assigned to rejection",
+  "source_m1_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+  "telemetry_sha256": "4FF4F1269D4D1F76B245DD16E01089FFB2ECA43DD4DE5487F20C27A57FBC3B87",
+  "cases": [
+    {
+      "case_id": "VRAS-004-ACCEPT-P194",
+      "case_kind": "TRADE",
+      "image": "VRAS-004-ACCEPT-P194_indicator_rich.png",
+      "image_bytes": 570668,
+      "image_sha256": "516F286D15640D1B2C72A001B0D4213DCD98DBB270F482D6D5CF5252B5AA1649",
+      "manifest": "VRAS-004-ACCEPT-P194_indicator_rich_manifest.json",
+      "manifest_sha256": "14BBCB601CBB666129BE4B5BEF99774F9A5C92E9F9A67861038953E45EAEC886",
+      "entry_parity": "PASS_9_OF_9"
+    },
+    {
+      "case_id": "VRAS-004-REJECT-EXTREME",
+      "case_kind": "REJECTED_PATH",
+      "image": "VRAS-004-REJECT-EXTREME_indicator_rich.png",
+      "image_bytes": 611921,
+      "image_sha256": "B1BDF168AE6D9D5755E8F2A1FFFF2169203B98B0405417CAE0EBE3D28C08A484",
+      "manifest": "VRAS-004-REJECT-EXTREME_indicator_rich_manifest.json",
+      "manifest_sha256": "5ECE328A975C0A67ED5E590E92D728214803969AA078EF55F5730812615B8F93",
+      "entry_parity": "PASS_9_OF_9"
+    }
+  ],
+  "fidelity_boundary": "Exact decision snapshots pass 9/9 parity. Continuous series and post-decision regions are diagnostic anatomy only."
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": "alphafactory_prepacket_control_plane_receipt_correction.v1",
+  "hypothesis_id": "HYP-PTR-T2-DATA-EPOCH-D0-M5-005",
+  "classification": "PRELAUNCH_PACKET_SCOPE_CORRECTION",
+  "correction_reason": "The original prepacket receipt reported the 121-test run that included the whole HYP005 research/tests directory, while registry row 452 declared only nine test files reproducing 120 tests. This immutable correction adds the omitted one-test Model-4 wrapper file and records the exact ten-file rerun.",
+  "original_receipt": {
+    "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/evidence/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/HYP005_PREPACKET_CONTROL_PLANE_RECEIPT.json",
+    "sha256": "353C89DD463C5F777B635A71BC31121CFBC6522EC2A7F4D3413F9F0A2453A347"
+  },
+  "original_registry_row": {
+    "line": 452,
+    "sha256": "FFD6AD026D08952AF07B1FFB53D2224538C2F6C13A96F64BC99448098C147105"
+  },
+  "added_test_path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_append_t2_data_epoch_model4_evidence.py",
+  "bound_tests": [
+    {
+      "path": "02. AlphaFactory/tests/test_ea_golden_path.py",
+      "sha256": "0953ECBC3BC1DE435F8BBA691FC0D5F7BD7D9DE964729F67E43B94ED3A80224A"
+    },
+    {
+      "path": "02. AlphaFactory/tests/test_nonrepaint_collection_probe.py",
+      "sha256": "23295088250E7EBDAF67C4F19DBEF274546BD2A6518B5017B706CBACAF2B1830"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/tests/test_mql5_contract.py",
+      "sha256": "C79F9499889C05AEE06DE711B3FB6E3705394FE63B852490FB477AD5E0FF3F2A"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_append_t2_data_epoch_evidence.py",
+      "sha256": "824FEC57AF14DBE0143B64AF76F18E65B67DAAA4D6B4EB791E10FD620BDAB168"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_append_t2_data_epoch_model4_evidence.py",
+      "sha256": "364CA559FCFF2B2CD6056279DB1F26930AAAE7F21A4AFADA85AB104E76F17913"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_t2_d0_model4_wrappers.py",
+      "sha256": "79656AA05FC009332CA3011AB310EFDFA0A0CBCDCBBDFDCA39E0F8FBD0995513"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_t2_d0_hyp005_wrappers.py",
+      "sha256": "4CDB01D8F5AF2A1B5154D27A32EFA27C14F2241789DEA4DC1045C68E1F463F59"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_data_epoch.py",
+      "sha256": "E926FA8DE3522E5FBFFCD9A7154199B5E87E2FF1956D120D02575FF3EBEF8C9C"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_campaign_exposure.py",
+      "sha256": "F668849104A60C8F5ED78D9C4661BDF42623A3365F663A69EF3BE940C9A0ACE2"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_candidate_registry_model4_collection.py",
+      "sha256": "49870CBF7FE1454D5375CF24428AC1D1A97CDD8F2107A9502B83D453D710BB62"
+    }
+  ],
+  "exact_rerun": {
+    "framework": "pytest",
+    "result": "PASS",
+    "passed": 121,
+    "failed": 0,
+    "duration_seconds": 27.3,
+    "declared_test_file_count": 10
+  },
+  "post_rerun_validators": {
+    "candidate_registry": "CANDIDATE_REGISTRY_OK rows=452 hypotheses=163",
+    "campaign_exposure": "CAMPAIGN_EXPOSURE_OK rows=9",
+    "data_epoch": "DATA_EPOCH_OK rows=1 aggregate_ready=false missing=9"
+  },
+  "control_plane_corrections": [
+    {
+      "path": "04. Memory/research/validate_candidate_registry.py",
+      "sha256": "DFA8F72D83A1A3B7AC04B700F3AF13F7D6DD95B6DF3467DED5D14EBFC3411BE3"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_candidate_registry_model4_collection.py",
+      "sha256": "49870CBF7FE1454D5375CF24428AC1D1A97CDD8F2107A9502B83D453D710BB62"
+    }
+  ],
+  "exposure_readback": {
+    "hyp005_execution_receipts": 0,
+    "hyp005_run_manifests": 0,
+    "trades_executed": 0,
+    "economic_trials_consumed": 0
+  },
+  "verdict": "PASS_REPRODUCIBLE_TEN_FILE_PREPACKET_SCOPE",
+  "created_at_utc": "2026-07-31T03:23:01Z"
+}

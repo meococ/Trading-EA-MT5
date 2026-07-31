@@ -1,0 +1,101 @@
+{
+  "artifact_type": "cme6e_mbp10_source_feasibility_plan.v1",
+  "created_at_utc": "2026-07-25T19:09:39.027Z",
+  "candidate_status": "NEW_CANDIDATE_SOURCE_FEASIBLE_PENDING_OWNER_SPEND_APPROVAL_AND_FRESH_PREREG",
+  "candidate_identity": "CME_GLOBEX_6E_CONTINUOUS_MBP10_PREENTRY_BOOK_STATE",
+  "not_equivalent_to": [
+    "EBS_EURUSD_PRIMARY_SPOT_CLOB",
+    "HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_RESCUE"
+  ],
+  "source": {
+    "vendor": "Databento",
+    "sdk_version": "0.54.0",
+    "dataset": "GLBX.MDP3",
+    "schema": "mbp-10",
+    "symbol": "6E.v.0",
+    "stype_in": "continuous",
+    "continuous_rule": "previous-day volume rank 0",
+    "cost_mode": "historical-streaming",
+    "download_api": "timeseries.get_range"
+  },
+  "population_contract": {
+    "input_path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/challenger_trades.csv",
+    "input_sha256": "0BC47F501CD5D9420F4DBE0BC08148CC5F7EFC8AB6C725248582288634D627AD",
+    "fields_used": [
+      "position_id",
+      "decision_time",
+      "direction"
+    ],
+    "outcome_fields_used": false,
+    "clock_model_path": "02. AlphaFactory/tools/research/fivepercent_server_clock.py",
+    "clock_model_sha256": "A7F179935102B57BA3B629345209F6B0D668D1F7FD828A5ED6003207F41A2F52",
+    "window_rule": "[decision_time_utc-120s, decision_time_utc)",
+    "requested_windows": 261,
+    "unique_windows": 261,
+    "first_window_end_utc": "2019-01-03T00:25:00Z",
+    "last_window_end_utc": "2022-12-29T01:10:00Z"
+  },
+  "metadata_only_estimate": {
+    "quote_status": "STREAMING_SOURCE_WINDOW_QUOTE_OK",
+    "quote_mode": "historical-streaming",
+    "quoted_nonempty_windows": 259,
+    "estimated_cost_usd": 0.254399180414,
+    "internal_2x_cost_ceiling_usd": 0.508798360828,
+    "recommended_owner_ceiling_usd": 1.0,
+    "per_window_cost_usd": {
+      "minimum": 0.000000171363,
+      "median": 0.000778846443,
+      "p95": 0.0024917945267,
+      "maximum": 0.004629895091
+    },
+    "billable_bytes_total": 546318080,
+    "billable_bytes_median_nonzero": 1672560,
+    "billable_bytes_p95_nonzero": 5351088,
+    "billable_bytes_max": 9942624,
+    "nonzero_windows": 259,
+    "zero_windows": [
+      {
+        "position_id": "26",
+        "window_end_utc": "2019-04-19T00:55:00Z",
+        "reason_status": "SOURCE_EMPTY_FAIL_CLOSED"
+      },
+      {
+        "position_id": "80",
+        "window_end_utc": "2019-09-01T21:25:00Z",
+        "reason_status": "SOURCE_EMPTY_FAIL_CLOSED"
+      }
+    ],
+    "paid_request_made": false,
+    "download_job_submitted": false
+  },
+  "rejected_scope": {
+    "request": "continuous 2019-01-01 through 2025-01-01 MBP-10",
+    "estimated_cost_usd": 471.878457166255,
+    "billable_bytes": 1013351270608,
+    "reason": "not a cheap bounded probe"
+  },
+  "grok_forensic_review": {
+    "task": "scc-cme6e-proxy-materiality-review",
+    "run_id": "20260725T190040262400Z-45984",
+    "process_success": true,
+    "stop_reason": "EndTurn",
+    "turns": 1,
+    "structured_schema_passed": true,
+    "verdict": "NEW_CANDIDATE_REQUIRED",
+    "probe_gate": "OPEN_AFTER_OWNER_SPEND_APPROVAL_AND_FRESH_PREREG",
+    "confidence": "HIGH",
+    "request_sha256": "93E4F72A9C668148AD97CA9396C6D3EFB6694A32AB95F51823D445E6819A32C1",
+    "response_sha256": "F909742F2EEA92B8135CEC651926AB698E48DA440E9671BA2954A93DC3FE242D",
+    "summary_sha256": "6471C1AE701BA820F077BB02643DC26098379DF6B78F1DFA419C4DBD88F07F90",
+    "response_path": ".context/scc-cme6e-proxy-materiality/grok-response.json"
+  },
+  "hard_prohibitions": [
+    "No EBS or spot-CLOB claim",
+    "No outcome join before a fresh registry row and SHA-bound prereg",
+    "No threshold selection from known HYP004 outcomes",
+    "No HYP004 rerun or rescue",
+    "No download above the explicit Owner USD ceiling",
+    "No full-period continuous dump",
+    "No optimization, MT5 backtest, promotion, or live authority from this artifact"
+  ]
+}

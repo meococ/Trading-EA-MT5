@@ -1,0 +1,155 @@
+{
+  "artifacts": {
+    "challenger_csv_sha256": "19C0108CA192615DE711413AACB78A1E5FAA09295E045201B5D70ABF2213B85C",
+    "control_csv_sha256": "7FAD3EB36BA3D6425183E375250B91081C2804F64E8C433E11F6F3A5774ACE96"
+  },
+  "challenger_candidates": 280,
+  "challenger_candidates_per_week": 1.3415468856947297,
+  "challenger_cost_r": {
+    "0.5_pip_rt": {
+      "count": 280,
+      "max": 0.9859154929565292,
+      "median": 0.0629072577139084,
+      "min": 0.01330242104062941,
+      "p25": 0.043307299077865444,
+      "p75": 0.0957911616213449
+    },
+    "1.5_pip_rt": {
+      "count": 280,
+      "max": 2.9577464788695877,
+      "median": 0.18872177314172517,
+      "min": 0.03990726312188823,
+      "p25": 0.12992189723359632,
+      "p75": 0.2873734848640347
+    },
+    "2.25_pip_rt": {
+      "count": 280,
+      "max": 4.436619718304382,
+      "median": 0.2830826597125878,
+      "min": 0.059860894682832344,
+      "p25": 0.1948828458503945,
+      "p75": 0.4310602272960521
+    },
+    "3.0_pip_rt": {
+      "count": 280,
+      "max": 5.9154929577391755,
+      "median": 0.37744354628345034,
+      "min": 0.07981452624377645,
+      "p25": 0.25984379446719263,
+      "p75": 0.5747469697280694
+    }
+  },
+  "challenger_risk_pips": {
+    "count": 280,
+    "max": 37.587142857142815,
+    "median": 7.948214285715682,
+    "min": 0.5071428571434833,
+    "p25": 5.219821428572025,
+    "p75": 11.545714285714492
+  },
+  "challenger_year_counts": {
+    "2019": 82,
+    "2020": 60,
+    "2021": 77,
+    "2022": 61
+  },
+  "confirmed_fractal_highs": 36145,
+  "confirmed_fractal_lows": 36081,
+  "control_candidates": 23798,
+  "cost_status": "UNVERIFIED_PROXY",
+  "data_path": "02. AlphaFactory/data/fivepercent/EURUSD/EURUSD_M1_2015_now.parquet",
+  "data_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+  "design_end_exclusive": "2023-01-01 00:00:00",
+  "design_start": "2019-01-01 00:00:00",
+  "elapsed_calendar_weeks": 208.71428571428572,
+  "funnel": {
+    "challenger_adx_eligible_all_hours": 16920,
+    "challenger_adx_session_eligible": 9111,
+    "challenger_depth_sweeps": 137199,
+    "challenger_mandatory_retest_entries": 280,
+    "challenger_reclaims_same_or_next": 39101,
+    "challenger_volume_eligible": 1770,
+    "challenger_volume_eligible_all_hours": 3864,
+    "control_in_session_entries": 23798,
+    "control_same_bar_sweep_reclaims_all_hours": 43074
+  },
+  "gates": {
+    "holdout_seal": {
+      "actual": 0,
+      "passed": true,
+      "threshold": 0
+    },
+    "max_year_concentration": {
+      "actual": 0.29285714285714287,
+      "passed": true,
+      "threshold": 0.4
+    },
+    "median_cost_r_1_5": {
+      "actual": 0.18872177314172517,
+      "passed": true,
+      "threshold": 0.2
+    },
+    "median_risk_pips": {
+      "actual": 7.948214285715682,
+      "passed": true,
+      "threshold": 6.75
+    },
+    "minimum_candidates": {
+      "actual": 280,
+      "passed": true,
+      "threshold": 200
+    },
+    "minimum_stage0_tpw": {
+      "actual": 1.3415468856947297,
+      "passed": true,
+      "threshold": 1.0
+    },
+    "p75_cost_r_1_5": {
+      "actual": 0.2873734848640347,
+      "passed": true,
+      "threshold": 0.3
+    },
+    "volume_not_predominantly_outside_session": {
+      "actual": 0.4580745341614907,
+      "passed": false,
+      "threshold": 0.5
+    },
+    "volume_removes_20pct": {
+      "actual": 0.8057293381626605,
+      "passed": true,
+      "threshold": 0.2
+    }
+  },
+  "hypothesis_id": "HYP-ASRS-EURUSD-M5-001",
+  "news_status": "UNMET_OFF_STAGE0",
+  "outcome_blind_attestation": {
+    "future_price_read_after_entry": false,
+    "holdout_bars_loaded": 0,
+    "mfe_mae_computed": false,
+    "pnl_computed": false,
+    "profit_factor_computed": false,
+    "trade_outcome_computed": false
+  },
+  "plan_path": "03. EA Developer/EA_ASRS_AdaptiveSweepReclaim/research/HYP-ASRS-EURUSD-M5-001_PROBE_PLAN.md",
+  "plan_sha256": "0E6BC15E99E78ACF6D9B5FC88C267CFF685BDEF33855F525450592A0E5BF19D0",
+  "promotion_eligible": false,
+  "quality": {
+    "complete_m5_bins": 297801,
+    "incomplete_m5_bins": 682,
+    "input_m1_rows": 1491312,
+    "total_m5_bins": 298483
+  },
+  "scanner_path": "03. EA Developer/EA_ASRS_AdaptiveSweepReclaim/research/asrs_stage0_probe.py",
+  "scanner_sha256": "625229B79F595823743704ADCBB4FAB8E7E91E6713DEC762AEB1B3AFACDA3C3D",
+  "schema_version": "asrs_stage0_outcome_blind.v1",
+  "seal_receipt": {
+    "bars_loaded": 2977638,
+    "bars_path": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\fivepercent\\EURUSD\\EURUSD_M1_2015_now.parquet",
+    "bars_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+    "holdout_bars_loaded": 0,
+    "holdout_start": "2023-01-01 00:00:00",
+    "last_bar_loaded": "2022-12-30 21:59:00",
+    "time_col": "time_utc"
+  },
+  "verdict": "PARK_STAGE0_REQUIRED_GATE_FAIL_NO_OUTCOME_READ"
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": "trendstack_007_source_implementation_task_packet.v4",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "task_state": "FROZEN_FINAL_AUTHORITY_REMEDIATION_PRE_SOURCE_RUN",
+  "owner_role": "builder/coder",
+  "write_authorized": true,
+  "source_build_authorized": true,
+  "source_run_authorized": false,
+  "production_payload_access_authorized": false,
+  "economics_authorized": false,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false,
+  "mql5_authorized": false,
+  "model0_authorized": false,
+  "network_allowed": false,
+  "registry_mutation_allowed": false,
+  "trading_mutation": false,
+  "active_probe_plan_v6_sha256": "FE740C0811E7060670D1F771802EAC5ADD6D5B2CD9DB0FDABD7E48A8A2D29735",
+  "active_source_contract_sha256s": [
+    "2F3D071F5E079B49B5705D47BABFFCC7F65998744AA0E1E9352389F89EA1EADB",
+    "8B9B6391A79E699DB21A80D14223B6ACAA24287390ECE4A0D8602DD758F4631C",
+    "4AC471AB7ABBCD84F008819D969EE6AF2A78DDAD15B87294CE0BECFAD6D8B828",
+    "4ABAFB55831C01354BFD432864C236C2A5B236EFF9FFDA2A1921DEABD167ED62"
+  ],
+  "superseded_task_packet_sha256s": [
+    "1A965777AF7D3E741813E3EE30E803FB55112F168280E25F07D2342A09007455",
+    "E379A9579861F655B14473FE786938ECA39FD76CC685791E81303CBB00B2753C",
+    "D5AEE13EF9DE1CC57A907C888694D5177C8AFC99222F0D01F5C8A93F73614AFC"
+  ],
+  "implementation_review_input": {
+    "verdict": "FAIL_REAL_REGISTRY_ORDER_AND_ROW285_RUN_AUTHORITY",
+    "focused_suite": "66 passed in 6.89s",
+    "reviewed_supervisor_sha256": "35750F294D26E2F415146354902D6F8B59A7077505FBA8DB0D8E32A7DC939571",
+    "actual_row285_raw_body_sha256": "6D72D93644BF6C61D3D966013348FF272F3A78D13DE7444CB245A6809EB722DA",
+    "actual_row285_sorted_reserialization_sha256": "DBEF5D612A65ABBB855D9525250FCF1808C639D35CC61AF8B4541EBA1FEF087A",
+    "actual_helper_result": "INVALID_SOURCE_PROJECTION",
+    "row285_source_run_authorized": false
+  },
+  "write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/validate_trendstack_007_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/supervise_trendstack_007_source_projection.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_validate_trendstack_007_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_supervise_trendstack_007_source_projection.py"
+  ],
+  "must_fix": [
+    {
+      "id": "P0_REPOSITORY_ORDERED_REGISTRY_JSONL",
+      "requirement": "For each registry record require exactly one terminal LF, strict UTF-8 JSON object, duplicate-key and NaN/Infinity rejection, and compact no-whitespace serialization that preserves decoded insertion order. Do not require sorted keys. Hash the exact raw object bytes before LF. A regression must read actual repository row 285 and return 6D72D93644BF6C61D3D966013348FF272F3A78D13DE7444CB245A6809EB722DA."
+    },
+    {
+      "id": "P0_DYNAMIC_REVIEWED_RUN_AUTHORITY_ROW",
+      "requirement": "Remove registry_row_index and registry_row_sha256 from hardcoded frozen defaults while retaining strict positive-index, uppercase-SHA and detached-packet binding. Production preflight must stable-read the full registry SHA, verify the packet-selected raw row hash, require that row to be the latest HYP007 hypothesis_state row, and semantically prove a bounded source-run authorization rather than trusting packet booleans."
+    },
+    {
+      "id": "P0_REGISTRY_ROW_SEMANTICS",
+      "requirement": "The selected row must have record_type hypothesis_state, schema_version alphafactory_candidate_registry.v1, hypothesis_id HYP-TRENDSTACK-EURUSD-H1-007, state probe, active Probe Plan V6 path/SHA, source_path/source_hash null, empty run_ids, metrics source_projection_attempts_consumed=0/source_content_opened=false/economics_opened=false/research_validation_opened=false/research_holdout_opened=false, validation source_build_authorized=true/source_run_authorized=true/research_validation_access_authorized=false/research_holdout_access_authorized=false/performance_metrics_authorized=false/model0_authorized=false/promotion_eligible=false, and verdict FROZEN_SINGLE_1200_BAR_SOURCE_RUN_AUTHORIZED. Any later HYP007 registry row makes the packet row stale and invalid."
+    },
+    {
+      "id": "P0_REGISTRY_CROSS_BINDINGS",
+      "requirement": "Parse exact_overrides as unique semicolon-delimited key=value tokens and require exact cross-bindings to packet values for SourceContractV7SHA, SourceImplementationTaskV4SHA, ActiveContractBundleSHA, ImplementationReviewReceiptSHA, ProjectorToolSHA, ValidatorToolSHA, SupervisorReviewBaseSHA, ProjectorTestSHA, ValidatorTestSHA and SupervisorTestSHA, plus SourceProjectionAttemptLimit=1 and SourceRunPacketReviewRequired=true. Reject missing, duplicate or mismatched tokens."
+    },
+    {
+      "id": "P0_ACTIVE_TASK_V4_BINDING",
+      "requirement": "Expand packet/preflight to bind implementation Task V4 and make V4 the one active task read by the independent validator. Preserve stable reads of V1/V2/V3 as history. The future active bundle remains V4/V5/V6/V7 exactly."
+    }
+  ],
+  "red_first_tests_required": [
+    "actual row285 repository ordering hashes successfully to 6D72... while sorted-only logic fails",
+    "packet-selected synthetic latest HYP007 row with exact source-run semantics and cross-bindings passes preflight",
+    "row285 with source_run_authorized=false fails even if packet booleans are true",
+    "wrong row hash, full registry hash, noncompact row, duplicate key, NaN or missing LF fails",
+    "later HYP007 row makes the selected row stale",
+    "wrong state, verdict, prereg, metrics, validation flag or source/run field fails",
+    "missing, duplicated or mismatched exact_overrides cross-binding fails",
+    "V4 task path/hash/schema drift fails validator and preflight",
+    "all V3 exact-tree, terminal, path, identity and disarm regressions remain green"
+  ],
+  "acceptance_gates": [
+    "Focused six-file suite passes, including actual repository row 285 as a read-only non-authorizing hash fixture and a synthetic future authorized row.",
+    "AST/import remain inert and the reviewed sentinel remains exact None exactly once.",
+    "Independent reviewer verifies production source no longer freezes row 285, cannot use an unauthorized/stale HYP007 row, and still cannot access payloads before a separately reviewed packet is armed.",
+    "All production payload opens and marker/stage/output/evidence/bundle/receipt/run-packet writes remain zero.",
+    "No branch, worktree, clone, commit or push."
+  ],
+  "prohibitions": [
+    "Do not mutate the registry or create the future source-run authorization row in this task.",
+    "Do not create the active bundle, implementation review receipt, source-run packet, attempt marker, stage, final output or evidence root.",
+    "Do not access production public shards, raw H1, HYP006 partial output, features/economics or sealed VALIDATION/HOLDOUT.",
+    "Do not arm or change the sentinel away from exact None.",
+    "Do not change V7 tree/terminal semantics or any strategy, source selection, economic or downstream authority."
+  ],
+  "handoff_required": [
+    "Exact four changed paths plus complete six-file snapshot bytes/SHA256.",
+    "RED-first and final focused suite evidence.",
+    "Actual row285 regression result and synthetic authorized/stale/semantic/cross-binding results.",
+    "Production payload/runtime artifact zero statement and sentinel readback.",
+    "Any remaining blocker before active bundle, PASS receipt or registry source-run transition."
+  ]
+}

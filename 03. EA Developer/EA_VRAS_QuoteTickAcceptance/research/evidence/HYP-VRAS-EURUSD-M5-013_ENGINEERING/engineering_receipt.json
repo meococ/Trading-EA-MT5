@@ -1,0 +1,58 @@
+{
+  "schema_version": "alphafactory_hyp013_engineering_receipt.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-013",
+  "generated_at_utc": "2026-07-23T02:41:14.1046389Z",
+  "scope": "COLLECTION_ONLY_NO_ECONOMICS_NO_ORDERS",
+  "source": {
+    "path": "03. EA Developer/EA_VRAS_QuoteTickAcceptance/EA_VRAS_QuoteTickAcceptance.mq5",
+    "bytes": 21258,
+    "sha256": "A74826E4BF0DC5CA5D5D976FD759210A6E01CDFE047E5F4BF6D7C2AEF097373E"
+  },
+  "binary": {
+    "path": "03. EA Developer/EA_VRAS_QuoteTickAcceptance/EA_VRAS_QuoteTickAcceptance.ex5",
+    "bytes": 24976,
+    "sha256": "DE4D6BB52559CC4C9A1AE48EE3BC86F0DFE8E203B9789BDE14F9F94D98DD6115"
+  },
+  "compile": {
+    "command": "02. AlphaFactory/alpha.ps1 compile EA_VRAS_QuoteTickAcceptance",
+    "errors": 0,
+    "warnings": 0,
+    "log_path": "03. EA Developer/EA_VRAS_QuoteTickAcceptance/EA_VRAS_QuoteTickAcceptance.log",
+    "log_sha256": "56575935BD0CC86D51A574C7594F87E3EDA2BF4731BD93343386F4BA3F4A1765"
+  },
+  "tests": {
+    "command": "python -m pytest package/tests validator-test operational-hygiene qfsi-safety partial-artifact-regression -q",
+    "passed": 64,
+    "failed": 0,
+    "elapsed_seconds": 2.46,
+    "package_contract_test_sha256": "481860D53491A146FDEEBAC3C489D2F96FE551A1E705AB738E22DB8ACFC4AA98",
+    "package_reference_test_sha256": "577F97B5F788435B966EA394D85EBA8E10A4BA3BEE6B1F37C9A308A9B2442513",
+    "capture_validator_sha256": "D4E28C01A8254C56D29A8EF6A21062AF2681A43CA37A343985D835601BDC5E40",
+    "capture_validator_test_sha256": "B607B5CCB36762C5D8145193C9450932B0A5F9E94B28358E66DEEEBBB40530FC",
+    "execution_foundation_sha256": "FF7ABEE2B48DA18B80AC1BE443B1718DE50EA976BCF9CBA73E9F8F6F94D719DA",
+    "qfsi_capture_sha256": "555462863DF9A0E072F78379B3B71B7E2C7FC7BB8D2B5981770AAFA5D54D61F5",
+    "qfsi_safety_test_sha256": "4A57080771B65DD3DE501E6AE63B65C29FF86A14EE3FBE11B3963D911443479C",
+    "partial_artifact_regression_test_sha256": "73DB68267C9C5492A1B7733A38EEDFE343641634B11EB2006A8003BE796B2B18"
+  },
+  "nonrepaint": {
+    "status": "PASS",
+    "findings": 0,
+    "allowed_new_bar_gates": 1,
+    "reason": "iTime shift 0 is used only to detect a new M5 bucket; arm features use shift 1 or older. Tick evidence is UTC-normalized and begins only after the frozen arm.",
+    "audit_path": "03. EA Developer/EA_VRAS_QuoteTickAcceptance/research/evidence/HYP-VRAS-EURUSD-M5-013_ENGINEERING/nonrepaint_audit.json",
+    "audit_sha256": "42E8633C16F4939236AD5B02107CE4917188A9AE809773DF7AB67EC88E7E87A5"
+  },
+  "clock_regression": {
+    "hyp012_revalidation_path": "03. EA Developer/EA_VRAS_QuoteTickAcceptance/research/evidence/HYP-VRAS-EURUSD-M5-012_ENGINEERING/feed_smoke_validation_v2.json",
+    "expected_blocker_observed": "QUOTE_CLOCK_FUTURE_OF_MANIFEST",
+    "partial_artifacts_content_validated": true
+  },
+  "safety": {
+    "static_forbidden_trade_api_matches": 0,
+    "file_common_matches": 0,
+    "live_trading_authorized": false,
+    "performance_metrics_authorized": false,
+    "promotion_eligible": false
+  },
+  "verdict": "ENGINEERING_PASS_ONE_PREREGISTERED_FEED_SMOKE_AUTHORIZED"
+}

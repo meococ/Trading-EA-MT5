@@ -1,0 +1,62 @@
+{
+  "schema_version": "trendstack_hyp006_source_prep_task_packet_amendment.v1",
+  "task_id": "TRENDSTACK_HYP006_CLEAN_BOOTSTRAP_AND_IMMUTABLE_DEPENDENCIES_20260728_V8",
+  "created_at_utc": "2026-07-28T12:41:00.000Z",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-006",
+  "collection_id": "DATASET-FIVEPERCENT-EURUSD-H1-SPLITVAULT-002",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-006_SOURCE_PREP_TASK_PACKET_V7.json",
+  "supersedes_amendment_sha256": "2CE4CD21754D81B5A628AA991BE6FDAC4B1568FFDB747FD74070D1B824994112",
+  "reviewed_input_snapshot": {
+    "h1_custodian_sha256": "C14AC89B4F4E5ED62A69B90F3B1C890F69EA20D1ACD186B7499DCEF0A2CDDF06",
+    "h1_supervisor_sha256": "9D59999A6334DF32AF8C3B44774BCF38A17EABAE2FEEADEAE05017F578C0E9F3",
+    "design_builder_sha256": "427C10581FEEBBEB3B16256D358678DD9AF673EBA06A6D34161D1D1ED32672BC",
+    "independent_validator_sha256": "0FD23D43EC27BA6504522AD24B922D13739365ECCC066805A15ACA081975E159",
+    "h1_custodian_tests_sha256": "57CD816039EA90F83C2F678C50CD6E2C9B757323AE87D2A360D5BDA5AAECF24F",
+    "h1_supervisor_tests_sha256": "958E28E24BC88C91244D71F0F1CD8EF968CF4AA72D7958418062ABAD6B69FCE3",
+    "design_builder_tests_sha256": "1704049826BF46F30B08667D72DD6D710A3EA649BEDE6CAAA516B7F18A64D22C",
+    "independent_validator_tests_sha256": "0C30250993A4F201DC15B7326D6E90E4C7DCD89843A29F62D5931FCFC1903012",
+    "focused_tests": "64 passed",
+    "review_verdict": "FAIL_PREIMPORT_AND_SAME_OBJECT_ATTRIBUTE_MUTATION",
+    "d2_phantom_row_closure": "PASS",
+    "sentinel": "REVIEWED_RUN_PACKET_SHA256: str | None = None"
+  },
+  "write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/h1_splitvault_002_supervisor.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_h1_splitvault_002_supervisor.py"
+  ],
+  "must_fix": [
+    {
+      "id": "B1-CLEAN-PRODUCTION-BOOTSTRAP",
+      "contract": "Capture protected-module preload state before importing dataclasses, pathlib, pyarrow or pyarrow.parquet. The real supervise() entrypoint must reject before packet marker/raw source if any protected dependency was already present at that capture boundary. Resolve the canonical dependency spec with the standard PathFinder against the active interpreter paths, then import/load only that canonical origin and verify loader/origin/file identity/hash. Do not define trust by aliasing an object that was already in sys.modules. Tests must simulate a protected module present before supervisor byte execution with a canonical-looking origin and prove production eligibility fails; test-only direct helpers may be used without weakening supervise()."
+    },
+    {
+      "id": "B2-IMMUTABLE-EXACT-SYMBOL-PROXIES",
+      "contract": "Do not pass mutable standard-library or pyarrow module objects to exact-byte tools. For every direct import used by custodian/builder/validator, create a read-only proxy exposing only the exact statically required symbols, capture each symbol object's identity/type plus the module origin/file attestation, and make the private import function return only these proxies. Recheck the canonical module object's allowlisted symbols and file identity/hash before each tool execution and before READY. Same-object attribute replacement after freeze must fail; the proxy must continue to hold the original symbol and no unknown attribute/import may resolve. The proxy/attestation must be deterministic and its canonical SHA must be bound in the durable attempt marker and terminal evidence."
+    }
+  ],
+  "mandatory_tests": [
+    "Execute supervisor bytes in a fresh test-only namespace after preloading canonical-looking replacements for pyarrow, pyarrow.parquet, dataclasses and pathlib; production bootstrap eligibility must be false and supervise/preflight must fail before marker/raw/READY.",
+    "Freeze clean dependencies, replace an allowlisted attribute on the same pyarrow or standard-library module object, and prove recheck fails before execution/READY while the immutable proxy still references the original symbol.",
+    "Unknown module imports and unknown proxy attributes fail; proxies cannot be mutated; private tools receive no real mutable module object.",
+    "The dependency attestation has exact shape, deterministic canonical SHA, no local secret/path beyond canonical origins already required for audit, and marker/terminal bind the same SHA.",
+    "Clean production-mode synthetic packet -> arm -> preflight -> one-shot remains green with no testing/disarmed bypass.",
+    "V7 D2 exact row 282 contract, V6 A1/A3 and S2-S6 remain green; legacy source_run_registry fields remain absent from production code.",
+    "All four focused test files pass; other six input files remain byte-identical and sentinel finishes exactly None."
+  ],
+  "unchanged": {
+    "v6_task_packet_sha256": "20CB4E51D0C1603F07544FF74AF36A5D58A61A9E481F7CAD2B62093C7A8CC76F",
+    "v7_task_packet_sha256": "2CE4CD21754D81B5A628AA991BE6FDAC4B1568FFDB747FD74070D1B824994112",
+    "registry_schema_and_registry_file_must_not_change": true,
+    "supervisor_must_finish_disarmed": true,
+    "real_source_or_output_authorized": false,
+    "all_plans_preregs_source_contract_and_s1_s6_gates_unchanged": true
+  },
+  "prohibitions": [
+    "Abort before edit if supervisor or supervisor-test SHA drifts.",
+    "Do not use Grok or any Grok skill/worker.",
+    "Do not create a real source-run packet/arm manifest, arm the real supervisor, access/hash/decode the real H1 source or create real vault/output/evidence.",
+    "Do not modify the other six reviewed files, registry/schema/validator, plans, preregs, source data or unrelated files.",
+    "No economics, validation/HOLDOUT data, network, subprocess, MT5, Git or trading mutation."
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": "trendstack_007_source_projection_contract.v1",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "collection_id": "DATASET-FIVEPERCENT-EURUSD-H1-SPLITVAULT-002",
+  "parent_terminal": {
+    "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-006",
+    "registry_row_index": 283,
+    "verdict": "PARK_SOURCE_COMPLETENESS_FAILED_NO_MARKET_VERDICT",
+    "same_id_retry_authorized": false,
+    "failure_manifest_sha256": "6BA20A96C29FE0F6D2317A53B5E7B0893719EC1840FC3344C49461B62EF1548C",
+    "time_coverage_audit_sha256": "B9CA127800AC09316937D60EFADC653C3E7DF5ACF45128665698BCB33B3867B7"
+  },
+  "immutable_inputs": {
+    "public_receipt_path": "02. AlphaFactory/data/fivepercent/EURUSD/h1_splitvault_002/public/design_receipt.json",
+    "public_receipt_sha256": "623328512F0CB77B52B155F6CD314EA2B47DAC40636A7714BD38167BEA807B13",
+    "public_manifest_path": "02. AlphaFactory/data/fivepercent/EURUSD/h1_splitvault_002/public/design_manifest.jsonl",
+    "public_manifest_sha256": "DA513911B01B1C4232611225C77A4F22E9E3C89E719EE530923BD574D06451E5",
+    "selection_manifest_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-006_DESIGN_DATE_SELECTION.jsonl",
+    "selection_manifest_sha256": "D99C21ED2611A70D9F225170997EAADDD6567827B69759A1DFA9EA7F73C7A135",
+    "selection_date_set_sha256": "4F30B5E09C8C21C3FCB63F4D5A016EB514D689710589077427464B92CD99A06A"
+  },
+  "input_arrow_schema": [
+    {"name": "time_server_ns", "type": "timestamp[ns]", "nullable": false},
+    {"name": "time_utc_ns", "type": "timestamp[ns]", "nullable": false},
+    {"name": "utc_offset_h", "type": "int8", "nullable": false},
+    {"name": "open", "type": "float64", "nullable": false},
+    {"name": "high", "type": "float64", "nullable": false},
+    {"name": "low", "type": "float64", "nullable": false},
+    {"name": "close", "type": "float64", "nullable": false},
+    {"name": "tick_volume", "type": "uint64", "nullable": false},
+    {"name": "spread", "type": "int32", "nullable": false},
+    {"name": "real_volume", "type": "uint64", "nullable": false}
+  ],
+  "projection": {
+    "price_side": "BID_CLOSED_H1",
+    "selected_dates": 1297,
+    "required_hours_utc": [12],
+    "expected_rows_per_date": 1,
+    "expected_total_rows": 1297,
+    "first_date": "2016-01-04",
+    "last_date": "2020-12-31",
+    "no_fill": true,
+    "no_drop": true,
+    "no_interpolation": true,
+    "no_resample": true,
+    "no_deduplication": true,
+    "no_date_substitution": true,
+    "output_root": "02. AlphaFactory/data/fivepercent/EURUSD/trendstack_007_design_h1_1200",
+    "stage_root_pattern": "02. AlphaFactory/data/fivepercent/EURUSD/.trendstack_007_design_h1_1200.attempt-<PROJECTION_ATTEMPT_ID>"
+  },
+  "attempt_access_contract": {
+    "raw_source_opens": 0,
+    "public_receipt_reads": 1,
+    "public_manifest_reads": 1,
+    "selection_manifest_reads": 1,
+    "selected_public_shard_opens": 1297,
+    "unselected_public_shard_opens": 0,
+    "hyp006_partial_stage_opens": 0,
+    "sealed_validation_opens": 0,
+    "sealed_holdout_opens": 0,
+    "economics_opens": 0
+  },
+  "denylist": [
+    "02. AlphaFactory/data/fivepercent/EURUSD/EURUSD_H1_2015_now.parquet",
+    "02. AlphaFactory/data/fivepercent/EURUSD/h1_splitvault_002/sealed",
+    "02. AlphaFactory/data/fivepercent/EURUSD/.trendstack_006_design_h1.attempt-HYP006-SOURCE-ATTEMPT-DF35D8E6977A464C",
+    "02. AlphaFactory/data/fivepercent/EURUSD/trendstack_006_design_h1",
+    "public DESIGN dates outside the exact 1297-date selection",
+    "all M1 artifacts",
+    "all feature, arm, direction, ATR, return, PnL, and performance artifacts"
+  ],
+  "publish_contract": {
+    "atomic_no_replace": true,
+    "final_root_must_be_absent_before_attempt": true,
+    "independent_output_validation_required": true,
+    "partial_stage_never_publishable": true
+  },
+  "source_pass_verdict": "ENGINEERING_VALID_SOURCE_PROJECTION",
+  "source_pass_grants_economics": false,
+  "source_pass_grants_mql5": false,
+  "source_pass_grants_model0": false,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false
+}

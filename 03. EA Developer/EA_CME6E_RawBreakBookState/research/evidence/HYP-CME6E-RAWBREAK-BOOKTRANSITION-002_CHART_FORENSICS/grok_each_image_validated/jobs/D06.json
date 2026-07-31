@@ -1,0 +1,83 @@
+{
+  "schema_version": "hyp002_grok_each_image_validated_job.v1",
+  "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+  "job": {
+    "job_id": "D06",
+    "case_id": "F006_PID000001476",
+    "position_id": "1476",
+    "direction": "BUY",
+    "image_type": "DECISION_ASOF",
+    "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F006_PID000001476_decision.png",
+    "image_sha256": "2F4B04D7A721E91F40B6ADB4F4F52D7C98A34DFE3318E9FB44F980726E725A29"
+  },
+  "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D06\\attempt-001-actual",
+  "request": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D06\\attempt-001-actual\\grok-request.json",
+    "sha256": "512596FACD1C3E37D0D1AC573F78C5A15F9F59C436E81913D186BA0A83FA923D"
+  },
+  "prompt_blocks": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D06\\attempt-001-actual\\prompt-blocks.json",
+    "sha256": "89FD511FDAB3A5DF1E84730B5CF12829442BC867A8429BC8505071636870101F"
+  },
+  "summary": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D06\\attempt-001-actual\\summary.json",
+    "sha256": "A9712D1C5F2F781F7EF57C141E6C736470AC3A22A20B017D69F6B8E0023412AF"
+  },
+  "response": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D06\\attempt-001-actual\\grok-response.json",
+    "sha256": "25FB7ADBACA11427DAB67AF8483816A0D34775FA5DCFF55558F54AB06292901E"
+  },
+  "runner": {
+    "model": "grok-4.5",
+    "reasoning_effort": "high",
+    "stop_reason": "EndTurn",
+    "elapsed_seconds": 59.406,
+    "total_cost_usd": 0.0586652,
+    "num_turns": 1,
+    "prompt_transport": "acp_blocks_file",
+    "image_count": 1,
+    "decoded_image_bytes": 174292
+  },
+  "result": {
+    "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+    "job_id": "D06",
+    "case_id": "F006_PID000001476",
+    "position_id": "1476",
+    "direction": "BUY",
+    "image_type": "DECISION_ASOF",
+    "image_sha256": "2F4B04D7A721E91F40B6ADB4F4F52D7C98A34DFE3318E9FB44F980726E725A29",
+    "image_opened": true,
+    "visual_readability": "PASS",
+    "observations": [
+      "M1 panel shows a multi-hour sideways band roughly 0.00032–0.00044, then a late green thrust toward the blue Entry line near ~0.00055 just at the purple break-bar open / blue actual-entry markers.",
+      "Entry (solid blue) sits above the prior M1 ceiling; SL (red dashed) sits near ~0.00031 under the post-flush floor; TP (green dashed) is far higher near ~0.00102.",
+      "Around 09-02 23:31 a sharp red candle flushed to near the SL zone, then price rebuilt sideways before the final upside thrust.",
+      "H1 context is a clear higher-high/higher-low climb from ~1.1837–1.184 lows into ~1.1870–1.1875 highs, with recent bars consolidating at the top of that leg.",
+      "CME 6E full-break-bar trace is annotated early=+0.014, late=+0.069, score=+0.090; late window is positive and elevated near the actual-entry vertical at ~300s.",
+      "Decision markers sit at the far right of the M1 window with future hidden; the break candle(s) are the last visible M1 action, not a long post-break drift."
+    ],
+    "confidence": "MEDIUM",
+    "unknowns": [
+      "Whether the final M1 thrust bar is fully closed or still forming at decision.",
+      "Exact absolute M1 price basis (panel scale reads as offset around +1.187).",
+      "Spread, fill quality, and true stop distance in pips at actual entry.",
+      "Whether H1 consolidation at highs is healthy absorption or exhaustion."
+    ],
+    "no_rule_or_rerun_authority": true,
+    "outcome_blind": true,
+    "trend_context": "H1 EURUSD shows a multi-session bullish structure after the 09-02 early trough, with successive higher highs into ~1.187+ and only shallow pullbacks; decision sits after that climb, near the upper plateau.",
+    "range_location": "On M1, most of the window is mid-range inside a tight band; at decision, price is thrusting off the upper edge of that band after an earlier flush near the band floor, so location is high within the local M1 structure and high on the H1 swing.",
+    "breakout_geometry": "BUY geometry is a late break of the M1 consolidation: entry above the prior ceiling, SL just under the post-flush floor, TP distant above entry; purple break-bar open and blue actual-entry lines are almost adjacent at the right edge, so the decision is on a just-triggered break rather than a deep post-break retest.",
+    "book_trace_context": "Direction-aligned CME 6E I5 trace ends positive with score +0.090; late 60s (+0.069) exceeds early 60s (+0.014), and both median and companion series sit around +0.10 near the actual-entry line at ~300 seconds from break-bar open.",
+    "break_freshness": "FRESH",
+    "entry_risk_flags": [
+      "BUY decision occurs after a long H1 advance into multi-hour highs.",
+      "SL is tight under a recent wick-flush, raising stop-run / noise-out risk.",
+      "Reward-to-TP is large relative to entry-SL, so path risk is high if the break fails.",
+      "Prior 23:31 dump shows the local range can fail violently before recovering.",
+      "M1 thrust and entry are nearly simultaneous—little post-break confirmation distance."
+    ],
+    "blind_prediction": "CONTINUATION",
+    "evidence_boundary": "Only the visible pixels of this single DECISION_ASOF PNG were used. Future path after the actual-entry line is hidden; no realized PnL, no external data, no repository, and no outcome knowledge were used. Prediction is diagnostic only and grants no rule, rerun, promotion, paper, or live authority."
+  }
+}

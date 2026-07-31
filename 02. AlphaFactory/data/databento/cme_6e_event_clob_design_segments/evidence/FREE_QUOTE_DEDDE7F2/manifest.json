@@ -1,0 +1,34 @@
+{
+  "schema_version": "event_clob_design_segment_quote_evidence.v1",
+  "created_at_utc": "2026-07-28T04:14:31.262650Z",
+  "status": "IMMUTABLE_DESIGN_FREE_QUOTE_COMPLETE_NO_PAID_REQUEST",
+  "profile": "design-segments",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002",
+  "plan_id": "DEDDE7F292738C16A200C59903F7839C85B728818805AA09D46D3E7F188E0C16",
+  "files": [
+    {
+      "path": "acquisition_plan.json",
+      "sha256": "F8924545E7A7F1DFD450AD683AB090DDF9F7334B6DC4B29E005A473025961015"
+    },
+    {
+      "path": "quote_receipt.json",
+      "sha256": "4B0F152F80C497C94651589606A97561CB289CC76E0A5E6CE7E99FCA963CC812"
+    },
+    {
+      "path": "storage_assessment.json",
+      "sha256": "822D30A4C9B05CA1FE256B01FE4936417CA5F9BA41C53253AED0B68FA6F0796E"
+    }
+  ],
+  "quote": {
+    "requests": 658,
+    "estimated_total_usd": 3.141317501659,
+    "estimated_total_billable_bytes": 6745927968,
+    "metadata_get_cost_attempts": 658,
+    "metadata_get_billable_size_attempts": 658,
+    "timeseries_calls": 0,
+    "paid_request_made": false
+  },
+  "parent_quote_evidence_manifest_sha256": "2AE3A6CE134653F452FBA62677A1141E0F561ED686028BF9C5940BB149EEAA71",
+  "raw_dbn_files": 0,
+  "immutable_snapshot": true
+}

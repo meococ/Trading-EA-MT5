@@ -1,0 +1,90 @@
+{
+  "schema_version": "trendstack_007_source_run_authority_amendment_addendum.v3",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "base_amendment_v2_sha256": "F399FF28A3ADCE35FD13111EC9EA6F3C33269415379F365BEFCC58F0319F3FFD",
+  "amendment_timing": "FROZEN_PRE_SOURCE_RUN_PRE_OHLC_PRE_ECONOMICS",
+  "precedence": "V2 remains binding. This addendum adds the missing successor-row-to-detached-packet cross-binding gate and replaces no V2 hypothesis, transition, schema, path/hash readback or sequencing rule.",
+  "source_run_packet_required_new_fields": [
+    "authority_amendment_v2_path",
+    "authority_amendment_v2_sha256",
+    "authority_amendment_v3_path",
+    "authority_amendment_v3_sha256",
+    "implementation_task_v5_path",
+    "implementation_task_v5_sha256"
+  ],
+  "pre_payload_cross_binding": {
+    "timing": "After stable-reading and hashing the full registry, strict-parsing the selected raw row and validating its V2 transition/bindings; before attempt_started creation and before any public shard or Parquet payload open.",
+    "registry_identity": {
+      "packet.registry_sha256": "SHA256 of the exact stable-read full registry bytes",
+      "packet.registry_row_index": "the exact successor HYP007 authority row index",
+      "packet.registry_row_sha256": "SHA256 of the exact successor raw JSON object bytes excluding its single LF delimiter"
+    },
+    "exact_row_binding_to_packet_map": {
+      "active_contract_bundle_path": "active_contract_bundle_path",
+      "active_contract_bundle_sha256": "active_contract_bundle_sha256",
+      "authority_amendment_path": "authority_amendment_v2_path",
+      "authority_amendment_sha256": "authority_amendment_v2_sha256",
+      "economic_access_authorized": "economic_access_authorized",
+      "economics_authorized": "economics_authorized",
+      "evidence_root": "evidence_root",
+      "final_output_root": "final_output_root",
+      "holdout_authorized": "holdout_authorized",
+      "implementation_review_receipt_path": "implementation_review_receipt_path",
+      "implementation_review_receipt_sha256": "implementation_review_receipt_sha256",
+      "implementation_task_path": "implementation_task_v5_path",
+      "implementation_task_sha256": "implementation_task_v5_sha256",
+      "model0_authorized": "model0_authorized",
+      "network_allowed": "network_allowed",
+      "production_source_projection_authorized": "production_source_projection_authorized",
+      "projection_attempt_id": "projection_attempt_id",
+      "projector_test_path": "projector_test_path",
+      "projector_test_sha256": "projector_test_sha256",
+      "projector_tool_path": "projector_tool_path",
+      "projector_tool_sha256": "projector_tool_sha256",
+      "public_manifest_path": "public_manifest_path",
+      "public_manifest_sha256": "public_manifest_sha256",
+      "public_receipt_path": "public_receipt_path",
+      "public_receipt_sha256": "public_receipt_sha256",
+      "registry_mutation_allowed": "registry_mutation_allowed",
+      "research_holdout_authorized": "research_holdout_authorized",
+      "research_validation_authorized": "research_validation_authorized",
+      "selection_manifest_path": "selection_manifest_path",
+      "selection_manifest_sha256": "selection_manifest_sha256",
+      "source_run_authorized": "source_run_authorized",
+      "stage_root": "stage_root",
+      "subprocess_allowed": "subprocess_allowed",
+      "supervisor_review_base_sha256": "supervisor_review_base_sha256",
+      "supervisor_test_path": "supervisor_test_path",
+      "supervisor_test_sha256": "supervisor_test_sha256",
+      "supervisor_tool_path": "supervisor_tool_path",
+      "trading_mutation": "trading_mutation",
+      "validation_authorized": "validation_authorized",
+      "validator_test_path": "validator_test_path",
+      "validator_test_sha256": "validator_test_sha256",
+      "validator_tool_path": "validator_tool_path",
+      "validator_tool_sha256": "validator_tool_sha256"
+    },
+    "non_packet_row_constants": {
+      "schema_version": "trendstack_007_source_run_bindings.v2",
+      "source_projection_attempt_limit": 1,
+      "source_run_packet_review_required": true
+    },
+    "addendum_self_binding": {
+      "packet.authority_amendment_v3_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_SOURCE_RUN_AUTHORITY_AMENDMENT_V3.json",
+      "packet.authority_amendment_v3_sha256": "this addendum file SHA256 supplied by the frozen Task V5 after file creation"
+    },
+    "mismatch_policy": "INVALID_SOURCE_PROJECTION before attempt_started and before payload access; no attempt is consumed, no stage/final/evidence artifact is created and no market/economic verdict exists."
+  },
+  "test_gate": [
+    "A synthetic successor row and detached packet with every mapped value equal pass both the canonical registry validator and supervisor preflight.",
+    "For every mapping group, changing only the packet value while preserving its own valid type/hash causes preflight failure before marker/payload.",
+    "Changing full registry bytes, selected row index or raw row hash fails before marker/payload.",
+    "Missing or drifted V2/V3 amendment path/hash or Task V5 path/hash fails before marker/payload."
+  ],
+  "addendum_alone_grants_source_run": false,
+  "economics_authorized": false,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false,
+  "mql5_authorized": false,
+  "model0_authorized": false
+}

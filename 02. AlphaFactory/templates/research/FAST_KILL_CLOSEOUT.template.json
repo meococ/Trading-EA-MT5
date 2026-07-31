@@ -1,0 +1,45 @@
+{
+  "schema_version": "alphafactory_fast_kill_closeout.v1",
+  "created_at_utc": "REPLACE_UTC",
+  "hypothesis_id": "REPLACE_HYPOTHESIS_ID",
+  "ea_name": "EA_REPLACE",
+  "evidence_class": "offline_probe",
+  "verdict": "KILLED",
+  "kill_code": "gross_edge_fail",
+  "cell_closeout_claim": true,
+  "bindings": [
+    {"role": "preregistration", "path": "REPLACE", "bytes": 1, "sha256": "REPLACE_64_HEX"},
+    {"role": "result_summary", "path": "REPLACE", "bytes": 1, "sha256": "REPLACE_64_HEX"},
+    {"role": "readout", "path": "REPLACE", "bytes": 1, "sha256": "REPLACE_64_HEX"}
+  ],
+  "frozen_kill_gate": {
+    "name": "gross_profit_factor",
+    "comparator": "lt",
+    "threshold": 0.7,
+    "actual": 0.0,
+    "frozen_pre_outcome": true,
+    "minimum_observations": 50,
+    "observations_unit": "completed_trades",
+    "sequential_early_stop": true,
+    "sequential_boundary_frozen_pre_outcome": true,
+    "sequential_method": "bayesian_predictive_futility",
+    "sequential_parameters": {"minimum_predictive_pass_probability": 0.05},
+    "maximum_looks": 4,
+    "looks_evaluated": 1
+  },
+  "metrics": {
+    "trades": 1,
+    "gross_profit_factor": 0.0,
+    "cost_profit_factor_x1": 0.0,
+    "expectancy_r": 0.0,
+    "max_drawdown_pct": 0.0,
+    "trades_per_elapsed_week": 0.0
+  },
+  "anti_overfit_contract": {
+    "plan_frozen_pre_outcome": true,
+    "terminal_state_recorded": true,
+    "posthoc_rule_change_authorized": false,
+    "same_id_rerun_authorized": false
+  },
+  "limitations": ["Fast-kill closes only the exact bound hypothesis and does not complete the book goal."]
+}

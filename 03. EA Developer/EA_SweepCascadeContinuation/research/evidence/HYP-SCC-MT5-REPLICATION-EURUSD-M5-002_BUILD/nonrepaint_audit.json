@@ -1,0 +1,32 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "FAIL",
+  "hypothesis_id": "HYP-SCC-MT5-REPLICATION-EURUSD-M5-002",
+  "run_id": "PRE_MODEL0_BUILD",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\research\\evidence\\HYP-SCC-MT5-REPLICATION-EURUSD-M5-002_BUILD\\nonrepaint_manifest.json",
+  "manifest_sha256": "6F56E36551F47C3B7AED34E9388916699CD63A05A2D2BBC9A413BA9866A56F37",
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\research\\evidence\\HYP-SCC-MT5-REPLICATION-EURUSD-M5-002_BUILD\\source_snapshot\\EA_SweepCascadeContinuation.mq5",
+      "sha256": "73CCE46D8C49842E81162E3B5508C53DB10C8073FB0B88EC648870135A43A492"
+    }
+  ],
+  "findings": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\research\\evidence\\HYP-SCC-MT5-REPLICATION-EURUSD-M5-002_BUILD\\source_snapshot\\EA_SweepCascadeContinuation.mq5",
+      "line": 926,
+      "rule": "iTime_zero",
+      "function": "iTime"
+    }
+  ],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\research\\evidence\\HYP-SCC-MT5-REPLICATION-EURUSD-M5-002_BUILD\\source_snapshot\\EA_SweepCascadeContinuation.mq5",
+      "line": 963,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "generated_at_utc": "2026-07-25T13:39:00.525600+00:00"
+}

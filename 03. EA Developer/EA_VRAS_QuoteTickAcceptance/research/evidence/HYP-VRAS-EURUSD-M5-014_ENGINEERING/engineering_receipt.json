@@ -1,0 +1,66 @@
+{
+  "schema_version": "alphafactory_hyp014_engineering_receipt.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-014",
+  "generated_at_utc": "2026-07-23T02:52:34.3017952Z",
+  "scope": "COLLECTION_ONLY_NO_ECONOMICS_NO_ORDERS",
+  "source": {
+    "path": "03. EA Developer/EA_VRAS_QuoteTickAcceptance/EA_VRAS_QuoteTickAcceptance.mq5",
+    "bytes": 21258,
+    "sha256": "20634C23F34396EE84163038DE757050B050BCA04A9F9AB7E6D105A200B37E0A"
+  },
+  "binary": {
+    "path": "03. EA Developer/EA_VRAS_QuoteTickAcceptance/EA_VRAS_QuoteTickAcceptance.ex5",
+    "bytes": 24182,
+    "sha256": "7D36723548C0393F1E518AC31622683145F7247EDC7CAC48A93A1CCDB5C86069"
+  },
+  "compile": {
+    "command": "02. AlphaFactory/alpha.ps1 compile EA_VRAS_QuoteTickAcceptance",
+    "errors": 0,
+    "warnings": 0,
+    "log_sha256": "A06E59187CA0BE3DB9FB7D83716B7B09DC7F8866EE1DE1D4CFD49595A04F6525"
+  },
+  "tests": {
+    "passed": 66,
+    "failed": 0,
+    "elapsed_seconds": 2.40,
+    "qfsi_safety_test_sha256": "4997381B4791FBB8BB975407EDDEC23269BF8BD8217D2615CC003DD4F1DB4F64",
+    "partial_and_unique_artifact_test_sha256": "27F070C7FAA74FFAC0458D876002E3A45CFF9830A8DBD6D0A00FAD74635134CE"
+  },
+  "nonrepaint": {
+    "status": "PASS",
+    "findings": 0,
+    "allowed_new_bar_gates": 1,
+    "audit_path": "03. EA Developer/EA_VRAS_QuoteTickAcceptance/research/evidence/HYP-VRAS-EURUSD-M5-014_ENGINEERING/nonrepaint_audit.json",
+    "audit_sha256": "A6A2938BDCE3BA94EB724716FAADFBECB9DCE968D1EF080D66D4E532EB783FC2"
+  },
+  "feed_smoke": {
+    "capture_id": "20260723_VRAS014_UNIQUE_UTC_FEED_SMOKE_001",
+    "server_match": true,
+    "observed_tick_clock_offset_seconds": 10800,
+    "quote_rows": 53,
+    "unique_quote_timestamps": 53,
+    "duplicate_quote_rows": 0,
+    "heartbeat_rows": 239,
+    "connected_ratio": 1.0,
+    "maximum_heartbeat_gap_ms": 684,
+    "quote_from_utc": "2026-07-23T02:50:04.250000Z",
+    "quote_to_utc": "2026-07-23T02:52:03.241000Z",
+    "manifest_sha256": "6904D0135A44AB6831BF40151BFC91F63094BB4B8CD2D3D95C73D4ECA9E9756E",
+    "quote_csv_sha256": "FD4B2A4FAC708FAD78EF9B0D286D3649ECA7E0AA342A1943CD5B88376E2FF2B7",
+    "validation_sha256": "325A01874EBE2AF64E7C6E5EB03CD8585AF161E4C3DB3C1E15B23D3A509B1155",
+    "clock_future_blocker": false,
+    "strict_monotonicity_pass": true,
+    "overall_verdict": "STOP_DATA_FRONTIER"
+  },
+  "safety": {
+    "static_forbidden_trade_api_matches": 0,
+    "file_common_matches": 0,
+    "orders_sent": 0,
+    "positions_opened": 0,
+    "account_history_skipped": true,
+    "live_trading_authorized": false,
+    "performance_metrics_authorized": false,
+    "promotion_eligible": false
+  },
+  "verdict": "ENGINEERING_PASS_FEED_PLUMBING_ONLY_STOP_DATA_FRONTIER"
+}

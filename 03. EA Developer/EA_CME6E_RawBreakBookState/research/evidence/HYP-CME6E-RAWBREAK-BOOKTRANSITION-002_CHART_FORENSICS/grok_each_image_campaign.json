@@ -1,0 +1,241 @@
+{
+  "schema_version": "hyp002_grok_each_image_campaign.v1",
+  "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+  "hypothesis_id": "HYP-CME6E-RAWBREAK-BOOKTRANSITION-002",
+  "generated_at_utc": "2026-07-27T16:03:53.055305Z",
+  "chart_manifest": {
+    "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\chart_manifest.json",
+    "sha256": "3FD635CA5F9E462F4CD964C7597286B7F30B030A8A6D42F40FF2D99935A4FD7F"
+  },
+  "execution_contract": {
+    "backend": "grok-build",
+    "model": "grok-4.5",
+    "reasoning_effort": "high",
+    "stateless": true,
+    "global_concurrency": 1,
+    "images_per_backend_job": 1,
+    "decision_jobs_before_outcome_jobs": true,
+    "web_search_disabled": true,
+    "subagents_disabled": true,
+    "strategy_writes_forbidden": true,
+    "terminal_verdict_change_forbidden": true
+  },
+  "jobs": [
+    {
+      "job_id": "D01",
+      "case_id": "F001_PID000002058",
+      "position_id": "2058",
+      "direction": "BUY",
+      "image_type": "DECISION_ASOF",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F001_PID000002058_decision.png",
+      "image_sha256": "9E6856F6E38ED92EE882BAB53455EBD22863D4717A8348E46F559FE5E0D546CA"
+    },
+    {
+      "job_id": "D02",
+      "case_id": "F002_PID000001762",
+      "position_id": "1762",
+      "direction": "BUY",
+      "image_type": "DECISION_ASOF",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F002_PID000001762_decision.png",
+      "image_sha256": "2D40A8767F2F820B618EE0BF7FF06DD3D8CFCB3C2C27570E3EC53B68B657DC60"
+    },
+    {
+      "job_id": "D03",
+      "case_id": "F003_PID000001324",
+      "position_id": "1324",
+      "direction": "SELL",
+      "image_type": "DECISION_ASOF",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F003_PID000001324_decision.png",
+      "image_sha256": "51E3B147BC2D8889D8AAAAD136055C104F809CA8F0F07B72081CB6E5D8882665"
+    },
+    {
+      "job_id": "D04",
+      "case_id": "F004_PID000002166",
+      "position_id": "2166",
+      "direction": "SELL",
+      "image_type": "DECISION_ASOF",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F004_PID000002166_decision.png",
+      "image_sha256": "2F71AAE344F8BB0D2B7B886E9ABDAB6B0AAB2321D8629E84CDF5B0C66AAE8380"
+    },
+    {
+      "job_id": "D05",
+      "case_id": "F005_PID000001678",
+      "position_id": "1678",
+      "direction": "BUY",
+      "image_type": "DECISION_ASOF",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F005_PID000001678_decision.png",
+      "image_sha256": "89724DFB1CD3D5260D7B800616B466508CCF8F6C500D30854704981130873266"
+    },
+    {
+      "job_id": "D06",
+      "case_id": "F006_PID000001476",
+      "position_id": "1476",
+      "direction": "BUY",
+      "image_type": "DECISION_ASOF",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F006_PID000001476_decision.png",
+      "image_sha256": "2F4B04D7A721E91F40B6ADB4F4F52D7C98A34DFE3318E9FB44F980726E725A29"
+    },
+    {
+      "job_id": "D07",
+      "case_id": "F007_PID000001282",
+      "position_id": "1282",
+      "direction": "SELL",
+      "image_type": "DECISION_ASOF",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F007_PID000001282_decision.png",
+      "image_sha256": "ED9BD95CEC5815D932790930C0B55EF75B951BBC2C2FB104AEA59EC96F45A907"
+    },
+    {
+      "job_id": "D08",
+      "case_id": "F008_PID000001916",
+      "position_id": "1916",
+      "direction": "BUY",
+      "image_type": "DECISION_ASOF",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F008_PID000001916_decision.png",
+      "image_sha256": "3294B0E46D94C3BA3AF9F4024231830B58EDA18F4B1BC93AAC443F6610615CF4"
+    },
+    {
+      "job_id": "D09",
+      "case_id": "F009_PID000001598",
+      "position_id": "1598",
+      "direction": "BUY",
+      "image_type": "DECISION_ASOF",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F009_PID000001598_decision.png",
+      "image_sha256": "BD476FE98927E6F3CA5B93937F2FC4C421E4B058A9E64B1812018A82F838ADD4"
+    },
+    {
+      "job_id": "D10",
+      "case_id": "F010_PID000001412",
+      "position_id": "1412",
+      "direction": "BUY",
+      "image_type": "DECISION_ASOF",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F010_PID000001412_decision.png",
+      "image_sha256": "A842F8BF2E3393D9F06BBF4104FD7BEBA524205F7CD742843B9E0C3A32A65EFC"
+    },
+    {
+      "job_id": "D11",
+      "case_id": "F011_PID000001182",
+      "position_id": "1182",
+      "direction": "SELL",
+      "image_type": "DECISION_ASOF",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F011_PID000001182_decision.png",
+      "image_sha256": "FEB03FD0B968FD7061D735818FE88261EC547F66C6F3499D3DA7B674255D4989"
+    },
+    {
+      "job_id": "D12",
+      "case_id": "F012_PID000001676",
+      "position_id": "1676",
+      "direction": "SELL",
+      "image_type": "DECISION_ASOF",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F012_PID000001676_decision.png",
+      "image_sha256": "753F40BF5B0BA70FB7EEBEE1C78C4B3DC244D1C4C123D844C28E4D94874A5CCB"
+    },
+    {
+      "job_id": "O01",
+      "case_id": "F001_PID000002058",
+      "position_id": "2058",
+      "direction": "BUY",
+      "image_type": "OUTCOME_ANATOMY",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F001_PID000002058_outcome.png",
+      "image_sha256": "B4D6AFB462B67DA4BFC89B3BCB1102BC30172FE85FF4E9009A9666374339ED74"
+    },
+    {
+      "job_id": "O02",
+      "case_id": "F002_PID000001762",
+      "position_id": "1762",
+      "direction": "BUY",
+      "image_type": "OUTCOME_ANATOMY",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F002_PID000001762_outcome.png",
+      "image_sha256": "A21D8D37D8F56E49D359B43A3284D138AFF87CCBF248FCBBE04D401B0AC24D47"
+    },
+    {
+      "job_id": "O03",
+      "case_id": "F003_PID000001324",
+      "position_id": "1324",
+      "direction": "SELL",
+      "image_type": "OUTCOME_ANATOMY",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F003_PID000001324_outcome.png",
+      "image_sha256": "31718B6AA6E26EC2D4E28F43832843ECEAD4F0E6DEC41A7090B8250E69DA7E50"
+    },
+    {
+      "job_id": "O04",
+      "case_id": "F004_PID000002166",
+      "position_id": "2166",
+      "direction": "SELL",
+      "image_type": "OUTCOME_ANATOMY",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F004_PID000002166_outcome.png",
+      "image_sha256": "B3ED93BFCED048EEC609CE0391A67667EEA8D0E4178401B9DDC3A4AFD643616A"
+    },
+    {
+      "job_id": "O05",
+      "case_id": "F005_PID000001678",
+      "position_id": "1678",
+      "direction": "BUY",
+      "image_type": "OUTCOME_ANATOMY",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F005_PID000001678_outcome.png",
+      "image_sha256": "61782E921A5AEF9B9315C14BA0845882A40EB010328AF9B82BF15980B69D50BC"
+    },
+    {
+      "job_id": "O06",
+      "case_id": "F006_PID000001476",
+      "position_id": "1476",
+      "direction": "BUY",
+      "image_type": "OUTCOME_ANATOMY",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F006_PID000001476_outcome.png",
+      "image_sha256": "2FD9A89B83139D68AA4D3DE851A822AEE537865D0EC4858F9AED410837FF659F"
+    },
+    {
+      "job_id": "O07",
+      "case_id": "F007_PID000001282",
+      "position_id": "1282",
+      "direction": "SELL",
+      "image_type": "OUTCOME_ANATOMY",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F007_PID000001282_outcome.png",
+      "image_sha256": "E64233126A841E61C7A8A0CCB2C34285D85A725B646A7EC9DF2C74B92EAADB22"
+    },
+    {
+      "job_id": "O08",
+      "case_id": "F008_PID000001916",
+      "position_id": "1916",
+      "direction": "BUY",
+      "image_type": "OUTCOME_ANATOMY",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F008_PID000001916_outcome.png",
+      "image_sha256": "1376B03FB6B713B57F2DFCCC971977239DBCDAD7D250A7DBABCDAE15E594956E"
+    },
+    {
+      "job_id": "O09",
+      "case_id": "F009_PID000001598",
+      "position_id": "1598",
+      "direction": "BUY",
+      "image_type": "OUTCOME_ANATOMY",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F009_PID000001598_outcome.png",
+      "image_sha256": "2077BC35A77CCA1DDFE037A4D0328365310238612872B9C8117AE388538D0082"
+    },
+    {
+      "job_id": "O10",
+      "case_id": "F010_PID000001412",
+      "position_id": "1412",
+      "direction": "BUY",
+      "image_type": "OUTCOME_ANATOMY",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F010_PID000001412_outcome.png",
+      "image_sha256": "341D5754752AA6DAE55C06E78B233719C4C5D5D5384B2B28F7E02907C4262502"
+    },
+    {
+      "job_id": "O11",
+      "case_id": "F011_PID000001182",
+      "position_id": "1182",
+      "direction": "SELL",
+      "image_type": "OUTCOME_ANATOMY",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F011_PID000001182_outcome.png",
+      "image_sha256": "DF516D5953457A50D238B55CA71F1929EC33E8847863A41D0D5309E1B24B979C"
+    },
+    {
+      "job_id": "O12",
+      "case_id": "F012_PID000001676",
+      "position_id": "1676",
+      "direction": "SELL",
+      "image_type": "OUTCOME_ANATOMY",
+      "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F012_PID000001676_outcome.png",
+      "image_sha256": "04F7BADA226B0528337DC7425BAA2457331E5E8119C5E49C3166F23BA058346D"
+    }
+  ]
+}

@@ -26,6 +26,9 @@ import execution_data_foundation as foundation  # noqa: E402
 
 EXPECTED_DEFAULT = "FivePercentOnline-Real"
 SYMBOLS_DEFAULT = ("EURUSD", "GBPUSD", "XAUUSD", "USDJPY")
+CLOCK_GRID_MS = 15 * 60 * 1000
+CLOCK_RESIDUAL_LIMIT_MS = 30 * 1000
+CLOCK_ABSOLUTE_LIMIT_MS = 14 * 60 * 60 * 1000
 
 
 def utc_now() -> datetime:
@@ -34,6 +37,35 @@ def utc_now() -> datetime:
 
 def iso_utc(value: datetime) -> str:
     return value.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def infer_tick_clock_offset_ms(raw_tick_msc: int, receipt_utc_msc: int) -> int:
+    """Infer broker-server epoch offset on a 15-minute timezone grid."""
+    delta = int(raw_tick_msc) - int(receipt_utc_msc)
+    offset = int(round(delta / CLOCK_GRID_MS)) * CLOCK_GRID_MS
+    if abs(offset) > CLOCK_ABSOLUTE_LIMIT_MS:
+        raise RuntimeError(f"tick clock offset outside +/-14h: {offset} ms")
+    residual = abs(delta - offset)
+    if residual > CLOCK_RESIDUAL_LIMIT_MS:
+        raise RuntimeError(
+            f"tick clock residual exceeds 30s: delta={delta} offset={offset} residual={residual}"
+        )
+    return offset
+
+
+def normalize_tick_utc_msc(raw_tick_msc: int, offset_ms: int) -> int:
+    normalized = int(raw_tick_msc) - int(offset_ms)
+    if normalized <= 0:
+        raise RuntimeError("normalized tick timestamp is non-positive")
+    return normalized
+
+
+def fresh_normalized_tick_msc(
+    raw_tick_msc: int, offset_ms: int, last_seen_utc_msc: int
+) -> int | None:
+    """Return a normalized timestamp only when it advances the UTC cursor."""
+    normalized = normalize_tick_utc_msc(raw_tick_msc, offset_ms)
+    return normalized if normalized > int(last_seen_utc_msc) else None
 
 
 def sha256_file(path: Path) -> str:
@@ -178,6 +210,17 @@ def run_capture(args: argparse.Namespace) -> dict[str, Any]:
             write_json(session_root / "session_start.json", payload)
             return payload
 
+        for symbol in symbols:
+            if not mt5.symbol_select(symbol, True):
+                raise RuntimeError(f"cannot select symbol for clock probe: {symbol}")
+        clock_receipt = utc_now()
+        clock_tick = mt5.symbol_info_tick(symbols[0])
+        if clock_tick is None:
+            raise RuntimeError(f"clock probe tick unavailable: {symbols[0]}")
+        tick_clock_offset_ms = infer_tick_clock_offset_ms(
+            int(clock_tick.time_msc), int(clock_receipt.timestamp() * 1000)
+        )
+
         server_fp = foundation.sha256_text(observed)
         account_fp = foundation.sha256_text(f"{observed}|{account.login}|{account.currency}")
         start_payload = {
@@ -192,6 +235,7 @@ def run_capture(args: argparse.Namespace) -> dict[str, Any]:
             "account_fingerprint": account_fp,
             "account_currency": str(account.currency or ""),
             "terminal_build": int(terminal.build),
+            "observed_tick_clock_offset_seconds": tick_clock_offset_ms // 1000,
             "symbols": symbols,
             "duration_sec": int(args.duration_sec),
             "poll_ms": int(args.poll_ms),
@@ -205,9 +249,13 @@ def run_capture(args: argparse.Namespace) -> dict[str, Any]:
         }
         write_json(session_root / "session_start.json", start_payload)
 
-        # Commission export from existing legitimate fills only (never manufacture).
-        commission_paths = export_commission_lifecycles(
-            mt5, session_root, symbols, lookback_days=int(args.history_days)
+        # Quote-only research lanes can explicitly prohibit account-history reads.
+        commission_paths = (
+            {}
+            if args.skip_account_history
+            else export_commission_lifecycles(
+                mt5, session_root, symbols, lookback_days=int(args.history_days)
+            )
         )
         commission_counts = {
             symbol: count_csv_rows(path) for symbol, path in commission_paths.items()
@@ -297,8 +345,15 @@ def run_capture(args: argparse.Namespace) -> dict[str, Any]:
                     # Prefer symbol_info_tick + short-range copy; tolerate empty/IPC-soft failures.
                     try:
                         tick_now = mt5.symbol_info_tick(symbol)
-                        if tick_now is not None and int(tick_now.time_msc) > last_seen_msc[symbol]:
-                            t_msc = int(tick_now.time_msc)
+                        if tick_now is not None:
+                            t_msc = fresh_normalized_tick_msc(
+                                int(tick_now.time_msc),
+                                tick_clock_offset_ms,
+                                last_seen_msc[symbol],
+                            )
+                        else:
+                            t_msc = None
+                        if t_msc is not None:
                             last_seen_msc[symbol] = t_msc
                             append_csv(
                                 session_root / f"{symbol}_quote_ticks.csv",
@@ -338,8 +393,12 @@ def run_capture(args: argparse.Namespace) -> dict[str, Any]:
                     if ticks is None:
                         continue
                     for tick in ticks:
-                        t_msc = int(tick["time_msc"])
-                        if t_msc <= last_seen_msc[symbol]:
+                        t_msc = fresh_normalized_tick_msc(
+                            int(tick["time_msc"]),
+                            tick_clock_offset_ms,
+                            last_seen_msc[symbol],
+                        )
+                        if t_msc is None:
                             continue
                         last_seen_msc[symbol] = t_msc
                         append_csv(
@@ -453,6 +512,7 @@ def run_capture(args: argparse.Namespace) -> dict[str, Any]:
                 "account_fingerprint": account_fp,
                 "account_currency": str(account.currency or ""),
                 "terminal_build": int(terminal.build),
+                "observed_tick_clock_offset_seconds": tick_clock_offset_ms // 1000,
             },
             "research_gates": {
                 "minimum_quote_elapsed_days": 90,
@@ -484,6 +544,7 @@ def run_capture(args: argparse.Namespace) -> dict[str, Any]:
             "expected_server": args.expected_server,
             "observed_server": observed,
             "server_match": True,
+            "observed_tick_clock_offset_seconds": tick_clock_offset_ms // 1000,
             "heartbeat_rows_written": heartbeat_rows,
             "quote_rows_written": quote_rows,
             "commission_lifecycle_counts": commission_counts,
@@ -519,6 +580,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--duration-sec", type=int, default=120)
     parser.add_argument("--poll-ms", type=int, default=1000)
     parser.add_argument("--history-days", type=int, default=365)
+    parser.add_argument(
+        "--skip-account-history",
+        action="store_true",
+        help="Do not call history_deals_get; emit quote/heartbeat artifacts only.",
+    )
     parser.add_argument("--stop-file", default="")
     parser.add_argument(
         "--max-ipc-retries",

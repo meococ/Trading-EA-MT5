@@ -1,0 +1,804 @@
+{
+  "schema_version": "vras_hyp008_full_horizon_readout.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-008",
+  "diagnostic_only": true,
+  "promotion_eligible": false,
+  "control": {
+    "run_id": "20260722_233324",
+    "run_path": "02. AlphaFactory\\runs\\EA_VRAS_VolatilityNormalizedStop\\20260722_233324",
+    "variant": "CONTROL_FIXED_CLAMP_FULL_HORIZON_V2",
+    "history_quality_pct": 100.0,
+    "bars": 298483,
+    "ticks": 79486116,
+    "trades": 4841,
+    "profit_factor": 0.7735512155418968,
+    "gross_price_profit_factor": 0.8802656008956076,
+    "net_profit_usd": -25579.820000000007,
+    "price_pnl_usd": -12667.460000000001,
+    "recorded_costs_usd": -12912.36,
+    "win_rate_pct": 42.119396818839085,
+    "expectancy_usd": -5.283995042346622,
+    "mean_realized_r": -0.10963060631235513,
+    "median_realized_r": -0.22222222222222227,
+    "average_win_r": 0.8893591451981538,
+    "average_loss_r": -0.8365899579647206,
+    "realized_payoff_ratio": 1.0630765248029173,
+    "break_even_win_rate_pct_for_realized_payoff": 48.471299439342346,
+    "mean_recorded_cost_r": -0.055117093324865564,
+    "max_drawdown_pct_report": 5.308628307024542,
+    "max_drawdown_pct_rebuilt": 5.308628307024542,
+    "cadence_per_elapsed_calendar_week": 23.21027397260274,
+    "initial_stop_exit_share": 0.407147283619087,
+    "target_exit_share": 0.20594918405288162,
+    "breakeven_zone_exit_share": 0.1865317083247263,
+    "mean_stop_pips": 9.45110514356538,
+    "min_stop_pips": 4.0,
+    "max_stop_pips": 15.0,
+    "mean_holding_minutes": 84.62888521655306,
+    "largest_loss_usd": -130.65,
+    "max_consecutive_losses": 12,
+    "cost_pf_x1_5_proxy": 0.7262768304521384,
+    "cost_pf_x2_proxy": 0.6828748612192668,
+    "exit_class_counts": {
+      "TARGET": 997,
+      "BREAKEVEN_ZONE": 903,
+      "INITIAL_STOP": 1971,
+      "TIME_OR_MANAGED": 970
+    },
+    "by_year": {
+      "2019": {
+        "trades": 1197,
+        "profit_factor": 0.7332188287432639,
+        "net_usd": -7286.29,
+        "mean_realized_r": -0.12363525906240996,
+        "win_rate_pct": 41.10275689223057
+      },
+      "2020": {
+        "trades": 1225,
+        "profit_factor": 0.8409820916145803,
+        "net_usd": -4513.55,
+        "mean_realized_r": -0.0759342895169841,
+        "win_rate_pct": 43.10204081632653
+      },
+      "2021": {
+        "trades": 1207,
+        "profit_factor": 0.7465419845570378,
+        "net_usd": -7154.22,
+        "mean_realized_r": -0.12347009755837272,
+        "win_rate_pct": 42.66777133388567
+      },
+      "2022": {
+        "trades": 1212,
+        "profit_factor": 0.7718285132398321,
+        "net_usd": -6625.76,
+        "mean_realized_r": -0.11607462677322203,
+        "win_rate_pct": 41.584158415841586
+      }
+    },
+    "by_session": {
+      "Asia": {
+        "trades": 1862,
+        "profit_factor": 0.8086280590104706,
+        "net_usd": -7625.37,
+        "mean_realized_r": -0.08422683396089609,
+        "win_rate_pct": 43.609022556390975
+      },
+      "Europe": {
+        "trades": 1781,
+        "profit_factor": 0.7839478523082605,
+        "net_usd": -9593.720000000001,
+        "mean_realized_r": -0.11226271058435307,
+        "win_rate_pct": 41.99887703537338
+      },
+      "NewYork": {
+        "trades": 1012,
+        "profit_factor": 0.7511175598913312,
+        "net_usd": -6046.35,
+        "mean_realized_r": -0.12469124564700144,
+        "win_rate_pct": 41.89723320158103
+      },
+      "OffHours": {
+        "trades": 186,
+        "profit_factor": 0.4759423676541516,
+        "net_usd": -2314.38,
+        "mean_realized_r": -0.2567955493409915,
+        "win_rate_pct": 29.56989247311828
+      }
+    },
+    "by_direction": {
+      "BUY": {
+        "trades": 2315,
+        "profit_factor": 0.8186538727617542,
+        "net_usd": -9607.230000000001,
+        "mean_realized_r": -0.0859884782912405,
+        "win_rate_pct": 42.67818574514039
+      },
+      "SELL": {
+        "trades": 2526,
+        "profit_factor": 0.7337165836826244,
+        "net_usd": -15972.59,
+        "mean_realized_r": -0.13129787724223654,
+        "win_rate_pct": 41.607284243863816
+      }
+    },
+    "by_atr_quartile": {
+      "Q1_low": {
+        "trades": 1309,
+        "profit_factor": 0.7172393078461239,
+        "net_usd": -8736.18,
+        "mean_realized_r": -0.1369105708684118,
+        "win_rate_pct": 41.55844155844156
+      },
+      "Q2": {
+        "trades": 1179,
+        "profit_factor": 0.7772454386521004,
+        "net_usd": -6106.97,
+        "mean_realized_r": -0.10659012764742161,
+        "win_rate_pct": 42.578456318914334
+      },
+      "Q3": {
+        "trades": 1175,
+        "profit_factor": 0.7965758809271108,
+        "net_usd": -5470.16,
+        "mean_realized_r": -0.09731723056444613,
+        "win_rate_pct": 42.38297872340426
+      },
+      "Q4_high": {
+        "trades": 1178,
+        "profit_factor": 0.8102746536208598,
+        "net_usd": -5266.51,
+        "mean_realized_r": -0.09464203860935987,
+        "win_rate_pct": 42.02037351443124
+      }
+    },
+    "by_h1_ema_distance_quartile": {
+      "Q1_low": {
+        "trades": 1211,
+        "profit_factor": 0.8480784556542762,
+        "net_usd": -4102.38,
+        "mean_realized_r": -0.07081953456873225,
+        "win_rate_pct": 43.02229562345169
+      },
+      "Q2": {
+        "trades": 1210,
+        "profit_factor": 0.7216036234460711,
+        "net_usd": -8064.280000000001,
+        "mean_realized_r": -0.13907273436519943,
+        "win_rate_pct": 40.49586776859504
+      },
+      "Q3": {
+        "trades": 1210,
+        "profit_factor": 0.762154141542133,
+        "net_usd": -6761.18,
+        "mean_realized_r": -0.11561995269885841,
+        "win_rate_pct": 41.32231404958678
+      },
+      "Q4_high": {
+        "trades": 1210,
+        "profit_factor": 0.7671186837054708,
+        "net_usd": -6651.9800000000005,
+        "mean_realized_r": -0.11304227888253432,
+        "win_rate_pct": 43.63636363636363
+      }
+    },
+    "telemetry_quartile_cutoffs": {
+      "atr_pips": [
+        2.1,
+        3.2,
+        4.699999999999999
+      ],
+      "h1_ema_distance_atr": [
+        5.639344262295262,
+        12.1538461538455,
+        22.937500000000387
+      ]
+    },
+    "lifecycle": {
+      "rows": 9682,
+      "opens": 4841,
+      "final_closes": 4841,
+      "unique_positions": 4841,
+      "net_usd": -25579.82,
+      "report_gap_usd": 7.275957614183426e-12,
+      "minimum_initial_risk_account": 46.08
+    },
+    "diagnostic": {
+      "bars_seen": 298483,
+      "signals": 10863,
+      "entries_attempted": 10863,
+      "entries_opened": 4841,
+      "structure_rejections": 0,
+      "guard_rejections": 5997,
+      "risk_rejections": 25,
+      "account_dd_entry_halt_enabled": false,
+      "account_dd_threshold_pct": 6.0,
+      "account_dd_threshold_breached": false,
+      "max_initial_equity_dd_pct": 5.224534,
+      "max_peak_equity_dd_pct": 5.32425785,
+      "account_halt": false
+    },
+    "first_entry_time": "2019-01-02 07:20:00",
+    "last_exit_time": "2022-12-30 13:03:29",
+    "largest_winners": [
+      {
+        "position_id": "5358",
+        "entry_time": "2021-03-19 22:00:00",
+        "exit_time": "2021-03-22 00:05:00",
+        "direction": "SELL",
+        "net": 201.42999999999998,
+        "price_pnl": 227.15,
+        "costs": -25.72,
+        "risk_account": 48.51,
+        "risk_pips": 6.300000000000001,
+        "realized_r": 4.152339723768295,
+        "price_r": 4.682539682539695,
+        "exit_class": "TARGET",
+        "holding_minutes": 3005.0,
+        "atr_pips": 2.1,
+        "ema_distance_atr": 14.047619047619087
+      },
+      {
+        "position_id": "4052",
+        "entry_time": "2020-09-07 00:25:00",
+        "exit_time": "2020-09-07 00:42:25",
+        "direction": "SELL",
+        "net": 87.78,
+        "price_pnl": 92.34,
+        "costs": -4.56,
+        "risk_account": 49.02,
+        "risk_pips": 4.3,
+        "realized_r": 1.7906976744186045,
+        "price_r": 1.8837209302325053,
+        "exit_class": "TARGET",
+        "holding_minutes": 17.416666666666668,
+        "atr_pips": 2.4,
+        "ema_distance_atr": 8.958333333333734
+      },
+      {
+        "position_id": "148",
+        "entry_time": "2019-01-24 14:55:00",
+        "exit_time": "2019-01-24 15:34:42",
+        "direction": "SELL",
+        "net": 80.19000000000001,
+        "price_pnl": 81.51,
+        "costs": -1.32,
+        "risk_account": 49.5,
+        "risk_pips": 15.0,
+        "realized_r": 1.6200000000000003,
+        "price_r": 1.646666666666648,
+        "exit_class": "TARGET",
+        "holding_minutes": 39.7,
+        "atr_pips": 5.1000000000000005,
+        "ema_distance_atr": 9.156862745097945
+      },
+      {
+        "position_id": "1374",
+        "entry_time": "2019-07-25 14:50:00",
+        "exit_time": "2019-07-25 15:30:40",
+        "direction": "SELL",
+        "net": 75.57000000000001,
+        "price_pnl": 76.89,
+        "costs": -1.32,
+        "risk_account": 49.5,
+        "risk_pips": 15.0,
+        "realized_r": 1.5266666666666668,
+        "price_r": 1.5533333333332955,
+        "exit_class": "TARGET",
+        "holding_minutes": 40.666666666666664,
+        "atr_pips": 5.699999999999999,
+        "ema_distance_atr": 10.333333333333638
+      },
+      {
+        "position_id": "1142",
+        "entry_time": "2019-06-21 12:55:00",
+        "exit_time": "2019-06-21 13:35:19",
+        "direction": "BUY",
+        "net": 75.03999999999999,
+        "price_pnl": 77.72,
+        "costs": -2.68,
+        "risk_account": 49.58,
+        "risk_pips": 7.4,
+        "realized_r": 1.5135135135135134,
+        "price_r": 1.5675675675676348,
+        "exit_class": "TARGET",
+        "holding_minutes": 40.31666666666667,
+        "atr_pips": 2.8,
+        "ema_distance_atr": 17.357142857143167
+      }
+    ],
+    "largest_losers": [
+      {
+        "position_id": "4290",
+        "entry_time": "2020-10-09 23:00:00",
+        "exit_time": "2020-10-12 00:05:00",
+        "direction": "BUY",
+        "net": -130.65,
+        "price_pnl": -93.24,
+        "costs": -37.41,
+        "risk_account": 48.84,
+        "risk_pips": 4.4,
+        "realized_r": -2.675061425061425,
+        "price_r": -1.9090909090907997,
+        "exit_class": "INITIAL_STOP",
+        "holding_minutes": 2945.0,
+        "atr_pips": 1.8,
+        "ema_distance_atr": 38.7777777777777
+      },
+      {
+        "position_id": "5648",
+        "entry_time": "2021-04-30 23:30:00",
+        "exit_time": "2021-05-03 00:05:00",
+        "direction": "SELL",
+        "net": -120.27000000000001,
+        "price_pnl": -79.86,
+        "costs": -40.41,
+        "risk_account": 48.4,
+        "risk_pips": 4.0,
+        "realized_r": -2.484917355371901,
+        "price_r": -1.6499999999997073,
+        "exit_class": "INITIAL_STOP",
+        "holding_minutes": 2915.0,
+        "atr_pips": 2.4,
+        "ema_distance_atr": 17.874999999999602
+      },
+      {
+        "position_id": "2362",
+        "entry_time": "2019-12-24 19:45:00",
+        "exit_time": "2019-12-26 06:00:00",
+        "direction": "SELL",
+        "net": -88.6,
+        "price_pnl": -65.0,
+        "costs": -23.6,
+        "risk_account": 49.0,
+        "risk_pips": 4.9,
+        "realized_r": -1.8081632653061224,
+        "price_r": -1.3265306122449783,
+        "exit_class": "INITIAL_STOP",
+        "holding_minutes": 2055.0,
+        "atr_pips": 1.9,
+        "ema_distance_atr": 10.947368421053062
+      },
+      {
+        "position_id": "1288",
+        "entry_time": "2019-07-12 23:40:00",
+        "exit_time": "2019-07-15 00:05:03",
+        "direction": "BUY",
+        "net": -88.57,
+        "price_pnl": -49.14,
+        "costs": -39.43,
+        "risk_account": 49.14,
+        "risk_pips": 4.2,
+        "realized_r": -1.8024013024013021,
+        "price_r": -1.000000000000207,
+        "exit_class": "INITIAL_STOP",
+        "holding_minutes": 2905.05,
+        "atr_pips": 1.4999999999999998,
+        "ema_distance_atr": 7.333333333332527
+      },
+      {
+        "position_id": "7304",
+        "entry_time": "2022-01-07 23:20:00",
+        "exit_time": "2022-01-10 00:05:00",
+        "direction": "BUY",
+        "net": -84.69,
+        "price_pnl": -47.96,
+        "costs": -36.73,
+        "risk_account": 47.96,
+        "risk_pips": 4.4,
+        "realized_r": -1.7658465387823186,
+        "price_r": -0.9999999999999908,
+        "exit_class": "INITIAL_STOP",
+        "holding_minutes": 2925.0,
+        "atr_pips": 2.1,
+        "ema_distance_atr": 22.71428571428649
+      }
+    ]
+  },
+  "challenger": {
+    "run_id": "20260722_233420",
+    "run_path": "02. AlphaFactory\\runs\\EA_VRAS_VolatilityNormalizedStop\\20260722_233420",
+    "variant": "CHALLENGER_ATR_STRUCTURAL_FULL_HORIZON_V2",
+    "history_quality_pct": 100.0,
+    "bars": 298483,
+    "ticks": 79486116,
+    "trades": 3611,
+    "profit_factor": 0.7722369257060228,
+    "gross_price_profit_factor": 0.8869899591840195,
+    "net_profit_usd": -20791.580000000016,
+    "price_pnl_usd": -9598.77,
+    "recorded_costs_usd": -11192.81,
+    "win_rate_pct": 42.204375519246746,
+    "expectancy_usd": -5.757845472168375,
+    "mean_realized_r": -0.1184003600213844,
+    "median_realized_r": -0.34848484848484845,
+    "average_win_r": 0.955480493877705,
+    "average_loss_r": -0.9025855163904366,
+    "realized_payoff_ratio": 1.0586038403306122,
+    "break_even_win_rate_pct_for_realized_payoff": 48.5766119934664,
+    "mean_recorded_cost_r": -0.06377291281900932,
+    "max_drawdown_pct_report": 4.2847255600846035,
+    "max_drawdown_pct_rebuilt": 4.284725560084603,
+    "cadence_per_elapsed_calendar_week": 17.313013698630137,
+    "initial_stop_exit_share": 0.4477983937967322,
+    "target_exit_share": 0.2370534477983938,
+    "breakeven_zone_exit_share": 0.16283577956244807,
+    "mean_stop_pips": 9.3449736914982,
+    "min_stop_pips": 2.1,
+    "max_stop_pips": 83.4,
+    "mean_holding_minutes": 83.05375242315148,
+    "largest_loss_usd": -289.41999999999996,
+    "max_consecutive_losses": 11,
+    "cost_pf_x1_5_proxy": 0.7219503212988725,
+    "cost_pf_x2_proxy": 0.6762053519816692,
+    "exit_class_counts": {
+      "BREAKEVEN_ZONE": 588,
+      "INITIAL_STOP": 1617,
+      "TARGET": 856,
+      "TIME_OR_MANAGED": 550
+    },
+    "by_year": {
+      "2019": {
+        "trades": 766,
+        "profit_factor": 0.6636916855489187,
+        "net_usd": -6894.27,
+        "mean_realized_r": -0.18222508142030452,
+        "win_rate_pct": 39.03394255874674
+      },
+      "2020": {
+        "trades": 968,
+        "profit_factor": 0.9032637523022162,
+        "net_usd": -2196.53,
+        "mean_realized_r": -0.04612128467946233,
+        "win_rate_pct": 45.55785123966942
+      },
+      "2021": {
+        "trades": 903,
+        "profit_factor": 0.7264233342545301,
+        "net_usd": -6414.76,
+        "mean_realized_r": -0.14646522657896208,
+        "win_rate_pct": 41.97120708748616
+      },
+      "2022": {
+        "trades": 974,
+        "profit_factor": 0.7854003794249841,
+        "net_usd": -5286.02,
+        "mean_realized_r": -0.11402031262704676,
+        "win_rate_pct": 41.58110882956879
+      }
+    },
+    "by_session": {
+      "Asia": {
+        "trades": 988,
+        "profit_factor": 0.816447044784391,
+        "net_usd": -4451.4400000000005,
+        "mean_realized_r": -0.09185261943131977,
+        "win_rate_pct": 44.02834008097166
+      },
+      "Europe": {
+        "trades": 1231,
+        "profit_factor": 0.7860000876320116,
+        "net_usd": -6740.0,
+        "mean_realized_r": -0.11380926500590643,
+        "win_rate_pct": 42.24207961007311
+      },
+      "NewYork": {
+        "trades": 1123,
+        "profit_factor": 0.8182727840317303,
+        "net_usd": -5017.990000000001,
+        "mean_realized_r": -0.091401558761993,
+        "win_rate_pct": 43.00979519145147
+      },
+      "OffHours": {
+        "trades": 269,
+        "profit_factor": 0.4219106602391763,
+        "net_usd": -4582.15,
+        "mean_realized_r": -0.34962883392968824,
+        "win_rate_pct": 31.970260223048328
+      }
+    },
+    "by_direction": {
+      "BUY": {
+        "trades": 1672,
+        "profit_factor": 0.8073783338332889,
+        "net_usd": -8000.93,
+        "mean_realized_r": -0.09845578593173497,
+        "win_rate_pct": 42.04545454545455
+      },
+      "SELL": {
+        "trades": 1939,
+        "profit_factor": 0.7428962362645425,
+        "net_usd": -12790.65,
+        "mean_realized_r": -0.1355985693446922,
+        "win_rate_pct": 42.34141309953584
+      }
+    },
+    "by_atr_quartile": {
+      "Q1_low": {
+        "trades": 939,
+        "profit_factor": 0.6726792309355132,
+        "net_usd": -8540.1,
+        "mean_realized_r": -0.1856162322121808,
+        "win_rate_pct": 40.894568690095845
+      },
+      "Q2": {
+        "trades": 871,
+        "profit_factor": 0.8021193539217771,
+        "net_usd": -4253.49,
+        "mean_realized_r": -0.10012272147582914,
+        "win_rate_pct": 43.62801377726751
+      },
+      "Q3": {
+        "trades": 910,
+        "profit_factor": 0.7741932115018844,
+        "net_usd": -5189.25,
+        "mean_realized_r": -0.11783943075687514,
+        "win_rate_pct": 41.42857142857143
+      },
+      "Q4_high": {
+        "trades": 891,
+        "profit_factor": 0.8644359841150022,
+        "net_usd": -2808.7400000000002,
+        "mean_realized_r": -0.06600368753734875,
+        "win_rate_pct": 42.98540965207632
+      }
+    },
+    "by_h1_ema_distance_quartile": {
+      "Q1_low": {
+        "trades": 903,
+        "profit_factor": 0.8004867407633005,
+        "net_usd": -4349.820000000001,
+        "mean_realized_r": -0.09947426717606148,
+        "win_rate_pct": 42.414174972314505
+      },
+      "Q2": {
+        "trades": 903,
+        "profit_factor": 0.741576542975637,
+        "net_usd": -5965.69,
+        "mean_realized_r": -0.13634581796728215,
+        "win_rate_pct": 40.310077519379846
+      },
+      "Q3": {
+        "trades": 902,
+        "profit_factor": 0.78076657619047,
+        "net_usd": -5047.33,
+        "mean_realized_r": -0.11419870869933527,
+        "win_rate_pct": 43.01552106430155
+      },
+      "Q4_high": {
+        "trades": 903,
+        "profit_factor": 0.7677670560786644,
+        "net_usd": -5428.740000000001,
+        "mean_realized_r": -0.12357799325136143,
+        "win_rate_pct": 43.078626799557036
+      }
+    },
+    "telemetry_quartile_cutoffs": {
+      "atr_pips": [
+        2.5999999999999996,
+        3.6999999999999997,
+        5.3
+      ],
+      "h1_ema_distance_atr": [
+        5.3272727272729075,
+        11.269841269841086,
+        20.500000000000064
+      ]
+    },
+    "lifecycle": {
+      "rows": 7222,
+      "opens": 3611,
+      "final_closes": 3611,
+      "unique_positions": 3611,
+      "net_usd": -20791.58,
+      "report_gap_usd": 1.4551915228366852e-11,
+      "minimum_initial_risk_account": 41.7
+    },
+    "diagnostic": {
+      "bars_seen": 298483,
+      "signals": 10863,
+      "entries_attempted": 10863,
+      "entries_opened": 3611,
+      "structure_rejections": 3835,
+      "guard_rejections": 3403,
+      "risk_rejections": 14,
+      "account_dd_entry_halt_enabled": false,
+      "account_dd_threshold_pct": 6.0,
+      "account_dd_threshold_breached": false,
+      "max_initial_equity_dd_pct": 4.226174,
+      "max_peak_equity_dd_pct": 4.30143135,
+      "account_halt": false
+    },
+    "first_entry_time": "2019-01-03 01:20:00",
+    "last_exit_time": "2022-12-30 17:31:05",
+    "largest_winners": [
+      {
+        "position_id": "6634",
+        "entry_time": "2022-09-09 22:00:00",
+        "exit_time": "2022-09-12 00:05:00",
+        "direction": "BUY",
+        "net": 267.84999999999997,
+        "price_pnl": 286.72,
+        "costs": -18.869999999999997,
+        "risk_account": 47.6,
+        "risk_pips": 8.5,
+        "realized_r": 5.627100840336134,
+        "price_r": 6.023529411764721,
+        "exit_class": "TARGET",
+        "holding_minutes": 3005.0,
+        "atr_pips": 3.8,
+        "ema_distance_atr": 15.078947368421085
+      },
+      {
+        "position_id": "3876",
+        "entry_time": "2021-03-19 22:00:00",
+        "exit_time": "2021-03-22 00:05:00",
+        "direction": "SELL",
+        "net": 201.42999999999998,
+        "price_pnl": 227.15,
+        "costs": -25.72,
+        "risk_account": 48.51,
+        "risk_pips": 6.300000000000001,
+        "realized_r": 4.152339723768295,
+        "price_r": 4.682539682539695,
+        "exit_class": "TARGET",
+        "holding_minutes": 3005.0,
+        "atr_pips": 2.1,
+        "ema_distance_atr": 14.047619047619087
+      },
+      {
+        "position_id": "4296",
+        "entry_time": "2021-06-16 19:10:00",
+        "exit_time": "2021-06-16 21:00:00",
+        "direction": "SELL",
+        "net": 143.52,
+        "price_pnl": 146.28,
+        "costs": -2.76,
+        "risk_account": 48.3,
+        "risk_pips": 7.0,
+        "realized_r": 2.971428571428572,
+        "price_r": 3.028571428571285,
+        "exit_class": "TARGET",
+        "holding_minutes": 110.0,
+        "atr_pips": 2.9,
+        "ema_distance_atr": 10.310344827586373
+      },
+      {
+        "position_id": "6720",
+        "entry_time": "2022-09-23 23:25:00",
+        "exit_time": "2022-09-26 00:05:00",
+        "direction": "SELL",
+        "net": 125.38999999999999,
+        "price_pnl": 149.1,
+        "costs": -23.71,
+        "risk_account": 47.57,
+        "risk_pips": 6.7,
+        "realized_r": 2.635904982131595,
+        "price_r": 3.134328358208941,
+        "exit_class": "TARGET",
+        "holding_minutes": 2920.0,
+        "atr_pips": 5.0,
+        "ema_distance_atr": 45.220000000000034
+      },
+      {
+        "position_id": "2792",
+        "entry_time": "2020-09-07 00:25:00",
+        "exit_time": "2020-09-07 00:42:25",
+        "direction": "SELL",
+        "net": 87.78,
+        "price_pnl": 92.34,
+        "costs": -4.56,
+        "risk_account": 49.02,
+        "risk_pips": 4.3,
+        "realized_r": 1.7906976744186045,
+        "price_r": 1.8837209302325053,
+        "exit_class": "TARGET",
+        "holding_minutes": 17.416666666666668,
+        "atr_pips": 2.4,
+        "ema_distance_atr": 8.958333333333734
+      }
+    ],
+    "largest_losers": [
+      {
+        "position_id": "5814",
+        "entry_time": "2022-04-08 23:10:00",
+        "exit_time": "2022-04-11 00:05:00",
+        "direction": "SELL",
+        "net": -289.41999999999996,
+        "price_pnl": -268.38,
+        "costs": -21.04,
+        "risk_account": 47.88,
+        "risk_pips": 7.6000000000000005,
+        "realized_r": -6.044695071010859,
+        "price_r": -5.605263157894937,
+        "exit_class": "INITIAL_STOP",
+        "holding_minutes": 2935.0,
+        "atr_pips": 2.9,
+        "ema_distance_atr": 26.931034482758182
+      },
+      {
+        "position_id": "3004",
+        "entry_time": "2020-10-09 23:00:00",
+        "exit_time": "2020-10-12 00:05:00",
+        "direction": "BUY",
+        "net": -130.65,
+        "price_pnl": -93.24,
+        "costs": -37.41,
+        "risk_account": 48.84,
+        "risk_pips": 4.4,
+        "realized_r": -2.675061425061425,
+        "price_r": -1.9090909090907997,
+        "exit_class": "INITIAL_STOP",
+        "holding_minutes": 2945.0,
+        "atr_pips": 1.8,
+        "ema_distance_atr": 38.7777777777777
+      },
+      {
+        "position_id": "4092",
+        "entry_time": "2021-04-30 23:30:00",
+        "exit_time": "2021-05-03 00:05:00",
+        "direction": "SELL",
+        "net": -121.27,
+        "price_pnl": -80.52,
+        "costs": -40.75,
+        "risk_account": 48.8,
+        "risk_pips": 4.0,
+        "realized_r": -2.4850409836065572,
+        "price_r": -1.6499999999997073,
+        "exit_class": "INITIAL_STOP",
+        "holding_minutes": 2915.0,
+        "atr_pips": 2.4,
+        "ema_distance_atr": 17.874999999999602
+      },
+      {
+        "position_id": "4462",
+        "entry_time": "2021-07-19 23:20:00",
+        "exit_time": "2021-07-20 00:05:00",
+        "direction": "SELL",
+        "net": -116.48,
+        "price_pnl": -97.3,
+        "costs": -19.18,
+        "risk_account": 48.65,
+        "risk_pips": 3.5,
+        "realized_r": -2.394244604316547,
+        "price_r": -2.000000000000414,
+        "exit_class": "INITIAL_STOP",
+        "holding_minutes": 45.0,
+        "atr_pips": 2.0,
+        "ema_distance_atr": 13.600000000000279
+      },
+      {
+        "position_id": "3586",
+        "entry_time": "2021-01-22 23:20:00",
+        "exit_time": "2021-01-25 00:05:00",
+        "direction": "BUY",
+        "net": -102.5,
+        "price_pnl": -66.78,
+        "costs": -35.72,
+        "risk_account": 48.76,
+        "risk_pips": 4.6000000000000005,
+        "realized_r": -2.102132895816243,
+        "price_r": -1.3695652173911053,
+        "exit_class": "INITIAL_STOP",
+        "holding_minutes": 2925.0,
+        "atr_pips": 2.0,
+        "ema_distance_atr": 9.649999999999936
+      }
+    ]
+  },
+  "relative": {
+    "profit_factor_lift": -0.0013142898358740052,
+    "mean_realized_r_lift": -0.008769753709029271,
+    "initial_stop_exit_share_reduction": -0.04065111017764522,
+    "max_drawdown_change_pct_points": -1.0239027469399389,
+    "trade_count_change": -1230
+  },
+  "verdict": "FULL_HORIZON_CONFIRMS_NO_EDGE_BOTH_ARMS_NEGATIVE",
+  "interpretation": "The account-DD entry halt previously censored sample coverage but did not hide a profitable later regime. Both arms lose across every year and every telemetry ATR quartile; the ATR structural arm lowers exposure and DD but does not improve PF or realized R.",
+  "unauthorized_outputs": [
+    "parameter retune",
+    "session/year/direction filter",
+    "R:R change",
+    "promotion",
+    "live use"
+  ]
+}

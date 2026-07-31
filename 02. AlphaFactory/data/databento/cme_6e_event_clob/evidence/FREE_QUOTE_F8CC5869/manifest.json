@@ -1,0 +1,32 @@
+{
+  "schema_version": "event_clob_free_quote_evidence_manifest.v1",
+  "created_at_utc": "2026-07-28T02:36:00Z",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001",
+  "status": "FREE_METADATA_QUOTE_COMPLETE_NO_PAID_REQUEST",
+  "plan_id": "F8CC58697DAF05713DCD4A4D0DDF1AA3DE9684A3DF646AE9C8F424F645851BDB",
+  "files": [
+    {
+      "path": "acquisition_plan.json",
+      "sha256": "969AD05FEC3F99D6219C8387F9BE3F7C1C5A44624816E3106ADFB2FD1716DDAB"
+    },
+    {
+      "path": "metadata_quote_receipt.json",
+      "sha256": "0CCF146D9C3E2DB0E7ABFE00BD3C405D59F2A46871985B2FCA8B0DD80AAC4107"
+    },
+    {
+      "path": "predownload_storage_assessment.json",
+      "sha256": "AAFF8417D6E58738E1A826595E8BABE256EFE6429B98658CA97429337AA09006"
+    }
+  ],
+  "quote": {
+    "windows": 630,
+    "estimated_total_usd": 7.005795553319,
+    "estimated_total_billable_bytes": 15044831392,
+    "metadata_get_cost_attempts": 631,
+    "metadata_get_billable_size_attempts": 630,
+    "timeseries_calls": 0,
+    "paid_request_made": false
+  },
+  "raw_dbn_files": 0,
+  "immutable_snapshot": true
+}

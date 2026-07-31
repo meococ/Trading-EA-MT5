@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Fail closed when the source-of-truth registry overstates local availability."""
+"""Validate local truth fail-closed while treating declared portable backups explicitly."""
 
 from __future__ import annotations
 
+import argparse
 import json
 import hashlib
 import re
@@ -58,17 +59,29 @@ def load_markdown_rows(path: Path) -> tuple[dict[str, tuple[str, str]], list[str
     return rows, errors
 
 
-def main() -> int:
+def validate(
+    *,
+    json_path: Path,
+    markdown_path: Path,
+    workspace: Path,
+    strict_backups: bool,
+) -> tuple[list[str], list[str], Counter[str], int]:
     errors: list[str] = []
-    payload = json.loads(JSON_PATH.read_text(encoding="utf-8-sig"))
+    warnings: list[str] = []
+    payload = json.loads(json_path.read_text(encoding="utf-8-sig"))
     entries = payload.get("entries")
     if not isinstance(entries, list):
-        print("SOURCE_OF_TRUTH_FAIL: entries must be a list")
-        return 1
+        return ["entries must be a list"], warnings, Counter(), 0
     backup_roots = payload.get("backup_roots", {})
     if not isinstance(backup_roots, dict):
         errors.append("backup_roots must be an object")
         backup_roots = {}
+    backup_root_modes = payload.get("backup_root_modes", {})
+    if not isinstance(backup_root_modes, dict):
+        errors.append("backup_root_modes must be an object")
+        backup_root_modes = {}
+    unavailable_optional_roots: set[str] = set()
+    unavailable_error_roots: set[str] = set()
 
     json_rows: dict[str, tuple[str, str]] = {}
     status_counts: Counter[str] = Counter()
@@ -105,7 +118,7 @@ def main() -> int:
             continue
         status_counts[status] += 1
 
-        local_path = WORKSPACE / Path(*pure_path.parts)
+        local_path = workspace / Path(*pure_path.parts)
         is_file = local_path.is_file()
         if status in LOCAL_STATUSES and not is_file:
             errors.append(
@@ -130,7 +143,30 @@ def main() -> int:
                     f"invalid backup_root_id {backup_root_id!r}: {relative_path}"
                 )
                 continue
-            backup_path = Path(backup_root_value) / Path(*pure_path.parts)
+            backup_root_path = Path(backup_root_value)
+            backup_mode = backup_root_modes.get(backup_root_id, "required")
+            if backup_mode not in {"required", "optional"}:
+                errors.append(
+                    f"invalid backup root mode {backup_mode!r} for {backup_root_id!r}"
+                )
+                continue
+            if not backup_root_path.is_dir():
+                if backup_mode == "optional" and not strict_backups:
+                    if str(backup_root_id) not in unavailable_optional_roots:
+                        warnings.append(
+                            "optional backup root is unavailable; backup hashes were not audited: "
+                            f"{backup_root_id}={backup_root_path}"
+                        )
+                        unavailable_optional_roots.add(str(backup_root_id))
+                    continue
+                if str(backup_root_id) not in unavailable_error_roots:
+                    errors.append(
+                        f"backup root is unavailable ({backup_mode}): "
+                        f"{backup_root_id}={backup_root_path}"
+                    )
+                    unavailable_error_roots.add(str(backup_root_id))
+                continue
+            backup_path = backup_root_path / Path(*pure_path.parts)
             if status == BACKUP_ONLY_STATUS:
                 expected_hash = entry.get("backup_sha256")
                 if not backup_path.is_file():
@@ -152,7 +188,7 @@ def main() -> int:
                     f"must be reclassified: {relative_path}"
                 )
 
-    markdown_rows, markdown_errors = load_markdown_rows(MARKDOWN_PATH)
+    markdown_rows, markdown_errors = load_markdown_rows(markdown_path)
     errors.extend(markdown_errors)
     if not markdown_rows:
         errors.append("no registry rows found in source_of_truth.md")
@@ -179,18 +215,42 @@ def main() -> int:
         if json_reason != markdown_reason:
             errors.append(f"reason mismatch for {relative_path}")
 
+    return errors, warnings, status_counts, len(entries)
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--json", type=Path, default=JSON_PATH)
+    parser.add_argument("--markdown", type=Path, default=MARKDOWN_PATH)
+    parser.add_argument("--workspace", type=Path, default=WORKSPACE)
+    parser.add_argument(
+        "--strict-backups",
+        action="store_true",
+        help="Fail when an optional external backup root is unavailable",
+    )
+    args = parser.parse_args()
+    errors, warnings, status_counts, entry_count = validate(
+        json_path=args.json.resolve(),
+        markdown_path=args.markdown.resolve(),
+        workspace=args.workspace.resolve(),
+        strict_backups=args.strict_backups,
+    )
     if errors:
         print(f"SOURCE_OF_TRUTH_FAIL: {len(errors)} error(s)")
         for error in errors:
             print(f"- {error}")
         return 1
 
+    for warning in warnings:
+        print(f"SOURCE_OF_TRUTH_WARN: {warning}")
+
     print(
         "SOURCE_OF_TRUTH_OK: "
-        f"entries={len(entries)} "
+        f"entries={entry_count} "
         f"local={sum(status_counts[s] for s in LOCAL_STATUSES)} "
         f"backup_only={status_counts[BACKUP_ONLY_STATUS]} "
-        f"unavailable_unresolved={status_counts[UNRESOLVED_STATUS]}"
+        f"unavailable_unresolved={status_counts[UNRESOLVED_STATUS]} "
+        f"optional_backup_warnings={len(warnings)}"
     )
     return 0
 

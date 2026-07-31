@@ -1,0 +1,22 @@
+{
+  "schema_version": "aruc_003_source_implementation_review_receipt.v1",
+  "hypothesis_id": "HYP-ARUC-EURUSD-M15-003",
+  "review_status": "PASS",
+  "reviewed_builder": {
+    "path": "03. EA Developer/EA_ActivityResponseContinuation/research/build_aruc_003_source.py",
+    "base_sha256": "4DFD202A06082CB5A5F686BA2E11F078E9FD04CA139DFF3C2378F99C30DAB36F"
+  },
+  "reviewed_tests": {
+    "path": "03. EA Developer/EA_ActivityResponseContinuation/research/tests/test_build_aruc_003_source.py",
+    "sha256": "41E42A025C70F53CF623A9815B094616385851783710C64212483489ED17DE6E"
+  },
+  "v1_plan": {
+    "path": "03. EA Developer/EA_ActivityResponseContinuation/research/HYP-ARUC-EURUSD-M15-003_SOURCE_FEASIBILITY_PLAN.md",
+    "sha256": "FB5275217AEF154AF7A254190B937D85F1BCDB220647283B4F13FF590BBEEE16"
+  },
+  "permissions": {
+    "source_feasibility_run": true,
+    "performance_or_economics": false,
+    "mt5_or_mql5": false
+  }
+}

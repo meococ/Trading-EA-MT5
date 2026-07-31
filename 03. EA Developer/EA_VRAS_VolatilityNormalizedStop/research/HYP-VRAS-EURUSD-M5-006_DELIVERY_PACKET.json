@@ -1,0 +1,193 @@
+{
+  "schema_version": "alphafactory_ea_delivery_packet.v1",
+  "created_at_utc": "2026-07-22T16:03:27Z",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-006",
+  "ea_name": "EA_VRAS_VolatilityNormalizedStop",
+  "delivery_class": "economic_run",
+  "completion_claim": true,
+  "verdict": "KILLED",
+  "bindings": [
+    {
+      "role": "preregistration",
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/HYP-VRAS-EURUSD-M5-006_FROZEN_PREREG.md",
+      "bytes": 3969,
+      "sha256": "39292DE78C0E2F65F03D9DEB00C3E14451E8959E89A64B9AFC8452D3BF9CBC25"
+    },
+    {
+      "role": "logic_matrix",
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/LOGIC_TO_CODE_MATRIX.md",
+      "bytes": 981,
+      "sha256": "8E70FEE2B92A126B214E7BB838F05C6DD31AE8A94C23F7D972E6BDF724BA91E3"
+    },
+    {
+      "role": "source",
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/EA_VRAS_VolatilityNormalizedStop.mq5",
+      "bytes": 26291,
+      "sha256": "83107ED33F1A6861D364947DA9D75E047142C478E1123575EC56B59B84A29406"
+    },
+    {
+      "role": "compiled_binary",
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/EA_VRAS_VolatilityNormalizedStop.ex5",
+      "bytes": 35340,
+      "sha256": "D45B18DE97B9B0A0983FE91BE605569494E8158F10C07E1D63CA354F69E23F86"
+    },
+    {
+      "role": "compile_log",
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/evidence/HYP-VRAS-EURUSD-M5-006_COMPILE_RECEIPT.txt",
+      "bytes": 264,
+      "sha256": "FE06D5924F05CB0A172F37BB6CBB6264D02065FD822297428B8538C98B63F0B3"
+    },
+    {
+      "role": "test_receipt",
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/evidence/HYP-VRAS-EURUSD-M5-006_TEST_RECEIPT.json",
+      "bytes": 227,
+      "sha256": "9CD4EBCC6B9E5D71A79C986E70AFEA25FD0D70B47385827EBC0AB2F9D66BA462"
+    },
+    {
+      "role": "nonrepaint_audit",
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/evidence/HYP-VRAS-EURUSD-M5-006_NONREPAINT_AUDIT.json",
+      "bytes": 1021,
+      "sha256": "E602A6C0827AC3B19E591A50AAB2A2EFEA97B0DEB1BC53E24549037BBEEFCC14"
+    },
+    {
+      "role": "run_manifest",
+      "path": "02. AlphaFactory/runs/EA_VRAS_VolatilityNormalizedStop/20260722_225229/run_manifest.json",
+      "bytes": 67136,
+      "sha256": "6E42EF358F9FB78EAB138A4F4CAEA626DF5EA8B64CC3A3737F4ADFCAB835452E"
+    },
+    {
+      "role": "tester_report",
+      "path": "02. AlphaFactory/runs/EA_VRAS_VolatilityNormalizedStop/20260722_225229/report.html",
+      "bytes": 355288,
+      "sha256": "9971F0E36C33D10C948B77E9FC3F6AA378DCE5D5E43B42170F7CA8C8588B8BEC"
+    },
+    {
+      "role": "lifecycle_trades",
+      "path": "02. AlphaFactory/runs/EA_VRAS_VolatilityNormalizedStop/20260722_225229/analysis/logs/EURUSD_LifecycleTrades_HYP-VRAS-EURUSD-M5-006_185622093.csv",
+      "bytes": 47829,
+      "sha256": "DDA1B98DC728830BA2398F5FFA1F6C64AB5373EB1BCDE0219C4DECAF5FB1F783"
+    },
+    {
+      "role": "run_meta",
+      "path": "02. AlphaFactory/runs/EA_VRAS_VolatilityNormalizedStop/20260722_225229/analysis/logs/EURUSD_RunMeta_HYP-VRAS-EURUSD-M5-006_185622093.json",
+      "bytes": 612,
+      "sha256": "A544BD271A3B53CD5F220083B6AA22D41149A2FB7B767E8C3EFFC8D68109E312"
+    },
+    {
+      "role": "log_triage",
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/evidence/HYP-VRAS-EURUSD-M5-006_LOG_TRIAGE.json",
+      "bytes": 1479,
+      "sha256": "8B8577A34168FA19FEED42484344DD763E75866DA4F2C14787200A8E888BBEAE"
+    },
+    {
+      "role": "casebook_manifest",
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/evidence/HYP-VRAS-EURUSD-M5-006_DELIVERY_ANATOMY/cases_manifest.json",
+      "bytes": 11011,
+      "sha256": "79BA064F35871F32C839678930AF7859ADD892F3E92C28726A3141F9480F315E"
+    },
+    {
+      "role": "decision_casebook_manifest",
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/evidence/HYP-VRAS-EURUSD-M5-006_DECISION_ASOF_INDICATORS/cases_manifest.json",
+      "bytes": 5124,
+      "sha256": "7533189E58E57A15DD64A25115E53E754D70C8BEC5A5D97815EFB29688453C87"
+    },
+    {
+      "role": "readout",
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/HYP-VRAS-EURUSD-M5-006_READOUT.md",
+      "bytes": 1652,
+      "sha256": "82A256CF30E11DE06B53EB6A7A5BDD9E54A67FF8E75BC34C093FF5704F7EE43F"
+    },
+    {
+      "role": "economic_analysis",
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/HYP-VRAS-EURUSD-M5-006_FORENSIC_ANALYSIS.md",
+      "bytes": 3907,
+      "sha256": "6AA969B700DFD3C761C1D67824B8D3301A77D565731EE00A1383BB9A20EA7A71"
+    },
+    {
+      "role": "matched_pair_metrics",
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/HYP-VRAS-EURUSD-M5-006_READOUT.json",
+      "bytes": 4006,
+      "sha256": "A75C1AFDAD1DE15F953B217A21C5338378FB4EB480CBBDB491098449E7B4B19D"
+    },
+    {
+      "role": "indicator_anatomy_manifest",
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/evidence/HYP-VRAS-EURUSD-M5-006_CHARTS/cases_manifest.json",
+      "bytes": 2400,
+      "sha256": "55F0233848896B7385AF4568B4D84C7EE2496172A839A62F4FCA38DDD3665558"
+    }
+  ],
+  "logic_contract": {
+    "requirements_total": 11,
+    "requirements_mapped_to_code": 11,
+    "requirements_tested": 11,
+    "closed_bar_decisions": true,
+    "unresolved_material_ambiguities": 0
+  },
+  "engineering_contract": {
+    "tests_passed": 7,
+    "tests_failed": 0,
+    "compile_errors": 0,
+    "compile_warnings": 0,
+    "nonrepaint_status": "PASS"
+  },
+  "run_contract": {
+    "run_id": "20260722_225229",
+    "model": 0,
+    "trades": 158,
+    "report_lifecycle_reconciled": true,
+    "lifecycle_open_rows": 158,
+    "lifecycle_final_rows": 158,
+    "unresolved_log_errors": 0
+  },
+  "analysis_contract": {
+    "statuses": {
+      "economics": "COMPLETE",
+      "cost_stress": "COMPLETE",
+      "cadence": "COMPLETE",
+      "time_stability": "COMPLETE",
+      "session_breakdown": "COMPLETE",
+      "direction_breakdown": "COMPLETE",
+      "execution_quality": "COMPLETE",
+      "funnel": "COMPLETE",
+      "winning_trade_causes": "COMPLETE",
+      "losing_trade_causes": "COMPLETE",
+      "logic_conflicts": "COMPLETE",
+      "limitations": "COMPLETE",
+      "regime_breakdown": "INSUFFICIENT_EXPLAINED"
+    },
+    "exceptions": {
+      "regime_breakdown": "HYP006 emits no independent regime label; no post-hoc regime proxy is allowed to rescue the failed matched pair."
+    }
+  },
+  "chart_contract": {
+    "minimum_each": 2,
+    "higher_timeframe_context": true,
+    "higher_timeframe": "M15",
+    "entry_candle_centered": true,
+    "post_entry_bars_visible": true,
+    "outcome_region_labeled": true,
+    "sample_basis": "wins_and_losses",
+    "entry_sl_tp_exit_visible": true,
+    "available_winners": 57,
+    "available_losers": 101,
+    "rendered_winners": 2,
+    "rendered_losers": 2,
+    "decision_asof_separate": true,
+    "decision_outcome_hidden": true,
+    "decision_net_r_hidden": true,
+    "decision_active_indicators_visible": true,
+    "decision_indicator_provenance": "diagnostic_recompute_nonparity_labeled"
+  },
+  "anti_overfit_contract": {
+    "plan_frozen_pre_outcome": true,
+    "one_change_one_run": true,
+    "posthoc_rule_change_authorized": false
+  },
+  "limitations": [
+    "Cost, commission and slippage provenance remains UNVERIFIED_DIAGNOSTIC_ONLY.",
+    "Both arms hit the account DD entry latch in Q1 2019, so no later-window trades exist.",
+    "Decision indicators are non-parity diagnostic recomputations from hash-bound broker M1 bars.",
+    "Generic datalog summary does not ingest lifecycle-v3; exact direct reconciliation is used.",
+    "No Monte Carlo, WFA or sensitivity run is justified after base and relative gate failure."
+  ]
+}

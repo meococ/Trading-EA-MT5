@@ -1,0 +1,80 @@
+{
+  "schema_version": "event_clob_source_task_packet_amendment.v1",
+  "task_id": "EVENT_CLOB_DESIGN_SEGMENTS_PLAN_QUOTE_20260728_V10",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002",
+  "parent_hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001_SOURCE_TASK_PACKET_V9.json",
+  "supersedes_amendment_sha256": "5B14A5CAA6DFBC888D5795F34A16B0D64FD50643898442C482A883A618D10578",
+  "amendment_reason": "The parent remains terminally parked under the canonical registry. A fresh pre-outcome engineering successor now freezes a design-only segmented source contract so the exact information-bearing PRE and LATE ranges can be quoted without changing the signal or opening validation/outcomes.",
+  "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+  "registry_sha256_at_amendment": "824EA0DB704443B12D6FA52C0E3F2E1F549BEAE9BB07F98A1958AC7F72E6FDE0",
+  "registry_validation": "CANDIDATE_REGISTRY_OK rows=270 hypotheses=90",
+  "bound_successor_row_sha256_sequence": [
+    "B352E22DE06889E3FDF139A7857CEAECB123944E42CDF1564C9CE3B54AF01F3D",
+    "8B88B70C26060FF8A2A13F506990ADE3C6A27C2860C5618E51FBD77115B109CF"
+  ],
+  "bound_latest_state": "probe",
+  "bound_latest_verdict": "FROZEN_DESIGN_SEGMENT_PLAN_AND_FREE_QUOTE_AUTHORIZED",
+  "prereg_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_PROBE_PLAN.md",
+  "prereg_sha256": "62A3AB66C64083D9967D91A0D634DEF29641AE7F3A05D3C59CBC153AAF4B3CBF",
+  "clock_path": "03. EA Developer/EA_EventCLOBPersistence/research/source/point_release_clocks_2019_2022.csv",
+  "clock_sha256": "5C30F99FF0E1341D680C2747315E2FF4DFF99C5FBE01C2C5C4036BC101375E7B",
+  "prior_quote_evidence_manifest_path": "02. AlphaFactory/data/databento/cme_6e_event_clob/evidence/FREE_QUOTE_F8CC5869/manifest.json",
+  "prior_quote_evidence_manifest_sha256": "2AE3A6CE134653F452FBA62677A1141E0F561ED686028BF9C5940BB149EEAA71",
+  "input_tool_sha256": "CDB887AD88410CDFC537B56876B77ADBCDB5D7F11A637A5B889A18E64E23FDE4",
+  "input_tests_sha256": "1DAB39BA5279F196F3897F5423957BD9C533FD655E57E9D6DEED348D5E4F73E6",
+  "write_set": [
+    "03. EA Developer/EA_EventCLOBPersistence/research/acquire_event_cme6e_mbp10.py",
+    "03. EA Developer/EA_EventCLOBPersistence/tests/test_event_cme6e_mbp10_acquisition.py",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/acquisition_plan.json",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/quote_receipt.json",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/storage_assessment.json"
+  ],
+  "required_behavior": [
+    "Preserve the parent V9 full-window profile, parked download guard, and immutable FREE_QUOTE_F8CC5869 evidence byte-exact.",
+    "Add an explicit design-segments profile/action to the existing acquisition tool; do not create a second acquisition utility or parallel toolchain.",
+    "Bind the exact two-row successor registry history, prereg hash, task-packet hash and clock hash before any plan or remote operation.",
+    "Select exactly EVT0001 through EVT0329 by UTC year 2019-2020 from the frozen clock and emit exactly 658 request identities: PRE [T-60,T-15) and LATE [T+45,T+60).",
+    "Use dataset GLBX.MDP3, schema mbp-10, symbol 6E.v.0, stype_in continuous and stype_out instrument_id for every request.",
+    "Write the design plan only under the dedicated D-side design-segment root and reject FILE_COMMON, C-side datasets, 2021+, middle-window ranges, duplicate identities or noncanonical bounds.",
+    "The free quote must call only metadata get_cost and get_billable_size for each of the 658 exact requests, with fully audited actual-attempt counters and bounded retry behavior inherited from V8.",
+    "Keep download/payment authority fail-closed before any metadata live re-quote or timeseries call; V10 has no positive Owner USD ceiling.",
+    "Generate an immutable quote evidence snapshot only after successful reconciliation; never overwrite the parent evidence directory."
+  ],
+  "red_first_acceptance_tests": [
+    "Exact parent V9 controls and exact successor history pass; mutation, reordering or later successor rows fail.",
+    "The plan contains 329 design clocks, 658 unique request identities and exactly 19,740 requested seconds with zero validation clocks.",
+    "EVT0001 PRE is 2019-01-03T14:59:00Z to 2019-01-03T14:59:45Z and the final EVT0329 LATE is 2020-12-16T19:00:45Z to 2020-12-16T19:01:00Z.",
+    "Each event has one PRE and one LATE segment, all intervals are half-open canonical bounds, request overlap is zero, and no 2021+ request exists.",
+    "Every metadata call receives the exact frozen request arguments; successful counters equal 658 cost plus 658 billable-size calls, while actual attempts are bounded between 658 and 1,974 per endpoint.",
+    "Any download action fails before metadata or timeseries client access because payment authority is absent.",
+    "All existing parent-profile tests remain green and immutable F8 evidence plus its child hashes remain exact."
+  ],
+  "remote_allowlist": [
+    "Databento historical metadata get_cost for the exact 658 frozen requests",
+    "Databento historical metadata get_billable_size for the exact 658 frozen requests"
+  ],
+  "remote_denylist": [
+    "Databento timeseries get_range or any paid/batch request",
+    "Any EURUSD price, broker, MT5, chart, outcome, PnL, MFE or MAE access",
+    "Any request covering 2021+, the middle [T-15,T+45) interval or a noncanonical identity"
+  ],
+  "authority": {
+    "offline_plan_authorized": true,
+    "free_metadata_quote_authorized": true,
+    "paid_timeseries_authorized": false,
+    "ea_source_build_authorized": false,
+    "economic_outcome_read_authorized": false,
+    "model0_authorized": false,
+    "live_or_paper_authorized": false,
+    "git_commit_or_push_authorized": false
+  },
+  "prohibitions": [
+    "Do not modify registry, preregistration, event clock, strategy logic, docs, MQL5, MT5 or unrelated files.",
+    "Do not read or infer any price/outcome field.",
+    "Do not make paid/time-series calls or add automatic paid retries.",
+    "Do not modify or remove immutable FREE_QUOTE_F8CC5869 evidence.",
+    "Do not stage, commit, push, create a branch, worktree or clone."
+  ]
+}

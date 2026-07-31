@@ -7,6 +7,286 @@
 > explicitly stating the delta, running a cheap falsification probe and freezing
 > an independent prereg. Invalid data/engineering runs do not prove no edge.
 
+- `HYP-PTR-T1-QAWAP-HVG-M5-001` is terminal pre-economic
+  `INVALID_REPAIR_EXHAUSTED__P5_SYNTHETIC_CAPABILITY_FAILS_PRE_ECONOMIC_GATE`
+  (2026-07-31). Two logic-identical canonical synthetic attempts each evaluated
+  210,000 paths without opening market data, PnL, MT5, a split or an economic
+  trial. The one-use repair preserved every core metric and classified all
+  389 invalids as constrained local-Whittle boundary/optimizer events; several
+  family rates exceeded the frozen 0.1% cap. Secondary evidence was also
+  decisive: the exact max-over-null, DFA-agreement and three-of-four Lo support
+  rule produced 0/10,000 support at d=0.10, d=0.15 and d=0.20; even treating all
+  eight d=0.10 invalids as support leaves a one-sided Wilson upper bound about
+  0.00142 versus required power 0.80. STOP relaxing N256, m32, estimator bounds,
+  boundary handling, invalid cap, null families or Lo support under this ID.
+  Failure radius is only this synthetic finite-sample state estimator; it says
+  nothing about market edge, QAWAP economics, any symbol, Bob Volman/SMC or
+  professional trading generally. Closeout:
+  `03. EA Developer/EA_HVGQAWAP_StateEngine/research/HYP-PTR-T1-QAWAP-HVG-M5-001_P12_CLOSEOUT.json`.
+
+- `HYP-LOMX-EXEC-AUDIT-M1-003` is terminal for its audit surface
+  (`PASS_ENGINEERING_EXECUTION_FIDELITY_ONLY_PARK_PARENT_KILL_UNCHANGED`,
+  2026-07-30). Four FivePercent Model-0 TRAIN cells reconciled 5,171 exact
+  closed-bar signal/entry/exit lifecycles with 100% frozen time-gate compliance,
+  proving the successor follows the intended four scenarios. Codex correction
+  V2 additionally binds exact run/source/receipt/report and every
+  REQUEST->SUBMIT->DEAL identity; 31 focused tests reject same-count
+  substitution/corruption. The original Grok
+  packet was BLOCKED on an older source SHA, not a final-source PASS. This does not
+  reopen the parent: diagnostic PF was only `0.866335-0.931270`, all below 1,
+  while economics were unauthorized. STOP rerunning these four cells, treating
+  tester-zero fill delta as live slippage, opening 2021+ validation/holdout, or
+  rescuing by deposit, symbol/set/time/day/year/filter selection. The USD10k
+  stop-out attempt is engineering-invalid; USD500k V2 changed only the host
+  execution envelope. Failure radius is the four-branch execution-fidelity
+  audit, not a materially new London mechanism. Authoritative correction:
+  `03. EA Developer/EA_LondonOpenExecutionAudit/research/HYP-LOMX-EXEC-AUDIT-M1-003_CODEX_REVIEW_ADDENDUM.md`.
+
+- `HYP-EURFXIMM-EURUSD-M1-003` is terminal
+  `KILL_TRAIN_IMMEDIATE_FLOW_CONTINUATION_HOLDOUT_REMAINS_SEALED`
+  (2026-07-30). The fresh, independently literature-anchored object tested
+  whether final-15-second CME 6E aggressive-flow sign predicts EURUSD after a
+  conservative one-completed-M1 delay: enter completed 14:15 and exit completed
+  14:20 Europe/Berlin on the 630 HYP002 strict-lag high-pressure TRAIN dates.
+  HYPIMM001 is a zero-outcome terminal-print harness park. HYPIMM002 is an
+  engineering-invalid availability attempt: it opened the TRAIN target
+  projection but stopped before trade construction/economics when the frozen
+  missing-date set proved empty; it carries no market verdict. Exact successor
+  HYPIMM003 fixed only that contract fact and completed 609 trades with 6/6
+  structural gates and 2.333333/week. Economics failed 0/9: gross PF
+  `0.895392`; PF x1/x1.5/x2 `0.277802/0.162997/0.098500`; x1 expectancy
+  `-1.637931` pips; max x1 DD `-999.8` pips; 0/5 positive years; all
+  leave-one-year-out PF below `0.31`; p=`0.812619`; 20-arm DSR0. Exact flow
+  reversal x1 PF `0.351902`, pressure continuation `0.479366` and pressure
+  reversal `0.189755` also lose. STOP choosing another 1/2/3/10/15/30-minute
+  horizon from this readout, lower-cost assumptions, signal magnitude/deciles,
+  flow-pressure agreement, clock, month/year/regime or direct polarity rescue.
+  Failure radius is this exact M1-closed-bar, one-minute-latency, five-minute
+  target and cost contract—not every order-flow mechanism, a truly executable
+  lower-latency bid/ask contract, another event/session or another symbol.
+  Validation and holdout remain sealed. Evidence:
+  `03. EA Developer/EA_EuropeOpenUSDDemand/research/evidence/HYP-EURFXIMM-EURUSD-M1-003/EURFXIMM003-TRAIN-ECON-001/train_economic_terminal.json`.
+
+- `HYP-EURFXREV-EURUSD-M1-001` is terminal
+  `KILL_TRAIN_PROXY_HOLDOUT_REMAINS_SEALED` (2026-07-29). The fresh target used
+  EURUSD completed-Bid M1 `14:14` entry to `15:59` exit, reversed the sign of
+  the observable `07:59`-to-`14:14` pre-fix pressure, and traded only when
+  absolute pressure was at least the strict-lag median of the prior 60 complete
+  weekdays with min40. Source/cadence passed 5/5: N612, 2.344828/week, LONG/
+  SHORT 53.43%/46.57%, max-year share22.06%. Economics passed 1/8: gross
+  PF1.110752; x1/x1.5/x2 PF0.845237/0.737469/0.643462; x1 expectancy -0.922712
+  pips; 1/5 positive years; p0.180382; DSR0.000121. Absolute pressure had only
+  rho0.0549 with gross reversal PnL. Fast-Kill packet `474B6887...` validates
+  the terminal. STOP direction-only, threshold/lookback, magnitude/calendar,
+  clock/cost/exit, stop/target, validation/holdout, MQL5 and Model 0 rescue.
+  Failure radius is this exact price-pressure post-fix object, not a genuinely
+  new primary order-flow information set. Readout:
+  `03. EA Developer/EA_EuropeOpenUSDDemand/research/HYP-EURFXREV-EURUSD-M1-001_READOUT.md`.
+
+- The `HYP-EURFXOFI-EURUSD-M1-001..016` campaign supersedes the old free-quote
+  state. Owner-authorized paid CME 6E TBBO acquisition HYP006 completed the
+  exact 2016-to-2026-07-29 source cell for USD `2.117540538299` under the USD2.25
+  ceiling: 1,356 files, 21 explicit empty dates and 34,838 records. HYP013
+  independently passed source classification with 100% classified volume and
+  99.9647% direct-versus-pre-trade-quote agreement. Source quality is therefore
+  not the explanation for the economic result. HYP016's engineering-valid
+  2016-2020 final-15-second CME-flow reversal primary realized 608 trades and
+  passed 5/5 structural gates, but x1/x1.5/x2 PF was
+  `0.960369/0.851848/0.755915`, x1 expectancy `-0.252632` pips, DSR0 and only
+  1/9 economic gates passed. This kills only that exact flow-reversal primary;
+  it does not invalidate the acquired source corpus or every order-flow thesis.
+
+- `HYP-EURFXMOM-EURUSD-M1-005` is terminal
+  `KILL_VALIDATION_PRESSURE_CONTINUATION_HOLDOUT_REMAINS_SEALED` (2026-07-30).
+  The discovery control from HYP016 appeared exceptional on TRAIN 2016-2020
+  (x1 PF `4.315168`, x1 expectancy `+7.383882` pips and 5/5 positive years),
+  but the exact untouched 2021-2024 confirmation reconciled all 526 selected
+  dates/trades and failed 0/9 economic gates: gross PF `1.060857`; x1/x1.5/x2
+  PF `0.885041/0.807939/0.737299`; x1 expectancy `-1.009696` pips; max x1 DD
+  `-811.0` pips; 1/4 positive years; every leave-one-year-out PF below 1;
+  p=`0.823518`; DSR0. The exact reverse control also lost at x1 PF `0.787544`.
+  Failure radius is EURUSD completed-Bid M1, strict-lag median-60/min-40 dates,
+  same-direction completed 07:59-to-14:14 Europe/Berlin pressure, completed
+  14:14 entry, completed 15:59 exit and 1.50/2.25/3.00-pip costs. Do not rescue
+  with month/regime/weekday/year, pressure threshold/lookback, clock, cost,
+  direction or exit selection, and do not open the 2025-current holdout for this
+  killed mechanism. HYP-EURFXMOM-001..004 are zero-outcome harness parks and
+  carry no market verdict. A successor requires a materially new mechanism,
+  information set or decision surface under a fresh ID/prereg. Evidence:
+  `03. EA Developer/EA_EuropeOpenUSDDemand/research/evidence/HYP-EURFXMOM-EURUSD-M1-005/EURFXMOM005-VALIDATION-001/validation_terminal.json`.
+
+- `HYP-EUUSD-USDJPY-M1-001`, `HYP-EUUSD-EURUSD-M1-001` and
+  `HYP-EUVIX-EURUSD-M1-002` are terminal
+  `KILL_TRAIN_PROXY_HOLDOUT_REMAINS_SEALED` (2026-07-29). The frozen Europe/
+  Berlin 08:00-to-14:15 completed-Bid M1 USD-demand translation passed source,
+  cadence and structural gates, but USDJPY ended at gross PF1.051219/x1
+  PF0.887604. The stronger EURUSD short showed gross PF1.136519 and sign-flip
+  p0.045395, yet x1/x1.5/x2 PF fell to 0.968723/0.894502/0.826053 with 2/5
+  positive years. The preregistered lagged-VIX successor used the last prior
+  official VIX close against an excluding-current 252-observation median. V1
+  `HYP-EUVIX-EURUSD-M1-001` stopped engineering-invalid before any VIX/PnL join
+  due to a raw-row manifest mismatch and carries no market verdict. V2 corrected
+  only that pre-outcome defect, then ended N592/cadence2.268199 per week, gross
+  PF1.127809 and x1/x1.5/x2 PF0.976592/0.908987/0.846174; 2/5 years positive,
+  sign-flip p0.145385, DSR0.009159 and only 1/8 economic gates. Its x1 lift over
+  the unfiltered parent was just 0.007869. Fast-Kill packet `2A1925EA...`
+  validates the terminal. STOP weekday/month/year selection, VIX threshold or
+  lookback variants, clock/cost/direction changes, indicators, stops/targets,
+  validation/holdout, MQL5 and Model 0. Failure radius is this unconditional or
+  lagged-VIX-gated Europe-open-to-ECB-fix close-only family; a fresh ID requires
+  a materially new contemporaneous information set, not a calendar/VIX retune.
+  Readout:
+  `03. EA Developer/EA_EuropeOpenUSDDemand/research/HYP-EUVIX-EURUSD-M1-002_READOUT.md`.
+
+- `HYP-LOMX-MULTI-M1-002` is terminal
+  `TRAIN_KILL_NO_ELIGIBLE_ARM` (2026-07-30). Parent HYP001 is an
+  outcome-blind data-contract invalidity only: EURUSD positive endpoint-spread
+  coverage `0.926275` missed the frozen `0.95` gate and no economics were
+  computed. HYP002 legally changed only nonpositive historical spread fields
+  to same-symbol positive TRAIN q95 after requiring raw coverage >=0.80. Its
+  6,467-row 2016-2020 broker source and one-shot 23-arm evaluator reconciled.
+  The 10 selectable primaries covered EURUSD/GBPUSD/EURJPY x
+  MIDDAY/LATE_FIX/FULL_SESSION and USDJPY MIDDAY; XAU x3 were external nulls
+  and the 10 reverse arms were diagnostics. Primary N=`1,274-1,290`, cadence
+  `4.889-4.951/week`, gross PF `0.8669-1.0008`, x1 PF `0.6403-0.8927`, every
+  x1 expectancy negative, max positive years 1/5, all Holm p=1.0 and max DSR
+  0.000007. Best x1 was GBPUSD MIDDAY PF0.892719; best gross was the same arm
+  PF1.000755. STOP selecting the least-bad symbol/set, mining years/regimes,
+  changing exits, flipping direction, adding indicators/thresholds, lowering
+  cost, rerunning either ID, or opening validation/holdout/MQL5/Model 0. Failure
+  radius is the exact London 08:00-to-08:30 sign with these frozen exits,
+  polarities and research-cost contract. A fresh ID needs a materially new
+  information mechanism/decision surface, not a rescue of this matrix.
+  Evidence:
+  `03. EA Developer/EA_LondonOpenMultiAssetMomentum/research/evidence/HYP-LOMX-MULTI-M1-002/LOMX002-TRAIN-EVAL-001/`.
+
+- `HYP-LOFIX-USDJPY-M1-002` is terminal
+  `KILL_TRAIN_PROXY_HOLDOUT_REMAINS_SEALED` (2026-07-29). Predecessor HYP001
+  was parked before outcome with attempt consumption zero solely to repair the
+  armed-state sentinel test. The V2 one-shot object used the London 07:59→08:29
+  opening sign to trade only 15:29→15:59 before the 4pm WMR benchmark on frozen
+  FivePercent USDJPY M1 DESIGN 2016-2020. Source/cadence passed 5/5: N=1,283,
+  4.915709/week, 98.3896% coverage, 611 LONG/672 SHORT. Economics failed 0/8:
+  gross PF0.960619; PF x1/x1.5/x2 0.594534/0.469438/0.372685; x1 expectancy
+  -1.625721 pips; 0/5 positive years; permutation p0.645135; DSR0; reverse x1
+  PF0.647909. Every x1 year and all five opening-size quintiles lose.
+  AlphaFactory Fast-Kill packet `B6D94C07...` validates the terminal. STOP
+  clock/direction/long-only/day-month-year/regime/indicator/cost/stop-target
+  rescue, same-ID rerun, validation/holdout, MQL5 or Model 0. Failure radius is
+  the exact opening-sign→pre-fix half-hour close-only object, not a
+  contemporaneous pre-fix inventory/flow signal. Readout:
+  `03. EA Developer/EA_LondonFixHalfHourMomentum/research/HYP-LOFIX-USDJPY-M1-002_READOUT.md`.
+
+- `HYP-LOJM-USDJPY-M1-001` is terminal
+  `KILL_TRAIN_PROXY_HOLDOUT_REMAINS_SEALED` (2026-07-29). Owner directly
+  challenged the older design-only early-to-late momentum prior using new
+  Seeck 2026 public-abstract evidence for the London-open 30-minute sign and JPY
+  amplification. The exact workspace translation used FivePercent USDJPY
+  completed-Bid M1 closes, `Europe/London` DST, 07:59→08:29 formation sign,
+  same-direction 08:29 entry proxy→16:29 exit proxy, one complete weekday trade
+  and fixed 1.50/2.25/3.00-pip costs. Source/cadence passed 5/5: N=1,283,
+  4.915709/week, 611 LONG/672 SHORT, 98.3896% coverage. Economics failed 0/7:
+  gross PF 0.907704; cost PF 0.793002/0.741205/0.692888; x1 expectancy
+  -2.575682 pips; 1/5 positive years; permutation p=0.861814. Reverse-control
+  x1 PF 0.962553 also loses, so direct flip is not a survivor. AlphaFactory
+  Fast-Kill packet `32ECEDA0...` validates the terminal. STOP clock/exit/cost/
+  direction changes, BOJ/year/news deletion, indicator/volatility/trend filters,
+  stop/target invention, same-ID rerun, MQL5 or Model 0. Failure radius is only
+  this remainder-of-London-session close-only translation, not the unretrieved
+  exact paper body or every London/JPY mechanism. Validation 2021-2024 and
+  2025+ holdout remain sealed. Readout:
+  `03. EA Developer/EA_LondonOpenJPYMomentum/research/HYP-LOJM-USDJPY-M1-001_READOUT.md`.
+
+- `HYP-TRILAG-EURJPY-M1-002` is terminal
+  `KILL_DESIGN_STRUCTURE_NO_ECONOMICS_AUTHORITY` (2026-07-29). The exact
+  completed-M1 triangular identity translation passed source integrity on
+  close-only DESIGN 2016-2020: 5,580,755 exported rows, 1,858,844 common
+  timestamps and all three exact-join ratios above 0.999. It failed the frozen
+  structural population before any economics: 67 raw / 58 accepted events over
+  260.565 elapsed weeks (`0.222593/week` vs required 2-5), only 25 LONG / 33
+  SHORT (required >=100 each), 2020 share `46.55%` (max 30%), and median gap
+  `4.8123` pips (minimum 5.0). P25 gap `3.7833` and both signs passed. A
+  byte-identical replay reproduced ledger SHA `4B56B644...`. Do not lower the
+  z=3 threshold, lead-contribution/lag-share rules, shorten the 60-minute
+  cooldown, delete 2020, add session/year filters, use future-path toxicity
+  labels, or rerun this ID. No post-decision price, trade, cost, PF/PnL,
+  economics, validation/holdout, MQL5 or Model 0 was opened, so this is not a
+  market-wide no-edge claim. Failure radius is the exact z3 / same-sign two-lead
+  / each-lead>=25% / EURJPY contemporaneous move<=25% / prior-1440 sigma /
+  60-minute cooldown object. A successor must use a materially different
+  mechanism or information contract under a fresh ID and prereg.
+
+- `HYP-G10-XMOM-W1-002` is terminal
+  `TRAIN_KILL_HOLDOUT_REMAINS_SEALED` (2026-07-29). The single authorized
+  2018-2021 train evaluation was engineering-valid and sample-valid: 207
+  complete weeks, 828 legs per challenger/control arm and cadence 3.967 per
+  elapsed week. The exact prior-completed-W1 rank, top2-long/bottom2-short,
+  current-W1-open-to-close, four-leg all-or-none challenger failed PF at all
+  cost tiers (`0.81395 / 0.75342 / 0.69732`), net/expectancy, MC P95 DD
+  (`11.95%`) and both control-relative gates. It lost on both long and short
+  selections, in every train year, and in six of seven symbols. The exact
+  direction-flipped control also lost (PF `0.90234`, net `-0.36705`), so STOP
+  direct reversion/flip; deleting AUD/NZD or retaining only GBP is same-sample
+  selection. Do not open 2022-2024, rerun, tune rank/ties/cost/clock, add filters,
+  build MQL5/Model 0, or promote this ID. Failure radius is limited to the exact
+  one-week formation and weekly holding/execution contract; a materially
+  different horizon or mechanism requires independent research, a fresh ID,
+  new outcome-blind data contract and frozen prereg. Forensics:
+  `03. EA Developer/EA_G10WeeklyXSMomentum/research/evidence/HYP-G10-XMOM-W1-002/G10XMOM002-TRAIN-EVAL-001/forensics/`.
+
+- `HYP-VCEX-EURUSD-M15-002` is terminal
+  `KILL_DESIGN_ECONOMICS_NO_EDGE` (2026-07-29). The one authorized public-DESIGN
+  attempt consumed the exact 807 matched TRUE fade and FOLLOW_CONTROL continuation
+  signals fixed by source-only HYP001. Only cadence passed (`1/11` gates). At
+  1.50 pips TRUE PF was 0.655314, mean -0.201794R, total -162.848100R,
+  fixed-initial-equity DD 83.0077%, DSR `2.22e-9`, and positive years 0/5.
+  TRUE was slightly worse than FOLLOW_CONTROL (PF delta -0.004031; mean-R delta
+  -0.002629), so flipping polarity does not rescue the mechanism. STOP same-ID
+  rerun, tau/impulse/exhaustion/session/stop/TP/horizon/cost tuning, subgroup
+  selection, MQL5 or MT5 build. Failure radius is the exact VCEX M15
+  tau0.40/early0.45ATR/exhaustion0.30/07-16UTC/max-one-per-day/120-minute/source-
+  stop/1R-TP object on these 807 pairs. A successor needs a materially different
+  mechanism, information/data contract or decision surface under a fresh ID.
+  Evidence:
+  `03. EA Developer/EA_VolumeClockExhaustion/research/evidence/HYP-VCEX-EURUSD-M15-002_DESIGN_ECONOMICS/VCEX002-DESIGN-ECON-001/`.
+
+- `HYP-EVENT-VOL-OCO-EURUSD-M1-001` is
+  `PARK_SOURCE_FEASIBILITY_FAILED` (2026-07-28). The fresh symmetric scheduled
+  high-impact event-volatility OCO was materially distinct from directional
+  news momentum and EventCLOB, and its builder/test/evidence were engineering
+  valid. It still failed before economics: complete clean clusters 256 vs the
+  frozen 316 floor, matched source-feasible pairs 134 vs 209, and pair cadence
+  1.283/week vs 2-5. Even perfect price coverage cannot repair this frozen
+  object: 293 scheduled primaries minus 85 contaminated controls caps clean
+  controls at 208, below the 209 floor. Clean event cadence and risk geometry
+  passed, but there was
+  no post-event OHLC, return, trade, MT5, MQL5, validation or holdout access.
+  STOP same-ID rescue by lowering completeness, pair-count, pair-cadence,
+  overlap, control-window or source-rank gates. A future event-volatility object
+  needs a materially different source/control contract and fresh prereg.
+
+- `HYP-VRAS-EURUSD-M5-012` and `HYP-VRAS-EURUSD-M5-013` are terminal
+  engineering failures (2026-07-23), not economic edge verdicts. HYP012 labeled
+  broker-server epoch milliseconds as UTC (+10,800 seconds); HYP013 normalized
+  them but compared raw current time against normalized last-seen time, yielding
+  240 rows with only 66 unique timestamps. Do not rerun or repair either ID and
+  never accept row-internal `time_msc/time_utc` agreement as proof of absolute
+  clock correctness. HYP014 is the pre-outcome successor and passed only the
+  two-minute unique-UTC feed smoke (53 unique rows, zero orders); it remains at
+  `STOP_DATA_FRONTIER`, with no claim about entry edge, SL, R:R, PF, DD or WR.
+
+- `HYP-VRAS-EURUSD-M5-011` is `PARK_STAGE0_INDICATOR_PARITY_FAIL` (2026-07-23).
+  Administrative predecessors HYP009/HYP010 opened no counts/outcomes; final
+  HYP011 passed 21/21 tests and independent review, then stopped before event
+  counts because its frozen exact-five-M1 M5 contract invalidated partial
+  Friday-close/Monday-open broker bars that MT5 `CopyRates` retains. At exact
+  telemetry `2019.02.04 03:10`, MT5 VWAP48 is 1.14555 while reconstruction is
+  non-finite. This is data-contract failure, not evidence of economic no-edge.
+  STOP repairing partial-bar semantics or rerunning the same first-passage FSM
+  on historical VRAS data; that would be post-gate rescue. Reopening requires a
+  materially new information/data contract or forward-only collection. Readout:
+  `03. EA Developer/EA_VRAS_FirstPassageAcceptance/research/HYP-VRAS-EURUSD-M5-011_STAGE0_READOUT.md`.
+
 - `HYP-VRAS-EURUSD-M5-008` is `FULL_HORIZON_CONFIRMS_NO_EDGE_BOTH_ARMS_NEGATIVE` (2026-07-22).
   Tester-only DD-entry-halt bypass plus cash-risk-preserving account scale delivered the complete 2019-2022 Model-0 sample. Control N4841/PF0.7736/gross-price-PF0.8803/meanR-0.1096; ATR-structural challenger N3611/PF0.7722/gross-price-PF0.8870/meanR-0.1184. Every year, session, direction and telemetry volatility/context quartile loses. Nominal TP1.5R realizes only payoff1.0586, requiring WR48.58% versus 42.20%. Challenger initial-stop share is worse and its lower DD is exposure reduction from 3,835 structural rejects. STOP treating the old DD latch as a hidden-edge explanation or rerunning this exact decision surface with alternate R:R, SL/ATR, session/year/direction filters. Weekend gaps expose a separate future engineering requirement, but adding a Friday flatten/wall-clock rule to HYP008 is post-hoc rescue; it needs a new mechanism ID and prereg.
 
@@ -1384,6 +1664,202 @@ Evidence: `03. EA Developer/EA_VRAS_PathConfirmedTrend/research/HYP-VRAS-EURUSD-
 
 ---
 
+## ASRS report-default volume/session object is parked at Stage-0 (2026-07-25)
+
+Evidence:
+`03. EA Developer/EA_ASRS_AdaptiveSweepReclaim/research/HYP-ASRS-EURUSD-M5-001_STAGE0_READOUT.md`.
+
+- Do not rerun or tune the exact EURUSD M5 object combining confirmed N=2
+  fractal, 0.25x ATR depth sweep, same/next-bar reclaim, ADX<=25, 1.5x prior-20
+  tick-volume, UTC 07:00-21:00 session, mandatory immediate retest and
+  sweep-extreme +0.30x ATR stop.
+- The geometry itself passed the frozen Stage-0 screen: 280 candidates
+  (1.3415/elapsed week), median risk 7.9482 pip, median/p75 1.5-pip proxy cost
+  0.1887R/0.2874R, and max year concentration 29.29%.
+- The required information/session claim failed: only 45.81% of all
+  volume-qualified events occurred inside the report's London-NY wall, below
+  the frozen 50% materiality floor. This is PARK with zero outcome, not an
+  economic edge verdict.
+- Do not rescue this ID by removing or lowering volume, moving session hours,
+  adding HTF bias/news fiction, switching N=3, changing ATR/ADX/retest/RR, or
+  transferring to XAU/GBP after reading the funnel.
+- V1 did not consume a pivot after its first sweep; 280 rows contain 225 unique
+  direction+pivot identities, so cadence may be optimistic. This cannot be
+  patched post-count. A consumption-aware object requires a fresh ID and
+  pre-outcome contract if the Owner opens it.
+- Failure radius is the exact report-default volume/session decision surface,
+  not every wider-stop retest geometry. A legal successor must state a
+  materially new causal/data contract and cannot use this count to tune its
+  thresholds.
+
+---
+
+## SCC confirmed-pivot cascade continuation is parked at Stage-0 (2026-07-25)
+
+Evidence:
+`03. EA Developer/EA_SweepCascadeContinuation/research/HYP-SCC-EURUSD-M5-001_STAGE0_READOUT.md`.
+
+- Do not rerun or tune the exact EURUSD M5 V1 object: latest confirmed strict
+  N=2 pivot known before BREAK, first close-break arm attempt per UTC date,
+  pivot consumed on arm, immediate HOLD outside, 12-bar first-passage retest,
+  close-inside priority, complex-extreme +0.25x ATR14 stop geometry.
+- Its sole outcome-blind 2019–2022 scan yielded 1,242 raw daily BREAK arms,
+  878 HOLD passes and 286 accepted retests = 1.3703 per elapsed week. Pooled
+  and every-year cadence missed the frozen 2.0/week floor; N missed 418.
+- Tight geometry independently failed: median/p25 risk was only
+  3.1866/2.1107 pip; a 1.5-pip RT proxy consumed median/p75
+  0.4707R/0.7107R before commission/slippage.
+- LONG/SHORT balance, year concentration, variable passage lag, deterministic
+  replay, pivot non-reuse and entry-reference integrity passed. These
+  engineering facts do not rescue the failed necessary gates.
+- The 30,089 otherwise visible crossings blocked after the first daily attempt
+  are not a free densification pool. Removing the cap after reading the funnel
+  changes the control population and is post-outcome rescue.
+- Do not widen the stop, change N/horizon/priority, admit more daily arms, add
+  session/weekday/ADX/volume/HTF/news/FVG/score, flip direction or transfer
+  symbol/TF under this ID.
+- Failure radius is this exact price-only confirmed-pivot
+  BREAK→HOLD→RETEST-continuation decision surface and geometry. It does not
+  prove all stop cascades or continuation are false, but a successor requires
+  materially new information/data or a different decision object — not another
+  SCC threshold sibling.
+
+---
+
+## SCC direct-MT5 HOLD-retest continuation is economically killed (2026-07-25)
+
+Evidence:
+`03. EA Developer/EA_SweepCascadeContinuation/research/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_READOUT.md`.
+
+- HYP-002 and HYP-003 did not prove a shell timeout: their unchanged 0.05%
+  risk controls deterministically reached the FivePercent tester/account stop
+  near 10% cumulative balance loss before the requested horizon.
+- HYP-004 changed only identity and risk to 0.01% as a tester-survival
+  instrument. Both frozen arms then processed all 298,483 bars and reconciled
+  report/lifecycle exactly, so this is a valid economic comparison.
+- The raw first-close BREAK control lost with N1112, PF0.698096 and mean
+  realized R=-0.215618. HOLD→retest reduced fills to N261 but also lost with
+  PF0.691278 and mean R=-0.231790; its PF/mean-R deltas were negative.
+- The challenger missed cadence and absolute-edge gates, fixed 1.5-pip stress
+  reduced PF to 0.354074, and only one of four calendar years had PF>1.
+  Lower total loss/DD is lower exposure, not improved expectancy.
+- The first random100 visual campaign opened 100 outcome-blind decision charts
+  plus 100 anatomy charts, but its path-shape evidence is invalid: lifecycle
+  `DEAL_TIME` was broker-server time, the case builder mislabeled it UTC, and
+  the renderer read `time_utc`. Old entry marker-to-bar distance was
+  median/p90 54/180.2 points versus 0/2 points after canonical conversion.
+  Do not reuse its 43/21/21/15 Grok mechanism counts. PNG/hash/coverage checks
+  alone do not prove clock or price-path fidelity.
+- Corrected V2 passed the replacement clock and semantic gates: 100
+  decision-time + 100 anatomy PNGs, 200/200 entry/exit marker events matched
+  UTC M1, zero missing, marker error median/p90/max 0/2/15 points; 20 bounded
+  serial Grok ACP jobs opened all 200 images and reconciled 100/100 case IDs,
+  direction, entry, exit, exit class and H1 range position. QC SHA:
+  `9AE1B83FDB8A50BAC5858DDE68959F7995535E333798F4557AF96C0330E2B86B`.
+- The random100 numeric ledger remains valid (PF0.6035/meanR-0.3112) and
+  confirms the same negative population. Corrected outcome taxonomy was 58
+  tight-stop losses, 23 immediate-expansion paths (21W/2L), 15
+  no-followthrough paths (5W/10L) and 4 mixed. Those labels disclose outcomes
+  and cannot become decision-time entry, stop, target or timeout filters.
+- All-261 descriptive M1 geometry found 86/179 losers below +0.25R MFE, while
+  65/179 losers reached at least +0.50R. This prioritizes a materially new
+  entry/setup information contract and places exit management second, but it
+  grants no rule: MFE/MAE are post-outcome and M1 OHLC is not tick-exact path
+  sequencing. Corrected readout:
+  `03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/HYP004_RANDOM100_GFI_CLOCK_V2_READOUT.md`.
+- Do not rescue HYP-001..004 by tuning retest bars, pivot strength, ATR
+  buffer, stop/target, timeout, session, weekday/year/direction or by
+  optimizing the same price-only object.
+- Failure radius is the exact EURUSD M5 confirmed-pivot first-close BREAK
+  versus HOLD→first-passage-retest continuation surface under the frozen
+  2019-2022 contract. It is not a blanket veto on every sweep/cascade idea.
+  Reopening requires a materially different decision mechanism or information
+  contract, cheap outcome-blind probe and a fresh preregistered ID.
+- Corrected postmortem research does not authorize mining anatomy labels.
+  `P(+0.25R)`, `P(+0.50R)`, MFE, MAE, never-+0.25R and time-to-MFE all read
+  post-entry paths and are outcome-bearing. They may be joined only on DESIGN
+  after a fresh ID/registry/prereg/feature contract and sealed OOS boundary.
+- EBS primary-CLOB order-book state is distinct only if licensed raw
+  point-in-time book/trade data is present. Broker ticks, OHLC reconstruction,
+  daily dashboards or an EBS label on slow data collapse back into killed
+  price/tick lineages. Current gate:
+  `SOURCE_GATE_PENDING_CME_EBS_QUOTE_LICENSE_SAMPLE`; no 2019--2024 local
+  sample, field contract, coverage or price is proven.
+- CME Globex 6E `mbp-10` is not an EBS substitute. A no-charge metadata plan
+  proved a separate 261-window source route at USD0.254399 / 546,318,080 bytes
+  with 259 non-empty windows, and Grok independently classified it
+  `NEW_CANDIDATE_REQUIRED`. If Owner approves the USD ceiling, label any child
+  explicitly as CME 6E futures-book state under a fresh registry/prereg; never
+  call it spot-CLOB resilience, reuse an EBS hypothesis identity, tune from
+  HYP004 outcomes or expand to the rejected ~USD472 / ~1.013TB continuous dump.
+- Cost mode must match the execution API: direct Databento
+  `timeseries.get_range` requires `metadata.get_cost(mode="historical-streaming")`;
+  `mode="historical"` is the batch contract. Re-quote every frozen window
+  before the first paid call even when totals happened to be identical in one
+  audit. For many small paid windows, checkpoint `in_flight` before the call,
+  fully decode and adopt a completed file on resume, and never auto-retry a
+  missing/incomplete charged window; otherwise a crash can pay twice.
+- Do not revive the archived V8 daily SOFR-minus-EuroSTR near-miss
+  (2019--2022 N159, 0.762/week, PF1.0026606830 at 1.5-pip stress, killed below
+  PF1.05) through a daily-rate threshold, z-score, tenor or slow funding
+  variant. A future rates candidate remains distinct only as synchronized
+  intraday 3M SOFR-versus-Euribor listed-futures cojump at the M5 decision
+  clock; it is currently `PARK` behind EBS due absent dual-leg coverage and
+  cross-vendor cost.
+
+---
+
+## CME 6E HOLD-retest source population cannot meet cadence (2026-07-27)
+
+Evidence:
+`03. EA Developer/EA_CME6E_RawBreakBookState/research/20260727_SOURCE_GATE_AND_NEXT_DESIGN_PLAN.md`.
+
+- The exact 261 HYP004 HOLD-to-retest decision timestamps now have validated
+  CME Globex 6E MBP-10 source coverage: 259 response files, 258 nonempty, one
+  complete source-empty response, and zero outcome fields read.
+- This population is terminal at the source/cadence gate before any feature or
+  outcome join. Its absolute ceiling is 1.250515 decisions per elapsed week;
+  filtering can only reduce it below the workspace 2/week minimum.
+- Do not use the paid corpus to tune an order-book threshold, claim HYP004 was
+  rescued, create an EA from the 261 rows or report source validation as edge.
+- A positive metadata billable size is not proof of a market-data record. A
+  complete zero-record DBN must be hash-checkpointed as source-empty and never
+  retried automatically; a missing, incomplete or undecodable charged response
+  remains a hard manual-review stop.
+- Failure radius is the exact 261 HOLD-retest event population. The fresh raw
+  first-close BREAK + CME 6E book-state DESIGN plan is distinct because it uses
+  a broader decision surface and materially new information; it remains
+  approval-gated, outcome-blind and without a hypothesis ID.
+
+---
+
+## MT5-only broker-quote frontier after the >=98% exception (2026-07-26)
+
+Evidence:
+`04. Memory/research/20260726_MT5_ONLY_98_GATE_FRONTIER_READOUT.md`.
+
+- The Owner prospectively accepts MT5 tester history quality `>=98%`; do not
+  misuse that exception to waive observability, de-dup, cost, clock,
+  non-repaint, OOS/robustness or delivery gates, and do not retroactively bless
+  old runs.
+- Do not open `FX_FIX_INVENTORY_WAVE_PRE_ECB` on MT5-only quotes/ticks. Its
+  claimed dealer-inventory/pre-hedging state is unobserved, while its executable
+  rule is only an unconditional EURUSD local-time short window inside the
+  terminal `HYP-BR-SESSDRIFT-EURUSD-H1-001` failure radius.
+- Do not rescue it by ECB/WMR/Frankfurt relabeling, shifting the same-duration
+  window, adding a placebo/window grid, flipping direction, selecting weekdays
+  or attaching a more optimistic spread model. A new label does not create a
+  new information set.
+- Browser Deep Research and a separate bounded read-only Grok forensic review
+  both returned `NO_LEGAL_MT5_ONLY_CANDIDATE`. This closes only the searched
+  MT5-only/de-duplicated frontier, not every future market mechanism.
+- Reopen only with a materially different point-in-time causal input that is
+  actually observable, plus a fresh ID, cheap outcome-blind probe and frozen
+  prereg. Paid data requires an explicit Owner spending ceiling; a forward-only
+  corpus requires immutable first-seen timestamps and independent cost truth.
+
+---
+
 ## D. What is still allowed (narrow)
 
 - Active compilable packages remain under `03. EA Developer/`, but package
@@ -1411,3 +1887,249 @@ Evidence: `03. EA Developer/EA_VRAS_PathConfirmedTrend/research/HYP-VRAS-EURUSD-
   kill than a memo-funnel assertion, but it is still a kill. Reopen needs a
   different object GEOMETRY (wider stops / different entry) as its own hypothesis,
   or a new information set — not another feature on the same tight-stop object.
+## CME 6E raw-BREAK five-level book-alignment DESIGN kill (2026-07-27)
+
+Evidence:
+`03. EA Developer/EA_CME6E_RawBreakBookState/research/HYP-CME6E-RAWBREAK-BOOKSTATE-001_READOUT.md`.
+
+- `HYP-CME6E-RAWBREAK-BOOKSTATE-001` validly tested the exact 2019-2020
+  direction-aligned five-level MBP-10 score frozen before outcomes. Challenger
+  N230/cadence2.205479 per week/PF0.527529/meanR -0.365156/DSR0.000001795;
+  both years and directions lose and only 2/11 gates pass.
+- The score ranks adversely: challenger is worse than the quality-eligible
+  control (PF0.606449/meanR -0.293427) and bottom-score negative control
+  (PF0.691715/meanR -0.221385). Do not rescue it with another percentile,
+  weight, lookback, level count, persistence rule, source-quality exclusion,
+  direction/year/session veto, cost tier or trade-management change.
+- Failure radius is the exact raw first-close BREAK plus this causal CME 6E
+  five-level displayed-depth alignment contract. It does not blacklist every
+  futures microstructure mechanism, but any successor needs a materially new
+  mechanism/data contract/decision surface, cheap outcome-blind de-dup and a
+  fresh ID/prereg. Reusing the same score with a tuned cutoff is post-hoc.
+- OOS 2021-2022 was never quoted, acquired, feature-extracted or joined. Do not
+  open it for this killed object, and do not call the DESIGN kill deploy-ready
+  validation of CME depth on broker EURUSD execution.
+
+### Clock-semantics correction from frozen chart forensics
+
+Evidence:
+`03. EA Developer/EA_CME6E_RawBreakBookState/research/HYP-CME6E-RAWBREAK-BOOKSTATE-001_CHART_FORENSICS_READOUT.md`.
+
+- Do not interpret the control ledger's `decision_time` as the time the raw
+  BREAK is known. It is `bars[0].time`, the open of the closed M5 break bar;
+  actual control decision/entry is on the next-bar tick. The frozen CME window
+  ends 300 seconds too early in 229/230 challenger rows and 330 seconds early
+  in one row.
+- The exact stale pre-break-bar score remains economically killed. The intended
+  actual-decision book mechanism is untested, not disproven.
+- Do not shift the opened DESIGN windows and rejoin outcomes. Any corrected
+  clock, dynamic break-bar flow or cross-venue state requires a fresh untouched
+  population, hypothesis ID, source plan and pre-outcome contract.
+
+## CME 6E raw-BREAK full-break-bar transition DESIGN kill (2026-07-27)
+
+Evidence:
+`03. EA Developer/EA_CME6E_RawBreakBookState/research/HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_READOUT.md`.
+
+- `HYP-CME6E-RAWBREAK-BOOKTRANSITION-002` legally tested the fresh clock-correct
+  object anticipated by the HYP-001 forensics. All 565 2021-2022 identities,
+  directions, break-bar-open clocks and actual next-bar entry clocks reconciled;
+  the source score and median split were frozen before outcome access.
+- Challenger N258/cadence2.477366 per week/PF0.782315/meanR -0.155912/net
+  -USD382.83/DSR0.030471. Both years and both directions are negative; fixed
+  1.5-pip and 2.25-pip proxy PFs are 0.418130 and 0.306215. Only integrity and
+  cadence pass (`2/11`).
+- Ranking still fails: the top-score challenger is slightly worse than the
+  quality control (PF0.792580/meanR -0.146109) and bottom-score control
+  (PF0.803226/meanR -0.136306). The clock correction fixed fidelity but did not
+  create predictive discrimination.
+- Do not rescue HYP-002 with another percentile, transition/persistence weight,
+  level count, quality exclusion, direction/year/session veto, cost tier or
+  management overlay. The opened 2021-2022 outcomes cannot serve as clean
+  validation for a newly invented score.
+- Combined failure radius of HYP-001 and HYP-002: unchanged raw first-close
+  BREAK entry/SL/TP/management plus causal CME 6E five-level displayed-depth
+  filters immediately before or across the break bar. A successor needs a
+  fresh population and materially different mechanism/decision surface (for
+  example separately defined post-break absorption/replenishment around a new
+  pullback entry), a new ID/prereg and a new Owner-approved source plan if paid
+  data is required. This does not blacklist every futures-microstructure idea.
+
+## Scheduled-release late CLOB persistence Stage 0 park (2026-07-28)
+
+Evidence:
+`03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_STAGE0_PARK_CLOSEOUT.md`.
+
+- `HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002` completed the exact Owner-approved
+  design acquisition and failed before any EURUSD outcome was opened. PRE,
+  LATE and paired nonempty coverage passed at 326/329, but only one event passed
+  the frozen source-quality/sign gates: 0.009576/week versus required 2–5.
+- The dominant failure is structural under the frozen contract: 488/652
+  nonempty event-driven MBP segments have a consecutive update gap above one
+  second; PRE fails this rule in 325/326 nonempty segments. Do not reinterpret
+  vendor silence as dense one-second sampling or relax this threshold under the
+  same ID.
+- Eleven segments contain 149 records with `ts_event` just outside the exact
+  request window while `ts_recv` remains inside. This is a receive-clock versus
+  event-clock contract mismatch, not decoder corruption. Do not filter the
+  offending records or widen the windows as a HYP-002 rescue.
+- Failure radius is the exact scheduled point-release population, PRE
+  `[T-60,T-15)`, LATE `[T+45,T+60)`, `6E.v.0` MBP-10 top-five median I5/delta/sign
+  rule and strict gap/staleness/event-clock quality gates. Stage 1, validation
+  purchase, EURUSD outcomes and MQL5 are forbidden for this ID.
+- This PARK is not a market no-edge verdict and does not blacklist every event
+  or microstructure mechanism. A successor needs a materially new mechanism,
+  data contract or decision surface, fresh de-dup, hypothesis ID and prereg;
+  reusing these same windows with looser QC is post-hoc rescue.
+- Lead/process weakness: the one-second inter-record-gap gate was frozen before
+  a representative outcome-blind pilot established whether silence in this
+  event-driven feed meant missing data. It then excluded 488/652 nonempty
+  segments and decided almost the entire population. Future paid source lanes
+  must measure source semantics and expected gate yield on the smallest useful
+  preregistered sample before buying the full design corpus.
+- Reporting weakness: `1/329` was initially summarized as a signal count. The
+  exact state is one `feature-eligible event`, zero opened outcomes and zero
+  trades. Always report the full funnel—request, nonempty, source-quality,
+  feature-eligible, trade and economic survivor—and lead with whether the
+  Owner's EA/economic goal is met.
+
+## TrendStack single-12:00-bar DESIGN economics kill (2026-07-28)
+
+Evidence:
+`03. EA Developer/EA_TrendStackContinuation/research/evidence/HYP-TRENDSTACK-EURUSD-H1-007_DESIGN_ECONOMICS/HYP007-DESIGN-ECON-004/`.
+
+- `HYP-TRENDSTACK-EURUSD-H1-007` is engineering-valid and terminally killed on
+  the frozen 2016--2020 DESIGN surface. The STACK arm produced 661 trades at
+  2.536732 elapsed-week cadence, but PF was only 0.733245 / 0.621044 /
+  0.527567 at 1.50 / 2.25 / 3.00 pips; mean net R at 1.50 pips was -0.122447,
+  total net R -80.937196, positive years 1/5 and DSR 0.000160. Only cadence
+  passed (`1/12` gates); validation and holdout remained sealed.
+- All four tested arms were negative after cost. The best gross mean belonged
+  to M252-only at about +0.043R, but average 1.50-pip cost consumed about
+  0.132R/trade. STACK added no discrimination: versus the best standalone it
+  lost 0.069047 PF and 0.033339R/trade; versus DISAGREE it improved too little
+  to meet either relative gate.
+- Failure radius is the exact M252/M6 direction set, single 12:00 UTC BID H1
+  entry/stop/close proxy, 1.0 ATR emergency stop, no TP, and the four frozen
+  arms/cost/gate contract. Do not rescue it by flipping polarity, selecting
+  long-only, changing hour or holding horizon, modifying stop/target, adding a
+  regime/session/weekday/year filter, or reusing the opened DESIGN readout to
+  choose a subgroup.
+- This does not kill every slow-information or external-state mechanism. A
+  successor needs a materially different point-in-time information set and a
+  fresh package/ID/prereg. Price-only fixing/session windows remain inside the
+  separately closed MT5-only session-drift frontier; relabeling a clock as WMR
+  or ECB is not new information.
+- Engineering lesson: preflight full production input contracts before a
+  one-shot economics attempt. Attempts 001--003 were preserved as null-market
+  engineering-invalid evidence (Stage0 scope, WindowsPath exact-type, and
+  pandas.Timestamp exact-type); attempt 004 is the only economic verdict.
+
+## ARUC activity-response underreaction source campaign (2026-07-29)
+
+Evidence:
+`03. EA Developer/EA_ActivityResponseContinuation/research/evidence/HYP-ARUC-EURUSD-M15-003_SOURCE_FEASIBILITY_ATTEMPTS/ARUC003-SOURCE-ATTEMPT-001/`.
+
+- `HYP-ARUC-EURUSD-M15-001` is terminal pre-run engineering-invalid: its V1
+  parser required every legacy registry row to be canonical compact JSON. No
+  reviewed run was armed, attempt count stayed zero and no DESIGN shard/outcome
+  opened. Append-only policy correctly rejected changing the bound prereg under
+  the same ID.
+- `HYP-ARUC-EURUSD-M15-002` is terminal implementation-invalid after its sole
+  reviewed source attempt exceeded the 3,600-second harness timeout and emitted
+  neither report nor stderr. Root cause is exact and pre-outcome: the scanner
+  rebuilt the entire M15 `(date, slot)` index inside each decision-slot activity
+  and shifted-feature calculation. The orphan process was detected by exact PID
+  and stopped; no economic or market verdict exists for this ID.
+- Fresh implementation-only child `HYP-ARUC-EURUSD-M15-003` preserved every
+  market/data/control/gate rule, precomputed immutable date/bar indices once,
+  passed 107/107 tests plus independent Codex review and completed in 144.9
+  seconds. This proves the repair changed computation, not the tested object.
+- The engineering-valid Stage-0 result is terminal
+  `SOURCE_FAIL_NO_ECONOMICS_AUTHORITY`: PRIMARY=11 over 260.5714 elapsed weeks
+  (`0.0422149/week`), LONG=9, SHORT=2, max-year share=0.54545. Cadence 2--5,
+  SHORT share >=25%, no-year-over-30% and >=20-per-side gates failed. Formation
+  ratio=0.99753, source-executable horizon=1.0 and median 1.5-pip/SL ratio=0.1022
+  passed. PRICE_ONLY=1,296 and SHIFTED_TICKS=24 are controls only.
+- Failure radius is the exact FivePercent EURUSD 2016--2020 public-DESIGN ARUC
+  decision surface: M15 signed delta-close x tick-volume activity versus the
+  prior 20 same-slot business dates, H1 Wilder ATR20 response, 07:00--15:00 UTC,
+  first per arm/day, PRIMARY thresholds `A>=1.50`, `|Q|/sumTV>=0.55`, sign
+  agreement and `0.15<=|R|<=0.50`, plus the frozen observed-bar horizon/gates.
+- Do not rescue it with lower activity/imbalance thresholds, wider response
+  range, extra hours, long-only/year/session selection, PRICE_ONLY promotion,
+  SHIFTED_TICKS promotion or same-ID rerun. No outcome was opened, so this is
+  not an economic no-edge claim; a successor must use a materially new causal
+  mechanism or decision surface, fresh ID/de-dup/probe and fresh prereg.
+- Reusable engineering lesson: any production source probe over tens of
+  thousands of decisions must have an explicit complexity test that counts
+  full-index construction and a bounded harness terminal. Synthetic correctness
+  alone did not expose the repeated-index failure.
+
+## JCDR jump-cluster decay reversal source kill (2026-07-29)
+
+Evidence:
+`03. EA Developer/EA_JumpClusterDecayReversal/research/evidence/HYP-JCDR-EURUSD-M1-001_SOURCE_FEASIBILITY/JCDR001-SOURCE-001/`.
+
+- `HYP-JCDR-EURUSD-M1-001` completed its single reviewed, outcome-blind
+  public-DESIGN source attempt with 1,269 raw and 1,262 executable TRUE
+  decisions plus 1,262 timestamp-matched FOLLOW_CONTROL rows. Exact replay,
+  outcome blindness and the artifact/hash chain passed.
+- Ten of eleven frozen feasibility gates passed: cadence was
+  `4.845858/week`; LONG/SHORT counts were 643/619; maximum year share was
+  `0.203645`; source-observed horizon ratio was `0.994484`; median planned stop
+  was 8.6 pips and median 1.5-pip-cost/stop ratio was `0.174419`.
+- The terminal failure was data-contract completeness, not market economics.
+  Formation completeness was `0.91598488`: 1,703,567 complete scheduled M1
+  bars out of 1,859,820 across 1,073 source segments with 1,072 internal gaps,
+  below the frozen `0.99` gate. Verdict:
+  `KILL_SOURCE_FEASIBILITY_FORMATION_COMPLETENESS`.
+- Failure radius is the exact JCDR source contract, including its full-period
+  formation denominator, jump/cluster/decay/reversal thresholds, first per UTC
+  day selection, matched continuation control and one authorized source
+  attempt. Do not rescue it under the same ID by changing thresholds, lookback,
+  missing-bar tolerance, eligible denominator, session/year subset or source
+  layout.
+- No future price outcome, PF, return, trade, validation/holdout, MQL5 or MT5
+  surface was opened, so this is not a no-edge verdict. A successor requires a
+  materially new mechanism or decision surface, fresh ID and fresh prereg.
+- Reusable design lesson: when a strict-prior rolling baseline requires burn-in,
+  define the assessable formation population after burn-in in the frozen plan.
+  Do not let structurally ineligible warm-up dates decide a completeness gate,
+  and never repair that denominator after reading the result.
+
+## SRIR spread-recovery impact-reversal source kill (2026-07-29)
+
+Evidence:
+`03. EA Developer/EA_SpreadRecoveryImpactReversal/research/evidence/HYP-SRIR-EURUSD-M5-001_SOURCE_FEASIBILITY/SRIR001-SOURCE-001/`.
+
+- `HYP-SRIR-EURUSD-M5-001` completed its single reviewed, outcome-blind
+  public-DESIGN source attempt. The terminal/hash chain, independent replay and
+  Grok forensic packet are valid; no post-entry OHLC, return, trade, economics,
+  validation/holdout, MQL5 or MT5 surface was opened.
+- The frozen scanner found 209 shocks, 93 shock replacements and 115 recovery
+  expiries, but zero accepted three-bar spread-normalization plus partial-
+  retracement decisions. TRUE and FOLLOW_CONTROL therefore both had zero
+  executable rows and cadence was zero.
+- Four of thirteen source gates passed. Exact scheduled formation completeness
+  passed at `0.99827856`; positive finite M1 spread coverage failed at
+  `0.92192792`, and frozen same-slot prior-20 eligible-date baseline availability
+  failed at `0.78577027`. With zero accepted decisions, horizon, cadence,
+  direction-count and planned stop/cost gates also failed.
+- Terminal verdict is `KILL_SOURCE_FEASIBILITY_ZERO_RECOVERY_AND_COVERAGE`.
+  Failure radius is the exact EURUSD M5 public-DESIGN same-slot spread-shock,
+  three-bar spread-recovery/partial-retracement, first-per-UTC-day decision
+  surface and its frozen coverage/cadence/direction/year/stop/cost gates.
+- Do not rescue the ID by lowering the 2x/+5-point shock, widening the three-bar
+  window, loosening 1.25x recovery or 25% retracement, changing session/day,
+  filling missing spread/baselines, switching to continuation, selecting a
+  subgroup or rerunning the same artifact. A continuation or persistent-
+  impairment thesis must be a materially new mechanism/decision surface under
+  a fresh ID and independently frozen prereg, not a polarity flip chosen from
+  this readout.
+- This is not a market-wide no-edge claim. It says only that the exact SRIR001
+  source object cannot supply a legal economic population on this data contract.
+  Reusable lesson: audit prospective availability of every indicator input
+  (including producer spread and same-slot history) before spending a one-shot
+  source attempt, and keep a zero-row JSONL valid when the reconciled population
+  is truly empty.

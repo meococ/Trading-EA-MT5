@@ -1,0 +1,8 @@
+{
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-013",
+  "run_id": "HYP013_ENGINEERING_BUILD_20260723",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_QuoteTickAcceptance\\research\\evidence\\HYP-VRAS-EURUSD-M5-013_ENGINEERING",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_QuoteTickAcceptance\\research\\evidence\\HYP-VRAS-EURUSD-M5-013_ENGINEERING\\EA_VRAS_QuoteTickAcceptance.snapshot.mq5",
+  "source_sha256": "A74826E4BF0DC5CA5D5D976FD759210A6E01CDFE047E5F4BF6D7C2AEF097373E",
+  "include_snapshots": []
+}

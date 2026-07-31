@@ -1,6 +1,6 @@
 # Golden Path Generic — Thiết kế đến quyết định EA
 
-Cập nhật: 2026-07-22
+Cập nhật: 2026-07-26
 
 Đây là đường mặc định cho mọi EA. Scope Owner hiện tại + active lock + prereg/
 registry/task packet quyết định lane/run được phép; `hot.md` chỉ giúp định tuyến
@@ -12,9 +12,9 @@ và có thể trễ. AlphaFactory là harness. Compile xanh không phải edge v
 Flow mặc định:
 
 `Owner intent → kiểm lock/artifact hiện tại → failure-radius classification →
-logic matrix → probe rẻ → freeze prereg/registry → Grok/worker build →
-test + compile + non-repaint → một Model 0 đóng băng → report/log/casebook →
-Grok/human forensics → delivery gate → PASS hoặc park/kill → lesson + ID mới`
+logic matrix → probe rẻ → freeze prereg/registry → build → test + compile +
+non-repaint → Model 0 đóng băng → metrics/log triage → route: Fast-Kill hoặc
+Heavy-Delivery → quyết định → lesson + ID mới`
 
 Trước khi từ chối hoặc mở một EA mới, lead phải:
 
@@ -33,6 +33,13 @@ Kết quả “no edge” chỉ có hiệu lực trong tested object đã bind. 
 tạo EA mới; nó buộc EA mới phải giải thích thông tin/cơ chế mới và trả chi phí
 bằng chứng cao hơn.
 
+Nếu outcome Owner là một EA/book có positive expectancy và outcome đó còn UNMET,
+lead không được kết thúc ở `KILLED` hoặc một prompt `NO LEGAL CANDIDATE`. Phải
+đóng artifact của cell hiện tại, ghi exact search boundary/failure packet, rồi mở
+cell hợp pháp tiếp theo trong scope. Chỉ dừng toàn dự án khi boundary cấp dự án
+đã được khai và tiêu hết, hoặc bước kế cần quyền mới như chi phí, live risk,
+credential hay đổi symbol/TF/thesis vật chất.
+
 ## 1. Intake thiết kế
 
 Agent chuyển brief của Owner thành rule định lượng: entry, invalidation, SL/TP,
@@ -49,10 +56,11 @@ và test/parity proof. Context không được âm thầm thay thế trigger. Ma
 
 ## 2. De-dup và probe rẻ
 
-Đọc `do_not_repeat_failures.md`, registry và lineage liên quan để xác định failure
-radius, không để lập blacklist indicator/family. Ghi classification và material
-delta; tạo row `idea` hoặc `probe`, draft prereg từ template, rồi chạy probe
-offline rẻ trước ceremony.
+Tìm mechanism/family/ID/data-contract liên quan trong
+`do_not_repeat_failures.md`, registry và lineage để xác định failure radius;
+không cần nạp toàn bộ catalog cho một candidate hẹp và không lập blacklist
+indicator/family. Ghi classification và material delta; tạo row `idea` hoặc
+`probe`, draft prereg từ template, rồi chạy probe offline rẻ trước ceremony.
 Probe mới import từ probe SDK `02. AlphaFactory/tools/research/` (indicators,
 sealed_loader, trial_log, metrics, controls, dsr, chart_case_render) — nên
 tái sử dụng thay vì copy lại code; tham số chiến lược đến từ frozen plan, không từ kit. Lane hướng
@@ -143,10 +151,31 @@ symbol/TF/window/Model/data/cost identity; chỉ decision surface đã prereg đ
 holdout/WFA, sensitivity, Monte Carlo, regime/concentration, execution audit và
 casebook theo stage.
 
-## 9. Post-run forensics và delivery gate bắt buộc
+## 9. Post-run routing: Fast-Kill hoặc Heavy-Delivery
 
-Một meaningful backtest chưa khép kín sau khi có report hoặc `validate-full`.
-Agent phải hoàn thành đủ vòng sau trên đúng source/run đã hash-bind:
+Ngay sau metrics, cost và log triage, route theo contract đã khóa trước outcome:
+
+- **Fast-Kill:** exact cell đã chạm fatal gate preregistered. Chỉ đóng bằng
+  `alphafactory_fast_kill_closeout.v1`; Model 0 vẫn phải bind source/compile/
+  non-repaint/run/report/metrics/log triage. Không render casebook, không gọi
+  Grok, không được dùng packet này để nói EA/book đã hoàn thành.
+- **Heavy-Delivery:** candidate sống qua necessary-condition gates, cần đi tiếp,
+  cần dùng anatomy để mở hypothesis mới, hoặc có claim `DONE|complete|ready`.
+  Khi đó mới áp toàn bộ forensics/casebook/reviewer/delivery bên dưới.
+
+Không Fast-Kill theo một cutoff nhìn thấy hậu nghiệm. Minimum observations và
+sequential futility boundary phải nằm trong prereg trước kết quả. Engineering/
+data invalid chỉ sửa fidelity hoặc đóng INVALID, không được suy rộng thành no-edge.
+
+### Heavy-Delivery forensics và delivery gate
+
+### Chẩn đoán full-horizon khi DD guard làm censor mẫu
+
+Nếu account-DD guard dừng entry trước khi đi hết cửa sổ và Owner cần xem hành vi toàn chart, phải mở một ID chẩn đoán mới, đóng băng trước outcome và `promotion_eligible=false`. Chế độ này chỉ được bypass **entry halt** trong Strategy Tester; vẫn phải đo/nghi lại threshold breach, initial-equity DD, peak-to-trough DD, broker stop-out và full-window coverage. Giảm fixed-fraction risk để tester sống sót được phép khi khai trước và khi kết luận dựa trên PF/R/cadence thay vì so dollar P/L trực tiếp. Phải nhớ tester/account của broker có thể còn stop-out riêng dù EA không latch DD; nếu cần scale deposit và risk, giữ nguyên ngân sách rủi ro tiền ban đầu, mở ID engineering successor mới và chứng minh không làm mất signal vì minimum lot. Với EA intraday, full-horizon diagnostic còn phải audit elapsed wall-clock, overnight/weekend crossing và gap xuyên SL; time-stop đếm bar có thể tạm dừng khi market đóng và biến R:R danh nghĩa thành tail không kiểm soát. Không được dùng run full-horizon để nới risk live, cứu hypothesis terminal, chọn năm/giờ tốt hoặc tune SL/R:R hậu nghiệm.
+
+Một survivor/continued-candidate backtest chưa khép kín sau khi có report hoặc
+`validate-full`. Agent phải hoàn thành đủ vòng sau trên đúng source/run đã
+hash-bind:
 
 1. Re-read logic matrix và source để xác nhận state machine thực chạy đúng
    intent, đúng sequencing, không có mode/default dormant hoặc proxy bị gọi nhầm
@@ -158,7 +187,7 @@ Agent phải hoàn thành đủ vòng sau trên đúng source/run đã hash-bind
    regime/context state, concentration và execution quality.
 4. Giải thích riêng cơ chế thắng, cơ chế thua và điểm logic xung đột. Kết luận
    từ pattern hậu nghiệm chỉ là lead cho hypothesis mới, không được patch thẳng.
-5. Freeze sampling trước khi xem ảnh, rồi render casebook. Mức delivery tối
+5. Freeze sampling trước khi xem ảnh, rồi render casebook cho Heavy-Delivery. Mức delivery tối
    thiểu vẫn là hai winner + hai loser khi có đủ mẫu; postmortem lớn nên có
    random population, tail, median, matched winner/loser cùng direction,
    session, volatility/risk bucket và anomaly/rejection. Profile mở rộng
@@ -174,7 +203,7 @@ Agent phải hoàn thành đủ vòng sau trên đúng source/run đã hash-bind
    decision time; post-run recompute chỉ được gắn `NON_PARITY_DIAGNOSTIC` cho
    tới khi parity harness chứng minh khớp. Manifest bind source, bars,
    renderer, indicator source, time axis, case IDs và từng PNG hash.
-8. Fan-out visual review theo vai: Grok A ưu tiên timing/price/indicator
+8. Khi chart review có giá trị vật chất hoặc được cite, fan-out visual review theo vai: Grok A ưu tiên timing/price/indicator
    context; Grok B ưu tiên adverse path, risk/exit/execution và phản biện.
    Mặc định 5 case/job, chạy Grok backend serial, request artifact + dry-run,
    validate exact coverage/IDs/image-open. Parent Lead Quant đối chiếu lại với
@@ -201,10 +230,14 @@ không thay thế prereg, registry, `validate-full` hoặc promotion gates.
 
 Mỗi gate là `PASS|FAIL|INSUFFICIENT`. Fail hợp lệ → append `parked/killed`; muốn
 đổi cơ chế/ngưỡng phải mở hypothesis mới. Pass research không đồng nghĩa live.
+Cũng không được đồng nhất delivery packet `KILLED` với việc hoàn thành mục tiêu
+book; packet chỉ khép đúng EA/hypothesis đã bind.
 Cập nhật `hot.md`, registry/readout, failure memory nếu có kill, source-of-truth
 nếu path đổi, rồi archive-first cleanup. Chỉ commit/push khi Owner yêu cầu rõ
-trong message hiện tại. Closeout có backtest phải trỏ tới delivery packet PASS;
-không có packet PASS thì trạng thái cao nhất chỉ là `UNMET/PARTIAL`.
+trong message hiện tại. Closeout survivor/continued candidate phải trỏ tới
+delivery packet PASS. Exact cell Fast-Kill được đóng terminal bằng Fast-Kill
+packet PASS nhưng outcome book vẫn `UNMET`; không có một trong hai packet hợp lệ
+thì trạng thái chỉ là `UNMET/PARTIAL`.
 
 ## Owner gửi thiết kế như thế nào
 

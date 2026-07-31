@@ -1,0 +1,40 @@
+{
+  "schema_version": "eurfxmom002.validation_review.v1",
+  "hypothesis_id": "HYP-EURFXMOM-EURUSD-M1-002",
+  "reviewed_at_utc": "2026-07-30T09:33:00Z",
+  "reviewer": "parent_lead_quant_integrator",
+  "lineage": "Exact pre-outcome successor to parked HYP-EURFXMOM-EURUSD-M1-001. HYP001 opened no validation or holdout outcomes.",
+  "review_scope": "Final wrapper/foundation, preregistration, causal signal, validation-only target projection, costs, metrics, charts and one-shot authority review.",
+  "plan_sha256": "AA69DA46D7D18C7C14DA74A1F4405CBE4F7345E76E80AFC7AB6BF2781A48940C",
+  "reviewed_evaluator_path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/evaluate_eurfxmom_eurusd_002_validation.py",
+  "reviewed_evaluator_base_sha256": "08C01CB5A52C576001E65D1DCB0D0F8F189C4BA2515CCE22E4E1B9B06FEBB2DC",
+  "reviewed_foundation_path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/evaluate_eurfxmom_eurusd_001_validation.py",
+  "reviewed_foundation_sha256": "3B7ACBEB9C2420DF9C9A288BBC6F5E2A1ABF9539BFE6970CB21DF3FC2C3804AD",
+  "reviewed_test_path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/tests/test_evaluate_eurfxmom_eurusd_002_validation.py",
+  "reviewed_test_sha256": "128423E18C2EA2FB5640EE51DB36AE5B6DA0291DC5303C530BBA00256929D207",
+  "tests": {
+    "command": "python -B -m pytest -q -p no:cacheprovider test_evaluate_eurfxmom_eurusd_001_validation.py test_evaluate_eurfxmom_eurusd_002_validation.py",
+    "passed": 14,
+    "failed": 0
+  },
+  "disarmed_preflight": {
+    "exit_code": 2,
+    "error": "registry sentinel is not armed",
+    "evidence_root_absent": true,
+    "validation_target_rows_read": 0,
+    "validation_outcomes_opened": false,
+    "holdout_outcomes_opened": false
+  },
+  "bindings": {
+    "signal_date_ledger_sha256": "EA0083B28AEF366ABDDCD36C82505100B2B9E10D54AC700E384879D83EF0E1DF",
+    "dataset_parquet_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+    "dataset_manifest_sha256": "2CD996FD4416B1E888BF1C9D272BF49056DB3A4CE477CF74FA4E31D474A41B54",
+    "canonical_dsr_sha256": "A0659CDCDB2EAB4F29F69A1FBF4222FE3EC12467FE4CC664E194173126A4CEEA",
+    "discovery_terminal_sha256": "3E351BA4C03C2E08312D9D0CF099610DC847BCCF9A90B1401476C8EE36FB3BD2",
+    "discovery_trades_sha256": "B46A3A3B18F354F2F5F72D74E59C909BDBCCE4F66E0752C98AF6E84C8A05BDF0"
+  },
+  "causality_review": "PASS",
+  "validation_only_projection_review": "PASS: [2021-01-01,2025-01-01) filter plus loaded-timestamp fail-closed check.",
+  "cost_and_gate_review": "PASS: exact 1.50/2.25/3.00-pip costs and frozen gates.",
+  "verdict": "PASS_STATIC_REVIEW_READY_FOR_IDEA_THEN_ONE_SHOT_VALIDATION_AUTHORITY"
+}

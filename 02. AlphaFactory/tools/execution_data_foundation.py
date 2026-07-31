@@ -177,7 +177,10 @@ def percentile(values: Iterable[float], fraction: float) -> float | None:
 def resolve_artifact(
     node: dict[str, Any], manifest_path: Path, label: str
 ) -> Path | None:
-    if node.get("status") != "AVAILABLE":
+    # A PARTIAL artifact is still evidence and must be integrity/content checked.
+    # Its status remains a promotion blocker below, but skipping the file here
+    # would let malformed or mis-clocked smoke captures evade validation.
+    if node.get("status") not in {"AVAILABLE", "PARTIAL"}:
         return None
     path = Path(str(node.get("path") or ""))
     if not path.is_absolute():
@@ -212,8 +215,8 @@ def validate_ticks(
         if str(row.get("symbol") or "") != symbol:
             raise ValueError(f"quote_ticks row {index} symbol mismatch")
         time_msc = integer(row.get("time_msc"), f"quote_ticks row {index} time_msc")
-        if last_msc is not None and time_msc < last_msc:
-            raise ValueError(f"quote_ticks row {index} is not monotonic")
+        if last_msc is not None and time_msc <= last_msc:
+            raise ValueError(f"quote_ticks row {index} is not strictly monotonic")
         expected_time = datetime.fromtimestamp(time_msc / 1000.0, tz=timezone.utc)
         actual_time = parse_utc(row.get("time_utc"), f"quote_ticks row {index} time_utc")
         if abs((actual_time - expected_time).total_seconds()) > 0.001:
@@ -228,6 +231,8 @@ def validate_ticks(
     assert first_msc is not None and last_msc is not None
     return {
         "row_count": len(rows),
+        "from_time_msc": first_msc,
+        "to_time_msc": last_msc,
         "from_utc": iso_utc(datetime.fromtimestamp(first_msc / 1000.0, tz=timezone.utc)),
         "to_utc": iso_utc(datetime.fromtimestamp(last_msc / 1000.0, tz=timezone.utc)),
         "elapsed_days": (last_msc - first_msc) / 86_400_000.0,
@@ -397,6 +402,9 @@ def validate_bundle(manifest_path: Path) -> dict[str, Any]:
         raise ValueError("unsupported manifest schema")
     gates = payload["research_gates"]
     broker = payload["broker_identity"]
+    manifest_created_msc = int(
+        parse_utc(payload["created_at_utc"], "created_at_utc").timestamp() * 1000
+    )
     server_match = broker["expected_server"] == broker["observed_server"]
     results: list[dict[str, Any]] = []
     symbols_seen = [str(item.get("symbol") or "") for item in payload["symbols"]]
@@ -453,9 +461,11 @@ def validate_bundle(manifest_path: Path) -> dict[str, Any]:
             ),
         ):
             node = item[key]
+            status = str(node.get("status") or "MISSING")
+            if status != "AVAILABLE":
+                blockers.append(f"{key.upper()}_{status}")
             path = resolve_artifact(node, manifest_path, f"{symbol}.{key}")
             if path is None:
-                blockers.append(f"{key.upper()}_{node.get('status', 'MISSING')}")
                 continue
             metrics[key] = validator(path, node)
         ticks = metrics.get("quote_ticks") or {}
@@ -464,6 +474,8 @@ def validate_bundle(manifest_path: Path) -> dict[str, Any]:
         slippage = metrics.get("slippage_fills") or {}
         if ticks and ticks.get("elapsed_days", 0) < gates["minimum_quote_elapsed_days"]:
             blockers.append("QUOTE_WINDOW_TOO_SHORT")
+        if ticks and ticks.get("to_time_msc", 0) > manifest_created_msc + 1000:
+            blockers.append("QUOTE_CLOCK_FUTURE_OF_MANIFEST")
         if ticks:
             elapsed = max(float(ticks.get("elapsed_days", 0)), 1.0)
             if ticks.get("row_count", 0) / elapsed < gates["minimum_quote_rows_per_elapsed_day"]:

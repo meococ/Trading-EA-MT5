@@ -1,0 +1,806 @@
+{
+  "schema_version": "vras_hyp008_grok_random100_qc.v1",
+  "created_at_utc": "2026-07-22T18:36:35.487251Z",
+  "campaign_id": "HYP-VRAS-EURUSD-M5-008_GROK_RANDOM100",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-008",
+  "run_id": "20260722_233420",
+  "forensic_only": true,
+  "promotion_blocked": true,
+  "post_hoc_rescue_blocked": true,
+  "coverage": {
+    "pass_a_jobs": 20,
+    "pass_b_jobs": 20,
+    "validated_outputs_read": 40,
+    "pass_a_cases": 100,
+    "pass_b_cases": 100,
+    "images_opened": 200,
+    "same_case_union": true
+  },
+  "case_ids_sha256": "1575D6F262034E43439B406E56731A093136919AC6F505C2BEBC407D11F722EA",
+  "selection_manifest": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/evidence/HYP-VRAS-EURUSD-M5-008_GROK_RANDOM100/selection_manifest.json",
+  "selection_manifest_sha256": "41510AF729C9703F084FC974A209A163C9CC70468447DE23B315976321C2C4C1",
+  "chart_manifest": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/evidence/HYP-VRAS-EURUSD-M5-008_GROK_RANDOM100/chart_manifest.json",
+  "chart_manifest_sha256": "FA1E119B8578C6B65BF8A9181447EF3C56758EB0084407B7BB7500FA5A840EED",
+  "synthesis_accepted": ".context/vras-hyp008-grok-random100/validated/synthesis.json",
+  "synthesis_accepted_sha256": "1D682FDD77A74AAA91ECD16E2EE5149D3C9A12AF20AB71431E09CF1D4C1BF0A4",
+  "synthesis_response": ".context/vras-hyp008-grok-random100/attempts/synthesis/synthesis/attempt-006-actual/grok-response.json",
+  "synthesis_response_sha256": "13B549BF8944F380C3D6A318DB3EE143C910AEEBB0EB5703A88DF29331A67C88",
+  "published_report": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/evidence/HYP-VRAS-EURUSD-M5-008_GROK_RANDOM100/HYP-VRAS-EURUSD-M5-008_GROK_RANDOM100_FORENSIC_REPORT.md",
+  "published_report_sha256": "16630AD6BDFBA9CA891DE276D38217B0EAE2DD668A092726610C9EDF72A97AA9",
+  "jobs": [
+    {
+      "stage": "pass-a",
+      "job_id": "job-01",
+      "case_ids": [
+        "VRAS-008-R001-P5536",
+        "VRAS-008-R002-P1324",
+        "VRAS-008-R003-P1584",
+        "VRAS-008-R004-P1100",
+        "VRAS-008-R005-P4118"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-01/attempt-005-actual/grok-request.json",
+      "request_sha256": "FCD52CB35A44AA360E93518EE06466CD823029373512B9A023D02F86157EAF48",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-01/attempt-005-actual/grok-response.json",
+      "response_sha256": "6D315F692B04372C82A2AE9F9A2DB551492FDBE1407AC9CC60AD3E5CD4739EEA",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-01/attempt-005-actual/summary.json",
+      "summary_sha256": "80BC1E97B8F2E3139B539AE08BD8E18726C3474C91E6F1C7FBE41A99D5DB650D",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-02",
+      "case_ids": [
+        "VRAS-008-R006-P3252",
+        "VRAS-008-R007-P5424",
+        "VRAS-008-R008-P190",
+        "VRAS-008-R009-P5224",
+        "VRAS-008-R010-P6578"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-02/attempt-003-actual/grok-request.json",
+      "request_sha256": "9096532122BBE9B044F6BDBADDA79EBA711C7BA072472AD60D30E3EAD1A613C7",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-02/attempt-003-actual/grok-response.json",
+      "response_sha256": "F7823DE2AB65644F87B50E54EE9D4E056C8EAB5C644EB7D34BC6D0F8CEF637CC",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-02/attempt-003-actual/summary.json",
+      "summary_sha256": "06703E4BDFA90B44409DC8B172EAAB7F17DCEBEF2862C9D8D76D43158A42B5BC",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-03",
+      "case_ids": [
+        "VRAS-008-R011-P556",
+        "VRAS-008-R012-P2442",
+        "VRAS-008-R013-P3812",
+        "VRAS-008-R014-P5668",
+        "VRAS-008-R015-P6388"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-03/attempt-002-actual/grok-request.json",
+      "request_sha256": "E7CC308F435B14D0EA6EB615B6C0AB824DED11CEBBB7A5759FD3841D86C0FC9B",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-03/attempt-002-actual/grok-response.json",
+      "response_sha256": "4CE7C59D7F5CB485DBB3B81067C30583D33AB12B591F7F5E8590A101610A1C7D",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-03/attempt-002-actual/summary.json",
+      "summary_sha256": "4235E31E9E6C588EFFBA038FB0179675B594FA5101B00856E3F0103EC9F0C20E",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-04",
+      "case_ids": [
+        "VRAS-008-R016-P5108",
+        "VRAS-008-R017-P5462",
+        "VRAS-008-R018-P3600",
+        "VRAS-008-R019-P5240",
+        "VRAS-008-R020-P976"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-04/attempt-002-actual/grok-request.json",
+      "request_sha256": "9B3C00EA4A24967E58AEA4805781FE97843F9BE394E8C9D685132A8205F14609",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-04/attempt-002-actual/grok-response.json",
+      "response_sha256": "3364C48D19F6D7EC92C91CB7BB803F98A2BD255E50AFBBA45F967999A925E662",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-04/attempt-002-actual/summary.json",
+      "summary_sha256": "BDA52798396C3D6B53FDCCDACE2BD4E4D13FD41CF2E9D2A9FE8197FCE470FC02",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-05",
+      "case_ids": [
+        "VRAS-008-R021-P4608",
+        "VRAS-008-R022-P5250",
+        "VRAS-008-R023-P3038",
+        "VRAS-008-R024-P3438",
+        "VRAS-008-R025-P5068"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-05/attempt-002-actual/grok-request.json",
+      "request_sha256": "6EBDA2C07885CA5203E3E8BFA6BB0936609000A9EB137C1407E24BC799323C74",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-05/attempt-002-actual/grok-response.json",
+      "response_sha256": "EA08901E6A6AE19A49F9EE8C5B92114D4EC620B50221F7F33523CC13B35C33BF",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-05/attempt-002-actual/summary.json",
+      "summary_sha256": "579FEFCC6B58A08420E2FBEB8929FF5AFB2CBC0B8C6C691758F1209399A9B3F4",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-06",
+      "case_ids": [
+        "VRAS-008-R026-P6632",
+        "VRAS-008-R027-P6878",
+        "VRAS-008-R028-P1764",
+        "VRAS-008-R029-P6454",
+        "VRAS-008-R030-P1932"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-06/attempt-002-actual/grok-request.json",
+      "request_sha256": "1BDE52E6AE8A5D9630B87FB639330DBEAAFFEC950CFFBDAE628877F1414B716A",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-06/attempt-002-actual/grok-response.json",
+      "response_sha256": "3DF886E98D7D1C2678A06C88536AD609699E3368C41E2D0AD2B1D96A418DEDEB",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-06/attempt-002-actual/summary.json",
+      "summary_sha256": "097F12B662368377FE49FC0BC2CDAE1C0A8842077DF46F1738DEE2664A823320",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-07",
+      "case_ids": [
+        "VRAS-008-R031-P4944",
+        "VRAS-008-R032-P5212",
+        "VRAS-008-R033-P4280",
+        "VRAS-008-R034-P378",
+        "VRAS-008-R035-P6438"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-07/attempt-002-actual/grok-request.json",
+      "request_sha256": "862C528A1100D3F3D60A46D06F80B8D5A9CFF85418E0224BBD4BA05EEE60C231",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-07/attempt-002-actual/grok-response.json",
+      "response_sha256": "D39DFA81D26D1FD945C9576072EB646C255D16603A40BCFEBAEE4BB72F5D60B4",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-07/attempt-002-actual/summary.json",
+      "summary_sha256": "9A0B964854E247E56D15EEE74741289ABCC0B1C11D27B8EEB3D69F9527185D9F",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-08",
+      "case_ids": [
+        "VRAS-008-R036-P2972",
+        "VRAS-008-R037-P3846",
+        "VRAS-008-R038-P3924",
+        "VRAS-008-R039-P5870",
+        "VRAS-008-R040-P5962"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-08/attempt-002-actual/grok-request.json",
+      "request_sha256": "C51A3AC706079EFD98242D08C0F8AFCC3394D5259700D3BF5DBCE71EBB309E4A",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-08/attempt-002-actual/grok-response.json",
+      "response_sha256": "3D70487B77E69AC1BAE076BCBC6E233BF723B0027E3CD7F4CE36B37BB63166E3",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-08/attempt-002-actual/summary.json",
+      "summary_sha256": "2EE636E43F738E6D941CBC7124E4A4C26605C054D233D3F144DD60219625A680",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-09",
+      "case_ids": [
+        "VRAS-008-R041-P792",
+        "VRAS-008-R042-P3774",
+        "VRAS-008-R043-P4956",
+        "VRAS-008-R044-P5394",
+        "VRAS-008-R045-P788"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-09/attempt-002-actual/grok-request.json",
+      "request_sha256": "AF2DE5239B8B396AD7DE2F2037126A98B172E6959CE201CAA12528861B84A29D",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-09/attempt-002-actual/grok-response.json",
+      "response_sha256": "98D8FDC18D03930E7A08E6502C91A766D37A91C62E605DDD31AB5E4D7C54FFE7",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-09/attempt-002-actual/summary.json",
+      "summary_sha256": "67ED7595C36908B2375053412F89750E533029B8E088D6070B96190CCECA65D5",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-10",
+      "case_ids": [
+        "VRAS-008-R046-P1016",
+        "VRAS-008-R047-P762",
+        "VRAS-008-R048-P2946",
+        "VRAS-008-R049-P5978",
+        "VRAS-008-R050-P6804"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-10/attempt-002-actual/grok-request.json",
+      "request_sha256": "3B07C8B8FF7F344069FF54BCCE7216E08D3A05FBE0A9168A5AD96ECECA1A267C",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-10/attempt-002-actual/grok-response.json",
+      "response_sha256": "6D30A99ECB0F0E8F9C38FCBBEFC92A051C95BBDBE1FBC14247D75BB0D5AF1406",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-10/attempt-002-actual/summary.json",
+      "summary_sha256": "5BC811D65DB589F3EAF441C189AF2EC30F2BF1A924996AE06032A00EB251801D",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-11",
+      "case_ids": [
+        "VRAS-008-R051-P2138",
+        "VRAS-008-R052-P2570",
+        "VRAS-008-R053-P2076",
+        "VRAS-008-R054-P4744",
+        "VRAS-008-R055-P2316"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-11/attempt-002-actual/grok-request.json",
+      "request_sha256": "605D27D952D1407244477E02983B6976FFD57E1FD08D25681279719A0BCB2741",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-11/attempt-002-actual/grok-response.json",
+      "response_sha256": "68090A49EAC173F4B9EBC4B090061AB1E5A210C01443D27D0F58EF9FACB7D638",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-11/attempt-002-actual/summary.json",
+      "summary_sha256": "0D8D75C09C5842613E7995164A3FEC19E88758CFF5B174A3EDB68F2A05B2CA86",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-12",
+      "case_ids": [
+        "VRAS-008-R056-P1860",
+        "VRAS-008-R057-P2106",
+        "VRAS-008-R058-P2368",
+        "VRAS-008-R059-P1930",
+        "VRAS-008-R060-P4320"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-12/attempt-002-actual/grok-request.json",
+      "request_sha256": "72276A30A3F85582B0731D26B074E7288435FBB4532B986016C8487D29495217",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-12/attempt-002-actual/grok-response.json",
+      "response_sha256": "8B1505BCF7BAC0A876C320BDD8B0444B709571793DB47DF01594BD99C5103CB3",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-12/attempt-002-actual/summary.json",
+      "summary_sha256": "43C54F2912C91D925264E814EF638A64D036A721EF8F1D236AE2594A2EBC6980",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-13",
+      "case_ids": [
+        "VRAS-008-R061-P1490",
+        "VRAS-008-R062-P4522",
+        "VRAS-008-R063-P5770",
+        "VRAS-008-R064-P4468",
+        "VRAS-008-R065-P1424"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-13/attempt-002-actual/grok-request.json",
+      "request_sha256": "C2F625B2BD8239BBC818E3651B1B177BB51CA38E2C56E1538B4A0CD2F6EFA0A3",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-13/attempt-002-actual/grok-response.json",
+      "response_sha256": "D95CCBB69386C4EDD644E5A9594C622405DA125CD31D07E31E6890E078057CB5",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-13/attempt-002-actual/summary.json",
+      "summary_sha256": "C4AC9005743E904CDB4763A1CD75B036835371A2DFFE4029AD732383DF888663",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-14",
+      "case_ids": [
+        "VRAS-008-R066-P4116",
+        "VRAS-008-R067-P2",
+        "VRAS-008-R068-P1210",
+        "VRAS-008-R069-P5594",
+        "VRAS-008-R070-P3036"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-14/attempt-002-actual/grok-request.json",
+      "request_sha256": "34D510CC5733FCBF41B11BC1EA05783CE04E153D469EAE05ED1BCF20FFAAB5BB",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-14/attempt-002-actual/grok-response.json",
+      "response_sha256": "7774DC6588540D3B63DF8DF2326A755A0BAB559AB2756D6C96A9626D2F841C5C",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-14/attempt-002-actual/summary.json",
+      "summary_sha256": "FBACBC4C5949033FE8D4333C6237AFB088DEF38480A6489BFF2D884083A41034",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-15",
+      "case_ids": [
+        "VRAS-008-R071-P4508",
+        "VRAS-008-R072-P272",
+        "VRAS-008-R073-P5292",
+        "VRAS-008-R074-P1898",
+        "VRAS-008-R075-P3526"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-15/attempt-002-actual/grok-request.json",
+      "request_sha256": "CA906C4D0D630897EDB4934FA3F22B413FA3FB1603AA683B6F683F4192734F67",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-15/attempt-002-actual/grok-response.json",
+      "response_sha256": "49ED459D5831E02EF4F76C71E248B0518C79911A238C6F1B23C77622A19BBBE0",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-15/attempt-002-actual/summary.json",
+      "summary_sha256": "38AD295AB3C990D84B4D5875786F78FF9EF0207EAFD053B7004CC888C0D48DB0",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-16",
+      "case_ids": [
+        "VRAS-008-R076-P2654",
+        "VRAS-008-R077-P4976",
+        "VRAS-008-R078-P4888",
+        "VRAS-008-R079-P270",
+        "VRAS-008-R080-P36"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-16/attempt-002-actual/grok-request.json",
+      "request_sha256": "B0AA8D71CFFC685EF9C791F2F006A5036CFEA38148EB73DD3DE87B139E05A12C",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-16/attempt-002-actual/grok-response.json",
+      "response_sha256": "632B057832D9D1B88C7B71FC3E363DCB9A175A5B1E4EB342A5E5CF68CA1F3C0A",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-16/attempt-002-actual/summary.json",
+      "summary_sha256": "0AAFEAA8FC7CF460AE06FA66E86024EF6924DB4115CB84A615A7CF39F26B9447",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-17",
+      "case_ids": [
+        "VRAS-008-R081-P4394",
+        "VRAS-008-R082-P1282",
+        "VRAS-008-R083-P2162",
+        "VRAS-008-R084-P560",
+        "VRAS-008-R085-P1524"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-17/attempt-002-actual/grok-request.json",
+      "request_sha256": "ECFC6CF52445A9F2EB19CE2DF366BC6092FA48CE2C37A807B46C91C9F9823F47",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-17/attempt-002-actual/grok-response.json",
+      "response_sha256": "2F26A8CF6F56C5AB2A7631797064DF5E4FFECAAAF966BEF17AEA7FBAE5512C3B",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-17/attempt-002-actual/summary.json",
+      "summary_sha256": "2364D31D28A478AF486D48D73BFC3C37CE177C376381D0B35C42CF36BC9A0C7B",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-18",
+      "case_ids": [
+        "VRAS-008-R086-P398",
+        "VRAS-008-R087-P5338",
+        "VRAS-008-R088-P2894",
+        "VRAS-008-R089-P4362",
+        "VRAS-008-R090-P6072"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-18/attempt-002-actual/grok-request.json",
+      "request_sha256": "029296EBECA66BD618712D205EC19B91F3B5F29F445D97DEE7B0B84F9B3C8631",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-18/attempt-002-actual/grok-response.json",
+      "response_sha256": "404B868DC718BCB1175E3F60BF1F89B374DB3A3FF16848FF678E700EC68D8554",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-18/attempt-002-actual/summary.json",
+      "summary_sha256": "E3A1C3565607ABB3C9AEFE7482F20107D55DA7523367F788BCC2DBE86CDB37C4",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-19",
+      "case_ids": [
+        "VRAS-008-R091-P460",
+        "VRAS-008-R092-P4488",
+        "VRAS-008-R093-P2274",
+        "VRAS-008-R094-P756",
+        "VRAS-008-R095-P2066"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-19/attempt-002-actual/grok-request.json",
+      "request_sha256": "A08A25F127AAB874FB74E6B8B4AD4B0F871D07CA91346DCF2EF9E265038349AC",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-19/attempt-002-actual/grok-response.json",
+      "response_sha256": "63B50D6F49C8BAA1BD840A4007A7933A031CB3144FF7797D508E5C1B5B6D37C1",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-19/attempt-002-actual/summary.json",
+      "summary_sha256": "B9FF0D78BD4FB5F716F8BED5484802C9DEE5260D78735673E8CAA2D6594F8E7D",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-a",
+      "job_id": "job-20",
+      "case_ids": [
+        "VRAS-008-R096-P3960",
+        "VRAS-008-R097-P5608",
+        "VRAS-008-R098-P4300",
+        "VRAS-008-R099-P480",
+        "VRAS-008-R100-P2480"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-20/attempt-002-actual/grok-request.json",
+      "request_sha256": "AC1E4E830A81AC032E6319EDDC484597AFC2C448E699C76FA5F6DD0BC8987B4D",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-20/attempt-002-actual/grok-response.json",
+      "response_sha256": "A7533B31B2DE35E15FC61C41D0C8D66EFD9F9CFC7C4805339B64B3F4B7F6A11D",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-a/job-20/attempt-002-actual/summary.json",
+      "summary_sha256": "9614CAB4236F5666A3A4D913BD60B254A1589AA1DAEFEDB9C1573DFF8B034F6B",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-01",
+      "case_ids": [
+        "VRAS-008-R001-P5536",
+        "VRAS-008-R002-P1324",
+        "VRAS-008-R003-P1584",
+        "VRAS-008-R004-P1100",
+        "VRAS-008-R005-P4118"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-01/attempt-002-actual/grok-request.json",
+      "request_sha256": "B844AE9A8206EE32C0CC7F99BEA3FF8739A99A0F7871C70C381784DE221172A1",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-01/attempt-002-actual/grok-response.json",
+      "response_sha256": "F157E55715C79C2E48BB69BF83DCF636C6698B7CC453470FABFBC1450A5EBFD3",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-01/attempt-002-actual/summary.json",
+      "summary_sha256": "CE2247605DF13979D78FBFCF8754982B4A1A42FDDB88811C99B3EE5C7E09D778",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-02",
+      "case_ids": [
+        "VRAS-008-R006-P3252",
+        "VRAS-008-R007-P5424",
+        "VRAS-008-R008-P190",
+        "VRAS-008-R009-P5224",
+        "VRAS-008-R010-P6578"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-02/attempt-004-actual/grok-request.json",
+      "request_sha256": "ABDCCF726C7DB1B5216819C427094F793E6D59750B65B157713A6796E2AF2D66",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-02/attempt-004-actual/grok-response.json",
+      "response_sha256": "3B24C7955B5F5105CC153BB2FF4BBA857874CE739EA194A12E948DA74C391D4E",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-02/attempt-004-actual/summary.json",
+      "summary_sha256": "3684EE543DC89060CED1D0378FBFA9F08200E7923ABD4194ADB57953132483A1",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-03",
+      "case_ids": [
+        "VRAS-008-R011-P556",
+        "VRAS-008-R012-P2442",
+        "VRAS-008-R013-P3812",
+        "VRAS-008-R014-P5668",
+        "VRAS-008-R015-P6388"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-03/attempt-001-actual/grok-request.json",
+      "request_sha256": "33741A682858331442EB4CF0D6C119F5A27E681529BA63B7DAFF646AA5AE496C",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-03/attempt-001-actual/grok-response.json",
+      "response_sha256": "0BD6CDE60889019EDA70DE61604D1B12CB37C6EC12DC3128E7B418E3D7C9FF43",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-03/attempt-001-actual/summary.json",
+      "summary_sha256": "79C04AE6CD29BAF8B125A3B58F91470D6F4B98464C8380D59BBB32B6B25CC9D6",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-04",
+      "case_ids": [
+        "VRAS-008-R016-P5108",
+        "VRAS-008-R017-P5462",
+        "VRAS-008-R018-P3600",
+        "VRAS-008-R019-P5240",
+        "VRAS-008-R020-P976"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-04/attempt-001-actual/grok-request.json",
+      "request_sha256": "DEAC0409CAE24B81594CD151780A0B711B95AC364E6EB9A8CD7C82F5035E8130",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-04/attempt-001-actual/grok-response.json",
+      "response_sha256": "B74304CC3E1149BF8E3914DFB3D14ACC4705AB806E1EE7BEFD4134AD4896F4C5",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-04/attempt-001-actual/summary.json",
+      "summary_sha256": "E16FEDA1B46BC5A65CEB30B9D72341B23F0C9418354C020D9A81EF3185DA6B4C",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-05",
+      "case_ids": [
+        "VRAS-008-R021-P4608",
+        "VRAS-008-R022-P5250",
+        "VRAS-008-R023-P3038",
+        "VRAS-008-R024-P3438",
+        "VRAS-008-R025-P5068"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-05/attempt-001-actual/grok-request.json",
+      "request_sha256": "C898118746970C11548CE558DA4B2B5989A1F58E82074E68A583F7827AE5D952",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-05/attempt-001-actual/grok-response.json",
+      "response_sha256": "05213C64F803CEC85C066F00CE7E0DC2759D065E654A6AC0C05670E260D5899D",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-05/attempt-001-actual/summary.json",
+      "summary_sha256": "7E8FAD86FFBB7148CF4E8EF947F061B2710693FDE8405CDA09B92E6F8351C020",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-06",
+      "case_ids": [
+        "VRAS-008-R026-P6632",
+        "VRAS-008-R027-P6878",
+        "VRAS-008-R028-P1764",
+        "VRAS-008-R029-P6454",
+        "VRAS-008-R030-P1932"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-06/attempt-001-actual/grok-request.json",
+      "request_sha256": "3520B02380C193AB37A3AC19A205136D928BFE12DC47041B41A1C345E873B81C",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-06/attempt-001-actual/grok-response.json",
+      "response_sha256": "4ECA09CADE272E3D6682DDFEE52222558E5C9B43873E523FC609A57DEABF3AE5",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-06/attempt-001-actual/summary.json",
+      "summary_sha256": "D65BC2C2EE8893C0981011590095FE5A42AFB6B0173E1C424D4D59C1CFF0B6F8",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-07",
+      "case_ids": [
+        "VRAS-008-R031-P4944",
+        "VRAS-008-R032-P5212",
+        "VRAS-008-R033-P4280",
+        "VRAS-008-R034-P378",
+        "VRAS-008-R035-P6438"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-07/attempt-001-actual/grok-request.json",
+      "request_sha256": "FE1C505508E0A798D5467BD2925F04815966B5D324815901CFFFC469CA99CD08",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-07/attempt-001-actual/grok-response.json",
+      "response_sha256": "C282D045545E901A5DDA3CFDC4A7C0E3E5352EAEF0AF5A2C88C39FBBE16ABA62",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-07/attempt-001-actual/summary.json",
+      "summary_sha256": "39D4F85E0D287F604E89EA7E47ECAC4EAEEACD0AF06F179FF93C32331020A5BB",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-08",
+      "case_ids": [
+        "VRAS-008-R036-P2972",
+        "VRAS-008-R037-P3846",
+        "VRAS-008-R038-P3924",
+        "VRAS-008-R039-P5870",
+        "VRAS-008-R040-P5962"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-08/attempt-001-actual/grok-request.json",
+      "request_sha256": "7D0ECBEF5DF4BEC0149F7E81848A49423D80D1326727705C7C216F7CFCDCCF9D",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-08/attempt-001-actual/grok-response.json",
+      "response_sha256": "2958058BCD4CF1639E75039B5D35F26677458212048BE362B4748B626D6955B7",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-08/attempt-001-actual/summary.json",
+      "summary_sha256": "D4C6929AA66E3165B41864FD08FE340B2153DB729545E48A13FDF933064B4E7D",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-09",
+      "case_ids": [
+        "VRAS-008-R041-P792",
+        "VRAS-008-R042-P3774",
+        "VRAS-008-R043-P4956",
+        "VRAS-008-R044-P5394",
+        "VRAS-008-R045-P788"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-09/attempt-001-actual/grok-request.json",
+      "request_sha256": "F29F31AC173A4FBF8B643271015798D8B7818BB38091DB5185DF71B312819074",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-09/attempt-001-actual/grok-response.json",
+      "response_sha256": "E2305D2C55912BFD10CB3EFF8909D8D16AEC6124F382178174ED058E0F276B1D",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-09/attempt-001-actual/summary.json",
+      "summary_sha256": "C488EE1B7F0BF4D94D1B3AEE252175A523D669E79E20A2DBE95ECC64C43930E8",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-10",
+      "case_ids": [
+        "VRAS-008-R046-P1016",
+        "VRAS-008-R047-P762",
+        "VRAS-008-R048-P2946",
+        "VRAS-008-R049-P5978",
+        "VRAS-008-R050-P6804"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-10/attempt-002-actual/grok-request.json",
+      "request_sha256": "59897FBE05EC8247978F742D82CB5448F45A43BE9448571A4CC107E0AF9E9951",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-10/attempt-002-actual/grok-response.json",
+      "response_sha256": "14E4B1B105ED58A07BE17FBB13194B91CD8263D0407B5B278A60FC4C99A4E12A",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-10/attempt-002-actual/summary.json",
+      "summary_sha256": "4006E8CDB728EAEE726069CD4ED9EFAA79D2015B199056EBA679A1F6FACC1126",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-11",
+      "case_ids": [
+        "VRAS-008-R051-P2138",
+        "VRAS-008-R052-P2570",
+        "VRAS-008-R053-P2076",
+        "VRAS-008-R054-P4744",
+        "VRAS-008-R055-P2316"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-11/attempt-001-actual/grok-request.json",
+      "request_sha256": "0A6564BD0625F9C26503EC61FCC7DB5185E5DFB977C761D746F9DE7D180BB51D",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-11/attempt-001-actual/grok-response.json",
+      "response_sha256": "E86562D4E971A68F8D65CB20EFF95E131DF408260ED29DAFA2F70289119595EA",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-11/attempt-001-actual/summary.json",
+      "summary_sha256": "97401389B83D8E6F2C97BB468963202599A45275C0778BD40CC5983230DBA25A",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-12",
+      "case_ids": [
+        "VRAS-008-R056-P1860",
+        "VRAS-008-R057-P2106",
+        "VRAS-008-R058-P2368",
+        "VRAS-008-R059-P1930",
+        "VRAS-008-R060-P4320"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-12/attempt-001-actual/grok-request.json",
+      "request_sha256": "1DCF6901C9D8A94ED0BBC3FA4782A797AFBB735635188E370E2F39BC6A57ADF9",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-12/attempt-001-actual/grok-response.json",
+      "response_sha256": "0C3F532892DB40DFC6A6D440272B1AED0F5BA8976188CB8A66B31D9FB1509BFA",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-12/attempt-001-actual/summary.json",
+      "summary_sha256": "F4327ED4A6406D28C4CD2D3D824EDCCDAE27948C2DC3499817B135BC67E0F7E8",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-13",
+      "case_ids": [
+        "VRAS-008-R061-P1490",
+        "VRAS-008-R062-P4522",
+        "VRAS-008-R063-P5770",
+        "VRAS-008-R064-P4468",
+        "VRAS-008-R065-P1424"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-13/attempt-001-actual/grok-request.json",
+      "request_sha256": "6E71AABF9B71A2B012468AA509470FCC9B2416B4D13F954BAC0913181B22F243",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-13/attempt-001-actual/grok-response.json",
+      "response_sha256": "B628105419FB8EB732547E7397778D29008DDF5FB07A73736FF94348832D1B47",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-13/attempt-001-actual/summary.json",
+      "summary_sha256": "419FBD856AD52015345DEA3E48EA130D8CC9A4C77D0AB9A04EB0141F444EEF45",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-14",
+      "case_ids": [
+        "VRAS-008-R066-P4116",
+        "VRAS-008-R067-P2",
+        "VRAS-008-R068-P1210",
+        "VRAS-008-R069-P5594",
+        "VRAS-008-R070-P3036"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-14/attempt-001-actual/grok-request.json",
+      "request_sha256": "F0032DC2A8A894C7D6E811C69634DE38F9DE1C6CEB8A1F6077514731764C38A9",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-14/attempt-001-actual/grok-response.json",
+      "response_sha256": "F242E27C7EA7B1B657CB4F54C4ABD8EC203262A23C2EBE36EB43710FBFAAA487",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-14/attempt-001-actual/summary.json",
+      "summary_sha256": "80A2D5A4ADB6500D0588E8C7C4B15D012CE7256F6DAA707B270EED590BD0C144",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-15",
+      "case_ids": [
+        "VRAS-008-R071-P4508",
+        "VRAS-008-R072-P272",
+        "VRAS-008-R073-P5292",
+        "VRAS-008-R074-P1898",
+        "VRAS-008-R075-P3526"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-15/attempt-001-actual/grok-request.json",
+      "request_sha256": "228FE3AA2BF824F68BC87943CC58EA99B05F6D6C27FDBFD9F2EBA169AA4CDD21",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-15/attempt-001-actual/grok-response.json",
+      "response_sha256": "3C35474CA2602868B827B739A78EDA725422CD47DB389B86BEA04136FC746B65",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-15/attempt-001-actual/summary.json",
+      "summary_sha256": "FCD6E9CE8494F478BE775E6CD03F8CFDE8481187AF037C3578A41482CB6646CA",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-16",
+      "case_ids": [
+        "VRAS-008-R076-P2654",
+        "VRAS-008-R077-P4976",
+        "VRAS-008-R078-P4888",
+        "VRAS-008-R079-P270",
+        "VRAS-008-R080-P36"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-16/attempt-001-actual/grok-request.json",
+      "request_sha256": "30BB59BB32334CB4760DF6BD558A7F389994495BB92DE6232BA2263CBE19E9D6",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-16/attempt-001-actual/grok-response.json",
+      "response_sha256": "69AF135C2CC91CE82ACE2FE0ADDAADCAA03DDCDA536E2817BF818AC3FCD26608",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-16/attempt-001-actual/summary.json",
+      "summary_sha256": "DB4FE6F206DCCA1932125DD7579524DAE2D3A2E6E9E42CA115135157B9BB67A3",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-17",
+      "case_ids": [
+        "VRAS-008-R081-P4394",
+        "VRAS-008-R082-P1282",
+        "VRAS-008-R083-P2162",
+        "VRAS-008-R084-P560",
+        "VRAS-008-R085-P1524"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-17/attempt-001-actual/grok-request.json",
+      "request_sha256": "C88B2C3DAE6050A5B7F05737490A7F7B85AA5B50AEECEA4B644DF991A6DEBA7D",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-17/attempt-001-actual/grok-response.json",
+      "response_sha256": "FE13FB3837FAB60C0D791164E7750F1B2849B98DD318980460F668EEB2EDC518",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-17/attempt-001-actual/summary.json",
+      "summary_sha256": "BC4453264435AE0743613DBF64D358B50E98F4A5FC217F26FE67FD7CB83CD4F0",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-18",
+      "case_ids": [
+        "VRAS-008-R086-P398",
+        "VRAS-008-R087-P5338",
+        "VRAS-008-R088-P2894",
+        "VRAS-008-R089-P4362",
+        "VRAS-008-R090-P6072"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-18/attempt-001-actual/grok-request.json",
+      "request_sha256": "978D601DBDEC5E6B0C8AC78C470B6701730DD6375EAE6B9AE1F37CDBD7D1248E",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-18/attempt-001-actual/grok-response.json",
+      "response_sha256": "0A0D6955FD28017340D55192210CB84917F91106D6C9C380028E057AF0321C9C",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-18/attempt-001-actual/summary.json",
+      "summary_sha256": "18B7A97338AF35557A8F4D4B77160820A2EC3073B0BFD894EF666D52A7D33F2C",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-19",
+      "case_ids": [
+        "VRAS-008-R091-P460",
+        "VRAS-008-R092-P4488",
+        "VRAS-008-R093-P2274",
+        "VRAS-008-R094-P756",
+        "VRAS-008-R095-P2066"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-19/attempt-001-actual/grok-request.json",
+      "request_sha256": "51D36486B0A96443330400BE09B587F335C0C498B8AB25064DA8DF5F64138E50",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-19/attempt-001-actual/grok-response.json",
+      "response_sha256": "893ED73D09DD65FFBF081CED55B80051CE3B1891F165670023F5BE6A022B56D4",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-19/attempt-001-actual/summary.json",
+      "summary_sha256": "C59532C5461E50E7C82568042127BBC3BB14AC16FCD8A19AE925F979E3C75565",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    },
+    {
+      "stage": "pass-b",
+      "job_id": "job-20",
+      "case_ids": [
+        "VRAS-008-R096-P3960",
+        "VRAS-008-R097-P5608",
+        "VRAS-008-R098-P4300",
+        "VRAS-008-R099-P480",
+        "VRAS-008-R100-P2480"
+      ],
+      "request": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-20/attempt-001-actual/grok-request.json",
+      "request_sha256": "149F2C49EE38E79C597A83DEBD402349F7831B6402043308A82FD6E0CA117175",
+      "response": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-20/attempt-001-actual/grok-response.json",
+      "response_sha256": "935ECD7C934BA3915B0EB277AD99B3C8207D2A4531B9921382BAC253C86126AF",
+      "summary": ".context/vras-hyp008-grok-random100/attempts/pass-b/job-20/attempt-001-actual/summary.json",
+      "summary_sha256": "59A4D6EFE18BA1B104A811A151D13E14C4E855D34ABDE3CB8A6DE5086A46A8A0",
+      "stop_reason": "EndTurn",
+      "images_opened": 5
+    }
+  ],
+  "accepted_job_count": 40,
+  "latest_accepted_cost_usd_sum": 3.479894,
+  "latest_accepted_elapsed_seconds_sum": 3069.641,
+  "cost_note": "Accepted current-attempt summaries only; dry-runs and failed retries excluded.",
+  "limitations_acknowledged": {
+    "stripped_proxy_not_full_vras": true,
+    "server_and_utc_fixed": true,
+    "exit_reason_report_bound": true,
+    "moved_sl_not_be_timing_proof": true,
+    "random100_one_weekend_full_population_tails_used": true,
+    "matched_pair_binary_hash_validity_partial": true,
+    "rejects_absent_from_random100": true,
+    "threshold_tuning_prohibited": true
+  }
+}

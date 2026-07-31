@@ -1,0 +1,116 @@
+{
+  "schema_version": "event_clob_stage0_source_task_packet.v1",
+  "task_id": "EVENT_CLOB_DESIGN_STAGE0BD_OUTCOME_BLIND_20260728",
+  "created_at_utc": "2026-07-28T09:52:41.885Z",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002",
+  "role": "builder/coder",
+  "purpose": "Deterministically reconcile the completed 2019-2020 CME 6E MBP-10 design acquisition, decode only the frozen PRE/LATE source windows, and freeze an outcome-blind Stage 0B-D feature/source-quality ledger before any EURUSD outcome is opened.",
+  "authority_chain": {
+    "owner_ceiling_usd": 3.5,
+    "owner_plan_id": "DEDDE7F292738C16A200C59903F7839C85B728818805AA09D46D3E7F188E0C16",
+    "v14_source_task_packet_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_SOURCE_TASK_PACKET_V14.json",
+    "v14_source_task_packet_sha256": "E752003D652DD1B204DAE2EEC84F0149DF89C70BC4C42C80C089D6CD923F730D",
+    "prereg_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_PROBE_PLAN.md",
+    "prereg_sha256": "62A3AB66C64083D9967D91A0D634DEF29641AE7F3A05D3C59CBC153AAF4B3CBF",
+    "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+    "registry_observed_rows": 276,
+    "registry_observed_sha256": "9E681C331CAA1DD44B38F3FD58890FCFB90ECF36C3C7F161A385534D5595D91B",
+    "registry_observed_validation": "CANDIDATE_REGISTRY_OK rows=276 hypotheses=92",
+    "registry_rule": "The observed global SHA is audit evidence, not a future execution lock. Require the exact V14 272-row prefix, canonical validator PASS, only validator-clean unrelated appends, and the unchanged exact three-row HYP-002 history. Never append or modify the registry for this terminal parked ID."
+  },
+  "sealed_inputs": {
+    "data_root": "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments",
+    "raw_root": "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/raw",
+    "download_manifest": {
+      "path": "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/download_manifest.json",
+      "sha256": "9438133803AF33E52C641DF149D04AA8E1CA8B1DD5A510795E0B55C3D2698229",
+      "status": "DOWNLOADED_FULL_DBN_VALIDATION_PASS",
+      "request_identities": 658,
+      "events": 329,
+      "nonempty_pre": 326,
+      "nonempty_late": 326,
+      "explicit_source_empty_files": 6
+    },
+    "acquisition_authority_receipt_sha256": "15D2878DA8F461219E29DBBDD34B42F8B74116DB6B7A1EA9F5AF060748A4FA13",
+    "live_requote_plan_sha256": "EA180B16DBD258EE807B06E1F92BDB7FCF6A98DB6B41C9877918C30CF791EC5F",
+    "live_requote_receipt_sha256": "01D94E6467724EF1D25362C09F56EBFB10635DC0DE24833F1B384260570D3168",
+    "clock_csv_path": "03. EA Developer/EA_EventCLOBPersistence/research/source/point_release_clocks_2019_2022.csv",
+    "clock_csv_sha256": "5C30F99FF0E1341D680C2747315E2FF4DFF99C5FBE01C2C5C4036BC101375E7B",
+    "clock_manifest_sha256": "B61CDFA6DCAE82308E4CD2A60DAFF195C297FD8523D41CDCA0788694657AC636",
+    "validation_source_sealed": true,
+    "outcome_fields_used": false,
+    "price_data_read": false
+  },
+  "frozen_interpretation": {
+    "design_years": [2019, 2020],
+    "elapsed_design_weeks": 104.428571,
+    "request_contract": {
+      "dataset": "GLBX.MDP3",
+      "schema": "mbp-10",
+      "symbol": "6E.v.0",
+      "stype_in": "continuous",
+      "stype_out": "instrument_id",
+      "PRE": "[T-60s,T-15s)",
+      "LATE": "[T+45s,T+60s)"
+    },
+    "i5_formula": "(sum(bid_sz_00..04)-sum(ask_sz_00..04))/(sum(bid_sz_00..04)+sum(ask_sz_00..04))",
+    "segment_quality": [
+      "At least 30 causal MBP-10 records.",
+      "Every used top-five depth denominator is finite and strictly positive.",
+      "All ts_event values are inside the exact half-open segment and are monotonic nondecreasing.",
+      "The final ts_event is no more than one second before the exact segment end.",
+      "No consecutive ts_event gap exceeds one second.",
+      "Metadata and all records resolve to the exact known 6E.v.0 instrument mapping for that file; partial/not_found/unknown mappings fail quality."
+    ],
+    "pair_quality": "Both PRE and LATE pass segment quality and LATE median best-ask minus best-bid is finite, nonnegative and no more than two 6E ticks (tick size 0.00005, Databento fixed-price scale 1e-9).",
+    "feature_eligibility": "After pair quality, I5_pre=median(PRE I5), I5_late=median(LATE I5), delta_I5=I5_late-I5_pre. The event is Stage0 eligible only when I5_late and delta_I5 are finite, nonzero, and have the same sign. This operationalizes the unchanged parent qualifier set without changing a threshold.",
+    "stage0_gate_population": "Use the final feature-eligible count for the >=209 and 2.0-5.0 events/week gates. Also report source-quality-paired count separately so source failure is not conflated with sign ineligibility.",
+    "cadence_formula": "feature_eligible_events / 104.428571"
+  },
+  "fatal_gates": [
+    "Exactly 658 unique canonical request identities and exactly 329 unique event pairs are represented.",
+    "Every identity is either one manifest/hash/DBN-validated nonempty raw file or explicit paid-completed, response-validated, retry-prohibited source-empty evidence.",
+    "PRE nonempty coverage >= 0.99, LATE nonempty coverage >= 0.99, paired nonempty-event coverage >= 0.99.",
+    "Final feature-eligible event count >= 209.",
+    "Final feature-eligible cadence is between 2.0 and 5.0 events per elapsed week inclusive.",
+    "No duplicate identity, noncanonical bound, unmanifested extra file, size/hash/record-count mismatch, unresolved paid request, unknown instrument, nonmonotonic ts_event, 2021-2022 source row, EURUSD path/read, outcome field, remote call or paid call exists."
+  ],
+  "failure_verdict": "PARK_STAGE0B_DESIGN_SOURCE_OR_CADENCE",
+  "write_set": [
+    "03. EA Developer/EA_EventCLOBPersistence/research/analyze_event_cme6e_stage0.py",
+    "03. EA Developer/EA_EventCLOBPersistence/tests/test_event_cme6e_stage0.py",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/stage0_event_feature_ledger.csv",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/stage0_source_quality_manifest.json",
+    "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_STAGE0_SOURCE_READOUT.md"
+  ],
+  "required_outputs": {
+    "feature_ledger": "Exactly one deterministic row per 329 design event. Include identities, exact bounds, source-empty flags, record counts, hashes, segment and pair quality booleans/reason codes, I5_pre, I5_late, delta_I5, LATE median spread in ticks, feature eligibility and direction. Include no EURUSD/outcome/performance field.",
+    "manifest": "Hash-bind the packet, prereg, source manifest, acquisition authority, live quote evidence, clock source, analyzer, tests, feature ledger and all 658 manifest-declared raw file hashes. Record counters, coverages, source-quality-paired count, feature-eligible count, cadence, gate-by-gate PASS/FAIL, deterministic failure reasons, prohibited-read counters fixed at zero, and final Stage0 verdict.",
+    "readout": "Concise English evidence readout separating acquisition reconciliation, nonempty coverage, source-quality failures, sign/feature ineligibility, cadence and authority for the next stage. It must say no market edge verdict and no EURUSD outcome was opened."
+  },
+  "red_first_acceptance_tests": [
+    "Frozen formula/median/sign and quality-boundary tests cover exactly 30 records, one-second final staleness, one-second max gap, two-tick LATE median spread, zero denominator and equal/zero signs.",
+    "Hash/size/record mismatch, extra/unmanifested file, duplicate request/event segment, wrong bounds/year/schema/dataset/symbol/mapping and nonmonotonic ts_event fail closed.",
+    "Explicit source-empty evidence is represented but never quality/feature eligible; coverage calculations use 329 as denominator and paired coverage requires both nonempty segments.",
+    "Synthetic 209 eligible events over 104.428571 weeks pass the count and cadence gates; 208 fail; exact cadence boundaries are inclusive.",
+    "The analyzer rejects any path outside the exact D-side CME root and clock/prereg/task inputs, performs no network/client construction and imports no EURUSD/MT5 outcome source.",
+    "Running twice against an unchanged sealed snapshot yields byte-identical ledger and manifest except no wall-clock field is permitted in deterministic outputs."
+  ],
+  "execution": {
+    "python": "02. AlphaFactory/runtime/python-databento/Scripts/python.exe",
+    "network": "DENY",
+    "remote_calls": 0,
+    "paid_calls": 0,
+    "serial_write": true,
+    "red_first": true,
+    "independent_review_required_before_live_stage0_run": true
+  },
+  "prohibitions": [
+    "Do not use Grok or any Grok skill/worker.",
+    "Do not read EURUSD prices, bars, ticks, trades, outcomes, PnL, PF, MFE, MAE, validation-period CME source, 2023+ data, or middle-window data.",
+    "Do not call Databento metadata/timeseries/batch/network APIs; DBNStore local decoding only.",
+    "Do not modify preregistration, registry, source acquisition evidence, raw DBN files, clock source, strategy thresholds, MQL5, MT5 or unrelated files.",
+    "Do not stage, commit, push, create a branch, worktree or clone."
+  ],
+  "next_authority": "A verified Stage0 PASS freezes the feature ledger and permits the Lead Quant to create a separate pre-outcome Stage1 task packet before opening 2019-2020 EURUSD outcomes. Stage0 FAIL parks this exact ID and forbids Stage1, validation purchase and MQL5."
+}

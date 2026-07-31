@@ -1,0 +1,25 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-006",
+  "run_id": "STATIC-VRAS-VOLSTOP-V1-20260722",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_VolatilityNormalizedStop\\NONREPAINT_AUDIT_V1_manifest.json",
+  "manifest_sha256": "F01E9898A00548AF9400C22D598A30CF97D05CE5134CD422922E212153F8D4FD",
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_VolatilityNormalizedStop\\EA_VRAS_VolatilityNormalizedStop.mq5",
+      "sha256": "83107ED33F1A6861D364947DA9D75E047142C478E1123575EC56B59B84A29406"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_VolatilityNormalizedStop\\EA_VRAS_VolatilityNormalizedStop.mq5",
+      "line": 772,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "generated_at_utc": "2026-07-22T15:46:06.979627+00:00"
+}

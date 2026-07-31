@@ -1,0 +1,76 @@
+{
+  "schema_version": "hyp002_grok_each_image_validated_job.v1",
+  "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+  "job": {
+    "job_id": "O04",
+    "case_id": "F004_PID000002166",
+    "position_id": "2166",
+    "direction": "SELL",
+    "image_type": "OUTCOME_ANATOMY",
+    "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F004_PID000002166_outcome.png",
+    "image_sha256": "B3ED93BFCED048EEC609CE0391A67667EEA8D0E4178401B9DDC3A4AFD643616A"
+  },
+  "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O04\\attempt-001-actual",
+  "request": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O04\\attempt-001-actual\\grok-request.json",
+    "sha256": "FB97138BD085AEF0AA570C9C0E75E2EF882F83D0C57AED925771CDE816CF8B56"
+  },
+  "prompt_blocks": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O04\\attempt-001-actual\\prompt-blocks.json",
+    "sha256": "518F660582529937F00334AB8B3101011D772D8644A07412F0ABA5517FE3A784"
+  },
+  "summary": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O04\\attempt-001-actual\\summary.json",
+    "sha256": "F53BADA6D81BCFFCA0D6D5E209C9E70925692410C544E6225BE5C32F8C8003D0"
+  },
+  "response": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O04\\attempt-001-actual\\grok-response.json",
+    "sha256": "E8E4AAC35312E5E4F16BD41C3C64E7A4CB642EF6798696D8A542A8E9E93DFD89"
+  },
+  "runner": {
+    "model": "grok-4.5",
+    "reasoning_effort": "high",
+    "stop_reason": "EndTurn",
+    "elapsed_seconds": 68.25,
+    "total_cost_usd": 0.0604372,
+    "num_turns": 1,
+    "prompt_transport": "acp_blocks_file",
+    "image_count": 1,
+    "decoded_image_bytes": 153575
+  },
+  "result": {
+    "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+    "job_id": "O04",
+    "case_id": "F004_PID000002166",
+    "position_id": "2166",
+    "direction": "SELL",
+    "image_type": "OUTCOME_ANATOMY",
+    "image_sha256": "B3ED93BFCED048EEC609CE0391A67667EEA8D0E4178401B9DDC3A4AFD643616A",
+    "image_opened": true,
+    "visual_readability": "PASS",
+    "observations": [
+      "Title band shows F004_PID000002166 | EXTREME_LOSS | R=-1.448 | outcome-disclosing on a dual-panel outcome chart.",
+      "Horizontal levels: solid blue Entry ~1.03055, dashed red SL above ~1.03085, dashed green TP below ~1.02995; purple dotted break-bar open then blue dotted actual entry near 11-23 01:05.",
+      "Pre-entry price path is a multi-leg decline from ~1.0320 into the entry zone; at actual entry a purple X marks ~1.0309 near the SL band.",
+      "Immediately after actual entry, green bullish candles lift price through the blue entry and red SL into a local high near ~1.0313 before any sustained move toward the green TP.",
+      "Later bars reverse lower and trade back through entry toward ~1.0301–1.0303, but only after the large adverse rally; chart never shows clean post-entry acceptance below entry toward TP first.",
+      "Bottom CME 6E full-break-bar trace prints early=-0.007 late=+0.019 score=+0.028 with direction-aligned I5 mostly near zero and only mild late positive median into the blue actual-entry marker near ~300s."
+    ],
+    "confidence": "HIGH",
+    "unknowns": [
+      "Exact fill versus plotted entry line and whether stop fill includes slippage versus geometric 1R.",
+      "Precise stop-trigger timestamp versus candle close/open at the adverse peak.",
+      "Whether the later post-rally decline occurred after forced exit or while still open.",
+      "Spread/commission/swap components are not separable on the image."
+    ],
+    "no_rule_or_rerun_authority": true,
+    "outcome_visible": true,
+    "actual_path_class": "IMMEDIATE_FAILED_BREAK",
+    "primary_layer": "SETUP_ENTRY",
+    "entry_context_assessment": "SELL is marked after an extended decline into a tight Entry/SL sandwich, with break-bar open slightly before actual entry; entry occurs near local lows with SL only modestly above entry and TP farther below, so the setup is a late short into already-compressed downside rather than a free-air continuation launch.",
+    "path_anatomy": "Post-entry sequence shows essentially no sustained progress toward TP: price rejects lower almost immediately and rallies hard through entry and SL to ~1.0313, producing the labeled EXTREME_LOSS R=-1.448 path; only afterward does price fall back through the entry zone, which is a reverse after failure rather than initial favorable continuation.",
+    "book_trace_relevance": "The full-break-bar book panel is near-neutral early and only mildly positive late (late=+0.019, score=+0.028), so the visible book did not strongly flag the impending counter-rally and did not visibly discriminate this loser path as adverse before or at actual entry.",
+    "exit_geometry_assessment": "SL sits close above entry while TP is farther below; the realized path drives well beyond the red SL band to ~1.0313, consistent with stop-region violation and extreme adverse R, while TP is never approached first. Cost is not visually separable, so geometry is described from price levels only.",
+    "failure_mechanism": "Intended downside break fails at/after entry via an immediate counter-trend bounce that invalidates the short through the nearby stop band before any accepted continuation lower; primary failure is entry into a non-accepted breakdown, not later winner management."
+  }
+}

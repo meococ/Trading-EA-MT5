@@ -1,0 +1,33 @@
+{
+  "schema_version": "alphafactory_test_receipt.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-004",
+  "generated_at_utc": "2026-07-22T09:06:12Z",
+  "command": "python -m pytest '03. EA Developer\\EA_VRAS_PathConfirmedTrend\\tests' -q",
+  "result": "PASS",
+  "passed": 16,
+  "failed": 0,
+  "elapsed_seconds": 0.11,
+  "stdout": "................ [100%] 16 passed in 0.11s",
+  "bindings": [
+    {
+      "path": "03. EA Developer/EA_VRAS_PathConfirmedTrend/EA_VRAS_PathConfirmedTrend.mq5",
+      "sha256": "F222A120D71EADB9E177DCE6F7AE3C80D13687D39C2EFF0C4F73CA0DF7D418E2"
+    },
+    {
+      "path": "03. EA Developer/EA_VRAS_PathConfirmedTrend/research/path_confirmation_reference.py",
+      "sha256": "06916BEAD4C6BD8B232615028F07D597B94E87959EF27A7836DE348B2E09A7C7"
+    },
+    {
+      "path": "03. EA Developer/EA_VRAS_PathConfirmedTrend/tests/test_path_confirmation.py",
+      "sha256": "B50A3B33D04F09C469DD94A3A467D559FF466756BF19C6D62B0BCC9E4C3AAF01"
+    },
+    {
+      "path": "03. EA Developer/EA_VRAS_PathConfirmedTrend/tests/test_mql5_contract.py",
+      "sha256": "B3596EB43E668F2980AFA64E5B85AA1882C6D4BCA4885F5036D623E60FCB2E57"
+    },
+    {
+      "path": "03. EA Developer/EA_VRAS_PathConfirmedTrend/tests/test_vras_reference.py",
+      "sha256": "329D8F0F8E419527324BF04AC8A8367ABA2AB480AE8950B36D2B87869E133D57"
+    }
+  ]
+}

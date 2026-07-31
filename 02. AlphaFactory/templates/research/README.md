@@ -8,6 +8,9 @@
 - `TASK_PACKET.control.template.json` is a field checklist, not executable
   evidence. Replace every placeholder from current files and broker/data
   evidence. The runner re-hashes all fields immediately before MT5.
+- Use `TASK_PACKET.data_acquisition.template.json` only for a canonical
+  zero-trade history probe. Its exact authority forbids PF/WR/cost economics,
+  requires telemetry off, and closes after data-quality plus non-repaint proof.
 - Copy `acceptance_contract` exactly from the latest canonical registry row.
   The runner rejects weaker or different packet gates and passes the frozen
   values to unified validation.

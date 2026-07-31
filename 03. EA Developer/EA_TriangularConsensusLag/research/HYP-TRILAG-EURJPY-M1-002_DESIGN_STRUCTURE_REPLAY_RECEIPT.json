@@ -1,0 +1,39 @@
+{
+  "schema_version": "trilag_002_design_structure_replay_receipt.v1",
+  "hypothesis_id": "HYP-TRILAG-EURJPY-M1-002",
+  "attempt_id": "TRILAG002-DESIGN-STRUCTURE-001",
+  "status": "PASS_BYTE_IDENTICAL_INDEPENDENT_REPLAY",
+  "replay_scope": "SAME_FROZEN_CODE_DATA_PARAMETERS_NO_NEW_TRIAL_NO_TUNING",
+  "bindings": {
+    "frozen_plan_sha256": "33715BD2CB337C3A700BA08421EE1BD3E92434555E92C85B044FB115412F9200",
+    "evaluator_base_sha256": "58AA58D8813B684764DBC34EB0CF3777944446D0E2C2F0F4C128669723F722A4",
+    "dataset_manifest_sha256": "4A8A51693B7D268BA2E8A179316774463D1C5631769C6B28E06DC113026228A8",
+    "dataset_parquet_sha256": "C1065F84F7FB79F7C4E83A2A52B9BD8C137E7CF788F75BC46D53C3FBDCD6EAE6",
+    "attempt_started_path": "03. EA Developer/EA_TriangularConsensusLag/research/evidence/HYP-TRILAG-EURJPY-M1-002/TRILAG002-DESIGN-STRUCTURE-001/attempt_started.json",
+    "attempt_started_sha256": "6BB649864E00B7AA7646D14C82FB90FA7E64622BCAAD5E4C9235767F67FEAE07",
+    "event_ledger_path": "03. EA Developer/EA_TriangularConsensusLag/research/evidence/HYP-TRILAG-EURJPY-M1-002/TRILAG002-DESIGN-STRUCTURE-001/design_events.jsonl",
+    "event_ledger_sha256": "4B56B6444A4841831C02EDCCA5544296A66B19F0F395A1490F8D92264CF49ED5",
+    "terminal_path": "03. EA Developer/EA_TriangularConsensusLag/research/evidence/HYP-TRILAG-EURJPY-M1-002/TRILAG002-DESIGN-STRUCTURE-001/design_structure_terminal.json",
+    "terminal_sha256": "A33460DDD79C15D33845F5F1CE14FF6B16E52421F2D1469E2A8A6D345105F8C3"
+  },
+  "replay_checks": {
+    "event_ledger_byte_identical": true,
+    "event_ledger_sha256_identical": true,
+    "summary_object_identical": true,
+    "gate_objects_identical": true,
+    "verdict_identical": true,
+    "evaluator_disarmed_before_replay": true,
+    "post_decision_bars_read": 0,
+    "trades_simulated": 0,
+    "economics_executed": false,
+    "validation_opened": false,
+    "research_holdout_opened": false
+  },
+  "observed": {
+    "raw_events": 67,
+    "accepted_events": 58,
+    "events_per_elapsed_week": 0.22259280411193602,
+    "verdict": "KILL_DESIGN_STRUCTURE_NO_ECONOMICS_AUTHORITY"
+  },
+  "replayed_at_utc": "2026-07-29T15:12:39Z"
+}

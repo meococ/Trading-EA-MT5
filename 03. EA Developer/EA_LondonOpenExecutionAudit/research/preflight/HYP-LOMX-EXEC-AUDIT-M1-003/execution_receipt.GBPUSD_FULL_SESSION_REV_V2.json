@@ -1,0 +1,104 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "hypothesis_id": "HYP-LOMX-EXEC-AUDIT-M1-003",
+  "registry_row_sha256": "4CC856EECFBD5CA6C7E20875221EB96087298F70DFF0D30D04D602DE3B958F6C",
+  "task_packet_sha256": "57C47A35DC5EF108352318C276D56D0F7A611C3642DA2893E4E7D2FBD4167481",
+  "git_commit": "fab9f8d18350307645e60b0bf8b504adb889ea01",
+  "git_status_sha256": "B69003AF8EE85BDEEFD547BE09C9AF581695D38D832CD97BBD0160380DA740F3",
+  "binding": {
+    "hypothesis_id": "HYP-LOMX-EXEC-AUDIT-M1-003",
+    "run_role": "control",
+    "ea_name": "EA_LondonOpenExecutionAudit",
+    "symbol": "GBPUSD",
+    "period": "M1",
+    "from": "2016.01.01",
+    "to": "2020.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpAuditAutoMode=true;InpBrokerFollowsEuropeDST=true;InpBrokerGMTOffsetWinter=2;InpDeviationPips=2.00;InpEnableTelemetry=true;InpHypothesisId=HYP-LOMX-EXEC-AUDIT-M1-003;InpMagic=5601303;InpScenario=GBPUSD_FULL_SESSION_REV;InpVolumeLots=0.01",
+    "telemetry_tier": "trade-only",
+    "telemetry_profile": "lifecycle-v3",
+    "deposit": 500000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [
+      "*_DecisionTelemetry_*.csv",
+      "*_LifecycleTrades_*.csv",
+      "*_RunMeta_*.json"
+    ],
+    "broker_fingerprint": "UNVERIFIED_DIAGNOSTIC",
+    "server_fingerprint": "UNVERIFIED_DIAGNOSTIC",
+    "account_fingerprint": "UNVERIFIED_DIAGNOSTIC",
+    "data_fingerprint": "UNVERIFIED_DIAGNOSTIC",
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 0.00001,
+      "pip_size": 0.0001
+    },
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_LondonOpenExecutionAudit\\research\\preflight\\HYP-LOMX-EXEC-AUDIT-M1-003\\task_packet.GBPUSD_FULL_SESSION_REV_V2.json",
+      "sha256": "57C47A35DC5EF108352318C276D56D0F7A611C3642DA2893E4E7D2FBD4167481"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+      "sha256": "2EEB75B389B396267C888EB4CF3FD9DCB9D9E8C234115B831CBEF12DB854AF1A"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_LondonOpenExecutionAudit\\EA_LondonOpenExecutionAudit.mq5",
+      "sha256": "C99D18C7912384D529CF651214EBF636211536957D7F4241831CB2418D28EEC1"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_LondonOpenExecutionAudit\\research\\HYP-LOMX-EXEC-AUDIT-M1-003_PREREG_V2.md",
+      "sha256": "FA5745BAFFD8FBBE8238D82B143E5F6DFC4E9CD7DD1D9A5557F3B3E01310CABA"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_LondonOpenExecutionAudit\\research\\preflight\\HYP-LOMX-EXEC-AUDIT-M1-003\\cost_source_manifest.GBPUSD.unverified.json",
+      "sha256": "37507B7C2A9E72DEDF3CF85813804B79A140FE398082E708B280589AD3AA0131"
+    },
+    {
+      "label": "ea_capability_contract",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_LondonOpenExecutionAudit\\ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "CF1357EF72B9B4575A34FDFBD5234828C036B59344A6D46903B44DC7D5F42B5E"
+    },
+    {
+      "label": "engineering_gate",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_LondonOpenExecutionAudit\\research\\evidence\\HYP-LOMX-EXEC-AUDIT-M1-003_ENGINEERING_GATE.json",
+      "sha256": "0005B40B4589986F45ED762CA0A5F59B416E30BF1D824C483267FF6420205007"
+    },
+    {
+      "label": "invalid_attempt_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_185647\\run_manifest.json",
+      "sha256": "531C5D73672E7A8AE8FBCF54EB60033827DCCEAA0F136D74C53F17B607246C5C"
+    },
+    {
+      "label": "invalid_attempt_report",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_185647\\report.html",
+      "sha256": "A3A2E0EA0FFCB3568D1B8D413CE2798A6D1C7B652236387417B64753CDFD462A"
+    },
+    {
+      "label": "invalid_attempt_runmeta",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_LondonOpenExecutionAudit\\20260730_185647\\logs\\EURUSD_RunMeta_HYP-LOMX-EXEC-AUDIT-M1-003_558692843.json",
+      "sha256": "D0E9A228BF4BE69B4CCE5B34283C7943CE1D1FD2AEE83C94BCB84E6C06F9E7DD"
+    }
+  ],
+  "generated_at_utc": "2026-07-30T11:59:55.942Z"
+}

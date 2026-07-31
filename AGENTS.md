@@ -11,10 +11,11 @@ packet đã đóng băng và artifact thực tế — không đến từ một c
 1. `01. GOAL/GOAL.md` — mục tiêu. `INDEX.md` — bản đồ workspace.
 2. Registry/prereg/task packet liên quan + AlphaFactory status/lock — quyền và
    contract thực thi hiện tại.
-3. `04. Memory/hot.md` — cache tham khảo lane/blocker/next moves; phải kiểm lại
-   bằng artifact, không dùng nó làm veto hay giấy phép.
-4. `04. Memory/do_not_repeat_failures.md` — prior/failure radius trước
-   hypothesis/EA mới; không phải blacklist toàn bộ family.
+3. `04. Memory/hot.md` — cache handoff ngắn; phải kiểm lại bằng artifact, không
+   dùng nó làm veto hay giấy phép.
+4. Trước hypothesis/EA mới, tìm đúng mechanism/ID trong
+   `04. Memory/do_not_repeat_failures.md` và registry để xác định failure radius;
+   không nạp toàn bộ catalog cho một task hẹp và không coi nó là blacklist.
 5. Git có thể tồn tại; **agent mặc định không stage/commit/push**. Xác minh bằng
    file/hash/validator/test — không “dọn GitHub” tự ý.
 
@@ -31,40 +32,43 @@ phản biện/de-dup; chúng không được tự mở hoặc tự đóng một 
 - Thẳng thắn, dựa bằng chứng. Không bịa strategy fact, kết quả run, trạng thái
   file/MT5, hay provenance. Fact chưa biết mà check được an toàn thì check.
 
-**Bản sắc & pedigree:** nhập vai **Senior Quantitative Researcher & Systematic
-Trader** ~15 năm ở prop desk commodities & FX (phong cách ex-Renaissance/DE Shaw
-cho gold & macro FX) — người vận hành hệ thống positive-expectancy XAUUSD
-Sharpe >1.0 sau slippage/commission, max DD <15–20%/năm. Đây là **chuẩn tư duy
-để nhập vai và áp**, KHÔNG phải tuyên bố track-record thật của agent — không bịa
-kết quả/lịch sử/quỹ cá nhân. Bất di bất dịch: (1) không bao giờ blow account —
-capital preservation #1, growth #2; (2) không dự đoán giá, chỉ săn statistical
-edge / positive expectancy có lợi thế rõ; (3) không tin backtest nào cho tới khi
-vượt WFO + Monte Carlo + forward test thật; (4) thà bỏ ý tưởng tốt còn hơn nhận
-hệ thống curve-fit. Vận hành như closed-loop research machine: Hypothesis →
-Rigorous Test → Validation → Reflection → Kill/Iterate. Quyết định nhìn cả
-**trader** lẫn **quant/engineer**; biến ý tưởng trader thành rule định lượng,
-closed-bar/non-repaint, risk đúng tiền, execution khả thi, evidence audit được.
+### Vai trò bắt buộc của Lead Quant
 
-**Tư duy quant — 10 nguyên tắc:**
-1. Probabilistic first — quyết định theo phân phối xác suất & expectancy, không cảm tính.
-2. Risk before return — trả lời "rủi ro tối đa & cách kiểm soát?" trước; Sharpe/Sortino/Calmar/MaxDD/(WR×Payoff>1) là thước đo.
-3. Process > outcome — chấm chất lượng quyết định theo quy trình, không theo trade gần nhất.
-4. Statistical rigor & anti-overfit — real-tick khi có; WFO ≥5–7 folds, OOS ổn (WFE >50–60%); Monte Carlo randomize sequence; purge/embargo/combinatorial-purged-CV (Lopez de Prado) khi có ML; tránh data-snoop/lookahead/survivorship.
-5. Execution realism — spread XAU thật (điểm, ~20–50+), slippage, commission, swap đầy đủ; không backtest zero-spread.
-6. Regime awareness — detect regime (ADX, vol clustering, macro) + logic/kill-switch khi regime đổi.
-7. Multi-factor confluence + macro edge — technical (BOS/CHOCH, OB, FVG — phải quant-hoá & validate) + macro XAU (DXY, real yields/TIPS, geopolitics/risk sentiment, CB flows, inflation expectations, COT); không trade 1–2 indicator đơn.
-8. Position sizing động — volatility-adjusted (ATR), fractional Kelly hoặc fixed-fractional 0.5–1%/trade; không fixed-lot mù.
-9. Continuous reflection & kill-switch — sau mỗi fold/paper/live period tự hỏi "edge còn? alpha decay? regime shift?"; kill-switch rõ khi degrade quá ngưỡng.
-10. Humility, no self-deception — edge suy giảm theo thời gian; không tự lừa "lần này khác"; mọi claim phải data-driven.
+Đây là **chuẩn vận hành**, không phải tiểu sử hay track-record giả. Agent không
+được tự nhận từng làm ở quỹ nào, có Sharpe/lợi nhuận cá nhân nào, hay sở hữu một
+hệ thống đang sinh lời nếu không có artifact trong workspace chứng minh.
 
-**Cầu nối thực tế (không giả vờ đạt):** 10 nguyên tắc là mục tiêu/chuẩn. Chỗ nào
-data/tooling hiện chưa đạt — real-tick XAU chưa có (chỉ ~2 quote-day); producer
-WFO/PBO/Reality-Check hiện diagnostic-only `promotion_eligible=false` (xem
-`validation_gates.md` "current producer boundary") — thì ghi UNMET/limitation
-thật, không fake compliance. Khi nói "hình dáng" setup/chart, tựa case image đã
-render (`tools/research/chart_case_render.py`) hoặc feature đo được. Không hứa
-lợi nhuận; không gọi production-grade khi chưa vượt gate. Thành công ≠ PF
-in-sample / compile xanh.
+- Input của Owner là mục tiêu, ràng buộc và thesis ban đầu; không phải chân lý
+  thị trường cũng không phải toàn bộ phần việc. Lead phải tự bổ sung market
+  mechanism, execution, risk, alternative và phép falsify tốt hơn.
+- Sản phẩm cần tạo là **quyết định trading tốt hơn và tiến triển về expectancy**,
+  không phải số lượng report, plan, test hay lý do từ chối. Capital preservation
+  đứng trước growth; risk management không được dùng để che một signal âm.
+- Một hypothesis bị kill chỉ đóng đúng tested object. Lead phải trích failure
+  packet, xác định failure radius, rồi chủ động chọn `repair invalid run | fresh
+  mechanism/ID | scoped blocker`; không được biến một kill thành điểm dừng dự án.
+- `NO LEGAL CANDIDATE` từ một prompt, symbol, timeframe hay data contract chỉ
+  đóng **search cell đã khai**. Không được gọi đó là frontier của cả workspace,
+  đánh dấu goal hoàn thành, hoặc ngừng sáng tạo khi mục tiêu Owner vẫn là tạo
+  một EA/book có edge.
+- Frontier-stop toàn dự án chỉ hợp lệ khi ghi rõ search boundary, families/data/
+  symbol/TF đã thử, budget đã dùng, điều kiện mở lại và phần mục tiêu Owner còn
+  UNMET. Nếu còn bước an toàn trong scope, lead phải tiếp tục; nếu cần chi tiền,
+  live risk hoặc đổi scope vật chất thì mới dừng xin quyền.
+- Báo cáo phải tách ba tầng: `engineering-valid`, `economic-valid`,
+  `promotion/deploy-ready`. Package tồn tại, compile xanh, data quality cao hay
+  DD thấp do ít lệnh không tự chứng minh edge.
+
+### Bất biến trading/quant
+
+Thị trường là hệ thích nghi, cạnh tranh và không dừng; edge thường nhỏ, có điều
+kiện, bị cost ăn mòn và có thể decay. Backtest chỉ đo rule đã implement trên một
+data/execution contract, không chứng minh câu chuyện nhân quả. Expectancy sau
+cost, độ ổn định theo thời gian/regime, tail risk và khả năng khớp lệnh quan trọng
+hơn PF in-sample. Optimization dùng để tìm **vùng ổn định**, không săn một đỉnh
+tham số. Position sizing chỉ scale phân phối PnL; nó không tạo alpha. Chi tiết
+canonical: `05. Playbook/research_doctrine.md` mục “Bản chất thị trường”;
+ngưỡng evidence: `05. Playbook/validation_gates.md`.
 
 ## 3. Hard rules (không thương lượng)
 
@@ -72,8 +76,12 @@ in-sample / compile xanh.
   đóng băng TIỀN-kết-quả, SHA-bind (validator hash-check mọi row; amendment
   pre-outcome → file `_V2`, không sửa in-place). Chi tiết `research_doctrine.md`.
 - Model 1 chỉ kill/park; control/challenger nghiêm túc → Model 0.
-- Không gọi EA development `DONE|complete|ready` sau meaningful backtest nếu
-  chưa PASS `alpha.ps1 delivery -Packet ...`. Packet phải hash-bind logic matrix,
+- Dùng Two-Speed closeout: exact cell chạm fatal gate đã preregister có thể đóng
+  bằng `alpha.ps1 fast-kill -Packet ...` sau metrics/log triage, không cần
+  casebook/Grok; minimum observations và sequential boundary phải khóa trước,
+  data/engineering invalid không được gọi là no-edge. Candidate sống/đi tiếp,
+  promotion hoặc claim `DONE|complete|ready` vẫn phải PASS
+  `alpha.ps1 delivery -Packet ...`. Packet Heavy-Delivery phải hash-bind logic matrix,
   source/EX5/compile/test/non-repaint, report↔lifecycle↔RunMeta/log triage,
   economics+cost+cadence+regime/execution, nguyên nhân thắng/thua, logic conflict
   và chart anatomy đa khung có entry/SL/TP/exit. Zero-trade dùng funnel + chart
@@ -81,6 +89,14 @@ in-sample / compile xanh.
 - Chỉ closed-bar; audit non-repaint sau mọi đổi signal/data-access.
 - Cadence = elapsed calendar weeks (không dùng active-week làm mẫu số).
 - Cost field = 0 hoặc thiếu ≠ cost thực = 0.
+- Campaign khai `all available history`/`no skip` chỉ được mở economics hoặc
+  kết luận aggregate sau khi `validate_data_epoch.py --require-complete` PASS:
+  đúng một selected receipt hash-bound cho từng symbol bắt buộc, History
+  Quality đúng ngưỡng prereg (T1 là `>97%`). Thiếu/sai là
+  `INVALID_REPAIR`, không phải no-edge và không được bỏ symbol.
+- Synthetic capability probe ngay canonical attempt đầu phải lưu structured
+  invalid-reason counts + bounded replicate identities. Không chỉ lưu rate rồi
+  tốn một full rerun để phân biệt bug harness với giới hạn contract.
 - Zero-trade/data-acquisition không có WR/PF/expectancy. Chỉ gọi là collection
   khi contract đã freeze, mutation/outcome tắt, source SHA khớp
   task/receipt/manifest/meta/row và extractor đúng schema. Corpus cũ thiếu
@@ -138,16 +154,19 @@ Harness chính cho phát triển EA + backtest — **không invent toolchain son
 - AlphaFactory = cách chạy; ceremony (gates/registry/prereg) vẫn bắt buộc.
   Registry active dùng chung: `04. Memory/research/CANDIDATE_REGISTRY.jsonl`;
   template: `02. AlphaFactory/templates/research/`.
+- Campaign T1→T100 dùng machine ledger riêng
+  `04. Memory/research/CAMPAIGN_EXPOSURE.jsonl` + schema/validator để giữ
+  trial/alpha/split/data exposure SHA-chain. Không chèn record campaign vào
+  `CANDIDATE_REGISTRY.jsonl`: reader lịch sử giả định mọi row là hypothesis.
 - Active shelf `03. EA Developer/`: danh sách lane compilable +
   research-only terminal records sống ở `03. EA Developer/README.md`; count
   được kiểm trực tiếp từ disk/README. Mọi package trên shelf đều KHÔNG tự có
   quyền chạy/rerun/promote/live — quyền đến từ scope Owner hiện tại + registry/
   prereg/task packet và gate thực tế, không từ sự tồn tại của source hay `hot.md`.
   Không liệt kê shelf trong file này để tránh drift.
-  Packages archived THẬT (80 dir, 2026-07-15):
-  `00. Old File/EA_Archive/` (SonicR full ledger + SilverBullet binary + 78
-  stub `.ex5`). Ledger Sonic cũ đi theo archive; ledger generic active ở
-  `04. Memory/research/`.
+  Package archive thật nằm ở `00. Old File/EA_Archive/`; inventory hiện tại lấy
+  từ `source_of_truth.json` + validator, không hard-code count trong file chỉ
+  dẫn. Ledger generic active nằm ở `04. Memory/research/`.
 - Root gọn: `CLAUDE.md`, `AGENTS.md`, `INDEX.md`, `01. GOAL/`. Doc điều khiển →
   `04. Memory/` (state) + `05. Playbook/` (5 file lõi). Doctrine cũ archived →
   `00. Old File/project_control_archive_20260716/`. Trước revive:
@@ -175,7 +194,8 @@ agent_ea_research_loop, skills/). Không còn quy trình roster nặng.
   reviewer; MQL5/fidelity và risk/execution review được parent hoặc sub-agent
   bounded thực hiện khi evidence cần. Tách builder và reviewer thành task
   stateless khác nhau khi có thể; mọi MT5 WRITE vẫn serial theo global lock.
-- Casebook gửi Grok theo `ea_golden_path.md` §9 và `tool_runbook.md`: mặc định
+- Casebook/Grok chỉ bắt buộc trong Heavy-Delivery hoặc khi reviewer được cite,
+  theo `ea_golden_path.md` §9 và `tool_runbook.md`: mặc định
   5 case/job, global concurrency 1, request artifact + dry-run trước actual,
   coverage/ID/image-open phải fail-closed. Profile 2 worker × 100 chart chỉ dùng
   khi population đủ lớn; không phải gate cứng cho mọi run.
@@ -186,7 +206,8 @@ agent_ea_research_loop, skills/). Không còn quy trình roster nặng.
 Sau session nghiên cứu/cải thiện có ý nghĩa, **parent chủ động chốt** (không
 chờ Owner):
 
-- **(A) Docs:** cập nhật `hot.md` (nếu truth đổi), `INDEX.md` (nếu bản đồ đổi),
+- **(A) Docs:** cập nhật `hot.md` (chỉ routing fact ảnh hưởng bước an toàn kế
+  tiếp; không biến thành ledger), `INDEX.md` (nếu bản đồ đổi),
   guidance nếu process đổi, `do_not_repeat_failures.md` nếu kill mới; `GOAL.md`
   **chỉ** khi Owner quyết. Gate đỏ (`validate_source_of_truth.py`) → sửa trước
   khi đóng.
@@ -238,12 +259,13 @@ chờ Owner):
 | `04. Memory/hot.md` | cache tham khảo (NEXT SESSION + ledger), không cấp/veto quyền |
 | `04. Memory/do_not_repeat_failures.md` | prior + failure radius; không phải blacklist hyp mới |
 | `04. Memory/research/CANDIDATE_REGISTRY.jsonl` + validator | ledger hypothesis generic append-only |
+| `04. Memory/research/CAMPAIGN_EXPOSURE.jsonl` + schema/validator | ledger campaign append-only, SHA-chain trial/alpha/split/data exposure; không thay hypothesis registry |
 | `04. Memory/source_of_truth.md`/`.json` + `validate_source_of_truth.py` | registry canonical + validator fail-closed |
 | `05. Playbook/ea_golden_path.md` | brief → probe/prereg → build → Model 0 → quyết định |
 | `05. Playbook/validation_gates.md` | stage gates, hard invalidation, run-manifest |
 | `05. Playbook/tool_runbook.md` | lệnh AlphaFactory chính xác |
 | `05. Playbook/ea_engineering_standard.md` | chuẩn code MQL5 (closed-bar, non-repaint) |
-| `05. Playbook/research_doctrine.md` | hypothesis, registry, overfit budget, MT5/non-repaint |
+| `05. Playbook/research_doctrine.md` | bản chất market + vai trò Lead Quant; hypothesis, search-cell/frontier scope, registry, overfit, MT5/non-repaint |
 | `02. AlphaFactory/tools/research/` (+ `README.md`) | probe SDK cơ khí-trung tính: indicators (`*_mt5`/`*_wilder`), sealed_loader, trial_log, metrics, controls, dsr, chart_case_render, log_triage, parity_harness, clock model. **Charter: không có default chiến lược trong kit** |
 | `02. AlphaFactory/data/<broker>/<symbol>/` (+ `README.md`) | data shelf backtest/train/dev (parquet + manifest hash-bound; không để trên C:/FILE_COMMON/EA package) |
 | archived: `00. Old File/project_control_archive_20260716/` | workflow, roster+agents, policies, skills, receipts, legacy (không active) |

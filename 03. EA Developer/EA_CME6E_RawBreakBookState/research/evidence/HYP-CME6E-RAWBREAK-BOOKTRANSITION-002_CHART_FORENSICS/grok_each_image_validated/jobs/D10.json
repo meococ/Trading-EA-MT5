@@ -1,0 +1,83 @@
+{
+  "schema_version": "hyp002_grok_each_image_validated_job.v1",
+  "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+  "job": {
+    "job_id": "D10",
+    "case_id": "F010_PID000001412",
+    "position_id": "1412",
+    "direction": "BUY",
+    "image_type": "DECISION_ASOF",
+    "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F010_PID000001412_decision.png",
+    "image_sha256": "A842F8BF2E3393D9F06BBF4104FD7BEBA524205F7CD742843B9E0C3A32A65EFC"
+  },
+  "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D10\\attempt-001-actual",
+  "request": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D10\\attempt-001-actual\\grok-request.json",
+    "sha256": "5D264238D3F154C93B34531D672DCF04EB205BC07772076056D6D95E1F1EEDFC"
+  },
+  "prompt_blocks": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D10\\attempt-001-actual\\prompt-blocks.json",
+    "sha256": "4E29653DA5D116F8C0B65A828697169C2D28881A631F3858F9661309ACA99F33"
+  },
+  "summary": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D10\\attempt-001-actual\\summary.json",
+    "sha256": "C3E5750DF6325797FD0DE5B39E25DF6C42E573BD51A1DA29731E9482B9D0EFED"
+  },
+  "response": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D10\\attempt-001-actual\\grok-response.json",
+    "sha256": "A6FF899E58DBCD62C25757519FDC5DDA310E44AC90DA0BF0B3ABE30C555E8974"
+  },
+  "runner": {
+    "model": "grok-4.5",
+    "reasoning_effort": "high",
+    "stop_reason": "EndTurn",
+    "elapsed_seconds": 62.797,
+    "total_cost_usd": 0.0606652,
+    "num_turns": 1,
+    "prompt_transport": "acp_blocks_file",
+    "image_count": 1,
+    "decoded_image_bytes": 182802
+  },
+  "result": {
+    "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+    "job_id": "D10",
+    "case_id": "F010_PID000001412",
+    "position_id": "1412",
+    "direction": "BUY",
+    "image_type": "DECISION_ASOF",
+    "image_sha256": "A842F8BF2E3393D9F06BBF4104FD7BEBA524205F7CD742843B9E0C3A32A65EFC",
+    "image_opened": true,
+    "visual_readability": "PASS",
+    "observations": [
+      "Top M1 panel is labeled decision-as-of/future-hidden BUY with solid blue Entry near ~+0.00068, red dashed SL near ~+0.00046, green dashed TP near ~+0.00112, and purple break-bar-open plus blue actual-entry verticals stacked at the far right (~07-23 00:19).",
+      "M1 path declines from left highs near ~0.0006 into a mid-window base around ~0.00015–0.00030, then builds a late recovery after ~23:11 with a dip near 00:02 and green candles thrusting into/through the entry line at the decision edge.",
+      "H1 context shows prolonged ~1.179–1.180 balance, a spike toward ~1.182–1.183 around 07-22 14:00, then a multi-bar red cascade into ~1.176–1.177, with only a modest right-edge bounce near ~1.1775.",
+      "CME 6E direction-aligned I5 trace is labeled early=+0.025, late=+0.043, score=+0.055; early 60s are mixed/slightly positive, the mid window prints frequent negatives, and late 60s recover while actual entry sits near ~300s.",
+      "SL sits under the mid-recovery plateau and above the deepest M1 base; TP lies above the entire displayed M1 range, so reward requires a much larger upside continuation than the pre-entry bounce already shows."
+    ],
+    "confidence": "MEDIUM",
+    "unknowns": [
+      "Any price path after the actual-entry marker (future is hidden).",
+      "Whether entry, SL, or TP is later touched or filled.",
+      "Absolute pip/point distances and cost/spread at fill (only relative levels are drawn).",
+      "What rule defined the break-bar versus discretionary annotation.",
+      "Broader session/regime context beyond the three panels."
+    ],
+    "no_rule_or_rerun_authority": true,
+    "outcome_blind": true,
+    "trend_context": "M1 is a selloff-to-base then late upside recovery into entry; H1 is post-spike bearish cascade with only a small bounce near the lower end of the displayed window.",
+    "range_location": "Decision sits after H1 sold from the spike highs into the lower band near ~1.177; on M1, price has reclaimed from mid-window lows toward the upper portion of the visible M1 range at the entry line.",
+    "breakout_geometry": "BUY geometry has entry above SL and a distant TP (~visually wider than the SL gap). Break-bar open and actual entry are co-located at the right edge after a short late green thrust, not after a long multi-leg extension already run far from the break.",
+    "book_trace_context": "Direction-aligned CME 6E I5 is net constructive (score +0.055) with early +0.025 and late +0.043, but the mid-trace is often negative before the late-window recovery into entry.",
+    "break_freshness": "FRESH",
+    "entry_risk_flags": [
+      "BUY immediately after a sharp H1 red cascade (counter-impulse location).",
+      "H1 price still near the lower post-dump zone, not a clear reclaimed mid/high of the prior H1 balance.",
+      "M1 entry coincides with a late bounce chase rather than a long established uptrend base.",
+      "Book mid-window showed repeated negative direction-aligned pressure before late recovery.",
+      "TP requires continuation well above all visible M1 structure and into prior H1 supply."
+    ],
+    "blind_prediction": "AMBIGUOUS",
+    "evidence_boundary": "Only the pixels of this single attached DECISION_ASOF composite (M1 geometry, H1 context, CME 6E trace) were used; future path and realized PnL are hidden and not inferred from case identity."
+  }
+}

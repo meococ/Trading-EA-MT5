@@ -1,0 +1,2 @@
+{"at_utc":"2026-07-30T08:48:10.905625Z","event":"attempt_started"}
+{"at_utc":"2026-07-30T08:48:23.544944Z","event":"attempt_completed","trades":526,"verdict":"KILL_VALIDATION_PRESSURE_CONTINUATION_HOLDOUT_REMAINS_SEALED"}

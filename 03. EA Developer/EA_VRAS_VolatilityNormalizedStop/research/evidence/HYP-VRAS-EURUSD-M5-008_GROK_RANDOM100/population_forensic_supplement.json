@@ -1,0 +1,313 @@
+{
+  "schema_version": "vras_hyp008_population_forensic_supplement.v1",
+  "created_at_utc": "2026-07-22T17:12:35Z",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-008",
+  "run_id": "20260722_233420",
+  "forensic_only": true,
+  "matched_pair_strict_validity": "PARTIAL_BINARY_HASH_MISMATCH_SOURCE_IDENTICAL",
+  "exit_reason_authority": "MT5 closing-order comment joined by lifecycle final-close deal ID",
+  "moved_sl_caveat": "MOVED_SL proves a changed close-stop price, not modification timing or successful +1R trigger logging",
+  "population": {
+    "n": 3611,
+    "wins": 1524,
+    "losses": 2009,
+    "flats": 78,
+    "win_rate_nonflat_pct": 43.13614491933201,
+    "net_usd": -20791.58,
+    "profit_factor": 0.7722369257060228,
+    "mean_net_r": -0.1184003600213844,
+    "risk_weighted_net_r": -0.11888203572788388
+  },
+  "by_exact_exit_class": {
+    "INITIAL_SL": {
+      "n": 1615,
+      "wins": 0,
+      "losses": 1615,
+      "flats": 0,
+      "win_rate_nonflat_pct": 0.0,
+      "net_usd": -84255.86,
+      "profit_factor": 0.0,
+      "mean_net_r": -1.076468430711446,
+      "risk_weighted_net_r": -1.0766682725052743
+    },
+    "MOVED_SL": {
+      "n": 378,
+      "wins": 259,
+      "losses": 42,
+      "flats": 77,
+      "win_rate_nonflat_pct": 86.04651162790698,
+      "net_usd": -42.23000000000001,
+      "profit_factor": 0.8202672795369423,
+      "mean_net_r": -0.002266607650858824,
+      "risk_weighted_net_r": -0.002304549835139829
+    },
+    "TARGET": {
+      "n": 851,
+      "wins": 851,
+      "losses": 0,
+      "flats": 0,
+      "win_rate_nonflat_pct": 100.0,
+      "net_usd": 60212.5,
+      "profit_factor": null,
+      "mean_net_r": 1.4611036577858276,
+      "risk_weighted_net_r": 1.460813916871227
+    },
+    "TIME_EXIT": {
+      "n": 767,
+      "wins": 414,
+      "losses": 352,
+      "flats": 1,
+      "win_rate_nonflat_pct": 54.04699738903394,
+      "net_usd": 3294.01,
+      "profit_factor": 1.4847568423500186,
+      "mean_net_r": 0.08919215186186684,
+      "risk_weighted_net_r": 0.08880324909990606
+    }
+  },
+  "by_year_utc": {
+    "2019": {
+      "n": 766,
+      "wins": 299,
+      "losses": 451,
+      "flats": 16,
+      "win_rate_nonflat_pct": 39.86666666666667,
+      "net_usd": -6894.27,
+      "profit_factor": 0.6636916855489187,
+      "mean_net_r": -0.18222508142030452,
+      "risk_weighted_net_r": -0.18269572971418807
+    },
+    "2020": {
+      "n": 968,
+      "wins": 441,
+      "losses": 502,
+      "flats": 25,
+      "win_rate_nonflat_pct": 46.76564156945917,
+      "net_usd": -2196.53,
+      "profit_factor": 0.9032637523022162,
+      "mean_net_r": -0.04612128467946233,
+      "risk_weighted_net_r": -0.04660038251464663
+    },
+    "2021": {
+      "n": 903,
+      "wins": 379,
+      "losses": 507,
+      "flats": 17,
+      "win_rate_nonflat_pct": 42.776523702031604,
+      "net_usd": -6414.76,
+      "profit_factor": 0.7264233342545301,
+      "mean_net_r": -0.14646522657896208,
+      "risk_weighted_net_r": -0.1468401406147098
+    },
+    "2022": {
+      "n": 974,
+      "wins": 405,
+      "losses": 549,
+      "flats": 20,
+      "win_rate_nonflat_pct": 42.45283018867924,
+      "net_usd": -5286.02,
+      "profit_factor": 0.7854003794249841,
+      "mean_net_r": -0.11402031262704676,
+      "risk_weighted_net_r": -0.11408167405482633
+    }
+  },
+  "by_direction": {
+    "BUY": {
+      "n": 1672,
+      "wins": 703,
+      "losses": 928,
+      "flats": 41,
+      "win_rate_nonflat_pct": 43.1023911710607,
+      "net_usd": -8000.93,
+      "profit_factor": 0.8073783338332889,
+      "mean_net_r": -0.09845578593173497,
+      "risk_weighted_net_r": -0.09879685590856921
+    },
+    "SELL": {
+      "n": 1939,
+      "wins": 821,
+      "losses": 1081,
+      "flats": 37,
+      "win_rate_nonflat_pct": 43.165089379600424,
+      "net_usd": -12790.65,
+      "profit_factor": 0.7428962362645425,
+      "mean_net_r": -0.1355985693446922,
+      "risk_weighted_net_r": -0.13620277443411102
+    }
+  },
+  "by_session_utc": {
+    "Asia": {
+      "n": 968,
+      "wins": 431,
+      "losses": 511,
+      "flats": 26,
+      "win_rate_nonflat_pct": 45.753715498938426,
+      "net_usd": -3354.08,
+      "profit_factor": 0.8595330947881906,
+      "mean_net_r": -0.0707161779590374,
+      "risk_weighted_net_r": -0.07145351169442826
+    },
+    "Europe": {
+      "n": 1276,
+      "wins": 531,
+      "losses": 716,
+      "flats": 29,
+      "win_rate_nonflat_pct": 42.582197273456295,
+      "net_usd": -7882.16,
+      "profit_factor": 0.7614380736742483,
+      "mean_net_r": -0.12786005103927067,
+      "risk_weighted_net_r": -0.12761678309586333
+    },
+    "NewYork": {
+      "n": 777,
+      "wins": 341,
+      "losses": 423,
+      "flats": 13,
+      "win_rate_nonflat_pct": 44.63350785340314,
+      "net_usd": -3056.78,
+      "profit_factor": 0.8337055326130892,
+      "mean_net_r": -0.08057733563734694,
+      "risk_weighted_net_r": -0.08143756030995922
+    },
+    "OffHours": {
+      "n": 590,
+      "wins": 221,
+      "losses": 359,
+      "flats": 10,
+      "win_rate_nonflat_pct": 38.10344827586207,
+      "net_usd": -6498.56,
+      "profit_factor": 0.5934812472006545,
+      "mean_net_r": -0.22598716077380152,
+      "risk_weighted_net_r": -0.2268080168224136
+    }
+  },
+  "overnight_utc": {
+    "n": 197,
+    "wins": 80,
+    "losses": 114,
+    "flats": 3,
+    "win_rate_nonflat_pct": 41.23711340206186,
+    "net_usd": -1594.8500000000001,
+    "profit_factor": 0.7020737245407861,
+    "mean_net_r": -0.16582141995059124,
+    "risk_weighted_net_r": -0.16678605976626842
+  },
+  "weekend_crossing_utc": {
+    "n": 27,
+    "wins": 5,
+    "losses": 22,
+    "flats": 0,
+    "win_rate_nonflat_pct": 18.51851851851852,
+    "net_usd": -940.1800000000001,
+    "profit_factor": 0.39984424471453367,
+    "mean_net_r": -0.7136683811941325,
+    "risk_weighted_net_r": -0.7189129670128004
+  },
+  "weekend_extremes": {
+    "best": {
+      "position_id": 6634,
+      "entry_time": "2022.09.09 22:00:00",
+      "exit_time": "2022.09.12 00:05:00",
+      "direction": 1,
+      "side": "BUY",
+      "entry": 1.00438,
+      "lifecycle_sl": 1.00353,
+      "exit": 1.0095,
+      "volume": 0.56,
+      "initial_risk_account": 47.6,
+      "risk_pips": 8.5,
+      "net_usd": 267.84999999999997,
+      "net_r": 5.627100840336134,
+      "holding_minutes": 3005.0,
+      "entry_time_utc": "2022.09.09 19:00:00",
+      "exit_time_utc": "2022.09.11 21:05:00",
+      "server_utc_offset_h": 3,
+      "weekday_utc": "Friday",
+      "session_utc": "OffHours",
+      "close_deal_id": 6635,
+      "exit_comment": "tp 1.00566",
+      "exit_class": "TARGET",
+      "active_stop_at_exit": 1.00566,
+      "year": 2022,
+      "overnight_utc": true,
+      "weekend_crossing_utc": true,
+      "server_elapsed_minutes": 3005.0
+    },
+    "worst": {
+      "position_id": 5814,
+      "entry_time": "2022.04.08 23:10:00",
+      "exit_time": "2022.04.11 00:05:00",
+      "direction": -1,
+      "side": "SELL",
+      "entry": 1.08743,
+      "lifecycle_sl": 1.08819,
+      "exit": 1.09169,
+      "volume": 0.63,
+      "initial_risk_account": 47.88,
+      "risk_pips": 7.6,
+      "net_usd": -289.41999999999996,
+      "net_r": -6.044695071010859,
+      "holding_minutes": 2935.0,
+      "entry_time_utc": "2022.04.08 20:10:00",
+      "exit_time_utc": "2022.04.10 21:05:00",
+      "server_utc_offset_h": 3,
+      "weekday_utc": "Friday",
+      "session_utc": "OffHours",
+      "close_deal_id": 5815,
+      "exit_comment": "sl 1.08819",
+      "exit_class": "INITIAL_SL",
+      "active_stop_at_exit": 1.08819,
+      "year": 2022,
+      "overnight_utc": true,
+      "weekend_crossing_utc": true,
+      "server_elapsed_minutes": 2935.0
+    }
+  },
+  "decision_funnel": {
+    "EXPOSURE_REJECT": 2285,
+    "ORDER_ACCEPTED": 3611,
+    "ORDER_SEND_REJECT": 14,
+    "SPREAD_REJECT": 289,
+    "STRUCTURE_TOO_WIDE_REJECT": 3835,
+    "TRADE_LIMIT_REJECT": 829
+  },
+  "random_sample": {
+    "selection_sha256": "41510AF729C9703F084FC974A209A163C9CC70468447DE23B315976321C2C4C1",
+    "sample_composition": {
+      "wins": 41,
+      "losses": 57,
+      "flats": 2,
+      "buy": 42,
+      "sell": 58,
+      "weekend_crossings": 1,
+      "exact_exit_classes": {
+        "INITIAL_SL": 49,
+        "TARGET": 25,
+        "TIME_EXIT": 20,
+        "MOVED_SL": 6
+      }
+    },
+    "weekend_sample_is_not_population_evidence": true
+  },
+  "bindings": {
+    "lifecycle": {
+      "path": "02. AlphaFactory/runs/EA_VRAS_VolatilityNormalizedStop/20260722_233420/analysis/logs/EURUSD_LifecycleTrades_HYP-VRAS-EURUSD-M5-008_188132734.csv",
+      "sha256": "2CB21056F69708D2FD735A2A06E725DC578FD9F56E39487C393CD3B3B340C556"
+    },
+    "decision_telemetry": {
+      "path": "02. AlphaFactory/runs/EA_VRAS_VolatilityNormalizedStop/20260722_233420/analysis/logs/EURUSD_DecisionTelemetry_HYP-VRAS-EURUSD-M5-008_188132734.csv",
+      "sha256": "C510692DB20D710D92FCDE52C8628B158D98AAFE00BD3211E5E36E74254EDF66"
+    },
+    "tester_report": {
+      "path": "02. AlphaFactory/runs/EA_VRAS_VolatilityNormalizedStop/20260722_233420/report.html",
+      "sha256": "483E5D42D08EE9DFF538015F5A2305DEFA3A81CC702496A859B03DCBE92F7F68"
+    },
+    "selection_manifest": {
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/evidence/HYP-VRAS-EURUSD-M5-008_GROK_RANDOM100/selection_manifest.json",
+      "sha256": "41510AF729C9703F084FC974A209A163C9CC70468447DE23B315976321C2C4C1"
+    },
+    "weekend_tail_csv": {
+      "path": "03. EA Developer/EA_VRAS_VolatilityNormalizedStop/research/evidence/HYP-VRAS-EURUSD-M5-008_GROK_RANDOM100/weekend_tail_supplement.csv",
+      "sha256": "52064241BC59C0BE9B1723F3BC7256468BFBAABB396FA89177433EE4129B1370"
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schema_version": "alphafactory_ea_delivery_packet.v1",
+  "created_at_utc": "2026-07-22T09:11:34Z",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-004",
+  "ea_name": "EA_VRAS_PathConfirmedTrend",
+  "delivery_class": "economic_run",
+  "completion_claim": true,
+  "verdict": "KILLED",
+  "bindings": [
+    {"role":"preregistration","path":"03. EA Developer/EA_VRAS_PathConfirmedTrend/research/HYP-VRAS-EURUSD-M5-004_FROZEN_PREREG.md","bytes":4592,"sha256":"8548E9FA1ECC75D49A152589833F990D577BE58270D06D863AAB951CB2D5955F"},
+    {"role":"logic_matrix","path":"03. EA Developer/EA_VRAS_PathConfirmedTrend/research/LOGIC_TO_CODE_MATRIX.md","bytes":2349,"sha256":"EDBAD5C8A703435EEFE3581B2F0B1090C2EF96A04623817398D8BDE6CD99BF90"},
+    {"role":"source","path":"03. EA Developer/EA_VRAS_PathConfirmedTrend/EA_VRAS_PathConfirmedTrend.mq5","bytes":55061,"sha256":"F222A120D71EADB9E177DCE6F7AE3C80D13687D39C2EFF0C4F73CA0DF7D418E2"},
+    {"role":"compiled_binary","path":"03. EA Developer/EA_VRAS_PathConfirmedTrend/EA_VRAS_PathConfirmedTrend.ex5","bytes":60142,"sha256":"3BBFD04BC0878C31B62626CF6718F7E15E9C583A5DF2EFCF70993D87F5A04F88"},
+    {"role":"compile_log","path":"03. EA Developer/EA_VRAS_PathConfirmedTrend/research/evidence/HYP-VRAS-EURUSD-M5-004_COMPILE_RECEIPT.txt","bytes":668,"sha256":"8BCCCC8FA9A94369644D8EAAB15699F1742C182A331155CE2C64598FCD98EC7E"},
+    {"role":"test_receipt","path":"03. EA Developer/EA_VRAS_PathConfirmedTrend/research/evidence/HYP-VRAS-EURUSD-M5-004_TEST_RECEIPT.json","bytes":1337,"sha256":"AB8AAA3EB99BD5528F6BCFE4BDD16222AF4635C3A1241D8142A02E260CEFF7B8"},
+    {"role":"nonrepaint_audit","path":"03. EA Developer/EA_VRAS_PathConfirmedTrend/research/evidence/20260722_NONREPAINT_AUDIT_V1/nonrepaint_audit.json","bytes":1205,"sha256":"7000E1C493FD2C5C1A6BD7BBD0B35F4A2C42990C5B4ECF84F0F26E17577A967E"},
+    {"role":"run_manifest","path":"02. AlphaFactory/runs/EA_VRAS_PathConfirmedTrend/20260722_155635/run_manifest.json","bytes":59189,"sha256":"B07923226DD8EDA4E70ADE8C3E2B40CF4913F8042E3D43CD6C69C2EA91E86AFF"},
+    {"role":"tester_report","path":"02. AlphaFactory/runs/EA_VRAS_PathConfirmedTrend/20260722_155635/report.html","bytes":553290,"sha256":"C8E15490535575269023A4F310CA4EE472AF0AAC43300E2637D4BDB8B03D316C"},
+    {"role":"lifecycle_trades","path":"02. AlphaFactory/runs/EA_VRAS_PathConfirmedTrend/20260722_155635/logs/EURUSD_LifecycleTrades_HYP-VRAS-EURUSD-M5-004_160668609.csv","bytes":76140,"sha256":"639AB7633E5C192F13E4A3B590F8098FEEB1C11A364182A8C9ECE5C525BC53BD"},
+    {"role":"run_meta","path":"02. AlphaFactory/runs/EA_VRAS_PathConfirmedTrend/20260722_155635/logs/EURUSD_RunMeta_HYP-VRAS-EURUSD-M5-004_160668609.json","bytes":1587,"sha256":"B19829F7957675709B8790BE953270AA403AE9EE023A3D005F59F91866EAAF16"},
+    {"role":"log_triage","path":"03. EA Developer/EA_VRAS_PathConfirmedTrend/research/evidence/HYP-VRAS-EURUSD-M5-004_LOG_TRIAGE.json","bytes":1597,"sha256":"3F0FEF9EF755B870ACFD7DC615F54900FB0FA0CCA7854A364CC54B072838A6F1"},
+    {"role":"economic_analysis","path":"03. EA Developer/EA_VRAS_PathConfirmedTrend/research/HYP-VRAS-EURUSD-M5-004_READOUT.json","bytes":16340,"sha256":"A930F0B4BF35F8DC927AA81A95B9611D273254009D83FDE1A1EA3B9A911ADFF2"},
+    {"role":"casebook_manifest","path":"03. EA Developer/EA_VRAS_PathConfirmedTrend/research/evidence/HYP-VRAS-EURUSD-M5-004_DELIVERY_ANATOMY/cases_manifest.json","bytes":11014,"sha256":"B3FCACDBB4BF12F26EB86B10F0BEEF9E7ED3EC284DC856541E6F2C82632D786F"},
+    {"role":"decision_casebook_manifest","path":"03. EA Developer/EA_VRAS_PathConfirmedTrend/research/evidence/HYP-VRAS-EURUSD-M5-004_DELIVERY_ASOF/cases_manifest.json","bytes":10747,"sha256":"8A19DD77B64471B7C9847E06952BB2C5462C06475469602DBF1F91FFF34E2887"},
+    {"role":"readout","path":"03. EA Developer/EA_VRAS_PathConfirmedTrend/research/HYP-VRAS-EURUSD-M5-004_READOUT.md","bytes":2091,"sha256":"D626C1A20F3985E4BC6FC0BC603BC3FB2D563765643139B590D48554CE6F337C"},
+    {"role":"indicator_rich_supplement","path":"03. EA Developer/EA_VRAS_PathConfirmedTrend/research/evidence/HYP-VRAS-EURUSD-M5-004_CHARTS/indicator_rich_casebook_manifest.json","bytes":1554,"sha256":"FA317059B3E793A042FBEB7B07BF1BA6426DA72F312F04EA7DCCC3E553D3AE0D"},
+    {"role":"raw_metaeditor_log","path":"03. EA Developer/EA_VRAS_PathConfirmedTrend/research/evidence/HYP-VRAS-EURUSD-M5-004_METAEDITOR.log","bytes":56244,"sha256":"FAF5C0032241F26C6CCCCF9F77371F8B6382CE3ACC6AEDB0864ABA9494E9EF9F"},
+    {"role":"validation_summary","path":"02. AlphaFactory/runs/EA_VRAS_PathConfirmedTrend/20260722_155635/analysis/validation_summary.json","bytes":82459,"sha256":"6B30CF08302DAC16FF2665784DA9F2BE168D3FE38446F6AE22367467492F7D92"},
+    {"role":"monte_carlo","path":"02. AlphaFactory/runs/EA_VRAS_PathConfirmedTrend/20260722_155635/analysis/monte_carlo_results.json","bytes":919,"sha256":"48D8C0FFE4C24A69454F9D1C57E5366ECC190441EBD0344834DA1BEB840CD0BE"},
+    {"role":"robustness","path":"02. AlphaFactory/runs/EA_VRAS_PathConfirmedTrend/20260722_155635/analysis/robustness_results.json","bytes":3623,"sha256":"38A25DC66CC778A3DD92F2BE7EC5F89F92AC39BF7D1F4D22360A9B08EEAAC9E5"},
+    {"role":"matched_control_manifest","path":"02. AlphaFactory/runs/EA_VRAS_PathConfirmedTrend/20260722_155551/run_manifest.json","bytes":59187,"sha256":"543BCBB4AC8F625C78B7E3ACE5B6104F218F88226F9ED7496CB4B39553901B6F"},
+    {"role":"matched_control_report","path":"02. AlphaFactory/runs/EA_VRAS_PathConfirmedTrend/20260722_155551/report.html","bytes":570828,"sha256":"452239FAD0CBA4E8770D6A582F478373445B69B715587C76C5D6277C0F9E0C25"}
+  ],
+  "logic_contract": {
+    "requirements_total": 14,
+    "requirements_mapped_to_code": 14,
+    "requirements_tested": 14,
+    "closed_bar_decisions": true,
+    "unresolved_material_ambiguities": 0
+  },
+  "engineering_contract": {
+    "tests_passed": 16,
+    "tests_failed": 0,
+    "compile_errors": 0,
+    "compile_warnings": 0,
+    "nonrepaint_status": "PASS"
+  },
+  "run_contract": {
+    "run_id": "20260722_155635",
+    "model": 0,
+    "trades": 252,
+    "report_lifecycle_reconciled": true,
+    "lifecycle_open_rows": 252,
+    "lifecycle_final_rows": 252,
+    "unresolved_log_errors": 0
+  },
+  "analysis_contract": {
+    "statuses": {
+      "economics": "COMPLETE",
+      "cost_stress": "COMPLETE",
+      "cadence": "COMPLETE",
+      "time_stability": "COMPLETE",
+      "session_breakdown": "COMPLETE",
+      "direction_breakdown": "COMPLETE",
+      "regime_breakdown": "COMPLETE",
+      "execution_quality": "COMPLETE",
+      "funnel": "COMPLETE",
+      "winning_trade_causes": "COMPLETE",
+      "losing_trade_causes": "COMPLETE",
+      "logic_conflicts": "COMPLETE",
+      "limitations": "COMPLETE"
+    },
+    "exceptions": {}
+  },
+  "chart_contract": {
+    "sample_basis": "wins_and_losses",
+    "available_winners": 110,
+    "available_losers": 142,
+    "rendered_winners": 2,
+    "rendered_losers": 2,
+    "available_rejections": 1301,
+    "rendered_rejections": 1,
+    "minimum_each": 2,
+    "entry_sl_tp_exit_visible": true,
+    "higher_timeframe_context": true,
+    "higher_timeframe": "M15",
+    "entry_candle_centered": true,
+    "post_entry_bars_visible": true,
+    "outcome_region_labeled": true,
+    "decision_asof_separate": true,
+    "decision_outcome_hidden": true,
+    "decision_net_r_hidden": true,
+    "decision_active_indicators_visible": true,
+    "decision_indicator_provenance": "mt5_decision_telemetry"
+  },
+  "anti_overfit_contract": {
+    "plan_frozen_pre_outcome": true,
+    "one_change_one_run": true,
+    "posthoc_rule_change_authorized": false
+  },
+  "limitations": [
+    "The news guard is disabled in both arms because the package-bound calendar ends in 2022.",
+    "Cost stress uses an unverified telemetry-based proxy; independent slippage and TCA provenance are unavailable.",
+    "The control account-DD guard latched in June 2025, so the full-window pair includes a path-dependent safety stop in the control.",
+    "WFA and robustness outputs are diagnostic fixed-parameter or realized-PnL proxies and are not promotion-grade.",
+    "The hypothesis failed necessary economic and relative gates and is killed without a rescue rerun."
+  ]
+}

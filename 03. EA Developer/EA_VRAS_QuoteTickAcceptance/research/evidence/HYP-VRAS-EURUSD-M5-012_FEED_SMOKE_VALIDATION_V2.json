@@ -1,0 +1,38 @@
+{
+  "schema_version": "alphafactory_execution_data_validation.v1",
+  "created_at_utc": "2026-07-23T02:37:56.065226Z",
+  "producer": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\tools\\execution_data_foundation.py",
+    "sha256": "47D48F4F5E2455DE6B582E084AA87C334AD453B28B88AD62A2DB29048030F1A2"
+  },
+  "manifest_schema": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\schemas\\execution_data_capture_manifest.v1.schema.json",
+    "sha256": "27CEBE551459A01E02F04190B005F4DDE3EAE6AF0CED213D18A89417CA727FB1"
+  },
+  "manifest": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\FivePercentOnline-Real\\EURUSD\\quote_tick_acceptance\\20260723_VRAS012_FEED_SMOKE_001\\20260723_VRAS012_FEED_SMOKE_001.manifest.json",
+  "manifest_sha256": "450FADAF07FEBAD5B745A949C78B5E662B585E2C3BF99335D253960E246AB582",
+  "server_match": true,
+  "verdict": "STOP_DATA_FRONTIER",
+  "global_blockers": [
+    "MISSING_REQUIRED_SYMBOLS:GBPUSD,XAUUSD"
+  ],
+  "symbols": [
+    {
+      "symbol": "EURUSD",
+      "verdict": "BLOCKED",
+      "blockers": [
+        "COMMISSION_LIFECYCLES_MISSING",
+        "HEARTBEATS_PARTIAL",
+        "MISSING_REQUIRED_SYMBOLS:GBPUSD,XAUUSD",
+        "QUOTE_TICKS_PARTIAL",
+        "SLIPPAGE_FILLS_MISSING"
+      ],
+      "metrics": {}
+    }
+  ],
+  "authorization": {
+    "hypothesis_or_prereg": false,
+    "ea_edit_compile_backtest": false,
+    "live_trading": false
+  }
+}

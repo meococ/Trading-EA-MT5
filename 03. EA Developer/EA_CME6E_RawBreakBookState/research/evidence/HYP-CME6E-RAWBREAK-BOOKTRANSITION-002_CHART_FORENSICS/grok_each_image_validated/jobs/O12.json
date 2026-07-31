@@ -1,0 +1,76 @@
+{
+  "schema_version": "hyp002_grok_each_image_validated_job.v1",
+  "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+  "job": {
+    "job_id": "O12",
+    "case_id": "F012_PID000001676",
+    "position_id": "1676",
+    "direction": "SELL",
+    "image_type": "OUTCOME_ANATOMY",
+    "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F012_PID000001676_outcome.png",
+    "image_sha256": "04F7BADA226B0528337DC7425BAA2457331E5E8119C5E49C3166F23BA058346D"
+  },
+  "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O12\\attempt-001-actual",
+  "request": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O12\\attempt-001-actual\\grok-request.json",
+    "sha256": "738F614AF1E5F845F044489EFBF907F7BAEC61A30AC935C300A626FA74C748B3"
+  },
+  "prompt_blocks": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O12\\attempt-001-actual\\prompt-blocks.json",
+    "sha256": "DE950B94F67F7333F592088891B42154F8126D65BBEB794A5682A88FB7E54B34"
+  },
+  "summary": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O12\\attempt-001-actual\\summary.json",
+    "sha256": "73809D991AD594FEFB4DFEB9A30F9C241BD1BEE3FE60B63FAF3690E9776A5C0B"
+  },
+  "response": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O12\\attempt-001-actual\\grok-response.json",
+    "sha256": "F0D0756FC603A5B04DEF4B5AC49D97E1DD597E99BEBA67FBC9409D5AF1759F39"
+  },
+  "runner": {
+    "model": "grok-4.5",
+    "reasoning_effort": "high",
+    "stop_reason": "EndTurn",
+    "elapsed_seconds": 61.906,
+    "total_cost_usd": 0.0587972,
+    "num_turns": 1,
+    "prompt_transport": "acp_blocks_file",
+    "image_count": 1,
+    "decoded_image_bytes": 167795
+  },
+  "result": {
+    "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+    "job_id": "O12",
+    "case_id": "F012_PID000001676",
+    "position_id": "1676",
+    "direction": "SELL",
+    "image_type": "OUTCOME_ANATOMY",
+    "image_sha256": "04F7BADA226B0528337DC7425BAA2457331E5E8119C5E49C3166F23BA058346D",
+    "image_opened": true,
+    "visual_readability": "PASS",
+    "observations": [
+      "Title reads MATCHED_SELL_LOSS with R=-1.081 and outcome-disclosing for F012_PID000001676.",
+      "SELL geometry is explicit: solid blue Entry mid-panel, red dashed SL above, green dashed TP below; purple X sits on the SL line near 01-19 01:05.",
+      "Purple break-bar-open vertical precedes the blue actual-entry vertical; a blue marker sits on the entry line at actual entry.",
+      "After actual entry, price prints a sequence of lower candles under entry (down toward ~1.1320) before a later rally that climbs back through entry into the red SL band.",
+      "Post-entry path never reaches the green TP line; exit is shown at SL with reported R=-1.081.",
+      "Bottom CME 6E full-break-bar trace is labeled early=+0.040 late=+0.058 score=+0.058 with actual entry marked near ~300 seconds from break-bar open."
+    ],
+    "confidence": "HIGH",
+    "unknowns": [
+      "Exact numeric MFE/MAE in R is not labeled on the chart.",
+      "Bar timeframe is not explicitly printed (only wall-clock x-axis).",
+      "Spread, commission, and slippage are not visually separable from the path.",
+      "Whether any discretionary or managed exit occurred before the SL mark is not shown beyond the X on SL."
+    ],
+    "no_rule_or_rerun_authority": true,
+    "outcome_visible": true,
+    "actual_path_class": "FAVORABLE_THEN_GIVEBACK",
+    "primary_layer": "EXIT_MANAGEMENT",
+    "entry_context_assessment": "SELL is taken after a break-bar open, with actual entry slightly after that open on a pullback/drop from the pre-break highs near ~1.1330 into the solid entry line near ~1.13242. Entry sits between a distant upper SL and a far lower TP, with break-bar open already marked before fill.",
+    "path_anatomy": "Post-entry path is not an immediate failed break: price first continues lower under entry (favorable for SELL), chops with additional downside probes, then reverses into a multi-leg rally that reclaims entry and runs into the red SL, where the purple X marks the realized stop-out at about -1.08R without ever tagging TP.",
+    "book_trace_relevance": "The direction-aligned I5 book trace oscillates around zero across the 300s window and is annotated with mild positive early/late/score values (+0.040/+0.058/+0.058). Visibly, the book panel does not discriminate the eventual SL path as an adverse book signal; it remains near-neutral to slightly positive while price later givebacks fully into the stop.",
+    "exit_geometry_assessment": "Exit geometry is a fixed-band stop above entry: the purple X coincides with the red SL line near ~1.1330 while TP remains far below near ~1.1312. Realized outcome is full adverse travel to SL after earlier favorable excursion, with no charted partial take, trail, or mid-path exit marker.",
+    "failure_mechanism": "The SELL briefly works in the intended direction after entry, then that early edge is fully given back as price reverses and trends up into the stop; the loss is realized as a completed favorable-then-giveback path into SL rather than as an immediate failed break or a clean continuation to TP."
+  }
+}

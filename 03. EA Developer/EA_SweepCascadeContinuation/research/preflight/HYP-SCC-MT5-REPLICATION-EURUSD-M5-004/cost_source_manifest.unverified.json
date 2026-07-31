@@ -1,0 +1,19 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-SCC-MT5-REPLICATION-EURUSD-M5-004",
+  "symbol": "EURUSD",
+  "broker": "FivePercentOnline-Real demo tester",
+  "status": "UNVERIFIED_DIAGNOSTIC_ONLY",
+  "tester_spread": "current",
+  "historical_spread_limitation": "The local M1 source contains 24.5553 percent zero-spread rows and is not promotion-grade cost truth.",
+  "fixed_round_trip_stress_pips": [
+    0.5,
+    1.5,
+    2.25,
+    3.0
+  ],
+  "commission_verified": false,
+  "slippage_verified": false,
+  "fill_observed": false,
+  "promotion_eligible": false
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "alphafactory_fast_kill_closeout.v1",
+  "created_at_utc": "2026-07-29T16:22:46Z",
+  "hypothesis_id": "HYP-LOJM-USDJPY-M1-001",
+  "ea_name": "EA_LondonOpenJPYMomentum",
+  "evidence_class": "offline_probe",
+  "verdict": "KILLED",
+  "kill_code": "cost_dominated",
+  "cell_closeout_claim": true,
+  "bindings": [
+    {
+      "role": "preregistration",
+      "path": "03. EA Developer/EA_LondonOpenJPYMomentum/research/HYP-LOJM-USDJPY-M1-001_TRAIN_ECONOMIC_PROBE_PLAN.md",
+      "bytes": 8328,
+      "sha256": "83C1D47893170789C936F1539889A46A596BEEDC19B45BED465C5CDB7EB9B66C"
+    },
+    {
+      "role": "result_summary",
+      "path": "03. EA Developer/EA_LondonOpenJPYMomentum/research/evidence/HYP-LOJM-USDJPY-M1-001/LOJM001-TRAIN-ECON-001/train_economic_terminal.json",
+      "bytes": 4059,
+      "sha256": "FCBCC6B5C54796B0D96F81B71BAD825A809DB605EDFDD88374F84AE1129A86FB"
+    },
+    {
+      "role": "readout",
+      "path": "03. EA Developer/EA_LondonOpenJPYMomentum/research/HYP-LOJM-USDJPY-M1-001_READOUT.md",
+      "bytes": 3598,
+      "sha256": "9579CD4048D47C1FB14247FC4945BEB82CD487F2908A14449CE6EBE62DE8E8DC"
+    },
+    {
+      "role": "diagnostic_chart",
+      "path": "03. EA Developer/EA_LondonOpenJPYMomentum/research/evidence/HYP-LOJM-USDJPY-M1-001/LOJM001-TRAIN-ECON-001/lojm_001_train_kill_diagnostics.png",
+      "bytes": 312014,
+      "sha256": "784630AFA78B4DBF70DFA20F618E2DB809279A182B0329239CC850F6FB98D999"
+    }
+  ],
+  "frozen_kill_gate": {
+    "name": "cost_profit_factor_x1",
+    "comparator": "lt",
+    "threshold": 1.3,
+    "actual": 0.7930019292926774,
+    "frozen_pre_outcome": true,
+    "minimum_observations": 1000,
+    "observations_unit": "completed_trades",
+    "sequential_early_stop": false
+  },
+  "metrics": {
+    "trades": 1283,
+    "gross_profit_factor": 0.907703522393652,
+    "cost_profit_factor_x1": 0.7930019292926774,
+    "cost_profit_factor_x1_5": 0.7412054053398364,
+    "cost_profit_factor_x2": 0.6928882284881989,
+    "expectancy_pips_x1": -2.575681995323443,
+    "trades_per_elapsed_week": 4.91570884340163,
+    "positive_years": 1,
+    "permutation_one_sided_p_value": 0.8618138186181382
+  },
+  "anti_overfit_contract": {
+    "plan_frozen_pre_outcome": true,
+    "terminal_state_recorded": true,
+    "posthoc_rule_change_authorized": false,
+    "same_id_rerun_authorized": false
+  },
+  "limitations": [
+    "Fast-kill closes only the exact London 08:00-08:30 sign to 16:30 close-only TRAIN proxy and does not complete the workspace book goal.",
+    "The close-only proxy has no native Bid/Ask fill path, stop, target or drawdown-percent authority; this does not affect the fatal PF and expectancy failures.",
+    "Validation 2021-2024 and every 2025+ holdout payload remain sealed; no MQL5, Model 0, optimization, promotion, paper or live authority is granted."
+  ]
+}

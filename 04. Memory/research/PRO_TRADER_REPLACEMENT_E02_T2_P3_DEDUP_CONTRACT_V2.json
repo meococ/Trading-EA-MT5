@@ -1,0 +1,157 @@
+{
+  "schema_version": "2.0",
+  "campaign": "PRO_TRADER_REPLACEMENT",
+  "generation": "T2",
+  "phase": "P3_OUTCOME_BLIND_DEDUP",
+  "status": "FROZEN_PRE_MARKET_NO_OUTCOME_AUTHORITY",
+  "frozen_at_utc": "2026-07-30T23:00:32Z",
+  "supersedes": {
+    "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P3_DEDUP_CONTRACT.json",
+    "sha256": "48A953750D8686985EA6543B1D3BFEA0E9FF02D13428D1AB65173FC2943747EF",
+    "reason": "Pre-outcome source-parity review found that v1 omitted the frozen ECRS G7 news blackout and failed to freeze several exact boundary/indexing rules. No real-data identity count, market outcome, trade, or PnL was read before this amendment."
+  },
+  "purpose": "Freeze exact outcome-blind identity mirrors for ECRS and SCC/PBP before T2 sees trigger counts, excursions, trades, PnL, or any economic result.",
+  "bindings": {
+    "p0_charter": {
+      "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P0_CHARTER.json",
+      "sha256": "D63F782926DEC4F12EA8EBB17B3511BC08C249A0AE4ECD9C1F25F5C611386E9E"
+    },
+    "p2_formal_spec": {
+      "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P2_FORMAL_SPEC.md",
+      "sha256": "CB1DDA2B678D2F450BB2DDE05327D2734E2A430BBBC4809BB08C71110FA0BA7D"
+    },
+    "ecrs_v1_reference": {
+      "path": "03. EA Developer/EA_ECRS_CompressionReleaseScalper/research/preflight/stage0_scan.py",
+      "sha256": "BA15FA9E42B8015CBA148906794580137516F2F09831477335C1612CC7068228"
+    },
+    "ecrs_v2_diagnostic_only": {
+      "path": "03. EA Developer/EA_ECRS_CompressionReleaseScalper/research/preflight/stage0_scan_v2.py",
+      "sha256": "A456D7723A2CC484F53733731B53A6E52C296541CE1105F3B6A37FABD96B98B3"
+    },
+    "indicator_reference": {
+      "path": "02. AlphaFactory/tools/research/indicators.py",
+      "sha256": "95EBEA3C2638E429136D189727097A201FF1ADE1164139161E857645E8EE1F1A"
+    },
+    "ecrs_news_csv": {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+      "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307"
+    },
+    "ecrs_news_manifest": {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/manifest.json",
+      "sha256": "79C40AE0C7DFF7CF44539D00FD108E6D038648694EABD7AA44E234ACC00EF5B1"
+    },
+    "scc_reference": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/scc_stage0_probe.py",
+      "sha256": "2E491B95795F3681AF7FCDD5BDF0A2DFF7C59707F26E137E858E9E5C1C6A7C4F"
+    },
+    "scc_probe_plan": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/HYP-SCC-EURUSD-M5-001_PROBE_PLAN.md",
+      "sha256": "6541239D88FFF99D9C8D1E2B3C78645ECE0BE01A69FFCF32BA1620ED6557FA3B"
+    }
+  },
+  "prohibitions": [
+    "No excursion, trade, PnL, win-rate, PF, expectancy, drawdown, target/stop result, or chart-outcome field may be read or emitted.",
+    "D7 and D8 cannot select, tune, rescue, promote, rank, or contribute trial credit to A0-A4.",
+    "No threshold or event key may change after any real-data identity count is exposed; a necessary pre-outcome change requires a new contract version.",
+    "ECRS v2 is secondary diagnostic only and cannot replace the exact ECRS v1 mirror required by P0/P2.",
+    "Formula-generalization on symbols other than EURUSD is never prior-identity overlap."
+  ],
+  "d7_ecrs_exact_mirror": {
+    "primary_identity": "ECRS_V1_FULL_TRIGGER",
+    "primary_scope": {
+      "symbol": "EURUSD",
+      "timeframe": "M5",
+      "data_clock": "FivePercent server-aligned M5 with UTC entry timestamps",
+      "news_coverage": "2019-01-01T00:00:00Z through 2022-12-31T23:59:59Z",
+      "comparison_rule": "Compare T2 structural candidates only on the same primary scope and covered timestamp window."
+    },
+    "exact_gates": {
+      "G1": "ER10[t-1] < 0.28 and ER10[t] >= 0.38; ER denominator is sum(abs(close[j]-close[j-1]), j=t-9..t), zero denominator invalid.",
+      "G2": "ATR14[t-1] <= 0.70 * SMA20(ATR14)[t-1]; ATR14 is the bound indicators.py atr_mt5 simple rolling mean of canonical true range.",
+      "G3": "Long close[t] > max(high[t-12..t-1]); short close[t] < min(low[t-12..t-1]).",
+      "G4": "tick_volume[t] >= 1.7 * SMA20(tick_volume)[t-1].",
+      "G5": "Long close[t] > EMA20[t] and EMA20[t] > EMA20[t-3]; short is the exact mirror; EMA is pandas-compatible adjust=False seeded from the first close.",
+      "G6": "The immediate next M5 bar exists and its UTC time is 07:00 inclusive to 16:30 exclusive.",
+      "G7": "No bound high-impact EURUSD news event lies within plus or minus 45 minutes inclusive of the immediate next-bar UTC entry time.",
+      "G8": "Immediate next-bar spread is finite and 0 < spread/10 <= 0.8 pips under the frozen five-digit EURUSD source convention."
+    },
+    "lawful_forward_fields": [
+      "immediate next-bar existence",
+      "immediate next-bar UTC time",
+      "immediate next-bar open for audit only",
+      "immediate next-bar spread"
+    ],
+    "event_key_namespace": "D7_ECRS_V1_EXACT",
+    "identity_key": [
+      "symbol",
+      "timeframe",
+      "signal_time_utc",
+      "entry_time_utc",
+      "direction"
+    ],
+    "comparison_population": "All T2 structural candidate identities A0-A3 before probability thresholding and daily consumption, restricted to the exact primary scope/window.",
+    "intersection_rule": "Exact identity-key equality.",
+    "jaccard": "size(intersection) / size(union); empty/empty is INVALID, never zero or pass.",
+    "fatal_gate": "Close T2 before build when Jaccard > 0.50 and residual decisions cannot be attributed to immutable locked-barrier provenance plus causal event order/duration from P2.",
+    "secondary_diagnostics": [
+      "Per-arm A0-A3 Jaccard against ECRS v1 exact.",
+      "ECRS v2 no-volume identity count and Jaccard, clearly labeled non-primary.",
+      "Formula-generalization on the other eight mandatory symbols, clearly labeled not prior-identity overlap and never used for the fatal gate."
+    ]
+  },
+  "d8_pbp_scc_mirror": {
+    "primary_scope": "Exact prior EURUSD M5 SCC source contract; other-symbol replay is formula-generalization only.",
+    "t2_pbp_like_population": {
+      "eligibility": "An otherwise structurally valid A3 candidate before the hard PBP exclusion fires.",
+      "subsets": {
+        "PBP_BREAK_WINDOW": "A same-direction immutable locked-barrier close-break occurred in k-7..t-1.",
+        "PBP_TOMBSTONE_CONTACT": "A correction bar contacted the symbol-tick-normalized price of a still-valid 48-bar tombstone from a previously broken same-direction barrier."
+      },
+      "economic_authority": "NONE; every event remains SKIP_PBP_EXCLUDED and absent from A4."
+    },
+    "scc_control_identity": {
+      "sequence": "confirmed N=2 fractal pivot -> first completed close break; pivot consumed on the first break",
+      "key": [
+        "symbol",
+        "timeframe",
+        "pivot_side",
+        "pivot_index",
+        "pivot_confirm_time_utc",
+        "break_time_utc",
+        "direction"
+      ]
+    },
+    "scc_challenger_identity": {
+      "sequence": "SCC control break -> next retained M5 bar HOLD -> first-passage retest within 12 bars",
+      "key_extension": [
+        "hold_time_utc",
+        "retest_time_utc",
+        "passage_lag"
+      ]
+    },
+    "normalized_overlap_key": [
+      "symbol",
+      "timeframe",
+      "direction",
+      "decision_time_utc",
+      "barrier_side",
+      "barrier_price_in_symbol_ticks"
+    ],
+    "price_match": "Exact symbol-tick price equality after both references are normalized to the same symbol tick size.",
+    "comparison_outputs": [
+      "T2 PBP_BREAK_WINDOW vs SCC_CONTROL_BREAK exact intersection and Jaccard",
+      "T2 PBP_TOMBSTONE_CONTACT vs SCC_CHALLENGER_RETEST exact intersection and Jaccard",
+      "Unmatched identities with causal reason codes only"
+    ],
+    "decision_rule": "D8 is diagnostic-only. Any material semantic reconstruction of SCC forces a pre-build T2 close or a fresh generation; D8 cannot authorize a PBP arm."
+  },
+  "implementation_acceptance": [
+    "Pure deterministic emitters and comparator; public APIs reject recursive outcome fields.",
+    "SHA verification of this contract and every bound source before execution.",
+    "Exact-key, empty-set invalidity, duplicate-key rejection, timezone, symbol-tick normalization and long-short mirror fixtures.",
+    "An independent parity fixture compares every D7 boolean gate and final identity against the bound ECRS source semantics.",
+    "Prefix invariance for both mirrors and T2 identity emitters.",
+    "Full identity ledgers are used; sampled casebooks are forbidden for Jaccard.",
+    "Execution remains blocked until the design-only price input is covered by the frozen T2 data epoch and all data-quality constraints."
+  ]
+}

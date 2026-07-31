@@ -1,0 +1,104 @@
+{
+    "schema_version":  "alphafactory_execution_receipt.v1",
+    "hypothesis_id":  "HYP-VRAS-EURUSD-M5-006",
+    "registry_row_sha256":  "636DEBBFB3358416B1A98C408C079D47DBF2719F2974EDCCC2B85CF9322A2D8E",
+    "task_packet_sha256":  "510F2271D3A42CF9C366AABE3464471B6F87030BA4440AC35005C0A77423B289",
+    "git_commit":  "cd16849de36b06f12369c5017579491962a9afc7",
+    "git_status_sha256":  "5092DB51B2CBE1705BE87026D64D0F880807EAEB6D27E372D489499DDC8D59ED",
+    "binding":  {
+                    "hypothesis_id":  "HYP-VRAS-EURUSD-M5-006",
+                    "run_role":  "control",
+                    "ea_name":  "EA_VRAS_VolatilityNormalizedStop",
+                    "symbol":  "EURUSD",
+                    "period":  "M5",
+                    "from":  "2019.01.01",
+                    "to":  "2022.12.31",
+                    "model":  0,
+                    "execution_mode":  0,
+                    "fixed_delay_ms":  0,
+                    "overrides":  "InpAtrFloorMultiple=1.0;InpAtrPeriod=14;InpBreakEvenOffsetPips=0.5;InpBreakEvenTriggerR=1.0;InpControlMaxSlPips=15.0;InpControlMinSlPips=4.0;InpDailyLossPct=1.50;InpEnableTelemetry=true;InpH1EmaPeriod=200;InpHypothesisId=HYP-VRAS-EURUSD-M5-006;InpMagic=5600756;InpMaxAccountDrawdownPct=6.00;InpMaxHoldBars=24;InpMaxSpreadPips=1.20;InpMaxStructuralAtrMultiple=3.0;InpMaxTradesPerDay=5;InpRequireNewsGuard=false;InpResearchAutoMode=true;InpRiskPercent=0.25;InpRiskRewardRatio=1.5;InpRollingVwapBars=48;InpSlBufferPips=1.5;InpSwingLookbackBars=10;InpUseVolatilityNormalizedStop=false;InpVariantTag=CONTROL_FIXED_CLAMP",
+                    "telemetry_tier":  "trade-only",
+                    "telemetry_profile":  "lifecycle-v3",
+                    "deposit":  100000,
+                    "leverage":  100,
+                    "spread":  "current",
+                    "required_sidecars":  [
+                                              "*_LifecycleTrades_*.csv",
+                                              "*_RunMeta_*.json",
+                                              "*_DecisionTelemetry_*.csv"
+                                          ],
+                    "broker_fingerprint":  "UNVERIFIED_DIAGNOSTIC",
+                    "server_fingerprint":  "UNVERIFIED_DIAGNOSTIC",
+                    "account_fingerprint":  "UNVERIFIED_DIAGNOSTIC",
+                    "data_fingerprint":  "UNVERIFIED_DIAGNOSTIC",
+                    "symbol_geometry":  {
+                                            "digits":  5,
+                                            "point":  1E-05,
+                                            "pip_size":  0.0001
+                                        },
+                    "include_closure_sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                },
+    "evidence":  [
+                     {
+                         "label":  "task_packet",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_VolatilityNormalizedStop\\research\\preflight\\HYP-VRAS-EURUSD-M5-006\\task_packet.control.json",
+                         "sha256":  "510F2271D3A42CF9C366AABE3464471B6F87030BA4440AC35005C0A77423B289"
+                     },
+                     {
+                         "label":  "candidate_registry",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+                         "sha256":  "DD788B5ED78357704EBB18C8F6D4F3B32FCD3CEA1F14AA35B4DE4EB9071151AA"
+                     },
+                     {
+                         "label":  "source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_VolatilityNormalizedStop\\EA_VRAS_VolatilityNormalizedStop.mq5",
+                         "sha256":  "83107ED33F1A6861D364947DA9D75E047142C478E1123575EC56B59B84A29406"
+                     },
+                     {
+                         "label":  "compiled_binary",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_VolatilityNormalizedStop\\EA_VRAS_VolatilityNormalizedStop.ex5",
+                         "sha256":  "FF8AEADEC2839D4BFA5605C2DD48AFD2C03E78D8BEBED566A30FE94C4A9A4436"
+                     },
+                     {
+                         "label":  "ea_capability_contract",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_VolatilityNormalizedStop\\ALPHAFACTORY_EA_CONTRACT.json",
+                         "sha256":  "4AE56300F2CA1E2F044D908E191F3AACD5B213304A17E4BB651F744CC04A38CC"
+                     },
+                     {
+                         "label":  "prereg",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_VolatilityNormalizedStop\\research\\HYP-VRAS-EURUSD-M5-006_FROZEN_PREREG.md",
+                         "sha256":  "39292DE78C0E2F65F03D9DEB00C3E14451E8959E89A64B9AFC8452D3BF9CBC25"
+                     },
+                     {
+                         "label":  "probe_plan",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_VolatilityNormalizedStop\\research\\HYP-VRAS-EURUSD-M5-006_PROBE_PLAN.md",
+                         "sha256":  "56DE1FE4495B372D8410DAA0B0B0AFBE19B56CC798797C3BB6267E264FB33F3C"
+                     },
+                     {
+                         "label":  "nonrepaint_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_VolatilityNormalizedStop\\NONREPAINT_AUDIT_V1_manifest.json",
+                         "sha256":  "F01E9898A00548AF9400C22D598A30CF97D05CE5134CD422922E212153F8D4FD"
+                     },
+                     {
+                         "label":  "nonrepaint_audit",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_VolatilityNormalizedStop\\research\\evidence\\HYP-VRAS-EURUSD-M5-006_NONREPAINT_AUDIT.json",
+                         "sha256":  "E602A6C0827AC3B19E591A50AAB2A2EFEA97B0DEB1BC53E24549037BBEEFCC14"
+                     },
+                     {
+                         "label":  "cost_source_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_VolatilityNormalizedStop\\research\\preflight\\HYP-VRAS-EURUSD-M5-006\\cost_source_manifest.unverified.json",
+                         "sha256":  "6D9191D1B176F66BED3C1D91338F9F17BD33A5D976406BA5E6C825FE8D99EE75"
+                     }
+                 ],
+    "generated_at_utc":  "2026-07-22T15:51:20.0699741Z"
+}

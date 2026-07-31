@@ -1,9 +1,9 @@
 {
-    "version": 47,
-  "updated_at": "2026-07-21",
+    "version": 49,
+  "updated_at": "2026-07-30",
   "default_status": "authoritative",
   "root_hygiene": {
-    "rule": "Keep the project root lean: AGENTS.md, CLAUDE.md, INDEX.md, 01. GOAL/, and the hidden .codex/operator recovery ledger only. Keep MT5 sample experts out of root and treat raw AlphaFactory runs as local operational data. The operator ledger is subordinate to hot.md. Active compilable EA source is limited to EA_FVGConfluence, EA_HybridICT_Sonic, EA_ICTFVGReportFidelity, EA_ICTVisualEdge, diagnostic-only EA_KLR_Scalper, terminal MT5-replication package EA_LSSOBPropScalper, terminal full-history diagnostic package EA_MZMS_Scalper, EA_UnicornPrecisionScalper, the terminal-killed reproducibility package EA_UnicornPrecisionScalperControl, and the bounded diagnostic package EA_UnicornPrecisionScalperRR15 under 03. EA Developer/; EA_PO3_AMD_Scalper and EA_DRAT_ONNX_ICT_Hybrid are pre-code killed research records without .mq5; EA_SonicR and binary-only EA_SilverBullet are archive-only under 00. Old File/EA_Archive/.",
+    "rule": "Keep the project root lean: AGENTS.md, CLAUDE.md, INDEX.md, 01. GOAL/, and the hidden .codex/operator recovery pointer only. Keep MT5 sample experts out of root and treat raw AlphaFactory runs as local operational data. Do not hard-code active EA inventory here; resolve it from 03. EA Developer/README.md, disk and AlphaFactory status. EA_SonicR and binary-only EA_SilverBullet are archive-only under 00. Old File/EA_Archive/.",
     "graveyard": "00. Old File/docs_archive/",
     "ai_archive": "00. Old File/project_control_archive_20260716/"
   },
@@ -11,22 +11,22 @@
     {
       "path": "AGENTS.md",
       "status": "authoritative",
-      "reason": "Single cross-agent operating doctrine. Slimmed 2026-07-11 to lean hard rules plus pointers; detailed doctrine moved to 05. Playbook/research_doctrine.md; active scope is owned by hot.md."
+      "reason": "Single cross-agent operating doctrine with the Owner-to-artifact authority order, hard rules and canonical pointers; active scope is resolved from current Owner intent plus frozen contracts and artifacts, never from hot.md."
     },
     {
       "path": "CLAUDE.md",
       "status": "authoritative",
-      "reason": "Pointer-only session entry file for Claude agents; defers to hot.md, 01. GOAL/GOAL.md, root INDEX.md, and AGENTS.md. Added 2026-07-11."
+      "reason": "Pointer-only session entry file; defers to AGENTS.md, GOAL.md, INDEX.md and current registry/artifact truth."
     },
     {
       "path": "INDEX.md",
       "status": "authoritative",
-      "reason": "Root workspace map: one-line what/when pointers to control docs, research, EA source, AlphaFactory, and tests. Pointer-only; content lives at the destinations. Added 2026-07-11."
+      "reason": "Pointer-only workspace map; dynamic package metrics and hypothesis state stay at their canonical destinations."
     },
     {
       "path": ".codex/operator/STATUS.md",
       "status": "evidence",
-      "reason": "Operational recovery ledger for the active long-running operator task. It is subordinate to hot.md and is not research or execution authority."
+      "reason": "Non-authoritative recovery pointer for long operator sessions; it contains no live metrics or execution authority."
     },
     {
       "path": ".codex/operator/EXPERIMENTS.jsonl",
@@ -46,12 +46,12 @@
     {
       "path": "04. Memory/validate_source_of_truth.py",
       "status": "authoritative",
-      "reason": "Fail-closed local/backup availability, SHA256, duplicate-path, and JSON-to-Markdown registry consistency validator."
+      "reason": "Fail-closed local availability, mounted-backup SHA256, duplicate-path, and JSON-to-Markdown consistency validator; absent optional external backup roots warn by default and --strict-backups restores fail-closed audit mode."
     },
     {
       "path": "05. Playbook/validation_gates.md",
       "status": "authoritative",
-      "reason": "Stage-gate matrix for every EA lane: probe, screened, challenger, confirmed, portfolio-sleeve; required artifacts, thresholds, multi-simulation deflation conventions, and hard invalidations."
+      "reason": "Stage-gate matrix for every EA lane, including Two-Speed Fast-Kill versus Heavy-Delivery closeout and promotion-grade aligned-variant confirmed evidence."
     },
     {
       "path": "00. Old File/agent_guidance_archive/20260503_1916_sonic_readme_cleanup/manifest.json",
@@ -63,8 +63,8 @@
     },
     {
       "path": "04. Memory/hot.md",
-      "status": "authoritative",
-      "reason": "Fast-path session cache (<500 words). Replaces current_state header at session start."
+      "status": "evidence",
+      "reason": "Compact recent-routing cache; every claim requires artifact verification and the file grants no execution authority."
     },
     {
       "path": "04. Memory/source_of_truth.md",
@@ -84,17 +84,17 @@
     {
       "path": "05. Playbook/ea_golden_path.md",
       "status": "authoritative",
-      "reason": "Generic design-to-decision workflow for every EA: intake, de-dup, cheap probe, frozen prereg, canonical build, capability/cost preflight, sequential Model 0 control/challenger, validation, and closeout."
+      "reason": "Generic design-to-decision workflow for every EA: intake, de-dup, probe, prereg, build, Model 0, then Fast-Kill or Heavy-Delivery routing without post-hoc rescue."
     },
     {
       "path": "05. Playbook/tool_runbook.md",
       "status": "authoritative",
-      "reason": "Generic AlphaFactory command runbook: CLI, guarded research loop, candidate compare, cost stress, research utilities, market-data acquisition, runs DB, and cleanup."
+      "reason": "Generic AlphaFactory command runbook: Two-Speed closeout, confirmed aligned-variant validation, guarded MT5 research, evidence operations and cleanup."
     },
     {
       "path": "00. Old File/EA_Archive/README.md",
       "status": "unavailable-unresolved",
-      "reason": "Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. Archive-only rule for retired/non-current EA source; confirms EA_SonicR remains the only active EA source.",
+      "reason": "Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. Archive-only index for retired/non-current EA source; it makes no claim about the current active shelf.",
       "original_status": "authoritative",
       "backup_root_id": "google_drive_advisors"
     },
@@ -208,9 +208,64 @@
       "reason": "Read-only MT5 probe plus hash/row/timestamp/lookahead/sample-gate bundle validator and inventory producer; separates tester proxies from broker evidence and never exposes a mutating trade-call surface."
     },
     {
+      "path": "02. AlphaFactory/alpha.ps1",
+      "status": "authoritative",
+      "reason": "Canonical AlphaFactory command entrypoint; includes lean fast-kill validation and Heavy-Delivery plus full validation surfaces."
+    },
+    {
+      "path": "02. AlphaFactory/tools/validate_fast_kill_closeout.py",
+      "status": "authoritative",
+      "reason": "Fail-closed hash and sample-bound validator for terminal probe or Model-0 Fast-Kill cells without chart or Grok ceremony."
+    },
+    {
+      "path": "02. AlphaFactory/schemas/fast_kill_closeout.v1.schema.json",
+      "status": "authoritative",
+      "reason": "Machine schema for lean terminal Fast-Kill closeout packets."
+    },
+    {
+      "path": "02. AlphaFactory/templates/research/FAST_KILL_CLOSEOUT.template.json",
+      "status": "authoritative",
+      "reason": "Template for preregistered minimum-sample and sequential-boundary Fast-Kill closeout."
+    },
+    {
+      "path": "02. AlphaFactory/analysis/aligned_variant_evidence.py",
+      "status": "authoritative",
+      "reason": "Fail-closed loader for the preregistered full Model-0 variant family, physical source-binary-report rehash, daily net-R alignment, family closure and frozen analysis settings."
+    },
+    {
+      "path": "02. AlphaFactory/schemas/aligned_variant_manifest.v1.schema.json",
+      "status": "authoritative",
+      "reason": "Machine schema for promotion-grade aligned variant-family evidence."
+    },
+    {
+      "path": "02. AlphaFactory/templates/research/ALIGNED_VARIANT_MANIFEST.template.json",
+      "status": "authoritative",
+      "reason": "Template for a preregistered hash-bound aligned variant family used by confirmed-stage producers."
+    },
+    {
+      "path": "02. AlphaFactory/analysis/walk_forward.py",
+      "status": "authoritative",
+      "reason": "Dual-mode WFA producer: legacy fixed-parameter diagnostic or expanding-window locked-OOS selection from an aligned variant manifest."
+    },
+    {
+      "path": "02. AlphaFactory/analysis/robustness_suite.py",
+      "status": "authoritative",
+      "reason": "Dual-mode robustness producer: legacy realized-P-L diagnostics or matched Model-0 rerun parameter sensitivity from a frozen variant family."
+    },
+    {
+      "path": "02. AlphaFactory/analysis/cscv_pbo.py",
+      "status": "authoritative",
+      "reason": "Dual-mode CSCV-PBO producer; promotion mode consumes the complete preregistered aligned daily net-R matrix."
+    },
+    {
+      "path": "02. AlphaFactory/analysis/white_reality_check.py",
+      "status": "authoritative",
+      "reason": "Dual-mode White Reality Check producer; promotion mode uses joint moving-block resampling across the aligned full variant family."
+    },
+    {
       "path": "02. AlphaFactory/analysis/unified_validation.py",
       "status": "authoritative",
-      "reason": "Numeric/artifact validator for strict Model 0 challenger/confirmed stages: exact cadence, physical rehash, verified broker cost, non-repaint, stability, and freshness gates. It canonical-rebuilds verified cost from raw inputs and compares trade_repricing/scenarios. Current fixed-parameter WFA, realized-P/L robustness, PBO, and White Reality Check producers are diagnostic-only and block confirmed promotion."
+      "reason": "Numeric and artifact validator for Model-0 challenger and confirmed stages; promotion producers must bind the exact report, run, source, preregistered aligned variant manifest and full variant tree."
     },
     {
       "path": "02. AlphaFactory/tools/runs_db.py",
@@ -226,6 +281,16 @@
       "path": "02. AlphaFactory/tools/archive_backtest_artifacts.ps1",
       "status": "authoritative",
       "reason": "Archive-first cleanup helper for stale AlphaFactory runs and Terminal/Common/Files telemetry; default dry-run, explicit EA scope, current control-surface reference scanning, contained atomic plans, and copy/hash-verify/remove execution with a manifest."
+    },
+    {
+      "path": "02. AlphaFactory/tests/test_fast_kill_closeout.py",
+      "status": "authoritative",
+      "reason": "Regression tests for lean probe and Model-0 Fast-Kill integrity, anti-posthoc and minimum-sample sequential boundaries."
+    },
+    {
+      "path": "02. AlphaFactory/tests/test_promotion_producers.py",
+      "status": "authoritative",
+      "reason": "Regression tests for aligned promotion producers, hash tamper, family closure and unified run binding."
     },
     {
       "path": "02. AlphaFactory/tests/test_operational_hygiene.py",
@@ -400,8 +465,11 @@
     }
   ],
   "availability_contract": {
-    "rule": "A locally actionable status requires the registered path to exist in this checkout. backup-only entries require a present hash-verified file under the declared backup root. unavailable-unresolved entries are historical index records only and are not evidence.",
+    "rule": "A locally actionable status requires the registered path to exist in this checkout. backup-only entries are hash-checked when their declared root is mounted; an unavailable optional backup root emits a portability warning and never makes historical records actionable. unavailable-unresolved entries are historical index records only and are not evidence.",
     "validator": "04. Memory/validate_source_of_truth.py"
+  },
+  "backup_root_modes": {
+    "google_drive_advisors": "optional"
   },
   "backup_roots": {
     "google_drive_advisors": "G:\\Drive của tôi\\META TRADING\\Advisors"

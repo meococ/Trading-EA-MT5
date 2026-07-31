@@ -1,0 +1,230 @@
+{
+  "schema_version": "scc_path_geometry.v1",
+  "generated_at_utc": "2026-07-25T17:04:51Z",
+  "hypothesis_id": "HYP-SCC-MT5-REPLICATION-EURUSD-M5-004",
+  "run_id": "20260725_210811",
+  "status": "DESCRIPTIVE_POSTMORTEM_ONLY",
+  "inputs": {
+    "trades": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/challenger_trades.csv",
+      "sha256": "0BC47F501CD5D9420F4DBE0BC08148CC5F7EFC8AB6C725248582288634D627AD"
+    },
+    "bars": {
+      "path": "02. AlphaFactory/data/fivepercent/EURUSD/EURUSD_M1_2015_now.parquet",
+      "sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+      "time_col": "time_server",
+      "bar_granularity": "M1"
+    }
+  },
+  "coverage": {
+    "trades_expected": 261,
+    "trades_analyzed": 261,
+    "wins": 82,
+    "losses": 179
+  },
+  "population": {
+    "n": 261,
+    "mean_net_r": -0.23178969,
+    "median_net_r": -1.08064516,
+    "median_mfe_r": 0.63157895,
+    "median_mae_r": 1.0,
+    "mfe_reach": {
+      "0.25": {
+        "n": 175,
+        "share": 0.67049808
+      },
+      "0.5": {
+        "n": 146,
+        "share": 0.55938697
+      },
+      "0.75": {
+        "n": 122,
+        "share": 0.46743295
+      },
+      "1.0": {
+        "n": 105,
+        "share": 0.40229885
+      },
+      "1.25": {
+        "n": 87,
+        "share": 0.33333333
+      },
+      "1.5": {
+        "n": 80,
+        "share": 0.30651341
+      },
+      "1.75": {
+        "n": 76,
+        "share": 0.29118774
+      },
+      "1.8": {
+        "n": 73,
+        "share": 0.27969349
+      }
+    }
+  },
+  "winners": {
+    "n": 82,
+    "mean_net_r": 1.63830699,
+    "median_net_r": 1.88235294,
+    "median_mfe_r": 2.11369509,
+    "median_mae_r": 0.43773946,
+    "mfe_reach": {
+      "0.25": {
+        "n": 82,
+        "share": 1.0
+      },
+      "0.5": {
+        "n": 81,
+        "share": 0.98780488
+      },
+      "0.75": {
+        "n": 77,
+        "share": 0.93902439
+      },
+      "1.0": {
+        "n": 75,
+        "share": 0.91463415
+      },
+      "1.25": {
+        "n": 74,
+        "share": 0.90243902
+      },
+      "1.5": {
+        "n": 70,
+        "share": 0.85365854
+      },
+      "1.75": {
+        "n": 69,
+        "share": 0.84146341
+      },
+      "1.8": {
+        "n": 68,
+        "share": 0.82926829
+      }
+    }
+  },
+  "losers": {
+    "n": 179,
+    "mean_net_r": -1.08848202,
+    "median_net_r": -1.12244898,
+    "median_mfe_r": 0.26315789,
+    "median_mae_r": 1.07361963,
+    "mfe_reach": {
+      "0.25": {
+        "n": 93,
+        "share": 0.51955307
+      },
+      "0.5": {
+        "n": 65,
+        "share": 0.36312849
+      },
+      "0.75": {
+        "n": 45,
+        "share": 0.25139665
+      },
+      "1.0": {
+        "n": 30,
+        "share": 0.16759777
+      },
+      "1.25": {
+        "n": 13,
+        "share": 0.0726257
+      },
+      "1.5": {
+        "n": 10,
+        "share": 0.05586592
+      },
+      "1.75": {
+        "n": 7,
+        "share": 0.03910615
+      },
+      "1.8": {
+        "n": 5,
+        "share": 0.02793296
+      }
+    }
+  },
+  "mfe_quantiles_r": {
+    "0.0": -0.56521739,
+    "0.1": -0.02272727,
+    "0.25": 0.15384615,
+    "0.5": 0.63157895,
+    "0.75": 2.0,
+    "0.9": 2.20833333,
+    "1.0": 3.2
+  },
+  "mae_quantiles_r": {
+    "0.0": 0.0,
+    "0.1": 0.29032258,
+    "0.25": 0.70588235,
+    "0.5": 1.0,
+    "0.75": 1.125,
+    "0.9": 1.28333333,
+    "1.0": 2.5625
+  },
+  "by_mfe_bin": [
+    {
+      "mfe_bin": "<0.25",
+      "n": 86,
+      "wins": 0,
+      "losses": 86,
+      "mean_net_r": -1.13906429,
+      "median_net_r": -1.14285714
+    },
+    {
+      "mfe_bin": "0.25-0.50",
+      "n": 29,
+      "wins": 1,
+      "losses": 28,
+      "mean_net_r": -1.00707403,
+      "median_net_r": -1.11627907
+    },
+    {
+      "mfe_bin": "0.50-1.00",
+      "n": 41,
+      "wins": 6,
+      "losses": 35,
+      "mean_net_r": -0.87395972,
+      "median_net_r": -1.09302326
+    },
+    {
+      "mfe_bin": "1.00-1.50",
+      "n": 25,
+      "wins": 5,
+      "losses": 20,
+      "mean_net_r": -0.72789169,
+      "median_net_r": -1.09803922
+    },
+    {
+      "mfe_bin": "1.50-1.80",
+      "n": 7,
+      "wins": 2,
+      "losses": 5,
+      "mean_net_r": -0.40917348,
+      "median_net_r": -1.04545455
+    },
+    {
+      "mfe_bin": ">=1.80",
+      "n": 73,
+      "wins": 68,
+      "losses": 5,
+      "mean_net_r": 1.69262222,
+      "median_net_r": 1.89655172
+    }
+  ],
+  "decision_implications": {
+    "losers_mfe_below_0_25r": 86,
+    "losers_reached_0_50r": 65,
+    "losers_reached_1_00r": 30,
+    "losers_reached_1_50r": 10,
+    "primary_research_priority": "ENTRY_SETUP_DISCRIMINATION",
+    "secondary_research_priority": "EXIT_MANAGEMENT_AS_SEPARATE_CHILD"
+  },
+  "interpretation_boundary": [
+    "Post-outcome MFE/MAE describes realized paths and is not a decision-time predictor.",
+    "M1 OHLC plus minute spread is diagnostic, not tick-exact path sequencing.",
+    "No break-even, partial, stop, target, timeout or filter change is authorized under HYP-004.",
+    "Any management or entry redesign requires a fresh ID, frozen contract and independent test."
+  ]
+}

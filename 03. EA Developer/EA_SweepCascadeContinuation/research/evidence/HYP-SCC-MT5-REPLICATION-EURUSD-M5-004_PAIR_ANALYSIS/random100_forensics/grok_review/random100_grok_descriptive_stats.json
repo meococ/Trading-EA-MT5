@@ -1,0 +1,104 @@
+{
+  "schema_version": "scc_random100_grok_descriptive_stats.v1",
+  "generated_at_utc": "2026-07-25T15:35:46Z",
+  "hypothesis_id": "HYP-SCC-MT5-REPLICATION-EURUSD-M5-004",
+  "run_id": "20260725_210811",
+  "coverage": {
+    "batches": 20,
+    "cases": 100,
+    "decision_images_opened": 100,
+    "anatomy_images_opened": 100,
+    "total_images_opened": 200
+  },
+  "population_metrics": {
+    "trades": 261,
+    "win_rate_pct": 31.41762452,
+    "profit_factor": 0.6912782,
+    "net_account": -587.3,
+    "mean_realized_r": -0.23178969,
+    "cadence_per_elapsed_week": 1.25136986
+  },
+  "random_sample_metrics": {
+    "trades": 100,
+    "wins": 28,
+    "losses": 72,
+    "win_rate_pct": 28.000000000000004,
+    "net_account": -305.6,
+    "profit_factor": 0.603523657546154,
+    "mean_realized_r": -0.31116714473,
+    "median_realized_r": [
+      -1.0806451613,
+      -1.0769230769
+    ],
+    "finite_r_rows": 100
+  },
+  "mechanism_counts": {
+    "IMMEDIATE_CONTINUATION_EXPANSION": 21,
+    "TIGHT_STOP_MICROSTRUCTURE_FAILURE": 43,
+    "NO_FOLLOWTHROUGH_TIMEOUT": 21,
+    "MIXED_OR_OTHER": 15
+  },
+  "mechanism_by_outcome": {
+    "IMMEDIATE_CONTINUATION_EXPANSION": {
+      "WIN": 12,
+      "LOSS": 9
+    },
+    "TIGHT_STOP_MICROSTRUCTURE_FAILURE": {
+      "WIN": 7,
+      "LOSS": 36
+    },
+    "NO_FOLLOWTHROUGH_TIMEOUT": {
+      "WIN": 6,
+      "LOSS": 15
+    },
+    "MIXED_OR_OTHER": {
+      "WIN": 3,
+      "LOSS": 12
+    }
+  },
+  "mechanism_by_direction": {
+    "IMMEDIATE_CONTINUATION_EXPANSION": {
+      "BUY": 6,
+      "SELL": 15
+    },
+    "TIGHT_STOP_MICROSTRUCTURE_FAILURE": {
+      "BUY": 26,
+      "SELL": 17
+    },
+    "NO_FOLLOWTHROUGH_TIMEOUT": {
+      "BUY": 8,
+      "SELL": 13
+    },
+    "MIXED_OR_OTHER": {
+      "BUY": 5,
+      "SELL": 10
+    }
+  },
+  "mechanism_by_exit_class": {
+    "IMMEDIATE_CONTINUATION_EXPANSION": {
+      "SL_LIKE": 9,
+      "TP_LIKE": 12
+    },
+    "TIGHT_STOP_MICROSTRUCTURE_FAILURE": {
+      "SL_LIKE": 34,
+      "TP_LIKE": 6,
+      "TIMEOUT_OR_OTHER": 3
+    },
+    "NO_FOLLOWTHROUGH_TIMEOUT": {
+      "TIMEOUT_OR_OTHER": 6,
+      "SL_LIKE": 12,
+      "TP_LIKE": 3
+    },
+    "MIXED_OR_OTHER": {
+      "TP_LIKE": 2,
+      "SL_LIKE": 11,
+      "TIMEOUT_OR_OTHER": 2
+    }
+  },
+  "evidence_class_counts": {
+    "OBSERVED": 64,
+    "STRONG_INFERENCE": 35,
+    "HYPOTHESIS": 1
+  },
+  "interpretation_boundary": "Mechanism labels use outcome-disclosing anatomy images. Their cross-tabs describe realized paths and are not decision-time predictive filters."
+}

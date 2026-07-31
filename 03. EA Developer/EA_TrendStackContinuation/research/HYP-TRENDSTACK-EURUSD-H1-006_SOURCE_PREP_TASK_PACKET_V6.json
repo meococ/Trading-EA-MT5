@@ -1,0 +1,79 @@
+{
+  "schema_version": "trendstack_hyp006_source_prep_task_packet_amendment.v1",
+  "task_id": "TRENDSTACK_HYP006_PRODUCTION_AUTHORITY_HARDENING_20260728_V6",
+  "created_at_utc": "2026-07-28T12:08:00.000Z",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-006",
+  "collection_id": "DATASET-FIVEPERCENT-EURUSD-H1-SPLITVAULT-002",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-006_SOURCE_PREP_TASK_PACKET_V5.json",
+  "supersedes_amendment_sha256": "744B7C865DCD1BFFE52C60A530C74ABF66C88AD2F54DBB7061620EDEBBBC0E5C",
+  "correction_reason": "V5 A4 required registry state=source_run, but the active registry schema and transition validator do not permit that state. Existing source-attempt precedent uses a detached run-authority packet while the registry remains in a legal research state. V6 corrects only that governance contradiction; A1-A3 and terminal-evidence requirements are unchanged.",
+  "reviewed_input_snapshot": {
+    "h1_custodian_sha256": "C14AC89B4F4E5ED62A69B90F3B1C890F69EA20D1ACD186B7499DCEF0A2CDDF06",
+    "h1_supervisor_sha256": "A67FC25999B4C7BB2FA46DA3962BA264F7334C2A232DFC95E1227A1EBCEC8870",
+    "design_builder_sha256": "B92A9A9BBC61BC2D381343141D6A0D6C275E07F9DDC0A5C2FD2D6A2355C88429",
+    "independent_validator_sha256": "C387505DC55A3FB39B54BE3F58131EF06CA1F4E0BFE13F1AE3B7F993AAB3132B",
+    "h1_custodian_tests_sha256": "57CD816039EA90F83C2F678C50CD6E2C9B757323AE87D2A360D5BDA5AAECF24F",
+    "h1_supervisor_tests_sha256": "D9F5C199D4BAE26C5D48652F0A13F9FDAABF0222B1F157633303D25456F43474",
+    "design_builder_tests_sha256": "ED2AD775581A6EBA101EF76C357D7B2341CEBA62CD61EF7C2670D88B82C660EE",
+    "independent_validator_tests_sha256": "6729CCA0FF3DDE5D953390D6E37583C922D7E6DB867831F4EA96259B9115AE95",
+    "candidate_registry_sha256": "4E67307720293261DC57835C41D8DB4ABFE0FD9DD1232F752DD65FEAF58040D8",
+    "candidate_registry_rows": 282,
+    "hyp006_registry_row_index": 282,
+    "hyp006_registry_row_sha256": "5251227378A4192AB58364591603B2C1B1EED306DCC3BD4976DB943FDFDC8A1E",
+    "hyp006_registry_state": "probe",
+    "hyp006_source_build_authorized": true,
+    "hyp006_source_run_authorized": false,
+    "focused_tests": "38 passed",
+    "review_verdict": "FAIL_PRODUCTION_AUTHORITY_PLANE_ONLY",
+    "data_path_s2_to_s6_review": "PASS_FAIL_CLOSED"
+  },
+  "write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/h1_splitvault_002_supervisor.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_h1_splitvault_002_supervisor.py"
+  ],
+  "must_fix": [
+    {
+      "id": "A1-NONCIRCULAR-ARM-AUTHORITY",
+      "contract": "Define one documented detached packet digest over a canonical normalized packet that excludes runtime_supervisor_sha256 and every arm-dependent field. The production sentinel binds that detached digest only. After arming, bind the exact armed supervisor SHA and detached digest in a separate create-new arm manifest and durable attempt marker. Packet validation must recompute the normalized detached digest; changing any non-excluded field fails. Tests must prove a concrete packet -> arm -> arm-manifest tuple reaches production preflight with no fixed-point loop."
+    },
+    {
+      "id": "A2-EXECUTE-EXACT-VERIFIED-BYTES",
+      "contract": "Before marker, read/hash/freeze exact custodian, builder and validator bytes without importing them. After marker, compile and execute those exact verified byte payloads into fresh private module namespaces with injected __verified_sha256__, __file__ and only required builtins/import capability. Never use cached named modules from sys.modules or import a tool helper before its hash is verified. Recheck on-disk identity/hash before terminal. Adversarial tests prepopulate malicious sys.modules and mutate disk between preflight and execution; neither may change executed code or yield READY."
+    },
+    {
+      "id": "A3-DISARM-BEFORE-READY",
+      "contract": "Persistent self-disarm, atomic replace, file+directory fsync and exact readback must finish before any SOURCE_READY terminal is created. READY binds the disarmed supervisor SHA, sentinel status and arm-manifest SHA. Disarm failure must never leave a READY artifact; it must produce a durable engineering-failure terminal if possible and propagate a clear combined error if terminal evidence also fails."
+    },
+    {
+      "id": "A4-DETACHED-PACKET-SOURCE-RUN-AUTHORITY",
+      "contract": "Do not require or invent registry state=source_run. Require the exact canonical current HYP006 registry row 282 with state=probe, row SHA 5251227378A4192AB58364591603B2C1B1EED306DCC3BD4976DB943FDFDC8A1E, validation.source_build_authorized=true and validation.source_run_authorized=false. The reviewed detached production packet is the incremental one-shot source-run authority and must explicitly set authority.source_run_authorized=true while binding the Owner's active end-to-end goal, hypothesis/collection/attempt IDs, row index/SHA, V1/V2 plans and preregs, exact reviewed tool/test/task-packet hashes, source/canonical paths, zero-economic permissions and one-shot prohibitions. Any registry drift, packet mismatch, false packet authority, extra/missing field, or attempt mismatch blocks before marker/raw."
+    }
+  ],
+  "mandatory_tests": [
+    "A concrete production-mode synthetic packet/arm-manifest/supervisor tuple passes preflight without testing=True or a disarmed override, proving no circular digest.",
+    "Changing runtime_supervisor_sha256 alone does not change detached digest but is caught by arm-manifest validation; changing any strategy/authority/tool/path field changes or invalidates detached digest.",
+    "Malicious preloaded sys.modules and post-preflight tool-file swaps cannot influence exact verified private-module execution and cannot yield READY.",
+    "Injected self-disarm replace/fsync/readback failures leave no READY artifact; successful path writes READY only after verified disarm and binds disarmed SHA/status.",
+    "Exact legal current probe row passes registry identity validation only when the detached packet itself grants the incremental source-run authority; current row drift, a packet with source_run_authorized=false, or any row/packet/attempt/plan/tool/zero-economic mismatch fails before marker.",
+    "A packet or implementation requiring registry state=source_run must fail as an invalid governance contract.",
+    "Terminal-evidence write failure is surfaced explicitly and never silently swallowed.",
+    "All existing 38 focused tests plus new authority tests pass; S2-S6 tests remain green."
+  ],
+  "unchanged": {
+    "base_task_packet_sha256": "F56BFB7C724AECA7DBCB586794FC0AB62227D742060DB1A4F379E4115FEB6BC1",
+    "v3_task_packet_sha256": "E5D0E3E179834FD786E9B11F3996923670EFB1791239D07135B9A9F3BAA5F1C6",
+    "v4_task_packet_sha256": "F3EACB72D33ABA30293F5D918BB1A7F28A0F6F16574B53F4EC7D8A636019F21F",
+    "v5_task_packet_sha256": "744B7C865DCD1BFFE52C60A530C74ABF66C88AD2F54DBB7061620EDEBBBC0E5C",
+    "supervisor_must_finish_disarmed": true,
+    "real_source_or_output_authorized": false,
+    "all_plans_preregs_source_contract_and_s1_s6_gates_unchanged": true
+  },
+  "prohibitions": [
+    "Abort before edit if supervisor or supervisor-test input SHA drifts.",
+    "Do not use Grok or any Grok skill/worker.",
+    "Do not create a real source-run packet/arm manifest, arm the real supervisor, access/hash/decode the real H1 source or create real vault/output/evidence.",
+    "Do not append or amend the registry or invent state=source_run.",
+    "Do not modify the other six reviewed files, plans, preregs, source data or unrelated files; no economics/validation/holdout/network/subprocess/Git."
+  ]
+}

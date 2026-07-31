@@ -1,0 +1,2029 @@
+{
+  "schema_version": "hyp002_grok_each_image_campaign_result.v1",
+  "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+  "generated_at_utc": "2026-07-27T16:26:25.825242Z",
+  "coverage": {
+    "backend_jobs": 24,
+    "images_expected": 24,
+    "images_opened": 24,
+    "images_per_job": 1,
+    "decision_images": 12,
+    "outcome_images": 12,
+    "all_runner_and_schema_gates_passed": true
+  },
+  "blind_prediction": {
+    "counts": {
+      "AMBIGUOUS": 10,
+      "CONTINUATION": 2
+    },
+    "directional_predictions": 2,
+    "directional_correct": 1,
+    "directional_accuracy": 0.5,
+    "cases": [
+      {
+        "case_id": "F001_PID000002058",
+        "prediction": "AMBIGUOUS",
+        "confidence": "MEDIUM",
+        "actual": "WIN",
+        "correct_when_directional": null
+      },
+      {
+        "case_id": "F002_PID000001762",
+        "prediction": "AMBIGUOUS",
+        "confidence": "MEDIUM",
+        "actual": "WIN",
+        "correct_when_directional": null
+      },
+      {
+        "case_id": "F003_PID000001324",
+        "prediction": "AMBIGUOUS",
+        "confidence": "MEDIUM",
+        "actual": "LOSS",
+        "correct_when_directional": null
+      },
+      {
+        "case_id": "F004_PID000002166",
+        "prediction": "AMBIGUOUS",
+        "confidence": "MEDIUM",
+        "actual": "LOSS",
+        "correct_when_directional": null
+      },
+      {
+        "case_id": "F005_PID000001678",
+        "prediction": "AMBIGUOUS",
+        "confidence": "MEDIUM",
+        "actual": "WIN",
+        "correct_when_directional": null
+      },
+      {
+        "case_id": "F006_PID000001476",
+        "prediction": "CONTINUATION",
+        "confidence": "MEDIUM",
+        "actual": "WIN",
+        "correct_when_directional": true
+      },
+      {
+        "case_id": "F007_PID000001282",
+        "prediction": "AMBIGUOUS",
+        "confidence": "MEDIUM",
+        "actual": "LOSS",
+        "correct_when_directional": null
+      },
+      {
+        "case_id": "F008_PID000001916",
+        "prediction": "AMBIGUOUS",
+        "confidence": "MEDIUM",
+        "actual": "LOSS",
+        "correct_when_directional": null
+      },
+      {
+        "case_id": "F009_PID000001598",
+        "prediction": "AMBIGUOUS",
+        "confidence": "MEDIUM",
+        "actual": "WIN",
+        "correct_when_directional": null
+      },
+      {
+        "case_id": "F010_PID000001412",
+        "prediction": "AMBIGUOUS",
+        "confidence": "MEDIUM",
+        "actual": "LOSS",
+        "correct_when_directional": null
+      },
+      {
+        "case_id": "F011_PID000001182",
+        "prediction": "AMBIGUOUS",
+        "confidence": "MEDIUM",
+        "actual": "WIN",
+        "correct_when_directional": null
+      },
+      {
+        "case_id": "F012_PID000001676",
+        "prediction": "CONTINUATION",
+        "confidence": "MEDIUM",
+        "actual": "LOSS",
+        "correct_when_directional": false
+      }
+    ]
+  },
+  "outcome_path_classes": {
+    "CLEAN_CONTINUATION": 6,
+    "IMMEDIATE_FAILED_BREAK": 3,
+    "FAVORABLE_THEN_GIVEBACK": 3
+  },
+  "outcome_primary_layers": {
+    "WINNER_NO_FAILURE": 6,
+    "SETUP_ENTRY": 4,
+    "EXIT_MANAGEMENT": 2
+  },
+  "jobs": [
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "D01",
+        "case_id": "F001_PID000002058",
+        "position_id": "2058",
+        "direction": "BUY",
+        "image_type": "DECISION_ASOF",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F001_PID000002058_decision.png",
+        "image_sha256": "9E6856F6E38ED92EE882BAB53455EBD22863D4717A8348E46F559FE5E0D546CA"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D01\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D01\\attempt-001-actual\\grok-request.json",
+        "sha256": "038013011399AF9B6EDFB16199181E67A2FF0218868BC5B3E8869F47249FDA20"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D01\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "5055D0F684A23D716F360C6682856D2EC93C2BAA6EB2FDDD51513829C950B724"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D01\\attempt-001-actual\\summary.json",
+        "sha256": "2004E1AC60F35AEF8E14850F8D04E106C9ED9816486BCD5471025649BC1ACDDC"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D01\\attempt-001-actual\\grok-response.json",
+        "sha256": "333F243FA8B0AFB53EB2D633513FC6DC9FB06654B814CDAAC43332070C672F3B"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 85.781,
+        "total_cost_usd": 0.0643512,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 213735
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "D01",
+        "case_id": "F001_PID000002058",
+        "position_id": "2058",
+        "direction": "BUY",
+        "image_type": "DECISION_ASOF",
+        "image_sha256": "9E6856F6E38ED92EE882BAB53455EBD22863D4717A8348E46F559FE5E0D546CA",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Top M1 panel shows a multi-hour drift lower from ~0.9967 into a late sharp wick near ~0.9986, then a rebound into the blue Entry band near ~0.99922 just before the decision markers.",
+          "BUY geometry is visible: solid blue Entry ~0.99922, red dashed SL ~0.99875 under the late wick, green dashed TP ~1.0016 far above; risk is tight versus a distant target.",
+          "Purple break-bar-open and blue actual-entry verticals sit at the far right of the M1 series; actual entry aligns with the end of the bottom trace (~300s from break-bar open).",
+          "H1 context shows sell-off into ~0.996, strong recovery to ~1.001, then post-peak consolidation back near ~0.999; decision occurs after the main H1 impulse, not at the H1 low.",
+          "CME 6E direction-aligned I5 header reads early=+0.051 late=+0.034 score=+0.035; the path is noisy with repeated zero-crossings through early, mid, and late windows.",
+          "Late-60s beige band still shows large purple swings (positive and negative) into the actual-entry line; orange 25-event median is only modestly positive near decision."
+        ],
+        "confidence": "MEDIUM",
+        "unknowns": [
+          "Exact break level definition and trigger rule are not labeled on-chart.",
+          "Order type (stop/limit/market) and fill quality are not shown.",
+          "Spread, depth, and session-liquidity state at decision are not visible.",
+          "Realized post-entry path and PnL are future-hidden by design."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_blind": true,
+        "trend_context": "M1 is sell-dominant into a late bounce; H1 is post-impulse consolidation after a recovery from ~0.996 toward ~1.001, so the BUY is not early-trend initiation on H1.",
+        "range_location": "M1 decision sits low-to-mid of the visible session after the bounce from the late extreme; H1 location is mid-upper of the recovered multi-session band and still below the ~1.001 peak.",
+        "breakout_geometry": "Long setup with tight SL under the recent M1 wick and a distant TP near/above the H1 high zone, creating asymmetric reward-to-risk on paper but dependent on sustained upside after a mature rebound.",
+        "book_trace_context": "CME 6E full-break-bar direction-aligned I5 is only mildly positive (early +0.051, late +0.034, score +0.035) and remains noisy; decision is marked at ~300 seconds, inside the late window rather than early confirmation.",
+        "break_freshness": "MATURE",
+        "entry_risk_flags": [
+          "Actual entry ~300s after break-bar open (late/mature timing).",
+          "BUY after H1 recovery impulse already largely spent.",
+          "Tight SL adjacent to a just-printed M1 wick extreme (retest/whipsaw risk).",
+          "Book support only mild and path remains noisy into the late window.",
+          "Pre-entry M1 structure was mostly lower until the final bounce."
+        ],
+        "blind_prediction": "AMBIGUOUS",
+        "evidence_boundary": "Judgment uses only visible pre-entry pixels in the three panels (M1 decision geometry, H1 context, CME 6E break-bar trace). No outcome path, PnL, repository context, or off-image facts are used; prediction is diagnostic only."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "D02",
+        "case_id": "F002_PID000001762",
+        "position_id": "1762",
+        "direction": "BUY",
+        "image_type": "DECISION_ASOF",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F002_PID000001762_decision.png",
+        "image_sha256": "2D40A8767F2F820B618EE0BF7FF06DD3D8CFCB3C2C27570E3EC53B68B657DC60"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D02\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D02\\attempt-001-actual\\grok-request.json",
+        "sha256": "5CBFDAD631D875082F1434B5BF7860934D88147594D82661CD67BAB6F12C1D9C"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D02\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "B55AE4E817AC53B498D7F2683CA44312195A32C8667404A235A01328CA22FBA9"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D02\\attempt-001-actual\\summary.json",
+        "sha256": "20A09CA5A5B02E2A4B08864DB937498FD30ACF6F81515D790C45F82F55215292"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D02\\attempt-001-actual\\grok-response.json",
+        "sha256": "FA0E8565A0750DB9045114A3B6520752866E075C3081B49AE04A8B8F984A07D3"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 30.766,
+        "total_cost_usd": 0.0527148,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 213794
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "D02",
+        "case_id": "F002_PID000001762",
+        "position_id": "1762",
+        "direction": "BUY",
+        "image_type": "DECISION_ASOF",
+        "image_sha256": "2D40A8767F2F820B618EE0BF7FF06DD3D8CFCB3C2C27570E3EC53B68B657DC60",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "M1 panel shows early sell-off from ~1.0300 into a base near 1.010–1.015, then a multi-wave grind higher that recovers to ~1.021–1.022 and holds around the red SL band before a late green impulse toward ~1.025–1.026 at the right edge.",
+          "Horizontal levels: solid blue Entry near ~1.0275, dashed red SL near ~1.0195, green TP well above ~1.042; purple break-bar open and blue actual-entry markers sit at the far right of the M1 window.",
+          "At decision as-of, price on M1 is still below the blue Entry line; the latest candles are green and rising but have not closed through entry.",
+          "H1 context is an upswing from ~1.094 lows after 03-15 into a higher plateau ~1.098–1.102, with a late push to ~1.104 then mild pullback/consolidation around ~1.102 at 03-17 00:00.",
+          "CME 6E full-break-bar trace title reports early=+0.058 late=+0.007 score=+0.005; purple path and orange 25-event median oscillate around zero after early positive bias, with late window shaded and actual-entry dashed line near 300s.",
+          "M1 range after the low is a mid-to-upper recovery relative to the session trough, not a clean clean-break extension above the pre-drop high near 1.027–1.030."
+        ],
+        "confidence": "MEDIUM",
+        "unknowns": [
+          "Exact numeric entry/SL/TP quotes beyond chart scale reading",
+          "Whether break-bar open coincides with a specific M1 candle body/wick not labeled in text",
+          "Unseen post-entry path and realized fill quality",
+          "Whether H1 pullback from 1.104 is corrective or trend failure",
+          "Tick/liquidity depth and spread at decision time"
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_blind": true,
+        "trend_context": "H1 shows a clear multi-session uptrend from 03-15 lows near 1.094 into 1.102–1.104 with only shallow pullbacks; decision-time H1 is still elevated near the upper end of that advance, mildly consolidating after a spike.",
+        "range_location": "On M1, price rebounded from the ~1.010 trough into the upper half of the visible range (~1.010–1.030), sitting near ~1.025–1.026 just under the ~1.0275 entry; it is not at the absolute high of the left-side open near 1.030.",
+        "breakout_geometry": "BUY setup places entry above current price with SL under the mid-range shelf (~1.0195) and TP far above; late M1 green impulse approaches entry from below without a confirmed close through the entry line inside the visible future-hidden window.",
+        "book_trace_context": "CME 6E direction-aligned I5 is modestly positive early (early=+0.058) then flattens (late=+0.007, score=+0.005); late 60s shade shows noisy two-way flow around zero rather than a strong one-way bid, with actual entry marked near the end of the 300s trace.",
+        "break_freshness": "MIXED",
+        "entry_risk_flags": [
+          "Entry still above last visible M1 prices—chase/gap risk into blue line",
+          "Wide TP vs SL geometry implies asymmetric distance that may not match nearby structure",
+          "Book score near zero late—weak confirmation at decision edge",
+          "H1 near local highs after spike—buy-high location risk on higher TF"
+        ],
+        "blind_prediction": "AMBIGUOUS",
+        "evidence_boundary": "Judgment uses only pixels in the attached DECISION_ASOF PNG (M1 structure, H1 context, horizontal Entry/SL/TP, break/actual-entry markers, and CME 6E trace labels/series). No repository, logs, fills, or post-entry outcomes were inspected; prediction is diagnostic and non-authoritative."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "D03",
+        "case_id": "F003_PID000001324",
+        "position_id": "1324",
+        "direction": "SELL",
+        "image_type": "DECISION_ASOF",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F003_PID000001324_decision.png",
+        "image_sha256": "51E3B147BC2D8889D8AAAAD136055C104F809CA8F0F07B72081CB6E5D8882665"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D03\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D03\\attempt-001-actual\\grok-request.json",
+        "sha256": "FFBDFA014D4A44CE4A3CDD79935E864DBDE010FDB913526239AF89C7A65E8C69"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D03\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "9CE0E4F8FEB491C17E5D21494DA527C7C823DC16CF5865D1F1739B4237E3B581"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D03\\attempt-001-actual\\summary.json",
+        "sha256": "C259A13DEBD5A688CEE18231C94CD0295B3E7DF6FF37459509968DBC8006D41A"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D03\\attempt-001-actual\\grok-response.json",
+        "sha256": "1632231F5E7CCBE14CD4FBA87DB13FF52D2D37EFA72EC2E66661CBDF30B3C8C5"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 62.735,
+        "total_cost_usd": 0.0662448,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 184146
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "D03",
+        "case_id": "F003_PID000001324",
+        "position_id": "1324",
+        "direction": "SELL",
+        "image_type": "DECISION_ASOF",
+        "image_sha256": "51E3B147BC2D8889D8AAAAD136055C104F809CA8F0F07B72081CB6E5D8882665",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Top M1 panel shows a multi-hour decline from ~1.2196 into the ~1.2185 zone, with decision-time candles trading at/near the blue Entry line just left of the blue actual-entry marker.",
+          "SELL geometry is visible and ordered correctly: red SL dashed above blue Entry, green TP dashed further below; stop distance looks very tight versus a larger Entry-to-TP gap.",
+          "Purple break-bar-open and blue actual-entry verticals sit at the far right edge of the M1 window, after most of the visible selloff has already occurred.",
+          "H1 context shows a deep mid-panel dump toward ~1.2135, a V-recovery back into ~1.218–1.220, then mild late red pressure near ~1.219 at the right edge—not a free-fall H1 regime.",
+          "CME 6E direction-aligned trace stays mostly above zero across ~0–300s; title prints early=+0.097, late=+0.182, score=+0.323, with late-window shade still net supportive into actual entry."
+        ],
+        "confidence": "MEDIUM",
+        "unknowns": [
+          "Exact numeric Entry/SL/TP prices are only approximate from axis labels",
+          "Whether the late M1 push is a true break versus stop-run liquidity under prior micro-lows cannot be confirmed from pixels alone",
+          "No post-entry path is available; future is hidden by design",
+          "Book-trace scale units and event composition beyond the printed scores are not fully specified on-chart"
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_blind": true,
+        "trend_context": "M1 structure is a mature downside sequence after an earlier plateau near 1.2193–1.2196; H1 is post-recovery range/chop with only mild late bearish tilt, not a fresh H1 breakdown.",
+        "range_location": "On the visible M1 window price is at the lower extreme after breaking down from the prior upper plateau; on H1 it sits mid-to-upper in the recovered band above the deep 1.213–1.214 low.",
+        "breakout_geometry": "SELL entry is placed after a large already-realized drop, with SL tightly above Entry and TP farther below; break-bar open and actual entry cluster at the right edge rather than at the start of the decline.",
+        "book_trace_context": "Direction-aligned I5 is net positive for nearly the full 300s from break-bar open, late window stronger than early (0.182 vs 0.097), composite score +0.323, still positive near the actual-entry vertical.",
+        "break_freshness": "MATURE",
+        "entry_risk_flags": [
+          "Late entry after extended M1 selloff (chase/maturity risk)",
+          "Extremely tight SL above Entry vulnerable to normal noise/retrace",
+          "H1 not confirming a fresh trend leg—post-V recovery range context",
+          "Price already sitting on the decision levels with mixed last candles"
+        ],
+        "blind_prediction": "AMBIGUOUS",
+        "evidence_boundary": "Judgment uses only visible pre-entry M1 structure, H1 context, Entry/SL/TP/break markers, and the printed CME 6E trace scores; no realized PnL, post-entry bars, rules, or external data are used."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "D04",
+        "case_id": "F004_PID000002166",
+        "position_id": "2166",
+        "direction": "SELL",
+        "image_type": "DECISION_ASOF",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F004_PID000002166_decision.png",
+        "image_sha256": "2F71AAE344F8BB0D2B7B886E9ABDAB6B0AAB2321D8629E84CDF5B0C66AAE8380"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D04\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D04\\attempt-001-actual\\grok-request.json",
+        "sha256": "4453AF8C8A5E765CBCC2F12956821AEA7C21CD76C00FD69ED748B0ED2136D764"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D04\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "6DC71854F6672D976133523BACFB89D5E976FFDA9F5A33C5052309F901C4B01D"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D04\\attempt-001-actual\\summary.json",
+        "sha256": "E14F4C2FCEED2C538DF374BA0950DF8B67C0CD56D7E14CFAA58A26A34C4E5ADC"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D04\\attempt-001-actual\\grok-response.json",
+        "sha256": "0EB5D5AF8469C9CEB14B181B7992312E8A08F35C63DEDF946B361EA5EB85090A"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 30.297,
+        "total_cost_usd": 0.0474312,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 191441
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "D04",
+        "case_id": "F004_PID000002166",
+        "position_id": "2166",
+        "direction": "SELL",
+        "image_type": "DECISION_ASOF",
+        "image_sha256": "2F71AAE344F8BB0D2B7B886E9ABDAB6B0AAB2321D8629E84CDF5B0C66AAE8380",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "M1 shows a sharp impulse high near 1.0320 then a multi-bar selloff that has retraced almost the entire impulse back toward ~1.0305 at the decision markers.",
+          "SELL geometry is visible with entry ~1.03055, SL above ~1.03085, and TP far below ~1.02997; break-bar open (purple) and actual entry (blue dash) sit at the far-right decision edge.",
+          "H1 context is a clear multi-session uptrend from ~1.022 to ~1.031 with recent bars still near local highs.",
+          "CME 6E direction-aligned I5 trace reports early=-0.007, late=+0.019, score=+0.028; late-window (beige) is noisier with positive spikes into the actual-entry line.",
+          "At decision-asof, price sits near/through the entry line after a mature downside cascade, not at the initial breakdown of the peak."
+        ],
+        "confidence": "MEDIUM",
+        "unknowns": [
+          "Exact break-bar OHLC values and which bar is the formal break trigger",
+          "Whether entry is market/limit and any spread/slippage at fill",
+          "Session/liquidity state and news around 11-23 00:59",
+          "How direction-aligned I5 is signed for SELL versus raw book pressure"
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_blind": true,
+        "trend_context": "H1 is in a multi-day bullish advance with higher highs into ~1.031; the short is counter-trend to that higher-timeframe structure.",
+        "range_location": "On M1, price has fallen from the ~1.0320 spike back into the pre-spike mid-band near 1.0304-1.0306, i.e. mid-to-lower relative to the local impulse range, not still at the extreme high.",
+        "breakout_geometry": "SELL setup places entry under the post-spike decline with tight SL above recent micro structure and TP well below; break-bar open and actual entry align at the right edge after the cascade, not as a fresh first-print break.",
+        "book_trace_context": "CME 6E full-break-bar trace over ~300s shows early window slightly negative, later window positive-biased; printed early=-0.007 late=+0.019 score=+0.028 with elevated late noise into entry.",
+        "break_freshness": "MATURE",
+        "entry_risk_flags": [
+          "Counter-trend SELL against H1 uptrend",
+          "Entry after extended M1 sell cascade (late rather than first break)",
+          "Tight SL vs distant TP implies adverse-move vulnerability if bounce resumes",
+          "Late book-trace volatility spikes near entry"
+        ],
+        "blind_prediction": "AMBIGUOUS",
+        "evidence_boundary": "Judgment uses only visible DECISION_ASOF chart pixels: M1 structure, H1 context, SL/TP/entry markers, and CME 6E trace labels/series. Future path and realized PnL are hidden and not used."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "D05",
+        "case_id": "F005_PID000001678",
+        "position_id": "1678",
+        "direction": "BUY",
+        "image_type": "DECISION_ASOF",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F005_PID000001678_decision.png",
+        "image_sha256": "89724DFB1CD3D5260D7B800616B466508CCF8F6C500D30854704981130873266"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D05\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D05\\attempt-001-actual\\grok-request.json",
+        "sha256": "8FFD80BCA7C6F820A55ED6DD69A32A11F8FB0D90CE877AB482E2EB5AFBA84B99"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D05\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "7C02288788B03A5784AF370D47489363BF5D27839B8C4003E68F4603B6F2C892"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D05\\attempt-001-actual\\summary.json",
+        "sha256": "FB84C1026AA36A1AF07A4CAC58DCED7335E36CE14013B834F1DFBC35768EA13A"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D05\\attempt-001-actual\\grok-response.json",
+        "sha256": "05ABFF6F5B509D7DA76A9C3F15B5E06BA359006BD8851F5FEB666AF034C13B90"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 68.547,
+        "total_cost_usd": 0.0698284,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 199558
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "D05",
+        "case_id": "F005_PID000001678",
+        "position_id": "1678",
+        "direction": "BUY",
+        "image_type": "DECISION_ASOF",
+        "image_sha256": "89724DFB1CD3D5260D7B800616B466508CCF8F6C500D30854704981130873266",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Top decision panel is a BUY geometry with solid blue Entry near ~1.13455, red dashed SL near ~1.13425, green dashed TP near ~1.13515, purple break-bar-open and blue actual-entry verticals at the far right.",
+          "Pre-entry M1 structure: early spike toward the Entry line around 01-19 22:22, then a long mid-session compression mostly ~1.1340–1.1342 below SL, followed by a late climb and an impulsive green expansion through Entry near the right edge.",
+          "H1 context panel shows a prior selloff from ~1.138 toward ~1.132, a base near the lows, then a gradual recovery into roughly ~1.134–1.135 by the decision window.",
+          "At H1 decision location, price sits in the recovered mid/upper half of the post-selloff base, well below the leftmost H1 highs.",
+          "CME 6E full-break-bar trace is labeled early=-0.021, late=+0.001, score=+0.067; direction-aligned I5 is noisy around zero across 0–300 seconds.",
+          "Early-60s book window is weak/mixed-to-negative; late-60s window is choppy with large two-sided swings; actual-entry marker sits at the right edge of the 300s window.",
+          "Entry-to-SL vertical distance is visually much tighter than Entry-to-TP distance."
+        ],
+        "confidence": "MEDIUM",
+        "unknowns": [
+          "Exact trigger rule and whether entry requires break-bar close versus intrabar fill.",
+          "True tick/volume, spread, and slippage at the decision timestamp.",
+          "Whether the top panel is pure M1 or mixed lower-timeframe bars.",
+          "Full session liquidity state and news regime around 01-19/01-20 rollover.",
+          "Realized post-entry path and PnL are hidden by design."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_blind": true,
+        "trend_context": "H1 is not a fresh impulsive uptrend from multi-day highs; it is a post-selloff recovery: sharp 01-18 decline, base near ~1.132, then higher lows into ~1.134–1.135 at entry. Bias is mild bullish recovery, not mature trend extension.",
+        "range_location": "On the decision M1 window, most pre-break action lives in a multi-hour lower range ~1.1340–1.1342 under the SL/entry shelf. Entry is a late break of that local shelf toward the top of the visible M1 range, while H1 remains mid-recovery rather than range extreme of the full H1 window.",
+        "breakout_geometry": "BUY breakout geometry: tight SL just under the prior compression high/shelf, wide TP far above Entry. The break is expressed as a late green expansion through Entry after prolonged base; stop is close to recent noise, reward stretch is asymmetric upward.",
+        "book_trace_context": "CME 6E direction-aligned break-bar book is only mildly positive overall (score +0.067). Early book is negative (-0.021), late book nearly flat (+0.001), and the path is choppy with frequent median/actual divergences, so book support is weak rather than decisive.",
+        "break_freshness": "MIXED",
+        "entry_risk_flags": [
+          "Very tight SL relative to multi-hour M1 noise band",
+          "Late actual entry near 300s after break-bar open",
+          "Weak/negative early book and only flat late book",
+          "Break after long compression may be stop-run prone",
+          "H1 recovery context can still mean-revert into base"
+        ],
+        "blind_prediction": "AMBIGUOUS",
+        "evidence_boundary": "Judgment uses only visible pixels in this single DECISION_ASOF PNG: M1 decision geometry, H1 context available at entry, and the annotated CME 6E break-bar trace. No repository files, no web, no outcomes, no realized PnL, and no authority to retune, rerun, promote, or trade."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "D06",
+        "case_id": "F006_PID000001476",
+        "position_id": "1476",
+        "direction": "BUY",
+        "image_type": "DECISION_ASOF",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F006_PID000001476_decision.png",
+        "image_sha256": "2F4B04D7A721E91F40B6ADB4F4F52D7C98A34DFE3318E9FB44F980726E725A29"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D06\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D06\\attempt-001-actual\\grok-request.json",
+        "sha256": "512596FACD1C3E37D0D1AC573F78C5A15F9F59C436E81913D186BA0A83FA923D"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D06\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "89FD511FDAB3A5DF1E84730B5CF12829442BC867A8429BC8505071636870101F"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D06\\attempt-001-actual\\summary.json",
+        "sha256": "A9712D1C5F2F781F7EF57C141E6C736470AC3A22A20B017D69F6B8E0023412AF"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D06\\attempt-001-actual\\grok-response.json",
+        "sha256": "25FB7ADBACA11427DAB67AF8483816A0D34775FA5DCFF55558F54AB06292901E"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 59.406,
+        "total_cost_usd": 0.0586652,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 174292
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "D06",
+        "case_id": "F006_PID000001476",
+        "position_id": "1476",
+        "direction": "BUY",
+        "image_type": "DECISION_ASOF",
+        "image_sha256": "2F4B04D7A721E91F40B6ADB4F4F52D7C98A34DFE3318E9FB44F980726E725A29",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "M1 panel shows a multi-hour sideways band roughly 0.00032–0.00044, then a late green thrust toward the blue Entry line near ~0.00055 just at the purple break-bar open / blue actual-entry markers.",
+          "Entry (solid blue) sits above the prior M1 ceiling; SL (red dashed) sits near ~0.00031 under the post-flush floor; TP (green dashed) is far higher near ~0.00102.",
+          "Around 09-02 23:31 a sharp red candle flushed to near the SL zone, then price rebuilt sideways before the final upside thrust.",
+          "H1 context is a clear higher-high/higher-low climb from ~1.1837–1.184 lows into ~1.1870–1.1875 highs, with recent bars consolidating at the top of that leg.",
+          "CME 6E full-break-bar trace is annotated early=+0.014, late=+0.069, score=+0.090; late window is positive and elevated near the actual-entry vertical at ~300s.",
+          "Decision markers sit at the far right of the M1 window with future hidden; the break candle(s) are the last visible M1 action, not a long post-break drift."
+        ],
+        "confidence": "MEDIUM",
+        "unknowns": [
+          "Whether the final M1 thrust bar is fully closed or still forming at decision.",
+          "Exact absolute M1 price basis (panel scale reads as offset around +1.187).",
+          "Spread, fill quality, and true stop distance in pips at actual entry.",
+          "Whether H1 consolidation at highs is healthy absorption or exhaustion."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_blind": true,
+        "trend_context": "H1 EURUSD shows a multi-session bullish structure after the 09-02 early trough, with successive higher highs into ~1.187+ and only shallow pullbacks; decision sits after that climb, near the upper plateau.",
+        "range_location": "On M1, most of the window is mid-range inside a tight band; at decision, price is thrusting off the upper edge of that band after an earlier flush near the band floor, so location is high within the local M1 structure and high on the H1 swing.",
+        "breakout_geometry": "BUY geometry is a late break of the M1 consolidation: entry above the prior ceiling, SL just under the post-flush floor, TP distant above entry; purple break-bar open and blue actual-entry lines are almost adjacent at the right edge, so the decision is on a just-triggered break rather than a deep post-break retest.",
+        "book_trace_context": "Direction-aligned CME 6E I5 trace ends positive with score +0.090; late 60s (+0.069) exceeds early 60s (+0.014), and both median and companion series sit around +0.10 near the actual-entry line at ~300 seconds from break-bar open.",
+        "break_freshness": "FRESH",
+        "entry_risk_flags": [
+          "BUY decision occurs after a long H1 advance into multi-hour highs.",
+          "SL is tight under a recent wick-flush, raising stop-run / noise-out risk.",
+          "Reward-to-TP is large relative to entry-SL, so path risk is high if the break fails.",
+          "Prior 23:31 dump shows the local range can fail violently before recovering.",
+          "M1 thrust and entry are nearly simultaneous—little post-break confirmation distance."
+        ],
+        "blind_prediction": "CONTINUATION",
+        "evidence_boundary": "Only the visible pixels of this single DECISION_ASOF PNG were used. Future path after the actual-entry line is hidden; no realized PnL, no external data, no repository, and no outcome knowledge were used. Prediction is diagnostic only and grants no rule, rerun, promotion, paper, or live authority."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "D07",
+        "case_id": "F007_PID000001282",
+        "position_id": "1282",
+        "direction": "SELL",
+        "image_type": "DECISION_ASOF",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F007_PID000001282_decision.png",
+        "image_sha256": "ED9BD95CEC5815D932790930C0B55EF75B951BBC2C2FB104AEA59EC96F45A907"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D07\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D07\\attempt-001-actual\\grok-request.json",
+        "sha256": "04F90113A4BFC0668FCE35D07CD5E75F3DEE11A3DA4D65B0D086DD67991E128E"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D07\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "24F42F0B7D26C386396FE4195FE138D0A60B8C3A693F67191A1C86D5F9FE6709"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D07\\attempt-001-actual\\summary.json",
+        "sha256": "AECBB4F0B0A19F78A58B830EB04CC00D06151B03CB745BC5E68032A2BAA202CD"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D07\\attempt-001-actual\\grok-response.json",
+        "sha256": "E3800927C2A69DAFD64042E9F79EB664D6DC38EA3F6BB618CE1FFE8FED07190A"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 62.594,
+        "total_cost_usd": 0.0585512,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 201059
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "D07",
+        "case_id": "F007_PID000001282",
+        "position_id": "1282",
+        "direction": "SELL",
+        "image_type": "DECISION_ASOF",
+        "image_sha256": "ED9BD95CEC5815D932790930C0B55EF75B951BBC2C2FB104AEA59EC96F45A907",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Top panel shows prolonged chop roughly between about 1.20245 and 1.20300, then a late multi-bar red cascade down through the blue Entry near about 1.20220.",
+          "SELL geometry is visible as Entry ~1.20220, SL (red dashed) ~1.20278 above price, and TP (green dashed) ~1.20103 below; purple Break-bar open and blue Actual entry verticals sit at the far right edge.",
+          "H1 context panel shows a multi-session decline from roughly 1.212 to 1.202 with large mid-window red bodies, then compression/base near the lows into 05-03.",
+          "CME 6E trace title prints early=-0.119, late=-0.068, score=+0.066; early 60s are weak/mixed, mid-trace often positive, late 60s mostly soft near about -0.1 into the actual-entry marker.",
+          "At the decision edge, price has already fallen from near 1.2030 into the entry zone with consecutive red candles rather than sitting mid-range.",
+          "Pre-break M1 structure is a tight high-side shelf under the SL band; the downside break resolves that shelf in one late impulse."
+        ],
+        "confidence": "MEDIUM",
+        "unknowns": [
+          "Exact top-panel timeframe is not labeled on-axis beyond timestamp density",
+          "Whether the break-bar is fully closed versus still forming is not stated",
+          "No volume, spread, or liquidity depth is plotted",
+          "Book I5 construction beyond the printed early/late/score labels is not shown",
+          "Any post-entry path is future-hidden by design"
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_blind": true,
+        "trend_context": "H1 available-at-entry context is a clear multi-day downtrend from ~1.212 to ~1.202 with sequential lower highs and a late compression near the lows, so the higher-timeframe sell impulse is already well advanced.",
+        "range_location": "Decision sits near the lower extreme of the visible H1 range after the large decline; on M1, entry occurs after price leaves a tight upper micro-shelf (~1.2025-1.2030) rather than from mid-range.",
+        "breakout_geometry": "SELL places entry under the broken M1 shelf, SL just above recent pre-break highs (~1.20278), and TP deeper at ~1.20103; break-bar open and actual-entry markers arrive only after a multi-candle downside run into that entry.",
+        "book_trace_context": "Direction-aligned I5 is weak early (-0.119), firms through much of the mid window, then softens in the late 60s (-0.068) with only a mild overall score (+0.066); actual entry aligns with that late soft/near-zero book region.",
+        "break_freshness": "MIXED",
+        "entry_risk_flags": [
+          "H1 location is late/extended after a large already-realized decline into range lows",
+          "Late-60s book softens (late=-0.068) into actual entry",
+          "Entry follows a multi-bar cascade rather than a first touch of the break",
+          "SL sits tightly above a well-tested pre-break high shelf",
+          "Only mild net book score (+0.066) despite SELL direction"
+        ],
+        "blind_prediction": "AMBIGUOUS",
+        "evidence_boundary": "Only the attached DECISION_ASOF PNG pixels were used; future path and realized PnL are hidden; no repository, web, local files, or tools were consulted; this is diagnostic visual review only with no rule, rerun, or promotion authority."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "D08",
+        "case_id": "F008_PID000001916",
+        "position_id": "1916",
+        "direction": "BUY",
+        "image_type": "DECISION_ASOF",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F008_PID000001916_decision.png",
+        "image_sha256": "3294B0E46D94C3BA3AF9F4024231830B58EDA18F4B1BC93AAC443F6610615CF4"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D08\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D08\\attempt-001-actual\\grok-request.json",
+        "sha256": "618AB5F94116559792EAC21A18E94E15BEFB0B5B2ED11EF125F2582DFA851E33"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D08\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "5E2E70B30B55AAED5907B74136C6BCA9BB0741B752971440A85DF0EB61C3BBBB"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D08\\attempt-001-actual\\summary.json",
+        "sha256": "EA938BC9D20DB05B89821366978FFBCF7764A745358249DD1E4A0F35F7780FE9"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D08\\attempt-001-actual\\grok-response.json",
+        "sha256": "9F7F324C93E5864C176648DD34913C9527F794A2E1977BE36FFB750472919744"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 49.266,
+        "total_cost_usd": 0.0538692,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 198218
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "D08",
+        "case_id": "F008_PID000001916",
+        "position_id": "1916",
+        "direction": "BUY",
+        "image_type": "DECISION_ASOF",
+        "image_sha256": "3294B0E46D94C3BA3AF9F4024231830B58EDA18F4B1BC93AAC443F6610615CF4",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Top M1 panel shows a multi-hour range/dip into ~1.0561–1.0565, then a sharp late green impulse into the right edge near Entry ~1.05708.",
+          "Horizontal geometry is readable: Entry solid blue ~1.05708, SL red dashed ~1.05657, TP green dashed ~1.05805; purple break-bar open and blue actual-entry sit at the far right.",
+          "H1 context is a deep selloff into ~1.049, strong recovery to ~1.059–1.060, then multi-bar upper consolidation around ~1.056–1.058 into the decision window.",
+          "CME 6E book trace title states early=+0.082, late=-0.078, score=+0.019; early window mostly positive, mid-window elevated ~+0.3, then a late drop through zero into mild negative territory near actual entry.",
+          "M1 break candles are tall and close near the highs of the impulse, so decision sits after most of the visible thrust rather than at the first quiet break of the prior ceiling.",
+          "TP is roughly ~1R+ above Entry while SL sits under the pre-impulse shelf; risk box is tight under the late spike, target is above local M1 highs but below the H1 spike extreme."
+        ],
+        "confidence": "MEDIUM",
+        "unknowns": [
+          "Exact bar-close vs tick fill relative to the last incomplete M1 candle at the blue actual-entry line",
+          "Whether break definition uses body close above prior high or only high pierce",
+          "Absolute pip distance/ATR scaling not labeled numerically on chart",
+          "What the direction-aligned I5 units map to in economic terms",
+          "Any spread/slippage model at the marked actual entry"
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_blind": true,
+        "trend_context": "H1 structure is post-impulse bullish: large recovery from the ~1.049 trough, then upper-range consolidation rather than a fresh H1 breakdown; M1 decision rides a late upward impulse inside that higher-timeframe consolidation.",
+        "range_location": "On H1, price is in the upper third of the visible multi-day range after the big rally, not at the absolute top (~1.060) and not mid-range; on M1, decision is at the high of a breakout from the ~1.0563–1.0567 shelf.",
+        "breakout_geometry": "BUY break of the late M1 ceiling with Entry on/just above the thrust, SL under the pre-break shelf, TP above the break candles; geometry is a tight stop under an extended spike with asymmetric upside target.",
+        "book_trace_context": "Direction-aligned book is constructive early/mid (early +0.082, mid lift toward +0.3) but deteriorates sharply into the late window (late -0.078), leaving only a thin composite score (+0.019) at the marked actual entry.",
+        "break_freshness": "MIXED",
+        "entry_risk_flags": [
+          "Late-window book already negative while entry is taken",
+          "M1 entry after a tall multi-candle run rather than first break candle",
+          "Tight SL under an extended spike raises stop-hunt / micro-noise risk",
+          "H1 already deep into post-impulse consolidation, so BUY is not from H1 range midpoint"
+        ],
+        "blind_prediction": "AMBIGUOUS",
+        "evidence_boundary": "Judgment uses only pixels in this DECISION_ASOF composite (M1 decision panel, H1 context, CME 6E break-bar trace, drawn Entry/SL/TP/break markers). No post-entry path, realized PnL, repository artifacts, or external data are used."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "D09",
+        "case_id": "F009_PID000001598",
+        "position_id": "1598",
+        "direction": "BUY",
+        "image_type": "DECISION_ASOF",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F009_PID000001598_decision.png",
+        "image_sha256": "BD476FE98927E6F3CA5B93937F2FC4C421E4B058A9E64B1812018A82F838ADD4"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D09\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D09\\attempt-001-actual\\grok-request.json",
+        "sha256": "9166E998FA6476AF8495C9837F5E656962F5D7C7FAD716C444D9F9BCAB8E1EED"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D09\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "4E73E3008644FEB06FCEA99BFDF8CD6712D1347439F6B0D1172D3B3E5DD3D3EA"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D09\\attempt-001-actual\\summary.json",
+        "sha256": "FF446DA8DD45C1FE7D4F65F25C12C57DCD1B715FDB19E72B5AB4A9E4533F436C"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D09\\attempt-001-actual\\grok-response.json",
+        "sha256": "E07F80B25FD8475D94A75C127FD2A8B0EC5FB307CBA21B61B367F09AE366C2A0"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 56.328,
+        "total_cost_usd": 0.0580372,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 179477
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "D09",
+        "case_id": "F009_PID000001598",
+        "position_id": "1598",
+        "direction": "BUY",
+        "image_type": "DECISION_ASOF",
+        "image_sha256": "BD476FE98927E6F3CA5B93937F2FC4C421E4B058A9E64B1812018A82F838ADD4",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Top panel is a relative M1-style path from ~11-24 22:05 to ~11-25 00:04: early chop near -0.002, mid-session base around 0, then a multi-bar lift into roughly +0.0002 to +0.0004 by the right edge.",
+          "BUY geometry is marked with Entry ~+0.00040 (solid blue), SL ~+0.00019 (red dashed), TP ~+0.00082 (green dashed); stop is shallow under entry while TP is about twice the entry–SL distance.",
+          "Purple break-bar-open and blue actual-entry verticals sit at the far right; price at decision is between SL and Entry, with late mixed green/red candles probing the entry band.",
+          "Middle H1 EURUSD panel shows a multi-session decline from ~1.126 into ~1.119–1.120, with the final bars flat-to-slightly firm near the lows rather than a clean H1 uptrend.",
+          "Bottom CME 6E direction-aligned I5 trace is noisy around zero; header prints early=-0.016, late=+0.007, score=+0.068, and the series ends near flat as actual entry approaches ~300s."
+        ],
+        "confidence": "MEDIUM",
+        "unknowns": [
+          "Any post-decision M1 path, fill quality, and realized PnL (future hidden).",
+          "Exact break-bar OHLC/tick microstructure beyond drawn overlays.",
+          "Whether the H1 base is a true reversal seed or only a pause inside the larger downtrend.",
+          "Live spread, slippage, and whether actual entry equals the plotted Entry level."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_blind": true,
+        "trend_context": "H1 context is a clear multi-hour selloff into a late base near 1.120; the M1 decision window instead shows a shorter-horizon recovery/upthrust from the local lows into the entry band.",
+        "range_location": "On the displayed M1 range, price has already climbed from the lower third into the upper band near Entry; on H1, price sits near the lower extreme of the multi-session range after the decline.",
+        "breakout_geometry": "BUY break setup with right-edge break-bar-open/actual-entry markers, Entry above a shallow SL cushion (~0.0002 below), and TP roughly ~0.0004 above Entry; late M1 prints approach Entry from below/inside the band rather than showing a large already-cleared extension above Entry.",
+        "book_trace_context": "CME 6E full-break-bar direction-aligned I5 is choppy with early soft/negative patches and only mild late firmness (late=+0.007, score=+0.068); support for BUY is present but thin and unstable, not a sustained one-sided bid stack.",
+        "break_freshness": "MIXED",
+        "entry_risk_flags": [
+          "Counter-trend BUY versus dominant H1 downtrend structure",
+          "M1 advance into entry already looks extended versus the session low",
+          "Tight SL under recent M1 noise raises stop-out / wick risk",
+          "Book score only mildly positive with noisy I5 swings",
+          "Late pre-entry M1 candles are mixed, not a single clean impulse bar"
+        ],
+        "blind_prediction": "AMBIGUOUS",
+        "evidence_boundary": "Judgment uses only the attached three-panel DECISION_ASOF PNG pixels (M1 decision window, H1 context, CME 6E book trace and printed overlays). No repository files, tools, external data, or post-entry outcomes were inspected."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "D10",
+        "case_id": "F010_PID000001412",
+        "position_id": "1412",
+        "direction": "BUY",
+        "image_type": "DECISION_ASOF",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F010_PID000001412_decision.png",
+        "image_sha256": "A842F8BF2E3393D9F06BBF4104FD7BEBA524205F7CD742843B9E0C3A32A65EFC"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D10\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D10\\attempt-001-actual\\grok-request.json",
+        "sha256": "5D264238D3F154C93B34531D672DCF04EB205BC07772076056D6D95E1F1EEDFC"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D10\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "4E29653DA5D116F8C0B65A828697169C2D28881A631F3858F9661309ACA99F33"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D10\\attempt-001-actual\\summary.json",
+        "sha256": "C3E5750DF6325797FD0DE5B39E25DF6C42E573BD51A1DA29731E9482B9D0EFED"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D10\\attempt-001-actual\\grok-response.json",
+        "sha256": "A6FF899E58DBCD62C25757519FDC5DDA310E44AC90DA0BF0B3ABE30C555E8974"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 62.797,
+        "total_cost_usd": 0.0606652,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 182802
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "D10",
+        "case_id": "F010_PID000001412",
+        "position_id": "1412",
+        "direction": "BUY",
+        "image_type": "DECISION_ASOF",
+        "image_sha256": "A842F8BF2E3393D9F06BBF4104FD7BEBA524205F7CD742843B9E0C3A32A65EFC",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Top M1 panel is labeled decision-as-of/future-hidden BUY with solid blue Entry near ~+0.00068, red dashed SL near ~+0.00046, green dashed TP near ~+0.00112, and purple break-bar-open plus blue actual-entry verticals stacked at the far right (~07-23 00:19).",
+          "M1 path declines from left highs near ~0.0006 into a mid-window base around ~0.00015–0.00030, then builds a late recovery after ~23:11 with a dip near 00:02 and green candles thrusting into/through the entry line at the decision edge.",
+          "H1 context shows prolonged ~1.179–1.180 balance, a spike toward ~1.182–1.183 around 07-22 14:00, then a multi-bar red cascade into ~1.176–1.177, with only a modest right-edge bounce near ~1.1775.",
+          "CME 6E direction-aligned I5 trace is labeled early=+0.025, late=+0.043, score=+0.055; early 60s are mixed/slightly positive, the mid window prints frequent negatives, and late 60s recover while actual entry sits near ~300s.",
+          "SL sits under the mid-recovery plateau and above the deepest M1 base; TP lies above the entire displayed M1 range, so reward requires a much larger upside continuation than the pre-entry bounce already shows."
+        ],
+        "confidence": "MEDIUM",
+        "unknowns": [
+          "Any price path after the actual-entry marker (future is hidden).",
+          "Whether entry, SL, or TP is later touched or filled.",
+          "Absolute pip/point distances and cost/spread at fill (only relative levels are drawn).",
+          "What rule defined the break-bar versus discretionary annotation.",
+          "Broader session/regime context beyond the three panels."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_blind": true,
+        "trend_context": "M1 is a selloff-to-base then late upside recovery into entry; H1 is post-spike bearish cascade with only a small bounce near the lower end of the displayed window.",
+        "range_location": "Decision sits after H1 sold from the spike highs into the lower band near ~1.177; on M1, price has reclaimed from mid-window lows toward the upper portion of the visible M1 range at the entry line.",
+        "breakout_geometry": "BUY geometry has entry above SL and a distant TP (~visually wider than the SL gap). Break-bar open and actual entry are co-located at the right edge after a short late green thrust, not after a long multi-leg extension already run far from the break.",
+        "book_trace_context": "Direction-aligned CME 6E I5 is net constructive (score +0.055) with early +0.025 and late +0.043, but the mid-trace is often negative before the late-window recovery into entry.",
+        "break_freshness": "FRESH",
+        "entry_risk_flags": [
+          "BUY immediately after a sharp H1 red cascade (counter-impulse location).",
+          "H1 price still near the lower post-dump zone, not a clear reclaimed mid/high of the prior H1 balance.",
+          "M1 entry coincides with a late bounce chase rather than a long established uptrend base.",
+          "Book mid-window showed repeated negative direction-aligned pressure before late recovery.",
+          "TP requires continuation well above all visible M1 structure and into prior H1 supply."
+        ],
+        "blind_prediction": "AMBIGUOUS",
+        "evidence_boundary": "Only the pixels of this single attached DECISION_ASOF composite (M1 geometry, H1 context, CME 6E trace) were used; future path and realized PnL are hidden and not inferred from case identity."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "D11",
+        "case_id": "F011_PID000001182",
+        "position_id": "1182",
+        "direction": "SELL",
+        "image_type": "DECISION_ASOF",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F011_PID000001182_decision.png",
+        "image_sha256": "FEB03FD0B968FD7061D735818FE88261EC547F66C6F3499D3DA7B674255D4989"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D11\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D11\\attempt-001-actual\\grok-request.json",
+        "sha256": "9857DBC9F16B20814ED5315F851D3CF69F529F96D7471988E9BA6ADC75FDAAD7"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D11\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "898B406FCE85DBADC011D0EF6D4B459FFCEB3A41BDA2A1BCED0086D10EDF4F22"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D11\\attempt-001-actual\\summary.json",
+        "sha256": "3C042649A0EE8FF25D0349AECA4903F6499CC9FA5C4ED785CFD917C14876A164"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D11\\attempt-001-actual\\grok-response.json",
+        "sha256": "000F768E199276ABF40B77BB14A0711A8EC2B324873BE96C537A7CB2270AAF6F"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 52.922,
+        "total_cost_usd": 0.0623448,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 196364
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "D11",
+        "case_id": "F011_PID000001182",
+        "position_id": "1182",
+        "direction": "SELL",
+        "image_type": "DECISION_ASOF",
+        "image_sha256": "FEB03FD0B968FD7061D735818FE88261EC547F66C6F3499D3DA7B674255D4989",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Top M1 panel shows a long tight sideways band roughly 1.2045–1.2050, then a late sequence of red candles breaking lower into the entry zone near the right edge.",
+          "Horizontal geometry is visible: blue Entry ~1.2040, red dashed SL ~1.2046 just above the prior range floor, green dashed TP ~1.2029 well below entry.",
+          "Purple dotted break-bar-open and blue dashed actual-entry lines sit near the right margin; price at actual entry is already down near the entry line after the late drop.",
+          "Middle H1 panel shows a multi-day decline from ~1.214 into a flat base around 1.204–1.205, with the latest H1 bars small and sitting at the lower end of the visible history.",
+          "Bottom CME 6E direction-aligned trace is annotated early=-0.131, late=+0.023, score=+0.069; early window is net soft, middle choppy around zero, late 60s highly volatile with large up/down spikes and median only mildly positive near actual entry."
+        ],
+        "confidence": "MEDIUM",
+        "unknowns": [
+          "Realized post-entry path and PnL are future-hidden and not knowable from this image.",
+          "Exact break-bar OHLC values and whether the break candle has fully closed are not labeled numerically.",
+          "Whether direction-aligned I5 sign convention is strictly sell-positive beyond the panel title cannot be re-validated from pixels alone.",
+          "Spread, slippage, and fill quality at actual entry are not shown."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_blind": true,
+        "trend_context": "H1 context is a prior multi-day downtrend that has flattened into a low base near 1.204; M1 is not in a sustained impulse until the late downside break of the tight range.",
+        "range_location": "Decision sits at the lower edge of the recent M1 range and near multi-session H1 lows after a long grind lower, not mid-range or range-high short.",
+        "breakout_geometry": "SELL setup places entry below the broken M1 band, SL just above that band’s floor, and TP deeper below; the visible break is a late downside thrust rather than a clean multi-bar expansion already far from the range.",
+        "book_trace_context": "Full-break-bar CME 6E trace is mixed: early net negative, late only slightly positive, composite score mild +0.069, with late-window noise large enough that book support for the sell is weak rather than decisive.",
+        "break_freshness": "FRESH",
+        "entry_risk_flags": [
+          "Tight SL just above a noisy prior range that repeatedly tagged ~1.2046",
+          "Book early negative and late score only marginally positive amid high late volatility",
+          "Entry after a sharp late drop may be short-term extended into multi-day H1 lows",
+          "Reward distance to TP is larger than SL but still moderate; geometry is not a wide structural short"
+        ],
+        "blind_prediction": "AMBIGUOUS",
+        "evidence_boundary": "Verdict uses only visible pixels in this single DECISION_ASOF PNG: M1 pre-entry structure, H1 context, entry/SL/TP lines, break/entry markers, and the annotated CME 6E trace. No repository, tools, outcomes, or post-entry path were used."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "D12",
+        "case_id": "F012_PID000001676",
+        "position_id": "1676",
+        "direction": "SELL",
+        "image_type": "DECISION_ASOF",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F012_PID000001676_decision.png",
+        "image_sha256": "753F40BF5B0BA70FB7EEBEE1C78C4B3DC244D1C4C123D844C28E4D94874A5CCB"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D12\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D12\\attempt-001-actual\\grok-request.json",
+        "sha256": "BCDC942F0C985CB4BF4175F3A00A4CBFB1B6E6218F9B36CCDC083438FC9938AC"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D12\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "E477D86982CEC6F8D40B69D20C2E8E20BE33617ECB6C057255E6DB7C3E018CE4"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D12\\attempt-001-actual\\summary.json",
+        "sha256": "85BFB186DAA52AAAB7D8D7ECFD960B141D4B4A76446C14541DA6EB9C0294C20C"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D12\\attempt-001-actual\\grok-response.json",
+        "sha256": "97EB621656753A6BB53362573A591794634969079A2293C8584A52217723EDC5"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 55.735,
+        "total_cost_usd": 0.0550852,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 204523
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "D12",
+        "case_id": "F012_PID000001676",
+        "position_id": "1676",
+        "direction": "SELL",
+        "image_type": "DECISION_ASOF",
+        "image_sha256": "753F40BF5B0BA70FB7EEBEE1C78C4B3DC244D1C4C123D844C28E4D94874A5CCB",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Top M1 panel shows a multi-hour grind higher into local highs near ~1.1330, then a sharp multi-bar red breakdown into the blue Entry band near ~1.1324 at the far right.",
+          "SELL geometry is intact: Entry ~1.1324, SL dashed just above ~1.1330 over the recent high, TP dashed lower near ~1.1312; purple break-bar-open and blue actual-entry markers sit at the right edge.",
+          "H1 context is a clear multi-session bear trend from ~1.142 down to ~1.132–1.133, with decision-time price near the lower plateau after the selloff.",
+          "CME 6E direction-aligned trace is labeled early=+0.040 late=+0.058 score=+0.058, i.e. modestly sell-aligned on the printed score.",
+          "Book trace is choppy around zero for most of the 300s window, with a large late negative spike near ~270s before partial recovery into the actual-entry marker.",
+          "At decision-as-of, M1 price has already traveled a large fraction of the high-to-entry drop and sits near Entry after the impulse, with a small green bounce candle visible at the right edge."
+        ],
+        "confidence": "MEDIUM",
+        "unknowns": [
+          "Exact pip distances and whether SL/TP are fixed offsets versus structure-based cannot be measured beyond visual scale.",
+          "Whether the late book negative spike reflects genuine adverse pressure or noise is not knowable from the plot alone.",
+          "H1 bar body/wick detail at the final hour is small; micro-structure of the H1 pivot is only partially resolved.",
+          "No volume, spread, session clock, or news overlay is visible on the image."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_blind": true,
+        "trend_context": "H1 shows a mature multi-session downtrend into a lower plateau near 1.132–1.133; M1 decision sits after a local upside grind that failed and broke lower, so higher-timeframe bias is still bearish while short-term price is post-impulse.",
+        "range_location": "On M1, entry is after a break from the upper edge of the late-session range near the SL zone down into mid/lower local range; on H1, price is near the bottom of the visible multi-day decline rather than mid-range.",
+        "breakout_geometry": "SELL breakout geometry places Entry under the failed highs, SL tight above the ~1.1330 spike highs, and TP further below in the direction of the H1 decline; reward visually exceeds risk, but entry occurs after a large already-completed M1 impulse from those highs.",
+        "book_trace_context": "Full break-bar trace prints a modest positive direction-aligned score (+0.058) with early/late positives, yet the path is noisy and includes a severe late adverse spike before actual entry, so book support is mild rather than clean.",
+        "break_freshness": "MIXED",
+        "entry_risk_flags": [
+          "Tight SL immediately above very recent highs leaves little room if the break is a fakeout reclaim",
+          "Entry after a large completed M1 dump raises short-term exhaustion/bounce risk",
+          "H1 selloff is already extended into a lower plateau (late-trend location risk)",
+          "Late book spike to deeply negative direction-aligned values before entry",
+          "Visible green bounce candle at decision edge near Entry"
+        ],
+        "blind_prediction": "CONTINUATION",
+        "evidence_boundary": "Only the attached DECISION_ASOF PNG pixels were used; no repository files, tools, web, local paths, outcomes, PnL, or post-entry bars were inspected or inferred."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "O01",
+        "case_id": "F001_PID000002058",
+        "position_id": "2058",
+        "direction": "BUY",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F001_PID000002058_outcome.png",
+        "image_sha256": "B4D6AFB462B67DA4BFC89B3BCB1102BC30172FE85FF4E9009A9666374339ED74"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O01\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O01\\attempt-001-actual\\grok-request.json",
+        "sha256": "0EB4A88A75C1A815BC6865CA2F2AA97A1AE279C88E7766CB3B55F5C3F3B0C744"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O01\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "045229E6C899E23A8C98E36C144F43B66AE34A906BD3933AB32C50ABEA86AE78"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O01\\attempt-001-actual\\summary.json",
+        "sha256": "FFDA06AFA8D266019619B137A29C870226F733926FCEB75183BF0726A8E46465"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O01\\attempt-001-actual\\grok-response.json",
+        "sha256": "8705491E0F296390D852FE00B0EB8586F3A132F6F79CF33F8AF96D75321C25CA"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 70.11,
+        "total_cost_usd": 0.0631692,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 167950
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "O01",
+        "case_id": "F001_PID000002058",
+        "position_id": "2058",
+        "direction": "BUY",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_sha256": "B4D6AFB462B67DA4BFC89B3BCB1102BC30172FE85FF4E9009A9666374339ED74",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Title bar labels EXTREME_WIN with R=+2.043 and outcome-disclosing for F001_PID000002058.",
+          "Top panel shows horizontal Entry (blue solid ~0.99922), SL (red dashed ~0.99875), and TP (green dashed ~1.00015), plus purple dotted break-bar open and blue dashed actual-entry with a blue triangle at entry.",
+          "Pre-entry price grinds for a long stretch mostly between SL and Entry, with several dips near the stop zone before the two vertical markers.",
+          "Immediately after actual entry, a short red/adverse dip prints modestly below Entry (~0.9990) but stays clearly above SL.",
+          "A sustained green bullish impulse then climbs through Entry, tags the TP band near ~1.0002 (purple X), and extends to roughly 1.0009–1.0010 before high-side consolidation.",
+          "Bottom CME 6E full-break-bar trace reports early=+0.051, late=+0.034, score=+0.035 with noisy direction-aligned I5 and 25-event median oscillating around zero over 0–300s from break-bar open."
+        ],
+        "confidence": "HIGH",
+        "unknowns": [
+          "Whether the purple X is the exact automated TP fill versus a chart marker only.",
+          "Exact fill/slippage relative to the plotted Entry line is not separable from pixels.",
+          "Spread/commission cost drag is not visually separable from the price path.",
+          "Precise second-level lag from break-bar open to actual entry beyond the vertical markers and bottom-axis placement."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_visible": true,
+        "actual_path_class": "CLEAN_CONTINUATION",
+        "primary_layer": "WINNER_NO_FAILURE",
+        "entry_context_assessment": "BUY entry occurs after a prolonged base between SL and Entry, with break-bar open (purple) preceding actual entry (blue triangle). Context is a late breakout from range after repeated near-SL probes, not an immediate post-base rejection at the verticals.",
+        "path_anatomy": "Post-entry path shows only shallow adverse excursion below Entry while remaining well above SL, then a continuous bullish staircase through Entry to the TP band (purple X near ~1.0002) and further extension toward ~1.0010. This is clean directional continuation after limited MAE, not an immediate failed break, whipsaw non-acceptance, or favorable-then-giveback of the win.",
+        "book_trace_relevance": "The full-break-bar book panel is mildly positive (early +0.051, late +0.034, score +0.035) but visually noisy and two-sided around zero rather than a decisive one-way surge. Book trace therefore only weakly coheres with the eventual extreme up-path and does not, by itself, visually discriminate this winner as uniquely inevitable; no rescue rule is implied.",
+        "exit_geometry_assessment": "Geometry is asymmetric long: Entry~0.99922, SL~0.99875, TP~1.00015, with reward distance roughly ~2× risk, matching labeled R=+2.043. Purple X aligns with first TP-zone approach; subsequent price remains above TP, consistent with target capture then free extension under EXTREME_WIN labeling.",
+        "failure_mechanism": "No failure mechanism is realized on this chart: stop was not threatened after entry, TP was reached after only shallow MAE, and the closed R was not given back on the disclosed path."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "O02",
+        "case_id": "F002_PID000001762",
+        "position_id": "1762",
+        "direction": "BUY",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F002_PID000001762_outcome.png",
+        "image_sha256": "A21D8D37D8F56E49D359B43A3284D138AFF87CCBF248FCBBE04D401B0AC24D47"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O02\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O02\\attempt-001-actual\\grok-request.json",
+        "sha256": "7050D99FD572AD91DB37C28F33C44D8B672135D249EC0F8DDC71CAC73295B322"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O02\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "EBB789028776BA48E5F5E9F0E309269FEA2BF9EAF74789A6135425CC29D8385A"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O02\\attempt-001-actual\\summary.json",
+        "sha256": "1A7A9978FBF96FE34FF9FEEF824185F4C126D033DCFD6F1F61FFBD68D930E7B3"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O02\\attempt-001-actual\\grok-response.json",
+        "sha256": "831C606019FF37E1B94E3A51E03927C68D38758C5551CCCD2A86B57EA16C0B67"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 50.297,
+        "total_cost_usd": 0.0448616,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 179470
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "O02",
+        "case_id": "F002_PID000001762",
+        "position_id": "1762",
+        "direction": "BUY",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_sha256": "A21D8D37D8F56E49D359B43A3284D138AFF87CCBF248FCBBE04D401B0AC24D47",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Title band reads F002_PID000001762 | EXTREME_WIN | R=+1.974 | outcome-disclosing.",
+          "BUY geometry is plotted with solid blue Entry near ~1.10275, red dashed SL near ~1.10195, and green dashed TP near ~1.1043.",
+          "Purple dotted break-bar-open vertical precedes the blue dashed actual-entry vertical; a blue triangle marks the actual entry on an upward breakout bar.",
+          "After actual entry, price advances with only shallow pullbacks that stay above SL, then tags a purple X on the TP line before continuing higher toward ~1.1050+.",
+          "Pre-entry candles largely range ~1.1016–1.1024 with a deeper dip near SL, then lift into the break/entry sequence around the date-rollover window.",
+          "Bottom panel is labeled CME 6E full-break-bar trace with early=+0.058, late=+0.007, score=+0.005; early-60s and late-60s bands plus a 25-event median are shown."
+        ],
+        "confidence": "HIGH",
+        "unknowns": [
+          "Exact fill versus the plotted Entry line cannot be measured from pixels alone.",
+          "Whether the purple X is pure full-size TP fill, partial scale-out, or chart annotation only is not labeled.",
+          "Spread/commission/slippage are not visually separable from the price path.",
+          "Why book-trace score is near zero while price path is strongly favorable is not explained on-chart."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_visible": true,
+        "actual_path_class": "CLEAN_CONTINUATION",
+        "primary_layer": "WINNER_NO_FAILURE",
+        "entry_context_assessment": "Visible pre-entry context is a choppy range under the Entry line with a test toward SL, then a breakout through break-bar open into actual entry slightly after the purple vertical; entry occurs on the upside expansion rather than mid-range fade.",
+        "path_anatomy": "Post-entry sequence is net-favorable continuation: brief post-fill consolidation, then higher highs with shallow pullbacks that do not retest SL, a direct tag of TP (purple X, R=+1.974), and further extension beyond TP—no immediate reversal, no multi-whip around entry, and no giveback of a large open gain before the marked TP event.",
+        "book_trace_relevance": "The break-bar book panel shows only mild early direction-aligned support (+0.058) that fades late (+0.007) for a near-flat score (+0.005); the realized price path still continues cleanly to TP, so the plotted book trace does not visibly discriminate or anticipate this extreme-win continuation.",
+        "exit_geometry_assessment": "Exit geometry is TP-centric: risk from Entry to SL is the short red-dashed distance below, reward to green-dashed TP is larger, and the chart marks a TP touch at ~1.1043 with realized R=+1.974; SL is never approached after entry on the visible path.",
+        "failure_mechanism": "No material failure mechanism is visible on this outcome-anatomy chart: the BUY does not reverse through entry/SL, does not whipsaw, and does not give back a winning excursion before the marked TP; the disclosed result is EXTREME_WIN."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "O03",
+        "case_id": "F003_PID000001324",
+        "position_id": "1324",
+        "direction": "SELL",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F003_PID000001324_outcome.png",
+        "image_sha256": "31718B6AA6E26EC2D4E28F43832843ECEAD4F0E6DEC41A7090B8250E69DA7E50"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O03\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O03\\attempt-001-actual\\grok-request.json",
+        "sha256": "DD1827CA3F67074AB7A1327908AFC7BCDC32DB75E137D90AD5AA8FE94328B688"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O03\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "116C2734E2BFA3009F7C513DDBC6FB88F8DB62FB2807B7DF54205F4066BA7206"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O03\\attempt-001-actual\\summary.json",
+        "sha256": "1E6CD3A384C11A5CFF5AD1A3E00EC634E6F59779EE12131D3D7D599DEAB5562F"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O03\\attempt-001-actual\\grok-response.json",
+        "sha256": "DF13AA50F34202BB8B274082B788FC8A64784C754774EC7CED40CD23FF9A283C"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 60.782,
+        "total_cost_usd": 0.0663604,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 146336
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "O03",
+        "case_id": "F003_PID000001324",
+        "position_id": "1324",
+        "direction": "SELL",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_sha256": "31718B6AA6E26EC2D4E28F43832843ECEAD4F0E6DEC41A7090B8250E69DA7E50",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Title states EXTREME_LOSS with R=-1.545 and outcome-disclosing for SELL position 1324.",
+          "Horizontal levels: solid blue Entry ~1.21854, red dashed SL ~1.21865 above entry, green dashed TP ~1.21832 below entry.",
+          "Purple dotted vertical marks break-bar open; blue dash-dot vertical with diamond marks actual entry shortly after.",
+          "Pre-entry path is a multi-hour decline from ~1.2194 into the entry zone, then chop near SL/entry before the purple line.",
+          "Immediately after actual entry, price prints an X near/above the SL band and fails to drive cleanly toward TP.",
+          "Post-entry path stays contested around entry/SL, then trends strongly higher to ~1.2192 (adverse for SELL).",
+          "Bottom book panel: CME 6E full-break-bar trace early=+0.097 late=+0.182 score=+0.323; direction-aligned I5 stays mostly positive through the 300s window."
+        ],
+        "confidence": "HIGH",
+        "unknowns": [
+          "Exact fill, exit timestamp, and whether the purple X is stop-exit vs marker only are not labeled in text.",
+          "Slippage, spread, and commission are not visually separable from path geometry.",
+          "Whether management rules allowed hold beyond first SL touch cannot be read from pixels alone."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_visible": true,
+        "actual_path_class": "IMMEDIATE_FAILED_BREAK",
+        "primary_layer": "SETUP_ENTRY",
+        "entry_context_assessment": "SELL is taken after a long down-move into a tight band just under the SL line; break-bar open and actual entry sit where price is already stalling near the stop rather than expanding lower. Entry context is a late-stage downside probe with very little room above before SL.",
+        "path_anatomy": "After the blue actual-entry mark, price does not accept lower toward TP. It immediately contests the SL zone (X near the red line), oscillates around entry/SL without sustained downside follow-through, then expands higher in a strong adverse rally. Realized outcome is extreme loss (R=-1.545), consistent with a failed downside break rather than clean continuation or a long favorable excursion then giveback.",
+        "book_trace_relevance": "The direction-aligned book trace is positive across early/late windows (score=+0.323) and remains mostly above zero through the full break-bar horizon, including near the late actual-entry marker. Visually, the book did not flag this path as hostile; positive book coexists with an extreme losing SELL, so the trace did not discriminate the failed break.",
+        "exit_geometry_assessment": "SL sits only a few ticks above entry while TP is farther below, producing asymmetric tight-stop geometry. Post-entry price immediately presses that upper stop band; the subsequent multi-handle rally is deep adverse relative to the tight risk unit. Cost cannot be isolated, but path geometry shows stop-side failure then further adverse extension on the chart frame.",
+        "failure_mechanism": "Primary failure is setup/entry acceptance: the SELL break does not continue after fill. Price fails immediately at/through the stop band and never establishes downside follow-through, then trends against the position. Book support was positive, so the loss is not explained by a visibly negative book; it is a failed break entry that the trace did not screen out."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "O04",
+        "case_id": "F004_PID000002166",
+        "position_id": "2166",
+        "direction": "SELL",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F004_PID000002166_outcome.png",
+        "image_sha256": "B3ED93BFCED048EEC609CE0391A67667EEA8D0E4178401B9DDC3A4AFD643616A"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O04\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O04\\attempt-001-actual\\grok-request.json",
+        "sha256": "FB97138BD085AEF0AA570C9C0E75E2EF882F83D0C57AED925771CDE816CF8B56"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O04\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "518F660582529937F00334AB8B3101011D772D8644A07412F0ABA5517FE3A784"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O04\\attempt-001-actual\\summary.json",
+        "sha256": "F53BADA6D81BCFFCA0D6D5E209C9E70925692410C544E6225BE5C32F8C8003D0"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O04\\attempt-001-actual\\grok-response.json",
+        "sha256": "E8E4AAC35312E5E4F16BD41C3C64E7A4CB642EF6798696D8A542A8E9E93DFD89"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 68.25,
+        "total_cost_usd": 0.0604372,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 153575
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "O04",
+        "case_id": "F004_PID000002166",
+        "position_id": "2166",
+        "direction": "SELL",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_sha256": "B3ED93BFCED048EEC609CE0391A67667EEA8D0E4178401B9DDC3A4AFD643616A",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Title band shows F004_PID000002166 | EXTREME_LOSS | R=-1.448 | outcome-disclosing on a dual-panel outcome chart.",
+          "Horizontal levels: solid blue Entry ~1.03055, dashed red SL above ~1.03085, dashed green TP below ~1.02995; purple dotted break-bar open then blue dotted actual entry near 11-23 01:05.",
+          "Pre-entry price path is a multi-leg decline from ~1.0320 into the entry zone; at actual entry a purple X marks ~1.0309 near the SL band.",
+          "Immediately after actual entry, green bullish candles lift price through the blue entry and red SL into a local high near ~1.0313 before any sustained move toward the green TP.",
+          "Later bars reverse lower and trade back through entry toward ~1.0301–1.0303, but only after the large adverse rally; chart never shows clean post-entry acceptance below entry toward TP first.",
+          "Bottom CME 6E full-break-bar trace prints early=-0.007 late=+0.019 score=+0.028 with direction-aligned I5 mostly near zero and only mild late positive median into the blue actual-entry marker near ~300s."
+        ],
+        "confidence": "HIGH",
+        "unknowns": [
+          "Exact fill versus plotted entry line and whether stop fill includes slippage versus geometric 1R.",
+          "Precise stop-trigger timestamp versus candle close/open at the adverse peak.",
+          "Whether the later post-rally decline occurred after forced exit or while still open.",
+          "Spread/commission/swap components are not separable on the image."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_visible": true,
+        "actual_path_class": "IMMEDIATE_FAILED_BREAK",
+        "primary_layer": "SETUP_ENTRY",
+        "entry_context_assessment": "SELL is marked after an extended decline into a tight Entry/SL sandwich, with break-bar open slightly before actual entry; entry occurs near local lows with SL only modestly above entry and TP farther below, so the setup is a late short into already-compressed downside rather than a free-air continuation launch.",
+        "path_anatomy": "Post-entry sequence shows essentially no sustained progress toward TP: price rejects lower almost immediately and rallies hard through entry and SL to ~1.0313, producing the labeled EXTREME_LOSS R=-1.448 path; only afterward does price fall back through the entry zone, which is a reverse after failure rather than initial favorable continuation.",
+        "book_trace_relevance": "The full-break-bar book panel is near-neutral early and only mildly positive late (late=+0.019, score=+0.028), so the visible book did not strongly flag the impending counter-rally and did not visibly discriminate this loser path as adverse before or at actual entry.",
+        "exit_geometry_assessment": "SL sits close above entry while TP is farther below; the realized path drives well beyond the red SL band to ~1.0313, consistent with stop-region violation and extreme adverse R, while TP is never approached first. Cost is not visually separable, so geometry is described from price levels only.",
+        "failure_mechanism": "Intended downside break fails at/after entry via an immediate counter-trend bounce that invalidates the short through the nearby stop band before any accepted continuation lower; primary failure is entry into a non-accepted breakdown, not later winner management."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "O05",
+        "case_id": "F005_PID000001678",
+        "position_id": "1678",
+        "direction": "BUY",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F005_PID000001678_outcome.png",
+        "image_sha256": "61782E921A5AEF9B9315C14BA0845882A40EB010328AF9B82BF15980B69D50BC"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O05\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O05\\attempt-001-actual\\grok-request.json",
+        "sha256": "631CB916BAD761E198E58139A54B56CC9EE3BA1EE70BB6A1AAB1980B5E5BD069"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O05\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "7340B6706B53EC93E08A5CC977367C953E5704B676EDB5A41CF5A670292CC512"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O05\\attempt-001-actual\\summary.json",
+        "sha256": "2E32BF07E9882F87387D2D07ADC0333C3AED236A41B0187833DE6C5DB0CEBAA0"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O05\\attempt-001-actual\\grok-response.json",
+        "sha256": "1FC0A919F718B222A44FF97EA7707B39CB9199C965DD1658AEEDF901B1259E6E"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 30.234,
+        "total_cost_usd": 0.0534232,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 161542
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "O05",
+        "case_id": "F005_PID000001678",
+        "position_id": "1678",
+        "direction": "BUY",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_sha256": "61782E921A5AEF9B9315C14BA0845882A40EB010328AF9B82BF15980B69D50BC",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Title shows MEDIAN_WIN R=+1.871 outcome-disclosing for BUY position 1678.",
+          "Horizontal levels: Entry ~1.13455 (blue), SL ~1.13425 (red dashed), TP ~1.13515 (green dashed).",
+          "Purple dotted vertical is break-bar open; blue dashed vertical with blue triangle is actual entry shortly after.",
+          "Post-entry path consolidates near/above entry, never tags SL, then grinds higher and marks purple X at/near TP before strong continuation higher.",
+          "Bottom book trace: early=-0.021 late=+0.001 score=+0.067; actual entry sits near ~300s with late-60s shade on the right."
+        ],
+        "confidence": "HIGH",
+        "unknowns": [
+          "Exact fill price vs plotted entry line not labeled numerically.",
+          "Whether purple X is TP fill vs secondary marker is not text-labeled.",
+          "Spread/commission path impact not separable from price candles.",
+          "Intrabar path between candles not shown."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_visible": true,
+        "actual_path_class": "CLEAN_CONTINUATION",
+        "primary_layer": "WINNER_NO_FAILURE",
+        "entry_context_assessment": "BUY is taken after a break-bar open: pre-entry price was below the entry line, then a sharp green thrust lifts through entry near the purple open, with actual entry marked by the blue triangle a short bar later while price holds near the entry level.",
+        "path_anatomy": "After entry, price accepts above the entry line with only shallow chop and no approach to SL; it then trends/grinds higher over many bars until the purple X coincides with the TP band, after which price continues strongly higher—clean favorable continuation rather than failed break, whipsaw, or giveback.",
+        "book_trace_relevance": "The CME 6E break-bar trace is mixed-to-mild: early window slightly negative (-0.021), late near flat (+0.001), overall score modestly positive (+0.067); it does not show a strong early discriminating thrust, so the book path only weakly aligns with the eventual clean upside win.",
+        "exit_geometry_assessment": "TP is reached (purple X on the TP line) for a reported +1.871R win; SL remains untouched throughout; post-TP price continues higher, so the plotted target captured a partial but successful slice of a larger continuation.",
+        "failure_mechanism": "No failure is visible on this chart: the break held, adverse excursion stayed small relative to SL, and the trade resolved as a TP-side win without stop-out, whipsaw rejection, or favorable-then-giveback reversal."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "O06",
+        "case_id": "F006_PID000001476",
+        "position_id": "1476",
+        "direction": "BUY",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F006_PID000001476_outcome.png",
+        "image_sha256": "2FD9A89B83139D68AA4D3DE851A822AEE537865D0EC4858F9AED410837FF659F"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O06\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O06\\attempt-001-actual\\grok-request.json",
+        "sha256": "89335B9472BD082C8232CF3A6D46088701FB54FFC69B13D10693A114D399F902"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O06\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "AE4B67A18129CACEE67FD2087A85EE925B9658DF08549CB493CBDCB951D345EC"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O06\\attempt-001-actual\\summary.json",
+        "sha256": "11EA19AE42AB2DAD2AF1917EFE0A50E66F56A351846017833505827D8EE6CC29"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O06\\attempt-001-actual\\grok-response.json",
+        "sha256": "C4DBF0EDAE0DC2EFE8FA5159FA9A9C7926DFC75D8C2CA242262C4D1C41451ACA"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 41.25,
+        "total_cost_usd": 0.0428116,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 134431
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "O06",
+        "case_id": "F006_PID000001476",
+        "position_id": "1476",
+        "direction": "BUY",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_sha256": "2FD9A89B83139D68AA4D3DE851A822AEE537865D0EC4858F9AED410837FF659F",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Title marks MEDIAN_WIN with R=+1.875 and outcome-disclosing; BUY geometry with Entry (blue), SL (red dashed below), TP (green dashed above).",
+          "Break-bar open (purple dotted) precedes actual entry (blue dash-dot + triangle); price is still near the pre-break base at break-bar open.",
+          "After actual entry, price advances with a multi-bar bullish run, stays well above SL, and reaches the green TP line marked by a purple X.",
+          "Post-TP price continues higher toward ~1.18835 before some red pullback candles; the labeled outcome is already a TP win.",
+          "Bottom full-break-bar trace shows early=+0.014, late=+0.069, score=+0.090; direction-aligned I5 is mostly non-negative after the early window with late-window persistence near +0.10.",
+          "No visual markers separate spread, commission, or slippage; entry-to-TP path is the dominant visible result."
+        ],
+        "confidence": "HIGH",
+        "unknowns": [
+          "Exact fill price vs plotted entry marker beyond the chart annotation",
+          "Whether exit was pure TP fill vs any partial/manual close (only TP X is marked)",
+          "Intrabar adverse excursion magnitude between plotted candles",
+          "Any cost/slippage component of the R=+1.875 figure"
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_visible": true,
+        "actual_path_class": "CLEAN_CONTINUATION",
+        "primary_layer": "WINNER_NO_FAILURE",
+        "entry_context_assessment": "BUY entry occurs after break-bar open, on a lift from the pre-break consolidation base (~1.1873–1.1874) through the solid entry line (~1.18755), with SL clearly below and TP above; the setup context is a breakout-style continuation into the long zone rather than a late chase at the extreme.",
+        "path_anatomy": "Post-entry path is orderly bullish continuation: brief post-fill red candle remains far above SL, then successive green advances drive price to the TP band without revisiting the stop region or reversing the R multiple; the win is realized by TP touch (purple X), not by grinding recovery after deep MAE.",
+        "book_trace_relevance": "The CME 6E full-break-bar trace remains direction-aligned positive for much of the post-break window (score=+0.090, late stronger than early) and does not show a sustained negative flip that would have anticipated failure; it visually coheres with the clean continuation path but is not needed to explain the already-realized TP win.",
+        "exit_geometry_assessment": "Exit geometry is TP-first: green TP is hit while SL remains untouched; R=+1.875 matches a reward multiple larger than 1R with the plotted TP above entry and SL tightly below; after the TP mark, further upside is out-of-position path only.",
+        "failure_mechanism": "No failure mechanism is visible on this outcome chart: the trade does not fail the break, does not whip through entry, and does not give back a large open gain before exit; the realized class is a clean TP win under WINNER_NO_FAILURE."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "O07",
+        "case_id": "F007_PID000001282",
+        "position_id": "1282",
+        "direction": "SELL",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F007_PID000001282_outcome.png",
+        "image_sha256": "E64233126A841E61C7A8A0CCB2C34285D85A725B646A7EC9DF2C74B92EAADB22"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O07\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O07\\attempt-001-actual\\grok-request.json",
+        "sha256": "D06FDA0401C4772D992C72A1FB4E93AF6F94904D95FDD24497A94CC0B4452F33"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O07\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "C6E5E87D44E5B37F81C9D858C36559750D60627547531B97F0B3C862FAF7C8E4"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O07\\attempt-001-actual\\summary.json",
+        "sha256": "D7F085B0A11CE68FA40A344C7677D650F6A53597F92FEF6A72295ACE29A95F5C"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O07\\attempt-001-actual\\grok-response.json",
+        "sha256": "558562B28462F89469EEB632A20234D15B83E5577C35A30DBBAAFA9F83199643"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 63.406,
+        "total_cost_usd": 0.0609672,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 154566
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "O07",
+        "case_id": "F007_PID000001282",
+        "position_id": "1282",
+        "direction": "SELL",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_sha256": "E64233126A841E61C7A8A0CCB2C34285D85A725B646A7EC9DF2C74B92EAADB22",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Title states MEDIAN_LOSS with R=-1.102 and outcome-disclosing; SELL geometry shows Entry ~1.2022 (blue), SL above ~1.2028 (red dashed), TP below ~1.2010 (green dashed).",
+          "Purple dotted break-bar open precedes blue dash-dot actual entry; between them a sharp red cascade drives price down through entry toward ~1.2020.",
+          "After actual entry the path is almost immediately adverse: green candles climb into the SL band; a purple X sits on the SL line near ~1.2028.",
+          "Post-exit price continues higher toward ~1.2030+; the TP line is never approached on the visible window.",
+          "Bottom CME 6E full-break-bar trace reports early=-0.119 late=-0.068 score=+0.066; actual entry is marked near ~300s from break-bar open.",
+          "Late-60s band (beige) shows direction-aligned I5 mostly around ~-0.1, while mid-window had stronger positive spikes."
+        ],
+        "confidence": "HIGH",
+        "unknowns": [
+          "Exact fill price and whether any post-entry tick MFE below entry is material or just residual wick of the entry bar",
+          "Whether purple X is the precise SL fill timestamp/price or a stylized exit marker",
+          "Meaning/units of direction-aligned I5 and how score=+0.066 is computed from early/late negatives",
+          "Spread/commission/slippage components (not separable on chart)",
+          "Why actual entry is delayed to ~300s after break-bar open"
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_visible": true,
+        "actual_path_class": "IMMEDIATE_FAILED_BREAK",
+        "primary_layer": "SETUP_ENTRY",
+        "entry_context_assessment": "SELL is taken slightly after break-bar open on a completed downside cascade that already carried price through the entry level near a local low; the setup context is a failed downside break rather than entry into ongoing clean continuation.",
+        "path_anatomy": "Break-bar open → red impulse through entry → actual fill near the impulse low → immediate reverse higher in green candles → SL touch (purple X, R≈-1.1) → continued adverse grind higher; no sustained sell continuation and no TP approach.",
+        "book_trace_relevance": "Book trace is weakly mixed: overall score only +0.066 while early and late medians are negative, and late-60s alignment sits near -0.1 at the right edge where entry occurs; it does not show strong sustained direction support that would have separated a clean continuation winner from this reverse-to-SL path.",
+        "exit_geometry_assessment": "Exit geometry is SL-bound: the purple X aligns with the fixed red SL; realized R=-1.102 matches near-full stop rather than TP, trail, or mid-path discretionary exit; TP remains far unused.",
+        "failure_mechanism": "Downside break entry fails immediately after fill: price reverses through entry into the stop without accepting a continued sell path, producing a median-scale full-stop loss rather than continuation or staged giveback after a large favorable run."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "O08",
+        "case_id": "F008_PID000001916",
+        "position_id": "1916",
+        "direction": "BUY",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F008_PID000001916_outcome.png",
+        "image_sha256": "1376B03FB6B713B57F2DFCCC971977239DBCDAD7D250A7DBABCDAE15E594956E"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O08\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O08\\attempt-001-actual\\grok-request.json",
+        "sha256": "AFBDECEC7E95F1CC77B19A50681B33698465AE7816AD932DE3BB1298233BAAF7"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O08\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "C25E3C4C7A82CBCA6BA2A3CC54EF86AA8B865205B910CF6438B99C4F0369B4D9"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O08\\attempt-001-actual\\summary.json",
+        "sha256": "AF88CF6C71780EE1ABA53D54929B18F42D3009A2DA94C6B138960B762E039245"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O08\\attempt-001-actual\\grok-response.json",
+        "sha256": "2458F0881CF84BB8B9F522103A5C412A55F7F7C125662587613E7E65F7D54103"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 45.734,
+        "total_cost_usd": 0.0583904,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 160254
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "O08",
+        "case_id": "F008_PID000001916",
+        "position_id": "1916",
+        "direction": "BUY",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_sha256": "1376B03FB6B713B57F2DFCCC971977239DBCDAD7D250A7DBABCDAE15E594956E",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Title band reads F008_PID000001916 | MEDIAN_LOSS | R=-1.102 | outcome-disclosing on a BUY outcome chart.",
+          "Horizontal levels are visible: Entry solid blue near ~1.05708, SL dashed red near ~1.05658, TP dashed green near the top ~1.05805; purple break-bar open and blue actual-entry markers are present.",
+          "Actual entry (blue square) sits near the top of a steep pre-entry green impulse that crossed the purple break-bar open around 06-23 00:15.",
+          "Post-entry path shows a short further upside to roughly ~1.0573, then a multi-bar red reversal that crosses back through entry and tags the SL marker (blue X) near ~1.05658 around 06-23 00:30.",
+          "TP is never approached; after the SL mark, price continues lower toward ~1.05615 before a later recovery.",
+          "Bottom full-break-bar trace is labeled early=+0.082 late=-0.078 score=+0.019; direction-aligned I5 stays mostly non-negative early/mid, spikes higher near ~170–230s, then collapses through zero into the late window."
+        ],
+        "confidence": "HIGH",
+        "unknowns": [
+          "Exact candle timeframe is not numerically labeled (only clock stamps).",
+          "Fill quality, spread, and commission are not separable from the plotted path.",
+          "Whether the SL mark is pure stop-out versus any other exit mechanic is not labeled beyond the X on the SL line.",
+          "Precise second-of-entry mapping from the top-panel clock to the bottom seconds axis is approximate from the overlay alone."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_visible": true,
+        "actual_path_class": "FAVORABLE_THEN_GIVEBACK",
+        "primary_layer": "SETUP_ENTRY",
+        "entry_context_assessment": "BUY actual entry occurs late on a sharp upside impulse just after the break-bar open, near local highs relative to Entry/SL geometry, with little prior consolidation at the entry level itself.",
+        "path_anatomy": "After entry there is only a brief favorable extension above entry, then a sustained adverse sequence that fully retraces the impulse, crosses entry, and realizes the SL for a disclosed median loss of R=-1.102; this is not an immediate failed break at the first tick, nor a clean continuation, nor a pure no-acceptance whipsaw without any upside.",
+        "book_trace_relevance": "The CME 6E break-bar trace does not strongly reject the path early (early=+0.082, mid stretch elevated), but the late window turns negative (late=-0.078) after a sharp post-~230s collapse, so the book path co-moves with eventual failure without cleanly flagging it as dead at entry.",
+        "exit_geometry_assessment": "Exit geometry is a fixed horizontal SL hit after giveback; TP remains far above and unused, and the realized loss magnitude matches near-full stop geometry rather than a partial mid-range exit.",
+        "failure_mechanism": "Late-impulse BUY acceptance fails after only a short favorable excursion; price reverses through the break and entry into the fixed SL, producing the disclosed median loss without requiring a cost-based explanation from the image."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "O09",
+        "case_id": "F009_PID000001598",
+        "position_id": "1598",
+        "direction": "BUY",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F009_PID000001598_outcome.png",
+        "image_sha256": "2077BC35A77CCA1DDFE037A4D0328365310238612872B9C8117AE388538D0082"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O09\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O09\\attempt-001-actual\\grok-request.json",
+        "sha256": "2609079DE42FE65506495FC3D45DBE07A46ED54B335ADAB9FE703D10D336EF75"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O09\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "35F83169EAFD5331835FF08711D082E681DCB2B22135B8C548968C8BF9EA8941"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O09\\attempt-001-actual\\summary.json",
+        "sha256": "C274D6828340690311ECF112665B4D3753054240BA477BD7C7F1FB6DB9BC5501"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O09\\attempt-001-actual\\grok-response.json",
+        "sha256": "B1B76B07732C76CDB277392F364CD640F0111D8C31DF29B72152FAB0042F9E98"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 30.485,
+        "total_cost_usd": 0.0553472,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 147635
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "O09",
+        "case_id": "F009_PID000001598",
+        "position_id": "1598",
+        "direction": "BUY",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_sha256": "2077BC35A77CCA1DDFE037A4D0328365310238612872B9C8117AE388538D0082",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Title shows MATCHED_BUY_WIN with R=+1.810 and outcome-disclosing for F009_PID000001598.",
+          "Top panel: blue Entry ~0.00040, green dashed TP ~0.00082, red dashed SL ~0.00019; purple dotted break-bar open then blue dashed actual entry shortly after.",
+          "Post actual-entry price advances in green candles, tags TP (purple asterisk near ~0.00082), then continues higher toward ~0.0011.",
+          "Pre-entry path rises from near 0 toward ~0.0003–0.0004, mild pullback, then thrust through/near entry into break-bar window.",
+          "Bottom CME 6E full-break-bar trace: early=-0.016 late=+0.007 score=+0.068; actual-entry line near ~300s on x-axis.",
+          "Direction-aligned I5 (purple) and 25-event median (orange) are mixed/mostly non-extreme; late-60s band near right edge.",
+          "SL line remains well below realized path after entry; no visual touch of SL after actual entry."
+        ],
+        "confidence": "HIGH",
+        "unknowns": [
+          "Exact fill price vs labeled Entry line not numerically labeled at the fill marker.",
+          "Whether exit was pure TP fill vs partial/management cannot be confirmed beyond TP asterisk and R=+1.810.",
+          "Spread/commission/slippage not separable on the chart.",
+          "What I5 units and score construction mean beyond printed early/late/score values."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_visible": true,
+        "actual_path_class": "CLEAN_CONTINUATION",
+        "primary_layer": "WINNER_NO_FAILURE",
+        "entry_context_assessment": "BUY entry occurs after a break-bar open (purple dotted), with actual entry (blue dashed) slightly later while price is already near the blue Entry level (~0.00040) after a multi-hour grind higher and a shallow mid-range pullback. Post-entry path never revisits SL and quickly resumes upward thrust, so the visible setup is a delayed/actualized break-entry into ongoing upside rather than a bottom-of-range buy.",
+        "path_anatomy": "After the blue actual-entry line, price briefly consolidates then prints a strong upward sequence of green candles, tags the green TP (~0.00082, purple asterisk), and keeps trending higher without a material multi-bar reversal back through entry. The path is favorable continuation to and through target, not an immediate failed break, whipsaw, or large giveback after MFE.",
+        "book_trace_relevance": "The full-break-bar trace prints early=-0.016 (slightly negative), late=+0.007, score=+0.068 while price path is strongly bullish post-entry. Visually the book/I5 series is choppy and does not sharply spike positive at the break-to-entry window in a way that uniquely flags this clean win; discrimination of this path by the printed book score appears weak relative to the clear price continuation.",
+        "exit_geometry_assessment": "TP is drawn ~2x the Entry–SL distance (Entry~0.00040, SL~0.00019, TP~0.00082), and the asterisk marks price reaching TP after actual entry. Realized R=+1.810 is consistent with TP-side capture without SL interaction. No post-TP management drawdown is relevant to outcome classification because the labeled result is already a matched win at target geometry.",
+        "failure_mechanism": "No failure mechanism is visible: this is a matched BUY win with clean post-entry continuation to TP, no SL threat, and no whipsaw or giveback that undoes the favorable path."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "O10",
+        "case_id": "F010_PID000001412",
+        "position_id": "1412",
+        "direction": "BUY",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F010_PID000001412_outcome.png",
+        "image_sha256": "341D5754752AA6DAE55C06E78B233719C4C5D5D5384B2B28F7E02907C4262502"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O10\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O10\\attempt-001-actual\\grok-request.json",
+        "sha256": "A89982FF0DFA1B0997F042BABAF60C38F3E0B80A3F6965E627E6F7C670E0B595"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O10\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "E55DD849FAEAE8590348471B9E844D3CC12D551AF71213C5584B1F840475F8A9"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O10\\attempt-001-actual\\summary.json",
+        "sha256": "F930ADA8D82612AA2BC3EA69FDEFF4E3A3FF451CA584E477845FAB90195C46CB"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O10\\attempt-001-actual\\grok-response.json",
+        "sha256": "1EB1BB0612532390C6A1DCA0E0904F4C1EDF3530259BDED900BF2673EB01F3FF"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 59.578,
+        "total_cost_usd": 0.0573112,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 152491
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "O10",
+        "case_id": "F010_PID000001412",
+        "position_id": "1412",
+        "direction": "BUY",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_sha256": "341D5754752AA6DAE55C06E78B233719C4C5D5D5384B2B28F7E02907C4262502",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Title states MATCHED_BUY_LOSS with R=-1.273 and outcome-disclosing; BUY levels shown as Entry (blue solid), SL (red dashed), TP (green dashed), break-bar open (purple dotted), actual entry (blue dash-dot with diamond).",
+          "Actual entry sits near the Entry line shortly after break-bar open; price then rallies well above entry toward but not to TP, reaching roughly 0.00095–0.0010 while Entry is about 0.00068.",
+          "Price holds an elevated, choppy range above entry for an extended multi-hour stretch after the initial push, then sells off in a clear red cascade from about 07-23 01:40 into the SL zone.",
+          "Exit is marked by a purple X on the SL line near ~07-23 02:08 at about 0.00043–0.00046; TP line remains untouched through the path.",
+          "Bottom CME 6E full-break-bar trace reports early=+0.025, late=+0.043, score=+0.055 with Early 60s and Late 60s shading; direction-aligned I5 is mixed-to-mildly positive overall, not strongly adverse at the visible entry window."
+        ],
+        "confidence": "HIGH",
+        "unknowns": [
+          "Exact numeric MFE/MAE and bar timeframe are not labeled on the chart.",
+          "Whether any trail, partial scale, or time-stop logic existed is not shown.",
+          "Spread/commission/slippage components of R=-1.273 are not visually separable.",
+          "Precise reason entry R is not exactly -1.0 (fill, stop geometry, or R definition) is not disclosed on-image."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_visible": true,
+        "actual_path_class": "FAVORABLE_THEN_GIVEBACK",
+        "primary_layer": "EXIT_MANAGEMENT",
+        "entry_context_assessment": "BUY is accepted after break-bar open near the horizontal Entry, into an already lifting tape; the immediate post-entry path is continuation higher rather than an instant failed break or entry-level rejection.",
+        "path_anatomy": "Break-bar open → actual BUY fill near Entry → strong favorable extension well above entry and below TP → prolonged elevated chop above entry → multi-bar breakdown through entry → stop hit at SL with realized R=-1.273.",
+        "book_trace_relevance": "The full-break-bar book score is mildly positive (early +0.025, late +0.043, score +0.055) and does not visually flag this path as adverse at acceptance; the eventual stop-out is therefore not explained by a strongly negative on-chart book discriminator.",
+        "exit_geometry_assessment": "SL is a fixed horizontal under entry; TP is far above and never engaged; the purple X lands on SL after a long favorable excursion, so the realized geometry is full giveback from deep MFE into a full stop loss.",
+        "failure_mechanism": "The trade first behaves like a continuing breakout winner, then reverses over a long holding window and runs from far above entry down through Entry to the stop, converting prior unrealized gain into a matched BUY loss without TP interaction."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "O11",
+        "case_id": "F011_PID000001182",
+        "position_id": "1182",
+        "direction": "SELL",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F011_PID000001182_outcome.png",
+        "image_sha256": "DF516D5953457A50D238B55CA71F1929EC33E8847863A41D0D5309E1B24B979C"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O11\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O11\\attempt-001-actual\\grok-request.json",
+        "sha256": "E65C28908BF1BDD2EBC457A9D47B1C64DDE898830325780443408C8970906864"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O11\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "99CBCB6C94548D6382C0CA80C20ADCCE9D3B873B57D2D6123E373727CB482E47"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O11\\attempt-001-actual\\summary.json",
+        "sha256": "F596538399A5E01B9B6F21A52F8251C5C11C0220CFA2CD366FD62E643BFC0321"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O11\\attempt-001-actual\\grok-response.json",
+        "sha256": "5BA744BC92770358CA22A56CB7C9096BF046EF452AF55DA6D5C8ED769E7076E7"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 45.235,
+        "total_cost_usd": 0.0610284,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 165223
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "O11",
+        "case_id": "F011_PID000001182",
+        "position_id": "1182",
+        "direction": "SELL",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_sha256": "DF516D5953457A50D238B55CA71F1929EC33E8847863A41D0D5309E1B24B979C",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Title reads MATCHED_SELL_WIN with R=+1.931 and outcome-disclosing for F011_PID000001182.",
+          "Horizontal levels show Entry ~1.20405, SL above ~1.20462, and TP below ~1.20290.",
+          "Purple break-bar-open line precedes the blue actual-entry line during a sharp breakdown from the prior ~1.2045–1.2048 range.",
+          "Post actual-entry path trends lower with limited two-way chop, then reaches the green TP near ~03-02 01:55 marked by a purple X.",
+          "SL is never closely approached after entry; price stays well below entry for most of the hold.",
+          "Book panel reports early=-0.131, late=+0.023, score=+0.069 on direction-aligned I5, with noisy late-window swings."
+        ],
+        "confidence": "HIGH",
+        "unknowns": [
+          "Exact fill price, slippage, and spread/commission components are not separable on the chart.",
+          "Precise order type and whether TP was limit-touch vs stop-style exit beyond the marked X.",
+          "Whether intermediate management (partials/moves) occurred off-chart."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_visible": true,
+        "actual_path_class": "CLEAN_CONTINUATION",
+        "primary_layer": "WINNER_NO_FAILURE",
+        "entry_context_assessment": "SELL entry occurs after a breakdown from elevated consolidation, with break-bar open then actual entry during the downside impulse near ~1.2040, SL above the range and TP substantially lower.",
+        "path_anatomy": "After actual entry, price continues lower almost immediately, absorbs shallow counter-rallies without reclaiming entry for long, then grinds down through successive lower highs until the TP marker is hit for a disclosed win.",
+        "book_trace_relevance": "Full-break-bar trace is mixed-to-weak: early direction-aligned I5 is negative (−0.131), late only slightly positive (+0.023), overall score +0.069 with late noise, so the book panel does not strongly discriminate the eventual clean downside path at decision time.",
+        "exit_geometry_assessment": "Exit geometry is target attainment at the fixed green TP with the purple X; adverse excursion toward SL is visually small relative to the entry–SL gap, and the trade realizes about +1.93R without visible forced stop-out.",
+        "failure_mechanism": "No adverse failure is visible on this outcome path: the short continues in the break direction and is closed at TP rather than by stop, whipsaw, or post-favorable giveback."
+      }
+    },
+    {
+      "schema_version": "hyp002_grok_each_image_validated_job.v1",
+      "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+      "job": {
+        "job_id": "O12",
+        "case_id": "F012_PID000001676",
+        "position_id": "1676",
+        "direction": "SELL",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F012_PID000001676_outcome.png",
+        "image_sha256": "04F7BADA226B0528337DC7425BAA2457331E5E8119C5E49C3166F23BA058346D"
+      },
+      "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O12\\attempt-001-actual",
+      "request": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O12\\attempt-001-actual\\grok-request.json",
+        "sha256": "738F614AF1E5F845F044489EFBF907F7BAEC61A30AC935C300A626FA74C748B3"
+      },
+      "prompt_blocks": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O12\\attempt-001-actual\\prompt-blocks.json",
+        "sha256": "DE950B94F67F7333F592088891B42154F8126D65BBEB794A5682A88FB7E54B34"
+      },
+      "summary": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O12\\attempt-001-actual\\summary.json",
+        "sha256": "73809D991AD594FEFB4DFEB9A30F9C241BD1BEE3FE60B63FAF3690E9776A5C0B"
+      },
+      "response": {
+        "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O12\\attempt-001-actual\\grok-response.json",
+        "sha256": "F0D0756FC603A5B04DEF4B5AC49D97E1DD597E99BEBA67FBC9409D5AF1759F39"
+      },
+      "runner": {
+        "model": "grok-4.5",
+        "reasoning_effort": "high",
+        "stop_reason": "EndTurn",
+        "elapsed_seconds": 61.906,
+        "total_cost_usd": 0.0587972,
+        "num_turns": 1,
+        "prompt_transport": "acp_blocks_file",
+        "image_count": 1,
+        "decoded_image_bytes": 167795
+      },
+      "result": {
+        "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+        "job_id": "O12",
+        "case_id": "F012_PID000001676",
+        "position_id": "1676",
+        "direction": "SELL",
+        "image_type": "OUTCOME_ANATOMY",
+        "image_sha256": "04F7BADA226B0528337DC7425BAA2457331E5E8119C5E49C3166F23BA058346D",
+        "image_opened": true,
+        "visual_readability": "PASS",
+        "observations": [
+          "Title reads MATCHED_SELL_LOSS with R=-1.081 and outcome-disclosing for F012_PID000001676.",
+          "SELL geometry is explicit: solid blue Entry mid-panel, red dashed SL above, green dashed TP below; purple X sits on the SL line near 01-19 01:05.",
+          "Purple break-bar-open vertical precedes the blue actual-entry vertical; a blue marker sits on the entry line at actual entry.",
+          "After actual entry, price prints a sequence of lower candles under entry (down toward ~1.1320) before a later rally that climbs back through entry into the red SL band.",
+          "Post-entry path never reaches the green TP line; exit is shown at SL with reported R=-1.081.",
+          "Bottom CME 6E full-break-bar trace is labeled early=+0.040 late=+0.058 score=+0.058 with actual entry marked near ~300 seconds from break-bar open."
+        ],
+        "confidence": "HIGH",
+        "unknowns": [
+          "Exact numeric MFE/MAE in R is not labeled on the chart.",
+          "Bar timeframe is not explicitly printed (only wall-clock x-axis).",
+          "Spread, commission, and slippage are not visually separable from the path.",
+          "Whether any discretionary or managed exit occurred before the SL mark is not shown beyond the X on SL."
+        ],
+        "no_rule_or_rerun_authority": true,
+        "outcome_visible": true,
+        "actual_path_class": "FAVORABLE_THEN_GIVEBACK",
+        "primary_layer": "EXIT_MANAGEMENT",
+        "entry_context_assessment": "SELL is taken after a break-bar open, with actual entry slightly after that open on a pullback/drop from the pre-break highs near ~1.1330 into the solid entry line near ~1.13242. Entry sits between a distant upper SL and a far lower TP, with break-bar open already marked before fill.",
+        "path_anatomy": "Post-entry path is not an immediate failed break: price first continues lower under entry (favorable for SELL), chops with additional downside probes, then reverses into a multi-leg rally that reclaims entry and runs into the red SL, where the purple X marks the realized stop-out at about -1.08R without ever tagging TP.",
+        "book_trace_relevance": "The direction-aligned I5 book trace oscillates around zero across the 300s window and is annotated with mild positive early/late/score values (+0.040/+0.058/+0.058). Visibly, the book panel does not discriminate the eventual SL path as an adverse book signal; it remains near-neutral to slightly positive while price later givebacks fully into the stop.",
+        "exit_geometry_assessment": "Exit geometry is a fixed-band stop above entry: the purple X coincides with the red SL line near ~1.1330 while TP remains far below near ~1.1312. Realized outcome is full adverse travel to SL after earlier favorable excursion, with no charted partial take, trail, or mid-path exit marker.",
+        "failure_mechanism": "The SELL briefly works in the intended direction after entry, then that early edge is fully given back as price reverses and trends up into the stop; the loss is realized as a completed favorable-then-giveback path into SL rather than as an immediate failed break or a clean continuation to TP."
+      }
+    }
+  ],
+  "authority": {
+    "terminal_verdict_changed": false,
+    "post_hoc_rule_authority": false,
+    "rerun_or_promotion_authority": false
+  }
+}

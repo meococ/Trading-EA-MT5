@@ -1,0 +1,30 @@
+{
+  "authority_granted": false,
+  "hypothesis_id": "HYP-ROUND-CASCADE-EURUSD-M5-003",
+  "permissions_reviewed": {
+    "economics_authorized": true,
+    "holdout_authorized": false,
+    "live_trading_authorized": false,
+    "model0_authorized": false,
+    "model4_authorized": false,
+    "monolithic_source_authorized": false,
+    "mq5_authorized": false,
+    "mt5_authorized": false,
+    "network_authorized": false,
+    "optimization_authorized": false,
+    "paid_authorized": false,
+    "paper_trading_authorized": false,
+    "post_entry_ohlc_authorized": true,
+    "private_custody_authorized": false,
+    "promotion_authorized": false,
+    "validation_authorized": false
+  },
+  "review_status": "PASS_TO_PREPARE_AUTHORITY",
+  "reviewed_evaluator_base_sha256": "8766497B8F26FE6318387F7353425BF2E79C54DAAFD9AEAFA1434DA56533327E",
+  "reviewed_evaluator_path": "03. EA Developer/EA_RoundNumberCascade/research/evaluate_round_cascade_003_design_economics.py",
+  "reviewed_plan_path": "03. EA Developer/EA_RoundNumberCascade/research/HYP-ROUND-CASCADE-EURUSD-M5-003_DESIGN_ECONOMICS_PLAN.md",
+  "reviewed_plan_sha256": "2FF4F2D62D9AC9C3DFBB4BEF339832FAF67D9691BE60CC9CAB80C43C448CB366",
+  "reviewed_test_path": "03. EA Developer/EA_RoundNumberCascade/research/tests/test_evaluate_round_cascade_003_design_economics.py",
+  "reviewed_test_sha256": "1C7AEFD9ED85579400359832D6038365D987CE7F338FEEDABC8117D6D283D603",
+  "schema": "round_cascade_design_economics_implementation_review_v1"
+}

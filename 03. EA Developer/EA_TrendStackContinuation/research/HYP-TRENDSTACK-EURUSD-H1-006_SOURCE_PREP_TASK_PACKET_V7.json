@@ -1,0 +1,70 @@
+{
+  "schema_version": "trendstack_hyp006_source_prep_task_packet_amendment.v1",
+  "task_id": "TRENDSTACK_HYP006_DEPENDENCY_AND_AUTHORITY_HARDENING_20260728_V7",
+  "created_at_utc": "2026-07-28T12:25:00.000Z",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-006",
+  "collection_id": "DATASET-FIVEPERCENT-EURUSD-H1-SPLITVAULT-002",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-006_SOURCE_PREP_TASK_PACKET_V6.json",
+  "supersedes_amendment_sha256": "20CB4E51D0C1603F07544FF74AF36A5D58A61A9E481F7CAD2B62093C7A8CC76F",
+  "reviewed_input_snapshot": {
+    "h1_custodian_sha256": "C14AC89B4F4E5ED62A69B90F3B1C890F69EA20D1ACD186B7499DCEF0A2CDDF06",
+    "h1_supervisor_sha256": "D195A1A007A1176819FAD2333050506E1124724E82EE87E6543B2E7906089AE9",
+    "design_builder_sha256": "B92A9A9BBC61BC2D381343141D6A0D6C275E07F9DDC0A5C2FD2D6A2355C88429",
+    "independent_validator_sha256": "C387505DC55A3FB39B54BE3F58131EF06CA1F4E0BFE13F1AE3B7F993AAB3132B",
+    "h1_custodian_tests_sha256": "57CD816039EA90F83C2F678C50CD6E2C9B757323AE87D2A360D5BDA5AAECF24F",
+    "h1_supervisor_tests_sha256": "6E05C917EBF499DD51F7707872A0A283839AD57BFE6F91E133418C957B29AE1A",
+    "design_builder_tests_sha256": "ED2AD775581A6EBA101EF76C357D7B2341CEBA62CD61EF7C2670D88B82C660EE",
+    "independent_validator_tests_sha256": "6729CCA0FF3DDE5D953390D6E37583C922D7E6DB867831F4EA96259B9115AE95",
+    "focused_tests": "44 passed",
+    "review_verdict": "FAIL_TWO_REMAINING_PRODUCTION_BLOCKERS",
+    "sentinel": "REVIEWED_RUN_PACKET_SHA256: str | None = None"
+  },
+  "write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/h1_splitvault_002_supervisor.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/build_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/validate_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_h1_splitvault_002_supervisor.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_build_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_validate_trendstack_006_design_source.py"
+  ],
+  "must_fix": [
+    {
+      "id": "D1-PREFLIGHT-FROZEN-DEPENDENCY-MAP",
+      "finding": "Exact verified tool bytes can still import malicious dependency objects from global sys.modules; the independent reproduction injected fake pyarrow and obtained MALICIOUS_DEPENDENCY_ACCEPTED while the builder payload SHA stayed exact.",
+      "contract": "Before marker and before executing any verified tool, build one explicit dependency map for every direct import used by custodian, builder and validator. Reject unexpected/preloaded replacement objects for pyarrow, pyarrow.parquet, dataclasses and pathlib and any other direct dependency that differs from the supervisor-frozen trusted object/provenance. For third-party modules, start from a clean unpoisoned import state, verify canonical origin under the active environment, freeze exact module objects plus origin/file identity/hash where applicable, and recheck identity before terminal. The private-module import function must return only objects from this frozen map and must never delegate an allowed name to global import/sys.modules. Provide a minimal explicit builtins allowlist sufficient for the exact reviewed tools rather than all builtins. Any dependency-map drift or unsupported import fails before marker/raw/READY."
+    },
+    {
+      "id": "D2-REMOVE-PHANTOM-SOURCE-RUN-ROW",
+      "finding": "Packet, builder and validator still accept source_run_registry_row_index > 282 while no such legal registry state/row exists; independent reproduction accepted index 999999 against a 282-row registry.",
+      "contract": "Remove source_run_registry_row_index and source_run_registry_row_sha256 entirely from packet fields, packet validation, builder DesignSourceContract, validator ValidationAuthority, receipts/manifests and tests. Do not alias or retain them as deprecated fields. Use only exact canonical registry_row_index=282 and registry_row_sha256=5251227378A4192AB58364591603B2C1B1EED306DCC3BD4976DB943FDFDC8A1E throughout downstream contracts/receipts. Incremental one-shot source authority is represented only by the reviewed detached packet SHA plus arm-manifest/attempt bindings; no later row is required or implied. Extra legacy fields must be rejected by exact-shape validation."
+    }
+  ],
+  "mandatory_tests": [
+    "Poison sys.modules with malicious pyarrow, pyarrow.parquet, dataclasses and pathlib separately and in combination; production preflight must fail before attempt marker/raw source/READY.",
+    "After a clean dependency freeze, replacing any frozen dependency object or origin/identity before verified-tool execution or before terminal must fail and cannot yield READY.",
+    "Verified private modules receive only the frozen dependency map and a minimal explicit builtins allowlist; an import absent from the map is rejected.",
+    "Packet with source_run_registry_row_index or source_run_registry_row_sha256 is rejected as an extra-field contract violation.",
+    "Builder and validator dataclasses/receipts use exact registry_row_index and registry_row_sha256=canonical row 282; index 283 or 999999 and any other row SHA fail.",
+    "Production-mode synthetic packet -> arm -> preflight -> one-shot remains non-circular and clean dependency execution succeeds without testing bypass.",
+    "A1 and A3 V6 tests plus all S2-S6 tests remain green; sentinel finishes exactly disarmed.",
+    "All four focused test files pass and the other two reviewed files remain byte-identical."
+  ],
+  "unchanged": {
+    "base_task_packet_sha256": "F56BFB7C724AECA7DBCB586794FC0AB62227D742060DB1A4F379E4115FEB6BC1",
+    "v4_task_packet_sha256": "F3EACB72D33ABA30293F5D918BB1A7F28A0F6F16574B53F4EC7D8A636019F21F",
+    "v5_task_packet_sha256": "744B7C865DCD1BFFE52C60A530C74ABF66C88AD2F54DBB7061620EDEBBBC0E5C",
+    "v6_task_packet_sha256": "20CB4E51D0C1603F07544FF74AF36A5D58A61A9E481F7CAD2B62093C7A8CC76F",
+    "registry_schema_and_registry_file_must_not_change": true,
+    "supervisor_must_finish_disarmed": true,
+    "real_source_or_output_authorized": false,
+    "all_plans_preregs_source_contract_and_s1_s6_gates_unchanged": true
+  },
+  "prohibitions": [
+    "Abort before edit if any reviewed input SHA drifts.",
+    "Do not use Grok or any Grok skill/worker.",
+    "Do not create a real source-run packet/arm manifest, arm the real supervisor, access/hash/decode the real H1 source or create real vault/output/evidence.",
+    "Do not modify custodian source/test, registry/schema/validator, plans, preregs, source data or unrelated files.",
+    "No economics, validation/HOLDOUT data, network, subprocess, MT5, Git or trading mutation."
+  ]
+}

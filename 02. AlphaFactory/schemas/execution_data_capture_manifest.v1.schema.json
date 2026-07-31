@@ -57,7 +57,8 @@
         "server_fingerprint": { "$ref": "#/$defs/sha256" },
         "account_fingerprint": { "$ref": "#/$defs/sha256" },
         "account_currency": { "type": "string", "minLength": 3 },
-        "terminal_build": { "type": "integer", "minimum": 1 }
+        "terminal_build": { "type": "integer", "minimum": 1 },
+        "observed_tick_clock_offset_seconds": { "type": "integer", "minimum": -50400, "maximum": 50400 }
       }
     },
     "research_gates": {

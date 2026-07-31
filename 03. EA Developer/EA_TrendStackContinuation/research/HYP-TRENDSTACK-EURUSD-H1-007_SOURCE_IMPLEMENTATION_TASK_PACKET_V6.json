@@ -1,0 +1,75 @@
+{
+  "schema_version": "trendstack_007_source_implementation_task_packet.v6",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "task_state": "FROZEN_PREARM_SELF_DISARM_REPAIR_ONLY",
+  "owner_role": "builder/coder",
+  "write_authorized": true,
+  "source_build_authorized": true,
+  "source_run_authorized": false,
+  "registry_mutation_allowed": false,
+  "production_payload_access_authorized": false,
+  "economics_authorized": false,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false,
+  "mql5_authorized": false,
+  "model0_authorized": false,
+  "network_allowed": false,
+  "trading_mutation": false,
+  "authority_repair_amendment_v4_sha256": "3B9FB4C9D4469FBF612195C33FAF6771299DAC277D07CD3EA124F2C98989DBA8",
+  "superseded_task_v5_sha256": "E572E49FDE06717C396112FBD7D0278C0F59605369651825447C1913D241B725",
+  "prior_authority": {
+    "registry_rows": 286,
+    "registry_sha256": "B12DAAD4588B245AB173FA30B62DB11E41CC994EC077CC91155AB98A0A71D062",
+    "row286_sha256": "17512FE256454130E3EAE26D2372818631487D67EEB0F8B414D255FE2D5CA06E",
+    "implementation_receipt_v5_sha256": "B534D064C5D9FCC6BB3BFEEDEF1F6A031160D7DD903F726D03430EB432F677B9",
+    "packet_review_draft_sha256": "2B570672CF7576995CF93EC2DFE10F5601C318852E96AF463B932FBF33471B91",
+    "detached_packet_sha256": "2ACE4CF8C5330F1E25D1DF907B19E4F7EA78CC37DE6745713334BA020D860CF2",
+    "supervisor_review_base_sha256": "41592E2AEDB6E9EB1C49D4F858E1EDB44A71D35A52D677C9AF065A6BBE1B89BB",
+    "supervisor_test_sha256": "B2D5EB4EF18A83B986B2E7EE0BD9600758B7BAFAE445471B214C0D145F8FA0FC"
+  },
+  "write_set": [
+    "04. Memory/research/CANDIDATE_REGISTRY.schema.json",
+    "04. Memory/research/validate_candidate_registry.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/supervise_trendstack_007_source_projection.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_supervise_trendstack_007_source_projection.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_hyp007_source_run_registry_transition.py"
+  ],
+  "must_implement": [
+    "Wrap every operation after detecting non-None REVIEWED_SOURCE_RUN_PACKET_SHA256, including packet path/ancestor/read/document validation, in a handler that calls self_disarm_runtime with the captured digest and clears the global in finally before raising INVALID_SOURCE_PROJECTION.",
+    "Add armed failure regressions for missing, unreadable, outside-workspace, malformed, duplicate/wrong-shape, detached-digest mismatch packet and self_disarm_runtime failure; every case clears global and attempts persistent disarm before exit.",
+    "Implement Amendment V4 exact HYP007 row286-to-row287 repair exception only when attempts=0, source/economics unopened and stage/final/evidence absent; generic probe-to-probe and all later repairs remain illegal.",
+    "Keep historical row286 schema/validator-valid by its frozen raw identity and V5 receipt/task bindings without rehashing its old supervisor path against the newly repaired current file. Apply current-file hash readback to exact latest row287 only.",
+    "Allow V2 historical source_run_bindings paths and exact V4 repair paths in schema while manual validation forbids mixed pairs or any third variant.",
+    "Require exactly six row286-to-row287 binding changes: receipt path/SHA, task path/SHA, supervisor review-base SHA and supervisor-test SHA; all other 40 binding fields and all hypothesis/metrics/economic fields remain identical.",
+    "Expand packet with exact Authority Repair V4 and Task V6 path/SHA fields; repaired row task binding maps to Task V6. Packet supervisor_tool_sha256 must equal the repaired supervisor_review_base_sha256 and preserve the existing supervisor path/hash alias invariant.",
+    "V6 implementation receipt schema/path must be bound after review and before row287. Receipt must bind final schema, canonical registry validator, integration test, repaired supervisor and repaired supervisor test hashes without row287/full-registry SHA."
+  ],
+  "red_first_tests_required": [
+    "Reviewer packet-read failure reproducer is RED before fix and GREEN after fix with persistent disarm call and global None.",
+    "All seven pre-packet armed failure classes disarm and clear global.",
+    "Exact synthetic row287 passes canonical and supervisor authority validators on identical bytes; unchanged real row286 remains history-valid.",
+    "Any seventh binding change, any mixed V5/V6 path pair, changed metric/hypothesis/economic flag, second repair or payload/root existence fails.",
+    "Row287-to-packet mappings including V4/TaskV6 and supervisor tool/review-base alias fail on mismatch before marker/payload.",
+    "All prior 113 source/integration tests remain green."
+  ],
+  "acceptance_gates": [
+    "Focused source/integration suite passes and baseline real registry remains PASS at 286 rows before real repair append.",
+    "Independent reviewer reproduces pre-packet failures and verifies disarmed file/global state.",
+    "AST/import inert and sentinel exact None once.",
+    "Stage/final/evidence absent, attempt count zero and production payload opens zero.",
+    "No receipt V6, row287, packet replacement, arm, branch, worktree, commit or push in builder scope."
+  ],
+  "prohibitions": [
+    "Do not append/edit CANDIDATE_REGISTRY.jsonl.",
+    "Do not create receipt V6, row287 or a new source-run packet.",
+    "Do not arm the supervisor or access public Parquet/raw/partial/features/economics/sealed data.",
+    "Do not change source projection, strategy or downstream authority semantics."
+  ],
+  "handoff_required": [
+    "Exact five paths/bytes/SHA256.",
+    "RED reproducer and final pass counts.",
+    "Pre-packet disarm matrix evidence and dual-validator synthetic row287 evidence.",
+    "Real registry 286-row baseline PASS, roots absent, attempts/payload zero.",
+    "Any blocker before receipt V6 and row287."
+  ]
+}

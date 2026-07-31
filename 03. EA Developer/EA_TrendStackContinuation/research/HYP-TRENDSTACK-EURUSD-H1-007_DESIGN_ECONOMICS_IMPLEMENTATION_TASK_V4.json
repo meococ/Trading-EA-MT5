@@ -1,0 +1,60 @@
+{
+  "schema_version": "trendstack_007_design_economics_implementation_task.v4",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "base_task_v3_sha256": "B02C766DFA5059B6BF80EF5DB0B44167BD9997404B32F1641C25864A6B075F46",
+  "amendment_timing": "FROZEN_AFTER_ENGINEERING_INVALID_ATTEMPT_001_WITH_ZERO_EVALUATED_TRADES_AND_NULL_MARKET_VERDICT_BEFORE_ANY_REPAIR_ATTEMPT_OR_ECONOMIC_OUTCOME",
+  "attempt_001_evidence": {
+    "run_packet_sha256": "CED59F1C0C3724CB3B426491269FF3DB2C5F348655383DA56D4AD95A3E5F74DF",
+    "attempt_started_sha256": "BCA7B09FE1526F27440ABB9A5AF42A35606AD3CEEBDE7F97E6F593D25C43A666",
+    "attempt_terminal_sha256": "3C42C0C445AF2F8386752598490A8241BB43A5D8AA96F4DD5EB55D41DE0F5DB5",
+    "design_economics_receipt_sha256": "E29C237E52143803E16987653D4B52E02FC9983BEA88A655C8C22E13244D477B",
+    "design_gate_report_sha256": "BCEEE755150B8620952AC938B5D20C16E32C9803674D556513C9767D318531CF",
+    "terminal_verdict": "ENGINEERING_INVALID_NO_MARKET_VERDICT",
+    "evaluated_trades": 0,
+    "market_verdict": null
+  },
+  "diagnosis": {
+    "error_class": "STAGE0_UNFILTERED_SCOPE_MISMATCH",
+    "stage0_total_rows": 1817,
+    "stage0_design_rows": 1297,
+    "stage0_validation_feature_only_rows": 520,
+    "root_cause": "verify_production_authority parsed the full hash-bound Stage-0 ledger and passed all 1817 rows to the DESIGN join; _index_unique correctly rejected the count before trade evaluation.",
+    "market_information_used_for_repair": false
+  },
+  "frozen_repair": {
+    "stage0_scope": "After full-ledger hash verification, select only exact rows whose split equals DESIGN; require exactly 1297 rows, unique sorted opportunity_id values, and exact date-set equality with the HYP007 source manifest and DESIGN decision manifest.",
+    "forbidden_scope": "Do not open any VALIDATION_FEATURE_ONLY decision packet, sealed VALIDATION/HOLDOUT source, or any non-DESIGN price input.",
+    "economics_change": false,
+    "gate_change": false,
+    "parameter_change": false,
+    "signal_change": false,
+    "diagnostic_artifacts": "Engineering-invalid terminal must expose a deterministic stage-specific error_code while keeping market_verdict null and all economic metrics null."
+  },
+  "repair_attempt": {
+    "projection_attempt_id": "HYP007-DESIGN-ECON-002",
+    "output_root": "03. EA Developer/EA_TrendStackContinuation/research/evidence/HYP-TRENDSTACK-EURUSD-H1-007_DESIGN_ECONOMICS/HYP007-DESIGN-ECON-002",
+    "run_packet_schema_version": "trendstack_007_design_economics_run_packet.v2",
+    "run_packet_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_DESIGN_ECONOMICS_RUN_PACKET_V2.json",
+    "review_receipt_schema_version": "trendstack_007_design_economics_implementation_review_receipt.v2",
+    "review_receipt_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_DESIGN_ECONOMICS_IMPLEMENTATION_REVIEW_RECEIPT_V2.json",
+    "single_repair_attempt_only": true
+  },
+  "required_new_bindings": [
+    "implementation_task_v4_path",
+    "implementation_task_v4_sha256",
+    "attempt_001_terminal_path",
+    "attempt_001_terminal_sha256",
+    "attempt_001_design_economics_receipt_path",
+    "attempt_001_design_economics_receipt_sha256"
+  ],
+  "implementation_write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/evaluate_trendstack_007_design_economics.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_evaluate_trendstack_007_design_economics.py"
+  ],
+  "production_run_authorized_by_v4_alone": false,
+  "production_run_requires_independent_review_receipt_and_exact_v2_packet": true,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false,
+  "mql5_authorized": false,
+  "model0_authorized": false
+}

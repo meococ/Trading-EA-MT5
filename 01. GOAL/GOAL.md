@@ -1,136 +1,93 @@
 # GOAL — Mục Tiêu Tự Do
 
-Cập nhật: 2026-07-16
+Cập nhật mục tiêu: 2026-07-31 theo clarification của Owner về chuỗi T1→T100,
+cadence theo từng symbol và ưu tiên scalping M5/M15.
 
-File này chỉ nêu mục tiêu. Chỉ thay đổi khi Owner quyết định rõ ràng.
-Tiến độ sống, blocker, và lane đang hoạt động nằm ở
-`04. Memory/hot.md` — không bao giờ nằm ở đây.
+File này chỉ định nghĩa mục tiêu cấp workspace và điều kiện DONE. Trạng thái
+hypothesis/run lấy từ registry, prereg, task packet và artifact đã xác minh;
+`04. Memory/hot.md` chỉ là cache handoff gần nhất. Lịch sử campaign nằm trong
+package research, `STRATEGY_LOG.md`, failure catalog và archive — không nằm ở
+GOAL.
 
-## Mục tiêu active — phát triển EA sau campaign Unicorn (Owner duyệt 2026-07-16)
+Một lane `parked|killed`, delivery packet `KILLED`, compile xanh hoặc search
+cell `NO LEGAL CANDIDATE` không hoàn thành mục tiêu. Mục tiêu vẫn `ACTIVE / UNMET`
+cho tới khi ít nhất một symbol-sleeve đạt target tối thiểu bên dưới; chỉ Owner
+mới đổi, mở rộng hoặc dừng mục tiêu.
 
-Hoàn thiện `EA_UnicornPrecisionScalper` bằng một vòng nghiên cứu có giới hạn,
-backtest Model 0 thật và verdict không thiên lệch. Campaign này đã đi đến điểm
-kết thúc bằng evidence, không phải bằng một EA được phép giao dịch:
+## Mục tiêu kinh tế
 
-1. Control bốn-bar `HYP-UPSC-XAU-M5-002` đã KILL: PF sau research cost `0.688`,
-   cadence `1.334/tuần`, robustness `0%`.
-2. Cơ chế event-anchored được đóng băng trước outcome, qua probe/build dưới
-   HYP-005 rồi chạy hợp lệ qua operational successor `HYP-UPS-XAU-M5-006`.
-3. HYP-006 đã KILL: PF tester `0.724`, PF sau research cost `0.498`, cadence
-   `1.257/tuần`, Monte Carlo P95 DD `7.118%`, equity `REJECT`; kém control trên
-   các thước đo trung tâm. Không được cứu bằng lọc giờ/ngày, sweep-age, RR,
-   session hoặc score.
-4. Source/readout/run hợp lệ giữ trên `D:`. Inventory C trước/sau giống tuyệt
-   đối; không có file run-owned trên C để xóa và không đụng dữ liệu dùng chung.
-5. Mục tiêu tiếp theo chỉ cho phép một cơ chế nhân quả mới, khác family
-   fixed-expiry/event-expiry, đi lại de-dup → probe không outcome → prereg →
-   code/non-repaint/compile → Model 0. Không live/paper attach và không hứa lợi
-   nhuận.
-6. Theo chỉ đạo Owner, canonical source đã được harden hậu kiểm thành kernel
-   alert-only fail-closed: FSM execution, ownership đầy đủ, broker/order preflight,
-   cost-aware sizing, restart/partial-fill/risk-state safety và reject telemetry.
-   Gate kỹ thuật đạt 30/30 test, compile 0/0 và exact-source non-repaint PASS;
-   hardening này không cấp lại performance authority cho family đã KILL.
-7. Theo yêu cầu research tiếp của Owner, Grok 4.5 và kiểm tra nguồn sơ cấp kết
-   luận chưa có candidate giao dịch mới hợp lệ trên data hiện có. Canonical EA
-   được nâng lên v1.20 bằng `ALERT_FIRST_CASEBOOK_V1`: opt-in, alert-only,
-   D-drive-only, tối đa 200 dòng, không outcome và không đổi signal. Gate kỹ
-   thuật hiện tại 34/34 test, compile 0/0 và exact-source non-repaint PASS. Dữ
-   liệu collection này chỉ là engineering evidence và không mở hypothesis kinh
-   tế mới.
-
-Campaign Unicorn đã hoàn tất về mặt nghiên cứu với verdict KILL; “Mục Tiêu Tự
-Do” của toàn workspace vẫn UNMET. Việc tiếp tục phát triển không đồng nghĩa
-tiếp tục tinh chỉnh family đã bị falsify.
-
-## Mục tiêu lane KLR-Scalper được Owner mở ngày 2026-07-16
-
-Đánh giá để chỉ xây dựng `EA_KLR_Scalper` tại `03. EA Developer/` từ
-`KLR_Scalper_Deep_Research_Report` khi family vượt de-dup và probe đóng băng;
-sau đó mới được code → audit non-repaint → compile → matched Model 0 → phân
-tích. Evidence PO3-AMD cùng cơ chế được tính là cùng một family, không được coi
-là run độc lập hay đổi tên để rescue.
-
-- Primary `XAUUSD`, M15 context và M5 execution; closed-bar only.
-- Không tự bịa ngưỡng còn thiếu trong report sau khi đã đọc kết quả.
-- Không tạo `.mq5`, compile hoặc Strategy Tester nếu probe family đã kill.
-- Không live, không attach tài khoản thật, không hứa lợi nhuận.
-- Mọi terminal/tester data của lane mới phải nằm vật lý trên `D:`; binary MT5
-  có thể ở `C:` nhưng không được dùng data/tester root trên `C:`.
-
-## Mục tiêu lane Unicorn được Owner mở ngày 2026-07-16
-
-Xây dựng `EA_UnicornPrecisionScalper` tại `03. EA Developer/` từ report
-Unicorn, theo generic golden path và không bịa cost để ép Strategy Tester chạy.
-
-- Primary `XAUUSD`, execution `M5`, bias H4/D1, default alert-only; research
-  auto phải được bật rõ trong task packet.
-- Hypothesis 001 exact-adjacency đã park ở probe; hypothesis 002 stateful-sweep
-  đã pass probe, compile và non-repaint, hiện `screened`.
-- Model 0 chỉ được chạy khi có verified same-broker spread/commission/slippage
-  manifest. Thiếu cost là blocker, không phải cost bằng 0.
-- Không live/paper attach, không post-hoc rescue, không hứa lợi nhuận.
-- Sau tester run hợp lệ: giữ/hash evidence trên `D:` trước, rồi xóa cache/train/
-  log tester có thể tái tạo trên `C:` mà không đụng account/profile/history dùng
-  chung.
-
-## Mục tiêu lane PO3-AMD được Owner mở ngày 2026-07-16
-
-Xây dựng `EA_PO3_AMD_Scalper` tại `03. EA Developer/` từ report PO3-AMD,
-theo generic golden path: de-dup → probe offline → prereg đóng băng → code →
-audit non-repaint → compile → matched Model 0 → phân tích/kill hoặc tiếp tục.
-
-- Phase đầu chỉ dùng `XAUUSD`, execution `M5`, một symbol/một instance.
-- Train khóa `2022-2024`; `2025` là holdout chưa được mở khi thiết kế;
-  `2026 YTD` chỉ là shadow sau này.
-- Không được rescue hậu nghiệm nếu probe hoặc Model 0 fail.
-- Không live, không attach EA vào tài khoản thật, không tuyên bố deploy-ready.
-- Sau mỗi backtest, giữ evidence đã hash ở `02. AlphaFactory/runs/` trên `D:`
-  và dọn cache/train/log tester có thể tái tạo trên `C:` sau khi terminal dừng.
-- Lane này vẫn phục vụ mục tiêu book bên dưới; một research pass riêng lẻ chưa
-  hoàn thành Mục Tiêu Tự Do.
-
-## Mục tiêu
-
-Một book FX (một hoặc nhiều EA sleeve) đạt TẤT CẢ các điều kiện sau cùng
-lúc, với evidence cấp promotion:
+Tạo ít nhất một symbol-sleeve scalping M5/M15 có edge thực, được xác minh bằng
+MT5/AlphaFactory trên toàn bộ lịch sử MT5 khả dụng của từng symbol; cửa sổ
+2018-current vẫn phải được báo cáo riêng khi symbol có đủ coverage. Mỗi
+symbol-sleeve được claim phải đạt **đồng thời**:
 
 | Chiều | Mục tiêu |
 |---|---|
 | Profit factor | > 1.30 sau cost thật đã xác minh (x1) |
-| Cadence | 2–5 trade/tuần mỗi split, tính theo tuần lịch trôi qua (elapsed calendar weeks) |
+| Cadence | 2–5 executed trade/elapsed calendar week trên chính symbol đó, ở từng split train/validation/OOS/holdout liên quan; không pooled symbol, không active-week |
+| Timeframe | Entry/economic timeframe ưu tiên M5 hoặc M15; H1/H4/D1 chỉ làm context/regime nếu prereg |
+| Required backtest universe | XAUUSD, BTCUSD và 7 FX majors thanh khoản cao: EURUSD, USDJPY, GBPUSD, USDCHF, USDCAD, AUDUSD, NZDUSD; không được bỏ cell chỉ vì thiếu Model-4/cost promotion evidence |
+| History quality | Strategy Tester history quality phải >97%; coverage %, clock, gaps, bid/ask và cost vẫn được audit riêng theo claim |
 | Cost stress | x1.5 PF >= 1.25; x2 PF >= 1.00 |
-| Exposure | Hạn chế giữ lệnh qua đêm/ và không để lệnh qua cuối tuần theo scalp contract |
+| Exposure | Hạn chế giữ qua đêm và không giữ qua cuối tuần theo scalp contract |
 | Drawdown | Monte Carlo P95 DD nằm trong risk budget đã khai báo |
 | Cửa sổ evidence | 84 tháng / 14 nửa năm / 7 năm cho cấp confirmed |
-| Split | train và holdout mỗi cái tự pass độc lập |
+| Split | Train và holdout phải tự pass độc lập |
 
-Ngưỡng số, artifact theo stage, và hard invalidation có thẩm quyền nằm ở:
-`05. Playbook/validation_gates.md`. Nếu bảng này và file đó
-mâu thuẫn, file gates thắng.
+Ngưỡng chi tiết, artifact theo stage và hard invalidation có thẩm quyền nằm ở
+`05. Playbook/validation_gates.md`. Nếu bảng tóm tắt trên mâu thuẫn với gates,
+file gates thắng.
 
-## DONE nghĩa là gì (thang evidence)
+## Target tối thiểu và DONE nghĩa là gì
 
-1. `research pass` — matched Model 0 control/challenger cộng cost stress
-   thận trọng. Không cấp quyền gì ngoài quyền được tiêu thêm effort.
-2. `confirmed` — bộ promotion đầy đủ (optimization-aware WFA, PBO/Reality
-   Check aligned theo prereg, Monte Carlo, audit execution/equity) với
-   artifact promotion-eligible và cost provenance cùng-broker.
-3. `portfolio-sleeve` — ít nhất hai sleeve confirmed độc lập, pass
-   correlation/overlap và cost stress gộp.
-4. Triển khai — quyết định riêng của Owner, sau khi có 1–3.
+1. `research pass` — matched Model 0 control/challenger, cost stress thận trọng
+   và đủ cadence; chỉ cấp quyền đầu tư thêm effort.
+2. `confirmed symbol-sleeve / T-loop target` — ít nhất một symbol tự đạt PF,
+   cadence 2–5/tuần trên từng split và toàn bộ gate promotion: train/holdout
+   độc lập cùng pass, optimization-aware WFA,
+   PBO/Reality Check theo prereg, Monte Carlo, execution/equity audit, cost
+   provenance cùng broker, Heavy-Delivery/forensics và artifact
+   promotion-eligible. Khi đạt mức này, dừng sinh T(n+1) và tập trung đóng gói
+   survivor; không đồng nghĩa tự động live.
+3. `portfolio expansion / pro-trader book` — sau target tối thiểu, có thể mở
+   rộng thêm symbol/sleeve confirmed đủ độc lập, pass correlation/overlap và
+   cost stress gộp. Mỗi symbol thêm vào vẫn phải tự pass; symbol thua không được
+   cứu bằng số gộp.
+4. `deploy` — quyết định riêng của Owner sau khi hoàn tất 1–3; nghiên cứu không
+   tự cấp quyền paper/live.
 
-## Non-goals (nói rõ để khỏi tự lừa)
+## Không được tính là DONE
 
-- PF cao ở dưới 2 trade/tuần (sleeve thưa không phải là book).
-- Backtest đẹp mà không có cost provenance từ broker.
-- Rescue filter đào từ chính readout vừa tạo ra.
-- Hoàn hảo quy trình vì chính nó — ceremony validation dành riêng cho
-  survivor của probe.
+- PF cao nhưng chính symbol được claim nằm ngoài 2–5 trade/elapsed week trên
+  bất kỳ split nào.
+- Gộp trade/PF của nhiều symbol để che một symbol không đạt cadence hoặc edge.
+- Backtest đẹp nhưng cost provenance chưa xác minh.
+- Compile/test/pass kỹ thuật nhưng chưa pass kinh tế.
+- Filter hoặc tham số được đào từ chính readout vừa tạo.
+- Một terminal verdict, một source frontier hoặc một prompt research hết ứng viên.
+- Hoàn hảo quy trình nhưng chưa tạo tiến triển về expectancy.
 
-## Nguyên tắc vận hành
+## Nguyên tắc tiến tới mục tiêu
 
-Discovery trước ceremony: mọi hypothesis phải qua một probe offline rẻ trên
-artifacts sẵn có trước khi được tiêu effort prereg -> code -> Model 0.
-Đo bằng số hypothesis chất lượng được screen mỗi tuần; kill nhanh là một
-kết quả tốt.
+- T1, T2, ... T100 là các strategy generation **tuần tự**, không phải phòng ban
+  hay tầng evidence. Một thời điểm chỉ một Tn có quyền build/run. Tn chỉ nhường
+  quyền cho T(n+1) sau verdict hợp lệ và failure/capability packet.
+- T1 = Hurst/VWAP/quant graph; T2 = Bob Volman price-action grammar; T3 = SMC
+  causal/liquidity model; T4–T100 chọn từ capability gap của thế hệ trước.
+- Mỗi Tn có economic authority phải backtest toàn bộ required universe bằng
+  history MT5 khả dụng. Model 0 có thể cung cấp economics nếu >97%; Model 4 chỉ
+  bắt buộc cho claim phụ thuộc thứ tự real-tick/intrabar. Thiếu Model 4 không
+  cho phép bỏ symbol, nhưng phải hạ cấp claim fidelity tương ứng.
+- Discovery và probe offline rẻ trước; ceremony nặng chỉ dành cho candidate còn
+  sống.
+- Mỗi meaningful run phải có hypothesis ID, registry row, prereg và contract
+  đóng băng trước outcome.
+- Một kill chỉ đóng đúng tested object. Sau failure hợp lệ: ghi failure radius,
+  rồi chọn repair run vô hiệu, mở cơ chế/ID mới, hoặc nêu blocker thật cần Owner.
+- Optimization tìm vùng ổn định, không săn đỉnh; position sizing không được dùng
+  để che signal âm.
+- Ưu tiên expectancy sau phí, stability theo thời gian/regime, tail risk và khả
+  năng khớp lệnh hơn PF in-sample đứng riêng.
+- Nếu T100 vẫn chưa đạt, goal vẫn `UNMET`: meta-review độc lập, giữ nguyên trial
+  debt/holdout exposure rồi quay Phase 0 của campaign epoch kế tiếp; không tuyên
+  bố thị trường hết edge hoặc năng lực hiện tại là frontier của pro trader.

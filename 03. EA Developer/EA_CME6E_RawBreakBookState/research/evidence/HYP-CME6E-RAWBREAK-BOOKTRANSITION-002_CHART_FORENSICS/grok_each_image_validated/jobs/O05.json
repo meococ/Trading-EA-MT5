@@ -1,0 +1,75 @@
+{
+  "schema_version": "hyp002_grok_each_image_validated_job.v1",
+  "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+  "job": {
+    "job_id": "O05",
+    "case_id": "F005_PID000001678",
+    "position_id": "1678",
+    "direction": "BUY",
+    "image_type": "OUTCOME_ANATOMY",
+    "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F005_PID000001678_outcome.png",
+    "image_sha256": "61782E921A5AEF9B9315C14BA0845882A40EB010328AF9B82BF15980B69D50BC"
+  },
+  "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O05\\attempt-001-actual",
+  "request": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O05\\attempt-001-actual\\grok-request.json",
+    "sha256": "631CB916BAD761E198E58139A54B56CC9EE3BA1EE70BB6A1AAB1980B5E5BD069"
+  },
+  "prompt_blocks": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O05\\attempt-001-actual\\prompt-blocks.json",
+    "sha256": "7340B6706B53EC93E08A5CC977367C953E5704B676EDB5A41CF5A670292CC512"
+  },
+  "summary": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O05\\attempt-001-actual\\summary.json",
+    "sha256": "2E32BF07E9882F87387D2D07ADC0333C3AED236A41B0187833DE6C5DB0CEBAA0"
+  },
+  "response": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O05\\attempt-001-actual\\grok-response.json",
+    "sha256": "1FC0A919F718B222A44FF97EA7707B39CB9199C965DD1658AEEDF901B1259E6E"
+  },
+  "runner": {
+    "model": "grok-4.5",
+    "reasoning_effort": "high",
+    "stop_reason": "EndTurn",
+    "elapsed_seconds": 30.234,
+    "total_cost_usd": 0.0534232,
+    "num_turns": 1,
+    "prompt_transport": "acp_blocks_file",
+    "image_count": 1,
+    "decoded_image_bytes": 161542
+  },
+  "result": {
+    "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+    "job_id": "O05",
+    "case_id": "F005_PID000001678",
+    "position_id": "1678",
+    "direction": "BUY",
+    "image_type": "OUTCOME_ANATOMY",
+    "image_sha256": "61782E921A5AEF9B9315C14BA0845882A40EB010328AF9B82BF15980B69D50BC",
+    "image_opened": true,
+    "visual_readability": "PASS",
+    "observations": [
+      "Title shows MEDIAN_WIN R=+1.871 outcome-disclosing for BUY position 1678.",
+      "Horizontal levels: Entry ~1.13455 (blue), SL ~1.13425 (red dashed), TP ~1.13515 (green dashed).",
+      "Purple dotted vertical is break-bar open; blue dashed vertical with blue triangle is actual entry shortly after.",
+      "Post-entry path consolidates near/above entry, never tags SL, then grinds higher and marks purple X at/near TP before strong continuation higher.",
+      "Bottom book trace: early=-0.021 late=+0.001 score=+0.067; actual entry sits near ~300s with late-60s shade on the right."
+    ],
+    "confidence": "HIGH",
+    "unknowns": [
+      "Exact fill price vs plotted entry line not labeled numerically.",
+      "Whether purple X is TP fill vs secondary marker is not text-labeled.",
+      "Spread/commission path impact not separable from price candles.",
+      "Intrabar path between candles not shown."
+    ],
+    "no_rule_or_rerun_authority": true,
+    "outcome_visible": true,
+    "actual_path_class": "CLEAN_CONTINUATION",
+    "primary_layer": "WINNER_NO_FAILURE",
+    "entry_context_assessment": "BUY is taken after a break-bar open: pre-entry price was below the entry line, then a sharp green thrust lifts through entry near the purple open, with actual entry marked by the blue triangle a short bar later while price holds near the entry level.",
+    "path_anatomy": "After entry, price accepts above the entry line with only shallow chop and no approach to SL; it then trends/grinds higher over many bars until the purple X coincides with the TP band, after which price continues strongly higher—clean favorable continuation rather than failed break, whipsaw, or giveback.",
+    "book_trace_relevance": "The CME 6E break-bar trace is mixed-to-mild: early window slightly negative (-0.021), late near flat (+0.001), overall score modestly positive (+0.067); it does not show a strong early discriminating thrust, so the book path only weakly aligns with the eventual clean upside win.",
+    "exit_geometry_assessment": "TP is reached (purple X on the TP line) for a reported +1.871R win; SL remains untouched throughout; post-TP price continues higher, so the plotted target captured a partial but successful slice of a larger continuation.",
+    "failure_mechanism": "No failure is visible on this chart: the break held, adverse excursion stayed small relative to SL, and the trade resolved as a TP-side win without stop-out, whipsaw rejection, or favorable-then-giveback reversal."
+  }
+}

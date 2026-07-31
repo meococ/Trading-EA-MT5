@@ -1,0 +1,71 @@
+{
+  "schema_version": "trendstack_007_source_implementation_task_packet.v1",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "role": "builder_coder",
+  "authority": {
+    "registry_row_index": 285,
+    "registry_row_sha256": "6D72D93644BF6C61D3D966013348FF272F3A78D13DE7444CB245A6809EB722DA",
+    "active_probe_plan_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_PROBE_PLAN_V6.md",
+    "active_probe_plan_sha256": "FE740C0811E7060670D1F771802EAC5ADD6D5B2CD9DB0FDABD7E48A8A2D29735",
+    "source_contract_v4_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_SOURCE_PROJECTION_CONTRACT_V4.json",
+    "source_contract_v4_sha256": "2F3D071F5E079B49B5705D47BABFFCC7F65998744AA0E1E9352389F89EA1EADB",
+    "source_contract_v5_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_SOURCE_PROJECTION_CONTRACT_V5.json",
+    "source_contract_v5_sha256": "8B9B6391A79E699DB21A80D14223B6ACAA24287390ECE4A0D8602DD758F4631C",
+    "source_contract_v6_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_SOURCE_PROJECTION_CONTRACT_V6.json",
+    "source_contract_v6_sha256": "4AC471AB7ABBCD84F008819D969EE6AF2A78DDAD15B87294CE0BECFAD6D8B828",
+    "source_build_authorized": true,
+    "source_run_authorized": false,
+    "public_shard_payload_access_authorized": false,
+    "economics_authorized": false,
+    "research_validation_authorized": false,
+    "research_holdout_authorized": false,
+    "mql5_authorized": false,
+    "model0_authorized": false,
+    "network_allowed": false,
+    "subprocess_allowed": false,
+    "registry_mutation_allowed": false,
+    "trading_mutation": false
+  },
+  "write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/project_trendstack_007_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/validate_trendstack_007_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/supervise_trendstack_007_source_projection.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_project_trendstack_007_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_validate_trendstack_007_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_supervise_trendstack_007_source_projection.py"
+  ],
+  "read_only_reference_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/build_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/validate_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/h1_splitvault_002_supervisor.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_build_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_validate_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_h1_splitvault_002_supervisor.py",
+    "02. AlphaFactory/tools/research/fivepercent_server_clock.py"
+  ],
+  "implementation_contract": [
+    "Write tests first and observe targeted failures before implementation.",
+    "Implement fail-closed projector, independent validator and one-shot supervisor exactly to active V4+V5+V6 contracts.",
+    "Projector owns upstream metadata and selected public-shard reads; validator independently re-derives metadata lineage but opens no upstream Parquet; supervisor opens no Parquet payload.",
+    "Supervisor source must be disarmed by default with exact sentinel `REVIEWED_SOURCE_RUN_PACKET_SHA256: str | None = None` and must refuse production execution without a separately reviewed packet and exact armed hash.",
+    "Supervisor must durably mark ATTEMPT_CONSUMED before the first public shard open and self-disarm on both pass and failure.",
+    "Projector and validator expose callable pure/synthetic-test surfaces; importing any module must not touch production data or create files.",
+    "All production paths enter through verified workspace-relative packet authority; source code must not hardcode D:/Trading EA MT5 or cwd as authority.",
+    "Use strict JSON/JSONL, uppercase SHA256, stable-file identity checks, no-follow/reparse/link protections, atomic exclusive writes and no-replace publish.",
+    "Do not modify HYP006 code, plans, contracts, registry, docs, public custody, partial stage or any production output/evidence path.",
+    "Do not run the supervisor against production paths and do not open any file under h1_splitvault_002/public/DESIGN or h1_splitvault_002/sealed."
+  ],
+  "synthetic_acceptance": [
+    "Focused six-file pytest suite passes with `python -B -m pytest -q -p no:cacheprovider`.",
+    "AST parse passes for all six files.",
+    "Tests cover schema rename/order/type/nullability rejection, missing/duplicate 12:00, clock mismatch, bytes/SHA mismatch, path escape/symlink/reparse/hardlink, unselected mapping, access-count mismatch, lineage self-consistency attacks, metadata mutation before/after publish, existing stage/final/evidence roots, packet/hash/sentinel mismatch, marker-before-open, atomic no-replace publish, pass/fail terminal and self-disarm.",
+    "Tests use only synthetic temporary files and monkeypatched capabilities; no production public shard, raw source, sealed payload, feature/economic artifact or production output/evidence is opened or created.",
+    "No source run packet, attempt ID, production marker, stage, output, evidence, registry row, EA source or MQL5 file is created."
+  ],
+  "handoff_required": [
+    "Exact path/bytes/SHA256 for all six files.",
+    "Exact test command and pass count.",
+    "Statement that production payload opens and runtime artifacts remained zero.",
+    "Known limitations or any contract clause not implemented exactly."
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "schema_version": "alphafactory_prelaunch_xau_model4_collection_authority.v1",
+  "hypothesis_id": "HYP-PTR-T2-DATA-EPOCH-D0-M5-005",
+  "classification": "PRELAUNCH_XAU_MODEL4_COLLECTION_AUTHORITY",
+  "authority": "DATA_ACQUISITION_ONLY_NO_PERFORMANCE",
+  "prior_registry": {
+    "line": 454,
+    "row_sha256": "484CE07256753CB29F8AD5A2BD792D6E5811FBCDD9AA774F3008C66A702C09DE",
+    "full_registry_sha256": "CB5AF4CB9C94F2A58F17168DFD468694CAF3FB6564A6C647F3010E278C1781DA"
+  },
+  "authorized_git_status": {
+    "packet_sha256": "E38DFF294D48DFB07D92DF0585E42758B1431972563E190A1E4CDD1899F66822",
+    "current_sha256": "FC142460B0D309F7631FB6299BE339FD88BB2E29127F4A51E34A56DEF0FC4A9D"
+  },
+  "campaign_data_repair_row_sha256": "A83A533981F29961BCB5C3C33A2DBD3DC80F926B05F376880FDCAF95D480E298",
+  "packet_set": [
+    {
+      "symbol": "XAUUSD",
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/preflight/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/task_packet.XAUUSD.control.json",
+      "sha256": "5706656B17CDDACB7CF14250A43084F6D2AFFCB1C2B25857012389FB8B613F3B"
+    },
+    {
+      "symbol": "BTCUSD",
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/preflight/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/task_packet.BTCUSD.control.json",
+      "sha256": "665FE769D5C9B681C76F4E5AE41F5AC1BBBCADDB86A9F5A171069D77617A68CE"
+    },
+    {
+      "symbol": "EURUSD",
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/preflight/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/task_packet.EURUSD.control.json",
+      "sha256": "23C9709864C4C52BB84A487278F78512C86374CC93E912C473AEE8402E04BE9E"
+    },
+    {
+      "symbol": "USDJPY",
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/preflight/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/task_packet.USDJPY.control.json",
+      "sha256": "8D7078BF5822ADAE78DDAD5B0CC5CE193DF7641904B7624D4EC6188693841EB7"
+    },
+    {
+      "symbol": "GBPUSD",
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/preflight/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/task_packet.GBPUSD.control.json",
+      "sha256": "8F4CA67FF17AA7FABC9E95A89E16CBACCD15585F157AA6DD1984A923E3E50583"
+    },
+    {
+      "symbol": "USDCHF",
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/preflight/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/task_packet.USDCHF.control.json",
+      "sha256": "91354ABF12375905024228F7E9F6DA3B6ED19238827E23644EE5B1B5F8EE82F8"
+    },
+    {
+      "symbol": "USDCAD",
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/preflight/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/task_packet.USDCAD.control.json",
+      "sha256": "11E5C15E7462DAC4FBF73E31E3D27C351DFEC2F6765B5CCB501F67E5F34FB83F"
+    },
+    {
+      "symbol": "AUDUSD",
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/preflight/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/task_packet.AUDUSD.control.json",
+      "sha256": "180B790A4189EB0E76DBDE75869716BC08DD65F7C2018519050D9DE19E71D401"
+    },
+    {
+      "symbol": "NZDUSD",
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/preflight/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/task_packet.NZDUSD.control.json",
+      "sha256": "BA0367A9EBCE864598BFB4CE84B2BEE0F2D1D85381B6E5B75136BA9589F209A8"
+    }
+  ],
+  "xau_dry_run": {
+    "symbol": "XAUUSD",
+    "exit_code": 0,
+    "execution_allowed": true,
+    "execution_blockers": [],
+    "execute": false,
+    "authority": "DATA_ACQUISITION_ONLY_NO_PERFORMANCE",
+    "task_packet_path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/preflight/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/task_packet.XAUUSD.control.json",
+    "task_packet_sha256": "5706656B17CDDACB7CF14250A43084F6D2AFFCB1C2B25857012389FB8B613F3B",
+    "registry_line": 454,
+    "registry_state": "screened",
+    "git_status_sha256": "E38DFF294D48DFB07D92DF0585E42758B1431972563E190A1E4CDD1899F66822",
+    "runner_engine_sha256": "D8B7C196BCABD48392E1F9F92165DD2B9B475394280151F58CD10338A9348B53"
+  },
+  "exact_test_run": {
+    "framework": "pytest",
+    "result": "PASS",
+    "passed": 121,
+    "failed": 0,
+    "duration_seconds": 30.48,
+    "declared_test_file_count": 10
+  },
+  "bound_tests": [
+    {
+      "path": "02. AlphaFactory/tests/test_ea_golden_path.py",
+      "sha256": "F7492A1D5ECD1200172B85D1A8CF2C384FE040649B6F7C5BEB5289A8233E4832"
+    },
+    {
+      "path": "02. AlphaFactory/tests/test_nonrepaint_collection_probe.py",
+      "sha256": "23295088250E7EBDAF67C4F19DBEF274546BD2A6518B5017B706CBACAF2B1830"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/tests/test_mql5_contract.py",
+      "sha256": "C79F9499889C05AEE06DE711B3FB6E3705394FE63B852490FB477AD5E0FF3F2A"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_append_t2_data_epoch_evidence.py",
+      "sha256": "824FEC57AF14DBE0143B64AF76F18E65B67DAAA4D6B4EB791E10FD620BDAB168"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_append_t2_data_epoch_model4_evidence.py",
+      "sha256": "364CA559FCFF2B2CD6056279DB1F26930AAAE7F21A4AFADA85AB104E76F17913"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_t2_d0_model4_wrappers.py",
+      "sha256": "79656AA05FC009332CA3011AB310EFDFA0A0CBCDCBBDFDCA39E0F8FBD0995513"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_t2_d0_hyp005_wrappers.py",
+      "sha256": "4CDB01D8F5AF2A1B5154D27A32EFA27C14F2241789DEA4DC1045C68E1F463F59"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_data_epoch.py",
+      "sha256": "E926FA8DE3522E5FBFFCD9A7154199B5E87E2FF1956D120D02575FF3EBEF8C9C"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_campaign_exposure.py",
+      "sha256": "F668849104A60C8F5ED78D9C4661BDF42623A3365F663A69EF3BE940C9A0ACE2"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_candidate_registry_model4_collection.py",
+      "sha256": "A91AA75ED0B197A4BA0B20ED0C4A7EB0824A4628A6A6E7DFF263F7F388FE2765"
+    }
+  ],
+  "control_plane": [
+    {
+      "path": "02. AlphaFactory/tools/research_loop_engine.ps1",
+      "sha256": "D8B7C196BCABD48392E1F9F92165DD2B9B475394280151F58CD10338A9348B53"
+    },
+    {
+      "path": "04. Memory/research/validate_candidate_registry.py",
+      "sha256": "4669D1F39A902DACDFC5966237140A91722A360D346A8D547399A3201A3B8476"
+    },
+    {
+      "path": "02. AlphaFactory/tests/test_ea_golden_path.py",
+      "sha256": "F7492A1D5ECD1200172B85D1A8CF2C384FE040649B6F7C5BEB5289A8233E4832"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_candidate_registry_model4_collection.py",
+      "sha256": "A91AA75ED0B197A4BA0B20ED0C4A7EB0824A4628A6A6E7DFF263F7F388FE2765"
+    }
+  ],
+  "authority_gates": {
+    "xau_model4_collection_launch_authorized": true,
+    "mt5_data_collection_authorized": true,
+    "model4_data_collection_authorized": true,
+    "authorized_symbol": "XAUUSD",
+    "authorized_symbol_order_index": 0,
+    "authorized_launch_limit": 1,
+    "authorized_launches_consumed": 0,
+    "broad_mt5_authorized": false,
+    "broad_model4_authorized": false,
+    "trades_authorized": false,
+    "performance_metrics_authorized": false,
+    "economics_authorized": false,
+    "promotion_eligible": false
+  },
+  "post_test_validators": {
+    "candidate_registry": "CANDIDATE_REGISTRY_OK rows=454 hypotheses=163",
+    "campaign_exposure": "CAMPAIGN_EXPOSURE_OK rows=9",
+    "data_epoch": "DATA_EPOCH_OK rows=1 aggregate_ready=false missing=XAUUSD,BTCUSD,EURUSD,USDJPY,GBPUSD,USDCHF,USDCAD,AUDUSD,NZDUSD"
+  },
+  "exposure_readback": {
+    "hyp005_execution_receipts": 0,
+    "hyp005_run_manifests": 0,
+    "trades_executed": 0,
+    "economic_trials_consumed": 0
+  },
+  "verdict": "PASS_ONE_SHOT_XAU_COLLECTION_PRECONDITIONS",
+  "created_at_utc": "2026-07-31T04:04:04Z"
+}

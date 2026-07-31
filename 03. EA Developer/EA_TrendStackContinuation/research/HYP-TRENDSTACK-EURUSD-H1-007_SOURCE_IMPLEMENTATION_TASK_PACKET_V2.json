@@ -1,0 +1,91 @@
+{
+  "schema_version": "trendstack_007_source_implementation_task_packet.v2",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "supersedes_task_packet_v1_sha256": "1A965777AF7D3E741813E3EE30E803FB55112F168280E25F07D2342A09007455",
+  "role": "builder_coder",
+  "authority": {
+    "registry_row_index": 285,
+    "registry_row_sha256": "6D72D93644BF6C61D3D966013348FF272F3A78D13DE7444CB245A6809EB722DA",
+    "active_probe_plan_sha256": "FE740C0811E7060670D1F771802EAC5ADD6D5B2CD9DB0FDABD7E48A8A2D29735",
+    "source_contract_v4_sha256": "2F3D071F5E079B49B5705D47BABFFCC7F65998744AA0E1E9352389F89EA1EADB",
+    "source_contract_v5_sha256": "8B9B6391A79E699DB21A80D14223B6ACAA24287390ECE4A0D8602DD758F4631C",
+    "source_contract_v6_sha256": "4AC471AB7ABBCD84F008819D969EE6AF2A78DDAD15B87294CE0BECFAD6D8B828",
+    "source_build_authorized": true,
+    "source_run_authorized": false,
+    "public_shard_payload_access_authorized": false,
+    "economics_authorized": false,
+    "sealed_access_authorized": false,
+    "network_allowed": false,
+    "subprocess_allowed": false,
+    "registry_mutation_allowed": false,
+    "trading_mutation": false
+  },
+  "write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/project_trendstack_007_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/validate_trendstack_007_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/supervise_trendstack_007_source_projection.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_project_trendstack_007_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_validate_trendstack_007_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_supervise_trendstack_007_source_projection.py"
+  ],
+  "review_verdict": "FAIL_FOR_PRODUCTION_SOURCE_RUN_PACKET_PREPARATION_AFTER_35_PASS_SYNTHETIC",
+  "must_fix": [
+    {
+      "id": "P0_PRODUCTION_OPERATIONS",
+      "requirement": "Implement one concrete hash-reviewed ProductionOperations in the reviewed supervisor module that exclusively composes verified projector, validator, clock, bounded reader, codecs, evidence writes, identity checks, publish, disarm and terminal receipts. Production supervise() must construct/use this class and must not accept arbitrary caller operations. Keep injected operations only in an explicitly test-only helper."
+    },
+    {
+      "id": "P0_RUN_PACKET_AUTHORITY",
+      "requirement": "Expand strict canonical run-packet fields and preflight to bind and stable-read/hash-check registry row/index, active plan, V4/V5/V6 contracts, V1/V2 implementation packets, clock, all three tool paths/hashes, all three test paths/hashes, supervisor review-base/runtime hashes, workspace root identity, public metadata paths/hashes, exact shape/count/date-set, stage/final/evidence roots, all frozen authorization flags, implementation-review receipt path/hash and detached packet SHA. No self-asserted path/hash may count without readback."
+    },
+    {
+      "id": "P0_VALIDATOR_AUTHORITY_READS",
+      "requirement": "validate_stage_from_paths must independently stable-read and verify exactly one reviewed active-contract-bundle document and exactly one active implementation task packet before validation. validator_access active_contract_reads=1 and task_packet_reads=1 must be factual. The bundle may aggregate V4/V5/V6 without changing their semantics; production preflight still rehashes all three canonical files."
+    },
+    {
+      "id": "P0_PREPUBLISH_SHARD_IDENTITY",
+      "requirement": "Validation result must expose validated_file_identities_sha256. Immediately before rename, ProductionOperations must lstat all 1297 staged output shards in exact manifest/date order, rederive the frozen identity digest without opening payloads and require equality with the validation receipt. Carry the digest through pass terminal; a staged shard replacement after validation must fail."
+    },
+    {
+      "id": "P0_ANCESTOR_SAFETY",
+      "requirement": "Preflight and all production root creation must walk and identity-bind every existing component from verified workspace root to stage/final/evidence targets, rejecting symlink/junction/reparse/device/path escape and any ancestor identity change before/after creation. Add a real descendant junction/reparse-ancestor adversarial test where supported and a deterministic mocked equivalent."
+    },
+    {
+      "id": "P0_PERSISTENT_DISARM",
+      "requirement": "Once an exact armed packet is accepted, persistent filesystem self-disarm is mandatory on every later exit, including preflight failure and start failure. If start may have created attempt_started before raising, reconcile marker existence and write the exact failure terminal. Python-global reset is not sufficient. Tests must cover preflight failure, start-before-marker failure and partial-marker-then-raise."
+    }
+  ],
+  "run_packet_minimum_bindings": [
+    "schema/hypothesis/projection attempt/detached reviewed SHA",
+    "workspace root path and filesystem identity; cwd forbidden as authority",
+    "registry path/full SHA/row index/row SHA",
+    "active plan V6 path/SHA and superseded plan SHA list",
+    "contracts V4/V5/V6 paths/SHAs and one reviewed active-contract-bundle path/SHA",
+    "implementation task packets V1/V2 paths/SHAs",
+    "projector/validator/supervisor tool paths/SHAs and all three test paths/SHAs",
+    "supervisor review-base SHA and armed runtime SHA",
+    "clock path/SHA",
+    "public receipt/manifest/selection paths/SHAs",
+    "implementation-review receipt path/SHA",
+    "expected dates=1297, unselected=258, date-set SHA, first/last date",
+    "stage/final/evidence roots and exact absence requirements",
+    "source_run=true; economics/validation/holdout/MQL5/Model0/network/subprocess/registry mutation/trading mutation=false"
+  ],
+  "synthetic_acceptance": [
+    "Focused six-file suite passes and AST/import remain inert with exact None sentinel.",
+    "Existing V1 contract tests remain green.",
+    "Concrete ProductionOperations is exercised end-to-end only on synthetic tmp roots with exactly-counted fake 1297 or deliberately smaller shape accepted only by a test-only path; production entrypoint cannot receive arbitrary operations.",
+    "Validator tests prove actual contract-bundle and task-packet reads and reject missing/hash-drifted/duplicate-key/noncanonical authority.",
+    "Mutation test replaces a staged output shard after validation while leaving six metadata files unchanged and proves pre-publish identity gate rejects it.",
+    "Path tests cover lexical escape, symlink, reparse/junction ancestor and ancestor identity drift.",
+    "Lifecycle tests prove marker-before-first shard open, persistent self-disarm on success, preflight failure, start failure and partial-marker failure, plus exact pass/fail terminal behavior.",
+    "No test opens production public shard/raw/sealed/feature/economic payload or creates production marker/stage/output/evidence/run packet."
+  ],
+  "handoff_required": [
+    "Exact six paths/bytes/SHA256.",
+    "Exact focused command/pass count and observed new RED failures before fix.",
+    "Production entrypoint and ProductionOperations call graph summary.",
+    "Statement that all production payload opens/runtime artifacts remained zero.",
+    "Any remaining contract clause not implemented exactly."
+  ]
+}

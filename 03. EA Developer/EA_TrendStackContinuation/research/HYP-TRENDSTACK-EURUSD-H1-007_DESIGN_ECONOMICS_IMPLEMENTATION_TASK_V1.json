@@ -1,0 +1,105 @@
+{
+  "schema_version": "trendstack_007_design_economics_implementation_task.v1",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "task_state": "FROZEN_BUILD_ONLY_AFTER_ENGINEERING_VALID_SOURCE_PRE_ECONOMICS",
+  "source_projection_terminal_sha256": "27463114985202A024E7F4732DA7DE0CD2314875012C90B81E5A1A4D32E65512",
+  "source_projection_data_tree_sha256": "C2D607981E7CA73B40681FC7AFF5E7FDFCF240B9D9419B3C42ADBE9F590A5197",
+  "source_projection_manifest_sha256": "B53E008BE9CFBDC3F13F7044A7FC718DBAB87A4725D8C1F7B9F24D5F97B3234B",
+  "active_probe_plan_v6_sha256": "FE740C0811E7060670D1F771802EAC5ADD6D5B2CD9DB0FDABD7E48A8A2D29735",
+  "stage0_ledger_sha256": "3092A6FCFADE0DA23E4470C4BF3B1D7750190358CF6ED09A2BB942937A7CD3C7",
+  "stage0_receipt_sha256": "5AEA570736361EF22BF2F090A5C05EF2974F482B5CB34A1186F27D9B43AAF5CE",
+  "decision_packet_manifest_sha256": "D199E105CF6B51E0516D4FB57FFCB0D9AF63A72D8084B04BE6D73892ED7EA9DA",
+  "decision_packet_receipt_sha256": "DA113E80157FFF69DBD11BB478637DC2DA3B9FD829102763250DA55D07773320",
+  "dsr_tool_sha256": "A0659CDCDB2EAB4F29F69A1FBF4222FE3EC12467FE4CC664E194173126A4CEEA",
+  "write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/evaluate_trendstack_007_design_economics.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_evaluate_trendstack_007_design_economics.py"
+  ],
+  "build_authorized": true,
+  "production_economics_run_authorized": false,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false,
+  "mql5_authorized": false,
+  "model0_authorized": false,
+  "network_allowed": false,
+  "registry_mutation_allowed": false,
+  "input_contract": {
+    "source_root": "02. AlphaFactory/data/fivepercent/EURUSD/trendstack_007_design_h1_1200",
+    "source_manifest": "02. AlphaFactory/data/fivepercent/EURUSD/trendstack_007_design_h1_1200/design_1200_manifest.jsonl",
+    "source_shards": "exact 1297 manifest-bound DESIGN/{date}/h1_1200.parquet files; exactly one 12:00 UTC BID H1 row each",
+    "stage0_ledger": "03. EA Developer/EA_TrendStackContinuation/research/evidence/HYP-TRENDSTACK-EURUSD-H1-002_STAGE0/stage0_eligibility_ledger.jsonl",
+    "stage0_receipt": "03. EA Developer/EA_TrendStackContinuation/research/evidence/HYP-TRENDSTACK-EURUSD-H1-002_STAGE0/stage0_receipt.json",
+    "decision_packet_root": "02. AlphaFactory/data/fivepercent/EURUSD/trendstack_002/decision_packets",
+    "decision_packet_manifest": "02. AlphaFactory/data/fivepercent/EURUSD/trendstack_002/decision_packet_manifest.jsonl",
+    "decision_packet_receipt": "02. AlphaFactory/data/fivepercent/EURUSD/trendstack_002/decision_packet_receipt.json",
+    "atr20_source": "exact manifest-bound DESIGN/{date}.json field atr20 from immutable trendstack_002_decision_packet.v1; never recompute ATR and never derive it from HYP007 12:00 bar",
+    "dsr_tool": "02. AlphaFactory/tools/research/dsr.py",
+    "forbidden_inputs": "public custody shards, raw H1, HYP006 partial output, M1, VALIDATION_FEATURE_ONLY packets, sealed VALIDATION/HOLDOUT, any prior economic output"
+  },
+  "join_and_arms": {
+    "join_key": "date == source manifest date == ledger opportunity_id == decision packet opportunity_id",
+    "exact_dates": 1297,
+    "no_fill_drop_substitute": true,
+    "arms": {
+      "CONTROL_M252_ONLY": {"eligible": "control_m252_only_eligible", "direction": "control_m252_only_direction", "count": 1297},
+      "CONTROL_M6_ONLY": {"eligible": "control_m6_only_eligible", "direction": "control_m6_only_direction", "count": 1292},
+      "CHALLENGER_STACK": {"eligible": "challenger_stack_eligible", "direction": "challenger_stack_direction", "count": 661},
+      "NEGATIVE_DISAGREE": {"eligible": "negative_disagree_eligible", "direction": "negative_disagree_direction", "count": 631}
+    }
+  },
+  "execution_math": {
+    "pip": 0.0001,
+    "entry": "12:00 BID open",
+    "long_stop": "entry - atr20",
+    "short_stop": "entry + atr20",
+    "long_exit": "stop when low <= long_stop else 12:00 BID close",
+    "short_exit": "stop when high >= short_stop else 12:00 BID close",
+    "stop_touch": true,
+    "stop_precedes_close": true,
+    "gross_r": "direction * (exit_bid - entry_bid) / atr20",
+    "cost_tiers_pips": [1.5, 2.25, 3.0],
+    "cost_r": "round_trip_cost_pips / (atr20 / 0.0001)",
+    "net_r": "gross_r - cost_r"
+  },
+  "metric_contract": {
+    "pf_status": "FINITE when loss>0; NO_LOSS with null PF when loss=0,gain>0 and passes absolute PF; NO_WIN_NO_LOSS with null PF when both zero and fails",
+    "relative_pf": "finite delta; challenger NO_LOSS vs finite=POSITIVE_INFINITY pass; finite vs comparator NO_LOSS=NEGATIVE_INFINITY fail; both NO_LOSS=ZERO_BOTH_NO_LOSS delta0 fail; any NO_WIN_NO_LOSS=UNDEFINED fail; encode status strings and null, never JSON Infinity",
+    "year_denominator": "fixed 2016,2017,2018,2019,2020",
+    "cadence_denominator_elapsed_weeks": 260.571428571,
+    "dsr": "per-trade 1.50-pip net-R; sample Sharpe n-1 for each arm; zero stddev Sharpe=0; sample variance across four arm Sharpes; STACK population skew and non-excess kurtosis with zero moment fallback 0/3; n_obs=661,n_trials=4; call canonical dsr.py"
+  },
+  "twelve_gates": [
+    "STACK cadence between 2.0 and 5.0 inclusive",
+    "STACK PF 1.50 > 1.30",
+    "STACK PF 2.25 >= 1.25",
+    "STACK PF 3.00 >= 1.00",
+    "STACK mean netR 1.50 >= 0.08",
+    "STACK total netR 1.50 > 0",
+    "STACK positive-year total netR 1.50 >= 4 of 5",
+    "STACK DSR 1.50 >= 0.95",
+    "STACK PF 1.50 delta vs better standalone PF >= 0.15",
+    "STACK mean netR 1.50 delta vs better standalone mean >= 0.05",
+    "STACK PF 1.50 delta vs DISAGREE >= 0.15",
+    "STACK mean netR 1.50 delta vs DISAGREE >= 0.05"
+  ],
+  "required_output_artifacts": [
+    "design_economics_trade_ledger.jsonl",
+    "design_arm_cost_metrics.json",
+    "design_yearly_metrics.json",
+    "design_dsr_inputs.json",
+    "design_gate_report.json",
+    "design_economics_receipt.json",
+    "attempt_terminal.json"
+  ],
+  "terminal_logic": {
+    "engineering_invalid": "no market verdict; no fabricated PF/WR/expectancy",
+    "economic_kill": "engineering valid and any of 12 gates fails; kill exact HYP007 DESIGN object; keep sealed data closed",
+    "survivor": "all 12 pass -> PROBE_SURVIVOR_DESIGN_ONLY; grants no downstream authority"
+  },
+  "acceptance_gates": [
+    "Red-first synthetic tests cover joins, counts, stops, cost R, PF statuses, relative PF, yearly/cadence, DSR call and all 12 gate boundaries.",
+    "Tool import is inert and accepts one separately reviewed run packet; production inputs/outputs are not opened during implementation tests.",
+    "Independent quant/code review PASS before one production DESIGN economics run.",
+    "No parameter optimization, rescue, validation/holdout, MQL5 or Model0."
+  ]
+}

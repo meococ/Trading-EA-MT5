@@ -1,0 +1,186 @@
+{
+  "schema_version": "vras_grok_indicator_rich_100_qc.v1",
+  "created_at_utc": "2026-07-22T08:15:19.726499Z",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-003",
+  "run_id": "20260722_103759",
+  "coverage": {
+    "expected_images": 100,
+    "images_opened": 100,
+    "trade_images": 93,
+    "rejected_candidate_images": 7,
+    "batches_complete": 20,
+    "entry_parity_manifests_checked": 100,
+    "all_case_ids_reconciled": true
+  },
+  "terminal_conclusion": "HYP-VRAS-EURUSD-M5-003 remains TERMINAL KILL and promotion-ineligible. The 100-image indicator-rich review (93-trade complete census + 7 non-economic cost-distance rejects) is coverage-closed and fidelity-intact: entry-parity 9/9, all images opened, IDs reconciled once. Charts confirm the readout mechanisms—path-dependent TREND continuation minority wins, dominant ~−0.9R stopouts, weak RANGE mean reversion, ADX hysteresis lag, G11 cost funnel, cadence starvation—without authorizing any threshold tune, session/year veto, rerun, source edit, or post-hoc rescue. Economic population metrics stay net −$5,243.22, PF 0.59, expectancy −$56.38/trade, 0.45 trades/elapsed week. Archive as killed exact object; only new hypothesis IDs with independent prereg may proceed.",
+  "case_ids_sha256": "CFFADACAD6ABE483A1B1B57237A5F1ED0DFDCC2E3EDA06C28BBF6D18040B6247",
+  "synthesis": ".context/vras-003-grok-indicator-rich-100-20260722/synthesis/grok-synthesis.json",
+  "synthesis_sha256": "8F13A69E2895EC9441EF25A5CDFDAF9889AEEAA42E37C2578036EEEFED184BB5",
+  "published_report": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV3/research/evidence/HYP-VRAS-EURUSD-M5-003_GROK_CHART_FORENSICS_100/HYP-VRAS-EURUSD-M5-003_GROK_INDICATOR_RICH_100_REPORT.md",
+  "published_report_sha256": "B019998A2B51B89B70F872A98190143344AA3C232DB774AC14EC9A7803DDDCB1",
+  "batch_results": [
+    {
+      "batch": "B01",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-01/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-01/grok-analysis.json",
+      "analysis_sha256": "5245941F273924593186B0A6B2FE41B015B7C071FC82B7924F23EB2C897E5D62",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B02",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-02/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-02/grok-analysis.json",
+      "analysis_sha256": "87F2DF5F6CC96208A533EA4F9278F699494D04FA7514595C6B78A4FC6BF425D0",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B03",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-03/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-03/grok-analysis.json",
+      "analysis_sha256": "ADF08F06A40405F8798BD5E262CAD7B03408251818706EBD73DB1EBA2E3B5632",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B04",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-04/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-04/grok-analysis.json",
+      "analysis_sha256": "D03C20B4FBD5568094BB5072906A12652DF9BA5F1C8D15DF1D82651CE98263EC",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B05",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-05/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-05/grok-analysis.json",
+      "analysis_sha256": "1561E00564BD85B3E2C2EB72D73E3514824D944E8805C45EA15906CEA535810C",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B06",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-06/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-06/grok-analysis.json",
+      "analysis_sha256": "864028330478559554CAD216193E9E0C5D4D0B860D402A25DC8112FC67A97647",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B07",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-07/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-07/grok-analysis.json",
+      "analysis_sha256": "F5A819605459AD1BAE07B00ABB9AFD2EF4AA604A56C088D5943D677B04E0AAA4",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B08",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-08/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-08/grok-analysis.json",
+      "analysis_sha256": "85D869634F743395CFB387CAB16262E17940BCCC05AE9FBF681166F833D97F64",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B09",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-09/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-09/grok-analysis.json",
+      "analysis_sha256": "2AD14F58CFAE359A1EFCB4C5DA96EBF397D5514BD609C55D4D0BE999022B136C",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B10",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-10/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-10/grok-analysis.json",
+      "analysis_sha256": "A10EEDE04CF8E9F7B0F48BC7C986235251F9528A53DEA74ABA667B1EA67A2C11",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B11",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-11/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-11/grok-analysis.json",
+      "analysis_sha256": "36A1DE4F65D00900444F4840CF8AD33A615E4292EA3A4AC76FBD4D597F792F4B",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B12",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-12/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-12/grok-analysis.json",
+      "analysis_sha256": "E12D16AC496D36E4A79EE93777E51FF83CB6DC656140885F12ABF8AF32CFAD97",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B13",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-13/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-13/grok-analysis.json",
+      "analysis_sha256": "83A93A8BFD3D3C19E9CB9984C756C432FBB78B7DE69365B629F40E37630EB07A",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B14",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-14/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-14/grok-analysis.json",
+      "analysis_sha256": "7C256BD645AB6A92AB24FF9FD9BB9F1A3B45C78055DB8FE8E133A293589DF051",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B15",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-15/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-15/grok-analysis.json",
+      "analysis_sha256": "11EB597C606C51343EF3A3A7C40966C30A3B9320200B460A3F346672D9976965",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B16",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-16/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-16/grok-analysis.json",
+      "analysis_sha256": "F4DF54310A29BF6313028EF267AAEAF9A0138B1DAFE574C25D7B311C001EA3D2",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B17",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-17/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-17/grok-analysis.json",
+      "analysis_sha256": "75BCCF46DDA2689A7547CF3F1443FA1331E482FE2957D6AD93C1EC17B5861B45",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B18",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-18/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-18/grok-analysis.json",
+      "analysis_sha256": "85F2A6D30EDAD2096EC8310A95E7DD16F0B89A7CD16058175851584C3D4D6B37",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B19",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-19/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-19/grok-analysis.json",
+      "analysis_sha256": "2B3C924C0B88CAD9563759E468064BE975EA9E80421FEB53C09C9AEED31B9DC7",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    },
+    {
+      "batch": "B20",
+      "summary": ".context/vras-003-grok-indicator-rich-100-20260722/batch-20/summary.json",
+      "analysis": ".context/vras-003-grok-indicator-rich-100-20260722/batch-20/grok-analysis.json",
+      "analysis_sha256": "5F76E803DE76BBE34E99B7893F4E0A140565AA91453D3B89E0A3FE2325944A4D",
+      "runner_success": true,
+      "runner_stop_reason": "EndTurn"
+    }
+  ],
+  "latest_attempt_cost_usd_sum": 2.841576,
+  "latest_attempt_elapsed_seconds_sum": 2071.032,
+  "cost_note": "Sums accepted latest-attempt summaries only; cancelled/resumed attempts archived by the runner are excluded."
+}

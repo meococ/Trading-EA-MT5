@@ -1,0 +1,17 @@
+{
+    "schema_version":  "alphafactory_red_test_receipt.v1",
+    "hypothesis_id":  "HYP-SCC-MT5-REPLICATION-EURUSD-M5-004",
+    "observed_at_utc":  "2026-07-25T14:03:00Z",
+    "command":  "python -m pytest \"03. EA Developer/EA_SweepCascadeContinuation/tests/test_mql5_contract.py\" -q",
+    "expected_change":  "identity magic and risk scale must rotate before build",
+    "pre_change_source_sha256":  "E56AF40AB7DA7EB02AD312596062BD9547F8590FF0C652233B4246370D624B05",
+    "exit_code":  1,
+    "passed":  3,
+    "failed":  3,
+    "failure_classes":  [
+                            "HYP004_IDENTITY_MISSING",
+                            "MICRO_RISK_001_MISSING",
+                            "PREREG_ASSERTION_WORDING_MISMATCH"
+                        ],
+    "note":  "The prereg wording assertion was corrected without changing the frozen prereg; production source was then changed minimally."
+}

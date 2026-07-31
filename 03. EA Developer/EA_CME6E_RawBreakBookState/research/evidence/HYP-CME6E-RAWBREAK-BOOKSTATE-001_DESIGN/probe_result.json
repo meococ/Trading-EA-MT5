@@ -1,0 +1,262 @@
+{
+  "arms": {
+    "CHALLENGER_TOP50_SCORE": {
+      "by_direction": {
+        "BUY": {
+          "count": 118,
+          "mean_realized_r": -0.2860925502946502,
+          "net": -335.27000000000004,
+          "profit_factor": 0.6040086929818345
+        },
+        "SELL": {
+          "count": 112,
+          "mean_realized_r": -0.448455689198931,
+          "net": -487.43,
+          "profit_factor": 0.4551480533416796
+        }
+      },
+      "by_year": {
+        "2019": {
+          "count": 114,
+          "mean_realized_r": -0.4206467114982493,
+          "net": -471.04,
+          "profit_factor": 0.469919650694335
+        },
+        "2020": {
+          "count": 116,
+          "mean_realized_r": -0.31062269839869455,
+          "net": -351.66,
+          "profit_factor": 0.5875681698234915
+        }
+      },
+      "cadence_per_elapsed_week": 2.2054794520547945,
+      "cost_stress": {
+        "0.5": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -1163.25,
+          "profit_factor": 0.4149083318663078,
+          "round_trip_pips": 0.5
+        },
+        "1.5": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -1844.3500000000001,
+          "profit_factor": 0.2601914954211976,
+          "round_trip_pips": 1.5
+        },
+        "2.25": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -2355.175,
+          "profit_factor": 0.1821087870758481,
+          "round_trip_pips": 2.25
+        },
+        "3.0": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -2866.0,
+          "profit_factor": 0.12932262758643737,
+          "round_trip_pips": 3.0
+        }
+      },
+      "count": 230,
+      "elapsed_weeks": 104.28571428571429,
+      "native": {
+        "count": 230,
+        "gross_loss": -1741.27,
+        "gross_profit": 918.57,
+        "mean_realized_r": -0.3651563396741261,
+        "median_realized_r": -1.0925925925925926,
+        "net": -822.7,
+        "non_excess_kurtosis": 2.4566190498983933,
+        "per_trade_sharpe": -0.30178293598951167,
+        "profit_factor": 0.5275287577457833,
+        "skew": 1.0964464866044297,
+        "win_rate": 0.3
+      }
+    },
+    "CONTROL_QUALITY_ELIGIBLE": {
+      "by_direction": {
+        "BUY": {
+          "count": 240,
+          "mean_realized_r": -0.23930569373747348,
+          "net": -567.8100000000001,
+          "profit_factor": 0.6630867545228532
+        },
+        "SELL": {
+          "count": 219,
+          "mean_realized_r": -0.3527384648254136,
+          "net": -751.75,
+          "profit_factor": 0.5492105562984595
+        }
+      },
+      "by_year": {
+        "2019": {
+          "count": 216,
+          "mean_realized_r": -0.42587954447799375,
+          "net": -902.9200000000001,
+          "profit_factor": 0.4652880179555966
+        },
+        "2020": {
+          "count": 243,
+          "mean_realized_r": -0.1756918052942904,
+          "net": -416.64000000000004,
+          "profit_factor": 0.7496680385736174
+        }
+      },
+      "cadence_per_elapsed_week": 4.401369863013699,
+      "cost_stress": {
+        "0.5": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -2000.71,
+          "profit_factor": 0.4782480571637199,
+          "round_trip_pips": 0.5
+        },
+        "1.5": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -3363.01,
+          "profit_factor": 0.3031345383564965,
+          "round_trip_pips": 1.5
+        },
+        "2.25": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -4384.735,
+          "profit_factor": 0.21498458519677596,
+          "round_trip_pips": 2.25
+        },
+        "3.0": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -5406.46,
+          "profit_factor": 0.15287662132137494,
+          "round_trip_pips": 3.0
+        }
+      },
+      "count": 459,
+      "elapsed_weeks": 104.28571428571429,
+      "native": {
+        "count": 459,
+        "gross_loss": -3352.96,
+        "gross_profit": 2033.4,
+        "mean_realized_r": -0.2934272119689743,
+        "median_realized_r": -1.0857142857142856,
+        "net": -1319.5600000000002,
+        "non_excess_kurtosis": 2.1543610746527895,
+        "per_trade_sharpe": -0.23393966374380457,
+        "profit_factor": 0.6064492269517083,
+        "skew": 0.9684497712321967,
+        "win_rate": 0.3159041394335512
+      }
+    },
+    "NEGATIVE_CONTROL_BOTTOM50_SCORE": {
+      "by_direction": {
+        "BUY": {
+          "count": 122,
+          "mean_realized_r": -0.19405283247725336,
+          "net": -232.54000000000002,
+          "profit_factor": 0.7227276521158501
+        },
+        "SELL": {
+          "count": 107,
+          "mean_realized_r": -0.25254847295780664,
+          "net": -264.32,
+          "profit_factor": 0.6580683552818815
+        }
+      },
+      "by_year": {
+        "2019": {
+          "count": 102,
+          "mean_realized_r": -0.4317280048671199,
+          "net": -431.88000000000005,
+          "profit_factor": 0.4601432517906474
+        },
+        "2020": {
+          "count": 127,
+          "mean_realized_r": -0.05244783993908656,
+          "net": -64.98,
+          "profit_factor": 0.919945792780584
+        }
+      },
+      "cadence_per_elapsed_week": 2.195890410958904,
+      "cost_stress": {
+        "0.5": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -837.46,
+          "profit_factor": 0.5464485905386011,
+          "round_trip_pips": 0.5
+        },
+        "1.5": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -1518.66,
+          "profit_factor": 0.34902481889493764,
+          "round_trip_pips": 1.5
+        },
+        "2.25": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -2029.56,
+          "profit_factor": 0.24996951185711588,
+          "round_trip_pips": 2.25
+        },
+        "3.0": {
+          "epistemic_class": "UNVERIFIED_PROXY",
+          "net": -2540.46,
+          "profit_factor": 0.17796437412027377,
+          "round_trip_pips": 3.0
+        }
+      },
+      "count": 229,
+      "elapsed_weeks": 104.28571428571429,
+      "native": {
+        "count": 229,
+        "gross_loss": -1611.69,
+        "gross_profit": 1114.83,
+        "mean_realized_r": -0.2213848566319224,
+        "median_realized_r": -1.08,
+        "net": -496.86,
+        "non_excess_kurtosis": 1.906019735295969,
+        "per_trade_sharpe": -0.17083518072078113,
+        "profit_factor": 0.6917149079537628,
+        "skew": 0.8479970497015465,
+        "win_rate": 0.3318777292576419
+      }
+    }
+  },
+  "dsr": {
+    "arm_per_trade_sharpes": [
+      -0.23393966374380457,
+      -0.30178293598951167,
+      -0.17083518072078113
+    ],
+    "kurtosis_convention": "non-excess",
+    "n_trials": 3,
+    "value": 1.7950167172098297e-06,
+    "var_sr_trials": 0.004288699996087921
+  },
+  "elapsed_weeks": 104.28571428571429,
+  "epistemic_class": "VALID_OFFLINE_DESIGN_ECONOMIC_PROBE_UNVERIFIED_PROXY_COSTS_OOS_SEALED",
+  "frozen_threshold": -0.005025602742083225,
+  "gate_result": {
+    "gates": {
+      "both_directions_pf_gt_1_mean_r_gt_0": false,
+      "both_years_pf_gt_1_mean_r_gt_0": false,
+      "challenger_n230_cadence_2_to_5": true,
+      "dsr_gte_0_95": false,
+      "integrity": true,
+      "native_mean_r_gte_0_08": false,
+      "native_pf_gte_1_30": false,
+      "stress_1_5_pf_gte_1_25": false,
+      "stress_2_25_pf_gte_1_00": false,
+      "vs_bottom_pf_lift_0_20_mean_r_lift_0_15": false,
+      "vs_quality_control_pf_lift_0_15_mean_r_lift_0_10": false
+    },
+    "passed": 2,
+    "total": 11,
+    "verdict": "KILL_DESIGN_BOOK_ALIGNMENT_NO_POSITIVE_EXPECTANCY"
+  },
+  "generated_at_utc": "2026-07-27T08:25:55.785300Z",
+  "hypothesis_id": "HYP-CME6E-RAWBREAK-BOOKSTATE-001",
+  "prohibitions": [
+    "no alternate threshold or subgroup rescue under this hypothesis",
+    "no OOS quote, source acquisition, feature extraction or outcome join",
+    "no MQL5, Model 0, promotion, paper or live authority",
+    "cost stresses are UNVERIFIED_PROXY and not broker cost truth"
+  ],
+  "schema_version": "cme6e_raw_break_book_state_design_probe.v1",
+  "verdict": "KILL_DESIGN_BOOK_ALIGNMENT_NO_POSITIVE_EXPECTANCY"
+}

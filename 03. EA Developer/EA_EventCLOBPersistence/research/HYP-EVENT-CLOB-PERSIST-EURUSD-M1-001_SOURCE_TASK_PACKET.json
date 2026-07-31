@@ -1,0 +1,86 @@
+{
+  "schema_version": "event_clob_source_task_packet.v1",
+  "task_id": "EVENT_CLOB_SOURCE_PLANNER_20260728",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001",
+  "role": "builder/coder",
+  "worker_type": "Codex sub-agent; Grok prohibited",
+  "execution_mode": "SERIAL_WRITE",
+  "objective": "Implement and test a fail-closed Databento CME 6E MBP-10 event-window acquisition planner, then produce a free metadata-only cost quote and immutable source plan without downloading time-series data.",
+  "authority": {
+    "owner_request": "2026-07-28 Codex-only end-to-end EA research/build team",
+    "paid_timeseries_authorized": false,
+    "free_metadata_quote_authorized": true,
+    "ea_source_build_authorized": false,
+    "economic_outcome_read_authorized": false,
+    "model0_authorized": false,
+    "live_or_paper_authorized": false,
+    "git_commit_or_push_authorized": false
+  },
+  "bindings": {
+    "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+    "registry_sha256": "8A6A2900939FA66D98A25F06C24B4CEB8610844A97A367DA2B91353847AA897E",
+    "registry_row_sha256": "F120C70E6D8AEB1C7194D599E970721946C32DACFA2EEDA6BAE0C4B4B811FAA3",
+    "probe_plan_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001_PROBE_PLAN.md",
+    "probe_plan_sha256": "D47615E32F1E374D3CBFB23EA2DD9ABF594A85F2E22BF1C3CD5B08D60B6F5011",
+    "clock_path": "03. EA Developer/EA_EventCLOBPersistence/research/source/point_release_clocks_2019_2022.csv",
+    "clock_sha256": "5C30F99FF0E1341D680C2747315E2FF4DFF99C5FBE01C2C5C4036BC101375E7B",
+    "clock_manifest_path": "03. EA Developer/EA_EventCLOBPersistence/research/source/point_release_clock_manifest.json",
+    "clock_manifest_sha256": "B61CDFA6DCAE82308E4CD2A60DAFF195C297FD8523D41CDCA0788694657AC636"
+  },
+  "source_contract": {
+    "dataset": "GLBX.MDP3",
+    "schema": "mbp-10",
+    "symbol": "6E.v.0",
+    "stype_in": "continuous",
+    "window_start_offset_seconds": -60,
+    "window_end_offset_seconds": 60,
+    "expected_clocks": 630,
+    "storage_root": "02. AlphaFactory/data/databento/cme_6e_event_clob",
+    "cost_mode": "historical-streaming",
+    "key_source": "Windows user environment DATABENTO_API_KEY; never print or persist",
+    "allowed_remote_methods": [
+      "metadata.get_cost",
+      "metadata.get_dataset_range",
+      "symbology.resolve"
+    ],
+    "forbidden_remote_methods": [
+      "timeseries.get_range",
+      "batch.submit_job",
+      "batch.download"
+    ]
+  },
+  "write_set": [
+    "03. EA Developer/EA_EventCLOBPersistence/research/acquire_event_cme6e_mbp10.py",
+    "03. EA Developer/EA_EventCLOBPersistence/tests/test_event_cme6e_mbp10_acquisition.py",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob/acquisition_plan.json",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob/metadata_quote_receipt.json"
+  ],
+  "reuse": [
+    "03. EA Developer/EA_SweepCascadeContinuation/research/acquire_cme6e_mbp10_windows.py",
+    "03. EA Developer/EA_CME6E_RawBreakBookState/research/acquire_cme6e_breakbar_transition_design.py",
+    "03. EA Developer/EA_CME6E_RawBreakBookState/tests/test_breakbar_transition_acquisition.py"
+  ],
+  "required_behavior": [
+    "Verify every bound SHA before any API call.",
+    "Plan exactly 630 non-overlapping identities from the frozen clock CSV; overlapping time windows may remain separate identities but must be reported.",
+    "Quote every planned window with historical-streaming semantics and zero time-series calls.",
+    "Persist deterministic plan_id excluding generated timestamps.",
+    "Record per-window billable bytes and estimated USD, total estimate, SDK version, API method counters and paid_request_made=false.",
+    "Implement a future download command only if it requires both expected plan_id and --approve-max-usd, re-quotes before the first paid call, checkpoints in_flight, downloads serially, never auto-retries a charged or empty response, validates DBN fully and writes only to the D-side root.",
+    "The current task must not invoke the future download command."
+  ],
+  "acceptance_gates": [
+    "All focused tests pass.",
+    "Registry validator passes before and after.",
+    "Plan contains exactly 630 event identities and matches clock SHA.",
+    "Quote receipt proves timeseries_calls=0, paid_request_made=false and covers all 630 identities.",
+    "No raw DBN file, EURUSD price outcome, PnL, MFE, MAE, PF or expectancy is created or read.",
+    "Secret scan finds no API key value in any artifact or tool output."
+  ],
+  "prohibitions": [
+    "Do not edit registry, probe plan, clock CSV/manifest, docs outside the write_set, prior EA packages or AlphaFactory shared tools.",
+    "Do not create a branch, worktree or clone; do not stage, commit or push.",
+    "Do not add strategy thresholds or run an EA compile/backtest.",
+    "Do not revert or overwrite edits made by other agents or the Owner."
+  ]
+}

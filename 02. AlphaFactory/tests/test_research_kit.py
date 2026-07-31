@@ -56,6 +56,7 @@ def _run_render(bars: Path, cases: Path, out_dir: Path, mode: str) -> dict:
 
 def test_render_asof_enforces_entry_cutoff(tmp_path: Path) -> None:
     manifest = _run_render(_bars(tmp_path), _cases(tmp_path), tmp_path / "asof", "asof")
+    assert manifest["time_col"] == "time_utc"
     assert len(manifest["results"]) == 2
     for r in manifest["results"]:
         assert r["status"] == "RENDERED"

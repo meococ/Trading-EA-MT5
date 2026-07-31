@@ -1,0 +1,10 @@
+{
+  "schema_version": "alphafactory_red_test_receipt.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-006",
+  "observed_before_source": true,
+  "command": "python -m pytest tests/test_mql5_contract.py -q",
+  "tests_failed": 7,
+  "tests_passed": 0,
+  "expected_reason": "canonical MQL5 source did not exist",
+  "status": "PASS_RED_FIRST"
+}

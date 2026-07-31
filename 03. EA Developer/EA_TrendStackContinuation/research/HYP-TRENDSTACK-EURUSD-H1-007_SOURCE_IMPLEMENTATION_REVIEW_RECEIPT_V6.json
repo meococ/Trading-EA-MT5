@@ -1,0 +1,42 @@
+{
+  "schema_version": "trendstack_007_source_implementation_review_receipt.v6",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "verdict": "PASS_FOR_PRODUCTION_SOURCE_RUN_PACKET_PREPARATION",
+  "receipt_scope": "Implementation-only pre-row287 receipt. It contains no row287 index, row287 SHA, full-registry SHA, source-run packet identity, economics, sealed-data, MQL5, Model 0, promotion or deployment authority.",
+  "reviewed_authority": {
+    "authority_repair_amendment_v4_sha256": "3B9FB4C9D4469FBF612195C33FAF6771299DAC277D07CD3EA124F2C98989DBA8",
+    "implementation_task_v6_sha256": "6CB1024E30A620D33A66D678AC7A24ECE2F3872F98E1F0F4FE8D2E23AE7EC892",
+    "active_contract_bundle_v2_sha256": "1080BBF2D88A4FB68A293DE35C6E955A7CE2282EB0F4D44ACA26D533E11BCD2C"
+  },
+  "reviewed_snapshot": {
+    "registry_schema_sha256": "96C80D3C46A105A9754CA1325F3DD6C160D92A9D5800ECBC402DE0F40C612F5C",
+    "registry_validator_sha256": "5F046FF14EA9CD58BF844B9688F11FC791B0CFA2D628C651ACF1BB81511058B9",
+    "registry_integration_test_sha256": "0BF0EFE1743235FF7D89EF3E8E9083C6928E53AFDFF1A530F381A304AD9BC1C8",
+    "projector_tool_sha256": "F02981D66951C97C03688D87F22CC7B2439E9F8F3604BC9EFC5CB62E3AC5165F",
+    "validator_tool_sha256": "8C376DB8DF94BB16DF85931ECC1FAB6D5E3D9DE61175394577BA2C4108B1B379",
+    "supervisor_review_base_sha256": "59DEF05FDF918CA0E82E3B0E04F19A2805FDB39238AF51974BAB48584960DA3D",
+    "projector_test_sha256": "3051CACC1009E763D73509A9797475AFE55256DE3B6228DE7C17F4B5F85F5BE7",
+    "validator_test_sha256": "F116462813F6220C2654729634C1C49463CF69DB10ACEBEE52B0634630BD6DCB",
+    "supervisor_test_sha256": "5CAB7E58626BA6B50297399DE4D4955A6E3A5F59216864E6A708F467BE8E3FBB"
+  },
+  "verification": {
+    "focused_tests": 153,
+    "focused_test_verdict": "PASS",
+    "named_armed_repair_tests": 21,
+    "named_subset_verdict": "PASS",
+    "synthetic_row287_dual_validator": "PASS",
+    "row_binding_changes": 6,
+    "row_to_packet_mapping_fields": 46,
+    "historical_row286_raw_identity_preserved": true,
+    "roots_absent": true,
+    "source_projection_attempts_consumed": 0,
+    "production_payload_opens": 0,
+    "supervisor_sentinel_exact_none_once": true
+  },
+  "independent_review": {
+    "role": "forensic source implementation reviewer",
+    "findings": 0,
+    "decision": "PASS_RECEIPT_V6_THEN_EXACT_ROW287_AND_DUAL_READBACK"
+  },
+  "reviewed_at_utc": "2026-07-28T16:33:53Z"
+}

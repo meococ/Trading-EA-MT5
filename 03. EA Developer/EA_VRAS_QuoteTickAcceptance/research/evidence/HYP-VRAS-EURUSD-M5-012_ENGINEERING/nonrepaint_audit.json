@@ -1,0 +1,25 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-012",
+  "run_id": "HYP012_ENGINEERING_BUILD_20260723",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_QuoteTickAcceptance\\research\\evidence\\HYP-VRAS-EURUSD-M5-012_ENGINEERING\\nonrepaint_manifest.json",
+  "manifest_sha256": "48C80833B3EDD9642EBD7DF69071EC64F859BAFA2B22F6F0A94A46C80EDDBDBA",
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_QuoteTickAcceptance\\research\\evidence\\HYP-VRAS-EURUSD-M5-012_ENGINEERING\\EA_VRAS_QuoteTickAcceptance.snapshot.mq5",
+      "sha256": "071BD6837AF1855D801C6C56CFF394B04E3CA93D7400F7005B52B221397550A7"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_QuoteTickAcceptance\\research\\evidence\\HYP-VRAS-EURUSD-M5-012_ENGINEERING\\EA_VRAS_QuoteTickAcceptance.snapshot.mq5",
+      "line": 553,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "generated_at_utc": "2026-07-23T02:23:39.311216+00:00"
+}

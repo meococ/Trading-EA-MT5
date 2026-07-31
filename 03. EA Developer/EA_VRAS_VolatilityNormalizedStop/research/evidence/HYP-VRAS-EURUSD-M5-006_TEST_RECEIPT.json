@@ -1,0 +1,9 @@
+{
+  "schema_version": "alphafactory_test_receipt.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-006",
+  "command": "python -m pytest tests/test_mql5_contract.py -q",
+  "tests_passed": 7,
+  "tests_failed": 0,
+  "status": "PASS"
+}
+

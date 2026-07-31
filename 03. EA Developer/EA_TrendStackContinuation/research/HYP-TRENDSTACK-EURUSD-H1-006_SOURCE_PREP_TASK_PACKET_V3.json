@@ -1,0 +1,64 @@
+{
+  "schema_version": "trendstack_hyp006_source_prep_task_packet_amendment.v1",
+  "task_id": "TRENDSTACK_HYP006_RESIDUAL_S1_S6_HARDENING_20260728_V3",
+  "created_at_utc": "2026-07-28T11:09:36.610Z",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-006",
+  "collection_id": "DATASET-FIVEPERCENT-EURUSD-H1-SPLITVAULT-002",
+  "role": "builder/coder",
+  "supersedes_review_snapshot_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-006_SOURCE_PREP_TASK_PACKET_V2.json",
+  "supersedes_review_snapshot_sha256": "773E71900B229BA2F7CC1908E8196D38E48E80E4B515C672EA6F7A0E76E555B6",
+  "base_task_packet_sha256": "F56BFB7C724AECA7DBCB586794FC0AB62227D742060DB1A4F379E4115FEB6BC1",
+  "input_snapshot": {
+    "h1_custodian_sha256": "FFA4650C65A4359480BF0B7E4BBAB62647181AFCF7987EA0C37BB1FBC2F9CDBC",
+    "h1_supervisor_sha256": "A7D5E79734869D04A7D5AE431F7045DC02749B623BD63F74BFCDCAF1099CE800",
+    "design_builder_sha256": "301B8F4724760A4D1D7AFEE8FEF0451ACFE41269FEAD5B4574F32D0A805013E2",
+    "independent_validator_sha256": "8CABCCF593871B963F14AB6D1515A0DF0CD71DD8AF36DB87B05FB5EDB1B0507A",
+    "h1_custodian_tests_sha256": "8FC98B1F0B0D653E7B09A723EA90C54A765F8BDAFDD406A9CE325A2F628168DD",
+    "h1_supervisor_tests_sha256": "26B62938F0B1F2BCFDAAD49E055D38F24CF2663C2BE9FE2F81E1B582315D50C1",
+    "design_builder_tests_sha256": "0D484328D00E6B049BE179D454CD9B0B1F2CB6B7248EE71FD74BBB0BDF44EE3A",
+    "independent_validator_tests_sha256": "17FA168D1D4CBAD282F96DCCC9E3680CE4A93576FDB71A13EC90F20BB9F60B4D",
+    "tests": "18 passed",
+    "review_verdict": "FAIL_ALL_S1_TO_S6_RETAIN_MATERIAL_BLOCKERS"
+  },
+  "write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/h1_splitvault_002_custodian.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/h1_splitvault_002_supervisor.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/build_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/validate_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_h1_splitvault_002_custodian.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_h1_splitvault_002_supervisor.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_build_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_validate_trendstack_006_design_source.py"
+  ],
+  "required_closures": [
+    "S1: Production API has no reviewed-SHA override. None blocks. Use one canonical packet schema and verify detached exact packet bytes/hash plus plans, preregs, registry, source/footer/manifest/clock, tool/test and path identities. Implement one-shot preflight, exclusive marker fsync+directory fsync+readback, in-process custody/narrow/build/validate, sanitized terminal evidence and guaranteed finally self-disarm. A complete canonical synthetic packet must demonstrably PASS; missing/extra/mutated fields fail before marker/raw.",
+    "S2: Remove the permissive production read path. NarrowDesignCapability itself consumes before reader and never resets after reader/hash/schema failure. Raw and every selected date each have an attempted-open counter and exact one-call maximum.",
+    "S3: Construct authority only from the verified full packet and exact frozen constants. Marker binds every S3 field from base task packet. Decode one monolith buffer and enforce exact 71,785 rows, one row group, exact ordered Arrow schema/types, all-field null rules, finite positive OHLC/envelope, nonnegative integer volume/spread/real-volume, bound FivePercent clock function and exact-once four-way split reconciliation.",
+    "S4: Wire one mandatory pipeline: SelectionPreflight -> exact custody public-manifest mapping -> hardened selected capability -> exact child payload. Custody and selector use one compatible exact schema. Reject duplicate/noncanonical dates, wrong date-set SHA, missing/duplicate mapping, extras-count mismatch and recursive feature/economic/path/capability leakage before the first selected read. Builder receives only exact approved keys/values.",
+    "S5: Production contract hard-binds canonical roots, exactly 1297 dates and 9079 rows. Stage/output/evidence must be absent, not merely empty. Walk all components no-follow and reject symlink/junction/reparse/mount/ADS/hardlink; capture and recheck identities around every read and atomic publication with durable readback.",
+    "S6: Validator independently enumerates exact directories and regular files no-follow, rejecting empty extra directories, links/reparse/ADS/hardlinks and every extra file. Enforce exact JSON keys/types recursively, recompute all date/request/trace/tree/source chains including input_day_sha256 against custody mapping, and check every shard one-row-group/schema/row/null/value/clock/7-times-per-date invariant. Nested economic_leak, three row groups, auxiliary nulls and hardlinked expected shard must fail."
+  ],
+  "mandatory_red_tests": [
+    "Reproduce and close disarmed override bypass; prove an exact full canonical packet can PASS while any schema/hash/path/field drift fails.",
+    "Two calls after first hash/reader failure on NarrowDesignCapability produce exactly one reader invocation and the second call fails.",
+    "Arbitrary authority values, incomplete marker, wrong bound clock, auxiliary nulls and split reconciliation drift fail.",
+    "Invalid/duplicate selection and nested output_capability/source_path payload fail with selected_open_count=0; exact extras count is reconciled.",
+    "Pre-existing empty stage/output, reparse/ADS/hardlink and identity-swap publication fail.",
+    "Extra empty directory, nested economic_leak after rebinding, three-row-group shard, null auxiliary fields, bad input_day_sha256 and hardlinked expected shard make independent validator fail.",
+    "All legacy and new tests pass on synthetic temp fixtures only; no real H1 content or real output is touched."
+  ],
+  "unchanged_authority": {
+    "registry_probe_row_sha256": "5251227378A4192AB58364591603B2C1B1EED306DCC3BD4976DB943FDFDC8A1E",
+    "source_run_authorized": false,
+    "economics_authorized": false,
+    "supervisor_review_constant": null,
+    "plans_preregs_source_contract_and_s1_s6_base_acceptance_unchanged": true
+  },
+  "prohibitions": [
+    "Abort before editing if any of the eight input SHA values drift.",
+    "Do not use Grok or any Grok skill/worker.",
+    "Do not create/arm a real run packet or access/hash/decode the real H1 monolith, vault, stage, output or evidence.",
+    "Do not read validation/holdout or calculate feature directions, ATR, trades, returns, PnL, PF or DSR.",
+    "Do not modify plans, preregs, registry, source data, parent evidence or unrelated files; no network/subprocess/Git."
+  ]
+}

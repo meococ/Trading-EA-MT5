@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_red_test_receipt.v1",
+  "hypothesis_id": "HYP-SCC-MT5-REPLICATION-EURUSD-M5-003",
+  "executed_at_utc": "2026-07-25T13:49:30Z",
+  "command": "python -X utf8 -m pytest -p no:cacheprovider \"03. EA Developer\\EA_SweepCascadeContinuation\\tests\" -q",
+  "exit_code": 1,
+  "result": "EXPECTED_RED",
+  "collected": 13,
+  "passed": 11,
+  "failed": 2,
+  "failure_boundary": "Canonical source still carried HYP-002 identity and the replacement prereg used a semantically equivalent prohibition phrase.",
+  "economic_outcome_accessed": false,
+  "model0_runs": 0
+}

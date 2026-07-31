@@ -1,0 +1,67 @@
+{
+  "schema_version": "trendstack_hyp006_source_prep_task_packet_amendment.v1",
+  "task_id": "TRENDSTACK_HYP006_SINGLE_OWNER_PARTIAL_V3_RECONCILIATION_20260728_V4",
+  "created_at_utc": "2026-07-28T11:27:57.003Z",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-006",
+  "collection_id": "DATASET-FIVEPERCENT-EURUSD-H1-SPLITVAULT-002",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-006_SOURCE_PREP_TASK_PACKET_V3.json",
+  "supersedes_amendment_sha256": "E5D0E3E179834FD786E9B11F3996923670EFB1791239D07135B9A9F3BAA5F1C6",
+  "coordination_state": {
+    "duplicate_thread_write_stopped": true,
+    "duplicate_thread_writer_interrupted": true,
+    "current_thread_is_single_owner": true,
+    "source_run_authorized": false,
+    "real_source_or_output_touched": false
+  },
+  "input_snapshot": {
+    "h1_custodian_sha256": "0F7F474164A3F51A6ADF479194F8574805A2EE7DBFFE57CACCDC06C4322FAB5E",
+    "h1_supervisor_sha256": "4CC6FF2344E729B256ED47FD63BA9B0EB6EA36153240943DC87E2155A9426BA6",
+    "design_builder_sha256": "1DEB2D3357CB72BC0A7AE637D60B67CB170BFADC49309319C170A813FFB2A454",
+    "independent_validator_sha256": "7F3C951CC24927FCB2580C081188A9A07A6280C2FD82CB73A17BEE481A7031B7",
+    "h1_custodian_tests_sha256": "D379CFAFFDC161CD58C1122FB475211CF84CC9CC90EB6724BA8E41D1BECFE303",
+    "h1_supervisor_tests_sha256": "CE8E1349DD1D84873974F8D4DFF40A47618FF9A1E0F92060D89BCA21C78A5E4F",
+    "design_builder_tests_sha256": "0F39D6219DCB4F4B431F14AC885BEAB7C1541F37E824A6E438E82C73C0D6BBEC",
+    "independent_validator_tests_sha256": "3B7E3B4BF4F50B21FB322C00FCC5332C7DF018446EEF3F8BBDEA5325AEF396B6",
+    "supervisor_sentinel": "REVIEWED_RUN_PACKET_SHA256: str | None = None",
+    "focused_suite": "19 passed, 12 failed in 0.61s",
+    "failure_split": "11 BuildShape/DesignSourceContract fixture API drift failures plus one validator raw ValueError instead of InvalidDesignValidation on row-group mismatch"
+  },
+  "write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/h1_splitvault_002_custodian.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/h1_splitvault_002_supervisor.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/build_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/validate_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_h1_splitvault_002_custodian.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_h1_splitvault_002_supervisor.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_build_trendstack_006_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_validate_trendstack_006_design_source.py"
+  ],
+  "reconciliation_contract": [
+    "Preserve and complete the partial deep rewrite; do not revert to the older permissive DesignSourceContract/API or discard concurrent safety work.",
+    "Rebase builder and validator synthetic fixtures onto the exact new BuildShape/DesignSourceContract API while retaining every legacy behavior assertion and all S1-S6 adversarial tests.",
+    "Normalize all validator internal parser/Parquet/schema exceptions to InvalidDesignValidation without losing cause; the three-row-group/auxiliary-null test must fail through the declared exception surface.",
+    "Complete every S1-S6 closure and mandatory red test from V3/base packet, including executable one-shot orchestration and full canonical synthetic packet PASS.",
+    "Keep the production sentinel exactly None; no real packet, real source-content open/hash/decode or real output/evidence is allowed."
+  ],
+  "acceptance": [
+    "All 31 currently collected tests plus any new completion tests pass under the workspace Python with research PYTHONPATH.",
+    "Independent static check finds no production reviewed-SHA override, permissive selected-read path, source/economic leakage or unguarded publication path.",
+    "Exact canonical synthetic packet traverses preflight, durable marker, custody, selection, build, independent validation, terminal evidence and finally-disarm using only temporary fixtures.",
+    "Every prior S1-S6 repro fails closed before forbidden read/publication, including retry-after-failure, invalid selection with zero opens, existing empty stage, path/reparse/ADS/hardlink, extra empty directory, nested economic leak, row-group/null/clock/hash drift.",
+    "AST parses all eight files; no real H1/vault/output/evidence/run packet appears; return exact eight final SHA256 values."
+  ],
+  "unchanged_bindings": {
+    "base_task_packet_sha256": "F56BFB7C724AECA7DBCB586794FC0AB62227D742060DB1A4F379E4115FEB6BC1",
+    "v2_review_packet_sha256": "773E71900B229BA2F7CC1908E8196D38E48E80E4B515C672EA6F7A0E76E555B6",
+    "v3_task_packet_sha256": "E5D0E3E179834FD786E9B11F3996923670EFB1791239D07135B9A9F3BAA5F1C6",
+    "plans_preregs_registry_source_contract_and_all_s1_s6_requirements_unchanged": true
+  },
+  "prohibitions": [
+    "Abort before edit and report if any of the eight V4 input SHAs drift.",
+    "Do not use Grok or any Grok skill/worker.",
+    "Do not create/arm a real run packet or access/hash/decode the real H1 source, real vault/stage/output/evidence.",
+    "Do not read validation/holdout or calculate strategy/economic outputs.",
+    "Do not modify packets/plans/preregs/registry/source/parent evidence/unrelated files; no network/subprocess/Git."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "DATA_ACQUISITION_ONLY",
+  "provenance_status": "UNVERIFIED",
+  "audit_status": "NOT_APPLICABLE",
+  "verdict": "NO_ECONOMIC_AUTHORITY",
+  "promotion_eligible": false,
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "authority": "DATA_ACQUISITION_ONLY_NO_PERFORMANCE",
+  "epoch_manifest_path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_DATA_EPOCH_V2.json",
+  "epoch_manifest_sha256": "88F6281385DED567E05B23BB6347F2A91B768C8B5653DAC394751D06003901C8",
+  "note": "Collection-only receipt evidence placeholder for HYP004 MT5 Model 4 real-tick data acquisition; it authorizes no spread, slippage, commission, PF, WR, expectancy, promotion, paper, or live decision."
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": "trendstack_hyp006_source_prep_task_packet_amendment.v1",
+  "task_id": "TRENDSTACK_HYP006_POST_CONCURRENCY_REVIEW_SNAPSHOT_20260728_V2",
+  "created_at_utc": "2026-07-28T11:04:37.895Z",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-006",
+  "collection_id": "DATASET-FIVEPERCENT-EURUSD-H1-SPLITVAULT-002",
+  "supersedes_task_packet_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-006_SOURCE_PREP_TASK_PACKET.json",
+  "supersedes_task_packet_sha256": "F56BFB7C724AECA7DBCB586794FC0AB62227D742060DB1A4F379E4115FEB6BC1",
+  "amendment_reason": "A concurrent source-prep lane changed the exact eight-file snapshot after the first assigned builder correctly aborted on hash drift. The concurrent edits added red/green surfaces for selected-shard capability, exact selection mapping and full packet requirements, then stabilized with 18 synthetic tests passing. V2 freezes those bytes for independent review against every unchanged S1-S6 acceptance clause; it grants no run or source-content authority.",
+  "review_snapshot": {
+    "h1_custodian_sha256": "FFA4650C65A4359480BF0B7E4BBAB62647181AFCF7987EA0C37BB1FBC2F9CDBC",
+    "h1_supervisor_sha256": "A7D5E79734869D04A7D5AE431F7045DC02749B623BD63F74BFCDCAF1099CE800",
+    "design_builder_sha256": "301B8F4724760A4D1D7AFEE8FEF0451ACFE41269FEAD5B4574F32D0A805013E2",
+    "independent_validator_sha256": "8CABCCF593871B963F14AB6D1515A0DF0CD71DD8AF36DB87B05FB5EDB1B0507A",
+    "h1_custodian_tests_sha256": "8FC98B1F0B0D653E7B09A723EA90C54A765F8BDAFDD406A9CE325A2F628168DD",
+    "h1_supervisor_tests_sha256": "26B62938F0B1F2BCFDAAD49E055D38F24CF2663C2BE9FE2F81E1B582315D50C1",
+    "design_builder_tests_sha256": "0D484328D00E6B049BE179D454CD9B0B1F2CB6B7248EE71FD74BBB0BDF44EE3A",
+    "independent_validator_tests_sha256": "17FA168D1D4CBAD282F96DCCC9E3680CE4A93576FDB71A13EC90F20BB9F60B4D",
+    "synthetic_tests": "18 passed in 0.65s",
+    "real_source_content_opened": false,
+    "real_output_created": false,
+    "review_status": "PENDING_INDEPENDENT_S1_TO_S6_REVIEW"
+  },
+  "unchanged_bindings": {
+    "collection_plan_v1_sha256": "A8A768D529A4569BDD508BFA0722BFA1ACEF25C3098A91FF78B98EA209E3510F",
+    "collection_plan_v2_sha256": "E8E364ECBCD27321C4F51A0B7564E13FD88AB748E72F3859E36E40CA29B32F63",
+    "probe_plan_v1_sha256": "2BFB0E0B3CF5F929ABE6320433A10C9DC84731A35E327E94F8D46D08CFD00FF4",
+    "probe_plan_v2_sha256": "78771B09C8BB8A259E5F372E36407C342194491208E1D374B10EA8FE05755428",
+    "hyp006_probe_row_sha256": "5251227378A4192AB58364591603B2C1B1EED306DCC3BD4976DB943FDFDC8A1E",
+    "source_run_authorized": false,
+    "supervisor_must_remain_disarmed": true,
+    "all_s1_to_s6_contracts_and_red_first_acceptance_from_v1_remain_binding": true
+  },
+  "review_requirements": [
+    "Verify all eight SHA values before review and report any drift.",
+    "Re-run the original six must-fix adversarial reproductions and every S1-S6 acceptance clause from V1; do not infer closure from 18 green tests.",
+    "Review complete one-shot orchestration, exact packet/authority binding, consume-before-read, full monolith custody validation, metadata-only narrowing, create-new path/TOCTOU safety and exact-tree independent validation.",
+    "PASS only if the stable disarmed snapshot is safe for a separate parent-created reviewed source-run packet."
+  ],
+  "prohibitions": [
+    "Do not edit files during review.",
+    "Do not create or arm a run packet, open/hash/decode the real H1 monolith, create vault/stage/output/evidence or calculate economics.",
+    "Do not read validation/holdout, call network, use subprocess/Grok/Git or modify registry/plans/preregs."
+  ]
+}

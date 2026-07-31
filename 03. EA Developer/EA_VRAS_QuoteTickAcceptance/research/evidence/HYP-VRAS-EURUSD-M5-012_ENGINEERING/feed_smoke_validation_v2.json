@@ -1,0 +1,60 @@
+{
+  "schema_version": "alphafactory_execution_data_validation.v1",
+  "created_at_utc": "2026-07-23T02:39:52.697047Z",
+  "producer": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\tools\\execution_data_foundation.py",
+    "sha256": "FF7ABEE2B48DA18B80AC1BE443B1718DE50EA976BCF9CBA73E9F8F6F94D719DA"
+  },
+  "manifest_schema": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\schemas\\execution_data_capture_manifest.v1.schema.json",
+    "sha256": "27CEBE551459A01E02F04190B005F4DDE3EAE6AF0CED213D18A89417CA727FB1"
+  },
+  "manifest": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\FivePercentOnline-Real\\EURUSD\\quote_tick_acceptance\\20260723_VRAS012_FEED_SMOKE_001\\20260723_VRAS012_FEED_SMOKE_001.manifest.json",
+  "manifest_sha256": "450FADAF07FEBAD5B745A949C78B5E662B585E2C3BF99335D253960E246AB582",
+  "server_match": true,
+  "verdict": "STOP_DATA_FRONTIER",
+  "global_blockers": [
+    "MISSING_REQUIRED_SYMBOLS:GBPUSD,XAUUSD"
+  ],
+  "symbols": [
+    {
+      "symbol": "EURUSD",
+      "verdict": "BLOCKED",
+      "blockers": [
+        "COMMISSION_LIFECYCLES_MISSING",
+        "HEARTBEATS_PARTIAL",
+        "HEARTBEAT_WINDOW_TOO_SHORT",
+        "MISSING_REQUIRED_SYMBOLS:GBPUSD,XAUUSD",
+        "QUOTE_CLOCK_FUTURE_OF_MANIFEST",
+        "QUOTE_DENSITY_TOO_LOW",
+        "QUOTE_TICKS_PARTIAL",
+        "QUOTE_WINDOW_TOO_SHORT",
+        "SLIPPAGE_FILLS_MISSING"
+      ],
+      "metrics": {
+        "quote_ticks": {
+          "row_count": 49,
+          "from_time_msc": 1784784337089,
+          "to_time_msc": 1784784448210,
+          "from_utc": "2026-07-23T05:25:37.089000Z",
+          "to_utc": "2026-07-23T05:27:28.210000Z",
+          "elapsed_days": 0.0012861226851851853,
+          "spread_price_p50": 1.999999999990898e-05,
+          "spread_price_p90": 2.0000000000131024e-05
+        },
+        "heartbeats": {
+          "row_count": 239,
+          "connected_count": 239,
+          "connected_ratio": 1.0,
+          "elapsed_days": 0.0013850694444444444,
+          "maximum_gap_ms": 777
+        }
+      }
+    }
+  ],
+  "authorization": {
+    "hypothesis_or_prereg": false,
+    "ea_edit_compile_backtest": false,
+    "live_trading": false
+  }
+}

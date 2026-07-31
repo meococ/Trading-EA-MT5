@@ -1,0 +1,93 @@
+{
+  "schema_version": "vras_indicator_rich_case.v1",
+  "created_at_utc": "2026-07-22T07:13:25.253803Z",
+  "case_id": "VRAS-003-R05-CR3328",
+  "position_id": -5,
+  "case_kind": "REJECTED_CANDIDATE",
+  "telemetry_status": "COST_DISTANCE_REJECT",
+  "image": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV3/research/evidence/HYP-VRAS-EURUSD-M5-003_GROK_CHART_FORENSICS_100/indicator_rich/VRAS-003-R05-CR3328_indicator_rich.png",
+  "image_sha256": "7F6D9EB2C37BAFED1EE48B4756B45B75FFDA9E1BB4D30B026043F58FD77E6512",
+  "image_bytes": 609295,
+  "source_m1": "02. AlphaFactory/data/fivepercent/EURUSD/EURUSD_M1_2015_now.parquet",
+  "source_m1_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+  "telemetry": "02. AlphaFactory/runs/EA_VRAS_RegimeAdaptiveScalperV3/20260722_103759/logs/EURUSD_DecisionTelemetry_HYP-VRAS-EURUSD-M5-003_141552359.csv",
+  "telemetry_sha256": "1C5F93CA266A23CB4A84958D74DFCAD6DD1FBDFCEB2B612C83E51D90887C6343",
+  "time_axis": "broker_server_time",
+  "continuous_series": [
+    "session_vwap_tick_weighted",
+    "session_sd_tick_weighted",
+    "shadow_vwap_equal_weighted",
+    "confirmed_anchored_vwap",
+    "adx14_mt5",
+    "atr14_mt5",
+    "rsi14_mt5",
+    "m15_close_minus_m15_vwap"
+  ],
+  "entry_parity": {
+    "adx": {
+      "recomputed": 24.63355836872557,
+      "mt5_telemetry": 24.633558,
+      "absolute_delta": 3.6872556918865484e-07,
+      "tolerance": 1e-05,
+      "pass": true
+    },
+    "atr": {
+      "recomputed": 0.0004849999999999577,
+      "mt5_telemetry": 0.00048,
+      "absolute_delta": 4.999999999957675e-06,
+      "tolerance": 5.1e-06,
+      "pass": true
+    },
+    "rsi": {
+      "recomputed": 62.197177516567564,
+      "mt5_telemetry": 62.197178,
+      "absolute_delta": 4.834324371927323e-07,
+      "tolerance": 1e-05,
+      "pass": true
+    },
+    "session_vwap": {
+      "recomputed": 1.0817179733018796,
+      "mt5_telemetry": 1.08172,
+      "absolute_delta": 2.0266981204386525e-06,
+      "tolerance": 5.1e-06,
+      "pass": true
+    },
+    "session_sd": {
+      "recomputed": 0.001345138654764146,
+      "mt5_telemetry": 0.00135,
+      "absolute_delta": 4.861345235854112e-06,
+      "tolerance": 5.1e-06,
+      "pass": true
+    },
+    "shadow_vwap": {
+      "recomputed": 1.081933962962963,
+      "mt5_telemetry": 1.08193,
+      "absolute_delta": 3.962962962900107e-06,
+      "tolerance": 5.1e-06,
+      "pass": true
+    },
+    "anchored_vwap": {
+      "recomputed": 1.081433,
+      "mt5_telemetry": 1.08143,
+      "absolute_delta": 3.0000000001972893e-06,
+      "tolerance": 5.1e-06,
+      "pass": true
+    },
+    "m15_close": {
+      "recomputed": 1.08173,
+      "mt5_telemetry": 1.08173,
+      "absolute_delta": 0.0,
+      "tolerance": 5.1e-06,
+      "pass": true
+    },
+    "m15_vwap": {
+      "recomputed": 1.081719482513293,
+      "mt5_telemetry": 1.08172,
+      "absolute_delta": 5.174867070412148e-07,
+      "tolerance": 5.1e-06,
+      "pass": true
+    }
+  },
+  "entry_parity_pass": true,
+  "fidelity_boundary": "Continuous series are diagnostic outside entry; exact entry snapshot is MT5 telemetry-bound. Chart is outcome-aware."
+}

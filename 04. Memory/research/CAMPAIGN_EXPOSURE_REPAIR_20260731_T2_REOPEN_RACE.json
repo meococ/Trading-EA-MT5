@@ -1,0 +1,50 @@
+{
+  "schema_version": "campaign_exposure_ledger_repair.v1",
+  "campaign_id": "CAMPAIGN-PTR-E01",
+  "repair_type": "PRE_OUTCOME_CONCURRENT_APPEND_RACE",
+  "ledger_path": "04. Memory/research/CAMPAIGN_EXPOSURE.jsonl",
+  "detected_at_utc": "2026-07-30T22:26:30Z",
+  "last_valid_row": {
+    "line": 4,
+    "generation": 1,
+    "event": "GENERATION_CLOSE",
+    "raw_sha256": "175D9E9DAE48182B76110BBD945E2445C243A9AE115AA04F20BD701F63DA0E29"
+  },
+  "quarantined_invalid_rows": [
+    {
+      "line": 5,
+      "raw_sha256": "048CB66C7A26E24C9380C3FDDD6251B347E8D36EBD11A6692F8D14F046D244CE",
+      "generation": 2,
+      "event": "EPOCH_REOPEN",
+      "updated_at_utc": "2026-07-30T22:25:24Z",
+      "charter_sha256": "BA7FDC3B84EE920A99F3B9DC6986B1BB23E7E7A337D942CAD35EA7BE6A6B2294",
+      "defect": "Bound a superseded intermediate charter hash after a final wording-only correction changed the file hash."
+    },
+    {
+      "line": 6,
+      "raw_sha256": "9EC87969360102CC994E4E7B6CF1BC7219E9C4527AEAE4C59F42259C5C8D76CE",
+      "generation": 2,
+      "event": "EPOCH_REOPEN",
+      "updated_at_utc": "2026-07-30T22:25:09Z",
+      "charter_sha256": "D63F782926DEC4F12EA8EBB17B3511BC08C249A0AE4ECD9C1F25F5C611386E9E",
+      "defect": "A second concurrent reopen was appended after the first, breaking timestamp order, prior-row chaining, one-reopen semantics and immutable reopen_condition."
+    }
+  ],
+  "exposure_audit": {
+    "market_data_opened": false,
+    "mt5_started": false,
+    "trades_or_pnl_viewed": false,
+    "economic_trials_spent": 0,
+    "alpha_ppm_spent": 0,
+    "viewed_arms": [],
+    "splits_opened": 0,
+    "holdout_opened": false
+  },
+  "repair_action": "Preserve both invalid row hashes here, remove only the two never-valid concurrent append rows from the active ledger, and append one canonical generation-2 EPOCH_REOPEN chained directly to the last valid T1 close row with the current frozen charter hash. Do not relax the validator.",
+  "canonical_t2_charter": {
+    "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P0_CHARTER.json",
+    "sha256": "D63F782926DEC4F12EA8EBB17B3511BC08C249A0AE4ECD9C1F25F5C611386E9E"
+  },
+  "outcome_authority": false,
+  "paper_or_live_authority": false
+}

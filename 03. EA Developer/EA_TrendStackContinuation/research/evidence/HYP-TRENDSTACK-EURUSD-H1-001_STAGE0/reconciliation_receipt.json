@@ -1,0 +1,20 @@
+{
+  "access_contract": "CAUSAL_BOUNDED_STREAM_V1",
+  "access_trace_sha256": "06623A5EAE3D22E32DA55B519BBFC72199C09E3E0BD9D65994AA24E8C40A65F3",
+  "causal_decisions_passed": 2554,
+  "data_sha256": "71860016AF1BD1B17353B043AFF799233A787E9DF3F587913FCD2F5328BB1E08",
+  "holdout_opened": false,
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-001",
+  "immutable_prior_row_rechecks_passed": 2554,
+  "m1_opened": false,
+  "max_visible_strictly_before_every_cutoff": true,
+  "opportunity_ids_unique": true,
+  "opportunity_ledger_rows": 2554,
+  "opportunity_ledger_sha256": "F5966A48FB46CE3BC719C2DDB88A370B7E1DA54E3D00017907050AD61D638BE0",
+  "outcomes_opened": false,
+  "plan_sha256": "891291042FB326EF67411A0763015B4E3E68654F59E4B323C2217F1E8015B6F0",
+  "reconciled": true,
+  "scanner_sha256": "6E13BC10B1A1CEF17FA6DB3F5C388BD28CDB5301B08C0C7B2CD69A803E9F476F",
+  "schema_version": "trendstack_stage0_reconciliation.v1",
+  "stage0_result_sha256": "D0BCC6287D444FE9D04C1D9A8F1DA044BAD8989219F7B64FD18BEC973A6E649F"
+}

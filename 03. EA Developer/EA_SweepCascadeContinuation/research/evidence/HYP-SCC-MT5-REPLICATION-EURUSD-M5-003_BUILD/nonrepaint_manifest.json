@@ -1,0 +1,9 @@
+{
+  "schema_version": "alphafactory_nonrepaint_manifest.v1",
+  "hypothesis_id": "HYP-SCC-MT5-REPLICATION-EURUSD-M5-003",
+  "run_id": "PRE_MODEL0_BUILD",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\research\\evidence\\HYP-SCC-MT5-REPLICATION-EURUSD-M5-003_BUILD\\source_snapshot",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\research\\evidence\\HYP-SCC-MT5-REPLICATION-EURUSD-M5-003_BUILD\\source_snapshot\\EA_SweepCascadeContinuation.mq5",
+  "source_sha256": "E56AF40AB7DA7EB02AD312596062BD9547F8590FF0C652233B4246370D624B05",
+  "include_snapshots": []
+}

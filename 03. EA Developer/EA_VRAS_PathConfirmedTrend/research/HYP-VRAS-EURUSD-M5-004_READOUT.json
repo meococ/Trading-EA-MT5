@@ -1,0 +1,516 @@
+{
+  "schema_version": "vras_hyp004_matched_pair_readout.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-004",
+  "window": {
+    "from": "2023.01.03",
+    "to": "2026.06.30",
+    "elapsed_weeks": 182.0
+  },
+  "control": {
+    "run_id": "20260722_155551",
+    "metrics": {
+      "trades": 261,
+      "wins": 98,
+      "win_rate_pct": 37.547893,
+      "net_usd": -3429.27,
+      "profit_factor": 0.892707735,
+      "expectancy_usd": -13.138966,
+      "mean_realized_r": -0.048708792,
+      "max_drawdown_pct": 5.957041283,
+      "trades_per_elapsed_week": 1.434065934,
+      "stop_exits": 127,
+      "stop_exit_share": 0.486590038,
+      "by_branch": {
+        "RANGE": {
+          "trades": 21,
+          "wins": 6,
+          "win_rate_pct": 28.571429,
+          "net_usd": 190.3,
+          "profit_factor": 1.074644429,
+          "expectancy_usd": 9.061905,
+          "mean_realized_r": 0.034981781,
+          "max_drawdown_pct": 0.87495,
+          "trades_per_elapsed_week": 0.115384615,
+          "stop_exits": 9,
+          "stop_exit_share": 0.428571429
+        },
+        "TREND": {
+          "trades": 240,
+          "wins": 92,
+          "win_rate_pct": 38.333333,
+          "net_usd": -3619.57,
+          "profit_factor": 0.876937822,
+          "expectancy_usd": -15.081542,
+          "mean_realized_r": -0.056031717,
+          "max_drawdown_pct": 5.745093544,
+          "trades_per_elapsed_week": 1.318681319,
+          "stop_exits": 118,
+          "stop_exit_share": 0.491666667
+        }
+      },
+      "by_year": {
+        "2023": {
+          "trades": 118,
+          "wins": 50,
+          "win_rate_pct": 42.372881,
+          "net_usd": 1850.38,
+          "profit_factor": 1.138418922,
+          "expectancy_usd": 15.681186,
+          "mean_realized_r": 0.071404134,
+          "max_drawdown_pct": 2.375186397,
+          "trades_per_elapsed_week": 0.648351648,
+          "stop_exits": 52,
+          "stop_exit_share": 0.440677966
+        },
+        "2024": {
+          "trades": 51,
+          "wins": 20,
+          "win_rate_pct": 39.215686,
+          "net_usd": 19.65,
+          "profit_factor": 1.003248557,
+          "expectancy_usd": 0.385294,
+          "mean_realized_r": 0.002755502,
+          "max_drawdown_pct": 1.454934776,
+          "trades_per_elapsed_week": 0.28021978,
+          "stop_exits": 23,
+          "stop_exit_share": 0.450980392
+        },
+        "2025": {
+          "trades": 92,
+          "wins": 28,
+          "win_rate_pct": 30.434783,
+          "net_usd": -5299.3,
+          "profit_factor": 0.577581438,
+          "expectancy_usd": -57.601087,
+          "mean_realized_r": -0.231295794,
+          "max_drawdown_pct": 5.2993,
+          "trades_per_elapsed_week": 0.505494505,
+          "stop_exits": 52,
+          "stop_exit_share": 0.565217391
+        },
+        "2026": {
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "net_usd": 0,
+          "profit_factor": 0.0,
+          "expectancy_usd": 0.0,
+          "mean_realized_r": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades_per_elapsed_week": 0.0,
+          "stop_exits": 0,
+          "stop_exit_share": 0.0
+        }
+      },
+      "by_direction": {
+        "LONG": {
+          "trades": 130,
+          "wins": 47,
+          "win_rate_pct": 36.153846,
+          "net_usd": -1344.44,
+          "profit_factor": 0.915923105,
+          "expectancy_usd": -10.341846,
+          "mean_realized_r": -0.03368106,
+          "max_drawdown_pct": 3.388395962,
+          "trades_per_elapsed_week": 0.714285714,
+          "stop_exits": 63,
+          "stop_exit_share": 0.484615385
+        },
+        "SHORT": {
+          "trades": 131,
+          "wins": 51,
+          "win_rate_pct": 38.931298,
+          "net_usd": -2084.83,
+          "profit_factor": 0.869464385,
+          "expectancy_usd": -15.914733,
+          "mean_realized_r": -0.063621807,
+          "max_drawdown_pct": 3.900372983,
+          "trades_per_elapsed_week": 0.71978022,
+          "stop_exits": 64,
+          "stop_exit_share": 0.488549618
+        }
+      },
+      "by_exit_class": {
+        "STOP": {
+          "trades": 127,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "net_usd": -29069.3,
+          "profit_factor": 0.0,
+          "expectancy_usd": -228.892126,
+          "mean_realized_r": -0.906555718,
+          "max_drawdown_pct": 29.0693,
+          "trades_per_elapsed_week": 0.697802198,
+          "stop_exits": 127,
+          "stop_exit_share": 1.0
+        },
+        "TARGET": {
+          "trades": 55,
+          "wins": 55,
+          "win_rate_pct": 100.0,
+          "net_usd": 21736.76,
+          "profit_factor": 999.99,
+          "expectancy_usd": 395.213818,
+          "mean_realized_r": 1.57821845,
+          "max_drawdown_pct": 0.0,
+          "trades_per_elapsed_week": 0.302197802,
+          "stop_exits": 0,
+          "stop_exit_share": 0.0
+        },
+        "SAFETY_OR_TIME": {
+          "trades": 79,
+          "wins": 43,
+          "win_rate_pct": 54.43038,
+          "net_usd": 3903.27,
+          "profit_factor": 2.34937514,
+          "expectancy_usd": 49.408481,
+          "mean_realized_r": 0.197690719,
+          "max_drawdown_pct": 0.472119315,
+          "trades_per_elapsed_week": 0.434065934,
+          "stop_exits": 0,
+          "stop_exit_share": 0.0
+        }
+      },
+      "cost_stress_x1_5": {
+        "multiplier": 1.5,
+        "profit_factor": 0.766233067,
+        "net_usd": -8164.78,
+        "incremental_cost_usd": 4735.51,
+        "status": "UNVERIFIED_DIAGNOSTIC_PROXY"
+      },
+      "cost_stress_x2": {
+        "multiplier": 2.0,
+        "profit_factor": 0.659846254,
+        "net_usd": -12900.29,
+        "incremental_cost_usd": 9471.02,
+        "status": "UNVERIFIED_DIAGNOSTIC_PROXY"
+      }
+    },
+    "reconciliation": {
+      "lifecycle_positions": 261,
+      "report_trades": 261,
+      "lifecycle_net_usd": -3429.27,
+      "report_net_usd": -3429.27,
+      "net_gap_usd": 0.0,
+      "unmatched_accepted_entries": 0,
+      "status": "PASS_EXACT"
+    },
+    "status_counts": {
+      "SESSION_REJECT": 803,
+      "ORDER_ACCEPTED": 261,
+      "STATE_EVENT": 8300,
+      "COST_DISTANCE_REJECT": 586,
+      "EXPOSURE_REJECT": 53,
+      "TRADE_LIMIT_REJECT": 7,
+      "SPREAD_REJECT": 68,
+      "BROKER_DISTANCE_REJECT": 1,
+      "ACCOUNT_DD_REJECT": 405
+    }
+  },
+  "challenger": {
+    "run_id": "20260722_155635",
+    "metrics": {
+      "trades": 252,
+      "wins": 110,
+      "win_rate_pct": 43.650794,
+      "net_usd": -2677.24,
+      "profit_factor": 0.899612246,
+      "expectancy_usd": -10.623968,
+      "mean_realized_r": -0.042184607,
+      "max_drawdown_pct": 4.490024089,
+      "trades_per_elapsed_week": 1.384615385,
+      "stop_exits": 101,
+      "stop_exit_share": 0.400793651,
+      "by_branch": {
+        "RANGE": {
+          "trades": 28,
+          "wins": 7,
+          "win_rate_pct": 25.0,
+          "net_usd": -631.7,
+          "profit_factor": 0.829260118,
+          "expectancy_usd": -22.560714,
+          "mean_realized_r": -0.089461216,
+          "max_drawdown_pct": 1.615118325,
+          "trades_per_elapsed_week": 0.153846154,
+          "stop_exits": 14,
+          "stop_exit_share": 0.5
+        },
+        "TREND": {
+          "trades": 224,
+          "wins": 103,
+          "win_rate_pct": 45.982143,
+          "net_usd": -2045.54,
+          "profit_factor": 0.91094426,
+          "expectancy_usd": -9.131875,
+          "mean_realized_r": -0.036275031,
+          "max_drawdown_pct": 3.786258258,
+          "trades_per_elapsed_week": 1.230769231,
+          "stop_exits": 87,
+          "stop_exit_share": 0.388392857
+        }
+      },
+      "by_year": {
+        "2023": {
+          "trades": 77,
+          "wins": 39,
+          "win_rate_pct": 50.649351,
+          "net_usd": 1839.32,
+          "profit_factor": 1.243926763,
+          "expectancy_usd": 23.887273,
+          "mean_realized_r": 0.096126753,
+          "max_drawdown_pct": 2.673665875,
+          "trades_per_elapsed_week": 0.423076923,
+          "stop_exits": 27,
+          "stop_exit_share": 0.350649351
+        },
+        "2024": {
+          "trades": 50,
+          "wins": 20,
+          "win_rate_pct": 40.0,
+          "net_usd": -1347.81,
+          "profit_factor": 0.755785953,
+          "expectancy_usd": -26.9562,
+          "mean_realized_r": -0.106273655,
+          "max_drawdown_pct": 1.74292,
+          "trades_per_elapsed_week": 0.274725275,
+          "stop_exits": 20,
+          "stop_exit_share": 0.4
+        },
+        "2025": {
+          "trades": 97,
+          "wins": 40,
+          "win_rate_pct": 41.237113,
+          "net_usd": -2477.55,
+          "profit_factor": 0.767569601,
+          "expectancy_usd": -25.541753,
+          "mean_realized_r": -0.102196165,
+          "max_drawdown_pct": 3.058982833,
+          "trades_per_elapsed_week": 0.532967033,
+          "stop_exits": 42,
+          "stop_exit_share": 0.432989691
+        },
+        "2026": {
+          "trades": 28,
+          "wins": 11,
+          "win_rate_pct": 39.285714,
+          "net_usd": -691.2,
+          "profit_factor": 0.765713976,
+          "expectancy_usd": -24.685714,
+          "mean_realized_r": -0.100198931,
+          "max_drawdown_pct": 1.133984194,
+          "trades_per_elapsed_week": 0.153846154,
+          "stop_exits": 12,
+          "stop_exit_share": 0.428571429
+        }
+      },
+      "by_direction": {
+        "LONG": {
+          "trades": 127,
+          "wins": 50,
+          "win_rate_pct": 39.370079,
+          "net_usd": -2529.01,
+          "profit_factor": 0.818353219,
+          "expectancy_usd": -19.913465,
+          "mean_realized_r": -0.079847577,
+          "max_drawdown_pct": 3.904072301,
+          "trades_per_elapsed_week": 0.697802198,
+          "stop_exits": 51,
+          "stop_exit_share": 0.401574803
+        },
+        "SHORT": {
+          "trades": 125,
+          "wins": 60,
+          "win_rate_pct": 48.0,
+          "net_usd": -148.23,
+          "profit_factor": 0.988370752,
+          "expectancy_usd": -1.18584,
+          "mean_realized_r": -0.003919029,
+          "max_drawdown_pct": 2.337674838,
+          "trades_per_elapsed_week": 0.686813187,
+          "stop_exits": 50,
+          "stop_exit_share": 0.4
+        }
+      },
+      "by_exit_class": {
+        "STOP": {
+          "trades": 101,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "net_usd": -23023.69,
+          "profit_factor": 0.0,
+          "expectancy_usd": -227.957327,
+          "mean_realized_r": -0.915215208,
+          "max_drawdown_pct": 23.02369,
+          "trades_per_elapsed_week": 0.554945055,
+          "stop_exits": 101,
+          "stop_exit_share": 1.0
+        },
+        "TARGET": {
+          "trades": 31,
+          "wins": 31,
+          "win_rate_pct": 100.0,
+          "net_usd": 12561.59,
+          "profit_factor": 999.99,
+          "expectancy_usd": 405.212581,
+          "mean_realized_r": 1.627991573,
+          "max_drawdown_pct": 0.0,
+          "trades_per_elapsed_week": 0.17032967,
+          "stop_exits": 0,
+          "stop_exit_share": 0.0
+        },
+        "SAFETY_OR_TIME": {
+          "trades": 120,
+          "wins": 79,
+          "win_rate_pct": 65.833333,
+          "net_usd": 7784.86,
+          "profit_factor": 3.135588292,
+          "expectancy_usd": 64.873833,
+          "mean_realized_r": 0.26115397,
+          "max_drawdown_pct": 0.339338431,
+          "trades_per_elapsed_week": 0.659340659,
+          "stop_exits": 0,
+          "stop_exit_share": 0.0
+        }
+      },
+      "cost_stress_x1_5": {
+        "multiplier": 1.5,
+        "profit_factor": 0.754666768,
+        "net_usd": -7200.22,
+        "incremental_cost_usd": 4522.98,
+        "status": "UNVERIFIED_DIAGNOSTIC_PROXY"
+      },
+      "cost_stress_x2": {
+        "multiplier": 2.0,
+        "profit_factor": 0.635237855,
+        "net_usd": -11723.2,
+        "incremental_cost_usd": 9045.96,
+        "status": "UNVERIFIED_DIAGNOSTIC_PROXY"
+      }
+    },
+    "reconciliation": {
+      "lifecycle_positions": 252,
+      "report_trades": 252,
+      "lifecycle_net_usd": -2677.24,
+      "report_net_usd": -2677.24,
+      "net_gap_usd": 0.0,
+      "unmatched_accepted_entries": 0,
+      "status": "PASS_EXACT"
+    },
+    "status_counts": {
+      "PATH_CANDIDATE_ARMED": 1940,
+      "PATH_CONFIRM_ACCEPTED": 639,
+      "SESSION_REJECT": 342,
+      "PATH_CONFIRM_REJECT": 1301,
+      "ORDER_ACCEPTED": 252,
+      "STATE_EVENT": 8300,
+      "COST_DISTANCE_REJECT": 207,
+      "PATH_ARM_EXPOSURE_REJECT": 46,
+      "EXPOSURE_REJECT": 8,
+      "SPREAD_REJECT": 28
+    }
+  },
+  "path_funnel": {
+    "candidates_armed": 1940,
+    "confirmations_passed": 639,
+    "confirmations_rejected": 1298,
+    "confirmations_expired": 3,
+    "pass_rate": 0.329381443,
+    "opened_trend_positions": 224,
+    "raw_to_open_rate": 0.115463918
+  },
+  "relative_full_window": {
+    "profit_factor_lift": 0.006904511,
+    "mean_realized_r_lift": 0.006524185,
+    "stop_exit_share_reduction": 0.085796387
+  },
+  "causal_diagnostics": {
+    "winning_exit_classes": {
+      "TARGET": 31,
+      "SAFETY_OR_TIME": 79
+    },
+    "losing_exit_classes": {
+      "STOP": 101,
+      "SAFETY_OR_TIME": 41
+    },
+    "winning_branches": {
+      "TREND": 103,
+      "RANGE": 7
+    },
+    "losing_branches": {
+      "TREND": 121,
+      "RANGE": 21
+    },
+    "logic_conflicts": {
+      "path_arm_while_exposed": 46,
+      "exposure_guard_rejections": 8,
+      "interpretation": "Expected serialized state/exposure behavior; no evidence of branch leakage or duplicate exposure."
+    }
+  },
+  "common_horizon": {
+    "through": "2025-06-18T21:15:00",
+    "control": {
+      "trades": 261,
+      "wins": 98,
+      "win_rate_pct": 37.547893,
+      "net_usd": -3429.27,
+      "profit_factor": 0.892707735,
+      "expectancy_usd": -13.138966,
+      "mean_realized_r": -0.048708792,
+      "max_drawdown_pct": 5.957041283,
+      "trades_per_elapsed_week": 2.034780793,
+      "stop_exits": 127,
+      "stop_exit_share": 0.486590038
+    },
+    "challenger": {
+      "trades": 174,
+      "wins": 79,
+      "win_rate_pct": 45.402299,
+      "net_usd": -480.61,
+      "profit_factor": 0.973835967,
+      "expectancy_usd": -2.762126,
+      "mean_realized_r": -0.010131114,
+      "max_drawdown_pct": 2.820295736,
+      "trades_per_elapsed_week": 1.356520529,
+      "stop_exits": 68,
+      "stop_exit_share": 0.390804598
+    },
+    "relative": {
+      "profit_factor_lift": 0.081128232,
+      "mean_realized_r_lift": 0.038577678,
+      "stop_exit_share_reduction": 0.09578544
+    },
+    "note": "Diagnostic only: control stopped opening after the account-DD guard latched; frozen gates use the full window."
+  },
+  "validation": {
+    "absolute_gates": {
+      "trades_gte_350": false,
+      "cadence_2_to_5_per_week": false,
+      "profit_factor_gte_1_30": false,
+      "positive_expectancy": false,
+      "max_drawdown_lte_6_pct": true,
+      "cost_x1_5_pf_gte_1_25": false,
+      "cost_x2_pf_gte_1_00": false,
+      "monte_carlo_p95_dd_lte_6_pct": false
+    },
+    "relative_gates": {
+      "profit_factor_lift_gte_0_15": false,
+      "mean_r_lift_gte_0_10": false,
+      "stop_share_reduction_gte_10pp": false
+    },
+    "absolute_passed": 1,
+    "absolute_total": 8,
+    "relative_passed": 0,
+    "relative_total": 3,
+    "unified_verdict": "REVIEW",
+    "robustness_pass_rate_pct": 14.3,
+    "wfa_oos_profitable_ratio": 0.2,
+    "monte_carlo_p95_dd_pct": 7.063011341885208
+  },
+  "limitations": [
+    "Static news guard disabled in both arms because its calendar ends in 2022.",
+    "Cost provenance and independent slippage reconciliation are unverified.",
+    "Cost stress is an incremental telemetry-based diagnostic proxy, not promotion evidence.",
+    "AlphaFactory WFA/robustness outputs are diagnostic fixed-parameter/trade-PnL proxies."
+  ],
+  "verdict": "KILL_PATH_CONFIRMATION_NO_INDEPENDENT_EDGE"
+}

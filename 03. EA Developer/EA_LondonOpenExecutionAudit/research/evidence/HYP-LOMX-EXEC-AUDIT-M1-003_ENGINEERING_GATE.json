@@ -1,0 +1,58 @@
+{
+  "schema_version": "lomx_execution_audit_engineering_gate.v1",
+  "hypothesis_id": "HYP-LOMX-EXEC-AUDIT-M1-003",
+  "generated_at_utc": "2026-07-30T11:45:00Z",
+  "audit_only": true,
+  "performance_metrics_authorized": false,
+  "promotion_eligible": false,
+  "source": {
+    "path": "03. EA Developer/EA_LondonOpenExecutionAudit/EA_LondonOpenExecutionAudit.mq5",
+    "bytes": 28591,
+    "sha256": "C99D18C7912384D529CF651214EBF636211536957D7F4241831CB2418D28EEC1"
+  },
+  "compiled_ex5": {
+    "path": "03. EA Developer/EA_LondonOpenExecutionAudit/EA_LondonOpenExecutionAudit.ex5",
+    "bytes": 32852,
+    "sha256": "F9A2BFFA0C351A0CE29B942A1E954DD46322FEC28FF8F17B931308C5B2057ABC",
+    "compile_errors": 0,
+    "compile_warnings": 0
+  },
+  "preregistration": {
+    "path": "03. EA Developer/EA_LondonOpenExecutionAudit/research/HYP-LOMX-EXEC-AUDIT-M1-003_PREREG_V2.md",
+    "sha256": "FA5745BAFFD8FBBE8238D82B143E5F6DFC4E9CD7DD1D9A5557F3B3E01310CABA"
+  },
+  "focused_tests": {
+    "path": "03. EA Developer/EA_LondonOpenExecutionAudit/research/tests/test_execution_audit_contract.py",
+    "sha256": "FB41572CA2E13FB9829B9A917B298EF5218B85FC44AA69FB84900B355E8AECB6",
+    "passed": 11,
+    "failed": 0
+  },
+  "preoutcome_validator": {
+    "path": "03. EA Developer/EA_LondonOpenExecutionAudit/research/validate_execution_audit.py",
+    "sha256": "7E2029080C3FEB288234AF4317727C186808E8ACC251D0CC26E827AE9F7F0195",
+    "minimum_completed_lifecycles_per_scenario": 1000
+  },
+  "independent_review": {
+    "path": ".context/lomx_execution_audit_mql5_review_20260730/run3/grok-response.json",
+    "sha256": "9EABCD90113DF131DB92F4CCFD973C57F498770559E9762FF4149B735B33485F",
+    "original_verdict": "BLOCKED_BY_FINDINGS",
+    "findings_addressed_before_model0": 7,
+    "runner_success": true,
+    "stop_reason": "EndTurn",
+    "structured_output_valid": true,
+    "accepted_run_cost_usd": 0.1250752,
+    "failed_run_cost_usd": 0.2370136
+  },
+  "nonrepaint_audit": {
+    "status": "PASS",
+    "price_read_count": 1,
+    "price_read": "CopyRates(_Symbol,PERIOD_M1,shift,1,bars)",
+    "exact_bar_lookup": "iBarShift(_Symbol,PERIOD_M1,server_time,true)",
+    "closed_bar_guard": "shift >= 1",
+    "bar_zero_findings": 0,
+    "copybuffer_findings": 0,
+    "multitimeframe_findings": 0,
+    "file_common_findings": 0
+  },
+  "verdict": "PASS_ENGINEERING_PRE_MODEL0_AUDIT_ONLY"
+}

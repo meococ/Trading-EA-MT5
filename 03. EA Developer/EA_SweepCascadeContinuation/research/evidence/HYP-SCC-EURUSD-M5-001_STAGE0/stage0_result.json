@@ -1,0 +1,196 @@
+{
+  "accepted_count": 286,
+  "accepted_per_elapsed_week": 1.3702943189596166,
+  "artifacts": {
+    "challenger_csv_sha256": "86493403CBFEA636E845AD4127FB96876D58DE90DCC608C017F4CF8C37B66F63",
+    "control_csv_sha256": "CF8002A8FDF617A3E8A216C65DEB6F8A0004B3B8DA16BCD1093A2B505CE50441",
+    "terminal_csv_sha256": "2A7673F4F611BC9B02F0C16C2223A7DEEB161EF909E611FC16E7867E776645BD"
+  },
+  "clock_path": "02. AlphaFactory/tools/research/fivepercent_server_clock.py",
+  "clock_sha256": "A7F179935102B57BA3B629345209F6B0D668D1F7FD828A5ED6003207F41A2F52",
+  "confirmed_fractal_highs": 36145,
+  "confirmed_fractal_lows": 36081,
+  "consumed_pivot_highs": 617,
+  "consumed_pivot_lows": 625,
+  "control_breaks": 1242,
+  "cost_r_1_5pip": {
+    "count": 286,
+    "max": 2.7450980392048736,
+    "median": 0.4707201266154256,
+    "min": 0.05452067242162687,
+    "p25": 0.31305360041058405,
+    "p75": 0.7106598984770407
+  },
+  "cost_status": "UNVERIFIED_PROXY",
+  "data_path": "02. AlphaFactory/data/fivepercent/EURUSD/EURUSD_M1_2015_now.parquet",
+  "data_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+  "design_end_exclusive": "2023-01-01 00:00:00",
+  "design_start": "2019-01-01 00:00:00",
+  "direction_counts": {
+    "LONG": 139,
+    "SHORT": 147
+  },
+  "economic_metrics_authorized": false,
+  "elapsed_calendar_weeks": 208.71428571428572,
+  "entry_reference_available_share": 1.0,
+  "funnel": {
+    "accepted_retests": 286,
+    "ambiguous_break_bars": 0,
+    "blocked_by_daily_attempt_cap": 30089,
+    "expire_12": 238,
+    "hold_pass": 878,
+    "long_break_arms": 617,
+    "raw_break_arms": 1242,
+    "reject_close_inside": 334,
+    "reject_day_boundary": 18,
+    "reject_end_of_data": 0,
+    "reject_gap": 6,
+    "reject_hold": 360,
+    "short_break_arms": 625
+  },
+  "gates": {
+    "cadence_pooled_and_each_year": {
+      "actual": {
+        "by_year": {
+          "2019": 1.3616438356164382,
+          "2020": 1.4344262295081966,
+          "2021": 1.4575342465753425,
+          "2022": 1.2273972602739724
+        },
+        "pooled": 1.3702943189596166
+      },
+      "passed": false,
+      "threshold": "2.00..5.00"
+    },
+    "cost_in_r_1_5pip": {
+      "actual": {
+        "median": 0.4707201266154256,
+        "p75": 0.7106598984770407
+      },
+      "passed": false,
+      "threshold": {
+        "median_max": 0.2,
+        "p75_max": 0.3
+      }
+    },
+    "deterministic_replay": {
+      "actual": true,
+      "passed": true,
+      "threshold": true
+    },
+    "direction_minimum": {
+      "actual": {
+        "LONG": 139,
+        "SHORT": 147
+      },
+      "passed": true,
+      "threshold": {
+        "LONG": 100,
+        "SHORT": 100
+      }
+    },
+    "entry_reference_integrity": {
+      "actual": 1.0,
+      "passed": true,
+      "threshold": 1.0
+    },
+    "hash_and_holdout_seal": {
+      "actual": 0,
+      "passed": true,
+      "threshold": "all exact; holdout=0"
+    },
+    "maximum_year_share": {
+      "actual": 0.26573426573426573,
+      "passed": true,
+      "threshold": 0.35
+    },
+    "minimum_accepted_events": {
+      "actual": 286,
+      "passed": false,
+      "threshold": 418
+    },
+    "outcome_blind_columns": {
+      "actual": [],
+      "passed": true,
+      "threshold": 0
+    },
+    "pivot_and_identity_integrity": {
+      "actual": {
+        "ambiguous": 0,
+        "pivot_reuse": 0,
+        "strict_subset": true
+      },
+      "passed": true,
+      "threshold": "reuse=0 ambiguous=0 strict_subset"
+    },
+    "risk_geometry": {
+      "actual": {
+        "median_pips": 3.1866071428587883,
+        "p25_pips": 2.110714285714632
+      },
+      "passed": false,
+      "threshold": {
+        "median_pips": 7.5,
+        "p25_pips": 5.0
+      }
+    },
+    "variable_first_passage": {
+      "actual": 0.548951048951049,
+      "passed": true,
+      "threshold": 0.2
+    }
+  },
+  "hypothesis_id": "HYP-SCC-EURUSD-M5-001",
+  "lag_ge_2_share": 0.548951048951049,
+  "manifest_path": "02. AlphaFactory/data/fivepercent/EURUSD/manifest.json",
+  "manifest_sha256": "2CD996FD4416B1E888BF1C9D272BF49056DB3A4CE477CF74FA4E31D474A41B54",
+  "max_year_share": 0.26573426573426573,
+  "model0_authorized": false,
+  "news_status": "NOT_APPLICABLE_STAGE0",
+  "outcome_blind_attestation": true,
+  "pivot_reuse_count": 0,
+  "plan_path": "03. EA Developer/EA_SweepCascadeContinuation/research/HYP-SCC-EURUSD-M5-001_PROBE_PLAN.md",
+  "plan_sha256": "6541239D88FFF99D9C8D1E2B3C78645ECE0BE01A69FFCF32BA1620ED6557FA3B",
+  "promotion_eligible": false,
+  "quality": {
+    "complete_m5_bins": 297801,
+    "incomplete_m5_bins": 682,
+    "input_m1_rows": 1491312,
+    "total_m5_bins": 298483
+  },
+  "risk_pips": {
+    "count": 286,
+    "max": 27.51249999999983,
+    "median": 3.1866071428587883,
+    "min": 0.5464285714307238,
+    "p25": 2.110714285714632,
+    "p75": 4.791517857142269
+  },
+  "scanner_path": "03. EA Developer/EA_SweepCascadeContinuation/research/scc_stage0_probe.py",
+  "scanner_sha256": "2E491B95795F3681AF7FCDD5BDF0A2DFF7C59707F26E137E858E9E5C1C6A7C4F",
+  "schema_version": "scc_stage0_result.v1",
+  "seal_receipt": {
+    "bars_loaded": 2977638,
+    "bars_path": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\fivepercent\\EURUSD\\EURUSD_M1_2015_now.parquet",
+    "bars_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+    "holdout_bars_loaded": 0,
+    "holdout_start": "2023-01-01 00:00:00",
+    "last_bar_loaded": "2022-12-30 21:59:00",
+    "time_col": "time_utc"
+  },
+  "source_build_authorized": false,
+  "strict_treatment_subset": true,
+  "verdict": "PARK_STAGE0_REQUIRED_GATE_FAIL_NO_OUTCOME_READ",
+  "year_cadence": {
+    "2019": 1.3616438356164382,
+    "2020": 1.4344262295081966,
+    "2021": 1.4575342465753425,
+    "2022": 1.2273972602739724
+  },
+  "year_counts": {
+    "2019": 71,
+    "2020": 75,
+    "2021": 76,
+    "2022": 64
+  }
+}

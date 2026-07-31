@@ -1,0 +1,12 @@
+{
+  "schema_version": "trendstack_007_source_projection_contract_addendum.v5",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "base_contract_v4_sha256": "2F3D071F5E079B49B5705D47BABFFCC7F65998744AA0E1E9352389F89EA1EADB",
+  "additive_semantics": "This exact rule is added to V4 stage_layout; every V4 field remains binding and no field is replaced.",
+  "output_arrow_schema_rule": "every staged output shard schema_arrow equals V4 physical_arrow_schema exactly in field names, order, physical types and nullable flags; no extra, missing, reordered or retyped fields; Arrow schema metadata is ignored via check_metadata=false",
+  "source_build_authorized_by_addendum_alone": false,
+  "source_run_authorized_by_addendum_alone": false,
+  "economics_authorized": false,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false
+}

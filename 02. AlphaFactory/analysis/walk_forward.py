@@ -18,6 +18,7 @@ from datetime import datetime
 from collections import defaultdict
 
 from quant_analyzer import parse_deals, deals_to_trades, Trade, profit_factor, bucket_stats
+from aligned_variant_evidence import load_aligned_variant_evidence
 
 
 ANALYSIS_KIND = "fixed_parameter_temporal_slicing"
@@ -25,6 +26,71 @@ QUARANTINE_REASON = (
     "This diagnostic applies one already-fixed strategy to chronological slices; "
     "it performs no per-window parameter optimization or locked OOS re-test."
 )
+
+
+def optimization_aware_walk_forward(manifest_path: Path) -> dict:
+    """Select on expanding IS blocks and score the locked choice on the next OOS block."""
+    evidence = load_aligned_variant_evidence(manifest_path)
+    n_windows = evidence.wfa_windows
+    if n_windows < 2:
+        raise ValueError("promotion WFA requires at least two OOS windows")
+    block_count = n_windows + 1
+    if len(evidence.dates) < block_count * 4:
+        raise ValueError(
+            f"promotion WFA requires at least {block_count * 4} aligned dates; "
+            f"found {len(evidence.dates)}"
+        )
+
+    boundaries = [round(i * len(evidence.dates) / block_count) for i in range(block_count + 1)]
+    folds = []
+    for fold_index in range(1, block_count):
+        is_end = boundaries[fold_index]
+        oos_start = is_end
+        oos_end = boundaries[fold_index + 1]
+        is_scores = {
+            variant_id: sum(values[:is_end]) / is_end
+            for variant_id, values in evidence.series.items()
+        }
+        selected = max(sorted(is_scores), key=lambda item: is_scores[item])
+        oos_values = evidence.series[selected][oos_start:oos_end]
+        oos_mean = sum(oos_values) / len(oos_values)
+        folds.append(
+            {
+                "window": fold_index,
+                "is_start": evidence.dates[0],
+                "is_end": evidence.dates[is_end - 1],
+                "oos_start": evidence.dates[oos_start],
+                "oos_end": evidence.dates[oos_end - 1],
+                "selected_variant_id": selected,
+                "is_mean_net_r": round(is_scores[selected], 10),
+                "oos_mean_net_r": round(oos_mean, 10),
+                "oos_profitable": oos_mean > 0.0,
+            }
+        )
+
+    profitable = sum(1 for fold in folds if fold["oos_profitable"])
+    return {
+        "schema_version": "alphafactory_optimization_wfa.v1",
+        "analysis_kind": "optimization_aware_walk_forward",
+        "promotion_eligible": True,
+        "promotion_status": "ELIGIBLE_INPUT",
+        "methodology": {
+            "selection": "highest expanding-window IS mean daily net_R",
+            "oos_locked_after_optimization": True,
+            "parameters_reoptimized_per_window": True,
+            "missing_day_policy": "zero net_R",
+        },
+        "n_windows": len(folds),
+        "windows": folds,
+        "summary": {
+            "oos_profitable_windows": profitable,
+            "oos_profitable_ratio": round(profitable / len(folds), 6),
+            "mean_oos_net_r": round(
+                sum(float(fold["oos_mean_net_r"]) for fold in folds) / len(folds), 10
+            ),
+        },
+        **evidence.promotion_metadata(),
+    }
 
 
 def walk_forward_analysis(trades: List[Trade], n_windows: int = 5, is_ratio: float = 0.7) -> dict:
@@ -230,6 +296,11 @@ def main():
     parser.add_argument("--windows", "-w", type=int, default=5, help="Number of WFA windows")
     parser.add_argument("--ratio", "-r", type=float, default=0.7, help="IS ratio (default 0.7)")
     parser.add_argument("--out", default="", help="Output directory")
+    parser.add_argument(
+        "--variant-manifest",
+        default="",
+        help="Preregistered aligned variant manifest; enables promotion-grade WFA",
+    )
     parser.add_argument("--quiet", "-q", action="store_true", help="Suppress output")
     args = parser.parse_args()
     
@@ -238,22 +309,26 @@ def main():
         print(f"ERROR: Report not found: {report_path}")
         return 1
     
-    # Parse trades
-    deals = parse_deals(report_path)
-    trades = deals_to_trades(deals)
-    
-    if len(trades) < 50:
-        print(f"WARNING: Only {len(trades)} trades. WFA results may be unreliable.")
-    
-    # Run WFA
-    print(f"Running Walk-Forward Analysis with {args.windows} windows...")
-    results = walk_forward_analysis(trades, args.windows, args.ratio)
+    try:
+        if args.variant_manifest:
+            print("Running optimization-aware WFA with manifest-locked OOS windows...")
+            results = optimization_aware_walk_forward(Path(args.variant_manifest))
+        else:
+            deals = parse_deals(report_path)
+            trades = deals_to_trades(deals)
+            if len(trades) < 50:
+                print(f"WARNING: Only {len(trades)} trades. WFA results may be unreliable.")
+            print(f"Running diagnostic Walk-Forward Analysis with {args.windows} windows...")
+            results = walk_forward_analysis(trades, args.windows, args.ratio)
+    except ValueError as exc:
+        print(f"ERROR: {exc}")
+        return 1
     
     if "error" in results:
         print(f"ERROR: {results['error']}")
         return 1
     
-    if not args.quiet:
+    if not args.quiet and not args.variant_manifest:
         print_wfa_report(results)
     
     # Save results

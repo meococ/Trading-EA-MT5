@@ -1,6 +1,6 @@
 # Validation Gates
 
-Updated: 2026-07-21
+Updated: 2026-07-26
 
 Gate authority for every EA lane. This file is not a profit target shortcut.
 A candidate can move forward only when the required artifacts exist and the
@@ -117,13 +117,21 @@ Recommended minimums before portfolio review:
 
 Current producer boundary:
 
-- `walk_forward.py` is fixed-parameter temporal slicing and diagnostic-only.
-- `robustness_suite.py` perturbs realized P/L proxies and is diagnostic-only.
-- the current `cscv_pbo.py` and `white_reality_check.py` outputs are bound and
-  reproducible diagnostics, but they do not preserve a preregistered aligned
-  selection matrix and set `promotion_eligible=false`.
-- therefore the current tool stack must return `REVIEW/BLOCKED` at
-  `confirmed`; freshly regenerating these diagnostics cannot promote a run.
+- Legacy single-report WFA, synthetic realized-P/L perturbation, and ad-hoc CSV
+  PBO/Reality Check modes remain diagnostic-only with
+  `promotion_eligible=false`.
+- Promotion mode requires `variant_manifest.json` conforming to
+  `alphafactory_aligned_variant_manifest.v1`: the full tried family, baseline,
+  preregistration, source and each Model-0 run/CSV are SHA-bound; `exit_time` +
+  `net_r` are aligned on a common daily grid; missing days are zero; analysis
+  settings and family closure are frozen before outcomes.
+- With that manifest, the producers can emit promotion-eligible expanding WFA,
+  matched-EA-rerun sensitivity, CSCV/PBO and a joint moving-block White Reality
+  Check. `unified_validation.py` independently binds those outputs to the
+  current report, run identity, source and variant tree before a gate can PASS.
+- A missing, stale, incomplete or post-hoc variant manifest still returns
+  `REVIEW/BLOCKED`. Promotion eligibility is evidence-derived, never a manual
+  flag flip.
 
 ### Portfolio Sleeve
 
@@ -134,9 +142,38 @@ Current producer boundary:
 - The `portfolio-sleeve` registry state is invalid without these portfolio-only
   artifacts even when every component passed individual validation.
 
+## Two-Speed Research Closeout
+
+Use the cheapest terminal packet that still proves the decision.
+
+### Fast-Kill lane
+
+Use `alphafactory_fast_kill_closeout.v1` only for an exact hypothesis cell that
+is terminal at probe or early Model 0. It requires a frozen preregistration,
+hash-bound result summary/readout, a triggered preregistered fatal gate and a
+declared minimum observation count. Any sequential early-stop boundary must be
+named and frozen before outcomes. Model 0 also requires source, compile,
+non-repaint, run manifest, tester report, summary metrics and log triage.
+
+Fast-Kill deliberately does not require chart rendering, Grok review or the
+full delivery schema. It may close only the exact cell as `KILLED|PARKED|INVALID`;
+it cannot claim EA completion, promotion or completion of a positive-expectancy
+book goal. Data/engineering invalidation never becomes a market/no-edge verdict.
+An arbitrary first-50-trade PF cutoff invented after viewing the run is invalid.
+
+### Heavy-Delivery lane
+
+Use the full EA delivery packet for a candidate that survives its frozen
+necessary-condition gates, continues to challenger/confirmed work, is used to
+design the next mechanism from run anatomy, or is described as
+`DONE|complete|ready`. Chart anatomy and external visual review are escalation
+tools for material setup/path ambiguity and survivor diagnosis, not a tax on
+every terminal loser. When Grok or another reviewer is cited, its manifest and
+parent QC remain mandatory.
+
 ## EA Development Delivery Gate
 
-This is the mandatory completeness gate after every meaningful EA backtest. It
+This is the mandatory completeness gate for the Heavy-Delivery lane. It
 does not grant promotion; it prevents an agent from closing development after a
 compile, report or attractive aggregate metric while logic/log/chart diagnosis
 is still missing.
@@ -193,8 +230,9 @@ must be `COMPLETE`.
 - Bar-level spread used to synthesize promotion-grade ask barriers when
   chronological bid/ask quote ticks are unavailable.
 - Missing or stale run evidence after a claimed result.
-- Any EA development `DONE|complete|ready` claim after a meaningful backtest
-  without a passing `alphafactory_ea_delivery_packet.v1`.
+- Any EA development `DONE|complete|ready`, promotion, or survivor-based rule
+  design claim without a passing `alphafactory_ea_delivery_packet.v1`. A valid
+  Fast-Kill packet is the terminal exception for the exact killed/parked cell.
 - Lifecycle cost evidence that is not `lifecycle-v3` telemetry (RunMeta schema
   `alphafactory_run_meta.v1`), lacks finite
   positive `initial_risk_account`, lacks entry/exit `deal_profit`,

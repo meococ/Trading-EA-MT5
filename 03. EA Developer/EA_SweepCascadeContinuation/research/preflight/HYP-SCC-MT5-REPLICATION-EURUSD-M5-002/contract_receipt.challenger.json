@@ -1,0 +1,122 @@
+{
+    "schema_version":  "alphafactory_execution_receipt.v1",
+    "hypothesis_id":  "HYP-SCC-MT5-REPLICATION-EURUSD-M5-002",
+    "registry_row_sha256":  "EBC8D5D2184D1F94B9F535A450FCB579819C0850B154CF6D0CD15CBBE500A4AE",
+    "task_packet_sha256":  "F72F789F047F64B898345E2C22EC7845D23C80829C3B155F8BE2B82EA71D449C",
+    "git_commit":  "fab9f8d18350307645e60b0bf8b504adb889ea01",
+    "git_status_sha256":  "7CC8EA4E5AB49A30319B78F13EA8ED2D1857C62316A7EEC3F44270A7E82F2546",
+    "binding":  {
+                    "hypothesis_id":  "HYP-SCC-MT5-REPLICATION-EURUSD-M5-002",
+                    "run_role":  "challenger",
+                    "ea_name":  "EA_SweepCascadeContinuation",
+                    "symbol":  "EURUSD",
+                    "period":  "M5",
+                    "from":  "2019.01.01",
+                    "to":  "2022.12.31",
+                    "model":  0,
+                    "execution_mode":  0,
+                    "fixed_delay_ms":  0,
+                    "overrides":  "InpAtrPeriod=14;InpBrokerFollowsEuropeDST=true;InpBrokerGMTOffsetWinter=2;InpDeviationPips=0.50;InpEnableTelemetry=true;InpHypothesisId=HYP-SCC-MT5-REPLICATION-EURUSD-M5-002;InpMagic=5600752;InpMaxHoldBars=24;InpMaxSpreadPips=2.00;InpPivotStrength=2;InpResearchAutoMode=true;InpRetestBars=12;InpRiskPercent=0.05;InpStopAtrBuffer=0.25;InpTargetR=2.00;InpUseHoldRetest=true;InpVariantTag=CHALLENGER_HOLD_RETEST",
+                    "telemetry_tier":  "trade-only",
+                    "telemetry_profile":  "lifecycle-v3",
+                    "deposit":  100000,
+                    "leverage":  100,
+                    "spread":  "current",
+                    "required_sidecars":  [
+                                              "*_LifecycleTrades_*.csv",
+                                              "*_RunMeta_*.json",
+                                              "*_DecisionTelemetry_*.csv"
+                                          ],
+                    "broker_fingerprint":  "FIVEPERCENT_PORTABLE_DIAGNOSTIC",
+                    "server_fingerprint":  "FIVEPERCENT_PORTABLE_DIAGNOSTIC",
+                    "account_fingerprint":  "TESTER_ONLY",
+                    "data_fingerprint":  "RUN_MANIFEST_BOUND",
+                    "symbol_geometry":  {
+                                            "digits":  5,
+                                            "point":  1E-05,
+                                            "pip_size":  0.0001
+                                        },
+                    "include_closure_sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                },
+    "evidence":  [
+                     {
+                         "label":  "task_packet",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\research\\preflight\\HYP-SCC-MT5-REPLICATION-EURUSD-M5-002\\task_packet.challenger.json",
+                         "sha256":  "F72F789F047F64B898345E2C22EC7845D23C80829C3B155F8BE2B82EA71D449C"
+                     },
+                     {
+                         "label":  "candidate_registry",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+                         "sha256":  "75A8C3DB7387A2B2E9CCF5C53D30DDF991AB0DE265139901E21D1A2DF95D29E1"
+                     },
+                     {
+                         "label":  "source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\EA_SweepCascadeContinuation.mq5",
+                         "sha256":  "6DFEDEF3DC3FE45B8DE897DBBD02C20A98AE495D140968799ACAC0F9C75FD1CF"
+                     },
+                     {
+                         "label":  "compiled_binary",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\EA_SweepCascadeContinuation.ex5",
+                         "sha256":  "D926B6BE0ECB6275F890C546C89A9C1DB537BF0EFF8E065AA03ECD60F8D24A59"
+                     },
+                     {
+                         "label":  "ea_capability_contract",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\ALPHAFACTORY_EA_CONTRACT.json",
+                         "sha256":  "891E6636F45B263F6163F5E703C9E87B912846B114CE25D5E45517871FD28057"
+                     },
+                     {
+                         "label":  "prereg",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\research\\HYP-SCC-MT5-REPLICATION-EURUSD-M5-002_FROZEN_PREREG.md",
+                         "sha256":  "12B13C309B60BDA6AD4BC88A11F7389DB3E8EE18E9493CC2950DDB95AED53796"
+                     },
+                     {
+                         "label":  "logic_matrix",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\research\\LOGIC_TO_CODE_MATRIX.md",
+                         "sha256":  "831D7CEA70851B9BFB53FFE92FE5751F35A217776B0036544855F3DA2004E3CD"
+                     },
+                     {
+                         "label":  "build_receipt",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\research\\evidence\\HYP-SCC-MT5-REPLICATION-EURUSD-M5-002_BUILD\\build_receipt.json",
+                         "sha256":  "E83979B685464F3F979FA2DD26621C1EA58AF9AC6712B7B0251577BD64CAAF0D"
+                     },
+                     {
+                         "label":  "nonrepaint_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\research\\evidence\\HYP-SCC-MT5-REPLICATION-EURUSD-M5-002_BUILD\\nonrepaint_manifest_v2.json",
+                         "sha256":  "2FCFB2D4BF2E074DA5BF5B336F9D61A5899DF7C8E46FB8BD17A6F9B3BB1547E4"
+                     },
+                     {
+                         "label":  "nonrepaint_audit",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\research\\evidence\\HYP-SCC-MT5-REPLICATION-EURUSD-M5-002_BUILD\\nonrepaint_audit_v2.json",
+                         "sha256":  "57CD904E0DAB4EB21CA93D650E07B4BED62AFA78296C596CA04527891F8F18E6"
+                     },
+                     {
+                         "label":  "cost_source_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SweepCascadeContinuation\\research\\preflight\\HYP-SCC-MT5-REPLICATION-EURUSD-M5-002\\cost_source_manifest.unverified.json",
+                         "sha256":  "041A2BD20CADE5FB4AE6DCAC603125A162139EA79115BC608B991C3E614DEE73"
+                     },
+                     {
+                         "label":  "matched_control_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_SweepCascadeContinuation\\20260725_204410\\run_manifest.json",
+                         "sha256":  "401E7191746C4902CF88368F470F51E601B1E4A180034C97BD88EB5363D5C7BD"
+                     },
+                     {
+                         "label":  "matched_control_report",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_SweepCascadeContinuation\\20260725_204410\\report.html",
+                         "sha256":  "66717E54B51C38C473764DC2F381C7BD085F38F9FBC803D3800172E550B1E274"
+                     }
+                 ],
+    "generated_at_utc":  "2026-07-25T13:45:06.8853428Z"
+}

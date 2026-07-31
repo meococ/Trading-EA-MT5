@@ -1,0 +1,75 @@
+{
+  "schema_version": "hyp002_grok_each_image_validated_job.v1",
+  "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+  "job": {
+    "job_id": "O11",
+    "case_id": "F011_PID000001182",
+    "position_id": "1182",
+    "direction": "SELL",
+    "image_type": "OUTCOME_ANATOMY",
+    "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F011_PID000001182_outcome.png",
+    "image_sha256": "DF516D5953457A50D238B55CA71F1929EC33E8847863A41D0D5309E1B24B979C"
+  },
+  "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O11\\attempt-001-actual",
+  "request": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O11\\attempt-001-actual\\grok-request.json",
+    "sha256": "E65C28908BF1BDD2EBC457A9D47B1C64DDE898830325780443408C8970906864"
+  },
+  "prompt_blocks": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O11\\attempt-001-actual\\prompt-blocks.json",
+    "sha256": "99CBCB6C94548D6382C0CA80C20ADCCE9D3B873B57D2D6123E373727CB482E47"
+  },
+  "summary": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O11\\attempt-001-actual\\summary.json",
+    "sha256": "F596538399A5E01B9B6F21A52F8251C5C11C0220CFA2CD366FD62E643BFC0321"
+  },
+  "response": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O11\\attempt-001-actual\\grok-response.json",
+    "sha256": "5BA744BC92770358CA22A56CB7C9096BF046EF452AF55DA6D5C8ED769E7076E7"
+  },
+  "runner": {
+    "model": "grok-4.5",
+    "reasoning_effort": "high",
+    "stop_reason": "EndTurn",
+    "elapsed_seconds": 45.235,
+    "total_cost_usd": 0.0610284,
+    "num_turns": 1,
+    "prompt_transport": "acp_blocks_file",
+    "image_count": 1,
+    "decoded_image_bytes": 165223
+  },
+  "result": {
+    "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+    "job_id": "O11",
+    "case_id": "F011_PID000001182",
+    "position_id": "1182",
+    "direction": "SELL",
+    "image_type": "OUTCOME_ANATOMY",
+    "image_sha256": "DF516D5953457A50D238B55CA71F1929EC33E8847863A41D0D5309E1B24B979C",
+    "image_opened": true,
+    "visual_readability": "PASS",
+    "observations": [
+      "Title reads MATCHED_SELL_WIN with R=+1.931 and outcome-disclosing for F011_PID000001182.",
+      "Horizontal levels show Entry ~1.20405, SL above ~1.20462, and TP below ~1.20290.",
+      "Purple break-bar-open line precedes the blue actual-entry line during a sharp breakdown from the prior ~1.2045–1.2048 range.",
+      "Post actual-entry path trends lower with limited two-way chop, then reaches the green TP near ~03-02 01:55 marked by a purple X.",
+      "SL is never closely approached after entry; price stays well below entry for most of the hold.",
+      "Book panel reports early=-0.131, late=+0.023, score=+0.069 on direction-aligned I5, with noisy late-window swings."
+    ],
+    "confidence": "HIGH",
+    "unknowns": [
+      "Exact fill price, slippage, and spread/commission components are not separable on the chart.",
+      "Precise order type and whether TP was limit-touch vs stop-style exit beyond the marked X.",
+      "Whether intermediate management (partials/moves) occurred off-chart."
+    ],
+    "no_rule_or_rerun_authority": true,
+    "outcome_visible": true,
+    "actual_path_class": "CLEAN_CONTINUATION",
+    "primary_layer": "WINNER_NO_FAILURE",
+    "entry_context_assessment": "SELL entry occurs after a breakdown from elevated consolidation, with break-bar open then actual entry during the downside impulse near ~1.2040, SL above the range and TP substantially lower.",
+    "path_anatomy": "After actual entry, price continues lower almost immediately, absorbs shallow counter-rallies without reclaiming entry for long, then grinds down through successive lower highs until the TP marker is hit for a disclosed win.",
+    "book_trace_relevance": "Full-break-bar trace is mixed-to-weak: early direction-aligned I5 is negative (−0.131), late only slightly positive (+0.023), overall score +0.069 with late noise, so the book panel does not strongly discriminate the eventual clean downside path at decision time.",
+    "exit_geometry_assessment": "Exit geometry is target attainment at the fixed green TP with the purple X; adverse excursion toward SL is visually small relative to the entry–SL gap, and the trade realizes about +1.93R without visible forced stop-out.",
+    "failure_mechanism": "No adverse failure is visible on this outcome path: the short continues in the break direction and is closed at TP rather than by stop, whipsaw, or post-favorable giveback."
+  }
+}

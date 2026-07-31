@@ -1,0 +1,11 @@
+{
+  "schema_version": "alphafactory_red_test_receipt.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-008",
+  "captured_at_utc": "2026-07-22T16:29:00Z",
+  "command": "python -m pytest 03. EA Developer/EA_VRAS_VolatilityNormalizedStop/tests/test_mql5_contract.py -q",
+  "expected_red": true,
+  "passed": 10,
+  "failed": 1,
+  "failed_tests": ["test_hyp008_tester_survival_identity_only_extension"],
+  "diagnosis": "The frozen HYP008 tester-survival identity and exact 0.01% risk binding were not yet present in source."
+}

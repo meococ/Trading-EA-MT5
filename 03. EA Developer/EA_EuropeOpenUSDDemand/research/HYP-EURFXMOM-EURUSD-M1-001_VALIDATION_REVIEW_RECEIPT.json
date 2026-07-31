@@ -1,0 +1,37 @@
+{
+  "schema_version": "eurfxmom001.validation_review.v1",
+  "hypothesis_id": "HYP-EURFXMOM-EURUSD-M1-001",
+  "reviewed_at_utc": "2026-07-30T09:26:00Z",
+  "reviewer": "parent_lead_quant_integrator",
+  "review_scope": "Static fail-closed implementation, preregistration, target projection, causal signal, cost, metrics, chart and one-shot authority review before any 2021-2024 target return access.",
+  "plan_sha256": "3731C07AC6A70A23CEB79C3340ADFCFD71FE1EC8F7FAE353CB57C6A1E0CA7332",
+  "reviewed_evaluator_path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/evaluate_eurfxmom_eurusd_001_validation.py",
+  "reviewed_evaluator_base_sha256": "988A8589E44A0087772A2A48427DC79CFA2344E4A6D98F4B937AF8284304574B",
+  "reviewed_test_path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/tests/test_evaluate_eurfxmom_eurusd_001_validation.py",
+  "reviewed_test_sha256": "E90C8B74E49C11ED175C1C9A8A999A82D44D6BB9D66BC9F513B4F1C043538442",
+  "tests": {
+    "command": "python -B -m pytest -q -p no:cacheprovider 03. EA Developer/EA_EuropeOpenUSDDemand/research/tests/test_evaluate_eurfxmom_eurusd_001_validation.py",
+    "passed": 8,
+    "failed": 0
+  },
+  "disarmed_preflight": {
+    "exit_code": 2,
+    "error": "registry sentinel is not armed",
+    "evidence_root_absent": true,
+    "validation_target_rows_read": 0,
+    "validation_outcomes_opened": false,
+    "holdout_outcomes_opened": false
+  },
+  "bindings": {
+    "signal_date_ledger_sha256": "EA0083B28AEF366ABDDCD36C82505100B2B9E10D54AC700E384879D83EF0E1DF",
+    "dataset_parquet_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+    "dataset_manifest_sha256": "2CD996FD4416B1E888BF1C9D272BF49056DB3A4CE477CF74FA4E31D474A41B54",
+    "canonical_dsr_sha256": "A0659CDCDB2EAB4F29F69A1FBF4222FE3EC12467FE4CC664E194173126A4CEEA",
+    "discovery_terminal_sha256": "3E351BA4C03C2E08312D9D0CF099610DC847BCCF9A90B1401476C8EE36FB3BD2",
+    "discovery_trades_sha256": "B46A3A3B18F354F2F5F72D74E59C909BDBCCE4F66E0752C98AF6E84C8A05BDF0"
+  },
+  "causality_review": "PASS: primary direction is sign of the completed 07:59-to-14:14 pressure; strict-lag eligibility is read from the pre-outcome HYP002 ledger; entry is the completed 14:14 close observable at 14:15; no post-14:15 field enters the signal.",
+  "holdout_isolation_review": "PASS: parquet projection is filtered to [2021-01-01,2025-01-01), loaded timestamps are range-checked, and every 2025+ permission remains false.",
+  "cost_and_gate_review": "PASS: fixed 1.50/2.25/3.00-pip round-turn costs and all preregistered structural/economic gates are implemented without outcome-dependent parameters.",
+  "verdict": "PASS_STATIC_REVIEW_READY_FOR_REGISTRY_IDEA_THEN_ONE_SHOT_VALIDATION_AUTHORITY"
+}

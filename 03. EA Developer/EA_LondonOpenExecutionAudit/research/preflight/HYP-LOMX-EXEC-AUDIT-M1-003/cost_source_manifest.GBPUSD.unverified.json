@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "UNVERIFIED_DIAGNOSTIC",
+  "provenance_status": "UNVERIFIED",
+  "promotion_eligible": false,
+  "broker": "Five Percent Online Ltd",
+  "server": "FivePercentOnline-Real",
+  "symbol": "GBPUSD",
+  "from": "2016.01.01",
+  "to": "2020.12.31",
+  "symbol_geometry": {"digits": 5, "point": 0.00001, "pip_size": 0.0001},
+  "spread_policy": "MT5 Model 0 historical executable Bid/Ask; audit telemetry only",
+  "commission": "tester-reported only; not accepted as live fill provenance",
+  "slippage": "actual tester request/deal delta observed; not independent live fill evidence",
+  "audit_only": true,
+  "performance_metrics_authorized": false,
+  "verdict": "DIAGNOSTIC_ONLY_NOT_PROMOTION_ELIGIBLE"
+}

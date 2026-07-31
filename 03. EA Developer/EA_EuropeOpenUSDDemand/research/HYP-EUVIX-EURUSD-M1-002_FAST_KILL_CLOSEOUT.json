@@ -1,0 +1,36 @@
+{
+  "schema_version": "alphafactory_fast_kill_closeout.v1",
+  "created_at_utc": "2026-07-29T17:57:08Z",
+  "hypothesis_id": "HYP-EUVIX-EURUSD-M1-002",
+  "ea_name": "EA_EuropeOpenUSDDemand",
+  "evidence_class": "offline_probe",
+  "verdict": "KILLED",
+  "kill_code": "cost_dominated",
+  "cell_closeout_claim": true,
+  "bindings": [
+    {"role": "preregistration", "path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/HYP-EUVIX-EURUSD-M1-002_TRAIN_ECONOMIC_PROBE_PLAN_V2.md", "bytes": 5406, "sha256": "26CB850427719016E61AA73C1AC673A602E34FF7AE7510387A4398E5C087FAE6"},
+    {"role": "result_summary", "path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/evidence/HYP-EUVIX-EURUSD-M1-002/EUVIX002-TRAIN-ECON-001/train_economic_terminal.json", "bytes": 5586, "sha256": "BE7D3985DC11A0FD472B3676A5F4DD790B51EA83E6D7CF997B9341656747144C"},
+    {"role": "readout", "path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/HYP-EUVIX-EURUSD-M1-002_READOUT.md", "bytes": 4316, "sha256": "08E19321F962DDF14E755BC5C1CFFB1C54434F1C94767AC58F231F82BAAAFBFB"},
+    {"role": "diagnostic_chart", "path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/evidence/HYP-EUVIX-EURUSD-M1-002/EUVIX002-TRAIN-ECON-001/euvix_002_train_kill_diagnostics.png", "bytes": 333214, "sha256": "F164612271170A2EF8151FB38FB9BA8E16231EBBEBF3A1B47F3C4B9D72346D46"}
+  ],
+  "frozen_kill_gate": {"name": "cost_profit_factor_x1", "comparator": "lt", "threshold": 1.3, "actual": 0.9765924788948581, "frozen_pre_outcome": true, "minimum_observations": 500, "observations_unit": "completed_trades", "sequential_early_stop": false},
+  "metrics": {
+    "trades": 592,
+    "gross_profit_factor": 1.1278091824072798,
+    "cost_profit_factor_x1": 0.9765924788948581,
+    "cost_profit_factor_x1_5": 0.9089865036727585,
+    "cost_profit_factor_x2": 0.8461744367610975,
+    "expectancy_pips_x1": -0.2472972972972971,
+    "trades_per_elapsed_week": 2.2681992480855535,
+    "positive_years": 2,
+    "permutation_one_sided_p_value": 0.14538546145385461,
+    "deflated_sharpe": 0.009159080876544712
+  },
+  "anti_overfit_contract": {"plan_frozen_pre_outcome": true, "terminal_state_recorded": true, "posthoc_rule_change_authorized": false, "same_id_rerun_authorized": false},
+  "limitations": [
+    "Fast-kill closes only the exact strict-lag adaptive high-VIX EURUSD pre-ECB TRAIN proxy and does not complete the workspace book goal.",
+    "The V2 filter improved unfiltered parent x1 PF by only 0.007869 and still failed every cost PF, expectancy, stability, significance and DSR gate.",
+    "VIX threshold/lookback variants and outcome buckets are post-outcome rescue surfaces and remain unauthorized.",
+    "Validation 2021-2024 and every 2025+ holdout payload remain sealed; no MQL5, Model 0, optimization, promotion, paper or live authority is granted."
+  ]
+}

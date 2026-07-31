@@ -1,0 +1,2 @@
+{"at_utc":"2026-07-30T08:08:51.550436Z","event":"attempt_started"}
+{"at_utc":"2026-07-30T08:09:07.715440Z","event":"attempt_completed","trades":608,"verdict":"KILL_TRAIN_FLOW_REVERSAL_HOLDOUT_REMAINS_SEALED"}

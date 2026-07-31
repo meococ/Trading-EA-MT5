@@ -1,0 +1,54 @@
+{
+  "schema_version": "alphafactory.synthetic_probe_repair_task.v1",
+  "repair_id": "PTR-T1-MATH-REPAIR-01",
+  "hypothesis_id": "HYP-PTR-T1-QAWAP-HVG-M5-001",
+  "status": "FROZEN_PRE_REPAIR",
+  "frozen_at_utc": "2026-07-30T21:16:11Z",
+  "trigger": {
+    "verdict": "PROBE_INVALID_REPAIR",
+    "artifact_path": "03. EA Developer/EA_HVGQAWAP_StateEngine/research/evidence/HYP-PTR-T1-QAWAP-HVG-M5-001_MATH_PROBE.json",
+    "artifact_sha256": "313B7D4D77FED3D16A69C82CF6DC3803095E2B9E01616C284CA5A5EEA5008FE8",
+    "observed_invalid_gate": false,
+    "observed_secondary_power_gate": false
+  },
+  "frozen_plan": {
+    "path": "03. EA Developer/EA_HVGQAWAP_StateEngine/research/HYP-PTR-T1-QAWAP-HVG-M5-001_PROBE_PLAN.md",
+    "sha256": "1127F4419EE098793E076C40017202CDFFFAB118482AE45A922A747A7E1B6ED4"
+  },
+  "baseline_runner": {
+    "path": "03. EA Developer/EA_HVGQAWAP_StateEngine/research/run_t1_math_probe.py",
+    "sha256": "D6EE7C13A7B2FA6D02B7A564578F7BFC89EA5B7F16B1C919A2CC027AE84FC2FB"
+  },
+  "write_set": [
+    "03. EA Developer/EA_HVGQAWAP_StateEngine/research/run_t1_math_probe.py",
+    "03. EA Developer/EA_HVGQAWAP_StateEngine/research/tests/test_run_t1_math_probe.py"
+  ],
+  "allowed_change": "Add deterministic invalid-reason codes, counts and bounded replicate-index examples to terminal evidence. Exception behavior and every estimator/simulation/gate decision remain identical.",
+  "frozen_invariants": [
+    "base seed and indexed child mapping",
+    "all family identities and canonical population counts",
+    "all generated path values",
+    "local-Whittle objective, frequencies, optimizer, bounds and boundary-invalid rule",
+    "DFA and Lo formulas",
+    "HVG formulas",
+    "critical-value construction",
+    "invalid-rate, false-positive, power, bias, graph and causality gates",
+    "verdict precedence",
+    "no market, trade, PnL, MT5, validation or holdout access"
+  ],
+  "acceptance": [
+    "Targeted tests and deterministic bounded replay pass",
+    "For identical bounded seeds, every metric, gate and verdict outside added observability is unchanged",
+    "Canonical repair artifact exposes requested/valid/invalid plus reason counts and bounded indices for every family/stream",
+    "Original canonical artifact is retained and never overwritten",
+    "Exactly one canonical repair attempt writes the distinct REPAIR_01 artifact"
+  ],
+  "attempt_limit": 1,
+  "canonical_repair_authorized": true,
+  "market_data_authorized": false,
+  "trading_backtest_authorized": false,
+  "mql5_authorized": false,
+  "mt5_authorized": false,
+  "economics_authorized": false,
+  "promotion_eligible": false
+}

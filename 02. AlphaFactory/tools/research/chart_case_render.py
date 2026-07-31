@@ -914,6 +914,7 @@ def main() -> int:
         "schema_version": SCHEMA,
         "generated_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "bars": str(args.bars), "bars_sha256": sha256_file(args.bars),
+        "time_col": args.time_col,
         "cases": str(args.cases), "cases_sha256": sha256_file(args.cases),
         "mode": args.mode, "pre_bars": args.pre_bars, "post_bars": args.post_bars,
         "overlays": args.overlay,

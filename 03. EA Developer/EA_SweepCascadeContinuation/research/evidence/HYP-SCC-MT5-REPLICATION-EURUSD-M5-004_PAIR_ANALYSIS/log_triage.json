@@ -1,0 +1,36 @@
+{
+    "schema_version":  "log_triage.v1",
+    "clean":  true,
+    "hypothesis_id":  "HYP-SCC-MT5-REPLICATION-EURUSD-M5-004",
+    "source_log":  "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\Tester\\Agent-127.0.0.1-3000\\logs\\20260725.log",
+    "source_log_sha256":  "A0F1B14147A06E4072E804F20BD8C21F7319F0D67D37EEACC297A211D0B55554",
+    "runs":  [
+                 {
+                     "run_id":  "20260725_210715",
+                     "line_start":  15659,
+                     "line_end":  24634,
+                     "lines":  8976,
+                     "thread_finished_count":  1,
+                     "final_balance_lines":  "CS\t0\t21:07:31.068\tTester\tfinal balance 97679.95 USD",
+                     "expected_ordercheck_invalid_stops":  42,
+                     "stop_out_count":  0,
+                     "no_money_count":  0,
+                     "fatal_error_count":  0,
+                     "unresolved_log_errors":  0
+                 },
+                 {
+                     "run_id":  "20260725_210811",
+                     "line_start":  24650,
+                     "line_end":  26781,
+                     "lines":  2132,
+                     "thread_finished_count":  1,
+                     "final_balance_lines":  "CS\t0\t21:08:24.771\tTester\tfinal balance 99412.70 USD",
+                     "expected_ordercheck_invalid_stops":  7,
+                     "stop_out_count":  0,
+                     "no_money_count":  0,
+                     "fatal_error_count":  0,
+                     "unresolved_log_errors":  0
+                 }
+             ],
+    "interpretation":  "OrderCheck Invalid stops rows are expected fail-closed broker-distance rejections already counted in RunMeta; no stop-out, no-money, fatal, crash, init failure or unresolved terminal error occurred in either bound window."
+}

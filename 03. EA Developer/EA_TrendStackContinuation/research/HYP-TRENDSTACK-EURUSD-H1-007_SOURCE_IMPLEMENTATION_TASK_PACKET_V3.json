@@ -1,0 +1,94 @@
+{
+  "schema_version": "trendstack_007_source_implementation_task_packet.v3",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "task_state": "FROZEN_REMEDIATION_BUILD_ONLY_PRE_SOURCE_RUN",
+  "owner_role": "builder/coder",
+  "write_authorized": true,
+  "source_build_authorized": true,
+  "source_run_authorized": false,
+  "production_payload_access_authorized": false,
+  "economics_authorized": false,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false,
+  "mql5_authorized": false,
+  "model0_authorized": false,
+  "network_allowed": false,
+  "subprocess_allowed_by_production_code": false,
+  "registry_mutation_allowed": false,
+  "trading_mutation": false,
+  "active_probe_plan_v6_sha256": "FE740C0811E7060670D1F771802EAC5ADD6D5B2CD9DB0FDABD7E48A8A2D29735",
+  "active_source_contracts": [
+    {"version": "v4", "sha256": "2F3D071F5E079B49B5705D47BABFFCC7F65998744AA0E1E9352389F89EA1EADB"},
+    {"version": "v5", "sha256": "8B9B6391A79E699DB21A80D14223B6ACAA24287390ECE4A0D8602DD758F4631C"},
+    {"version": "v6", "sha256": "4AC471AB7ABBCD84F008819D969EE6AF2A78DDAD15B87294CE0BECFAD6D8B828"},
+    {"version": "v7", "sha256": "4ABAFB55831C01354BFD432864C236C2A5B236EFF9FFDA2A1921DEABD167ED62"}
+  ],
+  "superseded_task_packet_sha256s": [
+    "1A965777AF7D3E741813E3EE30E803FB55112F168280E25F07D2342A09007455",
+    "E379A9579861F655B14473FE786938ECA39FD76CC685791E81303CBB00B2753C"
+  ],
+  "implementation_review_input": {
+    "verdict": "FAIL_THREE_PRODUCTION_BLOCKERS_AFTER_50_PASS_SYNTHETIC",
+    "focused_suite": "50 passed in 3.07s",
+    "reviewed_supervisor_sha256": "FAED609CB2F3DAC32593F57271B244B1EEDEE9C3CD5111D3F8E827B585179BDC",
+    "independent_extra_tree_probe": "EXTRA_TREE_ACCEPTED"
+  },
+  "write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/project_trendstack_007_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/validate_trendstack_007_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/supervise_trendstack_007_source_projection.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_project_trendstack_007_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_validate_trendstack_007_design_source.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_supervise_trendstack_007_source_projection.py"
+  ],
+  "must_fix": [
+    {
+      "id": "P0_REGISTRY_ROW_CANONICAL_HASH",
+      "requirement": "Production preflight must require the selected JSONL row to have exactly one LF record delimiter, parse and canonical-check the row bytes excluding that delimiter, and compare registry_row_sha256 to SHA256 of the canonical JSON object bytes excluding LF. The repository row-285 convention is 6D72D93644BF6C61D3D966013348FF272F3A78D13DE7444CB245A6809EB722DA, not the LF-inclusive BE8FB37FFE2175E3CC768A287E00ECE61DA938469030A6A8C205A75EA9BEC997. Add a regression that would fail under the old LF-inclusive implementation."
+    },
+    {
+      "id": "P0_CONTRACT_V7_BINDING",
+      "requirement": "Expand the strict run-packet contract list, stable-read preflight and reviewed active-contract-bundle schema from V4/V5/V6 to V4/V5/V6/V7 with exact paths and hashes. The independent validator must continue to read exactly one active bundle and one task packet, with V3 as the active task. No production bundle, receipt or run packet may be created by this task."
+    },
+    {
+      "id": "P0_TERMINAL_PASS_V2",
+      "requirement": "Emit exactly Contract V7 attempt_terminal_pass_v2 schema_version and exact fields, carrying validated_file_identities_sha256 with no extra or missing field. Preserve all V4 frozen values and persistent disarm behavior."
+    },
+    {
+      "id": "P0_EXACT_TREE_MEMBERSHIP",
+      "requirement": "Immediately before no-replace rename and again after publish, use lstat/scandir only to enforce Contract V7 exact tree membership: root equals DESIGN plus six metadata files; DESIGN equals exactly the frozen 1297 selected-date directories; each date directory contains exactly h1_1200.parquet; exactly 1303 regular single-link non-reparse files and 1298 directories below root; all listed output identities still equal the independent validation digest. Reject every missing or extra entry without opening Parquet payloads."
+    }
+  ],
+  "red_first_tests_required": [
+    "real repository-style registry row hash excludes the LF delimiter and the old LF-inclusive rule fails",
+    "missing or wrong V7 path/hash in packet, preflight or active bundle fails closed",
+    "pass terminal exact schema is v2 and includes exactly one validated_file_identities_sha256 field",
+    "extra root file after validation fails before publish",
+    "extra DESIGN entry after validation fails before publish",
+    "extra file inside a selected date directory after validation fails before publish",
+    "extra directory after validation fails before publish",
+    "equivalent extra-tree mutations after publish produce failure terminal",
+    "supervisor exact-tree checks open zero Parquet payloads"
+  ],
+  "acceptance_gates": [
+    "Focused six-file suite passes with all prior V1/V2 tests plus new V3 regressions.",
+    "AST parses all six files; imports remain inert; exact reviewed sentinel remains None exactly once.",
+    "A separate read-only reviewer independently verifies the three original blockers are closed and no contract, authority, tree, terminal or production-access regression remains.",
+    "All production public/raw/sealed/feature/economic payload opens and production marker/stage/output/evidence/bundle/receipt/run-packet writes remain zero.",
+    "No branch, worktree, clone, commit or push."
+  ],
+  "prohibitions": [
+    "Do not read or decode any production public shard, raw H1, sealed VALIDATION/HOLDOUT, feature/economic payload or HYP006 partial stage.",
+    "Do not create an active-contract bundle, implementation-review receipt, source-run packet, attempt marker, stage, final output or evidence root.",
+    "Do not arm or modify the sentinel away from exact None.",
+    "Do not change hypothesis, selected dates, required hour, schema, signal, arms, execution, costs, gates or any economic semantics.",
+    "Do not weaken exact fields, path safety, stable reads, no-replace publish, persistent disarm or terminal failure handling."
+  ],
+  "handoff_required": [
+    "Exact six paths, byte counts and SHA256 values.",
+    "Observed RED-first failures and final focused command/pass count.",
+    "Direct evidence for canonical registry hash, four extra-tree mutation classes, terminal v2 exactness and V7 authority binding.",
+    "Statement that production payload opens/runtime artifacts remained zero and sentinel remained None.",
+    "Any remaining contract clause not implemented exactly."
+  ]
+}

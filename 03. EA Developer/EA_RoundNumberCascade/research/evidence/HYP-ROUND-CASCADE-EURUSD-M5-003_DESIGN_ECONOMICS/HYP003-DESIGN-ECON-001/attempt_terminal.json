@@ -1,0 +1,9 @@
+{
+  "artifact_sha256": {
+    "attempt_started.json": "5756A85BDEDDC64289187CFB07FF918C197DD38AFF8B965B8B92332E5A3F6A22"
+  },
+  "attempt_id": "HYP003-DESIGN-ECON-001",
+  "hypothesis_id": "HYP-ROUND-CASCADE-EURUSD-M5-003",
+  "reason": "timestamp is not timezone-aware: Timestamp('2016-01-05 00:00:00')",
+  "status": "ENGINEERING_INVALID_NO_MARKET_VERDICT"
+}

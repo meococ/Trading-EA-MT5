@@ -1,0 +1,84 @@
+{
+  "schema_version": "alphafactory_preexecution_engineering_receipt.v1",
+  "hypothesis_id": "HYP-PTR-T2-DATA-EPOCH-D0-M5-005",
+  "ea_name": "EA_PTR_T2_DataEpochD0V3",
+  "authority": "DATA_ACQUISITION_ONLY_NO_PERFORMANCE",
+  "source": {
+    "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/EA_PTR_T2_DataEpochD0V3.mq5",
+    "sha256": "07EF04835CC7624FC8632A0B6E1958A754A93205FB679751B4748D45E6EA4B29"
+  },
+  "compiled_ex5": {
+    "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/EA_PTR_T2_DataEpochD0V3.ex5",
+    "sha256": "08E637F824B2B6A4CB3EBE30F665EA44C60A0D4FAF5E9B6A7F2ECE2313733B6B",
+    "bytes": 18412,
+    "metaeditor_log_errors": 0,
+    "compile_result": "PASS"
+  },
+  "prereg": {
+    "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/HYP-PTR-T2-DATA-EPOCH-D0-M5-005_PREREG.md",
+    "sha256": "A5C00BFEF60C3B2EC5F1DAA702E406EFB3B2F6C9A7E6A4C11A2D7A074C9D63BE"
+  },
+  "epoch": {
+    "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_DATA_EPOCH_V3.json",
+    "sha256": "AEBB0EC6AEBEBE5D0ECA81FC42CB1765CF67835BA1FC134D12827E7B87C3A43E",
+    "source_sha_occurrences": 2,
+    "exact_tester_mode": "generating based on real ticks"
+  },
+  "packet_builder": {
+    "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/build_t2_d0_model4_hyp005_task_packets.py",
+    "sha256": "EB8797BDC78A45B3893232E9498C590EE198A99F5665BC4D3AF1EEE5F06FBA29",
+    "requires_latest_campaign_data_repair": true
+  },
+  "test_run": {
+    "framework": "pytest",
+    "result": "PASS",
+    "passed": 116,
+    "failed": 0,
+    "duration_seconds": 25.24,
+    "scope": [
+      "AlphaFactory Model4 authority and task-packet gates",
+      "pre-run source-to-epoch binding",
+      "post-run exact Tester-mode and data-quality gates",
+      "closed-bar and no-trade/non-repaint collection probe",
+      "aggregate data-epoch identity chain",
+      "campaign chronology and append-only governance correction",
+      "HYP005 wrappers and MQL5 package contract"
+    ]
+  },
+  "bound_control_plane": [
+    {
+      "path": "02. AlphaFactory/tools/research_loop_engine.ps1",
+      "sha256": "7CD365EA718744714EB235A124D43AC2954FB8DF6D9D23209D4AA9AAE9C56469"
+    },
+    {
+      "path": "04. Memory/research/data_epoch_journal.py",
+      "sha256": "25A9590FE9F0F5F0827A5AB3556BC81E0DE5404227F2C0AA1F53D0DCDDAAA198"
+    },
+    {
+      "path": "04. Memory/research/validate_data_epoch.py",
+      "sha256": "096D2BD87777E577EA506E03F804BB4B3791BE13B7E79C0987430A05CE9C44EE"
+    },
+    {
+      "path": "04. Memory/research/validate_campaign_exposure.py",
+      "sha256": "DBF47B9E07DDC976BF2A3DBF1A7AAE39EC722E3EDFE85194D550CD3194EA7F68"
+    },
+    {
+      "path": "04. Memory/research/validate_candidate_registry.py",
+      "sha256": "E8369A858BE1C0656E71663914817E2A7CE1781FB1E28397560D2D0D94699C6F"
+    }
+  ],
+  "gates": {
+    "closed_bar_only": true,
+    "no_trade_api": true,
+    "no_file_or_telemetry_sidecars": true,
+    "source_epoch_binding": true,
+    "exact_model4_mode_parser": true,
+    "wrong_symbol_mode_rejected": true,
+    "generated_mode_rejected": true,
+    "performance_metrics_authorized": false,
+    "economics_authorized": false,
+    "mt5_launches": 0
+  },
+  "verdict": "ENGINEERING_VALID_PREEXECUTION_ONLY",
+  "created_at_utc": "2026-07-31T02:48:00Z"
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": "alphafactory_hyp012_engineering_receipt.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-012",
+  "generated_at_utc": "2026-07-23T02:25:53.7447644Z",
+  "scope": "COLLECTION_ONLY_NO_ECONOMICS_NO_ORDERS",
+  "source": {
+    "path": "03. EA Developer/EA_VRAS_QuoteTickAcceptance/EA_VRAS_QuoteTickAcceptance.mq5",
+    "bytes": 20945,
+    "sha256": "071BD6837AF1855D801C6C56CFF394B04E3CA93D7400F7005B52B221397550A7"
+  },
+  "binary": {
+    "path": "03. EA Developer/EA_VRAS_QuoteTickAcceptance/EA_VRAS_QuoteTickAcceptance.ex5",
+    "bytes": 24728,
+    "sha256": "2C84D0FD001041B0EF1C27C15FA1A512BF489E680CB06B41E47D82F24B1572D9"
+  },
+  "compile": {
+    "command": "02. AlphaFactory/alpha.ps1 compile EA_VRAS_QuoteTickAcceptance",
+    "errors": 0,
+    "warnings": 0,
+    "log_path": "03. EA Developer/EA_VRAS_QuoteTickAcceptance/EA_VRAS_QuoteTickAcceptance.log",
+    "log_sha256": "2E056780F0BED93740B48742845B43C5ABD71C525625926F4301B8C774BEDF66"
+  },
+  "tests": {
+    "command": "python -m pytest package/tests validator-test operational-hygiene -q",
+    "passed": 57,
+    "failed": 0,
+    "elapsed_seconds": 2.19,
+    "package_contract_test_sha256": "7A5B6732D959254F7F6EB63D8C1DADDE14E0B3AD0B4E03C4B69BA3C0EBD6B3CA",
+    "package_reference_test_sha256": "E760DD9908ACAEAC2D29772DA437B9B19D8E7F5EFD1955AAE10C14C29B206E1B",
+    "capture_validator_sha256": "F78D5480E665700E717B38109B669213A71FC437B37A9A4AC1B2F32890F01777",
+    "capture_validator_test_sha256": "B607B5CCB36762C5D8145193C9450932B0A5F9E94B28358E66DEEEBBB40530FC"
+  },
+  "nonrepaint": {
+    "status": "PASS",
+    "findings": 0,
+    "allowed_new_bar_gates": 1,
+    "reason": "iTime shift 0 is used only to detect a new M5 bucket; all arm features use shift 1 or older. OnTick evidence begins causally after the frozen arm.",
+    "audit_path": "03. EA Developer/EA_VRAS_QuoteTickAcceptance/research/evidence/HYP-VRAS-EURUSD-M5-012_ENGINEERING/nonrepaint_audit.json",
+    "audit_sha256": "3E945F2625002F6A7FFAAFCD9C5E35F0BEAB6CA3E224C879A30F6BD269ECE373"
+  },
+  "grok_handoff": {
+    "session_id": "019f8cbe-efb2-7400-a742-812576a0364d",
+    "task_contract_sha256": "AD0DFD3D3617F9E4692B0886220C3522153E822E69510B5684EBFE65AD85EE71",
+    "request_sha256": "08DA2E8D2192F7CEEA5B0518097898DA741B3219E12BB9729764312239F0D639",
+    "runner_exit_code": 1,
+    "runner_stop_reason": "MAX_TURNS_REACHED_AFTER_FINAL_FIX",
+    "runner_summary_sha256": "EA5760CEA1E0A7122A7BF8594B8645DCC382A021CBA750BF3216E974C7F1F943",
+    "worker_audit_sha256": "D60249DA39574B8AF481CF3AFBF2871C19CFE4B54558BB670D3618B416B2DBE4",
+    "result_packet_status": "MISSING",
+    "parent_disposition": "ACCEPT_SOURCE_ONLY_AFTER_INDEPENDENT_TEST_COMPILE_NONREPAINT_AND_ZERO_ORDER_AUDIT"
+  },
+  "safety": {
+    "static_forbidden_trade_api_matches": 0,
+    "file_common_matches": 0,
+    "live_trading_authorized": false,
+    "performance_metrics_authorized": false,
+    "promotion_eligible": false
+  },
+  "verdict": "ENGINEERING_PASS_FORWARD_COLLECTION_ONLY"
+}

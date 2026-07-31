@@ -1,0 +1,46 @@
+{
+    "schema_version":  "alphafactory_build_receipt.v1",
+    "hypothesis_id":  "HYP-SCC-MT5-REPLICATION-EURUSD-M5-004",
+    "generated_at_utc":  "2026-07-25T14:05:34Z",
+    "change_class":  "IDENTITY_AND_MICRO_RISK_SCALE_ONLY",
+    "strategy_signal_or_geometry_changed_from_hyp003":  false,
+    "risk_scale_changed":  true,
+    "prereg":  {
+                   "path":  "03. EA Developer/EA_SweepCascadeContinuation/research/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_FROZEN_PREREG.md",
+                   "sha256":  "B19141645C78171953DEAC7D966BD9CA274545BD622901B8E628DB4C9CB44B95"
+               },
+    "source":  {
+                   "path":  "03. EA Developer/EA_SweepCascadeContinuation/EA_SweepCascadeContinuation.mq5",
+                   "sha256":  "9C03F4CB913E18B6CF660E48E7ADBD86034B1352A80167C32CC238BA7F7817B3"
+               },
+    "ex5":  {
+                "path":  "03. EA Developer/EA_SweepCascadeContinuation/EA_SweepCascadeContinuation.ex5",
+                "sha256":  "2DE2749AB8EB67D0584CEF99AA1D643A8D99F66816B81E26E404AFAF8994BF62",
+                "bytes":  37378
+            },
+    "compile":  {
+                    "path":  "03. EA Developer/EA_SweepCascadeContinuation/EA_SweepCascadeContinuation.log",
+                    "sha256":  "3D98DE955A7D8C075B1DB12CC0E9F83A505824E1A852DEE886FAF559AB5B2984",
+                    "errors":  0,
+                    "warnings":  0
+                },
+    "tests":  {
+                  "command":  "python -X utf8 -m pytest -p no:cacheprovider \"03. EA Developer\\EA_SweepCascadeContinuation\\tests\" -q",
+                  "source_sha256":  "C4CBE9F6C987A72DB499B8752C655B20790E21C230F2D8FAAC374884460D3919",
+                  "passed":  13,
+                  "failed":  0,
+                  "red_receipt_path":  "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_BUILD/red_test_receipt.json",
+                  "red_receipt_sha256":  "98893FFA3BA60328E94DDA442F43A9F5A6B68AE7D5D7917F0C138B73E2D2D3E9"
+              },
+    "capability_contract_sha256":  "891E6636F45B263F6163F5E703C9E87B912846B114CE25D5E45517871FD28057",
+    "logic_matrix_sha256":  "831D7CEA70851B9BFB53FFE92FE5751F35A217776B0036544855F3DA2004E3CD",
+    "nonrepaint":  {
+                       "status":  "PASS",
+                       "manifest_sha256":  "48D16229DE0BB3D1A2CF38DEA0683FDEBEEFEEF8F1CCD6204AAC750DC7C76D59",
+                       "audit_sha256":  "4B83E31EB82773DDBADD4CD104A43E5801FF5D6D786E20547614A81D29BED91D",
+                       "findings":  0,
+                       "allowed_new_bar_gates":  1
+                   },
+    "model0_runs":  0,
+    "promotion_eligible":  false
+}

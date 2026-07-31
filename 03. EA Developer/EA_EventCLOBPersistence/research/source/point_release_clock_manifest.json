@@ -1,0 +1,43 @@
+{
+  "schema_version": "event_clob_point_release_clock.v1",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001",
+  "status": "OUTCOME_BLIND_CLOCK_GATE_PASS_SOURCE_C_DIAGNOSTIC_ONLY",
+  "source_rank": "C",
+  "promotion_eligible": false,
+  "outcome_fields_read": false,
+  "price_data_read": false,
+  "paid_request_made": false,
+  "source": {
+    "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+    "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307"
+  },
+  "output": {
+    "path": "03. EA Developer/EA_EventCLOBPersistence/research/source/point_release_clocks_2019_2022.csv",
+    "sha256": "5C30F99FF0E1341D680C2747315E2FF4DFF99C5FBE01C2C5C4036BC101375E7B"
+  },
+  "exclusion_regex": "(speaks|testifies|press conference)",
+  "exclusion_reason": "remove speeches, testimony and press conferences; retain point-release clocks only",
+  "source_rows": 1282,
+  "source_unique_clocks": 869,
+  "excluded_rows": 257,
+  "retained_source_rows": 1025,
+  "retained_unique_clocks": 630,
+  "split_counts": {
+    "2019_2020": 329,
+    "2021_2022": 301
+  },
+  "elapsed_weeks": 208.7143,
+  "raw_clock_cadence_per_week": 3.0184802862094258,
+  "gates": {
+    "min_total_clocks": 418,
+    "min_each_two_year_split": 209,
+    "total_pass": true,
+    "split_pass": true
+  },
+  "limitations": [
+    "Forex Factory calendar has no actual/forecast/revision lineage",
+    "calendar is diagnostic source-rank C, not official point-in-time proof",
+    "event supply is not eligible-trade cadence",
+    "no CME MBP-10 coverage or economic outcome has been opened"
+  ]
+}

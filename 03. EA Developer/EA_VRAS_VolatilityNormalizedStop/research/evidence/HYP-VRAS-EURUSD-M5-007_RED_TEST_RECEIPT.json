@@ -1,0 +1,15 @@
+{
+  "schema_version": "alphafactory_red_test_receipt.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-007",
+  "captured_at_utc": "2026-07-22T16:18:00Z",
+  "command": "python -m pytest 03. EA Developer/EA_VRAS_VolatilityNormalizedStop/tests/test_mql5_contract.py -q",
+  "expected_red": true,
+  "passed": 7,
+  "failed": 3,
+  "failed_tests": [
+    "test_hyp007_full_horizon_identity_is_explicit",
+    "test_dd_threshold_is_measured_when_entry_halt_is_bypassed",
+    "test_diagnostic_bypass_is_tester_only_and_micro_risk_bound"
+  ],
+  "diagnosis": "The frozen HYP007 tester-only account-DD entry-halt bypass, explicit identity, and DD measurement telemetry were not yet implemented."
+}

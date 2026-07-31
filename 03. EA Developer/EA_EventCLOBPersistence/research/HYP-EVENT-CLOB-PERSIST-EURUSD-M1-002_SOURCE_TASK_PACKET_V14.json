@@ -1,0 +1,100 @@
+{
+  "schema_version": "event_clob_source_task_packet_amendment.v1",
+  "task_id": "EVENT_CLOB_APPEND_TOLERANT_PAID_AUTHORITY_REBIND_20260728_V14",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_SOURCE_TASK_PACKET_V13.json",
+  "supersedes_amendment_sha256": "63EEF71F0EF3747184DDC00B6179B6F6BD79BCBB30FA36292866146F6CAB9D7A",
+  "amendment_reason": "A concurrent unrelated legal registry append changed the global ledger from the V13 271-row SHA to a validator-clean 272-row SHA while the exact terminal HYP-002 authority history remained unchanged. V14 prevents repeated false blockers by hash-binding the exact 272-row prefix and allowing only validator-clean append-only rows that are unrelated to EventCLOB, its parent/source/payment authority and its D-side acquisition root. Owner scope, USD ceiling, request identities, outcome sealing and paid safety are unchanged.",
+  "owner_authorization_unchanged": {
+    "captured_at_utc": "2026-07-28T05:00:24.632Z",
+    "thread_id": "019fa62a-bf17-7a83-9137-e7ca7607b1f9",
+    "verbatim": "Đồng ý trần chi phí USD 3.50 cho plan DEDDE7F292738C16A200C59903F7839C85B728818805AA09D46D3E7F188E0C16.",
+    "authorization_basis_plan_id": "DEDDE7F292738C16A200C59903F7839C85B728818805AA09D46D3E7F188E0C16",
+    "approved_max_usd": 3.5
+  },
+  "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+  "registry_baseline": {
+    "row_count": 272,
+    "exact_prefix_sha256": "C0C3BFA3328CBD83DC5335E06F774A3C3800A6418C4363A8A27F140F2DCC4739",
+    "validation": "CANDIDATE_REGISTRY_OK rows=272 hypotheses=90",
+    "concurrent_unrelated_row_272_sha256": "6D228F1275D082D439C680AC762960A6BAA855989883D3105DD4438CE1100DD9",
+    "concurrent_unrelated_hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-002",
+    "global_sha_is_audit_evidence_not_future_paid_lock": true
+  },
+  "hard_event_clob_history": {
+    "exact_row_count": 3,
+    "row_sha256_sequence": [
+      "B352E22DE06889E3FDF139A7857CEAECB123944E42CDF1564C9CE3B54AF01F3D",
+      "8B88B70C26060FF8A2A13F506990ADE3C6A27C2860C5618E51FBD77115B109CF",
+      "AAE0F493502C13EB8C75C9105C83C6B6F325043D59BBB120075063401C907C45"
+    ],
+    "latest_state": "parked",
+    "latest_verdict": "PARK_DESIGN_SOURCE_PAYMENT_AUTHORITY_UNMET"
+  },
+  "append_tolerance_contract": {
+    "require_current_registry_starts_with_exact_272_row_prefix": true,
+    "require_canonical_validator_pass_at_every_remote_and_paid_seam": true,
+    "allow_only_strict_json_append_rows_after_baseline": true,
+    "reject_appended_rows_if_serialized_content_mentions_any_case_insensitive_token": [
+      "HYP-EVENT-CLOB",
+      "EA_EventCLOBPersistence",
+      "EVENT-CLOB",
+      "event_clob",
+      "cme_6e_event_clob_design_segments",
+      "DEDDE7F292738C16A200C59903F7839C85B728818805AA09D46D3E7F188E0C16",
+      "PARK_DESIGN_SOURCE_PAYMENT_AUTHORITY_UNMET"
+    ],
+    "reject_any_additional_hypothesis_row_for_hyp002_or_parent_hyp001": true,
+    "reject_truncate_rewrite_reorder_or_prefix_byte_drift": true
+  },
+  "frozen_authority_bindings": {
+    "prereg_sha256": "62A3AB66C64083D9967D91A0D634DEF29641AE7F3A05D3C59CBC153AAF4B3CBF",
+    "quote_evidence_manifest_sha256": "9C9AFE1898BB6A9155D693F44DB704C5B8984775A593BE3213411BBDC1AFB5E5",
+    "quote_plan_sha256": "F8924545E7A7F1DFD450AD683AB090DDF9F7334B6DC4B29E005A473025961015",
+    "quote_receipt_sha256": "4B0F152F80C497C94651589606A97561CB289CC76E0A5E6CE7E99FCA963CC812",
+    "storage_assessment_sha256": "822D30A4C9B05CA1FE256B01FE4936417CA5F9BA41C53253AED0B68FA6F0796E",
+    "parent_f8_manifest_sha256": "2AE3A6CE134653F452FBA62677A1141E0F561ED686028BF9C5940BB149EEAA71"
+  },
+  "input_post_multi_resume_source_sha256": "5B07E1CEFA29FEDA0029AC79579CD5BE4D386E83EE08277BC7EC5E19E479C5E7",
+  "input_post_multi_resume_tests_sha256": "70B888C8B4263D1C3D6DE63AA259460A8E3B5315B1A4D92FB7E0F91CDAB45A89",
+  "input_active_plan_sha256": "C4AFCD1F7B281B61B58D051DB74D2BBDBA81778101D4DF61315339208EFA86AD",
+  "write_set": [
+    "03. EA Developer/EA_EventCLOBPersistence/research/acquire_event_cme6e_mbp10.py",
+    "03. EA Developer/EA_EventCLOBPersistence/tests/test_event_cme6e_mbp10_acquisition.py",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/acquisition_plan.json"
+  ],
+  "required_behavior": [
+    "Bind exact V14 packet SHA, unchanged Owner USD3.50 authority, immutable DEDDE7F2/F8 evidence and exact HYP-002 three-row history before key/client/root/lock/remote access.",
+    "Replace the future exact-global-SHA paid lock with exact 272-row prefix verification plus canonical registry validator PASS and conflict-token rejection for every appended row.",
+    "Repeat prefix, validator, exact HYP-002 history, V14, evidence, SDK, capacity, aggregate-cost and topology checks at the existing immediate pre-paid seams.",
+    "Preserve all V13 security fixes: design-only gate, 658 request_id manifest, junction/reparse and swap-race defenses, post-manifest immediate rechecks, aggregate completed-plus-pending ceiling, truthful resume receipts, historical quote-basis ledger and multi-resume A-to-B-to-C behavior.",
+    "Do not modify the canonical registry or any immutable quote/source evidence. Do not change strategy, requests, ceiling, root or outcome boundaries."
+  ],
+  "red_first_acceptance_tests": [
+    "Exact 272-row baseline passes; truncation, rewrite, reorder, newline/prefix byte drift or validator failure blocks before key/client/root/remote.",
+    "A synthetic validator-clean unrelated append is tolerated while the exact HYP-002 history remains three rows and paid guards still bind V14.",
+    "An appended row mentioning any conflict token, HYP-002, parent HYP-001, EventCLOB authority or the exact data root is rejected before remote/paid access.",
+    "Concurrent unrelated append between live quote and paid seam is allowed only if the final validator passes and prefix/conflict checks pass; any related append or invalid row makes zero next paid calls.",
+    "All focused V13 security, aggregate-cap, multi-resume and full regression tests remain green; regenerate a zero-remote active offline plan bound to V14."
+  ],
+  "authority": {
+    "free_live_metadata_requote_authorized": true,
+    "paid_timeseries_authorized": true,
+    "paid_timeseries_scope": "exact 658 design request identities, one serial campaign, aggregate ceiling USD 3.50",
+    "design_source_quality_analysis_authorized_after_reconciliation": true,
+    "validation_source_authorized": false,
+    "eurusd_price_or_outcome_authorized": false,
+    "feature_economics_authorized": false,
+    "ea_source_build_authorized": false,
+    "model0_authorized": false,
+    "live_or_paper_authorized": false,
+    "git_commit_or_push_authorized": false
+  },
+  "prohibitions": [
+    "Do not use Grok or any Grok skill/worker.",
+    "Do not modify registry, preregistration, clocks, immutable evidence, strategy logic, MQL5, MT5 or unrelated files.",
+    "Do not run remote metadata or paid calls while implementing/testing V14.",
+    "Do not stage, commit, push, create a branch, worktree or clone."
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "log_triage.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-008",
+  "status": "PASS_EXACT_RUN_WINDOWS",
+  "clean": true,
+  "source_log": {
+    "path": "02. AlphaFactory/runtime/mt5-portable-fivepercent/Tester/Agent-127.0.0.1-3000/logs/20260722.log",
+    "sha256": "95EF51636CF737281D91D403C3F0422B2572405B3E7055990164E8227E986945",
+    "note": "Whole-day tester log. Bounded windows below isolate the two HYP008 executions from unrelated earlier tests."
+  },
+  "runs": [
+    {
+      "run_id": "20260722_233324",
+      "role": "control",
+      "window_path": "02. AlphaFactory/runtime/log_indexes/95ef51636cf7/20260722.log.window_150175_30.json",
+      "window_sha256": "4EB71C217AB4AFB8519E8699CFC100B398307BA3A48991C7787717EE1B6C41AE",
+      "final_balance_usd": 474420.18,
+      "bars": 298483,
+      "ticks": 79486116,
+      "test_passed": true,
+      "thread_finished": true,
+      "fatal_errors": 0,
+      "stop_out_events": 0
+    },
+    {
+      "run_id": "20260722_233420",
+      "role": "challenger",
+      "window_path": "02. AlphaFactory/runtime/log_indexes/95ef51636cf7/20260722.log.window_181790_30.json",
+      "window_sha256": "62D95A4B525F99B6F290FF94B429B0DD3C8F5BC26DB4628CE117005CA439432E",
+      "final_balance_usd": 479208.42,
+      "bars": 298483,
+      "ticks": 79486116,
+      "test_passed": true,
+      "thread_finished": true,
+      "fatal_errors": 0,
+      "stop_out_events": 0
+    }
+  ],
+  "unresolved_log_errors": 0,
+  "exclusions": [
+    "The HYP007 broker stop-out is an earlier, unrelated whole-day-log window and is not attributed to either HYP008 run."
+  ]
+}

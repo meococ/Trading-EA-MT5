@@ -1,0 +1,77 @@
+{
+  "schema_version": "trendstack_007_design_economics_implementation_task.v6",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "base_task_v5_sha256": "DF7004B4A6398AD58A53B6CAEA3FDFBCFD4A303794EB817ECFCC20CBC648876B",
+  "amendment_timing": "FROZEN_AFTER_ENGINEERING_INVALID_ATTEMPT_003_WITH_ZERO_EVALUATED_TRADES_AND_NULL_MARKET_VERDICT_BEFORE_INPUT_CONTRACT_PREFLIGHT_OR_ATTEMPT_004",
+  "attempt_003_evidence": {
+    "run_packet_sha256": "D509031A3D88E62314BDC7AE5135FDBD92FB573F4DB70BB1A2017AD89677536F",
+    "attempt_started_sha256": "2066FFF580DE913A323BA0544773591043C0D72BCE0217A90B5728221726E9FE",
+    "attempt_terminal_sha256": "685D3085125FEE161244C1555D297258CEA502353B82D8E8DF0B314DAFDA4470",
+    "design_economics_receipt_sha256": "B5E1A9581DACA11AC163FC9A7758B1C66A426FD5CDEAA22B9810BD26F6C33F29",
+    "design_gate_report_sha256": "F417F200287ECD88C6CAC46C8AC1BAC6AD046C9894EF3F92646B588476D420CE",
+    "terminal_verdict": "ENGINEERING_INVALID_NO_MARKET_VERDICT",
+    "error_code": "EVALUATION_INVALID_ENGINEERING",
+    "evaluated_trades": 0,
+    "market_verdict": null
+  },
+  "diagnosis": {
+    "error_class": "PYARROW_DATETIME_SUBCLASS_REJECTED",
+    "exact_failure": "PyArrow to_pylist returned pandas.Timestamp values, which are valid datetime subclasses, while _validate_source_bar required type(value) is datetime.",
+    "diagnostic_exception": "INVALID_ENGINEERING source row is not exact 12:00 UTC",
+    "clock_scan": {
+      "rows": 1297,
+      "bad_rows": 0,
+      "utc_12_server_14_offset_2": 532,
+      "utc_12_server_15_offset_3": 765
+    },
+    "partial_pnl_or_gate_output_read": false,
+    "market_information_used_for_repair": false
+  },
+  "frozen_repair": {
+    "timestamp_type_check": "Replace exact datetime concrete-type equality for time_utc and time_server with isinstance(value, datetime), retaining naive timezone, exact date/time, server-minus-UTC offset, OHLC geometry and all other checks.",
+    "required_regression": "Exercise _validate_source_bar with a real pandas.Timestamp subclass at exact 12:00 UTC and matching server clock; reject non-datetime and wrong-clock values.",
+    "stage0_design_filter_change": false,
+    "economics_change": false,
+    "gate_change": false,
+    "parameter_change": false,
+    "signal_change": false
+  },
+  "input_contract_preflight": {
+    "authorized": true,
+    "timing": "AFTER_REPAIRED_SHA_INDEPENDENT_REVIEW_BEFORE_ATTEMPT_004_PACKET_FINALIZATION",
+    "allowed_calls": "verify hash-bound authority without output creation, load_production_inputs, then join_frozen_inputs only",
+    "forbidden_calls": "simulate_trade, evaluate_design, DSR, PF/year/cadence/gate calculation, artifact build, validation/holdout or non-DESIGN packet open",
+    "receipt_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_DESIGN_INPUT_CONTRACT_PREFLIGHT_RECEIPT_V1.json",
+    "required_receipt_facts": "PASS status, exact evaluator/test/TaskV6 and input authority hashes, joined_rows=1297, exact first/last DESIGN dates, economics_executed=false, pnl_metrics_emitted=false, validation/holdout opened=false",
+    "independent_read_only_recheck_required": true
+  },
+  "repair_attempt": {
+    "projection_attempt_id": "HYP007-DESIGN-ECON-004",
+    "output_root": "03. EA Developer/EA_TrendStackContinuation/research/evidence/HYP-TRENDSTACK-EURUSD-H1-007_DESIGN_ECONOMICS/HYP007-DESIGN-ECON-004",
+    "run_packet_schema_version": "trendstack_007_design_economics_run_packet.v4",
+    "run_packet_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_DESIGN_ECONOMICS_RUN_PACKET_V4.json",
+    "review_receipt_schema_version": "trendstack_007_design_economics_implementation_review_receipt.v4",
+    "review_receipt_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_DESIGN_ECONOMICS_IMPLEMENTATION_REVIEW_RECEIPT_V4.json",
+    "single_repair_attempt_only": true
+  },
+  "required_new_bindings": [
+    "implementation_task_v6_path",
+    "implementation_task_v6_sha256",
+    "attempt_003_terminal_path",
+    "attempt_003_terminal_sha256",
+    "attempt_003_design_economics_receipt_path",
+    "attempt_003_design_economics_receipt_sha256",
+    "input_contract_preflight_receipt_path",
+    "input_contract_preflight_receipt_sha256"
+  ],
+  "implementation_write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/evaluate_trendstack_007_design_economics.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_evaluate_trendstack_007_design_economics.py"
+  ],
+  "production_run_authorized_by_v6_alone": false,
+  "production_run_requires_preflight_pass_independent_review_receipt_and_exact_v4_packet": true,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false,
+  "mql5_authorized": false,
+  "model0_authorized": false
+}

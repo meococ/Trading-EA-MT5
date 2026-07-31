@@ -1,0 +1,86 @@
+{
+  "schema_version": "trendstack_007_source_run_authority_repair_amendment.v4",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "base_amendment_v2_sha256": "F399FF28A3ADCE35FD13111EC9EA6F3C33269415379F365BEFCC58F0319F3FFD",
+  "cross_binding_addendum_v3_sha256": "FA8F5A7E65C0D54E3BE20802BEC096528C1BD424961D1C615491CAF63E90C8AE",
+  "prior_registry_row_index": 286,
+  "prior_registry_row_sha256": "17512FE256454130E3EAE26D2372818631487D67EEB0F8B414D255FE2D5CA06E",
+  "amendment_timing": "FROZEN_AFTER_PACKET_REVIEW_FAILURE_BEFORE_ARM_BEFORE_SOURCE_RUN_BEFORE_PAYLOAD",
+  "failure_evidence": {
+    "packet_review_draft_sha256": "2B570672CF7576995CF93EC2DFE10F5601C318852E96AF463B932FBF33471B91",
+    "detached_packet_sha256": "2ACE4CF8C5330F1E25D1DF907B19E4F7EA78CC37DE6745713334BA020D860CF2",
+    "review_verdict": "FAIL_ARMING_PACKET_READ_OR_VALIDATION_FAILURE_CAN_LEAVE_RUNTIME_ARMED",
+    "source_projection_attempts_consumed": 0,
+    "production_payload_opens": 0,
+    "supervisor_was_armed": false,
+    "stage_final_evidence_absent": true
+  },
+  "repair_scope": "One implementation-only repair of supervise() persistent self-disarm coverage before the first and only source attempt. No source, hypothesis, signal, execution, cost, economic or downstream semantic changes.",
+  "transition_contract": {
+    "prior_state": "probe",
+    "successor_state": "probe",
+    "prior_source_run_authorized": true,
+    "successor_source_run_authorized": true,
+    "normal_probe_to_probe_and_true_to_true_remain_illegal": true,
+    "one_repair_exception_only": "exact HYP007 row286 to row287 after pre-arm P0 and before any attempt/payload",
+    "second_repair_forbidden": true,
+    "frozen_root_fields": "all row286 root fields except reason, updated_at_utc, validation and verdict",
+    "metrics_must_equal_row286": true,
+    "run_ids_must_equal_empty": true,
+    "exact_overrides_must_equal_row286": true,
+    "source_path_source_hash_model_must_remain_null": true,
+    "allowed_validation_changes": ["probe_status", "source_run_bindings"],
+    "successor_probe_status": "FROZEN_ONE_SHOT_SOURCE_PROJECTION_AUTHORIZED_AFTER_PREARM_DISARM_REPAIR",
+    "successor_verdict": "FROZEN_SINGLE_1200_BAR_SOURCE_RUN_AUTHORIZED_AFTER_PREARM_DISARM_REPAIR",
+    "all_economic_sealed_model0_promotion_flags_remain_false": true
+  },
+  "source_run_bindings_repair": {
+    "exact_changed_fields": [
+      "implementation_review_receipt_path",
+      "implementation_review_receipt_sha256",
+      "implementation_task_path",
+      "implementation_task_sha256",
+      "supervisor_review_base_sha256",
+      "supervisor_test_sha256"
+    ],
+    "implementation_review_receipt_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_SOURCE_IMPLEMENTATION_REVIEW_RECEIPT_V6.json",
+    "implementation_task_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_SOURCE_IMPLEMENTATION_TASK_PACKET_V6.json",
+    "sha_fields_are_uppercase_sha256": true,
+    "all_other_40_binding_fields_must_equal_row286": true,
+    "nested_schema_policy": "CANDIDATE_REGISTRY.schema.json must accept both the historical V2/V5 binding paths in row286 and the exact V4/V6 repair paths in row287; manual transition validation must reject mixed pairs or any other path."
+  },
+  "supervisor_fix_contract": {
+    "armed_detection": "Once REVIEWED_SOURCE_RUN_PACKET_SHA256 is non-None, capture the digest before any packet path, ancestor, read or validation operation.",
+    "mandatory_disarm_on_pre_packet_failure": "Missing, unreadable, outside-workspace, ancestor-invalid, malformed, duplicate-key, wrong-shape or detached-digest-mismatched packet must call self_disarm_runtime on the reviewed supervisor path using the captured digest and clear the Python global in finally.",
+    "error_surface": "Rethrow only INVALID_SOURCE_PROJECTION after the disarm attempt; a disarm failure must not leave the global armed.",
+    "existing_lifecycle": "After packet validation, existing ProductionOperations and lifecycle persistent-disarm/terminal behavior remains binding.",
+    "required_tests": [
+      "armed missing packet",
+      "armed unreadable packet",
+      "armed malformed packet",
+      "armed packet detached-digest mismatch",
+      "armed outside-workspace packet",
+      "self_disarm_runtime failure still clears global"
+    ]
+  },
+  "packet_and_authority_updates": {
+    "required_new_packet_fields": [
+      "authority_repair_amendment_v4_path",
+      "authority_repair_amendment_v4_sha256",
+      "implementation_task_v6_path",
+      "implementation_task_v6_sha256"
+    ],
+    "latest_authority_row_required": 287,
+    "row287_full_registry_and_raw_row_hash_binding_required": true,
+    "row_to_packet_mapping": "The repaired implementation task path/hash maps to implementation_task_v6_path/hash; the repaired receipt and supervisor fields map to their existing packet fields; all other V3 mappings remain unchanged.",
+    "pre_marker_pre_payload_required": true
+  },
+  "receipt_sequence": "Task V6 implementation and review -> receipt V6 without row287/full-registry hash -> append exact row287 -> dual-validator readback -> new unarmed packet -> packet review -> arm/run once.",
+  "amendment_alone_grants_source_run": false,
+  "economics_authorized": false,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false,
+  "mql5_authorized": false,
+  "model0_authorized": false,
+  "promotion_authorized": false
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "event_clob_source_task_packet_amendment.v1",
+  "task_id": "EVENT_CLOB_SOURCE_PLANNER_20260728_V2",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001",
+  "supersedes_packet_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001_SOURCE_TASK_PACKET.json",
+  "supersedes_packet_sha256": "FB670F5C84772E531E13F3DBF6EDF06FB46856848925CDBC4B86224A9AC942EA",
+  "amendment_reason": "The append-only registry received one unrelated HYP-TRENDSTACK-EURUSD-H1-001 row after the original packet freeze. The registry remains validator-clean; the EVENT-CLOB hypothesis row and every strategy/source binding are byte-identical. This amendment re-binds only the global registry hash before any remote call.",
+  "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+  "registry_sha256": "4166FBAC859BCA073AB20905B36F7E443305FF50822B3DC63FE5C7E2C7BE6432",
+  "registry_validator_result": "CANDIDATE_REGISTRY_OK rows=264 hypotheses=88",
+  "bound_hypothesis_row_sha256": "F120C70E6D8AEB1C7194D599E970721946C32DACFA2EEDA6BAE0C4B4B811FAA3",
+  "bindings_unchanged": {
+    "probe_plan_sha256": "D47615E32F1E374D3CBFB23EA2DD9ABF594A85F2E22BF1C3CD5B08D60B6F5011",
+    "clock_sha256": "5C30F99FF0E1341D680C2747315E2FF4DFF99C5FBE01C2C5C4036BC101375E7B",
+    "clock_manifest_sha256": "B61CDFA6DCAE82308E4CD2A60DAFF195C297FD8523D41CDCA0788694657AC636"
+  },
+  "authority_unchanged": {
+    "free_metadata_quote_authorized": true,
+    "paid_timeseries_authorized": false,
+    "ea_source_build_authorized": false,
+    "economic_outcome_read_authorized": false,
+    "model0_authorized": false,
+    "live_or_paper_authorized": false,
+    "git_commit_or_push_authorized": false
+  },
+  "instruction": "Continue the exact original packet. Before the first remote metadata/symbology call, recheck this registry SHA and the bound hypothesis-row SHA. If another append changes only the global registry while the bound row and validator remain unchanged, stop again; do not infer rolling authority. All remote method allowlists, write_set, acceptance gates and prohibitions in the superseded packet remain mandatory."
+}

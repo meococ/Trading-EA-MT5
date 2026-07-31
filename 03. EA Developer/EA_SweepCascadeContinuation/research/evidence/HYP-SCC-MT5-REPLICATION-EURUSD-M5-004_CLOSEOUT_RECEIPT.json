@@ -1,0 +1,43 @@
+{
+  "schema_version": "alphafactory_ea_closeout_receipt.v1",
+  "generated_at_utc": "2026-07-25T14:45:00Z",
+  "hypothesis_id": "HYP-SCC-MT5-REPLICATION-EURUSD-M5-004",
+  "verdict": "KILL_VALID_MATCHED_PAIR_NO_POSITIVE_EXPECTANCY",
+  "package_tests": {
+    "result": "PASS",
+    "passed": 13,
+    "failed": 0
+  },
+  "candidate_registry": {
+    "result": "CANDIDATE_REGISTRY_OK",
+    "rows": 258,
+    "hypotheses": 84
+  },
+  "delivery_gate": {
+    "result": "EA_DELIVERY_PACKET_OK",
+    "delivery_class": "economic_run",
+    "verdict": "KILLED",
+    "bindings": 21,
+    "packet_path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_DELIVERY_PACKET.json",
+    "packet_sha256": "513B4C04734E6D920E9A5D988C0B99F75BED30E9B5CB5BF12E48FAB28D2C4B93"
+  },
+  "runtime": {
+    "mt5_status": "STOPPED",
+    "portable": true,
+    "install_drive": "D:",
+    "tester_drive": "D:",
+    "file_common_allowed": false
+  },
+  "workspace_source_of_truth": {
+    "result": "PARTIAL_EXTERNAL_BACKUP_UNAVAILABLE",
+    "local_lane_errors": 0,
+    "external_backup_missing_files": 10,
+    "external_root": "G:\\Drive của tôi\\META TRADING\\Advisors",
+    "note": "The validator remained red only for ten pre-existing unavailable backup-only files on G:. No SCC path, hash, schema or registry inconsistency was reported."
+  },
+  "git": {
+    "diff_check": "PASS",
+    "commit_created": false,
+    "note": "No commit or push was authorized by the Owner in the current message."
+  }
+}

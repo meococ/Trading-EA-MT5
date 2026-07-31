@@ -1,0 +1,39 @@
+{
+  "schema_version": "event_clob_source_task_packet_amendment.v1",
+  "task_id": "EVENT_CLOB_SOURCE_HARDENING_20260728_V4",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001_SOURCE_TASK_PACKET_V3.json",
+  "supersedes_amendment_sha256": "5BF086A0DACE26C898279D5D402135A2B92E18DC823D0A43DC6EB2A9085ED853",
+  "amendment_reason": "Independent Codex review found four fail-closed defects in the source-acquisition utility. Harden the offline plan, quote receipt, resumable manifest, and single-writer paid boundary before any further remote operation.",
+  "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+  "registry_sha256": "4166FBAC859BCA073AB20905B36F7E443305FF50822B3DC63FE5C7E2C7BE6432",
+  "bound_hypothesis_row_sha256": "F120C70E6D8AEB1C7194D599E970721946C32DACFA2EEDA6BAE0C4B4B811FAA3",
+  "write_set": [
+    "03. EA Developer/EA_EventCLOBPersistence/research/acquire_event_cme6e_mbp10.py",
+    "03. EA Developer/EA_EventCLOBPersistence/tests/test_event_cme6e_mbp10_acquisition.py",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob/acquisition_plan.json"
+  ],
+  "required_fixes": [
+    "Validate every persisted plan window byte-for-byte against the frozen clock-derived canonical window before any remote call.",
+    "Reconcile quote receipt quotes, totals, dataset/schema/symbol, SDK, clock, bindings, and outcome-boundary fields exactly against the quoted plan.",
+    "Validate any existing download manifest against schema, plan, unique canonical identities, on-disk DBN existence, byte count, SHA-256, record validation, and charged-empty evidence before any paid call or completion claim.",
+    "Acquire an exclusive filesystem lock for the entire paid download critical section so a second process fails before any remote paid call. The lock must be rooted under the approved D-side data directory and released on normal or exceptional exit."
+  ],
+  "red_first_acceptance_tests": [
+    "A timestamp-shifted but offset-consistent window with recomputed plan_id fails before metadata or time-series calls.",
+    "A mutated receipt quote or total with recomputed receipt_id fails exact reconciliation.",
+    "Wrong-plan, duplicate, missing-file, corrupt-file, hash-mismatch, and unvalidated-empty manifest states fail before any paid call.",
+    "Two concurrent download workers cannot both cross the paid boundary; only the lock owner may call timeseries.get_range.",
+    "All existing focused tests remain green and the persisted offline plan is regenerated with the final tool SHA and deterministic plan ID."
+  ],
+  "prohibitions": [
+    "Do not call any remote Databento endpoint in this hardening task.",
+    "Do not make any paid, batch, or time-series request.",
+    "Do not read EURUSD prices, economic outcomes, or 2023+ holdout data.",
+    "Do not create MQL5, compile, backtest, run MT5, or change hypothesis logic/gates.",
+    "Do not modify registry, preregistration, frozen clock, clock manifest, V1/V2/V3 packets, workspace docs, or unrelated files.",
+    "Do not stage, commit, push, create a branch, worktree, or clone."
+  ],
+  "handoff": "Return changed file hashes, red/green evidence, exact tests run, offline plan ID, registry validator result, and attestation that remote and paid call counts are zero."
+}

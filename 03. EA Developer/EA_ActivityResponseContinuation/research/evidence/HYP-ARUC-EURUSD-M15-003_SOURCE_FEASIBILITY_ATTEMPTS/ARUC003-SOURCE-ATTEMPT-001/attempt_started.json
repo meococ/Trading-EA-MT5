@@ -1,0 +1,28 @@
+{
+  "schema_version": "aruc_003_source_attempt_started.v1",
+  "attempt_id": "ARUC003-SOURCE-ATTEMPT-001",
+  "hypothesis_id": "HYP-ARUC-EURUSD-M15-003",
+  "started_at_utc": "2026-07-29T00:25:01Z",
+  "final_evidence_root": "03. EA Developer/EA_ActivityResponseContinuation/research/evidence/HYP-ARUC-EURUSD-M15-003_SOURCE_FEASIBILITY_ATTEMPTS/ARUC003-SOURCE-ATTEMPT-001",
+  "plan_sha256": "FB5275217AEF154AF7A254190B937D85F1BCDB220647283B4F13FF590BBEEE16",
+  "reviewed_builder_base_sha256": "4DFD202A06082CB5A5F686BA2E11F078E9FD04CA139DFF3C2378F99C30DAB36F",
+  "armed_builder_sha256": "F0803897AF9B77AEADB37160FB73543E820381F4FC2886B9DFD0C872A5450C14",
+  "reviewed_test_sha256": "41E42A025C70F53CF623A9815B094616385851783710C64212483489ED17DE6E",
+  "independent_review_receipt_sha256": "B7254F5FF29894DAEF974C77BF2AC36F5941C247AB305CEF0C122A2197B1DCC1",
+  "registry_pre_run_sha256": "92562BAD107256E85C9DE0135693A4C7A1157671EEF9E389DDE1057B84E4054A",
+  "registry_authority_row_index": 305,
+  "registry_authority_row_with_lf_sha256": "0044714B893312AD5FDF64DBB6B60AECA07AE7027E861FD3497CB7C87B08B668",
+  "registry_authority_row_body_sha256": "E97A835480EC9BDC644D424A24233ED632A850081085DBBA09FB415FD4A3440E",
+  "attempt_limit": 1,
+  "attempts_consumed_before_start": 0,
+  "repair_scope": "PRECOMPUTE_IMMUTABLE_ACTIVITY_INDICES_ONCE_NO_MARKET_RULE_CHANGE",
+  "permissions": {
+    "public_design_source_feasibility": true,
+    "outcome_prices_or_economics": false,
+    "validation_or_holdout": false,
+    "private_or_sealed": false,
+    "network_or_paid": false,
+    "mql5_or_mt5": false,
+    "promotion_or_live": false
+  }
+}

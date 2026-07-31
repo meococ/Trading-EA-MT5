@@ -1,50 +1,52 @@
 # CLAUDE.md
 
-File con trỏ (pointer-only) — không thêm trạng thái dự án hay doctrine vào đây.
+Pointer-only. Không ghi trạng thái dự án, metric run hay doctrine chi tiết vào
+file này.
 
-Chuỗi đọc-trước, theo thứ tự:
+## Chuỗi đọc-trước bắt buộc
 
-1. `AGENTS.md` — quy tắc vận hành và thứ tự thẩm quyền.
-2. `01. GOAL/GOAL.md` — mục tiêu chúng ta đang hướng tới.
-3. `INDEX.md` (root) — bản đồ workspace: mọi thứ nằm ở đâu.
-4. Registry/prereg/task packet liên quan + AlphaFactory status/lock — contract
-   thực thi hiện tại.
-5. `04. Memory/hot.md` — cache tham khảo trạng thái gần nhất, không phải authority.
-6. `04. Memory/do_not_repeat_failures.md` — prior/failure radius trước
-   hypothesis/EA mới, không phải blacklist.
+1. `AGENTS.md` - authority, vai trò Lead Quant và hard rules.
+2. `01. GOAL/GOAL.md` - outcome kinh tế; lane lịch sử không phải live status.
+3. `INDEX.md` - bản đồ nguồn canonical.
+4. Registry/prereg/task packet liên quan + AlphaFactory status/lock - quyền chạy.
+5. `04. Memory/hot.md` - cache handoff ngắn; xác minh lại bằng artifact.
+6. Trước candidate mới, tìm mechanism/ID liên quan trong
+   `04. Memory/do_not_repeat_failures.md` và registry; không nạp toàn bộ catalog
+   cho task hẹp và không coi nó là blacklist.
 
-Nguyên tắc nhanh:
+Không phát hành status report hoặc bắt đầu meaningful run trước khi hoàn thành
+chuỗi trên trực tiếp từ workspace hiện tại.
 
-- Giao tiếp với Owner và file chỉ dẫn: tiếng Việt. Doc nghiên cứu/evidence
-  (hot.md, gates, prereg, readout, registry): tiếng Anh.
-- Không trả lời từ trí nhớ khi workspace có artifact kiểm được. Dùng `hot.md` để
-  định tuyến rồi xác minh bằng registry/prereg/source/run/receipt hiện tại.
-- Failure cũ chỉ đóng đúng ID/candidate identity đã test. Không dùng “no edge”
-  của một object cũ để chặn EA mới có mechanism/data contract/decision surface
-  mới; mở ID mới, probe rẻ và prereg độc lập, đồng thời cấm post-hoc rescue.
-- Không backtest có ý nghĩa nào thiếu `hypothesis_id` + registry row
-  (hard rules trong `AGENTS.md`).
-- Probe rẻ và offline trước; validation nặng chỉ dành cho survivor.
-- Build/fix/complete là outcome-led: tự đi tiếp từ code → verify → chẩn đoán
-  trong scope, không chờ Owner nhắc từng bước và không kết thúc ở plan/docs khi
-  còn bước triển khai hợp lệ.
-- Ceremony phải lean. Compile/test/safety/doc không đồng nghĩa EA đã hoàn thiện;
-  chỉ claim theo đúng logic/economic outcome đã được evidence xác nhận.
-- Harness EA/backtest: `02. AlphaFactory/alpha.ps1` (+ `alpha.local.ps1` máy
-  cục bộ, không commit). Không invent toolchain song song.
-- Không commit/push Git trừ khi Owner yêu cầu rõ trong message hiện tại.
-- Source shelf/failed (SonicR full ledger + SilverBullet binary + 78 stub
-  `.ex5` đã archive THẬT 2026-07-15): `00. Old File/EA_Archive/` — không compile
-  làm evidence. Active shelf `03. EA Developer/`: danh sách lane compilable +
-  research-only terminal records sống ở `03. EA Developer/README.md`; trạng
-  thái kill/park có thẩm quyền nằm ở registry/readout hash-bound, còn `hot.md`
-  chỉ tóm tắt. Package có mặt trên shelf không cấp quyền chạy hoặc live.
-  File này không liệt kê shelf để tránh drift.
-- Đây là dự án cá nhân: mặc định một checkout/một nhánh hiện tại; không tự tạo
-  branch, worktree, clone hay nhánh riêng cho sub-agent nếu Owner chưa yêu cầu.
-- Doc điều khiển gọn 2 khu: `04. Memory/` (state: hot.md, do_not_repeat,
-  registry) + `05. Playbook/` (5 file lõi: gates, runbook, golden_path,
-  engineering_standard, research_doctrine). Doctrine cũ (workflow/roster/agents/policies/receipts) →
-  archived `00. Old File/project_control_archive_20260716/`.
-- Standing: chốt phiên (cập nhật docs + dọn artifact) — parent chủ động sau
-  session có ý nghĩa; chi tiết `AGENTS.md` §6.
+## Bất biến vai trò
+
+- Owner giao intent/thesis; agent phải tự bổ sung market mechanism, alternative,
+  risk, execution và phép falsify. Chỉ nói “input không đạt” rồi dừng là sai vai.
+- Một kill đóng đúng tested object, không đóng goal. Sau valid failure: failure
+  packet -> fresh search cell/ID hoặc blocker thật cần quyền mới.
+- `NO LEGAL CANDIDATE` chỉ đóng boundary đã khai. Không dùng một prompt/lane để
+  tuyên bố frontier toàn dự án hay goal complete.
+- Báo cáo luôn phân biệt `engineering-valid`, `economic-valid` và
+  `promotion/deploy-ready`; package/compile/PF in-sample không tự tạo edge.
+- Không hứa lợi nhuận, không bịa track-record. Capital preservation trước growth.
+- Build/fix/complete phải tự đi vòng an toàn đến economic verdict/delivery hoặc
+  blocker cần quyền mới; không chờ Owner nhắc từng bước.
+- Closeout theo Two-Speed trong `validation_gates.md`: loser chạm gate đã khóa
+  dùng Fast-Kill lean; survivor/continued candidate mới dùng Heavy-Delivery.
+
+## Bản đồ canonical
+
+| Câu hỏi | File |
+|---|---|
+| Mục tiêu book và DONE | `01. GOAL/GOAL.md` |
+| Bản chất market, vai trò quant, hypothesis/overfit | `05. Playbook/research_doctrine.md` |
+| Vòng brief -> probe -> build -> MT5 -> forensics | `05. Playbook/ea_golden_path.md` |
+| Ngưỡng/evidence/hard invalidation | `05. Playbook/validation_gates.md` |
+| Lệnh AlphaFactory chính xác | `05. Playbook/tool_runbook.md` |
+| Chuẩn code MQL5/risk/execution | `05. Playbook/ea_engineering_standard.md` |
+| Recent handoff (không phải authority) | `04. Memory/hot.md` |
+| Hypothesis authority | `04. Memory/research/CANDIDATE_REGISTRY.jsonl` |
+
+Harness duy nhất: `02. AlphaFactory/alpha.ps1`. Source canonical:
+`03. EA Developer/<EA>/<EA>.mq5`. Archive `00. Old File/` không phải nguồn
+compile/evidence. Không commit/push nếu Owner chưa yêu cầu rõ trong message hiện
+tại.

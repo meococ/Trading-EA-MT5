@@ -1,0 +1,57 @@
+{
+  "schema_version": "aruc_001_independent_source_review.v2",
+  "generated_at_utc": "2026-07-28T22:52:15Z",
+  "hypothesis_id": "HYP-ARUC-EURUSD-M15-001",
+  "review_role": "independent_codex_quant_implementation_reviewer",
+  "verdict": "PASS_TO_FREEZE_V2_AUTHORITY",
+  "plan_path": "03. EA Developer/EA_ActivityResponseContinuation/research/HYP-ARUC-EURUSD-M15-001_SOURCE_FEASIBILITY_PLAN_V2.md",
+  "plan_sha256": "8835CC6D8B25C154BE288E2EF9F6CE631AD481653BF324FD040098D5E602E5EC",
+  "builder_path": "03. EA Developer/EA_ActivityResponseContinuation/research/build_aruc_001_source.py",
+  "builder_base_sha256": "3D9360CDD6F92E888F517A3A2D3999832EC39B1E96166CBFFF208C16EB4648EC",
+  "test_path": "03. EA Developer/EA_ActivityResponseContinuation/research/tests/test_build_aruc_001_source.py",
+  "test_sha256": "34EE88DD39A14C9F6756D269F3471F87CA20DBD9960A62281AF9303B4A153890",
+  "registry_pre_authority_sha256": "D474DE3D9EE48EDC9172915AACD58D2F30338C9C2EC0A3E25387F578FC6B7A0F",
+  "registry_pre_authority_rows": 301,
+  "registry_validator_path": "04. Memory/research/validate_candidate_registry.py",
+  "registry_validator_sha256": "B04B379E11F556A0CF3E6C3264768176310FF01CF360CC3B92464C51A2996DD0",
+  "registry_schema_path": "04. Memory/research/CANDIDATE_REGISTRY.schema.json",
+  "registry_schema_sha256": "96C80D3C46A105A9754CA1325F3DD6C160D92A9D5800ECBC402DE0F40C612F5C",
+  "focused_tests": {
+    "command": "python -B -m pytest -q -p no:cacheprovider 03. EA Developer/EA_ActivityResponseContinuation/research/tests/test_build_aruc_001_source.py",
+    "passed": 97,
+    "failed": 0
+  },
+  "production_metadata_preflight": {
+    "m1_manifest_dates": 1555,
+    "h1_manifest_dates": 1555,
+    "weekday_decision_dates": 1298,
+    "sunday_history_dates": 257,
+    "m1_design_rows": 1859820,
+    "h1_design_rows": 31057,
+    "h1_raw_source_rows": 71785,
+    "parquet_shards_opened": 0,
+    "status": "PASS"
+  },
+  "verified_properties": [
+    "v2_plan_builder_test_hash_consistency",
+    "historical_registry_rows_tolerated_without_weakening_selected_latest_row_canonical_binding",
+    "canonical_registry_validator_and_schema_hash_bound_and_executed_before_design",
+    "v1_authority_row_and_v1_packet_rejected_by_v2_contract",
+    "closed_bar_causal_m15_q_a_r_atr20",
+    "strict_prior20_and_shifted5_business_date_mapping",
+    "first_signal_per_arm_per_utc_date",
+    "timestamp_only_observed_bar_horizons",
+    "public_design_path_hash_schema_clock_fail_closed",
+    "single_attempt_and_default_sentinel_disarmed"
+  ],
+  "pre_design_authority_order": "explicit_switch_then_reviewed_v2_packet_then_frozen_plan_then_canonical_registry_validator_schema_then_latest_selected_row_then_clock_then_public_design_metadata_then_public_design_shards",
+  "prohibitions_preserved": {
+    "outcome_prices": false,
+    "economics": false,
+    "validation_or_holdout": false,
+    "private_or_sealed": false,
+    "network_or_paid": false,
+    "mql5_or_mt5": false,
+    "promotion_or_live": false
+  }
+}

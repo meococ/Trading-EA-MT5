@@ -1,0 +1,77 @@
+{
+  "schema_version": "hyp002_grok_each_image_validated_job.v1",
+  "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+  "job": {
+    "job_id": "O07",
+    "case_id": "F007_PID000001282",
+    "position_id": "1282",
+    "direction": "SELL",
+    "image_type": "OUTCOME_ANATOMY",
+    "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_outcome\\F007_PID000001282_outcome.png",
+    "image_sha256": "E64233126A841E61C7A8A0CCB2C34285D85A725B646A7EC9DF2C74B92EAADB22"
+  },
+  "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O07\\attempt-001-actual",
+  "request": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O07\\attempt-001-actual\\grok-request.json",
+    "sha256": "D06FDA0401C4772D992C72A1FB4E93AF6F94904D95FDD24497A94CC0B4452F33"
+  },
+  "prompt_blocks": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O07\\attempt-001-actual\\prompt-blocks.json",
+    "sha256": "C6E5E87D44E5B37F81C9D858C36559750D60627547531B97F0B3C862FAF7C8E4"
+  },
+  "summary": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O07\\attempt-001-actual\\summary.json",
+    "sha256": "D7F085B0A11CE68FA40A344C7677D650F6A53597F92FEF6A72295ACE29A95F5C"
+  },
+  "response": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\O07\\attempt-001-actual\\grok-response.json",
+    "sha256": "558562B28462F89469EEB632A20234D15B83E5577C35A30DBBAAFA9F83199643"
+  },
+  "runner": {
+    "model": "grok-4.5",
+    "reasoning_effort": "high",
+    "stop_reason": "EndTurn",
+    "elapsed_seconds": 63.406,
+    "total_cost_usd": 0.0609672,
+    "num_turns": 1,
+    "prompt_transport": "acp_blocks_file",
+    "image_count": 1,
+    "decoded_image_bytes": 154566
+  },
+  "result": {
+    "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+    "job_id": "O07",
+    "case_id": "F007_PID000001282",
+    "position_id": "1282",
+    "direction": "SELL",
+    "image_type": "OUTCOME_ANATOMY",
+    "image_sha256": "E64233126A841E61C7A8A0CCB2C34285D85A725B646A7EC9DF2C74B92EAADB22",
+    "image_opened": true,
+    "visual_readability": "PASS",
+    "observations": [
+      "Title states MEDIAN_LOSS with R=-1.102 and outcome-disclosing; SELL geometry shows Entry ~1.2022 (blue), SL above ~1.2028 (red dashed), TP below ~1.2010 (green dashed).",
+      "Purple dotted break-bar open precedes blue dash-dot actual entry; between them a sharp red cascade drives price down through entry toward ~1.2020.",
+      "After actual entry the path is almost immediately adverse: green candles climb into the SL band; a purple X sits on the SL line near ~1.2028.",
+      "Post-exit price continues higher toward ~1.2030+; the TP line is never approached on the visible window.",
+      "Bottom CME 6E full-break-bar trace reports early=-0.119 late=-0.068 score=+0.066; actual entry is marked near ~300s from break-bar open.",
+      "Late-60s band (beige) shows direction-aligned I5 mostly around ~-0.1, while mid-window had stronger positive spikes."
+    ],
+    "confidence": "HIGH",
+    "unknowns": [
+      "Exact fill price and whether any post-entry tick MFE below entry is material or just residual wick of the entry bar",
+      "Whether purple X is the precise SL fill timestamp/price or a stylized exit marker",
+      "Meaning/units of direction-aligned I5 and how score=+0.066 is computed from early/late negatives",
+      "Spread/commission/slippage components (not separable on chart)",
+      "Why actual entry is delayed to ~300s after break-bar open"
+    ],
+    "no_rule_or_rerun_authority": true,
+    "outcome_visible": true,
+    "actual_path_class": "IMMEDIATE_FAILED_BREAK",
+    "primary_layer": "SETUP_ENTRY",
+    "entry_context_assessment": "SELL is taken slightly after break-bar open on a completed downside cascade that already carried price through the entry level near a local low; the setup context is a failed downside break rather than entry into ongoing clean continuation.",
+    "path_anatomy": "Break-bar open → red impulse through entry → actual fill near the impulse low → immediate reverse higher in green candles → SL touch (purple X, R≈-1.1) → continued adverse grind higher; no sustained sell continuation and no TP approach.",
+    "book_trace_relevance": "Book trace is weakly mixed: overall score only +0.066 while early and late medians are negative, and late-60s alignment sits near -0.1 at the right edge where entry occurs; it does not show strong sustained direction support that would have separated a clean continuation winner from this reverse-to-SL path.",
+    "exit_geometry_assessment": "Exit geometry is SL-bound: the purple X aligns with the fixed red SL; realized R=-1.102 matches near-full stop rather than TP, trail, or mid-path discretionary exit; TP remains far unused.",
+    "failure_mechanism": "Downside break entry fails immediately after fill: price reverses through entry into the stop without accepting a continued sell path, producing a median-scale full-stop loss rather than continuation or staged giveback after a large favorable run."
+  }
+}

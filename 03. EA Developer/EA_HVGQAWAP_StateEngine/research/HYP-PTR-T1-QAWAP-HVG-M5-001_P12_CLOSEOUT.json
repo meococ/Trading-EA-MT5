@@ -1,0 +1,107 @@
+{
+  "schema_version": "alphafactory.generation_pre_economic_closeout.v1",
+  "campaign_id": "CAMPAIGN-PTR-E01",
+  "generation": "T1",
+  "hypothesis_id": "HYP-PTR-T1-QAWAP-HVG-M5-001",
+  "closed_at_utc": "2026-07-30T22:05:35Z",
+  "verdict": "INVALID_REPAIR_EXHAUSTED__P5_SYNTHETIC_CAPABILITY_FAILS_PRE_ECONOMIC_GATE",
+  "classification": {
+    "engineering_valid": false,
+    "economic_valid": false,
+    "promotion_ready": false,
+    "market_no_edge_claim_authorized": false,
+    "exact_capability_object_terminal": true,
+    "t2_reopen_authorized_after_campaign_close": true
+  },
+  "bindings": {
+    "charter_path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E01_T1_P0_CHARTER.json",
+    "charter_sha256": "30C82B65EB4660C24D9E4C2A280E6E84BCFDDAB009939B5D7DB146AA0457D65F",
+    "probe_plan_path": "03. EA Developer/EA_HVGQAWAP_StateEngine/research/HYP-PTR-T1-QAWAP-HVG-M5-001_PROBE_PLAN.md",
+    "probe_plan_sha256": "1127F4419EE098793E076C40017202CDFFFAB118482AE45A922A747A7E1B6ED4",
+    "canonical_artifact_path": "03. EA Developer/EA_HVGQAWAP_StateEngine/research/evidence/HYP-PTR-T1-QAWAP-HVG-M5-001_MATH_PROBE.json",
+    "canonical_artifact_sha256": "313B7D4D77FED3D16A69C82CF6DC3803095E2B9E01616C284CA5A5EEA5008FE8",
+    "repair_packet_path": "03. EA Developer/EA_HVGQAWAP_StateEngine/research/HYP-PTR-T1-QAWAP-HVG-M5-001_PROBE_REPAIR_01.json",
+    "repair_packet_sha256": "4C832510D2690D4020F732B11AC0EBDAE360C3A4678734C34CD9D2A7DEB4E7EB",
+    "repair_artifact_path": "03. EA Developer/EA_HVGQAWAP_StateEngine/research/evidence/HYP-PTR-T1-QAWAP-HVG-M5-001_MATH_PROBE_REPAIR_01.json",
+    "repair_artifact_sha256": "0B8AE610BCF7AC9FDDC08AC0E452816C980388240CCF522101846BC9E5108CFD",
+    "final_runner_path": "03. EA Developer/EA_HVGQAWAP_StateEngine/research/run_t1_math_probe.py",
+    "final_runner_sha256": "134FE33BCC740310F492266E2D02FD0CA1E1651A4FBD39722DE8787B45568299",
+    "test_path": "03. EA Developer/EA_HVGQAWAP_StateEngine/research/tests/test_run_t1_math_probe.py",
+    "test_sha256": "03A6D0FC80757F1FE065EDC735889B2D594721B1CA27AE8FC2210AF5B9BB2643"
+  },
+  "population": {
+    "null_families": 9,
+    "null_calibration_per_family": 10000,
+    "null_verification_per_family": 10000,
+    "fractional_alternative_families": 3,
+    "alternative_verification_per_family": 10000,
+    "paths_per_attempt": 210000,
+    "canonical_attempts": 2,
+    "market_paths": 0,
+    "economic_trials_consumed": 0,
+    "alpha_ppm_consumed": 0,
+    "splits_opened": 0
+  },
+  "findings": {
+    "invalid_replicates": 389,
+    "invalid_reason_counts": {
+      "LOCAL_WHITTLE_BOUNDARY_OR_OPTIMIZER": 389,
+      "LOCAL_WHITTLE_PERIODOGRAM": 0,
+      "DFA": 0,
+      "LO_HAC": 0,
+      "DAVIES_HARTE_EIGEN": 0,
+      "INPUT_CONTRACT": 0,
+      "OTHER_NUMERIC": 0
+    },
+    "largest_invalid_rates": {
+      "AR_POS_06_calibration": 0.0079,
+      "AR_POS_06_verification": 0.009,
+      "FGN_H065_alternative": 0.0018,
+      "FGN_H070_alternative": 0.0079,
+      "VOLATILITY_BREAK_calibration": 0.0031,
+      "VOLATILITY_BREAK_verification": 0.0021
+    },
+    "invalid_rate_gate": "each family/stream <=0.001",
+    "invalid_rate_gate_pass": false,
+    "fractional_support_counts": {
+      "d_0_10": 0,
+      "d_0_15": 0,
+      "d_0_20": 0
+    },
+    "d_0_10_required_power": 0.8,
+    "d_0_10_observed_wilson_lower": 0.0,
+    "d_0_10_best_case_if_all_8_invalid_supported_wilson_upper": 0.0014192177113306577,
+    "bias_gate_pass": true,
+    "memory_null_false_positive_gate_pass": true,
+    "hvg_false_irreversibility_gate_pass": true,
+    "hvg_prefix_causality_pass": true
+  },
+  "failure_radius": "The exact T1 N=256, local-Whittle m=32 bounded d in [-0.45,0.45] with boundary-invalid handling, DFA1 scales 8/16/32/64, Lo lags 1/3/6/12 three-of-four support, max-over-nine-null critical construction, and N=64 directed-HVG synthetic capability object. It does not test market prices, QAWAP economics, MT5 execution, any symbol, Bob Volman price action, SMC, or professional trading generally.",
+  "forbidden_rescues": [
+    "relax local-Whittle bounds or boundary-invalid handling under this ID",
+    "lower the invalid-rate cap",
+    "remove AR_POS_06, mean-break or volatility-break nulls",
+    "relax the three-of-four Lo support rule",
+    "increase N or change m after reading this result under this ID",
+    "call zero synthetic power market no-edge",
+    "open EA source, MT5, economics, validation or holdout for this ID"
+  ],
+  "process_audit": {
+    "capability_gap": "finite_sample_memory_inference",
+    "reusable_harness_improvement": "Every synthetic probe terminal artifact must retain structured invalid reason counts and bounded replicate identities from its first canonical attempt.",
+    "verified_improvement": "Repair artifact reproduced all core metrics exactly and classified 389 of 389 invalids without changing any frozen decision surface.",
+    "next_generation": "T2 Bob Volman causal price-action grammar may open at P0 only after campaign T1 close and fresh charter/data/trial contracts."
+  },
+  "authority": {
+    "source_build_authorized": false,
+    "compile_authorized": false,
+    "mt5_authorized": false,
+    "model0_authorized": false,
+    "economics_authorized": false,
+    "validation_authorized": false,
+    "holdout_authorized": false,
+    "promotion_eligible": false,
+    "paper_trading_authorized": false,
+    "live_trading_authorized": false
+  }
+}

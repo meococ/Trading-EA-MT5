@@ -1,0 +1,11 @@
+{
+  "artifact_sha256": {
+    "attempt_started.json": "7692DF408BE6D52A201904D6DB895E5E7387FD99EDAA519D128CE2566DED720D"
+  },
+  "attempt_id": "HYP009-DESIGN-ECON-001",
+  "execution_evidence_class": "BROKER_OBSERVED_M1_PROXY_KILL_ONLY",
+  "hypothesis_id": "HYP-ROUND-CASCADE-EURUSD-M5-009",
+  "promotion_evidence": false,
+  "reason": "no exact complete observed M5 entry at planned_entry_time_utc",
+  "status": "ENGINEERING_INVALID_NO_MARKET_VERDICT"
+}

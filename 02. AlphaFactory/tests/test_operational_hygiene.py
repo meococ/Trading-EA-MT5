@@ -150,7 +150,7 @@ def test_archive_plan_path_must_stay_inside_workspace(tmp_path: Path) -> None:
     assert not outside_plan.exists()
 
 
-def test_source_of_truth_failure_is_printable_under_cp1252() -> None:
+def test_source_of_truth_optional_backup_is_portable_under_cp1252() -> None:
     validator = WORKSPACE / "04. Memory" / "validate_source_of_truth.py"
     env = os.environ.copy()
     env["PYTHONIOENCODING"] = "cp1252:strict"
@@ -162,18 +162,36 @@ def test_source_of_truth_failure_is_printable_under_cp1252() -> None:
         check=False,
     )
     combined = result.stdout + result.stderr
-    assert result.returncode == 1
-    assert b"SOURCE_OF_TRUTH_FAIL" in combined
+    assert result.returncode == 0
+    assert b"SOURCE_OF_TRUTH_OK" in combined
+    assert b"SOURCE_OF_TRUTH_WARN" in combined
     assert b"UnicodeEncodeError" not in combined
 
 
-def test_registry_narrative_matches_live_active_pins() -> None:
+def test_source_of_truth_strict_backup_audit_still_fails_closed() -> None:
+    validator = WORKSPACE / "04. Memory" / "validate_source_of_truth.py"
+    result = subprocess.run(
+        [sys.executable, str(validator), "--strict-backups"],
+        cwd=WORKSPACE,
+        capture_output=True,
+        check=False,
+    )
+    combined = result.stdout + result.stderr
+    assert result.returncode == 1
+    assert b"SOURCE_OF_TRUTH_FAIL" in combined
+    assert b"backup root is unavailable" in combined
+
+
+def test_registry_narrative_points_to_live_inventory_owner() -> None:
     registry = json.loads(
         (WORKSPACE / "04. Memory" / "source_of_truth.json").read_text(encoding="utf-8-sig")
     )
     root_rule = registry["root_hygiene"]["rule"]
-    assert "EA_FVGConfluence" in root_rule
-    assert "EA_HybridICT_Sonic" in root_rule
+    assert "03. EA Developer/README.md" in root_rule
+    assert "AlphaFactory status" in root_rule
+    assert "Do not hard-code active EA inventory" in root_rule
+    assert "EA_FVGConfluence" not in root_rule
+    assert "EA_HybridICT_Sonic" not in root_rule
     assert "Owner-opened active trading lane pin" not in root_rule
 
     ea_contract_reason = next(

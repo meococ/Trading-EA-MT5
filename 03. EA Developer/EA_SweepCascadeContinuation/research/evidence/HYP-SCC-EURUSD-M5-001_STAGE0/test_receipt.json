@@ -1,0 +1,26 @@
+{
+  "schema_version": "scc_stage0_test_receipt.v1",
+  "hypothesis_id": "HYP-SCC-EURUSD-M5-001",
+  "plan_sha256": "6541239D88FFF99D9C8D1E2B3C78645ECE0BE01A69FFCF32BA1620ED6557FA3B",
+  "red_first": {
+    "command": "python -m pytest \"03. EA Developer\\EA_SweepCascadeContinuation\\tests\\test_stage0_probe.py\" -q",
+    "result": "ERROR FileNotFoundError scc_stage0_probe.py",
+    "tests_collected": 0,
+    "expected_failure": true
+  },
+  "intermediate_red": {
+    "result": "4 failed, 3 passed",
+    "diagnosis": "synthetic BREAK fixture violated frozen p <= b-3 confirmation relation",
+    "contract_changed": false
+  },
+  "green": {
+    "command": "python -m pytest \"03. EA Developer\\EA_SweepCascadeContinuation\\tests\\test_stage0_probe.py\" -q",
+    "result": "7 passed in 0.48s",
+    "tests_passed": 7
+  },
+  "scanner_sha256": "2E491B95795F3681AF7FCDD5BDF0A2DFF7C59707F26E137E858E9E5C1C6A7C4F",
+  "tests_sha256": "C518E1CE02CB9D1A66AFF805DD63A5A3F0ACAFD2D6353E5100E3C8855A74F896",
+  "python_compile": "PASS",
+  "outcome_static_audit": "PASS_GUARD_AND_DOCSTRING_MATCHES_ONLY",
+  "created_at_utc": "2026-07-25T13:10:00Z"
+}

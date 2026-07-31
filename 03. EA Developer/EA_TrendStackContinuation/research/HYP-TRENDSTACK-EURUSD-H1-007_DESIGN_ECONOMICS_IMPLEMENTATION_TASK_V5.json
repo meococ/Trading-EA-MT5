@@ -1,0 +1,61 @@
+{
+  "schema_version": "trendstack_007_design_economics_implementation_task.v5",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "base_task_v4_sha256": "7419385BA3CA0604C4CABF4C6EF0AA65673CDBD623117B08371D58B4921BCB2F",
+  "amendment_timing": "FROZEN_AFTER_ENGINEERING_INVALID_ATTEMPT_002_WITH_ZERO_EVALUATED_TRADES_AND_NULL_MARKET_VERDICT_BEFORE_ATTEMPT_003_OR_ANY_ECONOMIC_OUTCOME",
+  "attempt_002_evidence": {
+    "run_packet_sha256": "E03948EF060E2373461C64A7C8BED7A35C457F0033E2F3BF71E6041BC2828948",
+    "attempt_started_sha256": "1E6BE917577EB4361ED58295F873B935E1D113BA3E5F17B90257A76CA71B0D60",
+    "attempt_terminal_sha256": "960A46269955F0BBA7F8F20CD470BC2897BF8760E6436CD263C904B6B56EA675",
+    "design_economics_receipt_sha256": "1B96FED9C6112B6F0BAC2B502CCA1876A7507E1FF23AEE2EB3BF5B8358E9B858",
+    "design_gate_report_sha256": "2F4D9F56E14B286CAFA65F4741DB013D9A71F3BDACF04BB9E8DAFE1CCA50557E",
+    "terminal_verdict": "ENGINEERING_INVALID_NO_MARKET_VERDICT",
+    "error_code": "LOAD_INVALID_ENGINEERING",
+    "evaluated_trades": 0,
+    "market_verdict": null
+  },
+  "diagnosis": {
+    "error_class": "WINDOWS_CONCRETE_PATH_SUBCLASS_REJECTED",
+    "exact_failure": "load_production_inputs required type(workspace_root) is pathlib.Path; on Windows Path.resolve returns pathlib.WindowsPath, so the check failed before the first source shard open.",
+    "diagnostic_exception": "INVALID_ENGINEERING authority workspace root malformed",
+    "production_source_shards_opened_before_failure": 0,
+    "production_decision_packets_opened_before_failure": 0,
+    "market_information_used_for_repair": false
+  },
+  "frozen_repair": {
+    "path_type_check": "Replace exact concrete-type equality with isinstance(workspace_root, pathlib.Path), retaining all resolve/containment/symlink/reparse/stable-read checks.",
+    "required_regression": "Exercise load_production_inputs with the real host concrete Path subclass and prove it advances past the workspace-root type gate; reject non-Path roots.",
+    "stage0_design_filter_change": false,
+    "economics_change": false,
+    "gate_change": false,
+    "parameter_change": false,
+    "signal_change": false
+  },
+  "repair_attempt": {
+    "projection_attempt_id": "HYP007-DESIGN-ECON-003",
+    "output_root": "03. EA Developer/EA_TrendStackContinuation/research/evidence/HYP-TRENDSTACK-EURUSD-H1-007_DESIGN_ECONOMICS/HYP007-DESIGN-ECON-003",
+    "run_packet_schema_version": "trendstack_007_design_economics_run_packet.v3",
+    "run_packet_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_DESIGN_ECONOMICS_RUN_PACKET_V3.json",
+    "review_receipt_schema_version": "trendstack_007_design_economics_implementation_review_receipt.v3",
+    "review_receipt_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_DESIGN_ECONOMICS_IMPLEMENTATION_REVIEW_RECEIPT_V3.json",
+    "single_repair_attempt_only": true
+  },
+  "required_new_bindings": [
+    "implementation_task_v5_path",
+    "implementation_task_v5_sha256",
+    "attempt_002_terminal_path",
+    "attempt_002_terminal_sha256",
+    "attempt_002_design_economics_receipt_path",
+    "attempt_002_design_economics_receipt_sha256"
+  ],
+  "implementation_write_set": [
+    "03. EA Developer/EA_TrendStackContinuation/research/evaluate_trendstack_007_design_economics.py",
+    "03. EA Developer/EA_TrendStackContinuation/research/tests/test_evaluate_trendstack_007_design_economics.py"
+  ],
+  "production_run_authorized_by_v5_alone": false,
+  "production_run_requires_independent_review_receipt_and_exact_v3_packet": true,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false,
+  "mql5_authorized": false,
+  "model0_authorized": false
+}

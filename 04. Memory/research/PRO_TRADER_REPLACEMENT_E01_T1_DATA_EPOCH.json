@@ -1,0 +1,33 @@
+{
+  "schema_version": "alphafactory_data_epoch_contract.v1",
+  "record_type": "data_epoch_contract",
+  "campaign_id": "CAMPAIGN-PTR-E01",
+  "generation": 1,
+  "generation_id": "T1",
+  "charter": {
+    "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E01_T1_P0_CHARTER.json",
+    "sha256": "30C82B65EB4660C24D9E4C2A280E6E84BCFDDAB009939B5D7DB146AA0457D65F"
+  },
+  "server": "FivePercentOnline-Real",
+  "timeframe": "M5",
+  "tester_model": 0,
+  "requested_from": "1970.01.01",
+  "availability_cutoff_utc": "2026-07-30T23:59:59Z",
+  "history_quality": {
+    "operator": "gt",
+    "threshold_pct": 97.0
+  },
+  "no_skip": true,
+  "mandatory_symbols": [
+    "XAUUSD",
+    "BTCUSD",
+    "EURUSD",
+    "USDJPY",
+    "GBPUSD",
+    "USDCHF",
+    "USDCAD",
+    "AUDUSD",
+    "NZDUSD"
+  ],
+  "evidence_ledger_path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E01_T1_DATA_EVIDENCE.jsonl"
+}

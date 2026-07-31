@@ -1,0 +1,43 @@
+{
+  "schema_version": "alphafactory_build_receipt.v1",
+  "hypothesis_id": "HYP-SCC-MT5-REPLICATION-EURUSD-M5-003",
+  "generated_at_utc": "2026-07-25T13:50:50Z",
+  "change_class": "IDENTITY_AND_ORCHESTRATION_ONLY",
+  "strategy_changed_from_hyp002": false,
+  "prereg": {
+    "path": "03. EA Developer/EA_SweepCascadeContinuation/research/HYP-SCC-MT5-REPLICATION-EURUSD-M5-003_FROZEN_PREREG.md",
+    "sha256": "BDF19994229DA9BE07FCF20D9A6670223A727D78C17A68D9DB970109245FE88C"
+  },
+  "source": {
+    "path": "03. EA Developer/EA_SweepCascadeContinuation/EA_SweepCascadeContinuation.mq5",
+    "sha256": "E56AF40AB7DA7EB02AD312596062BD9547F8590FF0C652233B4246370D624B05"
+  },
+  "ex5": {
+    "path": "03. EA Developer/EA_SweepCascadeContinuation/EA_SweepCascadeContinuation.ex5",
+    "sha256": "6F32C9A5B4FA61482247E760E099D102E98C27C6E053CE617F8081192E4C105C",
+    "bytes": 36474
+  },
+  "compile": {
+    "path": "03. EA Developer/EA_SweepCascadeContinuation/EA_SweepCascadeContinuation.log",
+    "sha256": "F226B91019908F2AF07A675033A2D8954B157300522A8343CACFBC0488E0D26A",
+    "errors": 0,
+    "warnings": 0
+  },
+  "tests": {
+    "command": "python -X utf8 -m pytest -p no:cacheprovider \"03. EA Developer\\EA_SweepCascadeContinuation\\tests\" -q",
+    "source_sha256": "6C128431ADDCAEB209ED875C3F816167A3AEAEE464ABC2F9159AD347C36D0B9A",
+    "passed": 13,
+    "failed": 0
+  },
+  "capability_contract_sha256": "891E6636F45B263F6163F5E703C9E87B912846B114CE25D5E45517871FD28057",
+  "logic_matrix_sha256": "831D7CEA70851B9BFB53FFE92FE5751F35A217776B0036544855F3DA2004E3CD",
+  "nonrepaint": {
+    "status": "PASS",
+    "manifest_sha256": "55B764158CD44A8AF19AD9B6E4EA6713C62A9739FCA2F240650C73203F4AEE95",
+    "audit_sha256": "1DD4ECABA7B946A74D5A12B810337AD8CA6B2EC2A302A5257045F3B7FE746201",
+    "findings": 0,
+    "allowed_new_bar_gates": 1
+  },
+  "model0_runs": 0,
+  "promotion_eligible": false
+}

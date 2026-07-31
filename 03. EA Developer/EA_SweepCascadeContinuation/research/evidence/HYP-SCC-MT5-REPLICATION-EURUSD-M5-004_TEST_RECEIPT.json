@@ -1,0 +1,11 @@
+{
+  "schema_version": "alphafactory_test_receipt.v1",
+  "hypothesis_id": "HYP-SCC-MT5-REPLICATION-EURUSD-M5-004",
+  "command": "python -X utf8 -m pytest -p no:cacheprovider \"03. EA Developer\\EA_SweepCascadeContinuation\\tests\" -q",
+  "result": "13 passed in 0.45s",
+  "passed": 13,
+  "failed": 0,
+  "source_sha256": "9C03F4CB913E18B6CF660E48E7ADBD86034B1352A80167C32CC238BA7F7817B3",
+  "red_test_receipt": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_BUILD/red_test_receipt.json",
+  "promotion_eligible": false
+}

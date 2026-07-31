@@ -1,0 +1,36 @@
+{
+  "schema_version": "alphafactory_fast_kill_closeout.v1",
+  "created_at_utc": "2026-07-29T17:35:54Z",
+  "hypothesis_id": "HYP-EUUSD-EURUSD-M1-001",
+  "ea_name": "EA_EuropeOpenUSDDemand",
+  "evidence_class": "offline_probe",
+  "verdict": "KILLED",
+  "kill_code": "cost_dominated",
+  "cell_closeout_claim": true,
+  "bindings": [
+    {"role": "preregistration", "path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/HYP-EUUSD-EURUSD-M1-001_TRAIN_ECONOMIC_PROBE_PLAN.md", "bytes": 6057, "sha256": "D8585C793F0F742D96471BC25330F0368714CCCD1E1E66DEAF4AA79C2A242B4C"},
+    {"role": "result_summary", "path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/evidence/HYP-EUUSD-EURUSD-M1-001/EUEUR001-TRAIN-ECON-001/train_economic_terminal.json", "bytes": 6841, "sha256": "123B2C209A18AF35506D0CFA876793FCC18094AA643C9EFBA50C3753E40F848D"},
+    {"role": "readout", "path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/HYP-EUUSD-EURUSD-M1-001_READOUT.md", "bytes": 4581, "sha256": "6D012CF0006CF0209AC96A68EA2ED2F079E5A2A167754785DF36714815E10623"},
+    {"role": "diagnostic_chart", "path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/evidence/HYP-EUUSD-EURUSD-M1-001/EUEUR001-TRAIN-ECON-001/euusd_eurusd_001_train_kill_diagnostics.png", "bytes": 268778, "sha256": "2D0D232F3F90B8C89D07B4E4D3A2E06CC6F77C9A275227E549DDBF1A64E14854"}
+  ],
+  "frozen_kill_gate": {"name": "cost_profit_factor_x1", "comparator": "lt", "threshold": 1.3, "actual": 0.9687234884904704, "frozen_pre_outcome": true, "minimum_observations": 1000, "observations_unit": "completed_trades", "sequential_early_stop": false},
+  "metrics": {
+    "trades": 1296,
+    "gross_profit_factor": 1.1365186815499422,
+    "cost_profit_factor_x1": 0.9687234884904704,
+    "cost_profit_factor_x1_5": 0.8945023383982461,
+    "cost_profit_factor_x2": 0.8260528907858999,
+    "expectancy_pips_x1": -0.29868827160493405,
+    "trades_per_elapsed_week": 4.965517272835941,
+    "positive_years": 2,
+    "permutation_one_sided_p_value": 0.0453954604539546,
+    "deflated_sharpe": 0.00026891955819419167
+  },
+  "anti_overfit_contract": {"plan_frozen_pre_outcome": true, "terminal_state_recorded": true, "posthoc_rule_change_authorized": false, "same_id_rerun_authorized": false},
+  "limitations": [
+    "Fast-kill closes only the exact EURUSD Europe/Berlin 08:00-to-14:15 fixed-short close-only TRAIN proxy and does not complete the workspace book goal.",
+    "The source-ranked direction passed the sign-flip test but failed every cost PF gate, x1 expectancy, year stability and DSR.",
+    "Weekday and month anatomy is post-outcome diagnostic only and cannot authorize a filtered rescue.",
+    "Validation 2021-2024 and every 2025+ holdout payload remain sealed; no MQL5, Model 0, optimization, promotion, paper or live authority is granted."
+  ]
+}

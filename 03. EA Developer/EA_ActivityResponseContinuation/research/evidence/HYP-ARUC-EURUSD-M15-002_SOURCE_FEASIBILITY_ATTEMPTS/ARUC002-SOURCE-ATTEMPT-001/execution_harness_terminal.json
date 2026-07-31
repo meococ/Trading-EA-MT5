@@ -1,0 +1,14 @@
+{
+  "schema_version": "aruc_002_execution_harness_terminal.v1",
+  "attempt_id": "ARUC002-SOURCE-ATTEMPT-001",
+  "command_role": "single_reviewed_public_design_source_feasibility_run",
+  "timeout_seconds": 3600,
+  "observed_wall_seconds": 3604.036,
+  "exit_code": 124,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "orphan_process_detected": true,
+  "orphan_process_id": 65368,
+  "orphan_process_identity": "python",
+  "orphan_process_stopped": true
+}

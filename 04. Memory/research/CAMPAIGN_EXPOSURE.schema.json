@@ -1,0 +1,278 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alphafactory.CAMPAIGN_EXPOSURE.schema.json",
+  "title": "AlphaFactory append-only campaign exposure state row",
+  "$defs": {
+    "sha256_upper": {
+      "type": ["string", "null"],
+      "pattern": "^[A-F0-9]{64}$"
+    },
+    "path": {
+      "type": ["string", "null"],
+      "minLength": 1
+    },
+    "artifact_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+      },
+      "required": ["path", "sha256"]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "record_type": { "const": "campaign_exposure_state" },
+    "schema_version": {
+      "enum": [
+        "alphafactory_campaign_exposure.v1",
+        "alphafactory_campaign_exposure.v2",
+        "alphafactory_campaign_exposure.v3"
+      ]
+    },
+    "campaign_id": { "type": "string", "pattern": "^CAMPAIGN-[A-Z0-9_-]{3,120}$" },
+    "generation": { "type": "integer", "minimum": 1, "maximum": 100 },
+    "state": { "enum": ["ACTIVE", "CLOSED"] },
+    "event": {
+      "enum": [
+        "OPEN", "DATA_BIND", "DATA_REPAIR", "GOVERNANCE_CORRECTION",
+        "BIND_HYPOTHESIS", "AUTHORIZE_ATTEMPT",
+        "ATTEMPT_TERMINAL", "GENERATION_CLOSE", "EPOCH_REOPEN"
+      ]
+    },
+    "phase": {
+      "enum": [
+        "P0", "P1", "P2", "P3", "P4", "P5", "P6",
+        "P7", "P8", "P9", "P10", "P11", "P12"
+      ]
+    },
+    "active_hypothesis_id": {
+      "type": ["string", "null"],
+      "pattern": "^HYP-[A-Z0-9_-]{3,120}$"
+    },
+    "charter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+      },
+      "required": ["path", "sha256"]
+    },
+    "prior_campaign_row_sha256": { "$ref": "#/$defs/sha256_upper" },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "trial_total": { "type": "integer", "minimum": 0 },
+        "trial_spent": { "type": "integer", "minimum": 0 },
+        "trial_remaining": { "type": "integer", "minimum": 0 },
+        "alpha_ppm_total": { "type": "integer", "minimum": 0 },
+        "alpha_ppm_spent": { "type": "integer", "minimum": 0 },
+        "alpha_ppm_remaining": { "type": "integer", "minimum": 0 },
+        "carry_debt_ppm": { "type": "integer", "minimum": 0 }
+      },
+      "required": [
+        "trial_total", "trial_spent", "trial_remaining",
+        "alpha_ppm_total", "alpha_ppm_spent", "alpha_ppm_remaining",
+        "carry_debt_ppm"
+      ]
+    },
+    "viewed_arms": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "split": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "state": { "enum": ["SEALED", "AUTHORIZED", "OPENED"] },
+        "opened_count": { "type": "integer", "minimum": 0 }
+      },
+      "required": ["state", "opened_count"]
+    },
+    "bound_data": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": { "enum": ["UNBOUND", "BOUND"] },
+        "epoch": { "type": ["string", "null"], "minLength": 1 },
+        "manifest_path": { "$ref": "#/$defs/path" },
+        "manifest_sha256": { "$ref": "#/$defs/sha256_upper" },
+        "multiplicity": { "type": "integer", "minimum": 1 },
+        "reopen_condition": { "type": "string", "minLength": 1 }
+      },
+      "required": [
+        "status", "epoch", "manifest_path", "manifest_sha256",
+        "multiplicity", "reopen_condition"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": { "status": { "const": "UNBOUND" } },
+            "required": ["status"]
+          },
+          "then": {
+            "properties": {
+              "epoch": { "type": "null" },
+              "manifest_path": { "type": "null" },
+              "manifest_sha256": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "status": { "const": "BOUND" } },
+            "required": ["status"]
+          },
+          "then": {
+            "properties": {
+              "epoch": { "type": "string", "minLength": 1 },
+              "manifest_path": { "type": "string", "minLength": 1 },
+              "manifest_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+            }
+          }
+        }
+      ]
+    },
+    "data_repair": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "classification": { "const": "INVALID_REPAIR_ZERO_ECONOMICS" },
+        "predecessor_bound_data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "epoch": { "type": "string", "minLength": 1 },
+            "manifest_path": { "type": "string", "minLength": 1 },
+            "manifest_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+          },
+          "required": ["epoch", "manifest_path", "manifest_sha256"]
+        },
+        "predecessor_closeout": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": { "type": "string", "minLength": 1 },
+            "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+          },
+          "required": ["path", "sha256"]
+        },
+        "replacement_prereg": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "hypothesis_id": { "type": "string", "pattern": "^HYP-[A-Z0-9_-]{3,120}$" },
+            "path": { "type": "string", "minLength": 1 },
+            "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+          },
+          "required": ["hypothesis_id", "path", "sha256"]
+        },
+        "prior_diagnostic_runs": { "type": "integer", "minimum": 1 },
+        "prior_selected_pass_count": { "type": "integer", "minimum": 0 },
+        "economic_trials_consumed": { "const": 0 },
+        "data_acquisition_authorized": { "const": true },
+        "performance_metrics_authorized": { "const": false },
+        "economics_authorized": { "const": false },
+        "promotion_eligible": { "const": false }
+      },
+      "required": [
+        "classification", "predecessor_bound_data", "predecessor_closeout",
+        "replacement_prereg", "prior_diagnostic_runs",
+        "prior_selected_pass_count", "economic_trials_consumed",
+        "data_acquisition_authorized", "performance_metrics_authorized",
+        "economics_authorized", "promotion_eligible"
+      ]
+    },
+    "governance_correction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "classification": {
+          "const": "POST_OUTCOME_BINDING_INVALIDATED_ZERO_ECONOMICS"
+        },
+        "invalid_event": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "line": { "type": "integer", "minimum": 2 },
+            "raw_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+            "event": { "const": "DATA_REPAIR" },
+            "hypothesis_id": { "type": "string", "pattern": "^HYP-[A-Z0-9_-]{3,120}$" },
+            "updated_at_utc": { "type": "string", "format": "date-time" }
+          },
+          "required": [
+            "line", "raw_sha256", "event", "hypothesis_id", "updated_at_utc"
+          ]
+        },
+        "execution_receipt": { "$ref": "#/$defs/artifact_ref" },
+        "failed_loop": { "$ref": "#/$defs/artifact_ref" },
+        "terminal_closeout": { "$ref": "#/$defs/artifact_ref" },
+        "mt5_launches": { "const": 1 },
+        "symbols_started": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "trades_executed": { "const": 0 },
+        "economic_trials_consumed": { "const": 0 },
+        "performance_metrics_authorized": { "const": false },
+        "economics_authorized": { "const": false },
+        "promotion_eligible": { "const": false },
+        "fresh_hypothesis_required": { "const": true }
+      },
+      "required": [
+        "classification", "invalid_event", "execution_receipt", "failed_loop",
+        "terminal_closeout", "mt5_launches", "symbols_started",
+        "trades_executed", "economic_trials_consumed",
+        "performance_metrics_authorized", "economics_authorized",
+        "promotion_eligible", "fresh_hypothesis_required"
+      ]
+    },
+    "reason": { "type": "string", "minLength": 1 },
+    "updated_at_utc": { "type": "string", "format": "date-time" }
+  },
+  "required": [
+    "record_type", "schema_version", "campaign_id", "generation", "state",
+    "event", "phase", "active_hypothesis_id", "charter",
+    "prior_campaign_row_sha256", "budget", "viewed_arms", "split",
+    "bound_data", "reason", "updated_at_utc"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": { "event": { "const": "DATA_REPAIR" } },
+        "required": ["event"]
+      },
+      "then": {
+        "properties": {
+          "schema_version": { "const": "alphafactory_campaign_exposure.v2" }
+        },
+        "required": ["data_repair"]
+      },
+      "else": {
+        "not": { "required": ["data_repair"] }
+      }
+    },
+    {
+      "if": {
+        "properties": { "event": { "const": "GOVERNANCE_CORRECTION" } },
+        "required": ["event"]
+      },
+      "then": {
+        "properties": {
+          "schema_version": { "const": "alphafactory_campaign_exposure.v3" }
+        },
+        "required": ["governance_correction"]
+      },
+      "else": {
+        "not": { "required": ["governance_correction"] }
+      }
+    }
+  ]
+}

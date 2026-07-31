@@ -1,0 +1,46 @@
+{
+  "schema_version": "aruc_003_source_feasibility_receipt.v1",
+  "hypothesis_id": "HYP-ARUC-EURUSD-M15-003",
+  "attempt_id": "ARUC003-SOURCE-ATTEMPT-001",
+  "completed_at_utc": "2026-07-29T00:28:45Z",
+  "source_feasibility_result": "PASS_SOURCE_FEASIBILITY",
+  "stage0_screen_verdict": "SOURCE_FAIL_NO_ECONOMICS_AUTHORITY",
+  "source_report_path": "03. EA Developer/EA_ActivityResponseContinuation/research/evidence/HYP-ARUC-EURUSD-M15-003_SOURCE_FEASIBILITY_ATTEMPTS/ARUC003-SOURCE-ATTEMPT-001/aruc_003_source_report.json",
+  "source_report_sha256": "F7516F8AB700FA79DDDD739E74A3917D15AD401EFC76142BC578A9F2857382E1",
+  "source_ledger_path": "03. EA Developer/EA_ActivityResponseContinuation/research/evidence/HYP-ARUC-EURUSD-M15-003_SOURCE_FEASIBILITY_ATTEMPTS/ARUC003-SOURCE-ATTEMPT-001/aruc_003_source_ledger.jsonl",
+  "source_ledger_sha256": "FE21437BE5DEB27A1A6B83476998799B6D6F11489AC2883FB92620C046ABB525",
+  "source_ledger_rows": 1331,
+  "arm_counts": {
+    "PRIMARY": 11,
+    "PRICE_ONLY": 1296,
+    "SHIFTED_TICKS": 24
+  },
+  "stage0_metrics": {
+    "primary_count": 11,
+    "cadence_per_elapsed_week": 0.04221491228070638,
+    "long_count": 9,
+    "short_count": 2,
+    "long_share": 0.8181818181818182,
+    "short_share": 0.18181818181818182,
+    "max_year_share": 0.5454545454545454,
+    "formation_ratio": 0.9975303208137715,
+    "source_executable_horizon_ratio": 1.0,
+    "median_cost_to_sl_ratio": 0.10219684331124547
+  },
+  "failed_stage0_gates": [
+    "cadence_2_to_5_per_week",
+    "short_share_at_least_0_25",
+    "no_year_over_0_30",
+    "at_least_20_primary_per_side"
+  ],
+  "passed_stage0_gates": [
+    "long_share_at_least_0_25",
+    "formation_ratio_at_least_0_99",
+    "source_executable_horizon_ratio_at_least_0_99",
+    "median_cost_to_sl_ratio_at_most_0_25"
+  ],
+  "economics_authorized": false,
+  "market_edge_evaluated": false,
+  "market_no_edge_claim_authorized": false,
+  "same_id_rerun_authorized": false
+}

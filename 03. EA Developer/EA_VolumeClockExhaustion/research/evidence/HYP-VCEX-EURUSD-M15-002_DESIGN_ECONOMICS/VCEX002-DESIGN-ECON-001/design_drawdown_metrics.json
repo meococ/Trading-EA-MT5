@@ -1,0 +1,6 @@
+{
+  "initial_equity": 100.0,
+  "method": "fixed_initial_equity_no_compounding",
+  "risk_pct_points": 0.5,
+  "true_1p5_max_dd_pct": 83.00765680463797
+}

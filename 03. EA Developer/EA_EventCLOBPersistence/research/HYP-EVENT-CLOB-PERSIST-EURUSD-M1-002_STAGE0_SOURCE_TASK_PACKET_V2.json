@@ -1,0 +1,95 @@
+{
+  "schema_version": "event_clob_stage0_source_task_packet_amendment.v1",
+  "task_id": "EVENT_CLOB_DESIGN_STAGE0BD_INTEGRITY_HARDENING_20260728_V2",
+  "created_at_utc": "2026-07-28T10:15:10.559Z",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002",
+  "role": "builder/coder",
+  "supersedes_packet_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_STAGE0_SOURCE_TASK_PACKET.json",
+  "supersedes_packet_sha256": "5B4B636AB925E6579F4B5084339EC6E5E613266F3384C4CDA34B0D4D73FDA588",
+  "pre_review_snapshot": {
+    "analyzer_sha256": "E4880939D0C59AB17D9B475D29E211F43B0BC14F93E5A9FF65703C169E280E72",
+    "tests_sha256": "B983498D9AB776A49E93D7634704E073660675EDE187A33B4EB6E547234E7AC3",
+    "focused_tests": "26 passed in 3.62s",
+    "live_raw_decode_executed": false,
+    "review_verdict": "NOT_SAFE_FOR_FIRST_LIVE_STAGE0_RUN_MUST_FIX_INTEGRITY_GAPS"
+  },
+  "amendment_reason": "Independent review reproduced a synthetic TOCTOU pass where a DBN changed after initial verification but before path-based decode, found that reviewed source/test SHAs were not execution-gated, and found incomplete lexical/reparse checks for frozen inputs and output ancestors. These are pre-outcome engineering defects. No live Stage0 ledger or market outcome exists, so this amendment changes no hypothesis, feature, threshold, event, data contract or economic gate.",
+  "write_set": [
+    "03. EA Developer/EA_EventCLOBPersistence/research/analyze_event_cme6e_stage0.py",
+    "03. EA Developer/EA_EventCLOBPersistence/tests/test_event_cme6e_stage0.py"
+  ],
+  "parent_owned_post_review_artifact": {
+    "path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_STAGE0_RUN_AUTHORITY.json",
+    "created_only_after_independent_pass": true,
+    "required_fields": [
+      "schema_version",
+      "hypothesis_id",
+      "base_packet_path",
+      "base_packet_sha256",
+      "amendment_path",
+      "amendment_sha256",
+      "review_verdict",
+      "reviewed_analyzer_path",
+      "reviewed_analyzer_sha256",
+      "reviewed_tests_path",
+      "reviewed_tests_sha256",
+      "required_python_relative_path",
+      "required_python_sha256",
+      "required_python_version",
+      "required_databento_version",
+      "live_stage0_authorized"
+    ],
+    "launch_contract": "CLI must require both --run-authority and --expected-run-authority-sha256. Before any raw file open, validate the exact receipt bytes/SHA and all bound packet, amendment, analyzer, test, interpreter and Databento version/path fields. Revalidate the receipt and every bound file immediately before publishing outputs."
+  },
+  "required_fixes": [
+    {
+      "id": "V2-F1-IMMUTABLE-DECODE-SNAPSHOT",
+      "severity": "must_fix",
+      "contract": "For each nonempty DBN, validate lexical/canonical/no-reparse path and file identity; open/read the compressed bytes once, compute size/SHA from those exact bytes, require the manifest binding, and decode those exact in-memory bytes with databento.DBNStore.from_bytes. After decode, revalidate lexical path, no-reparse ancestry, file identity, size and SHA before accepting the records. The feature ledger must bind the exact byte hash actually passed to the decoder. A mutation cannot yield PASS, even if it occurs between initial validation and decode."
+    },
+    {
+      "id": "V2-F2-REVIEWED-SNAPSHOT-AUTHORITY",
+      "severity": "must_fix",
+      "contract": "Require the parent-owned post-review run-authority receipt and its expected SHA at CLI execution. Verify the approved analyzer and tests SHAs plus base/amendment packet SHAs before analysis and immediately before output publication. Reject absent, unapproved, stale, altered or self-invented authority. Tests may use an explicit synthetic authority fixture, but production CLI may not auto-create or infer authority."
+    },
+    {
+      "id": "V2-F3-LEXICAL-REPARSE-CONTAINMENT",
+      "severity": "must_fix",
+      "contract": "Use one Windows-aware path validator for every frozen input, raw file, run-authority, analyzer/test path and output path. Require lexical equality to the exact expected absolute path, resolved containment on D:, and walk every existing ancestor/component with lstat/GetFileAttributes semantics to reject symlink, junction, mount-point or other reparse components. Recheck output ancestors immediately before atomic publication; do not accept an alias merely because resolve() reaches the canonical target."
+    },
+    {
+      "id": "V2-F4-PINNED-RUNTIME",
+      "severity": "should_fix_required_here",
+      "contract": "Production CLI must require the exact canonical relative interpreter `02. AlphaFactory/runtime/python-databento/Scripts/python.exe`, interpreter SHA256 0B471133E110CFB53A061CAD528CE8E517D7B9AC41A0A396C39AD795A487FC14, Python version recorded in the later run authority, and databento==0.54.0 before raw decode. Synthetic unit tests may inject loaders but must test the production runtime gate separately."
+    }
+  ],
+  "red_first_acceptance_tests": [
+    "Reproduce the review attack: mutate/replace a DBN after initial binding and before decode. The run must fail closed and publish no output.",
+    "The bytes hashed against the manifest are the exact bytes passed to DBNStore.from_bytes; path-based DBNStore.from_file is forbidden in production analysis.",
+    "Mutating/replacing a DBN after decode but before acceptance fails identity/size/SHA checks; swapping an alias/reparse component anywhere in the raw path fails.",
+    "Missing run authority, wrong expected receipt SHA, wrong approved analyzer/test SHA, altered base/amendment packet, non-PASS review verdict or live_stage0_authorized=false blocks before raw open.",
+    "Changing analyzer or test bytes after initial authority validation but before publication blocks all output publication.",
+    "Lexically different aliases, symlinks, junctions, mount points and reparse output ancestors are rejected even when resolve() reaches the expected target.",
+    "Wrong interpreter path/SHA/version or databento version blocks production CLI before raw open.",
+    "All original 26 focused tests and all V2 adversarial tests pass; no live 658-file run occurs during implementation or review."
+  ],
+  "unchanged_contract": {
+    "design_events": 329,
+    "request_identities": 658,
+    "source_manifest_sha256": "9438133803AF33E52C641DF149D04AA8E1CA8B1DD5A510795E0B55C3D2698229",
+    "prereg_sha256": "62A3AB66C64083D9967D91A0D634DEF29641AE7F3A05D3C59CBC153AAF4B3CBF",
+    "feature_formula_and_thresholds_unchanged": true,
+    "eurusd_outcomes_authorized": false,
+    "validation_source_authorized": false,
+    "remote_or_paid_calls_authorized": false,
+    "mql5_or_mt5_authorized": false,
+    "git_authorized": false
+  },
+  "prohibitions": [
+    "Do not use Grok or any Grok skill/worker.",
+    "Do not run the analyzer against the live 658 raw files or create final Stage0 outputs before a fresh independent PASS and parent-owned launch receipt.",
+    "Do not read EURUSD/outcomes, validation source, middle-window data or 2023+ data.",
+    "Do not modify the base packet, preregistration, registry, acquisition evidence, raw DBN files, clocks or unrelated files.",
+    "Do not call network/Databento clients, stage, commit, push, branch, worktree or clone."
+  ]
+}

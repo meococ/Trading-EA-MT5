@@ -1,0 +1,40 @@
+{
+  "schema_version": "g10_xmom_002_grok_visual_review_receipt.v1",
+  "hypothesis_id": "HYP-G10-XMOM-W1-002",
+  "attempt_id": "G10XMOM002-TRAIN-EVAL-001",
+  "review_role": "independent_read_only_visual_forensics",
+  "prompt_transport": "acp_blocks_file",
+  "prompt_blocks_sha256": "721461A09F1783B3CD416A5C8A24C71470E2875B7B7112D9BFEDD02F22FE2CF9",
+  "request_sha256": "E37FA2467B03910751FEB805E39DE2B285237D158362EF87D1F615E7AB68B95C",
+  "response_sha256": "958121FD494172C78458BC1C683DA363494A9BDA4B37DE5239299AF59434298A",
+  "summary_sha256": "A8C129C111C59E1BCFAF24274ADA85ED9ECD50F39E32D111E0BEC4E9A50FC4B4",
+  "runner_success": true,
+  "stop_reason": "EndTurn",
+  "structured_output_validation_passed": true,
+  "visual_verdict": "SUPPORTS_KILL",
+  "holdout_accessed": false,
+  "changed_files": [],
+  "total_cost_usd": 0.0698892,
+  "reviewed_chart_sha256": {
+    "equity_curve_challenger_vs_control.png": "8C45D59E94604F323D69853DF0D71C1489CD52F83A6ED0A89891B2FDDCA4F373",
+    "challenger_monthly_leg_net_x1.png": "523C013E5590560E63AD3CEFA36F0392084D3C92A82419DEB4ECFAFC48E20C51",
+    "challenger_symbol_side_decomposition.png": "6AEEDB3434DB47658F0EAF0FF8BAFDF0B79A5BA728B9E38074525A099F966DF6",
+    "selected_cases_outcome_montage.png": "9B08A659E41DA0185DDFD6514C5754DCDD385407108B4BC40738D94DF9869525"
+  },
+  "parent_adjudication": {
+    "accepted": [
+      "The visual equity path supports the terminal kill and agrees with the numeric challenger/control ordering.",
+      "Failure is broad across both sides and six of seven symbols.",
+      "Predeclared isolated wins do not establish selection skill.",
+      "Single-W1-bar images cannot validate intrabar execution, true R, cost realization or live fidelity."
+    ],
+    "rejected_as_illegal_or_weak": [
+      "Short-horizon mean-reversion reversal is not a fresh survivor: the matched reverse-direction control already lost after cost in the same authorized trial.",
+      "Dropping AUD/NZD is an outcome-mined same-sample subset and is not a legal next filter."
+    ],
+    "conditionally_legal": [
+      "A materially different formation/holding horizon may open only under a fresh ID, independent primary-research anchor, new preregistration and an outcome-blind data contract."
+    ]
+  },
+  "authority_effect": "advisory_only_no_rerun_no_holdout_no_mql5_no_model0_no_promotion_no_paper_no_live"
+}

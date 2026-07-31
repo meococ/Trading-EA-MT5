@@ -1,0 +1,613 @@
+{
+  "schema_version": "scc_random100_grok_batch_qc.v1",
+  "generated_at_utc": "2026-07-25T15:35:46Z",
+  "hypothesis_id": "HYP-SCC-MT5-REPLICATION-EURUSD-M5-004",
+  "run_id": "20260725_210811",
+  "status": "PASS",
+  "accepted_batches": 20,
+  "unique_cases": 100,
+  "decision_images_opened": 100,
+  "anatomy_images_opened": 100,
+  "total_images_opened": 200,
+  "accepted_cost_usd": 1.8229808,
+  "accepted_runs": [
+    {
+      "batch_id": "batch01",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch01/grok-request.json",
+        "bytes": 6740,
+        "sha256": "6E0EC857179AFC7E7D8806EAA4FDA2C19995795544F4F79382EDC25743FEB135"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch01/run/grok-response.json",
+        "bytes": 35030,
+        "sha256": "71A3543CB908DE9F232ECA4CD7F72D12E6357391862A1115C9EBCD474EC734B2"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch01/run/summary.json",
+        "bytes": 12607,
+        "sha256": "31322F7A98E9AE921C3C9D3F25B3F8193564D59E05B1A887C3AED81D30A27C42"
+      },
+      "case_ids": [
+        "R100_001_PID000000268",
+        "R100_002_PID000000140",
+        "R100_003_PID000000010",
+        "R100_004_PID000000304",
+        "R100_005_PID000000476"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 41.797,
+      "cost_usd": 0.0507332
+    },
+    {
+      "batch_id": "batch02",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch02/grok-request.json",
+        "bytes": 6740,
+        "sha256": "315A9FD11451EFD669CED871DC4674969EB9E16BC2ED7D43F0F6F7AD3D99B157"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch02/run/grok-response.json",
+        "bytes": 33909,
+        "sha256": "5B74E9B215716CA7F5241B3AE20E4F67645530EB36F8E62F20A35B1A3A3B4E89"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch02/run/summary.json",
+        "bytes": 12288,
+        "sha256": "7F8E8B402181341AF84A6A3D6BD4DC6105F8DC09BA132BFCDB2BB91B31879B54"
+      },
+      "case_ids": [
+        "R100_006_PID000000258",
+        "R100_007_PID000000086",
+        "R100_008_PID000000066",
+        "R100_009_PID000000032",
+        "R100_010_PID000000480"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 40.75,
+      "cost_usd": 0.0453552
+    },
+    {
+      "batch_id": "batch03",
+      "accepted_run_dir": "run",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch03/grok-request.json",
+        "bytes": 6740,
+        "sha256": "1E03F144971065F3A9BDE77AD77476F6ED418894C0A6425AA29F0DA9266C028E"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch03/run/grok-response.json",
+        "bytes": 32744,
+        "sha256": "8D5A0EAE9D02B71A500069FF886BF5573D5C051B70FC38E4370F435CBFE7CAC9"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch03/run/summary.json",
+        "bytes": 11785,
+        "sha256": "5BD38BD731261917449CD3304A7578A2EC29BF62174DCA3F274185CDCC376FE7"
+      },
+      "case_ids": [
+        "R100_011_PID000000160",
+        "R100_012_PID000000500",
+        "R100_013_PID000000506",
+        "R100_014_PID000000350",
+        "R100_015_PID000000286"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 36.938,
+      "cost_usd": 0.052572
+    },
+    {
+      "batch_id": "batch04",
+      "accepted_run_dir": "caller_normalized_exact_duplicate",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch04/grok-request.json",
+        "bytes": 6740,
+        "sha256": "76B31914893A00656525F8E1366F3008FED587E5D184A9C4C677073CEE7F360D"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch04/normalized_duplicate_response.json",
+        "bytes": 9150,
+        "sha256": "F56EF4A6A3C7E5ADEACFF8EE8EBBA6168006D1727B1BE17CD143EC7CC11D4222"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch04/run/summary.json",
+        "bytes": 2921,
+        "sha256": "33597877824420E790585D9E9F3BD7CA2A6EA6CC7563AA9D82851B60764354B1"
+      },
+      "case_ids": [
+        "R100_016_PID000000100",
+        "R100_017_PID000000290",
+        "R100_018_PID000000242",
+        "R100_019_PID000000114",
+        "R100_020_PID000000198"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 48.875,
+      "cost_usd": 0.0584464
+    },
+    {
+      "batch_id": "batch05",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch05/grok-request.json",
+        "bytes": 6740,
+        "sha256": "3FA1DBA7735FC6E3303E2FE96B713F0D860874A6856989E94DFE560505452562"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch05/run2/grok-response.json",
+        "bytes": 42079,
+        "sha256": "6EA831D86DE4BE792F5F9F473D84DE477BD533ACD733468AAEAE64EE651BE463"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch05/run2/summary.json",
+        "bytes": 12428,
+        "sha256": "3EA11EA78D3536AC82369925B392E72674635B638FE300AB5BF70A7069A3885F"
+      },
+      "case_ids": [
+        "R100_021_PID000000036",
+        "R100_022_PID000000380",
+        "R100_023_PID000000138",
+        "R100_024_PID000000516",
+        "R100_025_PID000000438"
+      ],
+      "turns": 5,
+      "elapsed_seconds": 136.438,
+      "cost_usd": 0.1966824
+    },
+    {
+      "batch_id": "batch06",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch06/grok-request.json",
+        "bytes": 6740,
+        "sha256": "D5200A4CC7128126A04063EFD26C4E61E688A2D40CC324D0A27ECF2EBB6A6E69"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch06/run2/grok-response.json",
+        "bytes": 26545,
+        "sha256": "14D0B33B7AB4C64F9EA3B17CD15131AFE3A57AB506E0BDF4C878008165013803"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch06/run2/summary.json",
+        "bytes": 9763,
+        "sha256": "A6F59AF421F209E7E4D337734AA747222B476995D87F3D4D813970AE760186E2"
+      },
+      "case_ids": [
+        "R100_026_PID000000338",
+        "R100_027_PID000000420",
+        "R100_028_PID000000324",
+        "R100_029_PID000000326",
+        "R100_030_PID000000132"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 26.672,
+      "cost_usd": 0.0489672
+    },
+    {
+      "batch_id": "batch07",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch07/grok-request.json",
+        "bytes": 6740,
+        "sha256": "0A4BB7C6085C7478D3AB28A625149B5C560EA9D3E8BDB5A8F2DB6F6E4CC82C00"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch07/run2/grok-response.json",
+        "bytes": 42110,
+        "sha256": "54E3868010D96057B389C33AE702EECCE266F5AC28FC57676412082C3111EB8E"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch07/run2/summary.json",
+        "bytes": 11435,
+        "sha256": "57BD33B38DD1B25FC2EB0C28BE561938220FECBDE31D3BF91644ADC9F75D458A"
+      },
+      "case_ids": [
+        "R100_031_PID000000222",
+        "R100_032_PID000000166",
+        "R100_033_PID000000444",
+        "R100_034_PID000000390",
+        "R100_035_PID000000002"
+      ],
+      "turns": 5,
+      "elapsed_seconds": 161.438,
+      "cost_usd": 0.1873608
+    },
+    {
+      "batch_id": "batch08",
+      "accepted_run_dir": "run3",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch08/grok-request.json",
+        "bytes": 6740,
+        "sha256": "B882FE89E4BC1EF6360507BBB816754C69D8B969858EEF51B21541B5F97F83D2"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch08/run3/grok-response.json",
+        "bytes": 29264,
+        "sha256": "75E2E55E034D9CF91849B35AE0700C5414AEE4479EFC1ED4390C9483D759D13C"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch08/run3/summary.json",
+        "bytes": 10678,
+        "sha256": "056334DC86B4EA42CF5E2F7F7B21E8204F5501F2B1FFB294430CC72431C0CCB0"
+      },
+      "case_ids": [
+        "R100_036_PID000000374",
+        "R100_037_PID000000424",
+        "R100_038_PID000000218",
+        "R100_039_PID000000508",
+        "R100_040_PID000000144"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 36.063,
+      "cost_usd": 0.0479552
+    },
+    {
+      "batch_id": "batch09",
+      "accepted_run_dir": "run3",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch09/grok-request.json",
+        "bytes": 6740,
+        "sha256": "F921ABB4A668410799DCE71DD0D0DABC259C7352C1091096002BCC8C1C0A9446"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch09/run3/grok-response.json",
+        "bytes": 30132,
+        "sha256": "DE3D74EF76E57627878ED3313D9DC6B61FB8C2815ECD7D10F6D0913B5C748B76"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch09/run3/summary.json",
+        "bytes": 10904,
+        "sha256": "B41F30F7ADFAF84ECA368DA04ECD5D526E82659D0DAAB237E0F5B73C7C1E46DA"
+      },
+      "case_ids": [
+        "R100_041_PID000000004",
+        "R100_042_PID000000448",
+        "R100_043_PID000000344",
+        "R100_044_PID000000328",
+        "R100_045_PID000000212"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 35.172,
+      "cost_usd": 0.0443772
+    },
+    {
+      "batch_id": "batch10",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch10/grok-request.json",
+        "bytes": 6740,
+        "sha256": "2BFDF78DDBF0EC2249DF114F3BE51591194EC7CDC09C393DA78D734472FAA9F0"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch10/run2/grok-response.json",
+        "bytes": 26498,
+        "sha256": "6D0A66F4ABF16C74FEA368E7BCF7BB363C435708300980152ED5294BCB96959A"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch10/run2/summary.json",
+        "bytes": 9746,
+        "sha256": "54B8395FEE0AE4101D61C423B93FA89899C5259C3951D5F697E2423229451C97"
+      },
+      "case_ids": [
+        "R100_046_PID000000352",
+        "R100_047_PID000000260",
+        "R100_048_PID000000150",
+        "R100_049_PID000000068",
+        "R100_050_PID000000044"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 35.484,
+      "cost_usd": 0.050666
+    },
+    {
+      "batch_id": "batch11",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch11/grok-request.json",
+        "bytes": 6740,
+        "sha256": "E2E6979CD0A6D76551543B4151FD2486A94CB19361664AE7980B347A0FB93B3D"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch11/run2/grok-response.json",
+        "bytes": 26883,
+        "sha256": "6D7BAF9B932336D54FB85DD4341011485216603C7E10D085A73D803B09AA6B84"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch11/run2/summary.json",
+        "bytes": 9875,
+        "sha256": "C3AEAA069C45F832C67BEEC94AD2C177D6798B622AA9410B28DAF50B41C92000"
+      },
+      "case_ids": [
+        "R100_051_PID000000522",
+        "R100_052_PID000000074",
+        "R100_053_PID000000228",
+        "R100_054_PID000000454",
+        "R100_055_PID000000076"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 28.594,
+      "cost_usd": 0.0424872
+    },
+    {
+      "batch_id": "batch12",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch12/grok-request.json",
+        "bytes": 6740,
+        "sha256": "BF497B33B03B7B43A0547C6BCF82E1EA8C961287C6F7E6D82DE18A7C0A931E03"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch12/run2/grok-response.json",
+        "bytes": 40636,
+        "sha256": "5ACA7E28627C551E0CF6B6B717F9EAFD70647A2C9FB62E057A804CF12A6323B7"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch12/run2/summary.json",
+        "bytes": 12103,
+        "sha256": "4F10ED98397786F24A296898248118F915F69269B8AED27EAEDB80AD93FF02A1"
+      },
+      "case_ids": [
+        "R100_056_PID000000128",
+        "R100_057_PID000000408",
+        "R100_058_PID000000370",
+        "R100_059_PID000000428",
+        "R100_060_PID000000090"
+      ],
+      "turns": 4,
+      "elapsed_seconds": 128.953,
+      "cost_usd": 0.1497804
+    },
+    {
+      "batch_id": "batch13",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch13/grok-request.json",
+        "bytes": 6740,
+        "sha256": "B158ECC27F870538738748E97470DAC0E474153B1329F01070DBF511086A56BD"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch13/run2/grok-response.json",
+        "bytes": 34473,
+        "sha256": "FA9B47C0A0D4B0AE69CADE662C02FD013AE841415B93653B549E271DE5336AEE"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch13/run2/summary.json",
+        "bytes": 12508,
+        "sha256": "04BF6F75201B94B9234781237B211A2AFCD05101470D59A877BABCC8AF1390D4"
+      },
+      "case_ids": [
+        "R100_061_PID000000316",
+        "R100_062_PID000000422",
+        "R100_063_PID000000446",
+        "R100_064_PID000000022",
+        "R100_065_PID000000220"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 43.079,
+      "cost_usd": 0.0506704
+    },
+    {
+      "batch_id": "batch14",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch14/grok-request.json",
+        "bytes": 6740,
+        "sha256": "A35878319084C329E2A00DF8298E52D1130E6407E853AF7EF45642033E84E951"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch14/run2/grok-response.json",
+        "bytes": 26815,
+        "sha256": "AEB6790C2CEAA98DF6D0005DF5861B4DB1265B88BFDB9057958EEE6410928F2C"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch14/run2/summary.json",
+        "bytes": 9811,
+        "sha256": "E1B15267C363090F41A17ACB49635D4484C5DB1E537DEBD2A03944C559541055"
+      },
+      "case_ids": [
+        "R100_066_PID000000356",
+        "R100_067_PID000000280",
+        "R100_068_PID000000372",
+        "R100_069_PID000000238",
+        "R100_070_PID000000266"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 31.531,
+      "cost_usd": 0.0432852
+    },
+    {
+      "batch_id": "batch15",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch15/grok-request.json",
+        "bytes": 6740,
+        "sha256": "1CEF8AE35B3674E2EF75D96E42CD7057F4103B07C27D0030D0CCD03A94823217"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch15/run2/grok-response.json",
+        "bytes": 41192,
+        "sha256": "C24C6E8C7E4B3C2D39832308A17AF540B1A801F8A5BE91FD5722E69114CF5F09"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch15/run2/summary.json",
+        "bytes": 12318,
+        "sha256": "93786A2DA9FD7CA4D0F218BE1869C51A68B421B4085FE759E2425689D78C572A"
+      },
+      "case_ids": [
+        "R100_071_PID000000482",
+        "R100_072_PID000000118",
+        "R100_073_PID000000016",
+        "R100_074_PID000000322",
+        "R100_075_PID000000272"
+      ],
+      "turns": 4,
+      "elapsed_seconds": 125.531,
+      "cost_usd": 0.1853676
+    },
+    {
+      "batch_id": "batch16",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch16/grok-request.json",
+        "bytes": 6740,
+        "sha256": "DA476BA5976A0AE17E0B2A05798AA6FBEADDBA6FAFC5F319A9AE78C3A78E30EE"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch16/run2/grok-response.json",
+        "bytes": 28360,
+        "sha256": "148C3FA622A41B299B6013E2F6E01A0E013B70EC28F3C74A0429883A3CBCD3D7"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch16/run2/summary.json",
+        "bytes": 10313,
+        "sha256": "172A8268DC38D36922F89DEF5BD7999FE8C93689F7058B7BD82B345A2C125D44"
+      },
+      "case_ids": [
+        "R100_076_PID000000078",
+        "R100_077_PID000000226",
+        "R100_078_PID000000488",
+        "R100_079_PID000000510",
+        "R100_080_PID000000470"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 36.969,
+      "cost_usd": 0.0439092
+    },
+    {
+      "batch_id": "batch17",
+      "accepted_run_dir": "run3",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch17/grok-request.json",
+        "bytes": 6740,
+        "sha256": "D43C675DBFF16A3D6E56A7546BB5A32EBB5DF379DB3310242BB481D267654702"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch17/run3/grok-response.json",
+        "bytes": 29086,
+        "sha256": "90142C181E9E48BE0D3E860159FDA2F031C07537D8A5216AD9CB25B79D9BBF3E"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch17/run3/summary.json",
+        "bytes": 10568,
+        "sha256": "4D11DAB9F37F54B4F1F203A0748F8E20C551898396E31A763DE5B0933DED9074"
+      },
+      "case_ids": [
+        "R100_081_PID000000164",
+        "R100_082_PID000000264",
+        "R100_083_PID000000312",
+        "R100_084_PID000000348",
+        "R100_085_PID000000458"
+      ],
+      "turns": 1,
+      "elapsed_seconds": 35.078,
+      "cost_usd": 0.0508572
+    },
+    {
+      "batch_id": "batch18",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch18/grok-request.json",
+        "bytes": 6740,
+        "sha256": "BFD72081964AB54BB8672F48E43F82531BEEDA9B151D3F115142965F60675AE5"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch18/run2/grok-response.json",
+        "bytes": 35574,
+        "sha256": "BFCFA4C73918E4DFC2B5F06D8FDD91EB042EAB243561E990E11E155CE5E87C45"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch18/run2/summary.json",
+        "bytes": 11316,
+        "sha256": "EAFA026209AD39463D37A7AC976D41D3BBBBCD2116B458AB4C67028C0F4B7048"
+      },
+      "case_ids": [
+        "R100_086_PID000000102",
+        "R100_087_PID000000148",
+        "R100_088_PID000000040",
+        "R100_089_PID000000440",
+        "R100_090_PID000000042"
+      ],
+      "turns": 3,
+      "elapsed_seconds": 97.031,
+      "cost_usd": 0.1338868
+    },
+    {
+      "batch_id": "batch19",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch19/grok-request.json",
+        "bytes": 6740,
+        "sha256": "5D55F1E1ABFF482617C48CCE70085E65654E063D854348784DCA249A296C3816"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch19/run2/grok-response.json",
+        "bytes": 37660,
+        "sha256": "A4605168E2833ED10D17F07800820D8A58AAB7937B36B98862731B8CAD7059AC"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch19/run2/summary.json",
+        "bytes": 11162,
+        "sha256": "8AB20B642A1362A0152141BAC30BDE2D6B2F0A102F6E9B50202D6560FF4B724E"
+      },
+      "case_ids": [
+        "R100_091_PID000000254",
+        "R100_092_PID000000460",
+        "R100_093_PID000000096",
+        "R100_094_PID000000176",
+        "R100_095_PID000000034"
+      ],
+      "turns": 4,
+      "elapsed_seconds": 114.812,
+      "cost_usd": 0.1752236
+    },
+    {
+      "batch_id": "batch20",
+      "accepted_run_dir": "run2",
+      "request": {
+        "path": ".context/scc-hyp004-random100-gfi/batch20/grok-request.json",
+        "bytes": 6740,
+        "sha256": "DE019B719F7F454A57676DA3259C93A8BBC43F97473084D43C120CC52F65EC10"
+      },
+      "response": {
+        "path": ".context/scc-hyp004-random100-gfi/batch20/run2/grok-response.json",
+        "bytes": 47580,
+        "sha256": "C050D470A7CC8D9BABE12378ED72657C0595DBA2521EF4F21E81A8A06B045743"
+      },
+      "summary": {
+        "path": ".context/scc-hyp004-random100-gfi/batch20/run2/summary.json",
+        "bytes": 12185,
+        "sha256": "245CFA956EFF8EF2EA7E807CE378C69AE383148FA54619F6A5045296D0796550"
+      },
+      "case_ids": [
+        "R100_096_PID000000502",
+        "R100_097_PID000000332",
+        "R100_098_PID000000298",
+        "R100_099_PID000000490",
+        "R100_100_PID000000484"
+      ],
+      "turns": 3,
+      "elapsed_seconds": 132.906,
+      "cost_usd": 0.1643976
+    }
+  ],
+  "outputs": {
+    "case_reviews_jsonl": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/random100_forensics/grok_review/random100_grok_case_reviews.jsonl",
+      "bytes": 143897,
+      "sha256": "4CD1AF339A04FA1A981C24F2F4AA95828FC8AF2A68F632C1EED04A373A4F5EA6"
+    },
+    "case_reviews_csv": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/random100_forensics/grok_review/random100_grok_case_reviews.csv",
+      "bytes": 28740,
+      "sha256": "701DCAC1057E2252B6D70DB5349E2755285D775EEB0BB0121F85684A2CF9B837"
+    },
+    "descriptive_stats": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/random100_forensics/grok_review/random100_grok_descriptive_stats.json",
+      "bytes": 2601,
+      "sha256": "6B462D22412DC973F82CA67D2FC78EEF842FA8FF601092C0DEA1E9F9F7509738"
+    }
+  },
+  "errors": []
+}

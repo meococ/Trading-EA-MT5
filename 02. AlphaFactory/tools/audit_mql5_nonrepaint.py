@@ -27,6 +27,9 @@ COPY_FUNCTIONS = {
     "CopyRealVolume",
 }
 EXTREME_FUNCTIONS = {"iHighest", "iLowest"}
+COLLECTION_AUTHORITY = "DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE"
+MODEL4_COLLECTION_AUTHORITY = "DATA_ACQUISITION_ONLY_NO_PERFORMANCE"
+COLLECTION_AUTHORITIES = {COLLECTION_AUTHORITY, MODEL4_COLLECTION_AUTHORITY}
 
 
 def sha256_file(path: Path) -> str:
@@ -164,7 +167,36 @@ def allowed_new_bar_gate(text: str, call_offset: int) -> bool:
     return bool(re.search(rf"\b{stored}\s*=\s*{current}\s*;", window, flags=re.DOTALL))
 
 
-def audit_file(path: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def allowed_collection_provenance_copytime(
+    original: str, text: str, function: str, args: list[str], collection_authorized: bool
+) -> bool:
+    """Allow only the frozen no-trade first-date retrieval probe."""
+    if not collection_authorized or function != "CopyTime" or len(args) != 5:
+        return False
+    compact_args = [re.sub(r"\s+", "", arg) for arg in args]
+    if compact_args != ["_Symbol", "PERIOD_M5", "copytime_from", "1", "copytime_values"]:
+        return False
+    compact = re.sub(r"\s+", "", text)
+    exact_call = "CopyTime(_Symbol,PERIOD_M5,copytime_from,1,copytime_values)"
+    if compact.count(exact_call) != 1:
+        return False
+    required = (
+        "constdatetimecopytime_from=(datetime)m5_first_epoch;",
+        "ReadSeriesInteger(PERIOD_M5,SERIES_FIRSTDATE",
+        "copytime_result=CopyTime(_Symbol,PERIOD_M5,copytime_from,1,copytime_values);",
+        "copytime_result!=1||copytime_first_epoch!=m5_first_epoch||copytime_error!=0",
+    )
+    if "DATA_EPOCH_D0_SERIES_PROOF" not in original or any(item not in compact for item in required):
+        return False
+    forbidden = re.compile(
+        r"\b(?:CTrade|OrderSend|OrderCheck|PositionOpen|PositionClose|HistoryDeal|FileOpen|FileWrite|FileRead)\b"
+    )
+    return forbidden.search(text) is None
+
+
+def audit_file(
+    path: Path, *, collection_authorized: bool = False
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     original = path.read_text(encoding="utf-8-sig", errors="strict")
     text = sanitize_mql(original)
     findings: list[dict[str, Any]] = []
@@ -182,6 +214,18 @@ def audit_file(path: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
             if len(args) < 3:
                 findings.append(
                     {"path": str(path), "line": line, "rule": "unparseable_copy_call", "function": function}
+                )
+            elif allowed_collection_provenance_copytime(
+                original, text, function, args, collection_authorized
+            ):
+                allowed.append(
+                    {
+                        "path": str(path),
+                        "line": line,
+                        "rule": "collection_first_date_copytime",
+                        "function": function,
+                        "disposition": "allowed_collection_provenance_read",
+                    }
                 )
             elif is_literal_zero(args[2]):
                 findings.append(
@@ -299,14 +343,122 @@ def resolve_snapshot_files(manifest_path: Path, manifest: dict[str, Any]) -> lis
     return refs
 
 
-def run(manifest_path: Path, output_path: Path) -> int:
+def resolve_collection_authority(
+    manifest: dict[str, Any], receipt_path: Path | None
+) -> bool:
+    if receipt_path is None:
+        return False
+    receipt_path = receipt_path.resolve()
+    if not receipt_path.is_file():
+        raise ValueError(f"contract receipt is absent: {receipt_path}")
+    if sha256_file(receipt_path) != str(manifest.get("contract_receipt_sha256") or "").upper():
+        raise ValueError("contract receipt SHA256 does not match run manifest")
+    receipt = load_json(receipt_path)
+    if receipt.get("schema_version") != "alphafactory_execution_receipt.v1":
+        raise ValueError("contract receipt schema is invalid")
+    authority = receipt.get("authority")
+    if authority not in COLLECTION_AUTHORITIES:
+        return False
+    binding = receipt.get("binding")
+    if not isinstance(binding, dict):
+        raise ValueError("collection contract receipt binding is absent")
+    for field in (
+        "hypothesis_id",
+        "ea_name",
+        "symbol",
+        "period",
+        "from",
+        "to",
+        "model",
+        "run_role",
+        "execution_mode",
+        "fixed_delay_ms",
+        "telemetry_profile",
+        "telemetry_tier",
+        "broker_fingerprint",
+        "server_fingerprint",
+        "account_fingerprint",
+        "data_fingerprint",
+        "overrides",
+        "required_sidecars",
+    ):
+        if binding.get(field) != manifest.get(field):
+            raise ValueError(f"collection receipt binding {field} does not match manifest")
+    mapped_fields = (
+        ("symbol_geometry", "contract_symbol_geometry"),
+        ("include_closure_sha256", "includes_sha256"),
+    )
+    for receipt_field, manifest_field in mapped_fields:
+        if binding.get(receipt_field) != manifest.get(manifest_field):
+            raise ValueError(
+                f"collection receipt binding {receipt_field} does not match manifest {manifest_field}"
+            )
+    if (
+        binding.get("run_role") != "control"
+        or binding.get("model") != (0 if authority == COLLECTION_AUTHORITY else 4)
+        or binding.get("execution_mode") != 0
+        or binding.get("fixed_delay_ms") != 0
+        or binding.get("telemetry_profile") != "none"
+        or binding.get("telemetry_tier") != "off"
+        or binding.get("required_sidecars") != []
+    ):
+        raise ValueError("collection receipt execution mode is not collection-only")
+    if manifest.get("telemetry_profile") != "none" or not isinstance(
+        manifest.get("data_quality_contract"), dict
+    ):
+        raise ValueError("collection authority requires telemetry none and a data-quality contract")
+
+    receipt_contract = binding.get("data_quality_contract")
+    manifest_contract = manifest["data_quality_contract"]
+    if not isinstance(receipt_contract, dict):
+        raise ValueError("collection receipt data-quality contract is absent")
+    receipt_threshold = receipt_contract.get("history_quality")
+    if not isinstance(receipt_threshold, dict):
+        raise ValueError("collection receipt History Quality threshold is absent")
+    contract_pairs = (
+        (receipt_contract.get("coverage_mode"), manifest_contract.get("coverage_mode")),
+        (receipt_contract.get("requested_from"), manifest_contract.get("requested_from")),
+        (receipt_contract.get("requested_to"), manifest_contract.get("requested_to")),
+        (
+            receipt_contract.get("require_tester_journal_bounds"),
+            manifest_contract.get("require_tester_journal_bounds"),
+        ),
+        (receipt_threshold.get("value"), manifest_contract.get("history_quality_threshold")),
+    )
+    if receipt_threshold.get("operator") != "gt" or any(left != right for left, right in contract_pairs):
+        raise ValueError("collection receipt data-quality contract does not match manifest")
+    try:
+        receipt_asof = datetime.fromisoformat(
+            str(receipt_contract.get("availability_asof_utc") or "").replace("Z", "+00:00")
+        )
+        manifest_asof = datetime.fromisoformat(
+            str(manifest_contract.get("availability_asof_utc") or "").replace("Z", "+00:00")
+        )
+    except ValueError as exc:
+        raise ValueError("collection receipt availability timestamp is invalid") from exc
+    if receipt_asof != manifest_asof:
+        raise ValueError("collection receipt availability timestamp does not match manifest")
+
+    evidence = receipt.get("evidence")
+    if not isinstance(evidence, list):
+        raise ValueError("collection receipt evidence list is absent")
+    source_evidence = [item for item in evidence if isinstance(item, dict) and item.get("label") == "source"]
+    if len(source_evidence) != 1 or source_evidence[0].get("sha256") != manifest.get("source_sha256"):
+        raise ValueError("collection receipt source SHA256 does not match manifest")
+    return True
+
+
+def run(manifest_path: Path, output_path: Path, receipt_path: Path | None = None) -> int:
     manifest_path = manifest_path.resolve()
     manifest = load_json(manifest_path)
     refs = resolve_snapshot_files(manifest_path, manifest)
+    collection_authorized = resolve_collection_authority(manifest, receipt_path)
     findings: list[dict[str, Any]] = []
     allowed: list[dict[str, Any]] = []
     for ref in refs:
-        file_findings, file_allowed = audit_file(Path(ref["path"]))
+        file_findings, file_allowed = audit_file(
+            Path(ref["path"]), collection_authorized=collection_authorized
+        )
         findings.extend(file_findings)
         allowed.extend(file_allowed)
     payload = {
@@ -316,6 +468,7 @@ def run(manifest_path: Path, output_path: Path) -> int:
         "run_id": manifest.get("run_id"),
         "manifest": str(manifest_path),
         "manifest_sha256": sha256_file(manifest_path),
+        "collection_authority_verified": collection_authorized,
         "audited_files": refs,
         "findings": findings,
         "allowed_new_bar_gates": allowed,
@@ -330,10 +483,15 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--manifest", required=True)
     parser.add_argument("--out", required=True)
+    parser.add_argument("--receipt")
     args = parser.parse_args()
     try:
         output_path = Path(args.out)
-        code = run(Path(args.manifest), output_path)
+        code = run(
+            Path(args.manifest),
+            output_path,
+            Path(args.receipt) if args.receipt else None,
+        )
         print(output_path.read_text(encoding="utf-8"), end="")
         return code
     except Exception as exc:

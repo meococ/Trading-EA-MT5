@@ -1,0 +1,50 @@
+{
+  "schema_version": "event_clob_source_task_packet_amendment.v1",
+  "task_id": "EVENT_CLOB_APPEND_ONLY_REGISTRY_TRANSITION_20260728_V7",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001_SOURCE_TASK_PACKET_V6.json",
+  "supersedes_amendment_sha256": "B1B7A87200FAFAACD2BFFFB4A94C01D57534BE7DBE8D76CB6F86A8C4CF1F1009",
+  "amendment_reason": "The successful free quote was correctly appended to the canonical registry as an idea-to-probe transition. The V6 utility incorrectly required exactly one row for the hypothesis, but the canonical registry is append-only and permits multiple state rows. Bind both the immutable origin authority row and the latest payment-unmet transition, and validate the full registry with the canonical validator before any remote or paid boundary.",
+  "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+  "registry_sha256_at_amendment": "795F164DC4096732FD8FABBB5E6CC4DD6089450C568C51112CB44E9AA1142971",
+  "registry_validation": "CANDIDATE_REGISTRY_OK rows=267 hypotheses=89",
+  "bound_origin_row_sha256": "F120C70E6D8AEB1C7194D599E970721946C32DACFA2EEDA6BAE0C4B4B811FAA3",
+  "bound_latest_row_sha256": "1859C425800FE94327AF4FE34D3D36769E4D3A4E063CE80E5F8814A87592F082",
+  "bound_latest_state": "probe",
+  "bound_latest_verdict": "PARTIAL_SOURCE_GATE_QUOTED_PAYMENT_AUTHORITY_UNMET",
+  "write_set": [
+    "03. EA Developer/EA_EventCLOBPersistence/research/acquire_event_cme6e_mbp10.py",
+    "03. EA Developer/EA_EventCLOBPersistence/tests/test_event_cme6e_mbp10_acquisition.py",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob/acquisition_plan.json"
+  ],
+  "required_behavior": [
+    "Accept the canonical two-row EVENT-CLOB history only when the origin row and latest transition row match their exact SHA-256 values and the latest state/verdict remain payment-authority-unmet.",
+    "Reject a missing, duplicated, reordered, mutated or superseded bound EVENT-CLOB row before any remote call.",
+    "Run the canonical validate_candidate_registry.py successfully before free quote and before/after the live re-quote at the paid boundary.",
+    "Permit unrelated append-only global registry drift only when the canonical validator passes and both bound EVENT-CLOB rows remain exact. Record start/end registry SHA values.",
+    "Paid access still requires a positive Owner USD ceiling, exclusive lock, live re-quote and zero drift in either bound EVENT-CLOB row."
+  ],
+  "red_first_acceptance_tests": [
+    "The exact two-row canonical EVENT-CLOB history passes and reports both row hashes.",
+    "Mutating or adding a later EVENT-CLOB row fails before metadata or time-series calls.",
+    "Canonical registry validator failure stops free quote and paid download before remote access.",
+    "Unrelated append-only rows remain permitted only with canonical validator PASS.",
+    "All prior 24 tests remain green and the offline plan is regenerated with the final tool SHA and deterministic plan ID."
+  ],
+  "authority_unchanged": {
+    "free_metadata_quote_authorized": true,
+    "paid_timeseries_authorized": false,
+    "ea_source_build_authorized": false,
+    "economic_outcome_read_authorized": false,
+    "model0_authorized": false,
+    "live_or_paper_authorized": false,
+    "git_commit_or_push_authorized": false
+  },
+  "prohibitions": [
+    "Do not call any remote endpoint while implementing or testing V7.",
+    "Do not make any paid, batch or time-series request.",
+    "Do not modify registry, preregistration, event clock, strategy logic, docs, MQL5, MT5 or unrelated files.",
+    "Do not stage, commit, push, create a branch, worktree or clone."
+  ]
+}

@@ -1,6 +1,6 @@
 # Doctrine Nghiên Cứu
 
-Cập nhật: 2026-07-22
+Cập nhật: 2026-07-26
 
 Doc chi tiết được `AGENTS.md` trỏ tới. Chứa toàn bộ doctrine nghiên cứu/
 validation trước đây nằm inline trong `AGENTS.md`. Mở khi thiết kế hoặc
@@ -14,6 +14,65 @@ trong plan); quan sát chart nên thành feature khả kiểm trước khi code;
 sideway là một regime hạng nhất; tránh nới luật lõi của một setup chỉ vì regime — nếu regime đòi điều chỉnh, coi đó là hypothesis/biến thể mới và khai trong plan.
 Doctrine riêng của lane đã archive nằm cạnh ledger lane đó trong
 `00. Old File/EA_Archive/`.
+
+## Bản chất thị trường tài chính và trading
+
+Đây là market model mặc định để lead ra quyết định; không phải một strategy
+template và không cấp quyền trade:
+
+1. **Adaptive và non-stationary:** người tham gia, regulation, liquidity,
+   volatility và execution thay đổi; một anomaly lịch sử có thể decay hoặc đổi
+   dấu. Không ngoại suy một average return thành luật bất biến.
+2. **Edge là phân phối sau cost:** dùng expectancy
+   `P(win)*AvgWin - P(loss)*AvgLoss - all-in cost`, kèm dispersion/tail. PF, WR,
+   net profit hay Sharpe đứng riêng đều không đủ.
+3. **Signal, risk và execution là ba lớp khác nhau:** risk sizing/stop có thể đổi
+   variance và ruin probability nhưng không biến signal âm thành alpha; execution
+   có thể tiêu diệt gross edge dù setup đúng.
+4. **Backtest là phép đo implementation:** nó chỉ nói rule/code/data/clock/cost
+   contract đã chạy tạo ra gì. Nó không tự chứng minh causal story, khả năng live,
+   hay rằng một discretionary memo đã được tái tạo đầy đủ.
+5. **Selection làm méo kết quả:** chọn symbol, timeframe, session, year, direction,
+   filter hoặc parameter sau khi xem outcome đều tiêu trial budget. Subgroup đẹp
+   là hypothesis mới, không phải bằng chứng cứu run cũ.
+6. **Regime phải biết tại decision time:** trend/range/volatility/liquidity/macro
+   state chỉ hợp lệ khi feature và timestamp tồn tại trước entry. Nhãn hindsight
+   không được làm filter trading.
+7. **Optimization tìm plateau, không tìm champion:** một tham số chỉ đáng giữ khi
+   vùng lân cận, split thời gian, cost stress và OOS cùng ổn. Đỉnh nhọn là prior
+   curve-fit, kể cả khi PF cao.
+8. **Cadence và exposure là một phần của edge:** DD/net loss thấp hơn do giảm 70%
+   fills không đồng nghĩa signal tốt hơn. So expectancy/R, PF, opportunity set,
+   time-in-market và loss drivers trên matched control.
+9. **Data quality là đa chiều:** phần trăm history chỉ là coverage. Clock, gaps,
+   bid/ask, commission, slippage, swap, symbol geometry và point-in-time lineage
+   vẫn phải đúng theo claim. Ngoại lệ `>=98%` không tạo microstructure/order-flow
+   data và không hồi tố run cũ.
+10. **Portfolio edge cần độc lập thực:** nhiều EA dùng cùng EURUSD/session/stop
+    geometry không tự thành diversification. Phải kiểm correlation, overlap,
+    common loss driver và stress aggregation.
+
+## Nhiệm vụ của Lead Quant/Systematic Trader
+
+- Chuyển intent của Owner thành market thesis, decision-time rule, invalidation,
+  matched control, risk/cost contract và phép falsify; chủ động đề xuất lựa chọn
+  tốt hơn thay vì chỉ chấm input đạt/không đạt.
+- Sau một valid failure, đóng đúng ID, tạo failure packet và tiếp tục sang search
+  cell/materially-new hypothesis hợp pháp khi mục tiêu kinh tế còn UNMET. Kill
+  nhanh là tốt; dừng sáng tạo sau kill là sai vai trò.
+- Một search cell phải khai tối thiểu mechanism class, information set, symbol/
+  timeframe, decision surface và trial budget. `NO LEGAL CANDIDATE` chỉ có hiệu
+  lực trong cell đó.
+- Không đánh dấu goal/book hoàn thành chỉ vì một lane terminal, một Deep Research
+  không tìm được candidate, hoặc một delivery packet PASS với verdict KILLED.
+  Goal completion cần outcome trong `01. GOAL/GOAL.md` hoặc quyết định dừng rõ của
+  Owner.
+- Báo cáo tiến độ phải mở đầu bằng trading outcome và trạng thái quyền:
+  `no EA with positive expectancy | research survivor | confirmed | deploy-ready`;
+  sau đó mới nêu engineering, artifact và blocker.
+- Dừng xin Owner chỉ khi bước kế tiếp cần đổi thesis/symbol/risk scope vật chất,
+  chi tiền, live/paper exposure, credential hoặc external authority. Các bước
+  research/build/backtest an toàn đã nằm trong scope phải được tự đi tiếp.
 
 ## Authority, failure radius và quyền mở EA mới
 
@@ -110,9 +169,12 @@ phép tune hypothesis cũ.
 6. Agent chính kiểm nguồn, de-dup với registry, chạy probe offline rẻ, rồi mới
    tạo `hypothesis_id` và prereg mới. Holdout đã mở của hypothesis cũ không được
    tái dùng làm holdout của child.
-7. Mỗi vòng có budget hữu hạn. Nếu GPT lặp lại family đã đóng hoặc cùng blocker
-   dữ liệu/execution chưa đổi, park frontier và dừng; chỉ mở vòng tiếp theo khi
-   có cơ chế, source, data hoặc external-state mới thật sự.
+7. Mỗi search cell có budget hữu hạn. Nếu GPT lặp lại family đã đóng hoặc cùng
+   blocker dữ liệu/execution chưa đổi, park **cell đó** và ghi exact boundary.
+   Nếu mục tiêu Owner còn rộng hơn cell vừa đóng, lead phải chủ động mở search
+   cell khác có mechanism/information set/decision surface thực sự khác trong
+   scope; không được suy rộng thành frontier toàn dự án. Chỉ dừng toàn bộ khi
+   search boundary cấp dự án đã khai và tiêu hết, hoặc bước kế cần quyền mới.
 
 ## Quy Trình Nghiên Cứu
 
@@ -306,6 +368,24 @@ Với corpus outcome-blind hoặc taxonomy discretionary:
 
 ## Contract Data-Acquisition / Casebook
 
+Trước một acquisition trả phí hoặc thu toàn bộ corpus event-driven, phải chạy
+một **source-semantics pilot tối thiểu, outcome-blind** trên mẫu đại diện đã khóa
+trước. Pilot phải đo distribution của inter-arrival/gap, final staleness, clock
+mà vendor dùng để cắt range (`event` hay `receive`) và pass-rate dự kiến của từng
+source-quality gate. Không dùng full purchase để lần đầu khám phá rằng contract
+nguồn không phù hợp.
+
+- Mỗi ngưỡng source-quality phải ghi physical meaning, failure mode cần bắt và
+  cách phân biệt missing/corrupt data với market inactivity hợp lệ. Với feed
+  event-driven, "không có update" không mặc định đồng nghĩa "mất dữ liệu".
+- Chi phí phải đi theo tầng: free metadata/quote -> minimal paid semantics pilot
+  -> frozen full-design acquisition -> economic probe. PASS tầng trước chỉ mở
+  tầng kế; không tự cấp quyền PnL, EA, promotion hay live.
+- Báo cáo funnel dùng đúng từ:
+  `request -> nonempty segment -> source-quality event -> feature-eligible event
+  -> executable trade -> economic survivor`. Không gọi chung các tầng này là
+  "tín hiệu", và phải nói trước goal EA/economic của Owner đang `MET` hay `UNMET`.
+
 Data collection là một lane evidence riêng, không phải economic backtest rút
 gọn. Trước khi chạy phải khóa collection id, authority, source contract, exact
 source SHA, schema/header, taxonomy label, row cap, zero-trade rule, storage
@@ -405,10 +485,10 @@ hạn đã biết được nêu thẳng.
   hoạt động. Task packet, execution receipt và run manifest phải cùng bind
   `provenance_mode`, `workspace_snapshot_sha256` và file count; mọi drift trước
   compile/backtest phải fail closed.
-- Root `.git` bị cấm theo quyết định Owner 2026-07-11. Không `git init`, không
-  stage/commit/push, không dùng archive Git làm nguồn build. Metadata lịch sử
-  chỉ được phục hồi khi Owner yêu cầu rõ ràng; closeout dùng hash/receipt,
-  validator và tests đúng scope.
+- Git có thể tồn tại và remote private có thể đã được Owner mở. Agent không
+  `git init`, stage/commit/push, amend hay force-push trừ khi Owner yêu cầu rõ
+  trong message hiện tại; không dùng Git/archive làm nguồn build. Provenance
+  run vẫn phải bind workspace snapshot + hash/receipt/validator/test đúng scope.
 - Mọi compile/backtest lấy nguồn từ `00. Old File` hoặc path lưu trữ khác
   là evidence không hợp lệ và phải được đánh dấu như vậy trước khi trích
   dẫn.

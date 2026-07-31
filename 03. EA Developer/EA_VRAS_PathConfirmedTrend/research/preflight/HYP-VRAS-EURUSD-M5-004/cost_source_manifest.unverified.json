@@ -1,0 +1,16 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "UNVERIFIED_DIAGNOSTIC",
+  "provenance_status": "UNVERIFIED",
+  "promotion_eligible": false,
+  "broker": "Five Percent Online Ltd",
+  "server": "FivePercentOnline-Real",
+  "symbol": "EURUSD",
+  "from": "2023.01.03",
+  "to": "2026.06.30",
+  "spread_policy": "MT5 Model 0 current/historical tick spread; no independent 2023-2026 spread provenance is bound",
+  "commission": "EA assumes 0.70 pip round trip; not verified against live fills",
+  "slippage": "EA assumes 0.40 pip one way; not independently verified",
+  "news_guard": "Disabled in both matched arms because the bundled calendar ends in 2022",
+  "verdict": "DIAGNOSTIC_ONLY_NOT_PROMOTION_ELIGIBLE"
+}

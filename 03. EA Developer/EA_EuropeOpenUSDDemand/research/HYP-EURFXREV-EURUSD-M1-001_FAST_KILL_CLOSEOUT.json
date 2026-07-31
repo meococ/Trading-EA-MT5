@@ -1,0 +1,36 @@
+{
+  "schema_version": "alphafactory_fast_kill_closeout.v1",
+  "created_at_utc": "2026-07-29T18:12:29Z",
+  "hypothesis_id": "HYP-EURFXREV-EURUSD-M1-001",
+  "ea_name": "EA_EuropeOpenUSDDemand",
+  "evidence_class": "offline_probe",
+  "verdict": "KILLED",
+  "kill_code": "cost_dominated",
+  "cell_closeout_claim": true,
+  "bindings": [
+    {"role": "preregistration", "path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/HYP-EURFXREV-EURUSD-M1-001_TRAIN_ECONOMIC_PROBE_PLAN.md", "bytes": 4693, "sha256": "8F62C3A5FB9C944EFF96C68904C7CFB57F84752C2455805538D84F352DAE8833"},
+    {"role": "result_summary", "path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/evidence/HYP-EURFXREV-EURUSD-M1-001/EURFXREV001-TRAIN-ECON-001/train_economic_terminal.json", "bytes": 7543, "sha256": "8393300AEED35F0B58E4135581B7F1E8E16A03FBEF3B864C68B7BA0F689FB945"},
+    {"role": "readout", "path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/HYP-EURFXREV-EURUSD-M1-001_READOUT.md", "bytes": 4405, "sha256": "F753D25F918DDE2E56946D2703EBE59D38A85ABFDDA4E255E5767F528A8B0327"},
+    {"role": "diagnostic_chart", "path": "03. EA Developer/EA_EuropeOpenUSDDemand/research/evidence/HYP-EURFXREV-EURUSD-M1-001/EURFXREV001-TRAIN-ECON-001/eurfxrev_001_train_diagnostics.png", "bytes": 138829, "sha256": "F18933024C7959EDDC02FD61787178387009492B773D7C5CEF36D5B6F5151651"}
+  ],
+  "frozen_kill_gate": {"name": "cost_profit_factor_x1", "comparator": "lt", "threshold": 1.3, "actual": 0.8452367901775896, "frozen_pre_outcome": true, "minimum_observations": 500, "observations_unit": "completed_trades", "sequential_early_stop": false},
+  "metrics": {
+    "trades": 612,
+    "gross_profit_factor": 1.1107523510971737,
+    "cost_profit_factor_x1": 0.8452367901775896,
+    "cost_profit_factor_x1_5": 0.7374690653570446,
+    "cost_profit_factor_x2": 0.6434617419323798,
+    "expectancy_pips_x1": -0.9227124183006776,
+    "trades_per_elapsed_week": 2.3448276010614166,
+    "positive_years": 1,
+    "permutation_one_sided_p_value": 0.18038196180381963,
+    "deflated_sharpe": 0.00012081492568039032
+  },
+  "anti_overfit_contract": {"plan_frozen_pre_outcome": true, "terminal_state_recorded": true, "posthoc_rule_change_authorized": false, "same_id_rerun_authorized": false},
+  "limitations": [
+    "Fast-kill closes only the exact strict-lag post-ECB-fix pressure-reversal TRAIN proxy and does not complete the workspace book goal.",
+    "The small positive gross drift did not survive frozen cost and only one of five years was positive after x1 cost.",
+    "Direction-only, pressure threshold/lookback, calendar/magnitude buckets and clock changes are post-outcome rescue surfaces and remain unauthorized.",
+    "Validation 2021-2024 and every 2025+ holdout payload remain sealed; no MQL5, Model 0, optimization, promotion, paper or live authority is granted."
+  ]
+}

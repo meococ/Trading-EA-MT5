@@ -1,0 +1,48 @@
+{
+  "schema_version": "alphafactory_data_epoch_closeout.v1",
+  "hypothesis_id": "HYP-PTR-T2-DATA-EPOCH-D0-M5-003",
+  "ea_name": "EA_PTR_T2_DataEpochD0V3",
+  "status": "PARKED_DATA_QUALITY_CONTRACT_FAIL",
+  "verdict": "DATA_EPOCH_INVALID_1_OF_9_HISTORY_QUALITY_PASS",
+  "server": "FivePercentOnline-Real",
+  "period": "M5",
+  "model": 0,
+  "requested_from": "1970.01.01",
+  "requested_to": "2026.07.30",
+  "history_quality": {
+    "operator": "gt",
+    "threshold_pct": 97
+  },
+  "mandatory_symbols": [
+    "XAUUSD",
+    "BTCUSD",
+    "EURUSD",
+    "USDJPY",
+    "GBPUSD",
+    "USDCHF",
+    "USDCAD",
+    "AUDUSD",
+    "NZDUSD"
+  ],
+  "symbols": [
+    {"symbol":"XAUUSD","run_id":"20260731_075527","status":"PASS","history_quality_pct":98,"actual_from":"2004.06.11","actual_to":"2026.07.30","run_manifest_sha256":"EA138F8971BA5552674316BB4D296D486E0813095F7E140C78531DECB9293476","report_sha256":"263F7D9E665556E1D2D8EE1FB492F74805C7646C742D552455221422B078FC37","journal_sha256":"D16006CA9DBB8243493BECB037938A2E0CCFBD6048D7A4D45311404DE82B00FE"},
+    {"symbol":"BTCUSD","run_id":"20260731_080030","status":"FAIL_HISTORY_QUALITY","history_quality_pct":62,"actual_from":"2013.11.15","actual_to":"2026.07.30","run_manifest_sha256":"AACA9F9D16BAD33B9B2E23414F2C9751A72B9610279BF1A25F2D9522AB57B013","report_sha256":"7605EB95A0C1E8A5BB050D20BCC8B25C8553FAE96BBC1760B4520FAA3FECA165","journal_sha256":"2BFA7C86D4EE85D37AFA4662D31A0D04FF0F56AA98F8D2D979A0F91AA2578295"},
+    {"symbol":"EURUSD","run_id":"20260731_080416","status":"FAIL_HISTORY_QUALITY","history_quality_pct":49,"actual_from":"1971.01.04","actual_to":"2026.07.30","run_manifest_sha256":"B23196B2AD91FEA1A736F882255DBB80846EE33CE0B64F66AD42EAB0B106AF66","report_sha256":"6B075F66CA8B9BB1DA4751EAE1E741BFE386D4F42B3EB36692CE49657B6ECC6D","journal_sha256":"4B2725C9A67FFF86F282635136D849B32EF99B864CF0B89AACB3CC926255E84E"},
+    {"symbol":"USDJPY","run_id":"20260731_080550","status":"FAIL_HISTORY_QUALITY","history_quality_pct":49,"actual_from":"1971.01.04","actual_to":"2026.07.30","run_manifest_sha256":"6D149A400D70A7B736114C2F2D096A5CD63978C7B967A3862D2ADC2D05098C5F","report_sha256":"204FF54E5F4FFF65ED62646623BCB648BD557D5A3B1C719FA35A5716EA46B922","journal_sha256":"C36100DE5833B35D20AA59EEBFEC48A76B5C67FD4E9BDA9883AE237D11A8784E"},
+    {"symbol":"GBPUSD","run_id":"20260731_080647","status":"FAIL_HISTORY_QUALITY","history_quality_pct":82,"actual_from":"1993.05.12","actual_to":"2026.07.30","run_manifest_sha256":"65FE1AA4BA4FBAEA008063582693793559C13D2BD48061D45F924144634BBFA4","report_sha256":"C8ADE5B3D7227C7B36D5D2F1F070237389B90C7C76674844B0E79BF809E8E0F1","journal_sha256":"78A6B974E03C24468494DC458B18429227B00527F450C64FC5276E30583A9F26"},
+    {"symbol":"USDCHF","run_id":"20260731_080744","status":"FAIL_HISTORY_QUALITY","history_quality_pct":49,"actual_from":"1971.01.04","actual_to":"2026.07.30","run_manifest_sha256":"D38A19F14D9EAC41743B68EFE0DF0626FF7E9B9D5CE77E6C6B01B4FC2E3A6161","report_sha256":"FCC11F4527E62EF803C02F074D24107DA3ABFCB91405A6FDB69F09B3DA5021E2","journal_sha256":"E20A322B25280103AB2611A7A343B133A33B340B80B70FC779B81D9FB4C2514D"},
+    {"symbol":"USDCAD","run_id":"20260731_080846","status":"FAIL_HISTORY_QUALITY","history_quality_pct":82,"actual_from":"1993.04.28","actual_to":"2026.07.30","run_manifest_sha256":"D25D950E637EAEBF431E88ECB05AA70F1456F78FBAFCEEC3ED75B6CA1FC97E50","report_sha256":"7A0BF0AE107E1192F6010A4C4D642A16B628CA2DB05EA47855A98332DDAFA288","journal_sha256":"4112CE812197B34D61825D8E9F5277F6B349B8C9BEDC2F321C104D2D8F6F9227"},
+    {"symbol":"AUDUSD","run_id":"20260731_080942","status":"FAIL_HISTORY_QUALITY","history_quality_pct":82,"actual_from":"1993.04.27","actual_to":"2026.07.30","run_manifest_sha256":"159E8BA99AD6D26CA4EEAFD87E8BDBD8E95D51177AF1416E295F2AF40510B73D","report_sha256":"538826ED351A81ADBA914F668AAC4D650EE8260A68CF85CACAB4917B8EEBAA39","journal_sha256":"19BEA06315E449212F8BA0A065ED63EDF07ABE0E7E3448D16DB4B10E1623FC3F"},
+    {"symbol":"NZDUSD","run_id":"20260731_081039","status":"FAIL_HISTORY_QUALITY","history_quality_pct":81,"actual_from":"1994.02.01","actual_to":"2026.07.30","run_manifest_sha256":"D7D55A58E6226A840EB16A11D34B8B66FE67E463C2A1451652AA5313EBCAF1A5","report_sha256":"8B9B5433E91D96E05D2CD0FE886441A9FE766752E4EECF88EDC10CCF6C52375F","journal_sha256":"49234078D2105869E258A0E092827C99BE2076D1A0DF667616F0F5E5CE331B89"}
+  ],
+  "selected_pass_count": 1,
+  "required_pass_count": 9,
+  "economic_trials_consumed": 0,
+  "trades_authorized": false,
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "market_edge_claim_authorized": false,
+  "failure_radius": "Exact FivePercentOnline-Real M5 Model=0 all-available-history contract requested with the 1970 sentinel through 2026.07.30. It does not reject the nine symbols, MT5, Model=4 real-tick history, a preregistered 2018-plus epoch, T2 price-action grammar, or any economic edge.",
+  "next_safe_action": "Open a fresh hash-bound data hypothesis for all-available real-tick testing (MT5 Model=4) across the same 9/9 symbols; do not amend or rescue HYP003 in place.",
+  "closed_at_utc": "2026-07-31T01:15:00Z"
+}

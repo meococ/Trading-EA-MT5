@@ -1,0 +1,11 @@
+{
+  "artifact_sha256": {
+    "attempt_started.json": "73809C2AF2A445842A5AB5CC2F66D00169117749EBDC6DBF1692540729E41F98"
+  },
+  "attempt_id": "HYP005-DESIGN-ECON-001",
+  "execution_evidence_class": "BROKER_OBSERVED_M1_PROXY_KILL_ONLY",
+  "hypothesis_id": "HYP-ROUND-CASCADE-EURUSD-M5-005",
+  "promotion_evidence": false,
+  "reason": "entry delay exceeds 60 minutes",
+  "status": "ENGINEERING_INVALID_NO_MARKET_VERDICT"
+}

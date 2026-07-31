@@ -1,0 +1,42 @@
+{
+  "schema_version": "event_clob_design_segment_free_quote_failure.v1",
+  "recorded_at_utc": "2026-07-28T03:51:39Z",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002",
+  "profile": "design-segments",
+  "attempt_id": "FREE_METADATA_QUOTE_ATTEMPT_01",
+  "status": "FAILED_CLOSED_FREE_METADATA_HTTP_500_NO_ARTIFACT_COMMIT",
+  "offline_plan_id": "9883D92CA842D937A3C77DA20AD256AC2E41AB66BA8F763DF016CE93A26009D7",
+  "offline_plan_sha256": "7C21C21F1F168EA4823E9FCEACF88BDFE3BE57B522899C8A78141BADF8CE60C0",
+  "acquisition_tool_sha256": "240DF958338CDFD1895396B58A32E2BF262D14837DEF3D38A64F8E85FF705799",
+  "tests_sha256": "9DC83BCCA575A96B857B5F2B53FD5776D5AB8327E86321D3E28903D5D4B5615F",
+  "runtime": "02. AlphaFactory/runtime/python-databento",
+  "databento_sdk_version": "0.54.0",
+  "quote_workers": 16,
+  "elapsed_seconds": 254.4,
+  "process_exit_code": 1,
+  "error": "EVENT_CLOB_ACQUISITION_BLOCKED reason=metadata.get_cost failed after 1 attempt; non-transient error: 500 <empty message>",
+  "request_identity_at_failure": null,
+  "actual_free_metadata_attempts_before_abort": null,
+  "attempt_count_status": "UNAVAILABLE_BECAUSE_FAILED_PARALLEL_QUOTE_DID_NOT_COMMIT_A_RECEIPT",
+  "active_root_readback": {
+    "files": [
+      "acquisition_plan.json"
+    ],
+    "plan_status": "PLANNED_DESIGN_SEGMENTS_NOT_QUOTED_NOT_DOWNLOADED",
+    "quotes": 0,
+    "timeseries_calls": 0,
+    "paid_request_made": false,
+    "raw_dbn_files": 0,
+    "quote_receipt_exists": false,
+    "storage_assessment_exists": false,
+    "immutable_design_evidence_exists": false,
+    "finalize_lock_exists": false,
+    "paid_lock_exists": false
+  },
+  "epistemic_class": "SOURCE_ENGINEERING_FAILURE_NO_MARKET_OR_PRICE_OUTCOME",
+  "market_verdict": null,
+  "paid_authority_granted": false,
+  "economic_outcomes_opened": false,
+  "mql5_authorized": false,
+  "remediation_boundary": "A new source-task amendment may change only free metadata HTTP 500 retry classification and error identity observability. It may not change the mechanism, request population, segment bounds, gates, paid authority or outcome boundary."
+}

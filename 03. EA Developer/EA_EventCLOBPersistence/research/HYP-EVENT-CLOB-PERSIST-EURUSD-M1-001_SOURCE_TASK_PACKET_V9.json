@@ -1,0 +1,56 @@
+{
+  "schema_version": "event_clob_source_task_packet_amendment.v1",
+  "task_id": "EVENT_CLOB_PAYMENT_PARK_CLOSEOUT_20260728_V9",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-001_SOURCE_TASK_PACKET_V8.json",
+  "supersedes_amendment_sha256": "5208D76C2F95BE3BDD6E4C7EB4B44A769CA323936F6F4B6AE931CA6525E8A2CC",
+  "amendment_reason": "The final V8 free quote is archived under an immutable manifest and the canonical registry has transitioned probe-to-parked because explicit Owner payment authority is absent. Bind the exact three-row EVENT history and make paid download fail before any remote call until a future Owner-authorized amendment reopens the lane.",
+  "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+  "registry_sha256_at_amendment": "B934087B5403DB3AC3DC02538F038A962231EBF5011AF82812A96B9B36ED4BE0",
+  "registry_validation": "CANDIDATE_REGISTRY_OK rows=268 hypotheses=89",
+  "bound_event_row_sha256_sequence": [
+    "F120C70E6D8AEB1C7194D599E970721946C32DACFA2EEDA6BAE0C4B4B811FAA3",
+    "1859C425800FE94327AF4FE34D3D36769E4D3A4E063CE80E5F8814A87592F082",
+    "15DAF05F86AAC2777925589ABE35725A274746A80C94F067A40FC333EB8643E3"
+  ],
+  "bound_latest_state": "parked",
+  "bound_latest_verdict": "PARK_SOURCE_PAYMENT_AUTHORITY_UNMET",
+  "quote_evidence_manifest_path": "02. AlphaFactory/data/databento/cme_6e_event_clob/evidence/FREE_QUOTE_F8CC5869/manifest.json",
+  "quote_evidence_manifest_sha256": "2AE3A6CE134653F452FBA62677A1141E0F561ED686028BF9C5940BB149EEAA71",
+  "write_set": [
+    "03. EA Developer/EA_EventCLOBPersistence/research/acquire_event_cme6e_mbp10.py",
+    "03. EA Developer/EA_EventCLOBPersistence/tests/test_event_cme6e_mbp10_acquisition.py",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob/acquisition_plan.json"
+  ],
+  "required_behavior": [
+    "Accept only the exact three-row EVENT history in its canonical order and require latest state parked with payment-authority-unmet verdict.",
+    "Retain offline planning and free metadata quote capability for future refreshes, subject to the existing validator and V8 retry boundaries.",
+    "Reject download authority before metadata live re-quote or timeseries access whenever the latest state is parked/payment-authority-unmet.",
+    "A future download requires a new amendment that records explicit Owner ceiling authority and rebinds the latest registry state; V9 itself grants no paid authority.",
+    "Regenerate only the active offline plan. Immutable FREE_QUOTE_F8CC5869 evidence must remain byte-exact and must never be overwritten."
+  ],
+  "red_first_acceptance_tests": [
+    "Exact three-row history passes and exposes the parked latest row hash.",
+    "Any later/mutated/reordered EVENT row fails.",
+    "download_windows fails with payment-authority-unmet before metadata or timeseries client calls.",
+    "Immutable quote evidence manifest and three child hashes remain exact.",
+    "All prior 42 tests remain green and active offline plan is regenerated with final V9 tool SHA."
+  ],
+  "authority": {
+    "offline_plan_authorized": true,
+    "free_metadata_quote_authorized": true,
+    "paid_timeseries_authorized": false,
+    "ea_source_build_authorized": false,
+    "economic_outcome_read_authorized": false,
+    "model0_authorized": false,
+    "live_or_paper_authorized": false,
+    "git_commit_or_push_authorized": false
+  },
+  "prohibitions": [
+    "Do not call any remote endpoint while implementing or testing V9.",
+    "Do not modify or remove immutable FREE_QUOTE_F8CC5869 evidence.",
+    "Do not modify registry, preregistration, event clock, strategy logic, docs, MQL5, MT5 or unrelated files.",
+    "Do not stage, commit, push, create a branch, worktree or clone."
+  ]
+}

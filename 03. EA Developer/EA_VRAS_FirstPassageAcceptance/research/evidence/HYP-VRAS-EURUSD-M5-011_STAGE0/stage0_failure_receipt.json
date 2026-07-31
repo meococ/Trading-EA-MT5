@@ -1,0 +1,49 @@
+{
+  "schema_version": "hyp011_stage0_failure_receipt.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-011",
+  "verdict": "PARK_STAGE0_INDICATOR_PARITY_FAIL",
+  "outcome_blind_attestation": true,
+  "economic_outcome_read": false,
+  "stage0_event_counts_opened": false,
+  "command_exit_code": 1,
+  "failure_stage": "parity_first100_order_accepted",
+  "exception": "ContractViolation: non-finite vwap48 parity value at 2019-02-04 03:10:00",
+  "failure_row_retained_fields": {
+    "server_time": "2019.02.04 03:10:00",
+    "status": "ORDER_ACCEPTED",
+    "direction": "1",
+    "h1_close": "1.14552",
+    "h1_ema": "1.14291",
+    "rolling_vwap_48": "1.14555",
+    "atr14": "0.00025"
+  },
+  "diagnosis": {
+    "signal_bar_open_server": "2019-02-04 03:05:00",
+    "reconstructed_vwap48": null,
+    "partial_buckets_in_recent_observed_history": [
+      {"open_server": "2019-02-01 23:55:00", "m1_rows": 3, "tick_volume": 96},
+      {"open_server": "2019-02-04 00:00:00", "m1_rows": 3, "tick_volume": 7}
+    ],
+    "interpretation": "The frozen HYP011 M1 contract invalidates partial five-minute buckets and poisons VWAP48 until the observed-bar lookback is clean. MT5 CopyRates retained the broker's partial Friday-close/Monday-open M5 bars and therefore emitted a finite telemetry VWAP. This is a real data-contract parity failure, not an economic result."
+  },
+  "hashes": {
+    "plan_sha256": "4C3091C1C7A28FB48778B7B4510E22FD1AC6552EA95B4713C21303ED1CC237F2",
+    "probe_sha256": "80823AFF9C1F6CCFED9006ADE0E96F3C983F1FEDAED8B271E1A59CF1190A50B0",
+    "tests_sha256": "66B05DBD32081ED40ADD0F25DC69E5EF774553FBE324621E7055B4980631908B",
+    "m1_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+    "h1_sha256": "71860016AF1BD1B17353B043AFF799233A787E9DF3F587913FCD2F5328BB1E08",
+    "clock_sha256": "A7F179935102B57BA3B629345209F6B0D668D1F7FD828A5ED6003207F41A2F52",
+    "decision_telemetry_sha256": "C510692DB20D710D92FCDE52C8628B158D98AAFE00BD3211E5E36E74254EDF66"
+  },
+  "verification": {
+    "synthetic_tests_passed": 21,
+    "synthetic_tests_failed": 0,
+    "registry_pre_run": "CANDIDATE_REGISTRY_OK rows=233 hypotheses=76",
+    "independent_review_prior_findings_resolved": true,
+    "event_ledger_written": false,
+    "summary_written": false,
+    "mql5_authorized": false,
+    "model0_authorized": false
+  },
+  "post_hoc_rescue_blocked": true
+}

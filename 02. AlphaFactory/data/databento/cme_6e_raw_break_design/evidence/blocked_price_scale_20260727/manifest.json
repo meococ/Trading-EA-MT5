@@ -1,0 +1,10 @@
+{
+  "schema_version": "cme6e_raw_break_blocked_feature_manifest.v1",
+  "status": "BLOCKED_SOURCE_ONLY_PRICE_SCALE_ERROR_NO_OUTCOME_READ",
+  "reason": "databento_dbn fixed-point price attributes were treated as decimal prices, making spread_ticks_last 1e9-scale and quality_eligible zero",
+  "original_feature_csv_sha256": "80145AF5B9B90F62220FC9C9F16D44360C6C959164FB1E59377F710F8FAED556",
+  "original_feature_receipt_sha256": "8149CFBF10443C528232E3429133BDE82F63CAB6D873104415110CDFFECBC653",
+  "outcome_fields_used": false,
+  "sealed_oos_opened": false,
+  "superseded_by": "red-first fixed-point normalization before the first outcome join"
+}

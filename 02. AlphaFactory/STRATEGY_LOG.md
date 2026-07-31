@@ -5457,3 +5457,42 @@ decision-time information contract and fresh outcome-blind feasibility/prereg;
 no confirmation, stop, RR, session, weekday, year or state filter may be
 derived from these outcomes.
 
+---
+
+## PROCESS-EVENT-CLOB-HYP002 — outcome-blind source-feasibility park (2026-07-28)
+
+**Class:** non-economic paid-source/process record; not an EA or strategy run
+
+**Hypothesis:** `HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002`
+
+**Source contract:** CME `GLBX.MDP3` / `mbp-10` / `6E.v.0`; 329 scheduled
+2019-2020 point-release clocks, two exact PRE/LATE segments per event, 658
+request identities. EURUSD outcomes remained sealed.
+
+**Result:** all 658 requests reconciled; 326/329 events had both nonempty
+segments, but only one event passed the frozen source-quality and feature-sign
+rules. Eligible cadence was 0.009576/week versus the required 2-5 and the
+minimum population was 1 versus 209. Verdict:
+`PARK_STAGE0B_DESIGN_SOURCE_OR_CADENCE`. No trade, PF, WR, expectancy or EA
+exists for this hypothesis.
+
+**Lead/process lessons:**
+
+1. The one-second maximum inter-record-gap rule was not source-semantics-tested
+   on a small representative sample before the full design purchase. On the
+   event-driven feed it excluded 488/652 nonempty segments, so the QC assumption
+   dominated the candidate mechanism.
+2. A free quote proves price and request coverage, not that proposed QC rules
+   fit the source. Future paid lanes require a minimal outcome-blind semantics
+   pilot before full acquisition.
+3. One `feature-eligible event` is not one trading signal, one trade or one
+   winner. Report the entire funnel and never infer economics from a source gate.
+4. Reproducible engineering is necessary but did not achieve the Owner's goal.
+   Status must lead with `no economically tested EA / goal UNMET`, not artifact
+   completion.
+
+**Prospective control:** for a materially new hypothesis only, preregister a
+small source-semantics pilot that measures inter-arrival, staleness and vendor
+range-clock behavior before committing to a full design corpus. This record
+does not authorize relaxing HYP-002 or opening its EURUSD outcomes.
+

@@ -1,0 +1,71 @@
+{
+  "schema_version": "alphafactory_data_epoch_closeout.v1",
+  "hypothesis_id": "HYP-PTR-T2-DATA-EPOCH-D0-M5-004",
+  "ea_name": "EA_PTR_T2_DataEpochD0V3",
+  "status": "INVALID_GOVERNANCE_PRE_BIND_MT5_LAUNCH",
+  "verdict": "INVALID_REPAIR_POST_LAUNCH_BINDING_AND_SOURCE_MANIFEST_MISMATCH",
+  "server": "FivePercentOnline-Real",
+  "period": "M5",
+  "model": 4,
+  "requested_from": "1970.01.01",
+  "requested_to": "2026.07.30",
+  "authority": "DATA_ACQUISITION_ONLY_NO_PERFORMANCE",
+  "mt5_launches": 1,
+  "symbols_started": [
+    "XAUUSD"
+  ],
+  "symbols_not_started": [
+    "BTCUSD",
+    "EURUSD",
+    "USDJPY",
+    "GBPUSD",
+    "USDCHF",
+    "USDCAD",
+    "AUDUSD",
+    "NZDUSD"
+  ],
+  "selected_pass_count": 0,
+  "required_pass_count": 9,
+  "trades_executed": 0,
+  "economic_trials_consumed": 0,
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "market_edge_claim_authorized": false,
+  "failure_facts": {
+    "execution_started_at_utc": "2026-07-31T01:55:45.9883411Z",
+    "execution_failed_at_utc": "2026-07-31T01:56:35.4186974Z",
+    "invalid_data_repair_recorded_at_utc": "2026-07-31T02:19:20Z",
+    "invalid_data_repair_line": 7,
+    "invalid_data_repair_raw_sha256": "7D74E80679702326582E321E9B81D8D2026AE279FD417562A6C0050E877841CD",
+    "tester_mode_observed": "generating based on real ticks",
+    "ea_init_failure": "epoch_manifest_sha_mismatch",
+    "series_proof_count": 0,
+    "history_quality_interpretation": "INVALID_NOT_EVALUATED",
+    "economic_interpretation": "FORBIDDEN"
+  },
+  "artifacts": {
+    "execution_receipt": {
+      "path": "02. AlphaFactory/runtime/ea_execution_receipt_20260731_085545_58276_c4d35e42.json",
+      "sha256": "7F78624BC1200AC20CBC798B67400AD2614A8374E558E027606175B57952C1EF"
+    },
+    "failed_loop": {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/evidence/HYP-PTR-T2-DATA-EPOCH-D0-M5-004/HYP004_FAILED_LOOP_SNAPSHOT.json",
+      "sha256": "B26C467AF096E169FC711E3441EF464468C33CA859B1B9CBD87AEBBC572E4C09"
+    },
+    "run_manifest": {
+      "path": "02. AlphaFactory/runs/EA_PTR_T2_DataEpochD0V3/20260731_085549/run_manifest.json",
+      "sha256": "4258BA529619D152E9A6355E736C15969338AE1078B43EDF2078A80700252B59"
+    },
+    "report": {
+      "path": "02. AlphaFactory/runs/EA_PTR_T2_DataEpochD0V3/20260731_085549/report.html",
+      "sha256": "9C61D4E9189158EF1B2FC5607ACB14823B7DA1228F66BBE6D11E3B06C179C0B4"
+    },
+    "journal_delta": {
+      "path": "02. AlphaFactory/runs/EA_PTR_T2_DataEpochD0V3/20260731_085549/logs/tester_journal_delta.log",
+      "sha256": "C7C2623ADA099C10B3F424ADBA08F541883907906CD7D2A539C3CC5368600479"
+    }
+  },
+  "failure_radius": "Only HYP004 is invalidated. The one XAUUSD Model4 launch exposed tester wording and a source-to-epoch manifest mismatch before a legal campaign binding. It did not execute a trade, inspect PnL, consume an economic trial, test the remaining eight symbols, or establish any market edge/no-edge result.",
+  "next_safe_action": "Append a governance correction that restores the predecessor T2 binding, then open HYP005 with a new prereg, new epoch manifest and source whose immutable manifest hash matches before the first MT5 launch.",
+  "closed_at_utc": "2026-07-31T02:31:55Z"
+}

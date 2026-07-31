@@ -1,0 +1,18 @@
+{
+  "schema_version": "event_clob_stage0_run_authority.v1",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002",
+  "base_packet_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_STAGE0_SOURCE_TASK_PACKET.json",
+  "base_packet_sha256": "5B4B636AB925E6579F4B5084339EC6E5E613266F3384C4CDA34B0D4D73FDA588",
+  "amendment_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_STAGE0_SOURCE_TASK_PACKET_V3.json",
+  "amendment_sha256": "7F42B75E19A5AB2AA3FDE714F815671EBC063A54098C941F69A3533CC8C2ED37",
+  "review_verdict": "PASS",
+  "reviewed_analyzer_path": "03. EA Developer/EA_EventCLOBPersistence/research/analyze_event_cme6e_stage0.py",
+  "reviewed_analyzer_sha256": "FAB30F1418C953B16D28F4849C87F5A4802A9878D37ECD1CCB9BFDF6972D63B3",
+  "reviewed_tests_path": "03. EA Developer/EA_EventCLOBPersistence/tests/test_event_cme6e_stage0.py",
+  "reviewed_tests_sha256": "AF085832B419DD120B9FB7F02DE875E8B143526E36DEA7AA8939138BCB27BE20",
+  "required_python_relative_path": "02. AlphaFactory/runtime/python-databento/Scripts/python.exe",
+  "required_python_sha256": "0B471133E110CFB53A061CAD528CE8E517D7B9AC41A0A396C39AD795A487FC14",
+  "required_python_version": "3.12.10",
+  "required_databento_version": "0.54.0",
+  "live_stage0_authorized": true
+}

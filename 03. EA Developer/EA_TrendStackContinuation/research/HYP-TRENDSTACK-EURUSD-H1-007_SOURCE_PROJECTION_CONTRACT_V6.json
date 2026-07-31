@@ -1,0 +1,34 @@
+{
+  "schema_version": "trendstack_007_source_projection_contract_addendum.v6",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "base_contract_v4_sha256": "2F3D071F5E079B49B5705D47BABFFCC7F65998744AA0E1E9352389F89EA1EADB",
+  "output_schema_addendum_v5_sha256": "8B9B6391A79E699DB21A80D14223B6ACAA24287390ECE4A0D8602DD758F4631C",
+  "additive_semantics": "These rules add to V4 and V5; every V4/V5 field remains binding and no field is replaced.",
+  "metadata_hash_map_schema": {
+    "exact_keys": [
+      "projection_requests.jsonl",
+      "projection_request_receipt.json",
+      "design_1200_manifest.jsonl",
+      "design_1200_source_trace.jsonl",
+      "design_1200_reconciliation.json",
+      "design_1200_projector_receipt.json"
+    ],
+    "value_pattern": "^[A-F0-9]{64}$",
+    "extra_or_missing_keys_forbidden": true,
+    "duplicate_keys_forbidden": true
+  },
+  "validation_receipt_rule": "validation_receipt.stage_metadata_hashes must exactly satisfy metadata_hash_map_schema and must be computed by the independent validator from the complete validated stage",
+  "pre_publish_rule": "after accepting the validation receipt and immediately before atomic rename, supervisor reads and rehashes exactly the six staged metadata files once each; the resulting exact-key map must equal validation_receipt.stage_metadata_hashes byte-for-byte as canonical JSON",
+  "post_publish_rule": "after atomic rename, supervisor reads and rehashes exactly the six final metadata files once each; attempt_terminal_pass.post_publish_metadata_hashes must satisfy metadata_hash_map_schema and equal validation_receipt.stage_metadata_hashes byte-for-byte as canonical JSON",
+  "supervisor_metadata_access": {
+    "pre_publish_stage_metadata_file_reads": 6,
+    "post_publish_final_metadata_file_reads": 6,
+    "stage_or_final_parquet_payload_opens": 0
+  },
+  "mismatch_policy": "SOURCE_PROJECTION_FAILED_ENGINEERING_NO_MARKET_VERDICT; publish forbidden before rename, terminal failure after any detected post-rename mismatch",
+  "source_build_authorized_by_addendum_alone": false,
+  "source_run_authorized_by_addendum_alone": false,
+  "economics_authorized": false,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false
+}

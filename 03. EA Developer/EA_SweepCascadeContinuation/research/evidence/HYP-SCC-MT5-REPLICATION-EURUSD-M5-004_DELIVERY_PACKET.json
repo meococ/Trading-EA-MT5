@@ -1,0 +1,213 @@
+{
+    "schema_version":  "alphafactory_ea_delivery_packet.v1",
+    "created_at_utc":  "2026-07-25T14:37:06Z",
+    "hypothesis_id":  "HYP-SCC-MT5-REPLICATION-EURUSD-M5-004",
+    "ea_name":  "EA_SweepCascadeContinuation",
+    "delivery_class":  "economic_run",
+    "completion_claim":  true,
+    "verdict":  "KILLED",
+    "bindings":  [
+                     {
+                         "role":  "preregistration",
+                         "path":  "03. EA Developer/EA_SweepCascadeContinuation/research/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_FROZEN_PREREG.md",
+                         "bytes":  5008,
+                         "sha256":  "B19141645C78171953DEAC7D966BD9CA274545BD622901B8E628DB4C9CB44B95"
+                     },
+                     {
+                         "role":  "logic_matrix",
+                         "path":  "03. EA Developer/EA_SweepCascadeContinuation/research/LOGIC_TO_CODE_MATRIX.md",
+                         "bytes":  1596,
+                         "sha256":  "831D7CEA70851B9BFB53FFE92FE5751F35A217776B0036544855F3DA2004E3CD"
+                     },
+                     {
+                         "role":  "source",
+                         "path":  "02. AlphaFactory/runs/EA_SweepCascadeContinuation/20260725_210811/snapshot/source/EA_SweepCascadeContinuation.mq5",
+                         "bytes":  33933,
+                         "sha256":  "9C03F4CB913E18B6CF660E48E7ADBD86034B1352A80167C32CC238BA7F7817B3"
+                     },
+                     {
+                         "role":  "compiled_binary",
+                         "path":  "02. AlphaFactory/runs/EA_SweepCascadeContinuation/20260725_210811/snapshot/build/EA_SweepCascadeContinuation.ex5",
+                         "bytes":  36604,
+                         "sha256":  "E3E56AE117B42A007B0F67922F0AF2AC9DE88EBA712726DE2096186F58105168"
+                     },
+                     {
+                         "role":  "compile_log",
+                         "path":  "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_COMPILE_UTF8.log",
+                         "bytes":  1569,
+                         "sha256":  "D6BD182C3F31EF2B3507660FFE96B4E9958C6F174E64613EA3A06820FB1BE87D"
+                     },
+                     {
+                         "role":  "test_receipt",
+                         "path":  "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_TEST_RECEIPT.json",
+                         "bytes":  573,
+                         "sha256":  "4E980201368FFAFE378421ACD3B169BCCADEC461B2E7C79684DF7410994888EF"
+                     },
+                     {
+                         "role":  "nonrepaint_audit",
+                         "path":  "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_BUILD/nonrepaint_audit.json",
+                         "bytes":  1216,
+                         "sha256":  "4B83E31EB82773DDBADD4CD104A43E5801FF5D6D786E20547614A81D29BED91D"
+                     },
+                     {
+                         "role":  "run_manifest",
+                         "path":  "02. AlphaFactory/runs/EA_SweepCascadeContinuation/20260725_210811/run_manifest.json",
+                         "bytes":  136564,
+                         "sha256":  "A3DF3A341169197B2A0D8DFC2500A41A5D6603E190502F8A3EA3AA1ECBC44463"
+                     },
+                     {
+                         "role":  "tester_report",
+                         "path":  "02. AlphaFactory/runs/EA_SweepCascadeContinuation/20260725_210811/report.html",
+                         "bytes":  569922,
+                         "sha256":  "3C2792E115B093C00A84A0E5B924021F342A29401AA563F6DE404EC0EF6BF2C5"
+                     },
+                     {
+                         "role":  "lifecycle_trades",
+                         "path":  "02. AlphaFactory/runs/EA_SweepCascadeContinuation/20260725_210811/logs/EURUSD_LifecycleTrades_HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_134565093.csv",
+                         "bytes":  76759,
+                         "sha256":  "FE780D3F08D49B0FE40C866D2BC826DE6D4ECECA24F816A478C170D69CD85673"
+                     },
+                     {
+                         "role":  "run_meta",
+                         "path":  "02. AlphaFactory/runs/EA_SweepCascadeContinuation/20260725_210811/logs/EURUSD_RunMeta_HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_134565093.json",
+                         "bytes":  1301,
+                         "sha256":  "C51BF8BBDB4230E60DCC77B86C6798B26C8A7034900B4C40D4F66B74000D160C"
+                     },
+                     {
+                         "role":  "log_triage",
+                         "path":  "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/log_triage.json",
+                         "bytes":  1892,
+                         "sha256":  "B27BA672D654A0FDFD6A3D9A2352CDC3164D867FB356482E97779873F5182450"
+                     },
+                     {
+                         "role":  "economic_analysis",
+                         "path":  "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/pair_analysis.json",
+                         "bytes":  12464,
+                         "sha256":  "CE99F729AFCA63FAE125DBA8080D9C9D7B83E5181477F87694B8533E931B2E33"
+                     },
+                     {
+                         "role":  "casebook_manifest",
+                         "path":  "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/charts_delivery_anatomy/cases_manifest.json",
+                         "bytes":  13740,
+                         "sha256":  "BDE892EE8A5B4447BFB2ABB3BB61D7FD8296A39021A0247FFEDB8C4CB7EFE685"
+                     },
+                     {
+                         "role":  "decision_casebook_manifest",
+                         "path":  "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/charts_decision_asof/cases_manifest.json",
+                         "bytes":  13412,
+                         "sha256":  "CA225E8E432F6E57391BBDC5DA4079072CD4B9D0B578B08AC6A4915AF86A4B80"
+                     },
+                     {
+                         "role":  "readout",
+                         "path":  "03. EA Developer/EA_SweepCascadeContinuation/research/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_READOUT.md",
+                         "bytes":  6542,
+                         "sha256":  "ED6163E6073505C171A3A8F8A5D82BA008E92B36D23507B0400E3AEFB429DA45"
+                     },
+                     {
+                         "role":  "build_receipt",
+                         "path":  "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_BUILD/build_receipt.json",
+                         "bytes":  2727,
+                         "sha256":  "6627EB6F6C0CF45DF3833B432B40620D6575AD630BF75FCFE89B334452440EEB"
+                     },
+                     {
+                         "role":  "analysis_receipt",
+                         "path":  "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/analysis_receipt.json",
+                         "bytes":  674,
+                         "sha256":  "7E43737632C89EBBAE59B9F2927B04FCEC7CDD38EFC83C459379B8D570A90741"
+                     },
+                     {
+                         "role":  "gfi_integrated_readout",
+                         "path":  "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/HYP004_GFI_INTEGRATED_READOUT.md",
+                         "bytes":  2836,
+                         "sha256":  "7AE133A4D5FA13A00F6EB0496997B29677CEA5E326B67B9076F3A51B05885DB0"
+                     },
+                     {
+                         "role":  "matched_control_manifest",
+                         "path":  "02. AlphaFactory/runs/EA_SweepCascadeContinuation/20260725_210715/run_manifest.json",
+                         "bytes":  136233,
+                         "sha256":  "6F88B403B869A010262953C5741E0F9856D2493ABDCC734FEA5E858BF3259D84"
+                     },
+                     {
+                         "role":  "matched_control_report",
+                         "path":  "02. AlphaFactory/runs/EA_SweepCascadeContinuation/20260725_210715/report.html",
+                         "bytes":  2345222,
+                         "sha256":  "FA8F40FBE0BF194486509548010B05D1BD7C64336601E97C5C5EFDC13F0D270F"
+                     }
+                 ],
+    "logic_contract":  {
+                           "requirements_total":  14,
+                           "requirements_mapped_to_code":  14,
+                           "requirements_tested":  14,
+                           "closed_bar_decisions":  true,
+                           "unresolved_material_ambiguities":  0
+                       },
+    "engineering_contract":  {
+                                 "tests_passed":  13,
+                                 "tests_failed":  0,
+                                 "compile_errors":  0,
+                                 "compile_warnings":  0,
+                                 "nonrepaint_status":  "PASS"
+                             },
+    "run_contract":  {
+                         "run_id":  "20260725_210811",
+                         "model":  0,
+                         "trades":  261,
+                         "report_lifecycle_reconciled":  true,
+                         "lifecycle_open_rows":  261,
+                         "lifecycle_final_rows":  261,
+                         "unresolved_log_errors":  0
+                     },
+    "analysis_contract":  {
+                              "statuses":  {
+                                               "economics":  "COMPLETE",
+                                               "cost_stress":  "COMPLETE",
+                                               "cadence":  "COMPLETE",
+                                               "time_stability":  "COMPLETE",
+                                               "session_breakdown":  "COMPLETE",
+                                               "direction_breakdown":  "COMPLETE",
+                                               "regime_breakdown":  "INSUFFICIENT_EXPLAINED",
+                                               "execution_quality":  "COMPLETE",
+                                               "funnel":  "COMPLETE",
+                                               "winning_trade_causes":  "COMPLETE",
+                                               "losing_trade_causes":  "COMPLETE",
+                                               "logic_conflicts":  "COMPLETE",
+                                               "limitations":  "COMPLETE"
+                                           },
+                              "exceptions":  {
+                                                 "regime_breakdown":  "No preregistered regime label or independent regime contract exists for HYP-004; year, session and direction stability are reported without inventing a post-outcome regime taxonomy."
+                                             }
+                          },
+    "chart_contract":  {
+                           "sample_basis":  "wins_and_losses",
+                           "available_winners":  82,
+                           "available_losers":  179,
+                           "rendered_winners":  2,
+                           "rendered_losers":  3,
+                           "available_rejections":  0,
+                           "rendered_rejections":  0,
+                           "minimum_each":  2,
+                           "entry_sl_tp_exit_visible":  true,
+                           "higher_timeframe_context":  true,
+                           "higher_timeframe":  "H1",
+                           "entry_candle_centered":  true,
+                           "post_entry_bars_visible":  true,
+                           "outcome_region_labeled":  true,
+                           "decision_asof_separate":  true,
+                           "decision_outcome_hidden":  true,
+                           "decision_net_r_hidden":  true,
+                           "decision_active_indicators_visible":  true,
+                           "decision_indicator_provenance":  "mt5_decision_telemetry"
+                       },
+    "anti_overfit_contract":  {
+                                  "plan_frozen_pre_outcome":  true,
+                                  "one_change_one_run":  true,
+                                  "posthoc_rule_change_authorized":  false
+                              },
+    "limitations":  [
+                        "Broker commission, realized slippage, swap and news-event interaction were not independently reconstructed; fixed spread stresses are diagnostic and promotion remains false.",
+                        "HYP-004 changed risk from 0.05% to 0.01% only to let the tester survive the frozen full horizon; it does not claim an alpha improvement.",
+                        "Four control lifecycle OPEN rows emitted zero risk telemetry and were recovered from unique exact ORDER_ACCEPTED entry-stop-direction geometry; native deal P/L and report PF were not changed.",
+                        "AlphaFactory validate-full remains REVIEW because generic robustness, cost and execution promotion gates are not met; this terminal packet proves a valid economic kill, not deployment readiness.",
+                        "Decision charts show price, entry, stop, target and H1 context using MT5 decision telemetry; the raw ATR input value is not rendered in a separate indicator pane."
+                    ]
+}

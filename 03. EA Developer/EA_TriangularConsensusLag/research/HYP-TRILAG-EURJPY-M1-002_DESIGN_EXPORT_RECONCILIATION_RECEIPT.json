@@ -1,0 +1,59 @@
+{
+  "schema_version": "trilag_002_design_export_reconciliation.v1",
+  "hypothesis_id": "HYP-TRILAG-EURJPY-M1-002",
+  "attempt_id": "TRILAG002-DESIGN-EXPORT-001",
+  "status": "PASS_EXPORT_CHAIN_READY_FOR_STRUCTURAL_EVALUATION_AUTHORITY",
+  "review_mode": "PARENT_INDEPENDENT_HASH_SCHEMA_AND_COUNTER_RECONCILIATION",
+  "bindings": {
+    "frozen_plan_sha256": "33715BD2CB337C3A700BA08421EE1BD3E92434555E92C85B044FB115412F9200",
+    "reviewed_exporter_base_sha256": "D2225B38A27C33A657FEEFCD71FBC3D896CAD3DF5F9E94DB9B5DD34F0D4E914F",
+    "reviewed_evaluator_base_sha256": "58AA58D8813B684764DBC34EB0CF3777944446D0E2C2F0F4C128669723F722A4",
+    "attempt_started_path": "03. EA Developer/EA_TriangularConsensusLag/research/evidence/HYP-TRILAG-EURJPY-M1-002/TRILAG002-DESIGN-EXPORT-001/attempt_started.json",
+    "attempt_started_sha256": "923AC5A2C34333AE21C1AD86083F76A029A76784D67554C42C17DFFAF6FAA579",
+    "export_receipt_path": "03. EA Developer/EA_TriangularConsensusLag/research/evidence/HYP-TRILAG-EURJPY-M1-002/TRILAG002-DESIGN-EXPORT-001/design_export_receipt.json",
+    "export_receipt_sha256": "F57F93F826291A69662F95B2309F6187A09A1A1ED51CE6B282AC3AFFBE425D17",
+    "dataset_manifest_path": "02. AlphaFactory/data/fivepercent/TriangularConsensusLag/HYP-TRILAG-EURJPY-M1-002/design_m1_manifest.json",
+    "dataset_manifest_sha256": "4A8A51693B7D268BA2E8A179316774463D1C5631769C6B28E06DC113026228A8",
+    "dataset_parquet_path": "02. AlphaFactory/data/fivepercent/TriangularConsensusLag/HYP-TRILAG-EURJPY-M1-002/design_m1_close.parquet",
+    "dataset_parquet_sha256": "C1065F84F7FB79F7C4E83A2A52B9BD8C137E7CF788F75BC46D53C3FBDCD6EAE6"
+  },
+  "observed": {
+    "schema": ["symbol", "time_utc", "close"],
+    "row_count": 5580755,
+    "per_symbol_rows": {
+      "EURUSD": 1859939,
+      "USDJPY": 1860286,
+      "EURJPY": 1860530
+    },
+    "first_time_utc": "2016-01-04T00:00:00Z",
+    "last_time_utc": "2020-12-31T23:00:00Z",
+    "bars_requested_2021plus": 0,
+    "bars_exported_2021plus": 0,
+    "post_decision_bars_read": 0,
+    "future_path_labels": 0,
+    "trades_simulated": 0,
+    "costs_computed": 0,
+    "economics_executed": false,
+    "orders_submitted": 0,
+    "validation_opened": false,
+    "research_holdout_opened": false,
+    "mt5_launches": 1,
+    "network_calls": 0,
+    "paid_requests_made": 0
+  },
+  "checks": {
+    "canonical_manifest_json": true,
+    "canonical_export_receipt_json": true,
+    "receipt_manifest_hash_match": true,
+    "receipt_parquet_hash_match": true,
+    "per_symbol_sum_matches_row_count": true,
+    "exact_close_only_schema": true,
+    "exact_design_bounds": true,
+    "sealed_years_absent": true,
+    "forbidden_counters_hard_zero": true,
+    "exporter_disarmed_after_attempt": true
+  },
+  "semantic_price_evaluation_performed": false,
+  "economic_evaluation_performed": false,
+  "reconciled_at_utc": "2026-07-29T15:03:20Z"
+}

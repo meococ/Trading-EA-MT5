@@ -1,0 +1,9 @@
+{
+  "artifact_sha256": {
+    "attempt_started.json": "46ADCB275482CD496D8C6DE6B1803FD735D9EC3E128D93F87540C47FFE80527F"
+  },
+  "attempt_id": "HYP004-DESIGN-ECON-001",
+  "hypothesis_id": "HYP-ROUND-CASCADE-EURUSD-M5-004",
+  "reason": "missing exact M1 entry window",
+  "status": "ENGINEERING_INVALID_NO_MARKET_VERDICT"
+}

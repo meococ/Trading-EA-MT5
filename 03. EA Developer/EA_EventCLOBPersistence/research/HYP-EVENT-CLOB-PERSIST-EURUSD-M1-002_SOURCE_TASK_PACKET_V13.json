@@ -1,0 +1,112 @@
+{
+  "schema_version": "event_clob_source_task_packet_amendment.v1",
+  "task_id": "EVENT_CLOB_DESIGN_OWNER_AUTHORIZED_ACQUISITION_20260728_V13",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_SOURCE_TASK_PACKET_V12.json",
+  "supersedes_amendment_sha256": "81D2A9DD4016F29D2A4BDFC041633D179D4623C743F65773E1FDC70B22F450CC",
+  "amendment_reason": "The Owner explicitly approved a USD 3.50 absolute ceiling for the exact immutable free-quote basis plan DEDDE7F2. HYP-002 remains terminal parked in the registry because payment authority does not alter its frozen market mechanism, data contract or evidence state. This higher-priority current Owner instruction plus V13 grants only one serial design-source acquisition attempt after a fresh free live re-quote of the same 658 request identities.",
+  "owner_authorization": {
+    "captured_at_utc": "2026-07-28T05:00:24.632Z",
+    "thread_id": "019fa62a-bf17-7a83-9137-e7ca7607b1f9",
+    "verbatim": "Đồng ý trần chi phí USD 3.50 cho plan DEDDE7F292738C16A200C59903F7839C85B728818805AA09D46D3E7F188E0C16.",
+    "authorization_basis_plan_id": "DEDDE7F292738C16A200C59903F7839C85B728818805AA09D46D3E7F188E0C16",
+    "approved_max_usd": 3.5,
+    "scope": "one serial paid acquisition of exactly the 658 frozen 2019-2020 design PRE/LATE request identities only, after a fresh free live re-quote",
+    "ceiling_behavior": "If the fresh live quote exceeds USD 3.50, stop before the first timeseries call and preserve a no-paid blocker receipt. The ceiling is aggregate, not per request."
+  },
+  "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+  "registry_sha256_at_amendment": "8621EDAFE31CF963C2C246DD5E52DC3F11E19DC8467F72E65A914942E45933CC",
+  "registry_validation": "CANDIDATE_REGISTRY_OK rows=271 hypotheses=90",
+  "bound_successor_row_sha256_sequence": [
+    "B352E22DE06889E3FDF139A7857CEAECB123944E42CDF1564C9CE3B54AF01F3D",
+    "8B88B70C26060FF8A2A13F506990ADE3C6A27C2860C5618E51FBD77115B109CF",
+    "AAE0F493502C13EB8C75C9105C83C6B6F325043D59BBB120075063401C907C45"
+  ],
+  "bound_latest_state": "parked",
+  "bound_latest_verdict": "PARK_DESIGN_SOURCE_PAYMENT_AUTHORITY_UNMET",
+  "prereg_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_PROBE_PLAN.md",
+  "prereg_sha256": "62A3AB66C64083D9967D91A0D634DEF29641AE7F3A05D3C59CBC153AAF4B3CBF",
+  "quote_evidence_manifest_path": "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/evidence/FREE_QUOTE_DEDDE7F2/manifest.json",
+  "quote_evidence_manifest_sha256": "9C9AFE1898BB6A9155D693F44DB704C5B8984775A593BE3213411BBDC1AFB5E5",
+  "quote_evidence_plan_id": "DEDDE7F292738C16A200C59903F7839C85B728818805AA09D46D3E7F188E0C16",
+  "quote_evidence_child_sha256": {
+    "acquisition_plan.json": "F8924545E7A7F1DFD450AD683AB090DDF9F7334B6DC4B29E005A473025961015",
+    "quote_receipt.json": "4B0F152F80C497C94651589606A97561CB289CC76E0A5E6CE7E99FCA963CC812",
+    "storage_assessment.json": "822D30A4C9B05CA1FE256B01FE4936417CA5F9BA41C53253AED0B68FA6F0796E"
+  },
+  "quote_basis_totals": {
+    "requests": 658,
+    "estimated_total_usd": 3.141317501659,
+    "estimated_total_billable_bytes": 6745927968,
+    "timeseries_calls": 0,
+    "paid_request_made": false
+  },
+  "input_tool_sha256": "7D2508BD72F6DBACC097378FEA5192E50FA639FB01F6F0332C28E1262A81B620",
+  "input_tests_sha256": "B5A03BE2B260A0343206F0100EDAC800F7C96CF003A789E29DC30B1D5466ACC7",
+  "input_active_offline_plan_sha256": "96B74679902A85E4B58F5C6D43CBE0D6E27AA388CD1EA93E5EFBD91069602C2A",
+  "input_active_offline_plan_id": "093ADD4AE4DCFEEA63558E0C23F3E246BE5889B9BB0D2DEB6B8D6D4B741446C1",
+  "storage_preflight": {
+    "inventory_receipt": "BACKTEST_STORAGE_INVENTORY_CREATED bytes=5806464512 files=10261 orphan_bytes=257022846 potential_mirror_bytes=6669194",
+    "workspace_hygiene": "DRY_RUN_PASS root_sample_candidates=0 stale_worktree_candidates=0",
+    "free_bytes_at_amendment": 454494154752,
+    "required_drive": "D:",
+    "required_output_root": "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments",
+    "minimum_free_space_rule": "free_bytes_before_first_paid_call >= (2 * fresh_live_billable_bytes) + 1073741824"
+  },
+  "write_set": [
+    "03. EA Developer/EA_EventCLOBPersistence/research/acquire_event_cme6e_mbp10.py",
+    "03. EA Developer/EA_EventCLOBPersistence/tests/test_event_cme6e_mbp10_acquisition.py",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/acquisition_plan.json",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/live_requote_plan.json",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/live_requote_receipt.json",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/download_manifest.json",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/acquisition_authority_receipt.json",
+    "02. AlphaFactory/data/databento/cme_6e_event_clob_design_segments/raw/*.dbn.zst"
+  ],
+  "required_behavior": [
+    "Bind V13, the exact Owner verbatim approval, USD 3.50, immutable DEDDE7F2 evidence, current canonical registry SHA and exact three-row HYP-002 parked history before API-key access, client creation, root mutation or lock creation.",
+    "Do not append or rewrite the terminal HYP-002 registry history merely to represent payment authority; V13 is a scoped authority amendment, not a market-state transition.",
+    "Expose one production design-acquire entrypoint only. It must require the exact authorization basis plan ID DEDDE7F2 and exact aggregate ceiling USD 3.50; no looser CLI value or code override is accepted.",
+    "Acquire one exclusive paid lock before the fresh live re-quote and hold it through complete serial download or fail-closed termination.",
+    "Freshly quote the exact 658 canonical PRE/LATE identities using only free metadata methods. Preserve a live plan and receipt distinct from immutable DEDDE7F2 historical quote evidence.",
+    "Revalidate canonical registry, immutable evidence, exact request identities, V13 authority, SDK and D-side capacity immediately before the first paid timeseries call.",
+    "If live aggregate quote is greater than USD 3.50 or capacity fails, write a reconciled no-paid blocker receipt and stop with timeseries_calls=0.",
+    "If live quote is within ceiling, call timeseries.get_range serially once per not-yet-manifested request. Journal an in_flight identity before every paid call; after any exception or ambiguous completion preserve in_flight and prohibit automatic retry.",
+    "Use request_id rather than event_clock_id as the unique design identity because each clock has PRE and LATE requests. Validate exact half-open bounds, filename containment, byte count, SHA-256 and full DBN decode/record count before adopting each file.",
+    "A complete zero-record DBN is charged source_empty evidence and must never be retried. Reject partial, duplicate, extra, symlinked, path-escaped, unmanifested or hash-mismatched artifacts.",
+    "On success require 658/658 manifested identities, no unresolved in_flight/partial files, all DBN files validator-clean, aggregate estimate <= USD 3.50, and a hash-bound acquisition authority receipt. Do not duplicate the multi-gigabyte raw corpus into an evidence mirror.",
+    "Preserve validation-source sealing, EURUSD outcome sealing, no-MQL5/no-Model0/no-chart/no-live boundaries and every V11/V12 retry/security/immutable-evidence guard."
+  ],
+  "red_first_acceptance_tests": [
+    "Missing/mutated V13, Owner text, basis plan ID, exact USD 3.50, registry row/history or immutable DEDDE7F2 evidence blocks before key/client/root/lock/remote access.",
+    "A direct function call cannot bypass V13 authority; alternate expected plan ID, higher/lower CLI ceiling, NaN/Infinity, alternate root or alternate request list fails closed.",
+    "Live re-quote above USD 3.50 or capacity below the frozen rule preserves no-paid evidence and produces zero timeseries calls.",
+    "Live re-quote at or below USD 3.50 revalidates exact authority and registry after the quote and before the first paid call.",
+    "Design manifest/resume validates 658 request_id identities and rejects duplicate event-clock ambiguity, partial/unmanifested files, path escape, symlink, byte/SHA/record drift and unresolved in_flight retry.",
+    "One successful fake-client campaign downloads 658 identities serially, records exactly 658 paid calls, validates all DBN outputs and reaches DOWNLOADED_FULL_DBN_VALIDATION_PASS.",
+    "A paid-call failure preserves in_flight, makes no automatic retry and cannot be resumed without manual reconciliation.",
+    "All prior 104 tests remain green; production source and tests receive independent read-only review before any live command."
+  ],
+  "authority": {
+    "offline_plan_authorized": true,
+    "free_live_metadata_requote_authorized": true,
+    "paid_timeseries_authorized": true,
+    "paid_timeseries_scope": "exactly 658 frozen design request identities, aggregate ceiling USD 3.50, one serial campaign",
+    "design_source_quality_analysis_authorized_after_reconciliation": true,
+    "validation_source_authorized": false,
+    "eurusd_price_or_outcome_authorized": false,
+    "feature_economics_authorized": false,
+    "ea_source_build_authorized": false,
+    "model0_authorized": false,
+    "live_or_paper_authorized": false,
+    "git_commit_or_push_authorized": false
+  },
+  "prohibitions": [
+    "Do not use Grok or any Grok skill/worker.",
+    "Do not modify registry, preregistration, clock, DEDDE7F2 evidence, F8 evidence, strategy logic, MQL5, MT5 or unrelated files.",
+    "Do not request validation-period source, EURUSD prices, labels, PnL, PF, expectancy, MFE/MAE, charts or any market outcome in this task.",
+    "Do not parallelize paid requests, batch-submit, retry a paid/ambiguous request, exceed USD 3.50, write outside the exact D-side root or use FILE_COMMON/C:.",
+    "Do not stage, commit, push, create a branch, worktree or clone."
+  ]
+}

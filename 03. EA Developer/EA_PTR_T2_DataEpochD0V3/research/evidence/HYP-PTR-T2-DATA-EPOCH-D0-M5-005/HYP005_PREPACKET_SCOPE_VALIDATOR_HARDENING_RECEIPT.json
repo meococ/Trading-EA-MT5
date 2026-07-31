@@ -1,0 +1,87 @@
+{
+  "schema_version": "alphafactory_prepacket_scope_validator_hardening.v1",
+  "hypothesis_id": "HYP-PTR-T2-DATA-EPOCH-D0-M5-005",
+  "classification": "PRELAUNCH_SCOPE_VALIDATOR_HARDENING",
+  "hardening_reason": "The immutable scope-correction receipt must prove the exact declared ten-file run and exact 121-test result while historical mutable code bindings remain structurally auditable rather than permanently rehashed. Adversarial wrong pass-count and wrong declared-file-count variants are now rejected.",
+  "prior_scope_correction": {
+    "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/evidence/HYP-PTR-T2-DATA-EPOCH-D0-M5-005/HYP005_PREPACKET_CONTROL_PLANE_RECEIPT_CORRECTION.json",
+    "sha256": "EDDD9F51EC643345D5C45AB69F94F089CB325A8FC57EF912526B3BA548FB1EAA"
+  },
+  "bound_tests": [
+    {
+      "path": "02. AlphaFactory/tests/test_ea_golden_path.py",
+      "sha256": "0953ECBC3BC1DE435F8BBA691FC0D5F7BD7D9DE964729F67E43B94ED3A80224A"
+    },
+    {
+      "path": "02. AlphaFactory/tests/test_nonrepaint_collection_probe.py",
+      "sha256": "23295088250E7EBDAF67C4F19DBEF274546BD2A6518B5017B706CBACAF2B1830"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/tests/test_mql5_contract.py",
+      "sha256": "C79F9499889C05AEE06DE711B3FB6E3705394FE63B852490FB477AD5E0FF3F2A"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_append_t2_data_epoch_evidence.py",
+      "sha256": "824FEC57AF14DBE0143B64AF76F18E65B67DAAA4D6B4EB791E10FD620BDAB168"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_append_t2_data_epoch_model4_evidence.py",
+      "sha256": "364CA559FCFF2B2CD6056279DB1F26930AAAE7F21A4AFADA85AB104E76F17913"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_t2_d0_model4_wrappers.py",
+      "sha256": "79656AA05FC009332CA3011AB310EFDFA0A0CBCDCBBDFDCA39E0F8FBD0995513"
+    },
+    {
+      "path": "03. EA Developer/EA_PTR_T2_DataEpochD0V3/research/tests/test_t2_d0_hyp005_wrappers.py",
+      "sha256": "4CDB01D8F5AF2A1B5154D27A32EFA27C14F2241789DEA4DC1045C68E1F463F59"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_data_epoch.py",
+      "sha256": "E926FA8DE3522E5FBFFCD9A7154199B5E87E2FF1956D120D02575FF3EBEF8C9C"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_campaign_exposure.py",
+      "sha256": "F668849104A60C8F5ED78D9C4661BDF42623A3365F663A69EF3BE940C9A0ACE2"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_candidate_registry_model4_collection.py",
+      "sha256": "2D4F5F4B7E438F096D60158F25CE2FDBEE57319F09F9A75CBCAEC959D37022E5"
+    }
+  ],
+  "exact_rerun": {
+    "framework": "pytest",
+    "result": "PASS",
+    "passed": 121,
+    "failed": 0,
+    "duration_seconds": 28.19,
+    "declared_test_file_count": 10
+  },
+  "adversarial_guards": {
+    "wrong_pass_count_rejected": true,
+    "wrong_declared_file_count_rejected": true
+  },
+  "post_rerun_validators": {
+    "candidate_registry": "CANDIDATE_REGISTRY_OK rows=453 hypotheses=163",
+    "campaign_exposure": "CAMPAIGN_EXPOSURE_OK rows=9",
+    "data_epoch": "DATA_EPOCH_OK rows=1 aggregate_ready=false missing=XAUUSD,BTCUSD,EURUSD,USDJPY,GBPUSD,USDCHF,USDCAD,AUDUSD,NZDUSD"
+  },
+  "control_plane": [
+    {
+      "path": "04. Memory/research/validate_candidate_registry.py",
+      "sha256": "4F9152675D03EFC4BF3794EA4461486857E0D23CCCD473E4F7A7E648A708CCCD"
+    },
+    {
+      "path": "04. Memory/research/tests/test_validate_candidate_registry_model4_collection.py",
+      "sha256": "2D4F5F4B7E438F096D60158F25CE2FDBEE57319F09F9A75CBCAEC959D37022E5"
+    }
+  ],
+  "exposure_readback": {
+    "hyp005_execution_receipts": 0,
+    "hyp005_run_manifests": 0,
+    "trades_executed": 0,
+    "economic_trials_consumed": 0
+  },
+  "verdict": "PASS_EXACT_TEN_FILE_121_TEST_PROVENANCE",
+  "created_at_utc": "2026-07-31T03:39:39Z"
+}

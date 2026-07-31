@@ -15,6 +15,8 @@ import random
 from pathlib import Path
 from typing import Dict, List
 
+from aligned_variant_evidence import load_aligned_variant_evidence
+
 
 def _read_profits(path: Path) -> List[float]:
     profits = []
@@ -99,6 +101,56 @@ def white_reality_check(variants: Dict[str, List[float]], n_boot: int, metric: s
     }
 
 
+def aligned_white_reality_check(manifest_path: Path) -> dict:
+    """Joint moving-block bootstrap over aligned variant returns versus the frozen baseline."""
+    evidence = load_aligned_variant_evidence(manifest_path)
+    baseline = evidence.series[evidence.baseline_variant_id]
+    differentials = {
+        variant_id: [value - base for value, base in zip(values, baseline)]
+        for variant_id, values in evidence.series.items()
+        if variant_id != evidence.baseline_variant_id
+    }
+    if not differentials:
+        raise ValueError("Reality Check requires at least one non-baseline variant")
+    observed = {name: sum(values) / len(values) for name, values in differentials.items()}
+    best_observed = max(observed.values())
+    centered = {
+        name: [value - observed[name] for value in values]
+        for name, values in differentials.items()
+    }
+    n_rows = len(evidence.dates)
+    block = evidence.white_reality_block_length
+    rng = random.Random(evidence.random_seed)
+    boot_best: List[float] = []
+    for _ in range(evidence.white_reality_bootstrap):
+        indices: List[int] = []
+        while len(indices) < n_rows:
+            start = rng.randrange(n_rows)
+            indices.extend((start + offset) % n_rows for offset in range(block))
+        indices = indices[:n_rows]
+        boot_best.append(
+            max(sum(values[index] for index in indices) / n_rows for values in centered.values())
+        )
+    exceedances = sum(1 for value in boot_best if value >= best_observed)
+    p_value = (exceedances + 1) / (len(boot_best) + 1)
+    return {
+        "analysis_kind": "preregistered_aligned_white_reality_check",
+        "promotion_eligible": True,
+        "n_variants": len(evidence.expected_variant_ids),
+        "n_tested_against_baseline": len(differentials),
+        "baseline_variant_id": evidence.baseline_variant_id,
+        "metric": "mean_daily_net_r_difference_vs_baseline",
+        "n_bootstrap": evidence.white_reality_bootstrap,
+        "block_length": block,
+        "best_observed": best_observed,
+        "p_value": p_value,
+        "p_value_correction": "plus_one_finite_bootstrap",
+        "verdict": "PASS" if p_value < 0.05 else "FAIL",
+        "bootstrap_dependence": "same moving-block indices across all variants",
+        **evidence.promotion_metadata(),
+    }
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="White's Reality Check")
     ap.add_argument("--variants-dir", required=True, help="Directory containing variant folders or trades.csv files")
@@ -106,14 +158,34 @@ def main() -> int:
     ap.add_argument("--n-boot", type=int, default=2000, help="Bootstrap iterations")
     ap.add_argument("--seed", type=int, default=42, help="Random seed")
     ap.add_argument("--out", default="", help="Output directory")
+    ap.add_argument(
+        "--variant-manifest",
+        default="",
+        help="Preregistered aligned variant manifest; enables promotion-grade Reality Check",
+    )
     args = ap.parse_args()
 
     variants_dir = Path(args.variants_dir)
     if not variants_dir.exists():
         raise SystemExit(f"variants-dir not found: {variants_dir}")
 
-    variants = _collect_variants(variants_dir)
-    result = white_reality_check(variants, args.n_boot, args.metric, args.seed)
+    try:
+        if args.variant_manifest:
+            result = aligned_white_reality_check(Path(args.variant_manifest))
+        else:
+            variants = _collect_variants(variants_dir)
+            result = white_reality_check(variants, args.n_boot, args.metric, args.seed)
+            result.update(
+                {
+                    "analysis_kind": "independent_variant_resampling_proxy",
+                    "promotion_eligible": False,
+                    "limitation": (
+                        "Diagnostic only: no preregistered aligned variant manifest was supplied."
+                    ),
+                }
+            )
+    except ValueError as exc:
+        result = {"error": str(exc), "promotion_eligible": False}
 
     out_dir = Path(args.out) if args.out else variants_dir
     out_dir.mkdir(parents=True, exist_ok=True)

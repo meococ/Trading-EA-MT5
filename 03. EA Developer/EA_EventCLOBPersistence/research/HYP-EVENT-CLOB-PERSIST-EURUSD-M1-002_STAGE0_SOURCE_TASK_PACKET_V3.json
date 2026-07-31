@@ -1,0 +1,50 @@
+{
+  "schema_version": "event_clob_stage0_source_task_packet_amendment.v1",
+  "task_id": "EVENT_CLOB_DESIGN_STAGE0BD_HANDLE_IDENTITY_HARDENING_20260728_V3",
+  "created_at_utc": "2026-07-28T10:31:00.346Z",
+  "hypothesis_id": "HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002",
+  "role": "builder/coder",
+  "supersedes_amendment_path": "03. EA Developer/EA_EventCLOBPersistence/research/HYP-EVENT-CLOB-PERSIST-EURUSD-M1-002_STAGE0_SOURCE_TASK_PACKET_V2.json",
+  "supersedes_amendment_sha256": "6658ED3EFF6323F29DC99E8B2A8BF2A38A776FBA3AC63D0692CDC1F077870CDD",
+  "pre_review_snapshot": {
+    "analyzer_sha256": "F158F872D5B7B28621A44D13C3024DA3F0B6C9A25A04FCD2F3D2AA7C33323CEF",
+    "tests_sha256": "B7F6398D5240CD5846BFAB011F9E278480C6CF16C47B3C543B0C56D88507325B",
+    "focused_tests": "44 passed in 30.22s",
+    "live_raw_decode_executed": false,
+    "review_verdict": "NOT_SAFE_RESIDUAL_REVALIDATION_HANDLE_IDENTITY_RACE"
+  },
+  "amendment_reason": "Independent V2 re-review deterministically replaced a path with a different inode carrying byte-identical manifest payload after revalidation lstat but before path.read_bytes. The existing revalidation accepted because it did not bind the opened handle identity or perform a post-read path lstat. This is a pre-outcome integrity fix only; no Stage0 live output or market outcome exists.",
+  "write_set": [
+    "03. EA Developer/EA_EventCLOBPersistence/research/analyze_event_cme6e_stage0.py",
+    "03. EA Developer/EA_EventCLOBPersistence/tests/test_event_cme6e_stage0.py"
+  ],
+  "required_fix": {
+    "id": "V3-F1-FOUR-WAY-HANDLE-IDENTITY",
+    "severity": "must_fix",
+    "contract": "Every capture and every revalidation read must open one binary file handle without following a reparse alias, fstat that handle before reading, read the payload from that exact handle, fstat the same handle after reading, and lstat the lexical path after reading. Require path-before lstat identity == handle-before fstat identity == handle-after fstat identity == path-after lstat identity == the original verified snapshot identity. Also require size, SHA and payload equality where applicable. Never use Path.read_bytes or reopen by path inside the identity-critical read. Fail before decode acceptance or output publication on any mismatch."
+  },
+  "red_first_acceptance_tests": [
+    "Deterministically swap the path to a new inode with byte-identical manifest payload after the initial revalidation lstat but before the read. Revalidation and full decode_verified_snapshot must fail.",
+    "Mutate the opened file after handle-before fstat but before/during read; handle-after fstat or payload/hash checks must fail.",
+    "Swap the path after the handle read but before path-after lstat; identity checks must fail.",
+    "Unchanged normal file passes and the exact payload supplied to DBNStore.from_bytes remains manifest-bound.",
+    "All 44 V2 tests plus V3 adversarial tests pass in the dedicated runtime; no live 658-file run or final output occurs."
+  ],
+  "unchanged": {
+    "base_packet_sha256": "5B4B636AB925E6579F4B5084339EC6E5E613266F3384C4CDA34B0D4D73FDA588",
+    "v2_amendment_sha256": "6658ED3EFF6323F29DC99E8B2A8BF2A38A776FBA3AC63D0692CDC1F077870CDD",
+    "source_manifest_sha256": "9438133803AF33E52C641DF149D04AA8E1CA8B1DD5A510795E0B55C3D2698229",
+    "prereg_sha256": "62A3AB66C64083D9967D91A0D634DEF29641AE7F3A05D3C59CBC153AAF4B3CBF",
+    "feature_and_all_gates_unchanged": true,
+    "launch_receipt_not_yet_authorized_or_created": true,
+    "eurusd_outcomes_authorized": false,
+    "remote_paid_validation_mql5_mt5_git_authorized": false
+  },
+  "prohibitions": [
+    "Do not use Grok or any Grok skill/worker.",
+    "Do not run the analyzer against live 658 raw files or create final Stage0 outputs before fresh independent PASS and parent-owned launch receipt.",
+    "Do not read EURUSD/outcomes, validation source, middle-window data or 2023+ data.",
+    "Do not modify task packets, preregistration, registry, source evidence, raw DBN files, clocks or unrelated files.",
+    "Do not call network/Databento clients, stage, commit, push, branch, worktree or clone."
+  ]
+}

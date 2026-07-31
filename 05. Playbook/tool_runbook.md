@@ -1,6 +1,6 @@
 # AlphaFactory Tool Runbook
 
-Updated: 2026-07-22
+Updated: 2026-07-26
 
 Scope: AlphaFactory command and evidence operations for every EA lane. Active
 scope comes from the Owner's current request plus verified locks and frozen
@@ -16,9 +16,9 @@ remain the execution truth. These tools speed up research; they do not promote
 an EA by themselves. A command path marked unavailable in
 `04. Memory/source_of_truth.json` is historical only and must not be invoked.
 
-## Standard Run Closure
+## Two-Speed Run Closure
 
-After any meaningful backtest, use this order:
+After any meaningful backtest, first produce metrics and log triage, then route:
 
 1. Confirm `hypothesis_id`, registry row, frozen prereg/plan, task packet,
    active source contract, and cost-source boundary.
@@ -26,14 +26,20 @@ After any meaningful backtest, use this order:
 3. Run `validate-full` against the exact report.
 4. Compare to the matched control on the same model/window when applicable.
 5. Run cost stress and the relevant regime/phase analysis.
-6. Run standard log triage, reconcile report/lifecycle/RunMeta, then explain
+6. Run standard log triage and reconcile report/lifecycle/RunMeta. If a frozen
+   fatal gate is triggered at its preregistered minimum observation boundary,
+   close the exact cell with `alpha.ps1 fast-kill`. No chart/Grok is required.
+7. For a survivor or continued candidate, explain
    the funnel, execution anomalies, winning causes, losing causes and logic
    conflicts.
-7. Render the mandatory multi-timeframe anatomy casebook: at least two winners
+8. Render the Heavy-Delivery multi-timeframe anatomy casebook: at least two winners
    plus two losers when available, or representative rejections for zero-trade.
-8. Build the hash-bound EA delivery packet and require `alpha.ps1 delivery` PASS.
-9. Archive/clean stale telemetry only after preserving cited evidence and
+9. Build the hash-bound EA delivery packet and require `alpha.ps1 delivery` PASS.
+10. Archive/clean stale telemetry only after preserving cited evidence and
    reviewing the cleanup plan SHA.
+
+Fast-Kill cannot close the EA/book outcome or authorize a same-ID rescue. A
+data/engineering-invalid run closes as invalid evidence, never as no-edge.
 
 ### Outcome-blind collection closure
 
@@ -50,6 +56,15 @@ separate overlays by `event_id`. Snapshot protected C roots before/after;
 `FILE_COMMON` remains forbidden for portable collectors. A schema missing a
 required source hash is diagnostic-only and must not be silently upgraded in
 place.
+
+For broker quote captures, normalize the broker-server timestamp to UTC before
+comparing it with the last-seen cursor. The cursor and candidate timestamp must
+share one coordinate system and advance strictly (`new_utc_msc > last_utc_msc`);
+duplicate milliseconds fail validation. Validate `PARTIAL` artifacts too: their
+status remains a promotion blocker, but hashes, rows, monotonicity and absolute
+relation to manifest `created_at_utc` must still be checked. A quote-only task
+that prohibits account-history reads must pass `--skip-account-history`; a short
+smoke proves plumbing only, never economics.
 
 ## Core Commands
 
@@ -85,6 +100,33 @@ powershell -NoProfile -ExecutionPolicy Bypass `
   -Packet "03. EA Developer/<EA_NAME>/research/<EA_DELIVERY_PACKET.json>"
 ```
 
+Validate a lean terminal Fast-Kill cell (no casebook or Grok):
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass `
+  -File "02. AlphaFactory/alpha.ps1" fast-kill `
+  -Packet "03. EA Developer/<EA_NAME>/research/<FAST_KILL_CLOSEOUT.json>"
+```
+
+Start from `FAST_KILL_CLOSEOUT.template.json`. Economic kills require a
+triggered pre-outcome gate, its frozen minimum completed-trade count and, when
+used, a named preregistered sequential early-stop method.
+
+Validate a confirmed candidate with the frozen full variant family:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass `
+  -File "02. AlphaFactory/alpha.ps1" validate-full `
+  -Report "02. AlphaFactory/runs/<EA_NAME>/<RUN_ID>/report.html" `
+  -Stage confirmed `
+  -VariantsDir "02. AlphaFactory/runs/<EA_NAME>/<VARIANT_FAMILY>"
+```
+
+`-VariantsDir` must contain `variant_manifest.json` matching
+`alphafactory_aligned_variant_manifest.v1`. Without it, the legacy WFA,
+robustness, PBO and White Reality Check producers remain diagnostic-only and
+the confirmed gate stays BLOCKED.
+
 Start from `EA_DELIVERY_PACKET.template.json` and
 `LOGIC_TO_CODE_MATRIX.template.md`. The completion validator rehashes every
 binding, checks source→binary→run/log identity, verifies the full analysis
@@ -108,6 +150,19 @@ manifest/meta/rows, prove every label/outcome column blank, and confirm the
 zero-trade summary forbids performance metrics. A missing sidecar means the run
 is invalid even when HTML exists; inspect config + Tester `OnInit` first. When
 schema changes, version and preflight the extractor/rubric before labeling.
+The guarded packet must set
+`authority=DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE`, use a canonical
+no-trade EA with `telemetry_profile=none`, `TelemetryTier=off`, `RunRole=control`,
+Model 0, `required_sidecars=[]`, and the frozen all-available History Quality
+`>97` contract. The research loop then stops after report-bound data-quality
+and non-repaint validation; cost/PF/WR/economic validation is forbidden.
+`requested_from=1970.01.01` is a sentinel request, not a claim that the broker
+has data from 1970. The exact journal `history synchronized from ... to ...`
+range is the broker/terminal evidence for the first available bar. Record the
+actual start per symbol; if it is later than `2018.01.01`, classify it explicitly
+as broker-limited coverage, still run the symbol, and never call that absence
+no-edge or silently drop the symbol. Where coverage includes 2018, the
+2018-to-cutoff reporting slice remains mandatory.
 
 Validate the canonical hypothesis ledger before any ceremony:
 
@@ -212,7 +267,15 @@ python "02. AlphaFactory/tools/repro_drift_map.py" `
   entry[, sl, tp, exit_time_utc, exit, reason, label]`). Default `--mode asof`
   draws only bars closed before entry (decision-time information set);
   `--mode anatomy` is outcome view only. Emits `cases_manifest.json` with
-  per-image SHA256 and the enforced cutoff.
+  per-image SHA256, the selected `time_col` and the enforced cutoff.
+- **Clock binding is fail-closed:** MT5 lifecycle `DEAL_TIME` is broker-server
+  time. Convert it with the canonical broker clock before writing any
+  `*_time_utc` case field, or use a case schema/renderer time column that
+  explicitly preserves server time. Never relabel raw server time as UTC.
+  Before image review, bind the bar hash and reconcile every entry/exit marker
+  price to the same source-bar minute under a predeclared spread-aware
+  tolerance; missing coverage or material median/tail distance invalidates the
+  visual casebook even when all PNG files and hashes exist.
 - Future delivery casebooks must use anatomy mode with `label`, `direction`,
   `entry_marker_rendered`, `sl_line_rendered`, `tp_line_rendered`,
   `exit_marker_rendered`, centered HTF context and visible/labeled post-entry
@@ -244,7 +307,11 @@ prompt as final evidence.
 3. Put each request under `.context/<task>/grok-request.json`, run `--dry-run`,
    then one actual backend job. Default to five cases per job, global Grok
    concurrency one, `--no-subagents --disable-web-search`, bounded turns and
-   the normal 600-second timeout.
+   the normal 600-second timeout. For image review, a path mentioned in prompt
+   text is not an attachment: generate an ACP JSON array containing text plus
+   inline base64 `image` blocks, bind it through top-level
+   `prompt_blocks_file` + `prompt_blocks_sha256`, and require runner summary
+   `prompt_transport=acp_blocks_file` with the exact image count/decoded bytes.
 4. First pass uses only `decision_asof`; second pass may expose `anatomy` and
    asks for path/risk/execution explanation. Use evidence labels
    `OBSERVED|STRONG_INFERENCE|HYPOTHESIS|UNKNOWN`.
@@ -290,6 +357,12 @@ alongside the MT5 installation; never in `FILE_COMMON`). Requirements:
 - Convert server time with `fivepercent_server_clock.py`; store both
   `time_server` and `time_utc`. The broker's historical spread column is not
   cost evidence.
+- For paid window APIs, quote with the cost mode matching the execution API,
+  checkpoint `in_flight` before each paid call, and never auto-retry a missing,
+  incomplete or undecodable charged response. Positive metadata billable bytes
+  do not prove that a complete response contains market records. Fully decode
+  first; a complete zero-record DBN is hash-bound `source_empty` evidence and
+  must be adopted without a second paid request.
 
 ### Runs Database
 

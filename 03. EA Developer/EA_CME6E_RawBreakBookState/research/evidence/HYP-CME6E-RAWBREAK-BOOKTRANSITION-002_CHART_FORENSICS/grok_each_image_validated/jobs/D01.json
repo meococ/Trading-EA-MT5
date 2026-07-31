@@ -1,0 +1,83 @@
+{
+  "schema_version": "hyp002_grok_each_image_validated_job.v1",
+  "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+  "job": {
+    "job_id": "D01",
+    "case_id": "F001_PID000002058",
+    "position_id": "2058",
+    "direction": "BUY",
+    "image_type": "DECISION_ASOF",
+    "image_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CME6E_RawBreakBookState\\research\\evidence\\HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_CHART_FORENSICS\\charts_decision\\F001_PID000002058_decision.png",
+    "image_sha256": "9E6856F6E38ED92EE882BAB53455EBD22863D4717A8348E46F559FE5E0D546CA"
+  },
+  "attempt_dir": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D01\\attempt-001-actual",
+  "request": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D01\\attempt-001-actual\\grok-request.json",
+    "sha256": "038013011399AF9B6EDFB16199181E67A2FF0218868BC5B3E8869F47249FDA20"
+  },
+  "prompt_blocks": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D01\\attempt-001-actual\\prompt-blocks.json",
+    "sha256": "5055D0F684A23D716F360C6682856D2EC93C2BAA6EB2FDDD51513829C950B724"
+  },
+  "summary": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D01\\attempt-001-actual\\summary.json",
+    "sha256": "2004E1AC60F35AEF8E14850F8D04E106C9ED9816486BCD5471025649BC1ACDDC"
+  },
+  "response": {
+    "path": "D:\\Trading EA MT5\\.context\\hyp002-grok-each-image-20260727\\jobs\\D01\\attempt-001-actual\\grok-response.json",
+    "sha256": "333F243FA8B0AFB53EB2D633513FC6DC9FB06654B814CDAAC43332070C672F3B"
+  },
+  "runner": {
+    "model": "grok-4.5",
+    "reasoning_effort": "high",
+    "stop_reason": "EndTurn",
+    "elapsed_seconds": 85.781,
+    "total_cost_usd": 0.0643512,
+    "num_turns": 1,
+    "prompt_transport": "acp_blocks_file",
+    "image_count": 1,
+    "decoded_image_bytes": 213735
+  },
+  "result": {
+    "campaign_id": "HYP002_GROK_EACH_IMAGE_20260727",
+    "job_id": "D01",
+    "case_id": "F001_PID000002058",
+    "position_id": "2058",
+    "direction": "BUY",
+    "image_type": "DECISION_ASOF",
+    "image_sha256": "9E6856F6E38ED92EE882BAB53455EBD22863D4717A8348E46F559FE5E0D546CA",
+    "image_opened": true,
+    "visual_readability": "PASS",
+    "observations": [
+      "Top M1 panel shows a multi-hour drift lower from ~0.9967 into a late sharp wick near ~0.9986, then a rebound into the blue Entry band near ~0.99922 just before the decision markers.",
+      "BUY geometry is visible: solid blue Entry ~0.99922, red dashed SL ~0.99875 under the late wick, green dashed TP ~1.0016 far above; risk is tight versus a distant target.",
+      "Purple break-bar-open and blue actual-entry verticals sit at the far right of the M1 series; actual entry aligns with the end of the bottom trace (~300s from break-bar open).",
+      "H1 context shows sell-off into ~0.996, strong recovery to ~1.001, then post-peak consolidation back near ~0.999; decision occurs after the main H1 impulse, not at the H1 low.",
+      "CME 6E direction-aligned I5 header reads early=+0.051 late=+0.034 score=+0.035; the path is noisy with repeated zero-crossings through early, mid, and late windows.",
+      "Late-60s beige band still shows large purple swings (positive and negative) into the actual-entry line; orange 25-event median is only modestly positive near decision."
+    ],
+    "confidence": "MEDIUM",
+    "unknowns": [
+      "Exact break level definition and trigger rule are not labeled on-chart.",
+      "Order type (stop/limit/market) and fill quality are not shown.",
+      "Spread, depth, and session-liquidity state at decision are not visible.",
+      "Realized post-entry path and PnL are future-hidden by design."
+    ],
+    "no_rule_or_rerun_authority": true,
+    "outcome_blind": true,
+    "trend_context": "M1 is sell-dominant into a late bounce; H1 is post-impulse consolidation after a recovery from ~0.996 toward ~1.001, so the BUY is not early-trend initiation on H1.",
+    "range_location": "M1 decision sits low-to-mid of the visible session after the bounce from the late extreme; H1 location is mid-upper of the recovered multi-session band and still below the ~1.001 peak.",
+    "breakout_geometry": "Long setup with tight SL under the recent M1 wick and a distant TP near/above the H1 high zone, creating asymmetric reward-to-risk on paper but dependent on sustained upside after a mature rebound.",
+    "book_trace_context": "CME 6E full-break-bar direction-aligned I5 is only mildly positive (early +0.051, late +0.034, score +0.035) and remains noisy; decision is marked at ~300 seconds, inside the late window rather than early confirmation.",
+    "break_freshness": "MATURE",
+    "entry_risk_flags": [
+      "Actual entry ~300s after break-bar open (late/mature timing).",
+      "BUY after H1 recovery impulse already largely spent.",
+      "Tight SL adjacent to a just-printed M1 wick extreme (retest/whipsaw risk).",
+      "Book support only mild and path remains noisy into the late window.",
+      "Pre-entry M1 structure was mostly lower until the final bounce."
+    ],
+    "blind_prediction": "AMBIGUOUS",
+    "evidence_boundary": "Judgment uses only visible pre-entry pixels in the three panels (M1 decision geometry, H1 context, CME 6E break-bar trace). No outcome path, PnL, repository context, or off-image facts are used; prediction is diagnostic only."
+  }
+}

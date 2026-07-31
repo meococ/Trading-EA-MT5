@@ -1,0 +1,24 @@
+{
+    "schema_version":  "alphafactory_diagnostic_task_packet.v1",
+    "hypothesis_id":  "HYP-VRAS-EURUSD-M5-005",
+    "run_role":  "challenger",
+    "purpose":  "Owner-authorized VRAS H1 Structural Scalper Model 0 evaluation",
+    "binding":  {
+                    "hypothesis_id":  "HYP-VRAS-EURUSD-M5-005",
+                    "run_role":  "challenger",
+                    "ea_name":  "EA_VRAS_H1StructuralScalper",
+                    "symbol":  "EURUSD",
+                    "period":  "M5",
+                    "from":  "2019.01.01",
+                    "to":  "2022.12.31",
+                    "model":  0,
+                    "execution_mode":  0,
+                    "fixed_delay_ms":  0,
+                    "overrides":  "InpBreakEvenOffsetPips=0.5;InpBreakEvenTriggerR=1.0;InpBrokerFollowsUS_DST=true;InpBrokerGMTOffsetWinter=2;InpDailyLossPct=1.50;InpEnableTelemetry=true;InpH1EmaPeriod=200;InpHypothesisId=HYP-VRAS-EURUSD-M5-005;InpMagic=5600755;InpMaxAccountDrawdownPct=6.00;InpMaxHoldBars=24;InpMaxSlPips=15.0;InpMaxSpreadPips=1.20;InpMaxTradesPerDay=5;InpMinSlPips=4.0;InpNewsBlackoutMinutes=45;InpRequireNewsGuard=false;InpResearchAutoMode=true;InpRiskPercent=0.25;InpRiskRewardRatio=1.5;InpSlBufferPips=1.5;InpSwingLookbackBars=10;InpVariantTag=CHALLENGER_H1_STRUCTURAL",
+                    "telemetry_tier":  "trade-only",
+                    "telemetry_profile":  "lifecycle-v3",
+                    "deposit":  100000,
+                    "leverage":  100,
+                    "spread":  "current"
+                }
+}

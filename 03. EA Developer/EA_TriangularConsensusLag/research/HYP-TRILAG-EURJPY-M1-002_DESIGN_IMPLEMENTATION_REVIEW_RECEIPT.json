@@ -1,0 +1,42 @@
+{
+  "schema_version": "trilag_002_design_implementation_review_receipt.v1",
+  "hypothesis_id": "HYP-TRILAG-EURJPY-M1-002",
+  "review_role": "independent_forensic_design_reviewer",
+  "status": "PASS",
+  "runner_success": true,
+  "runner_stop_reason": "EndTurn",
+  "structured_output_validation_passed": true,
+  "worker_result_validation_passed": true,
+  "verdict": "PASS",
+  "findings": [],
+  "real_data_opened": false,
+  "mt5_launched": false,
+  "changed_files": [],
+  "acceptance": {
+    "focused_tests": "PASS_15",
+    "candidate_registry": "PASS_348_ROWS_122_HYPOTHESES"
+  },
+  "bindings": {
+    "frozen_plan_path": "03. EA Developer/EA_TriangularConsensusLag/research/HYP-TRILAG-EURJPY-M1-002_DESIGN_STRUCTURE_PLAN.md",
+    "frozen_plan_sha256": "33715BD2CB337C3A700BA08421EE1BD3E92434555E92C85B044FB115412F9200",
+    "exporter_path": "03. EA Developer/EA_TriangularConsensusLag/research/export_trilag_002_design_m1.py",
+    "exporter_base_sha256": "D2225B38A27C33A657FEEFCD71FBC3D896CAD3DF5F9E94DB9B5DD34F0D4E914F",
+    "evaluator_path": "03. EA Developer/EA_TriangularConsensusLag/research/evaluate_trilag_002_design_structure.py",
+    "evaluator_base_sha256": "58AA58D8813B684764DBC34EB0CF3777944446D0E2C2F0F4C128669723F722A4",
+    "test_path": "03. EA Developer/EA_TriangularConsensusLag/research/tests/test_trilag_002_design_structure.py",
+    "test_sha256": "028A630B4D0AF461ADE7DAE2DE31EDC9706881BDAC7A03EA7FBA0D995D38FDD6",
+    "request_path": "02. AlphaFactory/scratch/grok/trilag_002_design_review/run1/grok-request.json",
+    "request_sha256": "F9ACCF54E1F9DDF3E93847CB4A40CDE749073700D7825914744B5B8320DE631B",
+    "task_contract_path": "02. AlphaFactory/scratch/grok/trilag_002_design_review/run1/task_contract.json",
+    "task_contract_sha256": "021F2408E45B9DCD8B693C6673CBAB492B8211A990B65FE03B5B37B808C49852",
+    "review_summary_path": "02. AlphaFactory/scratch/grok/trilag_002_design_review/run1/summary.json",
+    "review_summary_sha256": "D0B2ACD24B64307E8BF571955D3AD961906E270CFB67058FA4F8A05D79D8EBC7",
+    "review_response_path": "02. AlphaFactory/scratch/grok/trilag_002_design_review/run1/grok-response.json",
+    "review_response_sha256": "B487C0D8604A59115917772D220D675BA3C8E9A264127228B3BA26D660CD1F99",
+    "worker_result_path": "02. AlphaFactory/scratch/grok/trilag_002_design_review/run1/worker-result.20260729T145408473270Z-61928.json",
+    "worker_result_sha256": "6AE61A436EE6D9149239A5F21226641D76611F6AB2C7A0D60C6F3B968D03D991"
+  },
+  "grok_cost_usd": 0.2363492,
+  "known_campaign_grok_cost_usd": 3.3373000,
+  "reviewed_at_utc": "2026-07-29T14:56:37Z"
+}

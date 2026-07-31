@@ -1,0 +1,32 @@
+{
+  "schema_version": "trendstack_007_design_economics_implementation_task.v3",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "base_task_v2_sha256": "8013FB8E9D387A375319020BF80F67FD6D1DC6303B54490B04FEB65AB2079B78",
+  "amendment_timing": "FROZEN_PRE_PRODUCTION_ECONOMICS_PRE_ANY_HYP007_OUTCOME_READ",
+  "correction": "In Task V2 schema_clarifications.source_projection_columns, replace field names time_server_ns,time_utc_ns with time_server,time_utc. Their physical Arrow types remain timestamp[ns]. All other listed fields and every V1/V2 rule remain binding.",
+  "authoritative_source_contract_v4_sha256": "2F3D071F5E079B49B5705D47BABFFCC7F65998744AA0E1E9352389F89EA1EADB",
+  "exact_physical_fields": [
+    "time_server",
+    "time_utc",
+    "utc_offset_h",
+    "open",
+    "high",
+    "low",
+    "close",
+    "tick_volume",
+    "spread",
+    "real_volume"
+  ],
+  "run_packet_additive_fields": [
+    "implementation_task_v3_path",
+    "implementation_task_v3_sha256"
+  ],
+  "implementation_task_v3_path": "03. EA Developer/EA_TrendStackContinuation/research/HYP-TRENDSTACK-EURUSD-H1-007_DESIGN_ECONOMICS_IMPLEMENTATION_TASK_V3.json",
+  "run_packet_rule": "The exact V2 run-packet field set is extended by these two fields; the V3 path is frozen and V3 SHA must be uppercase SHA256. Missing, extra or drifted V3 binding fails before input open/output creation.",
+  "economics_or_gate_change": false,
+  "production_run_authorized_by_v3_alone": false,
+  "research_validation_authorized": false,
+  "research_holdout_authorized": false,
+  "mql5_authorized": false,
+  "model0_authorized": false
+}

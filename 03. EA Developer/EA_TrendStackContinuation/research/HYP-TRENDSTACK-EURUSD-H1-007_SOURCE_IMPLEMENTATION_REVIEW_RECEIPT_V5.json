@@ -1,0 +1,46 @@
+{
+  "schema_version": "trendstack_007_source_implementation_review_receipt.v5",
+  "hypothesis_id": "HYP-TRENDSTACK-EURUSD-H1-007",
+  "verdict": "PASS_FOR_PRODUCTION_SOURCE_RUN_PACKET_PREPARATION",
+  "receipt_scope": "Implementation snapshot only. This receipt does not contain or grant a successor registry row, full-registry hash, source-run packet, economics, sealed-data, MQL5, Model 0, promotion or deployment authority.",
+  "reviewed_authority": {
+    "probe_plan_v6_sha256": "FE740C0811E7060670D1F771802EAC5ADD6D5B2CD9DB0FDABD7E48A8A2D29735",
+    "active_contract_bundle_v2_sha256": "1080BBF2D88A4FB68A293DE35C6E955A7CE2282EB0F4D44ACA26D533E11BCD2C",
+    "authority_amendment_v2_sha256": "F399FF28A3ADCE35FD13111EC9EA6F3C33269415379F365BEFCC58F0319F3FFD",
+    "authority_amendment_v3_sha256": "FA8F5A7E65C0D54E3BE20802BEC096528C1BD424961D1C615491CAF63E90C8AE",
+    "implementation_task_v5_sha256": "E572E49FDE06717C396112FBD7D0278C0F59605369651825447C1913D241B725"
+  },
+  "reviewed_snapshot": {
+    "projector_tool_sha256": "F02981D66951C97C03688D87F22CC7B2439E9F8F3604BC9EFC5CB62E3AC5165F",
+    "validator_tool_sha256": "8C376DB8DF94BB16DF85931ECC1FAB6D5E3D9DE61175394577BA2C4108B1B379",
+    "supervisor_review_base_sha256": "41592E2AEDB6E9EB1C49D4F858E1EDB44A71D35A52D677C9AF065A6BBE1B89BB",
+    "projector_test_sha256": "3051CACC1009E763D73509A9797475AFE55256DE3B6228DE7C17F4B5F85F5BE7",
+    "validator_test_sha256": "F116462813F6220C2654729634C1C49463CF69DB10ACEBEE52B0634630BD6DCB",
+    "supervisor_test_sha256": "B2D5EB4EF18A83B986B2E7EE0BD9600758B7BAFAE445471B214C0D145F8FA0FC",
+    "registry_schema_sha256": "01F0541696DBBD01A6A1717B70BCD8A5214E8AD5707116C9FE9B9D0A846844EA",
+    "registry_validator_sha256": "DD8FAF45ED3A6FA2E8B2725DEC8D2DF847167A2552B3A2EF2BDB6641EB178D71",
+    "registry_integration_test_sha256": "9CC9E7141F91ECB4B425D66070CF8A53C64089AD1139BDD6210B033A7B9EDC93"
+  },
+  "verification": {
+    "focused_tests": 113,
+    "focused_test_verdict": "PASS",
+    "named_v7_disarm_pre_marker_tests": 13,
+    "named_subset_verdict": "PASS",
+    "row_to_packet_mapping_checks": 46,
+    "row_to_packet_mapping_verdict": "PASS_46_OF_46",
+    "dual_validator_same_registry_bytes": "PASS",
+    "baseline_registry_rows": 285,
+    "baseline_registry_hypotheses": 95,
+    "baseline_registry_verdict": "PASS",
+    "ast_import_inert": true,
+    "supervisor_sentinel_exact_none_once": true,
+    "production_payload_opens": 0,
+    "production_runtime_artifacts_created": 0
+  },
+  "independent_review": {
+    "role": "forensic source implementation reviewer",
+    "findings": 0,
+    "decision": "PASS_IMPLEMENTATION_ONLY_THEN_EXACT_ROW286_AND_DUAL_READBACK"
+  },
+  "reviewed_at_utc": "2026-07-28T16:03:19Z"
+}

@@ -1,0 +1,39 @@
+{
+  "design_outcome_rows_materialized": 565,
+  "entry_and_break_bar_clock_reconciled": true,
+  "generated_at_utc": "2026-07-27T14:30:49.775365Z",
+  "holdout_rows_materialized": 0,
+  "hypothesis_id": "HYP-CME6E-RAWBREAK-BOOKTRANSITION-002",
+  "inputs": {
+    "02. AlphaFactory/data/databento/cme_6e_breakbar_transition_design/book_transition_feature_receipt.json": "6C4E48E1DEE15DE22DD92989DFCB871CF70B110C87C6545C616FE2202C3C389C",
+    "02. AlphaFactory/data/databento/cme_6e_breakbar_transition_design/book_transition_features_source_only.csv": "E8CEA705489AEB3BF684CE0949924BB5FB1D9EAA030779B5E58911F6A7EE2B49",
+    "02. AlphaFactory/data/databento/cme_6e_breakbar_transition_design/download_manifest.json": "5E2DFCB42E451104C9C9A941610BE514839C85129BB3E457EAA9BA4B7FC1BC52",
+    "02. AlphaFactory/data/databento/cme_6e_breakbar_transition_design/source_plan.json": "BF478C4FF9B181E0BC7C38E55C9613D69B44DBF348CBC351EC0909583E25D7F6",
+    "02. AlphaFactory/data/databento/cme_6e_breakbar_transition_design/validation_receipt.json": "4771964FFA829A152C8F45D91C8F058FC48CCAF63536428B4E52C78B8D4382FB",
+    "02. AlphaFactory/tools/research/dsr.py": "A0659CDCDB2EAB4F29F69A1FBF4222FE3EC12467FE4CC664E194173126A4CEEA",
+    "02. AlphaFactory/tools/research/fivepercent_server_clock.py": "A7F179935102B57BA3B629345209F6B0D668D1F7FD828A5ED6003207F41A2F52",
+    "02. AlphaFactory/tools/research/trial_log.py": "DECFBE0A9613A3145075D6EBF247813C0E72679D6314636535D341A0C1934AD3",
+    "03. EA Developer/EA_CME6E_RawBreakBookState/research/HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_PROBE_PLAN.md": "E0E7040E29EB2A37D11532293C298167D7C429618B38D722C9D1599AF799A894",
+    "03. EA Developer/EA_CME6E_RawBreakBookState/research/extract_cme6e_breakbar_transition_features.py": "E1DA8963A05FFFCDF3745E02EB1051B5E54DADCCD998145B3B6DEE6A3DA1402B",
+    "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-MT5-REPLICATION-EURUSD-M5-004_PAIR_ANALYSIS/control_trades.csv": "07CDBD82D9BE6B9745484E5312F534B72C883AF8B61D8FB240D28EEE72FDC0D9"
+  },
+  "outputs": {
+    "03. EA Developer/EA_CME6E_RawBreakBookState/research/evidence/HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_DESIGN/joined_design_trades.csv": "7B19591BED7802F70A15A9C628EE46D236B7AA7BE610BC49E9758FB8EBBE3069",
+    "03. EA Developer/EA_CME6E_RawBreakBookState/research/evidence/HYP-CME6E-RAWBREAK-BOOKTRANSITION-002_DESIGN/probe_result.json": "7736F456C2685AFCE15C6761C70AA5CFB75E4B29A009377B13B975BBD5E0265E",
+    "03. EA Developer/EA_CME6E_RawBreakBookState/research/trials/trial_log.jsonl": "AA5087B819C986E1AC1FEC2BC92EE8BA844492747F6CC162DBACF0F69EA8284E"
+  },
+  "population_counts": {
+    "CHALLENGER_TOP50_TRANSITION_SCORE": 258,
+    "CONTROL_QUALITY_ELIGIBLE": 516,
+    "NEGATIVE_CONTROL_BOTTOM50_TRANSITION_SCORE": 258
+  },
+  "prereg_sha256": "E0E7040E29EB2A37D11532293C298167D7C429618B38D722C9D1599AF799A894",
+  "prior_hypothesis_oos_opened": false,
+  "probe_script_sha256": "D9ACCD6A33958BBA5E9C34472B6EBED8B8E60A6C336EBA7E9ADCBC91E176BE22",
+  "run_id": "CME6E_BREAKBAR_DESIGN_20260727_143049Z",
+  "schema_version": "cme6e_breakbar_transition_reconciliation.v1",
+  "source_feature_threshold_changed": false,
+  "source_rows": 565,
+  "status": "PASS",
+  "trials_executed": 3
+}
