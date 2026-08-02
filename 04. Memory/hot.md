@@ -1,6 +1,6 @@
 # Hot Cache — Recent Routing Only
 
-Updated: 2026-08-02 after the Owner-directed five-asset raw-data setup.
+Updated: 2026-08-02 after the frozen T2/P3 full-replay cadence stop.
 
 This file is a compact handoff cache. It is **not** hypothesis authority, run
 permission, a family blacklist, or proof that a goal is complete. Recheck every
@@ -33,9 +33,16 @@ report and validator output before acting.
   `9F82D03AA90DDAE694CA6716631354543BA21CC16D78CBD2B5E5A5DE6C5956BD`;
   the exact P2 closed-bar grammar is independently reviewed and frozen at SHA
   `CB1DDA2B678D2F450BB2DDE05327D2734E2A430BBBC4809BB08C71110FA0BA7D`.
-  Synthetic reference/fixture implementation and outcome-blind de-dup are the
-  active route. T2 has zero market/economic/alpha/split exposure and no EA build, MT5
-  economics, validation, holdout, promotion, paper or live authority yet.
+  The synthetic grammar and outcome-blind D7/D8 reference implementation are
+  now hash-sealed at Git commit `096be031d6919aff1e9c4e62a54e261f1edea7bb`.
+  All 49 tests, source bindings and prior SCC replay passed, but the single
+  frozen 596,141-bar full replay exceeded 3,600 seconds and wrote no output
+  packet or operator-visible T2 identity count. P3 is therefore
+  `ENGINEERING_BLOCKED_FULL_REPLAY_TIMEOUT_NO_PACKET`, not a duplicate-surface
+  or edge verdict. T2 has zero market/economic/alpha/split exposure and no EA
+  build, MT5 economics, validation, holdout, promotion, paper or live authority.
+  Canonical receipt:
+  `03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_DEDUP_V1_ENGINEERING_BLOCKED/timeout_receipt.json`.
 - `HYP-PTR-T2-DATA-EPOCH-D0-M5-005` is terminal `parked` at registry row 461:
   `INVALID_PRELAUNCH_EXECUTION_DEPENDENCY_DRIFT`. Its raw `alpha.ps1` and
   machine-local `alpha.local.ps1` bindings drifted before launch. Exposure is
@@ -87,10 +94,11 @@ report and validator output before acting.
    `04. Memory/do_not_repeat_failures.md` and the registry for the relevant
    mechanism, symbol, timeframe and hypothesis family. Do not load the entire
    historical catalog unless a broad audit requires it.
-5. Continue only T2 P3/P5-prep: implement and independently verify the frozen
-   synthetic grammar fixtures, complete outcome-blind ECRS/PBP de-dup mirrors,
-   then freeze the hypothesis/prereg/source contract. Do not call the M5 object
-   a 70-tick replication. Do not open MT5
+5. Continue only with a fresh semantics-preserving T2/P3 execution repair:
+   retain the frozen thresholds, event keys and source hashes, add stage timing
+   plus a bounded cadence gate, prove parity, and freeze a new execution lock
+   before another full replay. Do not call the M5 object a 70-tick replication.
+   Do not open `.mq5` or MT5
    economics until hypothesis/prereg/source authority is frozen; do not claim
    aggregate all-history completion until the T2 data epoch has all 9 selected
    PASS receipts and `validate_data_epoch.py --require-complete` passes.

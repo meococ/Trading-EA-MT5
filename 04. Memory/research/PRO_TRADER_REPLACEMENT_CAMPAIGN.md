@@ -1,6 +1,6 @@
 # Pro-Trader Replacement Campaign - Master Minute
 
-Status: `ACTIVE / T2_P2_FROZEN_P3_CAPABILITY_IMPLEMENTATION /
+Status: `ACTIVE / T2_P2_FROZEN_P3_ENGINEERING_BLOCKED_FULL_REPLAY_TIMEOUT /
 P4_DATA_CONTRACT_BOUND_0_OF_9 /
 GOAL_UNMET`  
 Opened: `2026-07-31 Asia/Saigon`  
@@ -294,7 +294,7 @@ and capability packet; only then may T2 open.
 
 Working name: `Volman Causal Price-Action Grammar`  
 Current state: `T2_P0_FROZEN / P1_SOURCE_COMPLETE / P2_FORMAL_SPEC_FROZEN /
-P3_REFERENCE_AND_DEDUP_PREP /
+P3_ENGINEERING_BLOCKED_FULL_REPLAY_TIMEOUT_NO_PACKET /
 P4_DATA_CONTRACT_BOUND_0_OF_9 / GOAL_UNMET / NO_MARKET_OUTCOME_EXPOSURE`
 
 T2 opened after the valid T1 terminal pre-economic capability closeout. Its P0
@@ -326,6 +326,16 @@ Pre-market research bindings:
   `F47901F60E4314321B4B201ACED1D8D7366AC5D64589C487E893F0153332F648`,
   ledger still header-only at 0/9 selected PASS. Runtime evidence and economics
   remain closed.
+- P3 execution lock and cadence receipt:
+  `PRO_TRADER_REPLACEMENT_E02_T2_P3_EXECUTION_FREEZE_V1.json`, SHA256
+  `E5D82EBA2F3E2B1A946E581B81DBD878C92410E9E0F5EE31101DB98EC664300A`,
+  Git commit `096be031d6919aff1e9c4e62a54e261f1edea7bb`; 49 tests and the exact
+  1,242-control/286-challenger SCC replay passed. The single frozen 596,141-bar
+  full replay exceeded 3,600 seconds and wrote no result directory, receipt,
+  D7/D8 score or operator-visible T2 count. Canonical engineering receipt:
+  `03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_DEDUP_V1_ENGINEERING_BLOCKED/timeout_receipt.json`.
+  This blocks P3 completion and every build/economic phase but is not a
+  strategy-failure or edge verdict.
 
 ### 5.1 Source boundary
 
@@ -574,3 +584,4 @@ Research warnings:
 | S0007 | 2026-07-31 | T2 opened at P0 after T1 terminal closeout. The frozen charter defines a Volman-inspired M5 causal price-action grammar rather than a 70-tick replication, keeps XAUUSD, BTCUSD and seven FX-major symbols mandatory, uses Model 0 all-history cells with History Quality strictly >97%, and fixes 5 arms x 9 symbols = 45 performance cells. | Added campaign exposure row 5 (`EPOCH_REOPEN/P0`), generalized `validate_data_epoch.py` from T1-only to T1..T100 generation identity, added T2/mismatch tests, and updated routing docs. | No MT5, market data, `.mq5`, compile, trade/PnL, economic trial, alpha spend, split opening or holdout. Campaign/candidate/source validators pass; data-epoch tests pass. | Continue T2 P1/P2: lawful source-to-requirement matrix, exact causal equations/fixtures, outcome-blind ECRS/PBP de-dup mirrors, then freeze the T2 data epoch before any MT5 economics. |
 | S0008 | 2026-07-31 | T2 data epoch is now frozen before any T2 hypothesis/source/economic outcome: FivePercentOnline-Real, M5, Model 0, requested from `1970.01.01` through `2026-07-30T23:59:59Z`, History Quality strictly `>97%`, no-skip across XAUUSD, BTCUSD and seven FX-major symbols. Aggregate evidence remains deliberately incomplete at 0/9 selected PASS receipts. | Added `PRO_TRADER_REPLACEMENT_E02_T2_DATA_EPOCH.json`, `PRO_TRADER_REPLACEMENT_E02_T2_DATA_EVIDENCE.jsonl`; appended campaign exposure row 6 (`DATA_BIND/P4`); updated `hot.md` and `INDEX.md`. | No MT5 launch, backtest, report, `.mq5`, compile, trade/PnL, validation/holdout, alpha spend or split opening. `validate_data_epoch.py` passes incomplete mode and must fail `--require-complete` until all nine receipts exist. Campaign/candidate/source validators pass; 35 focused tests pass. | Continue T2 P1/P2/P5-prep: source matrix, exact equations/fixtures, de-dup mirrors and prereg/source contract; only then run serial MT5 all-history cells for every mandatory symbol. |
 | S0009 | 2026-08-02 | Owner-directed VRAS V4 plan review ran as one outcome-blind P0 exception outside T2. The deterministic probe proved the claimed EURJPY headline values came from an unfiltered USDJPY tail of a combined three-symbol 2016-2020 DESIGN file; the proposed EURUSD transfer, true-flow primitives, frozen estimator/arbitration and production-async gates all failed. Verdict `PARK_PRE_EA_INVALID_PLAN_EVIDENCE_OR_CAPABILITY_NO_OUTCOME_READ`. | Added the V4 prereg, six-test harness, corrected forensic runner, hash-bound result/readout/failure packet and routing docs. No candidate row was retained because candidate schema requires a real canonical EA source. | Zero validation/holdout rows, trade outcomes, economics, `.mq5`, compile, MT5 launch, order, alpha spend or split exposure. Registry reconciled to 461 rows / 163 hypotheses; T2 authority remained unchanged. | Resume only the frozen T2 synthetic-fixture/de-dup route. Any V4 successor needs a fresh identity, one atomic mechanism and correct target-symbol/statistical/data/execution contracts before outcomes. |
+| S0010 | 2026-08-02 | T2/P3 reference code passed independent audit, 49 tests, exact SHA binding and prior SCC replay, then was sealed before first count exposure. The single frozen 596,141-bar D7/D8 full replay exceeded 3,600 seconds and produced no output packet or operator-visible T2 count. Verdict `ENGINEERING_BLOCKED_FULL_REPLAY_TIMEOUT_NO_PACKET`; this is a cadence blocker, not a duplicate/edge verdict. | Added causal emitters, exact ECRS/SCC mirrors, full-ledger provenance, strict SCC subset gate, schedule, authoritative runner, execution lock and timeout receipt; updated campaign routing. | Timeout child PID 25052 was stopped after readback; intended result directory was absent. No `.mq5`, compile, MT5, trade/PnL, market outcome, D7/D8 score, split or alpha exposure. | Open a fresh semantics-preserving P3 execution repair with stage timing and bounded cadence proof. Thresholds, event keys, sources and comparison laws cannot change; P5/build remains closed. |

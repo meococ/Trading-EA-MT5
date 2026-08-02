@@ -1,0 +1,50 @@
+{
+  "schema_version": "t2_p3_engineering_timeout_receipt.v1",
+  "campaign": "PRO_TRADER_REPLACEMENT",
+  "generation": "T2",
+  "phase": "P3_OUTCOME_BLIND_DEDUP",
+  "status": "ENGINEERING_BLOCKED_FULL_REPLAY_TIMEOUT_NO_PACKET",
+  "recorded_at_utc": "2026-08-02T12:25:05Z",
+  "authority": "ENGINEERING_EVIDENCE_ONLY_NO_BUILD_NO_ECONOMICS",
+  "execution_freeze": {
+    "git_commit": "096be031d6919aff1e9c4e62a54e261f1edea7bb",
+    "manifest_path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P3_EXECUTION_FREEZE_V1.json",
+    "manifest_sha256": "E5D82EBA2F3E2B1A946E581B81DBD878C92410E9E0F5EE31101DB98EC664300A",
+    "runner_sha256": "03440D65F14C60E586137EF8FAEAEB85A4AA882841225B33F6F5E6A3B8E3A4E2"
+  },
+  "pre_execution_gates": {
+    "pytest": "49 passed",
+    "verify_only": "PASS",
+    "prior_scc_replay": "PASS",
+    "stage0_source_rows": 596141,
+    "scc_control_records": 1242,
+    "scc_challenger_records": 286,
+    "challenger_strict_subset_of_control": true
+  },
+  "execution": {
+    "command": "python 03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_dedup.py --output-dir 03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_DEDUP_V1",
+    "timeout_seconds": 3600,
+    "observed_wall_seconds": 3604.028,
+    "exit_code": 124,
+    "terminal_result": "COMMAND_TIMEOUT",
+    "orphan_process_pid_stopped": 25052
+  },
+  "post_execution_readback": {
+    "output_directory_exists": false,
+    "output_file_count": 0,
+    "operator_visible_t2_identity_count": null,
+    "result_json_written": false,
+    "receipt_json_written": false,
+    "market_outcome_or_pnl_exposure": false
+  },
+  "decision": {
+    "p3_complete": false,
+    "build_authorized": false,
+    "compile_authorized": false,
+    "backtest_authorized": false,
+    "economic_authority": "NONE",
+    "strategy_edge_verdict": "NOT_TESTED",
+    "classification": "ENGINEERING_CADENCE_BLOCKER_NOT_STRATEGY_FAILURE",
+    "next_legal_action": "Freeze a fresh semantics-preserving P3 execution repair with stage timing and a bounded cadence gate before another full replay. Thresholds, event keys, source rows and comparison rules must remain unchanged."
+  }
+}
