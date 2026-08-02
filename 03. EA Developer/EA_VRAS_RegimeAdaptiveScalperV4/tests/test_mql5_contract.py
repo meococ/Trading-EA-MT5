@@ -8,7 +8,7 @@ from pathlib import Path
 PACKAGE = Path(__file__).resolve().parents[1]
 SOURCE = PACKAGE / "EA_VRAS_RegimeAdaptiveScalperV4.mq5"
 CONTRACT = PACKAGE / "ALPHAFACTORY_EA_CONTRACT.json"
-PREREG = PACKAGE / "research" / "HYP-VRAS-USDJPY-M5-001_PREREG.md"
+PREREG = PACKAGE / "research" / "HYP-VRAS-USDJPY-M5-003_FROZEN_PREREG.md"
 ENGINEERING_AMENDMENT = (
     PACKAGE / "research" / "HYP-VRAS-USDJPY-M5-001_ENGINEERING_AMENDMENT.md"
 )
@@ -20,8 +20,8 @@ def source_text() -> str:
 
 def test_identity_and_atomic_defaults_are_frozen():
     text = source_text()
-    assert 'InpHypothesisId="HYP-VRAS-USDJPY-M5-001"' in text
-    assert "InpMagic=5601601" in text
+    assert 'InpHypothesisId="HYP-VRAS-USDJPY-M5-003"' in text
+    assert "InpMagic=5601603" in text
     assert 'if(_Symbol!="USDJPY" || _Period!=PERIOD_M5)' in text
     assert "InpOuWindow=72" in text
     assert "InpVarianceRatioQ=5" in text

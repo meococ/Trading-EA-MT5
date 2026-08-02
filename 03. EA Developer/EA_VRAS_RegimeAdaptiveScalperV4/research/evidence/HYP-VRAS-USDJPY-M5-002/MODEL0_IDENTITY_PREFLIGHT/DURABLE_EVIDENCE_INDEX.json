@@ -1,0 +1,22 @@
+{
+  "schema_version": "alphafactory_durable_identity_evidence.v1",
+  "hypothesis_id": "HYP-VRAS-USDJPY-M5-002",
+  "run_id": "20260802_224144",
+  "purpose": "Preserve the exact identity-only preflight artifacts outside the gitignored AlphaFactory runs directory.",
+  "performance_outcome_read": false,
+  "economic_metrics_authorized": false,
+  "expected_data_fingerprint": "5275CC6187E49112F54F587A68EB3A79681450CA8F511EC88F5259ECAB5D503A",
+  "actual_data_fingerprint": "FFD3024F94509DCC5281F6956A237BED542F9161F44837BF2AAE904D76D9B695",
+  "artifacts": {
+    "run_manifest": {
+      "path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-002/MODEL0_IDENTITY_PREFLIGHT/run_manifest.json",
+      "sha256": "7F2F9C005DC511BD61651CA9DF9C1AA6872A046EEBA7D9E2711794186B1372AE"
+    },
+    "report": {
+      "path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-002/MODEL0_IDENTITY_PREFLIGHT/report.html",
+      "sha256": "EED69A871A4D88028A4F18B3EDA3B7696ECF5A5EBDAB08C3347218EF8C82FCB8"
+    }
+  },
+  "canonical_closeout": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-USDJPY-M5-002_OPERATIONAL_CLOSEOUT.json",
+  "note": "The canonical closeout retains original runtime paths for historical fidelity; these byte-identical mirrors make the lineage portable after clone."
+}

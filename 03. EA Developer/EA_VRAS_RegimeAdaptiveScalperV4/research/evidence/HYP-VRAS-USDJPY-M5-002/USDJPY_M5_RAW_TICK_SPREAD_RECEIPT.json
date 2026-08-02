@@ -1,0 +1,48 @@
+{
+  "schema_version": "alphafactory_mt5_tick_spread_evidence.v1",
+  "mode": "READ_ONLY_RAW_TICKS_NO_ORDERS_NO_OUTCOMES",
+  "promotion_eligible": false,
+  "symbol": "USDJPY",
+  "timeframe_population": "M5",
+  "from": "2016.01.04",
+  "to": "2020.12.31",
+  "source_method": "first valid CopyTicksRange raw BID/ASK tick in each synchronized M5 bar",
+  "broker": "Five Percent Online Ltd",
+  "server": "FivePercentOnline-Real",
+  "terminal_build": 6090,
+  "terminal_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\terminal64.exe",
+  "terminal_sha256": "20DFEFD944AE482781AC1E83A736A976ECF0315661E54B5771E327F1FFB2B35C",
+  "terminal_data_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent",
+  "terminal_trade_allowed": false,
+  "orders_sent": 0,
+  "positions_opened": 0,
+  "outcomes_accessed": false,
+  "symbol_geometry": {
+    "digits": 3,
+    "point": 0.001,
+    "pip_size": 0.01
+  },
+  "coverage": {
+    "expected_m5_bar_count": 372443,
+    "sampled_m5_bar_count": 372410,
+    "missing_m5_bar_count": 33,
+    "population_coverage_ratio": 0.9999113958377523,
+    "minimum_required": 0.99,
+    "first_sampled_bar_utc": "2016-01-04T00:00:00+00:00",
+    "last_sampled_bar_utc": "2020-12-31T23:00:00+00:00"
+  },
+  "output": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV4\\research\\evidence\\HYP-VRAS-USDJPY-M5-002\\USDJPY_M5_RAW_TICK_SPREAD.csv",
+  "output_sha256": "3330D9B1405B46BE455BF23164B7A3DC9725D05659AF0ED2E6F97AD53288DC02",
+  "output_bytes": 18247788,
+  "normalization": {
+    "status": "SEMANTIC_PRESERVING_CSV_REWRITE_RECONCILED",
+    "original_export_sha256": "84744DBA1099816E7C70B19958EF79394E2A0E1735EAC8C626E2C8EC340C9C64",
+    "normalized_output_sha256": "3330D9B1405B46BE455BF23164B7A3DC9725D05659AF0ED2E6F97AD53288DC02",
+    "normalizer": "D:\\Trading EA MT5\\02. AlphaFactory\\tools\\build_research_cost_proxy_evidence.py",
+    "normalizer_sha256": "7C733471D8A61205B05306C809E2AC97460E4770944E77AC8095CA0383AC9873",
+    "normalization_action": "Read and rewrite the same four timestamp,symbol,bid,ask fields; no price or row selection transformation",
+    "row_count_after_normalization": 372410
+  },
+  "generator": "D:\\Trading EA MT5\\02. AlphaFactory\\tools\\export_mt5_tick_spread_evidence.py",
+  "generator_sha256": "47D4230FF98A6EDD9532678CE7E1B1B05BBB35E6122A3829AC92F39F6A3D5071"
+}

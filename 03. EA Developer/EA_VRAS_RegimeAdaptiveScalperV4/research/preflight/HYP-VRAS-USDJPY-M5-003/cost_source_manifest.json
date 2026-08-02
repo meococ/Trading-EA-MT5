@@ -1,0 +1,83 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "RESEARCH_PROXY",
+  "provenance_status": "VERIFIED_RESEARCH_PROXY",
+  "audit_status": "PASS_RESEARCH_ONLY",
+  "verdict": "PASS_RESEARCH_ONLY",
+  "promotion_eligible": false,
+  "broker": "Five Percent Online Ltd",
+  "server": "FivePercentOnline-Real (Build 6090)",
+  "account_currency": "USD",
+  "broker_fingerprint": "E464F31D4B323A66DBC18D9409052E70F3711DB8F23597441648B19296B61D54",
+  "server_fingerprint": "30B251638403D085CAB177A77A1B0EB69BD371793B501BE696F08033BE1E8DB0",
+  "account_fingerprint": "0635F9333630C605B51F8208861007B4267011E5F4D7C3C841309F04FE39BF02",
+  "data_fingerprint": "FFD3024F94509DCC5281F6956A237BED542F9161F44837BF2AAE904D76D9B695",
+  "symbol": "USDJPY",
+  "from": "2016.01.04",
+  "to": "2020.12.31",
+  "symbol_geometry": {
+    "digits": 3,
+    "point": 0.001,
+    "pip_size": 0.01
+  },
+  "historical_spread_provenance": {
+    "verification_status": "VERIFIED",
+    "symbol": "USDJPY",
+    "source": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-002/USDJPY_M5_RAW_TICK_SPREAD.csv",
+    "source_sha256": "3330D9B1405B46BE455BF23164B7A3DC9725D05659AF0ED2E6F97AD53288DC02",
+    "coverage": {
+      "from": "2016.01.04",
+      "to": "2020.12.31",
+      "sample_count": 372410,
+      "total_count": 372410,
+      "coverage_ratio": 1.0,
+      "population_contract": "FIRST_VALID_RAW_TICK_PER_SYNCHRONIZED_M5_BAR",
+      "population_total_count": 372443,
+      "population_sample_count": 372410,
+      "population_missing_count": 33,
+      "population_coverage_ratio": 0.9999113958377523
+    }
+  },
+  "commission_provenance": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "symbol": "USDJPY",
+    "value": 4.0,
+    "statistic": "maximum",
+    "sample_count": 548,
+    "same_symbol_lifecycles": true,
+    "source_kind": "strategy_tester_simulation",
+    "method": "Maximum complete-lifecycle tester-observed round-turn USD commission per lot; research falsification only",
+    "source": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-002/USDJPY_TESTER_COMMISSION_MAX.csv",
+    "source_sha256": "14E0CE24085C7CE47049331845F89EADA3CF8D6507D6ADCEB3D88B419C1195F9"
+  },
+  "slippage_provenance": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "symbol": "USDJPY",
+    "source": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-002/USDJPY_QUOTE_LATENCY_1000MS.csv",
+    "source_sha256": "B1413410E541CF4816B5C105E1B1275374D2C88759D11397168C9350987F10C5",
+    "sample_count": 9840,
+    "buy_count": 4920,
+    "sell_count": 4920,
+    "independent_reference": false,
+    "independent_quote_reference": true,
+    "fill_observed": false,
+    "buy_reference_side": "ask",
+    "sell_reference_side": "bid",
+    "slippage_unit": "pips",
+    "fixed_latency_ms": 1000,
+    "max_quote_wait_ms": 500,
+    "method": "Non-overlapping fixed-latency future executable quote proxy; no fill claimed",
+    "p90_buy": 0.20000000000095497,
+    "p90_sell": 0.20000000000095497,
+    "p90_roundturn": 0.40000000000190994
+  },
+  "direction_aware_methodology": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "direction_aware": true,
+    "long_cost_treatment": "Model-0 spread plus tester-maximum commission and ask-to-future-ask adverse quote movement",
+    "short_cost_treatment": "Model-0 spread plus tester-maximum commission and bid-to-future-bid adverse quote movement"
+  },
+  "lineage_receipt": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-002/RESEARCH_COST_PROXY_RECEIPT.json",
+  "spread_acquisition_receipt": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-002/USDJPY_M5_RAW_TICK_SPREAD_RECEIPT.json",
+  "blocker": "Research-only proxy: commission is a Strategy Tester clue and quote latency is not an observed fill. Economic validity and promotion remain blocked under every result."
+}

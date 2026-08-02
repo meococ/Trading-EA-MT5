@@ -2170,3 +2170,29 @@ Evidence:
   object. A successor requires a fresh identity, one atomic mechanism, correct
   target-symbol evidence and independently frozen statistical/data/execution
   contracts before any outcome.
+
+## VRAS USDJPY Asian OU Model 0 economic and lifecycle kill (2026-08-02)
+
+Evidence:
+`03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-USDJPY-M5-003_FAILURE_PACKET.json`.
+
+- HYP-002 corrected cost provenance to a research-only tier but its first
+  report exposed only a dataset-identity mismatch. It was parked before PF,
+  PnL, DD, trade count or validation access; HYP-003 changed only ID/magic and
+  bound the exact observed `100% / 88,937 bars / 47,662,758 ticks` identity.
+- The sole HYP-003 USDJPY M5 2016–2020 Model 0 primary produced three trades in
+  260.57 elapsed weeks: 3/3 losses, PF 0.00, net -47.75 USD, expectancy
+  -15.92 USD/trade and 0.0115 trades/week. This fails the frozen PF >1.30,
+  positive expectancy and 2–5 trades/week gates before any cost stress.
+- Lifecycle final-close rows for positions 2 and 4 contained epoch timestamps,
+  zero price and zero volume; the third close was absent. The report-bound cost
+  builder therefore failed `lifecycle row 3 volume must be > 0`. This telemetry
+  defect blocks repricing but cannot rescue the economic kill: adding
+  non-negative costs cannot create wins or sufficient cadence.
+- Do not rescue this exact object by lowering OU/VR/z/geometry gates, widening
+  the session/window, reversing direction, relabelling the proxy, or rerunning
+  after outcome access. A future candidate requires a materially new mechanism
+  or decision surface, fresh outcome-blind P0/prereg, and a deterministic
+  lifecycle fixture proving positive close time/price/volume before economics.
+- This verdict is not a claim that USDJPY or all mean-reversion strategies lack
+  edge. It closes only the tested Asian closed-bar OU fade contract.

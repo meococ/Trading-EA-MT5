@@ -11,9 +11,9 @@ enum ENUM_VRAS_SIGNAL
 
 input bool   InpResearchAutoMode=false;
 input bool   InpEnableTelemetry=true;
-input string InpHypothesisId="HYP-VRAS-USDJPY-M5-003";
+input string InpHypothesisId="HYP-VRAS-USDJPY-M5-002";
 input string InpVariantTag="PRIMARY_USDJPY_ASIAN_OU";
-input long   InpMagic=5601603;
+input long   InpMagic=5601602;
 input int    InpDirectionMultiplier=1;
 
 input int    InpOuWindow=72;
@@ -1141,7 +1141,7 @@ bool ValidateInputs()
   {
    if(_Symbol!="USDJPY" || _Period!=PERIOD_M5)
       return false;
-   if(InpHypothesisId!="HYP-VRAS-USDJPY-M5-003" || InpMagic!=5601603 ||
+   if(InpHypothesisId!="HYP-VRAS-USDJPY-M5-002" || InpMagic!=5601602 ||
       (InpDirectionMultiplier!=1 && InpDirectionMultiplier!=-1))
       return false;
    if(InpVariantTag=="" || InpOuWindow!=72 || InpVarianceRatioQ!=5 ||

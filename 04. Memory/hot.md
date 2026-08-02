@@ -1,6 +1,6 @@
 # Hot Cache — Recent Routing Only
 
-Updated: 2026-08-02 after the owner-directed USDJPY V4 successor engineering hold.
+Updated: 2026-08-02 after the owner-directed USDJPY V4 Model 0 terminal kill.
 
 This file is a compact handoff cache. It is **not** hypothesis authority, run
 permission, a family blacklist, or proof that a goal is complete. Recheck every
@@ -63,18 +63,22 @@ report and validator output before acting.
   pre-candidate evidence record: its headline values came from the USDJPY tail
   of a combined three-symbol DESIGN file, and its true-flow/estimator/async
   contracts failed before source or outcomes.
-- Fresh successor `HYP-VRAS-USDJPY-M5-001` is engineering-valid and terminally
-  registry-parked: the correct USDJPY M5 P0 passed 6/6 on 1,286 sessions, the
-  atomic Asian OU source passed 33 tests, compiled 0/0, and passed canonical
-  non-repaint audit plus independent code review. It has zero MT5/economic trials and remains held before
-  Model 0 because no hash-bound same-symbol commission or qualifying independent
-  slippage provenance exists. Frozen cost inputs are assumptions, not verified
-  evidence. No validation/holdout/promotion/paper/live authority was opened.
-  T2 campaign authority and its historical exposure ledger were not mutated.
+- The USDJPY V4 successor line is terminal for the tested object. HYP-001 is
+  engineering-valid/parked; HYP-002 obtained non-promotable research cost
+  proxies but was parked pre-outcome on a data-fingerprint mismatch. Fresh
+  identity-only HYP-003 then ran its sole Model 0 primary on FivePercent
+  USDJPY M5 2016–2020: 3 trades, 3 losses, PF 0.00, net -47.75 USD and
+  0.0115 trades/elapsed week. Registry row 469 kills the exact Asian closed-bar
+  OU fade. Lifecycle exit telemetry also emitted zero-volume/epoch rows and
+  blocked report-bound repricing, but the raw PF/cadence gates already make the
+  kill terminal. Do not retune/reverse/rerun this object. A new route requires
+  a materially different mechanism plus a lifecycle close-deal fixture. No
+  validation/holdout/promotion/paper/live authority opened; T2 campaign state
+  was not mutated.
 - The bound FivePercent portable MT5 terminal was `STOPPED` after the 2026-08-02
   dataset-004 export/finalization. Run current
   `02. AlphaFactory/alpha.ps1 status` before any terminal action.
-- The candidate registry (`464` rows / `164` hypotheses) and source-of-truth
+- The candidate registry (`469` rows / `166` hypotheses) and source-of-truth
   validator passed after the 2026-08-01 control-plane repair. Counts and hashes
   are routing facts only; rerun both validators for current truth.
 - The latest London-open MQL5 successor is audit-only: execution-scenario

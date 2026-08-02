@@ -1,0 +1,75 @@
+{
+  "schema_version": "alphafactory_hypothesis_failure_packet.v1",
+  "hypothesis_id": "HYP-VRAS-USDJPY-M5-003",
+  "run_id": "20260802_225843",
+  "verdict": "KILL_PRIMARY_MODEL0_ZERO_EDGE_AND_CADENCE_TELEMETRY_CONTRACT_FAIL",
+  "economic_outcome_accessed": true,
+  "promotion_eligible": false,
+  "run_identity": {
+    "run_manifest_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-003/MODEL0_PRIMARY/run_manifest.json",
+    "run_manifest_sha256": "CD7009B8EA1FAB3BCC4DBCE04C475D61165287BCC9DA872573EE030665609D54",
+    "report_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-003/MODEL0_PRIMARY/report.html",
+    "report_sha256": "6580E45B2AFD1591D9D096DE69FCEA3CB879DED8A4B08451775F42F1B12CC584",
+    "source_sha256": "B98AF548920E06D0FF6A0F9D12C601E9F5366DCAE057B0B766611FBE170E8EBA",
+    "ex5_snapshot_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-003/MODEL0_PRIMARY/EA_VRAS_RegimeAdaptiveScalperV4.ex5.bin",
+    "ex5_sha256": "9FB08B20B45895CFF9DE52EBF0754694A288A9E4260FCF3A7492F5460A191853",
+    "config_sha256": "B61E0DCA466C2064413F2DB99ACBBE9481523B58288CD325B9FCBF767AB15CAC",
+    "contract_receipt_sha256": "10998FA050A28448D84D991D91DA25517932FFE12A861AA12CCAC898485C166B",
+    "data_fingerprint": "FFD3024F94509DCC5281F6956A237BED542F9161F44837BF2AAE904D76D9B695"
+  },
+  "primary_metrics": {
+    "elapsed_calendar_days": 1824,
+    "elapsed_calendar_weeks": 260.57142857142856,
+    "trades": 3,
+    "trades_per_elapsed_week": 0.011513157894736843,
+    "net_profit_usd": -47.75,
+    "profit_factor": 0.0,
+    "win_rate_pct": 0.0,
+    "expectancy_usd_per_trade": -15.916666666666666,
+    "max_drawdown_pct": 0.2336710921492076,
+    "losses": 3,
+    "wins": 0
+  },
+  "gate_results": {
+    "profit_factor_gt_1_30": false,
+    "trades_per_week_between_2_and_5": false,
+    "positive_expectancy": false,
+    "max_drawdown_lte_8": true,
+    "cost_stress": "NOT_RUN_TELEMETRY_CONTRACT_FAILED",
+    "calendar_year_breadth": "NOT_NEEDED_AFTER_PRIMARY_KILL",
+    "unified_validation": "NOT_COMPLETED_AFTER_PRIMARY_KILL"
+  },
+  "kill_precedence": "All three executed trades lost, so PF is zero before additional non-negative research-proxy repricing. Frequency is 0.0115/week versus the frozen 2.0/week minimum. Neither failure can be rescued by commission/slippage post-processing.",
+  "analysis_evidence": {
+    "enhanced_summary_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-003/MODEL0_PRIMARY/enhanced_summary.json",
+    "enhanced_summary_sha256": "7B50C6FE9BC11A0BED006DC51BFE938CCCB67BD77998ACC5719C41A081268316",
+    "nonrepaint_audit_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-003/MODEL0_PRIMARY/nonrepaint_audit.json",
+    "nonrepaint_audit_sha256": "EA8ECB605DB6AF44111933023AAB4C218A28DF821E9216F8D297DE80C60E62A8",
+    "nonrepaint_status": "PASS"
+  },
+  "telemetry_failure": {
+    "status": "FAIL_LIFECYCLE_EXIT_ROWS_ZERO_VOLUME_AND_EPOCH_TIME",
+    "lifecycle_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-003/MODEL0_PRIMARY/USDJPY_LifecycleTrades_HYP-VRAS-USDJPY-M5-003_53343921.csv",
+    "lifecycle_sha256": "E5D4ECFEC7CC857A394DE7F43541773DAF10F97C4DA839124F8BD918D5DD74BE",
+    "run_meta_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-003/MODEL0_PRIMARY/USDJPY_RunMeta_HYP-VRAS-USDJPY-M5-003_53343921.json",
+    "run_meta_sha256": "D18688185A61B6730EF05D10096770621B5881222F6B72CDC30FB6A2585FE1D9",
+    "cost_builder_error": "lifecycle row 3 volume must be > 0",
+    "observed_rows": "Final-close rows for position IDs 2 and 4 contain 1970.01.01, volume 0 and price 0; the third entry has no final-close row.",
+    "scope": "Telemetry/repricing integrity defect. It does not weaken the economic kill because the raw primary PF and cadence already fail terminal gates."
+  },
+  "diagnostics": {
+    "bars_seen": 88935,
+    "estimator_rejections": 85805,
+    "session_rejections": 3,
+    "spread_rejections": 1,
+    "cost_rejections": 0,
+    "geometry_rejections": 18,
+    "risk_rejections": 0,
+    "entries_attempted": 25,
+    "entries_opened": 3,
+    "persistence_fault": false,
+    "confirmed_fill_breach": false
+  },
+  "failure_radius": "The exact USDJPY M5 Asian closed-bar OU fade object, window, session, estimator, thresholds, risk and research-proxy cost contract are killed. Do not rescue it by lowering gates, loosening z/OU/VR/geometry filters, changing session/window, reversing direction, or rerunning after reading this outcome.",
+  "successor_route": "A future candidate requires a materially new mechanism or decision surface, fresh outcome-blind P0/preregistration, and a pre-economic lifecycle close-deal fixture proving positive exit time/price/volume. Promotion still additionally requires observed commission/fill evidence."
+}

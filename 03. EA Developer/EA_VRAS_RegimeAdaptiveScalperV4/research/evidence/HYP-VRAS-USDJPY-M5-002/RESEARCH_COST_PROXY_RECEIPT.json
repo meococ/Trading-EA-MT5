@@ -1,0 +1,68 @@
+{
+  "schema_version": "alphafactory_research_cost_proxy_evidence.v1",
+  "promotion_eligible": false,
+  "fill_observed": false,
+  "symbol": "USDJPY",
+  "quote_input": {
+    "root": null,
+    "selection_mode": "explicit_sources",
+    "source_count": 2,
+    "unique_quote_count": 15933,
+    "sources": [
+      {
+        "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_005_POSTAUTH/USDJPY_quote_ticks.csv",
+        "sha256": "CD8B719E5FD794F51FA2D1A7F7BF782141905B4B48D8DD869680A072538BE56F",
+        "bytes": 123752
+      },
+      {
+        "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260715_QFSI_REAL_007_LONG_ACCUMULATE/USDJPY_quote_ticks.csv",
+        "sha256": "E04C764A5CE4BF9CC792574FF087D0D3E1E6637127B3B65EC04FF52793B7BE89",
+        "bytes": 1131145
+      }
+    ]
+  },
+  "quote_latency_proxy": {
+    "pair_count": 4920,
+    "sample_count": 9840,
+    "buy_count": 4920,
+    "sell_count": 4920,
+    "p90_buy": 0.20000000000095497,
+    "p90_sell": 0.20000000000095497,
+    "p90_roundturn": 0.40000000000190994,
+    "latency_ms": 1000,
+    "max_quote_wait_ms": 500,
+    "first_reference_timestamp": "2026-07-14T19:25:39.168",
+    "last_reference_timestamp": "2026-07-15T14:30:29.141",
+    "output": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-002/USDJPY_QUOTE_LATENCY_1000MS.csv",
+    "output_sha256": "B1413410E541CF4816B5C105E1B1275374D2C88759D11397168C9350987F10C5"
+  },
+  "historical_spread": {
+    "from": "2016.01.04",
+    "to": "2020.12.31",
+    "sample_count": 372410,
+    "total_count": 372410,
+    "coverage_ratio": 1.0,
+    "first_timestamp": "2016-01-04T00:00:38.000Z",
+    "last_timestamp": "2020-12-31T23:00:00.071Z",
+    "raw_source": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-002/USDJPY_M5_RAW_TICK_SPREAD.csv",
+    "raw_source_sha256": "3330D9B1405B46BE455BF23164B7A3DC9725D05659AF0ED2E6F97AD53288DC02",
+    "output": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-002/USDJPY_M5_RAW_TICK_SPREAD.csv",
+    "output_sha256": "3330D9B1405B46BE455BF23164B7A3DC9725D05659AF0ED2E6F97AD53288DC02"
+  },
+  "tester_commission_proxy": {
+    "sample_count": 548,
+    "minimum": 4.0,
+    "p50": 4.0,
+    "p90": 4.0,
+    "maximum": 4.0,
+    "statistic_used": "maximum",
+    "source_kind": "strategy_tester_simulation",
+    "raw_source": "02. AlphaFactory/runs/EA_SilverBullet/20260715_072213/analysis/logs/USDJPY_20260325_PX6_Trades_20210101_000000_131863562.csv",
+    "raw_source_sha256": "8925861DF2E80B728D26B34B963B975A885022B477F0EB02F07DE50987520D5D",
+    "output": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-002/USDJPY_TESTER_COMMISSION_MAX.csv",
+    "output_sha256": "14E0CE24085C7CE47049331845F89EADA3CF8D6507D6ADCEB3D88B419C1195F9"
+  },
+  "generated_at_utc": "2026-08-02T15:26:21.197545+00:00",
+  "generator": "02. AlphaFactory/tools/build_research_cost_proxy_evidence.py",
+  "generator_sha256": "7C733471D8A61205B05306C809E2AC97460E4770944E77AC8095CA0383AC9873"
+}

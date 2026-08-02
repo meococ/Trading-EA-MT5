@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-VRAS-USDJPY-M5-003",
+  "run_id": "STATIC-HYP-VRAS-USDJPY-M5-003-20260802",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV4\\NONREPAINT_AUDIT_MANIFEST_USDJPY_M5_003.json",
+  "manifest_sha256": "BF54FA2C1DA9C26A6CDC65512A963C83555E121BF484F24BF218D742EC8CD09C",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV4\\EA_VRAS_RegimeAdaptiveScalperV4.mq5",
+      "sha256": "B98AF548920E06D0FF6A0F9D12C601E9F5366DCAE057B0B766611FBE170E8EBA"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV4\\EA_VRAS_RegimeAdaptiveScalperV4.mq5",
+      "line": 1222,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "generated_at_utc": "2026-08-02T15:56:30.492934+00:00"
+}

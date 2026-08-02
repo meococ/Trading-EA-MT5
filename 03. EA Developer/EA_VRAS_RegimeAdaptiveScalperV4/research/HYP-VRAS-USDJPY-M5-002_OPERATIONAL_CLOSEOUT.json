@@ -1,0 +1,29 @@
+{
+  "schema_version": "alphafactory_operational_preoutcome_closeout.v1",
+  "hypothesis_id": "HYP-VRAS-USDJPY-M5-002",
+  "run_id": "20260802_224144",
+  "status": "PARK_PRE_OUTCOME_DATA_FINGERPRINT_MISMATCH",
+  "performance_outcome_read": false,
+  "economic_metrics_generated": false,
+  "report_path": "02. AlphaFactory/runs/EA_VRAS_RegimeAdaptiveScalperV4/20260802_224144/report.html",
+  "report_sha256": "EED69A871A4D88028A4F18B3EDA3B7696ECF5A5EBDAB08C3347218EF8C82FCB8",
+  "run_manifest_path": "02. AlphaFactory/runs/EA_VRAS_RegimeAdaptiveScalperV4/20260802_224144/run_manifest.json",
+  "run_manifest_sha256": "7F2F9C005DC511BD61651CA9DF9C1AA6872A046EEBA7D9E2711794186B1372AE",
+  "expected_data_fingerprint": "5275CC6187E49112F54F587A68EB3A79681450CA8F511EC88F5259ECAB5D503A",
+  "actual_data_fingerprint": "FFD3024F94509DCC5281F6956A237BED542F9161F44837BF2AAE904D76D9B695",
+  "actual_identity_basis": {
+    "broker": "Five Percent Online Ltd",
+    "server": "FivePercentOnline-Real (Build 6090)",
+    "currency": "USD",
+    "initial_deposit": "10 000.00",
+    "leverage": "1:100",
+    "history_quality": "100%",
+    "bars": "88937",
+    "ticks": "47662758",
+    "digits": 3,
+    "point": 0.001,
+    "pip_size": 0.01
+  },
+  "failure_radius": "Only the preregistered report data identity was wrong. Broker, server, account, source, config, EX5, cost evidence and symbol geometry matched. No PF, PnL, DD, trade count, yearly result or validation output was read.",
+  "successor_rule": "A fresh ID may correct only embedded identity/magic and bind the observed report identity; all signal, risk, cost, window and acceptance settings must remain frozen."
+}

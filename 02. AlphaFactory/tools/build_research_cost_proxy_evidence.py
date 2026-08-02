@@ -96,6 +96,42 @@ def slice_spread_evidence(
     end = datetime.strptime(date_to, "%Y.%m.%d").date()
     if end < start:
         raise ValueError("spread slice end precedes start")
+    if source.resolve() == output.resolve():
+        count = 0
+        first_timestamp = ""
+        last_timestamp = ""
+        with source.open("r", encoding="utf-8-sig", newline="") as input_handle:
+            reader = csv.DictReader(input_handle)
+            required = {"timestamp", "symbol", "bid", "ask"}
+            missing = required - set(reader.fieldnames or [])
+            if missing:
+                raise ValueError(f"spread source is missing columns: {sorted(missing)}")
+            for row_number, row in enumerate(reader, start=2):
+                timestamp = datetime.fromisoformat(str(row.get("timestamp") or "").removesuffix("Z"))
+                if not start <= timestamp.date() <= end:
+                    raise ValueError(
+                        f"in-place spread source row {row_number} is outside the requested slice"
+                    )
+                if str(row.get("symbol") or "") != symbol:
+                    raise ValueError(f"spread source row {row_number} symbol mismatch")
+                bid = float(str(row.get("bid") or "nan"))
+                ask = float(str(row.get("ask") or "nan"))
+                if not math.isfinite(bid) or not math.isfinite(ask) or not 0 < bid <= ask:
+                    raise ValueError(f"spread source row {row_number} has invalid BID/ASK")
+                count += 1
+                first_timestamp = first_timestamp or str(row["timestamp"])
+                last_timestamp = str(row["timestamp"])
+        if count <= 0:
+            raise ValueError("spread slice contains no rows")
+        return {
+            "from": date_from,
+            "to": date_to,
+            "sample_count": count,
+            "total_count": count,
+            "coverage_ratio": 1.0,
+            "first_timestamp": first_timestamp,
+            "last_timestamp": last_timestamp,
+        }
     output.parent.mkdir(parents=True, exist_ok=True)
     temporary = output.with_name(f".{output.name}.{os.getpid()}.tmp")
     count = 0
@@ -149,10 +185,22 @@ def slice_spread_evidence(
     }
 
 
-def load_unique_quotes(root: Path, symbol: str) -> tuple[list[tuple[int, float, float]], list[Path]]:
-    sources = sorted(root.rglob(f"{symbol}_quote_ticks.csv"), key=lambda path: str(path).lower())
+def load_unique_quotes(
+    root: Path | None,
+    symbol: str,
+    explicit_sources: Iterable[Path] = (),
+) -> tuple[list[tuple[int, float, float]], list[Path]]:
+    selected_sources = [Path(path).resolve() for path in explicit_sources]
+    if selected_sources:
+        sources = sorted(selected_sources, key=lambda path: str(path).lower())
+    elif root is not None:
+        sources = sorted(root.rglob(f"{symbol}_quote_ticks.csv"), key=lambda path: str(path).lower())
+    else:
+        sources = []
     if not sources:
-        raise ValueError(f"no {symbol} quote CSVs found under {root}")
+        raise ValueError(f"no {symbol} quote CSVs were selected")
+    if len({str(path).lower() for path in sources}) != len(sources):
+        raise ValueError("quote source selection contains duplicate paths")
     unique: dict[tuple[int, float, float], tuple[int, float, float]] = {}
     for source in sources:
         with source.open("r", encoding="utf-8-sig", newline="") as handle:
@@ -254,22 +302,52 @@ def build_commission_proxy(
         missing = required - set(reader.fieldnames or [])
         if missing:
             raise ValueError(f"legacy trades source is missing columns: {sorted(missing)}")
-        rows: list[dict[str, Any]] = []
-        seen: set[str] = set()
+        lifecycle_rows: dict[str, list[tuple[int, dict[str, str]]]] = {}
         for row_number, row in enumerate(reader, start=2):
-            if str(row.get("symbol") or "") != symbol or str(row.get("is_final_close") or "") != "1":
+            if str(row.get("symbol") or "") != symbol:
                 continue
             position_id = str(row.get("position_id") or "").strip()
-            if not position_id or position_id in seen:
-                raise ValueError(f"legacy trades row {row_number} has duplicate/empty final position")
-            seen.add(position_id)
+            if not position_id:
+                raise ValueError(f"legacy trades row {row_number} has an empty position_id")
             volume = float(str(row.get("volume") or "nan"))
-            commission = abs(float(str(row.get("commission") or "nan")))
+            commission = float(str(row.get("commission") or "nan"))
             if not math.isfinite(volume) or not math.isfinite(commission) or volume <= 0:
                 raise ValueError(f"legacy trades row {row_number} has invalid volume/commission")
-            per_lot = commission / volume
+            lifecycle_rows.setdefault(position_id, []).append((row_number, dict(row)))
+
+        rows: list[dict[str, Any]] = []
+        for position_id, lifecycle in lifecycle_rows.items():
+            final_rows = [
+                row_number
+                for row_number, row in lifecycle
+                if str(row.get("is_final_close") or "").strip() == "1"
+            ]
+            if len(final_rows) != 1:
+                raise ValueError(
+                    f"legacy position {position_id} needs exactly one final close; "
+                    f"found {len(final_rows)}"
+                )
+            entry_volumes = [
+                float(str(row.get("volume") or "nan"))
+                for _, row in lifecycle
+                if str(row.get("action") or "").strip().upper() == "OPEN"
+                or str(row.get("entry_kind") or "").strip().upper()
+                in {"IN", "DEAL_ENTRY_IN", "ENTRY"}
+            ]
+            if not entry_volumes:
+                raise ValueError(
+                    f"legacy position {position_id} has no explicit entry-volume row; "
+                    "refusing to infer lifecycle volume from entry and exit rows"
+                )
+            lifecycle_volume = sum(entry_volumes)
+            lifecycle_commission = sum(
+                abs(float(str(row.get("commission") or "nan"))) for _, row in lifecycle
+            )
+            per_lot = lifecycle_commission / lifecycle_volume
             if per_lot <= 0:
-                raise ValueError(f"legacy trades row {row_number} has nonpositive commission proxy")
+                raise ValueError(
+                    f"legacy position {position_id} has nonpositive lifecycle commission proxy"
+                )
             rows.append(
                 {
                     "position_id": position_id,
@@ -279,6 +357,7 @@ def build_commission_proxy(
                     "source_kind": "strategy_tester_simulation",
                 }
             )
+    rows.sort(key=lambda row: str(row["position_id"]))
     if len(rows) < 30:
         raise ValueError("legacy tester commission proxy has fewer than 30 lifecycles")
     values = [float(row["round_turn_account_per_lot"]) for row in rows]
@@ -302,7 +381,8 @@ def display_path(path: Path, root: Path) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--quotes-root", required=True)
+    parser.add_argument("--quotes-root")
+    parser.add_argument("--quote-source", action="append", default=[])
     parser.add_argument("--legacy-trades", required=True)
     parser.add_argument("--spread-source", required=True)
     parser.add_argument("--spread-from", required=True)
@@ -319,7 +399,10 @@ def main() -> int:
     args = parser.parse_args()
 
     repo_root = ALPHA_ROOT = Path(__file__).resolve().parents[2]
-    quotes_root = Path(args.quotes_root).resolve()
+    quotes_root = Path(args.quotes_root).resolve() if args.quotes_root else None
+    quote_sources_selected = [Path(path).resolve() for path in args.quote_source]
+    if quotes_root is None and not quote_sources_selected:
+        raise ValueError("either --quotes-root or at least one --quote-source is required")
     legacy_trades = Path(args.legacy_trades).resolve()
     spread_source = Path(args.spread_source).resolve()
     slippage_out = Path(args.slippage_out).resolve()
@@ -327,7 +410,9 @@ def main() -> int:
     spread_out = Path(args.spread_out).resolve()
     receipt_out = Path(args.receipt_out).resolve()
 
-    quotes, quote_sources = load_unique_quotes(quotes_root, args.symbol)
+    quotes, quote_sources = load_unique_quotes(
+        quotes_root, args.symbol, quote_sources_selected
+    )
     quote_rows, quote_summary = build_quote_proxy(
         quotes,
         args.symbol,
@@ -357,7 +442,8 @@ def main() -> int:
         "fill_observed": False,
         "symbol": args.symbol,
         "quote_input": {
-            "root": display_path(quotes_root, repo_root),
+            "root": display_path(quotes_root, repo_root) if quotes_root is not None else None,
+            "selection_mode": "explicit_sources" if quote_sources_selected else "recursive_root",
             "source_count": len(quote_sources),
             "unique_quote_count": len(quotes),
             "sources": raw_quote_sources,

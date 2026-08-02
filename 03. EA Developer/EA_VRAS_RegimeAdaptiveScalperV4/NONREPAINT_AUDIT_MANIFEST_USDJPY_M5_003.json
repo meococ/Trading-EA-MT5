@@ -1,0 +1,9 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-VRAS-USDJPY-M5-003",
+  "run_id": "STATIC-HYP-VRAS-USDJPY-M5-003-20260802",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV4",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_VRAS_RegimeAdaptiveScalperV4\\EA_VRAS_RegimeAdaptiveScalperV4.mq5",
+  "source_sha256": "B98AF548920E06D0FF6A0F9D12C601E9F5366DCAE057B0B766611FBE170E8EBA",
+  "include_snapshots": []
+}
