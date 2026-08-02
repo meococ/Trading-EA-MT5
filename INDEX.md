@@ -102,7 +102,10 @@ audit-only: đọc `03. EA Developer/README.md`, latest registry row và artifac
 | `02. AlphaFactory/templates/research/` | prereg/task/readout/Fast-Kill/Heavy-Delivery templates |
 | `02. AlphaFactory/tools/research/` | indicator-neutral probe, metrics, parity, clock, chart/log tools |
 | `02. AlphaFactory/tools/research/empirical_probe_runner.py` | hash-bound V4 plan/data capability forensic runner; exact-symbol, non-stitched-session and true-flow fail-closed checks, not an economic analyzer |
+| `02. AlphaFactory/tools/research/setup_fivepercent_market_data.py` | one-use zero-trade producer for the FivePercent five-asset M1/M5/H1/H4 raw corpus; source-epoch primary, exact-duplicate reconciliation and explicit BTC DST UTC ambiguity |
+| `02. AlphaFactory/tools/research/finalize_fivepercent_market_data_receipt.py` | consumed receipt-only recovery for dataset-004; re-hashes the 20-file manifest and never starts MT5 or rewrites data |
 | `02. AlphaFactory/data/<broker>/<symbol>/` | data shelf D:, manifest hash-bound |
+| `02. AlphaFactory/data/fivepercent/FiveAssetFoundation/DATA-FIVEPERCENT-5ASSET-MULTITF-004/manifest.json` | canonical 5-symbol x 4-timeframe raw broker-bar manifest: 48,314,068 rows, zero orders/economics; not T2/HQ/economic evidence |
 | `02. AlphaFactory/runs/<EA>/<run_id>/` | report, manifest, analysis và logs của run |
 | `02. AlphaFactory/runs.db` + `tools/runs_db.py` | catalog tiện tra cứu, không phải authority |
 | `02. AlphaFactory/tools/audit_mql5_nonrepaint.py` | audit sau mọi đổi signal/data-access |

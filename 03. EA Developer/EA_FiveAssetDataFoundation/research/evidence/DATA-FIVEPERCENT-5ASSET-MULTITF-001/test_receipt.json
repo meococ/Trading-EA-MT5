@@ -1,0 +1,10 @@
+{
+  "schema_version": "five_asset_data_test_receipt.v1",
+  "dataset_id": "DATA-FIVEPERCENT-5ASSET-MULTITF-001",
+  "generated_at_utc": "2026-08-02T09:34:24.0878277Z",
+  "command": "python -B -m pytest \"02. AlphaFactory/tests/test_setup_fivepercent_market_data.py\" -q",
+  "exit_code": 0,
+  "result": "7 passed in 0.54s",
+  "tool_sha256": "22615AA574578A2D77952635D86C800C5DAB0AA274C05C6BA8A0BB1DB3FBBF99",
+  "test_sha256": "20E7C813DBFDAD0321B9072A7F7FFC175516E14FDE7736EB83A11A0F97D04584"
+}

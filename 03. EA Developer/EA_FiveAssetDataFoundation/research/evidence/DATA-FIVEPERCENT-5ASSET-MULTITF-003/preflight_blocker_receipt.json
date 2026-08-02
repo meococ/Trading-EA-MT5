@@ -1,0 +1,27 @@
+{
+  "schema_version": "five_asset_data_preflight_blocker_receipt.v1",
+  "dataset_id": "DATA-FIVEPERCENT-5ASSET-MULTITF-003",
+  "generated_at_utc": "2026-08-02T09:53:50.2464015Z",
+  "status": "BLOCKED_BEFORE_RUN_AUTHORITY",
+  "plan_sha256": "8D2168A1FC50197BE6C5B14EC91BC802928928153D372C5E7BF2372B3EFD9F85",
+  "tool_sha256": "AFE23AD371E42558E7F07B0586ECF8DDBD2724D8D6D7266F3BD0BBE38912D0BC",
+  "test_sha256": "6371BF23A4FFC894C4352CDD52531A6BE27F0C60F11A9476332A411297CD26D2",
+  "tests": "10 passed in 0.53s",
+  "frames_validated_before_blocker": 16,
+  "blocker": "duplicate UTC timestamps: BTCUSD/M1 count=170",
+  "diagnosis": "The raw broker epochs are distinct and prices conflict because continuous BTC bars exist across the DST transition hour. The EURUSD-derived clock model cannot assign exact UTC to those rows without collision.",
+  "btc_utc_ambiguity": {
+    "M1": {"groups": 85, "rows": 170},
+    "M5": {"groups": 28, "rows": 56},
+    "H1": {"groups": 5, "rows": 10},
+    "H4": {"groups": 0, "rows": 0},
+    "total_groups": 118,
+    "total_rows": 236
+  },
+  "production_authority_created": false,
+  "production_attempted": false,
+  "output_files_created": 0,
+  "orders_submitted": 0,
+  "economics_executed": false,
+  "replacement_dataset_id": "DATA-FIVEPERCENT-5ASSET-MULTITF-004"
+}

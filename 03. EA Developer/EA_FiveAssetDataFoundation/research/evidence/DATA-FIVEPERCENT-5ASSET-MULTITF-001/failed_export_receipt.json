@@ -1,0 +1,18 @@
+{
+  "schema_version": "five_asset_data_failed_export_receipt.v1",
+  "dataset_id": "DATA-FIVEPERCENT-5ASSET-MULTITF-001",
+  "generated_at_utc": "2026-08-02T09:37:48.5459008Z",
+  "status": "FAILED_CLOSED_BEFORE_FIRST_DATA_FILE",
+  "attempted_authority_sha256": "D5172F6C21370C039769F4381622A63D6905CA470E6E40E8F97EC859EA45B277",
+  "failure": "history synchronization timed out: EURUSD attempts=61 last_error=(-2, 'Terminal: Invalid params')",
+  "failure_scope": "The 1970-to-cutoff M1 request exceeded the terminal's single-request parameter envelope; no market-data conclusion was drawn.",
+  "published_file_count": 0,
+  "export_receipt_created": false,
+  "orders_submitted": 0,
+  "economics_executed": false,
+  "protected_c_roots_unchanged": true,
+  "storage_reconciliation_path": "03. EA Developer/EA_FiveAssetDataFoundation/research/evidence/DATA-FIVEPERCENT-5ASSET-MULTITF-001/storage_reconciliation_failed_attempt.json",
+  "storage_reconciliation_sha256": "844677C8E222EA334132FBB0313524BE12ED074702F89901AD09027E37E21081",
+  "same_id_retry_authorized": false,
+  "replacement_dataset_id": "DATA-FIVEPERCENT-5ASSET-MULTITF-002"
+}

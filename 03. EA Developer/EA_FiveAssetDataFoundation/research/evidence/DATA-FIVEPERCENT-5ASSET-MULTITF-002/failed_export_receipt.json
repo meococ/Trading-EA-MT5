@@ -1,0 +1,21 @@
+{
+  "schema_version": "five_asset_data_failed_export_receipt.v1",
+  "dataset_id": "DATA-FIVEPERCENT-5ASSET-MULTITF-002",
+  "generated_at_utc": "2026-08-02T09:48:25.7397640Z",
+  "status": "FAILED_CLOSED_PARTIAL_OUTPUT_UNPUBLISHED",
+  "attempted_authority_sha256": "C9BE7B4F75987DEF0BDCFF9224FF8D8AF5A094C94E88341F4ED704B02EBB7CB9",
+  "failure": "duplicate UTC timestamps: GBPUSD/M1 count=3",
+  "diagnosis": "The three rows are an exact byte-equivalent source triplicate at broker time 1993-05-12 00:00:00; there is no conflicting OHLC or volume value.",
+  "published_file_count": 0,
+  "unpublished_partial_file_count": 8,
+  "partial_output_inventory_path": "03. EA Developer/EA_FiveAssetDataFoundation/research/evidence/DATA-FIVEPERCENT-5ASSET-MULTITF-002/partial_output_inventory.json",
+  "manifest_created": false,
+  "export_receipt_created": false,
+  "orders_submitted": 0,
+  "economics_executed": false,
+  "protected_c_roots_unchanged": true,
+  "storage_reconciliation_path": "03. EA Developer/EA_FiveAssetDataFoundation/research/evidence/DATA-FIVEPERCENT-5ASSET-MULTITF-002/storage_reconciliation_failed_attempt.json",
+  "storage_reconciliation_sha256": "1F47E1EC19B18D5CE6ACB31A9CB6C412BCFBA72718F7F5BA6CA89E389C552D20",
+  "same_id_retry_authorized": false,
+  "replacement_dataset_id": "DATA-FIVEPERCENT-5ASSET-MULTITF-003"
+}

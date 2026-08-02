@@ -1,6 +1,6 @@
 # Hot Cache — Recent Routing Only
 
-Updated: 2026-08-01 after the HYP005 prelaunch authority repair.
+Updated: 2026-08-02 after the Owner-directed five-asset raw-data setup.
 
 This file is a compact handoff cache. It is **not** hypothesis authority, run
 permission, a family blacklist, or proof that a goal is complete. Recheck every
@@ -42,6 +42,16 @@ report and validator output before acting.
   zero (0 MT5 launches/trades/economic trials); do not rebind or replay HYP005.
   A future data collector needs a fresh ID with the tiered data-acceptance
   contract and launch-time semantic MT5 storage receipt.
+- Owner-directed raw data shelf
+  `DATA-FIVEPERCENT-5ASSET-MULTITF-004` is engineering-complete outside the T2
+  hypothesis/data-epoch lane: FivePercent demo EURUSD/USDJPY/GBPUSD/XAUUSD/BTCUSD
+  x M1/M5/H1/H4, 20 hash-bound Parquets, 48,314,068 rows and zero
+  orders/economics. The complete primary axis is `source_epoch/time_server`;
+  236 continuous-BTC DST rows are preserved with null `time_utc` and an
+  explicit ambiguity flag. This is reusable raw data only: it is not tester
+  HQ>97 evidence, not one of the nine selected T2 receipts, and does not reopen
+  or satisfy HYP005. Canonical package:
+  `03. EA Developer/EA_FiveAssetDataFoundation/`.
 - Owner-directed VRAS V4 P0 review `HYP-VRAS-EURUSD-M5-015` is a
   pre-candidate parked evidence record, not a registry candidate. The supplied
   plan's headline values came from the unfiltered USDJPY tail of a combined
@@ -50,7 +60,8 @@ report and validator output before acting.
   No `.mq5`, compile, MT5, outcome or economics was opened. Readout:
   `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-EURUSD-M5-015_PREFLIGHT_READOUT.md`.
   T2 remains the only active generation and its build/MT5 authority is unchanged.
-- MT5 was `STOPPED` at the 2026-07-31 campaign-plan readback. Run current
+- The bound FivePercent portable MT5 terminal was `STOPPED` after the 2026-08-02
+  dataset-004 export/finalization. Run current
   `02. AlphaFactory/alpha.ps1 status` before any terminal action.
 - The candidate registry (`461` rows / `163` hypotheses) and source-of-truth
   validator passed after the 2026-08-01 control-plane repair. Counts and hashes

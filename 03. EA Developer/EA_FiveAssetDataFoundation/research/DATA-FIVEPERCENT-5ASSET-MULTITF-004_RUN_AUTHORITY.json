@@ -1,0 +1,38 @@
+{
+  "schema_version": "five_asset_data_run_authority.v1",
+  "dataset_id": "DATA-FIVEPERCENT-5ASSET-MULTITF-004",
+  "created_at_utc": "2026-08-02T09:58:27.4762630Z",
+  "authorized": false,
+  "one_use": true,
+  "status": "CONSUMED_EXPORT_COMPLETE_FINALIZATION_PENDING",
+  "consumed_at_utc": "2026-08-02T10:02:00.0497715Z",
+  "manifest_sha256": "D2F48E9CB3809AB447B89DC22E658D4988AD71AE26F864B96EA1D7D9FF83AD23",
+  "finalization_blocker_path": "03. EA Developer/EA_FiveAssetDataFoundation/research/evidence/DATA-FIVEPERCENT-5ASSET-MULTITF-004/receipt_finalization_blocker.json",
+  "production_runs_authorized": 1,
+  "orders_authorized": 0,
+  "economic_analysis_authorized": false,
+  "plan_path": "03. EA Developer/EA_FiveAssetDataFoundation/research/DATA-FIVEPERCENT-5ASSET-MULTITF-004_PLAN.md",
+  "plan_sha256": "09E888C2651234492E0FEEEC93C25046FA0F571F2D6EA7FE0910CA9253F5A7BB",
+  "tool_path": "02. AlphaFactory/tools/research/setup_fivepercent_market_data.py",
+  "tool_sha256": "BDE567E107DD0A5C28028AC2DE0F5E91F9CC399CA6CB0C016E70289BE00604A1",
+  "test_path": "02. AlphaFactory/tests/test_setup_fivepercent_market_data.py",
+  "test_sha256": "AC84489E15B817B3E607B4170EB6FE045ABDCFCDD2994BEAF0C97383BE8A0411",
+  "symbols": [
+    "EURUSD",
+    "USDJPY",
+    "GBPUSD",
+    "XAUUSD",
+    "BTCUSD"
+  ],
+  "timeframes": [
+    "M1",
+    "M5",
+    "H1",
+    "H4"
+  ],
+  "cutoff_utc": "2026-08-01T23:59:59Z",
+  "terminal_sha256": "20DFEFD944AE482781AC1E83A736A976ECF0315661E54B5771E327F1FFB2B35C",
+  "clock_sha256": "A7F179935102B57BA3B629345209F6B0D668D1F7FD828A5ED6003207F41A2F52",
+  "common_config_sha256": "303C05DA2A4B0B8E3D08D393B9DB92E95E17CE210A44C43AFD3FF7D59C62D450",
+  "c_snapshot_before_sha256": "0F5474C64155A49B2FD1A7F6475A4D3AC9309364999E7C0F705E710F9B6EB262"
+}

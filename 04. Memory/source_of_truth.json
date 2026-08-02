@@ -404,6 +404,21 @@
       "reason": "Canonical FivePercent server-to-UTC clock model: UTC+2/+3 with EU DST calendar through 2023 and US DST calendar from 2024, verified weekly via Friday-17:00-NY close anchors."
     },
     {
+      "path": "02. AlphaFactory/tools/research/setup_fivepercent_market_data.py",
+      "status": "authoritative",
+      "reason": "Hash-bound one-use zero-trade producer source for DATA-FIVEPERCENT-5ASSET-MULTITF-004; preserves source epochs, reconciles only exact duplicate rows and null-flags continuous-BTC DST UTC ambiguity. Consumed; not a general rerun authority."
+    },
+    {
+      "path": "02. AlphaFactory/tools/research/finalize_fivepercent_market_data_receipt.py",
+      "status": "authoritative",
+      "reason": "Dataset-004 receipt-only recovery producer: independently re-hashes all 20 manifest files and protected-C reconciliation without importing MT5 or rewriting data/manifest. Consumed one-use evidence path."
+    },
+    {
+      "path": "02. AlphaFactory/data/fivepercent/FiveAssetFoundation/DATA-FIVEPERCENT-5ASSET-MULTITF-004/manifest.json",
+      "status": "authoritative",
+      "reason": "Canonical local manifest for the completed FivePercent EURUSD/USDJPY/GBPUSD/XAUUSD/BTCUSD M1/M5/H1/H4 raw corpus; 48,314,068 rows, zero orders/economics, with BTC UTC ambiguity explicit."
+    },
+    {
       "path": "02. AlphaFactory/tools/research/snapshot_c_roots.ps1",
       "status": "authoritative",
       "reason": "Zero-arg wrapper snapshotting the 4 protected C roots by delegating to tools/snapshot_mt5_storage.ps1; the digest implementation stays single-sourced."
