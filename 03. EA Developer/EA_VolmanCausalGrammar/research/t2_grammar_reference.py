@@ -10,7 +10,9 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, replace
 from datetime import datetime, timedelta, timezone
 from hashlib import sha256
+import json
 from math import ceil, exp, floor, isfinite, log, log10
+from pathlib import Path
 import re
 from statistics import mean, median
 from typing import Literal, Sequence
@@ -31,6 +33,10 @@ CAPABILITY_STATUS = {
     "build_gate": "BLOCKED_UNTIL_MQL5_PARITY_IS_ADDED",
 }
 PRODUCER_SPEC_SHA256 = "CB1DDA2B678D2F450BB2DDE05327D2734E2A430BBBC4809BB08C71110FA0BA7D"
+PRODUCER_SPEC_PATH = (
+    Path(__file__).resolve().parents[3]
+    / "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P2_FORMAL_SPEC.md"
+)
 ARM_MASKS: dict[str, tuple[int, ...]] = {
     "A0_LOCKED_BARRIER_BREAK": (1, 2, 3, 13, 14),
     "A1_PATTERN_BREAK": tuple(list(range(1, 15)) + [23]),
@@ -109,6 +115,8 @@ class CloseLabel:
     exit_index: int
     gross_r: float
     net_r: float
+    exit_open_gross_r: float
+    exit_open_net_r: float
 
 
 @dataclass(frozen=True)
@@ -125,6 +133,7 @@ class PbpAuditEvent:
     barrier_side: Side | None
     barrier_price: float | None
     barrier_price_ticks: int | None
+    tick_size: float | None
     barrier_id: str | None
     lock_utc: datetime | None
     break_index: int | None
@@ -134,6 +143,27 @@ class PbpAuditEvent:
     consumed_index: int | None
     consumed_utc: datetime | None
     producer_spec_sha256: str = PRODUCER_SPEC_SHA256
+
+
+@dataclass(frozen=True)
+class StructuralRejectEvent:
+    reason: str
+    symbol: str
+    timeframe: str
+    arm: str
+    side: Side | None
+    decision_index: int
+    decision_utc: datetime
+    barrier_id: str | None = None
+    producer_spec_sha256: str = PRODUCER_SPEC_SHA256
+
+
+@dataclass(frozen=True)
+class StructuralEmissionResult:
+    events: tuple[dict[str, object], ...]
+    pbp_audits: tuple[PbpAuditEvent, ...]
+    rejects: tuple[StructuralRejectEvent, ...]
+    stats: dict[str, int]
 
 
 @dataclass(frozen=True)
@@ -153,20 +183,58 @@ class BrokerSchedule:
     scheduled_closed_indices: frozenset[int] = frozenset()
     weekend_coverage_only: bool = False
     remap_indices: frozenset[int] = frozenset()
+    schedule_payload: bytes | None = None
 
     def __post_init__(self) -> None:
         if not self.symbol or not self.timezone:
             raise ValueError("BrokerSchedule requires nonempty symbol/timezone")
         if not re.fullmatch(r"[0-9A-Fa-f]{64}", self.schedule_sha256):
             raise ValueError("BrokerSchedule requires valid 64-hex schedule_sha256")
+        if not isinstance(self.schedule_payload, bytes) or not self.schedule_payload:
+            raise ValueError("BrokerSchedule requires the immutable schedule payload")
+        actual = sha256(self.schedule_payload).hexdigest().upper()
+        if actual != self.schedule_sha256.upper():
+            raise ValueError("BrokerSchedule payload SHA256 mismatch")
+        try:
+            document = json.loads(self.schedule_payload.decode("utf-8"))
+        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            raise ValueError("BrokerSchedule payload must be a JSON schedule document") from exc
+        payload_timezone = document.get("timezone", document.get("bar_clock"))
+        payload_remaps = document.get("remap_indices", document.get("symbol_remap_indices"))
+        if (
+            document.get("symbol") != self.symbol
+            or payload_timezone != self.timezone
+            or document.get("weekend_coverage_only") is not self.weekend_coverage_only
+            or document.get("scheduled_closed_indices")
+            != sorted(self.scheduled_closed_indices)
+            or payload_remaps != sorted(self.remap_indices)
+        ):
+            raise ValueError("BrokerSchedule runtime fields do not match its hash-bound payload")
         if not isinstance(self.scheduled_closed_indices, frozenset) or not isinstance(self.remap_indices, frozenset):
             raise ValueError("BrokerSchedule index sets must be immutable frozensets")
-        if any((not isinstance(i, int)) or i < 0 for i in self.scheduled_closed_indices | self.remap_indices):
+        if any(type(i) is not int or i < 0 for i in self.scheduled_closed_indices | self.remap_indices):
             raise ValueError("BrokerSchedule index sets must contain nonnegative integers")
 
     @classmethod
     def from_bytes(cls, symbol: str, timezone_name: str, payload: bytes, **kwargs: object) -> "BrokerSchedule":
-        return cls(symbol, timezone_name, sha256(payload).hexdigest().upper(), **kwargs)
+        immutable_payload = bytes(payload)
+        return cls(
+            symbol,
+            timezone_name,
+            sha256(immutable_payload).hexdigest().upper(),
+            schedule_payload=immutable_payload,
+            **kwargs,
+        )
+
+
+def verify_producer_spec(path: str | Path = PRODUCER_SPEC_PATH) -> str:
+    payload = Path(path).read_bytes()
+    actual = sha256(payload).hexdigest().upper()
+    if actual != PRODUCER_SPEC_SHA256:
+        raise ValueError(
+            f"P2 producer spec SHA256 mismatch expected={PRODUCER_SPEC_SHA256} actual={actual}"
+        )
+    return actual
 
 
 @dataclass(frozen=True)
@@ -310,7 +378,7 @@ def lock_barrier(
 
 def close_break(bars: Sequence[Bar], ind: Indicators, barrier: Barrier, t: int) -> bool:
     atr = ind.atr14[t]
-    if atr is None or t <= barrier.lock_index or t > barrier.expires_after_index:
+    if barrier.consumed or atr is None or t <= barrier.lock_index or t > barrier.expires_after_index:
         return False
     d = direction(barrier.side)
     return d * (bars[t - 1].close - barrier.price) <= 0 and d * (bars[t].close - barrier.price) >= 0.05 * atr
@@ -347,7 +415,7 @@ def pressure_duration(bars: Sequence[Bar], ind: Indicators, u: int, side: Side) 
     return n
 
 
-def buildup_features(bars: Sequence[Bar], ind: Indicators, barrier: Barrier, t: int, tick: float = 1e-12) -> dict[str, float] | None:
+def buildup_features(bars: Sequence[Bar], ind: Indicators, barrier: Barrier, t: int, tick: float) -> dict[str, float] | None:
     if not close_break(bars, ind, barrier, t):
         return None
     d = direction(barrier.side)
@@ -395,7 +463,7 @@ def buildup_features(bars: Sequence[Bar], ind: Indicators, barrier: Barrier, t: 
     return None
 
 
-def a1_candidate(bars: Sequence[Bar], ind: Indicators, barrier: Barrier, t: int, tick: float = 1e-12) -> Candidate | None:
+def a1_candidate(bars: Sequence[Bar], ind: Indicators, barrier: Barrier, t: int, tick: float) -> Candidate | None:
     f = buildup_features(bars, ind, barrier, t, tick)
     if f is None:
         return None
@@ -431,7 +499,7 @@ def a0_candidate(bars: Sequence[Bar], ind: Indicators, barrier: Barrier, t: int)
     )
 
 
-def a2_candidate(bars: Sequence[Bar], ind: Indicators, barrier: Barrier, t: int, tick: float = 1e-12) -> Candidate | None:
+def a2_candidate(bars: Sequence[Bar], ind: Indicators, barrier: Barrier, t: int, tick: float) -> Candidate | None:
     base = buildup_features(bars, ind, barrier, t, tick)
     if base is None or t < 2:
         return None
@@ -469,91 +537,19 @@ def a3_candidate(
     side: Side,
     active_barriers: Sequence[Barrier],
     broken_tombstones: Sequence[Barrier] = (),
+    *,
+    tick: float,
 ) -> Candidate | None:
-    if broken_tombstones:
-        candidate, _audit = a3_candidate_with_audit(bars, ind, t, side, active_barriers, broken_tombstones)
-        return candidate
-    d = direction(side)
-    for m in range(2, 7):
-        k = t - m - 1
-        if k - 7 < 0 or ind.atr14[k] is None or ind.atr14[t] is None:
-            continue
-        if pressure_duration(bars, ind, k, side) < 2:
-            continue
-        leg_amp = d * (bars[k].close - bars[k - 7].close)
-        if leg_amp < 1.20 * ind.atr14[k]:  # type: ignore[operator]
-            continue
-        correction = bars[k + 1 : t]
-        x_c = min(x.low for x in correction) if side == "LONG" else max(x.high for x in correction)
-        depth = d * (bars[k].close - x_c) / leg_amp
-        if not (0.40 <= depth <= 0.60):
-            continue
-        denom = sum(abs(bars[i].close - bars[i - 1].close) for i in range(k + 1, t))
-        corr_er = 0.0 if denom <= 0 else -d * (bars[t - 1].close - bars[k].close) / denom
-        if not (0 <= corr_er <= 0.55):
-            continue
-        if d * (bars[t - 1].close - bars[t - 2].close) < -0.10 * ind.atr14[k]:  # type: ignore[operator]
-            continue
-        if d * ind.clv[t - 1] < -0.10:
-            continue
-        if any(
-            x.side == side
-            and x.consumed_index is not None
-            and k - 7 <= x.consumed_index <= t - 1
-            for x in broken_tombstones
-        ):
-            return Candidate("A3_PULLBACK_REVERSAL", side, t, None, {}, "SKIP_PBP_EXCLUDED")
-        if any(close_break(bars, ind, b, j) and b.side == side for b in active_barriers for j in range(k - 7, t)):
-            return Candidate("A3_PULLBACK_REVERSAL", side, t, None, {}, "SKIP_PBP_EXCLUDED")
-        contact_index = min(range(k + 1, t), key=lambda i: bars[i].low if side == "LONG" else -bars[i].high)
-        structure = any(
-            b.side != side
-            and b.lock_index < k - 7
-            and b.lock_index < contact_index <= b.expires_after_index
-            and abs(x_c - b.price) <= 0.10 * ind.atr14[k]  # type: ignore[operator]
-            for b in active_barriers
-        )
-        tombstone_contact = any(
-            b.side == side
-            and b.consumed_index is not None
-            and 0 <= contact_index - b.consumed_index <= 48
-            and abs(x_c - b.price) <= 0.10 * ind.atr14[k]  # type: ignore[operator]
-            for b in broken_tombstones
-        )
-        if tombstone_contact:
-            return Candidate("A3_PULLBACK_REVERSAL", side, t, None, {}, "SKIP_PBP_EXCLUDED")
-        ema = any(
-            ind.ema25[i] is not None and bars[i].low <= ind.ema25[i] + 0.10 * ind.atr14[i] and bars[i].high >= ind.ema25[i] - 0.10 * ind.atr14[i]  # type: ignore[operator]
-            for i in range(k + 1, t)
-        )
-        if not (structure or ema):
-            continue
-        if side == "LONG":
-            release = bars[t].close >= bars[t - 1].high + 0.05 * ind.atr14[t]  # type: ignore[operator]
-        else:
-            release = bars[t].close <= bars[t - 1].low - 0.05 * ind.atr14[t]  # type: ignore[operator]
-        if release and d * (bars[t].close - bars[t].open) > 0 and d * ind.clv[t] >= 0.50:
-            pc = pressure_components(bars, ind, k, side) or {}
-            return Candidate(
-                "A3_PULLBACK_REVERSAL",
-                side,
-                t,
-                None,
-                {
-                    "pressure_disp": pc.get("disp", 0.0),
-                    "pressure_er": pc.get("er", 0.0),
-                    "pressure_mean_clv": pc.get("mean_clv", 0.0),
-                    "pressure_ema_slope": pc.get("ema_slope", 0.0),
-                    "pressure_duration": float(pressure_duration(bars, ind, k, side)),
-                    "leg_amp_atr": leg_amp / ind.atr14[k],  # type: ignore[operator]
-                    "depth": depth,
-                    "correction_duration": float(m),
-                    "corr_er": corr_er,
-                    "structure_anchor": float(structure),
-                    "ema_anchor": float(ema),
-                },
-            )
-    return None
+    candidate, _audit = a3_candidate_with_audit(
+        bars,
+        ind,
+        t,
+        side,
+        active_barriers,
+        broken_tombstones,
+        tick=tick,
+    )
+    return candidate
 
 
 @dataclass(frozen=True)
@@ -562,6 +558,16 @@ class A3StructuralState:
     k: int
     contact_index: int
     contact_price: float
+
+
+def barrier_was_active_at(barrier: Barrier, index: int) -> bool:
+    if not (barrier.lock_index < index <= barrier.expires_after_index):
+        return False
+    if barrier.consumed_index is not None and index > barrier.consumed_index:
+        return False
+    if barrier.expire_index is not None and index > barrier.expire_index:
+        return False
+    return True
 
 
 def _a3_structural_state(
@@ -598,17 +604,17 @@ def _a3_structural_state(
         structure = any(
             b.side != side
             and b.lock_index < k - 7
-            and b.lock_index < contact_index <= b.expires_after_index
-            and bars[contact_index].low <= b.price <= bars[contact_index].high
+            and barrier_was_active_at(b, contact_index)
             and abs(x_c - b.price) <= 0.10 * ind.atr14[k]  # type: ignore[operator]
             for b in active_barriers
         )
-        ema = any(
+        ema_contact = any(
             ind.ema25[i] is not None and bars[i].low <= ind.ema25[i] + 0.10 * ind.atr14[i] and bars[i].high >= ind.ema25[i] - 0.10 * ind.atr14[i]  # type: ignore[operator]
             for i in range(k + 1, t)
         )
-        if not (structure or ema):
+        if not (structure or ema_contact):
             continue
+        ema = ema_contact and not structure
         if side == "LONG":
             release = bars[t].close >= bars[t - 1].high + 0.05 * ind.atr14[t]  # type: ignore[operator]
         else:
@@ -628,6 +634,7 @@ def _a3_structural_state(
                 "pressure_ema_slope": pc.get("ema_slope", 0.0),
                 "pressure_duration": float(pressure_duration(bars, ind, k, side)),
                 "leg_amp_atr": leg_amp / ind.atr14[k],  # type: ignore[operator]
+                "correction_extreme": x_c,
                 "depth": depth,
                 "correction_duration": float(m),
                 "corr_er": corr_er,
@@ -646,19 +653,26 @@ def a3_candidate_with_audit(
     side: Side,
     active_barriers: Sequence[Barrier],
     broken_tombstones: Sequence[Barrier] = (),
-    tick: float = 1e-5,
+    *,
+    tick: float,
 ) -> tuple[Candidate | None, tuple[PbpAuditEvent, ...]]:
     audits: list[PbpAuditEvent] = []
     state = _a3_structural_state(bars, ind, t, side, active_barriers)
     if state is None:
         return None, tuple(audits)
     for b in active_barriers:
-        for j in range(state.k - 7, t):
-            if b.side == side and close_break(bars, ind, b, j):
+        candidate_breaks: Sequence[int]
+        if b.consumed_index is not None:
+            candidate_breaks = (b.consumed_index,)
+        else:
+            candidate_breaks = range(state.k - 7, t)
+        for j in candidate_breaks:
+            unconsumed = replace(b, consumed=False, consumed_index=None)
+            if b.side == side and state.k - 7 <= j <= t - 1 and close_break(bars, ind, unconsumed, j):
                 audits.append(PbpAuditEvent(
                     "PBP_BREAK_WINDOW", b.symbol, "M5", side, j, bars[j].utc_open,
                     t, bars[t].utc_open, state.k, b.side, b.price, round(b.price / tick),
-                    b.barrier_id, b.lock_utc, j, bars[j].utc_open, None, None,
+                    tick, b.barrier_id, b.lock_utc, j, bars[j].utc_open, None, None,
                     b.consumed_index,
                     bars[b.consumed_index].utc_open if b.consumed_index is not None and b.consumed_index < len(bars) else None,
                 ))
@@ -671,7 +685,7 @@ def a3_candidate_with_audit(
                 audits.append(PbpAuditEvent(
                     "PBP_TOMBSTONE_CONTACT", b.symbol, "M5", side, ci, bars[ci].utc_open,
                     t, bars[t].utc_open, state.k, b.side, b.price, round(b.price / tick),
-                    b.barrier_id, b.lock_utc, None, None, ci, bars[ci].utc_open,
+                    tick, b.barrier_id, b.lock_utc, None, None, ci, bars[ci].utc_open,
                     b.consumed_index, bars[b.consumed_index].utc_open,
                 ))
                 return replace(state.candidate, reject_reason="SKIP_PBP_EXCLUDED"), tuple(audits)
@@ -679,6 +693,18 @@ def a3_candidate_with_audit(
 
 
 def cost_geometry(entry: float, invalidation: float, atr: float, cost: CostInputs) -> dict[str, float]:
+    required = (
+        entry,
+        invalidation,
+        atr,
+        cost.observed_spread,
+        cost.train_p90_nonzero_spread,
+        cost.roundtrip_commission_cash,
+        cost.tick_size,
+        cost.tick_value,
+    )
+    if not all(isfinite(value) for value in required):
+        raise ValueError("invalid nonfinite cost contract")
     if min(cost.observed_spread, cost.train_p90_nonzero_spread, cost.roundtrip_commission_cash, cost.tick_size, cost.tick_value) <= 0:
         raise ValueError("invalid non-positive cost contract")
     commission_price = cost.roundtrip_commission_cash / cost.tick_value * cost.tick_size
@@ -702,12 +728,23 @@ def round_grid_room(entry: float, side: Side, risk: float, median_train_atr: flo
     return direction(side) * (g - entry) / risk, 0
 
 
-def nearest_opposing_room(entry: float, side: Side, risk: float, active_barriers: Sequence[Barrier], trigger_barrier_id: str | None = None) -> float:
+def nearest_opposing_room(
+    entry: float,
+    side: Side,
+    risk: float,
+    active_barriers: Sequence[Barrier],
+    *,
+    asof_index: int,
+    trigger_barrier_id: str | None = None,
+) -> float:
     d = direction(side)
     candidates = [
         d * (b.price - entry)
         for b in active_barriers
-        if not b.consumed and b.side == side and b.barrier_id != trigger_barrier_id and d * (b.price - entry) > 0
+        if b.side == side
+        and b.barrier_id != trigger_barrier_id
+        and barrier_was_active_at(b, asof_index)
+        and d * (b.price - entry) > 0
     ]
     if risk <= 0:
         raise ValueError("non-positive risk")
@@ -753,7 +790,14 @@ def finalize_candidate_context(
         raise ValueError("ATR unavailable for model context")
     geom = cost_geometry(entry, invalidation, atr, cost)
     grid_room, grid_missing = round_grid_room(entry, candidate.side, geom["r"], median_train_atr, tick)
-    room = nearest_opposing_room(entry, candidate.side, geom["r"], active_barriers, candidate.barrier.barrier_id if candidate.barrier else None)
+    room = nearest_opposing_room(
+        entry,
+        candidate.side,
+        geom["r"],
+        active_barriers,
+        asof_index=candidate.trigger_index,
+        trigger_barrier_id=candidate.barrier.barrier_id if candidate.barrier else None,
+    )
     context = ModelContext(room, grid_room, grid_missing, geom["rho"], geom["R_cash"] / atr)
     finalized = attach_model_context(candidate, context)
     finalized = replace(finalized, features=finalized.features | {
@@ -799,13 +843,16 @@ def daily_entry_decision(
     entry_index = candidate.trigger_index + 1
     if entry_index >= len(bars):
         return EntryDecision(False, "SKIP_NO_NEXT_OPEN", None, None, {}, True)
-    required_exit_open_index = entry_index + horizon_bars + 1
-    if required_exit_open_index >= len(bars):
-        return EntryDecision(False, "SKIP_INSUFFICIENT_HORIZON_BARS", None, None, {}, True)
+    required_exit_open_index = entry_index + horizon_bars
     if any(i in scheduled_closed_indices for i in range(entry_index, required_exit_open_index + 1)):
         return EntryDecision(False, "SKIP_HORIZON_CROSSES_SCHEDULED_CLOSE", None, None, {}, True)
     flat_t = datetime(2000, 1, 1, 23, 55).time()
-    if any(bars[i].utc_open.weekday() == 4 and bars[i].utc_open.time() >= flat_t for i in range(entry_index, required_exit_open_index + 1)):
+    entry_time = bars[entry_index].utc_open
+    if any(
+        (entry_time + timedelta(minutes=5 * offset)).weekday() == 4
+        and (entry_time + timedelta(minutes=5 * offset)).time() >= flat_t
+        for offset in range(horizon_bars + 1)
+    ):
         return EntryDecision(False, "SKIP_FRIDAY_FLAT_HORIZON", None, None, {}, True)
     ind = compute_indicators(bars)
     derived = derived_invalidation(bars, ind, candidate)
@@ -864,20 +911,37 @@ def daily_entry_decision_from_finalized(
 def close_only_label(bars: Sequence[Bar], entry_index: int, side: Side, entry_reference: float, risk: float, cost: float, horizon_bars: int = 12, scheduled_exit_index: int | None = None) -> CloseLabel:
     if risk <= 0 or not isfinite(risk) or not isfinite(cost):
         raise ValueError("invalid label risk/cost")
-    if scheduled_exit_index is None and entry_index + horizon_bars + 1 >= len(bars):
+    if scheduled_exit_index is None and entry_index + horizon_bars >= len(bars):
         raise ValueError("ENGINEERING_INVALID_INSUFFICIENT_CLOSE_ONLY_HORIZON")
     d = direction(side)
-    last = min(len(bars) - 1, entry_index + horizon_bars if scheduled_exit_index is None else scheduled_exit_index - 1)
-    for j in range(entry_index + 1, last + 1):
+    last = min(len(bars) - 1, entry_index + horizon_bars - 1 if scheduled_exit_index is None else scheduled_exit_index - 1)
+    for j in range(entry_index, last + 1):
         x = d * (bars[j].close - entry_reference)
         if x <= -risk:
-            return CloseLabel(0, "CLOSE_STOP", min(j + 1, len(bars) - 1), -1.0, (-risk - cost) / risk)
+            exit_index = j + 1
+            if exit_index >= len(bars):
+                raise ValueError("ENGINEERING_INVALID_MISSING_EXIT_OPEN")
+            gross_r = d * (bars[exit_index].open - entry_reference) / risk
+            return CloseLabel(0, "CLOSE_STOP", exit_index, -1.0, -1.0 - cost / risk, gross_r, gross_r - cost / risk)
         if x >= 2 * risk:
-            return CloseLabel(1, "CLOSE_TARGET", min(j + 1, len(bars) - 1), 2.0, (2 * risk - cost) / risk)
+            exit_index = j + 1
+            if exit_index >= len(bars):
+                raise ValueError("ENGINEERING_INVALID_MISSING_EXIT_OPEN")
+            gross_r = d * (bars[exit_index].open - entry_reference) / risk
+            return CloseLabel(1, "CLOSE_TARGET", exit_index, 2.0, 2.0 - cost / risk, gross_r, gross_r - cost / risk)
     exit_index = scheduled_exit_index if scheduled_exit_index is not None else last + 1
     if exit_index >= len(bars):
         raise ValueError("ENGINEERING_INVALID_MISSING_EXIT_OPEN")
-    return CloseLabel(0, "TIME_EXIT", exit_index, 0.0, -cost / risk)
+    gross_r = d * (bars[exit_index].open - entry_reference) / risk
+    return CloseLabel(
+        0,
+        "TIME_EXIT",
+        exit_index,
+        -1.0,
+        -1.0 - cost / risk,
+        gross_r,
+        gross_r - cost / risk,
+    )
 
 
 def select_nearest_break_and_consume(bars: Sequence[Bar], ind: Indicators, barriers: Sequence[Barrier], t: int, side: Side) -> tuple[Barrier | None, list[Barrier]]:
@@ -898,7 +962,7 @@ def append_prefix_invariant(events_before: Sequence[object], events_after_prefix
     return list(events_before) == list(events_after_prefix[: len(events_before)])
 
 
-def generated_engine_events(bars: Sequence[Bar], barrier: Barrier, tick: float = 1e-5) -> list[tuple[str, str, int]]:
+def generated_engine_events(bars: Sequence[Bar], barrier: Barrier, tick: float) -> list[tuple[str, str, int]]:
     ind = compute_indicators(bars)
     events: list[tuple[str, str, int]] = []
     current = barrier
@@ -915,6 +979,306 @@ def generated_engine_events(bars: Sequence[Bar], barrier: Barrier, tick: float =
             if a2_candidate(bars, ind, preconsume, t, tick):
                 events.append(("A2", current.barrier_id, t))
     return events
+
+
+def emit_t2_d7_structural_identities(
+    bars: Sequence[Bar],
+    *,
+    symbol: str,
+    tick: float,
+    schedule: BrokerSchedule,
+    timeframe: str = "M5",
+    warmup_bars: int = 50,
+) -> StructuralEmissionResult:
+    """Emit the frozen D7 EURUSD/M5 A0-A3 population without outcome reads.
+
+    This intentionally is not a generic multi-symbol engine.  D7 has one exact
+    primary scope; other-symbol replay must use a separately frozen schedule
+    and formula-generalization contract.
+    """
+    verify_producer_spec()
+    if symbol != "EURUSD" or timeframe != "M5" or tick <= 0 or not isfinite(tick):
+        raise ValueError("D7 structural ledger requires exact EURUSD/M5 scope and finite tick")
+    if schedule.symbol != symbol:
+        raise ValueError("D7 BrokerSchedule symbol does not match the ledger symbol")
+    if not schedule.weekend_coverage_only:
+        raise ValueError("D7 EURUSD schedule must classify weekend bars as coverage-only")
+    if warmup_bars < 50:
+        raise ValueError("warmup_bars cannot weaken the frozen 50-bar minimum")
+    if not bars:
+        return StructuralEmissionResult(
+            (),
+            (),
+            (),
+            {
+                "bars": 0,
+                "segments": 0,
+                "gap_resets": 0,
+                "schedule_resets": 0,
+                "weekend_resets": 0,
+                "raw_candidates": 0,
+                "identities": 0,
+                "pbp_audits": 0,
+                "rejects": 0,
+            },
+        )
+
+    for i, bar in enumerate(bars):
+        if bar.utc_open.tzinfo is None or bar.utc_open.utcoffset() != timedelta(0):
+            raise ValueError(f"INVALID_DATA_NON_UTC_BAR index={i}")
+        if i and bar.utc_open <= bars[i - 1].utc_open:
+            raise ValueError(f"INVALID_DATA_NONMONOTONIC_TIME index={i}")
+        values = (bar.open, bar.high, bar.low, bar.close)
+        if not all(isfinite(value) for value in values):
+            raise ValueError(f"INVALID_DATA_NONFINITE_OHLC index={i}")
+        if bar.high < max(bar.open, bar.close) or bar.low > min(bar.open, bar.close):
+            raise ValueError(f"INVALID_DATA_OHLC_ENVELOPE index={i}")
+
+    segments: list[list[Bar]] = []
+    segment: list[Bar] = []
+    rejects: list[StructuralRejectEvent] = []
+    gap_resets = 0
+    schedule_resets = 0
+    weekend_resets = 0
+    in_weekend_block = False
+
+    def reset_reject(reason: str, index: int, bar: Bar) -> None:
+        rejects.append(
+            StructuralRejectEvent(
+                reason,
+                symbol,
+                timeframe,
+                "STATE",
+                None,
+                index,
+                bar.utc_open,
+            )
+        )
+
+    for source_index, bar in enumerate(bars):
+        if bar.utc_open.weekday() >= 5:
+            if segment:
+                segments.append(segment)
+                segment = []
+            if not in_weekend_block:
+                weekend_resets += 1
+                reset_reject("WEEKEND_COVERAGE_ONLY_RESET", source_index, bar)
+            in_weekend_block = True
+            continue
+        in_weekend_block = False
+        if not segment:
+            segment = [bar]
+            continue
+        prior = segment[-1]
+        scheduled = source_index in schedule.scheduled_closed_indices
+        remapped = source_index in schedule.remap_indices
+        contiguous = bar.utc_open - prior.utc_open == timedelta(minutes=5)
+        if scheduled or remapped or not contiguous:
+            segments.append(segment)
+            segment = [bar]
+            if scheduled or remapped:
+                schedule_resets += 1
+                reset_reject(
+                    "SCHEDULED_RESET" if scheduled else "SYMBOL_REMAP_RESET",
+                    source_index,
+                    bar,
+                )
+            else:
+                gap_resets += 1
+                reset_reject("UNEXPECTED_GAP_RESET_WARMUP_50", source_index, bar)
+            continue
+        segment.append(bar)
+    if segment:
+        segments.append(segment)
+
+    event_rows: dict[tuple[str, str, str, str, str], dict[str, object]] = {}
+    audits: list[PbpAuditEvent] = []
+    raw_candidates = 0
+
+    for segment in segments:
+        if len(segment) < 2:
+            continue
+        ind = compute_indicators(segment)
+        active: list[Barrier] = []
+        history: dict[str, Barrier] = {}
+
+        for t in range(len(segment) - 1):
+            retained_active: list[Barrier] = []
+            for barrier in active:
+                if t > barrier.expires_after_index:
+                    expired = replace(barrier, expire_index=barrier.expires_after_index)
+                    history[expired.barrier_id] = expired
+                else:
+                    retained_active.append(barrier)
+            active = retained_active
+
+            for side in ("LONG", "SHORT"):
+                selected, updated = select_nearest_break_and_consume(segment, ind, active, t, side)
+                active = updated
+                for barrier in updated:
+                    history[barrier.barrier_id] = barrier
+                if selected is None:
+                    continue
+                candidates = [
+                    a0_candidate(segment, ind, selected, t),
+                    a1_candidate(segment, ind, selected, t, tick),
+                    a2_candidate(segment, ind, selected, t, tick),
+                ]
+                for candidate in candidates:
+                    if candidate is not None and candidate.reject_reason is None:
+                        raw_candidates += 1
+                        if t + 1 < warmup_bars:
+                            rejects.append(
+                                StructuralRejectEvent(
+                                    "SKIP_WARMUP",
+                                    symbol,
+                                    timeframe,
+                                    candidate.arm,
+                                    candidate.side,
+                                    t,
+                                    segment[t].utc_open,
+                                    selected.barrier_id,
+                                )
+                            )
+                        elif _d7_entry_in_scope(segment[t + 1].utc_open):
+                            _merge_structural_identity(event_rows, segment, candidate, symbol, timeframe)
+
+            active = [barrier for barrier in active if not barrier.consumed]
+            recent_history = [
+                barrier
+                for barrier in history.values()
+                if _barrier_recent_for_a3(barrier, t)
+            ]
+            broken_tombstones = [barrier for barrier in recent_history if barrier.consumed_index is not None]
+            for side in ("LONG", "SHORT"):
+                candidate, emitted_audits = a3_candidate_with_audit(
+                    segment,
+                    ind,
+                    t,
+                    side,
+                    recent_history,
+                    broken_tombstones,
+                    tick=tick,
+                )
+                if candidate is not None:
+                    raw_candidates += 1
+                    if t + 1 < warmup_bars:
+                        rejects.append(
+                            StructuralRejectEvent(
+                                "SKIP_WARMUP",
+                                symbol,
+                                timeframe,
+                                candidate.arm,
+                                candidate.side,
+                                t,
+                                segment[t].utc_open,
+                            )
+                        )
+                    elif candidate.reject_reason is not None:
+                        rejects.append(
+                            StructuralRejectEvent(
+                                candidate.reject_reason,
+                                symbol,
+                                timeframe,
+                                candidate.arm,
+                                candidate.side,
+                                t,
+                                segment[t].utc_open,
+                            )
+                        )
+                        if _d7_entry_in_scope(segment[t + 1].utc_open):
+                            audits.extend(emitted_audits)
+                    elif _d7_entry_in_scope(segment[t + 1].utc_open):
+                        audits.extend(emitted_audits)
+                        _merge_structural_identity(event_rows, segment, candidate, symbol, timeframe)
+
+            for side in ("LONG", "SHORT"):
+                locked = lock_barrier(segment, ind, symbol, t, side, tick, active)
+                if locked is not None:
+                    active.append(locked)
+                    history[locked.barrier_id] = locked
+
+            history = {
+                barrier_id_value: barrier
+                for barrier_id_value, barrier in history.items()
+                if _barrier_recent_for_a3(barrier, t)
+            }
+
+    events = sorted(
+        event_rows.values(),
+        key=lambda row: (
+            str(row["signal_time_utc"]),
+            str(row["direction"]),
+            str(row["event_key"]),
+        ),
+    )
+    stats = {
+        "bars": len(bars),
+        "segments": len(segments),
+        "gap_resets": gap_resets,
+        "schedule_resets": schedule_resets,
+        "weekend_resets": weekend_resets,
+        "raw_candidates": raw_candidates,
+        "identities": len(events),
+        "pbp_audits": len(audits),
+        "rejects": len(rejects),
+    }
+    return StructuralEmissionResult(tuple(events), tuple(audits), tuple(rejects), stats)
+
+
+def _d7_entry_in_scope(entry_utc: datetime) -> bool:
+    return datetime(2019, 1, 1, tzinfo=timezone.utc) <= entry_utc <= datetime(
+        2022, 12, 31, 23, 59, 59, tzinfo=timezone.utc
+    )
+
+
+def _barrier_recent_for_a3(barrier: Barrier, index: int) -> bool:
+    terminal_index = (
+        barrier.consumed_index
+        if barrier.consumed_index is not None
+        else barrier.expire_index
+        if barrier.expire_index is not None
+        else barrier.expires_after_index
+    )
+    return index <= terminal_index or index - terminal_index <= 48
+
+
+def _merge_structural_identity(
+    rows: dict[tuple[str, str, str, str, str], dict[str, object]],
+    bars: Sequence[Bar],
+    candidate: Candidate,
+    symbol: str,
+    timeframe: str,
+) -> None:
+    signal_utc = bars[candidate.trigger_index].utc_open.isoformat().replace("+00:00", "Z")
+    entry_utc = bars[candidate.trigger_index + 1].utc_open.isoformat().replace("+00:00", "Z")
+    key = (symbol, timeframe, signal_utc, entry_utc, candidate.side)
+    row = rows.get(key)
+    arm = candidate.arm
+    barrier_value = candidate.barrier.barrier_id if candidate.barrier is not None else None
+    if row is None:
+        row = {
+            "namespace": "T2_STRUCTURAL_A0_A3",
+            "symbol": symbol,
+            "timeframe": timeframe,
+            "signal_time_utc": signal_utc,
+            "entry_time_utc": entry_utc,
+            "direction": candidate.side,
+            "arms": [arm],
+            "barrier_ids": [barrier_value] if barrier_value is not None else [],
+            "producer_spec_sha256": PRODUCER_SPEC_SHA256,
+            "event_key": "|".join(key),
+        }
+        rows[key] = row
+        return
+    arms = row["arms"]
+    barrier_ids = row["barrier_ids"]
+    if isinstance(arms, list) and arm not in arms:
+        arms.append(arm)
+        arms.sort()
+    if isinstance(barrier_ids, list) and barrier_value is not None and barrier_value not in barrier_ids:
+        barrier_ids.append(barrier_value)
+        barrier_ids.sort()
 
 
 def parity_vector(candidate: Candidate, bars: Sequence[Bar], ind: Indicators) -> dict[str, object]:
@@ -1137,8 +1501,8 @@ def fit_sigmoid_calibration(p_raw: Sequence[float], y: Sequence[int]) -> Calibra
         raise ValueError("calibration p/y length mismatch")
     if any(yi not in (0, 1) for yi in y):
         raise ValueError("calibration labels must be 0/1")
-    if any((not isfinite(p)) or p <= 0 or p >= 1 for p in p_raw):
-        raise ValueError("calibration probabilities must be finite and inside (0,1)")
+    if any(not isfinite(p) for p in p_raw):
+        raise ValueError("calibration probabilities must be finite")
     if len(set(y)) != 2:
         raise ValueError("single-class calibration set is fatal")
     import numpy as np
@@ -1185,14 +1549,14 @@ def schedule_state(prev: Bar, current: Bar, scheduled_closed: bool = False, in_p
 
 
 def schedule_step(prev: Bar, current: Bar, schedule: BrokerSchedule, *, index: int, warmup_remaining: int, in_position: bool = False, setup_active: bool = False) -> ScheduleStep:
+    if current.utc_open <= prev.utc_open:
+        return ScheduleStep("INVALID_DATA", 50, True)
     if index in schedule.scheduled_closed_indices:
         return ScheduleStep("SKIP_GAP_CONTEXT" if setup_active else "SCHEDULED_RESET", 50)
     if index in schedule.remap_indices:
         return ScheduleStep("SKIP_GAP_CONTEXT" if setup_active else "SYMBOL_REMAP_RESET", 50)
     if schedule.weekend_coverage_only and current.utc_open.weekday() >= 5:
         return ScheduleStep("SKIP_GAP_CONTEXT" if setup_active else "WEEKEND_COVERAGE_ONLY_RESET", 50)
-    if current.utc_open <= prev.utc_open:
-        return ScheduleStep("INVALID_DATA", 50, True)
     raw = schedule_state(prev, current, scheduled_closed=index in schedule.scheduled_closed_indices, in_position=in_position)
     if raw == "CONTIGUOUS":
         return ScheduleStep("WARMING_UP" if warmup_remaining > 1 else "READY", max(0, warmup_remaining - 1))

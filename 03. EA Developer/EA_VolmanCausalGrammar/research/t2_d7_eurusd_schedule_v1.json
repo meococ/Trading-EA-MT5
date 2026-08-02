@@ -1,0 +1,17 @@
+{
+  "schema_version": "t2_d7_broker_schedule.v1",
+  "authority": "P3_OUTCOME_BLIND_DEDUP_ONLY",
+  "symbol": "EURUSD",
+  "timeframe": "M5",
+  "bar_clock": "UTC",
+  "source_clock": "FivePercent server-aligned M5 with UTC identity timestamps",
+  "weekend_coverage_only": true,
+  "scheduled_closed_indices": [],
+  "symbol_remap_indices": [],
+  "unlisted_non_300_second_intervals": "UNEXPECTED_GAP_RESET_WARMUP_50",
+  "notes": [
+    "This policy grants no economic, MT5, data-quality, or build authority.",
+    "No closure is guessed: only explicitly listed indices are scheduled closures.",
+    "Weekend rows, if present, never update EURUSD economic state."
+  ]
+}

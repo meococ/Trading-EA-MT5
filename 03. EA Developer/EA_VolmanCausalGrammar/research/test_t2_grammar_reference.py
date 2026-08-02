@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+from dataclasses import FrozenInstanceError, replace
 from datetime import datetime, timedelta, timezone
 from random import Random
+import json
 
 import pytest
 
@@ -10,6 +12,7 @@ from t2_grammar_reference import (
     ARM_MASKS,
     Barrier,
     CAPABILITY_STATUS,
+    PRODUCER_SPEC_SHA256,
     CostInputs,
     BrokerSchedule,
     DailyArmLedger,
@@ -32,6 +35,7 @@ from t2_grammar_reference import (
     fit_train_normalization,
     fit_weighted_logistic,
     generated_engine_events,
+    emit_t2_d7_structural_identities,
     apply_normalization,
     apply_sigmoid_calibration,
     attach_model_context,
@@ -47,6 +51,7 @@ from t2_grammar_reference import (
     schedule_state,
     schedule_step,
     select_nearest_break_and_consume,
+    verify_producer_spec,
 )
 
 
@@ -56,6 +61,27 @@ def bars_from_closes(closes, start=1.0, step_minutes=5):
     for i, c in enumerate(closes):
         bars.append(Bar(t0 + timedelta(minutes=i * step_minutes), c - 0.08, c + 0.02, c - 0.10, c))
     return bars
+
+
+def schedule_bytes(
+    symbol,
+    *,
+    timezone_name="UTC",
+    weekend_coverage_only=False,
+    scheduled_closed_indices=(),
+    remap_indices=(),
+):
+    return json.dumps(
+        {
+            "symbol": symbol,
+            "timezone": timezone_name,
+            "weekend_coverage_only": weekend_coverage_only,
+            "scheduled_closed_indices": sorted(scheduled_closed_indices),
+            "remap_indices": sorted(remap_indices),
+        },
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
 
 
 def mirror_bars(bars):
@@ -115,14 +141,14 @@ def test_pressure_and_a1_positive_and_long_short_mirror():
     bars, ind, barrier = positive_a1_bars()
     assert CAPABILITY_STATUS["status"] == "PARTIAL_PRE_BUILD_REFERENCE"
     assert pressure_true(bars, ind, 31, "LONG")
-    cand = a1_candidate(bars, ind, barrier, 40)
+    cand = a1_candidate(bars, ind, barrier, 40, tick=0.01)
     assert cand and cand.arm == "A1_PATTERN_BREAK"
     assert a0_candidate(bars, ind, barrier, 40)
 
     mb = mirror_bars(bars)
     mind = compute_indicators(mb)
     mbarrier = manual_barrier(mb, "SHORT", -3.0, 30, mind.atr14[30] or 0.2)
-    mcand = a1_candidate(mb, mind, mbarrier, 40)
+    mcand = a1_candidate(mb, mind, mbarrier, 40, tick=0.01)
     assert mcand and mcand.side == "SHORT"
 
 
@@ -150,20 +176,60 @@ def test_duplicate_barrier_and_close_break_consumption_rule():
     chosen, updated = select_nearest_break_and_consume(bars2, compute_indicators(bars2), [b, manual_barrier(bars2, "LONG", 1.31, 20, 0.1)], 26, "LONG")
     assert chosen and chosen.price == pytest.approx(1.30)
     assert sum(1 for x in updated if x.consumed) == 2
+    replay, replayed = select_nearest_break_and_consume(
+        bars2, compute_indicators(bars2), updated, 26, "LONG"
+    )
+    assert replay is None
+    assert replayed == updated
     equal = manual_barrier(bars2, "LONG", bars2[25].close, 20, 0.1)
     chosen2, updated2 = select_nearest_break_and_consume(bars2, compute_indicators(bars2), [equal], 26, "LONG")
     assert chosen2 is None
     assert updated2[0].consumed
 
 
+def test_insufficient_touches_and_barrier_mutation_are_explicitly_rejected():
+    closes = [1.0 + 0.01 * index for index in range(40)]
+    bars = [
+        Bar(
+            datetime(2020, 1, 6, tzinfo=timezone.utc) + timedelta(minutes=5 * index),
+            close - 0.005,
+            close + 0.001 * index,
+            close - 0.02,
+            close,
+        )
+        for index, close in enumerate(closes)
+    ]
+    assert lock_barrier(bars, compute_indicators(bars), "EURUSD", 30, "LONG", 0.00001) is None
+    _, _, locked = positive_a1_bars()
+    with pytest.raises(FrozenInstanceError):
+        locked.price = locked.price + 0.01
+
+
 def test_a3_reversal_and_pbp_exclusion():
     bars, ind, support = positive_a3_bars()
-    cand = a3_candidate(bars, ind, 37, "LONG", [support])
+    cand = a3_candidate(bars, ind, 37, "LONG", [support], tick=0.01)
     assert cand is not None and cand.reject_reason is None
+    assert cand.features["correction_extreme"] == pytest.approx(2.00)
+    assert cand.features["structure_anchor"] == 1.0
+    assert cand.features["ema_anchor"] == 0.0
+
+    more = list(bars) + [
+        Bar(bars[-1].utc_open + timedelta(minutes=5), 2.51, 2.54, 2.48, 2.52)
+    ]
+    finalized = finalize_candidate_context_import()(
+        more,
+        compute_indicators(more),
+        cand,
+        [support],
+        CostInputs(0.001, 0.0015, 0.01, 0.001, 1.0),
+        tick=0.001,
+        median_train_atr=0.20,
+    )
+    assert finalized.features["derived_invalidation"] < cand.features["correction_extreme"]
 
     broken = manual_barrier(bars, "LONG", 2.35, 28, ind.atr14[33] or 0.2)
     broken = Barrier(**{**broken.__dict__, "consumed": True, "consumed_index": 34})
-    rejected = a3_candidate(bars, ind, 37, "LONG", [support, broken], [broken])
+    rejected = a3_candidate(bars, ind, 37, "LONG", [support, broken], [broken], tick=0.01)
     assert rejected and rejected.reject_reason == "SKIP_PBP_EXCLUDED"
     rejected2, audit = a3_candidate_with_audit(bars, ind, 37, "LONG", [support, broken], [broken], tick=0.01)
     assert rejected2 and rejected2.reject_reason == "SKIP_PBP_EXCLUDED"
@@ -209,6 +275,84 @@ def test_a3_invalid_release_or_contact_emits_no_pbp_audit_and_tick_normalizes():
     assert audit3[0].barrier_price_ticks == round(2.00 / 0.10)
 
 
+@pytest.mark.parametrize("correction_low", [2.20, 1.80], ids=["depth_below_0_40", "depth_above_0_60"])
+def test_a3_depth_outside_frozen_interval_is_rejected(correction_low):
+    bars, _, support = positive_a3_bars()
+    changed = list(bars)
+    old = changed[35]
+    changed[35] = Bar(old.utc_open, old.open, old.high, correction_low, old.close)
+    assert a3_candidate(
+        changed,
+        compute_indicators(changed),
+        37,
+        "LONG",
+        [support],
+        tick=0.01,
+    ) is None
+
+
+@pytest.mark.parametrize(
+    "failure_kind",
+    ["no_pressure", "no_contraction", "no_overlap", "no_progression", "counter_excursion"],
+)
+def test_a1_named_buildup_failure_fixtures_are_rejected(failure_kind):
+    bars, _, barrier = positive_a1_bars()
+    changed = list(bars)
+    if failure_kind == "no_pressure":
+        for index in range(25, 40):
+            old = changed[index]
+            changed[index] = Bar(old.utc_open, 2.94, 3.0, 2.86, 2.95)
+    elif failure_kind == "no_contraction":
+        for index in range(32, 40):
+            old = changed[index]
+            changed[index] = Bar(old.utc_open, old.open, old.high, 2.0, old.close)
+    elif failure_kind == "no_overlap":
+        for index in range(32, 40):
+            old = changed[index]
+            high = 3.0 if index in (38, 39) else old.close + 0.001
+            changed[index] = Bar(old.utc_open, old.close, high, old.close - 0.001, old.close)
+    elif failure_kind == "no_progression":
+        for index in range(32, 40):
+            old = changed[index]
+            changed[index] = Bar(
+                old.utc_open,
+                old.open,
+                old.high,
+                2.92 - 0.01 * (index - 32),
+                old.close,
+            )
+    else:
+        for index in range(32, 40):
+            old = changed[index]
+            changed[index] = Bar(old.utc_open, old.open, old.high, 2.86, old.close)
+    assert a1_candidate(changed, compute_indicators(changed), barrier, 40, tick=0.01) is None
+
+
+def test_a2_exact_inside_boundaries_pass_and_each_boundary_failure_rejects():
+    bars, _, barrier = positive_a2_bars()
+    mother = bars[38]
+    inside = bars[39]
+    exact = list(bars)
+    exact[39] = Bar(
+        inside.utc_open,
+        2.96,
+        mother.high + 0.5 * 0.01,
+        mother.high + 0.5 * 0.01 - 0.75 * (mother.high - mother.low),
+        2.96,
+    )
+    assert a2_candidate(exact, compute_indicators(exact), barrier, 40, tick=0.01)
+
+    failures = [
+        Bar(inside.utc_open, inside.open, mother.high + 0.006, inside.low, inside.close),
+        Bar(inside.utc_open, inside.open, inside.high, mother.low - 0.006, inside.close),
+        Bar(inside.utc_open, inside.open, mother.high, mother.low, inside.close),
+    ]
+    for invalid_inside in failures:
+        changed = list(bars)
+        changed[39] = invalid_inside
+        assert a2_candidate(changed, compute_indicators(changed), barrier, 40, tick=0.01) is None
+
+
 def test_cost_counted_once_break_even_and_rejects():
     g = cost_geometry(1.2000, 1.1990, 0.0012, CostInputs(0.00008, 0.00010, 7.0, 0.00001, 1.0))
     expected_cost = 0.00010 + 7.0 / 1.0 * 0.00001 + 2 * 0.00001
@@ -217,11 +361,13 @@ def test_cost_counted_once_break_even_and_rejects():
     assert first_margin_crossing(0.0, 0.001)
     with pytest.raises(ValueError):
         cost_geometry(1.2, 1.2, 0.001, CostInputs(0.1, 0.1, 1, 0.01, 1))
+    with pytest.raises(ValueError, match="nonfinite"):
+        cost_geometry(1.2, 1.1, 0.1, CostInputs(0.01, float("nan"), 1, 0.01, 1))
 
 
 def test_next_open_daily_label_cost_once_and_room():
     bars, ind, barrier = positive_a1_bars()
-    cand = a1_candidate(bars, ind, barrier, 40)
+    cand = a1_candidate(bars, ind, barrier, 40, tick=0.01)
     more = list(bars)
     t = more[-1].utc_open
     for k in range(1, 15):
@@ -236,14 +382,58 @@ def test_next_open_daily_label_cost_once_and_room():
     assert label.net_r == pytest.approx((2 * 0.15 - decision.geometry["cost"]) / 0.15)
     assert not daily_entry_decision(more, cand, 0.01, 0.02, invalidation=inv, cost=cost).consumed_date
     opposing = Barrier("EURUSD", "LONG", 3.50, 20, more[20].utc_open, (10, 15, 20), 0.2, "OPPOSING", 60)
-    assert nearest_opposing_room(3.05, "LONG", 0.10, [opposing], barrier.barrier_id) == pytest.approx(4.5)
+    assert nearest_opposing_room(
+        3.05,
+        "LONG",
+        0.10,
+        [opposing],
+        asof_index=40,
+        trigger_barrier_id=barrier.barrier_id,
+    ) == pytest.approx(4.5)
     with pytest.raises(ValueError, match="INSUFFICIENT_CLOSE_ONLY_HORIZON"):
         close_only_label(more[:45], decision.entry_index, "LONG", decision.entry_reference, decision.geometry["r"], decision.geometry["cost"])
 
 
+def test_close_only_entry_bar_and_time_exit_keep_label_and_actual_spaces_separate():
+    t0 = datetime(2020, 1, 6, tzinfo=timezone.utc)
+    target_bars = [
+        Bar(t0, 1.0, 3.2, 0.9, 3.1),
+        Bar(t0 + timedelta(minutes=5), 3.4, 3.5, 3.3, 3.4),
+    ]
+    target = close_only_label(target_bars, 0, "LONG", 1.0, 1.0, 0.1, horizon_bars=1)
+    assert target.exit_reason == "CLOSE_TARGET" and target.exit_index == 1
+    assert target.gross_r == 2.0 and target.exit_open_gross_r == pytest.approx(2.4)
+
+    timed = [
+        Bar(t0 + timedelta(minutes=5 * index), 1.4 if index == 12 else 1.0, 1.5, 0.8, 1.05)
+        for index in range(13)
+    ]
+    time_exit = close_only_label(timed, 0, "LONG", 1.0, 1.0, 0.1, horizon_bars=12)
+    assert time_exit.exit_reason == "TIME_EXIT" and time_exit.label == 0
+    assert time_exit.gross_r == -1.0 and time_exit.net_r == pytest.approx(-1.1)
+    assert time_exit.exit_open_gross_r == pytest.approx(0.4)
+    assert time_exit.exit_open_net_r == pytest.approx(0.3)
+
+
+def test_daily_decision_is_prefix_causal_without_future_horizon_bars():
+    bars, _, barrier = positive_a1_bars()
+    candidate = a1_candidate(bars, compute_indicators(bars), barrier, 40, tick=0.01)
+    entry_bar = Bar(bars[-1].utc_open + timedelta(minutes=5), 3.05, 3.08, 3.00, 3.06)
+    prefix = list(bars) + [entry_bar]
+    suffix = prefix + [
+        Bar(entry_bar.utc_open + timedelta(minutes=5 * index), 9.0, 10.0, 8.0, 9.0)
+        for index in range(1, 20)
+    ]
+    invalidation = derived_invalidation(prefix, compute_indicators(prefix), candidate)
+    cost = CostInputs(0.002, 0.003, 0.01, 0.001, 1.0)
+    before = daily_entry_decision(prefix, candidate, -1.0, 1.0, invalidation, cost)
+    after = daily_entry_decision(suffix, candidate, -1.0, 1.0, invalidation, cost)
+    assert before == after
+
+
 def test_public_daily_decision_rejects_caller_forged_invalidation():
     bars, ind, barrier = positive_a1_bars()
-    cand = a1_candidate(bars, ind, barrier, 40)
+    cand = a1_candidate(bars, ind, barrier, 40, tick=0.01)
     more = list(bars)
     t = more[-1].utc_open
     for k in range(1, 15):
@@ -341,8 +531,20 @@ def test_nearest_opposing_room_ignores_wrong_side_barriers():
     wrong = Barrier("EURUSD", "SHORT", 3.10, 20, bars[20].utc_open, (1, 2, 3), 0.2, "WRONG", 60)
     right = Barrier("EURUSD", "LONG", 3.50, 20, bars[20].utc_open, (1, 2, 3), 0.2, "RIGHT", 60)
 
-    assert nearest_opposing_room(3.05, "LONG", 0.10, [wrong], barrier.barrier_id) == float("inf")
-    assert nearest_opposing_room(3.05, "LONG", 0.10, [wrong, right], barrier.barrier_id) == pytest.approx(4.5)
+    assert nearest_opposing_room(
+        3.05, "LONG", 0.10, [wrong], asof_index=40, trigger_barrier_id=barrier.barrier_id
+    ) == float("inf")
+    assert nearest_opposing_room(
+        3.05, "LONG", 0.10, [wrong, right], asof_index=40, trigger_barrier_id=barrier.barrier_id
+    ) == pytest.approx(4.5)
+    future = replace(
+        right,
+        lock_index=41,
+        lock_utc=bars[40].utc_open + timedelta(minutes=5),
+    )
+    assert nearest_opposing_room(
+        3.05, "LONG", 0.10, [future], asof_index=40, trigger_barrier_id=barrier.barrier_id
+    ) == float("inf")
 
 
 def test_derived_invalidation_context_room_and_friday_horizon():
@@ -381,8 +583,8 @@ def test_round_grid_room_and_missing_flag():
 def test_a4_conflict_priority_and_margin_crossing():
     c1 = object()
     bars, _, barrier = positive_a1_bars()
-    a1 = a1_candidate(bars, compute_indicators(bars), barrier, 40)
-    a2 = a2_candidate(bars, compute_indicators(bars), barrier, 40)
+    a1 = a1_candidate(bars, compute_indicators(bars), barrier, 40, tick=0.01)
+    a2 = a2_candidate(bars, compute_indicators(bars), barrier, 40, tick=0.01)
     selected = a4_select([x for x in [a1, a2] if x])
     assert selected.arm in {"A2_PATTERN_BREAK_COMBI", "A1_PATTERN_BREAK"}
 
@@ -408,14 +610,101 @@ def test_gap_contiguity_prefix_invariance_and_warmup_surface():
     assert schedule_state(bars[19], gapped[20]) == "UNEXPECTED_GAP_RESET_WARMUP_50"
     assert schedule_state(bars[19], gapped[20], in_position=True) == "DATA_GAP_EXIT"
     assert schedule_state(bars[19], gapped[20], scheduled_closed=True) == "SCHEDULED_RESET"
-    sched = BrokerSchedule("BTCUSD", "UTC", "A"*64, weekend_coverage_only=True, remap_indices=frozenset({10}))
+    sched = BrokerSchedule.from_bytes(
+        "BTCUSD",
+        "UTC",
+        schedule_bytes("BTCUSD", weekend_coverage_only=True, remap_indices=(10,)),
+        weekend_coverage_only=True,
+        remap_indices=frozenset({10}),
+    )
     assert schedule_step(bars[9], bars[10], sched, index=10, warmup_remaining=0).state == "SYMBOL_REMAP_RESET"
     sat = Bar(datetime(2026, 1, 10, tzinfo=timezone.utc), 1, 2, 0, 1)
     assert schedule_step(bars[0], sat, sched, index=11, warmup_remaining=0).state == "WEEKEND_COVERAGE_ONLY_RESET"
-    assert schedule_step(bars[19], gapped[20], BrokerSchedule("EURUSD","UTC","B"*64), index=20, warmup_remaining=0, in_position=True).engineering_invalid
+    eurusd_schedule = BrokerSchedule.from_bytes("EURUSD", "UTC", schedule_bytes("EURUSD"))
+    assert schedule_step(bars[19], gapped[20], eurusd_schedule, index=20, warmup_remaining=0, in_position=True).engineering_invalid
     ledger = DailyArmLedger.empty()
     assert ledger.try_consume("A1", bars[0].utc_open)
     assert not ledger.try_consume("A1", bars[1].utc_open)
+
+
+def test_broker_schedule_is_payload_bound_and_nonmonotonic_is_always_invalid():
+    with pytest.raises(ValueError, match="immutable schedule payload"):
+        BrokerSchedule("EURUSD", "UTC", "A" * 64)
+    with pytest.raises(ValueError, match="payload SHA256 mismatch"):
+        BrokerSchedule("EURUSD", "UTC", "A" * 64, schedule_payload=b"not A")
+    payload = schedule_bytes("EURUSD")
+    with pytest.raises(ValueError, match="runtime fields do not match"):
+        BrokerSchedule.from_bytes(
+            "EURUSD",
+            "UTC",
+            payload,
+            remap_indices=frozenset({10}),
+        )
+    schedule = BrokerSchedule.from_bytes(
+        "EURUSD",
+        "UTC",
+        schedule_bytes("EURUSD", scheduled_closed_indices=(1,)),
+        scheduled_closed_indices=frozenset({1}),
+    )
+    bar = Bar(datetime(2020, 1, 6, tzinfo=timezone.utc), 1, 2, 0, 1)
+    assert schedule_step(bar, bar, schedule, index=1, warmup_remaining=0).engineering_invalid
+
+
+def test_d7_structural_emitter_is_scope_bound_hash_bound_and_prefix_invariant(tmp_path):
+    assert verify_producer_spec() == PRODUCER_SPEC_SHA256
+    tampered = tmp_path / "p2.md"
+    tampered.write_text("tampered", encoding="utf-8")
+    with pytest.raises(ValueError, match="producer spec SHA256 mismatch"):
+        verify_producer_spec(tampered)
+
+    t0 = datetime(2020, 1, 6, tzinfo=timezone.utc)
+    bars = []
+    for index in range(52):
+        close = 1.2 if index in (25, 49) else 1.0
+        high = 1.21 if index in (25, 49) else 1.1
+        bars.append(Bar(t0 + timedelta(minutes=5 * index), 1.0, high, 0.9, close))
+    schedule = BrokerSchedule.from_bytes(
+        "EURUSD",
+        "UTC",
+        schedule_bytes("EURUSD", weekend_coverage_only=True),
+        weekend_coverage_only=True,
+    )
+    result = emit_t2_d7_structural_identities(
+        bars,
+        symbol="EURUSD",
+        tick=0.01,
+        schedule=schedule,
+    )
+    assert len(result.events) == 1
+    assert result.events[0]["namespace"] == "T2_STRUCTURAL_A0_A3"
+    assert result.events[0]["arms"] == ["A0_LOCKED_BARRIER_BREAK"]
+    assert any(reject.reason == "SKIP_WARMUP" for reject in result.rejects)
+
+    extended = bars + [
+        Bar(bars[-1].utc_open + timedelta(minutes=5 * offset), 1.0, 1.1, 0.9, 1.0)
+        for offset in range(1, 4)
+    ]
+    replay = emit_t2_d7_structural_identities(
+        extended,
+        symbol="EURUSD",
+        tick=0.01,
+        schedule=schedule,
+    )
+    assert replay.events[: len(result.events)] == result.events
+    assert replay.rejects[: len(result.rejects)] == result.rejects
+
+    with pytest.raises(ValueError, match="exact EURUSD/M5"):
+        emit_t2_d7_structural_identities(
+            bars,
+            symbol="BTCUSD",
+            tick=0.01,
+            schedule=BrokerSchedule.from_bytes(
+                "BTCUSD",
+                "UTC",
+                schedule_bytes("BTCUSD", weekend_coverage_only=True),
+                weekend_coverage_only=True,
+            ),
+        )
 
 
 def test_parity_vector_export_is_deterministic():
@@ -501,6 +790,8 @@ def test_weighted_logistic_and_calibration_are_deterministic_and_fatal_single_cl
     cal = fit_sigmoid_calibration(raw, y)
     assert cal.converged and cal.grad_inf <= 1e-10
     assert apply_sigmoid_calibration(raw[0], cal) < apply_sigmoid_calibration(raw[-1], cal)
+    clipped = fit_sigmoid_calibration([0.0, 0.2, 0.8, 1.0], [0, 1, 1, 0])
+    assert clipped.converged
     with pytest.raises(ValueError):
         fit_sigmoid_calibration(raw, [0, 0, 0, 0])
     with pytest.raises(ValueError, match="length mismatch"):
@@ -527,19 +818,19 @@ def test_seed_20260732_perturbation_sensitivity_and_negative_order_controls():
             base = mirror_bars(base)
             barrier = manual_barrier(base, "SHORT", -3.0, 30, compute_indicators(base).atr14[30] or 0.2)
         checks.append(("A0", side, base, barrier, 40, lambda b, i, x, t: a0_candidate(b, i, x, t)))
-        checks.append(("A1", side, base, barrier, 40, lambda b, i, x, t: a1_candidate(b, i, x, t)))
+        checks.append(("A1", side, base, barrier, 40, lambda b, i, x, t: a1_candidate(b, i, x, t, tick=0.01)))
 
         b2, _, barrier2 = positive_a2_bars()
         if side == "SHORT":
             b2 = mirror_bars(b2)
             barrier2 = manual_barrier(b2, "SHORT", -3.0, 30, compute_indicators(b2).atr14[30] or 0.2)
-        checks.append(("A2", side, b2, barrier2, 40, lambda b, i, x, t: a2_candidate(b, i, x, t)))
+        checks.append(("A2", side, b2, barrier2, 40, lambda b, i, x, t: a2_candidate(b, i, x, t, tick=0.01)))
 
         b3, _, support = positive_a3_bars()
         if side == "SHORT":
             b3 = mirror_bars(b3)
             support = manual_barrier(b3, "LONG", -2.0, 20, compute_indicators(b3).atr14[33] or 0.2, expiry=60)
-        checks.append(("A3", side, b3, support, 37, lambda b, i, x, t: a3_candidate(b, i, t, side, [x])))
+        checks.append(("A3", side, b3, support, 37, lambda b, i, x, t: a3_candidate(b, i, t, side, [x], tick=0.01)))
 
     for arm, side, base, aux, t, fn in checks:
         hits = 0
@@ -557,17 +848,22 @@ def test_seed_20260732_perturbation_sensitivity_and_negative_order_controls():
                 hits = 0
                 for _ in range(200):
                     ordered = list(base)
-                    lo, hi = (32, 40) if t == 40 else (35, 37)
-                    segment = list(ordered[lo:hi])
+                    lo, hi = 25, t
+                    source = list(ordered[lo:hi])
                     if mode == "reverse":
-                        segment = list(reversed(segment))
+                        source = list(reversed(source))
                     else:
-                        rng.shuffle(segment)
-                        segment = sorted(
-                            segment,
-                            key=lambda b: b.low if base[t].close > base[t - 1].close else -b.high,
-                            reverse=True,
+                        rng.shuffle(source)
+                    # Shuffle OHLC states while retaining the original M5 clock;
+                    # this is a real event-order negative, not a timestamp error.
+                    for offset, state in enumerate(source):
+                        original = ordered[lo + offset]
+                        ordered[lo + offset] = Bar(
+                            original.utc_open,
+                            state.open,
+                            state.high,
+                            state.low,
+                            state.close,
                         )
-                    ordered[lo:hi] = segment
                     hits += int(bool(fn(ordered, compute_indicators(ordered), barrier, t)))
                 assert hits / 200 <= 0.05, (arm, mode, hits)
