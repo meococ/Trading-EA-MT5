@@ -42,6 +42,14 @@ report and validator output before acting.
   zero (0 MT5 launches/trades/economic trials); do not rebind or replay HYP005.
   A future data collector needs a fresh ID with the tiered data-acceptance
   contract and launch-time semantic MT5 storage receipt.
+- Owner-directed VRAS V4 P0 review `HYP-VRAS-EURUSD-M5-015` is a
+  pre-candidate parked evidence record, not a registry candidate. The supplied
+  plan's headline values came from the unfiltered USDJPY tail of a combined
+  three-symbol 2016-2020 DESIGN file, while the proposed EA targets EURUSD;
+  true-flow, frozen estimator/arbitration and production-async gates also fail.
+  No `.mq5`, compile, MT5, outcome or economics was opened. Readout:
+  `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-EURUSD-M5-015_PREFLIGHT_READOUT.md`.
+  T2 remains the only active generation and its build/MT5 authority is unchanged.
 - MT5 was `STOPPED` at the 2026-07-31 campaign-plan readback. Run current
   `02. AlphaFactory/alpha.ps1 status` before any terminal action.
 - The candidate registry (`461` rows / `163` hypotheses) and source-of-truth

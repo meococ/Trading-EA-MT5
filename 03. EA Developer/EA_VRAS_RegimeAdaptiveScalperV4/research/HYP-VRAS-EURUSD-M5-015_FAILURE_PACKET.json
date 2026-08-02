@@ -1,0 +1,113 @@
+{
+  "schema_version": "vras_pre_ea_failure_packet.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-015",
+  "generated_at_utc": "2026-08-02T07:44:42Z",
+  "stage": "P0_OUTCOME_BLIND_PLAN_AND_DATA_CAPABILITY_PREFLIGHT",
+  "state": "pre_candidate_parked",
+  "verdict": "PARK_PRE_EA_INVALID_PLAN_EVIDENCE_OR_CAPABILITY_NO_OUTCOME_READ",
+  "epistemic_class": "VALID_PRE_EA_DATA_IDENTITY_AND_CAPABILITY_FAILURE",
+  "status_ladder": {
+    "preflight_tooling_engineering_valid": true,
+    "ea_engineering_valid": false,
+    "economic_valid": false,
+    "promotion_ready": false
+  },
+  "input_bindings": {
+    "supplied_plan_path": "C:\\Users\\ADMIN\\.gemini\\antigravity\\brain\\911cac32-2034-4b4f-b7e4-d8a487f0ce4c\\final_ea_build_plan.md",
+    "supplied_plan_sha256": "453E8EC25F5C79BCEBBF598D2394AA7E3112531366AA7E7A7C9D72F7B4653B9C",
+    "supplied_empirical_report_sha256": "5A053AEDC8DC9562E2264F0456AC363A00EA3ECB5D0966644BC934DCEBB38587",
+    "original_empirical_runner_sha256": "E77C29139BB2B1D1A178639381306D77E7E0A631C2773CB13041BA47C6FBD663",
+    "frozen_preflight_plan_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-EURUSD-M5-015_PREFLIGHT_PLAN.md",
+    "frozen_preflight_plan_sha256": "BB0F95FDF5DA3654D212E443CCDAA87CBE2A1081FC6B8C1E29B0253DF6E916DB",
+    "triangular_design_path": "02. AlphaFactory/data/fivepercent/TriangularConsensusLag/HYP-TRILAG-EURJPY-M1-002/design_m1_close.parquet",
+    "triangular_design_sha256": "C1065F84F7FB79F7C4E83A2A52B9BD8C137E7CF788F75BC46D53C3FBDCD6EAE6",
+    "triangular_manifest_path": "02. AlphaFactory/data/fivepercent/TriangularConsensusLag/HYP-TRILAG-EURJPY-M1-002/design_m1_manifest.json",
+    "triangular_manifest_sha256": "4A8A51693B7D268BA2E8A179316774463D1C5631769C6B28E06DC113026228A8"
+  },
+  "artifacts": {
+    "corrected_runner_path": "02. AlphaFactory/tools/research/empirical_probe_runner.py",
+    "corrected_runner_sha256": "30262634AB8C126C1F50187FC23911279B637D2E0B178F3301CB3EC95D8C9452",
+    "test_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/tests/test_plan_preflight.py",
+    "test_sha256": "EFB0C718A5888C263ED98500E8EE437CC45E56EC6B6F9C3A8CA5E49840519719",
+    "test_receipt_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-EURUSD-M5-015_PREFLIGHT/test_receipt.json",
+    "test_receipt_sha256": "435DCAB3882E862E3E0679F13764DB771D09E49993FAF9E4E3A94EBF4C22E2C7",
+    "result_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-EURUSD-M5-015_PREFLIGHT/preflight_result.json",
+    "result_sha256": "CB0078A2ADAD6E3835F9057E1B93CD02FE2D8D1C7DFAB9C4515B5FB0F9E7BD98",
+    "readout_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-EURUSD-M5-015_PREFLIGHT_READOUT.md",
+    "readout_sha256": "0645676A862C24FC54D4835742C787F572C1EC24B306C040B205F927D01BB997"
+  },
+  "failed_checks": [
+    "source_identity",
+    "history_coverage",
+    "target_symbol_evidence",
+    "true_flow_contract",
+    "estimator_and_arbitration_contract",
+    "production_async_kernel"
+  ],
+  "forensic_metrics": {
+    "all_symbol_rows": 5580755,
+    "design_years": [2016, 2017, 2018, 2019, 2020],
+    "sealed_validation_years": [2021, 2022, 2023, 2024],
+    "sealed_validation_rows_loaded": 0,
+    "unfiltered_tail_symbol": "USDJPY",
+    "eurjpy": {
+      "rows": 1860530,
+      "legacy_hurst": 0.4431906195350747,
+      "legacy_vr_q5": 0.9395138314700872,
+      "legacy_ou_half_life_m1_bars": 1252.6898201735373
+    },
+    "eurusd": {
+      "rows": 1859939,
+      "legacy_hurst": 0.4864254251019543,
+      "legacy_vr_q5": 0.9900891206457648,
+      "legacy_ou_valid": false
+    },
+    "usdjpy": {
+      "rows": 1860286,
+      "legacy_hurst": 0.4611816967170138,
+      "legacy_vr_q5": 0.8654033950867754,
+      "legacy_ou_half_life_m1_bars": 89.43095540690575
+    }
+  },
+  "authority": {
+    "mql5_build_authorized": false,
+    "compile_authorized": false,
+    "mt5_authorized": false,
+    "model0_authorized": false,
+    "model4_authorized": false,
+    "economics_authorized": false,
+    "optimization_authorized": false,
+    "validation_authorized": false,
+    "holdout_authorized": false,
+    "promotion_eligible": false,
+    "paper_trading_authorized": false,
+    "live_trading_authorized": false
+  },
+  "outcome_blind_attestation": {
+    "trade_outcomes_read": false,
+    "pnl_computed": false,
+    "profit_factor_computed": false,
+    "mfe_mae_computed": false,
+    "holdout_opened": false,
+    "mt5_launched": false,
+    "orders_submitted": false,
+    "economic_trials_consumed": 0
+  },
+  "registry_reconciliation": {
+    "candidate_rows_appended": 0,
+    "invalid_latest_open_row_removed": true,
+    "reason": "Candidate schema requires a real canonical EA source; creating a fake .mq5 would violate the frozen P0 authority.",
+    "post_reconciliation_validator": "CANDIDATE_REGISTRY_OK rows=461 hypotheses=163"
+  },
+  "failure_radius": "Only the supplied three-engine V4 plan and its current empirical, data, estimator/arbitration and async-execution capability contract are parked. This does not reject a future atomic strategy using correctly identified target-symbol evidence and a genuine causal data contract.",
+  "legal_successor": {
+    "fresh_identity_required": true,
+    "atomic_engine_required": true,
+    "correct_target_symbol_evidence_required": true,
+    "frozen_estimator_null_power_contract_required": true,
+    "true_flow_or_explicit_proxy_contract_required": true,
+    "synchronous_mvp_or_verified_async_kernel_required": true,
+    "post_hoc_same_id_rescue_allowed": false
+  },
+  "campaign_route": "T2_BUILD_AND_MT5_AUTHORITY_UNCHANGED"
+}

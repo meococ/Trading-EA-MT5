@@ -1,0 +1,279 @@
+{
+  "async_execution_contract": {
+    "behavioral_callback_fixture_suite": false,
+    "current_shared_kernel_mutation_default": "DISABLED",
+    "durable_intent_restart_proof": false,
+    "production_ready": false,
+    "timeout_may_reset_idle_on_empty_position_scan_in_supplied_plan": true
+  },
+  "authority": {
+    "compile_authorized": false,
+    "economics_authorized": false,
+    "holdout_authorized": false,
+    "live_trading_authorized": false,
+    "model0_authorized": false,
+    "model4_authorized": false,
+    "mql5_build_authorized": false,
+    "mt5_authorized": false,
+    "optimization_authorized": false,
+    "paper_trading_authorized": false,
+    "promotion_eligible": false
+  },
+  "blockers": [
+    "source_identity",
+    "history_coverage",
+    "target_symbol_evidence",
+    "true_flow_contract",
+    "estimator_and_arbitration_contract",
+    "production_async_kernel"
+  ],
+  "checks": {
+    "estimator_and_arbitration_contract": false,
+    "history_coverage": false,
+    "production_async_kernel": false,
+    "source_identity": false,
+    "target_symbol_evidence": false,
+    "true_flow_contract": false
+  },
+  "estimator_contract": {
+    "confidence_interval_defined": false,
+    "engine_arbitration_defined": false,
+    "null_and_power_defined": false,
+    "rolling_stability_gate_defined": false,
+    "valid": false,
+    "window_defined_in_supplied_plan": false
+  },
+  "eurusd_flow_contract": {
+    "all_required_available": false,
+    "available_columns": [
+      "close",
+      "high",
+      "low",
+      "open",
+      "real_volume",
+      "spread",
+      "tick_volume",
+      "time_server",
+      "time_utc",
+      "utc_offset_h"
+    ],
+    "lob_ofi_available": false,
+    "lob_ofi_required": [
+      "ask_size",
+      "bid_size"
+    ],
+    "tick_volume_is_true_flow": false,
+    "vpin_cvd_available": false,
+    "vpin_cvd_required": [
+      "trade_side",
+      "trade_volume"
+    ]
+  },
+  "failure_radius": "The supplied three-engine V4 plan and its current empirical/data/execution contract are invalid before EA build. This does not prove that a future atomic strategy using a correctly identified symbol and genuine causal flow source has no edge.",
+  "forensic_reproduction": {
+    "eurjpy_nonstitched_sessions": {
+      "asian_00_06_utc": {
+        "hurst_variance_time": {
+          "count": 1152,
+          "max": 0.6795197124612496,
+          "median": 0.44140909279470875,
+          "min": 0.03090105985627624,
+          "p10": 0.34621342032405056,
+          "p90": 0.5233425731714954
+        },
+        "nonstitched_complete_session_days": 1152,
+        "ou_half_life_m1_bars": {
+          "count": 1121,
+          "max": 6125.959189295639,
+          "median": 41.841427938255,
+          "min": 1.76200973608127,
+          "p10": 15.009213295266123,
+          "p90": 157.7754162361636
+        },
+        "range_master_gate_days": 606,
+        "range_master_gate_share": 0.5260416666666666,
+        "trend_master_gate_days": 1,
+        "trend_master_gate_share": 0.0008680555555555555,
+        "variance_ratio_q5": {
+          "count": 1152,
+          "max": 1.649319815422205,
+          "median": 0.8343212431157547,
+          "min": 0.2078540035132087,
+          "p10": 0.6379271709052271,
+          "p90": 1.0480169298955788
+        }
+      },
+      "london_07_13_utc": {
+        "hurst_variance_time": {
+          "count": 1271,
+          "max": 0.6467720581082977,
+          "median": 0.4688846805174457,
+          "min": 0.2789785133827857,
+          "p10": 0.3833690952496262,
+          "p90": 0.5403240703102855
+        },
+        "nonstitched_complete_session_days": 1271,
+        "ou_half_life_m1_bars": {
+          "count": 1212,
+          "max": 24356.77820182426,
+          "median": 50.96369569281728,
+          "min": 6.25223314920671,
+          "p10": 17.30670518877853,
+          "p90": 223.97325643370542
+        },
+        "range_master_gate_days": 438,
+        "range_master_gate_share": 0.34461054287962234,
+        "trend_master_gate_days": 0,
+        "trend_master_gate_share": 0.0,
+        "variance_ratio_q5": {
+          "count": 1271,
+          "max": 1.6095099024836397,
+          "median": 0.9296327222113333,
+          "min": 0.4714779697468674,
+          "p10": 0.7538032014932101,
+          "p90": 1.1254791589888127
+        }
+      }
+    },
+    "per_symbol_corrected": {
+      "EURJPY": {
+        "first_time_utc": "2016-01-04T00:00:00+00:00",
+        "last_time_utc": "2020-12-31T23:00:00+00:00",
+        "legacy_tail_metrics": {
+          "hurst_legacy": 0.4431906195350747,
+          "ou_ar1": {
+            "a": 0.06952743393956878,
+            "b": 0.9994468259929804,
+            "half_life": 1252.6898201735373,
+            "mu": 125.68817959139159,
+            "sigma_eq": 0.4476011527953217,
+            "theta": 0.0005533270642080594,
+            "valid": true
+          },
+          "rows_used_hurst_vr": 10000,
+          "rows_used_ou": 1440,
+          "variance_ratio_q20": 0.7858334990033778,
+          "variance_ratio_q5": 0.9395138314700872
+        },
+        "rows": 1860530
+      },
+      "EURUSD": {
+        "first_time_utc": "2016-01-04T00:00:00+00:00",
+        "last_time_utc": "2020-12-31T23:00:00+00:00",
+        "legacy_tail_metrics": {
+          "hurst_legacy": 0.4864254251019543,
+          "ou_ar1": {
+            "a": -0.0005945215059121395,
+            "b": 1.0004800811186816,
+            "half_life": null,
+            "mu": null,
+            "sigma_eq": null,
+            "theta": null,
+            "valid": false
+          },
+          "rows_used_hurst_vr": 10000,
+          "rows_used_ou": 1440,
+          "variance_ratio_q20": 0.9543832037044735,
+          "variance_ratio_q5": 0.9900891206457648
+        },
+        "rows": 1859939
+      },
+      "USDJPY": {
+        "first_time_utc": "2016-01-04T00:00:00+00:00",
+        "last_time_utc": "2020-12-31T23:00:00+00:00",
+        "legacy_tail_metrics": {
+          "hurst_legacy": 0.4611816967170138,
+          "ou_ar1": {
+            "a": 0.7963938434421979,
+            "b": 0.9922793183127369,
+            "half_life": 89.43095540690575,
+            "mu": 103.15071592136921,
+            "sigma_eq": 0.06732963852150327,
+            "theta": 0.007750640451129758,
+            "valid": true
+          },
+          "rows_used_hurst_vr": 10000,
+          "rows_used_ou": 1440,
+          "variance_ratio_q20": 0.7614471180061831,
+          "variance_ratio_q5": 0.8654033950867754
+        },
+        "rows": 1860286
+      }
+    },
+    "unfiltered_tail_metrics": {
+      "hurst_legacy": 0.4611816967170138,
+      "ou_ar1": {
+        "a": 0.7963938434421979,
+        "b": 0.9922793183127369,
+        "half_life": 89.43095540690575,
+        "mu": 103.15071592136921,
+        "sigma_eq": 0.06732963852150327,
+        "theta": 0.007750640451129758,
+        "valid": true
+      },
+      "rows_used_hurst_vr": 10000,
+      "rows_used_ou": 1440,
+      "variance_ratio_q20": 0.7614471180061831,
+      "variance_ratio_q5": 0.8654033950867754
+    },
+    "unfiltered_tail_symbols": [
+      "USDJPY"
+    ]
+  },
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-015",
+  "original_runner_sha256": "E77C29139BB2B1D1A178639381306D77E7E0A631C2773CB13041BA47C6FBD663",
+  "outcome_blind_attestation": {
+    "holdout_opened": false,
+    "mfe_mae_computed": false,
+    "mt5_launched": false,
+    "orders_submitted": false,
+    "pnl_computed": false,
+    "profit_factor_computed": false,
+    "trade_outcomes_read": false
+  },
+  "plan_claim_audit": {
+    "actual_dataset": "5,580,755 combined EURJPY/EURUSD/USDJPY DESIGN rows, 2016-2020",
+    "claimed_dataset": "5.5 million EURJPY M1 bars, 2016-2024",
+    "claimed_headline_hurst": 0.4612,
+    "claimed_headline_ou_half_life_minutes": 89.43,
+    "claimed_headline_vr_q5": 0.8654,
+    "cross_symbol_transfer_authorized": false,
+    "headline_values_source_symbol": "USDJPY",
+    "proposed_ea_symbol": "EURUSD"
+  },
+  "preflight_plan_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-EURUSD-M5-015_PREFLIGHT_PLAN.md",
+  "preflight_plan_sha256": "BB0F95FDF5DA3654D212E443CCDAA87CBE2A1081FC6B8C1E29B0253DF6E916DB",
+  "schema_version": "vras_v4_plan_preflight.v1",
+  "source": {
+    "manifest_design_years": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2020
+    ],
+    "manifest_row_count": 5580755,
+    "manifest_sealed_validation_years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "manifest_symbols": [
+      "EURUSD",
+      "USDJPY",
+      "EURJPY"
+    ],
+    "sealed_validation_rows_loaded": 0,
+    "triangular_data_path": "02. AlphaFactory/data/fivepercent/TriangularConsensusLag/HYP-TRILAG-EURJPY-M1-002/design_m1_close.parquet",
+    "triangular_data_sha256": "C1065F84F7FB79F7C4E83A2A52B9BD8C137E7CF788F75BC46D53C3FBDCD6EAE6",
+    "triangular_manifest_path": "02. AlphaFactory/data/fivepercent/TriangularConsensusLag/HYP-TRILAG-EURJPY-M1-002/design_m1_manifest.json",
+    "triangular_manifest_sha256": "4A8A51693B7D268BA2E8A179316774463D1C5631769C6B28E06DC113026228A8"
+  },
+  "stage": "P0_OUTCOME_BLIND_PLAN_AND_DATA_CAPABILITY_PREFLIGHT",
+  "supplied_plan_path": "C:\\Users\\ADMIN\\.gemini\\antigravity\\brain\\911cac32-2034-4b4f-b7e4-d8a487f0ce4c\\final_ea_build_plan.md",
+  "supplied_plan_sha256": "453E8EC25F5C79BCEBBF598D2394AA7E3112531366AA7E7A7C9D72F7B4653B9C",
+  "trial_index": 1,
+  "trial_universe": 1,
+  "verdict": "PARK_PRE_EA_INVALID_PLAN_EVIDENCE_OR_CAPABILITY_NO_OUTCOME_READ"
+}

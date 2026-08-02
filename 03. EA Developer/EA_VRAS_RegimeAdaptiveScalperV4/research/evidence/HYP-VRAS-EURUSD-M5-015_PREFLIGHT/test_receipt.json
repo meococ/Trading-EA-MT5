@@ -1,0 +1,30 @@
+{
+  "schema_version": "vras_v4_preflight_tests.v1",
+  "hypothesis_id": "HYP-VRAS-EURUSD-M5-015",
+  "stage": "PRE_REAL_DATA_RED_FIRST",
+  "command": "python -m pytest -q 03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/tests/test_plan_preflight.py",
+  "red_run": {
+    "expected_failure": true,
+    "passed": 0,
+    "failed": 6,
+    "failure_surface": [
+      "missing exact symbol selector",
+      "missing nonstitched session partitioner",
+      "missing true-flow capability gate",
+      "legacy OU return contract",
+      "missing fail-closed authority router"
+    ]
+  },
+  "green_run": {
+    "passed": 6,
+    "failed": 0,
+    "duration_seconds": 0.48
+  },
+  "preflight_plan_sha256": "BB0F95FDF5DA3654D212E443CCDAA87CBE2A1081FC6B8C1E29B0253DF6E916DB",
+  "runner_sha256": "30262634AB8C126C1F50187FC23911279B637D2E0B178F3301CB3EC95D8C9452",
+  "test_source_sha256": "EFB0C718A5888C263ED98500E8EE437CC45E56EC6B6F9C3A8CA5E49840519719",
+  "market_data_opened_during_tests": false,
+  "trade_outcomes_opened": false,
+  "mt5_launched": false,
+  "promotion_eligible": false
+}

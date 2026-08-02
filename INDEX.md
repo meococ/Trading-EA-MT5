@@ -85,6 +85,12 @@ Không lặp trạng thái từng package ở INDEX. Muốn biết lane nào s�
 audit-only: đọc `03. EA Developer/README.md`, latest registry row và artifact của
 đúng package.
 
+## Owner-directed preflight records
+
+| Path | Role |
+|---|---|
+| `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-EURUSD-M5-015_PREFLIGHT_READOUT.md` | V4 plan parked before EA source: mislabeled USDJPY evidence, wrong coverage and missing true-flow/estimator/async contracts; zero outcome/economic exposure, T2 authority unchanged |
+
 ## AlphaFactory
 
 | Path | Vai trò |
@@ -95,6 +101,7 @@ audit-only: đọc `03. EA Developer/README.md`, latest registry row và artifac
 | `02. AlphaFactory/tools/ea_research_loop.ps1` | full-loop generic, dry-run mặc định |
 | `02. AlphaFactory/templates/research/` | prereg/task/readout/Fast-Kill/Heavy-Delivery templates |
 | `02. AlphaFactory/tools/research/` | indicator-neutral probe, metrics, parity, clock, chart/log tools |
+| `02. AlphaFactory/tools/research/empirical_probe_runner.py` | hash-bound V4 plan/data capability forensic runner; exact-symbol, non-stitched-session and true-flow fail-closed checks, not an economic analyzer |
 | `02. AlphaFactory/data/<broker>/<symbol>/` | data shelf D:, manifest hash-bound |
 | `02. AlphaFactory/runs/<EA>/<run_id>/` | report, manifest, analysis và logs của run |
 | `02. AlphaFactory/runs.db` + `tools/runs_db.py` | catalog tiện tra cứu, không phải authority |

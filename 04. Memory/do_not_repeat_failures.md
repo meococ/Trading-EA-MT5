@@ -2147,3 +2147,26 @@ Evidence:
   a fresh ID and tiered `data_acceptance_contract`; raw `alpha.local.ps1`
   content is not immutable research identity. Validate the semantic MT5 storage
   contract at launch and bind canonical runner files in the per-launch receipt.
+
+## VRAS V4 supplied-plan evidence/capability failure (2026-08-02)
+
+Evidence:
+`03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-EURUSD-M5-015_PREFLIGHT_READOUT.md`.
+
+- The supplied plan labeled 5,580,755 combined EURJPY/EURUSD/USDJPY DESIGN
+  rows as 5.5 million EURJPY rows and labeled 2016-2020 DESIGN as 2016-2024.
+  Its headline Hurst 0.4612, VR(5) 0.8654 and OU half-life 89.43 reproduce only
+  on the unfiltered USDJPY tail. Exact EURJPY gives H 0.4432, VR(5) 0.9395 and
+  half-life 1252.69; exact EURUSD gives H 0.4864, VR(5) 0.9901 and invalid OU.
+- The proposed EURUSD plan also lacks genuine aggressor-side trade volume and
+  queue-size primitives for true CVD/VPIN/LOB-OFI, a frozen estimator/null/
+  power/arbitration contract, and production async restart/late-fill proof.
+- Verdict is `PARK_PRE_EA_INVALID_PLAN_EVIDENCE_OR_CAPABILITY_NO_OUTCOME_READ`.
+  Zero validation/holdout rows, outcomes, economics, MQL5, compile or MT5 were
+  opened. Do not rescue the same ID by relabeling a symbol, substituting candle
+  proxies for true flow, changing thresholds after this readout, or coding all
+  three engines anyway.
+- Failure radius is only this supplied three-engine plan/evidence/capability
+  object. A successor requires a fresh identity, one atomic mechanism, correct
+  target-symbol evidence and independently frozen statistical/data/execution
+  contracts before any outcome.
