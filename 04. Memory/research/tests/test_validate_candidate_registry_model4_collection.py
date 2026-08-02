@@ -113,6 +113,75 @@ def test_model4_authority_rejects_wrong_model_or_performance_permissions(
     assert any("model4_performance_authorized=False" in error for error in sidecar_permission_errors)
 
 
+def test_tiered_data_acceptance_does_not_require_economic_pf_contract() -> None:
+    row = _row(model=4, validation=_model4_validation())
+    row["updated_at_utc"] = "2026-08-01T00:01:00Z"
+    row["evidence_contract_kind"] = "data_acquisition"
+    row["data_acceptance_contract"] = {
+        "history_quality_operator": "gt",
+        "history_quality_threshold_pct": 97.0,
+        "coverage_mode": "all_available_asof",
+        "mandatory_symbols": ["XAUUSD", "EURUSD"],
+        "no_skip": True,
+        "require_tester_journal_bounds": True,
+        "require_series_proof": True,
+    }
+    errors: list[str] = []
+
+    SUT._validate_evidence_contract_kind(
+        row,
+        "test row",
+        is_new_hypothesis=True,
+        timestamp=SUT.datetime(2026, 8, 1, 0, 1, tzinfo=SUT.timezone.utc),
+        errors=errors,
+    )
+
+    assert errors == []
+
+
+def test_fresh_data_hypothesis_rejects_economic_acceptance_contract() -> None:
+    row = _row(model=4, validation=_model4_validation())
+    row["updated_at_utc"] = "2026-08-01T00:01:00Z"
+    row["evidence_contract_kind"] = "data_acquisition"
+    row["data_acceptance_contract"] = {
+        "history_quality_operator": "gt",
+        "history_quality_threshold_pct": 97.0,
+        "coverage_mode": "all_available_asof",
+        "mandatory_symbols": ["XAUUSD"],
+        "no_skip": True,
+        "require_tester_journal_bounds": True,
+        "require_series_proof": True,
+    }
+    row["acceptance_contract"] = {"min_profit_factor": 1.3}
+    errors: list[str] = []
+
+    SUT._validate_evidence_contract_kind(
+        row,
+        "test row",
+        is_new_hypothesis=True,
+        timestamp=SUT.datetime(2026, 8, 1, 0, 1, tzinfo=SUT.timezone.utc),
+        errors=errors,
+    )
+
+    assert any("must not carry economic acceptance_contract" in error for error in errors)
+
+
+def test_terminal_hyp005_never_retains_active_one_shot_authority() -> None:
+    row = _row(
+        model=4,
+        validation=_model4_validation(
+            probe_status=(
+                "SCREENED_PRELAUNCH_XAU_MODEL4_COLLECTION_"
+                "REGISTRY_LOCK_FULL_SUITE_AUTHORIZED"
+            )
+        ),
+    )
+    assert SUT._is_active_hyp005_execute_authority(row) is True
+
+    row["state"] = "parked"
+    assert SUT._is_active_hyp005_execute_authority(row) is False
+
+
 def test_terminal_source_snapshot_amendment_is_one_field_pair_only(
     monkeypatch, tmp_path
 ):

@@ -2133,3 +2133,17 @@ Evidence:
   (including producer spread and same-slot history) before spending a one-shot
   source attempt, and keep a zero-row JSONL valid when the reconciled population
   is truly empty.
+
+## HYP005 prelaunch execution-dependency invalidation (2026-08-01)
+
+- `HYP-PTR-T2-DATA-EPOCH-D0-M5-005` never launched MT5 and consumed zero trade,
+  performance or economic exposure. Its one-shot XAUUSD Model4 collection
+  authority remained active after the bound `alpha.ps1` and machine-local
+  `alpha.local.ps1` hashes drifted, causing the candidate validator to fail.
+- Registry row 461 parks the exact prelaunch authority as
+  `INVALID_PRELAUNCH_EXECUTION_DEPENDENCY_DRIFT`. Do not rebind/replay HYP005 or
+  reinterpret it as a data-quality/market verdict.
+- Failure radius is only the unconsumed HYP005 authority. A successor requires
+  a fresh ID and tiered `data_acceptance_contract`; raw `alpha.local.ps1`
+  content is not immutable research identity. Validate the semantic MT5 storage
+  contract at launch and bind canonical runner files in the per-launch receipt.

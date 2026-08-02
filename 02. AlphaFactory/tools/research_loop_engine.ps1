@@ -310,7 +310,7 @@ function Resolve-TelemetryTierOverrides([string]$Tier, [string]$MainFile, [strin
         if ($Tier -notin @('off', 'trade-only')) {
             throw "telemetry profile 'lifecycle-v3' supports only 'off' and 'trade-only'; got '$Tier'."
         }
-        $declaration = '(?m)^\s*input\s+[^;\r\n]*\bInpEnableTelemetry\b\s*(?:=|;)'
+        $declaration = '(?m)^\s*(?:sinput|input)\s+[^;\r\n]*\bInpEnableTelemetry\b\s*(?:=|;)'
         if ($source -notmatch $declaration) {
             throw "EA input 'InpEnableTelemetry' required by telemetry profile 'lifecycle-v3' is absent from $MainFile."
         }
@@ -323,7 +323,7 @@ function Resolve-TelemetryTierOverrides([string]$Tier, [string]$MainFile, [strin
     }
 
     foreach ($name in $inputs) {
-        $declaration = '(?m)^\s*input\s+[^;\r\n]*\b' + [regex]::Escape($name) + '\b\s*(?:=|;)'
+        $declaration = '(?m)^\s*(?:sinput|input)\s+[^;\r\n]*\b' + [regex]::Escape($name) + '\b\s*(?:=|;)'
         if ($source -notmatch $declaration) {
             throw "EA input '$name' required for telemetry tier '$Tier' is absent from $MainFile."
         }
@@ -594,6 +594,39 @@ function Resolve-DataQualityContract($Packet, $Binding, $Blockers) {
     }
 }
 
+function Add-RegisteredDataAcceptanceBlockers($Registered, $DataQuality, $Binding, $Blockers) {
+    if (-not (Test-ProvenanceObject $Registered)) {
+        $Blockers.Add("Latest data-acquisition registry row has no structured data_acceptance_contract.")
+        return
+    }
+    if ($null -eq $DataQuality) {
+        $Blockers.Add("Data-acquisition task packet must provide a valid data_quality_contract.")
+        return
+    }
+    $symbols = @(Get-ObjectProperty $Registered 'mandatory_symbols')
+    if ($symbols.Count -eq 0 -or [string]$Binding.Symbol -cnotin @($symbols | ForEach-Object { [string]$_ })) {
+        $Blockers.Add("Data-acquisition symbol '$($Binding.Symbol)' is outside the frozen mandatory_symbols set.")
+    }
+    if ([string](Get-ObjectProperty $Registered 'history_quality_operator') -cne
+        [string](Get-ObjectProperty $DataQuality.history_quality 'operator') -or
+        [double](Get-ObjectProperty $Registered 'history_quality_threshold_pct') -ne
+        [double](Get-ObjectProperty $DataQuality.history_quality 'value')) {
+        $Blockers.Add("Task packet history-quality gate does not match the frozen data_acceptance_contract.")
+    }
+    if ([string](Get-ObjectProperty $Registered 'coverage_mode') -cne
+        [string](Get-ObjectProperty $DataQuality 'coverage_mode')) {
+        $Blockers.Add("Task packet coverage_mode does not match the frozen data_acceptance_contract.")
+    }
+    foreach ($requiredTrue in @('no_skip', 'require_tester_journal_bounds', 'require_series_proof')) {
+        if ((Get-ObjectProperty $Registered $requiredTrue) -ne $true) {
+            $Blockers.Add("Frozen data_acceptance_contract.$requiredTrue must be true.")
+        }
+    }
+    if ((Get-ObjectProperty $DataQuality 'require_tester_journal_bounds') -ne $true) {
+        $Blockers.Add("Task packet must preserve require_tester_journal_bounds=true.")
+    }
+}
+
 function Resolve-EvidencePath($RawPath) {
     if ([string]::IsNullOrWhiteSpace([string]$RawPath)) { return $null }
     $candidate = if ([System.IO.Path]::IsPathRooted([string]$RawPath)) {
@@ -749,7 +782,9 @@ function Resolve-ResearchContract($RequestedHypothesisId, $RequestedEaName) {
         RegistryModel = Get-ObjectProperty $latestRow 'model'
         RegistrySourcePath = [string](Get-ObjectProperty $latestRow 'source_path')
         RegistrySourceHash = [string](Get-ObjectProperty $latestRow 'source_hash')
+        EvidenceContractKind = [string](Get-ObjectProperty $latestRow 'evidence_contract_kind')
         AcceptanceContract = Get-ObjectProperty $latestRow 'acceptance_contract'
+        DataAcceptanceContract = Get-ObjectProperty $latestRow 'data_acceptance_contract'
         RegisteredPreregPath = $registeredPreregPath
         PreregPath = $resolvedPreregPath
         PreregSha256 = Get-Sha256IfExists $resolvedPreregPath
@@ -1313,7 +1348,6 @@ function Get-Model4ExecutionDependencyBindings([string]$RunnerPath) {
     $root = Split-Path -Parent $alpha
     $relativePaths = @(
         '02. AlphaFactory/alpha.ps1',
-        '02. AlphaFactory/alpha.local.ps1',
         '02. AlphaFactory/tools/mt5_storage_contract.ps1',
         '02. AlphaFactory/tools/ea_contract.ps1',
         '02. AlphaFactory/tools/log_storage.ps1',
@@ -1509,6 +1543,13 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
     Add-PacketMismatch $blockers $packet 'prereg_sha256' $Contract.PreregSha256 -Hash
     Add-PacketMismatch $blockers $packet 'telemetry_profile' $Contract.TelemetryProfile
     Add-PacketMismatch $blockers $packet 'comparison_adapter' $Contract.ComparisonAdapter
+    $packetAuthority = [string](Get-ObjectProperty $packet 'authority')
+    $isDataAcquisitionPacket = $packetAuthority -in @(
+        'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE',
+        'DATA_ACQUISITION_ONLY_NO_PERFORMANCE'
+    )
+    $useTieredDataContract = $isDataAcquisitionPacket -and
+        [string]$Contract.EvidenceContractKind -ceq 'data_acquisition'
     $acceptanceFields = @(
         'min_profit_factor', 'min_trades_per_week', 'max_trades_per_week',
         'max_drawdown_pct', 'min_cost_pf_x1_5', 'min_cost_pf_x2',
@@ -1516,12 +1557,20 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
     )
     $packetAcceptance = Get-ObjectProperty $packet 'acceptance_contract'
     $registeredAcceptance = $Contract.AcceptanceContract
-    if (-not (Test-ProvenanceObject $registeredAcceptance)) {
-        $blockers.Add("Latest registry row has no structured acceptance_contract.")
-    }
-    if (-not (Test-ProvenanceObject $packetAcceptance)) {
-        $blockers.Add("Task packet field 'acceptance_contract' is required and must be an object.")
+    if ($useTieredDataContract) {
+        if ($null -ne $packet.PSObject.Properties['acceptance_contract']) {
+            $blockers.Add("Tiered data-acquisition task packet must not carry economic acceptance_contract.")
+        }
+        $registeredAcceptance = $null
     } else {
+        if (-not (Test-ProvenanceObject $registeredAcceptance)) {
+            $blockers.Add("Latest registry row has no structured acceptance_contract.")
+        }
+        if (-not (Test-ProvenanceObject $packetAcceptance)) {
+            $blockers.Add("Task packet field 'acceptance_contract' is required and must be an object.")
+        }
+    }
+    if (-not $useTieredDataContract -and (Test-ProvenanceObject $packetAcceptance)) {
         $packetAcceptanceNames = @($packetAcceptance.PSObject.Properties | ForEach-Object { $_.Name })
         if ($packetAcceptanceNames.Count -ne $acceptanceFields.Count -or @($packetAcceptanceNames | Where-Object { $_ -notin $acceptanceFields }).Count -gt 0) {
             $blockers.Add("Task packet acceptance_contract must contain exactly the seven supported gate fields.")
@@ -1566,6 +1615,13 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
     $dataQualityContract = Resolve-DataQualityContract $packet $Binding $blockers
     $Binding | Add-Member -MemberType NoteProperty -Name DataQualityContract -Value $dataQualityContract -Force
     $authority = Resolve-ExecutionAuthority $packet $Binding $blockers
+    if ($useTieredDataContract) {
+        Add-RegisteredDataAcceptanceBlockers `
+            $Contract.DataAcceptanceContract $dataQualityContract $Binding $blockers
+    } elseif ($isDataAcquisitionPacket -and
+        -not [string]::IsNullOrWhiteSpace([string]$Contract.EvidenceContractKind)) {
+        $blockers.Add("Data-acquisition task packet requires evidence_contract_kind='data_acquisition'.")
+    }
 
     $packetGitStatusProperty = $packet.PSObject.Properties['git_status']
     if ($null -eq $packetGitStatusProperty) {
@@ -2261,6 +2317,7 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
         CostEvidenceTier = $costEvidenceTier
         HoldingContract = $holdingContract
         AcceptanceContract = $registeredAcceptance
+        DataAcceptanceContract = $Contract.DataAcceptanceContract
         DataQualityContract = $dataQualityContract
         Authority = $authority
         CollectionSymbol = if ($authority -in @(
@@ -3724,6 +3781,7 @@ $plan = [ordered]@{
     market_phase_adapter = $contract.MarketPhaseAdapter
     comparison_adapter = $contract.ComparisonAdapter
     acceptance_contract = $contract.AcceptanceContract
+    data_acceptance_contract = $contract.DataAcceptanceContract
     include_closure_sha256 = $packetResult.IncludeClosureSha256
     include_closure_count = @($packetResult.IncludeClosure | Where-Object { $null -ne $_ }).Count
     task_packet_path = $packetResult.PacketPath

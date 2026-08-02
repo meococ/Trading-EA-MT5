@@ -1,6 +1,6 @@
 # INDEX — Bản Đồ Workspace
 
-Cập nhật cấu trúc: 2026-07-31.
+Cập nhật cấu trúc: 2026-08-02.
 
 INDEX chỉ trả lời **nguồn nào dùng cho việc gì**. Không giữ metric run, trạng
 thái từng hypothesis hay danh sách package dài; các dữ liệu động phải nằm ở
@@ -58,14 +58,17 @@ message hiện tại. Evidence được xác minh bằng file/hash/validator/tes
 | `.codex/operator/STATUS.md` | con trỏ recovery, không phải live ledger |
 | `.codex/operator/EXPERIMENTS.jsonl` | lịch sử operator append-only |
 
-## Năm playbook lõi
+## Playbook lõi và pipelines
 
 | Path | Mở khi |
 |---|---|
+| `05. Playbook/pipeline_economic_strategy.md` | phát triển chiến lược kinh tế (brief → probe → build → Model 0 → Heavy Delivery) |
+| `05. Playbook/pipeline_fast_kill.md` | đóng terminal nhanh các hypothesis/cell trượt fatal gate sơ khởi |
+| `05. Playbook/pipeline_data_acquisition.md` | thu thập/đồng bộ dữ liệu zero-trade (no performance metrics) |
 | `05. Playbook/research_doctrine.md` | thiết kế hypothesis, search boundary, overfit, market reality |
-| `05. Playbook/ea_golden_path.md` | brief → probe/prereg → build → Model 0 → forensics/delivery |
-| `05. Playbook/validation_gates.md` | stage gates, economic thresholds, hard invalidation |
-| `05. Playbook/tool_runbook.md` | cú pháp AlphaFactory và log triage |
+| `05. Playbook/ea_golden_path.md` | tổng quan đường mặc định cho EA |
+| `05. Playbook/validation_gates.md` | ma trận ngưỡng stage gates, hard invalidation, run-manifest |
+| `05. Playbook/tool_runbook.md` | cheat-sheet câu lệnh AlphaFactory và log triage |
 | `05. Playbook/ea_engineering_standard.md` | chuẩn MQL5 closed-bar, non-repaint, risk/execution |
 
 ## EA shelf và research
@@ -96,6 +99,9 @@ audit-only: đọc `03. EA Developer/README.md`, latest registry row và artifac
 | `02. AlphaFactory/runs/<EA>/<run_id>/` | report, manifest, analysis và logs của run |
 | `02. AlphaFactory/runs.db` + `tools/runs_db.py` | catalog tiện tra cứu, không phải authority |
 | `02. AlphaFactory/tools/audit_mql5_nonrepaint.py` | audit sau mọi đổi signal/data-access |
+| `02. AlphaFactory/analysis/param_optimizer.py` | import full MT5 optimization family, DSR/heatmap pass thật; schema v1 diagnostic-only, không tự chứng minh cumulative `N` |
+| `02. AlphaFactory/analysis/purged_cpcv.py` | event-level purged combinatorial split/PBO; aligned universe, diagnostic-only, chưa reconstruct paths |
+| `02. AlphaFactory/analysis/dynamic_cost_model.py` | stress cost account-currency theo volume/liquidity/volatility; schema v1 diagnostic-only |
 | `02. AlphaFactory/tools/validate_ea_delivery_packet.py` | rehash closeout packet fail-closed |
 | `02. AlphaFactory/tools/workspace_hygiene.ps1` | inventory/cleanup dry-run có containment |
 | `02. AlphaFactory/tools/backtest_storage_inventory.py` | inventory dung lượng, orphan/mirror candidate |
@@ -103,6 +109,8 @@ audit-only: đọc `03. EA Developer/README.md`, latest registry row và artifac
 | `02. AlphaFactory/external/` | external data machine-local trên D:, không commit corpus |
 | `02. AlphaFactory/STRATEGY_LOG.md` | lịch sử chiến lược và bài học |
 | `02. AlphaFactory/DECISION_FRAMEWORK.md` | cây ITERATE/PIVOT/ABANDON |
+| `03. EA Developer/_Shared/Execution/AF_ExecutionKernel.mqh` | experimental async FSM, mutation-default-off; compile reference, chưa được adopt |
+| `03. EA Developer/_Shared/MarketData/AF_TickCursor.mqh` | optional bounded tick-history cursor cho tick-path logic |
 
 Các acquisition/analyzer chuyên biệt nằm trong `02. AlphaFactory/tools/` và
 được package research/task packet trỏ trực tiếp; INDEX không liệt kê từng script

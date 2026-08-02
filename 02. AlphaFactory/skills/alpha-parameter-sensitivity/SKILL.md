@@ -1,61 +1,57 @@
 ---
 name: alpha-parameter-sensitivity
-description: Run AlphaFactory parameter sensitivity analysis and optionally heatmap mode. Use when you need to evaluate parameter stability/fragility and detect curve-fitting sensitivity around a chosen parameter.
+description: Import a complete MT5 optimization family, count every pass for DSR, and render an actual parameter stability surface.
 ---
 
-## Lệnh chạy
+## Preconditions
 
-### 1D Sensitivity (1 parameter)
-- `powershell -NoProfile -ExecutionPolicy Bypass -File "02. AlphaFactory\\alpha.ps1" param -Report "<PATH_TO_REPORT.html>"`
+- Use a full MT5 optimization XML/CSV export, never one backtest report.
+- Freeze the source/config/count/selection fields from
+  `OPTIMIZATION_RECEIPT.template.json` before outcomes. After the run, complete
+  the same composite receipt with full-report and selected-series hashes; never
+  change the frozen fields.
+- DSR requires the same `per_trade_net_r` Sharpe definition in every pass and
+  the selected pass return series. MT5 tester Sharpe is not mixed silently.
 
-### 2D Heatmap (2 parameters)
-- `powershell -NoProfile -ExecutionPolicy Bypass -File "02. AlphaFactory\\alpha.ps1" param "heatmap" -Report "<PATH_TO_REPORT.html>"`
+## Command
 
-## Cách dùng
-- Chỉ làm **sau khi** strategy có edge baseline (PF > 1.1, trades đủ).
-- Mục đích: parameter hiện tại có nằm trong "vùng ổn định" hay "đỉnh nhọn"?
+```powershell
+& "02. AlphaFactory/alpha.ps1" param `
+  -Report "<FULL_OPTIMIZATION_EXPORT.xml>" `
+  -Packet "<FROZEN_OPTIMIZATION_RECEIPT.json>" `
+  -Param1 "<PARAMETER_1>" `
+  -Param2 "<PARAMETER_2>" `
+  -Metric "Custom" `
+  -ExpectedTrials <N> `
+  -SelectedPass "<PASS_ID>" `
+  -SelectedReturns "<SELECTED_PASS_NET_R.csv>" `
+  -SharpeColumn "Custom" `
+  -SrSemantics per_trade_net_r `
+  -SelectionFrozen `
+  -Charts
+```
 
-## Output — 1D Sensitivity
-- File: `{run_folder}/param_analysis/sensitivity_results.json`
-- Variations: **[-30%, -20%, -10%, 0%, +10%, +20%, +30%]** (7 levels)
-- Gồm:
-  - `results[]` — mỗi variation: `{variation, variation_pct, profit_factor, profitable}`
-  - `statistics` — `{pf_mean, pf_std, pf_min, pf_max, pf_range, profitable_variations, profitable_pct}`
-  - `stability_score` (0-100)
-  - `verdict` — `{level, emoji, message, recommendation}`
+## Artifacts and interpretation
 
-### Bảng đánh giá 1D
+- `optimization_analysis/optimization_audit.json`
+- `optimization_analysis/parameter_heatmap.png`
+- `optimization_analysis/parameter_surface_3d.png`
 
-| Level | Điều kiện | Ý nghĩa |
-|-------|-----------|---------|
-| STABLE | score >= 70 AND profitable >= 80% | Parameter robust, ít risk overfit |
-| MODERATE | score >= 50 AND profitable >= 60% | Chấp nhận được, dùng conservative values |
-| SENSITIVE | score >= 30 AND profitable >= 40% | Nhạy cảm, cần review kỹ |
-| UNSTABLE | else | Overfit risk cao, parameter quá fragile |
+The JSON retains the full pass inventory, raw matrix, missing/duplicate cells,
+connected plateau components, edge location and DSR inputs. A sharp isolated
+maximum is fragility; a broad connected neighborhood is preferable.
 
-## Output — 2D Heatmap
-- File: `{run_folder}/param_analysis/heatmap_results.json`
-- Chart: `{run_folder}/param_analysis/param_heatmap.png`
-- Grid: **7x7** (49 combinations), 20 samples/cell với noise
-- Gồm:
-  - `param1`, `param2`: tên 2 parameters
-  - `profitable_combinations`, `profitable_pct`
-  - `optimal` — `{param1_variation, param2_variation, profit_factor}`
-  - **`has_islands`** — boolean, RED FLAG nếu `true`
+Schema v1 is diagnostic-only: `diagnostic_evidence_complete=true` confirms the
+current export/selected series are internally hash-bound and DSR can be
+computed. `anti_overfit_gate_eligible`, `anti_overfit_gate_pass` and
+`promotion_eligible` remain false until AlphaFactory binds preregistration time
+and cumulative campaign exposure independently. `diagnostic_dsr_pass` is not a
+promotion verdict.
 
-### Đọc heatmap
-- **Contiguous green region** (has_islands=false): parameter stable, vùng profitable rộng → GOOD
-- **Scattered green spots** (has_islands=true): "đảo" lợi nhuận rải rác → OVERFIT SIGNAL
-- Optimal point nằm ở rìa grid? → có thể chưa tìm đúng vùng, cần mở rộng range
+## Forbidden legacy interpretation
 
-## Quy tắc quyết định
-- `stability_score` >= 50 AND `profitable_pct` >= 60%: chấp nhận được
-- Sensitivity quá nhọn (chỉ 1 vùng hẹp pass) → rủi ro overfit cao
-- Nếu `pf_std` < 0.02: rất ổn định
-- Nếu `profitable_pct` = 100%: robust
-- `has_islands` = true trên heatmap → RED FLAG, cần simplify strategy
-
-## PROP_READY gate
-- `stability_score` >= 50
-- `profitable_pct` >= 60%
-- Heatmap: `has_islands` = false (nếu chạy 2D)
+Do not create a heatmap by adding Gaussian noise to realized P/L, and do not
+call a single-report sensitivity result `STABLE`, `PROP_READY`, or safe to
+deploy. The AlphaFactory command now fails closed on that input shape.
+It also rejects a 2D heatmap when unselected optimizer axes vary inside a cell;
+export a frozen slice instead of collapsing the third axis with a median.

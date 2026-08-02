@@ -1,6 +1,6 @@
 # Hot Cache — Recent Routing Only
 
-Updated: 2026-07-31 after T1 closed pre-economic and T2 opened P0.
+Updated: 2026-08-01 after the HYP005 prelaunch authority repair.
 
 This file is a compact handoff cache. It is **not** hypothesis authority, run
 permission, a family blacklist, or proof that a goal is complete. Recheck every
@@ -36,11 +36,17 @@ report and validator output before acting.
   Synthetic reference/fixture implementation and outcome-blind de-dup are the
   active route. T2 has zero market/economic/alpha/split exposure and no EA build, MT5
   economics, validation, holdout, promotion, paper or live authority yet.
+- `HYP-PTR-T2-DATA-EPOCH-D0-M5-005` is terminal `parked` at registry row 461:
+  `INVALID_PRELAUNCH_EXECUTION_DEPENDENCY_DRIFT`. Its raw `alpha.ps1` and
+  machine-local `alpha.local.ps1` bindings drifted before launch. Exposure is
+  zero (0 MT5 launches/trades/economic trials); do not rebind or replay HYP005.
+  A future data collector needs a fresh ID with the tiered data-acceptance
+  contract and launch-time semantic MT5 storage receipt.
 - MT5 was `STOPPED` at the 2026-07-31 campaign-plan readback. Run current
   `02. AlphaFactory/alpha.ps1 status` before any terminal action.
-- The candidate registry and source-of-truth validators passed during that
-  audit. Counts and hashes are intentionally not frozen here; rerun the
-  validators for current truth.
+- The candidate registry (`461` rows / `163` hypotheses) and source-of-truth
+  validator passed after the 2026-08-01 control-plane repair. Counts and hashes
+  are routing facts only; rerun both validators for current truth.
 - The latest London-open MQL5 successor is audit-only: execution-scenario
   fidelity was independently corrected and verified, while its parent economic
   KILL remains unchanged. It has no rerun, holdout, promotion, paper or live
@@ -54,6 +60,8 @@ report and validator output before acting.
 1. Read `01. GOAL/GOAL.md`, `INDEX.md` and the campaign minute; apply
    `AGENTS.md`.
 2. Run AlphaFactory status plus the registry and source-of-truth validators.
+   HYP005 is terminal and cannot authorize collection; freeze a fresh ID before
+   any new MT5 data-acquisition attempt.
 3. Resolve the exact Owner scope, active lock, hypothesis row, prereg and task
    packet before any meaningful run.
 4. Before proposing a candidate, search

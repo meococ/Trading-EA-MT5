@@ -256,10 +256,6 @@ def run_model4_launch_authority_validator(
             "sha256": hashlib.sha256((fake_alpha / "alpha.ps1").read_bytes()).hexdigest().upper(),
         },
         {
-            "path": "02. AlphaFactory/alpha.local.ps1",
-            "sha256": hashlib.sha256((fake_alpha / "alpha.local.ps1").read_bytes()).hexdigest().upper(),
-        },
-        {
             "path": "02. AlphaFactory/tools/mt5_storage_contract.ps1",
             "sha256": hashlib.sha256((fake_tools / "mt5_storage_contract.ps1").read_bytes()).hexdigest().upper(),
         },
@@ -1103,7 +1099,8 @@ def test_data_acquisition_authority_is_exact_and_fail_closed(tmp_path: Path) -> 
     assert launch["scoped"] is True
     assert launch["blockers"] == []
     assert launch["claim_created"] is False
-    claim = run_model4_launch_authority_validator(tmp_path / "launch_claim", create_claim=True)
+    # Keep the synthetic root short enough for Windows PowerShell 5.1 path APIs.
+    claim = run_model4_launch_authority_validator(tmp_path / "lc", create_claim=True)
     assert claim["scoped"] is True
     assert claim["blockers"] == []
     assert claim["claim_created"] is True
@@ -1218,7 +1215,6 @@ def test_model4_execution_receipt_remains_alpha_contract_compatible(tmp_path: Pa
         "execute_gate_hardening_receipt",
         "packet_set_authority_receipt",
         "execution_dependency:02. AlphaFactory/alpha.ps1",
-        "execution_dependency:02. AlphaFactory/alpha.local.ps1",
         "execution_dependency:02. AlphaFactory/tools/mt5_storage_contract.ps1",
         "execution_dependency:02. AlphaFactory/tools/ea_contract.ps1",
         "execution_dependency:02. AlphaFactory/tools/log_storage.ps1",
@@ -1798,6 +1794,66 @@ def test_data_quality_contract_absence_is_legacy_compatible(tmp_path: Path) -> N
     assert result["contract"] is None
 
 
+def test_registered_data_acceptance_is_symbol_and_quality_bound(tmp_path: Path) -> None:
+    assert POWERSHELL, "PowerShell is required"
+    engine = ALPHA_ROOT / "tools" / "research_loop_engine.ps1"
+    registered = tmp_path / "registered.json"
+    quality = tmp_path / "quality.json"
+    registered.write_text(
+        json.dumps({
+            "history_quality_operator": "gt",
+            "history_quality_threshold_pct": 97.0,
+            "coverage_mode": "all_available_asof",
+            "mandatory_symbols": ["XAUUSD", "EURUSD"],
+            "no_skip": True,
+            "require_tester_journal_bounds": True,
+            "require_series_proof": True,
+        }),
+        encoding="utf-8",
+    )
+    quality.write_text(
+        json.dumps(valid_data_quality_packet()["data_quality_contract"]),
+        encoding="utf-8",
+    )
+    harness = tmp_path / "data_acceptance.ps1"
+    harness.write_text(
+        r'''
+param([string]$Engine,[string]$Registered,[string]$Quality,[string]$Symbol)
+$ErrorActionPreference='Stop'
+$tokens=$null;$parseErrors=$null
+$ast=[System.Management.Automation.Language.Parser]::ParseFile($Engine,[ref]$tokens,[ref]$parseErrors)
+foreach($name in @('Get-ObjectProperty','Test-ProvenanceObject','Add-RegisteredDataAcceptanceBlockers')){
+    $fn=$ast.Find({param($node)
+        $node -is [System.Management.Automation.Language.FunctionDefinitionAst] -and $node.Name -ceq $name
+    },$true)
+    if($null -eq $fn){throw "Missing function $name"}
+    Invoke-Expression $fn.Extent.Text
+}
+$registeredObject=Get-Content -LiteralPath $Registered -Raw|ConvertFrom-Json
+$qualityObject=Get-Content -LiteralPath $Quality -Raw|ConvertFrom-Json
+$blockers=New-Object System.Collections.Generic.List[string]
+Add-RegisteredDataAcceptanceBlockers $registeredObject $qualityObject ([pscustomobject]@{Symbol=$Symbol}) $blockers
+[pscustomobject]@{blockers=@($blockers|ForEach-Object{[string]$_})}|ConvertTo-Json
+''',
+        encoding="utf-8",
+    )
+    valid = run_ps_file(
+        harness,
+        "-Engine", str(engine), "-Registered", str(registered),
+        "-Quality", str(quality), "-Symbol", "XAUUSD",
+    )
+    assert valid.returncode == 0, valid.stdout + valid.stderr
+    assert json.loads(valid.stdout)["blockers"] == []
+
+    invalid = run_ps_file(
+        harness,
+        "-Engine", str(engine), "-Registered", str(registered),
+        "-Quality", str(quality), "-Symbol", "BTCUSD",
+    )
+    assert invalid.returncode == 0, invalid.stdout + invalid.stderr
+    assert "outside the frozen mandatory_symbols" in " ".join(json.loads(invalid.stdout)["blockers"])
+
+
 def test_data_quality_contract_rejects_malformed_cases(tmp_path: Path) -> None:
     cases = [
         ("extra_key", lambda pkt: pkt["data_quality_contract"].update({"unexpected": True}), "must contain exactly"),
@@ -2171,12 +2227,67 @@ def test_lifecycle_manifest_requires_exact_runmeta_identity() -> None:
     assert "RunMeta identity does not match manifest EA/symbol/telemetry profile" in alpha
 
 
-def test_tester_input_serializer_does_not_append_optimization_tuple_to_strings() -> None:
-    alpha = ALPHA.read_text(encoding="utf-8-sig")
-    assert "stringInputNames" in alpha
-    assert "input\\s+string\\s+" in alpha
-    assert "$iniContent += \"$k=$v`r`n\"" in alpha
-    assert "$stringInputNames.ContainsKey($k)" in alpha
+def test_tester_input_serializer_is_typed_include_aware_and_fail_closed(tmp_path: Path) -> None:
+    assert POWERSHELL, "PowerShell is required"
+    source = tmp_path / "EA_Test.mq5"
+    include = tmp_path / "inputs.mqh"
+    source.write_text(
+        '#include "inputs.mqh"\ninput int InpCount=1;\n',
+        encoding="utf-8",
+    )
+    include.write_text(
+        'sinput string InpLabel="x";\ninput bool InpEnabled=true;\n',
+        encoding="utf-8",
+    )
+    harness = tmp_path / "typed_inputs.ps1"
+    harness.write_text(
+        r'''
+param([string]$Alpha,[string]$Source,[string]$Root)
+$ErrorActionPreference='Stop'
+$tokens=$null
+$parseErrors=$null
+$ast=[System.Management.Automation.Language.Parser]::ParseFile($Alpha,[ref]$tokens,[ref]$parseErrors)
+if($parseErrors.Count -gt 0){throw ($parseErrors|ForEach-Object{$_.Message}|Out-String)}
+foreach($name in @(
+    'ConvertTo-NormalizedOverrideMap','Get-RelativePathUnderRoot',
+    'Assert-NonArchiveInclude','Resolve-IncludeDependency',
+    'Get-IncludeDependencyClosure','Get-MqlInputTypeMap',
+    'ConvertTo-TesterInputLines'
+)){
+    $fn=$ast.Find({param($node)
+        $node -is [System.Management.Automation.Language.FunctionDefinitionAst] -and
+        $node.Name -ceq $name
+    },$true)
+    if($null -eq $fn){throw "Missing function $name"}
+    Invoke-Expression $fn.Extent.Text
+}
+$script:AdvisorsRoot=$Root
+$script:AlphaRoot=Join-Path $Root '02. AlphaFactory'
+$script:MT5Mql5Root=Join-Path $Root 'MQL5'
+$lines=@(ConvertTo-TesterInputLines $Source 'InpLabel=alpha;InpCount=3;InpEnabled=false')
+if('InpLabel=alpha' -cnotin $lines){throw 'string input was not emitted as plain key=value'}
+if('InpCount=3||3||0||3||N' -cnotin $lines){throw 'numeric input tuple missing'}
+if('InpEnabled=false||false||0||false||N' -cnotin $lines){throw 'bool input tuple missing'}
+$unknownRejected=$false
+try{[void](ConvertTo-TesterInputLines $Source 'InpUnknown=1')}catch{
+    $unknownRejected=$_.Exception.Message -like "*does not match a declared input/sinput*"
+}
+if(-not $unknownRejected){throw 'unknown tester override was not rejected'}
+''',
+        encoding="utf-8",
+    )
+    result = subprocess.run(
+        [POWERSHELL, "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(harness),
+         "-Alpha", str(ALPHA), "-Source", str(source), "-Root", str(tmp_path)],
+        cwd=WORKSPACE,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        check=False,
+        timeout=30,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
 
 
 def test_generic_runbook_commands_bind_cost_source_manifest() -> None:
@@ -2190,12 +2301,15 @@ def test_generic_templates_are_parseable_and_have_no_executable_claim() -> None:
     templates = ALPHA_ROOT / "templates" / "research"
     contract = json.loads((templates / "ALPHAFACTORY_EA_CONTRACT.template.json").read_text(encoding="utf-8"))
     packet = json.loads((templates / "TASK_PACKET.control.template.json").read_text(encoding="utf-8"))
+    data_packet = json.loads((templates / "TASK_PACKET.data_acquisition.template.json").read_text(encoding="utf-8"))
     assert contract["schema_version"] == "alphafactory_ea_contract.v1"
     assert contract["telemetry_profile"] == "none"
     assert packet["schema_version"] == "alphafactory_research_task_packet.v1"
     assert packet["model"] == 0
     assert packet["acceptance_contract"]["min_profit_factor"] >= 1.30
     assert packet["acceptance_contract"]["max_drawdown_pct"] <= 8.0
+    assert "data_quality_contract" in data_packet
+    assert "acceptance_contract" not in data_packet
     assert "REPLACE_WITH_64_HEX" in packet.values()
 
 

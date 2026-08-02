@@ -20,7 +20,7 @@
 
 param(
     [Parameter(Position=0)]
-    [ValidateSet("compile", "backtest", "analyze", "list", "status", "report", "git", "scan", "monte", "wfa", "help", "validate", "validate-full", "fast-kill", "delivery", "log", "robust", "param", "mt5data", "sensitivity")]
+    [ValidateSet("compile", "backtest", "analyze", "list", "status", "report", "git", "scan", "monte", "wfa", "help", "validate", "validate-full", "fast-kill", "delivery", "log", "robust", "param", "cpcv", "impact", "mt5data", "sensitivity")]
     [string]$Action = "status",
     
     [Parameter(Position=1)]
@@ -56,6 +56,28 @@ param(
     [string]$ContractReceipt = "",
     [string]$ContractReceiptSha256 = "",
     [string]$RequiredSidecars = "",
+    [string]$Output = "",
+    [string]$Param1 = "",
+    [string]$Param2 = "",
+    [string]$Metric = "Custom",
+    [double]$PlateauFraction = 0.90,
+    [int]$ExpectedTrials = 0,
+    [string]$SelectedPass = "",
+    [string]$SelectedReturns = "",
+    [string]$ReturnsColumn = "net_r",
+    [string]$SharpeColumn = "Custom",
+    [switch]$LowerIsBetter,
+    [ValidateSet("unspecified", "per_trade_net_r", "mt5_tester_sharpe")]
+    [string]$SrSemantics = "unspecified",
+    [switch]$SelectionFrozen,
+    [int]$CpcvGroups = 8,
+    [int]$CpcvTestGroups = 2,
+    [double]$EmbargoPct = 0.01,
+    [string]$TradesCsv = "",
+    [ValidateSet("adv_proxy", "observed_depth")]
+    [string]$LiquiditySource = "adv_proxy",
+    [double]$ImpactEta = 0.5,
+    [string]$Calibration = "",
     [switch]$Charts
 )
 
@@ -759,6 +781,46 @@ function Get-IncludeDependencyClosure($MainFile) {
         }
     }
     return @($includes)
+}
+
+function Get-MqlInputTypeMap([string]$MainFile) {
+    if (-not (Test-Path -LiteralPath $MainFile -PathType Leaf)) {
+        throw "MQL input preflight source is missing: $MainFile"
+    }
+    $typeMap = [ordered]@{}
+    $files = @((Resolve-Path -LiteralPath $MainFile).Path) + @(Get-IncludeDependencyClosure $MainFile)
+    $declaration = '(?m)^\s*(?:sinput|input)\s+(?!group\b)(?<type>[A-Za-z_][A-Za-z0-9_]*)\s+(?<name>[A-Za-z_][A-Za-z0-9_]*)\b'
+    foreach ($file in $files) {
+        $source = Get-Content -LiteralPath $file -Raw
+        foreach ($match in [regex]::Matches($source, $declaration)) {
+            $name = $match.Groups['name'].Value
+            $type = $match.Groups['type'].Value.ToLowerInvariant()
+            if ($typeMap.Contains($name)) {
+                throw "MQL tester input '$name' is declared more than once across the include closure."
+            }
+            $typeMap[$name] = $type
+        }
+    }
+    return $typeMap
+}
+
+function ConvertTo-TesterInputLines([string]$MainFile, [string]$OverrideText) {
+    $overrideMap = ConvertTo-NormalizedOverrideMap $OverrideText
+    if ($overrideMap.Count -eq 0) { return @() }
+    $typeMap = Get-MqlInputTypeMap $MainFile
+    $lines = New-Object System.Collections.Generic.List[string]
+    foreach ($name in @($overrideMap.Keys | Sort-Object)) {
+        if (-not $typeMap.Contains($name)) {
+            throw "Tester override '$name' does not match a declared input/sinput in the canonical MQL include closure."
+        }
+        $value = [string]$overrideMap[$name]
+        if ([string]$typeMap[$name] -ceq 'string') {
+            $lines.Add("$name=$value")
+        } else {
+            $lines.Add("$name=$value||$value||0||$value||N")
+        }
+    }
+    return @($lines)
 }
 
 function New-RunSnapshot($RunDir, $MainFile, $Ex5File, $ConfigPath) {
@@ -1888,30 +1950,9 @@ Leverage=$Leverage
     # v11.3: ALWAYS write [TesterInputs] to override MT5 cached .set files
     # Without this, MT5 ignores compiled defaults and uses stale cached params
     $iniContent += "`r`n[TesterInputs]`r`n"
-    $stringInputNames = @{}
-    $mqlSourceText = Get-Content -LiteralPath $main -Raw
-    foreach ($inputMatch in [regex]::Matches(
-        $mqlSourceText,
-        '(?m)^\s*input\s+string\s+([A-Za-z_][A-Za-z0-9_]*)\b'
-    )) {
-        $stringInputNames[$inputMatch.Groups[1].Value] = $true
-    }
     if ($effectiveOverrides) {
-        $pairs = $effectiveOverrides.Split(';') | ForEach-Object { $_.Trim() } | Where-Object { $_ -and $_.Contains('=') }
-        foreach ($p in $pairs) {
-            $kv = $p.Split('=', 2)
-            $k = $kv[0].Trim()
-            $v = $kv[1].Trim()
-            if ($k) {
-                # MT5 treats the optimization tuple literally for string
-                # inputs. Numeric/bool inputs require the tuple, while strings
-                # must be serialized as a plain key/value pair.
-                if ($stringInputNames.ContainsKey($k)) {
-                    $iniContent += "$k=$v`r`n"
-                } else {
-                    $iniContent += "$k=$v||$v||0||$v||N`r`n"
-                }
-            }
+        foreach ($testerInputLine in @(ConvertTo-TesterInputLines $main $effectiveOverrides)) {
+            $iniContent += "$testerInputLine`r`n"
         }
     }
     
@@ -2345,18 +2386,66 @@ switch ($Action.ToLower()) {
         python $robust --report "$Report" --test all
     }
     # ================================================================
-    # PARAM - Parameter Sensitivity Analysis & Heatmap
-    # Kiểm tra stability của parameters
+    # PARAM - Full-pass MT5 optimization import, DSR, and real heatmap
+    # A single-report Gaussian perturbation is forbidden as stability evidence.
     # ================================================================
     "param" {
-        if (-not $Report) { throw "Report path required. Use: .\alpha.ps1 param -Report 'path'" }
-        Write-Status "Running Parameter Sensitivity Analysis..."
+        if (-not $Report) { throw "Full MT5 optimization XML/CSV required. Use: .\alpha.ps1 param -Report 'optimization.xml'" }
+        Write-Status "Importing full MT5 optimization family and building real parameter surface..."
         $param = Join-Path $AlphaRoot "analysis\param_optimizer.py"
-        if ($Name -eq "heatmap") {
-            python $param --report "$Report" --heatmap
-        } else {
-            python $param --report "$Report" --param "SL"
+        $paramArgs = @($param, "--report", $Report, "--metric", $Metric, "--plateau-fraction", ([string]$PlateauFraction))
+        if ($Output) { $paramArgs += @("--out", $Output) }
+        if ($Param1) { $paramArgs += @("--param1", $Param1) }
+        if ($Param2) { $paramArgs += @("--param2", $Param2) }
+        if ($ExpectedTrials -gt 0) { $paramArgs += @("--expected-total-trials", ([string]$ExpectedTrials)) }
+        if ($SelectedPass) { $paramArgs += @("--selected-pass", $SelectedPass) }
+        if ($SelectedReturns) { $paramArgs += @("--selected-returns", $SelectedReturns) }
+        if ($ReturnsColumn) { $paramArgs += @("--returns-column", $ReturnsColumn) }
+        if ($SharpeColumn) { $paramArgs += @("--sharpe-column", $SharpeColumn) }
+        if ($SrSemantics) { $paramArgs += @("--sr-semantics", $SrSemantics) }
+        if ($LowerIsBetter) { $paramArgs += "--lower-is-better" }
+        if ($SelectionFrozen) { $paramArgs += "--selection-frozen" }
+        if ($Packet) { $paramArgs += @("--optimization-receipt", $Packet) }
+        if (-not $Charts) { $paramArgs += "--no-plot" }
+        & python @paramArgs
+        if ($LASTEXITCODE -ne 0) { throw "Optimization audit failed with exit code $LASTEXITCODE" }
+    }
+    # ================================================================
+    # CPCV - Event-level purged and embargoed combinatorial CV
+    # ================================================================
+    "cpcv" {
+        if (-not $Report) { throw "Event CSV required. Use: .\alpha.ps1 cpcv -Report 'events.csv'" }
+        Write-Status "Running event-level purged/embargoed CPCV..."
+        $cpcv = Join-Path $AlphaRoot "analysis\purged_cpcv.py"
+        if ($Metric -notin @("mean", "sharpe", "pf")) {
+            throw "CPCV -Metric must be one of: mean, sharpe, pf."
         }
+        $cpcvMetric = $Metric
+        $cpcvArgs = @($cpcv, "--events-csv", $Report, "--groups", ([string]$CpcvGroups), "--test-groups", ([string]$CpcvTestGroups), "--embargo-pct", ([string]$EmbargoPct), "--metric", $cpcvMetric)
+        if ($Output) { $cpcvArgs += @("--out", $Output) }
+        if ($SelectionFrozen) { $cpcvArgs += "--frozen-pre-outcome" }
+        & python @cpcvArgs
+        if ($LASTEXITCODE -ne 0) { throw "Purged CPCV failed with exit code $LASTEXITCODE" }
+    }
+    # ================================================================
+    # IMPACT - Conditional volume/liquidity/volatility cost stress
+    # ================================================================
+    "impact" {
+        if (-not $Report) { throw "Fill CSV required. Use: .\alpha.ps1 impact -Report 'fills.csv' -TradesCsv 'trades.csv'" }
+        if (-not $TradesCsv) { throw "TradesCsv is required for gross-to-adjusted PnL reconciliation." }
+        if ($LiquiditySource -eq "observed_depth" -and -not $Calibration) {
+            throw "observed_depth requires -Calibration; schema v1 remains diagnostic-only."
+        }
+        if ($LiquiditySource -eq "adv_proxy" -and $Calibration) {
+            throw "adv_proxy does not accept an observed-depth -Calibration."
+        }
+        Write-Status "Running diagnostic-only dynamic market-impact cost audit..."
+        $impact = Join-Path $AlphaRoot "analysis\dynamic_cost_model.py"
+        $impactArgs = @($impact, "--fills-csv", $Report, "--trades-csv", $TradesCsv, "--source-kind", $LiquiditySource, "--eta", ([string]$ImpactEta))
+        if ($Calibration) { $impactArgs += @("--calibration", $Calibration) }
+        if ($Output) { $impactArgs += @("--out", $Output) }
+        & python @impactArgs
+        if ($LASTEXITCODE -ne 0) { throw "Dynamic cost audit failed with exit code $LASTEXITCODE" }
     }
     # ================================================================
     # MT5DATA - Export data từ MT5 terminal (native Python)
@@ -2504,6 +2593,9 @@ switch ($Action.ToLower()) {
   monte -Report "path"      Monte Carlo simulation (1000 runs)
   wfa -Report "path"        Walk-Forward Analysis (5 windows)
   robust -Report "path"     Robustness Suite (7 tests)
+  param -Report "opt.xml"  Diagnostic full-pass DSR + real parameter surface
+  cpcv -Report "events.csv" Diagnostic purged combinatorial split/PBO
+  impact -Report "fills.csv" -TradesCsv "trades.csv" Diagnostic cost audit
 
   GIT COMMANDS:
   ─────────────────────────────────────────────────────────────────
@@ -2522,7 +2614,12 @@ switch ($Action.ToLower()) {
   -To         Backtest end date (default: 2025.12.25)
   -Charts     Generate visual charts
   -Report     Path to HTML report file
-  -Packet     Hash-bound fast-kill closeout or heavy delivery packet
+  -Packet     Action-specific hash-bound packet/receipt
+  -Output     Explicit analysis output directory
+  -Param1/2   Actual MT5 optimization input columns
+  -ExpectedTrials  Frozen total optimization pass count
+  -SharpeColumn    Per-pass per_trade_net_r Sharpe column
+  -LowerIsBetter   Select low metric values for the surface
 
   EXAMPLES:
   ─────────────────────────────────────────────────────────────────

@@ -46,6 +46,9 @@
     "prereg_path": { "$ref": "#/$defs/path" },
     "prereg_sha256": { "$ref": "#/$defs/sha256" },
     "exact_overrides": { "type": "string" },
+    "evidence_contract_kind": {
+      "enum": ["economic", "data_acquisition"]
+    },
     "acceptance_contract": {
       "type": "object",
       "additionalProperties": false,
@@ -62,6 +65,33 @@
         "min_profit_factor", "min_trades_per_week", "max_trades_per_week",
         "max_drawdown_pct", "min_cost_pf_x1_5", "min_cost_pf_x2",
         "max_monte_carlo_p95_dd_pct"
+      ]
+    },
+    "data_acceptance_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "history_quality_operator": { "const": "gt" },
+        "history_quality_threshold_pct": {
+          "type": "number",
+          "minimum": 97.0,
+          "exclusiveMaximum": 100.0
+        },
+        "coverage_mode": { "const": "all_available_asof" },
+        "mandatory_symbols": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "no_skip": { "const": true },
+        "require_tester_journal_bounds": { "const": true },
+        "require_series_proof": { "const": true }
+      },
+      "required": [
+        "history_quality_operator", "history_quality_threshold_pct",
+        "coverage_mode", "mandatory_symbols", "no_skip",
+        "require_tester_journal_bounds", "require_series_proof"
       ]
     },
     "verdict": { "type": "string", "minLength": 1 },
@@ -184,7 +214,7 @@
     "record_type", "schema_version", "hypothesis_id", "ea_name", "state",
     "parent_candidate", "feature_family", "lane", "symbol", "timeframe", "window",
     "model", "source_provenance", "source_path", "source_hash", "prereg_path",
-    "prereg_sha256", "exact_overrides", "acceptance_contract", "verdict", "reason", "updated_at_utc",
+    "prereg_sha256", "exact_overrides", "verdict", "reason", "updated_at_utc",
     "run_ids", "metrics", "validation"
   ]
 }

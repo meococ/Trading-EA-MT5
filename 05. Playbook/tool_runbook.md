@@ -1,6 +1,6 @@
 # AlphaFactory Tool Runbook
 
-Updated: 2026-07-26
+Updated: 2026-08-01
 
 Scope: AlphaFactory command and evidence operations for every EA lane. Active
 scope comes from the Owner's current request plus verified locks and frozen
@@ -67,6 +67,29 @@ that prohibits account-history reads must pass `--skip-account-history`; a short
 smoke proves plumbing only, never economics.
 
 ## Core Commands
+
+### Execution-gate preflight
+
+Run this gate immediately before compile/backtest/delivery, not before every
+research thought:
+
+```powershell
+python "04. Memory/validate_source_of_truth.py"
+python "04. Memory/research/validate_candidate_registry.py"
+powershell -NoProfile -ExecutionPolicy Bypass `
+  -File "02. AlphaFactory/alpha.ps1" status
+```
+
+Then inspect `02. AlphaFactory/runtime/ea_research_loop.lock` and
+`02. AlphaFactory/runtime/alpha_backtest.lock`, and re-read the latest registry
+row plus its prereg/task-packet identity. A stale one-shot authority is
+terminal-invalid; never repair it by rebinding mutable runner or machine-local
+hashes.
+
+Machine-local `alpha.local.ps1` is not immutable research identity. The active
+launch validates its semantic `alphafactory_mt5_storage_contract.v1` receipt
+(portable mode, storage roots/drive and `FILE_COMMON` policy). Canonical runner
+files remain hash-bound in the per-launch receipt.
 
 ### AlphaFactory CLI
 
@@ -138,11 +161,20 @@ the guarded research-loop section below rather than inventing an ad-hoc
 command. Command completion is not strategy readiness; read the validation
 verdict and full gate stack.
 
-`TesterInputs` serialization is type-aware: numeric and boolean overrides use
-the MT5 optimization tuple, while declared MQL5 `input string` overrides must
-be written as plain `key=value`. If a new string input appears literally as
+`TesterInputs` serialization is include-aware and type-aware: every override
+name must resolve to a declared MQL5 `input`/`sinput` in the canonical source
+closure. Unknown or duplicate declarations fail before the INI is written.
+Numeric and boolean overrides use the MT5 optimization tuple, while string
+overrides are plain `key=value`. If a new string input appears literally as
 `value||value||0||value||N` in the tester log, reject the run as a harness
 failure; do not weaken EA input validation.
+
+Data-acquisition rows use `evidence_contract_kind=data_acquisition` plus
+`data_acceptance_contract`/task-packet `data_quality_contract`; they do not use
+PF, cadence or drawdown acceptance as evidence. Economic rows use
+`evidence_contract_kind=economic` plus the seven-field `acceptance_contract`.
+Legacy rows retain their frozen shape but do not define the contract for a new
+hypothesis.
 
 For zero-trade data acquisition, `report ready` is not completion. Require the
 exact receipt-bound sidecars, validate source hash and contract id across
@@ -466,6 +498,95 @@ anatomy, phase attribution, snapshot flow, state probes) live under
 `00. Old File/EA_Archive/EA_SonicR/tools_analysis_archive_20260718/` with a
 manifest. Archive-only: not valid execution surface; restoring one is an
 Owner-scoped change.
+
+## Quant-Pro Infrastructure Audits
+
+These commands consume frozen evidence; they do not authorize a sweep, rerun,
+promotion or live deployment.
+
+### Full optimization family, DSR and real parameter surface
+
+Freeze the receipt's source/config/count/selection fields before outcomes. After
+the run, append the full-report and selected-series hashes without changing the
+frozen fields, then import the complete MT5 optimization export:
+
+```powershell
+& "02. AlphaFactory/alpha.ps1" param `
+  -Report "<FULL_OPTIMIZATION_EXPORT.xml>" `
+  -Packet "<FROZEN_OPTIMIZATION_RECEIPT.json>" `
+  -Param1 "<PARAMETER_1>" -Param2 "<PARAMETER_2>" `
+  -Metric "Custom" -ExpectedTrials <N> `
+  -SelectedPass "<PASS_ID>" `
+  -SelectedReturns "<SELECTED_PASS_NET_R.csv>" `
+  -SharpeColumn "Custom" `
+  -SrSemantics per_trade_net_r -SelectionFrozen -Charts
+```
+
+`param` rejects the old single-backtest/Gaussian-noise interpretation. Every
+exported pass stays in `N`; count mismatch, duplicate pass ID, missing Sharpe,
+source/config/report/selected-series hash drift, non-contiguous pass identity,
+selection-rule mismatch or mismatched SR semantics fails closed. Output:
+`optimization_analysis/optimization_audit.json` plus actual-pass heatmap/3D
+surface PNGs. Schema v1 reports `diagnostic_evidence_complete` and
+`diagnostic_dsr_pass`; all gate/promotion flags remain false because a composite
+receipt does not independently prove preregistration time or cumulative campaign
+exposure.
+
+### Purged and embargoed CPCV
+
+Input must be event-level CSV with
+`variant_id,event_id,start_time,label_end,net_r` and explicit timezone:
+
+```powershell
+& "02. AlphaFactory/alpha.ps1" cpcv `
+  -Report "<FROZEN_VARIANT_EVENTS.csv>" `
+  -CpcvGroups 8 -CpcvTestGroups 2 -EmbargoPct 0.01 `
+  -Metric sharpe -SelectionFrozen
+```
+
+Every variant must use the exact same event/time grid. The producer removes
+train events whose decision-to-label interval overlaps a test event, then
+applies the embargo; train ties and non-finite fold metrics are unusable rather
+than winners. Daily `exit_time,net_r` matrices cannot prove purging and are
+rejected as a substitute. Output: `cpcv_analysis/purged_cpcv.json`. Schema v1 is
+a split/PBO diagnostic, not reconstructed CPCV paths or a standalone gate.
+
+### Dynamic market-impact stress
+
+Fills CSV fields are `fill_id,trade_id,timestamp,symbol,side,quantity,
+quantity_unit,reference_price,spread_price,volatility_bps,liquidity_quantity,
+quote_currency,quote_to_account_rate,commission_account,account_currency`.
+`quantity_unit` must be `base_units`. Trades CSV binds
+`trade_id,gross_pnl,account_currency,pnl_basis`; schema v1 accepts only
+`pnl_basis=mid_reference_before_modeled_costs` to prevent double counting.
+
+```powershell
+& "02. AlphaFactory/alpha.ps1" impact `
+  -Report "<FILLS.csv>" -TradesCsv "<TRADES.csv>" `
+  -LiquiditySource adv_proxy -ImpactEta 0.5
+```
+
+For `observed_depth`, bind
+`templates/research/IMPACT_CALIBRATION.template.json` with `-Calibration`.
+The deterministic square-root surface conditions cost on order quantity,
+liquidity and volatility. It supplements, and does not replace, the canonical
+`verified_execution_cost.v1` builder or observed broker TCA. The v1 loader
+checks manifest/file hash and row-count integrity but does not recompute `eta`
+or reconcile order lifecycle, so it always prints `DIAGNOSTIC_ONLY` and keeps
+economic/gate/promotion claims false. Per-fill impact is not yet invariant to
+partial-fill partitioning; production use requires parent-order aggregation.
+
+### Async execution kernel compile harness
+
+```powershell
+& "02. AlphaFactory/alpha.ps1" compile "EA_ExecutionKernelHarness"
+```
+
+Shared includes live under `03. EA Developer/_Shared/`. The harness is
+mutation-disabled and compile/reconciliation-only; the shared header also has
+`AF_EXEC_EXPERIMENTAL_MUTATION_ENABLED=0` by default. No EA may opt in until a
+durable intent journal plus callback-order/partial/late-fill/restart/netting
+behavioral fixtures pass. It has no research or live authority.
 
 ## Guardrails
 

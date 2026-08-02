@@ -40,6 +40,21 @@ Cập nhật: 2026-07-21. Golden path đầy đủ: `ea_golden_path.md`.
 - Sau fill phải tính lại money-risk từ entry/SL/volume thật cộng execution cost.
   Nếu vượt budget đã đóng băng, quản trị/đóng khẩn ngay trong event hiện tại,
   không chờ tick sau và không giữ risk ước lượng pre-send làm sự thật.
+- `OrderSend()` đồng bộ vẫn là API hợp lệ; `OrderSendAsync()` chỉ dùng khi EA có
+  lifecycle request-correlated hoàn chỉnh. Async phải set intent trước send,
+  bind `request_id`, xử lý request/order/deal/partial/reject idempotent trong
+  `OnTradeTransaction`, không giả định thứ tự callback và không auto-resend khi
+  timeout. Shared reference `03. EA Developer/_Shared/Execution/AF_ExecutionKernel.mqh`
+  is experimental compile-only and mutation-default-off; it is not yet the
+  production kernel because durable intent/restart recovery and behavioral
+  callback fixtures remain absent.
+- `OnTick` có thể coalesce NewTick khi handler đang bận. Điều này không làm sai
+  signal closed-bar `shift >= 1`; chỉ logic cần toàn bộ tick path mới dùng cursor
+  `CopyTicksRange` bounded tại `03. EA Developer/_Shared/MarketData/AF_TickCursor.mqh`.
+  CopyTicks không phải L2/L3/DOM và lỗi history sync phải fail-closed.
+- Không bulk-migrate EA terminal/audit-only sang async. Mỗi EA mới/adopt phải có
+  test callback đảo thứ tự, duplicate deal, partial fill, late fill sau timeout,
+  restart recovery, foreign ownership và telemetry-off parity trước live claim.
 
 ## 4. Risk hard gates
 

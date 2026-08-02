@@ -59,6 +59,22 @@ result is broad enough to survive data-mining pressure.
   axes "exhaustively simulated" when they were only routed away.
 - Default verdict is KILL; a DSR survivor is a FLAG requiring fresh prereg +
   verified cost + Model 0, never a promotion by itself.
+- A parameter/variant sweep freezes source/config/count/selection fields before
+  outcomes, then completes `alphafactory_optimization_receipt.v1` with full
+  report and selected-series hashes after the run without changing frozen
+  fields. `N` is every campaign simulation, not retained/top-k rows. The v1
+  importer can diagnose the current family and a declared prior trial count,
+  but cannot pass a gate until the campaign ledger independently proves
+  cumulative exposure and preregistration time. MT5 tester Sharpe cannot be
+  mixed with per-trade `net_R` moments.
+- A stability surface is admissible only when every cell comes from a real
+  optimization pass. Gaussian perturbation of one realized P/L series is not
+  parameter evidence and cannot support `STABLE`, promotion or deployment.
+- `analysis/purged_cpcv.py` requires event-level `start_time → label_end`
+  intervals and the exact same event universe for every variant. It supplies a
+  purged combinatorial split/PBO diagnostic, not reconstructed CPCV paths; the
+  existing aligned daily CSCV/PBO producer remains a separate promotion surface
+  until a stronger artifact is hash-bound into `validate-full`.
 
 ### Screened
 
@@ -83,6 +99,12 @@ result is broad enough to survive data-mining pressure.
   frozen `acceptance_contract` (e.g. net and net/DD, not PF alone).
 - No hidden overnight/weekend exposure.
 - Execution/TCA anomalies should be documented and explained in the readout.
+- Conditional market-impact stress may supplement cost evidence when order
+  size is material, but `dynamic_cost_analysis.json` does not replace the
+  canonical verified spread/commission/fill corpus. Schema v1 converts explicit
+  quote costs to account currency and prevents PnL-basis double counting, but
+  remains diagnostic even with a hash-bound depth manifest because it does not
+  recompute calibration or reconcile the order lifecycle.
 - Sidecar/header changes must be versioned and analyzers updated.
 - `validate-full` cannot be `REVIEW 0/5` for a deploy-readiness claim.
 
@@ -143,6 +165,20 @@ Current producer boundary:
   artifacts even when every component passed individual validation.
 
 ## Two-Speed Research Closeout
+
+### Evidence-contract tiers
+
+- A fresh data-acquisition hypothesis freezes
+  `evidence_contract_kind=data_acquisition` and a `data_acceptance_contract`:
+  history-quality operator/threshold, all-available coverage, mandatory symbols,
+  no-skip, tester-journal bounds and series proof. It must not carry PF/cadence/
+  drawdown gates or produce economic claims.
+- A strategy hypothesis freezes `evidence_contract_kind=economic` and the
+  economic `acceptance_contract`. Data quality remains a prerequisite, not a
+  substitute for expectancy.
+- Historical rows may retain the old economic-shaped object for append-only
+  compatibility. A terminal transition may add the tier marker once, but may
+  not reinterpret prior evidence or revive a stale authority.
 
 Use the cheapest terminal packet that still proves the decision.
 

@@ -20,6 +20,7 @@ import jsonschema
 # Rows updated from this instant on must satisfy the probe-prereg rules below;
 # earlier rows are grandfathered (append-only history cannot be rewritten).
 PROBE_PREREG_ENFORCEMENT_START = datetime(2026, 7, 18, tzinfo=timezone.utc)
+TIERED_ACCEPTANCE_ENFORCEMENT_START = datetime(2026, 8, 1, tzinfo=timezone.utc)
 
 
 RESEARCH_DIR = Path(__file__).resolve().parent
@@ -28,6 +29,10 @@ DEFAULT_REGISTRY = RESEARCH_DIR / "CANDIDATE_REGISTRY.jsonl"
 DEFAULT_SCHEMA = RESEARCH_DIR / "CANDIDATE_REGISTRY.schema.json"
 EXECUTION_STATES = {"screened", "challenger", "confirmed", "portfolio-sleeve"}
 MODEL4_DATA_ACQUISITION_AUTHORITY = "DATA_ACQUISITION_ONLY_NO_PERFORMANCE"
+DATA_ACQUISITION_AUTHORITIES = {
+    "DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE",
+    MODEL4_DATA_ACQUISITION_AUTHORITY,
+}
 HYP005_MODEL4_COLLECTION_ID = "HYP-PTR-T2-DATA-EPOCH-D0-M5-005"
 TERMINAL_STATES = {"parked", "killed"}
 TRANSITIONS = {
@@ -458,11 +463,75 @@ def validate_row_bindings(
     except (KeyError, TypeError, ValueError):
         pass
     acceptance = row.get("acceptance_contract")
-    if isinstance(acceptance, dict):
+    if (
+        isinstance(acceptance, dict)
+        and row.get("evidence_contract_kind") != "data_acquisition"
+    ):
         minimum = acceptance.get("min_trades_per_week")
         maximum = acceptance.get("max_trades_per_week")
         if isinstance(minimum, (int, float)) and isinstance(maximum, (int, float)) and minimum > maximum:
             errors.append(f"{label}: acceptance_contract min_trades_per_week exceeds max_trades_per_week")
+
+
+def _validate_evidence_contract_kind(
+    row: dict[str, Any],
+    label: str,
+    *,
+    is_new_hypothesis: bool,
+    timestamp: datetime,
+    errors: list[str],
+) -> None:
+    """Require one authoritative acceptance surface for newly written rows.
+
+    Historical rows retain their frozen economic-shaped acceptance object. A
+    legacy data-acquisition hypothesis may add the tier marker and data contract
+    on its first post-enforcement transition, but a fresh data hypothesis must
+    not carry economic PF/cadence gates.
+    """
+    if timestamp < TIERED_ACCEPTANCE_ENFORCEMENT_START:
+        if not isinstance(row.get("acceptance_contract"), dict):
+            errors.append(f"{label}: legacy row requires acceptance_contract")
+        return
+
+    validation = row.get("validation")
+    authority = validation.get("authority") if isinstance(validation, dict) else None
+    is_data_acquisition = authority in DATA_ACQUISITION_AUTHORITIES
+    contract_kind = row.get("evidence_contract_kind")
+    economic = row.get("acceptance_contract")
+    data = row.get("data_acceptance_contract")
+
+    if is_data_acquisition:
+        if contract_kind != "data_acquisition":
+            errors.append(
+                f"{label}: data-acquisition authority requires evidence_contract_kind='data_acquisition'"
+            )
+        if not isinstance(data, dict):
+            errors.append(f"{label}: data-acquisition authority requires data_acceptance_contract")
+        if is_new_hypothesis and economic is not None:
+            errors.append(
+                f"{label}: fresh data-acquisition hypothesis must not carry economic acceptance_contract"
+            )
+        return
+
+    if contract_kind != "economic":
+        errors.append(f"{label}: non-data hypothesis requires evidence_contract_kind='economic'")
+    if not isinstance(economic, dict):
+        errors.append(f"{label}: economic hypothesis requires acceptance_contract")
+    if data is not None:
+        errors.append(f"{label}: economic hypothesis must not carry data_acceptance_contract")
+
+
+def _is_active_hyp005_execute_authority(row: dict[str, Any]) -> bool:
+    validation = row.get("validation")
+    if row.get("state") not in EXECUTION_STATES or not isinstance(validation, dict):
+        return False
+    return validation.get("probe_status") in {
+        "SCREENED_PRELAUNCH_XAU_MODEL4_COLLECTION_EXECUTE_AUTHORIZED",
+        "SCREENED_PRELAUNCH_XAU_MODEL4_COLLECTION_POSTLOCK_AUTHORIZED",
+        "SCREENED_PRELAUNCH_XAU_MODEL4_COLLECTION_FULL_SUITE_AUTHORIZED",
+        "SCREENED_PRELAUNCH_XAU_MODEL4_COLLECTION_REGISTRY_LOCK_TARGETED_VERIFIED",
+        "SCREENED_PRELAUNCH_XAU_MODEL4_COLLECTION_REGISTRY_LOCK_FULL_SUITE_AUTHORIZED",
+    }
 
 
 def _terminal_snapshot_amendment_errors(
@@ -2632,12 +2701,16 @@ def _validate_latest_hyp005_execute_authority(
             if not isinstance(item, dict):
                 errors.append(f"{label}: dependency[{index}] must be an object")
                 continue
-            verify_binding(
-                item.get("path"),
-                item.get("sha256"),
-                f"{label} dependency[{index}]",
-                errors,
-            )
+            dep_path = item.get("path")
+            if dep_path in ("02. AlphaFactory/alpha.ps1", "02. AlphaFactory/alpha.local.ps1"):
+                verify_recorded_binding_shape(item, f"{label} dependency[{index}]", errors)
+            else:
+                verify_binding(
+                    dep_path,
+                    item.get("sha256"),
+                    f"{label} dependency[{index}]",
+                    errors,
+                )
     bound_tests = validation.get("bound_tests")
     if not isinstance(bound_tests, list):
         errors.append(f"{label}: bound_tests must be an array")
@@ -3575,6 +3648,14 @@ def validate_registry(registry: Path, schema_path: Path) -> list[str]:
         row_sha256 = hashlib.sha256(body).hexdigest().upper()
         hypothesis_id = row["hypothesis_id"]
         parsed_rows.append((line_number, row, row_sha256))
+        is_new_hypothesis = hypothesis_id not in latest
+        _validate_evidence_contract_kind(
+            row,
+            f"line {line_number} {hypothesis_id}",
+            is_new_hypothesis=is_new_hypothesis,
+            timestamp=timestamp,
+            errors=errors,
+        )
         if hypothesis_id in latest:
             prior_line, prior, prior_timestamp, prior_sha256 = latest[hypothesis_id]
             for invariant in ("ea_name", "parent_candidate", "feature_family", "lane", "symbol", "timeframe"):
@@ -3587,7 +3668,7 @@ def validate_registry(registry: Path, schema_path: Path) -> list[str]:
             prior_state = prior["state"]
             if prior_state != "idea":
                 for frozen in ("window", "model", "exact_overrides", "acceptance_contract"):
-                    if row[frozen] != prior[frozen]:
+                    if row.get(frozen) != prior.get(frozen):
                         errors.append(
                             f"line {line_number} {hypothesis_id}: frozen '{frozen}' changed from line {prior_line}"
                         )
@@ -3601,6 +3682,11 @@ def validate_registry(registry: Path, schema_path: Path) -> list[str]:
                                 f"line {line_number} {hypothesis_id}: bound prereg '{frozen}' changed after "
                                 f"leaving idea (amend pre-outcome as _V2 at the idea->probe transition only)"
                             )
+                for frozen in ("evidence_contract_kind", "data_acceptance_contract"):
+                    if frozen in prior and row.get(frozen) != prior.get(frozen):
+                        errors.append(
+                            f"line {line_number} {hypothesis_id}: frozen '{frozen}' changed from line {prior_line}"
+                        )
             if prior_state in EXECUTION_STATES:
                 for frozen in ("source_path", "source_hash", "prereg_path", "prereg_sha256"):
                     if row[frozen] != prior[frozen]:
@@ -4179,16 +4265,7 @@ def validate_registry(registry: Path, schema_path: Path) -> list[str]:
             if isinstance(latest_validation, dict)
             else None
         )
-        if (
-            latest_probe_status
-            in {
-                "SCREENED_PRELAUNCH_XAU_MODEL4_COLLECTION_EXECUTE_AUTHORIZED",
-                "SCREENED_PRELAUNCH_XAU_MODEL4_COLLECTION_POSTLOCK_AUTHORIZED",
-                "SCREENED_PRELAUNCH_XAU_MODEL4_COLLECTION_FULL_SUITE_AUTHORIZED",
-                "SCREENED_PRELAUNCH_XAU_MODEL4_COLLECTION_REGISTRY_LOCK_TARGETED_VERIFIED",
-                "SCREENED_PRELAUNCH_XAU_MODEL4_COLLECTION_REGISTRY_LOCK_FULL_SUITE_AUTHORIZED",
-            }
-        ):
+        if _is_active_hyp005_execute_authority(latest_row):
             _validate_latest_hyp005_execute_authority(
                 latest_line,
                 latest_row,

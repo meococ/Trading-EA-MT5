@@ -1,13 +1,15 @@
 # 03. EA Developer — Active Shelf
 
-Updated: 2026-07-31 (T1 closed pre-economic; T2 pro-trader-replacement P0 charter active; Owner goal remains open)
+Updated: 2026-08-02 (quant infrastructure harness added; T2 campaign authority unchanged)
 
-Active compilable shelf = 19 lanes. Mọi package khác đã archive THẬT sang
+Active compilable shelf = 23 packages: 19 strategy/audit lanes, three T2
+data-epoch probes and one generic execution harness. Mọi package khác đã archive THẬT sang
 `00. Old File/EA_Archive/` (2026-07-15) — **không** compile từ đó làm evidence.
 
 | Active package | Path | Notes |
 |---|---|---|
 | `EA_FVGConfluence` | `03. EA Developer/EA_FVGConfluence/` | Path-C scaffold compile 0/0 and closed-bar audit PASS, but `HYP-FVG-SCALP-CONFL-M5-EUR-001` stays terminal de-dup KILL. Read-only comparison study: report fidelity INFERIOR; public-EA and professional performance INSUFFICIENT; no Model 0/rerun/live authority |
+| `EA_ExecutionKernelHarness` | `03. EA Developer/EA_ExecutionKernelHarness/` | Experimental async execution/tick-cursor compile harness; latest local compile 0 errors/0 warnings (18,612-byte ignored EX5). Harness mutation is hard-disabled and shared mutation defaults off. No behavioral callback/restart/live proof; not adopted by any EA and not an edge, backtest, promotion or live claim |
 | `EA_HybridICT_Sonic` | `03. EA Developer/EA_HybridICT_Sonic/` | Path-C stub (KILL@Model0, 0 trades); lane riêng |
 | `EA_ICTFVGReportFidelity` | `03. EA Developer/EA_ICTFVGReportFidelity/` | v1.23 Human Context natural policy: 53/53 tests, compile 0/0, non-repaint V19 PASS. HYP-017 single 2018-YTD Model-0 run N=3,703, native PF 0.7553; additional 1.5-pip PF 0.3513 / -0.52139R, terminal KILL. Source retained for audit only; no rerun/promotion/live authority |
 | `EA_ICTVisualEdge` | `03. EA Developer/EA_ICTVisualEdge/` | Visual feature-discovery method record retained with a compilable extractor; hypothesis terminal design-window economic KILL, no Model 0/rerun/live authority |
@@ -16,6 +18,7 @@ Active compilable shelf = 19 lanes. Mọi package khác đã archive THẬT sang
 | `EA_LSSOBPropScalper` | `03. EA Developer/EA_LSSOBPropScalper/` | Owner-required exact EURUSD M15 replication compiled 0/0 and ran matched MT5 Model-0 control/challenger (`20260719_001202`/`20260719_001306`): each 100% history, 388 sweeps, 0 displacement/FVG, 0 trades. Terminal `KILL_AT_MT5_MODEL0_CADENCE_ZERO_TRADE`; source retained for audit only, no rerun/optimization/holdout/live authority |
 | `EA_SweepCascadeContinuation` | `03. EA Developer/EA_SweepCascadeContinuation/` | HYP-004 native-MT5 full-horizon matched-pair terminal KILL: control N1112/PF0.6981/meanR-0.2156; HOLD-retest challenger N261/PF0.6913/meanR-0.2318/cadence1.2514 per week. Delivery PASS KILLED. Frozen random100 Grok review opened 100 decision + 100 anatomy charts; tight-stop/no-followthrough paths dominate and numeric truth overrides noisy visual labels. No same-ID rescue/rerun/optimization/promotion/live authority |
 | `EA_MZMS_Scalper` | `03. EA Developer/EA_MZMS_Scalper/` | EURUSD HYP-003/HYP-005 remain terminal. XAUUSD HYP-006 parked invalid at 98% history. Fresh four-mechanism campaign HYP-007..010 also parked invalid at 98%<99% (bound runs 20260722_015121/021353/023841/024229 only; 015320 excluded). Diagnostic metrics: 007 N=3409 PF0.81 net-$2065; 008 N=80 PF1.07 net+$25 under-cadence; 009 N=1041 PF0.93; 010 N=2 sparse. 400 Grok forensic charts closed; no promotion/economic authority; no retune/rerun of these IDs |
+| `EA_PTR_T2_DataEpochD0*` | `03. EA Developer/EA_PTR_T2_DataEpochD0*/` | Three compilable T2/P4 data-quality synchronization probes (D0/V2/V3). Collection-only, no trading/file sidecars/economics; run authority remains exclusively with the frozen T2 epoch/task packet and current lock |
 | `EA_VRAS_RegimeAdaptiveScalper` | `03. EA Developer/EA_VRAS_RegimeAdaptiveScalper/` | HYP-001 terminal invalid-engineering record: successful `OrderCheck` was compared to `OrderSend` retcodes, producing zero trades; byte-identical source retained, no rerun |
 | `EA_VRAS_RegimeAdaptiveScalperV2` | `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV2/` | HYP-002 terminal OnInit identity-guard failure; no bars/trades/economics, byte-identical source retained |
 | `EA_VRAS_RegimeAdaptiveScalperV3` | `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV3/` | Final exact seven-gap VRAS Model-0 KILL: HYP-003 N=93, PF0.5914, net -$5,243.22, 0.4465/week, DD5.67%, regime flips 6.92/calendar-day; robustness 0/7, WFA insufficient, no rerun/promotion/live authority |

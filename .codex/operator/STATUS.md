@@ -1,6 +1,6 @@
 # Operator Recovery Pointer
 
-Updated: 2026-07-30.
+Updated: 2026-08-02.
 
 This file is a non-authoritative recovery pointer for long operator sessions.
 It must not duplicate hypothesis metrics, package ledgers, current row counts,
@@ -31,6 +31,11 @@ canonical sources elsewhere.
 - Failure radius: `04. Memory/do_not_repeat_failures.md`.
 - Strategy history: `02. AlphaFactory/STRATEGY_LOG.md`.
 - Package state: `03. EA Developer/README.md` and package research artifacts.
+- Quant infrastructure producers: `analysis/param_optimizer.py`,
+  `analysis/purged_cpcv.py`, `analysis/dynamic_cost_model.py`; schema v1 outputs
+  are diagnostic-only rather than gate or promotion authority.
+- Shared execution compile harness: `EA_ExecutionKernelHarness`; engineering-only,
+  mutation-disabled, experimental and not a live-success claim.
 - Pre-cleanup status snapshot:
   `00. Old File/agent_guidance_archive/governance_cleanup_20260730/`.
 
