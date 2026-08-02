@@ -117,6 +117,7 @@ EXECUTION_FREEZE_BINDING_PATHS = {
     "grammar_tests": "03. EA Developer/EA_VolmanCausalGrammar/research/test_t2_grammar_reference.py",
     "dedup_tests": "03. EA Developer/EA_VolmanCausalGrammar/research/test_t2_dedup_mirrors.py",
 }
+EXTERNAL_HASH_ONLY_BINDINGS = frozenset({"ecrs_news_csv", "stage0_bars"})
 
 
 def verify_execution_freeze(
@@ -210,7 +211,12 @@ def verify_execution_freeze(
             manifest_relative = str(manifest_path.relative_to(REPO_ROOT)).replace("\\", "/")
         except ValueError as exc:
             raise IdentityContractError("committed execution freeze must live inside the repository") from exc
-        tracked_paths = [manifest_relative, *EXECUTION_FREEZE_BINDING_PATHS.values()]
+        tracked_paths = [manifest_relative]
+        tracked_paths.extend(
+            relative_path
+            for name, relative_path in EXECUTION_FREEZE_BINDING_PATHS.items()
+            if name not in EXTERNAL_HASH_ONLY_BINDINGS
+        )
         git_head = _require_committed_clean_freeze(tracked_paths)
     return {
         "manifest_path": str(manifest_path),

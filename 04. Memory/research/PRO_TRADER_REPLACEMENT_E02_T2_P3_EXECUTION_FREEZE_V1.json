@@ -5,7 +5,7 @@
   "phase": "P3_OUTCOME_BLIND_DEDUP",
   "status": "FROZEN_PRE_REAL_T2_IDENTITY_COUNT",
   "authority": "P3_IDENTITY_ONLY_NO_BUILD_NO_ECONOMICS",
-  "frozen_at_utc": "2026-08-02T11:15:22Z",
+  "frozen_at_utc": "2026-08-02T11:22:11Z",
   "real_t2_identity_count_exposed": false,
   "output_directory": "03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_DEDUP_V1",
   "test_gate": {
@@ -86,7 +86,7 @@
     },
     "runner": {
       "path": "03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_dedup.py",
-      "sha256": "20A1521CE92DFB895B330958C296A8648B0447730E1F3ED989DFC9ACEB3D60D2",
+      "sha256": "03440D65F14C60E586137EF8FAEAEB85A4AA882841225B33F6F5E6A3B8E3A4E2",
       "role": "authoritative_execution_entrypoint"
     },
     "grammar": {
