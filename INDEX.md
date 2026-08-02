@@ -92,6 +92,7 @@ audit-only: đọc `03. EA Developer/README.md`, latest registry row và artifac
 | Path | Role |
 |---|---|
 | `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-EURUSD-M5-015_PREFLIGHT_READOUT.md` | V4 plan parked before EA source: mislabeled USDJPY evidence, wrong coverage and missing true-flow/estimator/async contracts; zero outcome/economic exposure, T2 authority unchanged |
+| `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-USDJPY-M5-001_READOUT.md` | Corrected atomic USDJPY M5 Asian OU successor: P0 6/6, 33 tests, compile 0/0, non-repaint PASS; engineering-valid but terminally parked before Model 0 for missing USDJPY commission/slippage provenance |
 
 ## AlphaFactory
 

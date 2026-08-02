@@ -1,0 +1,51 @@
+{
+  "schema_version": "vras_usdjpy_engineering_receipt.v1",
+  "hypothesis_id": "HYP-VRAS-USDJPY-M5-001",
+  "generated_at_utc": "2026-08-02T14:30:56Z",
+  "status": "PASS_ENGINEERING_ONLY",
+  "source": {
+    "path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/EA_VRAS_RegimeAdaptiveScalperV4.mq5",
+    "sha256": "425352144DE7E9F3291D48FEC85C52E0B2F6FDE2FB87BA83CEAACB9EB978EAFE"
+  },
+  "preregistration": {
+    "path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-USDJPY-M5-001_PREREG.md",
+    "sha256": "46B3ADA9592AE77BEA04216A87A21ADED0A1B8B8F08AC5D842565778D49B102D",
+    "engineering_amendment_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-USDJPY-M5-001_ENGINEERING_AMENDMENT.md",
+    "engineering_amendment_sha256": "EE2BF6F64E5DF4DEB8CC244DFB3D3E1D259B52E9C6365FDF0D286851ECEA688E"
+  },
+  "ex5": {
+    "path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/EA_VRAS_RegimeAdaptiveScalperV4.ex5",
+    "sha256": "61C9BAADFDC49EAC477523F15BB85430F1DAA282E8F5BCB6ACDFBE078959E332",
+    "bytes": 49650
+  },
+  "compile": {
+    "errors": 0,
+    "warnings": 0,
+    "log_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/EA_VRAS_RegimeAdaptiveScalperV4.log",
+    "log_sha256": "8F9C3DE196DFCACD0B4BFEFD6B65A7A6217D34726915629CFE687DB8B79449BB",
+    "receipt_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-001_ENGINEERING/FINAL_COMPILE_RECEIPT.json",
+    "receipt_sha256": "9DC3A659C80F9E90B7FC667F7B8AB5719EBC88F10A1E22B16659FB151822A0AA"
+  },
+  "tests": {
+    "command": "python -X utf8 -m pytest 03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/tests -q",
+    "passed": 33,
+    "failed": 0,
+    "contract_test_sha256": "1E611BF684139A42083137EDDD0CF437C88001955B0DFDCCCCA1AAB5025F4169",
+    "runtime_contract_test_sha256": "7F2E3062C5C56DFB24193A816488CA4D0A062BE452BBBC5363E4F638E6435929",
+    "p0_test_sha256": "07607320C8D2E963D97973FEAD39A6B12B9CCA8688B1DC1321E10201F46A510A"
+  },
+  "nonrepaint": {
+    "status": "PASS",
+    "audit_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-001_ENGINEERING/NONREPAINT_AUDIT.json",
+    "audit_sha256": "4D4BA0814AA17FEC45B506504518E18BBD16B86D696E303862FE4BF479D4C2E6",
+    "findings": 0
+  },
+  "p0": {
+    "status": "PASS_ALL_SIX_GATES",
+    "evidence_path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/evidence/HYP-VRAS-USDJPY-M5-001_P0/design_confirmation.json",
+    "evidence_sha256": "249095B6754B3E66EB38549388291D1EE229C6912F347B864C7076D88A3A6737"
+  },
+  "economic_metrics_authorized": false,
+  "promotion_eligible": false,
+  "blocker": "Missing hash-bound USDJPY commission and independent slippage provenance."
+}

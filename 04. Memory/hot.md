@@ -1,6 +1,6 @@
 # Hot Cache — Recent Routing Only
 
-Updated: 2026-08-02 after the frozen T2/P3 full-replay cadence stop.
+Updated: 2026-08-02 after the owner-directed USDJPY V4 successor engineering hold.
 
 This file is a compact handoff cache. It is **not** hypothesis authority, run
 permission, a family blacklist, or proof that a goal is complete. Recheck every
@@ -59,18 +59,22 @@ report and validator output before acting.
   HQ>97 evidence, not one of the nine selected T2 receipts, and does not reopen
   or satisfy HYP005. Canonical package:
   `03. EA Developer/EA_FiveAssetDataFoundation/`.
-- Owner-directed VRAS V4 P0 review `HYP-VRAS-EURUSD-M5-015` is a
-  pre-candidate parked evidence record, not a registry candidate. The supplied
-  plan's headline values came from the unfiltered USDJPY tail of a combined
-  three-symbol 2016-2020 DESIGN file, while the proposed EA targets EURUSD;
-  true-flow, frozen estimator/arbitration and production-async gates also fail.
-  No `.mq5`, compile, MT5, outcome or economics was opened. Readout:
-  `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-EURUSD-M5-015_PREFLIGHT_READOUT.md`.
-  T2 remains the only active generation and its build/MT5 authority is unchanged.
+- Owner-directed VRAS V4 P0 review `HYP-VRAS-EURUSD-M5-015` remains a closed
+  pre-candidate evidence record: its headline values came from the USDJPY tail
+  of a combined three-symbol DESIGN file, and its true-flow/estimator/async
+  contracts failed before source or outcomes.
+- Fresh successor `HYP-VRAS-USDJPY-M5-001` is engineering-valid and terminally
+  registry-parked: the correct USDJPY M5 P0 passed 6/6 on 1,286 sessions, the
+  atomic Asian OU source passed 33 tests, compiled 0/0, and passed canonical
+  non-repaint audit plus independent code review. It has zero MT5/economic trials and remains held before
+  Model 0 because no hash-bound same-symbol commission or qualifying independent
+  slippage provenance exists. Frozen cost inputs are assumptions, not verified
+  evidence. No validation/holdout/promotion/paper/live authority was opened.
+  T2 campaign authority and its historical exposure ledger were not mutated.
 - The bound FivePercent portable MT5 terminal was `STOPPED` after the 2026-08-02
   dataset-004 export/finalization. Run current
   `02. AlphaFactory/alpha.ps1 status` before any terminal action.
-- The candidate registry (`461` rows / `163` hypotheses) and source-of-truth
+- The candidate registry (`464` rows / `164` hypotheses) and source-of-truth
   validator passed after the 2026-08-01 control-plane repair. Counts and hashes
   are routing facts only; rerun both validators for current truth.
 - The latest London-open MQL5 successor is audit-only: execution-scenario
@@ -102,6 +106,10 @@ report and validator output before acting.
    economics until hypothesis/prereg/source authority is frozen; do not claim
    aggregate all-history completion until the T2 data epoch has all 9 selected
    PASS receipts and `validate_data_epoch.py --require-complete` passes.
+6. For `HYP-VRAS-USDJPY-M5-001`, do not create a Model-0 task packet or read
+   economics until USDJPY commission and independent slippage evidence satisfy
+   the AlphaFactory cost-source contract. Do not relabel assumed pips as
+   verified or use the validation/2025+ holdout to compensate.
 
 Source-feasibility parent rows can be research inputs, but they do not authorize
 an economic child. Any child still requires a fresh identity, frozen contract

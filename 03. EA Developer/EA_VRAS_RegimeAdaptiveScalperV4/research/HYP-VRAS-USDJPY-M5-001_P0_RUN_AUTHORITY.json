@@ -1,0 +1,37 @@
+{
+  "schema_version": "vras_usdjpy_m5_p0_run_authority.v1",
+  "hypothesis_id": "HYP-VRAS-USDJPY-M5-001",
+  "frozen_at_utc": "2026-08-02T13:20:31Z",
+  "bindings": {
+    "plan": {
+      "path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-USDJPY-M5-001_P0_DESIGN_CONFIRMATION_PLAN.md",
+      "sha256": "4A3A7FE7D145106617DE3985196511F37E24617E9B40C93535C18C37047DD5EE"
+    },
+    "probe": {
+      "path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/probe_usdjpy_m5_001.py",
+      "sha256": "9043673FEB15CF3E86563B2A7AF08D0F0AFC5E1310ADC8AAC50832D1C95E4FE1"
+    },
+    "test": {
+      "path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/tests/test_usdjpy_m5_001_p0.py",
+      "sha256": "07607320C8D2E963D97973FEAD39A6B12B9CCA8688B1DC1321E10201F46A510A"
+    },
+    "dataset": {
+      "path": "02. AlphaFactory/data/fivepercent/FiveAssetFoundation/DATA-FIVEPERCENT-5ASSET-MULTITF-004/USDJPY/USDJPY_M5_ALL_AVAILABLE_20260801.parquet",
+      "sha256": "FECD42A01AFD14D4149121A122468DA5597939A20DD1533A36DA711E6FA2DAFD"
+    }
+  },
+  "authority": {
+    "p0_probe_authorized": true,
+    "attempt_limit": 1,
+    "trade_outcomes_authorized": false,
+    "mql5_source_authorized": false,
+    "compile_authorized": false,
+    "mt5_authorized": false,
+    "model0_authorized": false,
+    "validation_authorized": false,
+    "holdout_authorized": false,
+    "optimization_authorized": false,
+    "paper_trading_authorized": false,
+    "live_trading_authorized": false
+  }
+}

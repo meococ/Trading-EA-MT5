@@ -1,0 +1,72 @@
+{
+  "authority_after_verdict": {
+    "atomic_ou_ea_build_contract_may_be_frozen": true,
+    "compile_authorized": false,
+    "holdout_authorized": false,
+    "live_trading_authorized": false,
+    "model0_authorized": false,
+    "mql5_source_authorized": false,
+    "optimization_authorized": false,
+    "paper_trading_authorized": false,
+    "promotion_eligible": false,
+    "validation_authorized": false
+  },
+  "gates": {
+    "each_year_count_ge_180": true,
+    "hurst_median_upper95_lt_0_50": true,
+    "ou_half_life_median_ci_within_1_36_m5_bars": true,
+    "ou_valid_share_wilson_lower95_ge_0_50": true,
+    "session_count_ge_1000": true,
+    "vr5_median_upper95_lt_1_00": true
+  },
+  "hypothesis_id": "HYP-VRAS-USDJPY-M5-001",
+  "metrics": {
+    "eligible_session_count": 1286,
+    "hurst": {
+      "lower_95": 0.4171820265797781,
+      "median": 0.4251768200437846,
+      "upper_95": 0.4326936040277098
+    },
+    "ou_half_life_m5_bars": {
+      "lower_95": 11.374934472688066,
+      "median": 11.858329246253506,
+      "upper_95": 12.560843433000366
+    },
+    "ou_valid_sessions": 1261,
+    "ou_valid_share": 0.9805598755832037,
+    "ou_valid_share_wilson_lower_95": 0.9714592166722317,
+    "variance_ratio_q5": {
+      "lower_95": 0.8687291652305218,
+      "median": 0.8836127140676648,
+      "upper_95": 0.8965876236523957
+    },
+    "yearly_session_counts": {
+      "2016": 255,
+      "2017": 257,
+      "2018": 258,
+      "2019": 257,
+      "2020": 259
+    }
+  },
+  "outcome_blind_attestation": {
+    "costs_computed": 0,
+    "holdout_2025plus_opened": false,
+    "mt5_launched": false,
+    "orders_submitted": 0,
+    "pnl_computed": false,
+    "trade_paths_simulated": 0,
+    "validation_2021_2024_opened": false
+  },
+  "schema_version": "vras_usdjpy_m5_p0_design_confirmation.v1",
+  "source": {
+    "design_from_utc": "2016-01-04T00:00:00Z",
+    "design_rows_read": 372419,
+    "design_to_exclusive_utc": "2021-01-01T00:00:00Z",
+    "path": "02. AlphaFactory/data/fivepercent/FiveAssetFoundation/DATA-FIVEPERCENT-5ASSET-MULTITF-004/USDJPY/USDJPY_M5_ALL_AVAILABLE_20260801.parquet",
+    "sha256": "FECD42A01AFD14D4149121A122468DA5597939A20DD1533A36DA711E6FA2DAFD",
+    "symbol": "USDJPY",
+    "timeframe": "M5"
+  },
+  "stage": "P0_OUTCOME_BLIND_TARGET_SYMBOL_TIMEFRAME_CONFIRMATION",
+  "verdict": "SURVIVE_P0_USDJPY_M5_ASIAN_OU_BUILD_FREEZE_AUTHORIZED"
+}

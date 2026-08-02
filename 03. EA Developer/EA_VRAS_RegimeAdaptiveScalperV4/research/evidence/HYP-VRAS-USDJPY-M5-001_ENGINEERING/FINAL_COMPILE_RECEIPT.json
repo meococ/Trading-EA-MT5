@@ -1,0 +1,23 @@
+{
+  "schema_version": "alphafactory_compile_receipt.v1",
+  "hypothesis_id": "HYP-VRAS-USDJPY-M5-001",
+  "generated_at_utc": "2026-08-02T14:30:56Z",
+  "command": "02. AlphaFactory/alpha.ps1 compile EA_VRAS_RegimeAdaptiveScalperV4",
+  "metaeditor_exit_code": 1,
+  "compile_errors": 0,
+  "compile_warnings": 0,
+  "source": {
+    "path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/EA_VRAS_RegimeAdaptiveScalperV4.mq5",
+    "sha256": "425352144DE7E9F3291D48FEC85C52E0B2F6FDE2FB87BA83CEAACB9EB978EAFE"
+  },
+  "ex5": {
+    "path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/EA_VRAS_RegimeAdaptiveScalperV4.ex5",
+    "sha256": "61C9BAADFDC49EAC477523F15BB85430F1DAA282E8F5BCB6ACDFBE078959E332",
+    "bytes": 49650
+  },
+  "log": {
+    "path": "03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/EA_VRAS_RegimeAdaptiveScalperV4.log",
+    "sha256": "8F9C3DE196DFCACD0B4BFEFD6B65A7A6217D34726915629CFE687DB8B79449BB",
+    "result": "0 errors, 0 warnings"
+  }
+}
