@@ -1,0 +1,86 @@
+============================================================
+HEROIC EA - ENHANCED ANALYSIS REPORT
+============================================================
+Generated: 2026-08-03 02:16:24
+
+## OVERALL PERFORMANCE
+----------------------------------------
+Trades: 402
+Net Profit: $-7061.46
+Profit Factor: 0.75
+Win Rate: 40.8%
+Max Drawdown: 7.8%
+Expectancy: $-17.57/trade
+
+## STREAK ANALYSIS
+----------------------------------------
+Max Winning Streak: 10 trades
+Max Losing Streak: 11 trades
+Current Streak: 9 (loss)
+
+## SESSION BREAKDOWN
+----------------------------------------
+Session        Trades          Net       PF    WinRate
+Asia                0            0     0.00       0.0%
+Europe            202         -165     0.99      46.0%
+NewYork           200        -6896     0.52      35.5%
+OffHours            0            0     0.00       0.0%
+
+## WEEKDAY BREAKDOWN
+----------------------------------------
+Day            Trades          Net       PF    WinRate
+Monday             80         -788     0.82      43.8%
+Tuesday            89          996     1.19      39.3%
+Wednesday          76        -3286     0.46      36.8%
+Thursday           83        -1549     0.76      43.4%
+Friday             74        -2434     0.58      40.5%
+
+## WEAKNESS DETECTION
+----------------------------------------
+🔴 [CRITICAL] OVERALL: Strategy Edge
+   Metric: PF=0.75 (n=402)
+   → Strategy has minimal/no edge. Consider fundamental changes.
+
+🟠 [HIGH] SESSION: NewYork
+   Metric: PF=0.52 (n=200)
+   → Consider disabling NewYork session trading
+
+🟠 [HIGH] YEAR: 2016
+   Metric: PF=0.72, Net=-6744 (n=168)
+   → Strategy struggled in 2016 - review market regime
+
+🟠 [HIGH] YEAR: 2018
+   Metric: PF=0.45, Net=-156 (n=37)
+   → Strategy struggled in 2018 - review market regime
+
+🟡 [MEDIUM] SESSION: Europe
+   Metric: PF=0.99 (n=202)
+   → Monitor Europe session closely
+
+🟡 [MEDIUM] HOUR: Hours [10, 14, 15, 17]
+   Metric: PF < 0.8 (n=183)
+   → Avoid trading at hours: [10, 14, 15, 17]
+
+🟡 [MEDIUM] WEEKDAY: Monday
+   Metric: PF=0.82 (n=80)
+   → Review Monday trading rules
+
+🟡 [MEDIUM] WEEKDAY: Wednesday
+   Metric: PF=0.46 (n=76)
+   → Review Wednesday trading rules
+
+🟡 [MEDIUM] WEEKDAY: Thursday
+   Metric: PF=0.76 (n=83)
+   → Review Thursday trading rules
+
+🟡 [MEDIUM] WEEKDAY: Friday
+   Metric: PF=0.58 (n=74)
+   → Review Friday trading rules
+
+## RECOMMENDATIONS
+----------------------------------------
+🔴 CRITICAL: Strategy is losing money. Do NOT trade live.
+   - Review entry logic fundamentally
+   - Consider different strategy type (mean reversion?)
+
+============================================================

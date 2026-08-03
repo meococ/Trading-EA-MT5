@@ -2196,3 +2196,35 @@ Evidence:
   lifecycle fixture proving positive close time/price/volume before economics.
 - This verdict is not a claim that USDJPY or all mean-reversion strategies lack
   edge. It closes only the tested Asian closed-bar OU fade contract.
+
+## LOMX EURUSD sweep/compression plan closeout (2026-08-02)
+
+Evidence:
+`03. EA Developer/EA_LOMX_MultiAssetMomentum/research/HYP-CBRK-EURUSD-M5-001_FAILURE_PACKET.json`.
+
+- The supplied combined M5 sweep+breakout plan failed before outcomes: the
+  independently measured atomic candidate rates sum above the workspace
+  2–5/week contract and six of twelve sampled same-bar collisions opposed each
+  other. Do not hide this with deterministic arbitration and call the combined
+  object feasible; test atomic mechanisms under separate identities.
+- EURUSD sweep HYP-003 reached its full requested train horizon, but its task
+  packet mixed a USD10k account fingerprint and inclusive raw-API population
+  semantics with the corrected USD100k Strategy Tester contract. The observed
+  N694/PF0.5278/net-$7,052.61/1.9036-week result is a strong adverse prior only,
+  not an authorized economic verdict. Do not reuse raw-API bar/tick counts as a
+  Strategy Tester fingerprint.
+- The preordered distinct EURUSD generic compression breakout HYP-001 matched
+  its exact account/data identities and reconciled 402 entries to 402 final
+  closes. It produced PF0.7467, net -$7,061.46, expectancy -$17.57/trade,
+  cadence1.1027/week and DD7.77%. PF and cadence failed the frozen base gates,
+  so the exact object is terminally killed before cost stress.
+- The cost builder subsequently reported a raw spread coverage `total_count`
+  metadata mismatch. Do not spend a rerun repairing it for this ID: additional
+  non-negative costs cannot repair either fatal base gate. The correct reusable
+  lesson is to bind spread population coverage and tester population identity
+  as separate contracts before a future fresh hypothesis.
+- Do not rescue the breakout by selecting favorable hours, weekdays,
+  directions, volume thresholds, stops, targets or margin filters from this
+  outcome. This is not a claim that all EURUSD breakouts or XAUUSD lack edge;
+  XAUUSD remains unproven because a valid full-population data/cost contract was
+  never established.

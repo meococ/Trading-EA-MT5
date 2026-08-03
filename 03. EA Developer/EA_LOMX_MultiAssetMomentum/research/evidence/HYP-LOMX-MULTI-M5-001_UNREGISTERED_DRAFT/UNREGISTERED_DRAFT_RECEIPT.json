@@ -1,0 +1,38 @@
+{
+  "schema_version": "alphafactory_unregistered_draft_receipt.v1",
+  "claimed_hypothesis_id": "HYP-LOMX-MULTI-M5-001",
+  "status": "INVALID_AS_HYPOTHESIS_AUTHORITY_ENGINEERING_DRAFT_ONLY",
+  "economic_outcome_read": false,
+  "mt5_backtest_runs": 0,
+  "registry_rows": 0,
+  "reason": "The interrupted build-first draft was compiled before any registry, preregistration, task packet, cost contract or lifecycle evidence existed. It implemented only the sweep arm while claiming a dual-engine object.",
+  "artifacts": {
+    "source_snapshot": {
+      "path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LOMX-MULTI-M5-001_UNREGISTERED_DRAFT/EA_LOMX_MultiAssetMomentum_UNREGISTERED_DRAFT.mq5",
+      "bytes": 9059,
+      "sha256": "036670F8183D4623E52EBB75559B9DBF69F54812BC4FA07FE65E6114FD48852A"
+    },
+    "compile_output": {
+      "bytes": 34324,
+      "sha256": "EF698678793C264AFEB559739D1BC0975F19F9CD80F7D907D59FF3D8D0936A79"
+    },
+    "compile_log": {
+      "bytes": 6230,
+      "sha256": "F98E58B9C2FDDAA22DBB7BE114A52CB9DEAF5EC0572D944DA3138419B38F30E0",
+      "reported_errors": 0,
+      "reported_warnings": 0
+    },
+    "capability_contract": {
+      "bytes": 225,
+      "sha256": "891E6636F45B263F6163F5E703C9E87B912846B114CE25D5E45517871FD28057"
+    }
+  },
+  "authority": {
+    "source_build_authorized": false,
+    "model0_authorized": false,
+    "performance_metrics_authorized": false,
+    "promotion_eligible": false,
+    "paper_trading_authorized": false,
+    "live_trading_authorized": false
+  }
+}

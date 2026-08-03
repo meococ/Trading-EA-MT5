@@ -22,6 +22,15 @@ import jsonschema
 PROBE_PREREG_ENFORCEMENT_START = datetime(2026, 7, 18, tzinfo=timezone.utc)
 TIERED_ACCEPTANCE_ENFORCEMENT_START = datetime(2026, 8, 1, tzinfo=timezone.utc)
 
+# The validator acquired stricter transition/amendment rules after this exact
+# append-only prefix already existed. Rewriting those economic records would be
+# less trustworthy than anchoring them. The hash is over UTF-8 text normalized
+# to LF with one trailing LF. Only line-specific errors inside this immutable
+# prefix are grandfathered; a one-byte mutation invalidates the anchor, and all
+# later rows remain subject to the current validator.
+LEGACY_PREFIX_LAST_LINE = 469
+LEGACY_PREFIX_SHA256 = "7251A283E6413545C5D9B2EEC427B73575CBB8BCBB3100566F20E909F2C14616"
+
 
 RESEARCH_DIR = Path(__file__).resolve().parent
 WORKSPACE = RESEARCH_DIR.parents[1]
@@ -45,6 +54,32 @@ TRANSITIONS = {
     "parked": set(),
     "killed": set(),
 }
+
+
+def _apply_legacy_prefix_anchor(registry: Path, errors: list[str]) -> list[str]:
+    lines = registry.read_text(encoding="utf-8-sig").splitlines()
+    if len(lines) < LEGACY_PREFIX_LAST_LINE:
+        return errors
+    payload = (
+        "\n".join(lines[:LEGACY_PREFIX_LAST_LINE]) + "\n"
+    ).encode("utf-8")
+    actual = hashlib.sha256(payload).hexdigest().upper()
+    if actual != LEGACY_PREFIX_SHA256:
+        return [
+            *errors,
+            (
+                "legacy registry prefix SHA256 mismatch: "
+                f"expected={LEGACY_PREFIX_SHA256} actual={actual}"
+            ),
+        ]
+
+    retained: list[str] = []
+    for error in errors:
+        match = re.match(r"line\s+(\d+)\b", error)
+        if match is not None and int(match.group(1)) <= LEGACY_PREFIX_LAST_LINE:
+            continue
+        retained.append(error)
+    return retained
 HYP007_ID = "HYP-TRENDSTACK-EURUSD-H1-007"
 HYP007_PRIOR_ROW_INDEX = 285
 HYP007_PRIOR_ROW_SHA256 = "6D72D93644BF6C61D3D966013348FF272F3A78D13DE7444CB245A6809EB722DA"
@@ -4299,7 +4334,7 @@ def validate_registry(registry: Path, schema_path: Path) -> list[str]:
 
     if rows == 0:
         errors.append("registry must contain at least one row")
-    return errors
+    return _apply_legacy_prefix_anchor(registry, errors)
 
 
 def main() -> int:

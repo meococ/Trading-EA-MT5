@@ -1,0 +1,88 @@
+{
+  "schema_version": "alphafactory_failure_packet.v1",
+  "hypothesis_id": "HYP-LASR-EURUSD-M5-001",
+  "ea_name": "EA_LOMX_MultiAssetMomentum",
+  "run_id": "20260803_013129",
+  "verdict": "PARK_INVALID_MODEL0_MARGIN_STOPOUT_DATA_IDENTITY_NO_ECONOMIC_VERDICT",
+  "generated_at_utc": "2026-08-02T18:34:35Z",
+  "decision": {
+    "state": "parked",
+    "economic_valid": false,
+    "economic_verdict_authorized": false,
+    "edge_killed": false,
+    "promotion_ready": false,
+    "paper_or_live_authorized": false,
+    "optimization_authorized": false,
+    "rerun_same_id_authorized": false
+  },
+  "invalid_run_observations": {
+    "n_trades": 1,
+    "net_profit_usd": -9.0,
+    "profit_factor": 0.0,
+    "win_rate_pct": 0.0,
+    "expectancy_usd_per_trade": -9.0,
+    "max_drawdown_pct": 0.0,
+    "elapsed_weeks_contract_window": 364.57142857142856,
+    "trades_per_elapsed_week": 0.00274294670846395
+  },
+  "invalidity_findings": [
+    {
+      "gate": "data_identity",
+      "expected_data_fingerprint": "95C8BF165697BF69F9CEE60D78CE247F3967D2811623B2EC2C34B2B1D914497E",
+      "actual_data_fingerprint": "86E5F995AD4E074986363B50AF459744ECE5AD844758113612A5F5DC6BA42FD9",
+      "expected_history_quality": "100%",
+      "actual_history_quality": "100%",
+      "expected_bars": 521865,
+      "actual_bars": 159,
+      "bar_population_coverage_ratio": 0.0003046764967951482,
+      "expected_ticks": 250132587,
+      "actual_ticks": 73411,
+      "tick_population_coverage_ratio": 0.0002934883490410628
+    },
+    {
+      "gate": "broker_margin_stopout",
+      "initial_deposit_usd": 10000.0,
+      "requested_risk_pct": 0.25,
+      "opened_volume_lots": 0.3,
+      "stopout_observation_usd": 3055.35,
+      "terminal_result": "position stop out triggered on the first trading day",
+      "engineering_gap": "Risk sizing capped stop-loss loss but did not cap order volume against broker-specific margin and money-mode stop-out constraints."
+    },
+    {
+      "gate": "lifecycle_final_close_reconciliation",
+      "required": "entries_opened == final_closes for report-bound lifecycle",
+      "entries_opened": 1,
+      "final_closes": 0,
+      "explanation": "The broker stop-out close was outside the EA-managed final-close lifecycle before the tester terminated."
+    }
+  ],
+  "failure_radius": "HYP-LASR-EURUSD-M5-001 and its 10000 USD Model-0 execution are terminally parked. The tester synchronized history but broker money-mode stop-out ended the run after 159 of 521865 expected M5 bars. Do not rerun this ID or use its PF, cadence, PnL, win rate or drawdown for an edge verdict. The unchanged signal mechanism may receive a fresh identity only after adding an outcome-independent margin feasibility cap and freezing the new source hash and execution authority before another performance read.",
+  "evidence": {
+    "source_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/EA_LOMX_MultiAssetMomentum.mq5",
+    "source_sha256": "6243A3BE573B305AEDF223953D4E68A37866AE8C53512EABC3D430969B194B47",
+    "prereg_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/HYP-LASR-EURUSD-M5-001_FROZEN_PREREG.md",
+    "prereg_sha256": "6596CB00EA1A3480E68C0017184526763130647222EF7ACF5A458E4DEBF55D8A",
+    "task_packet_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/preflight/HYP-LASR-EURUSD-M5-001/task_packet.control.json",
+    "task_packet_sha256": "0868600ACC0405143AD57ABC7037B044D173816BD9B8200033F45A984E952C9D",
+    "cost_source_manifest_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/preflight/HYP-LASR-EURUSD-M5-001/cost_source_manifest.json",
+    "cost_source_manifest_sha256": "662E0A95CDA8635193B86454D950BE71B95BE1F671E4AB4128F8F6A7844A9AFC",
+    "run_manifest_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-EURUSD-M5-001/MODEL0_PRIMARY/run_manifest.json",
+    "run_manifest_sha256": "5A817633074C847E2506BA0D80A512A562FB752FE1151C38B6688241E72C0D3F",
+    "report_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-EURUSD-M5-001/MODEL0_PRIMARY/report.html",
+    "report_sha256": "5A80BA9A5227BC3A5548F4205808DAA9C6D6DBBFE3891BA038E1A34C24CDD399",
+    "enhanced_summary_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-EURUSD-M5-001/MODEL0_PRIMARY/enhanced_summary.json",
+    "enhanced_summary_sha256": "129EB220876DD63815CE14E4E8CEB008D2FB91EC0CEDD5BD4C2040638B415CE4",
+    "tca_summary_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-EURUSD-M5-001/MODEL0_PRIMARY/tca_summary.json",
+    "tca_summary_sha256": "280A258AF1F03EDAB3184D02E566C6225F40052BDA4550E26E38231BABD74B7A",
+    "lifecycle_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-EURUSD-M5-001/MODEL0_PRIMARY/EURUSD_LifecycleTrades_HYP-LASR-EURUSD-M5-001_62508921.csv",
+    "lifecycle_sha256": "DAB03DD31328A1451C6205293455D3A91C33C05A11D285EA52EECE950AAE2A8C",
+    "run_meta_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-EURUSD-M5-001/MODEL0_PRIMARY/EURUSD_RunMeta_HYP-LASR-EURUSD-M5-001_62508921.json",
+    "run_meta_sha256": "F9E34D0A02E5FEEF8E0193248D6CF6AB5BA3DFC88D1F2E306D52DC7F0403F280",
+    "tester_stopout_excerpt_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-EURUSD-M5-001/MODEL0_PRIMARY/tester_stopout_excerpt.txt"
+  },
+  "notes": [
+    "The canonical research loop correctly rejected the post-run data fingerprint before cost stress, validation or holdout access.",
+    "The one-trade loss is retained as an invalid-run observation only; it is not evidence that the signal edge failed.",
+    "The next legal action is an engineering repair with a new source hash and a fresh hypothesis ID, not same-ID rerun or signal tuning."
+  ]
+}

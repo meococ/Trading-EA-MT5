@@ -1,6 +1,6 @@
 # Hot Cache — Recent Routing Only
 
-Updated: 2026-08-02 after the owner-directed USDJPY V4 Model 0 terminal kill.
+Updated: 2026-08-02 after the owner-directed LOMX multi-asset plan implementation closeout.
 
 This file is a compact handoff cache. It is **not** hypothesis authority, run
 permission, a family blacklist, or proof that a goal is complete. Recheck every
@@ -11,6 +11,20 @@ report and validator output before acting.
 
 - Workspace goal: `ACTIVE / UNMET`. Canonical outcome and DONE ladder:
   `01. GOAL/GOAL.md`.
+- Owner-directed `EA_LOMX_MultiAssetMomentum` is engineering-valid but the
+  supplied strategy plan is economic-invalid. The original combined
+  sweep+breakout object failed outcome-blind cadence/collision feasibility.
+  EURUSD sweep HYP-003 completed a full run under mismatched preregistered
+  account/data identities and is parked with a strong adverse PF0.5278 prior,
+  not an economic verdict. The distinct preordered generic compression
+  breakout `HYP-CBRK-EURUSD-M5-001` matched its exact FivePercent tester
+  identity and was killed on the full 2016-2022 Model 0: N402, PF0.7467,
+  net -$7,061.46, DD7.77%, cadence1.1027/week. It failed PF and cadence before
+  cost stress; do not tune by hour/weekday/direction or rerun. XAUUSD is
+  unproven rather than killed because its full population/cost identity was not
+  valid. No validation/holdout/optimization/promotion/paper/live authority.
+  Canonical packet:
+  `03. EA Developer/EA_LOMX_MultiAssetMomentum/research/HYP-CBRK-EURUSD-M5-001_FAILURE_PACKET.json`.
 - The single campaign minute is
   `04. Memory/research/PRO_TRADER_REPLACEMENT_CAMPAIGN.md`. Owner superseded the
   earlier parallel-track interpretation: T1→T100 are sequential complete
@@ -78,9 +92,10 @@ report and validator output before acting.
 - The bound FivePercent portable MT5 terminal was `STOPPED` after the 2026-08-02
   dataset-004 export/finalization. Run current
   `02. AlphaFactory/alpha.ps1 status` before any terminal action.
-- The candidate registry (`469` rows / `166` hypotheses) and source-of-truth
-  validator passed after the 2026-08-01 control-plane repair. Counts and hashes
-  are routing facts only; rerun both validators for current truth.
+- The candidate registry (`482` rows / `172` hypotheses) passed after the LOMX
+  terminal row. The validator now preserves one hash-bound legacy prefix and
+  validates every suffix row strictly. Counts and hashes are routing facts
+  only; rerun the registry and source-of-truth validators for current truth.
 - The latest London-open MQL5 successor is audit-only: execution-scenario
   fidelity was independently corrected and verified, while its parent economic
   KILL remains unchanged. It has no rerun, holdout, promotion, paper or live

@@ -1,0 +1,82 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "RESEARCH_PROXY",
+  "provenance_status": "VERIFIED_RESEARCH_PROXY",
+  "audit_status": "PASS_RESEARCH_ONLY",
+  "verdict": "PASS_RESEARCH_ONLY",
+  "promotion_eligible": false,
+  "broker": "Five Percent Online Ltd",
+  "server": "FivePercentOnline-Real (Build 6090)",
+  "account_currency": "USD",
+  "broker_fingerprint": "E464F31D4B323A66DBC18D9409052E70F3711DB8F23597441648B19296B61D54",
+  "server_fingerprint": "30B251638403D085CAB177A77A1B0EB69BD371793B501BE696F08033BE1E8DB0",
+  "account_fingerprint": "0635F9333630C605B51F8208861007B4267011E5F4D7C3C841309F04FE39BF02",
+  "data_fingerprint": "12679E647739D8DB616F78578D924912A1AC580CED535D763DBEA1B04480D380",
+  "symbol": "XAUUSD",
+  "from": "2018.01.02",
+  "to": "2022.12.30",
+  "symbol_geometry": {
+    "digits": 2,
+    "point": 0.01,
+    "pip_size": 0.01
+  },
+  "historical_spread_provenance": {
+    "verification_status": "VERIFIED",
+    "symbol": "XAUUSD",
+    "source": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/COST_SOURCE/XAUUSD_HISTORICAL_SPREAD_M1.csv",
+    "source_sha256": "6FBDB039300E571E30939F0149B504D53173836D0B0DDEA5772B33EA48AD0579",
+    "coverage": {
+      "from": "2018.01.02",
+      "to": "2022.12.30",
+      "sample_count": 1755677,
+      "total_count": 1755677,
+      "coverage_ratio": 1.0
+    },
+    "actual_first_timestamp": "2018-01-02T09:00:00",
+    "actual_last_timestamp": "2022-12-30T23:59:00"
+  },
+  "commission_provenance": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "symbol": "XAUUSD",
+    "value": 4.4,
+    "statistic": "maximum",
+    "sample_count": 335,
+    "same_symbol_lifecycles": true,
+    "source_kind": "strategy_tester_simulation",
+    "method": "Maximum complete-lifecycle tester-observed round-turn USD commission per lot; research falsification only",
+    "source": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/COST_SOURCE/XAUUSD_TESTER_COMMISSION_MAX.csv",
+    "source_sha256": "5076439080F46F759AF3734E19749CC71584A9CB7F05C11E84DE7A9EAE6498C4"
+  },
+  "slippage_provenance": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "symbol": "XAUUSD",
+    "source": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/COST_SOURCE/XAUUSD_QUOTE_LATENCY_1000MS.csv",
+    "source_sha256": "515619377D67EADAC3B4A55AFCEE49FC2C5A7EE3D39BBE07B54316D9B9A4836E",
+    "sample_count": 31176,
+    "buy_count": 15588,
+    "sell_count": 15588,
+    "independent_reference": false,
+    "independent_quote_reference": true,
+    "fill_observed": false,
+    "buy_reference_side": "ask",
+    "sell_reference_side": "bid",
+    "slippage_unit": "pips",
+    "fixed_latency_ms": 1000,
+    "max_quote_wait_ms": 500,
+    "method": "Non-overlapping fixed-latency future executable quote proxy; no fill claimed",
+    "p90_buy": 40.000000000009095,
+    "p90_sell": 40.000000000009095,
+    "p90_roundturn": 80.00000000001819
+  },
+  "direction_aware_methodology": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "direction_aware": true,
+    "long_cost_treatment": "Model-0 spread plus tester-maximum commission and ask-to-future-ask adverse quote movement",
+    "short_cost_treatment": "Model-0 spread plus tester-maximum commission and bid-to-future-bid adverse quote movement"
+  },
+  "lineage_receipt": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/COST_SOURCE/RESEARCH_COST_PROXY_RECEIPT.json",
+  "lineage_receipt_sha256": "55508F8F246A5524A8EA43A6118A0C2C47BFE06039A7EDDBC2C257068508A607",
+  "failed_raw_tick_acquisition_receipt": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/COST_SOURCE/RAW_TICK_ACQUISITION_FAILURE.json",
+  "failed_raw_tick_acquisition_receipt_sha256": "E43B91092B587D420FFDB28FAFB29F53ECB4175CCE0054A2C9252B7C366C8570",
+  "blocker": "Research-only proxy: historical M1 bid/ask is verified, but commission is a Strategy Tester clue and quote latency is not an observed fill. The frozen raw-tick acquisition for 2016-2024 failed closed because archived ticks were unavailable. This control window starts in 2018; economic validity and promotion remain blocked under every result."
+}

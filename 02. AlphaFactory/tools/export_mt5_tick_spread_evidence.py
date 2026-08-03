@@ -59,6 +59,60 @@ def first_valid_tick_by_bar(
     return selected
 
 
+def first_valid_tick_by_bar_array(
+    ticks: Any,
+    expected_bar_epochs: set[int],
+    *,
+    bar_seconds: int = 300,
+) -> dict[int, tuple[int, float, float]]:
+    """Vectorized equivalent for MetaTrader5 NumPy structured arrays."""
+    import numpy as np
+
+    if len(ticks) == 0 or not expected_bar_epochs:
+        return {}
+    names = set(ticks.dtype.names or ())
+    required = {"time", "time_msc", "bid", "ask"}
+    if not required.issubset(names):
+        raise ValueError(f"tick array is missing fields: {sorted(required - names)}")
+
+    epochs = np.asarray(ticks["time"], dtype=np.int64)
+    time_msc = np.asarray(ticks["time_msc"], dtype=np.int64)
+    bid = np.asarray(ticks["bid"], dtype=np.float64)
+    ask = np.asarray(ticks["ask"], dtype=np.float64)
+    bar_epochs = epochs - epochs % bar_seconds
+    expected = np.fromiter(expected_bar_epochs, dtype=np.int64)
+    valid = (
+        np.isin(bar_epochs, expected)
+        & np.isfinite(bid)
+        & np.isfinite(ask)
+        & (bid > 0.0)
+        & (ask >= bid)
+    )
+    valid_indices = np.flatnonzero(valid)
+    if valid_indices.size == 0:
+        return {}
+
+    # Raw MT5 order is the final tie-breaker when multiple quotes share one
+    # millisecond, matching the scalar first-seen contract deterministically.
+    order = np.lexsort(
+        (valid_indices, time_msc[valid_indices], bar_epochs[valid_indices])
+    )
+    ordered_indices = valid_indices[order]
+    ordered_bars = bar_epochs[ordered_indices]
+    first = np.empty(ordered_indices.size, dtype=bool)
+    first[0] = True
+    first[1:] = ordered_bars[1:] != ordered_bars[:-1]
+    selected_indices = ordered_indices[first]
+    return {
+        int(bar_epochs[index]): (
+            int(time_msc[index]),
+            float(bid[index]),
+            float(ask[index]),
+        )
+        for index in selected_indices
+    }
+
+
 def atomic_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(f".{path.name}.{os.getpid()}.tmp")
@@ -148,6 +202,7 @@ def main() -> int:
             raise RuntimeError("requested M5 population is empty")
 
         selected: dict[int, tuple[int, float, float]] = {}
+        raw_tick_count = 0
         cursor = start
         while cursor < end_exclusive:
             chunk_end = min(end_exclusive, cursor + timedelta(days=args.chunk_days))
@@ -157,12 +212,30 @@ def main() -> int:
                     f"copy_ticks_range failed for {cursor.isoformat()} to "
                     f"{chunk_end.isoformat()}: {mt5.last_error()}"
                 )
+            chunk_start_msc = int(cursor.timestamp() * 1000)
+            chunk_end_msc = int(chunk_end.timestamp() * 1000)
+            if getattr(getattr(ticks, "dtype", None), "names", None):
+                tick_times_msc = ticks["time_msc"]
+                ticks = ticks[
+                    (tick_times_msc >= chunk_start_msc)
+                    & (tick_times_msc < chunk_end_msc)
+                ]
+            else:  # pragma: no cover - defensive fallback for non-MT5 adapters
+                ticks = [
+                    tick
+                    for tick in ticks
+                    if chunk_start_msc <= int(tick["time_msc"]) < chunk_end_msc
+                ]
+            raw_tick_count += len(ticks)
             chunk_expected = {
                 epoch
                 for epoch in expected
                 if int(cursor.timestamp()) <= epoch < int(chunk_end.timestamp())
             }
-            chunk_selected = first_valid_tick_by_bar(ticks, chunk_expected)
+            if getattr(getattr(ticks, "dtype", None), "names", None):
+                chunk_selected = first_valid_tick_by_bar_array(ticks, chunk_expected)
+            else:  # pragma: no cover - defensive fallback for non-MT5 adapters
+                chunk_selected = first_valid_tick_by_bar(ticks, chunk_expected)
             selected.update(chunk_selected)
             cursor = chunk_end
 
@@ -225,6 +298,7 @@ def main() -> int:
                 "expected_m5_bar_count": population_count,
                 "sampled_m5_bar_count": sample_count,
                 "missing_m5_bar_count": population_count - sample_count,
+                "raw_tick_count": raw_tick_count,
                 "population_coverage_ratio": population_ratio,
                 "minimum_required": args.min_population_coverage,
                 "first_sampled_bar_utc": datetime.fromtimestamp(

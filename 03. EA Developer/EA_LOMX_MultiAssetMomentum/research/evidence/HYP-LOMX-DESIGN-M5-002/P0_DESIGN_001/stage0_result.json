@@ -1,0 +1,217 @@
+{
+  "schema_version": "lomx_design_stage0_result.v1",
+  "hypothesis_id": "HYP-LOMX-DESIGN-M5-002",
+  "status": "FAIL_FROZEN_P0_GATES",
+  "outcome_blind": true,
+  "performance_outcome_read": false,
+  "economics_executed": false,
+  "mt5_launches": 0,
+  "trades_simulated": 0,
+  "window": {
+    "from": "2016-01-04T00:00:00+00:00",
+    "to_exclusive": "2025-01-01T00:00:00+00:00"
+  },
+  "elapsed_calendar_weeks": 469.2857142857143,
+  "plan_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/HYP-LOMX-DESIGN-M5-002_PROBE_PLAN.md",
+  "plan_sha256": "FB44311871144290B231DA3AFC083C89B4D950768D7FA1D5F4E61C695B8CD09E",
+  "sources": {
+    "EURUSD": {
+      "path": "02. AlphaFactory/data/fivepercent/FiveAssetFoundation/DATA-FIVEPERCENT-5ASSET-MULTITF-004/EURUSD/EURUSD_M5_ALL_AVAILABLE_20260801.parquet",
+      "sha256": "6B18C8BE6F772893428199A44708208EEB844F95BC02FD1317528E163EC72ED8",
+      "window_rows": 671064,
+      "first_time_utc": "2016-01-04T00:00:00+00:00",
+      "last_time_utc": "2024-12-31T21:50:00+00:00"
+    },
+    "XAUUSD": {
+      "path": "02. AlphaFactory/data/fivepercent/FiveAssetFoundation/DATA-FIVEPERCENT-5ASSET-MULTITF-004/XAUUSD/XAUUSD_M5_ALL_AVAILABLE_20260801.parquet",
+      "sha256": "12679E647739D8DB616F78578D924912A1AC580CED535D763DBEA1B04480D380",
+      "window_rows": 632718,
+      "first_time_utc": "2016-01-04T00:00:00+00:00",
+      "last_time_utc": "2024-12-31T21:50:00+00:00"
+    }
+  },
+  "atomic_cells": {
+    "EURUSD__ASIAN_RANGE_SWEEP_RECLAIM": {
+      "candidate_count": 1949,
+      "candidates_per_elapsed_week": 4.153120243531203,
+      "direction_counts": {
+        "long": 952,
+        "short": 997
+      },
+      "direction_shares": {
+        "long": 0.4884556182657773,
+        "short": 0.5115443817342227
+      },
+      "year_counts": {
+        "2016": 223,
+        "2017": 187,
+        "2018": 207,
+        "2019": 247,
+        "2020": 206,
+        "2021": 235,
+        "2022": 222,
+        "2023": 222,
+        "2024": 200
+      },
+      "max_year_share": 0.1267316572601334,
+      "initial_risk_price_median": 0.0005770726331641995,
+      "gates": {
+        "min_candidates_400": true,
+        "min_candidates_per_week_1": true,
+        "both_direction_share_min_0_20": true,
+        "max_year_share_0_25": true,
+        "positive_finite_initial_risk": true
+      },
+      "pass": true
+    },
+    "EURUSD__BAR_RANGE_COMPRESSION_BREAKOUT": {
+      "candidate_count": 2117,
+      "candidates_per_elapsed_week": 4.511111111111111,
+      "direction_counts": {
+        "long": 1052,
+        "short": 1065
+      },
+      "direction_shares": {
+        "long": 0.4969296173830893,
+        "short": 0.5030703826169107
+      },
+      "year_counts": {
+        "2016": 245,
+        "2017": 292,
+        "2018": 279,
+        "2019": 245,
+        "2020": 243,
+        "2021": 227,
+        "2022": 194,
+        "2023": 207,
+        "2024": 185
+      },
+      "max_year_share": 0.13793103448275862,
+      "initial_risk_price_median": 0.0018904394675141045,
+      "gates": {
+        "min_candidates_400": true,
+        "min_candidates_per_week_1": true,
+        "both_direction_share_min_0_20": true,
+        "max_year_share_0_25": true,
+        "positive_finite_initial_risk": true
+      },
+      "pass": true
+    },
+    "XAUUSD__ASIAN_RANGE_SWEEP_RECLAIM": {
+      "candidate_count": 2085,
+      "candidates_per_elapsed_week": 4.442922374429224,
+      "direction_counts": {
+        "long": 1019,
+        "short": 1066
+      },
+      "direction_shares": {
+        "long": 0.48872901678657077,
+        "short": 0.5112709832134292
+      },
+      "year_counts": {
+        "2016": 195,
+        "2017": 218,
+        "2018": 190,
+        "2019": 224,
+        "2020": 267,
+        "2021": 244,
+        "2022": 261,
+        "2023": 261,
+        "2024": 225
+      },
+      "max_year_share": 0.12805755395683452,
+      "initial_risk_price_median": 1.6014934454299237,
+      "gates": {
+        "min_candidates_400": true,
+        "min_candidates_per_week_1": true,
+        "both_direction_share_min_0_20": true,
+        "max_year_share_0_25": true,
+        "positive_finite_initial_risk": true
+      },
+      "pass": true
+    },
+    "XAUUSD__BAR_RANGE_COMPRESSION_BREAKOUT": {
+      "candidate_count": 2072,
+      "candidates_per_elapsed_week": 4.415220700152207,
+      "direction_counts": {
+        "long": 1117,
+        "short": 955
+      },
+      "direction_shares": {
+        "long": 0.5390926640926641,
+        "short": 0.4609073359073359
+      },
+      "year_counts": {
+        "2016": 263,
+        "2017": 233,
+        "2018": 235,
+        "2019": 270,
+        "2020": 258,
+        "2021": 234,
+        "2022": 198,
+        "2023": 187,
+        "2024": 194
+      },
+      "max_year_share": 0.1303088803088803,
+      "initial_risk_price_median": 4.095619883334507,
+      "gates": {
+        "min_candidates_400": true,
+        "min_candidates_per_week_1": true,
+        "both_direction_share_min_0_20": true,
+        "max_year_share_0_25": true,
+        "positive_finite_initial_risk": true
+      },
+      "pass": true
+    }
+  },
+  "combined_cells": {
+    "EURUSD": {
+      "active_trading_dates": 2337,
+      "complete_asian_dates": 2324,
+      "asian_coverage_ratio": 0.9944373127941806,
+      "atomic_candidate_rows": 4066,
+      "deconflicted_candidate_count": 4022,
+      "deconflicted_candidates_per_elapsed_week": 8.570471841704718,
+      "same_bar_overlap_rows_removed": 44,
+      "opposing_same_bar_collisions": 6,
+      "gates": {
+        "combined_candidates_per_week_2_to_5": false,
+        "asian_coverage_ratio_min_0_90": true,
+        "opposing_same_bar_collisions_zero": false
+      },
+      "pass": false
+    },
+    "XAUUSD": {
+      "active_trading_dates": 2322,
+      "complete_asian_dates": 2314,
+      "asian_coverage_ratio": 0.9965546942291128,
+      "atomic_candidate_rows": 4157,
+      "deconflicted_candidate_count": 4095,
+      "deconflicted_candidates_per_elapsed_week": 8.726027397260275,
+      "same_bar_overlap_rows_removed": 62,
+      "opposing_same_bar_collisions": 12,
+      "gates": {
+        "combined_candidates_per_week_2_to_5": false,
+        "asian_coverage_ratio_min_0_90": true,
+        "opposing_same_bar_collisions_zero": false
+      },
+      "pass": false
+    }
+  },
+  "candidate_csv": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LOMX-DESIGN-M5-002/P0_DESIGN_001/candidates_outcome_blind.csv",
+  "candidate_csv_sha256": "4E836506FCB250B023DEE1B1DB1A2C0D141D7740DF893124941E971F7F438E0F",
+  "candidate_rows": 8223,
+  "full_plan_p0_pass": false,
+  "scanner_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/lomx_design_stage0_probe.py",
+  "scanner_sha256": "A4A1EF5E2F289ABC94231953345B70070701C347D622A7DA4EB5A35E816B7D39",
+  "forbidden_outcome_fields": [
+    "exit",
+    "loss",
+    "mae",
+    "mfe",
+    "pnl",
+    "profit",
+    "return",
+    "win"
+  ]
+}

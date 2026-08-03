@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-LASR-EURUSD-M5-002",
+  "run_id": "STATIC-HYP-LASR-EURUSD-M5-002-20260802",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_LOMX_MultiAssetMomentum\\NONREPAINT_AUDIT_MANIFEST_EURUSD_M5_002.json",
+  "manifest_sha256": "481C57A6E29291EF0A50DA6BF2AA36CBE6CEA92E0B09F49AC7B0A15FEEC049BC",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_LOMX_MultiAssetMomentum\\EA_LOMX_MultiAssetMomentum.mq5",
+      "sha256": "173676D238D2847D5AEF85AFCAAA35F756A9060E2CFF8AD808AF80A8DABB6129"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-02T18:41:56.070861+00:00"
+}

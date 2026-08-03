@@ -31,8 +31,9 @@ id_rsa*
 02. AlphaFactory/data/**/*.zst
 02. AlphaFactory/data/**/*.partial
 !02. AlphaFactory/data/**/manifest.json
-03. EA Developer/**/research/evidence/*_HISTORICAL_SPREAD_M1.csv
-03. EA Developer/**/research/evidence/*_QUOTE_LATENCY_*.csv
+03. EA Developer/**/research/evidence/**/*_HISTORICAL_SPREAD_M1.csv
+03. EA Developer/**/research/evidence/**/*_RAW_TICK_SPREAD*.csv
+03. EA Developer/**/research/evidence/**/*_QUOTE_LATENCY_*.csv
 03. EA Developer/**/research/evidence/*_RESULTS.jsonl
 03. EA Developer/**/research/trials/trial_log.jsonl
 *.ex5

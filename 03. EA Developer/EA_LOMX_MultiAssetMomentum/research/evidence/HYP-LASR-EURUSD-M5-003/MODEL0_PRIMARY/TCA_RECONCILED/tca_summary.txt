@@ -1,0 +1,11 @@
+token: HYP-LASR-EURUSD-M5-003_63812875
+stage: 
+sqn: 0.0 | custom_score: 0.0
+entry fills: 0 | open_ack gap: 0
+modify req/applied/failed/unresolved: 0/0/0/0
+close req/requested_deals/failed/partials/unresolved: 0/0/0/296/0
+final closes: 694 | passive_final_closes: 694 | ack-requested gap: 0
+achievedR mean/p50/p90: -0.077/-1.0404/1.7775
+net mean/p50/p90: -10.16/-1.12/24.9
+slippage mean/abs_mean/max_abs: 0.0/0.0/0.0
+close_sources: DEAL_REASON_SL=550, DEAL_REASON_TP=134, DEAL_REASON_EXPERT=10

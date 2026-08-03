@@ -1,0 +1,89 @@
+{
+  "schema_version": "alphafactory_failure_packet.v1",
+  "hypothesis_id": "HYP-LASR-XAUUSD-M5-001",
+  "ea_name": "EA_LOMX_MultiAssetMomentum",
+  "run_id": "20260803_004959",
+  "verdict": "PARK_INVALID_MODEL0_DATA_IDENTITY_NO_ECONOMIC_VERDICT",
+  "generated_at_utc": "2026-08-02T17:52:59Z",
+  "decision": {
+    "state": "parked",
+    "economic_valid": false,
+    "economic_verdict_authorized": false,
+    "edge_killed": false,
+    "promotion_ready": false,
+    "paper_or_live_authorized": false,
+    "optimization_authorized": false,
+    "rerun_same_id_authorized": false
+  },
+  "invalid_run_observations": {
+    "n_trades": 2,
+    "net_profit_usd": -14.30999999999949,
+    "profit_factor": 0.45339954163483576,
+    "win_rate_pct": 50.0,
+    "expectancy_usd_per_trade": -7.155000000000001,
+    "max_drawdown_pct": 0.0,
+    "elapsed_weeks_contract_window": 260.42857142857144,
+    "trades_per_elapsed_week": 0.007679648930334613
+  },
+  "invalidity_findings": [
+    {
+      "gate": "data_identity",
+      "expected_data_fingerprint": "12679E647739D8DB616F78578D924912A1AC580CED535D763DBEA1B04480D380",
+      "actual_data_fingerprint": "530B4417F62ED0E729B82EEF6A1359439BA5C358518152FA45CE12C33DEA947A",
+      "actual_history_quality": "99%",
+      "actual_bars": "7144",
+      "actual_ticks": "4894998",
+      "foundation_expected_m5_bars": 351303,
+      "population_coverage_ratio": 0.02033515028394491,
+      "fingerprint_contract_error": "Task packet used the XAUUSD foundation Parquet SHA-256 as an MT5 population fingerprint; these identities are not comparable."
+    },
+    {
+      "gate": "profit_factor",
+      "required": "> 1.30",
+      "actual": 0.45339954163483576
+    },
+    {
+      "gate": "cadence",
+      "required": "2.0 <= trades/elapsed week <= 5.0",
+      "actual": 0.007679648930334613
+    },
+    {
+      "gate": "lifecycle_final_close_reconciliation",
+      "required": "entries_opened == final_closes for report-bound lifecycle",
+      "entries_opened": 2,
+      "final_closes": 1
+    }
+  ],
+  "failure_radius": "The direct-alpha Model-0 execution path, its manual receipt, its MT5 data population, and HYP-LASR-XAUUSD-M5-001 are terminally parked. The run covered only 7144 of 351303 expected foundation M5 bars and cannot support a PF or cadence verdict for 2018-2022. Do not rerun this ID or tune any signal rule from the exposed observations. The unchanged mechanism may only receive a fresh identity after an outcome-blind MT5 population preflight proves full date coverage and declares a comparable fingerprint contract.",
+  "evidence": {
+    "source_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/EA_LOMX_MultiAssetMomentum.mq5",
+    "source_sha256": "6243A3BE573B305AEDF223953D4E68A37866AE8C53512EABC3D430969B194B47",
+    "prereg_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/HYP-LASR-XAUUSD-M5-001_FROZEN_PREREG.md",
+    "prereg_sha256": "CA98BA9AC8102634EAF6B47B8C579000990BBD401E13EBBD470D55DF50210B6F",
+    "task_packet_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/preflight/HYP-LASR-XAUUSD-M5-001/task_packet.control.json",
+    "task_packet_sha256": "1A5AEABA3CE1D07AF2191CFA86F921A4228C4F0B8325EA74F75888977CD0070E",
+    "execution_receipt_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/preflight/HYP-LASR-XAUUSD-M5-001/execution_receipt.control.json",
+    "execution_receipt_present_post_run": false,
+    "execution_receipt_sha256": "",
+    "execution_receipt_sha256_from_run_manifest": "DEED4D693D37E446FE02054198A83A50692ACDE1FF42D1E551E0D6B44F98F1BF",
+    "cost_source_manifest_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/preflight/HYP-LASR-XAUUSD-M5-001/cost_source_manifest.json",
+    "cost_source_manifest_sha256": "60302CA3E1BFD0603D5EF38A2EA7B93DE58CA44EEBFE58C6CDA991BD2E184D9B",
+    "run_manifest_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/MODEL0_PRIMARY/run_manifest.json",
+    "run_manifest_sha256": "D9BA0E4CB9939E7B8BD7942EE20A10B34575980AEC396A474D5D7C216F51150B",
+    "report_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/MODEL0_PRIMARY/report.html",
+    "report_sha256": "12904AD279006B075EFCF48D9300373800E907F383AC828124F34865DD5762D6",
+    "enhanced_summary_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/MODEL0_PRIMARY/enhanced_summary.json",
+    "enhanced_summary_sha256": "1AE266BB410E3BDBA41FE4C0002628004E8A43100D130ACC849EBD7DDD517CED",
+    "tca_summary_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/MODEL0_PRIMARY/tca_summary.json",
+    "tca_summary_sha256": "F76B53C133A2D78E4E73C30AA2D5A8B1A96B7116BB8718864C8714CD91BF45A6",
+    "lifecycle_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/MODEL0_PRIMARY/XAUUSD_LifecycleTrades_HYP-LASR-XAUUSD-M5-001_60018421.csv",
+    "lifecycle_sha256": "2BD5852BE4CB8A06B07D2EF95E7B27B887A613BBE06216747332A162BBD9E0D8",
+    "run_meta_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/MODEL0_PRIMARY/XAUUSD_RunMeta_HYP-LASR-XAUUSD-M5-001_60018421.json",
+    "run_meta_sha256": "E59CBB6CD36D6C32E666C99C33F4201A1833E67257CDA1E4FD899411DD8784E5"
+  },
+  "notes": [
+    "The canonical ea_research_loop dry-run was blocked by pre-existing origin/main registry validator drift; a concurrent reviewer bypassed that loop with a manual direct alpha.ps1 receipt.",
+    "Observed PF, cadence and net PnL are retained for audit but are not economic evidence because the tester population was truncated.",
+    "Cost stress, validation, holdout, optimization, paper, live and same-ID rerun are forbidden."
+  ]
+}

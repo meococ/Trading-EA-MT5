@@ -1,0 +1,13 @@
+Source: D:\Trading EA MT5\02. AlphaFactory\runtime\mt5-portable-fivepercent\Tester\Agent-127.0.0.1-3000\logs\20260803.log
+Captured for run: 20260803_013129
+
+01:31:34.103 History EURUSD: history synchronized from 1971.01.04 to 2026.07.30
+01:31:34.148 History EURUSD,M5: history cache allocated for 599910 bars and contains 74276 bars from 2015.01.02 09:00 to 2015.12.31 20:00
+01:31:34.150 Tester EURUSD,M5: testing from 2016.01.04 00:00 to 2022.12.30 00:00 started
+01:31:38.010 Trade 2016.01.04 13:05:00 market sell 0.3 EURUSD at 1.08999, SL 1.09080, TP 1.08270
+01:31:38.012 Trade 2016.01.04 13:10:00 position stop out triggered at 3055.35 USD
+01:31:38.012 Tester final balance 9991.00 USD
+01:31:38.046 Tester stop out occurred on 0% of testing interval
+01:31:38.046 Tester EURUSD,M5: 73411 ticks, 159 bars generated; test passed in 0:00:04.397
+
+Interpretation: the terminal synchronized the requested date range, but the first risk-sized order consumed enough margin for the broker's money-mode stop-out rule to terminate the run on its first day. The 159-bar/73411-tick report is therefore invalid for the preregistered 2016-2022 population and cannot support an economic verdict.

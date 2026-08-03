@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-CBRK-EURUSD-M5-001",
+  "run_id": "20260803_020947",
+  "manifest": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_LOMX_MultiAssetMomentum\\20260803_020947\\run_manifest.json",
+  "manifest_sha256": "5FB5B51CD8C2C0A85074EC19054B08FF1520AF2718845B502B897B7F0FA465F7",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_LOMX_MultiAssetMomentum\\20260803_020947\\snapshot\\source\\EA_LOMX_MultiAssetMomentum.mq5",
+      "sha256": "D363121DC7FFCB128A67C796B76F8B86C8AB2262FF045EAC62B49FE19FB3298B"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-02T19:16:25.009048+00:00"
+}

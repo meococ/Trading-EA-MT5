@@ -1,0 +1,20 @@
+{
+  "n_trades": 402,
+  "net_profit": -7061.460000000006,
+  "profit_factor": 0.7466504499074352,
+  "win_rate_pct": 40.79601990049751,
+  "avg_win": 126.89597560975609,
+  "avg_loss": -117.1109243697479,
+  "max_drawdown_pct": 7.767518095475641,
+  "max_drawdown_abs": 7826.980000000127,
+  "expectancy_per_trade": -17.56582089552239,
+  "start_equity": 100000.0,
+  "final_equity": 92938.54,
+  "streaks": {
+    "max_win_streak": 10,
+    "max_loss_streak": 11,
+    "current_streak": -9,
+    "current_streak_type": "loss"
+  },
+  "weaknesses_count": 10
+}

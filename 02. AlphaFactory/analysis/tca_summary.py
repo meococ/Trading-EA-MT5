@@ -113,6 +113,14 @@ def _extract_token(name: str, marker: str) -> str:
     return token
 
 
+def _trade_token(name: str) -> str:
+    for marker in ("_PX6_Trades_", "_LifecycleTrades_"):
+        token = _extract_token(name, marker)
+        if token:
+            return token
+    return ""
+
+
 def _pick_latest(files: List[Path]) -> Optional[Path]:
     return max(files, key=lambda p: p.stat().st_mtime) if files else None
 
@@ -151,7 +159,7 @@ def _choose_best_token(exec_files: List[Path], trade_files: List[Path], meta_fil
         st["exec_mtime"] = max(st["exec_mtime"], p.stat().st_mtime)
 
     for p in trade_files:
-        token = _extract_token(p.name, "_PX6_Trades_")
+        token = _trade_token(p.name)
         if not token:
             continue
         st = _ensure(token)
@@ -186,7 +194,10 @@ def _choose_best_token(exec_files: List[Path], trade_files: List[Path], meta_fil
 
 def select_run_files(logs_dir: Path) -> Tuple[str, Optional[Path], Optional[Path], Optional[Path]]:
     exec_files = sorted(logs_dir.glob("*_PX6_Exec_*.csv"))
-    trade_files = sorted(logs_dir.glob("*_PX6_Trades_*.csv"))
+    trade_files = sorted(
+        set(logs_dir.glob("*_PX6_Trades_*.csv"))
+        | set(logs_dir.glob("*_LifecycleTrades_*.csv"))
+    )
     meta_files = sorted(logs_dir.glob("*_RunMeta_*.json"))
 
     token = _choose_best_token(exec_files, trade_files, meta_files)
@@ -203,7 +214,11 @@ def select_run_files(logs_dir: Path) -> Tuple[str, Optional[Path], Optional[Path
     return (
         token,
         _match(exec_files, "_PX6_Exec_"),
-        _match(trade_files, "_PX6_Trades_"),
+        next(
+            (p for p in sorted(trade_files, key=lambda item: item.stat().st_mtime, reverse=True)
+             if _trade_token(p.name) == token),
+            _pick_latest(trade_files),
+        ),
         _match(meta_files, "_RunMeta_"),
     )
 

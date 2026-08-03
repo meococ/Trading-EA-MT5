@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-LASR-XAUUSD-M5-001",
+  "run_id": "STATIC-HYP-LASR-XAUUSD-M5-001-20260802",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_LOMX_MultiAssetMomentum\\NONREPAINT_AUDIT_MANIFEST_XAUUSD_M5_001.json",
+  "manifest_sha256": "6C45233C0F8CAFE1BEF17058FDDBA370346EAC1B3FF1EF3746B78773CD5C6A93",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_LOMX_MultiAssetMomentum\\EA_LOMX_MultiAssetMomentum.mq5",
+      "sha256": "6243A3BE573B305AEDF223953D4E68A37866AE8C53512EABC3D430969B194B47"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-02T17:39:47.683903+00:00"
+}

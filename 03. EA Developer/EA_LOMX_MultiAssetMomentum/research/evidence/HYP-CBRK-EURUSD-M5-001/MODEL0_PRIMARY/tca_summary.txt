@@ -1,0 +1,11 @@
+token: HYP-CBRK-EURUSD-M5-001_64807312
+stage: 
+sqn: 0.0 | custom_score: 0.0
+entry fills: 0 | open_ack gap: 0
+modify req/applied/failed/unresolved: 0/0/0/0
+close req/requested_deals/failed/partials/unresolved: 0/0/0/0/0
+final closes: 402 | passive_final_closes: 402 | ack-requested gap: 0
+achievedR mean/p50/p90: -0.0282/-0.8394/1.9797
+net mean/p50/p90: -17.57/-13.75/156.71
+slippage mean/abs_mean/max_abs: 0.0/0.0/0.0
+close_sources: DEAL_REASON_SL=200, DEAL_REASON_EXPERT=125, DEAL_REASON_TP=77

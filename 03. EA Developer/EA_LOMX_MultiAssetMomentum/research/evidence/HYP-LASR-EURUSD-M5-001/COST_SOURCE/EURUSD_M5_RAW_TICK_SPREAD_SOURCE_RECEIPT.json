@@ -1,0 +1,40 @@
+{
+  "schema_version": "alphafactory_mt5_tick_spread_evidence.v1",
+  "mode": "READ_ONLY_RAW_TICKS_NO_ORDERS_NO_OUTCOMES",
+  "promotion_eligible": false,
+  "symbol": "EURUSD",
+  "timeframe_population": "M5",
+  "from": "2016.01.04",
+  "to": "2022.12.30",
+  "source_method": "first valid CopyTicksRange raw BID/ASK tick in each synchronized M5 bar",
+  "broker": "Five Percent Online Ltd",
+  "server": "FivePercentOnline-Real",
+  "terminal_build": 6090,
+  "terminal_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\terminal64.exe",
+  "terminal_sha256": "20DFEFD944AE482781AC1E83A736A976ECF0315661E54B5771E327F1FFB2B35C",
+  "terminal_data_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent",
+  "terminal_trade_allowed": false,
+  "orders_sent": 0,
+  "positions_opened": 0,
+  "outcomes_accessed": false,
+  "symbol_geometry": {
+    "digits": 5,
+    "point": 1e-05,
+    "pip_size": 0.0001
+  },
+  "coverage": {
+    "expected_m5_bar_count": 521865,
+    "sampled_m5_bar_count": 521799,
+    "missing_m5_bar_count": 66,
+    "raw_tick_count": 250132587,
+    "population_coverage_ratio": 0.9998735305107643,
+    "minimum_required": 0.99,
+    "first_sampled_bar_utc": "2016-01-04T00:00:00+00:00",
+    "last_sampled_bar_utc": "2022-12-30T23:55:00+00:00"
+  },
+  "output": "D:\\Trading EA MT5\\03. EA Developer\\EA_LOMX_MultiAssetMomentum\\research\\evidence\\HYP-LASR-EURUSD-M5-001\\COST_SOURCE\\EURUSD_M5_RAW_TICK_SPREAD_SOURCE.csv",
+  "output_sha256": "A1C0983889C439984C6B3F4A4D93B3D888DDE0643D99AA1E71B9E57A06E115D3",
+  "output_bytes": 25046377,
+  "generator": "D:\\Trading EA MT5\\02. AlphaFactory\\tools\\export_mt5_tick_spread_evidence.py",
+  "generator_sha256": "9CB3244CAC0E8656D6D99935A8CDC8469FC030F32568BB12E67BFB648EA216A8"
+}

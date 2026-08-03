@@ -5496,3 +5496,31 @@ small source-semantics pilot that measures inter-arrival, staleness and vendor
 range-clock behavior before committing to a full design corpus. This record
 does not authorize relaxing HYP-002 or opening its EURUSD outcomes.
 
+---
+
+## HYP-CBRK-EURUSD-M5-001 — valid Model 0 terminal kill (2026-08-02)
+
+**EA / run:** `EA_LOMX_MultiAssetMomentum` / `20260803_020947`
+
+**Symbol / TF / window / model:** EURUSD / M5 / 2016-01-04..2022-12-30 /
+Model 0, 100% Strategy Tester history, 521,577 bars and 167,237,751 ticks.
+
+**Frozen mechanism:** prior bar range below 0.70 of the prior-50 mean; bars
+2..16 form a box; closed bar 1 breaks 0.20 ATR beyond the box with tick volume
+above the prior-20 mean; stop 0.10 ATR beyond the opposite edge and target 2R.
+This is a generic bar-range compression breakout, not a Volman replication.
+
+**Result:** exact preregistered account/data identities matched; compile and
+closed-bar audit passed; 402 OPEN rows reconciled to 402 final CLOSE rows with
+zero unresolved closes. PF0.746650, net -USD7,061.46, expectancy
+-USD17.5658/trade, cadence1.102665/week, WR40.7960%, DD7.7675%. Verdict:
+`KILL_BASE_PF_AND_CADENCE_FAIL_COST_NOT_REQUIRED`. PF failed 1.30 and cadence
+failed 2/week before cost stress; DD alone passed. No validation, holdout,
+optimization, paper, promotion or live route opened.
+
+**Failure radius:** the exact frozen EURUSD M5 generic compression-breakout
+object. Do not mine hour, weekday, direction, volume, stop, target or margin
+filters from the result. The sibling EURUSD sweep is only an identity-invalid
+strong adverse prior, while XAUUSD remains unproven because its full-population
+data/cost identity was not validly established.
+

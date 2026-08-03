@@ -1,0 +1,9 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-LASR-EURUSD-M5-002",
+  "run_id": "STATIC-HYP-LASR-EURUSD-M5-002-20260802",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_LOMX_MultiAssetMomentum",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_LOMX_MultiAssetMomentum\\EA_LOMX_MultiAssetMomentum.mq5",
+  "source_sha256": "173676D238D2847D5AEF85AFCAAA35F756A9060E2CFF8AD808AF80A8DABB6129",
+  "include_snapshots": []
+}

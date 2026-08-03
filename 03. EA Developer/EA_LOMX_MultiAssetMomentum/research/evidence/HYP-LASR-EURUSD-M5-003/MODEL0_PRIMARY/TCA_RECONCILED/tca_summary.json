@@ -1,0 +1,108 @@
+{
+  "generated_at": "2026-08-02T19:04:16Z",
+  "logs_dir": "03. EA Developer\\EA_LOMX_MultiAssetMomentum\\research\\evidence\\HYP-LASR-EURUSD-M5-003\\MODEL0_PRIMARY",
+  "token": "HYP-LASR-EURUSD-M5-003_63812875",
+  "files": {
+    "exec": "",
+    "trades": "03. EA Developer\\EA_LOMX_MultiAssetMomentum\\research\\evidence\\HYP-LASR-EURUSD-M5-003\\MODEL0_PRIMARY\\EURUSD_LifecycleTrades_HYP-LASR-EURUSD-M5-003_63812875.csv",
+    "run_meta": "03. EA Developer\\EA_LOMX_MultiAssetMomentum\\research\\evidence\\HYP-LASR-EURUSD-M5-003\\MODEL0_PRIMARY\\EURUSD_RunMeta_HYP-LASR-EURUSD-M5-003_63812875.json"
+  },
+  "run_meta": {
+    "stage": "",
+    "closed_trades": 0,
+    "sqn": 0.0,
+    "custom_score": 0.0,
+    "mean_achieved_r": 0.0,
+    "mean_net_profit": 0.0,
+    "mean_hold_minutes": 0.0,
+    "close_sources": {}
+  },
+  "exec": {
+    "file": "",
+    "rows": 0,
+    "phase_counts": [],
+    "retcodes": [],
+    "reasons": [],
+    "slippage_pts": {}
+  },
+  "trades": {
+    "file": "03. EA Developer\\EA_LOMX_MultiAssetMomentum\\research\\evidence\\HYP-LASR-EURUSD-M5-003\\MODEL0_PRIMARY\\EURUSD_LifecycleTrades_HYP-LASR-EURUSD-M5-003_63812875.csv",
+    "rows": 1684,
+    "final_closes": 694,
+    "partial_close_rows": 296,
+    "action_counts": [
+      {
+        "action": "CLOSE",
+        "n": 694
+      },
+      {
+        "action": "OPEN",
+        "n": 694
+      },
+      {
+        "action": "CLOSE_PARTIAL",
+        "n": 296
+      }
+    ],
+    "close_sources": [
+      {
+        "close_source": "DEAL_REASON_SL",
+        "n": 550
+      },
+      {
+        "close_source": "DEAL_REASON_TP",
+        "n": 134
+      },
+      {
+        "close_source": "DEAL_REASON_EXPERT",
+        "n": 10
+      }
+    ],
+    "close_reasons": [
+      {
+        "reason": "DEAL_REASON_SL",
+        "n": 550
+      },
+      {
+        "reason": "DEAL_REASON_TP",
+        "n": 134
+      },
+      {
+        "reason": "DEAL_REASON_EXPERT",
+        "n": 10
+      }
+    ],
+    "achieved_r": {
+      "n": 694,
+      "mean": -0.077,
+      "p10": -1.108,
+      "p50": -1.0404,
+      "p90": 1.7775
+    },
+    "net_profit": {
+      "n": 694,
+      "mean": -10.16,
+      "p10": -56.2,
+      "p50": -1.12,
+      "p90": 24.9
+    }
+  },
+  "reconciliation": {
+    "open_ack": 0,
+    "fill_count": 0,
+    "open_ack_minus_fill_gap": 0,
+    "modify_requests": 0,
+    "modify_applied": 0,
+    "modify_failed": 0,
+    "modify_unresolved": 0,
+    "close_requests": 0,
+    "close_failed": 0,
+    "close_deals": 694,
+    "close_partials": 296,
+    "requested_close_deals": 0,
+    "passive_final_closes": 694,
+    "close_unresolved": 0,
+    "close_ack": 0,
+    "close_ack_minus_requested_close_gap": 0
+  }
+}

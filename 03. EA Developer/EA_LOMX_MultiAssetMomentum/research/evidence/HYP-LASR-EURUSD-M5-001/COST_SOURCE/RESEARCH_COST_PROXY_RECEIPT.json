@@ -1,0 +1,103 @@
+{
+  "schema_version": "alphafactory_research_cost_proxy_evidence.v1",
+  "promotion_eligible": false,
+  "fill_observed": false,
+  "symbol": "EURUSD",
+  "quote_input": {
+    "root": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real",
+    "selection_mode": "recursive_root",
+    "source_count": 9,
+    "unique_quote_count": 17011,
+    "sources": [
+      {
+        "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_001/EURUSD_quote_ticks.csv",
+        "sha256": "5EBF417D4594D5354D9F59EC231151DC619F7E0B6F81B51DA84A7D5C152BA8C0",
+        "bytes": 7087
+      },
+      {
+        "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_002/EURUSD_quote_ticks.csv",
+        "sha256": "1A321BDEDA08D9BB6A382BAE3E61C3AE717C1B32873D03F64E8B2EF8CE437432",
+        "bytes": 7898
+      },
+      {
+        "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_003_CONTINUATION/EURUSD_quote_ticks.csv",
+        "sha256": "24E573F601F8CA03EB9666CC0B7B202EB940CD064799A610D2CA311DA4442241",
+        "bytes": 65151
+      },
+      {
+        "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_004_CONTINUATION/EURUSD_quote_ticks.csv",
+        "sha256": "C5008C3CDF7ED1D9F4CB62ED33247BCC495E3FF8A580603E137E8A101F0C8BC2",
+        "bytes": 44370
+      },
+      {
+        "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_004_EXTENSION/EURUSD_quote_ticks.csv",
+        "sha256": "FD10CE4F85146D88DE89FC9D94471CCF530FD5AF1C3EA98ED89D5E06A58309A6",
+        "bytes": 102137
+      },
+      {
+        "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_005_POSTAUTH/EURUSD_quote_ticks.csv",
+        "sha256": "6E46E74B7747B6F5FA6437C80D17245B80ECC8434C86B4EE9703D30FD26BA456",
+        "bytes": 107089
+      },
+      {
+        "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_006_ACCUMULATE/EURUSD_quote_ticks.csv",
+        "sha256": "94484E6EDCEE64868B8F3BA1E1E2930C36282FDD23BDE20C967E079B790EBB6D",
+        "bytes": 82402
+      },
+      {
+        "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260714_QFSI_REAL_006_MISROOT_PARTIAL/EURUSD_quote_ticks.csv",
+        "sha256": "14CB17231C8037A57170A1D4BBDEF1C1D6EE54AF177EF7A8910CD21F7DE237F1",
+        "bytes": 22041
+      },
+      {
+        "path": "02. AlphaFactory/evidence/execution/FivePercentOnline-Real/20260715_QFSI_REAL_007_LONG_ACCUMULATE/EURUSD_quote_ticks.csv",
+        "sha256": "B5418CCE08D3BAFE8AA747553C571955A76991FADE246F896E4B8C696CC4624E",
+        "bytes": 946249
+      }
+    ]
+  },
+  "quote_latency_proxy": {
+    "pair_count": 4052,
+    "sample_count": 8104,
+    "buy_count": 4052,
+    "sell_count": 4052,
+    "p90_buy": 0.20000000000131024,
+    "p90_sell": 0.20000000000131024,
+    "p90_roundturn": 0.4000000000026205,
+    "latency_ms": 1000,
+    "max_quote_wait_ms": 500,
+    "first_reference_timestamp": "2026-07-14T13:46:45.933",
+    "last_reference_timestamp": "2026-07-15T14:30:24.492",
+    "output": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-EURUSD-M5-001/COST_SOURCE/EURUSD_QUOTE_LATENCY_1000MS.csv",
+    "output_sha256": "341985EE7683944701AD55DEC5775721442DD6281FD1F4125CCC5DB63D4E1010"
+  },
+  "historical_spread": {
+    "from": "2016.01.04",
+    "to": "2022.12.30",
+    "sample_count": 521799,
+    "total_count": 521799,
+    "coverage_ratio": 1.0,
+    "first_timestamp": "2016-01-04T00:00:49.000Z",
+    "last_timestamp": "2022-12-30T23:55:01.287Z",
+    "raw_source": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-EURUSD-M5-001/COST_SOURCE/EURUSD_M5_RAW_TICK_SPREAD_SOURCE.csv",
+    "raw_source_sha256": "A1C0983889C439984C6B3F4A4D93B3D888DDE0643D99AA1E71B9E57A06E115D3",
+    "output": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-EURUSD-M5-001/COST_SOURCE/EURUSD_M5_RAW_TICK_SPREAD.csv",
+    "output_sha256": "525671EC5767B96718ED0DE911649612E3EBD54FDBC609A888192087B855B7E5"
+  },
+  "tester_commission_proxy": {
+    "sample_count": 93,
+    "minimum": 4.0,
+    "p50": 4.0,
+    "p90": 4.0,
+    "maximum": 4.0,
+    "statistic_used": "maximum",
+    "source_kind": "strategy_tester_simulation",
+    "raw_source": "02. AlphaFactory/runs/EA_LondonNY/20260702_224423/logs/EURUSD_20260403_PX6_Trades_20210101_000000_141232468.csv",
+    "raw_source_sha256": "A0B0D213FA4DF8E8A4751FD9686E1F7B453DF39CFCCFAB971503A476279C2C7F",
+    "output": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-EURUSD-M5-001/COST_SOURCE/EURUSD_TESTER_COMMISSION_MAX.csv",
+    "output_sha256": "BD67BA3640152BB2EC622E2D3061F5D8D31B726F941ACECA061F884E3B9786F1"
+  },
+  "generated_at_utc": "2026-08-02T18:23:32.914904+00:00",
+  "generator": "02. AlphaFactory/tools/build_research_cost_proxy_evidence.py",
+  "generator_sha256": "A62B423F8E10A386A924BED6E8F6A2FC1587311EC2BA4E1210CEA3BADC189207"
+}
