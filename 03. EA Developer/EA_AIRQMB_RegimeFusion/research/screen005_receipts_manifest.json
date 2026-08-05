@@ -1,0 +1,71 @@
+{
+  "schema_version": "airqmb_screen005_receipts.v1",
+  "git_commit": "7748ce77cd50e86d10c3024f15fb0ee239fd345b",
+  "git_status_sha256": "E9B1426CD539DEAD4DEA99F3819D0710905100F0EE1E06F0A94AF8F4BF235D7A",
+  "generated_at_utc": "2026-08-05T19:11:27.451790Z",
+  "cells": [
+    {
+      "symbol": "EURUSD",
+      "hypothesis_id": "HYP-AIRQMB-EURUSD-M5-SCREEN-005",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=EURUSD;InpHypothesisId=HYP-AIRQMB-EURUSD-M5-SCREEN-005;InpMagic=5686101;InpResearchAutoMode=true;InpVariantTag=SCREEN005_CBARFAST_MODEL4",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_eurusd_screen005.json",
+      "receipt_sha256": "2969B3FB0311A4DBAF5D8A0B96CCE5BC2B0A384AF139636187E2D8C4526861BE"
+    },
+    {
+      "symbol": "USDJPY",
+      "hypothesis_id": "HYP-AIRQMB-USDJPY-M5-SCREEN-005",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=USDJPY;InpHypothesisId=HYP-AIRQMB-USDJPY-M5-SCREEN-005;InpMagic=5686102;InpResearchAutoMode=true;InpVariantTag=SCREEN005_CBARFAST_MODEL4",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_usdjpy_screen005.json",
+      "receipt_sha256": "C04BB2ABD902C948749FD35046FD7EC319F57844023E2C60DC1C2D82E3738203"
+    },
+    {
+      "symbol": "GBPUSD",
+      "hypothesis_id": "HYP-AIRQMB-GBPUSD-M5-SCREEN-005",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=GBPUSD;InpHypothesisId=HYP-AIRQMB-GBPUSD-M5-SCREEN-005;InpMagic=5686103;InpResearchAutoMode=true;InpVariantTag=SCREEN005_CBARFAST_MODEL4",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_gbpusd_screen005.json",
+      "receipt_sha256": "30BADAC6DCD6B2799091CFE7407959B093FFF964384BE03476D97C72E4593CC6"
+    },
+    {
+      "symbol": "USDCHF",
+      "hypothesis_id": "HYP-AIRQMB-USDCHF-M5-SCREEN-005",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=USDCHF;InpHypothesisId=HYP-AIRQMB-USDCHF-M5-SCREEN-005;InpMagic=5686104;InpResearchAutoMode=true;InpVariantTag=SCREEN005_CBARFAST_MODEL4",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_usdchf_screen005.json",
+      "receipt_sha256": "FAC183F2AA49F0F9FEDFB7351BD0B46777697AF44D031C90ED0499309FF63FFB"
+    },
+    {
+      "symbol": "USDCAD",
+      "hypothesis_id": "HYP-AIRQMB-USDCAD-M5-SCREEN-005",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=USDCAD;InpHypothesisId=HYP-AIRQMB-USDCAD-M5-SCREEN-005;InpMagic=5686105;InpResearchAutoMode=true;InpVariantTag=SCREEN005_CBARFAST_MODEL4",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_usdcad_screen005.json",
+      "receipt_sha256": "B1C2B479D52377FDE84EECFFC3D9CF9E4671C5B231EF20549728C8D13F150F3C"
+    },
+    {
+      "symbol": "AUDUSD",
+      "hypothesis_id": "HYP-AIRQMB-AUDUSD-M5-SCREEN-005",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=AUDUSD;InpHypothesisId=HYP-AIRQMB-AUDUSD-M5-SCREEN-005;InpMagic=5686106;InpResearchAutoMode=true;InpVariantTag=SCREEN005_CBARFAST_MODEL4",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_audusd_screen005.json",
+      "receipt_sha256": "446D0B0BD6CCE02BD4C2005A311771DB2813FFD935E91DEE5A8FEF85EBF817B7"
+    },
+    {
+      "symbol": "NZDUSD",
+      "hypothesis_id": "HYP-AIRQMB-NZDUSD-M5-SCREEN-005",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=NZDUSD;InpHypothesisId=HYP-AIRQMB-NZDUSD-M5-SCREEN-005;InpMagic=5686107;InpResearchAutoMode=true;InpVariantTag=SCREEN005_CBARFAST_MODEL4",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_nzdusd_screen005.json",
+      "receipt_sha256": "DACF050E6BE89B363FC3B3BBB90C5CB52EF0B9CE2AD58F1B4319378069D0BE93"
+    },
+    {
+      "symbol": "XAUUSD",
+      "hypothesis_id": "HYP-AIRQMB-XAUUSD-M5-SCREEN-005",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=XAUUSD;InpHypothesisId=HYP-AIRQMB-XAUUSD-M5-SCREEN-005;InpMagic=5686108;InpResearchAutoMode=true;InpVariantTag=SCREEN005_CBARFAST_MODEL4",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_xauusd_screen005.json",
+      "receipt_sha256": "D54EF770A38A84536E81235DCB6E02C16C0BFD73B0BB07C18AD1119F3A113B66"
+    },
+    {
+      "symbol": "BTCUSD",
+      "hypothesis_id": "HYP-AIRQMB-BTCUSD-M5-SCREEN-005",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=BTCUSD;InpHypothesisId=HYP-AIRQMB-BTCUSD-M5-SCREEN-005;InpMagic=5686109;InpResearchAutoMode=true;InpVariantTag=SCREEN005_CBARFAST_MODEL4",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_btcusd_screen005.json",
+      "receipt_sha256": "63658CC499E2E7EF18280D4F623B68459B29D625C4DDCB1A00FF573C8A17CFC1"
+    }
+  ]
+}

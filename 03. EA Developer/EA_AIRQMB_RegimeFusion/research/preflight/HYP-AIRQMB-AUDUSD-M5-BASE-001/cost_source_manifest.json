@@ -1,0 +1,24 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "RESEARCH_PROXY",
+  "provenance_status": "BASELINE_CURRENT_SPREAD_ONLY",
+  "audit_status": "COST_STRESS_BLOCKED_PENDING_BASELINE_SURVIVAL",
+  "verdict": "RESEARCH_BASELINE_ONLY",
+  "promotion_eligible": false,
+  "broker": "Five Percent Online Ltd",
+  "server": "FivePercentOnline-Real",
+  "account_currency": "USD",
+  "broker_fingerprint": "E464F31D4B323A66DBC18D9409052E70F3711DB8F23597441648B19296B61D54",
+  "server_fingerprint": "30B251638403D085CAB177A77A1B0EB69BD371793B501BE696F08033BE1E8DB0",
+  "account_fingerprint": "0A603E7B316F58B39FEA0A1710FE6F250E544909DA2B91967C93AD984317A073",
+  "data_fingerprint": "6639C55C2A81034C13E692F738B3783F2216F4DE6279611CE73FF87081D01400",
+  "symbol": "AUDUSD",
+  "from": "2023.01.02",
+  "to": "2024.12.31",
+  "symbol_geometry": {
+    "digits": 5,
+    "point": 1e-05,
+    "pip_size": 0.0001
+  },
+  "blocker": "Current-spread Model-0 baseline only. Verified independent historical spread, commission and slippage evidence must be acquired for a survivor before economic-valid or promotion claims."
+}

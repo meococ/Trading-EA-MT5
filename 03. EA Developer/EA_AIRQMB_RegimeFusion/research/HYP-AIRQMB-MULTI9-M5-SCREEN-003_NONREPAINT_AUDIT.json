@@ -1,0 +1,16 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_family": "HYP-AIRQMB-MULTI9-M5-SCREEN-003",
+  "ea_name": "EA_AIRQMB_RegimeFusion",
+  "source_sha256": "B8AA382C4586646D8C932765B34E6DA10F97C90925D67BC19BFC7FFF4ED623A8",
+  "verdict": "PASS",
+  "decision_buffers": {
+    "AIRD": "5,11,12 shift 1",
+    "MBB": "3,5,7,25..30 shift 1",
+    "QQE": "3,4,8 shift 1 and prior shift 2"
+  },
+  "bar_zero_price_or_signal": false,
+  "headless_change_affects_math": false,
+  "server_side_sl_tp_tick_accurate": true,
+  "promotion_eligible": false
+}

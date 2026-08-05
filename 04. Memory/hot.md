@@ -1,6 +1,6 @@
 # Hot Cache — Recent Routing Only
 
-Updated: 2026-08-02 after the owner-directed LOMX multi-asset plan implementation closeout.
+Updated: 2026-08-06 after the owner-directed AIRQMB three-indicator EA screen closeout.
 
 This file is a compact handoff cache. It is **not** hypothesis authority, run
 permission, a family blacklist, or proof that a goal is complete. Recheck every
@@ -11,6 +11,18 @@ report and validator output before acting.
 
 - Workspace goal: `ACTIVE / UNMET`. Canonical outcome and DONE ladder:
   `01. GOAL/GOAL.md`.
+- Owner-directed `EA_AIRQMB_RegimeFusion` is engineering-valid but terminally
+  economic-invalid for the tested object. The one-file M5 EA combines AIRD
+  regime gating, MBB S1/S2/S3 events and QQE closed-bar confirmation. Nine
+  2023–2024 Model-4 real-tick baselines completed with reconciled lifecycle-v3
+  telemetry; every symbol had negative expectancy and PF below 1.0
+  (`0.559–0.966`) while drawdown reached or approached the 8% account lock.
+  S1 range, S2 trend and S3 breakout aggregate lanes all remained below PF1.
+  Therefore no cell unlocked the preregistered confidence/RR grid: do not tune
+  this object by pair, threshold, RR, direction, time or event lane. Engineering
+  defaults are demonstration values only. No optimization/validation/holdout/
+  promotion/paper/live authority. Canonical result:
+  `03. EA Developer/EA_AIRQMB_RegimeFusion/research/HYP-AIRQMB-MULTI9-M5-SCREEN-006_RESULTS.md`.
 - Owner-directed `EA_LOMX_MultiAssetMomentum` is engineering-valid but the
   supplied strategy plan is economic-invalid. The original combined
   sweep+breakout object failed outcome-blind cadence/collision feasibility.

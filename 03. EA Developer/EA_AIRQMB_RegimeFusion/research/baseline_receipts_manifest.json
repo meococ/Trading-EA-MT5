@@ -1,0 +1,89 @@
+{
+  "schema_version": "airqmb_baseline_receipts.v1",
+  "git_commit": "7748ce77cd50e86d10c3024f15fb0ee239fd345b",
+  "git_status_sha256": "FD306CAFEEBFB952F06F61301A1C230D21CA4F6F322F0FAFD2D70AEFA1DA4472",
+  "generated_at_utc": "2026-08-05T18:06:42.003023Z",
+  "cells": [
+    {
+      "symbol": "EURUSD",
+      "hypothesis_id": "HYP-AIRQMB-EURUSD-M5-BASE-001",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=EURUSD;InpHypothesisId=HYP-AIRQMB-EURUSD-M5-BASE-001;InpMagic=5686101;InpResearchAutoMode=true;InpVariantTag=BASELINE_FROZEN",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_eurusd_baseline.json",
+      "receipt_sha256": "7E743099D177B2162DDD1132B56C18E22442DDEA4B0908DF7D30674E79696F0B",
+      "task_packet_path": "03. EA Developer/EA_AIRQMB_RegimeFusion/research/preflight/HYP-AIRQMB-EURUSD-M5-BASE-001/task_packet.control.json",
+      "task_packet_sha256": "78602555372E3EEA5FF46D8E9546B5C04B54A1FA8AC2F3F05C160F3305C352AA"
+    },
+    {
+      "symbol": "USDJPY",
+      "hypothesis_id": "HYP-AIRQMB-USDJPY-M5-BASE-001",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=USDJPY;InpHypothesisId=HYP-AIRQMB-USDJPY-M5-BASE-001;InpMagic=5686102;InpResearchAutoMode=true;InpVariantTag=BASELINE_FROZEN",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_usdjpy_baseline.json",
+      "receipt_sha256": "F70FF2D47DC2BDB4497023E83F1ED6382E9203176C727B7E17EE4F4C53AA1C8B",
+      "task_packet_path": "03. EA Developer/EA_AIRQMB_RegimeFusion/research/preflight/HYP-AIRQMB-USDJPY-M5-BASE-001/task_packet.control.json",
+      "task_packet_sha256": "C7EA9CDF6FF9798B6BACC07152F9D48020669ABB05827E1857C452AEF4C61592"
+    },
+    {
+      "symbol": "GBPUSD",
+      "hypothesis_id": "HYP-AIRQMB-GBPUSD-M5-BASE-001",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=GBPUSD;InpHypothesisId=HYP-AIRQMB-GBPUSD-M5-BASE-001;InpMagic=5686103;InpResearchAutoMode=true;InpVariantTag=BASELINE_FROZEN",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_gbpusd_baseline.json",
+      "receipt_sha256": "EE12B7A736E62DF269C285F70D27CFE515B0347010D98828DC9F8EACD9EDC974",
+      "task_packet_path": "03. EA Developer/EA_AIRQMB_RegimeFusion/research/preflight/HYP-AIRQMB-GBPUSD-M5-BASE-001/task_packet.control.json",
+      "task_packet_sha256": "1E3B089FA3DAC8D739E499B7ABE5490B3FC05C40F62D69522E84AD73C43C877A"
+    },
+    {
+      "symbol": "USDCHF",
+      "hypothesis_id": "HYP-AIRQMB-USDCHF-M5-BASE-001",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=USDCHF;InpHypothesisId=HYP-AIRQMB-USDCHF-M5-BASE-001;InpMagic=5686104;InpResearchAutoMode=true;InpVariantTag=BASELINE_FROZEN",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_usdchf_baseline.json",
+      "receipt_sha256": "DBBF073F6D00F40B358C7995567924DAAF20DE737CE6CB6C25AAC8F1F60C2F53",
+      "task_packet_path": "03. EA Developer/EA_AIRQMB_RegimeFusion/research/preflight/HYP-AIRQMB-USDCHF-M5-BASE-001/task_packet.control.json",
+      "task_packet_sha256": "FBFE63ABA506C2D7B840F8550469454832733B3491E1A574CE9AD9CAD81FA526"
+    },
+    {
+      "symbol": "USDCAD",
+      "hypothesis_id": "HYP-AIRQMB-USDCAD-M5-BASE-001",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=USDCAD;InpHypothesisId=HYP-AIRQMB-USDCAD-M5-BASE-001;InpMagic=5686105;InpResearchAutoMode=true;InpVariantTag=BASELINE_FROZEN",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_usdcad_baseline.json",
+      "receipt_sha256": "A6EBCA100958D2480E4AF9402EF02DF73160DB8C3701695F17B4C121F990DA6B",
+      "task_packet_path": "03. EA Developer/EA_AIRQMB_RegimeFusion/research/preflight/HYP-AIRQMB-USDCAD-M5-BASE-001/task_packet.control.json",
+      "task_packet_sha256": "CFC00011E8FC916248BD27342B04DD4D7897E2A37D68519E99AC429B2D5BDC75"
+    },
+    {
+      "symbol": "AUDUSD",
+      "hypothesis_id": "HYP-AIRQMB-AUDUSD-M5-BASE-001",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=AUDUSD;InpHypothesisId=HYP-AIRQMB-AUDUSD-M5-BASE-001;InpMagic=5686106;InpResearchAutoMode=true;InpVariantTag=BASELINE_FROZEN",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_audusd_baseline.json",
+      "receipt_sha256": "55333B0B4D973FC543178EE697D35E48C906408540387468A7DA1D04CFBA1456",
+      "task_packet_path": "03. EA Developer/EA_AIRQMB_RegimeFusion/research/preflight/HYP-AIRQMB-AUDUSD-M5-BASE-001/task_packet.control.json",
+      "task_packet_sha256": "864D85E75F3EA0EFCE429830F74B69A3B4412CA89CE21AADB0361070AFDE7E89"
+    },
+    {
+      "symbol": "NZDUSD",
+      "hypothesis_id": "HYP-AIRQMB-NZDUSD-M5-BASE-001",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=NZDUSD;InpHypothesisId=HYP-AIRQMB-NZDUSD-M5-BASE-001;InpMagic=5686107;InpResearchAutoMode=true;InpVariantTag=BASELINE_FROZEN",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_nzdusd_baseline.json",
+      "receipt_sha256": "6E20F827AA110A189DDCFB515FEB06CC2B3382A9CA04EB4D40A52220FD760CDA",
+      "task_packet_path": "03. EA Developer/EA_AIRQMB_RegimeFusion/research/preflight/HYP-AIRQMB-NZDUSD-M5-BASE-001/task_packet.control.json",
+      "task_packet_sha256": "6DDD4839D1ECE41C0B9338A215BC7157F6EA5E98D5EF025DD35120C7B842826A"
+    },
+    {
+      "symbol": "XAUUSD",
+      "hypothesis_id": "HYP-AIRQMB-XAUUSD-M5-BASE-001",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=XAUUSD;InpHypothesisId=HYP-AIRQMB-XAUUSD-M5-BASE-001;InpMagic=5686108;InpResearchAutoMode=true;InpVariantTag=BASELINE_FROZEN",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_xauusd_baseline.json",
+      "receipt_sha256": "CEB4444139E2E40D870D839F0B11319A179E0CD9246268930424718F4257C479",
+      "task_packet_path": "03. EA Developer/EA_AIRQMB_RegimeFusion/research/preflight/HYP-AIRQMB-XAUUSD-M5-BASE-001/task_packet.control.json",
+      "task_packet_sha256": "DA549AD9421AF75996B8F40A0D90D0E6BDCCF0456C7ECA5B62D57092BFD83BD8"
+    },
+    {
+      "symbol": "BTCUSD",
+      "hypothesis_id": "HYP-AIRQMB-BTCUSD-M5-BASE-001",
+      "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=BTCUSD;InpHypothesisId=HYP-AIRQMB-BTCUSD-M5-BASE-001;InpMagic=5686109;InpResearchAutoMode=true;InpVariantTag=BASELINE_FROZEN",
+      "receipt_path": "02. AlphaFactory/runtime/ea_execution_receipt_airqmb_btcusd_baseline.json",
+      "receipt_sha256": "31E792863DF005B63112C33D13DFED1D0FD2B767CDAA21358919F075EC879675",
+      "task_packet_path": "03. EA Developer/EA_AIRQMB_RegimeFusion/research/preflight/HYP-AIRQMB-BTCUSD-M5-BASE-001/task_packet.control.json",
+      "task_packet_sha256": "E328A8034842B005DF2EF3EADFCFD75109327815A19C8978908AF2E2B1CFDE85"
+    }
+  ]
+}

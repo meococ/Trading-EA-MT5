@@ -2228,3 +2228,26 @@ Evidence:
   outcome. This is not a claim that all EURUSD breakouts or XAUUSD lack edge;
   XAUUSD remains unproven because a valid full-population data/cost contract was
   never established.
+
+## AIRQMB three-indicator fusion economic kill (2026-08-06)
+
+Evidence:
+`03. EA Developer/EA_AIRQMB_RegimeFusion/research/HYP-AIRQMB-MULTI9-M5-SCREEN-006_RESULTS.md`.
+
+- The one-file M5 EA implements the supplied AIRD, Modern Bollinger Bands and
+  QQE indicators as a semantic regime router rather than an untestable majority
+  vote. Nine independent 2023–2024 Model-4 real-tick cells compiled and
+  reconciled all lifecycle-v3 final closes.
+- Every baseline failed the frozen screen: PF ranged `0.559–0.966`, expectancy
+  was negative for all nine symbols and drawdown reached or approached the 8%
+  account lock. Aggregate S1 range-long/short PF was `0.518/0.643`, S2
+  trend-long/short `0.875/0.860`, and S3 breakout-long/short `0.956/0.847`.
+- The preregistered per-symbol `{confidence 0.35/0.45/0.55} x {RR
+  1.25/1.50/1.75}` grid was conditional on a surviving baseline. Zero survived,
+  so no grid, validation or holdout trial was opened. Do not manufacture a
+  pair-specific optimum from these losing outcomes.
+- Failure radius is this exact AIRD-regime + MBB-event + QQE-confirmation
+  decision surface on M5 with the frozen risk/session/exit contract. It is not
+  a blanket claim that the individual indicators, every ensemble, every pair
+  or every timeframe lacks edge. A successor requires a materially different
+  causal mechanism or decision surface, a fresh ID and an outcome-blind prereg.

@@ -826,6 +826,14 @@ int OnCalculate(const int rates_total,
    ArraySetAsSeries(low,false);
    ArraySetAsSeries(close,false);
 
+   // Closed-bar tester fast path: preserve the exact completed-bar series
+   // while avoiding robust percentile sorting on every real tick.
+   static datetime lastTesterBarTime=0;
+   if(MQLInfoInteger(MQL_TESTER) && prev_calculated>0 && lastTesterBarTime==time[rates_total-1])
+      return(rates_total);
+   if(MQLInfoInteger(MQL_TESTER))
+      lastTesterBarTime=time[rates_total-1];
+
    int start=0;
    if(prev_calculated<=0 || prev_calculated>rates_total)
      {
@@ -1173,8 +1181,11 @@ int OnCalculate(const int rates_total,
      }
 
    g_lastCalculatedIndex=rates_total-1;
-   UpdateHud(g_lastCalculatedIndex);
-   ProcessClosedBarAlert(rates_total,time);
+   if(!MQLInfoInteger(MQL_TESTER))
+     {
+      UpdateHud(g_lastCalculatedIndex);
+      ProcessClosedBarAlert(rates_total,time);
+     }
    return(rates_total);
   }
 
@@ -1186,7 +1197,7 @@ void OnChartEvent(const int id,
                   const double &dparam,
                   const string &sparam)
   {
-   if(id==CHARTEVENT_CHART_CHANGE)
+   if(!MQLInfoInteger(MQL_TESTER) && id==CHARTEVENT_CHART_CHANGE)
      {
       ApplyVisualStyle();
       UpdateHud(g_lastCalculatedIndex);

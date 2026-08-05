@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "RESEARCH_PROXY",
+  "provenance_status": "ORDERCHECK_MODEL4_SCREEN_CURRENT_SPREAD_ONLY",
+  "audit_status": "COST_STRESS_NOT_AUTHORIZED",
+  "promotion_eligible": false,
+  "symbol": "XAUUSD",
+  "symbol_geometry": {
+    "digits": 2,
+    "point": 0.01,
+    "pip_size": 0.01
+  },
+  "broker_fingerprint": "E464F31D4B323A66DBC18D9409052E70F3711DB8F23597441648B19296B61D54",
+  "server_fingerprint": "30B251638403D085CAB177A77A1B0EB69BD371793B501BE696F08033BE1E8DB0",
+  "account_fingerprint": "0A603E7B316F58B39FEA0A1710FE6F250E544909DA2B91967C93AD984317A073",
+  "data_fingerprint": "80442AD023D077E7861AFCF0986E21AF2ABD288A8C65901DFE5749508F2D4685",
+  "blocker": "Model-4 screen cannot authorize cost or economic validity."
+}

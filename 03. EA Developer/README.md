@@ -1,8 +1,8 @@
 # 03. EA Developer — Active Shelf
 
-Updated: 2026-08-02 (LOMX multi-asset plan implementation closed; T2 campaign authority unchanged)
+Updated: 2026-08-06 (AIRQMB three-indicator EA and nine-symbol screen closed; T2 campaign authority unchanged)
 
-Active compilable shelf = 24 packages: 20 strategy/audit lanes, three T2
+Active compilable shelf = 25 packages: 21 strategy/audit lanes, three T2
 data-epoch probes and one generic execution harness. Mọi package khác đã archive THẬT sang
 `00. Old File/EA_Archive/` (2026-07-15) — **không** compile từ đó làm evidence.
 
@@ -13,6 +13,7 @@ data-epoch probes and one generic execution harness. Mọi package khác đã ar
 | `EA_HybridICT_Sonic` | `03. EA Developer/EA_HybridICT_Sonic/` | Path-C stub (KILL@Model0, 0 trades); lane riêng |
 | `EA_ICTFVGReportFidelity` | `03. EA Developer/EA_ICTFVGReportFidelity/` | v1.23 Human Context natural policy: 53/53 tests, compile 0/0, non-repaint V19 PASS. HYP-017 single 2018-YTD Model-0 run N=3,703, native PF 0.7553; additional 1.5-pip PF 0.3513 / -0.52139R, terminal KILL. Source retained for audit only; no rerun/promotion/live authority |
 | `EA_ICTVisualEdge` | `03. EA Developer/EA_ICTVisualEdge/` | Visual feature-discovery method record retained with a compilable extractor; hypothesis terminal design-window economic KILL, no Model 0/rerun/live authority |
+| `EA_AIRQMB_RegimeFusion` | `03. EA Developer/EA_AIRQMB_RegimeFusion/` | One-file M5 EA combining AI Regime Detection, Modern Bollinger Bands and QQE MOD. EA plus three indicators compile 0/0; nine 2023–2024 Model-4 real-tick baselines reconciled lifecycle-v3 but all failed economics (PF0.559–0.966, negative expectancy, DD about 8%). No symbol survived the preregistered screen, so the per-symbol parameter grid stayed locked. Engineering-valid reusable integration only; no optimization/validation/promotion/paper/live authority. |
 | `EA_KLR_Scalper` | `03. EA Developer/EA_KLR_Scalper/` | Native Model-0 replication terminal KILL: core N=4/0.02555 per week, USD N=1/0.00639 per week; source retained for audit, no live/rerun authority |
 | `EA_LondonOpenExecutionAudit` | `03. EA Developer/EA_LondonOpenExecutionAudit/` | Audit-only successor `HYP-LOMX-EXEC-AUDIT-M1-003`: source/compile/non-repaint PASS; Codex correction V2 now binds exact run/source/receipt/report and reconciles every REQUEST->SUBMIT->DEAL plus deal/order/position/time/price/volume across four 100%-history Model-0 TRAIN cells (5,171 lifecycles; 31 focused tests). Original Grok packet was `BLOCKED_BY_FINDINGS` on an older SHA, with seven items fixed pre-run—not a final Grok PASS. Diagnostic PF0.8663-0.9313; parked engineering-only, parent HYP002 economic KILL unchanged; no rerun/validation/holdout/optimization/promotion/paper/live authority |
 | `EA_LOMX_MultiAssetMomentum` | `03. EA Developer/EA_LOMX_MultiAssetMomentum/` | Owner-plan implementation engineering-valid: closed-bar M5 sweep/breakout engines, fail-closed authority, exact UTC/DST session handling, lifecycle-v3 and broker money/percent stop-out-aware sizing. Exact dual-engine draft was invalid pre-outcome (>5 candidate/week plus opposing collisions). EURUSD sweep HYP-003 full run was identity-invalid with strong adverse PF0.5278 prior; distinct preregistered breakout `HYP-CBRK-EURUSD-M5-001` valid Model-0 KILL: N402, PF0.7467, net-$7,061.46, 1.1027/week, DD7.77%. XAUUSD remains unproven due invalid population/cost identity. No optimization/validation/holdout/promotion/paper/live authority. |

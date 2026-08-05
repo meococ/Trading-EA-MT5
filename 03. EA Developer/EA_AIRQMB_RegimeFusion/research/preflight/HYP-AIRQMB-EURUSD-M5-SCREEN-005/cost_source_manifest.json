@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "RESEARCH_PROXY",
+  "provenance_status": "CBARFAST_MODEL4_SCREEN_CURRENT_SPREAD_ONLY",
+  "audit_status": "COST_STRESS_NOT_AUTHORIZED",
+  "promotion_eligible": false,
+  "symbol": "EURUSD",
+  "symbol_geometry": {
+    "digits": 5,
+    "point": 1e-05,
+    "pip_size": 0.0001
+  },
+  "broker_fingerprint": "E464F31D4B323A66DBC18D9409052E70F3711DB8F23597441648B19296B61D54",
+  "server_fingerprint": "30B251638403D085CAB177A77A1B0EB69BD371793B501BE696F08033BE1E8DB0",
+  "account_fingerprint": "0A603E7B316F58B39FEA0A1710FE6F250E544909DA2B91967C93AD984317A073",
+  "data_fingerprint": "BF2A619AF11A7039A1E821AFD07EDE136B1C2FB1A592462CAD65BED440D1EC84",
+  "blocker": "Model-4 screen cannot authorize cost or economic validity."
+}

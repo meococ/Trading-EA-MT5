@@ -1,0 +1,22 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_family": "HYP-AIRQMB-MULTI9-M5-SCREEN-002",
+  "ea_name": "EA_AIRQMB_RegimeFusion",
+  "source_path": "03. EA Developer/EA_AIRQMB_RegimeFusion/EA_AIRQMB_RegimeFusion.mq5",
+  "source_sha256": "07D94050A8142353E6E0DD491334CED5631E3B0EF12011B8119AD92A28208B52",
+  "verdict": "PASS",
+  "checks": {
+    "compile": "0 errors, 0 warnings",
+    "entry_decisions_closed_bar_only": true,
+    "ai_buffers": "5,11,12 at shift 1",
+    "mbb_buffers": "3,5,7,25..30 at shift 1",
+    "qqe_buffers": "3,4,8 at shift 1; prior comparison at shift 2",
+    "bar_zero_price_in_decision_path": false,
+    "current_bar_use": "iTime shift 0 only as a new-bar clock",
+    "timeframe_alignment": "all handles and decisions PERIOD_M5",
+    "server_side_sl_tp_tick_accurate": true
+  },
+  "model4_limit": "Engineering/cadence/parameter-ranking screen only; cannot authorize economic-valid or promotion claims.",
+  "promotion_eligible": false
+}
+

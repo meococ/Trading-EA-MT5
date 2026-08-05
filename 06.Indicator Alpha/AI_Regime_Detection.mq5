@@ -993,6 +993,17 @@ int OnCalculate(const int rates_total,
       return(0);
    ArraySetAsSeries(time,false); ArraySetAsSeries(open,false); ArraySetAsSeries(high,false); ArraySetAsSeries(low,false); ArraySetAsSeries(close,false);
 
+   // Every-tick tester modes call custom indicators on every quote.  The EA
+   // consumes only closed bars, so recalculating percentile ranks and the HMM
+   // inside the still-forming bar cannot change any admissible decision.  At
+   // the first tick of the next bar we recompute the just-closed bar in full.
+   const bool testerMode=(bool)MQLInfoInteger(MQL_TESTER);
+   static datetime lastTesterBarTime=0;
+   if(testerMode && prev_calculated>0 && lastTesterBarTime==time[rates_total-1])
+      return(rates_total);
+   if(testerMode)
+      lastTesterBarTime=time[rates_total-1];
+
    int start=(prev_calculated<=0 || prev_calculated>rates_total ? 0 : MathMax(prev_calculated-1,0));
    if(start==0)
      {
@@ -1254,11 +1265,13 @@ int OnCalculate(const int rates_total,
      }
 
    g_lastCalculatedIndex=rates_total-1;
-   UpdateDashboard(g_lastCalculatedIndex);
+   if(!testerMode)
+      UpdateDashboard(g_lastCalculatedIndex);
 
    const int currentRegime=(ExtValid[g_lastCalculatedIndex]>0.5 ? (int)ExtRegime[g_lastCalculatedIndex] : -1);
    const int confidenceBin=(ExtValid[g_lastCalculatedIndex]>0.5 ? ClampInt((int)MathFloor(ExtConfidence[g_lastCalculatedIndex]/10.0),0,10) : -1);
-   if(prev_calculated<=0 || time[rates_total-1]!=g_lastVisualBarTime || currentRegime!=g_lastVisualRegime || confidenceBin!=g_lastVisualConfidenceBin)
+   if(!testerMode &&
+      (prev_calculated<=0 || time[rates_total-1]!=g_lastVisualBarTime || currentRegime!=g_lastVisualRegime || confidenceBin!=g_lastVisualConfidenceBin))
      {
       RebuildOverlayObjects(rates_total,time,high,low);
       g_lastVisualBarTime=time[rates_total-1];
@@ -1266,7 +1279,8 @@ int OnCalculate(const int rates_total,
       g_lastVisualConfidenceBin=confidenceBin;
      }
 
-   ProcessAlert(rates_total,time);
+   if(!testerMode)
+      ProcessAlert(rates_total,time);
    return(rates_total);
   }
 
@@ -1275,7 +1289,7 @@ int OnCalculate(const int rates_total,
 //+------------------------------------------------------------------+
 void OnChartEvent(const int id,const long &lparam,const double &dparam,const string &sparam)
   {
-   if(id==CHARTEVENT_CHART_CHANGE)
+   if(!MQLInfoInteger(MQL_TESTER) && id==CHARTEVENT_CHART_CHANGE)
      {
       ApplyPlotColors();
       UpdateDashboard(g_lastCalculatedIndex);

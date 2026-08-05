@@ -1,0 +1,21 @@
+{
+  "schema_version": "alphafactory_ea_contract.v1",
+  "telemetry_profile": "lifecycle-v3",
+  "market_phase_adapter": "none",
+  "comparison_adapter": "generic-control-improvement-v1",
+  "variant_tag_input": "InpVariantTag",
+  "execution_profile": {
+    "authority": "registered-research-only",
+    "timeframe": "M5",
+    "research_auto_mode_input": "InpResearchAutoMode",
+    "research_auto_mode_default": false,
+    "telemetry_input": "InpEnableTelemetry",
+    "telemetry_required_for_execution": true,
+    "hypothesis_id_input": "InpHypothesisId",
+    "hypothesis_id_default": "UNREGISTERED_BUILD_ONLY",
+    "expected_symbol_input": "InpExpectedSymbol",
+    "closed_bar_only": true,
+    "economic_claims_authorized": false,
+    "promotion_eligible": false
+  }
+}

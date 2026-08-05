@@ -665,6 +665,14 @@ int OnCalculate(const int rates_total,
    ArraySetAsSeries(low,false);
    ArraySetAsSeries(close,false);
 
+   // Closed-bar tester fast path.  Live chart behavior is unchanged; in the
+   // tester the finalized bar is recalculated once when the next bar opens.
+   static datetime lastTesterBarTime=0;
+   if(MQLInfoInteger(MQL_TESTER) && prev_calculated>0 && lastTesterBarTime==time[rates_total-1])
+      return(rates_total);
+   if(MQLInfoInteger(MQL_TESTER))
+      lastTesterBarTime=time[rates_total-1];
+
    int start=0;
    if(prev_calculated<=0 || prev_calculated>rates_total)
      {
@@ -773,7 +781,8 @@ int OnCalculate(const int rates_total,
         }
      }
 
-   ProcessClosedBarAlerts(rates_total,time);
+   if(!MQLInfoInteger(MQL_TESTER))
+      ProcessClosedBarAlerts(rates_total,time);
    return(rates_total);
   }
 

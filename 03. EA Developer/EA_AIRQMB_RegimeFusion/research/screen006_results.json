@@ -1,0 +1,655 @@
+{
+  "schema_version": "airqmb_screen006_results.v1",
+  "hypothesis_family": "HYP-AIRQMB-MULTI9-M5-SCREEN-006",
+  "window": {
+    "from": "2023.01.02",
+    "to": "2024.12.31",
+    "model": 4
+  },
+  "screen_survivors": [],
+  "optimization_authorized": false,
+  "verdict": "KILL_NO_SCREEN_SURVIVORS_NO_PARAMETER_GRID",
+  "results": [
+    {
+      "symbol": "EURUSD",
+      "run_id": "20260806_021854",
+      "run_path": "02. AlphaFactory/runs/EA_AIRQMB_RegimeFusion/20260806_021854",
+      "history_quality_pct": 100.0,
+      "trades": 416,
+      "trades_per_week": 3.9945130315500688,
+      "long_trades": 183,
+      "short_trades": 233,
+      "net_profit": -2976.8699999999953,
+      "profit_factor": 0.9508035875121261,
+      "expectancy_per_trade": -7.155937499999999,
+      "max_drawdown_pct": 8.025549909270287,
+      "win_rate_pct": 42.06730769230769,
+      "first_close_utc": "2023.01.02 15:58:35",
+      "last_close_utc": "2023.09.12 08:43:19",
+      "account_lock_rejects": 52571,
+      "lifecycle_reconciled": true,
+      "screen_gate": {
+        "history_quality": true,
+        "min_trades": true,
+        "direction_balance": true,
+        "cadence": true,
+        "profit_factor": false,
+        "expectancy": false,
+        "drawdown": false
+      },
+      "screen_pass": false,
+      "by_signal": {
+        "S1_RANGE_LONG": {
+          "trades": 7,
+          "profit_factor": 0.5294619605996851,
+          "net_profit": -639.64,
+          "win_rate_pct": 28.571428571428573
+        },
+        "S1_RANGE_SHORT": {
+          "trades": 4,
+          "profit_factor": 0.24866791744840525,
+          "net_profit": -600.6899999999999,
+          "win_rate_pct": 25.0
+        },
+        "S2_TREND_LONG": {
+          "trades": 168,
+          "profit_factor": 0.8782186379540496,
+          "net_profit": -3038.87,
+          "win_rate_pct": 39.285714285714285
+        },
+        "S2_TREND_SHORT": {
+          "trades": 227,
+          "profit_factor": 0.9868049664793673,
+          "net_profit": -429.4799999999999,
+          "win_rate_pct": 43.61233480176212
+        },
+        "S3_BREAKOUT_LONG": {
+          "trades": 8,
+          "profit_factor": 2.1709937332139657,
+          "net_profit": 994.0799999999999,
+          "win_rate_pct": 62.5
+        },
+        "S3_BREAKOUT_SHORT": {
+          "trades": 2,
+          "profit_factor": null,
+          "net_profit": 737.73,
+          "win_rate_pct": 100.0
+        }
+      }
+    },
+    {
+      "symbol": "USDJPY",
+      "run_id": "20260806_022119",
+      "run_path": "02. AlphaFactory/runs/EA_AIRQMB_RegimeFusion/20260806_022119",
+      "history_quality_pct": 100.0,
+      "trades": 282,
+      "trades_per_week": 2.707818930041152,
+      "long_trades": 152,
+      "short_trades": 130,
+      "net_profit": -7277.690000000002,
+      "profit_factor": 0.8257620303059613,
+      "expectancy_per_trade": -25.80741134751773,
+      "max_drawdown_pct": 7.911171259427002,
+      "win_rate_pct": 39.361702127659576,
+      "first_close_utc": "2023.01.03 12:12:56",
+      "last_close_utc": "2023.06.14 20:00:00",
+      "account_lock_rejects": 62437,
+      "lifecycle_reconciled": true,
+      "screen_gate": {
+        "history_quality": true,
+        "min_trades": true,
+        "direction_balance": true,
+        "cadence": true,
+        "profit_factor": false,
+        "expectancy": false,
+        "drawdown": true
+      },
+      "screen_pass": false,
+      "by_signal": {
+        "S1_RANGE_LONG": {
+          "trades": 4,
+          "profit_factor": 0.4699659750825041,
+          "net_profit": -414.36999999999995,
+          "win_rate_pct": 25.0
+        },
+        "S1_RANGE_SHORT": {
+          "trades": 4,
+          "profit_factor": 0.12163706242858628,
+          "net_profit": -676.48,
+          "win_rate_pct": 25.0
+        },
+        "S2_TREND_LONG": {
+          "trades": 143,
+          "profit_factor": 0.9202612113621501,
+          "net_profit": -1582.74,
+          "win_rate_pct": 43.35664335664335
+        },
+        "S2_TREND_SHORT": {
+          "trades": 121,
+          "profit_factor": 0.7626962716691846,
+          "net_profit": -4462.48,
+          "win_rate_pct": 35.53719008264463
+        },
+        "S3_BREAKOUT_LONG": {
+          "trades": 5,
+          "profit_factor": 0.9048641915680568,
+          "net_profit": -74.85000000000005,
+          "win_rate_pct": 40.0
+        },
+        "S3_BREAKOUT_SHORT": {
+          "trades": 5,
+          "profit_factor": 0.9139539678857703,
+          "net_profit": -66.76999999999998,
+          "win_rate_pct": 40.0
+        }
+      }
+    },
+    {
+      "symbol": "GBPUSD",
+      "run_id": "20260806_022336",
+      "run_path": "02. AlphaFactory/runs/EA_AIRQMB_RegimeFusion/20260806_022336",
+      "history_quality_pct": 100.0,
+      "trades": 540,
+      "trades_per_week": 5.185185185185185,
+      "long_trades": 259,
+      "short_trades": 281,
+      "net_profit": -2592.4900000000052,
+      "profit_factor": 0.9657079312404663,
+      "expectancy_per_trade": -4.800907407407407,
+      "max_drawdown_pct": 8.195207933132021,
+      "win_rate_pct": 42.96296296296296,
+      "first_close_utc": "2023.01.03 07:27:41",
+      "last_close_utc": "2023.11.28 08:02:20",
+      "account_lock_rejects": 43994,
+      "lifecycle_reconciled": true,
+      "screen_gate": {
+        "history_quality": true,
+        "min_trades": true,
+        "direction_balance": true,
+        "cadence": true,
+        "profit_factor": false,
+        "expectancy": false,
+        "drawdown": false
+      },
+      "screen_pass": false,
+      "by_signal": {
+        "S1_RANGE_LONG": {
+          "trades": 4,
+          "profit_factor": 0.0,
+          "net_profit": -1049.09,
+          "win_rate_pct": 0.0
+        },
+        "S1_RANGE_SHORT": {
+          "trades": 8,
+          "profit_factor": 0.4621040864488883,
+          "net_profit": -866.12,
+          "win_rate_pct": 25.0
+        },
+        "S2_TREND_LONG": {
+          "trades": 249,
+          "profit_factor": 1.1413600444059986,
+          "net_profit": 4469.43,
+          "win_rate_pct": 46.98795180722892
+        },
+        "S2_TREND_SHORT": {
+          "trades": 267,
+          "profit_factor": 0.8697048219062262,
+          "net_profit": -5140.950000000001,
+          "win_rate_pct": 40.449438202247194
+        },
+        "S3_BREAKOUT_LONG": {
+          "trades": 6,
+          "profit_factor": 0.6900236193903948,
+          "net_profit": -330.71999999999997,
+          "win_rate_pct": 33.333333333333336
+        },
+        "S3_BREAKOUT_SHORT": {
+          "trades": 6,
+          "profit_factor": 1.4059259999500338,
+          "net_profit": 324.96,
+          "win_rate_pct": 50.0
+        }
+      }
+    },
+    {
+      "symbol": "USDCHF",
+      "run_id": "20260806_022531",
+      "run_path": "02. AlphaFactory/runs/EA_AIRQMB_RegimeFusion/20260806_022531",
+      "history_quality_pct": 100.0,
+      "trades": 259,
+      "trades_per_week": 2.486968449931413,
+      "long_trades": 125,
+      "short_trades": 134,
+      "net_profit": -7304.619999999995,
+      "profit_factor": 0.8104762651010664,
+      "expectancy_per_trade": -28.203166023166023,
+      "max_drawdown_pct": 8.104788365783804,
+      "win_rate_pct": 38.22393822393823,
+      "first_close_utc": "2023.01.02 15:40:31",
+      "last_close_utc": "2023.05.29 10:25:18",
+      "account_lock_rejects": 64397,
+      "lifecycle_reconciled": true,
+      "screen_gate": {
+        "history_quality": true,
+        "min_trades": true,
+        "direction_balance": true,
+        "cadence": true,
+        "profit_factor": false,
+        "expectancy": false,
+        "drawdown": false
+      },
+      "screen_pass": false,
+      "by_signal": {
+        "S1_RANGE_LONG": {
+          "trades": 1,
+          "profit_factor": null,
+          "net_profit": 332.08,
+          "win_rate_pct": 100.0
+        },
+        "S1_RANGE_SHORT": {
+          "trades": 7,
+          "profit_factor": 0.2147930094199306,
+          "net_profit": -1267.01,
+          "win_rate_pct": 14.285714285714286
+        },
+        "S2_TREND_LONG": {
+          "trades": 120,
+          "profit_factor": 0.7573485583196667,
+          "net_profit": -4518.66,
+          "win_rate_pct": 36.666666666666664
+        },
+        "S2_TREND_SHORT": {
+          "trades": 116,
+          "profit_factor": 0.9374036234706452,
+          "net_profit": -981.9599999999999,
+          "win_rate_pct": 41.37931034482759
+        },
+        "S3_BREAKOUT_LONG": {
+          "trades": 4,
+          "profit_factor": 0.4634069976778773,
+          "net_profit": -411.32,
+          "win_rate_pct": 25.0
+        },
+        "S3_BREAKOUT_SHORT": {
+          "trades": 11,
+          "profit_factor": 0.7529214908374491,
+          "net_profit": -457.75000000000006,
+          "win_rate_pct": 36.36363636363637
+        }
+      }
+    },
+    {
+      "symbol": "USDCAD",
+      "run_id": "20260806_022752",
+      "run_path": "02. AlphaFactory/runs/EA_AIRQMB_RegimeFusion/20260806_022752",
+      "history_quality_pct": 100.0,
+      "trades": 295,
+      "trades_per_week": 2.832647462277092,
+      "long_trades": 143,
+      "short_trades": 152,
+      "net_profit": -4980.0899999999965,
+      "profit_factor": 0.8859923272849313,
+      "expectancy_per_trade": -16.881661016949153,
+      "max_drawdown_pct": 8.035339936625402,
+      "win_rate_pct": 41.35593220338983,
+      "first_close_utc": "2023.01.03 14:38:04",
+      "last_close_utc": "2023.06.29 18:05:08",
+      "account_lock_rejects": 60719,
+      "lifecycle_reconciled": true,
+      "screen_gate": {
+        "history_quality": true,
+        "min_trades": true,
+        "direction_balance": true,
+        "cadence": true,
+        "profit_factor": false,
+        "expectancy": false,
+        "drawdown": false
+      },
+      "screen_pass": false,
+      "by_signal": {
+        "S1_RANGE_LONG": {
+          "trades": 6,
+          "profit_factor": 1.3286313476806313,
+          "net_profit": 263.26,
+          "win_rate_pct": 50.0
+        },
+        "S1_RANGE_SHORT": {
+          "trades": 12,
+          "profit_factor": 1.8363459869688636,
+          "net_profit": 1137.2800000000002,
+          "win_rate_pct": 58.333333333333336
+        },
+        "S2_TREND_LONG": {
+          "trades": 135,
+          "profit_factor": 0.7838483783183923,
+          "net_profit": -4664.900000000001,
+          "win_rate_pct": 37.77777777777778
+        },
+        "S2_TREND_SHORT": {
+          "trades": 134,
+          "profit_factor": 0.9560148340287465,
+          "net_profit": -805.8100000000001,
+          "win_rate_pct": 44.02985074626866
+        },
+        "S3_BREAKOUT_LONG": {
+          "trades": 2,
+          "profit_factor": 1.2604223260530987,
+          "net_profit": 71.90000000000003,
+          "win_rate_pct": 50.0
+        },
+        "S3_BREAKOUT_SHORT": {
+          "trades": 6,
+          "profit_factor": 0.26916377603430053,
+          "net_profit": -981.8199999999999,
+          "win_rate_pct": 16.666666666666668
+        }
+      }
+    },
+    {
+      "symbol": "AUDUSD",
+      "run_id": "20260806_023034",
+      "run_path": "02. AlphaFactory/runs/EA_AIRQMB_RegimeFusion/20260806_023034",
+      "history_quality_pct": 100.0,
+      "trades": 231,
+      "trades_per_week": 2.218106995884774,
+      "long_trades": 97,
+      "short_trades": 134,
+      "net_profit": -7708.630000000005,
+      "profit_factor": 0.7781921548361552,
+      "expectancy_per_trade": -33.37069264069264,
+      "max_drawdown_pct": 8.1331924510873,
+      "win_rate_pct": 38.52813852813853,
+      "first_close_utc": "2023.01.02 18:45:16",
+      "last_close_utc": "2023.05.22 19:26:22",
+      "account_lock_rejects": 65073,
+      "lifecycle_reconciled": true,
+      "screen_gate": {
+        "history_quality": true,
+        "min_trades": true,
+        "direction_balance": true,
+        "cadence": true,
+        "profit_factor": false,
+        "expectancy": false,
+        "drawdown": false
+      },
+      "screen_pass": false,
+      "by_signal": {
+        "S1_RANGE_LONG": {
+          "trades": 3,
+          "profit_factor": 0.0,
+          "net_profit": -774.3900000000001,
+          "win_rate_pct": 0.0
+        },
+        "S1_RANGE_SHORT": {
+          "trades": 7,
+          "profit_factor": 1.3048038547649177,
+          "net_profit": 250.49999999999997,
+          "win_rate_pct": 42.857142857142854
+        },
+        "S2_TREND_LONG": {
+          "trades": 91,
+          "profit_factor": 0.7435552261941791,
+          "net_profit": -3470.88,
+          "win_rate_pct": 39.56043956043956
+        },
+        "S2_TREND_SHORT": {
+          "trades": 124,
+          "profit_factor": 0.7304444387056788,
+          "net_profit": -5219.0,
+          "win_rate_pct": 36.29032258064516
+        },
+        "S3_BREAKOUT_LONG": {
+          "trades": 3,
+          "profit_factor": 2.704247990815155,
+          "net_profit": 445.32,
+          "win_rate_pct": 66.66666666666667
+        },
+        "S3_BREAKOUT_SHORT": {
+          "trades": 3,
+          "profit_factor": null,
+          "net_profit": 1059.82,
+          "win_rate_pct": 100.0
+        }
+      }
+    },
+    {
+      "symbol": "NZDUSD",
+      "run_id": "20260806_023315",
+      "run_path": "02. AlphaFactory/runs/EA_AIRQMB_RegimeFusion/20260806_023315",
+      "history_quality_pct": 0.0,
+      "trades": 117,
+      "trades_per_week": 1.123456790123457,
+      "long_trades": 47,
+      "short_trades": 70,
+      "net_profit": -6593.509999999995,
+      "profit_factor": 0.6367642400486994,
+      "expectancy_per_trade": -56.354786324786325,
+      "max_drawdown_pct": 8.05202554991701,
+      "win_rate_pct": 35.8974358974359,
+      "first_close_utc": "2023.01.03 08:03:46",
+      "last_close_utc": "2023.03.13 10:10:41",
+      "account_lock_rejects": 72978,
+      "lifecycle_reconciled": true,
+      "screen_gate": {
+        "history_quality": false,
+        "min_trades": true,
+        "direction_balance": true,
+        "cadence": false,
+        "profit_factor": false,
+        "expectancy": false,
+        "drawdown": false
+      },
+      "screen_pass": false,
+      "by_signal": {
+        "S1_RANGE_LONG": {
+          "trades": 5,
+          "profit_factor": 0.0,
+          "net_profit": -1259.84,
+          "win_rate_pct": 0.0
+        },
+        "S1_RANGE_SHORT": {
+          "trades": 4,
+          "profit_factor": 0.4521723304126258,
+          "net_profit": -421.4,
+          "win_rate_pct": 25.0
+        },
+        "S2_TREND_LONG": {
+          "trades": 39,
+          "profit_factor": 0.7492634484641432,
+          "net_profit": -1322.53,
+          "win_rate_pct": 38.46153846153846
+        },
+        "S2_TREND_SHORT": {
+          "trades": 62,
+          "profit_factor": 0.7991045430075863,
+          "net_profit": -1824.86,
+          "win_rate_pct": 41.935483870967744
+        },
+        "S3_BREAKOUT_LONG": {
+          "trades": 3,
+          "profit_factor": 0.0,
+          "net_profit": -749.17,
+          "win_rate_pct": 0.0
+        },
+        "S3_BREAKOUT_SHORT": {
+          "trades": 4,
+          "profit_factor": 0.0,
+          "net_profit": -1015.71,
+          "win_rate_pct": 0.0
+        }
+      }
+    },
+    {
+      "symbol": "XAUUSD",
+      "run_id": "20260806_023447",
+      "run_path": "02. AlphaFactory/runs/EA_AIRQMB_RegimeFusion/20260806_023447",
+      "history_quality_pct": 0.0,
+      "trades": 227,
+      "trades_per_week": 2.179698216735254,
+      "long_trades": 124,
+      "short_trades": 103,
+      "net_profit": -5505.360000000001,
+      "profit_factor": 0.8318591043944666,
+      "expectancy_per_trade": -24.252687224669607,
+      "max_drawdown_pct": 8.060818737119874,
+      "win_rate_pct": 35.68281938325991,
+      "first_close_utc": "2023.01.03 07:28:36",
+      "last_close_utc": "2023.05.22 12:25:18",
+      "account_lock_rejects": 64796,
+      "lifecycle_reconciled": true,
+      "screen_gate": {
+        "history_quality": false,
+        "min_trades": true,
+        "direction_balance": true,
+        "cadence": true,
+        "profit_factor": false,
+        "expectancy": false,
+        "drawdown": false
+      },
+      "screen_pass": false,
+      "by_signal": {
+        "S1_RANGE_LONG": {
+          "trades": 7,
+          "profit_factor": 0.5827023786989715,
+          "net_profit": -529.1,
+          "win_rate_pct": 28.571428571428573
+        },
+        "S1_RANGE_SHORT": {
+          "trades": 2,
+          "profit_factor": 1.0354887698825035,
+          "net_profit": 8.880000000000024,
+          "win_rate_pct": 50.0
+        },
+        "S2_TREND_LONG": {
+          "trades": 110,
+          "profit_factor": 0.8828893419967314,
+          "net_profit": -1747.7700000000002,
+          "win_rate_pct": 35.45454545454545
+        },
+        "S2_TREND_SHORT": {
+          "trades": 97,
+          "profit_factor": 0.8368443260468427,
+          "net_profit": -2331.63,
+          "win_rate_pct": 37.11340206185567
+        },
+        "S3_BREAKOUT_LONG": {
+          "trades": 7,
+          "profit_factor": 0.5835624881471648,
+          "net_profit": -527.01,
+          "win_rate_pct": 28.571428571428573
+        },
+        "S3_BREAKOUT_SHORT": {
+          "trades": 4,
+          "profit_factor": 0.49092693155545997,
+          "net_profit": -378.73,
+          "win_rate_pct": 25.0
+        }
+      }
+    },
+    {
+      "symbol": "BTCUSD",
+      "run_id": "20260806_024230",
+      "run_path": "02. AlphaFactory/runs/EA_AIRQMB_RegimeFusion/20260806_024230",
+      "history_quality_pct": 100.0,
+      "trades": 109,
+      "trades_per_week": 1.046639231824417,
+      "long_trades": 51,
+      "short_trades": 58,
+      "net_profit": -7673.330000000002,
+      "profit_factor": 0.5586006753297554,
+      "expectancy_per_trade": -70.39752293577982,
+      "max_drawdown_pct": 8.023823615348954,
+      "win_rate_pct": 33.94495412844037,
+      "first_close_utc": "2023.01.02 07:15:44",
+      "last_close_utc": "2023.03.02 13:15:42",
+      "account_lock_rejects": 74478,
+      "lifecycle_reconciled": true,
+      "screen_gate": {
+        "history_quality": true,
+        "min_trades": true,
+        "direction_balance": true,
+        "cadence": false,
+        "profit_factor": false,
+        "expectancy": false,
+        "drawdown": false
+      },
+      "screen_pass": false,
+      "by_signal": {
+        "S1_RANGE_LONG": {
+          "trades": 5,
+          "profit_factor": 1.4970591361655385,
+          "net_profit": 280.56999999999994,
+          "win_rate_pct": 60.0
+        },
+        "S1_RANGE_SHORT": {
+          "trades": 5,
+          "profit_factor": 0.2697311516340452,
+          "net_profit": -818.96,
+          "win_rate_pct": 20.0
+        },
+        "S2_TREND_LONG": {
+          "trades": 45,
+          "profit_factor": 0.47318464780865066,
+          "net_profit": -3781.96,
+          "win_rate_pct": 31.11111111111111
+        },
+        "S2_TREND_SHORT": {
+          "trades": 45,
+          "profit_factor": 0.5483527968754143,
+          "net_profit": -3236.68,
+          "win_rate_pct": 33.333333333333336
+        },
+        "S3_BREAKOUT_LONG": {
+          "trades": 1,
+          "profit_factor": null,
+          "net_profit": 315.56,
+          "win_rate_pct": 100.0
+        },
+        "S3_BREAKOUT_SHORT": {
+          "trades": 8,
+          "profit_factor": 0.6807870558581998,
+          "net_profit": -431.86,
+          "win_rate_pct": 37.5
+        }
+      }
+    }
+  ],
+  "aggregate_by_signal": {
+    "S1_RANGE_LONG": {
+      "trades": 42,
+      "profit_factor": 0.5176191215509408,
+      "net_profit": -3790.52,
+      "win_rate_pct": 28.571428571428573
+    },
+    "S1_RANGE_SHORT": {
+      "trades": 53,
+      "profit_factor": 0.6430455868302032,
+      "net_profit": -3254.0,
+      "win_rate_pct": 33.9622641509434
+    },
+    "S2_TREND_LONG": {
+      "trades": 1100,
+      "profit_factor": 0.8752100158617995,
+      "net_profit": -19658.88,
+      "win_rate_pct": 40.36363636363637
+    },
+    "S2_TREND_SHORT": {
+      "trades": 1193,
+      "profit_factor": 0.8601593939718616,
+      "net_profit": -24432.85,
+      "win_rate_pct": 40.150880134115674
+    },
+    "S3_BREAKOUT_LONG": {
+      "trades": 39,
+      "profit_factor": 0.9557881030952149,
+      "net_profit": -266.21000000000004,
+      "win_rate_pct": 41.02564102564103
+    },
+    "S3_BREAKOUT_SHORT": {
+      "trades": 49,
+      "profit_factor": 0.8465305035414673,
+      "net_profit": -1210.13,
+      "win_rate_pct": 38.775510204081634
+    }
+  }
+}

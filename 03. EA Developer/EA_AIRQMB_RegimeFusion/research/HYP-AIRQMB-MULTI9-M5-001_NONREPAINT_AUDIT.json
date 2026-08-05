@@ -1,0 +1,28 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_family": "HYP-AIRQMB-MULTI9-M5-001",
+  "ea_name": "EA_AIRQMB_RegimeFusion",
+  "source_path": "03. EA Developer/EA_AIRQMB_RegimeFusion/EA_AIRQMB_RegimeFusion.mq5",
+  "source_sha256": "A0622C7BCB22F1DBAABD707B1159679283D6B2C1AD0CFE642C5301E4573B1A81",
+  "verdict": "PASS",
+  "checks": {
+    "entry_decisions_closed_bar_only": true,
+    "ai_regime_shift": 1,
+    "ai_confidence_shift": 1,
+    "mbb_signal_shift": 1,
+    "qqe_decision_shift": 1,
+    "qqe_previous_shift": 2,
+    "bar_zero_price_in_decision_path": false,
+    "mismatched_timeframe_reads": false,
+    "execution_timing": "first tick after confirmed M5 bar",
+    "current_bar_use": "iTime shift 0 only for new-bar clock; never a price or signal"
+  },
+  "indicator_contracts": {
+    "AI_Regime_Detection": "public buffers 5,11,12; shift >= 1",
+    "Modern_Bollinger_Bands_GBB": "public buffers 3,5,7,25..30; shift >= 1",
+    "QQE_MOD": "public buffers 3,4,8; shift >= 1"
+  },
+  "economic_claims_authorized": false,
+  "promotion_eligible": false
+}
+

@@ -1,0 +1,38 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "FAIL",
+  "hypothesis_id": "HYP-AIRQMB-EURUSD-M5-SCREEN-006",
+  "run_id": "20260806_021854",
+  "manifest": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_AIRQMB_RegimeFusion\\20260806_021854\\run_manifest.json",
+  "manifest_sha256": "89E290BEB5451F2A14E763EDD70DE880271DC4588C4EB13C58702FC89BCB5544",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_AIRQMB_RegimeFusion\\20260806_021854\\snapshot\\source\\EA_AIRQMB_RegimeFusion.mq5",
+      "sha256": "16A6284D85B354E9F774AFD36F2C194609AC1E339A3891EB1E72B0807E3DBB8C"
+    }
+  ],
+  "findings": [
+    {
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_AIRQMB_RegimeFusion\\20260806_021854\\snapshot\\source\\EA_AIRQMB_RegimeFusion.mq5",
+      "line": 255,
+      "rule": "unproven_closed_bar_shift",
+      "function": "CopyBuffer",
+      "shift_expression": "shift"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_AIRQMB_RegimeFusion\\20260806_021854\\snapshot\\source\\EA_AIRQMB_RegimeFusion.mq5",
+      "line": 774,
+      "rule": "iTime_zero",
+      "function": "iTime"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_AIRQMB_RegimeFusion\\20260806_021854\\snapshot\\source\\EA_AIRQMB_RegimeFusion.mq5",
+      "line": 823,
+      "rule": "iTime_zero",
+      "function": "iTime"
+    }
+  ],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-05T19:52:37.194419+00:00"
+}

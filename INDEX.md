@@ -1,6 +1,6 @@
 # INDEX — Bản Đồ Workspace
 
-Cập nhật cấu trúc: 2026-08-02.
+Cập nhật cấu trúc: 2026-08-06.
 
 INDEX chỉ trả lời **nguồn nào dùng cho việc gì**. Không giữ metric run, trạng
 thái từng hypothesis hay danh sách package dài; các dữ liệu động phải nằm ở
@@ -97,6 +97,7 @@ audit-only: đọc `03. EA Developer/README.md`, latest registry row và artifac
 | `03. EA Developer/EA_VRAS_RegimeAdaptiveScalperV4/research/HYP-VRAS-USDJPY-M5-003_FAILURE_PACKET.json` | Identity-corrected USDJPY M5 Model 0 terminal kill: 3/3 losses, PF 0, 0.0115 trades/week, plus invalid zero-volume lifecycle exit rows; no optimization/validation/holdout/promotion route |
 | `03. EA Developer/EA_LOMX_MultiAssetMomentum/research/HYP-LOMX-MULTI-M5-001_IMPLEMENTATION_REVIEW.md` | Review of the supplied dual-engine plan: combined cadence/collision contract invalid before outcomes; routes only separable atomic cells |
 | `03. EA Developer/EA_LOMX_MultiAssetMomentum/research/HYP-CBRK-EURUSD-M5-001_FAILURE_PACKET.json` | Engineering-valid EA and identity-valid EURUSD M5 generic compression-breakout Model 0; terminal economic kill at PF 0.7467 and 1.1027 trades/week; XAUUSD remains unproven, no optimization/validation/holdout/promotion/live route |
+| `03. EA Developer/EA_AIRQMB_RegimeFusion/research/HYP-AIRQMB-MULTI9-M5-SCREEN-006_RESULTS.md` | Owner-directed one-file fusion EA combining AIRD + MBB + QQE; nine 2023–2024 Model-4 real-tick baselines all PF<1 with negative expectancy, so all cells are terminal kills and the conditional per-symbol grid never opened |
 
 ## AlphaFactory
 
