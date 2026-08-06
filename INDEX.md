@@ -73,7 +73,7 @@ message hiện tại. Evidence được xác minh bằng file/hash/validator/tes
 | `05. Playbook/tool_runbook.md` | cheat-sheet câu lệnh AlphaFactory và log triage |
 | `05. Playbook/ea_engineering_standard.md` | chuẩn MQL5 closed-bar, non-repaint, risk/execution |
 
-## EA shelf và research
+## EA, indicator shelf và research
 
 | Path | Vai trò |
 |---|---|
@@ -81,6 +81,8 @@ message hiện tại. Evidence được xác minh bằng file/hash/validator/tes
 | `03. EA Developer/<EA>/<EA>.mq5` | source canonical khi `ea_contract.ps1` resolve hợp lệ |
 | `03. EA Developer/<EA>/ALPHAFACTORY_EA_CONTRACT.json` | capability/contract của package |
 | `03. EA Developer/<EA>/research/` | prereg, readout và evidence riêng package |
+| `06.Indicator Alpha/` | source canonical của custom indicators MQL5 một-file; EA chỉ đọc public buffer ở closed-bar shift >=1 |
+| `06.Indicator Alpha/Volatility_Regime_Classifier_QuantRegime.mq5` | VRC overlay port từ Pine v6: 9 regime Hurst/ADX/CHOP/ATR-percentile, candle/background/bands/labels/dashboard, closed-bar alerts và public buffer contract 0..35 |
 | `00. Old File/EA_Archive/` | archive-only; không compile/backtest làm evidence |
 
 Không lặp trạng thái từng package ở INDEX. Muốn biết lane nào sống, terminal hay
