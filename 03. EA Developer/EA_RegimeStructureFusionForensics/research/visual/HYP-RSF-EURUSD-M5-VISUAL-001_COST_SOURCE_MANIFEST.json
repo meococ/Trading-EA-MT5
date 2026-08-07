@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-VISUAL-001",
+  "purpose": "Diagnostic-only visual replay; no new cost or economic measurement is authorized.",
+  "economic_claims_authorized": false,
+  "promotion_eligible": false,
+  "sources": [
+    {
+      "label": "parent_cell16_cost_contract",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\evidence\\HYP-RSF-EURUSD-M5-FORENSICS-001\\COST_SOURCE_MANIFEST.json",
+      "sha256": "DB7DA1C7F9BC320937797F5938DE18BB3ED33805506C4BCDDB50D714CFE6129C"
+    }
+  ]
+}

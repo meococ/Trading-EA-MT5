@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-FORENSICS-001",
+  "symbol": "EURUSD",
+  "evidence_tier": "DIAGNOSTIC_REPLAY",
+  "spread_policy": "tester_current_identical_to_parent_cell16",
+  "commission_provenance": "broker_report_only_not_independently_bound",
+  "slippage_provenance": "not_independently_bound",
+  "model": 0,
+  "authorized_use": "indicator_state_export_and_losing_trade_forensics_only",
+  "economic_claims_authorized": false,
+  "promotion_eligible": false,
+  "note": "This run must reproduce Cell 16. It consumes no new parameter or economic trial and cannot support economic-valid or promotion claims."
+}

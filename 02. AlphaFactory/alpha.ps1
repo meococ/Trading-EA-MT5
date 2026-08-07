@@ -78,7 +78,9 @@ param(
     [string]$LiquiditySource = "adv_proxy",
     [double]$ImpactEta = 0.5,
     [string]$Calibration = "",
-    [switch]$Charts
+    [switch]$Charts,
+    [switch]$Visual,
+    [string]$NativeChartEvidence = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -329,7 +331,8 @@ function Resolve-TelemetryTierOverrides([string]$Tier, [string]$MainFile, [strin
     if ($Tier -notin @('off', 'trade-only', 'state-lite', 'state-full', 'snapshot-casebook')) {
         throw "Unsupported telemetry tier '$Tier'."
     }
-    $source = Get-Content -LiteralPath $MainFile -Raw
+    $sourceFiles = @((Resolve-Path -LiteralPath $MainFile).Path) + @(Get-IncludeDependencyClosure $MainFile)
+    $source = [string]::Join("`n", @($sourceFiles | ForEach-Object { Get-Content -LiteralPath $_ -Raw }))
     $inputs = @(Get-TelemetryInputNames)
 
     if ($TelemetryProfile -ceq 'none') {
@@ -707,7 +710,17 @@ function Stop-AllRunnerOwnedTerminals {
 }
 
 function Assert-NoUnrelatedTerminal {
+    $expectedExecutable = [System.IO.Path]::GetFullPath($MT5)
     $unrelated = @(Get-Process -Name "terminal64" -ErrorAction SilentlyContinue | Where-Object {
+        $identity = $null
+        try {
+            $identity = Get-RunnerTerminalProcessIdentity ([int]$_.Id)
+        } catch {
+            return $true
+        }
+        if ([string]$identity.ExecutablePath -ine $expectedExecutable) {
+            return $false
+        }
         (-not $script:OwnedTerminalIdentities.ContainsKey([int]$_.Id)) -or
             (-not (Test-RunnerOwnedTerminalIdentity ([int]$_.Id) $script:OwnedTerminalIdentities[[int]$_.Id]))
     })
@@ -946,6 +959,25 @@ function Get-DirectoryTreeSha256($Path) {
     return Get-TextSha256 ([string]::Join("`n", $records))
 }
 
+function Get-IndicatorDependencyBindingRecords($Dependencies) {
+    $seen = @{}
+    return @(
+        foreach ($dependency in @($Dependencies) | Sort-Object { [string]$_.name }) {
+            $name = [string]$dependency.name
+            $source = [string]$dependency.source
+            $sourceSha = ([string]$dependency.source_sha256).ToUpperInvariant()
+            $terminalEx5 = ([string]$dependency.terminal_ex5).Replace('/', '\')
+            if ($name -notmatch '^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$' -or $seen.ContainsKey($name) -or
+                [string]::IsNullOrWhiteSpace($source) -or $sourceSha -notmatch '^[A-F0-9]{64}$' -or
+                [string]::IsNullOrWhiteSpace($terminalEx5)) {
+                throw "Malformed or duplicate indicator dependency binding '$name'."
+            }
+            $seen[$name] = $true
+            "$name`t$source`t$sourceSha`t$terminalEx5"
+        }
+    )
+}
+
 function Assert-ContractReceipt($ReceiptPath, $ExpectedReceiptSha256, $Binding) {
     if ([string]::IsNullOrWhiteSpace($ReceiptPath)) {
         throw "ContractReceipt is required for backtest evidence."
@@ -992,13 +1024,18 @@ function Assert-ContractReceipt($ReceiptPath, $ExpectedReceiptSha256, $Binding) 
             @($receipt.binding.required_sidecars).Count -ne 0) {
             throw "Data-acquisition receipt authority '$receiptAuthority' requires AlphaFactory control/Model$expectedModel/telemetry-none/off with no sidecars."
         }
+        $coverageMode = if ($null -eq $dataQualityContract) { '' } else { [string]$dataQualityContract.coverage_mode }
+        $coverageRangeValid = (
+            ($coverageMode -ceq 'all_available_asof' -and [string]$dataQualityContract.requested_from -ceq '1970.01.01') -or
+            ($coverageMode -ceq 'fixed_window' -and [string]$dataQualityContract.requested_from -cne '1970.01.01')
+        )
         if ($null -eq $dataQualityContract -or
             [string]$dataQualityContract.history_quality.operator -cne 'gt' -or
             [double]$dataQualityContract.history_quality.value -lt 97.0 -or
-            [string]$dataQualityContract.coverage_mode -cne 'all_available_asof' -or
-            [string]$dataQualityContract.requested_from -cne '1970.01.01' -or
+            $coverageMode -notin @('all_available_asof', 'fixed_window') -or
+            -not $coverageRangeValid -or
             $dataQualityContract.require_tester_journal_bounds -ne $true) {
-            throw "Data-acquisition receipt lacks the required all-available History Quality >97 contract."
+            throw "Data-acquisition receipt lacks the required frozen History Quality >97 contract."
         }
     }
 
@@ -1101,6 +1138,31 @@ function Assert-ContractReceipt($ReceiptPath, $ExpectedReceiptSha256, $Binding) 
     $bindingSidecars = @($Binding.required_sidecars | ForEach-Object { [string]$_ } | Sort-Object)
     if ([string]::Join("`n", $receiptSidecars) -cne [string]::Join("`n", $bindingSidecars)) {
         throw "Contract receipt binding 'required_sidecars' does not match the alpha invocation."
+    }
+    $expectedVisual = [bool]$Binding.visual_mode
+    $receiptVisualProperty = $receiptBinding.PSObject.Properties['visual_mode']
+    if ($expectedVisual) {
+        if ($null -eq $receiptVisualProperty -or -not [bool]$receiptVisualProperty.Value) {
+            throw "Contract receipt binding 'visual_mode' must be true for a visual replay."
+        }
+    } elseif ($null -ne $receiptVisualProperty -and [bool]$receiptVisualProperty.Value) {
+        throw "Contract receipt binding 'visual_mode' does not match the alpha invocation."
+    }
+    $expectedIndicatorRecords = @(Get-IndicatorDependencyBindingRecords $Binding.indicator_dependencies)
+    $receiptIndicatorRecords = @(Get-IndicatorDependencyBindingRecords $receiptBinding.indicator_dependencies)
+    if ([string]::Join("`n", $expectedIndicatorRecords) -cne [string]::Join("`n", $receiptIndicatorRecords)) {
+        throw "Contract receipt binding 'indicator_dependencies' does not match the alpha invocation."
+    }
+    $taskVisualProperty = $receiptTaskPacket.PSObject.Properties['visual_mode']
+    if ($expectedVisual -and ($null -eq $taskVisualProperty -or -not [bool]$taskVisualProperty.Value)) {
+        throw "Hash-bound task packet does not authorize visual_mode."
+    }
+    if (-not $expectedVisual -and $null -ne $taskVisualProperty -and [bool]$taskVisualProperty.Value) {
+        throw "Hash-bound task packet visual_mode does not match the invocation."
+    }
+    $taskIndicatorRecords = @(Get-IndicatorDependencyBindingRecords $receiptTaskPacket.indicator_dependencies)
+    if ([string]::Join("`n", $expectedIndicatorRecords) -cne [string]::Join("`n", $taskIndicatorRecords)) {
+        throw "Hash-bound task packet indicator_dependencies do not match the invocation."
     }
     $dataQualityContract = Resolve-DataQualityContract $receipt $Binding
 
@@ -1223,8 +1285,9 @@ function Resolve-DataQualityContract($Receipt, $Binding) {
     if ($threshold -lt 97 -or $threshold -ge 100) {
         throw "data_quality_contract.history_quality.value must be >= 97 and < 100."
     }
-    if ([string]$contract.coverage_mode -cne 'all_available_asof') {
-        throw "data_quality_contract.coverage_mode must be 'all_available_asof'."
+    $coverageMode = [string]$contract.coverage_mode
+    if ($coverageMode -notin @('all_available_asof', 'fixed_window')) {
+        throw "data_quality_contract.coverage_mode must be 'all_available_asof' or 'fixed_window'."
     }
     $asofText = [string]$contract.availability_asof_utc
     $asof = [datetimeoffset]::MinValue
@@ -1236,12 +1299,24 @@ function Resolve-DataQualityContract($Receipt, $Binding) {
     if ($asof.UtcDateTime -gt (Get-Date).ToUniversalTime()) {
         throw "data_quality_contract.availability_asof_utc must not be in the future at preflight."
     }
-    if ($requestedFrom -cne '1970.01.01') {
-        throw "data_quality_contract all_available_asof requested_from must equal the frozen sentinel '1970.01.01'."
-    }
     $asofDate = $asof.UtcDateTime.ToString('yyyy.MM.dd')
-    if ($requestedTo -cne $asofDate) {
-        throw "data_quality_contract.requested_to must equal the UTC calendar date of availability_asof_utc '$asofDate'."
+    if ($coverageMode -ceq 'all_available_asof') {
+        if ($requestedFrom -cne '1970.01.01') {
+            throw "data_quality_contract all_available_asof requested_from must equal the frozen sentinel '1970.01.01'."
+        }
+        if ($requestedTo -cne $asofDate) {
+            throw "data_quality_contract.requested_to must equal the UTC calendar date of availability_asof_utc '$asofDate'."
+        }
+    } else {
+        if ($requestedFrom -ceq '1970.01.01') {
+            throw "data_quality_contract fixed_window requested_from must not use the all-available sentinel '1970.01.01'."
+        }
+        if ($fromDate -ge $toDate) {
+            throw "data_quality_contract fixed_window requested_from must be earlier than requested_to."
+        }
+        if ($toDate -gt $asof.UtcDateTime.Date) {
+            throw "data_quality_contract fixed_window requested_to must not be later than availability_asof_utc."
+        }
     }
     $journalBounds = $contract.require_tester_journal_bounds
     if ($journalBounds -isnot [bool] -or (-not [bool]$journalBounds)) {
@@ -1452,8 +1527,17 @@ function Get-DataQualitySeriesProof([string]$JournalText, [string]$Symbol, [stri
     $m1ServerDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m1_server_first_epoch).UtcDateTime.Date
     $m1TerminalDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m1_terminal_first_epoch).UtcDateTime.Date
     $copyFirstDate = [datetimeoffset]::FromUnixTimeSeconds($proof.copytime_first_epoch).UtcDateTime.Date
-    if ($actualFromDate -ne $m5FirstDate -or $m5FirstDate -ne $m5TerminalDate -or $m5FirstDate -ne $copyFirstDate) {
-        throw "INVALID_TRUNCATED_TERMINAL_CACHE: journal, M5 series, terminal series, and CopyTime first dates disagree."
+    # The symbol-level "history synchronized from" line is an availability
+    # envelope and can legitimately predate the first cached M5/M1 bar (for
+    # example EURUSD reports 1971 while broker M5 begins in 2015).  Treating
+    # that broad envelope as the exact M5 first date creates a false truncated-
+    # cache failure.  The timeframe-specific witnesses must still agree exactly,
+    # and the broad journal envelope may never begin after the proven M5 start.
+    if ($actualFromDate -gt $m5FirstDate) {
+        throw "INVALID_TRUNCATED_TERMINAL_CACHE: journal history envelope begins after the proven M5 first date."
+    }
+    if ($m5FirstDate -ne $m5TerminalDate -or $m5FirstDate -ne $copyFirstDate) {
+        throw "INVALID_TRUNCATED_TERMINAL_CACHE: M5 series, terminal series, and CopyTime first dates disagree."
     }
     if ($m1TerminalDate -ne $m1ServerDate -or $m1ServerDate -gt $m5FirstDate) {
         throw "INVALID_TRUNCATED_TERMINAL_CACHE: terminal M1 first date does not match the server or begins after M5 history."
@@ -1461,7 +1545,7 @@ function Get-DataQualitySeriesProof([string]$JournalText, [string]$Symbol, [stri
 
     $reportingFloor = [datetime]::new(2018, 1, 1)
     $coverageClass = 'FULL_2018_PLUS'
-    if ($actualFromDate -gt $reportingFloor) {
+    if ($m5FirstDate -gt $reportingFloor) {
         if ($m1ServerDate -le $reportingFloor -or ($m5FirstDate - $m1ServerDate).TotalDays -gt 7) {
             throw "INVALID_TRUNCATED_TERMINAL_CACHE: post-2018 M5 start is not justified by the MT5 server first date."
         }
@@ -1513,8 +1597,12 @@ function Assert-DataQualityRunEvidence($Manifest) {
         throw "MT5 synchronized history actual_from must not be later than actual_to."
     }
     $requestedTo = ConvertTo-ResearchDate ([string]$contract.requested_to) "data_quality_contract.requested_to"
+    $requestedFrom = ConvertTo-ResearchDate ([string]$contract.requested_from) "data_quality_contract.requested_from"
     if ($actualTo -lt $requestedTo) {
         throw "MT5 synchronized history ends before requested_to: actual '$($range.actual_to)', requested '$($contract.requested_to)'."
+    }
+    if ([string]$contract.coverage_mode -ceq 'fixed_window' -and $actualFrom -gt $requestedFrom) {
+        throw "MT5 synchronized history begins after fixed_window requested_from: actual '$($range.actual_from)', requested '$($contract.requested_from)'."
     }
     $seriesProof = Get-DataQualitySeriesProof $journalText ([string]$contract.symbol) ([string]$range.actual_from)
 
@@ -1639,6 +1727,7 @@ function Complete-RunManifest($ManifestPath) {
     }
 
     $logsDir = Join-Path ([string]$manifest.local_run_dir) 'logs'
+    $chartsDir = Join-Path ([string]$manifest.local_run_dir) 'charts'
     $sidecars = @(
         Get-ChildItem -LiteralPath $logsDir -File -ErrorAction SilentlyContinue |
             Sort-Object Name |
@@ -1655,6 +1744,29 @@ function Complete-RunManifest($ManifestPath) {
                 }
             }
     )
+    $charts = @(
+        Get-ChildItem -LiteralPath $chartsDir -File -ErrorAction SilentlyContinue |
+            Sort-Object Name |
+            ForEach-Object {
+                [ordered]@{
+                    path = "charts/$($_.Name)"
+                    sha256 = Get-Sha256Required $_.FullName "Chart evidence"
+                    length = $_.Length
+                }
+            }
+    )
+    $visualIdentity = $null
+    if ([bool]$manifest.visual_mode) {
+        $visualIdentity = Get-ReportIdentity ([string]$manifest.report_path) $manifest
+        $visualBars = ConvertTo-FiniteInvariantDouble ([string]$visualIdentity.Basis.bars) "visual report bars"
+        $visualTicks = ConvertTo-FiniteInvariantDouble ([string]$visualIdentity.Basis.ticks) "visual report ticks"
+        if ($visualBars -le 0 -or $visualTicks -le 0) {
+            throw "Visual replay produced a zero-data MT5 report (bars=$visualBars ticks=$visualTicks). This is not acceptable chart evidence; use a real local visual tester lane before strategy forensics."
+        }
+    }
+    if ([bool]$manifest.visual_mode -and $charts.Count -eq 0) {
+        throw "Visual replay produced no native MT5 chart evidence in '$chartsDir'."
+    }
     foreach ($pattern in @($manifest.required_sidecars)) {
         if ([string]::IsNullOrWhiteSpace([string]$pattern)) { continue }
         $matches = @($sidecars | Where-Object { (Split-Path -Leaf ([string]$_.path)) -like [string]$pattern })
@@ -1698,6 +1810,7 @@ function Complete-RunManifest($ManifestPath) {
     $manifest.account_fingerprint = $identity.AccountFingerprint
     $manifest.data_fingerprint = $identity.DataFingerprint
     $manifest.sidecars = @($sidecars)
+    $manifest | Add-Member -MemberType NoteProperty -Name charts -Value @($charts) -Force
     $manifest | Add-Member -MemberType NoteProperty -Name fingerprint_basis -Value $identity.Basis -Force
     $dataQuality = Assert-DataQualityRunEvidence $manifest
     if ($null -ne $dataQuality) {
@@ -1727,7 +1840,98 @@ function Complete-RunManifest($ManifestPath) {
     return $ManifestPath
 }
 
-function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $Model, $ExecutionMode, $FixedDelayMs, $TimeoutSec, $Overrides, $MainFile, $CompiledEx5File, $Ex5File, $ReportPath, $ConfigPath, $Snapshot, $HypothesisId, $RunRole, $Deposit, $Leverage, $Spread, $TelemetryTier, $TelemetryProfile, $RunStartUtc, $GitSnapshot, $RequiredSidecarList, $ReceiptSha256, $SymbolGeometry, $DataQualityContract = $null, $DataQualityJournalDelta = $null) {
+function Import-NativeMt5ChartEvidence([string]$SourcePath, [string]$DestinationDir, [datetime]$RunStartUtc) {
+    if ([string]::IsNullOrWhiteSpace($SourcePath)) { return $null }
+    $source = [System.IO.Path]::GetFullPath($SourcePath)
+    $workspace = [System.IO.Path]::GetFullPath($AdvisorsRoot).TrimEnd('\', '/') + [System.IO.Path]::DirectorySeparatorChar
+    if (-not $source.StartsWith($workspace, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw "NativeChartEvidence must stay inside the workspace: $source"
+    }
+    # The report can flush a few seconds before the operator/capture bridge has
+    # encoded the current Visual Mode frame. Wait only on this explicit path;
+    # never search the desktop or accept a prior-run image as a fallback.
+    $captureDeadline = (Get-Date).ToUniversalTime().AddSeconds(120)
+    while (-not (Test-Path -LiteralPath $source -PathType Leaf) -and
+           (Get-Date).ToUniversalTime() -lt $captureDeadline) {
+        Start-Sleep -Milliseconds 250
+    }
+    if (-not (Test-Path -LiteralPath $source -PathType Leaf)) {
+        throw "NativeChartEvidence was not captured before MT5 collection: $source"
+    }
+    $file = Get-Item -LiteralPath $source
+    if ($file.Name -notmatch '^NATIVE_MT5_[A-Za-z0-9_.-]+\.png$') {
+        throw "NativeChartEvidence filename must match NATIVE_MT5_*.png: $($file.Name)"
+    }
+    if ($file.Length -le 1000) {
+        throw "NativeChartEvidence is empty or implausibly small: $source ($($file.Length) bytes)"
+    }
+    if ($file.LastWriteTimeUtc -lt $RunStartUtc) {
+        throw "NativeChartEvidence is stale for this run: $source"
+    }
+    $stream = [System.IO.File]::Open($source, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read, [System.IO.FileShare]::ReadWrite)
+    try {
+        $signature = New-Object byte[] 8
+        if ($stream.Read($signature, 0, 8) -ne 8 -or
+            [System.BitConverter]::ToString($signature) -cne '89-50-4E-47-0D-0A-1A-0A') {
+            throw "NativeChartEvidence is not a valid PNG signature: $source"
+        }
+    } finally {
+        $stream.Dispose()
+    }
+    New-Item -ItemType Directory -Force -Path $DestinationDir | Out-Null
+    $destination = Join-Path $DestinationDir $file.Name
+    Copy-Item -LiteralPath $source -Destination $destination -Force
+    return [pscustomobject]@{
+        source = $source
+        destination = $destination
+        length = (Get-Item -LiteralPath $destination).Length
+        sha256 = Get-Sha256Required $destination "Imported native MT5 chart"
+        captured_at_utc = $file.LastWriteTimeUtc.ToString('o')
+    }
+}
+
+function Import-NativeMt5ChartEvidenceSet([string]$SourceList, [string]$DestinationDir, [datetime]$RunStartUtc) {
+    $paths = @($SourceList -split ';' | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne '' })
+    if ($paths.Count -lt 1 -or $paths.Count -gt 32) {
+        throw "NativeChartEvidence must contain between 1 and 32 explicit PNG paths."
+    }
+    $resolved = @($paths | ForEach-Object { [System.IO.Path]::GetFullPath($_) })
+    if (@($resolved | Sort-Object -Unique).Count -ne $resolved.Count) {
+        throw "NativeChartEvidence contains duplicate paths."
+    }
+    $names = @($resolved | ForEach-Object { [System.IO.Path]::GetFileName($_) })
+    if (@($names | Sort-Object -Unique).Count -ne $names.Count) {
+        throw "NativeChartEvidence filenames must be unique within one run."
+    }
+
+    # Wait once for the complete explicit set so a missing batch member cannot
+    # cause a separate 120-second delay for every path.
+    $captureDeadline = (Get-Date).ToUniversalTime().AddSeconds(120)
+    do {
+        $missing = @($resolved | Where-Object { -not (Test-Path -LiteralPath $_ -PathType Leaf) })
+        if ($missing.Count -eq 0) { break }
+        Start-Sleep -Milliseconds 250
+    } while ((Get-Date).ToUniversalTime() -lt $captureDeadline)
+    if ($missing.Count -gt 0) {
+        throw "NativeChartEvidence batch is incomplete: $([string]::Join('; ', $missing))"
+    }
+
+    # Keep this as a native PowerShell array.  Windows PowerShell 5.1 can throw
+    # "Argument types do not match" when a generic List[object] is wrapped in
+    # @() at a function return boundary, even though every imported item is a
+    # valid PSCustomObject.  Batch size is capped at 32, so array append is both
+    # bounded and portable across the supported host versions.
+    $imports = @()
+    foreach ($path in $resolved) {
+        $imports += (Import-NativeMt5ChartEvidence `
+            -SourcePath $path `
+            -DestinationDir $DestinationDir `
+            -RunStartUtc $RunStartUtc)
+    }
+    return $imports
+}
+
+function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $Model, $ExecutionMode, $FixedDelayMs, $TimeoutSec, $Overrides, $MainFile, $CompiledEx5File, $Ex5File, $ReportPath, $ConfigPath, $Snapshot, $HypothesisId, $RunRole, $Deposit, $Leverage, $Spread, $TelemetryTier, $TelemetryProfile, $RunStartUtc, $GitSnapshot, $RequiredSidecarList, $ReceiptSha256, $SymbolGeometry, $VisualMode, $IndicatorDependencies, $DataQualityContract = $null, $DataQualityJournalDelta = $null) {
     $spreadValue = if ([string]::IsNullOrWhiteSpace($Spread)) { "current" } else { $Spread }
     $manifest = [ordered]@{
         schema_version = "alphafactory_run_manifest.v2"
@@ -1750,6 +1954,8 @@ function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $
         spread = $spreadValue
         telemetry_tier = $TelemetryTier
         telemetry_profile = $TelemetryProfile
+        visual_mode = [bool]$VisualMode
+        indicator_dependencies = @($IndicatorDependencies)
         mt5_storage_contract = $script:Mt5StorageContract
         main_file = $MainFile
         compiled_ex5_file = $CompiledEx5File
@@ -1804,10 +2010,99 @@ function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $
     return $manifestPath
 }
 
+function Get-IndicatorDependencyBinding($SourceContract) {
+    return @(
+        foreach ($dependency in @($SourceContract.IndicatorDependencies)) {
+            [ordered]@{
+                name = [string]$dependency.Name
+                source = [string]$dependency.SourceRelativePath
+                source_sha256 = Get-Sha256Required ([string]$dependency.SourceAbsolutePath) "Indicator source '$($dependency.Name)'"
+                terminal_ex5 = [string]$dependency.TerminalEx5RelativePath
+            }
+        }
+    )
+}
+
+function Compile-IndicatorDependencies($SourceContract) {
+    $compiled = @()
+    foreach ($dependency in @($SourceContract.IndicatorDependencies)) {
+        $source = [string]$dependency.SourceAbsolutePath
+        $name = [string]$dependency.Name
+        $sourceEx5 = [IO.Path]::ChangeExtension($source, '.ex5')
+        $log = [IO.Path]::ChangeExtension($source, '.log')
+        if (Test-Path -LiteralPath $sourceEx5) { Remove-Item -LiteralPath $sourceEx5 -Force }
+        if (Test-Path -LiteralPath $log) { Remove-Item -LiteralPath $log -Force }
+        $started = (Get-Date).ToUniversalTime()
+        $args = @(Get-MetaEditorCompileArguments -SourcePath $source -LogPath $log -PortableMode ([bool]$MT5PortableMode))
+        $process = Start-Process -FilePath $MetaEditor -ArgumentList $args -Wait -PassThru -WindowStyle Hidden
+        if (-not (Test-Path -LiteralPath $log -PathType Leaf)) {
+            throw "Indicator compile failed for ${name}: compiler log is missing at $log"
+        }
+        $compileLog = Get-Content -LiteralPath $log -Raw
+        if ($compileLog -notmatch '(?im)\b0\s+errors?\b') {
+            throw "Indicator compile failed for ${name}: MetaEditor did not report 0 errors. Log: $log"
+        }
+        if (-not (Test-Path -LiteralPath $sourceEx5 -PathType Leaf)) {
+            throw "Indicator compile failed for ${name}: EX5 was not created. Log: $log"
+        }
+        $artifact = Get-Item -LiteralPath $sourceEx5
+        if ($artifact.Length -le 0 -or $artifact.LastWriteTimeUtc -lt $started.AddSeconds(-2) -or $process.ExitCode -notin @(0, 1)) {
+            throw "Indicator compile failed for ${name}: stale/empty EX5 or unsupported MetaEditor exit $($process.ExitCode)."
+        }
+        $terminalEx5 = Join-Path (Join-Path $MT5Mql5Root 'Indicators') ([string]$dependency.TerminalEx5RelativePath)
+        New-Item -ItemType Directory -Path (Split-Path -Parent $terminalEx5) -Force | Out-Null
+        Copy-Item -LiteralPath $sourceEx5 -Destination $terminalEx5 -Force
+        $sourceHash = Get-Sha256Required $source "Indicator source '$name'"
+        $compiledHash = Get-Sha256Required $sourceEx5 "Compiled indicator '$name'"
+        $terminalHash = Get-Sha256Required $terminalEx5 "Staged indicator '$name'"
+        if ($compiledHash -ine $terminalHash) { throw "Staged indicator '$name' does not match its fresh compile." }
+        $compiled += [pscustomobject]@{
+            Name = $name
+            SourcePath = $source
+            SourceRelativePath = [string]$dependency.SourceRelativePath
+            SourceSha256 = $sourceHash
+            CompiledEx5Path = $sourceEx5
+            TerminalEx5Path = $terminalEx5
+            TerminalEx5RelativePath = [string]$dependency.TerminalEx5RelativePath
+            Ex5Sha256 = $terminalHash
+        }
+    }
+    return @($compiled)
+}
+
+function New-IndicatorDependencySnapshot($RunDir, $CompiledDependencies) {
+    $root = Join-Path $RunDir 'build\indicators'
+    New-Item -ItemType Directory -Path $root -Force | Out-Null
+    return @(
+        foreach ($dependency in @($CompiledDependencies)) {
+            if ((Get-Sha256Required $dependency.SourcePath "Indicator source '$($dependency.Name)'") -ine $dependency.SourceSha256 -or
+                (Get-Sha256Required $dependency.TerminalEx5Path "Staged indicator '$($dependency.Name)'") -ine $dependency.Ex5Sha256) {
+                throw "Indicator dependency '$($dependency.Name)' changed before snapshot."
+            }
+            $depDir = Join-Path $root $dependency.Name
+            New-Item -ItemType Directory -Path $depDir -Force | Out-Null
+            $sourceSnapshot = Join-Path $depDir (Split-Path -Leaf $dependency.SourcePath)
+            $ex5Snapshot = Join-Path $depDir (Split-Path -Leaf $dependency.TerminalEx5Path)
+            Copy-Item -LiteralPath $dependency.SourcePath -Destination $sourceSnapshot -Force
+            Copy-Item -LiteralPath $dependency.TerminalEx5Path -Destination $ex5Snapshot -Force
+            [ordered]@{
+                name = $dependency.Name
+                source = $dependency.SourceRelativePath
+                source_sha256 = $dependency.SourceSha256
+                terminal_ex5 = $dependency.TerminalEx5RelativePath
+                ex5_sha256 = $dependency.Ex5Sha256
+                source_snapshot = "build/indicators/$($dependency.Name)/$(Split-Path -Leaf $dependency.SourcePath)"
+                ex5_snapshot = "build/indicators/$($dependency.Name)/$(Split-Path -Leaf $dependency.TerminalEx5Path)"
+            }
+        }
+    )
+}
+
 function Do-Compile($EAName) {
     Write-Status "Compiling $EAName..."
     $sourceContract = Resolve-EaSourceContract -RepoRoot $AdvisorsRoot -EaName $EAName
     $main = $sourceContract.AbsoluteSource
+    $indicatorDependencyBinding = @(Get-IndicatorDependencyBinding $sourceContract)
     $log = [IO.Path]::ChangeExtension($main, ".log")
     $eaDir = Split-Path -Parent $main
     if (-not (Test-Path -LiteralPath $MetaEditor -PathType Leaf)) {
@@ -1861,12 +2156,13 @@ function Do-Compile($EAName) {
     return $ex5
 }
 
-function Do-Backtest($EAName, $Sym, $Per, $FromD, $ToD, $TimeoutSec, $Overrides = "", $Model = 0, $ExecutionMode = 0, $FixedDelayMs = 0, $Spread = "", $HypothesisId = "", $RunRole = "challenger", $TelemetryTier = "off", $Deposit = 10000, $Leverage = 100, $ContractReceiptPath = "", $ExpectedReceiptSha256 = "", $RequiredSidecarPatterns = "") {
+function Do-Backtest($EAName, $Sym, $Per, $FromD, $ToD, $TimeoutSec, $Overrides = "", $Model = 0, $ExecutionMode = 0, $FixedDelayMs = 0, $Spread = "", $HypothesisId = "", $RunRole = "challenger", $TelemetryTier = "off", $Deposit = 10000, $Leverage = 100, $ContractReceiptPath = "", $ExpectedReceiptSha256 = "", $RequiredSidecarPatterns = "", [bool]$VisualMode = $false, [string]$ExternalNativeChart = "") {
     Write-Status "Backtest: $EAName on $Sym $Per"
     $testerExecutionMode = if ($ExecutionMode -gt 0) { $ExecutionMode } elseif ($FixedDelayMs -gt 0) { $FixedDelayMs } else { $ExecutionMode }
     
     $sourceContract = Resolve-EaSourceContract -RepoRoot $AdvisorsRoot -EaName $EAName
     $main = $sourceContract.AbsoluteSource
+    $indicatorDependencyBinding = @(Get-IndicatorDependencyBinding $sourceContract)
     $effectiveOverrides = Resolve-TelemetryTierOverrides $TelemetryTier $main $Overrides $sourceContract.TelemetryProfile
     $requiredSidecarList = ConvertTo-RequiredSidecarList $RequiredSidecarPatterns $TelemetryTier $sourceContract.TelemetryProfile
     $effectiveSpread = if ([string]::IsNullOrWhiteSpace($Spread)) { 'current' } else { $Spread }
@@ -1877,6 +2173,8 @@ function Do-Backtest($EAName, $Sym, $Per, $FromD, $ToD, $TimeoutSec, $Overrides 
         telemetry_profile = $sourceContract.TelemetryProfile
         deposit = $Deposit; leverage = $Leverage; spread = $effectiveSpread
         required_sidecars = @($requiredSidecarList)
+        visual_mode = [bool]$VisualMode
+        indicator_dependencies = @($indicatorDependencyBinding)
     }
     # The caller enters the global backtest lock before this function. Rehash all
     # packet-bound evidence immediately before compile/backtest.
@@ -1885,6 +2183,7 @@ function Do-Backtest($EAName, $Sym, $Per, $FromD, $ToD, $TimeoutSec, $Overrides 
     Assert-NoUnrelatedTerminal
     $ex5 = [IO.Path]::ChangeExtension($main, ".ex5")
     Do-Compile $EAName | Out-Null
+    $compiledIndicatorDependencies = @(Compile-IndicatorDependencies $sourceContract)
     
     # Setup sandbox-writable tester staging for config handoff.
     # Keep config inside Advisors so sandboxed child processes can read it.
@@ -1903,6 +2202,12 @@ function Do-Backtest($EAName, $Sym, $Per, $FromD, $ToD, $TimeoutSec, $Overrides 
     $reportDir = Split-Path -Parent $reportAbsPath
     New-Item -ItemType Directory -Force -Path $reportDir | Out-Null
     $iniPath = Join-Path $testerRunsDir "config.ini"
+    $testerVisual = if ($VisualMode) { 1 } else { 0 }
+    # MT5 visual tester can publish an empty 0-bar report when it is launched
+    # from /config with ShutdownTerminal=1. Keep the runner-owned terminal open
+    # for visual replay, then close that exact PID after native chart evidence is
+    # flushed and collected.
+    $testerShutdownTerminal = if ($VisualMode) { 0 } else { 1 }
     
     # Stage the compiled binary to a run-unique tester path. The shared compile
     # output can be overwritten by standalone compiles; MT5 must never execute it.
@@ -1930,6 +2235,7 @@ Expert=$expertRelPath
 Symbol=$Sym
 Period=$Per
 Optimization=0
+Visual=$testerVisual
 Model=$Model
 ExecutionMode=$testerExecutionMode
 Dates=2
@@ -1937,7 +2243,7 @@ FromDate=$FromD
 ToDate=$ToD
 Report=$reportRelPath
 ReplaceReport=1
-ShutdownTerminal=1
+ShutdownTerminal=$testerShutdownTerminal
 Deposit=$Deposit
 Currency=USD
 Leverage=$Leverage
@@ -1969,6 +2275,7 @@ Leverage=$Leverage
         New-Item -ItemType Directory -Force -Path $_ | Out-Null
     }
     $snapshot = New-RunSnapshot $localRunDir $main $stagedEx5Path $iniPath
+    $indicatorDependencySnapshot = @(New-IndicatorDependencySnapshot $localRunDir $compiledIndicatorDependencies)
 
     # Shared tester cache, Tester profiles, and Common Files are evidence stores.
     # Leave all pre-existing artifacts untouched; post-run collection is bound by
@@ -2026,11 +2333,10 @@ Leverage=$Leverage
 
             # v14.0: Last resort - relaunch MT5 briefly to force report generation.
             # Refuse if another terminal appeared; it is not runner-owned.
-            $unexpectedTerminals = @(Get-Process -Name "terminal64" -ErrorAction SilentlyContinue)
-            if ($unexpectedTerminals.Count -gt 0) {
-                $unexpectedPids = ($unexpectedTerminals | ForEach-Object { $_.Id }) -join ","
-                throw "Backtest failed: unrelated terminal64 process appeared during report flush (PID(s): $unexpectedPids)."
-            }
+            # Reuse the executable-identity guard. A user's terminal from another
+            # MT5 installation is unrelated to this portable runner and must not
+            # block report finalization (nor is it ever stopped by AlphaFactory).
+            Assert-NoUnrelatedTerminal
             Write-Status "Report not flushed. Relaunching MT5 to force report export..." "WARN"
             $mt5RelaunchArgs = @(Get-Mt5LaunchArguments `
                 -ConfigPath $iniPath `
@@ -2061,11 +2367,22 @@ Leverage=$Leverage
         throw "Backtest failed: timeout after ${timeout}s. Config: $iniPath"
     }
 
+    if ($VisualMode) {
+        Write-Status "Visual report detected; allowing native chart artifacts to flush..." "INFO"
+        Start-Sleep -Seconds 5
+    }
+
     # Freeze process-owned output before collecting evidence. PID ownership is
     # checked against PID + start time + executable before any stop request.
     Stop-RunnerOwnedTerminal $mt5Pid
     if ((Get-Sha256Required $stagedEx5Path "Staged EX5") -ine $stagedEx5Hash) {
         throw "Staged EX5 changed during MT5 execution."
+    }
+    foreach ($dependency in $compiledIndicatorDependencies) {
+        if ((Get-Sha256Required $dependency.SourcePath "Indicator source '$($dependency.Name)'") -ine $dependency.SourceSha256 -or
+            (Get-Sha256Required $dependency.TerminalEx5Path "Staged indicator '$($dependency.Name)'") -ine $dependency.Ex5Sha256) {
+            throw "Indicator dependency '$($dependency.Name)' changed during MT5 execution."
+        }
     }
     $dataQualityJournalDelta = $null
     if ($null -ne $dataQualityContract) {
@@ -2091,7 +2408,7 @@ Leverage=$Leverage
     Copy-Item $reportAbsPath (Join-Path $buildDir "report.html") -Force
     Copy-Item $iniPath (Join-Path $localRunDir "config.ini") -Force
     Copy-Item $iniPath (Join-Path $configDir "config.ini") -Force
-    $manifestPath = Write-RunManifest -RunDir $localRunDir -RunId $ts -EAName $EAName -Sym $Sym -Per $Per -FromD $FromD -ToD $ToD -Model $Model -ExecutionMode $ExecutionMode -FixedDelayMs $FixedDelayMs -TimeoutSec $TimeoutSec -Overrides $effectiveOverrides -MainFile $main -CompiledEx5File $ex5 -Ex5File $stagedEx5Path -ReportPath $localReportPath -ConfigPath $iniPath -Snapshot $snapshot -HypothesisId $HypothesisId -RunRole $RunRole -Deposit $Deposit -Leverage $Leverage -Spread $Spread -TelemetryTier $TelemetryTier -TelemetryProfile $sourceContract.TelemetryProfile -RunStartUtc $runStartUtc -GitSnapshot $receiptCheck.Git -RequiredSidecarList $requiredSidecarList -ReceiptSha256 $receiptCheck.ReceiptSha256 -SymbolGeometry $receiptCheck.Receipt.binding.symbol_geometry -DataQualityContract $dataQualityContract -DataQualityJournalDelta $dataQualityJournalDelta
+    $manifestPath = Write-RunManifest -RunDir $localRunDir -RunId $ts -EAName $EAName -Sym $Sym -Per $Per -FromD $FromD -ToD $ToD -Model $Model -ExecutionMode $ExecutionMode -FixedDelayMs $FixedDelayMs -TimeoutSec $TimeoutSec -Overrides $effectiveOverrides -MainFile $main -CompiledEx5File $ex5 -Ex5File $stagedEx5Path -ReportPath $localReportPath -ConfigPath $iniPath -Snapshot $snapshot -HypothesisId $HypothesisId -RunRole $RunRole -Deposit $Deposit -Leverage $Leverage -Spread $Spread -TelemetryTier $TelemetryTier -TelemetryProfile $sourceContract.TelemetryProfile -RunStartUtc $runStartUtc -GitSnapshot $receiptCheck.Git -RequiredSidecarList $requiredSidecarList -ReceiptSha256 $receiptCheck.ReceiptSha256 -SymbolGeometry $receiptCheck.Receipt.binding.symbol_geometry -VisualMode $VisualMode -IndicatorDependencies $indicatorDependencySnapshot -DataQualityContract $dataQualityContract -DataQualityJournalDelta $dataQualityJournalDelta
     Copy-Item -LiteralPath $manifestPath -Destination (Join-Path $configDir "run_manifest.json") -Force
 
     if ($effectiveOverrides) {
@@ -2103,7 +2420,8 @@ Leverage=$Leverage
         -CommonFilesRoot $MT5CommonFilesRoot `
         -TesterRoot $MT5TesterRoot `
         -IncludeCommonFiles ([bool]$MT5AllowCommonFiles))
-    $defaultSidecarPatterns = @("${Sym}_*Signals_*.csv", "${Sym}_*Trades_*.csv", "*_LifecycleTrades_*.csv", "${Sym}_*PX6_*.csv", "${Sym}_*Ghost_*.csv", "${Sym}_*Shadow_*.csv", "${Sym}_*Observers_*.csv", "${Sym}_*Activity_*.csv", "${Sym}_*EngineAudit_*.csv", "${Sym}_*PVSRA_SR_*.csv", "${Sym}_*Opportunities_*.csv", "${Sym}_*Regime_*.csv", "${Sym}_*StateTelemetry_*.csv", "${Sym}_*FxClassicNearMiss_*.csv", "${Sym}_*GoldRegimeContext_*.csv", "*_RunMeta_*.json")
+    $defaultSidecarPatterns = @("${Sym}_*Signals_*.csv", "${Sym}_*Trades_*.csv", "*_LifecycleTrades_*.csv", "${Sym}_*PX6_*.csv", "${Sym}_*Ghost_*.csv", "${Sym}_*Shadow_*.csv", "${Sym}_*Observers_*.csv", "${Sym}_*Activity_*.csv", "${Sym}_*EngineAudit_*.csv", "${Sym}_*PVSRA_SR_*.csv", "${Sym}_*Opportunities_*.csv", "${Sym}_*Regime_*.csv", "${Sym}_*StateTelemetry_*.csv", "${Sym}_*StageTelemetry_*.csv", "${Sym}_*FxClassicNearMiss_*.csv", "${Sym}_*GoldRegimeContext_*.csv", "*_VisualShots_*.csv", "*_RunMeta_*.json")
+    $chartSidecarPatterns = @("RSFV_*.png")
     # RequiredSidecars is part of the pre-run receipt binding. Include those
     # patterns in collection as well as validation so opt-in research artifacts
     # cannot be left behind in a tester-agent Files directory.
@@ -2128,6 +2446,35 @@ Leverage=$Leverage
             -MirrorDirectory $analysisLogsDir
         if ($mirrorReceipt.mode -eq 'copy_fallback') {
             Write-Status "Hardlink unavailable; retained physical log mirror for $($source.Name)" "WARN"
+        }
+    }
+
+    $chartSources = New-Object System.Collections.Generic.List[object]
+    foreach ($sidecarRoot in $sidecarRoots) {
+        foreach ($pat in $chartSidecarPatterns) {
+            Get-ChildItem -LiteralPath $sidecarRoot -Filter $pat -File -ErrorAction SilentlyContinue |
+                Where-Object { $_.LastWriteTimeUtc -ge $runStartUtc } |
+                ForEach-Object { $chartSources.Add($_) }
+        }
+    }
+    foreach ($nameGroup in @($chartSources | Sort-Object FullName -Unique | Group-Object Name)) {
+        if ($nameGroup.Count -ne 1) {
+            $locations = @($nameGroup.Group | ForEach-Object { $_.FullName }) -join '; '
+            throw "Ambiguous MT5 chart artifact '$($nameGroup.Name)' exists in multiple storage roots: $locations"
+        }
+        Copy-Item -LiteralPath $nameGroup.Group[0].FullName -Destination (Join-Path $chartsDir $nameGroup.Name) -Force
+    }
+
+    if (-not [string]::IsNullOrWhiteSpace($ExternalNativeChart)) {
+        if (-not $VisualMode) {
+            throw "NativeChartEvidence is accepted only for a Visual Mode run."
+        }
+        $nativeImports = @(Import-NativeMt5ChartEvidenceSet `
+            -SourceList $ExternalNativeChart `
+            -DestinationDir $chartsDir `
+            -RunStartUtc $runStartUtc)
+        foreach ($nativeImport in $nativeImports) {
+            Write-Status ("Imported native MT5 chart: {0} bytes sha256={1}" -f $nativeImport.length, $nativeImport.sha256) "OK"
         }
     }
 
@@ -2293,7 +2640,7 @@ switch ($Action.ToLower()) {
         Assert-BacktestScalarContract $Name $HypothesisId $Symbol $Period $From $To $Spread $ExecutionMode $FixedDelayMs
         Enter-GlobalBacktestLock $Name $HypothesisId
         try {
-            Do-Backtest $Name $Symbol $Period $From $To $TimeoutSec $Overrides $Model $ExecutionMode $FixedDelayMs $Spread $HypothesisId $RunRole $TelemetryTier $Deposit $Leverage $ContractReceipt $ContractReceiptSha256 $RequiredSidecars
+            Do-Backtest $Name $Symbol $Period $From $To $TimeoutSec $Overrides $Model $ExecutionMode $FixedDelayMs $Spread $HypothesisId $RunRole $TelemetryTier $Deposit $Leverage $ContractReceipt $ContractReceiptSha256 $RequiredSidecars ([bool]$Visual) $NativeChartEvidence
         } finally {
             try {
                 Stop-AllRunnerOwnedTerminals
@@ -2613,6 +2960,8 @@ switch ($Action.ToLower()) {
   -From       Backtest start date (default: 2020.01.01)
   -To         Backtest end date (default: 2025.12.25)
   -Charts     Generate visual charts
+  -Visual     Opt-in MT5 Strategy Tester visual mode and collect RSFV_*.png chart evidence
+  -NativeChartEvidence  Import 1-32 explicit current-run NATIVE_MT5_*.png paths separated by semicolons
   -Report     Path to HTML report file
   -Packet     Action-specific hash-bound packet/receipt
   -Output     Explicit analysis output directory

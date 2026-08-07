@@ -1,0 +1,138 @@
+{
+    "schema_version":  "alphafactory_execution_receipt.v1",
+    "hypothesis_id":  "HYP-RSF-EURUSD-M5-STRUCTURAL-EVENT-004",
+    "task_packet_sha256":  "7012D7190E02928A2A8E1B3EAD5934E32438092E43CAD98091E8BE68D0026621",
+    "git_commit":  "59b118a7a677b9bcb12420132608f633d9129545",
+    "git_status_sha256":  "D8FDE9F80EC9BA11ED1CA1BA4610248EEABEA51EE012C4983D8E40990E6E5450",
+    "binding":  {
+                    "hypothesis_id":  "HYP-RSF-EURUSD-M5-STRUCTURAL-EVENT-004",
+                    "run_role":  "control",
+                    "ea_name":  "EA_RegimeStructureFusion",
+                    "symbol":  "EURUSD",
+                    "period":  "M5",
+                    "from":  "2018.01.01",
+                    "to":  "2022.12.31",
+                    "model":  0,
+                    "execution_mode":  0,
+                    "fixed_delay_ms":  0,
+                    "overrides":  "InpAllowBreakoutMode=true;InpAllowRangeMode=false;InpAllowTrendMode=true;InpEnableTelemetry=true;InpExpectedSymbol=EURUSD;InpHypothesisId=HYP-RSF-EURUSD-M5-STRUCTURAL-EVENT-004;InpMagic=5867354;InpManualModeMask=6;InpManualSessionMask=6;InpProfileMode=1;InpResearchAutoMode=true;InpStructuralExpiryBars=8;InpStructuralInvalidationAtr=0.20;InpStructuralMaxExtensionAtr=0.35;InpStructuralMinObjectiveR=1.25;InpStructuralQqeVetoThreshold=3.0;InpStructuralRetestToleranceAtr=0.15;InpUseContextRouter=true;InpUseQqeTiming=true;InpUseRoleAwareSequence=false;InpUseStructuralEventSequence=true;InpUseTbStructure=true;InpUseTemporalSequence=false;InpVariantTag=STRUCTURAL_EVENT_CAUSAL_V1",
+                    "telemetry_tier":  "trade-only",
+                    "telemetry_profile":  "lifecycle-v3",
+                    "deposit":  100000,
+                    "leverage":  100,
+                    "spread":  "current",
+                    "visual_mode":  false,
+                    "required_sidecars":  [
+                                              "*_LifecycleTrades_*.csv",
+                                              "*_RunMeta_*.json"
+                                          ],
+                    "indicator_dependencies":  [
+                                                   {
+                                                       "name":  "AI_Regime_Detection",
+                                                       "source":  "06.Indicator Alpha/AI_Regime_Detection.mq5",
+                                                       "source_sha256":  "C432AEF3BF7EC93EC8A64BD2806C115E71F822B2DCB438DAC22590FB978EB475",
+                                                       "terminal_ex5":  "AlphaFactory\\AI_Regime_Detection.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "Volatility_Regime_Classifier_QuantRegime",
+                                                       "source":  "06.Indicator Alpha/Volatility_Regime_Classifier_QuantRegime.mq5",
+                                                       "source_sha256":  "EB81B1426CBDAF3143F553388A213E2BB5A3E33E05433991918CC5977273A087",
+                                                       "terminal_ex5":  "AlphaFactory\\Volatility_Regime_Classifier_QuantRegime.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "Modern_Bollinger_Bands_GBB",
+                                                       "source":  "06.Indicator Alpha/Modern_Bollinger_Bands_GBB.mq5",
+                                                       "source_sha256":  "AC5DB6E1DDA825F6A3535E9AB1E4C9956086C7AF590E2672C71CF03D8F4E54FE",
+                                                       "terminal_ex5":  "AlphaFactory\\Modern_Bollinger_Bands_GBB.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "TB_Smart_Money_Concept_2026",
+                                                       "source":  "06.Indicator Alpha/TB_Smart_Money_Concept_2026.mq5",
+                                                       "source_sha256":  "489B6E6B74C4FCA6624B510DC9FF38FDBBDA0584C007B8FFEE3D8339D1CB879E",
+                                                       "terminal_ex5":  "AlphaFactory\\TB_Smart_Money_Concept_2026.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "QQE_MOD",
+                                                       "source":  "06.Indicator Alpha/QQE_MOD.mq5",
+                                                       "source_sha256":  "86876D352762F6C107BC4AC886C04E901C9345C68A5C7E68C73A33696F13053F",
+                                                       "terminal_ex5":  "AlphaFactory\\QQE_MOD.ex5"
+                                                   }
+                                               ],
+                    "symbol_geometry":  {
+                                            "digits":  5,
+                                            "point":  1E-05,
+                                            "pip_size":  0.0001
+                                        },
+                    "include_closure_sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                },
+    "evidence":  [
+                     {
+                         "label":  "task_packet",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\structural_event\\HYP-RSF-EURUSD-M5-STRUCTURAL-EVENT-004_TASK_PACKET.json",
+                         "sha256":  "7012D7190E02928A2A8E1B3EAD5934E32438092E43CAD98091E8BE68D0026621"
+                     },
+                     {
+                         "label":  "candidate_registry",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+                         "sha256":  "CE4925774F21BC98E82D2B7725A97594540355FAEC4352F908318CFD77DF4BA4"
+                     },
+                     {
+                         "label":  "source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\EA_RegimeStructureFusion.mq5",
+                         "sha256":  "904019E9651285AF0C1AC96C0D97A6A151CBCE56BDD2B6AF4BA66E1E3711FB07"
+                     },
+                     {
+                         "label":  "ea_capability_contract",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\ALPHAFACTORY_EA_CONTRACT.json",
+                         "sha256":  "C75E3DB5D118CEAAF3892F5955140C571509912A7DE0C48CAB624C97C91946C9"
+                     },
+                     {
+                         "label":  "prereg",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\structural_event\\HYP-RSF-EURUSD-M5-STRUCTURAL-EVENT-004_FROZEN_PREREG.md",
+                         "sha256":  "F98F2D98FAF9CC25BFA195764C08DBA3D9C77CC8B63AC3E2B82A5C9AC47758CA"
+                     },
+                     {
+                         "label":  "cost_source_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\structural_event\\HYP-RSF-EURUSD-M5-STRUCTURAL-EVENT-004_COST_SOURCE_MANIFEST.json",
+                         "sha256":  "B816ED9BE6580561C2417F9BFDB5F6A80DD289433ED0F73E0D5E2FD21893BD81"
+                     },
+                     {
+                         "label":  "indicator_ai_regime_detection_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\AI_Regime_Detection.mq5",
+                         "sha256":  "C432AEF3BF7EC93EC8A64BD2806C115E71F822B2DCB438DAC22590FB978EB475"
+                     },
+                     {
+                         "label":  "indicator_volatility_regime_classifier_quantregime_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\Volatility_Regime_Classifier_QuantRegime.mq5",
+                         "sha256":  "EB81B1426CBDAF3143F553388A213E2BB5A3E33E05433991918CC5977273A087"
+                     },
+                     {
+                         "label":  "indicator_modern_bollinger_bands_gbb_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\Modern_Bollinger_Bands_GBB.mq5",
+                         "sha256":  "AC5DB6E1DDA825F6A3535E9AB1E4C9956086C7AF590E2672C71CF03D8F4E54FE"
+                     },
+                     {
+                         "label":  "indicator_tb_smart_money_concept_2026_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\TB_Smart_Money_Concept_2026.mq5",
+                         "sha256":  "489B6E6B74C4FCA6624B510DC9FF38FDBBDA0584C007B8FFEE3D8339D1CB879E"
+                     },
+                     {
+                         "label":  "indicator_qqe_mod_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\QQE_MOD.mq5",
+                         "sha256":  "86876D352762F6C107BC4AC886C04E901C9345C68A5C7E68C73A33696F13053F"
+                     }
+                 ],
+    "generated_at_utc":  "2026-08-07T01:09:10Z",
+    "note":  "Exactly one EURUSD M5 2018-2022 Model0 development falsification run for the frozen closed structural-event then later retest/reclaim mechanism. No optimization, validation, holdout or promotion authority."
+}

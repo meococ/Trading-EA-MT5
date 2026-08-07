@@ -1,0 +1,29 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-006",
+  "status": "PASS",
+  "ea_source_sha256": "202B8D2DB93EC186C5A7535901A02BE947834F8E1D53E4A827999156777BD3C2",
+  "tb_source_sha256": "F104BC4CD20D28C59B29AA3419779EBEB4390463D9725A1F4B7FB4B6FCC87BF4",
+  "checks": {
+    "ea_reads_closed_shift_1": true,
+    "tb_pivot_requires_existing_left_right_confirmation": true,
+    "pool_mutates_only_in_closed_bar_engine": true,
+    "pool_consumption_requires_closed_candle_close_through": true,
+    "consumption_precedes_closed_state_publication": true,
+    "forming_bar_event_free": true,
+    "nearest_high_strictly_above_reference": true,
+    "nearest_low_strictly_below_reference": true,
+    "pool_capacity_fixed_not_optimizable": true,
+    "consumed_break_level_cannot_be_forward_objective": true
+  },
+  "targeted_tests": {
+    "passed": 21,
+    "failed": 0
+  },
+  "compile": {
+    "ea": "PASS_0_ERRORS",
+    "tb_indicator": "PASS_0_ERRORS_0_WARNINGS"
+  },
+  "economic_claims_authorized": false,
+  "promotion_eligible": false
+}

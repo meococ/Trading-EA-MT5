@@ -1,0 +1,139 @@
+{
+    "schema_version":  "alphafactory_execution_receipt.v1",
+    "hypothesis_id":  "HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-EXPORT-009",
+    "task_packet_sha256":  "15947A403A74C93ACB31D3EC75E9EB5C027E74F785502C86AF2773821CADEAC8",
+    "git_commit":  "59b118a7a677b9bcb12420132608f633d9129545",
+    "git_status_sha256":  "868C6DA9E06AD7D62BA6634DBA10F6D24DE5CD0D4B3B1EB10FC60B033F974CD6",
+    "binding":  {
+                    "hypothesis_id":  "HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-EXPORT-009",
+                    "run_role":  "control",
+                    "ea_name":  "EA_RegimeStructureFusion",
+                    "symbol":  "EURUSD",
+                    "period":  "M5",
+                    "from":  "2018.01.01",
+                    "to":  "2018.02.01",
+                    "model":  1,
+                    "execution_mode":  0,
+                    "fixed_delay_ms":  0,
+                    "overrides":  "InpEnableTelemetry=true;InpExpectedSymbol=EURUSD;InpHypothesisId=HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-EXPORT-009;InpMagic=5867419;InpManualModeMask=6;InpManualSessionMask=6;InpProfileMode=1;InpResearchAutoMode=true;InpStructuralRequireLiveObjective=true;InpStructuralUseLiquidityPoolObjective=true;InpUseContextRouter=true;InpUseQqeTiming=true;InpUseStructuralEventSequence=true;InpUseTbStructure=true;InpVariantTag=LIQUIDITY_POOL_EXPORTED_V1",
+                    "telemetry_tier":  "trade-only",
+                    "telemetry_profile":  "lifecycle-v3",
+                    "deposit":  100000,
+                    "leverage":  100,
+                    "spread":  "current",
+                    "visual_mode":  false,
+                    "required_sidecars":  [
+                                              "*_LifecycleTrades_*.csv",
+                                              "*_EntryContext_*.csv",
+                                              "*_RunMeta_*.json"
+                                          ],
+                    "indicator_dependencies":  [
+                                                   {
+                                                       "name":  "AI_Regime_Detection",
+                                                       "source":  "06.Indicator Alpha/AI_Regime_Detection.mq5",
+                                                       "source_sha256":  "C432AEF3BF7EC93EC8A64BD2806C115E71F822B2DCB438DAC22590FB978EB475",
+                                                       "terminal_ex5":  "AlphaFactory\\AI_Regime_Detection.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "Volatility_Regime_Classifier_QuantRegime",
+                                                       "source":  "06.Indicator Alpha/Volatility_Regime_Classifier_QuantRegime.mq5",
+                                                       "source_sha256":  "EB81B1426CBDAF3143F553388A213E2BB5A3E33E05433991918CC5977273A087",
+                                                       "terminal_ex5":  "AlphaFactory\\Volatility_Regime_Classifier_QuantRegime.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "Modern_Bollinger_Bands_GBB",
+                                                       "source":  "06.Indicator Alpha/Modern_Bollinger_Bands_GBB.mq5",
+                                                       "source_sha256":  "AC5DB6E1DDA825F6A3535E9AB1E4C9956086C7AF590E2672C71CF03D8F4E54FE",
+                                                       "terminal_ex5":  "AlphaFactory\\Modern_Bollinger_Bands_GBB.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "TB_Smart_Money_Concept_2026",
+                                                       "source":  "06.Indicator Alpha/TB_Smart_Money_Concept_2026.mq5",
+                                                       "source_sha256":  "3848CBD4FD34748BE95A372D4797465383CC7EDDE0ED36687E8AA26546893539",
+                                                       "terminal_ex5":  "AlphaFactory\\TB_Smart_Money_Concept_2026.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "QQE_MOD",
+                                                       "source":  "06.Indicator Alpha/QQE_MOD.mq5",
+                                                       "source_sha256":  "86876D352762F6C107BC4AC886C04E901C9345C68A5C7E68C73A33696F13053F",
+                                                       "terminal_ex5":  "AlphaFactory\\QQE_MOD.ex5"
+                                                   }
+                                               ],
+                    "symbol_geometry":  {
+                                            "digits":  5,
+                                            "point":  1E-05,
+                                            "pip_size":  0.0001
+                                        },
+                    "include_closure_sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                },
+    "evidence":  [
+                     {
+                         "label":  "task_packet",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\liquidity_pool\\HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-EXPORT-009_TASK_PACKET.json",
+                         "sha256":  "15947A403A74C93ACB31D3EC75E9EB5C027E74F785502C86AF2773821CADEAC8"
+                     },
+                     {
+                         "label":  "candidate_registry",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+                         "sha256":  "F224FA8C744EC1D78157B052E9C1D98F17018404A1F9359596B2457A3F7934F7"
+                     },
+                     {
+                         "label":  "source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\EA_RegimeStructureFusion.mq5",
+                         "sha256":  "05D13CAF75B05D3B2585493734B3E315BFCB84004BFB989D228E08B0C79C257A"
+                     },
+                     {
+                         "label":  "ea_capability_contract",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\ALPHAFACTORY_EA_CONTRACT.json",
+                         "sha256":  "7EE8569CC5058648BA37FE9712406C890F99ABDBF2F7677508F6D4B99D7C284F"
+                     },
+                     {
+                         "label":  "prereg",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\liquidity_pool\\HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-EXPORT-009_FROZEN_PREREG.md",
+                         "sha256":  "787F2F395B0F8A496E924B805DF015DED0A0CA24288A6BFE8744B89AE3EC5433"
+                     },
+                     {
+                         "label":  "cost_source_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\liquidity_pool\\HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-EXPORT-009_COST_SOURCE_MANIFEST.json",
+                         "sha256":  "F4585CF0798E700F1C0DAC0683BB56B79C3F3DCED7911EC1428399D7EB4EA253"
+                     },
+                     {
+                         "label":  "indicator_ai_regime_detection_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\AI_Regime_Detection.mq5",
+                         "sha256":  "C432AEF3BF7EC93EC8A64BD2806C115E71F822B2DCB438DAC22590FB978EB475"
+                     },
+                     {
+                         "label":  "indicator_volatility_regime_classifier_quantregime_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\Volatility_Regime_Classifier_QuantRegime.mq5",
+                         "sha256":  "EB81B1426CBDAF3143F553388A213E2BB5A3E33E05433991918CC5977273A087"
+                     },
+                     {
+                         "label":  "indicator_modern_bollinger_bands_gbb_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\Modern_Bollinger_Bands_GBB.mq5",
+                         "sha256":  "AC5DB6E1DDA825F6A3535E9AB1E4C9956086C7AF590E2672C71CF03D8F4E54FE"
+                     },
+                     {
+                         "label":  "indicator_tb_smart_money_concept_2026_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\TB_Smart_Money_Concept_2026.mq5",
+                         "sha256":  "3848CBD4FD34748BE95A372D4797465383CC7EDDE0ED36687E8AA26546893539"
+                     },
+                     {
+                         "label":  "indicator_qqe_mod_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\QQE_MOD.mq5",
+                         "sha256":  "86876D352762F6C107BC4AC886C04E901C9345C68A5C7E68C73A33696F13053F"
+                     }
+                 ],
+    "generated_at_utc":  "2026-08-07T03:20:55Z",
+    "note":  "One EURUSD M5 January-2018 Model1 engineering-only verification of the TB v3 public liquidity-buffer export. Performance metrics have no authority."
+}

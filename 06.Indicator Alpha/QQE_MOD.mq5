@@ -4,7 +4,7 @@
 //| Source specification supplied by the workspace owner.            |
 //|                                                                  |
 //| Public iCustom buffer contract:                                  |
-//|   0  Secondary RSI histogram (EMPTY_VALUE inside neutral zone)   |
+//|   0  Secondary RSI histogram (0.0 inside neutral zone)           |
 //|   1  Histogram color index (0 gray, 1 cyan, 2 magenta)           |
 //|   2  Secondary QQE trend line, centered at zero                  |
 //|   3  Primary smoothed RSI, centered at zero                      |
@@ -23,8 +23,8 @@
 #property description "Single-file implementation; no external includes or indicator handles"
 
 #property indicator_separate_window
-#property indicator_buffers 24
-#property indicator_plots   9
+#property indicator_buffers 27
+#property indicator_plots   12
 
 //--- Visible plot 1: secondary RSI histogram with TradingView colors
 #property indicator_type1   DRAW_COLOR_HISTOGRAM
@@ -55,6 +55,23 @@
 #property indicator_label8  "Composite State"
 #property indicator_type9   DRAW_NONE
 #property indicator_label9  "Primary Zero Cross"
+
+//--- MT5 Visual Mode fallback. Some builds accept a dynamically attached
+//--- DRAW_COLOR_HISTOGRAM handle but do not paint its color-index buffer. These
+//--- three ordinary histogram plots mirror the exact same final Pine colors.
+//--- They are internal display buffers appended after public buffers 0..9.
+#property indicator_type10  DRAW_HISTOGRAM
+#property indicator_color10 C'112,112,112'
+#property indicator_width10 2
+#property indicator_label10 "Secondary RSI Neutral Display"
+#property indicator_type11  DRAW_HISTOGRAM
+#property indicator_color11 C'0,195,255'
+#property indicator_width11 2
+#property indicator_label11 "QQE Up Display"
+#property indicator_type12  DRAW_HISTOGRAM
+#property indicator_color12 C'255,0,98'
+#property indicator_width12 2
+#property indicator_label12 "QQE Down Display"
 
 #property indicator_level1      0.0
 #property indicator_levelcolor  C'130,130,130'
@@ -112,7 +129,12 @@ double ExtBollingerLowerBuffer[];
 double ExtCompositeStateBuffer[];
 double ExtPrimaryCrossBuffer[];
 
-//--- Internal calculation buffers for the primary lane (10..16)
+//--- Internal visual mirrors (10..12); public iCustom buffers remain 0..9.
+double ExtNeutralHistogramMirror[];
+double ExtUpHistogramMirror[];
+double ExtDownHistogramMirror[];
+
+//--- Internal calculation buffers for the primary lane (13..19)
 double ExtPrimarySourceBuffer[];
 double ExtPrimaryAvgGainBuffer[];
 double ExtPrimaryAvgLossBuffer[];
@@ -121,7 +143,7 @@ double ExtPrimaryLongBandBuffer[];
 double ExtPrimaryShortBandBuffer[];
 double ExtPrimaryTrendBuffer[];
 
-//--- Internal calculation buffers for the secondary lane (17..23)
+//--- Internal calculation buffers for the secondary lane (20..26)
 double ExtSecondarySourceBuffer[];
 double ExtSecondaryAvgGainBuffer[];
 double ExtSecondaryAvgLossBuffer[];
@@ -164,12 +186,23 @@ void ApplyVisualStyle()
         }
      }
 
+   // MT5 does not always infer the runtime color-index count for an iCustom
+   // handle attached later with ChartIndicatorAdd.  Declare it explicitly so
+   // the histogram buffer is painted in Visual Mode as well as on a manual
+   // chart.  Public buffer numbers remain unchanged for EA consumers.
+   PlotIndexSetInteger(0,PLOT_COLOR_INDEXES,3);
    PlotIndexSetInteger(0,PLOT_LINE_COLOR,0,InpNeutralColor);
    PlotIndexSetInteger(0,PLOT_LINE_COLOR,1,InpUpColor);
    PlotIndexSetInteger(0,PLOT_LINE_COLOR,2,InpDownColor);
    PlotIndexSetInteger(0,PLOT_LINE_WIDTH,InpHistogramWidth);
    PlotIndexSetInteger(1,PLOT_LINE_COLOR,trendColor);
    PlotIndexSetInteger(1,PLOT_LINE_WIDTH,InpTrendLineWidth);
+   PlotIndexSetInteger(9,PLOT_LINE_COLOR,InpNeutralColor);
+   PlotIndexSetInteger(10,PLOT_LINE_COLOR,InpUpColor);
+   PlotIndexSetInteger(11,PLOT_LINE_COLOR,InpDownColor);
+   PlotIndexSetInteger(9,PLOT_LINE_WIDTH,InpHistogramWidth);
+   PlotIndexSetInteger(10,PLOT_LINE_WIDTH,InpHistogramWidth);
+   PlotIndexSetInteger(11,PLOT_LINE_WIDTH,InpHistogramWidth);
    IndicatorSetInteger(INDICATOR_LEVELCOLOR,0,InpZeroLineColor);
   }
 
@@ -502,7 +535,7 @@ void ProcessClosedBarAlerts(const int ratesTotal,const datetime &time[])
 //+------------------------------------------------------------------+
 void InitializeBuffers()
   {
-   ArrayInitialize(ExtHistogramBuffer,EMPTY_VALUE);
+   ArrayInitialize(ExtHistogramBuffer,0.0);
    ArrayInitialize(ExtHistogramColorBuffer,0.0);
    ArrayInitialize(ExtSecondaryQQEBuffer,EMPTY_VALUE);
    ArrayInitialize(ExtPrimaryRSIBuffer,EMPTY_VALUE);
@@ -512,6 +545,9 @@ void InitializeBuffers()
    ArrayInitialize(ExtBollingerLowerBuffer,EMPTY_VALUE);
    ArrayInitialize(ExtCompositeStateBuffer,0.0);
    ArrayInitialize(ExtPrimaryCrossBuffer,0.0);
+   ArrayInitialize(ExtNeutralHistogramMirror,0.0);
+   ArrayInitialize(ExtUpHistogramMirror,0.0);
+   ArrayInitialize(ExtDownHistogramMirror,0.0);
 
    ArrayInitialize(ExtPrimarySourceBuffer,EMPTY_VALUE);
    ArrayInitialize(ExtPrimaryAvgGainBuffer,EMPTY_VALUE);
@@ -559,23 +595,28 @@ int OnInit()
    SetIndexBuffer(8,ExtCompositeStateBuffer,INDICATOR_DATA);
    SetIndexBuffer(9,ExtPrimaryCrossBuffer,INDICATOR_DATA);
 
+   //--- Display-only fallback buffers; appending preserves public 0..9.
+   SetIndexBuffer(10,ExtNeutralHistogramMirror,INDICATOR_DATA);
+   SetIndexBuffer(11,ExtUpHistogramMirror,INDICATOR_DATA);
+   SetIndexBuffer(12,ExtDownHistogramMirror,INDICATOR_DATA);
+
    //--- Primary calculation buffers
-   SetIndexBuffer(10,ExtPrimarySourceBuffer,INDICATOR_CALCULATIONS);
-   SetIndexBuffer(11,ExtPrimaryAvgGainBuffer,INDICATOR_CALCULATIONS);
-   SetIndexBuffer(12,ExtPrimaryAvgLossBuffer,INDICATOR_CALCULATIONS);
-   SetIndexBuffer(13,ExtPrimarySmoothedAtrBuffer,INDICATOR_CALCULATIONS);
-   SetIndexBuffer(14,ExtPrimaryLongBandBuffer,INDICATOR_CALCULATIONS);
-   SetIndexBuffer(15,ExtPrimaryShortBandBuffer,INDICATOR_CALCULATIONS);
-   SetIndexBuffer(16,ExtPrimaryTrendBuffer,INDICATOR_CALCULATIONS);
+   SetIndexBuffer(13,ExtPrimarySourceBuffer,INDICATOR_CALCULATIONS);
+   SetIndexBuffer(14,ExtPrimaryAvgGainBuffer,INDICATOR_CALCULATIONS);
+   SetIndexBuffer(15,ExtPrimaryAvgLossBuffer,INDICATOR_CALCULATIONS);
+   SetIndexBuffer(16,ExtPrimarySmoothedAtrBuffer,INDICATOR_CALCULATIONS);
+   SetIndexBuffer(17,ExtPrimaryLongBandBuffer,INDICATOR_CALCULATIONS);
+   SetIndexBuffer(18,ExtPrimaryShortBandBuffer,INDICATOR_CALCULATIONS);
+   SetIndexBuffer(19,ExtPrimaryTrendBuffer,INDICATOR_CALCULATIONS);
 
    //--- Secondary calculation buffers
-   SetIndexBuffer(17,ExtSecondarySourceBuffer,INDICATOR_CALCULATIONS);
-   SetIndexBuffer(18,ExtSecondaryAvgGainBuffer,INDICATOR_CALCULATIONS);
-   SetIndexBuffer(19,ExtSecondaryAvgLossBuffer,INDICATOR_CALCULATIONS);
-   SetIndexBuffer(20,ExtSecondarySmoothedAtrBuffer,INDICATOR_CALCULATIONS);
-   SetIndexBuffer(21,ExtSecondaryLongBandBuffer,INDICATOR_CALCULATIONS);
-   SetIndexBuffer(22,ExtSecondaryShortBandBuffer,INDICATOR_CALCULATIONS);
-   SetIndexBuffer(23,ExtSecondaryTrendBuffer,INDICATOR_CALCULATIONS);
+   SetIndexBuffer(20,ExtSecondarySourceBuffer,INDICATOR_CALCULATIONS);
+   SetIndexBuffer(21,ExtSecondaryAvgGainBuffer,INDICATOR_CALCULATIONS);
+   SetIndexBuffer(22,ExtSecondaryAvgLossBuffer,INDICATOR_CALCULATIONS);
+   SetIndexBuffer(23,ExtSecondarySmoothedAtrBuffer,INDICATOR_CALCULATIONS);
+   SetIndexBuffer(24,ExtSecondaryLongBandBuffer,INDICATOR_CALCULATIONS);
+   SetIndexBuffer(25,ExtSecondaryShortBandBuffer,INDICATOR_CALCULATIONS);
+   SetIndexBuffer(26,ExtSecondaryTrendBuffer,INDICATOR_CALCULATIONS);
 
    //--- Force chronological indexing: oldest bar = 0, newest bar = rates_total-1.
    ArraySetAsSeries(ExtHistogramBuffer,false);
@@ -588,6 +629,9 @@ int OnInit()
    ArraySetAsSeries(ExtBollingerLowerBuffer,false);
    ArraySetAsSeries(ExtCompositeStateBuffer,false);
    ArraySetAsSeries(ExtPrimaryCrossBuffer,false);
+   ArraySetAsSeries(ExtNeutralHistogramMirror,false);
+   ArraySetAsSeries(ExtUpHistogramMirror,false);
+   ArraySetAsSeries(ExtDownHistogramMirror,false);
    ArraySetAsSeries(ExtPrimarySourceBuffer,false);
    ArraySetAsSeries(ExtPrimaryAvgGainBuffer,false);
    ArraySetAsSeries(ExtPrimaryAvgLossBuffer,false);
@@ -606,16 +650,30 @@ int OnInit()
    //--- TradingView-like visual defaults, still editable via Inputs.
    ApplyVisualStyle();
 
-   for(int plot=0; plot<9; plot++)
+   // MetaQuotes documents zero (not DBL_MAX/EMPTY_VALUE) as the
+   // non-displayable value for DRAW_COLOR_HISTOGRAM. Visual Mode can accept
+   // the handle yet suppress the histogram when EMPTY_VALUE is mixed into
+   // this plot. Keep ordinary line/data plots on EMPTY_VALUE and use zero
+   // only for the histogram render buffers.
+   for(int plot=1; plot<9; plot++)
       PlotIndexSetDouble(plot,PLOT_EMPTY_VALUE,EMPTY_VALUE);
+   PlotIndexSetDouble(0,PLOT_EMPTY_VALUE,0.0);
+   PlotIndexSetDouble(9,PLOT_EMPTY_VALUE,0.0);
+   PlotIndexSetDouble(10,PLOT_EMPTY_VALUE,0.0);
+   PlotIndexSetDouble(11,PLOT_EMPTY_VALUE,0.0);
 
    //--- Keep the pane header clean while preserving all iCustom buffers.
    for(int hiddenPlot=2; hiddenPlot<9; hiddenPlot++)
       PlotIndexSetInteger(hiddenPlot,PLOT_SHOW_DATA,false);
+   for(int mirrorPlot=9; mirrorPlot<12; mirrorPlot++)
+      PlotIndexSetInteger(mirrorPlot,PLOT_SHOW_DATA,false);
 
    const int secondaryDrawBegin=InpSecondaryRSILength+1;
    PlotIndexSetInteger(0,PLOT_DRAW_BEGIN,secondaryDrawBegin);
    PlotIndexSetInteger(1,PLOT_DRAW_BEGIN,secondaryDrawBegin);
+   PlotIndexSetInteger(9,PLOT_DRAW_BEGIN,secondaryDrawBegin);
+   PlotIndexSetInteger(10,PLOT_DRAW_BEGIN,secondaryDrawBegin);
+   PlotIndexSetInteger(11,PLOT_DRAW_BEGIN,secondaryDrawBegin);
 
    IndicatorSetInteger(INDICATOR_DIGITS,2);
    IndicatorSetInteger(INDICATOR_LEVELSTYLE,0,STYLE_DOT);
@@ -684,13 +742,16 @@ int OnCalculate(const int rates_total,
 
    for(int index=start; index<rates_total && !IsStopped(); index++)
      {
-      ExtHistogramBuffer[index]=EMPTY_VALUE;
+      ExtHistogramBuffer[index]=0.0;
       ExtHistogramColorBuffer[index]=0.0;
       ExtSecondaryQQEBuffer[index]=EMPTY_VALUE;
       ExtBollingerUpperBuffer[index]=EMPTY_VALUE;
       ExtBollingerLowerBuffer[index]=EMPTY_VALUE;
       ExtCompositeStateBuffer[index]=0.0;
       ExtPrimaryCrossBuffer[index]=0.0;
+      ExtNeutralHistogramMirror[index]=0.0;
+      ExtUpHistogramMirror[index]=0.0;
+      ExtDownHistogramMirror[index]=0.0;
 
       ExtPrimarySourceBuffer[index]=AppliedPriceAt(index,InpPrimarySource,open,high,low,close);
       ExtSecondarySourceBuffer[index]=AppliedPriceAt(index,InpSecondarySource,open,high,low,close);
@@ -752,30 +813,36 @@ int OnCalculate(const int rates_total,
          const double secondaryValue=ExtSecondaryRSIBuffer[index];
          int state=0;
 
-         if(secondaryValue>InpSecondaryThreshold)
-           {
-            ExtHistogramBuffer[index]=secondaryValue;
-            ExtHistogramColorBuffer[index]=0.0;
-            if(IsUsableValue(ExtPrimaryRSIBuffer[index]) &&
-               IsUsableValue(ExtBollingerUpperBuffer[index]) &&
-               ExtPrimaryRSIBuffer[index]>ExtBollingerUpperBuffer[index])
-              {
-               state=1;
-               ExtHistogramColorBuffer[index]=1.0;
-              }
-           }
-         else if(secondaryValue<-InpSecondaryThreshold)
-           {
-            ExtHistogramBuffer[index]=secondaryValue;
-            ExtHistogramColorBuffer[index]=0.0;
-            if(IsUsableValue(ExtPrimaryRSIBuffer[index]) &&
-               IsUsableValue(ExtBollingerLowerBuffer[index]) &&
-               ExtPrimaryRSIBuffer[index]<ExtBollingerLowerBuffer[index])
-              {
-               state=-1;
-               ExtHistogramColorBuffer[index]=2.0;
-              }
-           }
+          if(secondaryValue>InpSecondaryThreshold)
+            {
+             ExtHistogramBuffer[index]=secondaryValue;
+             ExtHistogramColorBuffer[index]=0.0;
+             ExtNeutralHistogramMirror[index]=secondaryValue;
+             if(IsUsableValue(ExtPrimaryRSIBuffer[index]) &&
+                IsUsableValue(ExtBollingerUpperBuffer[index]) &&
+                ExtPrimaryRSIBuffer[index]>ExtBollingerUpperBuffer[index])
+               {
+                state=1;
+                ExtHistogramColorBuffer[index]=1.0;
+                ExtNeutralHistogramMirror[index]=0.0;
+                ExtUpHistogramMirror[index]=secondaryValue;
+               }
+            }
+          else if(secondaryValue<-InpSecondaryThreshold)
+            {
+             ExtHistogramBuffer[index]=secondaryValue;
+             ExtHistogramColorBuffer[index]=0.0;
+             ExtNeutralHistogramMirror[index]=secondaryValue;
+             if(IsUsableValue(ExtPrimaryRSIBuffer[index]) &&
+                IsUsableValue(ExtBollingerLowerBuffer[index]) &&
+                ExtPrimaryRSIBuffer[index]<ExtBollingerLowerBuffer[index])
+               {
+                state=-1;
+                ExtHistogramColorBuffer[index]=2.0;
+                ExtNeutralHistogramMirror[index]=0.0;
+                ExtDownHistogramMirror[index]=secondaryValue;
+               }
+            }
 
          ExtCompositeStateBuffer[index]=(double)state;
         }

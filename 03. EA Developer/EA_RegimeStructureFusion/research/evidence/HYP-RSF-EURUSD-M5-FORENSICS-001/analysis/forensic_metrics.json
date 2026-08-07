@@ -1,0 +1,78 @@
+{
+  "schema_version": "rsf_cell16_forensic_metrics.v1",
+  "inputs": {
+    "truth_sha256": "83AFF6F06E464E26672DB9E38E7D6BD0ED861BC5876B5FDB1D0D8A080AE336BD",
+    "cases_sha256": "1012C7F46F92E91800B461DA8C3749238E74088D0B64E85385F19353290CFD23",
+    "replay_sha256": "B94E3A856AE6AE6DE0E3047D3215E3AF9AC1C929827645D051AD285F26E8F655",
+    "bars_sha256": "6B18C8BE6F772893428199A44708208EEB844F95BC02FD1317528E163EC72ED8",
+    "runmeta_sha256": "3DC9245874DDD898611084F6EBAB8B85C1E8E1CEF09BE1A187B3334F2E8093F1"
+  },
+  "overall": {
+    "bucket": "ALL",
+    "trades": 670,
+    "wins": 273,
+    "win_rate_pct": 40.74626865671642,
+    "net_profit": -5252.6,
+    "profit_factor": 0.7203706316229375,
+    "mean_net_r": -0.08156336882089554,
+    "median_net_r": -1.0210087749999999,
+    "avg_win_r": 1.2654154386813188,
+    "avg_loss_r": -1.007823354836272,
+    "payoff_r": 1.2555924930782085,
+    "breakeven_win_rate_pct": 44.33424934108108,
+    "avg_initial_risk_account": 44.97535820895523,
+    "median_holding_minutes": 52.0
+  },
+  "runmeta_funnel": {
+    "ticks_seen": 105949201,
+    "closed_bars_seen": 372914,
+    "indicator_ready": 117052,
+    "indicator_not_ready": 0,
+    "range_setups": 49,
+    "trend_setups": 2327,
+    "breakout_setups": 252,
+    "reject_session": 243289,
+    "reject_setup": 102546,
+    "reject_context": 11063,
+    "reject_structure": 581,
+    "reject_timing": 234,
+    "reject_risk": 1958,
+    "reject_execution": 0,
+    "entries_opened": 670,
+    "final_closes": 670,
+    "last_reason": "TREND_SHORT"
+  },
+  "path": {
+    "losers": 397,
+    "losers_never_reached_0_25r": 172,
+    "losers_never_reached_0_25r_pct": 43.32493702770781,
+    "losers_reached_0_50r_then_lost": 152,
+    "losers_reached_0_50r_then_lost_pct": 38.287153652392945,
+    "losers_reached_1_00r_then_lost": 44,
+    "median_loser_mfe_r": 0.3370786516853344,
+    "median_loser_mae_r": 1.0
+  },
+  "frozen_window_diagnostics": {
+    "snapshots": 2691,
+    "aird_confidence_ge_0_45": 2685,
+    "aird_confidence_ge_0_45_pct": 99.77703455964325,
+    "qqe_state_counts": {
+      "0": 2691
+    },
+    "qqe_state_is_neutral_pct": 100.0
+  },
+  "matched_pair_direction_alignment": {
+    "pairs": 6,
+    "loss_tb_aligned": 4,
+    "win_tb_aligned": 6,
+    "loss_aird_aligned": 3,
+    "win_aird_aligned": 2,
+    "loss_vrc_aligned": 3,
+    "win_vrc_aligned": 3
+  },
+  "caveats": [
+    "Path MFE/MAE uses only fully completed M5 bars before exit plus entry/exit prices; it is conservative and does not infer within-exit-bar extremes.",
+    "Indicator distributions cover the 13 frozen capture windows, not all 670 entries. Population claims use the full lifecycle truth table only.",
+    "Matched-pair comparisons are descriptive at n=6 pairs and cannot authorize a threshold or filter."
+  ]
+}

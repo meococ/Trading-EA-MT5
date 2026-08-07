@@ -1,0 +1,27 @@
+{
+  "schema_version": "rsf_failure_packet.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-LIVE-OBJECTIVE-005",
+  "run_id": "20260807_093015",
+  "verdict": "KILL_ZERO_TRADES_CAUSAL_TARGET_UNAVAILABLE",
+  "engineering_valid": true,
+  "economic_valid": false,
+  "promotion_ready": false,
+  "trades": 0,
+  "funnel": {
+    "ticks_seen": 105949201,
+    "closed_bars_seen": 372914,
+    "indicator_ready": 125589,
+    "structural_reject_context": 602,
+    "structural_reject_no_objective": 5598,
+    "structural_reject_runway": 0,
+    "structural_armed": 0,
+    "entries_opened": 0
+  },
+  "failure_radius": "The current TB contract exports only the nearest swing. A BOS/MSS consumes that same-side swing before the EA arms, so no still-live forward swing objective can exist in the exported fields.",
+  "same_id_parameter_rescue_allowed": false,
+  "post_hoc_session_route_year_pruning_allowed": false,
+  "source_snapshot_path": "03. EA Developer/EA_RegimeStructureFusion/research/source_snapshots/EA_RegimeStructureFusion_HYP-RSF-EURUSD-M5-LIVE-OBJECTIVE-005_C2AC.mq5",
+  "source_snapshot_sha256": "C2ACC82167746612C9EEE1DD91C9FE7C2E0E56CA64799E1A80C690BB131B1831",
+  "report_sha256": "68158F988EAFA8EB34FC2A6F0E88A02C410EF9C7035CD30360A690AE8A81A88E",
+  "runmeta_sha256": "C1DF6C2143546C715BEA66EFE11BB27B131C16FF31C6B1B8396B37D8053FB46C"
+}

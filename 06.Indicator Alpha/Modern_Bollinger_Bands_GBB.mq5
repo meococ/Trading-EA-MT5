@@ -47,6 +47,12 @@ enum ENUM_MBB_BAND_MODE
    MBB_BANDS_STDEV=1   // Stdev
   };
 
+// Stable primitive ABI for Expert Advisors. Empty preserves chart inputs.
+// Format: RSF1|lengthMode|fixedLen|basisMode|bandMode|stdevK|pHi|pLo|
+// pctMult|pctFloor|kamaFast|kamaSlow|kerLen|rankLen|trendEnter|trendExit|
+// squeezeThreshold|squeezeBars|touchFraction.
+input string InpEaContract=""; // EA contract (leave empty for chart use)
+
 //--- Adaptive length inputs
 input group "Adaptive length"
 input ENUM_MBB_LENGTH_MODE InpLengthMode        = MBB_LENGTH_ADAPTIVE; // Length mode
@@ -99,6 +105,62 @@ input bool                 InpEnablePush        = false; // Mobile push
 input group "Parity"
 input bool                 InpUseStart          = false;                  // Gate computation at start time
 input datetime             InpStartTime         = D'2023.01.01 00:00';    // UTC-equivalent data time
+
+int g_cfgLengthMode=0,g_cfgFixedLength=0,g_cfgBasisMode=0,g_cfgBandMode=0;
+double g_cfgStdevMultiplier=0.0,g_cfgRobustUpperPct=0.0,g_cfgRobustLowerPct=0.0;
+int g_cfgRobustWindowMult=0,g_cfgRobustWindowFloor=0,g_cfgKamaFast=0,g_cfgKamaSlow=0;
+int g_cfgKerLength=0,g_cfgRankLength=0,g_cfgSqueezeMinBars=0;
+double g_cfgTrendEnter=0.0,g_cfgTrendExit=0.0,g_cfgSqueezeThreshold=0.0,g_cfgBasisTouchFraction=0.0;
+
+bool ResolveEaEngineContract()
+  {
+   if(StringLen(InpEaContract)==0)
+     {
+      g_cfgLengthMode=(int)InpLengthMode; g_cfgFixedLength=InpFixedLength;
+      g_cfgBasisMode=(int)InpBasisMode; g_cfgBandMode=(int)InpBandMode;
+      g_cfgStdevMultiplier=InpStdevMultiplier; g_cfgRobustUpperPct=InpRobustUpperPct;
+      g_cfgRobustLowerPct=InpRobustLowerPct; g_cfgRobustWindowMult=InpRobustWindowMult;
+      g_cfgRobustWindowFloor=InpRobustWindowFloor; g_cfgKamaFast=InpKamaFast;
+      g_cfgKamaSlow=InpKamaSlow; g_cfgKerLength=InpKerLength; g_cfgRankLength=InpRankLength;
+      g_cfgTrendEnter=InpTrendEnter; g_cfgTrendExit=InpTrendExit;
+      g_cfgSqueezeThreshold=InpSqueezeThreshold; g_cfgSqueezeMinBars=InpSqueezeMinBars;
+      g_cfgBasisTouchFraction=InpBasisTouchFraction;
+      return(true);
+     }
+   string p[];
+   if(StringSplit(InpEaContract,StringGetCharacter("|",0),p)!=19 || p[0]!="RSF1")
+      return(false);
+   g_cfgLengthMode=(int)StringToInteger(p[1]); g_cfgFixedLength=(int)StringToInteger(p[2]);
+   g_cfgBasisMode=(int)StringToInteger(p[3]); g_cfgBandMode=(int)StringToInteger(p[4]);
+   g_cfgStdevMultiplier=StringToDouble(p[5]); g_cfgRobustUpperPct=StringToDouble(p[6]);
+   g_cfgRobustLowerPct=StringToDouble(p[7]); g_cfgRobustWindowMult=(int)StringToInteger(p[8]);
+   g_cfgRobustWindowFloor=(int)StringToInteger(p[9]); g_cfgKamaFast=(int)StringToInteger(p[10]);
+   g_cfgKamaSlow=(int)StringToInteger(p[11]); g_cfgKerLength=(int)StringToInteger(p[12]);
+   g_cfgRankLength=(int)StringToInteger(p[13]); g_cfgTrendEnter=StringToDouble(p[14]);
+   g_cfgTrendExit=StringToDouble(p[15]); g_cfgSqueezeThreshold=StringToDouble(p[16]);
+   g_cfgSqueezeMinBars=(int)StringToInteger(p[17]); g_cfgBasisTouchFraction=StringToDouble(p[18]);
+   return(g_cfgLengthMode>=0 && g_cfgLengthMode<=1 && g_cfgBasisMode>=0 && g_cfgBasisMode<=1 &&
+          g_cfgBandMode>=0 && g_cfgBandMode<=1);
+  }
+
+#define InpLengthMode          g_cfgLengthMode
+#define InpFixedLength         g_cfgFixedLength
+#define InpBasisMode           g_cfgBasisMode
+#define InpBandMode            g_cfgBandMode
+#define InpStdevMultiplier     g_cfgStdevMultiplier
+#define InpRobustUpperPct      g_cfgRobustUpperPct
+#define InpRobustLowerPct      g_cfgRobustLowerPct
+#define InpRobustWindowMult    g_cfgRobustWindowMult
+#define InpRobustWindowFloor   g_cfgRobustWindowFloor
+#define InpKamaFast            g_cfgKamaFast
+#define InpKamaSlow            g_cfgKamaSlow
+#define InpKerLength           g_cfgKerLength
+#define InpRankLength          g_cfgRankLength
+#define InpTrendEnter          g_cfgTrendEnter
+#define InpTrendExit           g_cfgTrendExit
+#define InpSqueezeThreshold    g_cfgSqueezeThreshold
+#define InpSqueezeMinBars      g_cfgSqueezeMinBars
+#define InpBasisTouchFraction  g_cfgBasisTouchFraction
 
 //--- Canonical constants from the supplied EACO v2.1 specification.
 const int    MBB_LEN_MIN=10;
@@ -667,6 +729,11 @@ void ConfigurePlots()
 //+------------------------------------------------------------------+
 int OnInit()
   {
+   if(!ResolveEaEngineContract())
+     {
+      Print("Modern Bollinger Bands [GBB]: invalid EA engine contract.");
+      return(INIT_PARAMETERS_INCORRECT);
+     }
    if(InpFixedLength<2 ||
       InpStdevMultiplier<=0.0 ||
       InpRobustUpperPct<=0.0 || InpRobustUpperPct>100.0 ||

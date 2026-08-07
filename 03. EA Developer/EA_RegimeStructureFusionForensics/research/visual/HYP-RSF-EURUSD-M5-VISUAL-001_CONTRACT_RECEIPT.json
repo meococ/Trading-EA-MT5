@@ -1,0 +1,46 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-VISUAL-001",
+  "task_packet_sha256": "773F6E162057F5B74B2EE71648A56E383B898B46F317530E0C64ACA5FFC3EAD0",
+  "git_commit": "59b118a7a677b9bcb12420132608f633d9129545",
+  "git_status_sha256": "F6614ABAA66C66CD6EC24C31A33C809E293977E6871AE5E95A8EE9FF3A627200",
+  "binding": {
+    "hypothesis_id": "HYP-RSF-EURUSD-M5-VISUAL-001",
+    "run_role": "control",
+    "ea_name": "EA_RegimeStructureFusionForensics",
+    "symbol": "EURUSD",
+    "period": "M5",
+    "from": "2019.01.01",
+    "to": "2019.06.05",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=EURUSD;InpForensicVisualScreenshots=true;InpHypothesisId=HYP-RSF-EURUSD-M5-VISUAL-001;InpResearchAutoMode=true;InpVariantTag=VISUAL_NATIVE_CASEBOOK",
+    "telemetry_tier": "trade-only",
+    "telemetry_profile": "lifecycle-v3",
+    "visual_mode": true,
+    "indicator_dependencies": [
+      {"name": "AI_Regime_Detection", "source": "06.Indicator Alpha/AI_Regime_Detection.mq5", "source_sha256": "C432AEF3BF7EC93EC8A64BD2806C115E71F822B2DCB438DAC22590FB978EB475", "terminal_ex5": "AlphaFactory\\AI_Regime_Detection.ex5"},
+      {"name": "Volatility_Regime_Classifier_QuantRegime", "source": "06.Indicator Alpha/Volatility_Regime_Classifier_QuantRegime.mq5", "source_sha256": "EB81B1426CBDAF3143F553388A213E2BB5A3E33E05433991918CC5977273A087", "terminal_ex5": "AlphaFactory\\Volatility_Regime_Classifier_QuantRegime.ex5"},
+      {"name": "Modern_Bollinger_Bands_GBB", "source": "06.Indicator Alpha/Modern_Bollinger_Bands_GBB.mq5", "source_sha256": "AC5DB6E1DDA825F6A3535E9AB1E4C9956086C7AF590E2672C71CF03D8F4E54FE", "terminal_ex5": "AlphaFactory\\Modern_Bollinger_Bands_GBB.ex5"},
+      {"name": "TB_Smart_Money_Concept_2026", "source": "06.Indicator Alpha/TB_Smart_Money_Concept_2026.mq5", "source_sha256": "4658F3CD2C439C2655EF1534A18D29BC52EB6D91B494F2C17CC337755F1F1F33", "terminal_ex5": "AlphaFactory\\TB_Smart_Money_Concept_2026.ex5"},
+      {"name": "QQE_MOD", "source": "06.Indicator Alpha/QQE_MOD.mq5", "source_sha256": "22456C83C73D2070F52D83BBCE7D5DC1982CD987F8BE807E10482703982CAF9A", "terminal_ex5": "AlphaFactory\\QQE_MOD.ex5"}
+    ],
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": ["*_LifecycleTrades_*.csv", "*_RunMeta_*.json", "*_VisualShots_*.csv"],
+    "symbol_geometry": {"digits": 5, "point": 0.00001, "pip_size": 0.0001},
+    "include_closure_sha256": "39BE275379DFB3F969D15E8E74656C609DB0745BE29400A50CC3C2023DDEF4B7"
+  },
+  "evidence": [
+    {"label": "task_packet", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionForensics\\research\\visual\\HYP-RSF-EURUSD-M5-VISUAL-001_TASK_PACKET.json", "sha256": "773F6E162057F5B74B2EE71648A56E383B898B46F317530E0C64ACA5FFC3EAD0"},
+    {"label": "source", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionForensics\\EA_RegimeStructureFusionForensics.mq5", "sha256": "2167C779E09D09ECDC19438982CBA4CA050C31553D633129DF87BDBA7BF9E033"},
+    {"label": "include_parent_ea", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\EA_RegimeStructureFusion.mq5", "sha256": "E40F29431E8ADA440302F7DEDB7ACD8EBCB48C1308EB6B43936849C128E959D0"},
+    {"label": "ea_capability_contract", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionForensics\\ALPHAFACTORY_EA_CONTRACT.json", "sha256": "72B3610C1FD2A2E582501EF9991EC12F4EE84DD68FA69FC3F9D2F2037F4B3601"},
+    {"label": "prereg", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionForensics\\research\\HYP-RSF-EURUSD-M5-VISUAL-001_FROZEN_PREREG.md", "sha256": "806D3BA9723A36EB1CDAC5F9DDEB19CD884032B9E4AEE272DD32A17AEB436D64"},
+    {"label": "cost_source_manifest", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionForensics\\research\\visual\\HYP-RSF-EURUSD-M5-VISUAL-001_COST_SOURCE_MANIFEST.json", "sha256": "22142E03A4EF0CCE008618421FA767B96AD66834BBBBCB599CDAE0F4B5423536"}
+  ],
+  "generated_at_utc": "2026-08-07T00:58:00Z",
+  "note": "Diagnostic visual replay only. This receipt authorizes native MT5 chart evidence capture, not economic re-evaluation or tuning."
+}

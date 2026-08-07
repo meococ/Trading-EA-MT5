@@ -5524,3 +5524,81 @@ filters from the result. The sibling EURUSD sweep is only an identity-invalid
 strong adverse prior, while XAUUSD remains unproven because its full-population
 data/cost identity was not validly established.
 
+---
+
+## HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-ECON-010 — terminal economic kill (2026-08-07)
+
+**EA / run:** `EA_RegimeStructureFusion` / `20260807_102556`
+
+**Mechanism:** AIRD/VRC context routing, MBB event state, QQE closed-bar timing,
+TB BOS/MSS-retest structure and the nearest causal unconsumed swing liquidity
+pool as a mandatory forward objective with at least 1.25R runway.
+
+**Engineering:** PASS. TB public contract v3 exposes buffers 44..47; 21
+structural/role/temporal tests pass; compile is clean; 123,064 bars were
+indicator-ready with zero snapshot failures. EntryContext N162 reconciles to
+Lifecycle 162 OPEN + 162 final CLOSE, with zero wrong-side objectives.
+
+**Economics:** FAIL. The one preregistered EURUSD M5 2018–2022 Model-0 trial
+returned N162, PF0.714519, net -USD3,981.17, WR38.30%, DD4.9005%, expectancy
+-USD24.58/trade, mean -0.136032R and median -1.017743R. Europe N112/PF0.68 and
+New York N50/PF0.80 are both negative.
+
+**Chart forensics:** eight native MT5 Visual Mode screenshots contain actual
+MBB, QQE and TB overlays plus real entry/SL/TP/exit markers. Winners more often
+show protected swing → fresh BOS/MSS → retest → usable opposing corridor;
+losses frequently enter into nearby opposing zones or degraded
+range/compression. This is outcome-derived explanation, not filter authority.
+The attempted TradingView custom-indicator parity view was blocked by account
+sign-in, so no TradingView parity claim is made.
+
+**Decision:** `KILL_BASE_ECONOMICS_NO_PARAMETER_RESCUE`. The breakout-long
+diagnostic slice is positive only post hoc, remains below PF1.30 and has
+near-zero mean R; it cannot rescue the object. No optimization, WFA/CPCV,
+Monte Carlo, validation, holdout, paper, promotion or live route. A successor
+needs a materially different causal mechanism and a fresh outcome-blind
+symbol/timeframe/data/cost contract.
+
+**Independent review:** Grok Build confirmed the three-layer verdict. It found
+one P2 debt: 12/162 entries retained the objective frozen at arm time while a
+nearer live pool level existed at entry. Side/runway invariants still held, so
+this neither invalidates the run nor authorizes a patch-rerun; objective
+rebinding belongs only to a fresh decision surface/ID.
+
+---
+
+## JCDR HYP005 + structural-successor frontier stop (2026-08-07)
+
+**Diagnostic run:** `EA_JumpClusterDecayReversal` / `20260807_180115`,
+EURUSD M5 2016-01-04..2020-12-31, Model 0 zero-trade collector.
+
+**Engineering/data:** 100% history quality; 934 raw events and 934 unique
+outcome-blind telemetry rows; 0 trading deals/orders/positions; runtime gates
+passed. The research-loop execution binding was invalid because the packet
+contained a stale server fingerprint. The single attempt was consumed and the
+omitted StageTelemetry sidecar was recovered artifact-only without a rerun.
+
+**Stage finding:** the JCDR clock is not a threshold near-miss. The old funnel
+reached 112 events after energy and 0 after original-direction geometry; all
+934 rows had `TB structure_event=0`. AIRD aligned 590 rows, VRC direction 827
+and TB bias 866, while 447 opposite-direction geometries conflicted with those
+dominant live states. QQE primary/secondary RSI are one identical family.
+
+**Independent de-dup:** Grok Build completed with `EndTurn` and schema PASS,
+returning `C_REJECT_RECOMBINATIONS` at high confidence. TB sweep/reclaim is a
+weak delta across ASRS/HYP-017/RSF; fresh TB BOS/MSS first-retest is a duplicate
+of RSF HYP010. Neither source probe nor EA build is authorized.
+
+**Deep research:** a separate web-backed primary-source Grok session completed
+with `EndTurn` and schema PASS, returning `NO_LEGAL_CANDIDATE` at high
+confidence. The remaining defensible clocks require licensed EBS/CLS/CME-book
+or benchmark data with an explicit cost/latency/history/full-universe contract.
+Free official daily/monthly surfaces cannot be densified into fake M5 events.
+
+**Decision:**
+`FRONTIER_STOP_NO_LEGAL_FREE_OR_BROKER_NATIVE_M5_M15_EVENT_CLOCK`. Goal remains
+ACTIVE/UNMET. Reopen only after an Owner-authorized point-in-time source pilot;
+then run a zero-trade full-universe cadence/coverage gate before outcomes.
+Canonical readout:
+`04. Memory/research/20260807_INDICATOR_FUSION_FRONTIER_STOP.md`.
+

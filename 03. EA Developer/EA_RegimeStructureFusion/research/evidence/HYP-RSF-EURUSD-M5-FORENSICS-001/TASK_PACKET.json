@@ -1,0 +1,23 @@
+{
+  "schema_version": "alphafactory_research_task_packet.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-FORENSICS-001",
+  "run_role": "control",
+  "ea_name": "EA_RegimeStructureFusionForensics",
+  "symbol": "EURUSD",
+  "period": "M5",
+  "from": "2018.01.01",
+  "to": "2022.12.31",
+  "model": 0,
+  "execution_mode": 0,
+  "fixed_delay_ms": 0,
+  "overrides": "InpExpectedSymbol=EURUSD;InpForensicCaptureWindows=FROZEN_13_V1;InpHypothesisId=HYP-RSF-EURUSD-M5-FORENSICS-001;InpMagic=5867299;InpManualModeMask=7;InpManualSessionMask=6;InpProfileMode=1;InpResearchAutoMode=true;InpUseContextRouter=true;InpUseQqeTiming=true;InpUseTbStructure=true;InpVariantTag=B1C16_FORENSIC_REPLAY",
+  "telemetry_tier": "off",
+  "telemetry_profile": "none-wrapper-base-default-still-on",
+  "deposit": 100000,
+  "leverage": 100,
+  "spread": "current",
+  "required_sidecars": ["*_LifecycleTrades_*.csv", "*_RunMeta_*.json", "*_RSFForensic_*.csv"],
+  "purpose": "Outcome-locked replay of terminal Cell 16 to export true decision-time states for five-indicator losing-trade forensics.",
+  "economic_claims_authorized": false,
+  "promotion_eligible": false
+}

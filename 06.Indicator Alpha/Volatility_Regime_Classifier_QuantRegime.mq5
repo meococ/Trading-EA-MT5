@@ -64,6 +64,11 @@ const int VRC_REGIME_BULL=5;
 const int VRC_REGIME_STRONG_BULL=6;
 const int VRC_REGIME_COMPRESSION=7;
 
+// Stable primitive ABI for Expert Advisors. Empty preserves chart inputs.
+// Format: RSF1|hurst|adx|adxSmooth|chop|atr|volRank|adxTrend|adxStrong|
+// chopRange|hurstTrend|hurstMR|volHigh|volLow.
+input string InpEaContract=""; // EA contract (leave empty for chart use)
+
 //--- Regime Detection Engine
 input group "Regime Detection Engine"
 input int InpHurstLength=100;             // Hurst Estimation Lookback (20..500)
@@ -111,6 +116,52 @@ input bool InpAlertVolatilitySpike=true;    // Alert on Volatility Spike
 input bool InpAlertCompression=true;        // Alert on Compression
 input bool InpEnablePopupAlert=true;        // MT5 popup/sound
 input bool InpEnablePushNotification=false; // Mobile push
+
+int g_cfgHurstLength=0,g_cfgAdxLength=0,g_cfgAdxSmoothing=0,g_cfgChopLength=0;
+int g_cfgVolatilityLength=0,g_cfgVolPercentileLength=0;
+double g_cfgAdxTrendThreshold=0.0,g_cfgAdxStrongThreshold=0.0,g_cfgChopRangeThreshold=0.0;
+double g_cfgHurstTrendThreshold=0.0,g_cfgHurstMrThreshold=0.0;
+double g_cfgVolHighPercentile=0.0,g_cfgVolLowPercentile=0.0;
+
+bool ResolveEaEngineContract()
+  {
+   if(StringLen(InpEaContract)==0)
+     {
+      g_cfgHurstLength=InpHurstLength; g_cfgAdxLength=InpAdxLength;
+      g_cfgAdxSmoothing=InpAdxSmoothing; g_cfgChopLength=InpChopLength;
+      g_cfgVolatilityLength=InpVolatilityLength; g_cfgVolPercentileLength=InpVolPercentileLength;
+      g_cfgAdxTrendThreshold=InpAdxTrendThreshold; g_cfgAdxStrongThreshold=InpAdxStrongThreshold;
+      g_cfgChopRangeThreshold=InpChopRangeThreshold; g_cfgHurstTrendThreshold=InpHurstTrendThreshold;
+      g_cfgHurstMrThreshold=InpHurstMrThreshold; g_cfgVolHighPercentile=InpVolHighPercentile;
+      g_cfgVolLowPercentile=InpVolLowPercentile;
+      return(true);
+     }
+   string p[];
+   if(StringSplit(InpEaContract,StringGetCharacter("|",0),p)!=14 || p[0]!="RSF1")
+      return(false);
+   g_cfgHurstLength=(int)StringToInteger(p[1]); g_cfgAdxLength=(int)StringToInteger(p[2]);
+   g_cfgAdxSmoothing=(int)StringToInteger(p[3]); g_cfgChopLength=(int)StringToInteger(p[4]);
+   g_cfgVolatilityLength=(int)StringToInteger(p[5]); g_cfgVolPercentileLength=(int)StringToInteger(p[6]);
+   g_cfgAdxTrendThreshold=StringToDouble(p[7]); g_cfgAdxStrongThreshold=StringToDouble(p[8]);
+   g_cfgChopRangeThreshold=StringToDouble(p[9]); g_cfgHurstTrendThreshold=StringToDouble(p[10]);
+   g_cfgHurstMrThreshold=StringToDouble(p[11]); g_cfgVolHighPercentile=StringToDouble(p[12]);
+   g_cfgVolLowPercentile=StringToDouble(p[13]);
+   return(true);
+  }
+
+#define InpHurstLength            g_cfgHurstLength
+#define InpAdxLength              g_cfgAdxLength
+#define InpAdxSmoothing           g_cfgAdxSmoothing
+#define InpChopLength             g_cfgChopLength
+#define InpVolatilityLength       g_cfgVolatilityLength
+#define InpVolPercentileLength    g_cfgVolPercentileLength
+#define InpAdxTrendThreshold      g_cfgAdxTrendThreshold
+#define InpAdxStrongThreshold     g_cfgAdxStrongThreshold
+#define InpChopRangeThreshold     g_cfgChopRangeThreshold
+#define InpHurstTrendThreshold    g_cfgHurstTrendThreshold
+#define InpHurstMrThreshold       g_cfgHurstMrThreshold
+#define InpVolHighPercentile      g_cfgVolHighPercentile
+#define InpVolLowPercentile       g_cfgVolLowPercentile
 
 const color VRC_PANEL_BG=C'26,26,46';
 const color VRC_PANEL_ALT=C'15,52,96';
@@ -726,6 +777,11 @@ void ProcessClosedBarAlerts(const int ratesTotal,const datetime &time[])
 //+------------------------------------------------------------------+
 int OnInit()
   {
+   if(!ResolveEaEngineContract())
+     {
+      Print("VRC invalid EA engine contract.");
+      return(INIT_PARAMETERS_INCORRECT);
+     }
    if(!ValidateInputs())
      {
       Print("VRC invalid inputs: check lookbacks, threshold ordering and band multiplier.");

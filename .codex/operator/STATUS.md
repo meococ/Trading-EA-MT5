@@ -1,6 +1,6 @@
 # Operator Recovery Pointer
 
-Updated: 2026-08-02.
+Updated: 2026-08-07.
 
 This file is a non-authoritative recovery pointer for long operator sessions.
 It must not duplicate hypothesis metrics, package ledgers, current row counts,
@@ -13,6 +13,20 @@ canonical sources elsewhere.
 - A compile pass, engineering audit, terminal KILL or completed subtask does not
   complete the book goal.
 - This file never grants source, run, rerun, promotion, paper or live authority.
+
+## Current scoped frontier
+
+- The indicator/visual campaign has a durable frontier-stop readout at
+  `04. Memory/research/20260807_INDICATOR_FUSION_FRONTIER_STOP.md`.
+- JCDR HYP005 is terminal after its one outcome-blind diagnostic attempt. Do
+  not rerun or tune the JCDR event clock.
+- Independent de-dup review rejected TB sweep/reclaim and fresh BOS/MSS-retest
+  recombinations as weak/duplicate descendants of already closed families.
+- Web-backed primary-source research found no legal free/broker-native M5/M15
+  event clock inside the declared boundary. Goal remains ACTIVE/UNMET.
+- The next safe action is not another EA build. It is an Owner-authorized,
+  hash-bound point-in-time source pilot with explicit license, budget,
+  historical/live latency and nine-symbol family coverage.
 
 ## Recover current truth
 

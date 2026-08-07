@@ -1,0 +1,58 @@
+{
+  "schema_version": "jcdr.independent_router_review.v1",
+  "hypothesis_id": "HYP-JCDR-EURUSD-M5-003",
+  "review_status": "PASS",
+  "scope": "Outcome-blind causal contract and prior-finding closure only",
+  "permissions": {
+    "mql5_no_trade_exporter_build": true,
+    "compile": true,
+    "nonrepaint_audit": true,
+    "one_model0_router_feasibility_run": true,
+    "trade_api": false,
+    "post_availability_prices": false,
+    "performance_or_economics": false,
+    "optimization": false,
+    "validation_or_holdout": false
+  },
+  "reviewed_plan": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/research/HYP-JCDR-EURUSD-M5-003_INDICATOR_ROUTING_FEASIBILITY_PLAN.md",
+    "sha256": "BC11B14CA42CB932BEE2B8FAE38222B155EF7AC37705A61A5FF307A484AE1B12"
+  },
+  "indicator_sources": [
+    {
+      "path": "06.Indicator Alpha/AI_Regime_Detection.mq5",
+      "sha256": "C432AEF3BF7EC93EC8A64BD2806C115E71F822B2DCB438DAC22590FB978EB475"
+    },
+    {
+      "path": "06.Indicator Alpha/Volatility_Regime_Classifier_QuantRegime.mq5",
+      "sha256": "EB81B1426CBDAF3143F553388A213E2BB5A3E33E05433991918CC5977273A087"
+    },
+    {
+      "path": "06.Indicator Alpha/Modern_Bollinger_Bands_GBB.mq5",
+      "sha256": "AC5DB6E1DDA825F6A3535E9AB1E4C9956086C7AF590E2672C71CF03D8F4E54FE"
+    },
+    {
+      "path": "06.Indicator Alpha/QQE_MOD.mq5",
+      "sha256": "86876D352762F6C107BC4AC886C04E901C9345C68A5C7E68C73A33696F13053F"
+    },
+    {
+      "path": "06.Indicator Alpha/TB_Smart_Money_Concept_2026.mq5",
+      "sha256": "3848CBD4FD34748BE95A372D4797465383CC7EDDE0ED36687E8AA26546893539"
+    }
+  ],
+  "reviewer": {
+    "backend": "grok-build",
+    "model": "grok-4.5-build",
+    "reasoning_effort": "high",
+    "run_id": "20260807T055009129388Z-33852",
+    "response_path": ".context/jcdr003_router_prereg_review/run4/grok-response.json",
+    "response_sha256": "758BA2C1E695E773E780BC9CE6C17F9583BADC5E4E692A41E2A95DD5154B2698",
+    "summary_path": ".context/jcdr003_router_prereg_review/run4/summary.json",
+    "summary_sha256": "02198F7FF7209D685DDB353FBEFEE43F1BB9DA32955E9584094B4D3635DCAA27",
+    "structured_output_validation": "PASS",
+    "verdict": "PASS",
+    "unresolved_findings": 0,
+    "confidence": 0.9
+  },
+  "authorized_next_step": "Implement and compile only the no-trade outcome-blind Model-0 feasibility exporter; after focused tests and non-repaint audit, run exactly one full-window probe against all twelve gates."
+}

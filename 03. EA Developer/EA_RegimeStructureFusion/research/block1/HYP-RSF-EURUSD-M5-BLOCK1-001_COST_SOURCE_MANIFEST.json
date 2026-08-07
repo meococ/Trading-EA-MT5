@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-BLOCK1-001",
+  "symbol": "EURUSD",
+  "evidence_tier": "RESEARCH_PROXY",
+  "spread_policy": "tester_current",
+  "commission_provenance": "broker_report_only_not_independently_bound",
+  "slippage_provenance": "not_independently_bound_in_block1",
+  "model": 0,
+  "authorized_use": "prospective_2018_2022_block1_discovery_only",
+  "economic_claims_authorized": false,
+  "promotion_eligible": false,
+  "note": "All 18 cells share this proxy. Missing independent dynamic-slippage evidence forbids economic-valid or promotion claims."
+}

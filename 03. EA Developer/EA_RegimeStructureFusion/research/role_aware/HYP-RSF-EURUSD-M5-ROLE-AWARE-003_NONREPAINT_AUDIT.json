@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-ROLE-AWARE-003",
+  "run_id": "STATIC-HYP-RSF-EURUSD-M5-ROLE-AWARE-003-20260807",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\NONREPAINT_AUDIT_MANIFEST_RSF_ROLE_AWARE_003.json",
+  "manifest_sha256": "70099F38A21B9917AFB605966F6B3FCD8FCE43892C883FC5122E5A622EDFA9F7",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\EA_RegimeStructureFusion.mq5",
+      "sha256": "B1E0B19A7985B664A09C198610AA6696ECC699ABAF9DF16D9604AB06F936784E"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\EA_RegimeStructureFusion.mq5",
+      "line": 1525,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "generated_at_utc": "2026-08-06T23:40:19.449961+00:00"
+}

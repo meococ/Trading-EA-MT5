@@ -62,6 +62,7 @@ function Resolve-EaSourceContract {
     $comparisonAdapter = 'generic-control-improvement-v1'
     $variantTagInput = $null
     $contractSha256 = $null
+    $indicatorDependencies = @()
 
     if (Test-Path -LiteralPath $contractAbsolute -PathType Leaf) {
         try {
@@ -98,6 +99,42 @@ function Resolve-EaSourceContract {
         if ($comparisonAdapter -ceq 'sonic-v1' -and $telemetryProfile -cne 'sonic-strict') {
             throw "comparison_adapter 'sonic-v1' requires telemetry_profile 'sonic-strict': $contractAbsolute"
         }
+        $dependencyNames = @{}
+        $dependencyProperty = $packageContract.PSObject.Properties['indicator_dependencies']
+        $declaredDependencies = if ($null -eq $dependencyProperty -or $null -eq $dependencyProperty.Value) {
+            @()
+        } else {
+            @($dependencyProperty.Value)
+        }
+        foreach ($dependency in $declaredDependencies) {
+            $name = [string]$dependency.name
+            $sourceRelative = ([string]$dependency.source).Replace('\', '/')
+            $terminalRelative = ([string]$dependency.terminal_ex5).Replace('/', '\')
+            if ($name -notmatch '^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$' -or $dependencyNames.ContainsKey($name)) {
+                throw "Indicator dependency has an unsafe or duplicate name '$name' in $contractAbsolute"
+            }
+            if ([string]::IsNullOrWhiteSpace($sourceRelative) -or [System.IO.Path]::IsPathRooted($sourceRelative) -or
+                $sourceRelative -match '(^|/)\.\.(/|$)' -or [System.IO.Path]::GetExtension($sourceRelative) -ine '.mq5') {
+                throw "Indicator dependency '$name' has an unsafe source path in $contractAbsolute"
+            }
+            $sourceAbsolute = [System.IO.Path]::GetFullPath((Join-Path $repoFull $sourceRelative.Replace('/', '\')))
+            $repoPrefix = $repoFull + [System.IO.Path]::DirectorySeparatorChar
+            if (-not $sourceAbsolute.StartsWith($repoPrefix, [System.StringComparison]::OrdinalIgnoreCase) -or
+                -not (Test-Path -LiteralPath $sourceAbsolute -PathType Leaf)) {
+                throw "Indicator dependency '$name' source is missing or escapes the repository: $sourceAbsolute"
+            }
+            if ([string]::IsNullOrWhiteSpace($terminalRelative) -or [System.IO.Path]::IsPathRooted($terminalRelative) -or
+                $terminalRelative -match '(^|\\)\.\.(\\|$)' -or [System.IO.Path]::GetExtension($terminalRelative) -ine '.ex5') {
+                throw "Indicator dependency '$name' has an unsafe terminal_ex5 path in $contractAbsolute"
+            }
+            $dependencyNames[$name] = $true
+            $indicatorDependencies += [pscustomobject]@{
+                Name = $name
+                SourceRelativePath = $sourceRelative
+                SourceAbsolutePath = $sourceAbsolute
+                TerminalEx5RelativePath = $terminalRelative
+            }
+        }
         $contractSha256 = (Get-FileHash -LiteralPath $contractAbsolute -Algorithm SHA256).Hash
     }
 
@@ -112,6 +149,7 @@ function Resolve-EaSourceContract {
         ContractRelativePath = if ($null -eq $contractSha256) { $null } else { $contractRelative }
         ContractAbsolutePath = if ($null -eq $contractSha256) { $null } else { $contractAbsolute }
         ContractSha256 = $contractSha256
+        IndicatorDependencies = @($indicatorDependencies)
         IsPinned = $isPinned
     }
 }

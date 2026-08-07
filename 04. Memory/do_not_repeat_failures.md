@@ -7,6 +7,39 @@
 > explicitly stating the delta, running a cheap falsification probe and freezing
 > an independent prereg. Invalid data/engineering runs do not prove no edge.
 
+- `HYP-JCDR-EURUSD-M5-003..005` closes the JCDR-centered indicator-routing
+  line pre-economic. HYP003 was invalid on 49% history quality and missing D0
+  proof; HYP004 then passed 100% data quality but its role router produced only
+  53/933 reversal routes, zero continuation and 0.2035/week. Fresh HYP005
+  exported all 934 raw events with 114 outcome-blind fields and every EA runtime
+  gate passed, although the one-shot research loop was correctly parked on a
+  stale packet server fingerprint. Artifact-only analysis found the causal
+  failure: original-direction TB geometry exists on only 77 rows and the full
+  same-bar continuation funnel ends at zero, while 447 opposite geometries are
+  not reversal evidence because TB bias/VRC direction still align with the
+  cluster on 866/827 rows. QQE primary and secondary alignment are identical
+  and must not be double-counted; TB structure event is zero on every JCDR
+  decision row. Do not rescue with thresholds, hour, direction, pair, geometry
+  or RR. A successor must use a materially new structural event clock and
+  freeze it before outcomes. Evidence:
+  `03. EA Developer/EA_JumpClusterDecayReversal/research/HYP-JCDR-EURUSD-M5-005_FAILURE_PACKET.md`.
+
+- `HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-ECON-010` is terminal
+  `KILL_BASE_ECONOMICS_NO_PARAMETER_RESCUE` (2026-08-07). The corrected TB v3
+  liquidity-pool contract and EA pipeline are engineering-valid: 21 tests,
+  clean compile, 123,064 ready bars, zero snapshot failures, 162/162 lifecycle
+  reconciliation, minimum accepted objective room 1.2545R and zero wrong-side
+  targets. The single frozen EURUSD M5 2018–2022 Model-0 trial nevertheless
+  returned PF0.714519, net -USD3,981.17 and mean -0.136032R. Europe PF0.68 and
+  New York PF0.80 both lose. Native MT5 winner/loser chart review found useful
+  visual explanations, but they are outcome-derived. Do not rescue by
+  timezone, direction, engine, RR, objective runway or indicator thresholds.
+  A successor requires a materially different causal mechanism and fresh
+  outcome-blind ID/prereg; correct structural plumbing alone is not edge.
+  Independent review also found 12/162 arm-time objectives were no longer the
+  nearest live pool level at entry. Rebinding is engineering debt for a fresh
+  decision surface, not permission to rerun or rescue this killed hypothesis.
+
 - `HYP-PTR-T1-QAWAP-HVG-M5-001` is terminal pre-economic
   `INVALID_REPAIR_EXHAUSTED__P5_SYNTHETIC_CAPABILITY_FAILS_PRE_ECONOMIC_GATE`
   (2026-07-31). Two logic-identical canonical synthetic attempts each evaluated
@@ -2251,3 +2284,25 @@ Evidence:
   a blanket claim that the individual indicators, every ensemble, every pair
   or every timeframe lacks edge. A successor requires a materially different
   causal mechanism or decision surface, a fresh ID and an outcome-blind prereg.
+
+## JCDR/RSF structural recombination frontier stop (2026-08-07)
+
+Evidence:
+`04. Memory/research/20260807_INDICATOR_FUSION_FRONTIER_STOP.md`.
+
+- HYP-JCDR-EURUSD-M5-005 completed its only outcome-blind diagnostic attempt:
+  934 unique rows, 100% history quality, zero trades and zero outcome fields.
+  The old continuation funnel ended at zero after geometry, and all decision
+  rows had no current TB structure event. Do not tune JCDR routing or reuse it
+  as the clock for AIRD/VRC/MBB/QQE/TB.
+- Independent de-dup review classified TB sweep/reclaim as a weak delta across
+  ASRS/HYP-017/RSF and fresh BOS/MSS-first-retest as a duplicate of terminal
+  RSF HYP010. Do not reopen either through freshness, live-corridor rebind,
+  protected-swing, RR, stop, direction, hour or pair filters.
+- Web-backed primary-source research found no legal free/broker-native M5/M15
+  event clock left inside the declared boundary. Remaining EBS/CLS/CME-book or
+  benchmark/auction mechanisms require a licensed point-in-time pilot, cost
+  ceiling, historical/live latency contract and honest nine-symbol family map.
+- This is a scoped `NO_LEGAL_CANDIDATE`, not a universal no-edge claim. Reopen
+  only after an Owner-authorized materially new data contract and a zero-trade
+  source-semantics/cadence probe. Do not fabricate another indicator-vote EA.

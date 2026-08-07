@@ -1,0 +1,87 @@
+{
+  "schema_version": "alphafactory_failure_packet.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-ECON-010",
+  "state": "killed",
+  "verdict": "KILL_BASE_ECONOMICS_NO_PARAMETER_RESCUE",
+  "run_id": "20260807_102556",
+  "identity": {
+    "ea": "EA_RegimeStructureFusion",
+    "symbol": "EURUSD",
+    "timeframe": "M5",
+    "from": "2018-01-01",
+    "to": "2022-12-31",
+    "model": 0,
+    "source_sha256": "05D13CAF75B05D3B2585493734B3E315BFCB84004BFB989D228E08B0C79C257A",
+    "ex5_sha256": "0A6CBCC7DCD8A1F8F16AD1FCA7131D216A193A3B2A5F6C0612BF37CD7C82E830",
+    "report_sha256": "BA006A4FF9D3BB54C71D1C94036065AAA36DF95E83CB5FCD41E616FFE5C480F3",
+    "config_sha256": "F1EBE4D9EFF1C5CB1CA2F6F3FD32508B92DEE72D2E904DD0E62DBCC92F2FD3ED"
+  },
+  "metrics": {
+    "trades": 162,
+    "net_profit_usd": -3981.17,
+    "profit_factor": 0.7145189695872785,
+    "win_rate_pct": 38.3,
+    "max_drawdown_pct": 4.900451569636605,
+    "expectancy_usd_per_trade": -24.58,
+    "mean_achieved_r": -0.13603157141975308,
+    "median_achieved_r": -1.0177426349999998
+  },
+  "sessions": {
+    "Europe": { "trades": 112, "profit_factor": 0.68, "net_profit_usd": -3274.0 },
+    "NewYork": { "trades": 50, "profit_factor": 0.80, "net_profit_usd": -707.0 }
+  },
+  "engines": {
+    "BREAKOUT_LONG": { "trades": 42, "net_profit_usd": 671.52, "profit_factor": 1.259226, "mean_r": 0.0149126 },
+    "BREAKOUT_SHORT": { "trades": 35, "net_profit_usd": -1347.51, "profit_factor": 0.5825, "mean_r": -0.2880 },
+    "TREND_LONG": { "trades": 36, "net_profit_usd": -1075.99, "profit_factor": 0.6632, "mean_r": -0.1611 },
+    "TREND_SHORT": { "trades": 49, "net_profit_usd": -2229.19, "profit_factor": 0.5481, "mean_r": -0.1384 }
+  },
+  "funnel": {
+    "ticks": 105949201,
+    "closed_bars": 372914,
+    "indicator_ready": 123064,
+    "indicator_not_ready": 0,
+    "structural_armed": 5349,
+    "structural_retested": 1647,
+    "structural_confirmed": 162,
+    "structural_expired": 1685,
+    "structural_cancelled": 3502,
+    "reject_no_objective": 151,
+    "reject_objective_runway": 914,
+    "entries": 162,
+    "final_closes": 162
+  },
+  "reconciliation": {
+    "entry_context_rows": 162,
+    "lifecycle_rows": 324,
+    "open_rows": 162,
+    "final_close_rows": 162,
+    "minimum_objective_room_r": 1.25451061,
+    "wrong_side_objectives": 0,
+    "accepted_below_1_25r": 0,
+    "entry_context_sha256": "F614487C190ACC5D137705B9950E565944CB3595A3AD09B8076585B63F6A56C2",
+    "lifecycle_sha256": "B03A94A00634339E76F5E31A4A802C39474B2D8D41FF817680DEE09D8ED17AA5",
+    "runmeta_sha256": "D876D466F0D9471B1E3F94F580DB0AE50CACC0853F55C32AC791E6123C47E444"
+  },
+  "gate_results": {
+    "engineering_valid": true,
+    "economic_valid": false,
+    "promotion_ready": false,
+    "optimization_authorized": false,
+    "validation_authorized": false,
+    "holdout_authorized": false,
+    "no_parameter_rescue": true
+  },
+  "independent_review": {
+    "backend": "grok-4.5-build",
+    "runner_success": true,
+    "stop_reason": "EndTurn",
+    "schema_validation_passed": true,
+    "response_sha256": "DEDFEC19386FB475B7BF94DC62B5EE7DE81FC770C5CE698E1C9C8FEB302A91BB",
+    "summary_sha256": "FAC71BEF8008645DE14BBDE220218C2A055B7A7B079BAA944F81B5FECC15B1B6",
+    "verdict": "engineering-valid, economic-invalid, not promotion-ready",
+    "known_p2": "12/162 entries retained the arm-time liquidity objective while a nearer still-live objective existed at entry. Correct side/runway invariants held; any rebind is a fresh decision surface, not a HYP-010 rescue."
+  },
+  "failure_radius": "Exact EURUSD M5 AIRD/VRC context, MBB event, QQE timing, TB structural sequence and causal unconsumed-swing liquidity-objective decision surface under the frozen HYP-010 execution contract.",
+  "next_legal_gate": "Fresh hypothesis with a materially different causal mechanism and an outcome-blind symbol/timeframe/data/cost preregistration."
+}

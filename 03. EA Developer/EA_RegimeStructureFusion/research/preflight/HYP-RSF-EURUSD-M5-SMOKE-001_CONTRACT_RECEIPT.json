@@ -1,0 +1,74 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-SMOKE-001",
+  "task_packet_sha256": "B023B26CC6E158AE7E89F022AA7B56C028D38BC48C8AB89D040FD853E0E0C797",
+  "git_commit": "59b118a7a677b9bcb12420132608f633d9129545",
+  "git_status_sha256": "73823186F76A8928BFB32FAFF8B6A85C328D9DD0A62FDD17C1B0736AF86BE0DA",
+  "binding": {
+    "hypothesis_id": "HYP-RSF-EURUSD-M5-SMOKE-001",
+    "run_role": "control",
+    "ea_name": "EA_RegimeStructureFusion",
+    "symbol": "EURUSD",
+    "period": "M5",
+    "from": "2023.01.02",
+    "to": "2023.03.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=EURUSD;InpHypothesisId=HYP-RSF-EURUSD-M5-SMOKE-001;InpMagic=5867201;InpResearchAutoMode=true;InpVariantTag=SMOKE001_ENGINEERING_MODEL0",
+    "telemetry_tier": "trade-only",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [
+      "*_LifecycleTrades_*.csv",
+      "*_RunMeta_*.json"
+    ],
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 0.00001,
+      "pip_size": 0.0001
+    },
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\preflight\\HYP-RSF-EURUSD-M5-SMOKE-001_TASK_PACKET.json",
+      "sha256": "B023B26CC6E158AE7E89F022AA7B56C028D38BC48C8AB89D040FD853E0E0C797"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+      "sha256": "DEB82BC4EE76C8F6944D94666590B647C2AE80447187E572C4E47ADD43DA5D44"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\EA_RegimeStructureFusion.mq5",
+      "sha256": "AD9E575C66A9F66D9F2DF3BFF350AC1CDE0AD5C0397C203CF01C9E5C0A6B2DB0"
+    },
+    {
+      "label": "ea_capability_contract",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "7F8768962F36830DA4537C3B81B17ABD4F808289CF28D28F14C621D185E1B1D0"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\HYP-RSF-MULTI9-M5-001_FROZEN_PREREG.md",
+      "sha256": "3044B7703E58E39222CAA358318F828EBC6D2072A67F458F97B93DA50B3E547D"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\preflight\\HYP-RSF-EURUSD-M5-SMOKE-001_COST_SOURCE_MANIFEST.json",
+      "sha256": "2D619D785BD2180870EFA69007A82B6DBB0FDCB674F3855E1E2D5F38A629DB99"
+    }
+  ],
+  "generated_at_utc": "2026-08-06T10:10:00Z",
+  "note": "Frozen Model-0 integration control after pre-outcome amendment A9 (100000 USD deposit matched to the broker money-mode stop-out contract). Current-spread cost is an unverified research proxy; economic and promotion claims are forbidden."
+}

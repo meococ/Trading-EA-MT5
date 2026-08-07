@@ -1,6 +1,6 @@
 # Hot Cache — Recent Routing Only
 
-Updated: 2026-08-06 after the owner-directed AIRQMB three-indicator EA screen closeout.
+Updated: 2026-08-07 after HYP005 and the indicator-fusion frontier closeout.
 
 This file is a compact handoff cache. It is **not** hypothesis authority, run
 permission, a family blacklist, or proof that a goal is complete. Recheck every
@@ -11,6 +11,30 @@ report and validator output before acting.
 
 - Workspace goal: `ACTIVE / UNMET`. Canonical outcome and DONE ladder:
   `01. GOAL/GOAL.md`.
+- The current no-build boundary is documented at
+  `04. Memory/research/20260807_INDICATOR_FUSION_FRONTIER_STOP.md`. JCDR HYP005
+  consumed its one zero-trade diagnostic attempt; independent Grok review
+  rejected TB sweep/reclaim and fresh BOS/MSS-retest successors as weak or
+  duplicate recombinations; a web-backed primary-source session returned
+  `NO_LEGAL_CANDIDATE` for the remaining free/broker-native M5/M15 boundary.
+  Do not create another AIRD/VRC/MBB/QQE/TB voting EA. Resume only after an
+  Owner-authorized PIT source pilot freezes license, budget, history/live
+  latency and full nine-symbol family coverage. This is a scoped frontier stop,
+  not goal completion or a universal no-edge claim.
+- `HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-ECON-010` is terminally killed. The
+  engineering path is valid: 21 tests pass; compile is clean; TB v3 exports a
+  causal unconsumed-swing liquidity pool; 123,064 indicator-ready bars have
+  zero snapshot failures; and 162 OPEN rows reconcile to 162 final closes.
+  Economics fail decisively on the sole frozen EURUSD M5 2018–2022 Model-0
+  trial: N162, PF0.714519, net -USD3,981.17, mean -0.136032R and DD4.9005%.
+  Europe PF0.68 and New York PF0.80 are both negative. The native MT5 Visual
+  Mode casebook uses actual MBB/QQE/TB overlays and real trade markers; its
+  winner/loser patterns are explanatory only. Do not mine timezone, direction,
+  engine, RR, target-room or indicator thresholds. Result:
+  `03. EA Developer/EA_RegimeStructureFusion/research/liquidity_pool/HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-ECON-010_RESULT.md`.
+  Independent Grok review agrees and flags P2 arm-time objective staleness on
+  12/162 entries; carry it only into a fresh mechanism/ID, never as HYP-010
+  parameter rescue.
 - Owner-directed `EA_AIRQMB_RegimeFusion` is engineering-valid but terminally
   economic-invalid for the tested object. The one-file M5 EA combines AIRD
   regime gating, MBB S1/S2/S3 events and QQE closed-bar confirmation. Nine

@@ -1,0 +1,61 @@
+{
+    "schema_version":  "alphafactory_research_task_packet.v1",
+    "hypothesis_id":  "HYP-RSF-EURUSD-M5-NATIVE-OUTCOME-004-C03",
+    "run_role":  "control",
+    "ea_name":  "EA_RegimeStructureFusionForensics",
+    "symbol":  "EURUSD",
+    "period":  "M5",
+    "from":  "2019.11.15",
+    "to":  "2019.12.02",
+    "model":  1,
+    "execution_mode":  0,
+    "fixed_delay_ms":  0,
+    "overrides":  "InpEnableTelemetry=true;InpExpectedSymbol=EURUSD;InpForensicAttachM5Indicators=true;InpForensicCaptureWindows=FROZEN_13_V1;InpForensicCleanChart=true;InpForensicExternalCapturePauseMs=0;InpForensicNativeCaseIndex=3;InpForensicNativeLossSchedule=FROZEN_7_LOSER_OUTCOMES_V1;InpForensicShotHeight=900;InpForensicShotSettleMs=1000;InpForensicShotVerifyTicks=20;InpForensicShotWidth=1600;InpForensicVisualScreenshots=true;InpHypothesisId=HYP-RSF-EURUSD-M5-NATIVE-OUTCOME-004-C03;InpMagic=5867323;InpManualModeMask=7;InpManualSessionMask=6;InpProfileMode=1;InpQqeBollingerLength=50;InpQqeBollingerMultiplier=0.35;InpQqePrimaryFactor=3.0;InpQqePrimaryRsiLength=6;InpQqePrimarySmoothing=5;InpQqePrimarySource=1;InpQqePrimaryThreshold=3.0;InpQqeSecondaryFactor=1.61;InpQqeSecondaryRsiLength=6;InpQqeSecondarySmoothing=5;InpQqeSecondarySource=1;InpQqeSecondaryThreshold=3.0;InpResearchAutoMode=true;InpUseContextRouter=true;InpUseQqeTiming=true;InpUseTbStructure=true;InpVariantTag=NATIVE_OUTCOME_004_C03_RANGE_LONG",
+    "telemetry_tier":  "trade-only",
+    "telemetry_profile":  "lifecycle-v3",
+    "deposit":  100000,
+    "leverage":  100,
+    "spread":  "current",
+    "visual_mode":  true,
+    "required_sidecars":  [
+                              "*_LifecycleTrades_*.csv",
+                              "*_RSFForensic_*.csv",
+                              "*_RunMeta_*.json",
+                              "*_VisualShots_*.csv"
+                          ],
+    "indicator_dependencies":  [
+                                   {
+                                       "name":  "AI_Regime_Detection",
+                                       "source":  "06.Indicator Alpha/AI_Regime_Detection.mq5",
+                                       "source_sha256":  "C432AEF3BF7EC93EC8A64BD2806C115E71F822B2DCB438DAC22590FB978EB475",
+                                       "terminal_ex5":  "AlphaFactory\\AI_Regime_Detection.ex5"
+                                   },
+                                   {
+                                       "name":  "Modern_Bollinger_Bands_GBB",
+                                       "source":  "06.Indicator Alpha/Modern_Bollinger_Bands_GBB.mq5",
+                                       "source_sha256":  "AC5DB6E1DDA825F6A3535E9AB1E4C9956086C7AF590E2672C71CF03D8F4E54FE",
+                                       "terminal_ex5":  "AlphaFactory\\Modern_Bollinger_Bands_GBB.ex5"
+                                   },
+                                   {
+                                       "name":  "QQE_MOD",
+                                       "source":  "06.Indicator Alpha/QQE_MOD.mq5",
+                                       "source_sha256":  "86876D352762F6C107BC4AC886C04E901C9345C68A5C7E68C73A33696F13053F",
+                                       "terminal_ex5":  "AlphaFactory\\QQE_MOD.ex5"
+                                   },
+                                   {
+                                       "name":  "TB_Smart_Money_Concept_2026",
+                                       "source":  "06.Indicator Alpha/TB_Smart_Money_Concept_2026.mq5",
+                                       "source_sha256":  "489B6E6B74C4FCA6624B510DC9FF38FDBBDA0584C007B8FFEE3D8339D1CB879E",
+                                       "terminal_ex5":  "AlphaFactory\\TB_Smart_Money_Concept_2026.ex5"
+                                   },
+                                   {
+                                       "name":  "Volatility_Regime_Classifier_QuantRegime",
+                                       "source":  "06.Indicator Alpha/Volatility_Regime_Classifier_QuantRegime.mq5",
+                                       "source_sha256":  "EB81B1426CBDAF3143F553388A213E2BB5A3E33E05433991918CC5977273A087",
+                                       "terminal_ex5":  "AlphaFactory\\Volatility_Regime_Classifier_QuantRegime.ex5"
+                                   }
+                               ],
+    "purpose":  "Exact native MT5 post-exit chart for frozen case RANGE_LONG. Diagnostic Model 1 only.",
+    "economic_claims_authorized":  false,
+    "promotion_eligible":  false
+}

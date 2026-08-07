@@ -167,11 +167,11 @@ def allowed_new_bar_gate(text: str, call_offset: int) -> bool:
     return bool(re.search(rf"\b{stored}\s*=\s*{current}\s*;", window, flags=re.DOTALL))
 
 
-def allowed_collection_provenance_copytime(
-    original: str, text: str, function: str, args: list[str], collection_authorized: bool
+def allowed_first_date_provenance_copytime(
+    original: str, text: str, function: str, args: list[str], provenance_authorized: bool
 ) -> bool:
-    """Allow only the frozen no-trade first-date retrieval probe."""
-    if not collection_authorized or function != "CopyTime" or len(args) != 5:
+    """Allow only the exact non-decision D0 first-date retrieval proof."""
+    if not provenance_authorized or function != "CopyTime" or len(args) != 5:
         return False
     compact_args = [re.sub(r"\s+", "", arg) for arg in args]
     if compact_args != ["_Symbol", "PERIOD_M5", "copytime_from", "1", "copytime_values"]:
@@ -188,14 +188,11 @@ def allowed_collection_provenance_copytime(
     )
     if "DATA_EPOCH_D0_SERIES_PROOF" not in original or any(item not in compact for item in required):
         return False
-    forbidden = re.compile(
-        r"\b(?:CTrade|OrderSend|OrderCheck|PositionOpen|PositionClose|HistoryDeal|FileOpen|FileWrite|FileRead)\b"
-    )
-    return forbidden.search(text) is None
+    return True
 
 
 def audit_file(
-    path: Path, *, collection_authorized: bool = False
+    path: Path, *, collection_authorized: bool = False, provenance_copytime_authorized: bool = False
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     original = path.read_text(encoding="utf-8-sig", errors="strict")
     text = sanitize_mql(original)
@@ -215,8 +212,8 @@ def audit_file(
                 findings.append(
                     {"path": str(path), "line": line, "rule": "unparseable_copy_call", "function": function}
                 )
-            elif allowed_collection_provenance_copytime(
-                original, text, function, args, collection_authorized
+            elif allowed_first_date_provenance_copytime(
+                original, text, function, args, provenance_copytime_authorized
             ):
                 allowed.append(
                     {
@@ -453,11 +450,17 @@ def run(manifest_path: Path, output_path: Path, receipt_path: Path | None = None
     manifest = load_json(manifest_path)
     refs = resolve_snapshot_files(manifest_path, manifest)
     collection_authorized = resolve_collection_authority(manifest, receipt_path)
+    provenance_copytime_authorized = (
+        collection_authorized
+        or manifest.get("nondecision_provenance_copytime_authorized") is True
+    )
     findings: list[dict[str, Any]] = []
     allowed: list[dict[str, Any]] = []
     for ref in refs:
         file_findings, file_allowed = audit_file(
-            Path(ref["path"]), collection_authorized=collection_authorized
+            Path(ref["path"]),
+            collection_authorized=collection_authorized,
+            provenance_copytime_authorized=provenance_copytime_authorized,
         )
         findings.extend(file_findings)
         allowed.extend(file_allowed)

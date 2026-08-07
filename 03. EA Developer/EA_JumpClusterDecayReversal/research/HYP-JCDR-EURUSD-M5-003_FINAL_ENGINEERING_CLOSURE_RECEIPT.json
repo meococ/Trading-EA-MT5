@@ -1,0 +1,60 @@
+{
+  "schema_version": "jcdr003.final_engineering_closure_receipt.v1",
+  "hypothesis_id": "HYP-JCDR-EURUSD-M5-003",
+  "scope": "Exactly one outcome-blind no-trade Model-0 router feasibility probe",
+  "source": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/EA_JumpClusterDecayReversal.mq5",
+    "sha256": "C4982CAD5F3344CC2607696F19DE16852566FA7D5CBB8ADC801D43461F9BFBDF"
+  },
+  "compiled_ex5": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/EA_JumpClusterDecayReversal.ex5",
+    "sha256": "EC235407E8E9BA43F0ACB68AA48964FF05E7AC2FBF4C8B458265E18FC3023B9C",
+    "compile_errors": 0,
+    "compile_warnings": 0
+  },
+  "focused_tests": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/research/tests/test_jcdr003_exporter_contract.py",
+    "sha256": "48EF1919BA809EF1D9943713FCAF9788BA314EB0243C23D27E92F060FEEE9699",
+    "passed": 19,
+    "failed": 0
+  },
+  "static_audit": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/research/HYP-JCDR-EURUSD-M5-003_NONREPAINT_AUDIT.json",
+    "sha256": "1DAD4E43E3DAC10C34622CAEA3DE6E526330E1490663DE38F97DADE02EFDB53B",
+    "verdict": "PASS"
+  },
+  "review_history": {
+    "grok_window_gate_review": {
+      "status": "PASS_ON_PRIOR_WINDOW_GATE_REVISION_NOT_FINAL_SOURCE_AUTHORITY",
+      "response_path": ".context/jcdr003_implementation_review/run5/grok-response.json",
+      "response_sha256": "683E13FF93B47C724C856A523996BB3D4E0F1A315DDC740784758BE7B88F5226"
+    },
+    "grok_final_closure_attempt": {
+      "status": "INVALID_MAX_TURNS_NO_FINAL_PACKET",
+      "summary_path": ".context/jcdr003_implementation_review/run6/summary.json",
+      "summary_sha256": "3CD1D17BE7CB8C18224BBBB8FAC418A58BBD2401CE2A642BFD0345EF5352C6E7",
+      "partial_findings_disposition": "Matched-pair counter commit, RunMeta write proof and exact endpoint coverage were implemented and independently re-reviewed; the cancelled Grok trace is not a PASS authority."
+    },
+    "fresh_context_code_reviewer": {
+      "agent": "/root/jcdr003_window_review",
+      "reviewed_source_sha256": "C4982CAD5F3344CC2607696F19DE16852566FA7D5CBB8ADC801D43461F9BFBDF",
+      "verdict": "PASS",
+      "remaining_p0_p2": 0,
+      "verified": [
+        "matched pair counters commit only after two successful writes",
+        "partial telemetry failure cannot satisfy runtime_all",
+        "RunMeta open and complete write are fail closed",
+        "history select plus historical/current order and deal proof is fail closed",
+        "coverage includes pre/post traversal and exact first/last M5 bars",
+        "runtime summary placeholder and argument parity is consistent",
+        "all price and indicator decision reads remain shift 1",
+        "no trade API or outcome field is present"
+      ]
+    }
+  },
+  "engineering_verdict": "PASS_ONE_MODEL0_NO_TRADE_PROBE_AUTHORIZED",
+  "economics_authorized": false,
+  "performance_metrics_authorized": false,
+  "optimization_authorized": false,
+  "promotion_eligible": false
+}

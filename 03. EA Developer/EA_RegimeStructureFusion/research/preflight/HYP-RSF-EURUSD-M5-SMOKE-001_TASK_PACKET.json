@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_research_task_packet.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-SMOKE-001",
+  "run_role": "control",
+  "ea_name": "EA_RegimeStructureFusion",
+  "symbol": "EURUSD",
+  "period": "M5",
+  "from": "2023.01.02",
+  "to": "2023.03.31",
+  "model": 0,
+  "execution_mode": 0,
+  "fixed_delay_ms": 0,
+  "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=EURUSD;InpHypothesisId=HYP-RSF-EURUSD-M5-SMOKE-001;InpMagic=5867201;InpResearchAutoMode=true;InpVariantTag=SMOKE001_ENGINEERING_MODEL0",
+  "telemetry_tier": "trade-only",
+  "telemetry_profile": "lifecycle-v3",
+  "deposit": 100000,
+  "leverage": 100,
+  "spread": "current",
+  "required_sidecars": [
+    "*_LifecycleTrades_*.csv",
+    "*_RunMeta_*.json"
+  ],
+  "purpose": "Engineering integration smoke only: initialization, closed-bar signal path, order path, telemetry and cadence census.",
+  "economic_claims_authorized": false,
+  "promotion_eligible": false
+}

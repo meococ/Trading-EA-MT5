@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-STRUCTURAL-EVENT-004",
+  "run_id": "STATIC-HYP-RSF-EURUSD-M5-STRUCTURAL-EVENT-004-20260807",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\NONREPAINT_AUDIT_MANIFEST_RSF_STRUCTURAL_EVENT_004.json",
+  "manifest_sha256": "51E925FCB2BA28EE18819AF98D63AE46D823497712652849B8ED69706D6AB5D3",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\EA_RegimeStructureFusion.mq5",
+      "sha256": "904019E9651285AF0C1AC96C0D97A6A151CBCE56BDD2B6AF4BA66E1E3711FB07"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\EA_RegimeStructureFusion.mq5",
+      "line": 1788,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "generated_at_utc": "2026-08-07T01:06:23.544173+00:00"
+}

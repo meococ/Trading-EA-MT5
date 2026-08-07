@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "DATA_ACQUISITION_ONLY",
+  "provenance_status": "UNVERIFIED",
+  "audit_status": "NOT_APPLICABLE",
+  "verdict": "NO_ECONOMIC_AUTHORITY",
+  "promotion_eligible": false,
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "authority": "DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE",
+  "epoch_manifest_path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_DATA_EPOCH.json",
+  "epoch_manifest_sha256": "F47901F60E4314321B4B201ACED1D8D7366AC5D64589C487E893F0153332F648",
+  "note": "Collection-only execution envelope for the outcome-blind HYP-JCDR-EURUSD-M5-004 role-aware fixed-window source probe. Cost evidence is intentionally unverified and this manifest authorizes no spread, slippage, commission, PF, WR, expectancy, promotion, paper or live claim."
+}

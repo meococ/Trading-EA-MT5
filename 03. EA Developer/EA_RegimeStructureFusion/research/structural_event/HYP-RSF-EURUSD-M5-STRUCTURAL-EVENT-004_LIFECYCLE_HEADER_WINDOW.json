@@ -1,0 +1,61 @@
+{
+  "schema_version": "alpha-large-log-window-v1",
+  "created_at_utc": "2026-08-07T02:04:22.432981+00:00",
+  "source": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_RegimeStructureFusion\\20260807_080936\\analysis\\logs\\EURUSD_LifecycleTrades_HYP-RSF-EURUSD-M5-STRUCTURAL-EVENT-004_119099609.csv",
+    "size_bytes": 296627,
+    "last_write_utc": "2026-08-07T01:15:31.850578+00:00",
+    "sha256": "bb47ec3c2723c0a0a8e48b150b9ccb4d874a5c27b321a089d0fff879ef30521a",
+    "sha256_status": "computed_full",
+    "bounded_fingerprint": {
+      "algorithm": "sha256(size|mtime_ns|head_tail_samples)",
+      "value": "b75c3ea9edd993d039b03c4183a3383a17b40f5a582fd70f87ef499ab62bb1ac",
+      "sample_bytes": 65536,
+      "samples": [
+        {
+          "offset": 0,
+          "length": 65536
+        },
+        {
+          "offset": 231091,
+          "length": 65536
+        }
+      ],
+      "size_bytes": 296627,
+      "mtime_ns": 1786065331850578200
+    },
+    "encoding": "utf-8"
+  },
+  "request": {
+    "start": 1,
+    "count": 5,
+    "max_chars_per_line": 24000,
+    "start_byte": 0,
+    "max_bytes": 268435456,
+    "scan_end_byte": 296627,
+    "scan_truncated": false
+  },
+  "returned": 5,
+  "lines": [
+    {
+      "line": 1,
+      "text": "event_time,utc_time,tag,action,order_type,volume,price,sl,tp,reason,deal,order,symbol,position_id,entry_price,initial_sl,initial_tp,risk_pts,initial_risk_account,achievedr,net_profit,deal_net,is_final_close,engine_name,hypothesis_id"
+    },
+    {
+      "line": 2,
+      "text": "2018.01.02 16:10:00,2018.01.02 14:10:00,STRUCTURAL_EVENT_CAUSAL_V1,OPEN,SELL,0.76000000,1.20561,1.20692,1.20364,DEAL_REASON_EXPERT,2,2,EURUSD,2,1.20561,1.20692,1.20364,131.0000,99.56000000,-0.03053435,-3.04000000,-3.04000000,0,TREND_SHORT,HYP-RSF-EURUSD-M5-STRUCTURAL-EVENT-004"
+    },
+    {
+      "line": 3,
+      "text": "2018.01.02 16:56:40,2018.01.02 14:56:40,STRUCTURAL_EVENT_CAUSAL_V1,CLOSE,BUY,0.76000000,1.20364,1.20692,1.20364,DEAL_REASON_TP,3,3,EURUSD,2,1.20561,1.20692,1.20364,131.0000,99.56000000,1.47328244,146.68000000,149.72000000,1,TREND_SHORT,HYP-RSF-EURUSD-M5-STRUCTURAL-EVENT-004"
+    },
+    {
+      "line": 4,
+      "text": "2018.01.04 10:10:00,2018.01.04 08:10:00,STRUCTURAL_EVENT_CAUSAL_V1,OPEN,SELL,1.38000000,1.20235,1.20380,1.20017,DEAL_REASON_EXPERT,4,4,EURUSD,4,1.20235,1.20380,1.20017,145.0000,200.10000000,-0.02758621,-5.52000000,-5.52000000,0,BREAKOUT_SHORT,HYP-RSF-EURUSD-M5-STRUCTURAL-EVENT-004"
+    },
+    {
+      "line": 5,
+      "text": "2018.01.04 11:49:20,2018.01.04 09:49:20,STRUCTURAL_EVENT_CAUSAL_V1,CLOSE,BUY,1.38000000,1.20393,1.20380,1.20017,DEAL_REASON_SL,5,5,EURUSD,4,1.20235,1.20380,1.20017,145.0000,200.10000000,-1.11724138,-223.56000000,-218.04000000,1,BREAKOUT_SHORT,HYP-RSF-EURUSD-M5-STRUCTURAL-EVENT-004"
+    }
+  ]
+}

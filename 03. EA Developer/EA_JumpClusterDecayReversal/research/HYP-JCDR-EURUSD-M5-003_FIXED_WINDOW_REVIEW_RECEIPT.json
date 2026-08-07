@@ -1,0 +1,42 @@
+{
+  "schema_version": "jcdr003.fixed_window_review_receipt.v1",
+  "hypothesis_id": "HYP-JCDR-EURUSD-M5-003",
+  "review_scope": "Outcome-blind fixed 2016-2020 analysis window inside a wider AlphaFactory data-quality execution envelope",
+  "source_path": "03. EA Developer/EA_JumpClusterDecayReversal/EA_JumpClusterDecayReversal.mq5",
+  "source_sha256": "27A705A21E70A8E9296CD698EABEE05E545570C563A556226E9F7985D88EF4B9",
+  "compiled_ex5_path": "03. EA Developer/EA_JumpClusterDecayReversal/EA_JumpClusterDecayReversal.ex5",
+  "compiled_ex5_sha256": "0C1E520666EAA1AF62B25E2F3C644BEFA603CB2FD48F60DFDEDE18C990167227",
+  "focused_test_path": "03. EA Developer/EA_JumpClusterDecayReversal/research/tests/test_jcdr003_exporter_contract.py",
+  "focused_test_sha256": "07128670AE096419AA122729E54EC03AB5B62EEF9152FECE7CD915F3DFDBF792",
+  "focused_tests_passed": 14,
+  "static_audit_path": "03. EA Developer/EA_JumpClusterDecayReversal/research/HYP-JCDR-EURUSD-M5-003_NONREPAINT_AUDIT.json",
+  "static_audit_sha256": "A37BD6521DF472D5E93552F0A83439DC80C4C1D84860ECEA8F6FBE667ACC8974",
+  "failed_review_attempt": {
+    "status": "INVALID_MAX_TURNS_NO_FINAL_PACKET",
+    "summary_path": ".context/jcdr003_implementation_review/run4/summary.json",
+    "summary_sha256": "1AC4A62E6C5F01617902DE44204445BEF015ADAE2E52C712CFAD38E0895446AF"
+  },
+  "valid_review": {
+    "runner": "grok-cli-runner",
+    "backend_model": "grok-4.5-build",
+    "runner_run_id": "20260807T062817571913Z-25380",
+    "session_id": "019fdae8-8207-72b1-98b0-aca4363e8ebb",
+    "summary_path": ".context/jcdr003_implementation_review/run5/summary.json",
+    "summary_sha256": "21AC739BC61C590CC98BE1C814EFF5BC1CD33BA17CAE9CF22AC0A961116C1C71",
+    "response_path": ".context/jcdr003_implementation_review/run5/grok-response.json",
+    "response_sha256": "683E13FF93B47C724C856A523996BB3D4E0F1A315DDC740784758BE7B88F5226",
+    "verdict": "PASS",
+    "confidence": 0.91,
+    "findings_count": 0,
+    "checks": {
+      "fixed_window_gate": true,
+      "event_state_machine": true,
+      "closed_bar_only": true,
+      "no_trade_no_outcome": true,
+      "runtime_gates_match_plan": true
+    }
+  },
+  "authorized_next_step": "Exactly one Model-0 outcome-blind no-trade router feasibility probe; no economics, outcome opening, optimization or threshold retuning.",
+  "economics_authorized": false,
+  "promotion_eligible": false
+}

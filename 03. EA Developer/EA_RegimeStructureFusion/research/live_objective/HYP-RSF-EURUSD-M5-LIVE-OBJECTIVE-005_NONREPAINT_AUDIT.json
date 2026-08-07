@@ -1,0 +1,21 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-LIVE-OBJECTIVE-005",
+  "source_path": "03. EA Developer/EA_RegimeStructureFusion/EA_RegimeStructureFusion.mq5",
+  "source_sha256": "C2ACC82167746612C9EEE1DD91C9FE7C2E0E56CA64799E1A80C690BB131B1831",
+  "verdict": "PASS",
+  "checks": {
+    "decision_copybuffer_min_shift": 1,
+    "previous_value_copybuffer_shift": 2,
+    "decision_ohlc_shift": 1,
+    "entry_context_source_bar_shift": 1,
+    "bar_zero_decision_reads_found": 0,
+    "forming_bar_structure_events_allowed": false,
+    "mtf_alignment_changed": false
+  },
+  "notes": [
+    "The new live-objective gate consumes TB swing-live, swing-price and structure fields already loaded by ReadSnapshot from closed indicator buffers.",
+    "EntryContext is written only after order acceptance and records the same immutable closed-bar snapshot; it has no decision authority.",
+    "The full-tree scan also found historical source snapshots. Those immutable files are evidence artifacts and are not compiled as the active EA."
+  ]
+}

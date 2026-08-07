@@ -1,0 +1,20 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-FIX-007",
+  "status": "PASS",
+  "ea_source_sha256": "2B4914B6D9E83E43E430365480DA19574C687F307478C7E15F5E65F3BD548C3F",
+  "tb_source_sha256": "F104BC4CD20D28C59B29AA3419779EBEB4390463D9725A1F4B7FB4B6FCC87BF4",
+  "checks": {
+    "ea_reads_closed_shift_1": true,
+    "tb_validity_flags_are_mandatory": true,
+    "unavailable_liquidity_prices_are_optional": true,
+    "optional_price_requires_matching_live_flag_before_use": true,
+    "pool_mutates_only_on_closed_bars": true,
+    "forming_bar_event_free": true,
+    "consumed_break_level_cannot_be_forward_objective": true
+  },
+  "targeted_tests": {"passed": 21, "failed": 0},
+  "compile": {"ea": "PASS_0_ERRORS", "tb_indicator": "PASS_0_ERRORS"},
+  "economic_claims_authorized": false,
+  "promotion_eligible": false
+}

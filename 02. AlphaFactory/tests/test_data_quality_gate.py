@@ -267,6 +267,54 @@ def test_second_source_distinguishes_full_broker_limited_and_truncated_cache(tmp
     assert "INVALID_TRUNCATED_TERMINAL_CACHE" in truncated.stderr
 
 
+def test_symbol_history_envelope_may_predate_exact_m5_series_start(tmp_path: Path) -> None:
+    # Real MT5 journals can report symbol-wide availability decades before the
+    # broker's cached M5/M1 series.  The envelope must cover, not equal, the
+    # exact timeframe-specific first date.
+    journal = (
+        "EURUSD: history synchronized from 1971.01.04 to 2026.07.30\n"
+        + series_proof_line("2015.01.02")
+        + "\n"
+    )
+    manifest = write_manifest(
+        tmp_path,
+        journal_text=journal,
+        requested_from="2016.01.04",
+        requested_to="2020.12.31",
+    )
+    payload = json.loads(manifest.read_text(encoding="utf-8"))
+    payload["data_quality_contract"]["coverage_mode"] = "fixed_window"
+    manifest.write_text(json.dumps(payload), encoding="utf-8")
+
+    result = validate_manifest(tmp_path, manifest)
+    assert result.returncode == 0, result.stdout + result.stderr
+    evidence = json.loads(result.stdout)
+    assert evidence["actual_from"] == "1971.01.04"
+    assert evidence["series_proof"]["m5_first_epoch"] == int(
+        datetime(2015, 1, 2, tzinfo=timezone.utc).timestamp()
+    )
+    assert evidence["coverage_class"] == "FULL_2018_PLUS"
+
+
+def test_symbol_history_envelope_cannot_begin_after_exact_m5_series_start(tmp_path: Path) -> None:
+    journal = (
+        "EURUSD: history synchronized from 2016.01.04 to 2026.07.30\n"
+        + series_proof_line("2015.01.02")
+        + "\n"
+    )
+    result = validate_manifest(
+        tmp_path,
+        write_manifest(
+            tmp_path,
+            journal_text=journal,
+            requested_from="1970.01.01",
+            requested_to="2020.12.31",
+        ),
+    )
+    assert result.returncode != 0
+    assert "journal history envelope begins after the proven M5 first date" in result.stderr
+
+
 def test_copytime_request_must_start_at_the_reported_first_m5_bar(tmp_path: Path) -> None:
     valid = (
         "EURUSD: history synchronized from 2021.02.01 to 2024.12.31\n"
@@ -419,6 +467,64 @@ Resolve-DataQualityContract $receipt $binding | ConvertTo-Json -Depth 8
     )
     assert result.returncode != 0
     assert "must contain exactly" in result.stderr
+
+
+def test_resolve_receipt_contract_accepts_fixed_window(tmp_path: Path) -> None:
+    receipt = {
+        "binding": {
+            "data_quality_contract": {
+                "history_quality": {"operator": "gt", "value": 97.0},
+                "coverage_mode": "fixed_window",
+                "availability_asof_utc": "2026-07-30T23:59:59Z",
+                "requested_from": "2016.01.04",
+                "requested_to": "2020.12.31",
+                "require_tester_journal_bounds": True,
+            }
+        }
+    }
+    receipt_path = tmp_path / "fixed_receipt.json"
+    receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+    result = run_ps(
+        tmp_path,
+        r"""
+$receipt = Get-Content -LiteralPath $ArgsPassthrough[0] -Raw | ConvertFrom-Json
+$binding = [pscustomobject]@{ symbol = 'EURUSD'; from = '2016.01.04'; to = '2020.12.31' }
+Resolve-DataQualityContract $receipt $binding | ConvertTo-Json -Depth 8
+""",
+        str(receipt_path),
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    payload = json.loads(result.stdout)
+    assert payload["coverage_mode"] == "fixed_window"
+    assert payload["requested_from"] == "2016.01.04"
+    assert payload["requested_to"] == "2020.12.31"
+
+
+def test_fixed_window_run_evidence_requires_history_to_cover_start(tmp_path: Path) -> None:
+    valid = write_manifest(
+        tmp_path / "valid",
+        journal_text="EURUSD: history synchronized from 2016.01.04 to 2024.12.31\n",
+        requested_from="2016.01.04",
+        requested_to="2020.12.31",
+    )
+    payload = json.loads(valid.read_text(encoding="utf-8"))
+    payload["data_quality_contract"]["coverage_mode"] = "fixed_window"
+    valid.write_text(json.dumps(payload), encoding="utf-8")
+    result = validate_manifest(tmp_path / "valid", valid)
+    assert result.returncode == 0, result.stdout + result.stderr
+
+    invalid = write_manifest(
+        tmp_path / "invalid",
+        journal_text="EURUSD: history synchronized from 2017.01.02 to 2024.12.31\n",
+        requested_from="2016.01.04",
+        requested_to="2020.12.31",
+    )
+    payload = json.loads(invalid.read_text(encoding="utf-8"))
+    payload["data_quality_contract"]["coverage_mode"] = "fixed_window"
+    invalid.write_text(json.dumps(payload), encoding="utf-8")
+    result = validate_manifest(tmp_path / "invalid", invalid)
+    assert result.returncode != 0
+    assert "begins after fixed_window requested_from" in result.stderr
 
 
 def test_resolve_receipt_contract_rejects_weaker_or_malformed_contracts(tmp_path: Path) -> None:

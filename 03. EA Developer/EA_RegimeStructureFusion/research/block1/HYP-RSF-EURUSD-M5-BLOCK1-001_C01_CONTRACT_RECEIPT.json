@@ -1,0 +1,80 @@
+{
+  "schema_version": "sonic_execution_receipt.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-BLOCK1-001",
+  "task_packet_sha256": "F5D1094239D89E67DE421D6A5CD44D52E30236D84A5D5ECD99556ED94BD470E7",
+  "git_commit": "59b118a7a677b9bcb12420132608f633d9129545",
+  "git_status_sha256": "1372B4CF7DCDE3731FAD05366FD4BECD692F8493F7ED91D43E42C80F75C24FF3",
+  "binding": {
+    "hypothesis_id": "HYP-RSF-EURUSD-M5-BLOCK1-001",
+    "run_role": "control",
+    "ea_name": "EA_RegimeStructureFusion",
+    "symbol": "EURUSD",
+    "period": "M5",
+    "from": "2018.01.01",
+    "to": "2022.12.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=EURUSD;InpHypothesisId=HYP-RSF-EURUSD-M5-BLOCK1-001;InpMagic=5867202;InpManualModeMask=7;InpManualSessionMask=2;InpProfileMode=1;InpResearchAutoMode=true;InpUseContextRouter=false;InpUseQqeTiming=false;InpUseTbStructure=false;InpVariantTag=B1C01_LDN_MBB",
+    "telemetry_tier": "trade-only",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [
+      "*_LifecycleTrades_*.csv",
+      "*_RunMeta_*.json"
+    ],
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 0.00001,
+      "pip_size": 0.0001
+    },
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\block1\\HYP-RSF-EURUSD-M5-BLOCK1-001_C01_TASK_PACKET.json",
+      "sha256": "F5D1094239D89E67DE421D6A5CD44D52E30236D84A5D5ECD99556ED94BD470E7"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+      "sha256": "A8B1335AACE2FAD1F882998C7680EF55F97361F88CFD7646DAB5D2AF6EF06617"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\EA_RegimeStructureFusion.mq5",
+      "sha256": "E40F29431E8ADA440302F7DEDB7ACD8EBCB48C1308EB6B43936849C128E959D0"
+    },
+    {
+      "label": "ea_capability_contract",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "7F8768962F36830DA4537C3B81B17ABD4F808289CF28D28F14C621D185E1B1D0"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\HYP-RSF-EURUSD-M5-BLOCK1-001_FROZEN_PREREG.md",
+      "sha256": "409E0DE9D34E34CDCEB5099F1BC9D5EE2439034BFB6528D2AF32939F5AC89EB3"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\block1\\HYP-RSF-EURUSD-M5-BLOCK1-001_COST_SOURCE_MANIFEST.json",
+      "sha256": "AC3D60DD6E959430B6FA84E9A0B714736E62F04E2B2A2A9DEA0A159EA780D21B"
+    },
+    {
+      "label": "nonrepaint_audit",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\HYP-RSF-EURUSD-M5-BLOCK1-001_NONREPAINT_AUDIT.json",
+      "sha256": "7C2C8DE4192BFF859E2D724957766F08A40F687377CCB4A954138AD68D37FC1A"
+    }
+  ],
+  "generated_at_utc": "2026-08-06T10:29:00Z",
+  "note": "Prospective Block-1 cell 01/18. Model-0 discovery only; no validation, holdout, economic-valid or promotion claim is authorized."
+}

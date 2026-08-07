@@ -1,0 +1,20 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-EXPORT-009",
+  "status": "PASS",
+  "ea_source_sha256": "05D13CAF75B05D3B2585493734B3E315BFCB84004BFB989D228E08B0C79C257A",
+  "tb_source_sha256": "3848CBD4FD34748BE95A372D4797465383CC7EDDE0ED36687E8AA26546893539",
+  "checks": {
+    "liquidity_buffers_exported_as_draw_none_plots": true,
+    "plot_export_change_has_no_calculation_effect": true,
+    "ea_reads_shift_1": true,
+    "forming_bar_event_free": true,
+    "pool_pivots_require_right_side_confirmation": true,
+    "consumption_requires_closed_close_through": true,
+    "consumption_precedes_publication": true
+  },
+  "targeted_tests": {"passed": 21, "failed": 0},
+  "compile": {"ea": "PASS_0_ERRORS", "tb_indicator": "PASS_0_ERRORS"},
+  "economic_claims_authorized": false,
+  "promotion_eligible": false
+}

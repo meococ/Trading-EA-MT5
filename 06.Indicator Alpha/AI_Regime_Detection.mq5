@@ -55,6 +55,11 @@ enum ENUM_AIRD_TEXT_SIZE
    AIRD_TEXT_NORMAL=2  // Normal
   };
 
+// Stable primitive ABI for Expert Advisors. Empty keeps every chart input
+// below unchanged. Format: RSF1|pStay|lrA|lrMu|adapt|kernel|margin|confirm|
+// temperature|corrLen|rsiLen|volLen|volRankLen|driftLen.
+input string InpEaContract=""; // EA contract (leave empty for chart use)
+
 input group "Model - Markov Regime Switching"
 input double                  InpPersistence       = 0.92;  // Regime persistence (prior)
 input double                  InpTransitionRate    = 0.010; // Learning rate - transition matrix
@@ -89,6 +94,55 @@ input group "Closed-bar alerts"
 input bool                    InpEnableAlerts      = false; // Dynamic JSON regime-change alert
 input bool                    InpEnablePopup       = true;  // Popup/sound when enabled
 input bool                    InpEnablePush        = false; // Mobile push when enabled
+
+double g_cfgPersistence=0.0,g_cfgTransitionRate=0.0,g_cfgEmissionRate=0.0;
+bool   g_cfgAdaptive=false;
+int    g_cfgKernel=0,g_cfgConfirmBars=0,g_cfgCorrelationLength=0,g_cfgRsiLength=0;
+int    g_cfgVolatilityLength=0,g_cfgVolRankLength=0,g_cfgDriftLength=0;
+double g_cfgSwitchMargin=0.0,g_cfgTemperature=0.0;
+
+bool ResolveEaEngineContract()
+  {
+   if(StringLen(InpEaContract)==0)
+     {
+      g_cfgPersistence=InpPersistence; g_cfgTransitionRate=InpTransitionRate;
+      g_cfgEmissionRate=InpEmissionRate; g_cfgAdaptive=InpAdaptive;
+      g_cfgKernel=(int)InpKernel; g_cfgSwitchMargin=InpSwitchMargin;
+      g_cfgConfirmBars=InpConfirmBars; g_cfgTemperature=InpTemperature;
+      g_cfgCorrelationLength=InpCorrelationLength; g_cfgRsiLength=InpRsiLength;
+      g_cfgVolatilityLength=InpVolatilityLength; g_cfgVolRankLength=InpVolRankLength;
+      g_cfgDriftLength=InpDriftLength;
+      return(true);
+     }
+   string p[];
+   if(StringSplit(InpEaContract,StringGetCharacter("|",0),p)!=14 || p[0]!="RSF1")
+      return(false);
+   g_cfgPersistence=StringToDouble(p[1]); g_cfgTransitionRate=StringToDouble(p[2]);
+   g_cfgEmissionRate=StringToDouble(p[3]);
+   if(p[4]!="0" && p[4]!="1") return(false);
+   g_cfgAdaptive=(p[4]=="1"); g_cfgKernel=(int)StringToInteger(p[5]);
+   g_cfgSwitchMargin=StringToDouble(p[6]); g_cfgConfirmBars=(int)StringToInteger(p[7]);
+   g_cfgTemperature=StringToDouble(p[8]); g_cfgCorrelationLength=(int)StringToInteger(p[9]);
+   g_cfgRsiLength=(int)StringToInteger(p[10]); g_cfgVolatilityLength=(int)StringToInteger(p[11]);
+   g_cfgVolRankLength=(int)StringToInteger(p[12]); g_cfgDriftLength=(int)StringToInteger(p[13]);
+   return(g_cfgKernel>=0 && g_cfgKernel<=1);
+  }
+
+// All engine code below consumes the resolved values. The original inputs
+// remain the chart-facing defaults and are copied when InpEaContract is empty.
+#define InpPersistence        g_cfgPersistence
+#define InpTransitionRate     g_cfgTransitionRate
+#define InpEmissionRate       g_cfgEmissionRate
+#define InpAdaptive           g_cfgAdaptive
+#define InpKernel             g_cfgKernel
+#define InpSwitchMargin       g_cfgSwitchMargin
+#define InpConfirmBars        g_cfgConfirmBars
+#define InpTemperature        g_cfgTemperature
+#define InpCorrelationLength  g_cfgCorrelationLength
+#define InpRsiLength          g_cfgRsiLength
+#define InpVolatilityLength   g_cfgVolatilityLength
+#define InpVolRankLength      g_cfgVolRankLength
+#define InpDriftLength        g_cfgDriftLength
 
 const double AIRD_PI=3.1415926535897932384626433832795;
 const color  AIRD_PANEL_BG=C'13,17,23';
@@ -878,6 +932,11 @@ void ProcessAlert(const int ratesTotal,const datetime &time[])
 //+------------------------------------------------------------------+
 int OnInit()
   {
+   if(!ResolveEaEngineContract())
+     {
+      Print("AI Regime Detection: invalid EA engine contract.");
+      return(INIT_PARAMETERS_INCORRECT);
+     }
    if(InpPersistence<0.50 || InpPersistence>0.99 ||
       InpTransitionRate<0.0 || InpTransitionRate>0.10 ||
       InpEmissionRate<0.0 || InpEmissionRate>0.10 ||

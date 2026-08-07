@@ -1,0 +1,101 @@
+{
+  "verdict": "accept_with_changes",
+  "terminal_no_edge_supported": true,
+  "chart_findings": [
+    {
+      "case": "RSF-C16-BREAKOUT-LONG-L",
+      "pixel_supported": "MEASURED via CSV/cases: BREAKOUT_LONG, net_r≈-1.09, DEAL_REASON_SL, hold≈4.98m, entry 1.12696 / sl 1.12639 / exit 1.12638; AIRD BULL conf 0.994, VRC BULL dir+1 volP41, MBB S3L squeeze≈21 release=1, TB bias/cell/void +1, QQE +23.83/+44.46 state0, extension≈2.32 half-widths. VISUAL: green entry near local high, yellow X at SL almost immediately; anatomy shows later continuation higher after stop-out.",
+      "overinterpretation_risk": "Calling this 'perfect confirmation that is late' is INTERPRETED from extension+fast stop; pixels do not prove that a lower entry would have won. Post-stop upside is outcome-path, not decision-time evidence. Do not invent a half-width threshold from one chart.",
+      "confidence": "high"
+    },
+    {
+      "case": "RSF-C16-BREAKOUT-SHORT-L",
+      "pixel_supported": "MEASURED: BREAKOUT_SHORT -1.08R SL, hold≈34.3m, entry 1.16972 / exit=sl 1.17022; AIRD RANGE conf 0.860 (not bear), VRC regime7 COMPRESSION dir +0.5 (bullish, not aligned), MBB S2S+S3S, TB bias -1 aligned, QQE -26.89/-47.49 state0. VISUAL: red entry after down-move with recovery/chop into SL; AIRD bull mass rises while short is open. Code-consistent: breakout context_ok needs only compression_origin && context_confident (BuildDecision 766-768), not bear AIRD/VRC.",
+      "overinterpretation_risk": "Do not read 'missing bear context' as a proven fix: matched winner also lacked AIRD/VRC short alignment (CSV). Regime-mismatch is diagnostic of code path, not population edge for a direction filter.",
+      "confidence": "high"
+    },
+    {
+      "case": "RSF-C16-RANGE-LONG-L",
+      "pixel_supported": "MEASURED: RANGE_LONG -1.11R SL, hold≈31.5m, entry 1.10081 / sl=exit 1.10046; AIRD RANGE conf 0.703, VRC RANGE dir -1, MBB S1L, TB bias -1 (counter long), cell -1 void 0, QQE -16.55/+14.58 state0. VISUAL: long bounce into broader lower highs/lows; price resumes down after shallow bounce; AIRD P_Bull decays while P_Bear rises after entry.",
+      "overinterpretation_risk": "TB counter-bias narrative is INTERPRETED and n(RANGE_LONG)=10 only; cannot authorize bias filter. 'Fought structure' is visual language, not a measured structural score beyond bias/side flags.",
+      "confidence": "high"
+    },
+    {
+      "case": "RSF-C16-RANGE-SHORT-L",
+      "pixel_supported": "MEASURED: RANGE_SHORT -1.06R SL, hold≈5.2m, entry 1.21654 / exit 1.21735 / sl 1.21734; AIRD RANGE conf 0.490 (barely ≥0.45), VRC MEAN-REV dir +0.5, MBB S1S, TB bias +1 with cell/void +1 (counter short), QQE +6.58/-2.28 state0. VISUAL: red short entry then large green expansion through SL within minutes.",
+      "overinterpretation_risk": "Counter-bias is clear on this case and its matched winner, but population TB-alignment delta is only the two range pairs (4/6 vs 6/6) and EXTREME-WIN is counter-bias RANGE_SHORT. Forbidden to promote TB-bias alignment to a rule from these charts.",
+      "confidence": "high"
+    },
+    {
+      "case": "RSF-C16-TREND-LONG-L",
+      "pixel_supported": "MEASURED: TREND_LONG -1.03R SL, hold≈152.5m, entry 1.09892 / exit=sl 1.0976 / tp 1.1009; stop≈3.47 ATR; AIRD BULL conf 0.995, VRC STRONG BULL dir+1, MBB S2L, TB bias/cell/void +1, QQE +30.99/+32.67 state0. VISUAL: full bull stack entry near swing high, multi-hour rollover to SL without reaching TP. Matched winner CSV shows similarly aligned stack/extension/stop ATR.",
+      "overinterpretation_risk": "Pixels support non-separation of stack agreement for this pair; they do not prove no latent feature exists. Over-reading 'main engine has no separator' from one pair would overclaim—population TREND_LONG failure is the measured engine fact (n=194, mean_net_r=-0.238, PF=0.379).",
+      "confidence": "high"
+    },
+    {
+      "case": "RSF-C16-TREND-SHORT-L",
+      "pixel_supported": "MEASURED: TREND_SHORT -1.03R SL, hold≈121.7m, entry 1.08519 near local trough / exit 1.08712 / sl 1.0871; stop≈3.67 ATR; AIRD BEAR conf 0.641, VRC BEAR dir-1 volP52, MBB S2S squeeze high≈89, TB bias -1, QQE -8.63/-32.16 state0. VISUAL: short near lows then reverse higher to SL; AIRD P_Range rises as P_Bear fades after entry.",
+      "overinterpretation_risk": "Section framing as 'high-confidence trend episodes' is slightly over-strong for conf 64.1%. VRC volP 52 vs winner 100 is a single-pair contrast only—threshold rescue forbidden. Trough-entry is VISUAL/INTERPRETED location language.",
+      "confidence": "high"
+    },
+    {
+      "case": "RSF-C16-EXTREME-LOSS",
+      "pixel_supported": "MEASURED: global min R BREAKOUT_SHORT -1.221R, hold 0.7m (42s), entry 1.04701, sl 1.04796, exit 1.04813 (gap +0.00017≈1.7 pips beyond SL), DEAL_REASON_SL; AIRD BEAR conf 0.997, VRC WEAK BEAR dir-1, MBB S3S release=1, TB bias -1, QQE -27.45/-16.45 state0. VISUAL: fully aligned short, immediate adverse spike/X above SL line.",
+      "overinterpretation_risk": "Supports closed-bar decision cannot absorb every intrabar jump under Model-0 current-spread assumptions. Does not alone prove the strategy is invalid (already invalid on full sample) nor that only execution is the failure. Do not generalize gap size from one tail event.",
+      "confidence": "high"
+    }
+  ],
+  "report_findings": [
+    {
+      "severity": "medium",
+      "claim": "Lead causal verdict: Cell 16 failed *because* five indicators form a same-bar confirmation stack.",
+      "evidence": "MEASURED: no-edge on full 670-trade population (net -5252.60, PF 0.720, mean_net_r -0.0816, WR 40.75% < BE WR 44.33%). MEASURED code: single closed-bar snapshot in BuildDecision; OnTick evaluates only on new bar (1159-1180). HYPOTHESIZED: sequencing would restore expectancy. Matched pairs n=6 show agreement ≠ quality but cannot identify the causal root among location, geometry, costs, and indicator emptiness.",
+      "required_change": "Keep terminal economic-invalid from population. Relabel same-bar stack as a measured design property and a candidate mechanism, not the proven *because* of failure."
+    },
+    {
+      "severity": "medium",
+      "claim": "QQE neutrality / Cell15→16 PF 0.846→0.720 implies QQE is unjustified or harmfully marginal as a universal gate.",
+      "evidence": "MEASURED in frozen windows: qqe_state=0 on all 2691 snapshots; code admits both sides when state=0 (qqe_long state>=0, qqe_short state<=0). MEASURED ablation: Cell15 (QQE off) PF 0.846 still expectancy-killed; Cell16 (QQE on) PF 0.720. INTERPRETED: deterioration = harm. Not a same-trade controlled ablation; trade sets differ.",
+      "required_change": "State QQE as non-discriminating/non-rescuing under this design; do not treat PF drop as clean causal harm proof without fixed-entry ablation."
+    },
+    {
+      "severity": "low",
+      "claim": "Path-management problem from 38.3% losers reaching +0.5R then losing.",
+      "evidence": "MEASURED in forensic_metrics.path (152/397). Report already caves that this does not prove BE/trailing help. Charts alone cannot separate entry MAE from management.",
+      "required_change": "Keep as population diagnostic only; path ablation remains HYPOTHESIS (PATH-003), not established failure of management code."
+    },
+    {
+      "severity": "low",
+      "claim": "Money-mode risk collapse explains USD vs R sign flips and prevents branch rescue.",
+      "evidence": "MEASURED risk_capacity_by_year: median initial risk 191.06→25.90→5.60→1.21 (2018–2021). Engine table USD/R sign conflicts (e.g. BREAKOUT_LONG mean_net_r +0.083 with net -787.85; RANGE_SHORT mean_net_r -0.046 with net +291.31) follow chronology. Correctly forbids post-hoc engine pocket selection.",
+      "required_change": "None material; optionally note risk collapse is capital-preservation geometry, not signal alpha, and does not create edge."
+    },
+    {
+      "severity": "low",
+      "claim": "Case facts (extension 2.32 HW, hold under 5m, extreme gap 1.7 pips, engine stats) match CSV/cases/code.",
+      "evidence": "Cross-check: all seven entry boxes match matched_pair_entry_states.csv; cases.csv prices/holds/reasons match report; breakout omits directional context and range ignores TB bias (lines 766-800); math BE WR and engine N sum 670 verified.",
+      "required_change": "No factual math/chart-cutoff/MQL predicate error found that would overturn the economic kill. Soften TREND_SHORT 'high-confidence' wording given conf 0.641."
+    }
+  ],
+  "ranked_failure_mechanisms": [
+    "Primary measured: full-stack rule has negative expectancy after costs (WR shortfall vs R-payoff BE; PF 0.72; mean_net_r < 0) across 670 trades—not chart-selected.",
+    "Engine concentration: TREND_LONG is the main economic drain (n=194, PF 0.379, mean_net_r -0.238); other engines near-flat or tiny-n/chronology-distorted.",
+    "Entry-location / zero-runway selection: large loser share never reach +0.25R (43.3%); breakout-long median loser is extended release entry that dies in ~5 minutes.",
+    "Same-bar multi-indicator confirmation without temporal arming/expiry: code property that allows strongly agreed states to enter already-extended or counter-structure locations; indicators describe regime more than forward edge.",
+    "Secondary: fixed SL/1.5R/max-hold path leaves many +0.5R-then-loss outcomes; money-mode risk collapse makes later USD wins unable to repair early large-R losses; rare stop-gap/slippage tails (extreme loss) add execution residual under Model-0."
+  ],
+  "legal_next_hypotheses": [
+    "HYP-RSF-EURUSD-M5-SEQUENCE-002: preregistered multi-bar state machine (regime ages → setup arms → later structure reclaim within frozen expiry → route-specific timing; freeze location/runway without outcome-learned thresholds).",
+    "HYP-RSF-EURUSD-M5-PATH-003: fixed-entry ablation of path rules only (control fixed SL/1.5R/48-bar vs one preregistered profit-protection and one time-invalidation; no threshold sweep from +0.5R reverse stats; dynamic slippage/stop-gap stress).",
+    "Optional third only if scoped to TREND_LONG as a fresh mechanism redesign with frozen features unknown from this outcome chart set—not a filter on Cell16 losers."
+  ],
+  "forbidden_rescues": [
+    "Weekday/hour/session pocketing from this forensic sample",
+    "Direction-only or engine-only rescue (especially RANGE_SHORT USD pocket, BREAKOUT_LONG positive mean R)",
+    "AIRD confidence, VRC volatility percentile, MBB extension half-width, TB-bias alignment, or QQE level thresholds fit on matched pairs/charts",
+    "Retuning InpMinAirdConfidence / stop ATR / RR from loser anatomy",
+    "Declaring sequencing or trailing as proven edge without new prereg + CPCV/DSR trial accounting",
+    "Parameter tuning recommended from the seven images"
+  ],
+  "bottom_line": "ACCEPT WITH CHANGES: terminal no-edge is fully supported by the 670-trade population (and engine/path/risk tables), not by the seven anatomy charts. Charts and CSV agree and illustrate non-ranking confirmation, counter-structure range losses, and one stop-gap tail; they must not authorize filters. Soften the causal leap from same-bar stack to *the* failure reason, and treat QQE Cell15→16 PF drop as non-rescue evidence rather than clean harm proof. Legal next work is at most the preregistered sequence and path ablations (plus a true fresh mechanism if needed)—no post-hoc threshold or pocket rescue."
+}

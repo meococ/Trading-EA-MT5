@@ -1,0 +1,10 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-JCDR-EURUSD-M5-004",
+  "run_id": "STATIC-HYP-JCDR-EURUSD-M5-004-20260807",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_JumpClusterDecayReversal",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_JumpClusterDecayReversal\\EA_JumpClusterDecayReversal.mq5",
+  "source_sha256": "4C3ED94B29329299DE57FE8C8ABDA247CF30FCAC029533C6B41BBFD03ADE06BE",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

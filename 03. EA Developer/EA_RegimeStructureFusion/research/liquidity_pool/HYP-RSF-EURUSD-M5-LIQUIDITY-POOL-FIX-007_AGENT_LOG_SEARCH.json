@@ -1,0 +1,70 @@
+{
+  "schema_version": "alpha-large-log-search-v1",
+  "created_at_utc": "2026-08-07T03:11:20.017942+00:00",
+  "source": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\Tester\\Agent-127.0.0.1-3017\\logs\\20260807.log",
+    "size_bytes": 74404,
+    "last_write_utc": "2026-08-07T03:09:39.500026+00:00",
+    "sha256": "073e1e35b1bff4920b132f3d9a5845ef491a51b9c23bd29402e7c2b6ce4d7e68",
+    "sha256_status": "computed_full",
+    "bounded_fingerprint": {
+      "algorithm": "sha256(size|mtime_ns|head_tail_samples)",
+      "value": "0af757ef839f142a7cd0da214824ccde58ddbcb3488864c5eb262acace1d18f5",
+      "sample_bytes": 65536,
+      "samples": [
+        {
+          "offset": 0,
+          "length": 65536
+        },
+        {
+          "offset": 8868,
+          "length": 65536
+        }
+      ],
+      "size_bytes": 74404,
+      "mtime_ns": 1786072179500025400
+    },
+    "encoding": "utf-16-le",
+    "line_count": 583
+  },
+  "query": {
+    "expression": "HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-FIX-007|error|failed|cannot|buffer|indicator",
+    "context": 2,
+    "max_matches": 80,
+    "max_chars_per_line": 4000,
+    "start_byte": 0,
+    "max_bytes": 268435456,
+    "scan_end_byte": 74404,
+    "scan_truncated": false
+  },
+  "total_matches": 1,
+  "stored_matches": 1,
+  "truncated": false,
+  "matches": [
+    {
+      "match_line": 421,
+      "lines": [
+        {
+          "line": 419,
+          "text": "CS\t0\t10:02:22.444\tTester\t  InpResearchAutoMode=true"
+        },
+        {
+          "line": 420,
+          "text": "CS\t0\t10:02:22.444\tTester\t  InpEnableTelemetry=true"
+        },
+        {
+          "line": 421,
+          "text": "CS\t0\t10:02:22.444\tTester\t  InpHypothesisId=HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-FIX-007"
+        },
+        {
+          "line": 422,
+          "text": "CS\t0\t10:02:22.444\tTester\t  InpVariantTag=LIQUIDITY_POOL_OPTIONAL_READ_FIX_V1"
+        },
+        {
+          "line": 423,
+          "text": "CS\t0\t10:02:22.444\tTester\t  InpExpectedSymbol=EURUSD"
+        }
+      ]
+    }
+  ]
+}

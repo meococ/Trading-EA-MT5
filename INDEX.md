@@ -81,8 +81,12 @@ message hiện tại. Evidence được xác minh bằng file/hash/validator/tes
 | `03. EA Developer/<EA>/<EA>.mq5` | source canonical khi `ea_contract.ps1` resolve hợp lệ |
 | `03. EA Developer/<EA>/ALPHAFACTORY_EA_CONTRACT.json` | capability/contract của package |
 | `03. EA Developer/<EA>/research/` | prereg, readout và evidence riêng package |
+| `03. EA Developer/EA_RegimeStructureFusion/` | EA MQL5 một-file kết hợp AIRD/VRC/MBB/TB SMC/QQE; TB v3 liquidity-pool và telemetry đã engineering-valid, nhưng full EURUSD M5 HYP-010 âm PF0.7145/N162 và terminal economic-kill; xem `research/liquidity_pool/HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-ECON-010_RESULT.md` |
+| `03. EA Developer/EA_RegimeStructureFusion/research/evidence/HYP-RSF-EURUSD-M5-FORENSICS-001/` | Cell-16 forensic casebook: 14 outcome-locked losing/winner comparisons with all five indicators, exact 670-trade replay, population/path metrics and independent Grok review; terminal diagnostic only, no parameter rescue |
+| `03. EA Developer/EA_RegimeStructureFusionForensics/research/visual/native_structural_event_005/` | 8 ảnh native MT5 Visual Mode thật (MBB + QQE + TB structure + entry/SL/TP/exit) ghép cặp breakout/trend long/short thắng-thua; dùng để giải thích hành vi giá, không cấp quyền post-hoc filter |
 | `06.Indicator Alpha/` | source canonical của custom indicators MQL5 một-file; EA chỉ đọc public buffer ở closed-bar shift >=1 |
 | `06.Indicator Alpha/Volatility_Regime_Classifier_QuantRegime.mq5` | VRC overlay port từ Pine v6: 9 regime Hurst/ADX/CHOP/ATR-percentile, candle/background/bands/labels/dashboard, closed-bar alerts và public buffer contract 0..35 |
+| `06.Indicator Alpha/TB_Smart_Money_Concept_2026.mq5` | TB SMC 2026.2.0 v3 structural overlay: immutable `TV_2026_2_0` parity profile plus optimizer-ready `EA_CUSTOM`; incremental closed-bar BOS/MSS, Origin Cells, FVG+CE lifecycle, sweeps, HUD/alerts, buffers 0..43 tương thích và causal unconsumed-swing liquidity pool buffers 44..47 |
 | `00. Old File/EA_Archive/` | archive-only; không compile/backtest làm evidence |
 
 Không lặp trạng thái từng package ở INDEX. Muốn biết lane nào sống, terminal hay
@@ -156,3 +160,9 @@ Các acquisition/analyzer chuyên biệt nằm trong `02. AlphaFactory/tools/` v
 Quy tắc diễn giải cuối: một hypothesis terminal chỉ đóng tested object; một
 search cell `NO LEGAL CANDIDATE` chỉ đóng boundary đã khai. Không cái nào tự
 hoàn thành goal hoặc cấm một cơ chế/data contract mới có prereg độc lập.
+
+Frontier-stop mới nhất của chiến dịch indicator/visual:
+`04. Memory/research/20260807_INDICATOR_FUSION_FRONTIER_STOP.md`. Kết luận chỉ
+đóng các recombination AIRD/VRC/MBB/QQE/TB và biên dữ liệu free/broker-native
+đã kiểm tra; goal vẫn ACTIVE/UNMET. Bước mở lại phải là một nguồn PIT mới có
+license, budget, lịch sử/live latency và map đủ chín symbol trước source probe.

@@ -1,0 +1,33 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-JCDR-EURUSD-M5-004",
+  "run_id": "STATIC-HYP-JCDR-EURUSD-M5-004-20260807",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_JumpClusterDecayReversal\\NONREPAINT_AUDIT_MANIFEST_JCDR_004.json",
+  "manifest_sha256": "BEE9B84B29F40BDD4FE5E2772FE1212F634E839DCF837A420DFE39EFC401BE62",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_JumpClusterDecayReversal\\EA_JumpClusterDecayReversal.mq5",
+      "sha256": "4C3ED94B29329299DE57FE8C8ABDA247CF30FCAC029533C6B41BBFD03ADE06BE"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_JumpClusterDecayReversal\\EA_JumpClusterDecayReversal.mq5",
+      "line": 818,
+      "rule": "collection_first_date_copytime",
+      "function": "CopyTime",
+      "disposition": "allowed_collection_provenance_read"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_JumpClusterDecayReversal\\EA_JumpClusterDecayReversal.mq5",
+      "line": 1030,
+      "rule": "iTime_zero",
+      "function": "iTime",
+      "disposition": "allowed_new_bar_gate"
+    }
+  ],
+  "generated_at_utc": "2026-08-07T09:36:31.859713+00:00"
+}

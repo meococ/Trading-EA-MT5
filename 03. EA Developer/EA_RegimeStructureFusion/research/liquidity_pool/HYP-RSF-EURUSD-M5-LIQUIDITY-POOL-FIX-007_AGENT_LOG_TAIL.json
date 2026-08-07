@@ -1,0 +1,377 @@
+{
+  "schema_version": "alpha-large-log-window-v1",
+  "created_at_utc": "2026-08-07T03:11:36.238711+00:00",
+  "source": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\Tester\\Agent-127.0.0.1-3017\\logs\\20260807.log",
+    "size_bytes": 74404,
+    "last_write_utc": "2026-08-07T03:09:39.500026+00:00",
+    "sha256": "073e1e35b1bff4920b132f3d9a5845ef491a51b9c23bd29402e7c2b6ce4d7e68",
+    "sha256_status": "computed_full",
+    "bounded_fingerprint": {
+      "algorithm": "sha256(size|mtime_ns|head_tail_samples)",
+      "value": "0af757ef839f142a7cd0da214824ccde58ddbcb3488864c5eb262acace1d18f5",
+      "sample_bytes": 65536,
+      "samples": [
+        {
+          "offset": 0,
+          "length": 65536
+        },
+        {
+          "offset": 8868,
+          "length": 65536
+        }
+      ],
+      "size_bytes": 74404,
+      "mtime_ns": 1786072179500025400
+    },
+    "encoding": "utf-16-le"
+  },
+  "request": {
+    "start": 500,
+    "count": 84,
+    "max_chars_per_line": 5000,
+    "start_byte": 0,
+    "max_bytes": 268435456,
+    "scan_end_byte": 74404,
+    "scan_truncated": false
+  },
+  "returned": 84,
+  "lines": [
+    {
+      "line": 500,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpAirdVolatilityLength=20"
+    },
+    {
+      "line": 501,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpAirdVolRankLength=300"
+    },
+    {
+      "line": 502,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpAirdDriftLength=14"
+    },
+    {
+      "line": 503,
+      "text": "CS\t0\t10:02:22.444\tTester\t  VRC context engine="
+    },
+    {
+      "line": 504,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpVrcHurstLength=100"
+    },
+    {
+      "line": 505,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpVrcAdxLength=14"
+    },
+    {
+      "line": 506,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpVrcAdxSmoothing=14"
+    },
+    {
+      "line": 507,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpVrcChopLength=14"
+    },
+    {
+      "line": 508,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpVrcVolatilityLength=20"
+    },
+    {
+      "line": 509,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpVrcVolPercentileLength=100"
+    },
+    {
+      "line": 510,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpVrcAdxTrendThreshold=25.0"
+    },
+    {
+      "line": 511,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpVrcAdxStrongThreshold=40.0"
+    },
+    {
+      "line": 512,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpVrcChopRangeThreshold=61.8"
+    },
+    {
+      "line": 513,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpVrcHurstTrendThreshold=0.55"
+    },
+    {
+      "line": 514,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpVrcHurstMrThreshold=0.45"
+    },
+    {
+      "line": 515,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpVrcVolHighPercentile=80.0"
+    },
+    {
+      "line": 516,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpVrcVolLowPercentile=20.0"
+    },
+    {
+      "line": 517,
+      "text": "CS\t0\t10:02:22.444\tTester\t  MBB setup engine="
+    },
+    {
+      "line": 518,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbLengthMode=0"
+    },
+    {
+      "line": 519,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbFixedLength=20"
+    },
+    {
+      "line": 520,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbBasisMode=0"
+    },
+    {
+      "line": 521,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbBandMode=0"
+    },
+    {
+      "line": 522,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbStdevMultiplier=2.0"
+    },
+    {
+      "line": 523,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbRobustUpperPct=97.5"
+    },
+    {
+      "line": 524,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbRobustLowerPct=2.5"
+    },
+    {
+      "line": 525,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbRobustWindowMult=4"
+    },
+    {
+      "line": 526,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbRobustWindowFloor=80"
+    },
+    {
+      "line": 527,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbKamaFast=2"
+    },
+    {
+      "line": 528,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbKamaSlow=30"
+    },
+    {
+      "line": 529,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbKerLength=20"
+    },
+    {
+      "line": 530,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbRankLength=252"
+    },
+    {
+      "line": 531,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbTrendEnter=70.0"
+    },
+    {
+      "line": 532,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbTrendExit=55.0"
+    },
+    {
+      "line": 533,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbSqueezeThreshold=20.0"
+    },
+    {
+      "line": 534,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbSqueezeMinBars=5"
+    },
+    {
+      "line": 535,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpMbbBasisTouchFraction=0.25"
+    },
+    {
+      "line": 536,
+      "text": "CS\t0\t10:02:22.444\tTester\t  TB SMC structural engine="
+    },
+    {
+      "line": 537,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbSwingLength=5"
+    },
+    {
+      "line": 538,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbDisplacementAtr=0.45"
+    },
+    {
+      "line": 539,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbCellsKept=3"
+    },
+    {
+      "line": 540,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbVoidsKept=4"
+    },
+    {
+      "line": 541,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbSweepReclaimAtr=0.05"
+    },
+    {
+      "line": 542,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbMinimumVoidAtr=0.0"
+    },
+    {
+      "line": 543,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbMinimumCellAtr=0.0"
+    },
+    {
+      "line": 544,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbMaximumCellAgeBars=0"
+    },
+    {
+      "line": 545,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbMaximumVoidAgeBars=0"
+    },
+    {
+      "line": 546,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbSweepsRequireLiveSwing=false"
+    },
+    {
+      "line": 547,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbRequireBothSwings=true"
+    },
+    {
+      "line": 548,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbEnableStructure=true"
+    },
+    {
+      "line": 549,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbEnableCells=true"
+    },
+    {
+      "line": 550,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbEnableVoids=true"
+    },
+    {
+      "line": 551,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbEnableSweeps=true"
+    },
+    {
+      "line": 552,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpTbVoidRetention=1"
+    },
+    {
+      "line": 553,
+      "text": "CS\t0\t10:02:22.444\tTester\t  QQE timing engine="
+    },
+    {
+      "line": 554,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpQqePrimaryRsiLength=6"
+    },
+    {
+      "line": 555,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpQqePrimarySmoothing=5"
+    },
+    {
+      "line": 556,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpQqePrimaryFactor=3.0"
+    },
+    {
+      "line": 557,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpQqePrimaryThreshold=3.0"
+    },
+    {
+      "line": 558,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpQqePrimarySource=1"
+    },
+    {
+      "line": 559,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpQqeSecondaryRsiLength=6"
+    },
+    {
+      "line": 560,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpQqeSecondarySmoothing=5"
+    },
+    {
+      "line": 561,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpQqeSecondaryFactor=1.61"
+    },
+    {
+      "line": 562,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpQqeSecondaryThreshold=3.0"
+    },
+    {
+      "line": 563,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpQqeSecondarySource=1"
+    },
+    {
+      "line": 564,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpQqeBollingerLength=50"
+    },
+    {
+      "line": 565,
+      "text": "CS\t0\t10:02:22.444\tTester\t  InpQqeBollingerMultiplier=0.35"
+    },
+    {
+      "line": 566,
+      "text": "CS\t0\t10:02:22.452\tTester\tprogram file added: \\Indicators\\AlphaFactory\\AI_Regime_Detection.ex5. 78104 bytes loaded"
+    },
+    {
+      "line": 567,
+      "text": "CS\t0\t10:02:22.483\tHistory\tEURUSD,M15: history cache allocated for 150084 bars and contains 24804 bars from 2017.01.02 00:00 to 2017.12.29 23:45"
+    },
+    {
+      "line": 568,
+      "text": "CS\t0\t10:02:22.483\tHistory\tEURUSD,M15: history begins from 2017.01.02 00:00"
+    },
+    {
+      "line": 569,
+      "text": "CS\t0\t10:02:22.484\tTester\tprogram file added: \\Indicators\\AlphaFactory\\Volatility_Regime_Classifier_QuantRegime.ex5. 70615 bytes loaded"
+    },
+    {
+      "line": 570,
+      "text": "CS\t0\t10:02:22.499\tTester\tprogram file added: \\Indicators\\AlphaFactory\\Modern_Bollinger_Bands_GBB.ex5. 62851 bytes loaded"
+    },
+    {
+      "line": 571,
+      "text": "CS\t0\t10:02:22.512\tTester\tprogram file added: \\Indicators\\AlphaFactory\\TB_Smart_Money_Concept_2026.ex5. 76490 bytes loaded"
+    },
+    {
+      "line": 572,
+      "text": "CS\t0\t10:02:22.530\tTester\tprogram file added: \\Indicators\\AlphaFactory\\QQE_MOD.ex5. 39964 bytes loaded"
+    },
+    {
+      "line": 573,
+      "text": "CS\t0\t10:09:39.053\tTester\tfinal balance 100000.00 USD"
+    },
+    {
+      "line": 574,
+      "text": "CS\t0\t10:09:39.077\tTester\tEURUSD,M5: 105949201 ticks, 372914 bars generated. Environment synchronized in 0:00:00.019. Test passed in 0:07:16.664 (including ticks preprocessing 0:00:01.781)."
+    },
+    {
+      "line": 575,
+      "text": "CS\t0\t10:09:39.077\tTester\tEURUSD,M5: total time from login to stop testing 0:07:16.683 (including 0:00:00.019 for history data synchronization)"
+    },
+    {
+      "line": 576,
+      "text": "CS\t0\t10:09:39.077\tTester\t2647 Mb memory used including 34 Mb of history data, 1984 Mb of tick data"
+    },
+    {
+      "line": 577,
+      "text": "CS\t0\t10:09:39.077\tTester\tlog file \"D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\Tester\\Agent-127.0.0.1-3017\\logs\\20260807.log\" written"
+    },
+    {
+      "line": 578,
+      "text": "CS\t0\t10:09:39.077\tTester\ttest Experts\\AlphaFactoryRuns\\EA_RegimeStructureFusion\\20260807_100218\\EA_RegimeStructureFusion.ex5 on EURUSD,M5 thread finished"
+    },
+    {
+      "line": 579,
+      "text": "CS\t0\t10:09:39.119\t127.0.0.1\ttester forced to close"
+    },
+    {
+      "line": 580,
+      "text": "CS\t0\t10:09:39.119\t127.0.0.1\tprepare for shutdown"
+    },
+    {
+      "line": 581,
+      "text": "CS\t0\t10:09:39.119\t127.0.0.1\tstop immediately"
+    },
+    {
+      "line": 582,
+      "text": "CS\t0\t10:09:39.119\t127.0.0.1\tshutdown finished"
+    },
+    {
+      "line": 583,
+      "text": "CS\t0\t10:09:39.419\tServer\tMetaTester 5 stopped"
+    }
+  ]
+}

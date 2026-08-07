@@ -1,0 +1,31 @@
+{
+  "schema_version": "alphafactory_research_task_packet.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-VISUAL-001",
+  "run_role": "control",
+  "ea_name": "EA_RegimeStructureFusionForensics",
+  "symbol": "EURUSD",
+  "period": "M5",
+  "from": "2019.01.01",
+  "to": "2019.06.05",
+  "model": 0,
+  "execution_mode": 0,
+  "fixed_delay_ms": 0,
+  "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=EURUSD;InpForensicVisualScreenshots=true;InpHypothesisId=HYP-RSF-EURUSD-M5-VISUAL-001;InpResearchAutoMode=true;InpVariantTag=VISUAL_NATIVE_CASEBOOK",
+  "telemetry_tier": "trade-only",
+  "telemetry_profile": "lifecycle-v3",
+  "visual_mode": true,
+  "indicator_dependencies": [
+    {"name": "AI_Regime_Detection", "source": "06.Indicator Alpha/AI_Regime_Detection.mq5", "source_sha256": "C432AEF3BF7EC93EC8A64BD2806C115E71F822B2DCB438DAC22590FB978EB475", "terminal_ex5": "AlphaFactory\\AI_Regime_Detection.ex5"},
+    {"name": "Volatility_Regime_Classifier_QuantRegime", "source": "06.Indicator Alpha/Volatility_Regime_Classifier_QuantRegime.mq5", "source_sha256": "EB81B1426CBDAF3143F553388A213E2BB5A3E33E05433991918CC5977273A087", "terminal_ex5": "AlphaFactory\\Volatility_Regime_Classifier_QuantRegime.ex5"},
+    {"name": "Modern_Bollinger_Bands_GBB", "source": "06.Indicator Alpha/Modern_Bollinger_Bands_GBB.mq5", "source_sha256": "AC5DB6E1DDA825F6A3535E9AB1E4C9956086C7AF590E2672C71CF03D8F4E54FE", "terminal_ex5": "AlphaFactory\\Modern_Bollinger_Bands_GBB.ex5"},
+    {"name": "TB_Smart_Money_Concept_2026", "source": "06.Indicator Alpha/TB_Smart_Money_Concept_2026.mq5", "source_sha256": "4658F3CD2C439C2655EF1534A18D29BC52EB6D91B494F2C17CC337755F1F1F33", "terminal_ex5": "AlphaFactory\\TB_Smart_Money_Concept_2026.ex5"},
+    {"name": "QQE_MOD", "source": "06.Indicator Alpha/QQE_MOD.mq5", "source_sha256": "22456C83C73D2070F52D83BBCE7D5DC1982CD987F8BE807E10482703982CAF9A", "terminal_ex5": "AlphaFactory\\QQE_MOD.ex5"}
+  ],
+  "deposit": 10000,
+  "leverage": 100,
+  "spread": "current",
+  "required_sidecars": ["*_LifecycleTrades_*.csv", "*_RunMeta_*.json", "*_VisualShots_*.csv"],
+  "purpose": "Native MT5 visual replay around frozen RSF forensic cases to capture chart screenshots and screenshot mapping telemetry.",
+  "economic_claims_authorized": false,
+  "promotion_eligible": false
+}

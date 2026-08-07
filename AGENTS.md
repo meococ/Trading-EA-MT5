@@ -45,3 +45,13 @@ File chỉ dẫn vận hành duy nhất. Mọi quy tắc và phân quyền Agent
 | **Active Registry** | `04. Memory/research/CANDIDATE_REGISTRY.jsonl` | Ledger lưu trữ các hypothesis |
 | **State Cache** | `04. Memory/hot.md` | Cache handoff ngắn giữa các phiên |
 | **Failure Radius** | `04. Memory/do_not_repeat_failures.md` | Catalog các thất bại cần tránh |
+
+---
+
+## 5. Workflow MT5-Only
+
+- Toàn bộ implementation, indicator, EA và runtime phải dùng MetaTrader 5 / MQL5.
+- Build, backtest, phân tích và validation phải đi qua MT5 Strategy Tester và `02. AlphaFactory/alpha.ps1`.
+- Bằng chứng trực quan phải lấy từ MT5 Strategy Tester Visual Mode hoặc chart MT5 native.
+- TradingView và các nền tảng chart trên trình duyệt không thuộc workflow, không được dùng làm nguồn parity, tối ưu, acceptance hay promotion.
+- Comment nguồn Pine/MPL được giữ lại chỉ để tuân thủ attribution và giấy phép; chúng không phải dependency vận hành.

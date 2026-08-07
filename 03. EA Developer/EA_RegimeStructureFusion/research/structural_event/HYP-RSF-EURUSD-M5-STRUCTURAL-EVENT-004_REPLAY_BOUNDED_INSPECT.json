@@ -1,0 +1,100 @@
+{
+  "schema_version": "alpha-large-log-index-v1",
+  "created_at_utc": "2026-08-07T02:06:05.375996+00:00",
+  "source": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_RegimeStructureFusionForensics\\20260806_231942\\logs\\EURUSD_RSFForensic_HYP-RSF-EURUSD-M5-FORENSICS-001_87302546.csv",
+    "size_bytes": 1442331,
+    "last_write_utc": "2026-08-06T16:25:53.097136+00:00",
+    "sha256": "b94e3a856ae6ae6de0e3047d3215e3af9ac1c929827645d051ad285f26e8f655",
+    "sha256_status": "computed_full",
+    "bounded_fingerprint": {
+      "algorithm": "sha256(size|mtime_ns|head_tail_samples)",
+      "value": "53813fdef291337196eef98f83e699502fe8b8bb520892e7dec40bf6b086219d",
+      "sample_bytes": 65536,
+      "samples": [
+        {
+          "offset": 0,
+          "length": 65536
+        },
+        {
+          "offset": 1376795,
+          "length": 65536
+        }
+      ],
+      "size_bytes": 1442331,
+      "mtime_ns": 1786033553097135900
+    },
+    "encoding": "utf-8",
+    "line_count": 2692
+  },
+  "bounds": {
+    "start_byte": 0,
+    "max_bytes": 268435456,
+    "scan_end_byte": 1442331,
+    "scan_truncated": false,
+    "head_lines": 3,
+    "tail_lines": 3,
+    "max_samples_per_pattern": 10,
+    "max_chars_per_line": 5000
+  },
+  "head": [
+    {
+      "line": 1,
+      "text": "decision_time_server,decision_time_utc,source_bar_time_server,source_bar_time_utc,open,high,low,close,spread_points,entry_fired,position_id,engine_name,aird_regime,aird_confidence,p_bull,p_bear,p_range,p_highvol,vrc_regime,vrc_previous_regime,vrc_direction,vrc_vol_percentile,vrc_high_vol,vrc_low_vol,mbb_upper,mbb_lower,mbb_basis,mbb_squeeze,mbb_release,s1_long,s1_short,s2_long,s2_short,s3_long,s3_short,tb_bias,tb_atr,tb_swing_high,tb_swing_low,tb_cell_top,tb_cell_bottom,tb_cell_side,tb_void_top,tb_void_bottom,tb_void_side,tb_structure_level,tb_sweep_high,tb_sweep_low,tb_sweep_high_price,tb_sweep_low_price,tb_structure_up,tb_structure_down,tb_displacement_up,tb_displacement_down,qqe_primary,qqe_primary_prev,qqe_secondary,qqe_secondary_prev,qqe_state,source_hash,hypothesis_id,variant_tag"
+    },
+    {
+      "line": 2,
+      "text": "2018.10.31 00:55:00,2018.10.30 22:55:00,2018.10.31 00:50:00,2018.10.30 22:50:00,1.13423,1.13427,1.13418,1.13419,6.00,0,0,NONE,1,0.98391839,0.04410663,98.39183880,1.51118808,0.05286649,3,3,-1.00000000,26.00000000,0,0,1.13443,1.13324,1.13433,27.77777778,0,0,0,0,0,0,0,-1,0.00014,1.13439,1.13409,1.13668,1.13640,-1,1.13471,1.13455,-1,0.00000,0,0,0.00000,0.00000,0,0,1,1,-6.56357406,2.66936982,-33.26093658,-16.52187315,0,E40F29431E8ADA440302F7DEDB7ACD8EBCB48C1308EB6B43936849C128E959D0,HYP-RSF-EURUSD-M5-FORENSICS-001,B1C16_FORENSIC_REPLAY"
+    },
+    {
+      "line": 3,
+      "text": "2018.10.31 01:00:00,2018.10.30 23:00:00,2018.10.31 00:55:00,2018.10.30 22:55:00,1.13421,1.13429,1.13419,1.13424,8.00,0,0,NONE,1,0.98771608,0.03124659,98.77160751,1.15433688,0.04280902,3,3,-1.00000000,21.00000000,0,0,1.13443,1.13324,1.13433,27.77777778,0,0,0,0,0,0,0,-1,0.00014,1.13439,1.13409,1.13668,1.13640,-1,1.13471,1.13455,-1,0.00000,0,0,0.00000,0.00000,0,0,0,1,-6.17573740,-6.56357406,8.36953171,-33.26093658,0,E40F29431E8ADA440302F7DEDB7ACD8EBCB48C1308EB6B43936849C128E959D0,HYP-RSF-EURUSD-M5-FORENSICS-001,B1C16_FORENSIC_REPLAY"
+    }
+  ],
+  "tail": [
+    {
+      "line": 2690,
+      "text": "2022.06.13 14:50:00,2022.06.13 11:50:00,2022.06.13 14:45:00,2022.06.13 11:45:00,1.04569,1.04582,1.04508,1.04510,2.00,0,0,NONE,1,0.99732873,0.02098199,99.73287285,0.06332168,0.18282349,1,1,-1.00000000,62.00000000,0,0,1.04664,1.04439,1.04611,70.23809524,0,0,0,0,1,0,0,-1,0.00063,1.04717,1.04582,1.04717,1.04646,-1,1.04592,1.04582,-1,0.00000,0,0,0.00000,0.00000,0,0,0,1,-15.27920668,-7.53879493,-43.50228242,-37.00456485,0,E40F29431E8ADA440302F7DEDB7ACD8EBCB48C1308EB6B43936849C128E959D0,HYP-RSF-EURUSD-M5-FORENSICS-001,B1C16_FORENSIC_REPLAY"
+    },
+    {
+      "line": 2691,
+      "text": "2022.06.13 14:55:00,2022.06.13 11:55:00,2022.06.13 14:50:00,2022.06.13 11:50:00,1.04509,1.04532,1.04464,1.04521,2.00,0,0,NONE,1,0.99732873,0.02098199,99.73287285,0.06332168,0.18282349,1,1,-1.00000000,62.00000000,0,0,1.04657,1.04433,1.04604,70.63492063,0,0,0,0,0,0,0,-1,0.00064,1.04717,1.04582,1.04717,1.04646,-1,1.04560,1.04532,-1,0.00000,0,0,0.00000,0.00000,0,0,0,1,-21.56636117,-15.27920668,3.24885879,-43.50228242,0,E40F29431E8ADA440302F7DEDB7ACD8EBCB48C1308EB6B43936849C128E959D0,HYP-RSF-EURUSD-M5-FORENSICS-001,B1C16_FORENSIC_REPLAY"
+    },
+    {
+      "line": 2692,
+      "text": "2022.06.13 15:00:00,2022.06.13 12:00:00,2022.06.13 14:55:00,2022.06.13 11:55:00,1.04522,1.04558,1.04451,1.04458,2.00,0,0,NONE,1,0.99711333,0.02788029,99.71133264,0.07144563,0.18934145,0,1,-1.00000000,68.00000000,0,0,1.04638,1.04414,1.04586,71.03174603,0,0,0,0,0,0,0,-1,0.00067,1.04717,1.04582,1.04717,1.04646,-1,1.04560,1.04546,-1,0.00000,0,0,0.00000,0.00000,0,0,0,1,-26.02626538,-21.56636117,-23.37557061,3.24885879,0,E40F29431E8ADA440302F7DEDB7ACD8EBCB48C1308EB6B43936849C128E959D0,HYP-RSF-EURUSD-M5-FORENSICS-001,B1C16_FORENSIC_REPLAY"
+    }
+  ],
+  "patterns": [
+    {
+      "name": "fatal",
+      "expression": "(?i)\\bfatal\\b",
+      "count": 0,
+      "samples": []
+    },
+    {
+      "name": "error",
+      "expression": "(?i)\\berror\\b",
+      "count": 0,
+      "samples": []
+    },
+    {
+      "name": "warning",
+      "expression": "(?i)\\bwarn(?:ing)?\\b",
+      "count": 0,
+      "samples": []
+    },
+    {
+      "name": "timeout",
+      "expression": "(?i)\\btime(?:d)?\\s*out\\b",
+      "count": 0,
+      "samples": []
+    },
+    {
+      "name": "rejected",
+      "expression": "(?i)\\breject(?:ed|ion)?\\b",
+      "count": 0,
+      "samples": []
+    }
+  ]
+}

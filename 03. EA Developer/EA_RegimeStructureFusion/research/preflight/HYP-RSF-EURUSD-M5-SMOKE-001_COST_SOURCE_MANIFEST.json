@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-SMOKE-001",
+  "symbol": "EURUSD",
+  "evidence_tier": "RESEARCH_PROXY",
+  "spread_policy": "tester_current",
+  "commission_provenance": "not_independently_bound_for_smoke",
+  "slippage_provenance": "not_independently_bound_for_smoke",
+  "model": 0,
+  "authorized_use": "engineering_integration_smoke_only",
+  "economic_claims_authorized": false,
+  "promotion_eligible": false,
+  "note": "Missing commission/slippage evidence is not treated as zero. This manifest cannot support optimization, economic validity or promotion."
+}

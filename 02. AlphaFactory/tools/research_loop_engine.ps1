@@ -69,6 +69,11 @@ if (-not (Test-Path -LiteralPath $eaContractResolverPath -PathType Leaf)) {
     throw "EA source contract resolver is missing: $eaContractResolverPath"
 }
 . $eaContractResolverPath
+$terminalProcessGuardPath = Join-Path $toolsRoot 'terminal_process_guard.ps1'
+if (-not (Test-Path -LiteralPath $terminalProcessGuardPath -PathType Leaf)) {
+    throw "Terminal process guard helper is missing: $terminalProcessGuardPath"
+}
+. $terminalProcessGuardPath
 
 function Write-Status($Message, $Type = "INFO") {
     $color = switch ($Type) {
@@ -457,6 +462,39 @@ function Get-ObjectProperty($Object, $Name) {
     return $property.Value
 }
 
+function Get-IndicatorDependencyBindingRecords($Dependencies) {
+    $seen = @{}
+    return @(
+        foreach ($dependency in @($Dependencies) | Sort-Object { [string](Get-ObjectProperty $_ 'name') }) {
+            $name = [string](Get-ObjectProperty $dependency 'name')
+            $source = ([string](Get-ObjectProperty $dependency 'source')).Replace('\', '/')
+            $sourceSha = ([string](Get-ObjectProperty $dependency 'source_sha256')).ToUpperInvariant()
+            $terminalEx5 = ([string](Get-ObjectProperty $dependency 'terminal_ex5')).Replace('/', '\')
+            if ($name -notmatch '^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$' -or $seen.ContainsKey($name) -or
+                [string]::IsNullOrWhiteSpace($source) -or $sourceSha -notmatch '^[A-F0-9]{64}$' -or
+                [string]::IsNullOrWhiteSpace($terminalEx5)) {
+                throw "Malformed or duplicate indicator dependency binding '$name'."
+            }
+            $seen[$name] = $true
+            "$name`t$source`t$sourceSha`t$terminalEx5"
+        }
+    )
+}
+
+function Get-LiveIndicatorDependencyBinding($Dependencies) {
+    return @(
+        foreach ($dependency in @($Dependencies)) {
+            [pscustomobject][ordered]@{
+                name = [string]$dependency.Name
+                source = [string]$dependency.SourceRelativePath
+                source_sha256 = Get-Sha256IfExists ([string]$dependency.SourceAbsolutePath)
+                terminal_ex5 = [string]$dependency.TerminalEx5RelativePath
+                source_absolute_path = [string]$dependency.SourceAbsolutePath
+            }
+        }
+    )
+}
+
 function Test-ExactObjectKeys($Object, [string[]]$ExpectedKeys) {
     if (-not (Test-ProvenanceObject $Object)) { return $false }
     $actual = @($Object.PSObject.Properties | ForEach-Object { $_.Name } | Sort-Object)
@@ -536,8 +574,8 @@ function Resolve-DataQualityContract($Packet, $Binding, $Blockers) {
     }
 
     $coverageMode = [string](Get-ObjectProperty $dataQuality 'coverage_mode')
-    if ($coverageMode -cne 'all_available_asof') {
-        $Blockers.Add("Task packet data_quality_contract.coverage_mode must equal 'all_available_asof'.")
+    if ($coverageMode -notin @('all_available_asof', 'fixed_window')) {
+        $Blockers.Add("Task packet data_quality_contract.coverage_mode must equal 'all_available_asof' or 'fixed_window'.")
     }
     $availabilityAsOfUtc = [string](Get-ObjectProperty $dataQuality 'availability_asof_utc')
     if (-not (Test-ZuluTimestamp $availabilityAsOfUtc)) {
@@ -558,14 +596,16 @@ function Resolve-DataQualityContract($Packet, $Binding, $Blockers) {
         $Blockers.Add("Task packet data_quality_contract.requested_from must use YYYY.MM.DD.")
     } elseif ($requestedFrom -cne [string]$Binding.From) {
         $Blockers.Add("Task packet data_quality_contract.requested_from must match task packet/from binding '$($Binding.From)'.")
-    } elseif ($requestedFrom -cne '1970.01.01') {
+    } elseif ($coverageMode -ceq 'all_available_asof' -and $requestedFrom -cne '1970.01.01') {
         $Blockers.Add("Task packet all_available_asof requested_from must equal the frozen sentinel '1970.01.01'.")
+    } elseif ($coverageMode -ceq 'fixed_window' -and $requestedFrom -ceq '1970.01.01') {
+        $Blockers.Add("Task packet fixed_window requested_from must not use the all-available sentinel '1970.01.01'.")
     }
     if (-not (Test-ResearchDate $requestedTo)) {
         $Blockers.Add("Task packet data_quality_contract.requested_to must use YYYY.MM.DD.")
     } elseif ($requestedTo -cne [string]$Binding.To) {
         $Blockers.Add("Task packet data_quality_contract.requested_to must match task packet/to binding '$($Binding.To)'.")
-    } elseif (Test-ZuluTimestamp $availabilityAsOfUtc) {
+    } elseif ($coverageMode -ceq 'all_available_asof' -and (Test-ZuluTimestamp $availabilityAsOfUtc)) {
         $asOfDate = [datetimeoffset]::Parse(
             $availabilityAsOfUtc,
             [System.Globalization.CultureInfo]::InvariantCulture,
@@ -573,6 +613,20 @@ function Resolve-DataQualityContract($Packet, $Binding, $Blockers) {
         ).UtcDateTime.ToString('yyyy.MM.dd')
         if ($requestedTo -cne $asOfDate) {
             $Blockers.Add("Task packet data_quality_contract.requested_to must equal the UTC calendar date of availability_asof_utc '$asOfDate'.")
+        }
+    } elseif ($coverageMode -ceq 'fixed_window' -and (Test-ZuluTimestamp $availabilityAsOfUtc)) {
+        $fromDate = [datetime]::ParseExact($requestedFrom, 'yyyy.MM.dd', [System.Globalization.CultureInfo]::InvariantCulture)
+        $toDate = [datetime]::ParseExact($requestedTo, 'yyyy.MM.dd', [System.Globalization.CultureInfo]::InvariantCulture)
+        $asOfDate = [datetimeoffset]::Parse(
+            $availabilityAsOfUtc,
+            [System.Globalization.CultureInfo]::InvariantCulture,
+            [System.Globalization.DateTimeStyles]::RoundtripKind
+        ).UtcDateTime.Date
+        if ($fromDate -ge $toDate) {
+            $Blockers.Add("Task packet fixed_window requested_from must be earlier than requested_to.")
+        }
+        if ($toDate -gt $asOfDate) {
+            $Blockers.Add("Task packet fixed_window requested_to must not be later than availability_asof_utc.")
         }
     }
     $journalBounds = Get-ObjectProperty $dataQuality 'require_tester_journal_bounds'
@@ -798,6 +852,7 @@ function Resolve-ResearchContract($RequestedHypothesisId, $RequestedEaName) {
         EaContractPath = $sourceContract.ContractRelativePath
         EaContractAbsolutePath = $sourceContract.ContractAbsolutePath
         EaContractSha256 = $sourceContract.ContractSha256
+        IndicatorDependencies = @($sourceContract.IndicatorDependencies)
         SourceContractPinned = $sourceContract.IsPinned
     }
 }
@@ -1167,7 +1222,7 @@ function Resolve-ExecutionAuthority($Packet, $Binding, $Blockers) {
         $Blockers.Add("Data-acquisition authority forbids research cost proxy mode.")
     }
     if ($null -eq $Binding.DataQualityContract) {
-        $Blockers.Add("Data-acquisition authority requires a valid all-available data_quality_contract.")
+        $Blockers.Add("Data-acquisition authority requires a valid data_quality_contract.")
     }
     return $authority
 }
@@ -1471,10 +1526,19 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
             ValidationStage = $null
             HoldingContract = $null
             AcceptanceContract = $null
+            DataAcceptanceContract = $Contract.DataAcceptanceContract
             DataQualityContract = $null
+            CostEvidenceTier = $null
             Authority = $null
+            CollectionSymbol = $null
+            CollectionPeriod = $null
+            CollectionServer = $null
             MatchedControlRunId = $null
             MatchedControl = $null
+            IncludeClosure = @()
+            IncludeClosureSha256 = Get-PathHashSetSha256 @()
+            RequiredSidecars = @()
+            RequiredManifestHashes = @()
             CostEvidence = @()
             Blockers = @($blockers | ForEach-Object { $_ })
         }
@@ -1488,9 +1552,14 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
             CostSourceManifestPath = $null; WfaArtifactPath = $null; VariantsDir = $null
             ValidationStage = $null; HoldingContract = $null; MatchedControlRunId = $null
             AcceptanceContract = $null
+            DataAcceptanceContract = $Contract.DataAcceptanceContract
             DataQualityContract = $null
+            CostEvidenceTier = $null
             Authority = $null
+            CollectionSymbol = $null; CollectionPeriod = $null; CollectionServer = $null
             MatchedControl = $null
+            IncludeClosure = @(); IncludeClosureSha256 = Get-PathHashSetSha256 @()
+            RequiredSidecars = @(); RequiredManifestHashes = @()
             CostEvidence = @()
             Blockers = @($blockers | ForEach-Object { $_ })
         }
@@ -1509,9 +1578,14 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
             CostSourceManifestPath = $null; WfaArtifactPath = $null; VariantsDir = $null
             ValidationStage = $null; HoldingContract = $null; MatchedControlRunId = $null
             AcceptanceContract = $null
+            DataAcceptanceContract = $Contract.DataAcceptanceContract
             DataQualityContract = $null
+            CostEvidenceTier = $null
             Authority = $null
+            CollectionSymbol = $null; CollectionPeriod = $null; CollectionServer = $null
             MatchedControl = $null
+            IncludeClosure = @(); IncludeClosureSha256 = Get-PathHashSetSha256 @()
+            RequiredSidecars = @(); RequiredManifestHashes = @()
             CostEvidence = @()
             Blockers = @($blockers | ForEach-Object { $_ })
         }
@@ -1589,6 +1663,20 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
     if (-not [string]::IsNullOrWhiteSpace($Contract.EaContractSha256)) {
         Add-PacketMismatch $blockers $packet 'ea_contract_path' $Contract.EaContractPath
         Add-PacketMismatch $blockers $packet 'ea_contract_sha256' $Contract.EaContractSha256 -Hash
+    }
+    $packetIndicatorProperty = $packet.PSObject.Properties['indicator_dependencies']
+    $packetIndicatorDependencies = if ($null -eq $packetIndicatorProperty) { @() } else { @($packetIndicatorProperty.Value) }
+    if ($null -eq $packetIndicatorProperty) {
+        $blockers.Add("Task packet field 'indicator_dependencies' is required (use [] when the EA has none).")
+    }
+    try {
+        $liveIndicatorRecords = @(Get-IndicatorDependencyBindingRecords $Binding.IndicatorDependencies)
+        $packetIndicatorRecords = @(Get-IndicatorDependencyBindingRecords $packetIndicatorDependencies)
+        if ([string]::Join("`n", $liveIndicatorRecords) -cne [string]::Join("`n", $packetIndicatorRecords)) {
+            $blockers.Add("Task packet indicator_dependencies do not match the live EA capability contract and source hashes.")
+        }
+    } catch {
+        $blockers.Add("Task packet indicator_dependencies are invalid: $($_.Exception.Message)")
     }
     Add-PacketMismatch $blockers $packet 'symbol' $Binding.Symbol
     Add-PacketMismatch $blockers $packet 'period' $Binding.Period
@@ -2872,6 +2960,17 @@ function New-ExecutionReceipt($ReceiptPath, $Contract, $PacketResult, $Binding, 
                 pip_size = $Binding.PipSize
             }
             include_closure_sha256 = $Binding.IncludeClosureSha256
+            visual_mode = $false
+            indicator_dependencies = @(
+                $Binding.IndicatorDependencies | ForEach-Object {
+                    [ordered]@{
+                        name = [string](Get-ObjectProperty $_ 'name')
+                        source = [string](Get-ObjectProperty $_ 'source')
+                        source_sha256 = [string](Get-ObjectProperty $_ 'source_sha256')
+                        terminal_ex5 = [string](Get-ObjectProperty $_ 'terminal_ex5')
+                    }
+                }
+            )
         }
         evidence = @($evidence | ForEach-Object { $_ })
         generated_at_utc = (Get-Date).ToUniversalTime().ToString('o')
@@ -3033,15 +3132,21 @@ function Get-DataQualitySeriesProofFromJournal([string]$JournalText, [string]$Sy
     $m1ServerDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m1_server_first_epoch).UtcDateTime.Date
     $m1TerminalDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m1_terminal_first_epoch).UtcDateTime.Date
     $copyFirstDate = [datetimeoffset]::FromUnixTimeSeconds($proof.copytime_first_epoch).UtcDateTime.Date
-    if ($actualFromDate -ne $m5FirstDate -or $m5FirstDate -ne $m5TerminalDate -or $m5FirstDate -ne $copyFirstDate) {
-        throw "INVALID_TRUNCATED_TERMINAL_CACHE: journal/M5/terminal/CopyTime first dates disagree."
+    # The symbol-level journal range is a broad availability envelope, not the
+    # exact first date of every timeframe.  Require it to cover the proven M5
+    # start while keeping the M5/terminal/CopyTime witnesses exact.
+    if ($actualFromDate -gt $m5FirstDate) {
+        throw "INVALID_TRUNCATED_TERMINAL_CACHE: journal history envelope begins after the proven M5 first date."
+    }
+    if ($m5FirstDate -ne $m5TerminalDate -or $m5FirstDate -ne $copyFirstDate) {
+        throw "INVALID_TRUNCATED_TERMINAL_CACHE: M5/terminal/CopyTime first dates disagree."
     }
     if ($m1TerminalDate -ne $m1ServerDate -or $m1ServerDate -gt $m5FirstDate) {
         throw "INVALID_TRUNCATED_TERMINAL_CACHE: terminal M1 first date does not match server history."
     }
     $reportingFloor = [datetime]::new(2018, 1, 1)
     $coverageClass = 'FULL_2018_PLUS'
-    if ($actualFromDate -gt $reportingFloor) {
+    if ($m5FirstDate -gt $reportingFloor) {
         if ($m1ServerDate -le $reportingFloor -or ($m5FirstDate - $m1ServerDate).TotalDays -gt 7) {
             throw "INVALID_TRUNCATED_TERMINAL_CACHE: post-2018 start is not justified by MT5 server history."
         }
@@ -3179,12 +3284,17 @@ function Assert-DataQualityManifestMatchesPacket($Manifest, $PacketResult, [stri
     }
     $actualFromDate = [datetime]::ParseExact($actualFrom, 'yyyy.MM.dd', [System.Globalization.CultureInfo]::InvariantCulture)
     $actualToDate = [datetime]::ParseExact($actualTo, 'yyyy.MM.dd', [System.Globalization.CultureInfo]::InvariantCulture)
+    $requestedFromDate = [datetime]::ParseExact([string](Get-ObjectProperty $manifestContract 'requested_from'), 'yyyy.MM.dd', [System.Globalization.CultureInfo]::InvariantCulture)
     $requestedToDate = [datetime]::ParseExact([string](Get-ObjectProperty $manifestContract 'requested_to'), 'yyyy.MM.dd', [System.Globalization.CultureInfo]::InvariantCulture)
     if ($actualFromDate -gt $actualToDate) {
         throw "Post-run data_quality_gate actual_from must not be later than actual_to."
     }
     if ($actualToDate -lt $requestedToDate) {
         throw "Post-run data_quality_gate ends before the frozen requested_to date."
+    }
+    if ([string](Get-ObjectProperty $manifestContract 'coverage_mode') -ceq 'fixed_window' -and
+        $actualFromDate -gt $requestedFromDate) {
+        throw "Post-run data_quality_gate begins after the frozen fixed_window requested_from date."
     }
     if ((Get-ObjectProperty $gate 'journal_truncated') -isnot [bool] -or [bool](Get-ObjectProperty $gate 'journal_truncated') -or
         [int64](Get-ObjectProperty $gate 'journal_bytes_read') -le 0 -or
@@ -3695,6 +3805,7 @@ if (-not [string]::IsNullOrWhiteSpace($VariantTag)) {
 $effectiveOverrides = Resolve-TelemetryTierOverrides $TelemetryTier $contract.CanonicalSourceAbsolute $effectiveOverrides $contract.TelemetryProfile
 $effectiveSpread = if ([string]::IsNullOrWhiteSpace($Spread)) { "current" } else { $Spread }
 $gitSnapshot = Get-GitSnapshot $contract.CanonicalSourceAbsolute
+$indicatorDependencyBinding = @(Get-LiveIndicatorDependencyBinding $contract.IndicatorDependencies)
 $binding = [pscustomobject]@{
     EaName = $EaName
     RunRole = $RunRole
@@ -3722,6 +3833,21 @@ $binding = [pscustomobject]@{
     WfaArtifact = $WfaArtifact
     VariantsDir = $VariantsDir
     MatchedControlRunId = $MatchedControlRunId
+    IndicatorDependencies = @($indicatorDependencyBinding)
+    # Defaults keep a no-packet dry run inspectable under StrictMode.  A valid
+    # task packet overwrites every one of these fields inside Resolve-TaskPacket.
+    IncludeClosure = @()
+    IncludeClosureSha256 = Get-PathHashSetSha256 @()
+    BrokerFingerprint = $null
+    ServerFingerprint = $null
+    AccountFingerprint = $null
+    DataFingerprint = $null
+    SymbolDigits = $null
+    SymbolPoint = $null
+    PipSize = $null
+    RequiredSidecars = @()
+    RequiredManifestHashes = @()
+    DataQualityContract = $null
 }
 
 $executionBlockers = New-Object System.Collections.Generic.List[string]
@@ -3888,6 +4014,7 @@ try {
         if (-not [string]::IsNullOrWhiteSpace([string]$path)) { [void]$immutableEvidencePaths.Add([string]$path) }
     }
     foreach ($item in @($packetResult.IncludeClosure)) { [void]$immutableEvidencePaths.Add([string]$item.Path) }
+    foreach ($item in @($binding.IndicatorDependencies)) { [void]$immutableEvidencePaths.Add([string]$item.source_absolute_path) }
     foreach ($item in @($packetResult.CostEvidence)) { [void]$immutableEvidencePaths.Add([string]$item.Path) }
     if (-not [string]::IsNullOrWhiteSpace([string]$packetResult.VariantsDir)) {
         foreach ($item in @(Get-ChildItem -LiteralPath $packetResult.VariantsDir -Recurse -File -ErrorAction Stop)) {
@@ -3945,11 +4072,11 @@ try {
         $binding.GitStatus = @($postClaimGitSnapshot.Status)
         $binding.GitStatusSha256 = $postClaimGitSnapshot.StatusSha256
     }
-    $existingTerminals = @(Get-Process -Name "terminal64" -ErrorAction SilentlyContinue)
-    if ($existingTerminals.Count -gt 0) {
-        $terminalPids = ($existingTerminals | ForEach-Object { $_.Id }) -join ","
-        throw "Unrelated terminal64 process already running (PID(s): $terminalPids). Research loop failed closed before backtest."
-    }
+    # A normal user terminal from another MT5 installation is safe and remains
+    # completely outside runner ownership. Only the executable AlphaFactory is
+    # about to launch (or a process whose identity cannot be resolved) blocks.
+    $alphaMt5ExecutablePath = Resolve-AlphaMt5ExecutablePath -AlphaRoot $alphaRoot
+    Assert-NoConflictingAlphaTerminal -ExpectedExecutablePath $alphaMt5ExecutablePath
     Add-StateTransition "execution_started" "Registry, source, prereg, task packet, and cost-source contract validated." | Out-Null
 
     $receiptPath = Join-Path $runtimeRoot "ea_execution_receipt_$sessionId.json"
@@ -4025,7 +4152,7 @@ try {
         [void](Assert-ZeroTradeCollectionSummary $collectionSummaryPath ([string]$packetResult.Authority))
         $evidence.zero_trade_collection_summary_path = $collectionSummaryPath
         $evidence.zero_trade_collection_summary_sha256 = Get-Sha256IfExists $collectionSummaryPath
-        Add-StateTransition "data_acquisition_verified" "Zero trades; all-available history gate and no-performance authority verified." | Out-Null
+        Add-StateTransition "data_acquisition_verified" "Zero trades; frozen history-quality gate and no-performance authority verified." | Out-Null
         Add-StateTransition "completed" "Data acquisition, post-run history-quality verification, and non-repaint audit succeeded; economic validation was forbidden." | Out-Null
 
         $collectionLoopSummary = [ordered]@{

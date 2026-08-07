@@ -1490,6 +1490,7 @@ $packet = [ordered]@{
     prereg_sha256 = $contract.PreregSha256
     telemetry_profile = $contract.TelemetryProfile
     comparison_adapter = $contract.ComparisonAdapter
+    indicator_dependencies = @()
     acceptance_contract = $acceptance
     symbol = $binding.Symbol
     period = $binding.Period
@@ -1592,7 +1593,7 @@ def test_collection_authority_is_receipt_bound_and_stops_before_economics() -> N
     assert 'economic validation was forbidden' in engine
     assert "Unsupported contract receipt authority" in alpha
     assert "authority does not match its hash-bound task packet" in alpha
-    assert "all-available History Quality >97 contract" in alpha
+    assert "required frozen History Quality >97 contract" in alpha
     assert "DATA_ACQUISITION_ONLY_NO_PERFORMANCE" in engine
     assert "DATA_ACQUISITION_ONLY_NO_PERFORMANCE" in alpha
 
@@ -1788,6 +1789,25 @@ def test_data_quality_contract_validates_and_normalizes(tmp_path: Path) -> None:
     assert result["contract"]["require_tester_journal_bounds"] is True
 
 
+def test_fixed_window_data_quality_contract_validates_and_normalizes(tmp_path: Path) -> None:
+    packet = valid_data_quality_packet()
+    packet["data_quality_contract"].update({
+        "coverage_mode": "fixed_window",
+        "requested_from": "2016.01.04",
+        "requested_to": "2020.12.31",
+    })
+    result = run_data_quality_contract_validator(
+        tmp_path,
+        packet,
+        from_date="2016.01.04",
+        to_date="2020.12.31",
+    )
+    assert result["blockers"] == []
+    assert result["contract"]["coverage_mode"] == "fixed_window"
+    assert result["contract"]["requested_from"] == "2016.01.04"
+    assert result["contract"]["requested_to"] == "2020.12.31"
+
+
 def test_data_quality_contract_absence_is_legacy_compatible(tmp_path: Path) -> None:
     result = run_data_quality_contract_validator(tmp_path, {})
     assert result["blockers"] == []
@@ -1864,7 +1884,7 @@ def test_data_quality_contract_rejects_malformed_cases(tmp_path: Path) -> None:
         ("below_required_history_value", lambda pkt: pkt["data_quality_contract"]["history_quality"].update({"value": 96.999}), "in [97,100)"),
         ("impossible_history_value", lambda pkt: pkt["data_quality_contract"]["history_quality"].update({"value": 100}), "in [97,100)"),
         ("oversized_history_value", lambda pkt: pkt["data_quality_contract"]["history_quality"].update({"value": 101}), "in [97,100)"),
-        ("bad_coverage_mode", lambda pkt: pkt["data_quality_contract"].update({"coverage_mode": "broker_history_sync"}), "coverage_mode must equal 'all_available_asof'"),
+        ("bad_coverage_mode", lambda pkt: pkt["data_quality_contract"].update({"coverage_mode": "broker_history_sync"}), "coverage_mode must equal 'all_available_asof' or 'fixed_window'"),
         ("bad_timestamp", lambda pkt: pkt["data_quality_contract"].update({"availability_asof_utc": "2026-07-31T00:00:00+00:00"}), "must be a Z timestamp"),
         ("future_timestamp", lambda pkt: pkt["data_quality_contract"].update({"availability_asof_utc": "2999-12-31T23:59:59Z", "requested_to": "2999.12.31"}), "must not be in the future"),
         ("bad_date_format", lambda pkt: pkt["data_quality_contract"].update({"requested_from": "2020-01-01"}), "requested_from must use YYYY.MM.DD"),
@@ -2225,6 +2245,11 @@ def test_lifecycle_manifest_requires_exact_runmeta_identity() -> None:
     assert "requires exactly one *_RunMeta_*.json" in alpha
     assert "alphafactory_run_meta.v1" in alpha
     assert "RunMeta identity does not match manifest EA/symbol/telemetry profile" in alpha
+
+
+def test_default_sidecar_collection_includes_outcome_blind_stage_telemetry() -> None:
+    alpha = ALPHA.read_text(encoding="utf-8-sig")
+    assert '"${Sym}_*StageTelemetry_*.csv"' in alpha
 
 
 def test_tester_input_serializer_is_typed_include_aware_and_fail_closed(tmp_path: Path) -> None:

@@ -1,0 +1,23 @@
+{
+  "schema_version": "alphafactory_research_task_packet.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-BLOCK1-001",
+  "run_role": "challenger",
+  "ea_name": "EA_RegimeStructureFusion",
+  "symbol": "EURUSD",
+  "period": "M5",
+  "from": "2018.01.01",
+  "to": "2022.12.31",
+  "model": 0,
+  "execution_mode": 0,
+  "fixed_delay_ms": 0,
+  "overrides": "InpEnableTelemetry=true;InpExpectedSymbol=EURUSD;InpHypothesisId=HYP-RSF-EURUSD-M5-BLOCK1-001;InpMagic=5867202;InpManualModeMask=7;InpManualSessionMask=6;InpProfileMode=1;InpResearchAutoMode=true;InpUseContextRouter=true;InpUseQqeTiming=true;InpUseTbStructure=true;InpVariantTag=B1C16_UNION_FULL",
+  "telemetry_tier": "trade-only",
+  "telemetry_profile": "lifecycle-v3",
+  "deposit": 100000,
+  "leverage": 100,
+  "spread": "current",
+  "required_sidecars": ["*_LifecycleTrades_*.csv", "*_RunMeta_*.json"],
+  "purpose": "Block-1 cell 16 of 18: Union full five-indicator stack, all modes; matched to cell 13 control.",
+  "economic_claims_authorized": false,
+  "promotion_eligible": false
+}

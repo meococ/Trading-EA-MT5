@@ -1,0 +1,83 @@
+{
+  "schema_version": "jcdr005.final_engineering_closure_receipt.v1",
+  "hypothesis_id": "HYP-JCDR-EURUSD-M5-005",
+  "scope": "Exactly one outcome-blind no-trade full-stage Model-0 diagnostic run",
+  "source": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/EA_JumpClusterDecayReversal.mq5",
+    "sha256": "F337B9B770D2DEF1A24D5A1D9A58A995FDBBCED8E24B42533B0D71A2F9D49AC1"
+  },
+  "compiled_ex5": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/EA_JumpClusterDecayReversal.ex5",
+    "sha256": "4E9C6344C8A50746DC99DBB0B0131EAEC664B2406CD46521A4E5B3653A3A9B11",
+    "bytes": 53844,
+    "compile_log_path": "03. EA Developer/EA_JumpClusterDecayReversal/EA_JumpClusterDecayReversal.log",
+    "compile_log_sha256": "BA9D57E3C85443623235B2E0EA9866E98E4F76AE38147CFC6B09DAADD74F4049",
+    "compile_errors": 0,
+    "compile_warnings": 0
+  },
+  "focused_contract_tests": {
+    "command": "python -m pytest test_jcdr003_exporter_contract.py test_jcdr004_role_router_contract.py test_jcdr005_stage_diagnostic_contract.py -q",
+    "passed": 44,
+    "failed": 0,
+    "files": [
+      {
+        "path": "03. EA Developer/EA_JumpClusterDecayReversal/research/tests/test_jcdr003_exporter_contract.py",
+        "sha256": "26126B1761C150D1ABC1B60C12BDA52CFDA0B8150D6038580EE688403AC58388"
+      },
+      {
+        "path": "03. EA Developer/EA_JumpClusterDecayReversal/research/tests/test_jcdr004_role_router_contract.py",
+        "sha256": "1AC122D180F4926D9C1D2A58714E29F6C652E83C3688173A7F4F267DFCAA7597"
+      },
+      {
+        "path": "03. EA Developer/EA_JumpClusterDecayReversal/research/tests/test_jcdr005_stage_diagnostic_contract.py",
+        "sha256": "00888D78BD90868CB936B95FD1D07A4919F4BF61AD7612DDD9CC478736F035FC"
+      }
+    ]
+  },
+  "regression_tests": {
+    "command": "python -m pytest tests/test_data_quality_gate.py tests/test_ea_golden_path.py tests/test_indicator_router_telemetry.py tests/test_large_log_reader.py tests/test_terminal_process_guard.py tests/test_visual_replay_contract.py -q",
+    "passed": 76,
+    "failed": 0
+  },
+  "nonrepaint_audit": {
+    "manifest_path": "03. EA Developer/EA_JumpClusterDecayReversal/NONREPAINT_AUDIT_MANIFEST_JCDR_005.json",
+    "manifest_sha256": "860F76B5AC7D34EF9FF0403F39DADFDDDF89500E7F37510F3855BB7CFD686B64",
+    "audit_path": "03. EA Developer/EA_JumpClusterDecayReversal/research/HYP-JCDR-EURUSD-M5-005_NONREPAINT_AUDIT.json",
+    "audit_sha256": "DB7E0D96A1C013012E79DAFB48CFD8F35CD33AF12B8181823BCACC77A9918069",
+    "verdict": "PASS",
+    "findings": 0
+  },
+  "ea_contract": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/ALPHAFACTORY_EA_CONTRACT.json",
+    "sha256": "F67AE62B665B42A86F2A07C9D05032E984F8ADE7E9EF8F33CF8B60D533916AA3"
+  },
+  "independent_review": {
+    "backend": "grok-build",
+    "model": "grok-4.5-build",
+    "reasoning_effort": "high",
+    "source_sha256": "F337B9B770D2DEF1A24D5A1D9A58A995FDBBCED8E24B42533B0D71A2F9D49AC1",
+    "bounded_review_session_id": "019fdbd5-6709-7e90-b719-4a0626ee332a",
+    "bounded_review_status": "MAX_TURNS_AFTER_COMPLETED_CHECKS_NO_VALID_FINAL",
+    "closure_review": {
+      "verdict": "PASS",
+      "remaining_p0_p2": 0,
+      "run_id": "20260807T105010052800Z-5992",
+      "response_path": ".context/jcdr005_stage_alignment_review_closure/run3_resume_final/grok-response.json",
+      "response_sha256": "A742DF14478550D86EFBA8D3A7F19EDFC510549DF5DE643EFEC31ADEFE5F8702",
+      "summary_path": ".context/jcdr005_stage_alignment_review_closure/run3_resume_final/summary.json",
+      "summary_sha256": "34536602485535D49405CEC695430F9FBFB600A38A3D25AEEBCDA753E277152E",
+      "structured_output_validation": "PASS",
+      "stop_reason": "EndTurn"
+    }
+  },
+  "engineering_verdict": "PASS_ONE_MODEL0_OUTCOME_BLIND_STAGE_DIAGNOSTIC_AUTHORIZED",
+  "permissions": {
+    "one_fixed_window_model0_no_trade_diagnostic": true,
+    "post_availability_prices": false,
+    "selected_route_or_direction": false,
+    "performance_or_economics": false,
+    "optimization": false,
+    "validation_or_holdout": false,
+    "paper_or_live": false
+  }
+}

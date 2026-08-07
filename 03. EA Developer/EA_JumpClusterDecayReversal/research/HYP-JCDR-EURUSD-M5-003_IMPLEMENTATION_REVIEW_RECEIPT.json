@@ -1,0 +1,58 @@
+{
+  "schema_version": "jcdr.independent_implementation_review.v1",
+  "hypothesis_id": "HYP-JCDR-EURUSD-M5-003",
+  "review_status": "PASS",
+  "source": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/EA_JumpClusterDecayReversal.mq5",
+    "sha256": "CFAB6DEB30B614D2F7AB14B16821E22F3D382D9A65DB790E4101E8F978996B18"
+  },
+  "compiled_ex5": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/EA_JumpClusterDecayReversal.ex5",
+    "sha256": "11D8DDA1DCAFD7E8DE384577A8B12739E21C3AE48F726ED019C207091DD1FBA9",
+    "compile_errors": 0,
+    "compile_warnings": 0
+  },
+  "focused_tests": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/research/tests/test_jcdr003_exporter_contract.py",
+    "sha256": "CD8DBE6C63E14778FD5A7BADE85812157E57137BF9D25A94680F757FFDAE4CC9",
+    "passed": 13,
+    "failed": 0
+  },
+  "static_audit": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/research/HYP-JCDR-EURUSD-M5-003_NONREPAINT_AUDIT.json",
+    "sha256": "0F16A4E56BF6B094B2BA4C2952F305F77401A0C0E96114D3329785B56E6DE0F1",
+    "verdict": "PASS"
+  },
+  "ea_contract": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/ALPHAFACTORY_EA_CONTRACT.json",
+    "sha256": "DB2B3211F247754C73424C33BF34F8D5D1107DDC39EFFB94154910D48A07B466"
+  },
+  "reviewer": {
+    "backend": "grok-build",
+    "model": "grok-4.5-build",
+    "reasoning_effort": "high",
+    "session_id": "019fdad8-1659-76c3-88b7-b02b2955c3cb",
+    "run_id": "20260807T061142545230Z-37108",
+    "response_path": ".context/jcdr003_implementation_review/run3/grok-response.json",
+    "response_sha256": "2BEAE3AF9A92ACF0C4DB9F6F05910B2CD14115723A008D6A09718788B32533CC",
+    "summary_path": ".context/jcdr003_implementation_review/run3/summary.json",
+    "summary_sha256": "9CD06DE27F00D22B5720F9A740BE084599A0D00196A5FBB6F4668555E18AB9CB",
+    "structured_output_validation": "PASS",
+    "verdict": "PASS",
+    "unresolved_findings": 0,
+    "confidence": 0.96
+  },
+  "closed_findings": [
+    "P0 prior-48 scale bootstrap deadlock",
+    "P2 median-of-ratios versus ratio-of-median"
+  ],
+  "permissions": {
+    "one_model0_no_trade_probe": true,
+    "post_availability_prices": false,
+    "performance_or_economics": false,
+    "optimization": false,
+    "validation_or_holdout": false,
+    "paper_or_live": false
+  },
+  "authorized_next_step": "Exactly one full-window no-trade Model-0 router feasibility probe against all frozen gates."
+}

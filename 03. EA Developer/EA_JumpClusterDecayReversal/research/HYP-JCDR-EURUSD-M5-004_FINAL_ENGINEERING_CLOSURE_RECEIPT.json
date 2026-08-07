@@ -1,0 +1,104 @@
+{
+  "schema_version": "jcdr004.final_engineering_closure_receipt.v1",
+  "hypothesis_id": "HYP-JCDR-EURUSD-M5-004",
+  "scope": "Exactly one outcome-blind no-trade fixed-window Model-0 role-aware source-feasibility probe",
+  "source": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/EA_JumpClusterDecayReversal.mq5",
+    "sha256": "4C3ED94B29329299DE57FE8C8ABDA247CF30FCAC029533C6B41BBFD03ADE06BE"
+  },
+  "compiled_ex5": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/EA_JumpClusterDecayReversal.ex5",
+    "sha256": "9E887E4AC5FAFD29C6963677EB2F901935142F8177DCEE54465B6B78E79683E6",
+    "bytes": 55126,
+    "compile_log_path": "03. EA Developer/EA_JumpClusterDecayReversal/EA_JumpClusterDecayReversal.log",
+    "compile_log_sha256": "542D796056B5160210306D47076636A80FC16D2DEE7715DF5A4F4F20A52B77AE",
+    "compile_errors": 0,
+    "compile_warnings": 0
+  },
+  "focused_contract_tests": {
+    "command": "python -m pytest test_jcdr003_exporter_contract.py test_jcdr004_role_router_contract.py -q",
+    "passed": 33,
+    "failed": 0,
+    "files": [
+      {
+        "path": "03. EA Developer/EA_JumpClusterDecayReversal/research/tests/test_jcdr003_exporter_contract.py",
+        "sha256": "26126B1761C150D1ABC1B60C12BDA52CFDA0B8150D6038580EE688403AC58388"
+      },
+      {
+        "path": "03. EA Developer/EA_JumpClusterDecayReversal/research/tests/test_jcdr004_role_router_contract.py",
+        "sha256": "7AFBAD2D91FD619C38E64ECC9BDB6EEE22EA5C8E3891B23A40794960220C311B"
+      }
+    ]
+  },
+  "regression_tests": {
+    "passed": 62,
+    "failed": 0,
+    "note": "57 indicator-router/golden-path/data-quality tests plus 5 non-repaint collection-probe tests passed after the final source fixes.",
+    "files": [
+      {
+        "path": "02. AlphaFactory/tests/test_indicator_router_telemetry.py",
+        "sha256": "185EC3F2DB42DE980885A17319484CFDFFE38D99AADBFD1E401A6A548CC26F57"
+      },
+      {
+        "path": "02. AlphaFactory/tests/test_ea_golden_path.py",
+        "sha256": "A6B751FADE6922DB8B5E36A9B81244238B1F3A000556EDF7E5BDEE3EEF76E4CC"
+      },
+      {
+        "path": "02. AlphaFactory/tests/test_data_quality_gate.py",
+        "sha256": "1912907730A5FA8677E341B564D114B89C6302C0D43E2F617A9B63C5006C0DC6"
+      },
+      {
+        "path": "02. AlphaFactory/tests/test_nonrepaint_collection_probe.py",
+        "sha256": "23295088250E7EBDAF67C4F19DBEF274546BD2A6518B5017B706CBACAF2B1830"
+      }
+    ]
+  },
+  "nonrepaint_audit": {
+    "manifest_path": "03. EA Developer/EA_JumpClusterDecayReversal/NONREPAINT_AUDIT_MANIFEST_JCDR_004.json",
+    "manifest_sha256": "BEE9B84B29F40BDD4FE5E2772FE1212F634E839DCF837A420DFE39EFC401BE62",
+    "audit_path": "03. EA Developer/EA_JumpClusterDecayReversal/research/HYP-JCDR-EURUSD-M5-004_NONREPAINT_AUDIT.json",
+    "audit_sha256": "F7EE77CF2190D275E821861A3D3E96E3B1ACDFB88AC03A972A167A3D961831D4",
+    "verdict": "PASS",
+    "findings": 0
+  },
+  "ea_contract": {
+    "path": "03. EA Developer/EA_JumpClusterDecayReversal/ALPHAFACTORY_EA_CONTRACT.json",
+    "sha256": "57DF6CA8980DAA5C990520FDF86A7D1F04FC98B3CF4E9721C6DBB4D2F124113D"
+  },
+  "independent_review": {
+    "backend": "grok-build",
+    "model": "grok-4.5-build",
+    "reasoning_effort": "high",
+    "initial_review": {
+      "verdict": "CHANGES_REQUIRED",
+      "response_path": ".context/jcdr004_role_router_review/grok-response.json",
+      "response_sha256": "E8B51359AD080CEF44FCE82EE6A325E852E1DB9C8A4CA85C3F1ED71320B06438",
+      "summary_path": ".context/jcdr004_role_router_review/summary.json",
+      "summary_sha256": "70D939D305D931C12CC07F0E2C21189D64E64C9548016F83C66595D21F1C4603",
+      "accepted_findings": [
+        "P2 event-level indicator/TB invalidity accounting conflicted with the run gate",
+        "P3 ZeroMemory was unsafe for a RouterSnapshot containing a string"
+      ]
+    },
+    "closure_review": {
+      "verdict": "PASS",
+      "remaining_p0_p2": 0,
+      "session_id": "019fdb96-5c1c-78d0-b8dc-9f4e99e3c7b1",
+      "run_id": "20260807T093811062272Z-41428",
+      "response_path": ".context/jcdr004_role_router_review_closure/grok-response.json",
+      "response_sha256": "89DA336CD980BA8A75E7D5E1D146D2E9ED57F9D3EF4F92391C0CA3333912CC7E",
+      "summary_path": ".context/jcdr004_role_router_review_closure/summary.json",
+      "summary_sha256": "E9F8B2FAAE1062FA6F5F1EBAEAE66213F3B96C3DD198F3A5546AC40C520858DD",
+      "structured_output_validation": "PASS"
+    }
+  },
+  "engineering_verdict": "PASS_ONE_FIXED_WINDOW_MODEL0_NO_TRADE_SOURCE_PROBE_AUTHORIZED",
+  "permissions": {
+    "one_fixed_window_model0_no_trade_probe": true,
+    "post_availability_prices": false,
+    "performance_or_economics": false,
+    "optimization": false,
+    "validation_or_holdout": false,
+    "paper_or_live": false
+  }
+}
