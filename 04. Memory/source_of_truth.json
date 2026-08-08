@@ -1,9 +1,9 @@
 {
-    "version": 49,
-  "updated_at": "2026-07-30",
+  "version": 51,
+  "updated_at": "2026-08-08",
   "default_status": "authoritative",
   "root_hygiene": {
-    "rule": "Keep the project root lean: AGENTS.md, CLAUDE.md, INDEX.md, 01. GOAL/, and the hidden .codex/operator recovery pointer only. Keep MT5 sample experts out of root and treat raw AlphaFactory runs as local operational data. Do not hard-code active EA inventory here; resolve it from 03. EA Developer/README.md, disk and AlphaFactory status. EA_SonicR and binary-only EA_SilverBullet are archive-only under 00. Old File/EA_Archive/.",
+    "rule": "Keep the project root lean: AGENTS.md, INDEX.md, 01. GOAL/, and the hidden .codex/operator recovery pointer only. Keep MT5 sample experts out of root and treat raw AlphaFactory runs as local operational data. Do not hard-code active EA inventory here; resolve it from 03. EA Developer/README.md, disk and AlphaFactory status. EA_SonicR and binary-only EA_SilverBullet are archive-only under 00. Old File/EA_Archive/.",
     "graveyard": "00. Old File/docs_archive/",
     "ai_archive": "00. Old File/project_control_archive_20260716/"
   },
@@ -12,11 +12,6 @@
       "path": "AGENTS.md",
       "status": "authoritative",
       "reason": "Single cross-agent operating doctrine with the Owner-to-artifact authority order, hard rules and canonical pointers; active scope is resolved from current Owner intent plus frozen contracts and artifacts, never from hot.md."
-    },
-    {
-      "path": "CLAUDE.md",
-      "status": "authoritative",
-      "reason": "Pointer-only session entry file; defers to AGENTS.md, GOAL.md, INDEX.md and current registry/artifact truth."
     },
     {
       "path": "INDEX.md",
@@ -36,22 +31,17 @@
     {
       "path": "01. GOAL/GOAL.md",
       "status": "authoritative",
-      "reason": "Owner-frozen north-star target: joint PF/cadence/cost-stress/exposure/evidence-window table, DONE ladder, non-goals, and probe-first operating principle. Changes only on explicit Owner decision; numeric authority remains validation_gates.md."
+      "reason": "Owner-frozen economic outcome and DONE gates; detailed operating rules live only in 05. Playbook/WORKFLOW.md."
     },
     {
-      "path": "05. Playbook/research_doctrine.md",
+      "path": "05. Playbook/WORKFLOW.md",
       "status": "authoritative",
-      "reason": "Full research/validation doctrine: research workflow, registry contract, probe-plan freeze and versioning, chart-state label contract, multiple-testing budget, team review roles, MT5 non-repaint rules, and backtest hygiene."
+      "reason": "Single canonical MT5-only workflow: specification, production-complete EA, correctness checks, baseline forensics, per-symbol optimization, OOS validation and forward release."
     },
     {
       "path": "04. Memory/validate_source_of_truth.py",
       "status": "authoritative",
       "reason": "Fail-closed local availability, mounted-backup SHA256, duplicate-path, and JSON-to-Markdown consistency validator; absent optional external backup roots warn by default and --strict-backups restores fail-closed audit mode."
-    },
-    {
-      "path": "05. Playbook/validation_gates.md",
-      "status": "authoritative",
-      "reason": "Stage-gate matrix for every EA lane, including Two-Speed Fast-Kill versus Heavy-Delivery closeout and promotion-grade aligned-variant confirmed evidence."
     },
     {
       "path": "00. Old File/agent_guidance_archive/20260503_1916_sonic_readme_cleanup/manifest.json",
@@ -75,21 +65,6 @@
       "path": "04. Memory/source_of_truth.json",
       "status": "authoritative",
       "reason": "Machine-readable registry"
-    },
-    {
-      "path": "05. Playbook/ea_engineering_standard.md",
-      "status": "authoritative",
-      "reason": "Generic MQL5 engineering standard: closed-bar signal contract, ownership/state recovery, broker geometry, risk, lifecycle telemetry, and promotion boundaries."
-    },
-    {
-      "path": "05. Playbook/ea_golden_path.md",
-      "status": "authoritative",
-      "reason": "Generic design-to-decision workflow for every EA: intake, de-dup, probe, prereg, build, Model 0, then Fast-Kill or Heavy-Delivery routing without post-hoc rescue."
-    },
-    {
-      "path": "05. Playbook/tool_runbook.md",
-      "status": "authoritative",
-      "reason": "Generic AlphaFactory command runbook: Two-Speed closeout, confirmed aligned-variant validation, guarded MT5 research, evidence operations and cleanup."
     },
     {
       "path": "00. Old File/EA_Archive/README.md",
@@ -210,7 +185,7 @@
     {
       "path": "02. AlphaFactory/alpha.ps1",
       "status": "authoritative",
-      "reason": "Canonical AlphaFactory command entrypoint; includes lean fast-kill validation and Heavy-Delivery plus full validation surfaces."
+      "reason": "Canonical AlphaFactory command entrypoint for compile, MT5 backtest, analysis and validation."
     },
     {
       "path": "02. AlphaFactory/tools/validate_fast_kill_closeout.py",

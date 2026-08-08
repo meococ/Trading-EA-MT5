@@ -77,7 +77,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File "02. AlphaFactory/alpha.ps1"
 ```
 
 Use `02. AlphaFactory/tools/ea_research_loop.ps1` only after the generic
-registry/prereg/capability/cost gates in `05. Playbook/ea_golden_path.md` clear.
+registry/prereg/capability/cost gates in `05. Playbook/WORKFLOW.md` clear.
 
 Current verification: AlphaFactory compile `0 errors / 0 warnings`, EX5 66,836
 bytes; source non-repaint `PASS_ENGINEERING_ONLY`. Research verdict remains

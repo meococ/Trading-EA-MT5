@@ -2315,11 +2315,12 @@ if(-not $unknownRejected){throw 'unknown tester override was not rejected'}
     assert result.returncode == 0, result.stdout + result.stderr
 
 
-def test_generic_runbook_commands_bind_cost_source_manifest() -> None:
-    golden = (WORKSPACE / "05. Playbook" / "ea_golden_path.md").read_text(encoding="utf-8")
-    runbook = (WORKSPACE / "05. Playbook" / "tool_runbook.md").read_text(encoding="utf-8")
-    assert "-CostSourceManifest <COST_SOURCE_MANIFEST.json>" in golden
-    assert runbook.count("-CostSourceManifest") >= 2
+def test_single_workflow_keeps_cost_and_mt5_bindings() -> None:
+    workflow = (WORKSPACE / "05. Playbook" / "WORKFLOW.md").read_text(encoding="utf-8")
+    assert "spread/commission/slippage" in workflow
+    assert "dynamic cost stress" in workflow
+    assert "02. AlphaFactory/alpha.ps1" in workflow
+    assert "Không dùng TradingView" in workflow
 
 
 def test_generic_templates_are_parseable_and_have_no_executable_claim() -> None:

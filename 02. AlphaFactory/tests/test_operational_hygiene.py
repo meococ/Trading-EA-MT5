@@ -78,18 +78,16 @@ def test_archive_default_reference_roots_cover_current_control_surfaces(tmp_path
         "20260716_010104",
         "20260716_010105",
         "20260716_010106",
-        "20260716_010107",
         "20260716_010108",
         "20260716_010109",
     }
     references = [
         ("04. Memory/hot.md", "20260716_010101"),
-        ("05. Playbook/tool_runbook.md", "20260716_010102"),
+        ("05. Playbook/WORKFLOW.md", "20260716_010102"),
         ("01. GOAL/GOAL.md", "20260716_010103"),
         ("03. EA Developer/EA_Current/research/readout.md", "20260716_010104"),
         ("INDEX.md", "20260716_010105"),
         ("AGENTS.md", "20260716_010106"),
-        ("CLAUDE.md", "20260716_010107"),
         ("02. AlphaFactory/STRATEGY_LOG.md", "20260716_010108"),
         ("00. Old File/hot_details/hot_ledger_details.json", "20260716_010109"),
     ]
@@ -205,11 +203,11 @@ def test_registry_narrative_points_to_live_inventory_owner() -> None:
     assert "OpenHalfMom" not in ea_contract_reason
 
 
-def test_runbook_uses_live_alpha_entrypoints() -> None:
-    runbook = (WORKSPACE / "05. Playbook" / "tool_runbook.md").read_text(encoding="utf-8")
-    assert '-File "02. AlphaFactory/tools/alpha_json.ps1"' not in runbook
-    assert "Run evidence audit" not in runbook
-    assert '-File "02. AlphaFactory/alpha.ps1"' in runbook
+def test_workflow_uses_live_alpha_entrypoints() -> None:
+    workflow = (WORKSPACE / "05. Playbook" / "WORKFLOW.md").read_text(encoding="utf-8")
+    assert "02. AlphaFactory/tools/alpha_json.ps1" not in workflow
+    assert "Run evidence audit" not in workflow
+    assert "02. AlphaFactory/alpha.ps1" in workflow
 
 
 def test_receipt_authority_lookup_is_strictmode_safe_when_missing() -> None:

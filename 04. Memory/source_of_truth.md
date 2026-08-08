@@ -1,6 +1,6 @@
 # Source of Truth Registry
 
-Updated: 2026-07-30
+Updated: 2026-08-08
 
 > **Role:** this registry records canonical paths and availability. It is not a
 > live shelf inventory and never grants source/run/rerun/promotion/live
@@ -21,8 +21,8 @@ Updated: 2026-07-30
 
 ## Root hygiene rule
 - Keep the project root lean.
-- Root should contain only: `AGENTS.md` (cross-agent launcher), `CLAUDE.md`
-  (pointer-only Claude entry), `INDEX.md` (workspace map), and the
+- Root should contain only: `AGENTS.md` (cross-agent launcher), `INDEX.md`
+  (workspace map), and the
   `01. GOAL/` folder holding the Owner-frozen `GOAL.md`. The hidden
   `.codex/operator/` recovery ledger is also allowed for long-running
   operator-loop tasks, but it is a non-authoritative recovery pointer.
@@ -32,7 +32,7 @@ Updated: 2026-07-30
 - Move retired markdown to `00. Old File/docs_archive/` (preferred) or
   `00. Old File/markdown_graveyard/`.
 - Keep control docs split: state in `04. Memory/` (hot.md, do_not_repeat,
-  generic research registry), rules in `05. Playbook/` (5 core docs). Archived doctrine + AI/session
+  generic research registry), rules in `05. Playbook/WORKFLOW.md`. Archived doctrine + AI/session
   archive under `00. Old File/project_control_archive_20260716/`.
 - Keep raw AlphaFactory runs and local SQLite catalogs out of git; they are operational storage, not source-of-truth documents.
 - `EA_SonicR` and binary-only `EA_SilverBullet` are archived under
@@ -53,21 +53,16 @@ Updated: 2026-07-30
 | Path | Status | Why it matters |
 | --- | --- | --- |
 | `AGENTS.md` | authoritative | Single cross-agent operating doctrine with the Owner-to-artifact authority order, hard rules and canonical pointers; active scope is resolved from current Owner intent plus frozen contracts and artifacts, never from hot.md. |
-| `CLAUDE.md` | authoritative | Pointer-only session entry file; defers to AGENTS.md, GOAL.md, INDEX.md and current registry/artifact truth. |
 | `INDEX.md` | authoritative | Pointer-only workspace map; dynamic package metrics and hypothesis state stay at their canonical destinations. |
 | `.codex/operator/STATUS.md` | evidence | Non-authoritative recovery pointer for long operator sessions; it contains no live metrics or execution authority. |
 | `.codex/operator/EXPERIMENTS.jsonl` | evidence | Append-only bounded-experiment ledger for the active V2 hardening task, including red-first checks, diagnoses, and stop states. |
-| `01. GOAL/GOAL.md` | authoritative | Owner-frozen north-star target: joint PF/cadence/cost-stress/exposure/evidence-window table, DONE ladder, non-goals, and probe-first operating principle. Changes only on explicit Owner decision; numeric authority remains validation_gates.md. |
-| `05. Playbook/research_doctrine.md` | authoritative | Full research/validation doctrine: research workflow, registry contract, probe-plan freeze and versioning, chart-state label contract, multiple-testing budget, team review roles, MT5 non-repaint rules, and backtest hygiene. |
+| `01. GOAL/GOAL.md` | authoritative | Owner-frozen economic outcome and DONE gates; detailed operating rules live only in 05. Playbook/WORKFLOW.md. |
+| `05. Playbook/WORKFLOW.md` | authoritative | Single canonical MT5-only workflow: specification, production-complete EA, correctness checks, baseline forensics, per-symbol optimization, OOS validation and forward release. |
 | `04. Memory/validate_source_of_truth.py` | authoritative | Fail-closed local availability, mounted-backup SHA256, duplicate-path, and JSON-to-Markdown consistency validator; absent optional external backup roots warn by default and --strict-backups restores fail-closed audit mode. |
-| `05. Playbook/validation_gates.md` | authoritative | Stage-gate matrix for every EA lane, including Two-Speed Fast-Kill versus Heavy-Delivery closeout and promotion-grade aligned-variant confirmed evidence. |
 | `00. Old File/agent_guidance_archive/20260503_1916_sonic_readme_cleanup/manifest.json` | backup-only | Local availability: absent in the lean checkout; hash-verified backup only. Original status: archive. Manifest for retired Claude/doc/root guidance layers archived during the Sonic R knowledge-map cleanup. |
 | `04. Memory/hot.md` | evidence | Compact recent-routing cache; every claim requires artifact verification and the file grants no execution authority. |
 | `04. Memory/source_of_truth.md` | authoritative | Human-readable registry |
 | `04. Memory/source_of_truth.json` | authoritative | Machine-readable registry |
-| `05. Playbook/ea_engineering_standard.md` | authoritative | Generic MQL5 engineering standard: closed-bar signal contract, ownership/state recovery, broker geometry, risk, lifecycle telemetry, and promotion boundaries. |
-| `05. Playbook/ea_golden_path.md` | authoritative | Generic design-to-decision workflow for every EA: intake, de-dup, probe, prereg, build, Model 0, then Fast-Kill or Heavy-Delivery routing without post-hoc rescue. |
-| `05. Playbook/tool_runbook.md` | authoritative | Generic AlphaFactory command runbook: Two-Speed closeout, confirmed aligned-variant validation, guarded MT5 research, evidence operations and cleanup. |
 | `00. Old File/EA_Archive/README.md` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. Archive-only index for retired/non-current EA source; it makes no claim about the current active shelf. |
 | `02. AlphaFactory/STRATEGY_LOG.md` | authoritative | Experiment memory |
 | `02. AlphaFactory/tools/alpha_json.ps1` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. JSON wrapper around selected alpha.ps1 actions; separates command completion from strategy validation verdict for agent/MCP workflows. |
@@ -107,7 +102,7 @@ Updated: 2026-07-30
 | `02. AlphaFactory/schemas/ea_delivery_packet.v1.schema.json` | authoritative | Machine schema for AlphaFactory EA development delivery packets; the Python validator enforces the deeper conditional evidence rules. |
 | `02. AlphaFactory/schemas/execution_data_capture_manifest.v1.schema.json` | authoritative | JSON Schema for read-only V4 execution-data bundles, including broker identity, frozen QFSI thresholds, hash-bound artifact references, required symbols, and zero-order safety fields. |
 | `02. AlphaFactory/tools/execution_data_foundation.py` | authoritative | Read-only MT5 probe plus hash/row/timestamp/lookahead/sample-gate bundle validator and inventory producer; separates tester proxies from broker evidence and never exposes a mutating trade-call surface. |
-| `02. AlphaFactory/alpha.ps1` | authoritative | Canonical AlphaFactory command entrypoint; includes lean fast-kill validation and Heavy-Delivery plus full validation surfaces. |
+| `02. AlphaFactory/alpha.ps1` | authoritative | Canonical AlphaFactory command entrypoint for compile, MT5 backtest, analysis and validation. |
 | `02. AlphaFactory/tools/validate_fast_kill_closeout.py` | authoritative | Fail-closed hash and sample-bound validator for terminal probe or Model-0 Fast-Kill cells without chart or Grok ceremony. |
 | `02. AlphaFactory/schemas/fast_kill_closeout.v1.schema.json` | authoritative | Machine schema for lean terminal Fast-Kill closeout packets. |
 | `02. AlphaFactory/templates/research/FAST_KILL_CLOSEOUT.template.json` | authoritative | Template for preregistered minimum-sample and sequential-boundary Fast-Kill closeout. |
