@@ -1,0 +1,97 @@
+{
+    "schema_version":  "alphafactory_research_task_packet.v1",
+    "hypothesis_id":  "HYP-RSF-USDJPY-M15-STATE-MODEL-015",
+    "run_role":  "control",
+    "purpose":  "One zero-trade closed-bar census of all five RSF indicators on USDJPY M15 discovery data; no future labels or economics in MT5.",
+    "ea_name":  "EA_RegimeStructureFusionStateCensusM15",
+    "source_path":  "03. EA Developer/EA_RegimeStructureFusionStateCensusM15/EA_RegimeStructureFusionStateCensusM15.mq5",
+    "source_sha256":  "743C2387E3589EDDED72A2AABAD21A671D5E336FB1D53B93EA5B7311A8B3DEA1",
+    "registry_path":  "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+    "registry_sha256":  "14758D2061EF8DDBD55696AB6D6750CF5BAE9D0CAB5A535EBDAC75E905A7E53E",
+    "registry_row_sha256":  "784EFBA14DE9A4EF2B94DEF0FF5932075B48466A523BA4E80269B9D01A4B9A18",
+    "prereg_path":  "03. EA Developer/EA_RegimeStructureFusionStateCensusM15/research/HYP-RSF-USDJPY-M15-STATE-MODEL-015_FROZEN_PREREG.md",
+    "prereg_sha256":  "7F200CCEB9728991ED15559A1A4AD4EAAF9AF226502A8D452BBC22A1C8B060E7",
+    "symbol":  "USDJPY",
+    "period":  "M15",
+    "from":  "2018.01.01",
+    "to":  "2023.01.01",
+    "model":  0,
+    "execution_mode":  0,
+    "fixed_delay_ms":  0,
+    "overrides":  "InpAllowBreakoutMode=false;InpAllowRangeMode=false;InpAllowTrendMode=false;InpCensusFlushEveryRows=512;InpCensusFrom=2018.01.01 00:00;InpCensusTo=2022.12.31 23:59;InpEnableTelemetry=true;InpExpectedSymbol=USDJPY;InpHypothesisId=HYP-RSF-USDJPY-M15-STATE-MODEL-015;InpMagic=5867445;InpManualModeMask=7;InpManualSessionMask=63;InpProfileMode=1;InpResearchAutoMode=true;InpUsePathManagement=false;InpUseRoleAwareSequence=false;InpUseStructuralEventSequence=false;InpUseTemporalSequence=false;InpVariantTag=STATE_CENSUS_M15_DISCOVERY_V1",
+    "telemetry_tier":  "trade-only",
+    "telemetry_profile":  "lifecycle-v3",
+    "comparison_adapter":  "generic-control-improvement-v1",
+    "ea_contract_path":  "03. EA Developer/EA_RegimeStructureFusionStateCensusM15/ALPHAFACTORY_EA_CONTRACT.json",
+    "ea_contract_sha256":  "B76512AC86BA890310BFEF700F907A9AA5A4287D9EE261FDFEF42FAE021A0635",
+    "indicator_dependencies":  [
+                                   {
+                                       "name":  "AI_Regime_Detection",
+                                       "source":  "06.Indicator Alpha/AI_Regime_Detection.mq5",
+                                       "source_sha256":  "C432AEF3BF7EC93EC8A64BD2806C115E71F822B2DCB438DAC22590FB978EB475",
+                                       "terminal_ex5":  "AlphaFactory\\AI_Regime_Detection.ex5"
+                                   },
+                                   {
+                                       "name":  "Volatility_Regime_Classifier_QuantRegime",
+                                       "source":  "06.Indicator Alpha/Volatility_Regime_Classifier_QuantRegime.mq5",
+                                       "source_sha256":  "EB81B1426CBDAF3143F553388A213E2BB5A3E33E05433991918CC5977273A087",
+                                       "terminal_ex5":  "AlphaFactory\\Volatility_Regime_Classifier_QuantRegime.ex5"
+                                   },
+                                   {
+                                       "name":  "Modern_Bollinger_Bands_GBB",
+                                       "source":  "06.Indicator Alpha/Modern_Bollinger_Bands_GBB.mq5",
+                                       "source_sha256":  "AC5DB6E1DDA825F6A3535E9AB1E4C9956086C7AF590E2672C71CF03D8F4E54FE",
+                                       "terminal_ex5":  "AlphaFactory\\Modern_Bollinger_Bands_GBB.ex5"
+                                   },
+                                   {
+                                       "name":  "TB_Smart_Money_Concept_2026",
+                                       "source":  "06.Indicator Alpha/TB_Smart_Money_Concept_2026.mq5",
+                                       "source_sha256":  "3848CBD4FD34748BE95A372D4797465383CC7EDDE0ED36687E8AA26546893539",
+                                       "terminal_ex5":  "AlphaFactory\\TB_Smart_Money_Concept_2026.ex5"
+                                   },
+                                   {
+                                       "name":  "QQE_MOD",
+                                       "source":  "06.Indicator Alpha/QQE_MOD.mq5",
+                                       "source_sha256":  "86876D352762F6C107BC4AC886C04E901C9345C68A5C7E68C73A33696F13053F",
+                                       "terminal_ex5":  "AlphaFactory\\QQE_MOD.ex5"
+                                   }
+                               ],
+    "required_sidecars":  [
+                              "*_LifecycleTrades_*.csv",
+                              "*_RunMeta_*.json",
+                              "*_RSFStateCensus_*.csv"
+                          ],
+    "deposit":  100000,
+    "leverage":  100,
+    "spread":  "current",
+    "validation_stage":  "discovery",
+    "holding_contract":  "none-zero-trade",
+    "cost_evidence_tier":  "collection_only_no_economics",
+    "cost_source_manifest_path":  "03. EA Developer/EA_RegimeStructureFusionStateCensusM15/research/HYP-RSF-USDJPY-M15-STATE-MODEL-015_COLLECTION_ONLY_COST_SOURCE_MANIFEST.json",
+    "cost_source_manifest_sha256":  "3A79969658D3A9ECCDCF3C9458FFC0F94B047C0D49E5DC7D6AB0FA64FB4F1C84",
+    "include_closure":  [
+                            {
+                                "path":  "03. EA Developer/EA_RegimeStructureFusion/EA_RegimeStructureFusion.mq5",
+                                "sha256":  "D1034E8497D7469F8E91C29BF1C9BC231379145970DF02F65912BC2418FD8561"
+                            }
+                        ],
+    "include_closure_sha256":  "27DF5AD55CBBBDC5F5635988270CB106670B2DB19CDE6154E4D657CFC5D773D2",
+    "broker_fingerprint":  "E464F31D4B323A66DBC18D9409052E70F3711DB8F23597441648B19296B61D54",
+    "server_fingerprint":  "30B251638403D085CAB177A77A1B0EB69BD371793B501BE696F08033BE1E8DB0",
+    "account_fingerprint":  "0A603E7B316F58B39FEA0A1710FE6F250E544909DA2B91967C93AD984317A073",
+    "data_fingerprint":  "C86447BB9D3C637FEF2FF810C8A1D3AE08D27B27B990966A07E6E476F2F3C7D3",
+    "symbol_geometry":  {
+                            "digits":  3,
+                            "point":  0.001,
+                            "pip_size":  0.01
+                        },
+    "required_manifest_hashes":  [
+                                     "source_sha256",
+                                     "config_sha256",
+                                     "report_sha256",
+                                     "ex5_sha256",
+                                     "includes_sha256"
+                                 ],
+    "economic_claims_authorized":  false,
+    "promotion_eligible":  false
+}

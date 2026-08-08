@@ -1,0 +1,157 @@
+{
+    "schema_version":  "alphafactory_execution_receipt.v1",
+    "hypothesis_id":  "HYP-RSF-USDJPY-M5-STATE-MODEL-014",
+    "task_packet_sha256":  "17D3927798EC79A71125E893BD035F0049DE6ECE672994A5C3CE3FC993DF6CA0",
+    "git_commit":  "aa3d9b1aee31f4886494af93b3e48a69aa638fcc",
+    "git_status_sha256":  "CF66F329901648CC035E094510B273013BED1273825A5CF6CA270DC55D3CC4AA",
+    "binding":  {
+                    "hypothesis_id":  "HYP-RSF-USDJPY-M5-STATE-MODEL-014",
+                    "run_role":  "control",
+                    "ea_name":  "EA_RegimeStructureFusionStateCensus",
+                    "symbol":  "USDJPY",
+                    "period":  "M5",
+                    "from":  "2018.01.01",
+                    "to":  "2023.01.01",
+                    "model":  0,
+                    "execution_mode":  0,
+                    "fixed_delay_ms":  0,
+                    "overrides":  "InpAllowBreakoutMode=false;InpAllowRangeMode=false;InpAllowTrendMode=false;InpCensusFlushEveryRows=512;InpCensusFrom=2018.01.01 00:00;InpCensusTo=2022.12.31 23:59;InpEnableTelemetry=true;InpExpectedSymbol=USDJPY;InpHypothesisId=HYP-RSF-USDJPY-M5-STATE-MODEL-014;InpMagic=5867444;InpManualModeMask=7;InpManualSessionMask=63;InpProfileMode=1;InpResearchAutoMode=true;InpUsePathManagement=false;InpUseRoleAwareSequence=false;InpUseStructuralEventSequence=false;InpUseTemporalSequence=false;InpVariantTag=STATE_CENSUS_DISCOVERY_V1",
+                    "telemetry_tier":  "trade-only",
+                    "telemetry_profile":  "lifecycle-v3",
+                    "deposit":  100000,
+                    "leverage":  100,
+                    "spread":  "current",
+                    "visual_mode":  false,
+                    "required_sidecars":  [
+                                              "*_LifecycleTrades_*.csv",
+                                              "*_RunMeta_*.json",
+                                              "*_RSFStateCensus_*.csv"
+                                          ],
+                    "indicator_dependencies":  [
+                                                   {
+                                                       "name":  "AI_Regime_Detection",
+                                                       "source":  "06.Indicator Alpha/AI_Regime_Detection.mq5",
+                                                       "source_sha256":  "C432AEF3BF7EC93EC8A64BD2806C115E71F822B2DCB438DAC22590FB978EB475",
+                                                       "terminal_ex5":  "AlphaFactory\\AI_Regime_Detection.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "Volatility_Regime_Classifier_QuantRegime",
+                                                       "source":  "06.Indicator Alpha/Volatility_Regime_Classifier_QuantRegime.mq5",
+                                                       "source_sha256":  "EB81B1426CBDAF3143F553388A213E2BB5A3E33E05433991918CC5977273A087",
+                                                       "terminal_ex5":  "AlphaFactory\\Volatility_Regime_Classifier_QuantRegime.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "Modern_Bollinger_Bands_GBB",
+                                                       "source":  "06.Indicator Alpha/Modern_Bollinger_Bands_GBB.mq5",
+                                                       "source_sha256":  "AC5DB6E1DDA825F6A3535E9AB1E4C9956086C7AF590E2672C71CF03D8F4E54FE",
+                                                       "terminal_ex5":  "AlphaFactory\\Modern_Bollinger_Bands_GBB.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "TB_Smart_Money_Concept_2026",
+                                                       "source":  "06.Indicator Alpha/TB_Smart_Money_Concept_2026.mq5",
+                                                       "source_sha256":  "3848CBD4FD34748BE95A372D4797465383CC7EDDE0ED36687E8AA26546893539",
+                                                       "terminal_ex5":  "AlphaFactory\\TB_Smart_Money_Concept_2026.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "QQE_MOD",
+                                                       "source":  "06.Indicator Alpha/QQE_MOD.mq5",
+                                                       "source_sha256":  "86876D352762F6C107BC4AC886C04E901C9345C68A5C7E68C73A33696F13053F",
+                                                       "terminal_ex5":  "AlphaFactory\\QQE_MOD.ex5"
+                                                   }
+                                               ],
+                    "symbol_geometry":  {
+                                            "digits":  3,
+                                            "point":  0.001,
+                                            "pip_size":  0.01
+                                        },
+                    "include_closure_sha256":  "27DF5AD55CBBBDC5F5635988270CB106670B2DB19CDE6154E4D657CFC5D773D2"
+                },
+    "evidence":  [
+                     {
+                         "label":  "task_packet",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\state_model\\HYP-RSF-USDJPY-M5-STATE-MODEL-014_TASK_PACKET.json",
+                         "sha256":  "17D3927798EC79A71125E893BD035F0049DE6ECE672994A5C3CE3FC993DF6CA0"
+                     },
+                     {
+                         "label":  "candidate_registry",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+                         "sha256":  "AF28F0C51B9BC8A9C96428BF75183111273063376F98CB9ABB5235E1CB1EAD07"
+                     },
+                     {
+                         "label":  "source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionStateCensus\\EA_RegimeStructureFusionStateCensus.mq5",
+                         "sha256":  "754CF368A29C22180D997CEEB331F9052923C1A765631FE6B012B62107430D8B"
+                     },
+                     {
+                         "label":  "ea_capability_contract",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionStateCensus\\ALPHAFACTORY_EA_CONTRACT.json",
+                         "sha256":  "A2230CC5120264123A7227DEE0899E2AAAD16FE5434E3AD0902F0F45C385A82E"
+                     },
+                     {
+                         "label":  "prereg",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionStateCensus\\research\\HYP-RSF-USDJPY-M5-STATE-MODEL-014_FROZEN_PREREG.md",
+                         "sha256":  "1F1796BA76716F35A11B9F6EB3D4A876E1780489E872E1EC9F591EFF61136BB8"
+                     },
+                     {
+                         "label":  "cost_source_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionStateCensus\\research\\HYP-RSF-USDJPY-M5-STATE-MODEL-014_COLLECTION_ONLY_COST_SOURCE_MANIFEST.json",
+                         "sha256":  "46A99E9FAF8BD3F40211D9E7224C476DB89A79D43C05CF31DBA82BC75B7708A2"
+                     },
+                     {
+                         "label":  "nonrepaint_audit",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\state_model\\HYP-RSF-EURUSD-M5-STATE-MODEL-012_NONREPAINT_AUDIT.json",
+                         "sha256":  "0B931E86C9959509014E3E8EF350BA90D68896DCF7B22471BAF48E7047F34B75"
+                     },
+                     {
+                         "label":  "focused_tests",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\state_model\\tests\\test_state_model012_census_contract.py",
+                         "sha256":  "9495F68CE444BC541CEA35D5607B65372F57B93FF0F23D60AFB268BD4C6A330F"
+                     },
+                     {
+                         "label":  "include_0001",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\EA_RegimeStructureFusion.mq5",
+                         "sha256":  "D1034E8497D7469F8E91C29BF1C9BC231379145970DF02F65912BC2418FD8561"
+                     },
+                     {
+                         "label":  "indicator_ai_regime_detection_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\AI_Regime_Detection.mq5",
+                         "sha256":  "C432AEF3BF7EC93EC8A64BD2806C115E71F822B2DCB438DAC22590FB978EB475"
+                     },
+                     {
+                         "label":  "indicator_volatility_regime_classifier_quantregime_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\Volatility_Regime_Classifier_QuantRegime.mq5",
+                         "sha256":  "EB81B1426CBDAF3143F553388A213E2BB5A3E33E05433991918CC5977273A087"
+                     },
+                     {
+                         "label":  "indicator_modern_bollinger_bands_gbb_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\Modern_Bollinger_Bands_GBB.mq5",
+                         "sha256":  "AC5DB6E1DDA825F6A3535E9AB1E4C9956086C7AF590E2672C71CF03D8F4E54FE"
+                     },
+                     {
+                         "label":  "indicator_tb_smart_money_concept_2026_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\TB_Smart_Money_Concept_2026.mq5",
+                         "sha256":  "3848CBD4FD34748BE95A372D4797465383CC7EDDE0ED36687E8AA26546893539"
+                     },
+                     {
+                         "label":  "indicator_qqe_mod_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\QQE_MOD.mq5",
+                         "sha256":  "86876D352762F6C107BC4AC886C04E901C9345C68A5C7E68C73A33696F13053F"
+                     }
+                 ],
+    "generated_at_utc":  "2026-08-07T18:07:29Z",
+    "note":  "Exactly one zero-trade Model-0 discovery census. No economics, validation, holdout, promotion, paper or live authority."
+}

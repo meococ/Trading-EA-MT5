@@ -1,6 +1,6 @@
 # Hot Cache — Recent Routing Only
 
-Updated: 2026-08-07 after HYP005 and the indicator-fusion frontier closeout.
+Updated: 2026-08-08 after PATH-011 and the indicator-fusion frontier closeout.
 
 This file is a compact handoff cache. It is **not** hypothesis authority, run
 permission, a family blacklist, or proof that a goal is complete. Recheck every
@@ -21,6 +21,16 @@ report and validator output before acting.
   Owner-authorized PIT source pilot freezes license, budget, history/live
   latency and full nine-symbol family coverage. This is a scoped frontier stop,
   not goal completion or a universal no-edge claim.
+- `HYP-RSF-EURUSD-M5-PATH-011` is terminal `KILL_NEGATIVE_EXPECTANCY` after
+  its single frozen EURUSD M5 2018-2022 Model-0 run. The exact 519-entry
+  matched cohort preserved entry/SL/TP geometry and improved mean R only from
+  -0.1082R to -0.0721R; it remained negative. The full run was N738/PF0.7993/
+  net -USD5,252.63 with zero positive years. OOS was not opened. C07's native
+  MT5 chart exposed stale episode context (AIRD Range + VRC/MBB compression),
+  but role revalidation and squeeze filtering are already failed or
+  insufficient families. Do not reopen with path thresholds, route/session/
+  direction pruning, stop/RR changes, or another indicator vote. Canonical
+  result: `03. EA Developer/EA_RegimeStructureFusion/research/path/HYP-RSF-EURUSD-M5-PATH-011_RESULT.md`.
 - `HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-ECON-010` is terminally killed. The
   engineering path is valid: 21 tests pass; compile is clean; TB v3 exports a
   causal unconsumed-swing liquidity pool; 123,064 indicator-ready bars have
@@ -139,6 +149,25 @@ report and validator output before acting.
   `03. EA Developer/EA_LondonOpenExecutionAudit/research/HYP-LOMX-EXEC-AUDIT-M1-003_CODEX_REVIEW_ADDENDUM.md`.
 - No package, source file, old report, this cache, or sub-agent opinion grants
   execution authority by itself.
+
+## Five-indicator native census closeout — 2026-08-08
+
+- HYP-RSF-012..018 are terminal. Two zero-trade wrappers captured all five
+  indicators on EURUSD M5, USDJPY M5 and native USDJPY M15; seven frozen state,
+  transition, barrier and event-acceptance hypotheses produced zero survivor.
+  Best net PF was 0.9429; 2023+ stayed sealed. Do not open parameter, session,
+  event-subtype or more-pair rescue on this family.
+- Canonical readout:
+  `04. Memory/research/20260808_FIVE_INDICATOR_NATIVE_CENSUS_CLOSEOUT.md`.
+  Reopen only for a materially new point-in-time data/causal mechanism.
+- Current registry suffix HYP-012..018 is validator-clean after raising the
+  economic floors to the workspace minimum. The full registry is 767 rows / 295
+  IDs; its 25 remaining errors are all older rows: prereg-hash drift at
+  VISUAL-002/ROLE-AWARE-VISUAL-004/JCDR-004 plus one JCDR-004 execution-source
+  binding error. Do not report a global registry PASS.
+- AlphaFactory recognizes both census packages; EA plus both wrappers compile
+  with 0 errors, focused tests are 28/28 PASS and current static non-repaint
+  audits are PASS. MT5 is STOPPED.
 
 ## Next-session route
 

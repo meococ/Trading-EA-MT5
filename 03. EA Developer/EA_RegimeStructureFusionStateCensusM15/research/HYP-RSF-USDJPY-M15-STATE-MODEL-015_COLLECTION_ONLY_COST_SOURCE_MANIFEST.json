@@ -1,0 +1,12 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-RSF-USDJPY-M15-STATE-MODEL-015",
+  "cost_evidence_tier": "collection_only_no_economics",
+  "symbol": "USDJPY",
+  "timeframe": "M15",
+  "symbol_geometry": {"digits": 3, "point": 0.001, "pip_size": 0.01},
+  "spread_source": "MT5 decision-time USDJPY spread exported on each M15 decision bar for later discovery-only stress",
+  "commission_source": "not_applicable_zero_trade_census",
+  "slippage_source": "not_applicable_zero_trade_census",
+  "economic_claims_authorized": false
+}

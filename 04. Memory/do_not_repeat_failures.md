@@ -2299,6 +2299,12 @@ Evidence:
   ASRS/HYP-017/RSF and fresh BOS/MSS-first-retest as a duplicate of terminal
   RSF HYP010. Do not reopen either through freshness, live-corridor rebind,
   protected-swing, RR, stop, direction, hour or pair filters.
+- PATH-011 subsequently tested the remaining closed-bar exit/path question on
+  the same EURUSD M5 family. Its full PF was 0.7993; the exact 519-entry matched
+  cohort remained negative despite modest loss reduction. MBB-squeeze removal,
+  current-state revalidation, selective TB/QQE exit, break-even, route pruning,
+  and balance-gate normalization are diagnostic/post-hoc variants, not legal
+  rescues. Do not reopen this indicator-fusion family under a cosmetic new ID.
 - Web-backed primary-source research found no legal free/broker-native M5/M15
   event clock left inside the declared boundary. Remaining EBS/CLS/CME-book or
   benchmark/auction mechanisms require a licensed point-in-time pilot, cost
@@ -2306,3 +2312,24 @@ Evidence:
 - This is a scoped `NO_LEGAL_CANDIDATE`, not a universal no-edge claim. Reopen
   only after an Owner-authorized materially new data contract and a zero-trade
   source-semantics/cadence probe. Do not fabricate another indicator-vote EA.
+
+## RSF five-indicator native census family kill (2026-08-08)
+
+Evidence:
+`04. Memory/research/20260808_FIVE_INDICATOR_NATIVE_CENSUS_CLOSEOUT.md`.
+
+- HYP-012..018 measured all five native indicators on EURUSD M5, USDJPY M5 and
+  USDJPY M15 through state, transition, barrier, MBB-event and TB-event decision
+  surfaces. All seven discovery hypotheses failed after dynamic observed-cost
+  treatment; best net PF was 0.9429 and the event-clock cells stayed below
+  0.88. OOS 2023+ was never opened.
+- Do not rescue the family by optimizing QQE/RSI lengths, MBB percentiles,
+  AIRD confidence, VRC thresholds, TB swing lengths, hours, sessions,
+  directions, event subtypes or additional pairs on the same census. Those are
+  extra multiple-testing branches after a terminal family failure.
+- MBB importance and TB event stability are descriptive, not edge. AIRD/VRC
+  pair instability and the USDJPY M5 gross-versus-cost gap show why universal
+  parameters and visual coherence are insufficient.
+- A successor needs materially new point-in-time information and a fresh
+  source/cost/latency contract. Recombining these five closed-bar indicators is
+  not a fresh mechanism.

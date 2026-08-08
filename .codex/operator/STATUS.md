@@ -18,6 +18,9 @@ canonical sources elsewhere.
 
 - The indicator/visual campaign has a durable frontier-stop readout at
   `04. Memory/research/20260807_INDICATOR_FUSION_FRONTIER_STOP.md`.
+- `HYP-RSF-EURUSD-M5-PATH-011` is terminal and its OOS stayed sealed. The
+  current EA source is engineering-valid, but closed-bar path management did
+  not create positive expectancy; see the package result/failure packet.
 - JCDR HYP005 is terminal after its one outcome-blind diagnostic attempt. Do
   not rerun or tune the JCDR event clock.
 - Independent de-dup review rejected TB sweep/reclaim and fresh BOS/MSS-retest

@@ -1,0 +1,16 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-RSF-USDJPY-M5-STATE-MODEL-014",
+  "cost_evidence_tier": "collection_only_no_economics",
+  "symbol": "USDJPY",
+  "symbol_geometry": {
+    "digits": 3,
+    "point": 0.001,
+    "pip_size": 0.01
+  },
+  "spread_source": "MT5 decision-time USDJPY bid/ask spread exported for later discovery-only dynamic stress",
+  "commission_source": "not_applicable_zero_trade_census",
+  "slippage_source": "not_applicable_zero_trade_census",
+  "economic_claims_authorized": false,
+  "note": "Stage A sends no orders. The point geometry is bound before collection so later labels cannot reuse EURUSD cost conversion."
+}

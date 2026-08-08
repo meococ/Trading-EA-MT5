@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-RSF-USDJPY-M15-STATE-MODEL-015",
+  "run_id": "STATIC-HYP-RSF-USDJPY-M15-STATE-MODEL-015-20260808",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionStateCensusM15\\NONREPAINT_AUDIT_MANIFEST_STATE_MODEL_015.json",
+  "manifest_sha256": "E520737AAA54FAC0B3201358D9E5385D2C8EC4292DFA0A01D117A9765494AD8E",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionStateCensusM15\\EA_RegimeStructureFusionStateCensusM15.mq5",
+      "sha256": "743C2387E3589EDDED72A2AABAD21A671D5E336FB1D53B93EA5B7311A8B3DEA1"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-07T18:48:24.629198+00:00"
+}

@@ -82,6 +82,9 @@ message hiện tại. Evidence được xác minh bằng file/hash/validator/tes
 | `03. EA Developer/<EA>/ALPHAFACTORY_EA_CONTRACT.json` | capability/contract của package |
 | `03. EA Developer/<EA>/research/` | prereg, readout và evidence riêng package |
 | `03. EA Developer/EA_RegimeStructureFusion/` | EA MQL5 một-file kết hợp AIRD/VRC/MBB/TB SMC/QQE; TB v3 liquidity-pool và telemetry đã engineering-valid, nhưng full EURUSD M5 HYP-010 âm PF0.7145/N162 và terminal economic-kill; xem `research/liquidity_pool/HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-ECON-010_RESULT.md` |
+| `03. EA Developer/EA_RegimeStructureFusionStateCensus/` | Zero-trade M5 census của đủ năm indicator; HYP-012..014 đóng state/transition trên EURUSD và USDJPY, không mở OOS |
+| `03. EA Developer/EA_RegimeStructureFusionStateCensusM15/` | Zero-trade native-M15 census; HYP-015..018 đóng state/barrier/MBB-event/TB-event, không resample M5 và không mở OOS |
+| `04. Memory/research/20260808_FIVE_INDICATOR_NATIVE_CENSUS_CLOSEOUT.md` | Closeout định lượng vai trò từng indicator, khác biệt EURUSD/USDJPY và M5/M15, cùng frontier stop sau bảy hypothesis không có survivor |
 | `03. EA Developer/EA_RegimeStructureFusion/research/evidence/HYP-RSF-EURUSD-M5-FORENSICS-001/` | Cell-16 forensic casebook: 14 outcome-locked losing/winner comparisons with all five indicators, exact 670-trade replay, population/path metrics and independent Grok review; terminal diagnostic only, no parameter rescue |
 | `03. EA Developer/EA_RegimeStructureFusionForensics/research/visual/native_structural_event_005/` | 8 ảnh native MT5 Visual Mode thật (MBB + QQE + TB structure + entry/SL/TP/exit) ghép cặp breakout/trend long/short thắng-thua; dùng để giải thích hành vi giá, không cấp quyền post-hoc filter |
 | `06.Indicator Alpha/` | source canonical của custom indicators MQL5 một-file; EA chỉ đọc public buffer ở closed-bar shift >=1 |

@@ -1,0 +1,23 @@
+{
+  "schema_version": "rsf_failure_packet.v1",
+  "hypothesis_id": "HYP-RSF-USDJPY-M15-MBB-EVENT-ACCEPTANCE-017",
+  "verdict": "KILL_NO_STABLE_MBB_EVENT_EDGE",
+  "tested_object": "MBB S1/S2/S3 individual rising-edge USDJPY M15 event clock with fixed direction and five-indicator barrier acceptance.",
+  "failure_radius": "The complete MBB rising-edge event population and six frozen acceptance cells are terminal. TB SMC structural rising edges are not tested here.",
+  "stage0_events": 10941,
+  "stage0_events_per_week": 41.9889664309945,
+  "models_preregistered": 6,
+  "model_fits": 24,
+  "threshold_fold_evaluations": 72,
+  "survivors": 0,
+  "best_cell": {
+    "model_family": "HGB_SHALLOW",
+    "target_atr": 1.25,
+    "primary_trades": 646,
+    "pooled_profit_factor": 0.7948079295303042,
+    "pooled_net_r": -80.81485495728239
+  },
+  "no_rescue": ["No MBB event-type pruning", "No session/direction/year mining", "No barrier or threshold retuning", "No 2023+ access"],
+  "validation_2023_plus_opened": false,
+  "paper_live_authorized": false
+}

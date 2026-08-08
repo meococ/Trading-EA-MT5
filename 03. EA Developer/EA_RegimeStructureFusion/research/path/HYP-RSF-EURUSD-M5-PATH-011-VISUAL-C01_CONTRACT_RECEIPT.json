@@ -1,0 +1,153 @@
+{
+    "schema_version":  "alphafactory_execution_receipt.v1",
+    "hypothesis_id":  "HYP-RSF-EURUSD-M5-PATH-011-VISUAL-C01",
+    "task_packet_sha256":  "296262E74255C30E42D640BCA87471106F7265E47DADEDBCCC5123F181CB0CAF",
+    "git_commit":  "aa3d9b1aee31f4886494af93b3e48a69aa638fcc",
+    "git_status_sha256":  "D96F71EFBF2C5D41330C56A57A201A60AE652A8E77D52399277044CC3E5771CC",
+    "binding":  {
+                    "hypothesis_id":  "HYP-RSF-EURUSD-M5-PATH-011-VISUAL-C01",
+                    "run_role":  "control",
+                    "ea_name":  "EA_RegimeStructureFusionForensics",
+                    "symbol":  "EURUSD",
+                    "period":  "M5",
+                    "from":  "2019.04.27",
+                    "to":  "2019.05.09",
+                    "model":  1,
+                    "execution_mode":  0,
+                    "fixed_delay_ms":  0,
+                    "overrides":  "InpAllowBreakoutMode=true;InpAllowRangeMode=false;InpAllowTrendMode=true;InpEnableTelemetry=true;InpExpectedSymbol=EURUSD;InpForensicAttachM5Indicators=true;InpForensicCaptureWindows=FROZEN_13_V1;InpForensicCleanChart=false;InpForensicExternalCapturePauseMs=15000;InpForensicNativeCaseIndex=1;InpForensicNativeLossSchedule=FROZEN_STRUCTURAL_EVENT_004_OUTCOMES_V1;InpForensicShotHeight=900;InpForensicShotSettleMs=1000;InpForensicShotVerifyTicks=200;InpForensicShotWidth=1600;InpForensicVisualScreenshots=true;InpHypothesisId=HYP-RSF-EURUSD-M5-PATH-011-VISUAL-C01;InpMagic=5867511;InpManualModeMask=6;InpManualSessionMask=6;InpPathBreakEvenTriggerR=1.0;InpPathMinInvalidationBars=3;InpPathUseBasisQqeExit=true;InpPathUseOppositeStructureExit=true;InpProfileMode=1;InpResearchAutoMode=true;InpStructuralExpiryBars=8;InpStructuralInvalidationAtr=0.20;InpStructuralMaxExtensionAtr=0.35;InpStructuralMinObjectiveR=1.25;InpStructuralQqeVetoThreshold=3.0;InpStructuralRequireLiveObjective=false;InpStructuralRetestToleranceAtr=0.15;InpStructuralUseLiquidityPoolObjective=false;InpUseContextRouter=true;InpUsePathManagement=true;InpUseQqeTiming=true;InpUseRoleAwareSequence=false;InpUseStructuralEventSequence=true;InpUseTbStructure=true;InpUseTemporalSequence=false;InpVariantTag=PATH011_VISUAL_C01_BREAKOUT_LONG_LOSS",
+                    "telemetry_tier":  "trade-only",
+                    "telemetry_profile":  "lifecycle-v3",
+                    "deposit":  100000,
+                    "leverage":  100,
+                    "spread":  "current",
+                    "visual_mode":  true,
+                    "required_sidecars":  [
+                                              "*_LifecycleTrades_*.csv",
+                                              "*_PathActions_*.csv",
+                                              "*_RSFForensic_*.csv",
+                                              "*_RunMeta_*.json",
+                                              "*_VisualShots_*.csv"
+                                          ],
+                    "indicator_dependencies":  [
+                                                   {
+                                                       "name":  "AI_Regime_Detection",
+                                                       "source":  "06.Indicator Alpha/AI_Regime_Detection.mq5",
+                                                       "source_sha256":  "C432AEF3BF7EC93EC8A64BD2806C115E71F822B2DCB438DAC22590FB978EB475",
+                                                       "terminal_ex5":  "AlphaFactory\\AI_Regime_Detection.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "Modern_Bollinger_Bands_GBB",
+                                                       "source":  "06.Indicator Alpha/Modern_Bollinger_Bands_GBB.mq5",
+                                                       "source_sha256":  "AC5DB6E1DDA825F6A3535E9AB1E4C9956086C7AF590E2672C71CF03D8F4E54FE",
+                                                       "terminal_ex5":  "AlphaFactory\\Modern_Bollinger_Bands_GBB.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "QQE_MOD",
+                                                       "source":  "06.Indicator Alpha/QQE_MOD.mq5",
+                                                       "source_sha256":  "86876D352762F6C107BC4AC886C04E901C9345C68A5C7E68C73A33696F13053F",
+                                                       "terminal_ex5":  "AlphaFactory\\QQE_MOD.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "TB_Smart_Money_Concept_2026",
+                                                       "source":  "06.Indicator Alpha/TB_Smart_Money_Concept_2026.mq5",
+                                                       "source_sha256":  "3848CBD4FD34748BE95A372D4797465383CC7EDDE0ED36687E8AA26546893539",
+                                                       "terminal_ex5":  "AlphaFactory\\TB_Smart_Money_Concept_2026.ex5"
+                                                   },
+                                                   {
+                                                       "name":  "Volatility_Regime_Classifier_QuantRegime",
+                                                       "source":  "06.Indicator Alpha/Volatility_Regime_Classifier_QuantRegime.mq5",
+                                                       "source_sha256":  "EB81B1426CBDAF3143F553388A213E2BB5A3E33E05433991918CC5977273A087",
+                                                       "terminal_ex5":  "AlphaFactory\\Volatility_Regime_Classifier_QuantRegime.ex5"
+                                                   }
+                                               ],
+                    "symbol_geometry":  {
+                                            "digits":  5,
+                                            "point":  1E-05,
+                                            "pip_size":  0.0001
+                                        },
+                    "include_closure_sha256":  "27DF5AD55CBBBDC5F5635988270CB106670B2DB19CDE6154E4D657CFC5D773D2"
+                },
+    "evidence":  [
+                     {
+                         "label":  "task_packet",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\path\\HYP-RSF-EURUSD-M5-PATH-011-VISUAL-C01_TASK_PACKET.json",
+                         "sha256":  "296262E74255C30E42D640BCA87471106F7265E47DADEDBCCC5123F181CB0CAF"
+                     },
+                     {
+                         "label":  "candidate_registry",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+                         "sha256":  "9EF2241C017CF75D42002052116026D90122C24D4527E707475F4CEA8246FC64"
+                     },
+                     {
+                         "label":  "source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionForensics\\EA_RegimeStructureFusionForensics.mq5",
+                         "sha256":  "FCDAB2A46999DF2A884B409C5605B02DA3DEF46C17410AB112140944BE36F590"
+                     },
+                     {
+                         "label":  "include_parent_ea",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\EA_RegimeStructureFusion.mq5",
+                         "sha256":  "D1034E8497D7469F8E91C29BF1C9BC231379145970DF02F65912BC2418FD8561"
+                     },
+                     {
+                         "label":  "ea_capability_contract",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionForensics\\ALPHAFACTORY_EA_CONTRACT.json",
+                         "sha256":  "72B3610C1FD2A2E582501EF9991EC12F4EE84DD68FA69FC3F9D2F2037F4B3601"
+                     },
+                     {
+                         "label":  "prereg",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\path\\HYP-RSF-EURUSD-M5-PATH-011_FROZEN_PREREG.md",
+                         "sha256":  "54A8C266063E44504607F65369DF525FF25D01D9B508FBEECE1EF703267FBA2D"
+                     },
+                     {
+                         "label":  "cost_source_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\path\\HYP-RSF-EURUSD-M5-PATH-011_COST_SOURCE_MANIFEST.json",
+                         "sha256":  "2A6956F9BF228588D620D751CA680C315B5D692EF8A38A4B5DB0AE5A694C7D5F"
+                     },
+                     {
+                         "label":  "nonrepaint_audit",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusion\\research\\path\\HYP-RSF-EURUSD-M5-PATH-011_NONREPAINT_AUDIT.json",
+                         "sha256":  "D2C063DA7493AE529FD6352BE0C8FB6AC2E2C3ABC0169444649E10C687318028"
+                     },
+                     {
+                         "label":  "indicator_ai_regime_detection_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\AI_Regime_Detection.mq5",
+                         "sha256":  "C432AEF3BF7EC93EC8A64BD2806C115E71F822B2DCB438DAC22590FB978EB475"
+                     },
+                     {
+                         "label":  "indicator_modern_bollinger_bands_gbb_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\Modern_Bollinger_Bands_GBB.mq5",
+                         "sha256":  "AC5DB6E1DDA825F6A3535E9AB1E4C9956086C7AF590E2672C71CF03D8F4E54FE"
+                     },
+                     {
+                         "label":  "indicator_qqe_mod_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\QQE_MOD.mq5",
+                         "sha256":  "86876D352762F6C107BC4AC886C04E901C9345C68A5C7E68C73A33696F13053F"
+                     },
+                     {
+                         "label":  "indicator_tb_smart_money_concept_2026_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\TB_Smart_Money_Concept_2026.mq5",
+                         "sha256":  "3848CBD4FD34748BE95A372D4797465383CC7EDDE0ED36687E8AA26546893539"
+                     },
+                     {
+                         "label":  "indicator_volatility_regime_classifier_quantregime_source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\06.Indicator Alpha\\Volatility_Regime_Classifier_QuantRegime.mq5",
+                         "sha256":  "EB81B1426CBDAF3143F553388A213E2BB5A3E33E05433991918CC5977273A087"
+                     }
+                 ],
+    "generated_at_utc":  "2026-08-07T16:39:57Z",
+    "note":  "Native MT5 visual engineering replay only; no economic, optimization, OOS, promotion or live authority."
+}

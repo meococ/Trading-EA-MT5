@@ -1,0 +1,21 @@
+{
+  "schema_version": "alphafactory_independent_code_review.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-PATH-011",
+  "reviewer_task": "/root/path011_code_review",
+  "review_scope": "Final read-only closure review of PATH-011 trade lifecycle and shadow-slot semantics.",
+  "reviewed_source_path": "03. EA Developer/EA_RegimeStructureFusion/EA_RegimeStructureFusion.mq5",
+  "reviewed_sha256": "D1034E8497D7469F8E91C29BF1C9BC231379145970DF02F65912BC2418FD8561",
+  "verdict": "PASS",
+  "findings_p0_p2": [],
+  "checks": {
+    "native_exit_priority": "PASS: ManagePosition reports native exit due and OnTick does not fall through to PATH management while the position remains.",
+    "transaction_owned_finalization": "PASS: PATH shadow finalization is owned by trade transactions rather than request-return timing.",
+    "exact_once_shadow_activation": "PASS",
+    "static_tests_present": 14,
+    "files_edited_by_reviewer": false
+  },
+  "residual_risks": [
+    "The independent reviewer performed a read-only source pass; compile and static tests are bound separately by local AlphaFactory artifacts."
+  ],
+  "reviewed_at_utc": "2026-08-07T16:49:38Z"
+}

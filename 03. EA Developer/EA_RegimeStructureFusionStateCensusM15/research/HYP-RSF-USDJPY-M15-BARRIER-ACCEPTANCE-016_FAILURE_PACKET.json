@@ -1,0 +1,30 @@
+{
+  "schema_version": "rsf_failure_packet.v1",
+  "hypothesis_id": "HYP-RSF-USDJPY-M15-BARRIER-ACCEPTANCE-016",
+  "verdict": "KILL_NO_STABLE_BARRIER_EDGE",
+  "tested_object": "All-bar paired long/short five-indicator USDJPY M15 first-hit acceptance classifiers across TP0.75/1.0/1.25 ATR, symmetric 1 ATR stop and eight-bar horizon.",
+  "failure_radius": "The all-bar paired-candidate barrier-acceptance surface and six fixed cells are terminal. A sparse preregistered setup event clock is not tested here.",
+  "no_rescue": [
+    "No barrier or horizon retuning",
+    "No threshold, direction, year or session mining",
+    "No classifier expansion",
+    "No 2023+ validation access"
+  ],
+  "run_id": "20260808_012351",
+  "models_preregistered": 6,
+  "model_fits": 24,
+  "threshold_fold_evaluations": 72,
+  "survivors": 0,
+  "best_cell": {
+    "model_family": "HGB_SHALLOW",
+    "target_atr": 0.75,
+    "stop_atr": 1.0,
+    "horizon_bars": 8,
+    "primary_trades": 761,
+    "pooled_profit_factor": 0.8766172030920331,
+    "pooled_net_r": -40.21029887203169,
+    "median_year_profit_factor": 0.8542723262677272
+  },
+  "validation_2023_plus_opened": false,
+  "paper_live_authorized": false
+}

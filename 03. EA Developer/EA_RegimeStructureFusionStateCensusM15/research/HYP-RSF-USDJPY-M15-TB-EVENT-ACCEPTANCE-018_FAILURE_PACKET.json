@@ -1,0 +1,63 @@
+{
+  "schema_version": "alphafactory_failure_packet.v1",
+  "hypothesis_id": "HYP-RSF-USDJPY-M15-TB-EVENT-ACCEPTANCE-018",
+  "verdict": "KILL_NO_STABLE_TB_EVENT_EDGE",
+  "closed_at_utc": "2026-08-07T18:43:08Z",
+  "tested_object": {
+    "symbol": "USDJPY",
+    "timeframe": "M15",
+    "discovery_window": ["2018-01-01", "2022-12-31"],
+    "parent_run_id": "20260808_012351",
+    "parent_census_sha256": "1FFA026BF50C431C87EC9EC9CE5DD7D17ABB26DBDB179680B8E75C5421642D2A",
+    "event_clock": "TB structure/displacement/sweep rising edges with fixed direction",
+    "models": ["LOGISTIC", "HGB_SHALLOW"],
+    "target_atr": [0.75, 1.0, 1.25],
+    "stop_atr": 1.0,
+    "horizon_bars": 8,
+    "primary_target_cadence_per_week": 3.5,
+    "adjacent_target_cadences_per_week": [2.5, 4.5]
+  },
+  "stage0": {
+    "events": 32678,
+    "events_per_week": 125.41042363879338,
+    "long_share": 0.5044066344329519,
+    "max_year_share": 0.20255217577575127,
+    "conflicts_rejected": 491,
+    "verdict": "PASS_STAGE0_AUTHORIZE_FROZEN_STAGE_B"
+  },
+  "best_cell": {
+    "model_family": "LOGISTIC",
+    "target_atr": 1.0,
+    "trades": 799,
+    "pooled_profit_factor": 0.8570678765873251,
+    "pooled_net_r": -60.321846769328424,
+    "median_year_profit_factor": 0.9168121082626925,
+    "adjacent_pooled_profit_factor": {
+      "2.5": 0.8480339234206447,
+      "4.5": 0.8306412083190111
+    }
+  },
+  "failure_radius": [
+    "TB structural signals are frequent, balanced and stable but not directionally profitable after observed dynamic costs.",
+    "Five-indicator closed-bar acceptance features do not separate profitable TB events across expanding yearly folds.",
+    "All six preregistered model/target cells fail; nearby trade-frequency thresholds also fail.",
+    "The native-price state, transition, all-barrier, MBB-event and TB-event family on USDJPY M5/M15 is closed."
+  ],
+  "forbidden_rescues": [
+    "Do not optimize a session after inspecting these outcomes.",
+    "Do not delete structure, displacement or sweep subtypes based on their realized results.",
+    "Do not add QQE, AIRD, VRC or MBB hard gates post hoc on the same census.",
+    "Do not open 2023+ validation or holdout data for this killed hypothesis.",
+    "Do not relabel this engineering-valid research result as economic-valid or promotion-ready."
+  ],
+  "successor_requirement": "A successor needs a fresh ID and a materially new causal mechanism or information set, not further parameter or indicator conjunction tuning on the same closed-bar census.",
+  "evidence": {
+    "stage0_sha256": "161CBFA138C121933D712CE8DB2A9634CA128A3A165B2642F16644E97027E0DE",
+    "event_clock_sha256": "B18B87FA4F8003F752154B5EC365C67EDBDA4DAA7187F28DAC70BA8701039A32",
+    "analysis_sha256": "CC6726B920BCC9071797C19101653A5CFF556B16886165CDF2F658A0CED6C26F",
+    "folds_sha256": "C3B6A5E215D6D8313C40EC868CAD58C65147393A1553CD27AD076BEC042F17CF",
+    "analysis_script_sha256": "2C7F7FEFB2518722DC806062D8DD559F2C885008E9DA283FAE7D1D3A5F8DAB8D"
+  },
+  "validation_2023_plus_opened": false,
+  "promotion_eligible": false
+}

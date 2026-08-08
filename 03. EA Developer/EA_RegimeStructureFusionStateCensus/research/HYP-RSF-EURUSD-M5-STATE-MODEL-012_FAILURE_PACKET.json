@@ -1,0 +1,32 @@
+{
+  "schema_version": "rsf_failure_packet.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-STATE-MODEL-012",
+  "verdict": "KILL_NO_STABLE_DISCOVERY_EDGE",
+  "tested_object": "Five-indicator simultaneous closed-bar state vector predicting fixed 3/6/12-bar EURUSD M5 returns with Ridge or shallow HGB under purged expanding-year walk-forward evaluation.",
+  "failure_radius": "Only the simultaneous-state prediction surface and its six frozen cells are terminal. Indicator transition/event timing is not tested by this ID.",
+  "no_rescue": [
+    "No parameter or session mining under STATE-MODEL-012",
+    "No year or direction exclusion",
+    "No 2023+ validation access",
+    "No reuse of stale pre-ABI QQE forensic values"
+  ],
+  "run_id": "20260808_004517",
+  "census_rows": 372913,
+  "history_quality_pct": 100,
+  "orders": 0,
+  "trades": 0,
+  "models_preregistered": 6,
+  "model_fits": 24,
+  "threshold_fold_evaluations": 72,
+  "survivors": 0,
+  "best_cell": {
+    "model_family": "RIDGE",
+    "horizon_bars": 12,
+    "pooled_profit_factor": 0.7553722814937363,
+    "median_year_profit_factor": 0.7495077354710502,
+    "pooled_net_r": -215.6972865807524,
+    "primary_trades": 767
+  },
+  "validation_2023_plus_opened": false,
+  "paper_live_authorized": false
+}

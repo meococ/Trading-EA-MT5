@@ -5602,3 +5602,76 @@ then run a zero-trade full-universe cadence/coverage gate before outcomes.
 Canonical readout:
 `04. Memory/research/20260807_INDICATOR_FUSION_FRONTIER_STOP.md`.
 
+---
+
+## HYP-RSF-EURUSD-M5-PATH-011 — terminal economic kill (2026-08-08)
+
+**EA / run:** `EA_RegimeStructureFusion` / `20260807_235223`
+
+**Mechanism:** frozen Structural-Event-004 entries plus closed-bar 1R
+break-even, opposite TB BOS/MSS exit, and adverse MBB-basis + accelerating QQE
+exit. A shadow slot preserved the original SL/TP/time occupancy after early
+PATH or break-even closure.
+
+**Engineering:** PASS. Source SHA `D1034E...8561`; compile 0 errors; 14/14
+path contracts; non-repaint PASS; independent code-review PASS. Four native
+MT5 Visual Tester cases contained the real MBB/TB/QQE displays and trade
+markers.
+
+**Economics:** FAIL. The only frozen 2018-2022 Model-0 run returned N738,
+PF0.799290, net -USD5,252.63, DD6.2477%, expectancy -USD7.12/trade, mean
+-0.08563R and zero positive years. OOS stayed sealed.
+
+**Matched control:** 519/520 parent entries matched exactly on timestamp,
+direction, engine, entry, SL and TP. PATH improved mean R from -0.10822R to
+-0.07209R but remained negative. The 219 additional minimum-volume entries
+were caused by the balance-dependent broker money-stopout admission boundary,
+not by premature shadow release; they were also negative at -0.11771R.
+
+**Indicator diagnosis:** C07 entered from a stored short arm after the live
+state had become AIRD Ranging 95.14%, VRC Compression/vol-percentile 9 and MBB
+squeeze 19.44 without release. This is real stale-context evidence, but the
+prior role-aware revalidation mechanism was already terminal at PF0.6791, and
+removing the natural squeeze bucket still left the remaining matched PATH book
+negative. TB-flip exits worsened matched outcomes; QQE/TB sign alignment was
+already universal and supplied no new separation.
+
+**Decision:** `KILL_NEGATIVE_EXPECTANCY_NO_PARAMETER_RESCUE`. Do not tune path
+thresholds, stops, RR, sessions, directions, routes, years, or indicator
+conjunctions. The admissible next route remains a materially new licensed
+point-in-time event/data contract and zero-trade semantics/cadence probe.
+Canonical result:
+`03. EA Developer/EA_RegimeStructureFusion/research/path/HYP-RSF-EURUSD-M5-PATH-011_RESULT.md`.
+
+---
+
+## RSF five-indicator native state/event census — terminal family kill (2026-08-08)
+
+**Scope:** QQE MOD + Modern Bollinger Bands + AI Regime Detection + Volatility
+Regime Classifier + TB Smart Money Concept, computed natively on completed MT5
+bars. Zero-trade wrappers exported 372,913 EURUSD M5 rows, 372,902 USDJPY M5
+rows and 124,359 USDJPY M15 rows at 100% tester history quality.
+
+**Preregistered discovery:** HYP-012..018 covered simultaneous state,
+transitions, native timeframe change, first-hit barriers, MBB S1/S2/S3 event
+clocks and TB structure/displacement/sweep event clocks. Expanding-year folds,
+dynamic observed-spread costs and adjacent threshold gates were frozen before
+outcomes. OOS 2023+ stayed sealed.
+
+**Economics:** zero survivor. Best PF by stage was 0.7554, 0.8207, 0.9429,
+0.8623, 0.8766, 0.7948 and 0.8571 respectively. USDJPY M5 contained weak gross
+information (PF1.3276) but costs consumed 315.54R versus +259.47R gross. M15
+lowered spread/ATR materially but did not repair directional discrimination.
+
+**Indicator diagnosis:** MBB was the strongest USDJPY grouped predictive
+family; AIRD and VRC changed sign/importance by pair and timeframe; QQE was
+small; TB improved on M15 and supplied stable clocks, but its best accepted
+subset still lost all four discovery years. These are diagnostics, not
+authorization to remove a feature or mine parameters.
+
+**Decision:** `FRONTIER_STOP_NATIVE_PRICE_FIVE_INDICATOR_FUSION_NO_EDGE`.
+Do not tune indicator lengths, sessions, subtypes, directions or more pairs on
+this closed census family. A successor requires a new causal information set
+and fresh preregistration. Canonical closeout:
+`04. Memory/research/20260808_FIVE_INDICATOR_NATIVE_CENSUS_CLOSEOUT.md`.
+

@@ -1,0 +1,10 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-STATE-MODEL-012",
+  "cost_evidence_tier": "collection_only_no_economics",
+  "spread_source": "MT5 decision-time bid/ask spread exported for later discovery-only x1.5 stress",
+  "commission_source": "not_applicable_zero_trade_census",
+  "slippage_source": "not_applicable_zero_trade_census",
+  "economic_claims_authorized": false,
+  "note": "The Stage-A census sends no orders and computes no performance. Cost fields exist only to bind the later preregistered offline discovery calculation."
+}

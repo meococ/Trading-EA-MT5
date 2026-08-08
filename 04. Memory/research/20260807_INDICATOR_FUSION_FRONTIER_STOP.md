@@ -99,3 +99,26 @@ point-in-time information set and sets:
 Only a source pilot passing those gates can authorize a fresh hypothesis ID.
 Economics, optimization, validation, holdout, paper and live trading remain
 closed.
+
+## Owner-directed native census extension — 2026-08-08
+
+The Owner subsequently required one bounded, preregistered examination of all
+five native MT5 indicators before accepting the stop. Seven fresh hypotheses
+were run without opening 2023+:
+
+- EURUSD M5 simultaneous state: PF0.7554;
+- EURUSD M5 state transitions: PF0.8207;
+- USDJPY M5 pair-native state: gross PF1.3276 but net PF0.9429 after the frozen
+  dynamic cost contract;
+- USDJPY native M15 state: PF0.8623;
+- USDJPY native M15 all-bar barrier acceptance: PF0.8766;
+- USDJPY native M15 MBB-event acceptance: PF0.7948;
+- USDJPY native M15 TB-event acceptance: PF0.8571.
+
+There were zero survivors. MBB carried the strongest grouped predictive
+diagnostic on USDJPY, while AIRD/VRC contributions changed materially by pair
+and timeframe; this did not translate into economic edge. The extension
+therefore strengthens, rather than relaxes, the frontier stop. Do not open an
+indicator-parameter grid or more-pair search on this closed family. Canonical
+readout:
+`04. Memory/research/20260808_FIVE_INDICATOR_NATIVE_CENSUS_CLOSEOUT.md`.

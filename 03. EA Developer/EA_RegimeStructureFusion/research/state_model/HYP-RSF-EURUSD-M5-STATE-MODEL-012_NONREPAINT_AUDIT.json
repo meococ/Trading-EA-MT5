@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-STATE-MODEL-012",
+  "run_id": "STATIC-HYP-RSF-EURUSD-M5-STATE-MODEL-012-20260808",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionStateCensus\\NONREPAINT_AUDIT_MANIFEST_STATE_MODEL_012.json",
+  "manifest_sha256": "380AE79AAAB0E414E0684910FE97AD1038615EF6382DB92433339BFD3B0D039C",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_RegimeStructureFusionStateCensus\\EA_RegimeStructureFusionStateCensus.mq5",
+      "sha256": "754CF368A29C22180D997CEEB331F9052923C1A765631FE6B012B62107430D8B"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-07T18:48:24.565108+00:00"
+}

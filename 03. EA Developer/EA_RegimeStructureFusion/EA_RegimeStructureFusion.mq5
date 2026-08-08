@@ -212,6 +212,13 @@ input double InpStructuralMaxExtensionAtr=0.35;         // Prevent post-event ch
 input double InpStructuralMinObjectiveR=1.25;           // Known opposing swing must leave at least this structural runway
 input double InpStructuralQqeVetoThreshold=3.0;         // QQE is only a strongly-opposed acceleration veto, never a trigger
 
+input group "Closed-bar path management"
+input bool   InpUsePathManagement=false;                // Tester-only successor: preserve the entry clock, change only post-entry handling
+input double InpPathBreakEvenTriggerR=1.0;              // Arm once a completed M5 bar reaches +1R; move SL to entry without widening
+input int    InpPathMinInvalidationBars=3;              // Ignore early MBB/QQE noise for the first three completed post-entry bars
+input bool   InpPathUseOppositeStructureExit=true;      // Opposite closed TB BOS/MSS invalidates the trade immediately
+input bool   InpPathUseBasisQqeExit=true;               // Exit only when both MBB basis and accelerating QQE disagree
+
 // AIRD parameters are passed positionally to the custom indicator. The
 // defaults reproduce the reviewed indicator; only declared axes may be swept.
 input group "AIRD context engine"
@@ -317,9 +324,11 @@ bool g_account_locked=false;
 string g_run_id="";
 string g_lifecycle_name="";
 string g_entry_context_name="";
+string g_path_actions_name="";
 string g_run_meta_name="";
 int g_lifecycle_handle=INVALID_HANDLE;
 int g_entry_context_handle=INVALID_HANDLE;
+int g_path_actions_handle=INVALID_HANDLE;
 
 long g_ticks_seen=0;
 long g_closed_bars_seen=0;
@@ -366,7 +375,18 @@ long g_reject_location=0;
 long g_reject_runway=0;
 long g_entries_opened=0;
 long g_final_closes=0;
+long g_path_snapshot_not_ready=0;
+long g_path_be_modified=0;
+long g_path_be_modify_rejected=0;
+long g_path_structure_exits=0;
+long g_path_basis_qqe_exits=0;
+long g_path_exit_rejected=0;
+long g_path_shadow_armed=0;
+long g_path_shadow_released_sl=0;
+long g_path_shadow_released_tp=0;
+long g_path_shadow_released_time=0;
 string g_last_reason="NONE";
+string g_last_path_action="NONE";
 
 ENUM_RSF_SIGNAL g_pending_signal=RSF_SIGNAL_NONE;
 double g_pending_sl=0.0;
@@ -378,6 +398,34 @@ double g_active_entry=0.0;
 double g_active_sl=0.0;
 double g_active_tp=0.0;
 double g_active_risk_account=0.0;
+bool g_path_break_even_armed=false;
+bool g_path_break_even_applied=false;
+string g_path_pending_exit_reason="";
+ulong g_path_pending_position_id=0;
+ulong g_path_pending_order_id=0;
+ulong g_path_pending_deal_id=0;
+ulong g_path_pending_final_order_id=0;
+ulong g_path_pending_final_deal_id=0;
+bool g_path_pending_final_unresolved=false;
+int g_path_pending_direction=0;
+double g_path_pending_entry=0.0;
+double g_path_pending_sl=0.0;
+double g_path_pending_tp=0.0;
+datetime g_path_pending_open_time=0;
+bool g_path_be_shadow_watch=false;
+ulong g_path_be_position_id=0;
+int g_path_be_direction=0;
+double g_path_be_entry=0.0;
+double g_path_be_sl=0.0;
+double g_path_be_tp=0.0;
+datetime g_path_be_open_time=0;
+bool g_path_shadow_active=false;
+ulong g_path_shadow_position_id=0;
+int g_path_shadow_direction=0;
+double g_path_shadow_entry=0.0;
+double g_path_shadow_sl=0.0;
+double g_path_shadow_tp=0.0;
+datetime g_path_shadow_open_time=0;
 
 ENUM_RSF_SIGNAL g_armed_signal=RSF_SIGNAL_NONE;
 datetime g_armed_bar_time=0;
@@ -1762,7 +1810,73 @@ bool CloseOwnedPosition(const ulong ticket,const string reason)
    request.type=type==POSITION_TYPE_BUY ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
    request.price=type==POSITION_TYPE_BUY ? tick.bid : tick.ask;
    request.deviation=(ulong)InpDeviationPoints; request.type_filling=ResolveFilling(); request.comment=reason;
-   return(OrderSend(request,result) && (result.retcode==TRADE_RETCODE_DONE || result.retcode==TRADE_RETCODE_DONE_PARTIAL || result.retcode==TRADE_RETCODE_PLACED));
+   if(!OrderSend(request,result) ||
+      (result.retcode!=TRADE_RETCODE_DONE && result.retcode!=TRADE_RETCODE_DONE_PARTIAL && result.retcode!=TRADE_RETCODE_PLACED))
+      return(false);
+   // Bind the accepted PATH request to its server IDs.  This resolves final
+   // DEAL_ADD provenance even when the broker omits the request comment and
+   // order history has not been materialized yet.
+   if(g_path_pending_exit_reason==reason)
+     {
+      if(result.order>0) g_path_pending_order_id=result.order;
+      if(result.deal>0) g_path_pending_deal_id=result.deal;
+     }
+   // An accepted request is not a completed close.  Read back the position so
+   // partial/pending requests cannot be counted as a finished PATH action.
+   if(PositionSelectByTicket(ticket))
+     {
+      double remaining=PositionGetDouble(POSITION_VOLUME);
+      double step=SymbolInfoDouble(_Symbol,SYMBOL_VOLUME_STEP);
+      if(remaining>MathMax(1e-8,step*0.5)) return(false);
+     }
+   return(true);
+  }
+
+// Tighten the owned position to an exact stop price.  The function refuses to
+// widen risk and refuses to synthesize a nearby price when entry is inside the
+// broker stop/freeze distance: in that case the armed break-even action simply
+// retries on the next closed bar.
+bool ModifyOwnedStop(const ulong ticket,const double requested_sl,const string reason)
+  {
+   if(ticket==0 || !PositionSelectByTicket(ticket)) return(false);
+   long type=PositionGetInteger(POSITION_TYPE);
+   double current_sl=PositionGetDouble(POSITION_SL);
+   double current_tp=PositionGetDouble(POSITION_TP);
+   double new_sl=NormalizeDouble(requested_sl,_Digits);
+   double half_point=0.5*_Point;
+
+   if(type==POSITION_TYPE_BUY)
+     {
+      if(current_sl>0.0 && current_sl>=new_sl-half_point) return(true);
+      if(current_sl>0.0 && new_sl<=current_sl+half_point) return(false);
+     }
+   else if(type==POSITION_TYPE_SELL)
+     {
+      if(current_sl>0.0 && current_sl<=new_sl+half_point) return(true);
+      if(current_sl>0.0 && new_sl>=current_sl-half_point) return(false);
+     }
+   else return(false);
+
+   MqlTick tick; if(!SymbolInfoTick(_Symbol,tick)) return(false);
+   double stop_distance=(double)MathMax((long)SymbolInfoInteger(_Symbol,SYMBOL_TRADE_STOPS_LEVEL),
+                                       (long)SymbolInfoInteger(_Symbol,SYMBOL_TRADE_FREEZE_LEVEL))*_Point;
+   if(type==POSITION_TYPE_BUY && new_sl>tick.bid-stop_distance) return(false);
+   if(type==POSITION_TYPE_SELL && new_sl<tick.ask+stop_distance) return(false);
+
+   MqlTradeRequest request; MqlTradeCheckResult check; MqlTradeResult result;
+   ZeroMemory(request); ZeroMemory(check); ZeroMemory(result);
+   request.action=TRADE_ACTION_SLTP; request.magic=(ulong)InpMagic; request.position=ticket;
+   request.symbol=_Symbol; request.sl=new_sl; request.tp=current_tp; request.comment=reason;
+   ResetLastError();
+   if(!OrderCheck(request,check)) return(false);
+   if(!OrderSend(request,result) ||
+      (result.retcode!=TRADE_RETCODE_DONE && result.retcode!=TRADE_RETCODE_PLACED)) return(false);
+   // Confirm the terminal now exposes the exact requested-or-tighter stop.
+   // A merely PLACED request remains pending and is retried on a later bar.
+   if(!PositionSelectByTicket(ticket)) return(false);
+   double applied_sl=PositionGetDouble(POSITION_SL);
+   if(type==POSITION_TYPE_BUY) return(applied_sl>=new_sl-half_point);
+   return(applied_sl>0.0 && applied_sl<=new_sl+half_point);
   }
 
 bool RemainingVolumeThroughDeal(const ulong position_id,const ulong target_deal,double &remaining)
@@ -1802,6 +1916,229 @@ string SafeToken(string value)
    StringReplace(value," ","_"); StringReplace(value,"/","_"); StringReplace(value,"\\","_"); StringReplace(value,":","_"); return(value);
   }
 
+// Per-position path evidence is intentionally separate from the deal ledger.
+// Stop modifications are not deals in MT5, so forcing them into LifecycleTrades
+// would corrupt position reconciliation.  PATH-011 requires this sidecar.
+void LogPathAction(const ulong ticket,const string action,const bool success,const int direction,
+                   const int held_bars,const double favorable_r,const RsfSnapshot &s)
+  {
+   if(g_path_actions_handle==INVALID_HANDLE) return;
+   ulong position_id=g_active_position_id;
+   if(position_id==0) position_id=g_path_pending_position_id;
+   if(position_id==0) position_id=g_path_shadow_position_id;
+   if(position_id==0 && PositionSelectByTicket(ticket))
+      position_id=(ulong)PositionGetInteger(POSITION_IDENTIFIER);
+   double log_entry=g_active_entry>0.0 ? g_active_entry :
+                    g_path_pending_entry>0.0 ? g_path_pending_entry : g_path_shadow_entry;
+   double log_sl=g_active_sl>0.0 ? g_active_sl :
+                 g_path_pending_sl>0.0 ? g_path_pending_sl : g_path_shadow_sl;
+   double log_tp=g_active_tp>0.0 ? g_active_tp :
+                 g_path_pending_tp>0.0 ? g_path_pending_tp : g_path_shadow_tp;
+   FileWrite(g_path_actions_handle,
+      TimeToString(TimeCurrent(),TIME_DATE|TIME_SECONDS),
+      TimeToString(ServerToUtc(TimeCurrent()),TIME_DATE|TIME_SECONDS),
+      TimeToString(iTime(_Symbol,PERIOD_M5,1),TIME_DATE|TIME_SECONDS),
+      StringFormat("%I64u",ticket),StringFormat("%I64u",position_id),action,
+      success?"1":"0",IntegerToString(direction),IntegerToString(held_bars),
+      DoubleToString(log_entry,_Digits),DoubleToString(log_sl,_Digits),DoubleToString(log_tp,_Digits),
+      DoubleToString(favorable_r,8),DoubleToString(s.close_price,_Digits),DoubleToString(s.mbb_basis,_Digits),
+      DoubleToString(s.qqe_primary,8),DoubleToString(s.qqe_primary_prev,8),IntegerToString(s.tb_structure_event),
+      InpHypothesisId,InpVariantTag);
+   FileFlush(g_path_actions_handle);
+  }
+
+void LogShadowAction(const string action,const int direction,const datetime source_bar_time)
+  {
+   if(g_path_actions_handle==INVALID_HANDLE) return;
+   FileWrite(g_path_actions_handle,
+      TimeToString(TimeCurrent(),TIME_DATE|TIME_SECONDS),
+      TimeToString(ServerToUtc(TimeCurrent()),TIME_DATE|TIME_SECONDS),
+      TimeToString(source_bar_time,TIME_DATE|TIME_SECONDS),
+      "0",StringFormat("%I64u",g_path_shadow_position_id),action,"1",IntegerToString(direction),"0",
+      DoubleToString(g_path_shadow_entry,_Digits),DoubleToString(g_path_shadow_sl,_Digits),
+      DoubleToString(g_path_shadow_tp,_Digits),"0.00000000","0","0","0","0","0",
+      InpHypothesisId,InpVariantTag);
+   FileFlush(g_path_actions_handle);
+  }
+
+void LogPendingPathAction(const ulong ticket,const string action,const bool success)
+  {
+   if(g_path_actions_handle==INVALID_HANDLE) return;
+   FileWrite(g_path_actions_handle,
+      TimeToString(TimeCurrent(),TIME_DATE|TIME_SECONDS),
+      TimeToString(ServerToUtc(TimeCurrent()),TIME_DATE|TIME_SECONDS),
+      TimeToString(iTime(_Symbol,PERIOD_M5,1),TIME_DATE|TIME_SECONDS),
+      StringFormat("%I64u",ticket),StringFormat("%I64u",g_path_pending_position_id),
+      action,success?"1":"0",IntegerToString(g_path_pending_direction),"0",
+      DoubleToString(g_path_pending_entry,_Digits),DoubleToString(g_path_pending_sl,_Digits),
+      DoubleToString(g_path_pending_tp,_Digits),"0.00000000","0","0","0","0","0",
+      InpHypothesisId,InpVariantTag);
+   FileFlush(g_path_actions_handle);
+  }
+
+void ClearPendingPathExit()
+  {
+   g_path_pending_exit_reason=""; g_path_pending_position_id=0; g_path_pending_direction=0;
+   g_path_pending_order_id=0; g_path_pending_deal_id=0;
+   g_path_pending_final_order_id=0; g_path_pending_final_deal_id=0;
+   g_path_pending_final_unresolved=false;
+   g_path_pending_entry=0.0; g_path_pending_sl=0.0; g_path_pending_tp=0.0;
+   g_path_pending_open_time=0;
+  }
+
+void ClearPathBeShadowWatch()
+  {
+   g_path_be_shadow_watch=false; g_path_be_position_id=0; g_path_be_direction=0;
+   g_path_be_entry=0.0; g_path_be_sl=0.0; g_path_be_tp=0.0; g_path_be_open_time=0;
+  }
+
+void SeedPathBeShadowWatch(const ulong ticket,const int direction)
+  {
+   if(ticket==0 || direction==0 || !PositionSelectByTicket(ticket)) return;
+   g_path_be_shadow_watch=true;
+   g_path_be_position_id=g_active_position_id;
+   if(g_path_be_position_id==0)
+      g_path_be_position_id=(ulong)PositionGetInteger(POSITION_IDENTIFIER);
+   g_path_be_direction=direction; g_path_be_entry=g_active_entry;
+   g_path_be_sl=g_active_sl; g_path_be_tp=g_active_tp;
+   g_path_be_open_time=(datetime)PositionGetInteger(POSITION_TIME);
+  }
+
+// Return 1 for a proven PATH close, -1 for a proven native/control close and
+// 0 when transaction ordering has not exposed enough order provenance yet.
+int ClassifyPendingPathExitDeal(const ulong deal,const ulong position_id,const ulong order_id)
+  {
+   if(g_path_pending_exit_reason=="" || position_id==0 ||
+      position_id!=g_path_pending_position_id)
+      return(-1);
+
+   if((g_path_pending_deal_id>0 && deal==g_path_pending_deal_id) ||
+      (g_path_pending_order_id>0 && order_id==g_path_pending_order_id))
+      return(1);
+
+   string deal_comment=HistoryDealGetString(deal,DEAL_COMMENT);
+   if(deal_comment==g_path_pending_exit_reason) return(1);
+
+   ENUM_DEAL_REASON deal_reason=(ENUM_DEAL_REASON)HistoryDealGetInteger(deal,DEAL_REASON);
+   if(deal_reason==DEAL_REASON_SL || deal_reason==DEAL_REASON_TP) return(-1);
+   if(deal_comment=="FRIDAY_FLAT" || deal_comment=="MAX_HOLD") return(-1);
+
+   if(order_id>0 && HistoryOrderSelect(order_id))
+     {
+      string order_comment=HistoryOrderGetString(order_id,ORDER_COMMENT);
+      if(order_comment==g_path_pending_exit_reason) return(1);
+      if(order_comment=="FRIDAY_FLAT" || order_comment=="MAX_HOLD") return(-1);
+     }
+   return(0);
+  }
+
+void PreparePendingPathExit(const ulong ticket,const string reason,const int direction)
+  {
+   if(g_path_pending_exit_reason!="" || ticket==0 || !PositionSelectByTicket(ticket)) return;
+   g_path_pending_exit_reason=reason; g_path_pending_direction=direction;
+   g_path_pending_position_id=g_active_position_id;
+   if(g_path_pending_position_id==0)
+      g_path_pending_position_id=(ulong)PositionGetInteger(POSITION_IDENTIFIER);
+   g_path_pending_entry=g_active_entry; g_path_pending_sl=g_active_sl; g_path_pending_tp=g_active_tp;
+   g_path_pending_open_time=(datetime)PositionGetInteger(POSITION_TIME);
+  }
+
+// Early path exits would otherwise free the single-position slot and create
+// extra entries while Structural-Event-004 still holds its control trade.
+// This shadow tracks only the original control SL/TP/time occupancy; it sends
+// no orders and reads no future data.
+void ActivatePathShadowValues(const ulong position_id,const int direction,
+                              const double entry,const double sl,const double tp,
+                              const datetime open_time,const string action)
+  {
+   if(g_path_shadow_active || position_id==0 || direction==0 || entry<=0.0 || sl<=0.0 || tp<=0.0)
+      return;
+   g_path_shadow_active=true; g_path_shadow_position_id=position_id;
+   g_path_shadow_direction=direction; g_path_shadow_entry=entry;
+   g_path_shadow_sl=sl; g_path_shadow_tp=tp; g_path_shadow_open_time=open_time;
+   g_path_shadow_armed++;
+   LogShadowAction(action,direction,iTime(_Symbol,PERIOD_M5,1));
+  }
+
+void ActivatePathShadow()
+  {
+   if(g_path_pending_exit_reason=="") return;
+   ActivatePathShadowValues(g_path_pending_position_id,g_path_pending_direction,
+                            g_path_pending_entry,g_path_pending_sl,g_path_pending_tp,
+                            g_path_pending_open_time,"SHADOW_ARM_PATH_EXIT");
+   ClearPendingPathExit();
+   ClearPathBeShadowWatch();
+  }
+
+bool FinalizePendingPathExit()
+  {
+   if(g_path_pending_exit_reason=="") return(false);
+   string reason=g_path_pending_exit_reason;
+   ActivatePathShadow();
+   if(reason=="PATH_TB_FLIP") g_path_structure_exits++;
+   else if(reason=="PATH_BASIS_QQE") g_path_basis_qqe_exits++;
+   g_last_path_action=reason; g_last_reason=reason;
+   return(true);
+  }
+
+bool ResolveDeferredPendingPathExit()
+  {
+   if(g_path_pending_exit_reason=="" || !g_path_pending_final_unresolved) return(false);
+
+   if((g_path_pending_deal_id>0 && g_path_pending_final_deal_id==g_path_pending_deal_id) ||
+      (g_path_pending_order_id>0 && g_path_pending_final_order_id==g_path_pending_order_id))
+      return(FinalizePendingPathExit());
+
+   if(g_path_pending_final_order_id>0 && HistoryOrderSelect(g_path_pending_final_order_id))
+     {
+      string comment=HistoryOrderGetString(g_path_pending_final_order_id,ORDER_COMMENT);
+      if(comment==g_path_pending_exit_reason) return(FinalizePendingPathExit());
+      if(comment=="FRIDAY_FLAT" || comment=="MAX_HOLD")
+        {
+         ClearPendingPathExit();
+         return(true);
+        }
+     }
+   return(false); // Fail closed: entry stays blocked until provenance resolves.
+  }
+
+void ReleasePathShadow(const string reason)
+  {
+   if(!g_path_shadow_active) return;
+   if(reason=="SHADOW_RELEASE_SL") g_path_shadow_released_sl++;
+   else if(reason=="SHADOW_RELEASE_TP") g_path_shadow_released_tp++;
+   else g_path_shadow_released_time++;
+   LogShadowAction(reason,g_path_shadow_direction,iTime(_Symbol,PERIOD_M5,1));
+   g_path_shadow_active=false; g_path_shadow_position_id=0; g_path_shadow_direction=0;
+   g_path_shadow_entry=0.0; g_path_shadow_sl=0.0; g_path_shadow_tp=0.0; g_path_shadow_open_time=0;
+  }
+
+void UpdatePathShadowPrice()
+  {
+   if(!g_path_shadow_active) return;
+   MqlTick tick; if(!SymbolInfoTick(_Symbol,tick)) return;
+   if(g_path_shadow_direction>0)
+     {
+      if(tick.bid<=g_path_shadow_sl) { ReleasePathShadow("SHADOW_RELEASE_SL"); return; }
+      if(tick.bid>=g_path_shadow_tp) { ReleasePathShadow("SHADOW_RELEASE_TP"); return; }
+     }
+   else
+     {
+      if(tick.ask>=g_path_shadow_sl) { ReleasePathShadow("SHADOW_RELEASE_SL"); return; }
+      if(tick.ask<=g_path_shadow_tp) { ReleasePathShadow("SHADOW_RELEASE_TP"); return; }
+     }
+  }
+
+void UpdatePathShadowTime(const datetime utc_now)
+  {
+   if(!g_path_shadow_active) return;
+   MqlDateTime p; TimeToStruct(utc_now,p); int minute=p.hour*60+p.min;
+   if(p.day_of_week==5 && minute>=InpFridayFlattenMinutesUtc)
+     { ReleasePathShadow("SHADOW_RELEASE_FRIDAY"); return; }
+   if(g_path_shadow_open_time>0 && TimeCurrent()-g_path_shadow_open_time>=InpMaxHoldBars*PeriodSeconds(PERIOD_M5))
+      ReleasePathShadow("SHADOW_RELEASE_MAX_HOLD");
+  }
+
 // The forensic EA includes this engine source directly.  MQL_PROGRAM_NAME is
 // therefore the only reliable identity for lifecycle telemetry: it resolves
 // to the parent EA in normal runs and to the wrapper in forensic runs.  Keep
@@ -1826,7 +2163,8 @@ bool WriteRunMeta()
    payload+="\"clock_profile\":\""+(InpClockProfile==RSF_CLOCK_EET_EEST ? "EET_EEST_EU_DST" : "FIXED_OFFSET")+"\",";
    payload+="\"economic_claims_authorized\":false,\"promotion_eligible\":false,\"closed_bar\":true,";
    payload+=StringFormat("\"effective_session_mask\":%d,\"effective_mode_mask\":%d,",effective_profile.sessions,effective_profile.modes);
-   payload+="\"use_context_router\":"+(InpUseContextRouter ? "true" : "false")+",\"use_tb_structure\":"+(InpUseTbStructure ? "true" : "false")+",\"use_qqe_timing\":"+(InpUseQqeTiming ? "true" : "false")+",\"use_temporal_sequence\":"+(InpUseTemporalSequence ? "true" : "false")+",\"use_role_aware_sequence\":"+(InpUseRoleAwareSequence ? "true" : "false")+",\"use_structural_event_sequence\":"+(InpUseStructuralEventSequence ? "true" : "false")+",\"structural_require_live_objective\":"+(InpStructuralRequireLiveObjective ? "true" : "false")+",\"structural_use_liquidity_pool_objective\":"+(InpStructuralUseLiquidityPoolObjective ? "true" : "false")+",";
+   payload+="\"use_context_router\":"+(InpUseContextRouter ? "true" : "false")+",\"use_tb_structure\":"+(InpUseTbStructure ? "true" : "false")+",\"use_qqe_timing\":"+(InpUseQqeTiming ? "true" : "false")+",\"use_temporal_sequence\":"+(InpUseTemporalSequence ? "true" : "false")+",\"use_role_aware_sequence\":"+(InpUseRoleAwareSequence ? "true" : "false")+",\"use_structural_event_sequence\":"+(InpUseStructuralEventSequence ? "true" : "false")+",\"structural_require_live_objective\":"+(InpStructuralRequireLiveObjective ? "true" : "false")+",\"structural_use_liquidity_pool_objective\":"+(InpStructuralUseLiquidityPoolObjective ? "true" : "false")+",\"use_path_management\":"+(InpUsePathManagement ? "true" : "false")+",\"path_use_opposite_structure_exit\":"+(InpPathUseOppositeStructureExit ? "true" : "false")+",\"path_use_basis_qqe_exit\":"+(InpPathUseBasisQqeExit ? "true" : "false")+",";
+   payload+=StringFormat("\"path_break_even_trigger_r\":%.8f,\"path_min_invalidation_bars\":%d,",InpPathBreakEvenTriggerR,InpPathMinInvalidationBars);
    payload+=StringFormat("\"account_margin_so_mode\":%d,\"account_margin_so_call\":%.8f,\"account_margin_so_stopout\":%.8f,",(int)AccountInfoInteger(ACCOUNT_MARGIN_SO_MODE),AccountInfoDouble(ACCOUNT_MARGIN_SO_CALL),AccountInfoDouble(ACCOUNT_MARGIN_SO_SO));
    payload+=StringFormat("\"risk_margin_level_floor_pct\":%.8f,\"money_stopout_buffer_pct\":%.8f,",InpMinPostTradeMarginLevelPct,InpMoneyStopoutBufferPct);
    payload+="\"funnel\":{";
@@ -1839,7 +2177,9 @@ bool WriteRunMeta()
    payload+=StringFormat("\"structural_armed\":%I64d,\"structural_retested\":%I64d,\"structural_confirmed\":%I64d,\"structural_expired\":%I64d,\"structural_canceled\":%I64d,\"structural_reject_context\":%I64d,\"structural_reject_no_objective\":%I64d,\"structural_reject_runway\":%I64d,",g_structural_armed,g_structural_retested,g_structural_confirmed,g_structural_expired,g_structural_canceled,g_structural_reject_context,g_structural_reject_no_objective,g_structural_reject_runway);
    payload+=StringFormat("\"reject_session\":%I64d,\"reject_setup\":%I64d,\"reject_context\":%I64d,\"reject_structure\":%I64d,\"reject_timing\":%I64d,",g_reject_session,g_reject_setup,g_reject_context,g_reject_structure,g_reject_timing);
    payload+=StringFormat("\"reject_location\":%I64d,\"reject_runway\":%I64d,\"reject_risk\":%I64d,\"reject_execution\":%I64d,\"entries_opened\":%I64d,\"final_closes\":%I64d,",g_reject_location,g_reject_runway,g_reject_risk,g_reject_execution,g_entries_opened,g_final_closes);
-   payload+="\"last_reason\":\""+JsonEscape(g_last_reason)+"\"}}";
+   payload+=StringFormat("\"path_snapshot_not_ready\":%I64d,\"path_be_modified\":%I64d,\"path_be_modify_rejected\":%I64d,\"path_structure_exits\":%I64d,\"path_basis_qqe_exits\":%I64d,\"path_exit_rejected\":%I64d,",g_path_snapshot_not_ready,g_path_be_modified,g_path_be_modify_rejected,g_path_structure_exits,g_path_basis_qqe_exits,g_path_exit_rejected);
+   payload+=StringFormat("\"path_shadow_armed\":%I64d,\"path_shadow_released_sl\":%I64d,\"path_shadow_released_tp\":%I64d,\"path_shadow_released_time\":%I64d,",g_path_shadow_armed,g_path_shadow_released_sl,g_path_shadow_released_tp,g_path_shadow_released_time);
+   payload+="\"last_reason\":\""+JsonEscape(g_last_reason)+"\",\"last_path_action\":\""+JsonEscape(g_last_path_action)+"\"}}";
    FileWriteString(handle,payload); FileClose(handle); return(true);
   }
 
@@ -1848,10 +2188,13 @@ bool OpenTelemetry()
    g_run_id=StringFormat("%s_%I64u",SafeToken(InpHypothesisId),GetTickCount64());
    g_lifecycle_name=StringFormat("%s_LifecycleTrades_%s.csv",_Symbol,g_run_id);
    g_entry_context_name=StringFormat("%s_EntryContext_%s.csv",_Symbol,g_run_id);
+   g_path_actions_name=InpUsePathManagement ? StringFormat("%s_PathActions_%s.csv",_Symbol,g_run_id) : "";
    g_run_meta_name=StringFormat("%s_RunMeta_%s.json",_Symbol,g_run_id);
    g_lifecycle_handle=FileOpen(g_lifecycle_name,FILE_WRITE|FILE_CSV|FILE_ANSI,',');
    if(g_lifecycle_handle==INVALID_HANDLE) return(false);
-   FileWrite(g_lifecycle_handle,"event_time","utc_time","tag","action","order_type","volume","price","sl","tp","reason","deal","order","symbol","position_id","entry_price","initial_sl","initial_tp","risk_pts","initial_risk_account","achievedr","net_profit","deal_net","is_final_close","engine_name","hypothesis_id");
+   // Preserve the lifecycle-v3 positional prefix.  New optional fields append
+   // at the end so existing name-based and legacy positional readers agree.
+   FileWrite(g_lifecycle_handle,"event_time","utc_time","tag","action","order_type","volume","price","sl","tp","reason","deal","order","symbol","position_id","entry_price","initial_sl","initial_tp","risk_pts","initial_risk_account","achievedr","net_profit","deal_net","is_final_close","engine_name","hypothesis_id","deal_comment");
    FileFlush(g_lifecycle_handle);
    g_entry_context_handle=FileOpen(g_entry_context_name,FILE_WRITE|FILE_CSV|FILE_ANSI,',');
    if(g_entry_context_handle==INVALID_HANDLE)
@@ -1872,6 +2215,21 @@ bool OpenTelemetry()
       "aird_regime","aird_confidence","p_bull","p_bear","p_range","p_highvol","vrc_regime","vrc_direction",
       "vrc_vol_percentile","hypothesis_id","variant_tag");
    FileFlush(g_entry_context_handle);
+   if(InpUsePathManagement)
+     {
+      g_path_actions_handle=FileOpen(g_path_actions_name,FILE_WRITE|FILE_CSV|FILE_ANSI,',');
+      if(g_path_actions_handle==INVALID_HANDLE)
+        {
+         FileClose(g_entry_context_handle); g_entry_context_handle=INVALID_HANDLE;
+         FileClose(g_lifecycle_handle); g_lifecycle_handle=INVALID_HANDLE;
+         return(false);
+        }
+      FileWrite(g_path_actions_handle,
+         "event_time","utc_time","source_bar_time","position_ticket","position_id","action","success",
+         "direction","held_bars","entry_price","initial_sl","initial_tp","favorable_r","close_price",
+         "mbb_basis","qqe_primary","qqe_primary_prev","tb_structure_event","hypothesis_id","variant_tag");
+      FileFlush(g_path_actions_handle);
+     }
    return(WriteRunMeta());
   }
 
@@ -1891,6 +2249,8 @@ void LogLifecycleDeal(const ulong deal)
      {
       g_active_position_id=position_id; g_active_signal=g_pending_signal; g_active_entry=price;
       g_active_sl=g_pending_sl; g_active_tp=g_pending_tp; g_active_risk_account=g_pending_risk_account;
+      g_path_break_even_armed=false; g_path_break_even_applied=false; g_last_path_action="NONE";
+      ClearPathBeShadowWatch();
       g_entries_opened++; g_trades_today++;
      }
    else
@@ -1899,19 +2259,46 @@ void LogLifecycleDeal(const ulong deal)
       if(RemainingVolumeThroughDeal(position_id,deal,remaining))
          is_final=remaining<=MathMax(1e-8,SymbolInfoDouble(_Symbol,SYMBOL_VOLUME_STEP)*0.5);
      }
+   if(is_final && g_path_pending_exit_reason!="" && position_id==g_path_pending_position_id)
+     {
+      int path_class=ClassifyPendingPathExitDeal(deal,position_id,order_id);
+      if(path_class>0)
+         FinalizePendingPathExit(); // Handles PLACED/async completion before the next tick.
+      else if(path_class<0)
+         ClearPendingPathExit();    // Native SL/TP/Friday/max-hold owns the control release.
+      else
+        {
+         g_path_pending_final_unresolved=true;
+         g_path_pending_final_deal_id=deal;
+         g_path_pending_final_order_id=order_id;
+        }
+     }
+   if(is_final && g_path_be_shadow_watch && position_id==g_path_be_position_id)
+     {
+      ENUM_DEAL_REASON close_reason=(ENUM_DEAL_REASON)HistoryDealGetInteger(deal,DEAL_REASON);
+      if(close_reason==DEAL_REASON_SL)
+        {
+         ActivatePathShadowValues(g_path_be_position_id,g_path_be_direction,
+                                  g_path_be_entry,g_path_be_sl,g_path_be_tp,
+                                  g_path_be_open_time,"SHADOW_ARM_BE_STOP");
+         UpdatePathShadowPrice(); // Release immediately if this gap also crossed original SL/TP.
+        }
+      ClearPathBeShadowWatch();
+     }
    double deal_net=HistoryDealGetDouble(deal,DEAL_PROFIT)+HistoryDealGetDouble(deal,DEAL_COMMISSION)+HistoryDealGetDouble(deal,DEAL_SWAP)+HistoryDealGetDouble(deal,DEAL_FEE);
    double aggregate_net=is_open ? deal_net : NetProfitThroughDeal(position_id,deal);
    double achieved_r=g_active_risk_account>0.0 ? aggregate_net/g_active_risk_account : 0.0;
    double risk_points=(g_active_entry>0.0 && g_active_sl>0.0) ? MathAbs(g_active_entry-g_active_sl)/_Point : 0.0;
    if(g_lifecycle_handle!=INVALID_HANDLE)
      {
-      FileWrite(g_lifecycle_handle,TimeToString(event_time,TIME_DATE|TIME_SECONDS),TimeToString(ServerToUtc(event_time),TIME_DATE|TIME_SECONDS),InpVariantTag,is_open?"OPEN":(is_final?"CLOSE":"CLOSE_PARTIAL"),deal_type==DEAL_TYPE_BUY?"BUY":"SELL",DoubleToString(volume,8),DoubleToString(price,_Digits),DoubleToString(g_active_sl,_Digits),DoubleToString(g_active_tp,_Digits),EnumToString((ENUM_DEAL_REASON)HistoryDealGetInteger(deal,DEAL_REASON)),StringFormat("%I64u",deal),StringFormat("%I64u",order_id),_Symbol,StringFormat("%I64u",position_id),DoubleToString(g_active_entry,_Digits),DoubleToString(g_active_sl,_Digits),DoubleToString(g_active_tp,_Digits),DoubleToString(risk_points,4),DoubleToString(g_active_risk_account,8),DoubleToString(achieved_r,8),DoubleToString(aggregate_net,8),DoubleToString(deal_net,8),is_final?"1":"0",SignalName(g_active_signal),InpHypothesisId);
+      FileWrite(g_lifecycle_handle,TimeToString(event_time,TIME_DATE|TIME_SECONDS),TimeToString(ServerToUtc(event_time),TIME_DATE|TIME_SECONDS),InpVariantTag,is_open?"OPEN":(is_final?"CLOSE":"CLOSE_PARTIAL"),deal_type==DEAL_TYPE_BUY?"BUY":"SELL",DoubleToString(volume,8),DoubleToString(price,_Digits),DoubleToString(g_active_sl,_Digits),DoubleToString(g_active_tp,_Digits),EnumToString((ENUM_DEAL_REASON)HistoryDealGetInteger(deal,DEAL_REASON)),StringFormat("%I64u",deal),StringFormat("%I64u",order_id),_Symbol,StringFormat("%I64u",position_id),DoubleToString(g_active_entry,_Digits),DoubleToString(g_active_sl,_Digits),DoubleToString(g_active_tp,_Digits),DoubleToString(risk_points,4),DoubleToString(g_active_risk_account,8),DoubleToString(achieved_r,8),DoubleToString(aggregate_net,8),DoubleToString(deal_net,8),is_final?"1":"0",SignalName(g_active_signal),InpHypothesisId,HistoryDealGetString(deal,DEAL_COMMENT));
       FileFlush(g_lifecycle_handle);
      }
    if(is_final)
      {
       g_final_closes++; g_active_position_id=0; g_active_signal=RSF_SIGNAL_NONE;
       g_active_entry=0.0; g_active_sl=0.0; g_active_tp=0.0; g_active_risk_account=0.0;
+      g_path_break_even_armed=false; g_path_break_even_applied=false;
      }
    if(is_open) g_pending_signal=RSF_SIGNAL_NONE;
    WriteRunMeta();
@@ -1926,13 +2313,99 @@ void RefreshRiskLocks(const datetime utc_now)
    if(g_peak_equity>0.0 && 100.0*(g_peak_equity-equity)/g_peak_equity>=InpMaxAccountDrawdownPct) g_account_locked=true;
   }
 
-void ManagePosition(const datetime utc_now)
+// Returns true whenever the original control time exit is due, regardless of
+// whether the broker accepted/completed this attempt.  While due, PATH/BE must
+// never take ownership; a surviving position retries only the native exit on
+// the next new bar.
+bool ManagePosition(const datetime utc_now)
   {
-   ulong ticket=OwnedPositionTicket(); if(ticket==0 || !PositionSelectByTicket(ticket)) return;
+   ulong ticket=OwnedPositionTicket(); if(ticket==0 || !PositionSelectByTicket(ticket)) return(false);
    MqlDateTime p; TimeToStruct(utc_now,p); int minute=p.hour*60+p.min;
-   if(p.day_of_week==5 && minute>=InpFridayFlattenMinutesUtc) { CloseOwnedPosition(ticket,"FRIDAY_FLAT"); return; }
+   if(p.day_of_week==5 && minute>=InpFridayFlattenMinutesUtc)
+     {
+      // The original control slot expires now.  Cancel any unresolved PATH
+      // provenance before sending the higher-priority native time exit.
+      ClearPendingPathExit();
+      CloseOwnedPosition(ticket,"FRIDAY_FLAT");
+      return(true);
+     }
    datetime opened=(datetime)PositionGetInteger(POSITION_TIME);
-   if(opened>0 && TimeCurrent()-opened>=InpMaxHoldBars*PeriodSeconds(PERIOD_M5)) CloseOwnedPosition(ticket,"MAX_HOLD");
+   if(opened>0 && TimeCurrent()-opened>=InpMaxHoldBars*PeriodSeconds(PERIOD_M5))
+     {
+      ClearPendingPathExit();
+      CloseOwnedPosition(ticket,"MAX_HOLD");
+      return(true);
+     }
+   return(false);
+  }
+
+// PATH-011 changes only the post-entry path.  Every decision below consumes
+// shift-1/shift-2 indicator values from ReadSnapshot(), so the current forming
+// bar can neither trigger an exit nor move the stop.
+void ManagePathPosition(const ulong ticket,const RsfSnapshot &s)
+  {
+   if(ticket==0 || !PositionSelectByTicket(ticket) || g_active_entry<=0.0 || g_active_sl<=0.0) return;
+   long type=PositionGetInteger(POSITION_TYPE);
+   int direction=type==POSITION_TYPE_BUY ? 1 : type==POSITION_TYPE_SELL ? -1 : 0;
+   if(direction==0) return;
+
+   double initial_risk=MathAbs(g_active_entry-g_active_sl);
+   if(initial_risk<=_Point) return;
+   int held_bars=0;
+   if(g_last_entry_bar_time>0 && g_last_bar_time>=g_last_entry_bar_time)
+      held_bars=(int)((g_last_bar_time-g_last_entry_bar_time)/PeriodSeconds(PERIOD_M5));
+
+   bool opposite_structure=InpPathUseOppositeStructureExit &&
+                           ((direction>0 && s.tb_structure_event<0) || (direction<0 && s.tb_structure_event>0));
+   if(opposite_structure)
+     {
+      PreparePendingPathExit(ticket,"PATH_TB_FLIP",direction);
+      bool closed=CloseOwnedPosition(ticket,"PATH_TB_FLIP");
+      LogPathAction(ticket,"PATH_TB_FLIP",closed,direction,held_bars,0.0,s);
+      // DEAL_ADD owns finalization.  Position disappearance alone cannot prove
+      // whether this request or a simultaneous native SL/TP produced the close.
+      if(!closed) g_path_exit_rejected++;
+      return;
+     }
+
+   if(InpPathUseBasisQqeExit && held_bars>=InpPathMinInvalidationBars)
+     {
+      bool basis_lost=direction>0 ? s.close_price<s.mbb_basis : s.close_price>s.mbb_basis;
+      bool qqe_adverse=direction>0 ? (s.qqe_primary<0.0 && s.qqe_primary<s.qqe_primary_prev)
+                                   : (s.qqe_primary>0.0 && s.qqe_primary>s.qqe_primary_prev);
+      if(basis_lost && qqe_adverse)
+        {
+         PreparePendingPathExit(ticket,"PATH_BASIS_QQE",direction);
+         bool closed=CloseOwnedPosition(ticket,"PATH_BASIS_QQE");
+         LogPathAction(ticket,"PATH_BASIS_QQE",closed,direction,held_bars,0.0,s);
+         if(!closed) g_path_exit_rejected++;
+         return;
+        }
+     }
+
+   double favorable_price=direction>0 ? s.high_price : s.low_price;
+   double favorable_r=direction*(favorable_price-g_active_entry)/initial_risk;
+   if(favorable_r>=InpPathBreakEvenTriggerR) g_path_break_even_armed=true;
+   if(g_path_break_even_armed && !g_path_break_even_applied)
+     {
+      if(ModifyOwnedStop(ticket,g_active_entry,"PATH_BE"))
+        {
+         SeedPathBeShadowWatch(ticket,direction);
+         g_path_break_even_applied=true; g_path_be_modified++;
+         g_last_path_action="PATH_BE"; g_last_reason="PATH_BE";
+         LogPathAction(ticket,"PATH_BE",true,direction,held_bars,favorable_r,s);
+        }
+      else g_path_be_modify_rejected++;
+     }
+  }
+
+void RetryPendingPathExit(const ulong ticket)
+  {
+   if(ticket==0 || g_path_pending_exit_reason=="") return;
+   string reason=g_path_pending_exit_reason;
+   bool closed=CloseOwnedPosition(ticket,reason);
+   LogPendingPathAction(ticket,reason,closed);
+   if(!closed) g_path_exit_rejected++;
   }
 
 void DetectNewEntryBar(bool &is_new)
@@ -1965,6 +2438,7 @@ bool ValidateInputs()
    if(InpStructuralExpiryBars<2 || InpStructuralExpiryBars>48 || InpStructuralRetestToleranceAtr<=0.0 || InpStructuralRetestToleranceAtr>1.0) return(false);
    if(InpStructuralInvalidationAtr<=0.0 || InpStructuralInvalidationAtr>2.0 || InpStructuralMaxExtensionAtr<=0.0 || InpStructuralMaxExtensionAtr>2.0) return(false);
    if(InpStructuralMinObjectiveR<=0.0 || InpStructuralMinObjectiveR>4.0 || InpStructuralQqeVetoThreshold<0.0 || InpStructuralQqeVetoThreshold>25.0) return(false);
+   if(InpPathBreakEvenTriggerR<0.5 || InpPathBreakEvenTriggerR>3.0 || InpPathMinInvalidationBars<1 || InpPathMinInvalidationBars>48) return(false);
    if(InpMinStopAtr<=0.0 || InpMaxStopAtr<=InpMinStopAtr || InpMbbHalfWidthStopMult<=0.0 || InpMaxSpreadToStop<=0.0) return(false);
    if(InpProfileMode==RSF_PROFILE_MANUAL && (InpManualSessionMask<=0 || InpManualModeMask<=0 || InpManualRiskScale<=0.0 || InpManualRiskScale>1.0)) return(false);
    return(true);
@@ -2075,6 +2549,7 @@ void OnDeinit(const int reason)
    WriteRunMeta();
    if(g_lifecycle_handle!=INVALID_HANDLE) { FileFlush(g_lifecycle_handle); FileClose(g_lifecycle_handle); }
    if(g_entry_context_handle!=INVALID_HANDLE) { FileFlush(g_entry_context_handle); FileClose(g_entry_context_handle); }
+   if(g_path_actions_handle!=INVALID_HANDLE) { FileFlush(g_path_actions_handle); FileClose(g_path_actions_handle); }
    if(g_aird!=INVALID_HANDLE) IndicatorRelease(g_aird);
    if(g_vrc!=INVALID_HANDLE) IndicatorRelease(g_vrc);
    if(g_mbb!=INVALID_HANDLE) IndicatorRelease(g_mbb);
@@ -2085,18 +2560,46 @@ void OnDeinit(const int reason)
 void OnTradeTransaction(const MqlTradeTransaction &trans,const MqlTradeRequest &request,const MqlTradeResult &result)
   {
    if(trans.type==TRADE_TRANSACTION_DEAL_ADD && trans.deal>0) LogLifecycleDeal(trans.deal);
+   if(trans.type==TRADE_TRANSACTION_HISTORY_ADD && g_path_pending_final_unresolved)
+      ResolveDeferredPendingPathExit();
   }
 
 void OnTick()
   {
    g_ticks_seen++;
+   UpdatePathShadowPrice();
    bool is_new=false;
    DetectNewEntryBar(is_new);
    if(!is_new) return;
    g_closed_bars_seen++;
 
    datetime utc_now=ServerToUtc(TimeCurrent());
-   RefreshRiskLocks(utc_now); ManagePosition(utc_now);
+   UpdatePathShadowTime(utc_now);
+   RefreshRiskLocks(utc_now);
+   ulong position_before_management=OwnedPositionTicket();
+   bool native_exit_due=ManagePosition(utc_now);
+   ResolveDeferredPendingPathExit();
+   ulong active_ticket=OwnedPositionTicket();
+   if(native_exit_due && active_ticket!=0) return;
+   if(active_ticket!=0 && InpUsePathManagement)
+     {
+      if(g_path_pending_exit_reason!="")
+        {
+         RetryPendingPathExit(active_ticket); // Execution retry never depends on indicator availability.
+         return;
+        }
+      RsfSnapshot path_snapshot;
+      if(ReadSnapshot(path_snapshot)) ManagePathPosition(active_ticket,path_snapshot);
+      else g_path_snapshot_not_ready++;
+      // Never close and re-enter on the same bar.  This keeps the original
+      // entry clock causal and makes every PATH-011 exit an isolated observation.
+      return;
+     }
+   // Preserve Structural-Event-004 membership: when the original Friday or
+   // max-hold manager closes a position, the legacy code may evaluate a fresh
+   // entry on this bar.  PATH-011 does not change that pre-existing behavior.
+   if(position_before_management!=0 && active_ticket!=0) return;
+   if(g_path_shadow_active || g_path_pending_exit_reason!="") return;
    if(OwnedPositionTicket()!=0 || HasForeignSymbolPosition() || g_daily_locked || g_account_locked || g_trades_today>=InpMaxTradesPerDay) return;
    if(InpEntryCooldownBars>0 && g_last_entry_bar_time>0 && g_last_bar_time-g_last_entry_bar_time<InpEntryCooldownBars*PeriodSeconds(PERIOD_M5)) return;
 

@@ -1,0 +1,29 @@
+{
+  "schema_version": "alphafactory_ea_contract.v1",
+  "telemetry_profile": "lifecycle-v3",
+  "market_phase_adapter": "none",
+  "comparison_adapter": "generic-control-improvement-v1",
+  "variant_tag_input": "InpVariantTag",
+  "indicator_dependencies": [
+    {"name":"AI_Regime_Detection","source":"06.Indicator Alpha/AI_Regime_Detection.mq5","terminal_ex5":"AlphaFactory\\AI_Regime_Detection.ex5"},
+    {"name":"Volatility_Regime_Classifier_QuantRegime","source":"06.Indicator Alpha/Volatility_Regime_Classifier_QuantRegime.mq5","terminal_ex5":"AlphaFactory\\Volatility_Regime_Classifier_QuantRegime.ex5"},
+    {"name":"Modern_Bollinger_Bands_GBB","source":"06.Indicator Alpha/Modern_Bollinger_Bands_GBB.mq5","terminal_ex5":"AlphaFactory\\Modern_Bollinger_Bands_GBB.ex5"},
+    {"name":"TB_Smart_Money_Concept_2026","source":"06.Indicator Alpha/TB_Smart_Money_Concept_2026.mq5","terminal_ex5":"AlphaFactory\\TB_Smart_Money_Concept_2026.ex5"},
+    {"name":"QQE_MOD","source":"06.Indicator Alpha/QQE_MOD.mq5","terminal_ex5":"AlphaFactory\\QQE_MOD.ex5"}
+  ],
+  "execution_profile": {
+    "authority": "registered-zero-trade-research-only",
+    "timeframe": "M5",
+    "research_auto_mode_input": "InpResearchAutoMode",
+    "research_auto_mode_default": false,
+    "telemetry_input": "InpEnableTelemetry",
+    "telemetry_required_for_execution": true,
+    "hypothesis_id_input": "InpHypothesisId",
+    "hypothesis_id_default": "UNREGISTERED_BUILD_ONLY",
+    "expected_symbol_input": "InpExpectedSymbol",
+    "closed_bar_only": true,
+    "tester_only": true,
+    "economic_claims_authorized": false,
+    "promotion_eligible": false
+  }
+}

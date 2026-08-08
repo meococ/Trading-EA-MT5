@@ -1,0 +1,62 @@
+{
+  "schema_version": "alphafactory_failure_packet.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-PATH-011",
+  "verdict": "KILL_NEGATIVE_EXPECTANCY",
+  "run_id": "20260807_235223",
+  "run_path": "02. AlphaFactory/runs/EA_RegimeStructureFusion/20260807_235223",
+  "economic_trial_consumed": 1,
+  "optimization_trials_consumed": 0,
+  "holdout_opened": false,
+  "metrics": {
+    "trades": 738,
+    "profit_factor": 0.7992897267541987,
+    "net_profit": -5252.63,
+    "max_drawdown_pct": 6.247700646599471,
+    "win_rate_pct": 26.422764227642276,
+    "expectancy_per_trade": -7.117384823848239,
+    "mean_achieved_r": -0.08563,
+    "positive_years": 0
+  },
+  "matched_control": {
+    "parent_entries": 520,
+    "exact_matches": 519,
+    "parent_only": 1,
+    "path_only": 219,
+    "geometry_mismatches_on_matches": 0,
+    "parent_mean_r": -0.108224,
+    "path_mean_r": -0.072093,
+    "mean_delta_r": 0.036131,
+    "path_only_mean_r": -0.11771,
+    "path_only_r_profit_factor": 0.665388,
+    "entry_count_drift_cause": "Balance-dependent money-stopout admission after PATH saved 113.14 USD across the first 518 closes; not an early shadow release."
+  },
+  "path_actions": {
+    "break_even_applied": 182,
+    "break_even_stops": 39,
+    "basis_qqe_exits": 480,
+    "opposite_tb_exits": 41,
+    "shadow_armed": 560,
+    "shadow_release_sl": 325,
+    "shadow_release_tp": 75,
+    "shadow_release_time": 160
+  },
+  "failure_radius": [
+    "Closed-bar path management improves some matched losses but leaves every route with negative mean R.",
+    "Opposite-TB path exit is harmful on the matched cohort.",
+    "MBB squeeze avoidance is descriptive but insufficient; the remaining cohort is still negative.",
+    "Current-state role revalidation is a previously killed mechanism family and cannot be reopened as a rescue.",
+    "Do not tune thresholds, sessions, directions, routes, years, stops, or RR under this ID."
+  ],
+  "next_admissible_step": "Require an Owner-authorized materially new licensed point-in-time event/data contract with a zero-trade semantics and cadence probe; do not build another indicator-vote successor.",
+  "evidence": {
+    "source_sha256": "D1034E8497D7469F8E91C29BF1C9BC231379145970DF02F65912BC2418FD8561",
+    "run_manifest_sha256": "19A8BA88B140E1AAF88290FF2219432BB1100A3F22130E8E5A0A9596575AEFC8",
+    "report_sha256": "ACD22536463F08E970E4EAD40C45FA0128C572596AF097CDBF8380E4D6B54BF0",
+    "enhanced_summary_sha256": "687DB0C4BDA2F848A6546B743AFD5D4F47BECEA6B68C34253878365DF4CF6862",
+    "lifecycle_sha256": "95E15A5F636B7960FA30718E43B705B82830DD314AA8DE254C9E48803A06CE36",
+    "entry_context_sha256": "3C6FA9B5498680AA5587EF7010063C27E212ED0C4E54641E842A5F8538889A6E",
+    "path_actions_sha256": "577CA07045429FADA666B0AB7844BD30E8E13E0BBDE0A5ECC5F4C6348B84A726",
+    "run_meta_sha256": "09E4BA5F18C234F21778E9BE37976D703F0FCC18AF264976FC5A610F378B9058"
+  },
+  "closed_at_utc": "2026-08-07T17:05:05Z"
+}

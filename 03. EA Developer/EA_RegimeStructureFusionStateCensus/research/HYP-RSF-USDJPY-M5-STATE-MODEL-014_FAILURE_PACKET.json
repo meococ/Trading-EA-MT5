@@ -1,0 +1,36 @@
+{
+  "schema_version": "rsf_failure_packet.v1",
+  "hypothesis_id": "HYP-RSF-USDJPY-M5-STATE-MODEL-014",
+  "verdict": "KILL_NO_STABLE_DISCOVERY_EDGE",
+  "tested_object": "USDJPY M5 five-indicator simultaneous closed-bar state vector predicting 3/6/12-bar returns with Ridge or shallow HGB under expanding-year discovery and pair-specific dynamic cost.",
+  "failure_radius": "Only the exact USDJPY M5 simultaneous-state directional-return surface and its six cells are terminal. M15 requires freshly calculated indicator states and is not tested here.",
+  "no_rescue": [
+    "No M5 hour or weekday mining",
+    "No direction or year exclusion",
+    "No feature-family deletion after permutation diagnostics",
+    "No threshold or cost reduction",
+    "No 2023+ validation access"
+  ],
+  "run_id": "20260808_010744",
+  "history_quality_pct": 100,
+  "census_rows": 372902,
+  "orders": 0,
+  "trades": 0,
+  "models_preregistered": 6,
+  "model_fits": 24,
+  "threshold_fold_evaluations": 72,
+  "survivors": 0,
+  "best_cell": {
+    "model_family": "RIDGE",
+    "horizon_bars": 12,
+    "primary_trades": 931,
+    "gross_profit_factor": 1.327616531305264,
+    "gross_r": 259.469549882702,
+    "dynamic_cost_r": 315.5358391872994,
+    "net_profit_factor": 0.9429032822464035,
+    "net_r": -56.06628930459742,
+    "median_year_profit_factor": 0.9681028283719233
+  },
+  "validation_2023_plus_opened": false,
+  "paper_live_authorized": false
+}

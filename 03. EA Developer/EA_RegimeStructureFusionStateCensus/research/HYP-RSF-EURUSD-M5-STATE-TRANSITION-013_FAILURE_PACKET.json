@@ -1,0 +1,39 @@
+{
+  "schema_version": "rsf_failure_packet.v1",
+  "hypothesis_id": "HYP-RSF-EURUSD-M5-STATE-TRANSITION-013",
+  "verdict": "KILL_NO_STABLE_TRANSITION_EDGE",
+  "tested_object": "Five-indicator EURUSD M5 transition-event union with level, delta1, delta3 and causal family-age features predicting fixed 3/6/12-bar returns with Ridge or shallow HGB under expanding-year discovery evaluation.",
+  "failure_radius": "Only the exact dense transition-union directional-return surface and its six frozen cells are terminal. Other symbols/timeframes or a separately preregistered non-directional target are not tested by this ID.",
+  "no_rescue": [
+    "No parameter or session mining under STATE-TRANSITION-013",
+    "No removal of the dense TB family after reading outcomes",
+    "No year or direction exclusion",
+    "No 2023+ validation access"
+  ],
+  "run_id": "20260808_004517",
+  "parent_census_sha256": "2E24166F486D7073C4E98C452290372E4604D2C566BAD822F4FDC38E0E46D2BB",
+  "event_counts": {
+    "AIRD": 4354,
+    "VRC": 28386,
+    "MBB": 45283,
+    "TB": 318377,
+    "QQE": 82318,
+    "UNION": 334457
+  },
+  "models_preregistered": 6,
+  "model_fits": 24,
+  "threshold_fold_evaluations": 72,
+  "survivors": 0,
+  "best_cell": {
+    "model_family": "RIDGE",
+    "horizon_bars": 6,
+    "pooled_profit_factor": 0.8206717474558698,
+    "median_year_profit_factor": 0.8925810781033194,
+    "pooled_net_r": -114.89290437551183,
+    "primary_trades": 778,
+    "adjacent_pooled_pf_low": 0.7989251784859442,
+    "adjacent_pooled_pf_high": 0.7770945566504849
+  },
+  "validation_2023_plus_opened": false,
+  "paper_live_authorized": false
+}

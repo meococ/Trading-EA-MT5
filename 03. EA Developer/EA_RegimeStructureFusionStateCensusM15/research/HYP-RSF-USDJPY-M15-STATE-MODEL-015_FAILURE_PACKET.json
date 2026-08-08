@@ -1,0 +1,36 @@
+{
+  "schema_version": "rsf_failure_packet.v1",
+  "hypothesis_id": "HYP-RSF-USDJPY-M15-STATE-MODEL-015",
+  "verdict": "KILL_NO_STABLE_DISCOVERY_EDGE",
+  "tested_object": "Native USDJPY M15 five-indicator simultaneous state vector predicting 2/4/8-bar terminal returns with Ridge or shallow HGB under expanding-year discovery and dynamic observed cost.",
+  "failure_radius": "The native M15 fixed-horizon simultaneous-state regression surface and its six cells are terminal. First-hit barrier acceptance is a different target and is not tested here.",
+  "no_rescue": [
+    "No alternate timeframe under this family",
+    "No M15 hour or weekday mining",
+    "No direction/year/feature deletion",
+    "No threshold, horizon or cost reduction",
+    "No 2023+ validation access"
+  ],
+  "run_id": "20260808_012351",
+  "history_quality_pct": 100,
+  "census_rows": 124359,
+  "orders": 0,
+  "trades": 0,
+  "models_preregistered": 6,
+  "model_fits": 24,
+  "threshold_fold_evaluations": 72,
+  "survivors": 0,
+  "best_cell": {
+    "model_family": "RIDGE",
+    "horizon_bars": 8,
+    "primary_trades": 891,
+    "gross_profit_factor": 1.0332970501203513,
+    "gross_r": 24.109662956432977,
+    "dynamic_cost_r": 135.53143336086623,
+    "net_profit_factor": 0.8622520379736941,
+    "net_r": -111.4217704044332,
+    "median_year_profit_factor": 0.8300856347237718
+  },
+  "validation_2023_plus_opened": false,
+  "paper_live_authorized": false
+}
