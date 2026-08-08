@@ -1,0 +1,187 @@
+{
+  "schema_version": "fiv2_campaign_manifest.v1",
+  "campaign_id": "FIV2-20260808-ATOMIC",
+  "campaign_name": "Five Indicator Atomic Rebuild v2",
+  "created_utc": "2026-08-08T00:00:00Z",
+  "owner_authorized": true,
+  "authority": {
+    "role": "Lead Quant owns registry, hypothesis IDs, economic verdict",
+    "base_commit": "00f8a2f5661a2c089fe16b5084fc02e7694b8008",
+    "base_branch_source": "codex/lomx-multi-asset-momentum",
+    "worktree": "D:/Trading EA MT5-five-indicator-rebuild-v2",
+    "branch": "codex/five-indicator-rebuild-v2",
+    "audit_worktree_retained": "D:/Trading EA MT5",
+    "workflow": "MT5-only via 02. AlphaFactory/alpha.ps1",
+    "tradingview_forbidden": true
+  },
+  "prior_failure_binding": {
+    "use": "failure_radius_only",
+    "not_use": "economic_confirmation_of_new_code",
+    "closed_surfaces": [
+      "majority_vote_five_indicator",
+      "simultaneous_state_scoring_HYP012_014",
+      "state_transition_clock_HYP013",
+      "all_bar_barrier_acceptance_HYP016",
+      "mbb_event_acceptance_only_HYP017",
+      "tb_event_acceptance_only_HYP018",
+      "airqmb_aird_mbb_qqe_fusion_HYP006",
+      "rsf_liquidity_pool_HYP010",
+      "rsf_path_management_PATH011",
+      "parameter_session_direction_subtype_rescue_on_closed_census"
+    ],
+    "canonical_closeouts": [
+      "04. Memory/research/20260807_INDICATOR_FUSION_FRONTIER_STOP.md",
+      "04. Memory/research/20260808_FIVE_INDICATOR_NATIVE_CENSUS_CLOSEOUT.md"
+    ],
+    "material_delta_required": [
+      "atomic engines R/T/B as separate hypothesis IDs with no result pooling",
+      "role-locked indicators; ablation-required retention",
+      "hierarchical pair shrinkage; nested purged WFA/CPCV/DSR with cumulative N",
+      "full nine-symbol universe reporting; XAU/BTC not pooled into FX stats",
+      "indicator semantic contracts + independent re-audit before any EA economics",
+      "Stage-0 outcome-blind census before PnL"
+    ]
+  },
+  "package": {
+    "name": "EA_FiveIndicatorAtomicV2",
+    "path": "03. EA Developer/EA_FiveIndicatorAtomicV2",
+    "registry_namespace": "HYP-FIV2-",
+    "economic_claims_authorized": false,
+    "promotion_eligible": false
+  },
+  "universe": {
+    "fx_majors": ["EURUSD", "GBPUSD", "USDJPY", "AUDUSD", "USDCAD", "USDCHF", "NZDUSD"],
+    "non_fx_separate_families": ["XAUUSD", "BTCUSD"],
+    "drop_after_outcome_forbidden": true,
+    "timeframes_initial": ["M5", "M15"],
+    "broker_binding": {
+      "broker": "FivePercent",
+      "terminal": "mt5-portable-fivepercent",
+      "server_to_utc": "tools/research/fivepercent_server_clock.py + DATA-FIVEPERCENT bindings",
+      "note": "Per symbol digits/point/tick/spread/commission/swap/history SHA must be bound before economic runs"
+    }
+  },
+  "data_split_frozen_pre_outcome": {
+    "method": "chronological_calendar",
+    "design_train": {"start": "2016-01-01", "end": "2021-06-30", "role": "research_and_inner_outer_discovery_only"},
+    "validation": {"start": "2021-07-08", "end": "2023-03-31", "role": "frozen_candidate_only_after_design_pass"},
+    "final_holdout": {"start": "2023-04-08", "end": "2024-12-31", "role": "opened_once_after_validation_pass"},
+    "forward_paper_seal": {"start": "2025-01-01", "end": null, "role": "never_optimize"},
+    "purge_embargo_days": 7,
+    "rationale": "Approx 60/20/20 of 2016-2024 usable MT5 history; embargo > scalp max hold; cannot change after outcomes"
+  },
+  "role_matrix": {
+    "TB_SMC": "event_clock_and_price_structure",
+    "Modern_Bollinger_Bands": "setup_geometry_position",
+    "AI_Regime_Detection": "regime_probability_context_not_entry_trigger",
+    "Volatility_Regime_Classifier": "volatility_cost_risk_context",
+    "QQE_MOD": "timing_momentum_confirmation_single_family",
+    "majority_vote_forbidden": true,
+    "qqe_primary_secondary_double_count_forbidden": true,
+    "ablation_required_to_retain": true
+  },
+  "atomic_engines": {
+    "ENGINE_R": {
+      "id_prefix": "HYP-FIV2-R-",
+      "name": "Range / Mean Reversion",
+      "event": "MBB S1 or reclaim of robust band",
+      "context": "AIRD Ranging + VRC range/mean-reversion",
+      "structure": "TB sweep/reclaim at range boundary",
+      "timing": "QQE extreme momentum loss or causal cross-back",
+      "exit": "basis / opposite band / structural invalidation"
+    },
+    "ENGINE_T": {
+      "id_prefix": "HYP-FIV2-T-",
+      "name": "Trend Pullback",
+      "event": "MBB S2 / pullback to basis",
+      "context": "AIRD Bull/Bear with valid confidence; VRC trend not compression/high-cost shock",
+      "structure": "TB BOS/MSS same direction; pullback holds protected swing",
+      "timing": "QQE re-acceleration same direction",
+      "exit": "structural stop + volatility target + causal trail"
+    },
+    "ENGINE_B": {
+      "id_prefix": "HYP-FIV2-B-",
+      "name": "Squeeze Breakout",
+      "event": "MBB S3 release",
+      "context": "VRC compression->expansion; AIRD transition or confidence rise with direction",
+      "structure": "TB displacement / structure break",
+      "timing": "QQE impulse same direction",
+      "guards": "block if spread/ATR or gap exceeds gate"
+    }
+  },
+  "trial_budget": {
+    "dsr_N_definition": "N equals every executed discovery simulation across symbols x timeframes x engines x parameter cells x controls that produce a distinct trade set; cost tiers x1/x1.5/x2 on the same trade set are NOT separate trials",
+    "symbols_fx": 7,
+    "symbols_non_fx_separate": 2,
+    "timeframes": 2,
+    "engines": 3,
+    "max_high_impact_params_per_engine": 35,
+    "inner_search_cells_per_engine_tf_symbol_cap": 48,
+    "outer_folds_planned": 5,
+    "controls_per_cell": 1,
+    "planned_max_discovery_trials_fx": 10080,
+    "planned_max_discovery_formula": "7 symbols * 2 TF * 3 engines * 48 inner cells * 5 outer folds / fold_amortization_note",
+    "fold_amortization_note": "Outer folds share a single preregistered inner search budget; N counts every completed arm actually run, not the theoretical upper bound",
+    "latin_hypercube_seed": 20260808,
+    "hierarchical_shrinkage": {
+      "pair_param": "global_robust + bounded_pair_delta",
+      "free_per_pair_full_grid_forbidden": true
+    }
+  },
+  "acceptance_gates": {
+    "note": "Take the stricter of GOAL, validation_gates.md, and this campaign floor",
+    "discovery_pooled_pf": 1.30,
+    "pf_cost_x1_5": 1.25,
+    "pf_cost_x2": 1.00,
+    "expectancy_after_cost": ">0",
+    "executable_trades_per_elapsed_week_goal": {"min": 2.0, "max": 5.0},
+    "stage0_raw_event_candidates_per_week_floor": 25.0,
+    "stage0_raw_event_note": "Raw event clock density before risk/spread filters; executable cadence remains GOAL 2-5/week for sleeve claims",
+    "max_drawdown_pct": 8.0,
+    "positive_expectancy_outer_fold_fraction": 0.70,
+    "max_year_positive_gross_share": 0.40,
+    "dsr_probability": 0.95,
+    "cpcv_pbo_max": 0.20,
+    "monte_carlo_p95_dd_pct": 8.0,
+    "parameter_neighbor_stability": "PASS",
+    "long_short_reported_separately": true,
+    "session_regime_reported_even_if_losing": true,
+    "validation_open_only_if_discovery_hard_gates_pass": true
+  },
+  "cost_model": {
+    "spread": "observed_bid_ask",
+    "commission": "symbol_account_specific",
+    "slippage": "dynamic_by_spread_vol_session",
+    "stress": [1.0, 1.5, 2.0],
+    "fixed_pip_all_pairs_forbidden": true
+  },
+  "first_stage0": {
+    "hypothesis_id": "HYP-FIV2-R-EURUSD-M5-STAGE0-001",
+    "engine": "ENGINE_R",
+    "symbol": "EURUSD",
+    "timeframe": "M5",
+    "window": "design_train_2016_2021H1",
+    "outcome_blind": true,
+    "zero_trade": true,
+    "status": "PREREG_DRAFT"
+  },
+  "indicator_policy": {
+    "canonical_shelf": "06.Indicator Alpha/",
+    "campaign_fork_dir": "03. EA Developer/EA_FiveIndicatorAtomicV2/indicators/",
+    "reuse_vs_rebuild": {
+      "QQE_MOD": "REUSE_AFTER_REAUDIT — engineering-valid single-file port at base commit; fork + semantic contract + non-repaint re-audit required",
+      "Modern_Bollinger_Bands_GBB": "REUSE_AFTER_REAUDIT — same",
+      "AI_Regime_Detection": "REUSE_AFTER_REAUDIT — same",
+      "Volatility_Regime_Classifier_QuantRegime": "REUSE_AFTER_REAUDIT — same",
+      "TB_Smart_Money_Concept_2026": "REUSE_AFTER_REAUDIT — v3 ABI; same",
+      "EA_RegimeStructureFusion": "DO_NOT_REUSE_LOGIC — terminal economic kill",
+      "EA_AIRQMB_RegimeFusion": "DO_NOT_REUSE_LOGIC — terminal economic kill",
+      "census_wrappers": "TELEMETRY_REFERENCE_ONLY — zero economic authority"
+    }
+  },
+  "stopping_rules": {
+    "one_kill_does_not_stop_campaign": true,
+    "no_post_hoc_session_direction_pair_rescue": true,
+    "all_three_engines_fail_all_prereg_cells": "scoped_blocker_no_smart_looking_ea"
+  }
+}

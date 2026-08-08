@@ -81,6 +81,7 @@ message hiện tại. Evidence được xác minh bằng file/hash/validator/tes
 | `03. EA Developer/<EA>/<EA>.mq5` | source canonical khi `ea_contract.ps1` resolve hợp lệ |
 | `03. EA Developer/<EA>/ALPHAFACTORY_EA_CONTRACT.json` | capability/contract của package |
 | `03. EA Developer/<EA>/research/` | prereg, readout và evidence riêng package |
+| `03. EA Developer/EA_FiveIndicatorAtomicV2/` | Owner-authorized FIV2 atomic rebuild (engines R/T/B, role-locked indicators). Campaign `FIV2-20260808-ATOMIC` on branch `codex/five-indicator-rebuild-v2`. Stage-0 first ID `HYP-FIV2-R-EURUSD-M5-STAGE0-001`; engineering compile PASS only — no economics/promotion. Manifest: `04. Memory/research/campaigns/FIV2_20260808/` |
 | `03. EA Developer/EA_RegimeStructureFusion/` | EA MQL5 một-file kết hợp AIRD/VRC/MBB/TB SMC/QQE; TB v3 liquidity-pool và telemetry đã engineering-valid, nhưng full EURUSD M5 HYP-010 âm PF0.7145/N162 và terminal economic-kill; xem `research/liquidity_pool/HYP-RSF-EURUSD-M5-LIQUIDITY-POOL-ECON-010_RESULT.md` |
 | `03. EA Developer/EA_RegimeStructureFusionStateCensus/` | Zero-trade M5 census của đủ năm indicator; HYP-012..014 đóng state/transition trên EURUSD và USDJPY, không mở OOS |
 | `03. EA Developer/EA_RegimeStructureFusionStateCensusM15/` | Zero-trade native-M15 census; HYP-015..018 đóng state/barrier/MBB-event/TB-event, không resample M5 và không mở OOS |

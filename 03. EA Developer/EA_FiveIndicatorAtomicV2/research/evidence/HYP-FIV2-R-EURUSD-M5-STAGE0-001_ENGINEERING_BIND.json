@@ -1,0 +1,28 @@
+{
+  "schema_version": "fiv2_engineering_bind.v1",
+  "hypothesis_id": "HYP-FIV2-R-EURUSD-M5-STAGE0-001",
+  "campaign_id": "FIV2-20260808-ATOMIC",
+  "bound_at_utc": "2026-08-08T21:35:00Z",
+  "base_commit": "00f8a2f5661a2c089fe16b5084fc02e7694b8008",
+  "branch": "codex/five-indicator-rebuild-v2",
+  "worktree": "D:/Trading EA MT5-five-indicator-rebuild-v2",
+  "source": {
+    "path": "03. EA Developer/EA_FiveIndicatorAtomicV2/EA_FiveIndicatorAtomicV2.mq5",
+    "sha256": "4B7931CDA9C4DCB8004C69A7897AD378D8622D08C0E54AC57B246B6B06817E08"
+  },
+  "compiled": {
+    "path": "03. EA Developer/EA_FiveIndicatorAtomicV2/EA_FiveIndicatorAtomicV2.ex5",
+    "sha256": "3B22BEF7178DA650C1BD7485FAFCCE047F559B8BDA7E7ED88B544192F280E932",
+    "bytes": 24448,
+    "metaeditor_result": "0 errors (AlphaFactory reported SUCCESS; MetaEditor exit 1 accepted with 0-error log)",
+    "warnings": "see EA_FiveIndicatorAtomicV2.log"
+  },
+  "authority": {
+    "trading": false,
+    "stage0_zero_trade": true,
+    "economic_claims": false,
+    "promotion": false,
+    "mt5_run_launched": false
+  },
+  "next_action": "Launch outcome-blind Model-0 zero-trade DESIGN census for HYP-FIV2-R-EURUSD-M5-STAGE0-001 after registry row + task packet freeze; serial MT5 only"
+}

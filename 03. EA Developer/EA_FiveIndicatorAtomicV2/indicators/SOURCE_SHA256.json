@@ -1,0 +1,32 @@
+﻿{
+    "schema_version":  "fiv2_indicator_source_bind.v1",
+    "base_commit":  "00f8a2f5661a2c089fe16b5084fc02e7694b8008",
+    "policy":  "REUSE_AFTER_REAUDIT: byte-identical fork from 06.Indicator Alpha at base commit; rebuild only if audit fails",
+    "files":  [
+                  {
+                      "path":  "03. EA Developer/EA_FiveIndicatorAtomicV2/indicators/QQE_MOD.mq5",
+                      "sha256":  "0CD4381B49B49E7B41D0DB99281158FCB03A2AC79FABC492AB8921F2A4BE2F78",
+                      "name":  "QQE_MOD.mq5"
+                  },
+                  {
+                      "path":  "03. EA Developer/EA_FiveIndicatorAtomicV2/indicators/Modern_Bollinger_Bands_GBB.mq5",
+                      "sha256":  "D105F12CEADEC91D7F9A470D8977C28DCAA677C463E2B8282288E24ADA515F09",
+                      "name":  "Modern_Bollinger_Bands_GBB.mq5"
+                  },
+                  {
+                      "path":  "03. EA Developer/EA_FiveIndicatorAtomicV2/indicators/AI_Regime_Detection.mq5",
+                      "sha256":  "26132998349052C66098FE94119C801D6F6E7F11E08FB1FB27C358672F20B17A",
+                      "name":  "AI_Regime_Detection.mq5"
+                  },
+                  {
+                      "path":  "03. EA Developer/EA_FiveIndicatorAtomicV2/indicators/Volatility_Regime_Classifier_QuantRegime.mq5",
+                      "sha256":  "400AA62B6FD00A35F711D15F61075CED86D6D5571EF0B22932B0915BB93AD8BC",
+                      "name":  "Volatility_Regime_Classifier_QuantRegime.mq5"
+                  },
+                  {
+                      "path":  "03. EA Developer/EA_FiveIndicatorAtomicV2/indicators/TB_Smart_Money_Concept_2026.mq5",
+                      "sha256":  "D3A8002773EB8B186A8D9A13333E9FDEEBAA83E499A2CF08D619A99EAEBFA217",
+                      "name":  "TB_Smart_Money_Concept_2026.mq5"
+                  }
+              ]
+}

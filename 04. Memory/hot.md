@@ -1,6 +1,6 @@
 # Hot Cache — Recent Routing Only
 
-Updated: 2026-08-08 after PATH-011 and the indicator-fusion frontier closeout.
+Updated: 2026-08-08 after Owner-authorized FIV2 atomic rebuild trust-reset.
 
 This file is a compact handoff cache. It is **not** hypothesis authority, run
 permission, a family blacklist, or proof that a goal is complete. Recheck every
@@ -11,16 +11,26 @@ report and validator output before acting.
 
 - Workspace goal: `ACTIVE / UNMET`. Canonical outcome and DONE ladder:
   `01. GOAL/GOAL.md`.
-- The current no-build boundary is documented at
-  `04. Memory/research/20260807_INDICATOR_FUSION_FRONTIER_STOP.md`. JCDR HYP005
-  consumed its one zero-trade diagnostic attempt; independent Grok review
-  rejected TB sweep/reclaim and fresh BOS/MSS-retest successors as weak or
-  duplicate recombinations; a web-backed primary-source session returned
-  `NO_LEGAL_CANDIDATE` for the remaining free/broker-native M5/M15 boundary.
-  Do not create another AIRD/VRC/MBB/QQE/TB voting EA. Resume only after an
-  Owner-authorized PIT source pilot freezes license, budget, history/live
-  latency and full nine-symbol family coverage. This is a scoped frontier stop,
-  not goal completion or a universal no-edge claim.
+- **Owner-authorized campaign `FIV2-20260808-ATOMIC`** reopens five-indicator
+  research on a **clean worktree** with a **different architecture**: three
+  atomic engines (R/T/B), role-locked indicators, ablation + nested CV, not a
+  majority vote and not a reuse of RSF/AIRQMB economics.
+  - Branch/worktree: `codex/five-indicator-rebuild-v2` @
+    `D:\Trading EA MT5-five-indicator-rebuild-v2` (base `00f8a2f`).
+  - Audit tree retained: `D:\Trading EA MT5` (`codex/lomx-multi-asset-momentum`).
+  - Package: `03. EA Developer/EA_FiveIndicatorAtomicV2/`.
+  - Manifest:
+    `04. Memory/research/campaigns/FIV2_20260808/CAMPAIGN_MANIFEST.json`.
+  - First ID: `HYP-FIV2-R-EURUSD-M5-STAGE0-001` (Stage-0 zero-trade DESIGN;
+    economics sealed). EA compile **0 errors / 0 warnings** (engineering only).
+  - Prior fusion closeouts remain **failure radius** for vote/state/event-only
+    surfaces (`20260807` frontier stop, `20260808` census). Do not import their
+    PF/N as confirmation of FIV2.
+- The previous free/broker-native recombination stop is documented at
+  `04. Memory/research/20260807_INDICATOR_FUSION_FRONTIER_STOP.md` and the
+  native census closeout. Those close **closed** surfaces; FIV2 is an
+  Owner-directed new decision architecture and must still prove Stage-0 then
+  economics independently. Not goal completion.
 - `HYP-RSF-EURUSD-M5-PATH-011` is terminal `KILL_NEGATIVE_EXPECTANCY` after
   its single frozen EURUSD M5 2018-2022 Model-0 run. The exact 519-entry
   matched cohort preserved entry/SL/TP geometry and improved mean R only from

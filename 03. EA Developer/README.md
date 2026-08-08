@@ -1,13 +1,14 @@
 # 03. EA Developer — Active Shelf
 
-Updated: 2026-08-08 (five-indicator native M5/M15 census closed with zero economic survivor; T2 campaign authority unchanged)
+Updated: 2026-08-08 (FIV2 atomic rebuild package added on Owner authority; prior five-indicator census remains terminal failure radius)
 
-Active compilable shelf = 31 packages: 27 strategy/audit lanes, three T2
+Active compilable shelf = 32 packages: 28 strategy/audit lanes, three T2
 data-epoch probes and one generic execution harness. Mọi package khác đã archive THẬT sang
 `00. Old File/EA_Archive/` (2026-07-15) — **không** compile từ đó làm evidence.
 
 | Active package | Path | Notes |
 |---|---|---|
+| `EA_FiveIndicatorAtomicV2` | `03. EA Developer/EA_FiveIndicatorAtomicV2/` | Owner-authorized FIV2 campaign: role-locked AIRD/VRC/MBB/QQE/TB atomic engines R/T/B. Stage-0 EA compiles 0/0; first ID `HYP-FIV2-R-EURUSD-M5-STAGE0-001` zero-trade DESIGN only. No economics/validation/holdout/promotion. Prior RSF/AIRQMB/census PF is failure-radius only. |
 | `EA_FVGConfluence` | `03. EA Developer/EA_FVGConfluence/` | Path-C scaffold compile 0/0 and closed-bar audit PASS, but `HYP-FVG-SCALP-CONFL-M5-EUR-001` stays terminal de-dup KILL. Read-only comparison study: report fidelity INFERIOR; public-EA and professional performance INSUFFICIENT; no Model 0/rerun/live authority |
 | `EA_ExecutionKernelHarness` | `03. EA Developer/EA_ExecutionKernelHarness/` | Experimental async execution/tick-cursor compile harness; latest local compile 0 errors/0 warnings (18,612-byte ignored EX5). Harness mutation is hard-disabled and shared mutation defaults off. No behavioral callback/restart/live proof; not adopted by any EA and not an edge, backtest, promotion or live claim |
 | `EA_HybridICT_Sonic` | `03. EA Developer/EA_HybridICT_Sonic/` | Path-C stub (KILL@Model0, 0 trades); lane riêng |
