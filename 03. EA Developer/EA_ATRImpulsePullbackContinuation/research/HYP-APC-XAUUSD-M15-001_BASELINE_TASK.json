@@ -1,0 +1,53 @@
+{
+  "schema_version": "apc_model0_baseline_task.v1",
+  "hypothesis_id": "HYP-APC-XAUUSD-M15-001",
+  "attempt_id": "APC001-MODEL0-BASELINE-001",
+  "one_attempt_only": true,
+  "same_id_retry_authorized": false,
+  "visual_mode": false,
+  "indicator_dependencies": [],
+  "command_contract": {
+    "action": "backtest",
+    "ea_name": "EA_ATRImpulsePullbackContinuation",
+    "symbol": "XAUUSD",
+    "period": "M15",
+    "from": "2010.01.04",
+    "to": "2018.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "run_role": "control",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread_semantics": "current_cli_omitted",
+    "holding_contract": "scalp",
+    "overrides": "InpDeviationPoints=20;InpFridayFlattenHour=20;InpHypothesisId=HYP-APC-XAUUSD-M15-001;InpMagic=5603901;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpMaxTradesPerDay=1;InpResearchAutoMode=true;InpRiskPercent=0.25;InpVariantTag=ATR14_EMA50_ADX14_IMPULSE_PULLBACK_RELEASE_V1"
+  },
+  "bindings": {
+    "alpha_ps1_sha256": "55B3B0641BD843B1B1D9620086180CDBC180E9FA2865B08090ED89DF92043571",
+    "source_sha256": "ED33D6D4E41144BA423D3039C9C12FB6166A0B6C2583918F0B8655971B5FECF6",
+    "ex5_sha256": "F480E5EE38B13144F493FD8D3B212B443A45E2E11D3151ECB6C4CD0081BB0C6E",
+    "compile_log_sha256": "883096C856DFD387FED6D973E260F006FF07C1F44ED2FB24CF9C8E3A3BFA828E",
+    "ea_contract_sha256": "2B75C6ED75B792A4570491850AA9D450438875DFFDE791D40AB79340A6D29CDA",
+    "prereg_sha256": "CE2C94CA355224B0121BA6EE478C15748C1A46C7F90FAA37047DB19408B04D1C",
+    "test_sha256": "DA08FD39BD40201E06EDC95D9C26BD5A3CD91447078A69525475A7A89678179F",
+    "nonrepaint_manifest_sha256": "574AA34506817332176E8F52084E2A39CD13E581C246B9D07672865116977891",
+    "nonrepaint_audit_sha256": "D26BEB73F271AFD38F365E08703AB2D38232852727BB502B676B14FA303FC197",
+    "independent_review_sha256": "003617AEEA2F4E94D7A6AC6C3A875B80CF274D422E01BFFC1CA02B51A3017CC6"
+  },
+  "acceptance": {
+    "min_profit_factor_strict": 1.3,
+    "min_expectancy_strict": 0.0,
+    "min_closed_positions_per_week": 2.0,
+    "max_closed_positions_per_week": 5.0,
+    "max_equity_drawdown_pct": 8.0,
+    "min_each_direction_share": 0.30,
+    "max_calendar_year_share": 0.35,
+    "validation_opened": false,
+    "holdout_opened": false,
+    "optimization_authorized": false,
+    "paper_live_authorized": false
+  }
+}

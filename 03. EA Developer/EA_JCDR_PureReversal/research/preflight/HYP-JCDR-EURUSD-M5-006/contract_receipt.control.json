@@ -1,0 +1,65 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "binding": {
+    "hypothesis_id": "HYP-JCDR-EURUSD-M5-006",
+    "run_role": "control",
+    "ea_name": "EA_JCDR_PureReversal",
+    "symbol": "EURUSD",
+    "period": "M5",
+    "from": "2016.01.04",
+    "to": "2021.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "overrides": "InpDeviationPoints=20;InpFridayFlattenHour=20;InpHypothesisId=HYP-JCDR-EURUSD-M5-006;InpMagic=5603606;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpMaxHoldBars=12;InpMaxTradesPerDay=1;InpResearchAutoMode=true;InpRiskPercent=0.25;InpVariantTag=JCDR_PURE_REVERSAL_V1",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 0.00001,
+      "pip_size": 0.0001
+    },
+    "required_sidecars": [],
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  "git_commit": "521688f5ee9b7d1f028a91606f64b9ee4134994a",
+  "git_status_sha256": "7A971D36265C236EAD15E3B843EE790D7BAAE3BAB32082EB575B14C26F759F61",
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "03. EA Developer/EA_JCDR_PureReversal/research/preflight/HYP-JCDR-EURUSD-M5-006/task_packet.control.json",
+      "sha256": "0F9C1D50C3BF646EA761BCBB0F4E016B9B49CAC0D6AD2B9E733B531E92C79209"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "03. EA Developer/EA_JCDR_PureReversal/EA_JCDR_PureReversal.mq5",
+      "sha256": "383C582060C0332BD1A73E24316E619C125462D54046FD30CCC0AF56E7B49869"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "03. EA Developer/EA_JCDR_PureReversal/research/HYP-JCDR-EURUSD-M5-006_FROZEN_PREREG.md",
+      "sha256": "BB718FDE5F3E15BB2A6B84A2D38C8138AA10265635ED8781BD159D44D2488495"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "03. EA Developer/EA_JCDR_PureReversal/research/HYP-JCDR-EURUSD-M5-006_COST_SOURCE_MANIFEST.json",
+      "sha256": "2A288EA74B0C99BB60B023B804BA44614F85A1E3364464FE9AF71D94F5741133"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+      "sha256": "DE7C611A10189C173E7069EB546AF290147A04EC7A156C98F8F234E2529C8875"
+    }
+  ]
+}

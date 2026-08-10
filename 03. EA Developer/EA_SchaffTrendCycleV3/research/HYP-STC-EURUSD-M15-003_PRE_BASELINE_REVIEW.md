@@ -1,0 +1,29 @@
+# HYP-STC-EURUSD-M15-003 pre-baseline review
+
+Verdict: `PASS_ONE_UNTUNED_MODEL0_BASELINE`.
+
+No HYP003 market outcomes, PF, validation, holdout or promotion evidence were
+opened during this review.
+
+- Parent HYP002 failure packet: `F96016C633669BF1699336F1E47BF332D1A6602A6A95B84D567AC44D6129FDA6`.
+- Source: `1E499F44F9B8CF56CD9350330A443373C2B8729D3D77466365E11FCD163E82A2`.
+- EX5: `1BAE892827D5B64671BC53DA37FAAF866494C9124F367318114DC976EE9CA4AF`.
+- Compile log: `8B48318494EAD69FF45927FEDEBB009B784A3FD012CC075AED16F78345C151EF`; one 0E/0W result.
+- Frozen prereg: `3C18306461464B8246949015824CECF689DBBE0197B648E8C1B5593880A410A7`.
+- Origin proof: `98D0707FD9C32E58021BCA6FB0DFA954FCDBC819675A3882F273BECC7006AC04`.
+- Source-to-spec: `A58920C6178DA7731506B5DCED0984006C93D60873A9CC8E42C7DF56B77BB985`.
+- Focused tests: `4F560A07DC1751EC828C0B703AEEE5DC6B157A2BC3DEBA16579375C74306CFA1`; 12/12 PASS.
+- Non-repaint manifest: `DD3246D88474DB10A0458D26B64C045AA5DF9C79E0B5412C5C1C9AC886F98CF2`.
+- Non-repaint audit: `78EF8D9FBC9B03C25408DC9EAAD14F333FFFF57AC781E63EA6A9753FB69F4D3C`; PASS, zero findings.
+- Cost source manifest: `7502CE78093562690B2E5D75D3FE58FD890314A7BF4459C9BB7304FEF20F9260`; research proxy only.
+- Task packet: `FF259F7EE060A2CB1AA0DA171FA4DE7BF9F438A058AF018480C7251654D24A8C`.
+
+Independent review verified the HYP002-to-HYP003 functional diff is exactly the
+tester-closed preload endpoint `20:00 -> 19:45` and population
+`24,776 -> 24,775`. Other changes are identity/version/magic/journal prefix.
+The STC recurrence, signals, ATR/risk, orders/exits, costs and all evaluation
+windows remain unchanged. Final verdict: `PASS_ONE_BASELINE`.
+
+Authorized next action is exactly one EURUSD M15 Model-0 DESIGN baseline over
+`2016.01.04-2021.01.01`. A completed admissible report receives an immediate
+economic verdict; no optimization or same-ID retry is authorized.

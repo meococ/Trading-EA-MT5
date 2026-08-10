@@ -1,0 +1,75 @@
+{
+  "schema_version": "alphafactory_source_failure_packet.v1",
+  "hypothesis_id": "HYP-TFCVD-XAUUSD-M5-001",
+  "state": "killed",
+  "verdict": "KILL_SOURCE_FEASIBILITY_EXACT_TICK_DELTA_MAPPING",
+  "classification": "DATA_SOURCE_AND_FROZEN_CADENCE_FAILURE_NO_ECONOMICS",
+  "updated_at_utc": "2026-08-08T18:22:39Z",
+  "run_id": "20260809_011952",
+  "attempt_accounting": {
+    "preflight_rejections_before_mt5_launch": 3,
+    "mt5_launches": 1,
+    "model4_source_attempts_consumed": 1,
+    "economic_trials_consumed": 0,
+    "orders": 0,
+    "trades": 0
+  },
+  "frozen_identity": {
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "from": "2018.01.01",
+    "to": "2022.12.31",
+    "requested_model": 4,
+    "source_sha256": "BCEA09D5AAC388224FD469D9C5EBF989D03E97C41EA889146FC50161A24DFCC8",
+    "prereg_sha256": "918AF3848827F57FB67CCFA01EDD173E335FB924C11C799512BE91241B8CF77C"
+  },
+  "data_quality": {
+    "report_history_quality_pct": 0.0,
+    "required_history_quality_operator": "gt",
+    "required_history_quality_pct": 97.0,
+    "d0_series_proof_found": false,
+    "journal_real_ticks_begin": "2026.06.01",
+    "requested_window_has_broker_native_real_ticks": false,
+    "journal_truncated": false
+  },
+  "source_metrics": {
+    "tester_ticks": 135208676,
+    "tester_bars": 351303,
+    "emitted_completed_bars": 351302,
+    "out_of_order_ticks": 0,
+    "qualified_bar_share": 0.9981468935559717,
+    "invalid_tick_share": 0.0,
+    "absorption_candidates": 0,
+    "candidate_cadence_per_week": 0.0
+  },
+  "failed_gates": [
+    "history_quality_gt_97",
+    "d0_series_proof",
+    "broker_native_real_tick_identity_for_frozen_window",
+    "candidate_count_gte_500",
+    "candidate_cadence_2_to_8",
+    "each_direction_share_gte_0_30",
+    "max_year_share_lte_0_30"
+  ],
+  "evidence": {
+    "run_root": "02. AlphaFactory/runs/EA_TickFlowCVDProbe/20260809_011952",
+    "run_manifest_sha256": "5F1B1BD473549BB729B50D2F4D2BA5AC87AE9F8C78D559FED736F9EA300B967F",
+    "report_sha256": "2746B5FD44F88B07226965D7B167BA512AA0D2CA5DCFBD6D6AED3495226A1AFE",
+    "tester_journal_delta_sha256": "21B1AD46464F1F05C6C5B302671FE9BD8F7E2E93462C8E225C906464F98EC4DE",
+    "source_telemetry_sha256": "27CF2199841619F419BAD8DD290B101EDD36A7F71BE4D6A7B06AD7FFB66016F7",
+    "source_analysis_sha256": "B30E2F0CDE01AE495E9F106CAB04427736A69486608D264B253894B6B39327B8",
+    "source_snapshot_sha256": "BCEA09D5AAC388224FD469D9C5EBF989D03E97C41EA889146FC50161A24DFCC8",
+    "compiled_ex5_sha256": "D3086F4764B295CA1A38D9F14F740C7655058E1069B1B3FFE2CCDD05AC99C587"
+  },
+  "prohibited_rescues": [
+    "same_id_rerun",
+    "post_readout_delta_threshold_change",
+    "post_readout_close_efficiency_change",
+    "generated_tick_economics",
+    "validation_or_holdout_access"
+  ],
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "promotion_eligible": false,
+  "goal_closed": false
+}

@@ -1,0 +1,13 @@
+{
+  "attempt_id": "RVI001-SOURCE-ATTEMPT-001",
+  "canonical_paths": {
+    "analyzer": "D:\\Trading EA MT5\\03. EA Developer\\EA_RelativeVigorCross\\research\\analyze_rvi_source.py",
+    "prereg": "D:\\Trading EA MT5\\03. EA Developer\\EA_RelativeVigorCross\\research\\HYP-RVI-EURUSD-H1-001_FROZEN_PREREG.md",
+    "reference": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Indicators\\Examples\\RVI.mq5",
+    "source": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\fivepercent\\EURUSD\\EURUSD_H1_2015_now.parquet",
+    "test": "D:\\Trading EA MT5\\03. EA Developer\\EA_RelativeVigorCross\\research\\tests\\test_analyze_rvi_source.py"
+  },
+  "hypothesis_id": "HYP-RVI-EURUSD-H1-001",
+  "schema_version": "rvi_source_attempt_started.v1",
+  "started_at_utc": "2026-08-10T10:27:58.550839+00:00"
+}

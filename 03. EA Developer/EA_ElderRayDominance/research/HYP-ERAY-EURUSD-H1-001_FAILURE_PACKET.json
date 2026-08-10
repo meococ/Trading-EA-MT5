@@ -1,0 +1,33 @@
+{
+  "schema_version": "source_failure_packet.v1",
+  "hypothesis_id": "HYP-ERAY-EURUSD-H1-001",
+  "attempt_id": "ERAY001-SOURCE-ATTEMPT-001",
+  "verdict": "PARK_SOURCE_FEASIBILITY_EXACT_ERAY_EMA13_DOMINANCE",
+  "failure_radius": "exact EURUSD H1 EMA13 full-bar Elder-Ray dominance transition, 2018-2022",
+  "failed_gates": {
+    "pooled_cadence": 15.34173055859803,
+    "each_year_cadence": {
+      "2018": 14.824657534246574,
+      "2019": 15.841095890410958,
+      "2020": 15.051912568306012,
+      "2021": 15.304109589041095,
+      "2022": 15.687671232876712
+    }
+  },
+  "counts": {
+    "design_rows": 31094,
+    "raw_events": 4022,
+    "executable_events": 4002,
+    "long_events": 2030,
+    "short_events": 1972,
+    "gap_rejected_events": 20
+  },
+  "evidence_sha256": {
+    "report": "66F07EEFF5591FAD5B57146637DF4AFEC65185C60C32E67E5228744275465101",
+    "ledger": "F93837195368A71EB2704909C9ED82726E278223299D31E092317A4D4E86CB4F",
+    "receipt": "6A907D65F36E824F13A720A1E66375E8A6B7039D30C09EC36BBBCF44EBA6DE4F",
+    "terminal": "CA9B5C62E18F552707274F5715DD636746243C7C9F53B563827D8EDF7282CAEA"
+  },
+  "economic_conclusion": false,
+  "same_id_retry_authorized": false
+}

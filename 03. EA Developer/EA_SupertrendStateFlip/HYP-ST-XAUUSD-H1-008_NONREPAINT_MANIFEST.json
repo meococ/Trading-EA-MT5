@@ -1,0 +1,41 @@
+{
+  "schema_version": "alphafactory_run_manifest.v2",
+  "hypothesis_id": "HYP-ST-XAUUSD-H1-008",
+  "run_id": "ST008-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\EA_SupertrendStateFlip.mq5",
+  "source_sha256": "580E2F6713ABA77597528127249CF5BBE0F2826FFF20AE10B36B73402B4A03AF",
+  "include_snapshots": [],
+  "ea_name": "EA_SupertrendStateFlip",
+  "symbol": "XAUUSD",
+  "period": "H1",
+  "from": "2005.01.01",
+  "to": "2023.01.01",
+  "model": 0,
+  "run_role": "control",
+  "execution_mode": 0,
+  "fixed_delay_ms": 0,
+  "telemetry_profile": "none",
+  "telemetry_tier": "off",
+  "broker_fingerprint": null,
+  "server_fingerprint": null,
+  "account_fingerprint": null,
+  "data_fingerprint": null,
+  "overrides": "InpAuditOnly=true;InpAuditRunId=ST003-MT5-PARITY-001;InpParityFileName=ST003_MQL5_PARITY_001.csv",
+  "required_sidecars": [],
+  "contract_symbol_geometry": {
+    "digits": 2,
+    "point": 0.01,
+    "pip_size": 0.01
+  },
+  "includes_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+  "data_quality_contract": {
+    "history_quality_threshold": 97.0,
+    "coverage_mode": "fixed_window",
+    "availability_asof_utc": "2026-08-08T22:15:00Z",
+    "requested_from": "2005.01.01",
+    "requested_to": "2023.01.01",
+    "require_tester_journal_bounds": true
+  },
+  "contract_receipt_sha256": "97B5B1DB55965221D36CC450F20A9805D9DDFB5034D2C164AAA1C8E206064ED8"
+}

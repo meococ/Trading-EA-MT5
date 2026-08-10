@@ -5675,3 +5675,29 @@ this closed census family. A successor requires a new causal information set
 and fresh preregistration. Canonical closeout:
 `04. Memory/research/20260808_FIVE_INDICATOR_NATIVE_CENSUS_CLOSEOUT.md`.
 
+---
+
+## HYP-TFCVD-XAUUSD-M5-001 — source feasibility KILL (2026-08-09)
+
+**EA / run:** `EA_TickFlowCVDProbe` / `20260809_011952`.
+
+**Thesis:** translate TradingView-style intrabar delta polarity into a
+broker-native unit-weight Bid/Ask quote-update delta, then identify completed
+M5 bars with strong one-sided activity and low/opposite price displacement.
+This was a zero-trade source/cadence probe; no future return or PnL field was
+opened.
+
+**Engineering:** PASS before launch: 8 focused tests, compile 0 errors, static
+no-trade and causal closed-bar audit. The run emitted 351,302 rows from
+135,208,676 tester ticks, with zero out-of-order ticks and zero trades.
+
+**Source verdict:** FAIL. Report History Quality was 0%; AlphaFactory rejected
+the missing D0 series proof; the journal says broker real ticks start only at
+2026-06-01, outside the 2018–2022 split. Outcome-blind analysis found 99.8147%
+bar density but zero frozen absorption candidates and 0/week cadence.
+
+**Decision:** `KILL_SOURCE_FEASIBILITY_EXACT_TICK_DELTA_MAPPING`. No same-ID
+rerun, threshold rescue, economics, OOS or deployment. The active EA goal
+continues; a successor must use an observable with provable historical
+availability or a separately authorized point-in-time source.
+

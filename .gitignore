@@ -77,6 +77,29 @@ _tmp_*
 _peek_*
 *.ex4
 
+# One-shot MT5 launch evidence is created before AlphaFactory validates the
+# frozen Git receipt. Keep this exact runtime attempt out of that input snapshot;
+# its fsynced marker and terminal remain independently hash-bound and are
+# force-added when the HYP004 evidence packet is closed.
+03. EA Developer/EA_SupertrendStateFlip/research/evidence/HYP-ST-XAUUSD-H1-008/ST008-MT5-001/
+03. EA Developer/EA_SupertrendBurstScalper/research/evidence/HYP-STBS-XAUUSD-M15-001/STBS001-PACKET-BUILD-001/
+03. EA Developer/EA_SupertrendBurstScalper/research/evidence/HYP-STBS-XAUUSD-M15-001/STBS001-MT5-AUDIT-001/
+03. EA Developer/EA_SupertrendBurstScalper/research/evidence/HYP-STBS-XAUUSD-M15-002/STBS002-PACKET-BUILD-001/
+03. EA Developer/EA_SupertrendBurstScalper/research/evidence/HYP-STBS-XAUUSD-M15-002/STBS002-MT5-AUDIT-001/
+03. EA Developer/EA_SupertrendBurstScalper/research/evidence/HYP-STBS-XAUUSD-M15-003/STBS003-PACKET-BUILD-001/
+03. EA Developer/EA_SupertrendBurstScalper/research/evidence/HYP-STBS-XAUUSD-M15-003/STBS003-MT5-AUDIT-001/
+03. EA Developer/EA_SupertrendBurstScalper/research/evidence/HYP-STBS-XAUUSD-M15-004/STBS004-COMPARATOR-001/
+03. EA Developer/EA_SupertrendBurstScalperTrade/research/evidence/HYP-STBS-XAUUSD-M15-008/STBS008-PACKET-BUILD-001/
+03. EA Developer/EA_SupertrendBurstScalperTrade/research/evidence/HYP-STBS-XAUUSD-M15-008/STBS008-MODEL0-TRAIN-001/
+03. EA Developer/EA_SupertrendBurstScalperTradeV2/research/evidence/HYP-STBS-XAUUSD-M15-009/STBS009-PACKET-BUILD-001/
+03. EA Developer/EA_SupertrendBurstScalperTradeV2/research/evidence/HYP-STBS-XAUUSD-M15-009/STBS009-MODEL0-AUDIT-001/
+03. EA Developer/EA_SupertrendBurstScalperTradeV2/research/evidence/HYP-STBS-XAUUSD-M15-010/STBS010-COMPARATOR-001/
+03. EA Developer/EA_SupertrendBurstScalperTradeV2/research/evidence/HYP-STBS-XAUUSD-M15-011/STBS011-COMPARATOR-001/
+03. EA Developer/EA_SupertrendBurstScalperTradeV10/research/evidence/HYP-STBS-XAUUSD-M15-023/STBS023-PACKET-BUILD-001/
+03. EA Developer/EA_SupertrendBurstScalperTradeV11/research/evidence/HYP-STBS-XAUUSD-M15-024/STBS024-PACKET-BUILD-001/
+03. EA Developer/EA_SupertrendBurstScalperTradeV12/research/evidence/HYP-STBS-XAUUSD-M15-025/STBS025-PACKET-BUILD-001/
+03. EA Developer/EA_SupertrendBurstScalperTradeV13/research/evidence/HYP-STBS-XAUUSD-M15-026/STBS026-PACKET-BUILD-001/
+
 
 # Test/cache
 .pytest_cache/

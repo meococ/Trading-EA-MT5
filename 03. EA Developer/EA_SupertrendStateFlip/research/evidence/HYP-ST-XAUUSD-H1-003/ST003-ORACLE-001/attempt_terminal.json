@@ -1,0 +1,1 @@
+{"attempt_id":"ST003-ORACLE-001","completed_at_utc":"2026-08-08T21:22:22.168284Z","hypothesis_id":"HYP-ST-XAUUSD-H1-003","oracle_receipt_sha256":"56DC6CBD39721002F892AE9981A47FF397455F57B744277C2C9A3F13EF0C621B","same_id_retry_authorized":false,"schema_version":"st003_source_parity_oracle_terminal.v1","status":"COMPLETE","verdict":"ORACLE_BUILD_PASS"}

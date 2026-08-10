@@ -1,0 +1,8 @@
+{
+  "hypothesis_id": "HYP-ST-XAUUSD-H1-003",
+  "run_id": "ST003-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\EA_SupertrendStateFlip.mq5",
+  "source_sha256": "C4C2A0A700434A2C104551D9AD33ECB8893ACB887E25C6E2E045F4A94638A32E",
+  "include_snapshots": []
+}

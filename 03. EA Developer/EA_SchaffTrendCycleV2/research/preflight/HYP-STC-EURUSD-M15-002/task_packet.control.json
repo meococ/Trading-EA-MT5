@@ -1,0 +1,31 @@
+{
+  "schema_version": "alphafactory_task_packet.v1",
+  "hypothesis_id": "HYP-STC-EURUSD-M15-002",
+  "run_role": "control",
+  "ea_name": "EA_SchaffTrendCycleV2",
+  "symbol": "EURUSD",
+  "period": "M15",
+  "from": "2016.01.04",
+  "to": "2021.01.01",
+  "model": 0,
+  "execution_mode": 0,
+  "fixed_delay_ms": 0,
+  "timeout_sec": 3600,
+  "overrides": "InpDeviationPoints=20;InpFridayFlattenHour=20;InpHypothesisId=HYP-STC-EURUSD-M15-002;InpMagic=5603702;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpMaxHoldBars=16;InpMaxTradesPerDay=1;InpResearchAutoMode=true;InpRiskPercent=0.25;InpVariantTag=STC_CLASSIC_TREND_CYCLE_V2_PRELOAD_READY",
+  "telemetry_profile": "none",
+  "telemetry_tier": "off",
+  "deposit": 100000,
+  "leverage": 100,
+  "spread": "current",
+  "visual_mode": false,
+  "indicator_dependencies": [],
+  "required_sidecars": [],
+  "acceptance": {
+    "profit_factor_gt": 1.30,
+    "cadence_per_week_min": 2.0,
+    "cadence_per_week_max": 5.0,
+    "max_drawdown_pct_lte": 8.0,
+    "cost_stress_1_5x_pf_gte": 1.25,
+    "cost_stress_2x_pf_gte": 1.00
+  }
+}

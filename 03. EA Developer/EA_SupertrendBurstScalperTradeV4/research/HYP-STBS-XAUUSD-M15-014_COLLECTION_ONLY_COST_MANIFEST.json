@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_collection_only_cost_manifest.v1",
+  "hypothesis_id": "HYP-STBS-XAUUSD-M15-014",
+  "purpose": "ZERO_TRADE_MODEL0_SIGNAL_ATR_GEOMETRY_MARGIN_LIFECYCLE_CORRECTNESS_AUDIT",
+  "spread_policy": "Current-spread token is data-collection provenance only; zero orders means no performance conversion.",
+  "commission_policy": "Not applicable in the HYP014 audit-only stage because all OrderSend gateways are hard-guarded.",
+  "slippage_policy": "Not applicable in the HYP014 audit-only stage because all OrderSend gateways are hard-guarded.",
+  "future_economic_child_requirement": "A separately authorized baseline must bind the frozen HYP013 research proxy and preserve fill_observed=false before any economic claim.",
+  "reference_cost_manifest_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/preflight/HYP-LASR-XAUUSD-M5-001/cost_source_manifest.json",
+  "reference_cost_manifest_sha256": "60302CA3E1BFD0603D5EF38A2EA7B93DE58CA44EEBFE58C6CDA991BD2E184D9B",
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "promotion_eligible": false
+}

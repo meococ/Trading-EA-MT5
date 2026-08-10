@@ -1,0 +1,51 @@
+{
+  "schema_version": "supertrend_source_validation_diagnostic.v1",
+  "hypothesis_id": "HYP-ST-XAUUSD-H1-001",
+  "attempt_id": "ST001-SOURCE-ATTEMPT-001",
+  "captured_at_utc": "2026-08-08T20:27:46.695Z",
+  "scope": "source_columns_only_no_outcomes",
+  "diagnostic_access_mode": "post_failure_source_only_reread_same_frozen_path_hash_columns_and_time_predicate",
+  "diagnostic_generator_persisted": false,
+  "diagnostic_generator_note": "The bounded diagnostic was executed interactively after the fail-stop to classify the already-opened source-contract violation; no reusable analyzer or outcome calculation was created.",
+  "attempt_started_path": "03. EA Developer/EA_SupertrendStateFlip/research/evidence/HYP-ST-XAUUSD-H1-001/ST001-SOURCE-ATTEMPT-001/attempt_started.json",
+  "attempt_started_sha256": "96B27CCE1DDFFBE3D39CD30DDCD19C8660B45DC9D9DA98916DA08D84E71BA932",
+  "prereg_sha256": "DA955208E67D72BB4A584EEEB4AB14D51C36FF813C8E0FD488BCC1EC2EAF8621",
+  "analyzer_sha256": "2B48F3AA01BB2B00EB66A5AE97346F810EF549CEC2626B0DC9F175EEC890211C",
+  "manifest_sha256": "D2F48E9CB3809AB447B89DC22E658D4988AD71AE26F864B96EA1D7D9FF83AD23",
+  "data_sha256": "B85006E201DA7B359E9F25290C81C72A6092CFA08AEDFFE05E693E17A005ACC3",
+  "source_predicate": "time_utc<2023-01-01T00:00:00Z",
+  "failure_stage": "selected_frame_geometry_validation_before_indicator_analysis",
+  "failure_message": "all inception-through-design price rows must be geometrically valid",
+  "rows_before_2023": 107679,
+  "nonfinite_ohlc_rows": 0,
+  "inverted_high_low_rows": 0,
+  "close_outside_range_rows": 0,
+  "zero_range_h_eq_l_eq_c_rows": 194,
+  "first_zero_range_time_utc": "2004-06-11T11:00:00Z",
+  "last_zero_range_time_utc": "2022-11-25T21:00:00Z",
+  "design_zero_range_rows": [
+    {
+      "time_utc": "2022-05-30T20:00:00Z",
+      "high": 1854.77,
+      "low": 1854.77,
+      "close": 1854.77
+    },
+    {
+      "time_utc": "2022-11-24T21:00:00Z",
+      "high": 1755.02,
+      "low": 1755.02,
+      "close": 1755.02
+    },
+    {
+      "time_utc": "2022-11-25T21:00:00Z",
+      "high": 1754.53,
+      "low": 1754.53,
+      "close": 1754.53
+    }
+  ],
+  "interpretation": "The exact ST001 contract required high>low for every inception-through-design row. Finite flat H1 bars are present, so the frozen input contract is infeasible. No Supertrend event scan or economic calculation completed.",
+  "same_id_retry_authorized": false,
+  "outcome_prices_read": 0,
+  "returns_computed": 0,
+  "trades_simulated": 0
+}

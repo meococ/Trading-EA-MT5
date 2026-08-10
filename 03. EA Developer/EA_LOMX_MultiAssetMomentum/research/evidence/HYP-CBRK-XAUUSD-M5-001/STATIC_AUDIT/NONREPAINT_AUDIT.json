@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-CBRK-XAUUSD-M5-001",
+  "run_id": "STATIC-HYP-CBRK-XAUUSD-M5-001-20260810",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_LOMX_MultiAssetMomentum\\NONREPAINT_AUDIT_MANIFEST_CBRK_XAUUSD_M5_001.json",
+  "manifest_sha256": "B1EBDF4DE395CACA5BD86C652BCD06169799CB342127E33AC7F106B38A71B26C",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_LOMX_MultiAssetMomentum\\EA_LOMX_MultiAssetMomentum.mq5",
+      "sha256": "D363121DC7FFCB128A67C796B76F8B86C8AB2262FF045EAC62B49FE19FB3298B"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-10T06:07:07.384388+00:00"
+}

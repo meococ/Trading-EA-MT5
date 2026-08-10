@@ -1,0 +1,9 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-CBRK-XAUUSD-M5-002",
+  "run_id": "STATIC-HYP-CBRK-XAUUSD-M5-002-PACKAGE-20260810",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_CBRK_XAUBreakout",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_CBRK_XAUBreakout\\EA_CBRK_XAUBreakout.mq5",
+  "source_sha256": "24C6B88BECF2A6F762C204B8DFD861CDA2A9E186C2EF1C55EA00A2A0C22F38F8",
+  "include_snapshots": []
+}

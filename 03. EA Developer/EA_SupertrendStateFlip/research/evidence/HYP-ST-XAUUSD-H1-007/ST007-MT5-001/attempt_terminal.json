@@ -1,0 +1,1 @@
+{"attempt_id":"ST007-MT5-001","completed_at_utc":"2026-08-08T23:07:33.873522Z","error_type":"ValueError","hypothesis_id":"HYP-ST-XAUUSD-H1-007","same_id_retry_authorized":false,"schema_version":"st005_mt5_run_terminal.v1","status":"FAILED","verdict":"MT5_ZERO_TRADE_COLLECTION_FAIL"}

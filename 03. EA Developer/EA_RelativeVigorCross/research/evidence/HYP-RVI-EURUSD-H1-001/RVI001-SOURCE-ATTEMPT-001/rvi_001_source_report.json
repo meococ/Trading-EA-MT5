@@ -1,0 +1,63 @@
+{
+  "attempt_id": "RVI001-SOURCE-ATTEMPT-001",
+  "by_direction": {
+    "LONG": 1757,
+    "SHORT": 1882
+  },
+  "by_year": {
+    "2016": 742,
+    "2017": 727,
+    "2018": 708,
+    "2019": 743,
+    "2020": 719
+  },
+  "cadence_per_week": 13.965460526315791,
+  "direction_share": {
+    "LONG": 0.48282495190986535,
+    "SHORT": 0.5171750480901347
+  },
+  "economic_fields_read": false,
+  "events": {
+    "boundary_rejects": 0,
+    "executable": 3639,
+    "gap_rejects": 27,
+    "raw": 3666
+  },
+  "formula": {
+    "period": 10,
+    "signal_divisor": 6,
+    "weighted_kernel": [
+      1,
+      2,
+      2,
+      1
+    ]
+  },
+  "gates": {
+    "candidates_gte_500": true,
+    "design_rows_gte_25000": true,
+    "each_direction_gte_0_30": true,
+    "each_year_cadence_1_25_to_6_5": false,
+    "max_year_share_lte_0_35": true,
+    "pooled_cadence_2_to_5": false,
+    "usable_coverage_gte_0_99": true,
+    "zero_conflicts": true
+  },
+  "hypothesis_id": "HYP-RVI-EURUSD-H1-001",
+  "max_year_share": 0.20417697169552074,
+  "rows": {
+    "design": 31059,
+    "h1_total": 37254,
+    "usable_design": 31059
+  },
+  "schema_version": "rvi_source_report.v1",
+  "verdict": "PARK_SOURCE_FEASIBILITY",
+  "weeks": 260.57142857142856,
+  "year_cadence": {
+    "2016": 14.308539944903583,
+    "2017": 13.942465753424656,
+    "2018": 13.57808219178082,
+    "2019": 14.24931506849315,
+    "2020": 13.751366120218579
+  }
+}

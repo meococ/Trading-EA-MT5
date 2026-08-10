@@ -1,0 +1,10 @@
+{
+  "analyzer_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MassIndexReversal\\research\\analyze_mass_source.py",
+  "attempt_id": "MASS001-SOURCE-ATTEMPT-001",
+  "hypothesis_id": "HYP-MASS-EURUSD-M15-001",
+  "prereg_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MassIndexReversal\\research\\HYP-MASS-EURUSD-M15-001_FROZEN_PREREG.md",
+  "schema_version": "mass_source_attempt_started.v1",
+  "source_path": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\fivepercent\\EURUSD\\EURUSD_M1_2015_now.parquet",
+  "started_at_utc": "2026-08-10T10:21:06.394682+00:00",
+  "test_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MassIndexReversal\\research\\tests\\test_analyze_mass_source.py"
+}

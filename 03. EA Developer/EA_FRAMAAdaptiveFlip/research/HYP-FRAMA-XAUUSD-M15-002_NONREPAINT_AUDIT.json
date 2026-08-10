@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-FRAMA-XAUUSD-M15-002",
+  "run_id": "FRAMA002-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\HYP-FRAMA-XAUUSD-M15-002_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "0CFB64EEB5E41AD726DF57E5B257980F851C252C0FDC75E8991F1FCA6D1F736B",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\EA_FRAMAAdaptiveFlip.mq5",
+      "sha256": "6D2F21FCD53097DE82CA584A53CC507EBAC03A0056A4DA9137B46A12CFE2855F"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\EA_FRAMAAdaptiveFlip.mq5",
+      "line": 171,
+      "rule": "collection_first_date_copytime",
+      "function": "CopyTime",
+      "disposition": "allowed_collection_provenance_read"
+    }
+  ],
+  "generated_at_utc": "2026-08-10T15:04:23.535273+00:00"
+}

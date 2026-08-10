@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-DCX-XAUUSD-M15-001",
+  "run_id": "DCX001-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout\\HYP-DCX-XAUUSD-M15-001_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "1BEEA58194A1BAFF6D0224AE5BAA46B5A21645EF9B3D3D2A5805A058A4F6D207",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout\\EA_DonchianChandelierBreakout.mq5",
+      "sha256": "A4BE71F1A1F98DCDE3C181C8BDF60017CA981816F0871D5CAC281565132FB94F"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-10T11:02:30.438589+00:00"
+}

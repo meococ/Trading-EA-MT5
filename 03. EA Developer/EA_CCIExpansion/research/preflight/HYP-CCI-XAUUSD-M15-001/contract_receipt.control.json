@@ -1,0 +1,47 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "hypothesis_id": "HYP-CCI-XAUUSD-M15-001",
+  "task_packet_sha256": "85DA2219BBF70F9FF4F0AD24354BA3E170B6B8CD82B9A10FC654A944E695F794",
+  "git_commit": "521688f5ee9b7d1f028a91606f64b9ee4134994a",
+  "git_status_sha256": "A1AA6EDA8683AB13DE4853BE5404A1C73B7A21D70F408B4C7230987E873D0CE5",
+  "binding": {
+    "hypothesis_id": "HYP-CCI-XAUUSD-M15-001", "run_role": "control",
+    "ea_name": "EA_CCIExpansion", "symbol": "XAUUSD", "period": "M15",
+    "from": "2018.01.01", "to": "2023.01.01", "model": 0,
+    "execution_mode": 0, "fixed_delay_ms": 0, "timeout_sec": 3600,
+    "overrides": "InpDeviationPoints=20;InpFridayFlattenHour=20;InpHypothesisId=HYP-CCI-XAUUSD-M15-001;InpMagic=5604201;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpMaxTradesPerDay=1;InpResearchAutoMode=true;InpRiskPercent=0.25;InpVariantTag=CCI20_TYPICAL_100_EXPANSION",
+    "telemetry_tier": "off", "telemetry_profile": "none",
+    "deposit": 100000, "leverage": 100, "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {"digits": 2, "point": 0.01, "pip_size": 0.01},
+    "visual_mode": false, "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-10T15:22:28Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {"operator": "gt", "value": 97},
+      "requested_from": "2018.01.01", "requested_to": "2023.01.01",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 4194304
+    }
+  },
+  "evidence": [
+    {"label":"task_packet","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_CCIExpansion\\research\\HYP-CCI-XAUUSD-M15-001_BASELINE_TASK.json","sha256":"85DA2219BBF70F9FF4F0AD24354BA3E170B6B8CD82B9A10FC654A944E695F794"},
+    {"label":"source","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_CCIExpansion\\EA_CCIExpansion.mq5","sha256":"D08999121732CA3B42BBE4125A3FD7D089734364E56D6F3F1F9D6F3A8780EE65"},
+    {"label":"static_ex5","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_CCIExpansion\\EA_CCIExpansion.ex5","sha256":"77B465ED059B2A78E90EF088F138CAFDAC168107C61DB0B5D75E844EEB43052F"},
+    {"label":"static_compile_log","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_CCIExpansion\\EA_CCIExpansion.log","sha256":"44064DAC665BD77B5F4A1A99867D7E9053EA706F4B3BCCEC018C43204F0100A9"},
+    {"label":"prereg","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_CCIExpansion\\research\\HYP-CCI-XAUUSD-M15-001_FROZEN_PREREG.md","sha256":"5485A32E3DA9021A7BE6E12366F8DD8FDCC681969A715B904DEBC973948D44B0"},
+    {"label":"source_to_spec","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_CCIExpansion\\research\\HYP-CCI-XAUUSD-M15-001_SOURCE_TO_SPEC.md","sha256":"73DDC735740FE6736630F6E0DBAAC89B7359013B9DD6BF80739CF4ECF0489E0C"},
+    {"label":"cost_source_manifest","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_CCIExpansion\\research\\preflight\\HYP-CCI-XAUUSD-M15-001\\cost_source_manifest.unverified.json","sha256":"63C5EA3B6FA179652DF3979479654008EB7CFAFE7944E7740E1C5AFC4A3253E9"},
+    {"label":"candidate_registry","kind":"file","path":"D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl","sha256":"1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"},
+    {"label":"ea_contract","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_CCIExpansion\\ALPHAFACTORY_EA_CONTRACT.json","sha256":"E5B7F1D42A3B4774DD138380424BF0BE6421AE1389F5AB9F9852E70325FB4BB8"},
+    {"label":"source_test","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_CCIExpansion\\research\\test_cci_source_contract.py","sha256":"CF8D18220A3971EBCC5ABFDE34570C397613FF32E570DD9C4EEBF9D335215DBD"},
+    {"label":"nonrepaint_manifest","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_CCIExpansion\\HYP-CCI-XAUUSD-M15-001_NONREPAINT_MANIFEST.json","sha256":"6CD3F13CF07B9EB62A7CCB7673300A666FF2A6CC3E3FECB471C5CCE7040DDE65"},
+    {"label":"nonrepaint_audit","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_CCIExpansion\\research\\HYP-CCI-XAUUSD-M15-001_NONREPAINT_AUDIT.json","sha256":"6CF43D9437F7A57B8F883C04941CD6251CB534EE41BB9D01542B7C9FA2B92568"},
+    {"label":"independent_review","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_CCIExpansion\\research\\HYP-CCI-XAUUSD-M15-001_INDEPENDENT_PRE_RUN_REVIEW.md","sha256":"C83289ED33E13F3ACC85289E4DB06A841AA4964C676B8F5B3E1B4A4B4DAFE29B"},
+    {"label":"alpha_ps1","kind":"file","path":"D:\\Trading EA MT5\\02. AlphaFactory\\alpha.ps1","sha256":"B5AFD1B4478532A284B4B2C53B2AB7E200FC3C2D0D1A7D27EB9D4BE41DA8E226"},
+    {"label":"alpha_terminal_guard_test","kind":"file","path":"D:\\Trading EA MT5\\02. AlphaFactory\\tests\\test_terminal_process_guard.py","sha256":"31BF3C04049598531E5E4A0DEE88102DF9902F47180BD4F8364A259CBCAFF780"}
+  ],
+  "generated_at_utc": "2026-08-10T15:22:28Z",
+  "note": "Sole untuned native CCI20 TRAIN baseline; no validation or promotion authority."
+}

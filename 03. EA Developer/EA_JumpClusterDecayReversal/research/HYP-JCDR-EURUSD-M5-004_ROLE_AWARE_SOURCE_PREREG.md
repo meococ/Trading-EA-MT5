@@ -173,3 +173,4 @@ freeze before outcomes:
   adverse cases using native MT5 charts with the real indicator stack.
 
 No source PASS can authorize optimization, promotion, paper or live trading.
+

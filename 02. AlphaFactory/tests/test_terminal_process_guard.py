@@ -5,6 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 HELPER = ROOT / "tools" / "terminal_process_guard.ps1"
+ALPHA = ROOT / "alpha.ps1"
 
 
 def run_ps(script: str) -> subprocess.CompletedProcess[str]:
@@ -73,3 +74,21 @@ $conflicts = @(Get-ConflictingAlphaTerminalProcesses -ExpectedExecutablePath $ex
         path = (proc.get("path") or "").lower()
         if path and path != payload["expected"].lower():
             assert proc["id"] not in payload["conflicts"]
+
+
+def test_completed_report_cleanup_releases_reused_pid_without_stopping_it():
+    source = ALPHA.read_text(encoding="utf-8-sig")
+    function_start = source.index("function Stop-RunnerOwnedTerminal")
+    function_end = source.index("function Stop-AllRunnerOwnedTerminals", function_start)
+    function_body = source[function_start:function_end]
+
+    assert "[switch]$AllowExitedOrReused" in function_body
+    assert "if ($AllowExitedOrReused)" in function_body
+    release_branch = function_body.split("if ($AllowExitedOrReused)", 1)[1]
+    assert "replacement process was not stopped" in release_branch
+    assert "OwnedTerminalIdentities.Remove($ProcessId)" in release_branch
+    assert "Stop-Process" not in release_branch.split("return", 1)[0]
+
+    assert "Stop-RunnerOwnedTerminal $mt5Pid -AllowExitedOrReused" in source
+    assert "Stop-RunnerOwnedTerminal $mt5Pid\n        throw \"Backtest failed: timeout" in source
+    assert "Stop-RunnerOwnedTerminal $mt5Relaunch.Id -AllowExitedOrReused:$reportFound" in source

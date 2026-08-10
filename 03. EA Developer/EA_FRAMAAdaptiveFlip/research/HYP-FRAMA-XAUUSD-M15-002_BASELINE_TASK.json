@@ -1,0 +1,45 @@
+{
+  "schema_version": "frama_model0_baseline_task.v1",
+  "hypothesis_id": "HYP-FRAMA-XAUUSD-M15-002",
+  "attempt_id": "FRAMA002-MODEL0-BASELINE-001",
+  "parent_hypothesis_id": "HYP-FRAMA-XAUUSD-M15-001",
+  "one_attempt_only": true,
+  "same_id_retry_authorized": false,
+  "visual_mode": false,
+  "indicator_dependencies": [],
+  "command_contract": {
+    "action": "backtest", "ea_name": "EA_FRAMAAdaptiveFlip",
+    "symbol": "XAUUSD", "period": "M15",
+    "from": "2018.01.01", "to": "2023.01.01",
+    "model": 0, "execution_mode": 0, "fixed_delay_ms": 0,
+    "timeout_sec": 3600, "run_role": "control", "telemetry_tier": "off",
+    "deposit": 100000, "leverage": 100,
+    "spread_semantics": "current_cli_omitted", "holding_contract": "scalp",
+    "max_journal_delta_bytes": 4194304,
+    "overrides": "InpDeviationPoints=20;InpFridayFlattenHour=20;InpHypothesisId=HYP-FRAMA-XAUUSD-M15-002;InpMagic=5604102;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpMaxTradesPerDay=1;InpResearchAutoMode=true;InpRiskPercent=0.25;InpVariantTag=FRAMA16_PRICE_CROSS_ADAPTIVE_FLIP_DEFERRED_WARMUP"
+  },
+  "bindings": {
+    "alpha_ps1_sha256": "B5AFD1B4478532A284B4B2C53B2AB7E200FC3C2D0D1A7D27EB9D4BE41DA8E226",
+    "alpha_terminal_guard_test_sha256": "31BF3C04049598531E5E4A0DEE88102DF9902F47180BD4F8364A259CBCAFF780",
+    "source_sha256": "6D2F21FCD53097DE82CA584A53CC507EBAC03A0056A4DA9137B46A12CFE2855F",
+    "ex5_sha256": "832A15FD1FCCC0B62C83157F5F97EB9B237C11F575E0E64CD11799741244CB63",
+    "compile_log_sha256": "DA48CC69E7D196F6B0349BD49D463C9855B2374081A65D105C00A11C548C1F69",
+    "ea_contract_sha256": "05F3E084BEAD240325638F6DB0FD3C435E3F72651734789122E275EA77D1C280",
+    "prereg_sha256": "729A2CE686A486CEFDDA7F0C8C1A34E3F62D3643273E5F8A348297ED9131D6B8",
+    "source_to_spec_sha256": "992B56CFA679FA3730A7F95BDE42F1C4D3844DEEB00B46E9E9FB662FB29B9480",
+    "test_sha256": "65D733C919502132DE653A3D99ED226CAD03EF092A35BA34DEF6ACFF38739BCC",
+    "nonrepaint_manifest_sha256": "0CFB64EEB5E41AD726DF57E5B257980F851C252C0FDC75E8991F1FCA6D1F736B",
+    "nonrepaint_audit_sha256": "1D4E83DD58E1613A4034CD36576FAD23056A23AFCF7D8F08402A7AA41B695803",
+    "independent_review_sha256": "38C88D3565F9B6997335C6B805EC71F0204092DD9D357B705831342D1183599C",
+    "cost_source_manifest_sha256": "3C24B03FF09D81C790A62645F6BA8BA1EC767EE1EEF96F984B689CBF6116EFEB",
+    "parent_engineering_failure_sha256": "8864D2DD1D89CAED2FB6CA0E188E70AA9E81E0BE933668BD0C6E7B78A9BB7904"
+  },
+  "acceptance": {
+    "min_profit_factor_strict": 1.3, "min_expectancy_strict": 0.0,
+    "min_closed_positions_per_week": 2.0, "max_closed_positions_per_week": 5.0,
+    "max_equity_drawdown_pct": 8.0, "min_each_direction_share": 0.30,
+    "max_calendar_year_share": 0.30,
+    "validation_opened": false, "holdout_opened": false,
+    "optimization_authorized": false, "paper_live_authorized": false
+  }
+}

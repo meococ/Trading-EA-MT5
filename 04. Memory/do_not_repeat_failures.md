@@ -2333,3 +2333,143 @@ Evidence:
 - A successor needs materially new point-in-time information and a fresh
   source/cost/latency contract. Recombining these five closed-bar indicators is
   not a fresh mechanism.
+
+## TFCVD historical broker quote-tick source kill (2026-08-09)
+
+Evidence:
+`03. EA Developer/EA_TickFlowCVDProbe/research/HYP-TFCVD-XAUUSD-M5-001_RESULT.md`.
+
+- The sole frozen XAUUSD M5 2018–2022 Model-4 launch emitted 351,302 completed
+  rows with zero trades, but the Strategy Tester report had History Quality 0%
+  and AlphaFactory found no D0 series proof.
+- The journal states FivePercent XAUUSD real ticks begin only on 2026-06-01.
+  The requested historical path was generated, not broker-native quote-tick
+  evidence. Do not treat a Model-4 request label as proof of real historical
+  tick provenance; bind and verify the journal range first.
+- The frozen effort-without-price-result mapping found zero candidates. This is
+  consistent with generated ticks mechanically coupling tick-rule delta to
+  generated price movement; it is not an economic no-edge conclusion.
+- Do not rescue this ID by lowering delta/efficiency thresholds, changing the
+  split, accepting generated ticks, or rerunning. Historical CVD/quote-flow can
+  reopen only with a fresh point-in-time tick source and new ID. Bar-level tick
+  volume is a different observable and must receive its own provenance and
+  source/cadence gate.
+## 2026-08-09 — STBS HYP001 packet authority timestamp was future-dated
+
+- Failure radius: governance chronology only. The probe row declared `2026-08-09T04:46:00Z`, while the sole packet attempt actually ran at `02:31:55Z–02:31:58Z` and its availability-as-of was also future at run time.
+- No AlphaFactory/MT5 run, orders, outcomes, PF or economics occurred; the causal Supertrend/M15 implementation was not rejected.
+- Never infer UTC manually for an authority or availability timestamp. Capture system UTC before prereg/authority and fail closed when `authority_utc > now` or `availability_asof_utc > authority_utc`.
+- Never amend or retry the consumed attempt. Use a fresh hypothesis and fresh attempt IDs, binding the invalid predecessor as an informing governance failure.
+# 2026-08-10 — Campaign-level anti-pattern: evidence machinery displaced economics
+
+- Registry rows 785–899 contain 115 records / 51 campaign IDs in roughly 33 hours; 40 IDs were attached to one Supertrend thesis. The chain used 9 packet-build attempts, 11 comparator attempts and 12 MT5 launches but produced zero admissible economic baseline.
+- Root cause was not insufficient rigor. Promotion-grade receipt/parser/authority/path-set controls were applied to discovery, and engineering incidents were repeatedly represented as fresh market hypotheses.
+- Do not count governance-only IDs as progress. Default budget after source pass is one parity/audit, at most one engineering correction, then one untuned baseline. A third engineering ID requires independent opportunity-cost PASS and must directly unlock the baseline.
+- Do not seal a dynamic whole-worktree path set. Bind exact scoped inputs and attempt-local outputs. Review files must pre-exist, be reserved inside the scoped evidence root, or be written after the run without invalidating its receipt.
+- Before authority, replay archived real fixtures covering Alpha CLI normalization, BOM/locale, compile-log suffix, report headings/colspan, journal duplication/truncation, RunMeta/lifecycle schemas and exact data fingerprints.
+- Stop a mechanism after a clearly weak admissible baseline or diagnostic far from the gate unless a causal, preregistered market revision exists. Owner persistence means move to the next lawful hypothesis, not rescue one engineering chain forever.
+
+## 2026-08-10 — JCDR006 pure jump-cluster reversal economic kill
+
+Evidence:
+`03. EA Developer/EA_JCDR_PureReversal/research/HYP-JCDR-EURUSD-M5-006_BASELINE_RESULT.md`.
+
+- The exact untuned EURUSD M5 baseline completed with 100% History Quality,
+  562 trades and cadence 2.1568/week, but PF was 0.763972, net profit was
+  -$7,888.77 and equity drawdown reached 8.02%.
+- The mechanism loses before report fees: price-only PF was 0.851207 and
+  price-only net was -$4,716.86. Commission (-$3,106.76), swap (-$65.15) and
+  any additional slippage only make the result worse.
+- Both directions lose. 2016 and 2018 lose materially; the permanent 8% equity
+  drawdown latch then prevents new entries in 2019-2020. This is not missing
+  tester coverage or a parser defect.
+- Of 83 terminal SL/TP outcomes, only 20 reached the 1.5R target (24.1% versus
+  roughly 40% breakeven before costs). The other 477 time exits were only
+  approximately breakeven before extra slippage. The frozen decay/retracement
+  event therefore does not forecast a strong enough reversal.
+- Do not rescue this mechanism with Asia/New York, hour, weekday, direction,
+  threshold, stop/target or hold-time filters taken from the report. Do not run
+  cost stress, optimization, WFA/OOS or holdout on JCDR006. A successor must be
+  a materially different market mechanism, not another JCDR router or exit
+  variant.
+
+## 2026-08-10 — ERAY EMA13 full-bar dominance source overfrequency
+
+Evidence:
+`03. EA Developer/EA_ElderRayDominance/research/HYP-ERAY-EURUSD-H1-001_SOURCE_RESULT.md`.
+
+- The exact outcome-blind EURUSD H1 Elder-Ray transition produced 4,002 executable events, 15.3417/week pooled and 14.8247-15.8411/week in every decision year.
+- Direction and coverage gates passed; the failure is structural overfrequency only. No returns, PF, costs, MQL5, MT5, validation or holdout were opened.
+- Do not rescue ERAY001 with session, cooldown, debounce, threshold, EMA length, direction or timeframe filters. A successor must use a materially different event mechanism.
+
+## 2026-08-10 — KVO literal full-prehistory initialization infeasible
+
+Evidence:
+`03. EA Developer/EA_KlingerPullback/research/HYP-KVO-EURUSD-H1-001_SOURCE_FAILURE.md`.
+
+- The exact source attempt stopped before event analysis because the first two EURUSD H1 broker-history bars have zero range, so frozen `CM_1=DM_0+DM_1` equals zero and literal Klinger `VF_1` is undefined.
+- Do not silently skip, substitute, interpolate, reset or reseed KVO001. No economic conclusion exists.
+
+## 2026-08-10 — Coppock EURUSD H1 zero-cross modest overfrequency
+
+Evidence:
+`03. EA Developer/EA_CoppockZeroCross/research/HYP-COP-EURUSD-H1-001_SOURCE_RESULT.md`.
+
+- The exact bidirectional 14/11/10 Coppock H1 adaptation produced 1,569 executable events and 6.0148/week pooled, above the frozen 5/week ceiling; both directions and all annual source gates otherwise passed.
+- Do not lower the cadence threshold or add post-result persistence, cooldown, session, direction or extra smoothing under COP001. No economic conclusion exists.
+
+## 2026-08-10 — Ultimate Oscillator EURUSD H1 re-entry underfrequency
+
+Evidence:
+`03. EA Developer/EA_UltimateOscillatorReentry/research/HYP-UO-EURUSD-H1-001_SOURCE_RESULT.md`.
+
+- The exact Ultimate Oscillator 7/14/28 30/70 re-entry mapping produced 472 executable events and 1.8094/week, below the frozen minimums of 500 and 2/week.
+- Coverage, direction balance, concentration and annual cadence passed; this is source underfrequency only. No economic conclusion exists.
+- Do not rescue UO001 through threshold, period, direction, timeframe, persistence, cooldown or session changes. The indicator-screening budget ends here; continue with the fresh ATR impulse–pullback price-structure EA.
+
+## 2026-08-10 — APC XAUUSD M15 impulse–pullback structural underfrequency
+
+Evidence:
+`03. EA Developer/EA_ATRImpulsePullbackContinuation/research/HYP-APC-XAUUSD-M15-002_ENGINEERING_SOURCE_RESULT.md`.
+
+- The flat-safe D0 engineering revision compiled and ran without a runtime fatal, but History Quality was exactly `97` against a strict `>97` gate, so no PF or outcome was admitted.
+- The exact closed-bar mechanism produced only `103` raw signals and `102` accepted entries over `417` elapsed weeks: roughly `0.2470` and `0.2446` per week, far below the required `2–5`.
+- Do not rescue APC with a lower HQ threshold, session/direction filter, impulse/ADX threshold change, altered stop/target, timeframe switch or APC003. Move to a materially different mechanism.
+
+### HYP-KVO-EURUSD-M15-002 — engineering runtime fail, no economic verdict
+
+- Exact object: Klinger 34/55/13 zero-line pullback re-entry with EMA100 trend, EURUSD M15, TRAIN 2010-01-04 to 2018-01-01.
+- MT5 completed, but `runtime_failed=true`: a market-closed entry rejection was treated as fatal, leaving only 31 accepted entries and 9,482 subsequently rejected signals.
+- AlphaFactory then hit a post-report PID-identity cleanup race after `/ShutdownTerminal`; the run folder remained uncollected.
+- Do not read PF or rescue this run. Do not retry HYP-KVO-EURUSD-M15-002. A fresh child may change only entry-reject reconciliation and use the generic report-ready cleanup fix.
+
+### HYP-KVO-EURUSD-M15-003 — engineering transport classification + journal truncation
+
+- MT5 completed, but the sole attempt was engineering-invalid before PF: exact `MARKET_CLOSED`, order/deal 0 was still treated fatal because `OrderSend=false`.
+- Full signal telemetry made the two-file raw journal hit the 1 MiB cap; manifest recorded `truncated=true` and Alpha stopped before analysis.
+- Exact summary: raw 9,524, L 4,798, S 4,726, entries 31, rejects 9,482, runtime_failed=true.
+- Do not read/report PF and do not retry HYP003. A fresh child may change only definitive no-fill classification and telemetry/cap evidence; market logic and parameters stay frozen.
+
+### HYP-KVO-EURUSD-M15-004 — economic baseline failure
+
+- Engineering-valid run `20260810_212638`: HQ 99%, journal complete/nontruncated, D0 proof present, 197,804 closed bars, 9,524 raw signals, runtime_failed=false and 122 completed positions.
+- After report costs: PF `0.6373382286`, net `-7,864.85`, expectancy `-64.46598` per trade, 32.79% win rate, equity DD 7.7044%.
+- Cadence is only `0.29256595` trades/week over 417 TRAIN weeks; all 122 completed positions are concentrated in 2010 because the frozen drawdown lock halted later entries.
+- Kill the exact EURUSD M15 Klinger 34/55/13 zero-line pullback re-entry + EMA100 trend mechanism. Do not rescue it with Friday/session/direction selection, stop/target or daily-cap changes, drawdown-lock removal, parameter mining, or HYP005. Validation/holdout were never opened.
+- Evidence: `03. EA Developer/EA_KlingerPullback/research/HYP-KVO-EURUSD-M15-004_ECONOMIC_FAILURE.md`.
+## 2026-08-10 — FRAMA16 native price crossover XAUUSD M15
+
+- Hypothesis: `HYP-FRAMA-XAUUSD-M15-002`; run `20260810_220732`.
+- Exact mapping: native FRAMA16 close crossover, five-bar extreme plus 0.20 ATR stop, 1.50R target, 12-bar exit, one accepted entry/day.
+- Engineering-valid baseline: 657 trades, PF 0.602764, net -$7,009.96, expectancy -$10.67, cadence 2.5186/week, DD 7.7987%, max-year concentration 39.27%.
+- Verdict: `KILL_BASE_PF_EXPECTANCY_AND_YEAR_CONCENTRATION_FAIL`.
+- Do not repeat via session/day/direction selection, FRAMA-period tuning, SL/TP/time-exit changes or removing the daily cap after seeing these outcomes. A future adaptive-average hypothesis must be a materially different market mechanism and fresh preregistration.
+
+## 2026-08-10 — CCI20 native expansion XAUUSD M15
+
+- Hypothesis: `HYP-CCI-XAUUSD-M15-001`; sole run `20260810_222415`.
+- Exact mapping: native typical-price CCI20 cross through `+100/-100`, five-bar extreme plus 0.20 ATR stop, 1.50R target, 12-bar exit and one accepted entry/day.
+- Engineering-valid baseline: 589 positions, PF `0.6445717573`, net `-$7,005.48`, expectancy `-$11.893854`, cadence `2.25794/week`, DD `7.0193%`, max-year concentration `43.8031%`.
+- Verdict: `KILL_BASE_PF_EXPECTANCY_AND_YEAR_CONCENTRATION_FAIL`.
+- Do not rescue through session/hour/weekday/direction selection, CCI period/threshold/price-type changes, SL/TP/hold changes, daily-cap changes or removal of the peak-DD latch after observing the result. Validation/holdout remain unopened.
+- Evidence: `03. EA Developer/EA_CCIExpansion/research/HYP-CCI-XAUUSD-M15-001_ECONOMIC_FAILURE.md`.

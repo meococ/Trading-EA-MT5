@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-STBS-XAUUSD-M15-007",
+  "run_id": "STBS007-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendBurstScalperTrade",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendBurstScalperTrade\\EA_SupertrendBurstScalperTrade.mq5",
+  "source_sha256": "2E0501CC0C19A8FD8418242A0EC64D725EBC14425AD7A1718F9FEB444B977E32",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

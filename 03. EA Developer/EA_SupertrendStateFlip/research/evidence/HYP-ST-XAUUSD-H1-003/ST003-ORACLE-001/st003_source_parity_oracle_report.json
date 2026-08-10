@@ -1,0 +1,1 @@
+{"attempt_id":"ST003-ORACLE-001","design_rows":29461,"executable_events":683,"gap_rejected_events":7,"hypothesis_id":"HYP-ST-XAUUSD-H1-003","long_events":339,"oracle_comparable_rows":29460,"outcome_fields_emitted":0,"raw_events":690,"returns_computed":0,"schema_version":"st003_source_parity_oracle_report.v1","short_events":344,"source_rows":107679,"trades_simulated":0}

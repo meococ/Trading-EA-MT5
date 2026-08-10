@@ -1,0 +1,12 @@
+{
+  "schema_version": "alphafactory_collection_only_cost_manifest.v1",
+  "hypothesis_id": "HYP-TFCVD-XAUUSD-M5-001",
+  "purpose": "ZERO_TRADE_MODEL4_SOURCE_FEASIBILITY",
+  "spread_policy": "observe broker Bid/Ask spread in telemetry; do not convert it into performance",
+  "commission_policy": "not applicable because orders and deals are forbidden",
+  "slippage_policy": "not applicable because orders and deals are forbidden",
+  "future_economic_child_requirement": "Freeze spread, commission and dynamic slippage under a fresh hypothesis ID before opening outcomes.",
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "promotion_eligible": false
+}

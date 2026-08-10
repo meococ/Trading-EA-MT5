@@ -1,0 +1,8 @@
+{
+  "attempt_id": "BKSR002-SOURCE-ATTEMPT-001",
+  "hypothesis_id": "HYP-BKSR-XAUUSD-M15-002",
+  "process_id": 8476,
+  "schema_version": "bksr002_source_attempt_started.v1",
+  "started_at_utc": "2026-08-10T10:43:37.912493Z",
+  "status": "CLAIMED_BEFORE_SOURCE_READ"
+}

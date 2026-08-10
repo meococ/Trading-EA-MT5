@@ -1,0 +1,22 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-KVO-EURUSD-M15-002",
+  "evidence_tier": "PRE_BASELINE_REFERENCE_ONLY",
+  "provenance_status": "PARTIAL_TRAIN_COVERAGE_RESEARCH_PROXY",
+  "audit_status": "BLOCKED_FOR_ECONOMIC_VALIDITY",
+  "verdict": "BASELINE_FALSIFICATION_ONLY",
+  "promotion_eligible": false,
+  "symbol": "EURUSD",
+  "from": "2010.01.04",
+  "to": "2018.01.01",
+  "symbol_geometry": {"digits": 5, "point": 0.00001, "pip_size": 0.0001},
+  "tester_spread_semantics": "current",
+  "reference_cost_manifest_path": "03. EA Developer/EA_JCDR_PureReversal/research/HYP-JCDR-EURUSD-M5-006_COST_SOURCE_MANIFEST.json",
+  "reference_cost_manifest_sha256": "2A288EA74B0C99BB60B023B804BA44614F85A1E3364464FE9AF71D94F5741133",
+  "reference_coverage": "2016.01.04-2021.01.01",
+  "commission_reference_usd_round_turn_per_lot": 4.0,
+  "slippage_reference": "1000 ms adverse executable-quote proxy; p90 roundtrip 0.4 pip; fill_observed=false",
+  "baseline_use": "The sole untuned Model-0 TRAIN baseline may falsify the KVO mechanism using tester report costs. This partial-coverage research proxy cannot establish economic validity or promotion readiness.",
+  "next_gate_if_baseline_passes": "Bind or collect cost evidence covering the full TRAIN interval, rebuild x1/x1.5/x2 economics, then require PF>1.30, PF>=1.25 and PF>=1.00 before validation.",
+  "blocker": "Verified spread coverage begins in 2016 while TRAIN begins in 2010; no observed fills exist."
+}

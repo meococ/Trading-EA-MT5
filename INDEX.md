@@ -12,6 +12,7 @@ INDEX chỉ là sitemap. Trạng thái hypothesis nằm ở registry và artifac
 | Source EA | `03. EA Developer/<EA>/<EA>.mq5` |
 | Custom indicators | `06.Indicator Alpha/` |
 | Hypothesis state | `04. Memory/research/CANDIDATE_REGISTRY.jsonl` |
+| Hypothesis result/failure packet | `03. EA Developer/<EA>/research/` |
 | Registry validator | `04. Memory/research/validate_candidate_registry.py` |
 | Recent handoff | `04. Memory/hot.md` |
 | Failure radius | `04. Memory/do_not_repeat_failures.md` |

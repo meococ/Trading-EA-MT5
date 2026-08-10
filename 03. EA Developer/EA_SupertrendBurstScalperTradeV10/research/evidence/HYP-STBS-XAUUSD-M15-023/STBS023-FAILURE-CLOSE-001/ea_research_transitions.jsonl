@@ -1,0 +1,2 @@
+﻿{"sequence":1,"hypothesis_id":"HYP-STBS-XAUUSD-M15-023","state":"execution_started","detail":"Registry, source, prereg, task packet, and cost-source contract validated.","timestamp_utc":"2026-08-09T21:32:52.8754474Z"}
+{"sequence":2,"hypothesis_id":"HYP-STBS-XAUUSD-M15-023","state":"failed","detail":"Required step failed: Backtest EA_SupertrendBurstScalperTradeV10 XAUUSD M15 2005.01.01-2023.01.01 Model=0 (MT5 journal delta must be present and complete; truncated or untyped evidence is invalid.)","timestamp_utc":"2026-08-09T21:34:31.6105495Z"}

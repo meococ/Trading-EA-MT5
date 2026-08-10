@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-APC-XAUUSD-M15-001",
+  "run_id": "APC001-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_ATRImpulsePullbackContinuation\\HYP-APC-XAUUSD-M15-001_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "574AA34506817332176E8F52084E2A39CD13E581C246B9D07672865116977891",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ATRImpulsePullbackContinuation\\EA_ATRImpulsePullbackContinuation.mq5",
+      "sha256": "ED33D6D4E41144BA423D3039C9C12FB6166A0B6C2583918F0B8655971B5FECF6"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-10T12:37:41.812454+00:00"
+}

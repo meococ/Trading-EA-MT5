@@ -1,0 +1,36 @@
+{
+  "schema_version": "alphafactory_ea_contract.v1",
+  "telemetry_profile": "none",
+  "market_phase_adapter": "none",
+  "comparison_adapter": "generic-control-improvement-v1",
+  "variant_tag_input": "InpVariantTag",
+  "execution_profile": {
+    "authority": "registered-untuned-model0-baseline",
+    "timeframe": "M15",
+    "research_auto_mode_input": "InpResearchAutoMode",
+    "research_auto_mode_default": false,
+    "telemetry_input": "InpEnableTelemetry",
+    "telemetry_required_for_execution": false,
+    "hypothesis_id_input": "InpHypothesisId",
+    "hypothesis_id_default": "HYP-STC-EURUSD-M15-003",
+    "expected_symbol": "EURUSD",
+    "closed_bar_only": true,
+    "no_trade_api": false,
+    "economic_claims_authorized": true,
+    "promotion_eligible": false
+  },
+  "inputs": {
+    "InpResearchAutoMode": false,
+    "InpEnableTelemetry": false,
+    "InpHypothesisId": "HYP-STC-EURUSD-M15-003",
+    "InpVariantTag": "STC_CLASSIC_TREND_CYCLE_V3_TESTER_CLOSED_PRELOAD",
+    "InpMagic": 5603703,
+    "InpRiskPercent": 0.25,
+    "InpMaxDailyLossPct": 3.5,
+    "InpMaxAccountDrawdownPct": 8.0,
+    "InpMaxTradesPerDay": 1,
+    "InpDeviationPoints": 20,
+    "InpMaxHoldBars": 16,
+    "InpFridayFlattenHour": 20
+  }
+}

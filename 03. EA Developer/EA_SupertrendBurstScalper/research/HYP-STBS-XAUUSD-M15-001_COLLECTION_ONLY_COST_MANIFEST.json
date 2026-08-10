@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_collection_only_cost_manifest.v1",
+  "hypothesis_id": "HYP-STBS-XAUUSD-M15-001",
+  "purpose": "ZERO_TRADE_MODEL0_SIGNAL_ATR_GEOMETRY_CORRECTNESS_AUDIT",
+  "spread_policy": "Empty AlphaFactory CLI token binds semantic current spread; no spread is converted into performance because no orders are allowed.",
+  "commission_policy": "Not applicable in HYP001 because orders and deals are forbidden.",
+  "slippage_policy": "Not applicable in HYP001 because orders and deals are forbidden.",
+  "future_economic_child_requirement": "Bind FivePercent XAUUSD historical bid/ask spread, maximum 4.40 USD/lot round-turn commission, the frozen 1000 ms adverse proxy at x1/x1.5/x2, and disclose fill_observed=false before any return calculation.",
+  "reference_cost_manifest_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/preflight/HYP-LASR-XAUUSD-M5-001/cost_source_manifest.json",
+  "reference_cost_manifest_sha256": "60302CA3E1BFD0603D5EF38A2EA7B93DE58CA44EEBFE58C6CDA991BD2E184D9B",
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "promotion_eligible": false
+}

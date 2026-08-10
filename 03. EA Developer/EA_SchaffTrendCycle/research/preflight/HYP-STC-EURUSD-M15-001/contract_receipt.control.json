@@ -1,0 +1,107 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "binding": {
+    "hypothesis_id": "HYP-STC-EURUSD-M15-001",
+    "run_role": "control",
+    "ea_name": "EA_SchaffTrendCycle",
+    "symbol": "EURUSD",
+    "period": "M15",
+    "from": "2016.01.04",
+    "to": "2021.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "overrides": "InpDeviationPoints=20;InpFridayFlattenHour=20;InpHypothesisId=HYP-STC-EURUSD-M15-001;InpMagic=5603701;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpMaxHoldBars=16;InpMaxTradesPerDay=1;InpResearchAutoMode=true;InpRiskPercent=0.25;InpVariantTag=STC_CLASSIC_TREND_CYCLE_V1",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 0.00001,
+      "pip_size": 0.0001
+    },
+    "required_sidecars": [],
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  "git_commit": "521688f5ee9b7d1f028a91606f64b9ee4134994a",
+  "git_status_sha256": "2A584AF0EBE12958615E23160D595AA65F942E36B401AE6DD547B863C25D07D0",
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycle/research/preflight/HYP-STC-EURUSD-M15-001/task_packet.control.json",
+      "sha256": "9A39A32A1AFCF3569658B1724B7DA4F5E954D4DF67DEB223EAE0FBB2A01FD6E0"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycle/EA_SchaffTrendCycle.mq5",
+      "sha256": "3FA2B8765E2ABD6F04BAE3F442E4696CDD2916BCFE9D9444F9232FAB17A5AF64"
+    },
+    {
+      "label": "ea_contract",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycle/ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "7C42EDCE12A8D4E9DB636FE4B9821B2657B6039B00B9FB8115EC6DF2C6DA6A0B"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycle/research/HYP-STC-EURUSD-M15-001_FROZEN_PREREG.md",
+      "sha256": "EBB58B99D5B89222BD3E51E3AC84AED65EAAF2B7E4B40E30DE64B8C5D0397310"
+    },
+    {
+      "label": "preload_origin_proof",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycle/research/HYP-STC-EURUSD-M15-001_PRELOAD_ORIGIN_PROOF.json",
+      "sha256": "2F8CFEA7F6370857BFB54DDF1D6422ED7E10EB072767052BBB3EC582C649F16C"
+    },
+    {
+      "label": "pre_baseline_review",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycle/research/HYP-STC-EURUSD-M15-001_PRE_BASELINE_REVIEW.md",
+      "sha256": "C18CAC24998CF7D977E0325FCF03AEECE3288662C90B263C316E24643E5BB323"
+    },
+    {
+      "label": "focused_test",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycle/research/tests/test_stc001_contract.py",
+      "sha256": "9E124A5FB9C7FE78F7744C1DD0689A1EAD268EB4635B3DD49ED6B5208427D49D"
+    },
+    {
+      "label": "nonrepaint_manifest",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycle/NONREPAINT_AUDIT_MANIFEST.json",
+      "sha256": "8ACD71AFFC454A89968522D253BDD135F354AF29EEED38E586A0FA3E7175F6F3"
+    },
+    {
+      "label": "nonrepaint_audit",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycle/research/HYP-STC-EURUSD-M15-001_NONREPAINT_AUDIT.json",
+      "sha256": "045D3D976E1F953DF33CC28E4CAAC5C38CE6D9E4EB42C2EB6C795CB4EC795866"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycle/research/HYP-STC-EURUSD-M15-001_COST_SOURCE_MANIFEST.json",
+      "sha256": "7502CE78093562690B2E5D75D3FE58FD890314A7BF4459C9BB7304FEF20F9260"
+    },
+    {
+      "label": "source_to_spec",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycle/research/HYP-STC-EURUSD-M15-001_SOURCE_TO_SPEC.md",
+      "sha256": "A43C96DBC954888B6168D73941A4B98773984E814F62578366642DA07639E543"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+      "sha256": "1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"
+    }
+  ]
+}

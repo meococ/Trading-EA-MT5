@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-JCDR-EURUSD-M5-006",
+  "run_id": "STATIC-HYP-JCDR-EURUSD-M5-006-PACKAGE-20260810",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_JCDR_PureReversal\\NONREPAINT_AUDIT_MANIFEST.json",
+  "manifest_sha256": "26C8B342D03211BBFC2E24252329E9B7A2534E1D05C927D105C3E8EC23AC7FCE",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_JCDR_PureReversal\\EA_JCDR_PureReversal.mq5",
+      "sha256": "383C582060C0332BD1A73E24316E619C125462D54046FD30CCC0AF56E7B49869"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-10T08:14:06.427723+00:00"
+}

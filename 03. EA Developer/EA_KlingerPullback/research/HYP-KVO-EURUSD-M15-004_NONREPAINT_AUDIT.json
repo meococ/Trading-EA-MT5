@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-KVO-EURUSD-M15-004",
+  "run_id": "KVO004-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_KlingerPullback\\HYP-KVO-EURUSD-M15-004_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "9667661930C7D84D375B6DF9920A9053131840FD805E4130AD26CD68E6DD544F",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_KlingerPullback\\EA_KlingerPullback.mq5",
+      "sha256": "D106560C5960AE90E8AA83767C14065B51BDDF09D55DAF34DE0DCA67399249C2"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_KlingerPullback\\EA_KlingerPullback.mq5",
+      "line": 162,
+      "rule": "collection_first_date_copytime",
+      "function": "CopyTime",
+      "disposition": "allowed_collection_provenance_read"
+    }
+  ],
+  "generated_at_utc": "2026-08-10T14:16:44.210187+00:00"
+}

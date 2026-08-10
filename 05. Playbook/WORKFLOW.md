@@ -108,3 +108,11 @@ Mỗi run giữ cùng một bundle: run ID, source hash, parameter file, data ra
 ```
 
 Nếu CLI thay đổi, `alpha.ps1 help` và source hiện tại thắng ví dụ trong tài liệu.
+
+## Anti-setup guardrail
+
+- Correctness và evidence integrity là gate, nhưng số hypothesis engineering không được coi là tiến bộ kinh tế.
+- Sau source pass, đường mặc định là direct MQL5 parity rồi một baseline chưa tối ưu. Comparator/governance-only child chỉ được mở khi nó thực sự mở khóa evidence không thể thu lại rẻ hơn.
+- Sau ba engineering revisions của cùng mechanism kể từ source pass, phải có opportunity-cost review độc lập trước revision tiếp theo.
+- Nếu diagnostic cho thấy mechanism rất xa ngưỡng mà không có thesis causal mới, đóng exact lane; không cứu bằng filter, threshold, session hay parser/harness expansion.
+- Mọi status update phải gắn nhãn rõ: `source/formula`, `implementation`, `economic evidence`, `validation` hoặc `governance only`.

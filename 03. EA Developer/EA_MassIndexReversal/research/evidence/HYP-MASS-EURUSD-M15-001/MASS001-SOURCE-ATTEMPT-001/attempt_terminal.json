@@ -1,0 +1,9 @@
+{
+  "attempt_id": "MASS001-SOURCE-ATTEMPT-001",
+  "hypothesis_id": "HYP-MASS-EURUSD-M15-001",
+  "receipt_sha256": "B28888E46F4D1D20AEED24F11A334042010BB297FA83512FC6FC4E289CDDCB11",
+  "same_id_retry_allowed": false,
+  "schema_version": "mass_source_attempt_terminal.v1",
+  "status": "COMPLETE",
+  "verdict": "PARK_SOURCE_FEASIBILITY"
+}

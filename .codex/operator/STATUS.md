@@ -1,6 +1,6 @@
 # Operator Recovery Pointer
 
-Updated: 2026-08-07.
+Updated: 2026-08-10.
 
 This file is a non-authoritative recovery pointer for long operator sessions.
 It must not duplicate hypothesis metrics, package ledgers, current row counts,
@@ -16,20 +16,26 @@ canonical sources elsewhere.
 
 ## Current scoped frontier
 
-- The indicator/visual campaign has a durable frontier-stop readout at
-  `04. Memory/research/20260807_INDICATOR_FUSION_FRONTIER_STOP.md`.
-- `HYP-RSF-EURUSD-M5-PATH-011` is terminal and its OOS stayed sealed. The
-  current EA source is engineering-valid, but closed-bar path management did
-  not create positive expectancy; see the package result/failure packet.
-- JCDR HYP005 is terminal after its one outcome-blind diagnostic attempt. Do
-  not rerun or tune the JCDR event clock.
-- Independent de-dup review rejected TB sweep/reclaim and fresh BOS/MSS-retest
-  recombinations as weak/duplicate descendants of already closed families.
-- Web-backed primary-source research found no legal free/broker-native M5/M15
-  event clock inside the declared boundary. Goal remains ACTIVE/UNMET.
-- The next safe action is not another EA build. It is an Owner-authorized,
-  hash-bound point-in-time source pilot with explicit license, budget,
-  historical/live latency and nine-symbol family coverage.
+- The long Supertrend/STBS campaign is terminal as a source of campaign
+  priority. Its engineering artifacts remain evidence, but no new comparator,
+  parser or governance child is allowed merely to preserve that lane.
+- `HYP-JCDR-EURUSD-M5-006` completed one admissible untuned Model-0 baseline and
+  is terminally killed: 562 trades, 2.1568/week, PF 0.763972 after report costs,
+  price-only PF 0.851207, expectancy -14.04/trade and equity DD 8.02%.
+- Goal remains `ACTIVE / UNMET`. The active KPI is now
+  `time-to-first-admissible-untuned-baseline`, not hypothesis/artifact count.
+- Only one market mechanism may be active. Before its baseline: one short
+  prereg, source-to-spec/boundary review, focused tests, compile and non-repaint
+  audit through the existing AlphaFactory path. Maximum two engineering
+  revisions; a third requires an independent opportunity-cost PASS.
+- Governance-only work is explicitly a cost and is never reported as market
+  progress. Bind scoped source/config/prereg/run artifacts; do not seal the
+  dynamic whole-worktree path set.
+- Current next experiment: choose one materially fresh indicator mechanism,
+  freeze its standard formula and risk/exit contract, then go directly to one
+  untuned Model-0 baseline. If PF is far below 1.30 and the raw/pre-cost edge is
+  negative across directions/years without an implementation defect, kill the
+  mechanism rather than adding filters or parser/harness children.
 
 ## Recover current truth
 

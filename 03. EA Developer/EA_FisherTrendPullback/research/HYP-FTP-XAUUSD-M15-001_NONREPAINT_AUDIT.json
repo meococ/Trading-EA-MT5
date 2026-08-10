@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-FTP-XAUUSD-M15-001",
+  "run_id": "FTP001-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_FisherTrendPullback\\HYP-FTP-XAUUSD-M15-001_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "C096E63E4759A0EC9D9B1C8F6D736EEF859EDD50DF1ED0736CF4B7948DB44331",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_FisherTrendPullback\\EA_FisherTrendPullback.mq5",
+      "sha256": "5F0431350A4F25743528415BF080FCC5D9A319198DFB6452AC4086CA6F704121"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-10T11:27:16.343942+00:00"
+}

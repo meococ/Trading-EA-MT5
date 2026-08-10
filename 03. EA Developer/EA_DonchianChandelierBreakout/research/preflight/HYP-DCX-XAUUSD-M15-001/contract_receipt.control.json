@@ -1,0 +1,117 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "hypothesis_id": "HYP-DCX-XAUUSD-M15-001",
+  "task_packet_sha256": "3F7DC30F28133149E630143AB651B0F13AE3D082E63D8EEFAD834CDFB8BAFF24",
+  "git_commit": "521688f5ee9b7d1f028a91606f64b9ee4134994a",
+  "git_status_sha256": "A318352EF8F6E7B5000670C21220F93E362033EB50DA3990449F43DD780BFCB6",
+  "binding": {
+    "hypothesis_id": "HYP-DCX-XAUUSD-M15-001",
+    "run_role": "control",
+    "ea_name": "EA_DonchianChandelierBreakout",
+    "symbol": "XAUUSD",
+    "period": "M15",
+    "from": "2010.01.04",
+    "to": "2018.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "overrides": "InpDeviationPoints=20;InpFridayFlattenHour=20;InpHypothesisId=HYP-DCX-XAUUSD-M15-001;InpMagic=5603801;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpMaxTradesPerDay=1;InpResearchAutoMode=true;InpRiskPercent=0.25;InpVariantTag=DONCHIAN20_CHANDELIER22X3_V1",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 2,
+      "point": 0.01,
+      "pip_size": 0.01
+    },
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout\\research\\HYP-DCX-XAUUSD-M15-001_BASELINE_TASK.json",
+      "sha256": "3F7DC30F28133149E630143AB651B0F13AE3D082E63D8EEFAD834CDFB8BAFF24"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout\\EA_DonchianChandelierBreakout.mq5",
+      "sha256": "A4BE71F1A1F98DCDE3C181C8BDF60017CA981816F0871D5CAC281565132FB94F"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout\\research\\HYP-DCX-XAUUSD-M15-001_FROZEN_PREREG.md",
+      "sha256": "96AB6842D9E84948E6CC8F6EF912DDA860BC02B9928394ED658EF7AFF4E96A2D"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout\\research\\preflight\\HYP-DCX-XAUUSD-M15-001\\cost_source_manifest.unverified.json",
+      "sha256": "B762323F169BE0400A11F3598669662231D8DE2451489BAAEC98075517917612"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+      "sha256": "1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"
+    },
+    {
+      "label": "ea_contract",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout\\ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "BE3F4F599BD4CEA064B884B4A7D4EC56048BC06B876640D14BE36B73913281BD"
+    },
+    {
+      "label": "static_ex5",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout\\EA_DonchianChandelierBreakout.ex5",
+      "sha256": "6CE302EB2D201E35B938751CCD60B0C35B2F0F4BAF44E9B29A8539D9BD3810BF"
+    },
+    {
+      "label": "static_compile_log",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout\\EA_DonchianChandelierBreakout.log",
+      "sha256": "ABB650DB7FB9B1AE3C5BE7E451EDB4FA5462C6C96B1E68F64A2A30BE1EDDAE84"
+    },
+    {
+      "label": "source_test",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout\\research\\tests\\test_dcx_source_contract.py",
+      "sha256": "7CE3E40FF36A5FFC751BA2C8E112E829E3EEE4DC21EC0556237D8846982FBF87"
+    },
+    {
+      "label": "nonrepaint_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout\\HYP-DCX-XAUUSD-M15-001_NONREPAINT_MANIFEST.json",
+      "sha256": "1BEEA58194A1BAFF6D0224AE5BAA46B5A21645EF9B3D3D2A5805A058A4F6D207"
+    },
+    {
+      "label": "nonrepaint_audit",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout\\research\\HYP-DCX-XAUUSD-M15-001_NONREPAINT_AUDIT.json",
+      "sha256": "376ABCCA3789CC641EC9C8FE93050DF33B2084A8A2389B25D3B946C19F75755A"
+    },
+    {
+      "label": "independent_review",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout\\research\\HYP-DCX-XAUUSD-M15-001_INDEPENDENT_PRE_RUN_REVIEW.md",
+      "sha256": "61DB2EC0C1B0772ABDBBE9D02C2D5CD092D7F5407108B8BC7EE8022DCE8E6F0C"
+    },
+    {
+      "label": "alpha_ps1",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\alpha.ps1",
+      "sha256": "55B3B0641BD843B1B1D9620086180CDBC180E9FA2865B08090ED89DF92043571"
+    }
+  ],
+  "generated_at_utc": "2026-08-10T11:12:00Z",
+  "note": "Frozen sole untuned DCX TRAIN baseline receipt. The bound cost manifest permits falsification only and explicitly withholds economic-valid and promotion-ready claims."
+}

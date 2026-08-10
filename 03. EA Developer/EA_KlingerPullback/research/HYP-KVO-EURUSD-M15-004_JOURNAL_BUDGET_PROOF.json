@@ -1,0 +1,42 @@
+{
+  "schema_version": "kvo004_journal_budget_proof.v1",
+  "parent_hypothesis_id": "HYP-KVO-EURUSD-M15-003",
+  "parent_run_id": "20260810_210309",
+  "parent_closed_bars": 197804,
+  "parent_raw_signals": 9524,
+  "routine_record_regex_removed": "KVO003_(SIGNAL|ENTRY|ORDER_CHECK_REJECT|ORDER_SEND_REJECT)",
+  "source_segments": [
+    {
+      "path": "02. AlphaFactory/runtime/mt5-portable-fivepercent/Tester/logs/20260810.log",
+      "source_sha256": "18B86AFF2CBF2BAC93321D2A6662C43F63E6593600042E40D1BE21118F4F959E",
+      "start_line_zero_based": 62749,
+      "end_line_zero_based_inclusive": 72547,
+      "segment_lines": 9799,
+      "compact_lines": 253,
+      "compact_utf16_estimated_bytes": 59464
+    },
+    {
+      "path": "02. AlphaFactory/runtime/mt5-portable-fivepercent/Tester/Agent-127.0.0.1-3000/logs/20260810.log",
+      "source_sha256": "4B712A77CA13D78A4E1BA0395497D9C988EB3CE49337092C9FB1D6D5C9DBBD60",
+      "start_line_zero_based": 62696,
+      "end_line_zero_based_inclusive": 72494,
+      "segment_lines": 9799,
+      "compact_lines": 253,
+      "compact_utf16_estimated_bytes": 58736
+    }
+  ],
+  "diagnostic_compact_utf16_estimated_bytes": 118200,
+  "diagnostic_limitation": "HYP003 set runtime_failed on its first MARKET_CLOSED response, so later raw signals did not traverse the broker-attempt path. The compact projection is not used as the cap bound.",
+  "train_calendar_days": 2919,
+  "max_native_rows_per_rejected_attempt": 1,
+  "max_native_rows_per_accepted_entry_and_exit_lifecycle": 8,
+  "extra_native_rows_per_accepted_lifecycle_over_reject": 7,
+  "bounded_native_lines_per_source": 29957,
+  "journal_source_multiplicity": 2,
+  "bounded_utf16_bytes_per_native_record": 260,
+  "fixed_overhead_bytes": 1048576,
+  "bounded_total_bytes": 16626216,
+  "max_journal_delta_bytes": 33554432,
+  "headroom_multiple": 2.018,
+  "interpretation": "Evidence-cap sizing only. It does not change the signal, entry, risk, exit, cost or acceptance rules. Truncation remains fatal."
+}

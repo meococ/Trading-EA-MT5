@@ -1,0 +1,8 @@
+{
+  "hypothesis_id": "HYP-FTP-XAUUSD-M15-001",
+  "run_id": "FTP001-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_FisherTrendPullback",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_FisherTrendPullback\\EA_FisherTrendPullback.mq5",
+  "source_sha256": "5F0431350A4F25743528415BF080FCC5D9A319198DFB6452AC4086CA6F704121",
+  "include_snapshots": []
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": "stc_failure_packet.v1",
+  "hypothesis_id": "HYP-STC-EURUSD-M15-001",
+  "run_id": "20260810_163332",
+  "verdict": "KILL_ENGINEERING_PRELOAD_FALSE_REJECT_NO_ECONOMIC_VERDICT",
+  "failure_stage": "MT5_ONINIT_BEFORE_DATA_OR_SIGNALS",
+  "same_id_retry_authorized": false,
+  "economic_verdict_opened": false,
+  "performance_metrics_admissible": false,
+  "orders": 0,
+  "trades": 0,
+  "returns": 0,
+  "tester_journal_evidence": {
+    "source": "02. AlphaFactory/runtime/mt5-portable-fivepercent/Tester/Agent-127.0.0.1-3000/logs/20260810.log",
+    "source_sha256_at_diagnosis": "796E7ED07E2DC4C7ECEAC1F20AF6BC1AF9DAC4749D367038742618148002343B",
+    "lines": [
+      "2016.01.04 00:00:00   STC001_FATAL reason=INDICATOR_PRELOAD",
+      "2016.01.04 00:00:00   STC001_SUMMARY hypothesis=HYP-STC-EURUSD-M15-001 closed_bars=0 raw=0 long=0 short=0 entries=0 rejects=0 closes=0 clock_rejects=0 invalid=0 runtime_failed=false reason=8"
+    ],
+    "mutable_global_source_disclosed": true
+  },
+  "native_m15_read_only_diagnostic": {
+    "terminal": "MetaTrader 5 build 6090",
+    "symbol": "EURUSD",
+    "period": "M15",
+    "requested_utc_window": "2015-01-01T00:00:00Z through 2016-01-04T00:00:00Z",
+    "returned_count_including_current_design_bar": 24777,
+    "first_time": "2015-01-02T09:00:00Z",
+    "last_time": "2016-01-04T00:00:00Z",
+    "implied_preload_count": 24776,
+    "implied_preload_last": "2015-12-31T20:00:00Z",
+    "outcomes_opened": false
+  },
+  "bound_run_artifacts": {
+    "run_manifest": {
+      "path": "02. AlphaFactory/runs/EA_SchaffTrendCycle/20260810_163332/run_manifest.json",
+      "sha256": "B73FF1D4D883850EEFA1F3EE6D3074B8D9E0896A4181CDB920A636A09AB64116"
+    },
+    "report": {
+      "path": "02. AlphaFactory/runs/EA_SchaffTrendCycle/20260810_163332/report.html",
+      "sha256": "81D450EA76A288B75D0A6AA126717DB82232B1CD3FC89449CCDC0C6AC29CE2A3"
+    },
+    "config": {
+      "path": "02. AlphaFactory/runs/EA_SchaffTrendCycle/20260810_163332/config.ini",
+      "sha256": "538DEC6CB2A8230BAA560B417472F92179B11F398CA32F3470A166ECAE73061B"
+    },
+    "source_snapshot": {
+      "path": "02. AlphaFactory/runs/EA_SchaffTrendCycle/20260810_163332/snapshot/source/EA_SchaffTrendCycle.mq5",
+      "sha256": "3FA2B8765E2ABD6F04BAE3F442E4696CDD2916BCFE9D9444F9232FAB17A5AF64"
+    },
+    "ex5_snapshot": {
+      "path": "02. AlphaFactory/runs/EA_SchaffTrendCycle/20260810_163332/snapshot/build/EA_SchaffTrendCycle.ex5",
+      "sha256": "5DB03685C847FF7A49C08A71DDD10235DF3A9417C710F9701A89C2A38712B21C"
+    }
+  },
+  "failure_radius": "Only HYP-STC-EURUSD-M15-001's premature preload readiness gate. The report contains zero bars/ticks/trades and supports no claim about STC cadence, expectancy, PF, drawdown or market edge."
+}

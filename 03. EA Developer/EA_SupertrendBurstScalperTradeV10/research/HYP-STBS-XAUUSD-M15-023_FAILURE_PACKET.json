@@ -1,0 +1,90 @@
+{
+  "schema_version": "alphafactory_engineering_failure_packet.v1",
+  "hypothesis_id": "HYP-STBS-XAUUSD-M15-023",
+  "attempt_id": "STBS023-MODEL0-TRAIN-001",
+  "run_id": "20260810_043258",
+  "verdict": "KILL_ENGINEERING_JOURNAL_DELTA_TRUNCATED_UNTYPED_POST_MT5_NO_ECONOMIC_VERDICT",
+  "failure_radius": "The sole Model0 run compiled and produced MT5 report and lifecycle sidecars, but AlphaFactory rejected the journal delta as truncated before formal data-quality typing, verified-cost construction, unified validation, or economic acceptance.",
+  "authority": {
+    "screened_registry_line": 864,
+    "screened_registry_row_sha256": "8C851B152F0470E5350BF0EC3A892FDD03F47D0D7606A9C7AE43741DA3978869",
+    "registry_snapshot_sha256": "77FB5CB217C9B0498BAD78EFE488871ADBECF6ABBEB81B8EA0D76F6EBCBA63F4",
+    "task_packet_sha256": "4DE69625579FBF109ED465758DFBC9568F506BDD566635900FADC0F19325E6EC",
+    "same_id_retry_authorized": false
+  },
+  "attempt": {
+    "attempt_started_path": "02. AlphaFactory/runtime/model0_economic_attempts/HYP-STBS-XAUUSD-M15-023/STBS023-MODEL0-TRAIN-001/attempt_started.json",
+    "attempt_started_sha256": "7F5A64EE9D096B76E465BDD1C8D7C78F4AD25328C533D18D1692DBE5F0E9C030",
+    "attempt_terminal_path": "02. AlphaFactory/runtime/model0_economic_attempts/HYP-STBS-XAUUSD-M15-023/STBS023-MODEL0-TRAIN-001/attempt_terminal.json",
+    "attempt_terminal_sha256": "CAC653F17CAEFC7785325EF99BE3968C47B8A3B3645D173A59046EDC6E5BF6DC",
+    "terminal_status": "FAILED",
+    "terminal_run_id": null,
+    "terminal_run_dir": null,
+    "terminal_binding_disclosure": "The generic attempt terminal did not bind the run identity after the Alpha step failed. The unique Alpha run is bound below by its complete artifact path and hashes."
+  },
+  "run": {
+    "run_dir": "02. AlphaFactory/runs/EA_SupertrendBurstScalperTradeV10/20260810_043258",
+    "manifest_sha256": "D3FCCD7CDBB37AF4D503989AC4C7657555EED007DDE967C5B76121AD000D9B32",
+    "report_sha256": "65619594E63A0CE1453730A894E9EE010FB45227B6ACB49E721A3D09B13D8E46",
+    "journal_sha256": "CDF560282451E428FE206DC09DF02ED20249DE4DF978FDFE0CFF63E6B809A994",
+    "lifecycle_sha256": "0F3B393D7BFB764DD69BC670ABA68E7B8D1E36CBB743BC6D6A1AD33D1A171FDA",
+    "runmeta_sha256": "8C1BA6FE0989CA0765BAA3E11844D4FAF15BCE675C5A702ECD1BA7771F9CBCC8",
+    "source_snapshot_sha256": "4B481CE867DB8A9F9E02AB218FEA50C88FD37A48B8ECB92E2048418DB7F7769B",
+    "ex5_snapshot_sha256": "AC1C477CFD56EAF3C35C02B7352F7A7451EA265B47772D39BF2C23FFCEE0C51D",
+    "config_snapshot_sha256": "77079C067B7ED073E316E16B478430A57BAC1199100E12FD97F5E6162D4E0B42",
+    "history_quality_pct": 98
+  },
+  "journal_failure": {
+    "max_journal_delta_bytes": 1048576,
+    "bytes_read": 1048576,
+    "files_read": 2,
+    "truncated": true,
+    "exported_bytes": 524289,
+    "exported_lines": 3508,
+    "margin_stress_unsafe_lines_in_export": 1209,
+    "summary_lines": 0,
+    "ends_mid_line": true,
+    "last_observed_tester_time": "2020-01-07T02:00:00",
+    "source_log_site": "EA_SupertrendBurstScalperTradeV10.mq5:1864-1866"
+  },
+  "mechanical_reconciliation_only": {
+    "raw_signals": 690,
+    "executable_signals": 683,
+    "gap_consumed": 7,
+    "long_signals": 339,
+    "short_signals": 344,
+    "atr_ready": 683,
+    "geometry_ready": 683,
+    "margin_ready": 683,
+    "entries": 464,
+    "entry_rejects": 219,
+    "closes": 464,
+    "lifecycle_rows": 928,
+    "lifecycle_open_rows": 464,
+    "lifecycle_final_close_rows": 464,
+    "report_deals": 929,
+    "funding_rows": 1,
+    "runtime_failed": false,
+    "margin_emergencies": 0,
+    "forced_stopouts": 0
+  },
+  "archived_failure_control": {
+    "last_failed_path": "03. EA Developer/EA_SupertrendBurstScalperTradeV10/research/evidence/HYP-STBS-XAUUSD-M15-023/STBS023-FAILURE-CLOSE-001/last_failed_ea_research_loop.json",
+    "last_failed_sha256": "153BECAF58E89B97A75054BAE6436E6940A9E4560889C2E701C0E044FFF4C006",
+    "transition_log_path": "03. EA Developer/EA_SupertrendBurstScalperTradeV10/research/evidence/HYP-STBS-XAUUSD-M15-023/STBS023-FAILURE-CLOSE-001/ea_research_transitions.jsonl",
+    "transition_log_sha256": "9AF3E3F54307D19D9468042BCC782DCB1D7F8341CE60D08DC9496D1ED23C0E4A"
+  },
+  "economic_boundary": {
+    "verified_cost_artifact_created": false,
+    "unified_validation_completed": false,
+    "returns_accepted": false,
+    "profit_factor_accepted": false,
+    "performance_trials_executed": 0,
+    "economics_executed": false,
+    "research_validation_opened": false,
+    "research_holdout_opened": false,
+    "promotion_eligible": false,
+    "market_edge_claim_authorized": false
+  },
+  "recommended_next_lane": "Fresh HYP024/V11 telemetry-only revision. Preserve the complete trading mapping and remove per-volume-candidate unsafe journal spam; retain fatal diagnostics and terminal summary, prove a worst-case journal budget below one MiB, and use a fresh one-shot authority."
+}

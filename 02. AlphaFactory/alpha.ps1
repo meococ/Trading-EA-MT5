@@ -680,7 +680,11 @@ function Register-RunnerOwnedTerminal([int]$ProcessId) {
     Write-BacktestLockPayload
 }
 
-function Stop-RunnerOwnedTerminal([int]$ProcessId) {
+function Stop-RunnerOwnedTerminal {
+    param(
+        [int]$ProcessId,
+        [switch]$AllowExitedOrReused
+    )
     if (-not $script:OwnedTerminalIdentities.ContainsKey($ProcessId)) {
         throw "Refusing to stop terminal64 PID $ProcessId because it is not runner-owned."
     }
@@ -692,6 +696,15 @@ function Stop-RunnerOwnedTerminal([int]$ProcessId) {
         return
     }
     if (-not (Test-RunnerOwnedTerminalIdentity $ProcessId $expectedIdentity)) {
+        if ($AllowExitedOrReused) {
+            # A completed /ShutdownTerminal run can exit after the report appears
+            # but before this cleanup check. The PID may already be gone or reused.
+            # Never stop the replacement; simply release the stale ownership claim.
+            Write-Status "Runner-owned terminal PID $ProcessId already exited or was reused after report completion; replacement process was not stopped." "WARN"
+            [void]$script:OwnedTerminalIdentities.Remove($ProcessId)
+            Write-BacktestLockPayload
+            return
+        }
         throw "Refusing to stop terminal64 PID $ProcessId because its process identity changed (PID reuse or executable/start-time mismatch)."
     }
     Stop-Process -Id $ProcessId -Force -ErrorAction Stop
@@ -1114,7 +1127,7 @@ function Assert-ContractReceipt($ReceiptPath, $ExpectedReceiptSha256, $Binding) 
             throw "Contract receipt binding '$field' does not match the alpha invocation."
         }
     }
-    foreach ($field in @('model', 'execution_mode', 'fixed_delay_ms', 'deposit', 'leverage')) {
+    foreach ($field in @('model', 'execution_mode', 'fixed_delay_ms', 'timeout_sec', 'deposit', 'leverage')) {
         if ([int64]$receiptBinding.$field -ne [int64]$Binding.$field) {
             throw "Contract receipt binding '$field' does not match the alpha invocation."
         }
@@ -1233,6 +1246,19 @@ function ConvertTo-FiniteInvariantDouble($Value, [string]$Label) {
     return $parsed
 }
 
+function ConvertTo-HistoryQualityPercent($Value) {
+    $text = ([string]$Value).Trim()
+    $match = [regex]::Match(
+        $text,
+        '^(?<value>[+-]?(?:\d+(?:\.\d*)?|\.\d+))\s*%(?:\s+\S.*)?$',
+        [System.Text.RegularExpressions.RegexOptions]::CultureInvariant
+    )
+    if ($match.Success) {
+        return ConvertTo-FiniteInvariantDouble $match.Groups['value'].Value "Report History Quality"
+    }
+    return ConvertTo-FiniteInvariantDouble $text "Report History Quality"
+}
+
 function Resolve-DataQualityContract($Receipt, $Binding) {
     $bindingObject = $Receipt.binding
     $contractCandidates = @(
@@ -1250,10 +1276,31 @@ function Resolve-DataQualityContract($Receipt, $Binding) {
     $contractProperty = $contractExact[0]
     $contract = $contractProperty.Value
     $contractKeys = @($contract.PSObject.Properties.Name | Sort-Object)
-    $expectedKeys = @('availability_asof_utc', 'coverage_mode', 'history_quality', 'requested_from', 'requested_to', 'require_tester_journal_bounds')
-    $expectedKeys = @($expectedKeys | Sort-Object)
-    if ([string]::Join("`n", $contractKeys) -cne [string]::Join("`n", $expectedKeys)) {
-        throw "data_quality_contract must contain exactly: $([string]::Join(', ', $expectedKeys))."
+    $baseKeys = @('availability_asof_utc', 'coverage_mode', 'history_quality', 'requested_from', 'requested_to', 'require_tester_journal_bounds')
+    $baseKeys = @($baseKeys | Sort-Object)
+    $boundedJournalKeys = @($baseKeys + 'max_journal_delta_bytes' | Sort-Object)
+    $keySignature = [string]::Join("`n", $contractKeys)
+    if ($keySignature -cne [string]::Join("`n", $baseKeys) -and
+        $keySignature -cne [string]::Join("`n", $boundedJournalKeys)) {
+        throw "data_quality_contract must contain the six base fields and may additionally contain only max_journal_delta_bytes."
+    }
+    [int64]$maxJournalDeltaBytes = 1048576L
+    if ($contractKeys -ccontains 'max_journal_delta_bytes') {
+        $maxCandidate = $contract.max_journal_delta_bytes
+        $integerTypes = @(
+            [byte], [sbyte], [int16], [uint16], [int32], [uint32], [int64], [uint64]
+        )
+        if ($null -eq $maxCandidate -or $maxCandidate.GetType() -notin $integerTypes) {
+            throw "data_quality_contract.max_journal_delta_bytes must be an integer."
+        }
+        if ([uint64]$maxCandidate -gt [uint64][int64]::MaxValue) {
+            throw "data_quality_contract.max_journal_delta_bytes is outside the supported range."
+        }
+        $maxJournalDeltaBytes = [int64]$maxCandidate
+        if ($maxJournalDeltaBytes -lt 1048576L -or $maxJournalDeltaBytes -gt 67108864L -or
+            (($maxJournalDeltaBytes -band ($maxJournalDeltaBytes - 1L)) -ne 0L)) {
+            throw "data_quality_contract.max_journal_delta_bytes must be a power of two from 1048576 through 67108864."
+        }
     }
     $symbol = [string]$Binding.symbol
     if ($symbol -notmatch '^[A-Za-z0-9][A-Za-z0-9._+-]{0,63}$') {
@@ -1332,7 +1379,7 @@ function Resolve-DataQualityContract($Receipt, $Binding) {
         coverage_mode = [string]$contract.coverage_mode
         availability_asof_utc = $asof.UtcDateTime.ToString('o')
         require_tester_journal_bounds = $true
-        max_journal_delta_bytes = 1048576L
+        max_journal_delta_bytes = $maxJournalDeltaBytes
     }
 }
 
@@ -1607,7 +1654,7 @@ function Assert-DataQualityRunEvidence($Manifest) {
     $seriesProof = Get-DataQualitySeriesProof $journalText ([string]$contract.symbol) ([string]$range.actual_from)
 
     $rawHistoryQuality = Get-ReportLabeledValue (Get-Content -LiteralPath ([string]$Manifest.report_path) -Raw) @('History Quality') 'history quality'
-    $historyQuality = ConvertTo-FiniteInvariantDouble $rawHistoryQuality "Report History Quality"
+    $historyQuality = ConvertTo-HistoryQualityPercent $rawHistoryQuality
     $threshold = ConvertTo-FiniteInvariantDouble $contract.history_quality_threshold "data_quality_contract.history_quality_threshold"
     if ($historyQuality -le $threshold) {
         throw "Report History Quality $historyQuality is not greater than threshold $threshold."
@@ -2169,7 +2216,7 @@ function Do-Backtest($EAName, $Sym, $Per, $FromD, $ToD, $TimeoutSec, $Overrides 
     $receiptBinding = [pscustomobject]@{
         hypothesis_id = $HypothesisId; run_role = $RunRole; ea_name = $EAName; symbol = $Sym; period = $Per
         from = $FromD; to = $ToD; model = $Model; execution_mode = $ExecutionMode
-        fixed_delay_ms = $FixedDelayMs; overrides = $effectiveOverrides; telemetry_tier = $TelemetryTier
+        fixed_delay_ms = $FixedDelayMs; timeout_sec = $TimeoutSec; overrides = $effectiveOverrides; telemetry_tier = $TelemetryTier
         telemetry_profile = $sourceContract.TelemetryProfile
         deposit = $Deposit; leverage = $Leverage; spread = $effectiveSpread
         required_sidecars = @($requiredSidecarList)
@@ -2352,7 +2399,7 @@ Leverage=$Leverage
                 Write-Status "Waiting for report (relaunch $retry/12)..." "INFO"
             }
             # Stop only the PID created and registered by this invocation.
-            Stop-RunnerOwnedTerminal $mt5Relaunch.Id
+            Stop-RunnerOwnedTerminal $mt5Relaunch.Id -AllowExitedOrReused:$reportFound
             Start-Sleep -Seconds 2
             if ($reportFound) { break }
 
@@ -2374,7 +2421,7 @@ Leverage=$Leverage
 
     # Freeze process-owned output before collecting evidence. PID ownership is
     # checked against PID + start time + executable before any stop request.
-    Stop-RunnerOwnedTerminal $mt5Pid
+    Stop-RunnerOwnedTerminal $mt5Pid -AllowExitedOrReused
     if ((Get-Sha256Required $stagedEx5Path "Staged EX5") -ine $stagedEx5Hash) {
         throw "Staged EX5 changed during MT5 execution."
     }

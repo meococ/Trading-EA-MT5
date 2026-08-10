@@ -1,0 +1,34 @@
+{
+  "schema_version": "cbrk_engineering_failure.v1",
+  "hypothesis_id": "HYP-CBRK-XAUUSD-M5-001",
+  "verdict": "PARK_ENGINEERING_PRE_EXECUTION_SIGNAL_SESSION_CLOCK_MISMATCH_NO_MT5_NO_OUTCOMES_NO_ECONOMICS",
+  "stage": "PRE_EXECUTION_STATIC_REVIEW",
+  "failure_radius": "Exact source/prereg package D363121D...3298B only: the session gate is evaluated on decision-time utc_now before the just-closed signal bar is loaded, so the implemented signal-bar window is [06:55,15:55) rather than frozen [07:00,16:00).",
+  "mechanism_rejected": false,
+  "economic_edge_rejected": false,
+  "source_data_opened": false,
+  "mt5_attempts": 0,
+  "mt5_launches": 0,
+  "model0_runs": 0,
+  "orders": 0,
+  "trades": 0,
+  "returns_computed": 0,
+  "economics_executed": false,
+  "evidence": {
+    "source_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/EA_LOMX_MultiAssetMomentum.mq5",
+    "source_sha256": "D363121DC7FFCB128A67C796B76F8B86C8AB2262FF045EAC62B49FE19FB3298B",
+    "prereg_path": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/HYP-CBRK-XAUUSD-M5-001_FROZEN_PREREG.md",
+    "prereg_sha256": "65E1B251F4A7D0CEDC57C6E01A8D9575813DA626182CA9C2588C5D048BC80B61",
+    "authorized_probe_row_sha256": "39923861CFC7367E9E7C74AC522A8FD90DACDD5E6DD839FE1EA674ACAFB7EAFE",
+    "compile_log_sha256": "A23416DE4E012D619358E30338A8FF7A78CF1BF4CED8AA24603456F397F1C51F",
+    "ex5_sha256": "554D4A3DBD94FC2A44DB70DDC331EB5D5438203B0D4CF917C35ECC03283C0689",
+    "nonrepaint_audit_sha256": "957F61999307AE1D1DF3378AB29525D3946357C123F0492182B5E9246923A35A"
+  },
+  "required_revision": {
+    "fresh_hypothesis_id": "HYP-CBRK-XAUUSD-M5-002",
+    "signal_clock": "ServerToUtc(rates[0].time) after LoadClosedBars",
+    "session": "weekday and [07:00,16:00) on signal-bar UTC",
+    "asian_range_reference": "signal-bar UTC",
+    "boundary_tests": ["06:55 reject", "07:00 accept", "15:55 accept", "16:00 reject", "rates[1] mutation reject"]
+  }
+}

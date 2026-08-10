@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-CCI-XAUUSD-M15-001",
+  "run_id": "CCI001-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_CCIExpansion",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_CCIExpansion\\EA_CCIExpansion.mq5",
+  "source_sha256": "D08999121732CA3B42BBE4125A3FD7D089734364E56D6F3F1F9D6F3A8780EE65",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

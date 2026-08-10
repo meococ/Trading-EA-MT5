@@ -1,0 +1,81 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "authority": "DATA_ACQUISITION_ONLY_NO_PERFORMANCE",
+  "hypothesis_id": "HYP-TFCVD-XAUUSD-M5-001",
+  "task_packet_sha256": "AADC40A2A32EE1406C3FF323BB996315984B24D6CEA86886E1D6AE441B9FF6FB",
+  "git_commit": "521688f5ee9b7d1f028a91606f64b9ee4134994a",
+  "git_status_sha256": "DC19319290F345B792930C4D622E30F4D279E6E21BA0D84C19768342A98A26C5",
+  "binding": {
+    "hypothesis_id": "HYP-TFCVD-XAUUSD-M5-001",
+    "run_role": "control",
+    "ea_name": "EA_TickFlowCVDProbe",
+    "symbol": "XAUUSD",
+    "period": "M5",
+    "from": "2018.01.01",
+    "to": "2022.12.31",
+    "model": 4,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpCollectionOnly=true;InpExpectedPeriodMinutes=5;InpExpectedSymbol=XAUUSD;InpHypothesisId=HYP-TFCVD-XAUUSD-M5-001",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 2,
+      "point": 0.01,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "indicator_dependencies": [],
+    "data_quality_contract": {
+      "history_quality": {
+        "operator": "gt",
+        "value": 97.0
+      },
+      "coverage_mode": "fixed_window",
+      "availability_asof_utc": "2026-08-08T18:18:00Z",
+      "requested_from": "2018.01.01",
+      "requested_to": "2022.12.31",
+      "require_tester_journal_bounds": true
+    }
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_TickFlowCVDProbe\\research\\preflight\\HYP-TFCVD-XAUUSD-M5-001\\task_packet.control.json",
+      "sha256": "AADC40A2A32EE1406C3FF323BB996315984B24D6CEA86886E1D6AE441B9FF6FB"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+      "sha256": "2EBB202B4E923846C0E0A8A97C2E8A757663C6BF223D46E4A1D8ED29E560D9F9"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_TickFlowCVDProbe\\EA_TickFlowCVDProbe.mq5",
+      "sha256": "BCEA09D5AAC388224FD469D9C5EBF989D03E97C41EA889146FC50161A24DFCC8"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_TickFlowCVDProbe\\research\\HYP-TFCVD-XAUUSD-M5-001_FROZEN_PREREG.md",
+      "sha256": "918AF3848827F57FB67CCFA01EDD173E335FB924C11C799512BE91241B8CF77C"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_TickFlowCVDProbe\\research\\COLLECTION_ONLY_COST_SOURCE_MANIFEST.json",
+      "sha256": "DE0AD47C368A17687A4CF094D8CD5F65B9D619F2B1A03E1196B233F77C479635"
+    }
+  ],
+  "generated_at_utc": "2026-08-08T18:19:39Z",
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "promotion_eligible": false
+}

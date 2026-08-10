@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-DCX-XAUUSD-M15-001",
+  "evidence_tier": "PRE_BASELINE_REFERENCE_ONLY",
+  "provenance_status": "TRAIN_COVERAGE_NOT_VERIFIED",
+  "audit_status": "BLOCKED_FOR_ECONOMIC_ACCEPTANCE",
+  "verdict": "BASELINE_FALSIFICATION_ONLY",
+  "promotion_eligible": false,
+  "symbol": "XAUUSD",
+  "from": "2010.01.04",
+  "to": "2018.01.01",
+  "symbol_geometry": {
+    "digits": 2,
+    "point": 0.01,
+    "pip_size": 0.01
+  },
+  "tester_spread_semantics": "current",
+  "reference_cost_manifest_path": "03. EA Developer/EA_SupertrendBurstScalperTradeV11/research/HYP-STBS-XAUUSD-M15-024_RESEARCH_COST_SOURCE_MANIFEST.json",
+  "reference_cost_manifest_sha256": "7167F5066D90B9CA7BA935F5B5BDC87E243F348E21958ABE283599E20C552676",
+  "reference_coverage": "2018.01.02-2022.12.30",
+  "commission_reference_usd_round_turn_per_lot": 4.4,
+  "slippage_reference": "1000 ms adverse executable-quote proxy; fill_observed=false",
+  "baseline_use": "The sole untuned Model-0 TRAIN run may falsify the mechanism, cadence and gross tester economics. It cannot establish PF after verified costs.",
+  "next_gate_if_baseline_passes": "Acquire or bind cost evidence covering the frozen TRAIN window, rebuild returns at x1/x1.5/x2, and require PF>1.30 at x1, PF>=1.25 at x1.5 and PF>=1.00 at x2 before validation.",
+  "blocker": "The current verified-research proxy begins after the TRAIN window. Economic-valid and promotion-ready claims remain false until coverage and fill provenance are resolved."
+}

@@ -181,6 +181,91 @@ SOURCE_ONLY_COMPLETION_ALLOWED_VALIDATION_ADDITIONS = {
     "source_report_path",
     "source_report_sha256",
 }
+
+MODEL0_PREEXECUTION_PROBE_STATUS = (
+    "SCREENED_STBS013_ONE_SHOT_PACKET_BOUND_MODEL0_BASELINE_AUTHORIZED"
+)
+MODEL0_PREEXECUTION_ALLOWED_ROOT_CHANGES = {
+    "reason",
+    "updated_at_utc",
+    "validation",
+    "verdict",
+}
+MODEL0_PREEXECUTION_VALIDATION_ADDITIONS = {
+    "authorized_current_git_status_sha256",
+    "authorized_packet_git_status_sha256",
+    "authorized_packet_registry_row_sha256",
+    "authorized_packet_registry_sha256",
+    "authorized_timeout_sec",
+    "execute_gate_prior_registry_line",
+    "execute_gate_prior_registry_row_sha256",
+    "execute_gate_prior_registry_sha256",
+    "one_shot_economic_harness_version",
+    "pre_execution_harness_addendum_path",
+    "pre_execution_harness_addendum_sha256",
+    "reviewed_cost_test_path",
+    "reviewed_ea_golden_path_test_path",
+    "reviewed_ea_golden_path_test_sha256",
+    "reviewed_registry_model0_preexecution_test_path",
+    "reviewed_registry_model0_preexecution_test_sha256",
+    "reviewed_registry_validator_path",
+    "reviewed_registry_validator_sha256",
+    "reviewed_research_loop_path",
+    "reviewed_task_packet_builder_path",
+    "reviewed_task_packet_builder_sha256",
+    "task_packet_path",
+    "task_packet_sha256",
+}
+MODEL0_PREEXECUTION_VALIDATION_CHANGES = {
+    "probe_status",
+    "reviewed_alpha_ps1_sha256",
+    "reviewed_cost_test_sha256",
+    "reviewed_research_loop_sha256",
+} | MODEL0_PREEXECUTION_VALIDATION_ADDITIONS
+MODEL0_PREEXECUTION_REQUIRED_TRUE_FIELDS = {
+    "artifact_collection_authorized",
+    "economics_authorized",
+    "model0_authorized",
+    "model0_data_acquisition_authorized",
+    "model0_performance_authorized",
+    "mql5_compile_authorized",
+    "mt5_authorized",
+    "mt5_train_run_authorized",
+    "outcome_prices_authorized",
+    "performance_metrics_authorized",
+    "post_event_ohlc_authorized",
+    "research_falsification_authorized",
+    "run_compile_authorized",
+    "source_run_authorized",
+    "trade_api_authorized",
+}
+MODEL0_PREEXECUTION_REQUIRED_FALSE_FIELDS = {
+    "comparator_execution_authorized",
+    "compile_authorized",
+    "economic_validity_authorized",
+    "holdout_access_authorized",
+    "holdout_authorized",
+    "live_trading_authorized",
+    "market_edge_claim_authorized",
+    "model0_audit_run_authorized",
+    "model4_authorized",
+    "model4_data_acquisition_authorized",
+    "model4_performance_authorized",
+    "network_authorized",
+    "optimization_authorized",
+    "packet_build_authorized",
+    "paid_requests_authorized",
+    "paper_trading_authorized",
+    "promotion_eligible",
+    "registry_mutation_allowed",
+    "research_holdout_access_authorized",
+    "research_validation_access_authorized",
+    "same_id_retry_authorized",
+    "standalone_compile_authorized",
+    "validation_access_authorized",
+    "validation_authorized",
+    "visual_mode_authorized",
+}
 HYP007_REPAIR_BINDING_CHANGES = {
     "implementation_review_receipt_path",
     "implementation_review_receipt_sha256",
@@ -2849,6 +2934,216 @@ def _reviewed_base_source_sha256(path: Path, label: str, errors: list[str]) -> s
     return hashlib.sha256(b"".join(lines)).hexdigest().upper()
 
 
+def _model0_preexecution_authority_hardening_errors(
+    prior_line: int,
+    prior_row_sha256: str,
+    prior_registry_prefix_sha256: str,
+    prior: dict[str, Any],
+    line: int,
+    row: dict[str, Any],
+    verify_live_code_bindings: bool = True,
+) -> list[str]:
+    hypothesis_id = str(row.get("hypothesis_id") or "<unknown>")
+    label = f"line {line} {hypothesis_id} Model0 pre-execution authority hardening"
+    errors: list[str] = []
+    if prior.get("state") != "screened" or row.get("state") != "screened":
+        errors.append(f"{label}: transition must be screened->screened")
+    if set(prior) != set(row):
+        errors.append(f"{label}: root field set changed")
+    for key in set(prior) | set(row):
+        if key not in MODEL0_PREEXECUTION_ALLOWED_ROOT_CHANGES and prior.get(key) != row.get(key):
+            errors.append(f"{label}: prohibited root change {key!r}")
+
+    prior_validation = prior.get("validation")
+    validation = row.get("validation")
+    if not isinstance(prior_validation, dict) or not isinstance(validation, dict):
+        return errors + [f"{label}: validation objects are required"]
+    if set(validation) != set(prior_validation) | MODEL0_PREEXECUTION_VALIDATION_ADDITIONS:
+        errors.append(f"{label}: validation field set is not the exact reviewed hardening set")
+    for key in set(prior_validation) | set(validation):
+        if key not in MODEL0_PREEXECUTION_VALIDATION_CHANGES and prior_validation.get(key) != validation.get(key):
+            errors.append(f"{label}: prohibited validation change {key!r}")
+
+    if prior_validation.get("authority") != "MODEL0_TRAIN_FALSIFICATION_ONLY":
+        errors.append(f"{label}: prior authority must be MODEL0_TRAIN_FALSIFICATION_ONLY")
+    if validation.get("authority") != "MODEL0_TRAIN_FALSIFICATION_ONLY":
+        errors.append(f"{label}: authority must remain MODEL0_TRAIN_FALSIFICATION_ONLY")
+    if validation.get("probe_status") != MODEL0_PREEXECUTION_PROBE_STATUS:
+        errors.append(f"{label}: probe_status mismatch")
+    if validation.get("one_shot_economic_harness_version") != "model0-economic-one-shot-v1":
+        errors.append(f"{label}: one-shot harness version mismatch")
+    for key in MODEL0_PREEXECUTION_REQUIRED_TRUE_FIELDS:
+        if validation.get(key) is not True:
+            errors.append(f"{label}: validation.{key} must be true")
+    for key in MODEL0_PREEXECUTION_REQUIRED_FALSE_FIELDS:
+        if validation.get(key) is not False:
+            errors.append(f"{label}: validation.{key} must be false")
+
+    metrics_value = row.get("metrics")
+    if row.get("run_ids") != [] or not isinstance(metrics_value, dict) or metrics_value != prior.get("metrics"):
+        errors.append(f"{label}: run_ids and metrics must remain byte-semantic pre-execution values")
+    metrics = metrics_value if isinstance(metrics_value, dict) else {}
+    if metrics:
+        zero_metrics = {
+            "mt5_attempts_consumed": 0,
+            "model0_runs": 0,
+            "mt5_launches": 0,
+            "orders_executed": 0,
+            "trades_simulated": 0,
+            "returns_computed": 0,
+            "performance_trials_executed": 0,
+            "economics_executed": False,
+            "research_validation_opened": False,
+            "research_holdout_opened": False,
+        }
+        for key, expected in zero_metrics.items():
+            if metrics.get(key) != expected:
+                errors.append(f"{label}: metrics.{key} must remain {expected!r}")
+    if row.get("model") != 0 or row.get("evidence_contract_kind") != "economic":
+        errors.append(f"{label}: only an economic Model0 screened row may be hardened")
+    if validation.get("mt5_attempt_limit") != 1 or metrics.get("mt5_attempt_limit") != 1:
+        errors.append(f"{label}: MT5 attempt limit must remain exactly one")
+    attempt_id = validation.get("mt5_attempt_id")
+    if not isinstance(attempt_id, str) or re.fullmatch(r"[A-Z0-9-]+", attempt_id) is None:
+        errors.append(f"{label}: mt5_attempt_id is invalid")
+    if validation.get("authorized_timeout_sec") != 900:
+        errors.append(f"{label}: authorized_timeout_sec must equal 900")
+
+    if validation.get("execute_gate_prior_registry_line") != prior_line:
+        errors.append(f"{label}: execute_gate_prior_registry_line mismatch")
+    if validation.get("execute_gate_prior_registry_row_sha256") != prior_row_sha256:
+        errors.append(f"{label}: execute_gate_prior_registry_row_sha256 mismatch")
+    if validation.get("execute_gate_prior_registry_sha256") != prior_registry_prefix_sha256:
+        errors.append(f"{label}: execute_gate_prior_registry_sha256 mismatch")
+    if validation.get("authorized_packet_registry_row_sha256") != prior_row_sha256:
+        errors.append(f"{label}: authorized packet registry row mismatch")
+    if validation.get("authorized_packet_registry_sha256") != prior_registry_prefix_sha256:
+        errors.append(f"{label}: authorized packet registry SHA mismatch")
+
+    ea_name = str(row.get("ea_name") or "")
+    expected_paths = {
+        "task_packet_path": (
+            f"03. EA Developer/{ea_name}/research/preflight/{hypothesis_id}/V1/"
+            "task_packet.control.json"
+        ),
+        "pre_execution_harness_addendum_path": (
+            f"03. EA Developer/{ea_name}/research/{hypothesis_id}_PRE_EXECUTION_HARNESS_ADDENDUM.md"
+        ),
+        "reviewed_research_loop_path": "02. AlphaFactory/tools/research_loop_engine.ps1",
+        "reviewed_alpha_ps1_path": "02. AlphaFactory/alpha.ps1",
+        "reviewed_cost_test_path": "02. AlphaFactory/tests/test_research_cost_proxy.py",
+        "reviewed_ea_golden_path_test_path": "02. AlphaFactory/tests/test_ea_golden_path.py",
+        "reviewed_registry_validator_path": "04. Memory/research/validate_candidate_registry.py",
+        "reviewed_registry_model0_preexecution_test_path": (
+            "04. Memory/research/tests/"
+            "test_validate_candidate_registry_model0_preexecution.py"
+        ),
+        "reviewed_task_packet_builder_path": (
+            f"03. EA Developer/{ea_name}/research/build_stbs013_task_packet.py"
+        ),
+    }
+    sha_fields = {
+        "task_packet_path": "task_packet_sha256",
+        "pre_execution_harness_addendum_path": "pre_execution_harness_addendum_sha256",
+        "reviewed_research_loop_path": "reviewed_research_loop_sha256",
+        "reviewed_alpha_ps1_path": "reviewed_alpha_ps1_sha256",
+        "reviewed_cost_test_path": "reviewed_cost_test_sha256",
+        "reviewed_ea_golden_path_test_path": "reviewed_ea_golden_path_test_sha256",
+        "reviewed_registry_validator_path": "reviewed_registry_validator_sha256",
+        "reviewed_registry_model0_preexecution_test_path": (
+            "reviewed_registry_model0_preexecution_test_sha256"
+        ),
+        "reviewed_task_packet_builder_path": "reviewed_task_packet_builder_sha256",
+    }
+    bound_files: dict[str, Path | None] = {}
+    immutable_execution_evidence = {
+        "task_packet_path",
+        "pre_execution_harness_addendum_path",
+    }
+    for path_key, expected_path in expected_paths.items():
+        if validation.get(path_key) != expected_path:
+            errors.append(f"{label}: {path_key} must equal {expected_path!r}")
+        sha_key = sha_fields[path_key]
+        if verify_live_code_bindings or path_key in immutable_execution_evidence:
+            bound_files[path_key] = verify_binding(
+                validation.get(path_key),
+                validation.get(sha_key),
+                f"{label}.{path_key}",
+                errors,
+            )
+        else:
+            # Historical authority rows preserve which executable bytes were
+            # reviewed; mutable shared code may lawfully advance afterward.
+            # Immutable packet/addendum evidence above is still rehashed.
+            normalized_workspace_path(
+                validation.get(path_key), f"{label}.{path_key}", errors
+            )
+            recorded_sha = validation.get(sha_key)
+            if (
+                not isinstance(recorded_sha, str)
+                or re.fullmatch(r"[A-F0-9]{64}", recorded_sha) is None
+            ):
+                errors.append(f"{label}.{sha_key}: recorded SHA256 is invalid")
+            bound_files[path_key] = None
+
+    packet_file = bound_files.get("task_packet_path")
+    if packet_file is not None:
+        try:
+            packet = load_strict_json(packet_file)
+        except (OSError, UnicodeDecodeError, ValueError, json.JSONDecodeError) as exc:
+            errors.append(f"{label}: task packet is invalid: {exc}")
+        else:
+            baseline = validation.get("baseline_acceptance_contract")
+            packet_baseline = packet.get("baseline_acceptance_contract")
+            baseline_pairs = {
+                "min_completed_trades": "min_completed_trades",
+                "min_direction_share": "min_direction_share",
+                "max_year_trade_share": "max_year_trade_share",
+                "require_positive_mean_x1_net_r": "require_positive_cost_expectancy",
+                "require_each_calendar_year_positive_x1_net_r": (
+                    "require_all_calendar_years_positive"
+                ),
+            }
+            if not isinstance(baseline, dict) or not isinstance(packet_baseline, dict):
+                errors.append(f"{label}: registry and packet baseline contracts are required")
+            else:
+                for registry_key, packet_key in baseline_pairs.items():
+                    if baseline.get(registry_key) != packet_baseline.get(packet_key):
+                        errors.append(
+                            f"{label}: baseline mapping {registry_key}->{packet_key} mismatch"
+                        )
+            expected_packet = {
+                "hypothesis_id": hypothesis_id,
+                "run_role": "control",
+                "ea_name": ea_name,
+                "model": 0,
+                "timeout_sec": 900,
+                "attempt_id": attempt_id,
+                "attempt_limit": 1,
+                "source_path": row.get("source_path"),
+                "source_sha256": row.get("source_hash"),
+                "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+                "registry_sha256": prior_registry_prefix_sha256,
+                "registry_row_sha256": prior_row_sha256,
+                "prereg_path": row.get("prereg_path"),
+                "prereg_sha256": row.get("prereg_sha256"),
+                "acceptance_contract": row.get("acceptance_contract"),
+                "performance_metrics_authorized": True,
+                "economics_authorized": True,
+                "promotion_eligible": False,
+            }
+            for key, expected in expected_packet.items():
+                if packet.get(key) != expected:
+                    errors.append(f"{label}: task packet {key} mismatch")
+            packet_status_sha = packet.get("git_status_sha256")
+            if validation.get("authorized_packet_git_status_sha256") != packet_status_sha:
+                errors.append(f"{label}: authorized packet git-status SHA mismatch")
+            if validation.get("authorized_current_git_status_sha256") != packet_status_sha:
+                errors.append(f"{label}: authorized current git-status SHA mismatch")
+
+    return errors
+
+
 def _generic_source_only_authority_transition_errors(
     prior: dict[str, Any], line: int, row: dict[str, Any]
 ) -> list[str]:
@@ -3647,6 +3942,26 @@ def validate_registry(registry: Path, schema_path: Path) -> list[str]:
     valid_generic_source_authority_lines: dict[str, int] = {}
     rows = 0
     records = registry.read_bytes().splitlines(keepends=True)
+    latest_line_by_hypothesis: dict[str, int] = {}
+    for candidate_line, candidate_record in enumerate(records, 1):
+        if not candidate_record.endswith(b"\n"):
+            continue
+        candidate_body = candidate_record[:-1]
+        try:
+            candidate_raw = candidate_body.decode(
+                "utf-8-sig" if candidate_line == 1 else "utf-8", errors="strict"
+            )
+            candidate_row = json.loads(
+                candidate_raw,
+                parse_constant=reject_nonfinite,
+                object_pairs_hook=reject_duplicate_keys,
+            )
+        except Exception:
+            continue
+        if isinstance(candidate_row, dict) and isinstance(
+            candidate_row.get("hypothesis_id"), str
+        ):
+            latest_line_by_hypothesis[candidate_row["hypothesis_id"]] = candidate_line
     for line_number, record in enumerate(records, 1):
         if not record.endswith(b"\n") or record.count(b"\n") != 1:
             errors.append(f"line {line_number}: registry rows require exactly one terminal LF")
@@ -3804,6 +4119,44 @@ def validate_registry(registry: Path, schema_path: Path) -> list[str]:
                         and successor_validation.get("source_run_authorized") is True
                     ):
                         valid_generic_source_authority_lines[hypothesis_id] = line_number
+            elif (
+                prior_state == "screened"
+                and row["state"] == "screened"
+                and isinstance(prior.get("validation"), dict)
+                and isinstance(row.get("validation"), dict)
+                and "one_shot_economic_harness_version" not in prior["validation"]
+                and row["validation"].get("one_shot_economic_harness_version")
+                == "model0-economic-one-shot-v1"
+            ):
+                transition_errors = _model0_preexecution_authority_hardening_errors(
+                    prior_line,
+                    prior_sha256,
+                    hashlib.sha256(
+                        b"".join(records[: line_number - 1])
+                    ).hexdigest().upper(),
+                    prior,
+                    line_number,
+                    row,
+                    verify_live_code_bindings=(
+                        latest_line_by_hypothesis.get(hypothesis_id) == line_number
+                        and row.get("state") in EXECUTION_STATES
+                    ),
+                )
+                errors.extend(transition_errors)
+                exception_applies = not transition_errors
+                if exception_applies:
+                    compact = json.dumps(
+                        row,
+                        sort_keys=False,
+                        separators=(",", ":"),
+                        ensure_ascii=True,
+                        allow_nan=False,
+                    ).encode("utf-8")
+                    if compact != body:
+                        errors.append(
+                            f"line {line_number} {hypothesis_id}: Model0 pre-execution authority hardening must use compact insertion-order JSON"
+                        )
+                        exception_applies = False
             elif (
                 prior_state == "screened"
                 and row["state"] == "screened"

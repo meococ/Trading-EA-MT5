@@ -1,0 +1,23 @@
+# HYP-STBS-XAUUSD-M15-016 — independent pre-run review
+
+## Verdict
+
+`PASS_PRE_AUTHORITY`
+
+The independent reviewer found no remaining fatal blocker for one zero-send Model0 audit attempt.
+
+## Verified package
+
+- Source: `3822EED82C8D484CE8010A496767271DED20528158D68509B46EF934B043D918`
+- Preregistration: `5C5B47E5FEB387F134EA0FCF6DD90973625674D103A13752A7F77F8C4DA8B421`
+- Runner: `86A863F1688A20024925401BF4083DDBEF2D235548ACDC7033B762BE47EF7AE6`
+- Source contract test: `1795D0793B76CC91356ED86B3717B7CB1817093C1E0DBB2899A1B7BC395A0D6E`
+- Runner test: `E92ED9A6097EBF1588449026487ED04EA74018DF91A095F6CAFE7EBBAC7D2958`
+- V4/V5 diff proof: `9516B9587F0EA8AA01DDC78E8F4C7F671A8CECB777C64E8F4A3CE3C60158F55C`
+- Static EX5: `691D215558F56DEDAB37EA142955243B0A22F0A51E6435E8D86CBEF4E3603968`, 74,558 bytes
+- Compile log: `5A7C3A3C7D5FE286E88A76CC72D33C3470B2115B8997C347D8EE5AD61100B53B`, exactly 0 errors / 0 warnings
+- Non-repaint manifest/audit: `0133B8AD9D3CC21C16A0163FDC575C3C9AE24DB6B2502352E52D6A7FF6A44B45` / `67BDFCD2D1F2FC2057B0654B6589077ADFFCF3C72943CB9A34AB0B2A492C025E`, PASS
+
+The reviewer independently confirmed the USD 100,000 account fingerprint `0A603E7B316F58B39FEA0A1710FE6F250E544909DA2B91967C93AD984317A073`; strict empty/bare/duplicate journal rejection; exact summary allowlist with `reason=0`; direct diff-proof binding and prelaunch rehash; and absence of the `STBS016-MODEL0-AUDIT-001` attempt root.
+
+This review authorizes only the frozen zero-order engineering audit. Performance, PF, outcome prices, optimization, validation, holdout, paper/live and deployment remain forbidden.

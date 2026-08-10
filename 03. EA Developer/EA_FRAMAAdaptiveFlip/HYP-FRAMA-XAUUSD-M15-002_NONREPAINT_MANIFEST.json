@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-FRAMA-XAUUSD-M15-002",
+  "run_id": "FRAMA002-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\EA_FRAMAAdaptiveFlip.mq5",
+  "source_sha256": "6D2F21FCD53097DE82CA584A53CC507EBAC03A0056A4DA9137B46A12CFE2855F",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

@@ -21,6 +21,7 @@ HELPERS = [
     "Get-ObjectPropertyValue",
     "ConvertTo-ResearchDate",
     "ConvertTo-FiniteInvariantDouble",
+    "ConvertTo-HistoryQualityPercent",
     "Resolve-DataQualityContract",
     "Get-Mt5JournalLogFiles",
     "New-Mt5JournalLogSnapshot",
@@ -182,6 +183,15 @@ def test_history_quality_100_passes_and_binds_evidence(tmp_path: Path) -> None:
     assert payload["coverage_class"] == "BROKER_LIMITED_START"
     assert payload["exact_match_count"] == 1
     assert payload["distinct_range_count"] == 1
+
+
+def test_localized_history_quality_suffix_passes_and_binds_numeric_percent(tmp_path: Path) -> None:
+    result = validate_manifest(
+        tmp_path,
+        write_manifest(tmp_path, history_quality="100% số ticks that"),
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert json.loads(result.stdout)["history_quality"] == 100.0
 
 
 def test_history_quality_threshold_is_strict(tmp_path: Path) -> None:
@@ -438,6 +448,7 @@ Resolve-DataQualityContract $receipt $binding | ConvertTo-Json -Depth 8
     assert result.returncode == 0, result.stdout + result.stderr
     assert json.loads(result.stdout)["history_quality_threshold"] == 97.0
     assert json.loads(result.stdout)["symbol"] == "EURUSD"
+    assert json.loads(result.stdout)["max_journal_delta_bytes"] == 1_048_576
 
     receipt["binding"]["data_quality_contract"]["requested_to"] = "2024.12.30"
     receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
@@ -466,7 +477,7 @@ Resolve-DataQualityContract $receipt $binding | ConvertTo-Json -Depth 8
         str(receipt_path),
     )
     assert result.returncode != 0
-    assert "must contain exactly" in result.stderr
+    assert "six base fields" in result.stderr
 
 
 def test_resolve_receipt_contract_accepts_fixed_window(tmp_path: Path) -> None:
@@ -498,6 +509,75 @@ Resolve-DataQualityContract $receipt $binding | ConvertTo-Json -Depth 8
     assert payload["coverage_mode"] == "fixed_window"
     assert payload["requested_from"] == "2016.01.04"
     assert payload["requested_to"] == "2020.12.31"
+
+
+def test_resolve_receipt_contract_accepts_explicit_four_mib_cap(tmp_path: Path) -> None:
+    receipt = {
+        "binding": {
+            "data_quality_contract": {
+                "history_quality": {"operator": "gt", "value": 97.0},
+                "coverage_mode": "fixed_window",
+                "availability_asof_utc": "2026-07-30T23:59:59Z",
+                "requested_from": "2016.01.04",
+                "requested_to": "2020.12.31",
+                "require_tester_journal_bounds": True,
+                "max_journal_delta_bytes": 4_194_304,
+            }
+        }
+    }
+    receipt_path = tmp_path / "bounded_receipt.json"
+    receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+    result = run_ps(
+        tmp_path,
+        r"""
+$receipt = Get-Content -LiteralPath $ArgsPassthrough[0] -Raw | ConvertFrom-Json
+$binding = [pscustomobject]@{ symbol = 'EURUSD'; from = '2016.01.04'; to = '2020.12.31' }
+Resolve-DataQualityContract $receipt $binding | ConvertTo-Json -Depth 8
+""",
+        str(receipt_path),
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert json.loads(result.stdout)["max_journal_delta_bytes"] == 4_194_304
+
+
+def test_resolve_receipt_contract_rejects_invalid_explicit_caps(tmp_path: Path) -> None:
+    base = {
+        "binding": {
+            "data_quality_contract": {
+                "history_quality": {"operator": "gt", "value": 97.0},
+                "coverage_mode": "fixed_window",
+                "availability_asof_utc": "2026-07-30T23:59:59Z",
+                "requested_from": "2016.01.04",
+                "requested_to": "2020.12.31",
+                "require_tester_journal_bounds": True,
+                "max_journal_delta_bytes": 4_194_304,
+            }
+        }
+    }
+    for name, cap in {
+        "string": "4194304",
+        "fraction": 4_194_304.5,
+        "below_min": 524_288,
+        "not_power_two": 3_145_728,
+        "above_max": 134_217_728,
+    }.items():
+        case_dir = tmp_path / name
+        case_dir.mkdir(parents=True)
+        receipt = json.loads(json.dumps(base))
+        receipt["binding"]["data_quality_contract"]["max_journal_delta_bytes"] = cap
+        receipt_path = case_dir / "receipt.json"
+        receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+        result = run_ps(
+            case_dir,
+            r"""
+$receipt = Get-Content -LiteralPath $ArgsPassthrough[0] -Raw | ConvertFrom-Json
+$binding = [pscustomobject]@{ symbol = 'EURUSD'; from = '2016.01.04'; to = '2020.12.31' }
+Resolve-DataQualityContract $receipt $binding | ConvertTo-Json -Depth 8
+""",
+            str(receipt_path),
+        )
+        assert result.returncode != 0
+        assert "max_journal_delta_bytes" in result.stderr
 
 
 def test_fixed_window_run_evidence_requires_history_to_cover_start(tmp_path: Path) -> None:

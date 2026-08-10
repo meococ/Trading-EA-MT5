@@ -1,0 +1,36 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_id": "HYP-TFCVD-XAUUSD-M5-001",
+  "source_path": "03. EA Developer/EA_TickFlowCVDProbe/EA_TickFlowCVDProbe.mq5",
+  "source_sha256": "BCEA09D5AAC388224FD469D9C5EBF989D03E97C41EA889146FC50161A24DFCC8",
+  "audited_at_utc": "2026-08-08T18:14:12Z",
+  "verdict": "PASS_COLLECTION_ONLY_CAUSAL_CLOSED_BAR_EMISSION",
+  "checks": {
+    "bar_zero_decision_reads": 0,
+    "indicator_buffer_reads": 0,
+    "multi_timeframe_reads": 0,
+    "trade_api_surfaces": 0,
+    "file_common_surfaces": 0,
+    "completed_bar_emitted_only_after_next_bar_tick": true,
+    "future_outcome_fields": 0,
+    "last_open_bar_omitted": true
+  },
+  "limitations": [
+    "This is a source/cadence collector, not a trading-strategy nonrepaint verdict.",
+    "Quote-tick delta is broker-feed activity, not exchange aggressor volume.",
+    "A future economic child must use a fresh hypothesis ID and may enter no earlier than the next M5 open."
+  ],
+  "focused_tests": {
+    "command": "python -m pytest -q 03. EA Developer/EA_TickFlowCVDProbe",
+    "passed": 8,
+    "failed": 0
+  },
+  "compile": {
+    "command": "02. AlphaFactory/alpha.ps1 compile EA_TickFlowCVDProbe",
+    "errors": 0,
+    "ex5_sha256": "6E19F8FBA999CE577E9EAA966EC46706BDDF5203A22269357F13456E3D342018"
+  },
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "promotion_eligible": false
+}

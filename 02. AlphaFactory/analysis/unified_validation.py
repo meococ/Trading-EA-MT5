@@ -315,6 +315,17 @@ def _parse_manifest_date(raw: Any) -> Optional[dt.date]:
     return None
 
 
+def _elapsed_window_days(
+    start_date: Optional[dt.date],
+    end_date: Optional[dt.date],
+    *,
+    inclusive: bool,
+) -> Optional[int]:
+    if start_date is None or end_date is None or start_date > end_date:
+        return None
+    return (end_date - start_date).days + (1 if inclusive else 0)
+
+
 
 def _month_labels(start_date: dt.date, end_date: dt.date) -> List[str]:
     labels: List[str] = []
@@ -864,6 +875,207 @@ def _cost_profit_factor(payload: Dict[str, Any], label: str, multiplier: float) 
     return scenario["profit_factor"] if scenario else None
 
 
+def _baseline_falsification_gates(
+    trades: List[Trade],
+    cost_payload: Dict[str, Any],
+    economic_from: str,
+    economic_to: str,
+    contract: Dict[str, Any],
+    artifact: str,
+) -> Dict[str, Dict[str, Any]]:
+    """Evaluate the frozen, outcome-facing TRAIN baseline gates only.
+
+    This deliberately stays separate from promotion gates.  A PASS here means
+    the one preregistered baseline survived its economic falsification screen;
+    it does not authorize optimization, OOS, holdout, paper, or live trading.
+    """
+    gates: Dict[str, Dict[str, Any]] = {}
+    start = _parse_manifest_date(economic_from)
+    end = _parse_manifest_date(economic_to)
+    required_contract = {
+        "min_completed_trades",
+        "min_direction_share",
+        "max_year_trade_share",
+        "require_positive_cost_expectancy",
+        "require_all_calendar_years_positive",
+    }
+    if set(contract) != required_contract:
+        reason = "baseline_acceptance_contract must contain exactly the five frozen fields"
+        gates["economic_window_coverage"] = _gate(
+            "BLOCKED", actual=contract, required=reason, artifact=artifact, reason=reason
+        )
+        return gates
+    min_trades = _as_int(contract.get("min_completed_trades"))
+    min_direction_share = _as_float(contract.get("min_direction_share"))
+    max_year_share = _as_float(contract.get("max_year_trade_share"))
+    require_positive = contract.get("require_positive_cost_expectancy") is True
+    require_all_years = contract.get("require_all_calendar_years_positive") is True
+    if (
+        start is None
+        or end is None
+        or start > end
+        or min_trades is None
+        or min_trades <= 0
+        or min_direction_share is None
+        or not 0.0 <= min_direction_share <= 0.5
+        or max_year_share is None
+        or not 0.0 < max_year_share <= 1.0
+        or not require_positive
+        or not require_all_years
+    ):
+        reason = "baseline economic window or acceptance values are invalid/fail-open"
+        gates["economic_window_coverage"] = _gate(
+            "BLOCKED",
+            actual={"from": economic_from, "to": economic_to, "contract": contract},
+            required="valid inclusive economic window and strict enabled baseline gates",
+            artifact=artifact,
+            reason=reason,
+        )
+        return gates
+
+    outside = [
+        index
+        for index, trade in enumerate(trades, start=1)
+        if trade.entry_time.date() < start
+        or trade.entry_time.date() > end
+        or trade.exit_time.date() < start
+        or trade.exit_time.date() > end
+    ]
+    artifact_window = cost_payload.get("economic_window")
+    artifact_window_matches = (
+        isinstance(artifact_window, dict)
+        and str(artifact_window.get("from") or "") == economic_from
+        and str(artifact_window.get("to") or "") == economic_to
+        and str(artifact_window.get("boundary") or "") == "inclusive_calendar_dates"
+    )
+    coverage_actual = {
+        "from": economic_from,
+        "to": economic_to,
+        "boundary": "inclusive_calendar_dates",
+        "cost_artifact_economic_window": artifact_window,
+        "cost_artifact_window_matches": artifact_window_matches,
+        "completed_positions": len(trades),
+        "outside_trade_indices": outside[:20],
+        "first_entry_time": min((trade.entry_time.isoformat() for trade in trades), default=None),
+        "last_exit_time": max((trade.exit_time.isoformat() for trade in trades), default=None),
+    }
+    coverage_passed = bool(trades) and not outside and artifact_window_matches
+    gates["economic_window_coverage"] = _gate(
+        "PASS" if coverage_passed else "FAIL",
+        actual=coverage_actual,
+        required="every completed position entry and exit is inside the frozen inclusive economic window",
+        artifact=artifact,
+        reason="" if coverage_passed else "Completed positions are absent or outside the economic window.",
+    )
+
+    gates["minimum_trades_baseline"] = _gate(
+        "PASS" if len(trades) >= min_trades else "FAIL",
+        actual=len(trades),
+        required=f"completed positions >= {min_trades}",
+        artifact=artifact,
+        reason="" if len(trades) >= min_trades else "Baseline sample is below the preregistered floor.",
+    )
+
+    direction_counts = Counter(str(trade.side or "").strip().upper() for trade in trades)
+    direction_shares = {
+        direction: (direction_counts.get(direction, 0) / len(trades) if trades else 0.0)
+        for direction in ("BUY", "SELL")
+    }
+    direction_passed = bool(trades) and all(
+        share >= min_direction_share for share in direction_shares.values()
+    ) and sum(direction_counts.get(direction, 0) for direction in ("BUY", "SELL")) == len(trades)
+    gates["direction_balance_baseline"] = _gate(
+        "PASS" if direction_passed else "FAIL",
+        actual={"counts": dict(direction_counts), "shares": direction_shares},
+        required=f"BUY and SELL shares are each >= {min_direction_share}",
+        artifact=artifact,
+        reason="" if direction_passed else "Direction mix is invalid or too concentrated.",
+    )
+
+    year_counts = Counter(trade.exit_time.year for trade in trades)
+    max_actual_year_share = max(year_counts.values(), default=0) / len(trades) if trades else 0.0
+    concentration_passed = bool(trades) and max_actual_year_share <= max_year_share
+    gates["year_trade_concentration_baseline"] = _gate(
+        "PASS" if concentration_passed else "FAIL",
+        actual={"counts": dict(sorted(year_counts.items())), "max_year_share": max_actual_year_share},
+        required=f"maximum exit-year trade share <= {max_year_share}",
+        artifact=artifact,
+        reason="" if concentration_passed else "Baseline events are overly concentrated in one year.",
+    )
+
+    repricing = cost_payload.get("trade_repricing")
+    repricing_errors: List[str] = []
+    values_by_year: Dict[int, List[float]] = {}
+    if not isinstance(repricing, list) or len(repricing) != len(trades):
+        repricing_errors.append("trade_repricing must match the completed-position count")
+        repricing = []
+    for index, row in enumerate(repricing, start=1):
+        if not isinstance(row, dict):
+            repricing_errors.append(f"trade_repricing row {index} is not an object")
+            continue
+        exit_raw = str(row.get("exit_time") or "").strip()
+        try:
+            exit_time = dt.datetime.strptime(exit_raw, "%Y.%m.%d %H:%M:%S")
+        except ValueError:
+            repricing_errors.append(f"trade_repricing row {index} has invalid exit_time")
+            continue
+        if exit_time.date() < start or exit_time.date() > end:
+            repricing_errors.append(f"trade_repricing row {index} exits outside economic window")
+            continue
+        components = [
+            _as_float(row.get("gross_r")),
+            _as_float(row.get("swap_r")),
+            _as_float(row.get("commission_r")),
+            _as_float(row.get("slippage_r")),
+        ]
+        if any(value is None for value in components):
+            repricing_errors.append(f"trade_repricing row {index} has invalid x1 components")
+            continue
+        gross_r, swap_r, commission_r, slippage_r = components
+        values_by_year.setdefault(exit_time.year, []).append(
+            float(gross_r) + float(swap_r) - float(commission_r) - float(slippage_r)
+        )
+
+    all_values = [value for values in values_by_year.values() for value in values]
+    net_r_x1 = sum(all_values)
+    expectancy_x1 = net_r_x1 / len(all_values) if all_values else None
+    expectancy_passed = not repricing_errors and expectancy_x1 is not None and expectancy_x1 > 0.0
+    gates["positive_cost_expectancy_baseline"] = _gate(
+        "PASS" if expectancy_passed else ("BLOCKED" if repricing_errors else "FAIL"),
+        actual={
+            "net_r_x1": net_r_x1 if all_values else None,
+            "expectancy_r_x1": expectancy_x1,
+            "trade_count": len(all_values),
+            "errors": repricing_errors,
+        },
+        required="strictly positive mean net R at verified/proxy x1 costs",
+        artifact=artifact,
+        reason="" if expectancy_passed else "; ".join(repricing_errors) or "Net x1 expectancy is not positive.",
+    )
+
+    expected_years = list(range(start.year, end.year + 1))
+    year_net_r = {year: sum(values_by_year.get(year, [])) for year in expected_years}
+    all_years_passed = (
+        not repricing_errors
+        and all(values_by_year.get(year) for year in expected_years)
+        and all(year_net_r[year] > 0.0 for year in expected_years)
+    )
+    gates["all_calendar_years_positive_baseline"] = _gate(
+        "PASS" if all_years_passed else ("BLOCKED" if repricing_errors else "FAIL"),
+        actual={
+            "net_r_x1_by_exit_year": year_net_r,
+            "trade_count_by_exit_year": {
+                year: len(values_by_year.get(year, [])) for year in expected_years
+            },
+            "errors": repricing_errors,
+        },
+        required="each calendar year in the economic window has >=1 exit and strictly positive x1 net R",
+        artifact=artifact,
+        reason="" if all_years_passed else "; ".join(repricing_errors) or "At least one calendar year is absent or nonpositive.",
+    )
+    return gates
+
+
 _VERIFIED_COST_BUILDER_MODULE: Any = None
 _VERIFIED_COST_BUILDER_SHA256: Optional[str] = None
 
@@ -927,11 +1139,20 @@ def _recomputed_cost_evidence(
         ):
             reasons.append("cost_source_manifest_sha256 does not match raw manifest")
         else:
-            rebuilt = builder.build(report_path, cost_source_path)
+            economic_window = payload.get("economic_window")
+            if isinstance(economic_window, dict):
+                rebuilt = builder.build(
+                    report_path,
+                    cost_source_path,
+                    economic_from=str(economic_window.get("from") or ""),
+                    economic_to=str(economic_window.get("to") or ""),
+                )
+            else:
+                rebuilt = builder.build(report_path, cost_source_path)
     except Exception as exc:
         reasons.append(f"canonical cost rebuild failed: {exc}")
 
-    compared_fields = (
+    compared_fields = [
         "schema_version",
         "provenance_status",
         "stress_mode",
@@ -944,12 +1165,16 @@ def _recomputed_cost_evidence(
         "cost_source_manifest",
         "cost_source_manifest_sha256",
         "lifecycle_evidence",
+        "run_meta_evidence",
         "execution_provenance",
         "trade_repricing",
         "scenarios",
         "net_r_x1_5",
         "producer",
-    )
+    ]
+    for optional_field in ("tester_preload_window", "economic_window"):
+        if optional_field in payload:
+            compared_fields.append(optional_field)
     mismatched_fields: List[str] = []
     if rebuilt:
         for field in compared_fields:
@@ -2611,6 +2836,9 @@ def evaluate_validation_gates(
     invocation_id: str = "",
     invocation_start_utc: str = "",
     allow_research_cost_proxy: bool = False,
+    economic_from: str = "",
+    economic_to: str = "",
+    baseline_acceptance_contract: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Evaluate promotion gates from bound artifacts and successful invocations."""
     normalized_stage = str(stage).strip().lower()
@@ -2709,13 +2937,18 @@ def evaluate_validation_gates(
     n_trades = _as_int(enhanced.get("n_trades"))
     max_drawdown_pct = _as_float(enhanced.get("max_drawdown_pct"))
 
-    from_date = _parse_manifest_date(
+    from_date = _parse_manifest_date(economic_from) if economic_from else _parse_manifest_date(
         _first_value(manifest, ("from", "from_date", "FromDate", "From"))
     )
-    to_date = _parse_manifest_date(
+    to_date = _parse_manifest_date(economic_to) if economic_to else _parse_manifest_date(
         _first_value(manifest, ("to", "to_date", "ToDate", "To"))
     )
-    elapsed_days = (to_date - from_date).days if from_date and to_date else None
+    inclusive_economic_window = bool(economic_from and economic_to)
+    elapsed_days = _elapsed_window_days(
+        from_date,
+        to_date,
+        inclusive=inclusive_economic_window,
+    )
     elapsed_weeks = (elapsed_days / 7.0) if elapsed_days is not None and elapsed_days > 0 else None
     trades_per_week = (n_trades / elapsed_weeks) if n_trades is not None and elapsed_weeks else None
     cadence_actual = {
@@ -2725,7 +2958,11 @@ def evaluate_validation_gates(
         "elapsed_days": elapsed_days,
         "elapsed_calendar_weeks": elapsed_weeks,
         "trades_per_week": trades_per_week,
-        "formula": "n_trades / ((to_date - from_date).days / 7.0)",
+        "formula": (
+            "n_trades / (((economic_to - economic_from).days + 1) / 7.0)"
+            if inclusive_economic_window
+            else "n_trades / ((manifest_to - manifest_from).days / 7.0)"
+        ),
     }
     min_cadence = gate_thresholds["min_trades_per_week"]
     max_cadence = gate_thresholds["max_trades_per_week"]
@@ -2797,6 +3034,29 @@ def evaluate_validation_gates(
         cost_provenance,
         cost_resolution_reason or cost_x2_reason or "Invalid cost_x2_00 scenario.",
     )
+
+    if baseline_acceptance_contract is not None:
+        try:
+            _, baseline_trades, _ = _load_trade_set(report_path)
+            baseline_gates = _baseline_falsification_gates(
+                baseline_trades,
+                cost,
+                economic_from,
+                economic_to,
+                baseline_acceptance_contract,
+                str(cost_path_for_gate),
+            )
+        except Exception as exc:
+            baseline_gates = {
+                "economic_window_coverage": _gate(
+                    "BLOCKED",
+                    actual=None,
+                    required="parseable report trades and a valid frozen baseline contract",
+                    artifact=str(report_path),
+                    reason=f"Baseline falsification evaluation failed: {exc}",
+                )
+            }
+        gates.update(baseline_gates)
 
     robustness_summary = robustness.get("summary") if isinstance(robustness.get("summary"), dict) else {}
     robustness_rate = _normalized_ratio(robustness_summary.get("pass_rate"))
@@ -3286,6 +3546,36 @@ def evaluate_validation_gates(
             ),
         )
 
+    baseline_gate_names = [
+        "mt5_real_ticks_model",
+        "nonrepaint_audit",
+        "economic_window_coverage",
+        "cadence",
+        "max_drawdown_pct",
+        "profit_factor",
+        "cost_stress_x1_5",
+        "cost_stress_x2",
+        "minimum_trades_baseline",
+        "direction_balance_baseline",
+        "year_trade_concentration_baseline",
+        "positive_cost_expectancy_baseline",
+        "all_calendar_years_positive_baseline",
+    ]
+    baseline_gate_names = [name for name in baseline_gate_names if name in gates]
+    baseline_non_passing = [
+        name for name in baseline_gate_names if gates[name]["status"] != "PASS"
+    ]
+    baseline_blocked = any(gates[name]["status"] == "BLOCKED" for name in baseline_gate_names)
+    baseline_verdict = (
+        "NOT_EVALUATED"
+        if baseline_acceptance_contract is None
+        else "BLOCKED"
+        if baseline_blocked
+        else "FAIL"
+        if baseline_non_passing
+        else "PASS"
+    )
+
     gates_passed = sum(1 for gate in gates.values() if gate["status"] == "PASS")
     non_passing = [name for name, gate in gates.items() if gate["status"] != "PASS"]
     verdict = "PASS" if not non_passing else "REVIEW"
@@ -3307,6 +3597,15 @@ def evaluate_validation_gates(
         "gates_total": len(gates),
         "non_passing_gates": non_passing,
         "verdict": verdict,
+        "economic_window": {
+            "from": economic_from or None,
+            "to": economic_to or None,
+            "boundary": "inclusive_calendar_dates" if economic_from and economic_to else None,
+        },
+        "baseline_acceptance_contract": baseline_acceptance_contract,
+        "baseline_falsification_gate_names": baseline_gate_names,
+        "baseline_falsification_non_passing_gates": baseline_non_passing,
+        "baseline_falsification_verdict": baseline_verdict,
         "research_cost_proxy": cost_provenance.get("evidence_tier") == "RESEARCH_PROXY",
         "research_falsification_eligible": bool(
             cost_provenance.get("verified")
@@ -3330,6 +3629,9 @@ def run_all_validations(
     wfa_artifact: str = "",
     variants_dir: str = "",
     allow_research_cost_proxy: bool = False,
+    economic_from: str = "",
+    economic_to: str = "",
+    baseline_acceptance_contract: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Run all validation tests, optionally in parallel.
 
@@ -3486,6 +3788,9 @@ def run_all_validations(
         invocation_id=invocation_id,
         invocation_start_utc=invocation_start_utc,
         allow_research_cost_proxy=allow_research_cost_proxy,
+        economic_from=economic_from,
+        economic_to=economic_to,
+        baseline_acceptance_contract=baseline_acceptance_contract,
     )
     summary["total_elapsed_s"] = total_elapsed
     summary["parallel"] = parallel
@@ -3566,6 +3871,13 @@ def main():
         action="store_true",
         help="Accept explicitly non-promotable RESEARCH_PROXY cost evidence for falsification",
     )
+    parser.add_argument("--economic-from", default="", help="Inclusive economic scoring-window start (YYYY.MM.DD)")
+    parser.add_argument("--economic-to", default="", help="Inclusive economic scoring-window end (YYYY.MM.DD)")
+    parser.add_argument("--min-completed-trades", type=int, default=0)
+    parser.add_argument("--min-direction-share", type=float, default=0.0)
+    parser.add_argument("--max-year-trade-share", type=float, default=1.0)
+    parser.add_argument("--require-positive-cost-expectancy", action="store_true")
+    parser.add_argument("--require-all-calendar-years-positive", action="store_true")
     parser.add_argument("--min-pf", type=float, default=DEFAULT_GATE_THRESHOLDS["min_profit_factor"])
     parser.add_argument("--min-trades-per-week", type=float, default=DEFAULT_GATE_THRESHOLDS["min_trades_per_week"])
     parser.add_argument("--max-trades-per-week", type=float, default=DEFAULT_GATE_THRESHOLDS["max_trades_per_week"])
@@ -3615,6 +3927,15 @@ def main():
         "max_pbo": args.max_pbo,
         "max_white_reality_check_p": args.max_white_rc_p,
     }
+    baseline_acceptance_contract = None
+    if args.min_completed_trades > 0:
+        baseline_acceptance_contract = {
+            "min_completed_trades": args.min_completed_trades,
+            "min_direction_share": args.min_direction_share,
+            "max_year_trade_share": args.max_year_trade_share,
+            "require_positive_cost_expectancy": args.require_positive_cost_expectancy,
+            "require_all_calendar_years_positive": args.require_all_calendar_years_positive,
+        }
     summary = run_all_validations(
         report,
         out_dir,
@@ -3626,6 +3947,9 @@ def main():
         wfa_artifact=args.wfa_artifact,
         variants_dir=args.variants_dir,
         allow_research_cost_proxy=args.allow_research_cost_proxy,
+        economic_from=args.economic_from,
+        economic_to=args.economic_to,
+        baseline_acceptance_contract=baseline_acceptance_contract,
     )
 
     summary_path = Path(out_dir) / "validation_summary.json"

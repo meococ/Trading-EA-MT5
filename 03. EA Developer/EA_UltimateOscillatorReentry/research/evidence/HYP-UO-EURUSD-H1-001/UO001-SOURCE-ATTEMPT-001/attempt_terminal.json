@@ -1,0 +1,1 @@
+{"attempt_id":"UO001-SOURCE-ATTEMPT-001","completed_at_utc":"2026-08-10T12:14:38.161436Z","hypothesis_id":"HYP-UO-EURUSD-H1-001","receipt_sha256":"143B345A53CA60C77650CB8F3DB3B249F473FF31A7A1B2C1168B8BC3EC9D57D2","same_id_retry_authorized":false,"schema_version":"uo_source_attempt_terminal.v1","status":"COMPLETE","verdict":"PARK_SOURCE_FEASIBILITY_EXACT_UO_REENTRY"}

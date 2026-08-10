@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-APC-XAUUSD-M15-002",
+  "run_id": "APC002-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_ATRImpulsePullbackContinuation",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_ATRImpulsePullbackContinuation\\EA_ATRImpulsePullbackContinuation.mq5",
+  "source_sha256": "749D403F7FD5713368351FC82AC6E085C12A1D2FE79A88D34A326524C8490C78",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

@@ -1,0 +1,1 @@
+{"attempt_id":"ST003-COMPILE-001","completed_at_utc":"2026-08-08T21:28:41.611057Z","hypothesis_id":"HYP-ST-XAUUSD-H1-003","receipt_sha256":"5537AD04B6945027B7552791ADBF3F3B133D6CAE6AFF582C870FC3E4DB2638C9","same_id_retry_authorized":false,"schema_version":"st003_compile_archive_terminal.v1","status":"COMPLETE","verdict":"COMPILE_ARCHIVE_PASS_0E_0W"}

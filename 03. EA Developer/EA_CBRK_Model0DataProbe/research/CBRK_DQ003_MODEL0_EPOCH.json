@@ -1,0 +1,21 @@
+{
+  "schema_version": "alphafactory_data_epoch_contract.v1",
+  "record_type": "data_epoch_contract",
+  "campaign_id": "CBRK-XAUUSD-M5",
+  "generation": 3,
+  "generation_id": "CBRK-DQ003",
+  "server": "FivePercentOnline-Real",
+  "timeframe": "M5",
+  "tester_model": 0,
+  "requested_from": "2018.01.02",
+  "availability_cutoff_utc": "2026-08-10T07:08:26Z",
+  "history_quality": {
+    "operator": "gt",
+    "threshold_pct": 97.0
+  },
+  "no_skip": true,
+  "mandatory_symbols": [
+    "XAUUSD"
+  ],
+  "purpose": "One zero-trade Model-0 exact-window data-quality run for the CBRK baseline. No performance or economic authority."
+}

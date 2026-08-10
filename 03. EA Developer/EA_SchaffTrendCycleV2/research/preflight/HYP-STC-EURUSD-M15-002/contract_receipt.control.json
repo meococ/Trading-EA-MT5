@@ -1,0 +1,125 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "binding": {
+    "hypothesis_id": "HYP-STC-EURUSD-M15-002",
+    "run_role": "control",
+    "ea_name": "EA_SchaffTrendCycleV2",
+    "symbol": "EURUSD",
+    "period": "M15",
+    "from": "2016.01.04",
+    "to": "2021.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "overrides": "InpDeviationPoints=20;InpFridayFlattenHour=20;InpHypothesisId=HYP-STC-EURUSD-M15-002;InpMagic=5603702;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpMaxHoldBars=16;InpMaxTradesPerDay=1;InpResearchAutoMode=true;InpRiskPercent=0.25;InpVariantTag=STC_CLASSIC_TREND_CYCLE_V2_PRELOAD_READY",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 0.00001,
+      "pip_size": 0.0001
+    },
+    "required_sidecars": [],
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  "git_commit": "521688f5ee9b7d1f028a91606f64b9ee4134994a",
+  "git_status_sha256": "48F1B8CA44B60BF4E3910833427A120D344D106A061ADD8BC92A22EFCA0D87FA",
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycleV2/research/preflight/HYP-STC-EURUSD-M15-002/task_packet.control.json",
+      "sha256": "73BEA8129EA60B2624F6C309085D563E523F1B14106ECAAF9309D5668C307E45"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycleV2/EA_SchaffTrendCycleV2.mq5",
+      "sha256": "F2ED1064789C9FDC8E7487107938608ECAAF5709656E95DFC8A1EFABC0C0D4ED"
+    },
+    {
+      "label": "compiled_ex5",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycleV2/EA_SchaffTrendCycleV2.ex5",
+      "sha256": "EB24CFEB1A9443927A956AA7D67518C37A0CB1CE1E71A132B9E8C5E0106DC25B"
+    },
+    {
+      "label": "compile_log",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycleV2/EA_SchaffTrendCycleV2.log",
+      "sha256": "DF3F0D6FF87F9BAB404B9FF7CC0C5428BD3521BDCC28C439412CE05625805E4C"
+    },
+    {
+      "label": "ea_contract",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycleV2/ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "883512816B8EC22FDF43758000FC22166FC886B1943CA4AEB63BE3C5E5871D7F"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycleV2/research/HYP-STC-EURUSD-M15-002_FROZEN_PREREG.md",
+      "sha256": "2A2FB91E9789A6581B5B1FC26492E209337D929A1AA92F35A98B4306302732C4"
+    },
+    {
+      "label": "preload_origin_proof",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycleV2/research/HYP-STC-EURUSD-M15-002_PRELOAD_ORIGIN_PROOF.json",
+      "sha256": "1EA2D70AC04C65601005D7565577593C796162E716A721A7E227B9643150D3BE"
+    },
+    {
+      "label": "pre_baseline_review",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycleV2/research/HYP-STC-EURUSD-M15-002_PRE_BASELINE_REVIEW.md",
+      "sha256": "C5D1120D57CDF596F23BC51E7DB1BAD5CD7E7E6DD4236872743A6F2CD052274D"
+    },
+    {
+      "label": "focused_test",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycleV2/research/tests/test_stc002_contract.py",
+      "sha256": "B51CDA93238F9CEBFA312C98FA68B88B4A2BE9423EF32D0C4A51554976D4B043"
+    },
+    {
+      "label": "nonrepaint_manifest",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycleV2/NONREPAINT_AUDIT_MANIFEST.json",
+      "sha256": "B48D5C590CD998352E8C6581319668F61028D8D812E5D31CF926A31DEDBD7D81"
+    },
+    {
+      "label": "nonrepaint_audit",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycleV2/research/HYP-STC-EURUSD-M15-002_NONREPAINT_AUDIT.json",
+      "sha256": "75929065504829B604804A4575EAAA3559667188347630148A2BCB9774FE383A"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycleV2/research/HYP-STC-EURUSD-M15-002_COST_SOURCE_MANIFEST.json",
+      "sha256": "7502CE78093562690B2E5D75D3FE58FD890314A7BF4459C9BB7304FEF20F9260"
+    },
+    {
+      "label": "source_to_spec",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycleV2/research/HYP-STC-EURUSD-M15-002_SOURCE_TO_SPEC.md",
+      "sha256": "4A26738E3F3386AF42C9EBDBF2FA173EBEE4D5A9EB2F8F050778F650B268D788"
+    },
+    {
+      "label": "parent_failure_packet",
+      "kind": "file",
+      "path": "03. EA Developer/EA_SchaffTrendCycle/research/HYP-STC-EURUSD-M15-001_FAILURE_PACKET.json",
+      "sha256": "2611B601B65BFAFD749FE740A9DA0CAFA5A5DF073B5995A99A40922070D7ECF4"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+      "sha256": "1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"
+    }
+  ]
+}

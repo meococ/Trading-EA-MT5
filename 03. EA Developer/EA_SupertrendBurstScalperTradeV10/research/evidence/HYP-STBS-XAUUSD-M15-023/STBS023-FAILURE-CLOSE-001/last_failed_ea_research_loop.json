@@ -1,0 +1,33 @@
+﻿{
+    "schema_version":  "alphafactory_research_loop_failure.v1",
+    "hypothesis_id":  "HYP-STBS-XAUUSD-M15-023",
+    "task_packet_path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendBurstScalperTradeV10\\research\\preflight\\HYP-STBS-XAUUSD-M15-023\\V1\\task_packet.control.json",
+    "run_id":  null,
+    "run_dir":  null,
+    "error":  "Required step failed: Backtest EA_SupertrendBurstScalperTradeV10 XAUUSD M15 2005.01.01-2023.01.01 Model=0 (MT5 journal delta must be present and complete; truncated or untyped evidence is invalid.)",
+    "state_transitions":  [
+                              {
+                                  "sequence":  1,
+                                  "hypothesis_id":  "HYP-STBS-XAUUSD-M15-023",
+                                  "state":  "execution_started",
+                                  "detail":  "Registry, source, prereg, task packet, and cost-source contract validated.",
+                                  "timestamp_utc":  "2026-08-09T21:32:52.8754474Z"
+                              },
+                              {
+                                  "sequence":  2,
+                                  "hypothesis_id":  "HYP-STBS-XAUUSD-M15-023",
+                                  "state":  "failed",
+                                  "detail":  "Required step failed: Backtest EA_SupertrendBurstScalperTradeV10 XAUUSD M15 2005.01.01-2023.01.01 Model=0 (MT5 journal delta must be present and complete; truncated or untyped evidence is invalid.)",
+                                  "timestamp_utc":  "2026-08-09T21:34:31.6105495Z"
+                              }
+                          ],
+    "transition_log":  "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\ea_research_transitions\\20260810_043251_33856_1704e192.jsonl",
+    "steps":  [
+                  {
+                      "label":  "Backtest EA_SupertrendBurstScalperTradeV10 XAUUSD M15 2005.01.01-2023.01.01 Model=0",
+                      "exit_code":  1,
+                      "error":  "MT5 journal delta must be present and complete; truncated or untyped evidence is invalid."
+                  }
+              ],
+    "failed_at_utc":  "2026-08-09T21:34:31.6240368Z"
+}

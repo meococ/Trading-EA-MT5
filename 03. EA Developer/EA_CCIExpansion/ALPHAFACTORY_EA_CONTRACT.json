@@ -1,0 +1,35 @@
+{
+  "schema_version": "alphafactory_ea_contract.v1",
+  "telemetry_profile": "none",
+  "market_phase_adapter": "none",
+  "comparison_adapter": "generic-control-improvement-v1",
+  "variant_tag_input": "InpVariantTag",
+  "execution_profile": {
+    "authority": "registered-untuned-model0-baseline",
+    "timeframe": "M15",
+    "research_auto_mode_input": "InpResearchAutoMode",
+    "research_auto_mode_default": false,
+    "telemetry_input": "InpEnableTelemetry",
+    "telemetry_required_for_execution": false,
+    "hypothesis_id_input": "InpHypothesisId",
+    "hypothesis_id_default": "HYP-CCI-XAUUSD-M15-001",
+    "expected_symbol": "XAUUSD",
+    "closed_bar_only": true,
+    "no_trade_api": false,
+    "economic_claims_authorized": true,
+    "promotion_eligible": false
+  },
+  "inputs": {
+    "InpResearchAutoMode": false,
+    "InpEnableTelemetry": false,
+    "InpHypothesisId": "HYP-CCI-XAUUSD-M15-001",
+    "InpVariantTag": "CCI20_TYPICAL_100_EXPANSION",
+    "InpMagic": 5604201,
+    "InpRiskPercent": 0.25,
+    "InpMaxDailyLossPct": 3.5,
+    "InpMaxAccountDrawdownPct": 8.0,
+    "InpMaxTradesPerDay": 1,
+    "InpDeviationPoints": 20,
+    "InpFridayFlattenHour": 20
+  }
+}

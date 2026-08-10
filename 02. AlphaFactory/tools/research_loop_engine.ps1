@@ -1183,6 +1183,80 @@ function Add-PacketMismatch($Blockers, $Packet, $Field, $Expected, [switch]$Inte
     }
 }
 
+function Resolve-EconomicWindow($Packet, $Binding, [bool]$Required, $Blockers) {
+    $node = Get-ObjectProperty $Packet 'economic_window'
+    if ($null -eq $node) {
+        if ($Required) {
+            $Blockers.Add("RESEARCH_PROXY task packet requires an explicit economic_window distinct from tester preload when applicable.")
+        }
+        return [pscustomobject]@{ From = [string]$Binding.From; To = [string]$Binding.To }
+    }
+    if (-not (Test-ProvenanceObject $node)) {
+        $Blockers.Add("Task packet economic_window must be an object.")
+        return [pscustomobject]@{ From = ''; To = '' }
+    }
+    $names = @($node.PSObject.Properties | ForEach-Object { $_.Name })
+    if ($names.Count -ne 2 -or 'from' -notin $names -or 'to' -notin $names) {
+        $Blockers.Add("Task packet economic_window must contain exactly 'from' and 'to'.")
+    }
+    $economicFrom = [string](Get-ObjectProperty $node 'from')
+    $economicTo = [string](Get-ObjectProperty $node 'to')
+    try {
+        $testerFrom = [datetime]::ParseExact([string]$Binding.From, 'yyyy.MM.dd', [Globalization.CultureInfo]::InvariantCulture)
+        $testerTo = [datetime]::ParseExact([string]$Binding.To, 'yyyy.MM.dd', [Globalization.CultureInfo]::InvariantCulture)
+        $parsedFrom = [datetime]::ParseExact($economicFrom, 'yyyy.MM.dd', [Globalization.CultureInfo]::InvariantCulture)
+        $parsedTo = [datetime]::ParseExact($economicTo, 'yyyy.MM.dd', [Globalization.CultureInfo]::InvariantCulture)
+        if ($parsedFrom -gt $parsedTo) {
+            $Blockers.Add("Task packet economic_window.from must be on or before economic_window.to.")
+        }
+        if ($parsedFrom -lt $testerFrom -or $parsedTo -gt $testerTo) {
+            $Blockers.Add("Task packet economic_window must be contained within the tester preload window.")
+        }
+    } catch {
+        $Blockers.Add("Task packet economic_window dates must use yyyy.MM.dd.")
+    }
+    return [pscustomobject]@{ From = $economicFrom; To = $economicTo }
+}
+
+function Resolve-BaselineAcceptanceContract($Packet, [bool]$Required, $Blockers) {
+    $node = Get-ObjectProperty $Packet 'baseline_acceptance_contract'
+    if ($null -eq $node) {
+        if ($Required) {
+            $Blockers.Add("RESEARCH_PROXY task packet requires baseline_acceptance_contract.")
+        }
+        return $null
+    }
+    $fields = @(
+        'min_completed_trades', 'min_direction_share', 'max_year_trade_share',
+        'require_positive_cost_expectancy', 'require_all_calendar_years_positive'
+    )
+    if (-not (Test-ProvenanceObject $node)) {
+        $Blockers.Add("Task packet baseline_acceptance_contract must be an object.")
+        return $null
+    }
+    $names = @($node.PSObject.Properties | ForEach-Object { $_.Name })
+    if ($names.Count -ne $fields.Count -or @($names | Where-Object { $_ -notin $fields }).Count -gt 0) {
+        $Blockers.Add("Task packet baseline_acceptance_contract must contain exactly the five supported fields.")
+    }
+    $minimumTrades = Get-ObjectProperty $node 'min_completed_trades'
+    $minimumSide = Get-ObjectProperty $node 'min_direction_share'
+    $maximumYear = Get-ObjectProperty $node 'max_year_trade_share'
+    if (-not (Test-PositiveInteger $minimumTrades)) {
+        $Blockers.Add("baseline_acceptance_contract.min_completed_trades must be a positive integer.")
+    }
+    if (-not (Test-NonNegativeNumber $minimumSide) -or [double]$minimumSide -gt 0.5) {
+        $Blockers.Add("baseline_acceptance_contract.min_direction_share must be between 0 and 0.5.")
+    }
+    if (-not (Test-NonNegativeNumber $maximumYear) -or [double]$maximumYear -le 0 -or [double]$maximumYear -gt 1) {
+        $Blockers.Add("baseline_acceptance_contract.max_year_trade_share must be greater than 0 and at most 1.")
+    }
+    if ((Get-ObjectProperty $node 'require_positive_cost_expectancy') -ne $true -or
+        (Get-ObjectProperty $node 'require_all_calendar_years_positive') -ne $true) {
+        $Blockers.Add("Baseline expectancy and every-calendar-year positivity requirements must both be true.")
+    }
+    return $node
+}
+
 function Resolve-ExecutionAuthority($Packet, $Binding, $Blockers) {
     $exactProperty = @($Packet.PSObject.Properties | Where-Object { $_.Name -ceq 'authority' })
     $caseFoldedProperty = @($Packet.PSObject.Properties | Where-Object { $_.Name -ieq 'authority' })
@@ -1381,6 +1455,53 @@ function Test-ScopedModel4PriorRegistryPacket($Packet, $Contract, $Binding, $Pac
     )
 }
 
+function Test-ScopedModel0EconomicPriorRegistryPacket($Packet, $Contract, $Binding, $PacketPath) {
+    if (-not [string]::IsNullOrWhiteSpace([string](Get-ObjectProperty $Packet 'authority'))) {
+        return $false
+    }
+    if (
+        [int]$Binding.Model -ne 0 -or
+        [string]$Binding.RunRole -cne 'control' -or
+        [string]$Contract.RegistryState -cne 'screened'
+    ) {
+        return $false
+    }
+    $validation = Get-ObjectProperty $Contract.LatestRow 'validation'
+    $metrics = Get-ObjectProperty $Contract.LatestRow 'metrics'
+    if (-not (Test-ProvenanceObject $validation) -or -not (Test-ProvenanceObject $metrics)) {
+        return $false
+    }
+    $packetRelativePath = Get-RepoRelativePath $PacketPath
+    $packetSha256 = Get-Sha256IfExists $PacketPath
+    return (
+        [string](Get-ObjectProperty $validation 'authority') -ceq 'MODEL0_TRAIN_FALSIFICATION_ONLY' -and
+        [string](Get-ObjectProperty $validation 'one_shot_economic_harness_version') -ceq 'model0-economic-one-shot-v1' -and
+        [string](Get-ObjectProperty $validation 'probe_status') -ceq 'SCREENED_STBS013_ONE_SHOT_PACKET_BOUND_MODEL0_BASELINE_AUTHORIZED' -and
+        (Get-ObjectProperty $validation 'mt5_train_run_authorized') -eq $true -and
+        [string](Get-ObjectProperty $validation 'mt5_attempt_id') -ceq [string](Get-ObjectProperty $Packet 'attempt_id') -and
+        [int](Get-ObjectProperty $validation 'mt5_attempt_limit') -eq 1 -and
+        [int](Get-ObjectProperty $Packet 'attempt_limit') -eq 1 -and
+        [int](Get-ObjectProperty $metrics 'mt5_attempts_consumed') -eq 0 -and
+        (Get-ObjectProperty $validation 'same_id_retry_authorized') -eq $false -and
+        [int](Get-ObjectProperty $validation 'authorized_timeout_sec') -eq [int]$Binding.TimeoutSec -and
+        [int](Get-ObjectProperty $Packet 'timeout_sec') -eq [int]$Binding.TimeoutSec -and
+        [string](Get-ObjectProperty $validation 'task_packet_path') -ceq $packetRelativePath -and
+        [string](Get-ObjectProperty $validation 'task_packet_sha256') -ceq $packetSha256 -and
+        [string](Get-ObjectProperty $validation 'authorized_packet_registry_sha256') -ceq
+            [string](Get-ObjectProperty $Packet 'registry_sha256') -and
+        [string](Get-ObjectProperty $validation 'authorized_packet_registry_row_sha256') -ceq
+            [string](Get-ObjectProperty $Packet 'registry_row_sha256') -and
+        [string](Get-ObjectProperty $validation 'authorized_packet_git_status_sha256') -ceq
+            [string](Get-ObjectProperty $Packet 'git_status_sha256') -and
+        [int](Get-ObjectProperty $validation 'execute_gate_prior_registry_line') -eq
+            ([int]$Contract.RegistryLine - 1) -and
+        (Test-Sha256Text ([string](Get-ObjectProperty $validation 'execute_gate_prior_registry_sha256'))) -and
+        (Test-Sha256Text ([string](Get-ObjectProperty $validation 'execute_gate_prior_registry_row_sha256'))) -and
+        [string](Get-ObjectProperty $validation 'authorized_current_git_status_sha256') -ceq
+            [string]$Binding.GitStatusSha256
+    )
+}
+
 function Get-Model4ControlPlaneBinding([string]$RunnerPath) {
     $runner = [System.IO.Path]::GetFullPath($RunnerPath)
     $tools = Split-Path -Parent $runner
@@ -1529,6 +1650,9 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
             DataAcceptanceContract = $Contract.DataAcceptanceContract
             DataQualityContract = $null
             CostEvidenceTier = $null
+            EconomicFrom = $null
+            EconomicTo = $null
+            BaselineAcceptanceContract = $null
             Authority = $null
             CollectionSymbol = $null
             CollectionPeriod = $null
@@ -1555,6 +1679,7 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
             DataAcceptanceContract = $Contract.DataAcceptanceContract
             DataQualityContract = $null
             CostEvidenceTier = $null
+            EconomicFrom = $null; EconomicTo = $null; BaselineAcceptanceContract = $null
             Authority = $null
             CollectionSymbol = $null; CollectionPeriod = $null; CollectionServer = $null
             MatchedControl = $null
@@ -1581,6 +1706,7 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
             DataAcceptanceContract = $Contract.DataAcceptanceContract
             DataQualityContract = $null
             CostEvidenceTier = $null
+            EconomicFrom = $null; EconomicTo = $null; BaselineAcceptanceContract = $null
             Authority = $null
             CollectionSymbol = $null; CollectionPeriod = $null; CollectionServer = $null
             MatchedControl = $null
@@ -1601,8 +1727,10 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
     Add-PacketMismatch $blockers $packet 'source_path' $Contract.CanonicalSourcePath
     Add-PacketMismatch $blockers $packet 'source_sha256' $Contract.CurrentSourceSha256 -Hash
     Add-PacketMismatch $blockers $packet 'registry_path' (Get-RepoRelativePath $Contract.RegistryPath)
-    $scopedPriorRegistryPacket = Test-ScopedModel4PriorRegistryPacket `
-        $packet $Contract $Binding $resolvedPacketPath
+    $scopedPriorRegistryPacket = (
+        (Test-ScopedModel4PriorRegistryPacket $packet $Contract $Binding $resolvedPacketPath) -or
+        (Test-ScopedModel0EconomicPriorRegistryPacket $packet $Contract $Binding $resolvedPacketPath)
+    )
     if ($scopedPriorRegistryPacket) {
         $scopedValidation = Get-ObjectProperty $Contract.LatestRow 'validation'
         Add-PacketMismatch $blockers $packet 'registry_sha256' `
@@ -1685,6 +1813,7 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
     Add-PacketMismatch $blockers $packet 'model' $Binding.Model -Integer
     Add-PacketMismatch $blockers $packet 'execution_mode' $Binding.ExecutionMode -Integer
     Add-PacketMismatch $blockers $packet 'fixed_delay_ms' $Binding.FixedDelayMs -Integer
+    Add-PacketMismatch $blockers $packet 'timeout_sec' $Binding.TimeoutSec -Integer
     Add-PacketMismatch $blockers $packet 'overrides' $Binding.Overrides
     Add-PacketMismatch $blockers $packet 'telemetry_tier' $Binding.TelemetryTier
     Add-PacketMismatch $blockers $packet 'deposit' $Binding.Deposit -Integer
@@ -1909,6 +2038,15 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
     } elseif ($costEvidenceTier -ceq 'research_proxy') {
         $blockers.Add("Task packet requests research_proxy cost evidence without -AllowResearchCostProxy.")
     }
+    $economicWindow = Resolve-EconomicWindow $packet $Binding $researchCostProxy $blockers
+    $baselineAcceptance = Resolve-BaselineAcceptanceContract $packet $researchCostProxy $blockers
+    if ($researchCostProxy) {
+        if ((Get-ObjectProperty $packet 'performance_metrics_authorized') -ne $true -or
+            (Get-ObjectProperty $packet 'economics_authorized') -ne $true -or
+            (Get-ObjectProperty $packet 'promotion_eligible') -ne $false) {
+            $blockers.Add("RESEARCH_PROXY task packet must set performance_metrics_authorized=true, economics_authorized=true, and promotion_eligible=false.")
+        }
+    }
     $isModel4CollectionAuthority = (
         $authority -ceq 'DATA_ACQUISITION_ONLY_NO_PERFORMANCE' -and
         [int]$Binding.Model -eq 4 -and
@@ -2012,8 +2150,8 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
                 }
                 $costFrom = [string](Get-ObjectProperty $costSourceManifest 'from')
                 $costTo = [string](Get-ObjectProperty $costSourceManifest 'to')
-                if ($costFrom -cne $Binding.From -or $costTo -cne $Binding.To) {
-                    $blockers.Add("Cost source manifest window '$costFrom' to '$costTo' does not match task packet window '$($Binding.From)' to '$($Binding.To)'.")
+                if ($costFrom -cne $economicWindow.From -or $costTo -cne $economicWindow.To) {
+                    $blockers.Add("Cost source manifest window '$costFrom' to '$costTo' does not match task packet economic window '$($economicWindow.From)' to '$($economicWindow.To)'.")
                 }
 
                 $costGeometry = Get-ObjectProperty $costSourceManifest 'symbol_geometry'
@@ -2061,8 +2199,8 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
                     } else {
                         $coverageFrom = [string](Get-ObjectProperty $coverage 'from')
                         $coverageTo = [string](Get-ObjectProperty $coverage 'to')
-                        if ($coverageFrom -cne $Binding.From -or $coverageTo -cne $Binding.To) {
-                            $blockers.Add("historical_spread_provenance.coverage window '$coverageFrom' to '$coverageTo' does not match task packet window '$($Binding.From)' to '$($Binding.To)'.")
+                        if ($coverageFrom -cne $economicWindow.From -or $coverageTo -cne $economicWindow.To) {
+                            $blockers.Add("historical_spread_provenance.coverage window '$coverageFrom' to '$coverageTo' does not match task packet economic window '$($economicWindow.From)' to '$($economicWindow.To)'.")
                         }
                         $coverageSamples = Get-ObjectProperty $coverage 'sample_count'
                         $coverageTotal = Get-ObjectProperty $coverage 'total_count'
@@ -2182,14 +2320,14 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
                                 $blockers.Add("commission_provenance.broker_contract.per_lot_basis must be true.")
                             }
                             $contractFrom = [string](Get-ObjectProperty $brokerContract 'from')
-                            $contractFromValid = $contractFrom -ceq $Binding.From
+                            $contractFromValid = $contractFrom -ceq $economicWindow.From
                             if (-not $contractFromValid) {
-                                $blockers.Add("commission_provenance.broker_contract.from '$contractFrom' does not match task packet from '$($Binding.From)'.")
+                                $blockers.Add("commission_provenance.broker_contract.from '$contractFrom' does not match task packet economic from '$($economicWindow.From)'.")
                             }
                             $contractTo = [string](Get-ObjectProperty $brokerContract 'to')
-                            $contractToValid = $contractTo -ceq $Binding.To
+                            $contractToValid = $contractTo -ceq $economicWindow.To
                             if (-not $contractToValid) {
-                                $blockers.Add("commission_provenance.broker_contract.to '$contractTo' does not match task packet to '$($Binding.To)'.")
+                                $blockers.Add("commission_provenance.broker_contract.to '$contractTo' does not match task packet economic to '$($economicWindow.To)'.")
                             }
                             $contractConversionMethod = [string](Get-ObjectProperty $brokerContract 'conversion_method')
                             $contractConversionValid = $contractConversionMethod -ceq 'per_trade_contemporaneous'
@@ -2403,6 +2541,9 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
         VariantsDir = $variantsPath
         ValidationStage = $validationStage
         CostEvidenceTier = $costEvidenceTier
+        EconomicFrom = $economicWindow.From
+        EconomicTo = $economicWindow.To
+        BaselineAcceptanceContract = $baselineAcceptance
         HoldingContract = $holdingContract
         AcceptanceContract = $registeredAcceptance
         DataAcceptanceContract = $Contract.DataAcceptanceContract
@@ -2729,6 +2870,211 @@ function Add-Model4PostLockRevalidationBlockers(
         $Contract $Binding $PacketResult $RunnerPath $Blockers
 }
 
+function Get-Model0EconomicAttemptPaths($Contract) {
+    $validation = Get-ObjectProperty $Contract.LatestRow 'validation'
+    $attemptId = [string](Get-ObjectProperty $validation 'mt5_attempt_id')
+    if ($attemptId -notmatch '^[A-Z0-9-]+$') {
+        throw "Model0 economic mt5_attempt_id is missing or unsafe."
+    }
+    $root = Join-Path $runtimeRoot ("model0_economic_attempts\{0}\{1}" -f $Contract.HypothesisId, $attemptId)
+    return [pscustomobject]@{
+        AttemptId = $attemptId
+        Root = $root
+        StartPath = Join-Path $root 'attempt_started.json'
+        TerminalPath = Join-Path $root 'attempt_terminal.json'
+    }
+}
+
+function Add-Model0EconomicLaunchAuthorityBlockers(
+    $Contract,
+    $Binding,
+    $PacketResult,
+    [string]$RunnerPath,
+    $Blockers
+) {
+    $validation = Get-ObjectProperty $Contract.LatestRow 'validation'
+    if ([string](Get-ObjectProperty $validation 'authority') -cne 'MODEL0_TRAIN_FALSIFICATION_ONLY') {
+        return
+    }
+    if (-not (Test-ScopedModel0EconomicPriorRegistryPacket `
+        $PacketResult.Packet $Contract $Binding $PacketResult.PacketPath)) {
+        $Blockers.Add("Model0 economic -Execute requires the exact packet-bound one-shot screened authority.")
+        return
+    }
+    $runnerSha256 = Get-Sha256IfExists $RunnerPath
+    if ([string](Get-ObjectProperty $validation 'reviewed_research_loop_sha256') -cne $runnerSha256) {
+        $Blockers.Add("Model0 economic authority does not bind the current research-loop runner SHA256.")
+    }
+    if ([string](Get-ObjectProperty $validation 'reviewed_alpha_ps1_sha256') -cne (Get-Sha256IfExists $alphaPs1)) {
+        $Blockers.Add("Model0 economic authority does not bind the current AlphaFactory entrypoint SHA256.")
+    }
+    foreach ($boundControl in @(
+        [pscustomobject]@{ PathField = 'pre_execution_harness_addendum_path'; ShaField = 'pre_execution_harness_addendum_sha256'; Label = 'pre-execution harness addendum' },
+        [pscustomobject]@{ PathField = 'reviewed_task_packet_builder_path'; ShaField = 'reviewed_task_packet_builder_sha256'; Label = 'task-packet builder' },
+        [pscustomobject]@{ PathField = 'reviewed_registry_validator_path'; ShaField = 'reviewed_registry_validator_sha256'; Label = 'candidate-registry validator' },
+        [pscustomobject]@{ PathField = 'reviewed_registry_model0_preexecution_test_path'; ShaField = 'reviewed_registry_model0_preexecution_test_sha256'; Label = 'Model0 registry hardening test' },
+        [pscustomobject]@{ PathField = 'reviewed_cost_test_path'; ShaField = 'reviewed_cost_test_sha256'; Label = 'research-cost governance test' },
+        [pscustomobject]@{ PathField = 'reviewed_ea_golden_path_test_path'; ShaField = 'reviewed_ea_golden_path_test_sha256'; Label = 'AlphaFactory golden-path test' }
+    )) {
+        $relativePath = [string](Get-ObjectProperty $validation $boundControl.PathField)
+        $expectedSha = [string](Get-ObjectProperty $validation $boundControl.ShaField)
+        $absolutePath = if ([System.IO.Path]::IsPathRooted($relativePath)) {
+            $relativePath
+        } else {
+            Join-Path $repoRoot $relativePath
+        }
+        if (-not (Test-Sha256Text $expectedSha) -or (Get-Sha256IfExists $absolutePath) -cne $expectedSha) {
+            $Blockers.Add("Model0 economic authority does not bind the current $($boundControl.Label) bytes.")
+        }
+    }
+    if ((Get-ObjectProperty $PacketResult.Packet 'performance_metrics_authorized') -ne $true -or
+        (Get-ObjectProperty $PacketResult.Packet 'economics_authorized') -ne $true -or
+        (Get-ObjectProperty $PacketResult.Packet 'promotion_eligible') -ne $false) {
+        $Blockers.Add("Model0 economic packet permissions require performance_metrics_authorized=true, economics_authorized=true, promotion_eligible=false.")
+    }
+    $registeredBaseline = Get-ObjectProperty $validation 'baseline_acceptance_contract'
+    $packetBaseline = $PacketResult.BaselineAcceptanceContract
+    $baselineFieldMap = [ordered]@{
+        min_completed_trades = 'min_completed_trades'
+        min_direction_share = 'min_direction_share'
+        max_year_trade_share = 'max_year_trade_share'
+        require_positive_mean_x1_net_r = 'require_positive_cost_expectancy'
+        require_each_calendar_year_positive_x1_net_r = 'require_all_calendar_years_positive'
+    }
+    if (-not (Test-ProvenanceObject $registeredBaseline) -or -not (Test-ProvenanceObject $packetBaseline)) {
+        $Blockers.Add("Model0 economic authority and task packet both require baseline_acceptance_contract.")
+    } else {
+        foreach ($registeredField in $baselineFieldMap.Keys) {
+            $packetField = [string]$baselineFieldMap[$registeredField]
+            if ((Get-ObjectProperty $registeredBaseline $registeredField) -ne (Get-ObjectProperty $packetBaseline $packetField)) {
+                $Blockers.Add("Model0 economic baseline_acceptance_contract.$registeredField differs from task packet $packetField.")
+            }
+        }
+    }
+    foreach ($field in @(
+        'mt5_train_run_authorized', 'mt5_authorized', 'model0_authorized',
+        'model0_data_acquisition_authorized', 'model0_performance_authorized',
+        'source_run_authorized', 'run_compile_authorized', 'mql5_compile_authorized',
+        'trade_api_authorized', 'performance_metrics_authorized', 'outcome_prices_authorized',
+        'post_event_ohlc_authorized', 'artifact_collection_authorized',
+        'economics_authorized', 'research_falsification_authorized'
+    )) {
+        if ((Get-ObjectProperty $validation $field) -ne $true) {
+            $Blockers.Add("Model0 economic authority requires validation.$field=true.")
+        }
+    }
+    foreach ($field in @(
+        'packet_build_authorized', 'model0_audit_run_authorized', 'model4_authorized',
+        'model4_data_acquisition_authorized', 'model4_performance_authorized',
+        'compile_authorized', 'standalone_compile_authorized', 'comparator_execution_authorized',
+        'visual_mode_authorized', 'network_authorized', 'paid_requests_authorized',
+        'optimization_authorized', 'validation_authorized', 'holdout_authorized',
+        'research_validation_access_authorized', 'research_holdout_access_authorized',
+        'validation_access_authorized', 'holdout_access_authorized',
+        'economic_validity_authorized', 'promotion_eligible', 'paper_trading_authorized',
+        'live_trading_authorized', 'market_edge_claim_authorized',
+        'same_id_retry_authorized', 'registry_mutation_allowed'
+    )) {
+        if ((Get-ObjectProperty $validation $field) -ne $false) {
+            $Blockers.Add("Model0 economic authority requires validation.$field=false.")
+        }
+    }
+    try {
+        $paths = Get-Model0EconomicAttemptPaths $Contract
+        if (Test-Path -LiteralPath $paths.StartPath) {
+            $Blockers.Add("Model0 economic one-shot attempt is already consumed: $($paths.StartPath)")
+        }
+        if (Test-Path -LiteralPath $paths.TerminalPath) {
+            $Blockers.Add("Model0 economic one-shot terminal already exists: $($paths.TerminalPath)")
+        }
+    } catch {
+        $Blockers.Add($_.Exception.Message)
+    }
+}
+
+function New-Model0EconomicLaunchClaim($Contract, $Binding, $PacketResult) {
+    $validation = Get-ObjectProperty $Contract.LatestRow 'validation'
+    if ([string](Get-ObjectProperty $validation 'one_shot_economic_harness_version') -cne 'model0-economic-one-shot-v1') {
+        return $null
+    }
+    $paths = Get-Model0EconomicAttemptPaths $Contract
+    New-Item -ItemType Directory -Path $paths.Root -Force | Out-Null
+    $claim = [ordered]@{
+        schema_version = 'alphafactory_model0_economic_attempt_started.v1'
+        hypothesis_id = $Contract.HypothesisId
+        attempt_id = $paths.AttemptId
+        registry_line = [int]$Contract.RegistryLine
+        registry_row_sha256 = [string]$Contract.RegistryRowSha256
+        task_packet_path = Get-RepoRelativePath $PacketResult.PacketPath
+        task_packet_sha256 = [string]$PacketResult.PacketSha256
+        timeout_sec = [int]$Binding.TimeoutSec
+        model = [int]$Binding.Model
+        run_role = [string]$Binding.RunRole
+        claimed_at_utc = (Get-Date).ToUniversalTime().ToString('o')
+    }
+    $json = $claim | ConvertTo-Json -Depth 10
+    $bytes = [System.Text.UTF8Encoding]::new($false).GetBytes($json)
+    $stream = [System.IO.File]::Open(
+        $paths.StartPath,
+        [System.IO.FileMode]::CreateNew,
+        [System.IO.FileAccess]::Write,
+        [System.IO.FileShare]::None
+    )
+    try {
+        $stream.Write($bytes, 0, $bytes.Length)
+        $stream.Flush($true)
+    } finally {
+        $stream.Dispose()
+    }
+    return [pscustomobject]@{
+        Kind = 'model0_economic'
+        AttemptId = $paths.AttemptId
+        Path = $paths.StartPath
+        Sha256 = Get-Sha256IfExists $paths.StartPath
+        TerminalPath = $paths.TerminalPath
+    }
+}
+
+function Write-Model0EconomicAttemptTerminal($AttemptRecord, [string]$Status, $RunId, $RunDir, [string]$ErrorMessage = '') {
+    if ($null -eq $AttemptRecord -or [string]$AttemptRecord.Kind -cne 'model0_economic') {
+        return $null
+    }
+    if ($Status -notin @('COMPLETE', 'FAILED')) {
+        throw "Unsupported Model0 economic terminal status '$Status'."
+    }
+    $terminal = [ordered]@{
+        schema_version = 'alphafactory_model0_economic_attempt_terminal.v1'
+        hypothesis_id = $HypothesisId
+        attempt_id = [string]$AttemptRecord.AttemptId
+        status = $Status
+        attempt_started_path = [string]$AttemptRecord.Path
+        attempt_started_sha256 = [string]$AttemptRecord.Sha256
+        run_id = $RunId
+        run_dir = $RunDir
+        error = $ErrorMessage
+        same_id_retry_authorized = $false
+        terminal_at_utc = (Get-Date).ToUniversalTime().ToString('o')
+    }
+    $json = $terminal | ConvertTo-Json -Depth 10
+    $bytes = [System.Text.UTF8Encoding]::new($false).GetBytes($json)
+    $stream = [System.IO.File]::Open(
+        [string]$AttemptRecord.TerminalPath,
+        [System.IO.FileMode]::CreateNew,
+        [System.IO.FileAccess]::Write,
+        [System.IO.FileShare]::None
+    )
+    try {
+        $stream.Write($bytes, 0, $bytes.Length)
+        $stream.Flush($true)
+    } finally {
+        $stream.Dispose()
+    }
+    return [pscustomobject]@{
+        Path = [string]$AttemptRecord.TerminalPath
+        Sha256 = Get-Sha256IfExists ([string]$AttemptRecord.TerminalPath)
+    }
+}
+
 function New-Model4CollectionLaunchClaim($Contract, $Binding, $PacketResult, [string]$RunnerPath) {
     if ([string]$PacketResult.Authority -cne 'DATA_ACQUISITION_ONLY_NO_PERFORMANCE') {
         return $null
@@ -2940,9 +3286,15 @@ function New-ExecutionReceipt($ReceiptPath, $Contract, $PacketResult, $Binding, 
             period = $Binding.Period
             from = $Binding.From
             to = $Binding.To
+            economic_window = [ordered]@{
+                from = $PacketResult.EconomicFrom
+                to = $PacketResult.EconomicTo
+            }
+            baseline_acceptance_contract = $PacketResult.BaselineAcceptanceContract
             model = $Binding.Model
             execution_mode = $Binding.ExecutionMode
             fixed_delay_ms = $Binding.FixedDelayMs
+            timeout_sec = $Binding.TimeoutSec
             overrides = $Binding.Overrides
             telemetry_tier = $Binding.TelemetryTier
             telemetry_profile = $Binding.TelemetryProfile
@@ -3438,6 +3790,7 @@ function Assert-RunManifestMatchesPacket($ManifestPath, $PacketResult, $Binding,
         model = $Binding.Model
         execution_mode = $Binding.ExecutionMode
         fixed_delay_ms = $Binding.FixedDelayMs
+        timeout_sec = $Binding.TimeoutSec
         overrides = $Binding.Overrides
         telemetry_tier = $Binding.TelemetryTier
         deposit = $Binding.Deposit
@@ -3455,7 +3808,7 @@ function Assert-RunManifestMatchesPacket($ManifestPath, $PacketResult, $Binding,
     foreach ($field in $expectedFields.Keys) {
         $actual = Get-ObjectProperty $manifest $field
         $expected = $expectedFields[$field]
-        if ($field -in @('model', 'execution_mode', 'fixed_delay_ms', 'deposit', 'leverage')) {
+        if ($field -in @('model', 'execution_mode', 'fixed_delay_ms', 'timeout_sec', 'deposit', 'leverage')) {
             if (-not (Test-IntegerValue $actual) -or [int64]$actual -ne [int64]$expected) {
                 throw "Post-run manifest field '$field' does not match task packet '$expected'."
             }
@@ -3816,6 +4169,7 @@ $binding = [pscustomobject]@{
     Model = $Model
     ExecutionMode = $ExecutionMode
     FixedDelayMs = $FixedDelayMs
+    TimeoutSec = $TimeoutSec
     Overrides = $effectiveOverrides
     TelemetryTier = $TelemetryTier
     TelemetryProfile = $contract.TelemetryProfile
@@ -3858,6 +4212,8 @@ if ([string]$packetResult.Authority -ceq 'DATA_ACQUISITION_ONLY_NO_PERFORMANCE')
     Add-Model4CollectionLaunchAuthorityBlockers `
         $contract $binding $packetResult $PSCommandPath $executionBlockers
 }
+Add-Model0EconomicLaunchAuthorityBlockers `
+    $contract $binding $packetResult $PSCommandPath $executionBlockers
 $isDataAcquisition = [string]$packetResult.Authority -in @(
     'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE',
     'DATA_ACQUISITION_ONLY_NO_PERFORMANCE'
@@ -3920,6 +4276,7 @@ $plan = [ordered]@{
     model = $Model
     execution_mode = $ExecutionMode
     fixed_delay_ms = $FixedDelayMs
+    timeout_sec = $TimeoutSec
     overrides = $effectiveOverrides
     telemetry_tier = $TelemetryTier
     deposit = $Deposit
@@ -3943,6 +4300,11 @@ $plan = [ordered]@{
     validation_stage = $ValidationStage
     cost_evidence_tier = $packetResult.CostEvidenceTier
     allow_research_cost_proxy = [bool]$AllowResearchCostProxy
+    economic_window = [ordered]@{
+        from = $packetResult.EconomicFrom
+        to = $packetResult.EconomicTo
+    }
+    baseline_acceptance_contract = $packetResult.BaselineAcceptanceContract
     holding_contract = $HoldingContract
     cost_source_manifest = Resolve-EvidencePath $CostSourceManifest
     wfa_artifact = Resolve-EvidencePath $WfaArtifact
@@ -3996,6 +4358,7 @@ $analysisDir = $null
 $evidence = [ordered]@{}
 $receiptRecord = $null
 $launchClaimRecord = $null
+$economicAttemptRecord = $null
 $validationLock = $null
 $evidenceReadLocks = New-Object System.Collections.Generic.List[object]
 
@@ -4064,6 +4427,10 @@ try {
         }
     }
     $launchClaimRecord = New-Model4CollectionLaunchClaim $contract $binding $packetResult $PSCommandPath
+    if ($null -eq $launchClaimRecord) {
+        $economicAttemptRecord = New-Model0EconomicLaunchClaim $contract $binding $packetResult
+        $launchClaimRecord = $economicAttemptRecord
+    }
     if ($null -ne $launchClaimRecord) {
         $evidence.launch_claim_path = $launchClaimRecord.Path
         $evidence.launch_claim_sha256 = $launchClaimRecord.Sha256
@@ -4190,6 +4557,8 @@ try {
         $costBuilderPath,
         "--report", $report,
         "--cost-source-manifest", $packetResult.CostSourceManifestPath,
+        "--economic-from", $packetResult.EconomicFrom,
+        "--economic-to", $packetResult.EconomicTo,
         "--out", $costArtifact
     )
     [void](Invoke-RequiredStep "Build report-bound execution cost artifact $runId" { & python @costBuildArgs } $steps)
@@ -4216,6 +4585,17 @@ try {
         "--holding-contract", $packetResult.HoldingContract,
         "--cost-artifact", $costArtifact
     )
+    if ($null -ne $packetResult.BaselineAcceptanceContract) {
+        $validationArgs += @(
+            "--economic-from", $packetResult.EconomicFrom,
+            "--economic-to", $packetResult.EconomicTo,
+            "--min-completed-trades", [string]$packetResult.BaselineAcceptanceContract.min_completed_trades,
+            "--min-direction-share", [string]$packetResult.BaselineAcceptanceContract.min_direction_share,
+            "--max-year-trade-share", [string]$packetResult.BaselineAcceptanceContract.max_year_trade_share,
+            "--require-positive-cost-expectancy",
+            "--require-all-calendar-years-positive"
+        )
+    }
     $validationArgs += @(
         "--min-pf", [string]$packetResult.AcceptanceContract.min_profit_factor,
         "--min-trades-per-week", [string]$packetResult.AcceptanceContract.min_trades_per_week,
@@ -4255,7 +4635,14 @@ try {
         if ($validationPayload.research_cost_proxy -ne $true -or $validationPayload.promotion_eligible -ne $false) {
             throw "Research-proxy validation summary lost its non-promotion contract."
         }
-        Add-StateTransition "unified_research_validation_completed" ([string]$validationPayload.verdict) | Out-Null
+        if ($null -eq $packetResult.BaselineAcceptanceContract -or
+            [string]::IsNullOrWhiteSpace([string]$validationPayload.baseline_falsification_verdict) -or
+            [string]$validationPayload.baseline_falsification_verdict -notin @('PASS', 'FAIL', 'BLOCKED')) {
+            throw "Research-proxy validation summary lacks the frozen baseline falsification verdict."
+        }
+        Add-StateTransition "unified_research_validation_completed" (
+            "full=$([string]$validationPayload.verdict); baseline=$([string]$validationPayload.baseline_falsification_verdict)"
+        ) | Out-Null
     } else {
         Add-StateTransition "unified_validation_succeeded" | Out-Null
     }
@@ -4367,6 +4754,11 @@ try {
     Copy-Item -LiteralPath $script:transitionLogPath -Destination (Join-Path $analysisDir "ea_research_state_transitions.jsonl") -Force
     Update-RunManifestResearch (Join-Path $runDir "run_manifest.json") $contract $packetResult $plan $script:transitions $script:transitionLogPath $evidence
     Write-JsonAtomically $summary (Join-Path $runtimeRoot "last_ea_research_loop.json") 16
+    $economicTerminal = Write-Model0EconomicAttemptTerminal $economicAttemptRecord 'COMPLETE' $runId $runDir
+    if ($null -ne $economicTerminal) {
+        $evidence.model0_economic_attempt_terminal_path = $economicTerminal.Path
+        $evidence.model0_economic_attempt_terminal_sha256 = $economicTerminal.Sha256
+    }
     Write-Status "Research loop complete: $summaryPath" "OK"
 } catch {
     $failureMessage = $_.Exception.Message
@@ -4389,6 +4781,11 @@ try {
         Write-JsonAtomically $failure (Join-Path $runtimeRoot "last_failed_ea_research_loop.json") 14
     } catch {
         Write-Status "Could not write failure summary: $($_.Exception.Message)" "ERR"
+    }
+    try {
+        [void](Write-Model0EconomicAttemptTerminal $economicAttemptRecord 'FAILED' $runId $runDir $failureMessage)
+    } catch {
+        Write-Status "Could not write Model0 economic attempt terminal: $($_.Exception.Message)" "ERR"
     }
     throw "Research loop failed: $failureMessage"
 } finally {

@@ -1,0 +1,8 @@
+{
+  "hypothesis_id": "HYP-DCX-XAUUSD-M15-001",
+  "run_id": "DCX001-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_DonchianChandelierBreakout\\EA_DonchianChandelierBreakout.mq5",
+  "source_sha256": "A4BE71F1A1F98DCDE3C181C8BDF60017CA981816F0871D5CAC281565132FB94F",
+  "include_snapshots": []
+}

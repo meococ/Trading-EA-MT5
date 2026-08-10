@@ -1,0 +1,12 @@
+{
+  "schema_version": "alphafactory_collection_only_cost_manifest.v1",
+  "hypothesis_id": "HYP-ST-XAUUSD-H1-008",
+  "purpose": "ZERO_TRADE_MODEL0_MQL5_PARITY_AUDIT_WITH_INCEPTION_PRELOAD",
+  "spread_policy": "Empty AlphaFactory CLI token binds semantic current spread; no spread is converted into performance because no orders are allowed.",
+  "commission_policy": "Not applicable in HYP008 because orders and deals are forbidden.",
+  "slippage_policy": "Not applicable in HYP008 because orders and deals are forbidden.",
+  "future_economic_child_requirement": "Freeze observed spread, broker commission and dynamic slippage stress before returns.",
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "promotion_eligible": false
+}

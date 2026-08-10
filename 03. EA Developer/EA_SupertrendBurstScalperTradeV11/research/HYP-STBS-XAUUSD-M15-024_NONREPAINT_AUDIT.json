@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-STBS-XAUUSD-M15-024",
+  "run_id": "STBS024-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendBurstScalperTradeV11\\HYP-STBS-XAUUSD-M15-024_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "DB83B722461F96F39133F54A812B6416DC7F2F5482353550EE254D409F453928",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendBurstScalperTradeV11\\EA_SupertrendBurstScalperTradeV11.mq5",
+      "sha256": "7CC7A9D7C30216A1669D84AEEA867E32EA15F2E9E8C195D171BD574A4D2EB0BC"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendBurstScalperTradeV11\\EA_SupertrendBurstScalperTradeV11.mq5",
+      "line": 678,
+      "rule": "collection_first_date_copytime",
+      "function": "CopyTime",
+      "disposition": "allowed_collection_provenance_read"
+    }
+  ],
+  "generated_at_utc": "2026-08-09T22:02:57.650403+00:00"
+}

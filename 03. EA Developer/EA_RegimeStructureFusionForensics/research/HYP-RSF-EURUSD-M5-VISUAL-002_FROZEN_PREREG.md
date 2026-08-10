@@ -50,3 +50,4 @@ become a new mechanism after it is written as a closed-bar computable rule and
 preregistered under a new hypothesis ID. No threshold may be selected from
 these 14 charts and reported as an edge. Population/OOS/cost/DSR/CPCV gates
 remain mandatory for any successor EA.
+

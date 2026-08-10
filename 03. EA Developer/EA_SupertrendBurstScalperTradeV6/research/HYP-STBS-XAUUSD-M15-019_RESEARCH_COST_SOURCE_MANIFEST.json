@@ -1,0 +1,66 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "RESEARCH_PROXY",
+  "provenance_status": "VERIFIED_RESEARCH_PROXY",
+  "audit_status": "PASS_RESEARCH_ONLY",
+  "verdict": "PASS_RESEARCH_ONLY",
+  "promotion_eligible": false,
+  "broker": "Five Percent Online Ltd",
+  "server": "FivePercentOnline-Real (Build 6090)",
+  "account_currency": "USD",
+  "broker_fingerprint": "E464F31D4B323A66DBC18D9409052E70F3711DB8F23597441648B19296B61D54",
+  "server_fingerprint": "30B251638403D085CAB177A77A1B0EB69BD371793B501BE696F08033BE1E8DB0",
+  "account_fingerprint": "0A603E7B316F58B39FEA0A1710FE6F250E544909DA2B91967C93AD984317A073",
+  "data_fingerprint": "B326D511C805C7998DF1C2FC540770B6EC3054D0D4BCBB41A5A4E3C2E4239D25",
+  "data_fingerprint_basis": {
+    "preoutcome_hyp013_task": "03. EA Developer/EA_SupertrendBurstScalperTradeV3/research/preflight/HYP-STBS-XAUUSD-M15-013/V1/task_packet.control.json",
+    "preoutcome_hyp013_task_sha256": "DE25AE28B29087901514B1ABA067A00B8DF05F7F4288CF93D79188A730255DE9",
+    "contract": "same FivePercent XAUUSD Model-0 preload fingerprint; economic evidence limited to 2018.01.02-2022.12.30"
+  },
+  "symbol": "XAUUSD",
+  "from": "2018.01.02",
+  "to": "2022.12.30",
+  "symbol_geometry": {"digits": 2, "point": 0.01, "pip_size": 0.01},
+  "run_meta_contract": {
+    "schema_version": "alphafactory_run_meta.v1",
+    "hypothesis_id": "HYP-STBS-XAUUSD-M15-019",
+    "variant_tag": "STBS_H1_FLIP_M15_BURST_TRADE_V6_ACCOUNT_SAFE",
+    "magic": 5604119,
+    "audit_only": false,
+    "promotion_eligible": false,
+    "runtime_failed": false,
+    "reconcile_lifecycle_rows": true
+  },
+  "historical_spread_provenance": {
+    "verification_status": "VERIFIED",
+    "source": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/COST_SOURCE/XAUUSD_HISTORICAL_SPREAD_M1.csv",
+    "source_sha256": "6FBDB039300E571E30939F0149B504D53173836D0B0DDEA5772B33EA48AD0579",
+    "sample_count": 1755677,
+    "coverage_ratio": 1.0,
+    "actual_first_timestamp": "2018-01-02T09:00:00",
+    "actual_last_timestamp": "2022-12-30T23:59:00"
+  },
+  "commission_provenance": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "value_usd_per_lot_roundturn": 4.4,
+    "statistic": "maximum",
+    "sample_count": 335,
+    "source": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/COST_SOURCE/XAUUSD_TESTER_COMMISSION_MAX.csv",
+    "source_sha256": "5076439080F46F759AF3734E19749CC71584A9CB7F05C11E84DE7A9EAE6498C4"
+  },
+  "slippage_provenance": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "fill_observed": false,
+    "direction_aware": true,
+    "fixed_latency_ms": 1000,
+    "max_quote_wait_ms": 500,
+    "p90_buy_pips": 40.000000000009095,
+    "p90_sell_pips": 40.000000000009095,
+    "p90_roundturn_pips": 80.00000000001819,
+    "source": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/COST_SOURCE/XAUUSD_QUOTE_LATENCY_1000MS.csv",
+    "source_sha256": "515619377D67EADAC3B4A55AFCEE49FC2C5A7EE3D39BBE07B54316D9B9A4836E"
+  },
+  "lineage_receipt": "03. EA Developer/EA_LOMX_MultiAssetMomentum/research/evidence/HYP-LASR-XAUUSD-M5-001/COST_SOURCE/RESEARCH_COST_PROXY_RECEIPT.json",
+  "lineage_receipt_sha256": "55508F8F246A5524A8EA43A6118A0C2C47BFE06039A7EDDBC2C257068508A607",
+  "blocker": "Research-only proxy: historical spread is verified, but commission is tester evidence and quote latency is not an observed fill. Baseline PASS cannot authorize promotion, paper or live trading."
+}

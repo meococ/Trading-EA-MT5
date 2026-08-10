@@ -482,7 +482,7 @@ $contract = [pscustomobject]@{
     RegistryRowSha256 = '8' * 64
     LatestRow = [pscustomobject]@{ validation = $validation }
 }
-$binding = [pscustomobject]@{
+    $binding = [pscustomobject]@{
     Model = 4
     RunRole = 'control'
     Symbol = 'XAUUSD'
@@ -652,7 +652,8 @@ $binding = [pscustomobject]@{
     To = '2026.07.30'
     Model = 4
     ExecutionMode = 0
-    FixedDelayMs = 0
+        FixedDelayMs = 0
+        TimeoutSec = 7200
     Overrides = ''
     TelemetryTier = 'off'
     TelemetryProfile = 'none'
@@ -1459,6 +1460,7 @@ $binding = [pscustomobject]@{
     Model = 4
     ExecutionMode = 0
     FixedDelayMs = 0
+    TimeoutSec = 7200
     Overrides = "InpCollectionOnly=true;InpEpochManifestSha256=$epochSha"
     TelemetryProfile = 'none'
     TelemetryTier = 'off'
@@ -1498,7 +1500,8 @@ $packet = [ordered]@{
     to = $binding.To
     model = $binding.Model
     execution_mode = $binding.ExecutionMode
-    fixed_delay_ms = $binding.FixedDelayMs
+        fixed_delay_ms = $binding.FixedDelayMs
+        timeout_sec = $binding.TimeoutSec
     overrides = $binding.Overrides
     telemetry_tier = $binding.TelemetryTier
     deposit = $binding.Deposit

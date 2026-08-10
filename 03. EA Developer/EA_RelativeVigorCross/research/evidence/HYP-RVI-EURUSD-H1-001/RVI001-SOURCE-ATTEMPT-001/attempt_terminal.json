@@ -1,0 +1,9 @@
+{
+  "attempt_id": "RVI001-SOURCE-ATTEMPT-001",
+  "hypothesis_id": "HYP-RVI-EURUSD-H1-001",
+  "receipt_sha256": "2C09ABD758FFDF5BE88A01EB95A423A5CEC50992C13E1470129674CDE8FACB1F",
+  "same_id_retry_allowed": false,
+  "schema_version": "rvi_source_attempt_terminal.v1",
+  "status": "COMPLETE",
+  "verdict": "PARK_SOURCE_FEASIBILITY"
+}

@@ -663,6 +663,44 @@ def validate_cost_source(
     if not long_treatment or not short_treatment or long_treatment == short_treatment:
         raise ValueError("direction-aware long/short cost treatments must be distinct and nonempty")
 
+    run_meta_contract = payload.get("run_meta_contract")
+    if run_meta_contract is not None:
+        required_run_meta_keys = {
+            "schema_version",
+            "hypothesis_id",
+            "variant_tag",
+            "magic",
+            "audit_only",
+            "promotion_eligible",
+            "runtime_failed",
+            "reconcile_lifecycle_rows",
+        }
+        if not isinstance(run_meta_contract, dict) or set(run_meta_contract) != required_run_meta_keys:
+            raise ValueError("run_meta_contract must contain exactly the eight frozen fields")
+        if run_meta_contract.get("schema_version") != "alphafactory_run_meta.v1":
+            raise ValueError("run_meta_contract schema_version is invalid")
+        if run_meta_contract.get("hypothesis_id") != manifest.get("hypothesis_id"):
+            raise ValueError("run_meta_contract hypothesis_id does not match run manifest")
+        if not str(run_meta_contract.get("variant_tag") or "").strip():
+            raise ValueError("run_meta_contract variant_tag is required")
+        if integer(run_meta_contract.get("magic"), "run_meta_contract.magic") <= 0:
+            raise ValueError("run_meta_contract.magic must be positive")
+        for field in (
+            "audit_only",
+            "promotion_eligible",
+            "runtime_failed",
+            "reconcile_lifecycle_rows",
+        ):
+            if not isinstance(run_meta_contract.get(field), bool):
+                raise ValueError(f"run_meta_contract.{field} must be boolean")
+        if (
+            run_meta_contract["audit_only"] is not False
+            or run_meta_contract["promotion_eligible"] is not False
+            or run_meta_contract["runtime_failed"] is not False
+            or run_meta_contract["reconcile_lifecycle_rows"] is not True
+        ):
+            raise ValueError("run_meta_contract must freeze trade-mode, nonpromotion, clean runtime and row reconciliation")
+
     return {
         "evidence_tier": RESEARCH_PROXY_TIER if research_proxy else "PROMOTION_GRADE",
         "promotion_eligible": not research_proxy,
@@ -694,6 +732,7 @@ def validate_cost_source(
                 )
             ),
         },
+        "run_meta_contract": dict(run_meta_contract) if isinstance(run_meta_contract, dict) else None,
         "commission_value": commission_value,
         "slippage_p90_roundturn": slippage_roundturn,
     }
@@ -731,6 +770,107 @@ def lifecycle_sidecar(manifest: dict[str, Any], run_dir: Path) -> tuple[Path, st
             f"(generic LifecycleTrades or legacy PX6); found {len(candidates)}"
         )
     return candidates[0]
+
+
+def run_meta_sidecar(manifest: dict[str, Any], run_dir: Path) -> tuple[Path, str]:
+    candidates: list[tuple[Path, str]] = []
+    sidecars = manifest.get("sidecars")
+    if not isinstance(sidecars, list):
+        raise ValueError("run_manifest.sidecars must be a list")
+    run_root = run_dir.resolve()
+    for row in sidecars:
+        if not isinstance(row, dict):
+            continue
+        relative = str(row.get("path") or "")
+        name = Path(relative).name
+        if not name.lower().endswith(".json") or "_RunMeta_" not in name:
+            continue
+        path = Path(relative)
+        if not path.is_absolute():
+            path = run_dir / path
+        path = path.resolve()
+        if not path.is_relative_to(run_root) or not path.is_file():
+            raise ValueError(f"RunMeta sidecar is absent or escapes run directory: {path}")
+        declared = str(row.get("sha256") or "").upper()
+        actual = sha256_file(path)
+        if declared != actual:
+            raise ValueError(f"RunMeta sidecar SHA256 mismatch: {path}")
+        candidates.append((path, actual))
+    if len(candidates) != 1:
+        raise ValueError(
+            "expected exactly one manifest-bound AlphaFactory RunMeta sidecar; "
+            f"found {len(candidates)}"
+        )
+    return candidates[0]
+
+
+def validate_run_meta(
+    path: Path,
+    sha256: str,
+    lifecycle_path: Path,
+    manifest: dict[str, Any],
+    contract: dict[str, Any] | None,
+) -> dict[str, Any]:
+    payload = load_json(path)
+    if payload.get("schema_version") != "alphafactory_run_meta.v1":
+        raise ValueError("RunMeta schema_version is invalid")
+    run_id = str(payload.get("run_id") or "").strip()
+    if not run_id or run_id not in path.stem:
+        raise ValueError("RunMeta run_id is missing or not bound to its filename")
+    if (
+        payload.get("ea_name") != manifest.get("ea_name")
+        or payload.get("symbol") != manifest.get("symbol")
+        or payload.get("telemetry_profile") != "lifecycle-v3"
+        or payload.get("hypothesis_id") != manifest.get("hypothesis_id")
+    ):
+        raise ValueError("RunMeta identity does not match the run manifest")
+    if payload.get("promotion_eligible") is not False:
+        raise ValueError("RunMeta promotion_eligible must be false")
+
+    rows = read_csv(lifecycle_path, REQUIRED_LIFECYCLE_COLUMNS, "lifecycle telemetry")
+    diagnostic = payload.get("diagnostic")
+    semantic = {
+        "runtime_failed": None,
+        "declared_lifecycle_rows": None,
+        "actual_lifecycle_rows": len(rows),
+        "row_count_reconciled": None,
+    }
+    if contract is not None:
+        if payload.get("schema_version") != contract.get("schema_version"):
+            raise ValueError("RunMeta schema does not match run_meta_contract")
+        for field in ("hypothesis_id", "variant_tag", "magic", "audit_only", "promotion_eligible"):
+            if payload.get(field) != contract.get(field):
+                raise ValueError(f"RunMeta {field} does not match run_meta_contract")
+        if not isinstance(diagnostic, dict):
+            raise ValueError("RunMeta diagnostic must be an object")
+        if diagnostic.get("runtime_failed") is not contract.get("runtime_failed"):
+            raise ValueError("RunMeta diagnostic.runtime_failed does not match clean-runtime contract")
+        declared_rows = integer(diagnostic.get("lifecycle_rows"), "RunMeta diagnostic.lifecycle_rows")
+        if declared_rows < 0:
+            raise ValueError("RunMeta diagnostic.lifecycle_rows must be nonnegative")
+        if contract.get("reconcile_lifecycle_rows") is True and declared_rows != len(rows):
+            raise ValueError("RunMeta lifecycle_rows does not match lifecycle CSV data-row count")
+        semantic.update(
+            {
+                "runtime_failed": diagnostic.get("runtime_failed"),
+                "declared_lifecycle_rows": declared_rows,
+                "row_count_reconciled": declared_rows == len(rows),
+            }
+        )
+    return {
+        "source": str(path),
+        "sha256": sha256,
+        "schema_version": payload.get("schema_version"),
+        "run_id": run_id,
+        "ea_name": payload.get("ea_name"),
+        "symbol": payload.get("symbol"),
+        "hypothesis_id": payload.get("hypothesis_id"),
+        "variant_tag": payload.get("variant_tag"),
+        "magic": payload.get("magic"),
+        "audit_only": payload.get("audit_only"),
+        "promotion_eligible": payload.get("promotion_eligible"),
+        "semantic_validation": semantic,
+    }
 
 
 def _deal_economics(row: dict[str, str], row_number: int) -> tuple[float, float, float, float, float]:
@@ -875,6 +1015,45 @@ def parse_lifecycle(
     return repricing
 
 
+def validate_report_trade_window(
+    report_deals: list[Deal],
+    symbol: str,
+    economic_from: str,
+    economic_to: str,
+) -> dict[str, Any]:
+    start = manifest_date(economic_from, "economic_from").date()
+    end = manifest_date(economic_to, "economic_to").date()
+    if start > end:
+        raise ValueError("economic_from must be on or before economic_to")
+    trade_deals = [
+        deal
+        for deal in report_deals
+        if deal.deal_id > 0
+        and deal.symbol == symbol
+        and str(deal.direction or "").strip().lower().startswith(("in", "out"))
+    ]
+    if not trade_deals:
+        raise ValueError("report contains no symbol trade deals")
+    outside = [
+        deal.deal_id
+        for deal in trade_deals
+        if deal.time.date() < start or deal.time.date() > end
+    ]
+    if outside:
+        raise ValueError(
+            "report trade deals fall outside the frozen economic cost window: "
+            f"{outside[:10]}"
+        )
+    return {
+        "from": economic_from,
+        "to": economic_to,
+        "boundary": "inclusive_calendar_dates",
+        "trade_deal_count": len(trade_deals),
+        "first_trade_deal_time": min(deal.time for deal in trade_deals).isoformat(),
+        "last_trade_deal_time": max(deal.time for deal in trade_deals).isoformat(),
+    }
+
+
 def scenario_rows(
     repricing: list[dict[str, Any]],
     commission_per_lot: float,
@@ -921,7 +1100,13 @@ def scenario_rows(
     return scenarios, enriched
 
 
-def build(report: Path, cost_source_path: Path) -> dict[str, Any]:
+def build(
+    report: Path,
+    cost_source_path: Path,
+    *,
+    economic_from: str = "",
+    economic_to: str = "",
+) -> dict[str, Any]:
     report = report.resolve()
     cost_source_path = cost_source_path.resolve()
     if not report.is_file() or not cost_source_path.is_file():
@@ -934,15 +1119,45 @@ def build(report: Path, cost_source_path: Path) -> dict[str, Any]:
     report_sha = sha256_file(report)
     if str(manifest.get("report_sha256") or "").upper() != report_sha:
         raise ValueError("run_manifest.report_sha256 does not match report")
-    provenance = validate_cost_source(load_json(cost_source_path), cost_source_path, manifest)
+    tester_from = str(manifest.get("from") or "")
+    tester_to = str(manifest.get("to") or "")
+    bound_from = economic_from or tester_from
+    bound_to = economic_to or tester_to
+    tester_start = manifest_date(tester_from, "run_manifest.from").date()
+    tester_end = manifest_date(tester_to, "run_manifest.to").date()
+    economic_start = manifest_date(bound_from, "economic_from").date()
+    economic_end = manifest_date(bound_to, "economic_to").date()
+    if economic_start < tester_start or economic_end > tester_end or economic_start > economic_end:
+        raise ValueError("economic cost window is not contained within tester preload window")
+    cost_binding_manifest = dict(manifest)
+    cost_binding_manifest["from"] = bound_from
+    cost_binding_manifest["to"] = bound_to
+    provenance = validate_cost_source(
+        load_json(cost_source_path), cost_source_path, cost_binding_manifest
+    )
     lifecycle_path, lifecycle_sha = lifecycle_sidecar(manifest, run_dir)
+    run_meta_path, run_meta_sha = run_meta_sidecar(manifest, run_dir)
+    run_meta_evidence = validate_run_meta(
+        run_meta_path,
+        run_meta_sha,
+        lifecycle_path,
+        manifest,
+        provenance.get("run_meta_contract"),
+    )
     geometry = provenance["symbol_geometry"]
+    report_deals = parse_deals(report)
+    economic_window = validate_report_trade_window(
+        report_deals,
+        str(manifest.get("symbol") or ""),
+        bound_from,
+        bound_to,
+    )
     repricing = parse_lifecycle(
         lifecycle_path,
         str(manifest.get("symbol") or ""),
         geometry["point"],
         geometry["pip_size"],
-        parse_deals(report),
+        report_deals,
     )
     scenarios, enriched = scenario_rows(
         repricing,
@@ -965,6 +1180,8 @@ def build(report: Path, cost_source_path: Path) -> dict[str, Any]:
         "run_id": manifest.get("run_id"),
         "hypothesis_id": manifest.get("hypothesis_id"),
         "run_identity_sha256": _run_identity_sha256(manifest, report_sha),
+        "tester_preload_window": {"from": tester_from, "to": tester_to},
+        "economic_window": economic_window,
         "cost_source_manifest": str(cost_source_path),
         "cost_source_manifest_sha256": sha256_file(cost_source_path),
         "lifecycle_evidence": {
@@ -974,6 +1191,7 @@ def build(report: Path, cost_source_path: Path) -> dict[str, Any]:
             "completed_positions": len(enriched),
             "deal_count": sum(len(item["deal_ids"]) for item in enriched),
         },
+        "run_meta_evidence": run_meta_evidence,
         "execution_provenance": provenance,
         "trade_repricing": enriched,
         "scenarios": scenarios,
@@ -999,11 +1217,18 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--report", required=True)
     parser.add_argument("--cost-source-manifest", required=True)
+    parser.add_argument("--economic-from", default="")
+    parser.add_argument("--economic-to", default="")
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
     try:
         output = Path(args.out).resolve()
-        payload = build(Path(args.report), Path(args.cost_source_manifest))
+        payload = build(
+            Path(args.report),
+            Path(args.cost_source_manifest),
+            economic_from=args.economic_from,
+            economic_to=args.economic_to,
+        )
         write_atomic(output, payload)
         print(json.dumps(payload, indent=2))
         return 0

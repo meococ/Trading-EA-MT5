@@ -1,0 +1,9 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-CBRK-XAUUSD-M5-002",
+  "run_id": "STATIC-HYP-CBRK-XAUUSD-M5-002-20260810",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_LOMX_MultiAssetMomentum",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_LOMX_MultiAssetMomentum\\EA_LOMX_MultiAssetMomentum.mq5",
+  "source_sha256": "A11ABD74BA6A4C051AF7C0EC726A69875CF4CC2B67847E810969460ABD068A6E",
+  "include_snapshots": []
+}

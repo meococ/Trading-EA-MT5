@@ -1,0 +1,42 @@
+{
+  "schema_version": "stc_tester_closed_preload_origin_proof.v1",
+  "hypothesis_id": "HYP-STC-EURUSD-M15-003",
+  "parent_hypothesis_id": "HYP-STC-EURUSD-M15-002",
+  "symbol": "EURUSD",
+  "target_period": "M15",
+  "terminal_path": "02. AlphaFactory/runtime/mt5-portable-fivepercent/terminal64.exe",
+  "terminal_version": [500, 6090, "31 Jul 2026"],
+  "server": "FivePercentOnline-Real",
+  "read_mode": "MetaTrader5.copy_rates_range, read-only, terminal shutdown in finally",
+  "read_window_utc": {
+    "from_inclusive": "2015-01-01T00:00:00Z",
+    "to_inclusive": "2016-01-03T23:59:59Z"
+  },
+  "native_range_observation": {
+    "count": 24776,
+    "first_source_epoch": 1420189200,
+    "first_time_utc": "2015-01-02T09:00:00Z",
+    "last_source_epoch": 1451592000,
+    "last_time_utc": "2015-12-31T20:00:00Z",
+    "strictly_increasing": true,
+    "duplicate_count": 0,
+    "timestamp_sequence_sha256": "A6B6878C72E002CC2D2605D68B3F81145F5C06CBD8411C4F42DA95BB6BB74D42"
+  },
+  "tester_visible_closed_preload": {
+    "basis": "HYP002 Strategy Tester OnInit iTime(PERIOD_M15,1) returned source_epoch 1451591100; the 20:00 bar is therefore not closed/available to the recurrence at the first DESIGN tick.",
+    "count": 24775,
+    "first_source_epoch": 1420189200,
+    "first_time_utc": "2015-01-02T09:00:00Z",
+    "last_source_epoch": 1451591100,
+    "last_time_utc": "2015-12-31T19:45:00Z",
+    "strictly_increasing": true,
+    "duplicate_count": 0,
+    "timestamp_sequence_sha256": "C9006D5C5E0ED8BE72C63BA4F1C0FB1B12AD9DF518F0D7BE68639305EAD114FF"
+  },
+  "parent_failure_packet": {
+    "path": "03. EA Developer/EA_SchaffTrendCycleV2/research/HYP-STC-EURUSD-M15-002_FAILURE_PACKET.json",
+    "sha256": "F96016C633669BF1699336F1E47BF332D1A6602A6A95B84D567AC44D6129FDA6"
+  },
+  "outcomes_opened": false,
+  "economic_claim": false
+}

@@ -1,0 +1,1 @@
+{"analyzer_sha256":"03B8356C5D768808A6D52F42236FDB8FA76C487A0114A6A847B67097E944790D","attempt_id":"COP001-SOURCE-ATTEMPT-001","hypothesis_id":"HYP-COP-EURUSD-H1-001","schema_version":"cop_source_attempt_started.v1","started_at_utc":"2026-08-10T12:05:58.475906Z","status":"CLAIMED_BEFORE_BOUND_SOURCE_READ"}

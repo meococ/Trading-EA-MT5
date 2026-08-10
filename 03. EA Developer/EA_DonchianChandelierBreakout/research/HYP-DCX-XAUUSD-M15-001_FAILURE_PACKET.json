@@ -1,0 +1,43 @@
+{
+  "schema_version": "alphafactory_baseline_failure_packet.v1",
+  "hypothesis_id": "HYP-DCX-XAUUSD-M15-001",
+  "run_id": "20260810_181302",
+  "state": "killed",
+  "verdict": "KILL_BASE_PF_EXPECTANCY_AND_CADENCE_FAIL",
+  "failure_radius": "Exact XAUUSD M15 Donchian20 transition plus Chandelier22x3 one-entry-per-day mapping on the frozen 2010-01-04 to 2018-01-01 Model0 TRAIN window",
+  "artifacts": {
+    "source_snapshot_sha256": "A4BE71F1A1F98DCDE3C181C8BDF60017CA981816F0871D5CAC281565132FB94F",
+    "run_manifest_path": "02. AlphaFactory/runs/EA_DonchianChandelierBreakout/20260810_181302/run_manifest.json",
+    "run_manifest_sha256": "00C3D4B421B5C0E7EBFBEFE09B960EF020BD497DFB4441964E2EE4B61BD03460",
+    "report_path": "02. AlphaFactory/runs/EA_DonchianChandelierBreakout/20260810_181302/report.html",
+    "report_sha256": "88DF63F15BA26E72F1110607F2C09C5BCA934EB9E6D7D6C086A2E008F497A38D",
+    "enhanced_summary_path": "02. AlphaFactory/runs/EA_DonchianChandelierBreakout/20260810_181302/analysis/enhanced_summary.json",
+    "enhanced_summary_sha256": "80AE2254AA026615EE6F0521F53AECECAE56F33781A0DD75CBEAB8570B9E1E89",
+    "analysis_report_sha256": "ACF890A52E0CE8A0DF464ABC5C5036053EB98D82C41EC3691DCF626BB6970236",
+    "contract_receipt_sha256": "EB9CA882F605155E31EA1925ECFFB5D7C22F2390B7018429369C636AB55D509C"
+  },
+  "metrics": {
+    "closed_positions": 267,
+    "profit_factor": 0.7272293276084707,
+    "net_profit_usd": -7473.539999999994,
+    "expectancy_usd_per_trade": -27.990786516853934,
+    "win_rate_pct": 31.086142322097377,
+    "max_drawdown_pct": 7.738965769378102,
+    "calendar_weeks": 417.0,
+    "closed_positions_per_week": 0.6402877697841727
+  },
+  "gates": {
+    "profit_factor_gt_1_30": false,
+    "expectancy_gt_0": false,
+    "cadence_2_to_5_per_week": false,
+    "drawdown_lte_8_pct": true,
+    "cost_stress_opened": false,
+    "validation_opened": false,
+    "holdout_opened": false,
+    "optimization_opened": false,
+    "economic_valid": false,
+    "promotion_ready": false
+  },
+  "same_id_retry_authorized": false,
+  "posthoc_rescue_authorized": false
+}

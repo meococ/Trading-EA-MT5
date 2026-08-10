@@ -1,0 +1,60 @@
+{
+  "attempt_id": "MASS001-SOURCE-ATTEMPT-001",
+  "by_direction": {
+    "LONG": 651,
+    "SHORT": 671
+  },
+  "by_year": {
+    "2016": 260,
+    "2017": 251,
+    "2018": 265,
+    "2019": 281,
+    "2020": 265
+  },
+  "cadence_per_week": 5.073464912280702,
+  "direction_share": {
+    "LONG": 0.4924357034795764,
+    "SHORT": 0.5075642965204236
+  },
+  "economic_fields_read": false,
+  "events": {
+    "boundary_rejects": 0,
+    "equality_completions": 0,
+    "executable": 1322,
+    "gap_rejects": 2,
+    "raw": 1324
+  },
+  "formula": {
+    "arm_strict_gt": 27.0,
+    "complete_strict_lt": 26.5,
+    "ema_length": 9,
+    "sum_length": 25
+  },
+  "gates": {
+    "candidates_gte_500": true,
+    "design_rows_gte_120000": true,
+    "each_direction_gte_0_30": true,
+    "each_year_cadence_1_25_to_6_5": true,
+    "max_year_share_lte_0_35": true,
+    "pooled_cadence_2_to_5": false,
+    "usable_coverage_gte_0_99": true,
+    "zero_conflicts": true
+  },
+  "hypothesis_id": "HYP-MASS-EURUSD-M15-001",
+  "max_year_share": 0.21255673222390317,
+  "rows": {
+    "design": 124199,
+    "m15_total": 148975,
+    "usable_design": 124199
+  },
+  "schema_version": "mass_source_report.v1",
+  "verdict": "PARK_SOURCE_FEASIBILITY",
+  "weeks": 260.57142857142856,
+  "year_cadence": {
+    "2016": 5.013774104683196,
+    "2017": 4.813698630136986,
+    "2018": 5.082191780821917,
+    "2019": 5.389041095890411,
+    "2020": 5.0683060109289615
+  }
+}

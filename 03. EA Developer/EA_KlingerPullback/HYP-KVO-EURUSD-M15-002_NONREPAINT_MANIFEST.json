@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-KVO-EURUSD-M15-002",
+  "run_id": "KVO002-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_KlingerPullback",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_KlingerPullback\\EA_KlingerPullback.mq5",
+  "source_sha256": "F9A0EA48EC8EF0CCA95D4AF258E54DC90675EA733166EB8EAFE31EB8996AAFEF",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

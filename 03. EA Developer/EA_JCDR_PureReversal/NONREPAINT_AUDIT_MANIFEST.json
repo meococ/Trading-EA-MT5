@@ -1,0 +1,9 @@
+{
+  "schema_version": "alphafactory_static_audit_manifest.v1",
+  "hypothesis_id": "HYP-JCDR-EURUSD-M5-006",
+  "run_id": "STATIC-HYP-JCDR-EURUSD-M5-006-PACKAGE-20260810",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_JCDR_PureReversal",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_JCDR_PureReversal\\EA_JCDR_PureReversal.mq5",
+  "source_sha256": "383C582060C0332BD1A73E24316E619C125462D54046FD30CCC0AF56E7B49869",
+  "include_snapshots": []
+}

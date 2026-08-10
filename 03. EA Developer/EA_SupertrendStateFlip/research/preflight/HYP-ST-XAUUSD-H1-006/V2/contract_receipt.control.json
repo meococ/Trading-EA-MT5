@@ -1,0 +1,199 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "authority": "DATA_ACQUISITION_ONLY_NO_PERFORMANCE",
+  "hypothesis_id": "HYP-ST-XAUUSD-H1-006",
+  "task_packet_sha256": "9A33AD1044729CD655701CF08EBA04951D5D1D6842CEDFDE1A8DCEBC679B937A",
+  "git_commit": "521688f5ee9b7d1f028a91606f64b9ee4134994a",
+  "git_status_sha256": "35A96AB25A431D127741FDFE6B46000BF2E3C304A5D18049065725E610CB8E28",
+  "binding": {
+    "hypothesis_id": "HYP-ST-XAUUSD-H1-006",
+    "run_role": "control",
+    "ea_name": "EA_SupertrendStateFlip",
+    "symbol": "XAUUSD",
+    "period": "H1",
+    "from": "2018.01.01",
+    "to": "2023.01.01",
+    "model": 4,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "overrides": "InpAuditOnly=true;InpAuditRunId=ST003-MT5-PARITY-001;InpEnableTelemetry=false;InpParityFileName=ST003_MQL5_PARITY_001.csv",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "indicator_dependencies": [],
+    "broker_fingerprint": null,
+    "server_fingerprint": null,
+    "account_fingerprint": null,
+    "data_fingerprint": null,
+    "symbol_geometry": {
+      "digits": 2,
+      "point": 0.01,
+      "pip_size": 0.01
+    },
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "history_quality": {
+        "operator": "gt",
+        "value": 97.0
+      },
+      "coverage_mode": "fixed_window",
+      "availability_asof_utc": "2026-08-08T22:15:00Z",
+      "requested_from": "2018.01.01",
+      "requested_to": "2023.01.01",
+      "require_tester_journal_bounds": true
+    }
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\preflight\\HYP-ST-XAUUSD-H1-006\\V2\\task_packet.control.json",
+      "sha256": "9A33AD1044729CD655701CF08EBA04951D5D1D6842CEDFDE1A8DCEBC679B937A"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\preflight\\HYP-ST-XAUUSD-H1-006\\V2\\candidate_registry.pre_mt5.jsonl",
+      "sha256": "56FCB1E2FC00DCC8DD247E30BAC0C5ACB4219586939557C588BEB833CB2130B7"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\EA_SupertrendStateFlip.mq5",
+      "sha256": "C8C222487769439DC8FB9272C049BE30928FED5315A64DD1CAD440B500A13D02"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\HYP-ST-XAUUSD-H1-006_MT5_PARITY_PREREG.md",
+      "sha256": "FC230B9DB60427180A321C009EC8BF7014E717C26FBF887C013C6887A182DC79"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\HYP006_COLLECTION_ONLY_COST_SOURCE_MANIFEST.json",
+      "sha256": "7096D1AFFC3F7FD1D218663839952D36CC08B433CFD814EC44DE557BCE8F6EDE"
+    },
+    {
+      "label": "parent_launch_failure_result",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\HYP-ST-XAUUSD-H1-005_MT5_LAUNCH_FAILURE.md",
+      "sha256": "AC59A8A823CB597ECB95F6E99730CEFE2BB88EEBFB33BD5EE02F0ECAEFA1DABB"
+    },
+    {
+      "label": "parent_attempt_started",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\evidence\\HYP-ST-XAUUSD-H1-005\\ST005-MT5-001\\attempt_started.json",
+      "sha256": "4627A3C97DAE5BE760DD3B72727FC728F39B0D2A2D76111290F093D1294A4B16"
+    },
+    {
+      "label": "parent_attempt_terminal",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\evidence\\HYP-ST-XAUUSD-H1-005\\ST005-MT5-001\\attempt_terminal.json",
+      "sha256": "383F0BD0B9BC947E5548220A06C1247A2880DCC61AAA52DA0279BA6F2CDDED78"
+    },
+    {
+      "label": "parent_alpha_stdout",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\evidence\\HYP-ST-XAUUSD-H1-005\\ST005-MT5-001\\alpha_stdout.log",
+      "sha256": "FD8BCF14AB4701ABAC12BDBC16CA1781CFE4F2B5C82299CF54826D6E3195A319"
+    },
+    {
+      "label": "parent_alpha_stderr",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\evidence\\HYP-ST-XAUUSD-H1-005\\ST005-MT5-001\\alpha_stderr.log",
+      "sha256": "E1B3DBE80A54FF2276036188F8E23A86F92D2CC0FB6946528876111472D443B2"
+    },
+    {
+      "label": "gitignore_runtime_boundary",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\.gitignore",
+      "sha256": "855207E43A54522688385164E0BFA987D4AFF2EB48B5770A3DA6368AC9FDAB71"
+    },
+    {
+      "label": "compile_receipt",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\evidence\\HYP-ST-XAUUSD-H1-004\\ST004-COMPILE-001\\compile_receipt.json",
+      "sha256": "E45D5459FAF76923D99800A7F1BED4FFDABEAE00ECD6A47C8E26753D82DC4B7A"
+    },
+    {
+      "label": "compile_terminal",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\evidence\\HYP-ST-XAUUSD-H1-004\\ST004-COMPILE-001\\attempt_terminal.json",
+      "sha256": "A0F7AA7717CCC0EC57E55D6893FEF5331112FDC36314252B8AAD4F8FEAADEEFD"
+    },
+    {
+      "label": "compiled_source_snapshot",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\evidence\\HYP-ST-XAUUSD-H1-004\\ST004-COMPILE-001\\EA_SupertrendStateFlip.mq5",
+      "sha256": "C8C222487769439DC8FB9272C049BE30928FED5315A64DD1CAD440B500A13D02"
+    },
+    {
+      "label": "compiled_ex5",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\evidence\\HYP-ST-XAUUSD-H1-004\\ST004-COMPILE-001\\EA_SupertrendStateFlip.ex5",
+      "sha256": "0C68520D3C3B073939B8A4FF403575687E93739E1A9844B6B051E85011F84982"
+    },
+    {
+      "label": "compile_log",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\evidence\\HYP-ST-XAUUSD-H1-004\\ST004-COMPILE-001\\EA_SupertrendStateFlip.log",
+      "sha256": "3CF9A7A8B8C8CC39709EDFAAF9FEB2F4A8B7AAB1273D5CB7B4547A9D8675AEF6"
+    },
+    {
+      "label": "mt5_launcher",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\run_st004_mt5_parity.py",
+      "sha256": "5E819D9BC7F743AB8ABAB1E89D3C776310E8F6E2608BB2A9F66F8CED139CFF9C"
+    },
+    {
+      "label": "artifact_collector",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\collect_st004_mt5_artifacts.py",
+      "sha256": "B14CDF7AFA706F356010F69B798A69C66E37C0741B5775285B6BFC9ECCF724BC"
+    },
+    {
+      "label": "comparator",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\compare_st003_mql5_parity.py",
+      "sha256": "5A4E2780BB30DFBF793618066A1A8C8B6C38FE9123C87E54F3D95CC304A7A9D0"
+    },
+    {
+      "label": "hyp004_tests",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\tests\\test_st004_mt5_artifacts.py",
+      "sha256": "8DABB6BA171F5D05223FB3FCA2A0A9EF0D8EB0A7E7218B45B61658CE96A139B0"
+    },
+    {
+      "label": "hyp003_tests",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SupertrendStateFlip\\research\\tests\\test_st003_mql5_parity.py",
+      "sha256": "22F0F1F25F0886402B2EF098017EFCC1D6C01111C5142E90E5752BDD4B27C590"
+    },
+    {
+      "label": "alpha_ps1",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\alpha.ps1",
+      "sha256": "758D0185A862E023309F7D1A9DFF5970072D71F310975AFCE526CD6E5965F93F"
+    },
+    {
+      "label": "quant_analyzer",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\analysis\\quant_analyzer.py",
+      "sha256": "A7F93E8DC35A2FC7A273419500E7B41DF742F828613C48EDA3D5C766C042616B"
+    },
+    {
+      "label": "nonrepaint_tool",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\tools\\audit_mql5_nonrepaint.py",
+      "sha256": "366D70F0C6FAF02F85B4819E7305CD1BD271BA6A78B4789CF0DCDF2FB651E360"
+    }
+  ],
+  "generated_at_utc": "2026-08-08T22:52:26Z",
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "promotion_eligible": false
+}

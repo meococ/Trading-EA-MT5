@@ -49,3 +49,4 @@ The paired charts may identify event-order and price-path differences. They may
 not authorize selecting a winning case, date, direction, route, hour, weekday or
 year. Any successor trading mechanism requires a fresh economic hypothesis ID
 and preregistration.
+

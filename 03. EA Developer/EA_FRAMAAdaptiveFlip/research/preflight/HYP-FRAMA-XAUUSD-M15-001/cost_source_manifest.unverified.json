@@ -1,0 +1,22 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-FRAMA-XAUUSD-M15-001",
+  "evidence_tier": "PRE_BASELINE_REFERENCE_ONLY",
+  "provenance_status": "TRAIN_PROXY_COVERAGE_NO_OBSERVED_FILLS",
+  "audit_status": "BLOCKED_FOR_ECONOMIC_ACCEPTANCE",
+  "verdict": "BASELINE_FALSIFICATION_ONLY",
+  "promotion_eligible": false,
+  "symbol": "XAUUSD",
+  "from": "2018.01.01",
+  "to": "2023.01.01",
+  "symbol_geometry": {"digits": 2, "point": 0.01, "pip_size": 0.01},
+  "tester_spread_semantics": "current",
+  "reference_cost_manifest_path": "03. EA Developer/EA_SupertrendBurstScalperTradeV11/research/HYP-STBS-XAUUSD-M15-024_RESEARCH_COST_SOURCE_MANIFEST.json",
+  "reference_cost_manifest_sha256": "7167F5066D90B9CA7BA935F5B5BDC87E243F348E21958ABE283599E20C552676",
+  "reference_coverage": "2018.01.02-2022.12.30",
+  "commission_reference_usd_round_turn_per_lot": 4.4,
+  "slippage_reference": "1000 ms adverse executable-quote proxy; fill_observed=false",
+  "baseline_use": "The sole untuned Model-0 TRAIN run may falsify FRAMA cadence and tester-report economics. It cannot establish economic validity after verified costs.",
+  "next_gate_if_baseline_passes": "Rebuild exact trade economics at cost x1/x1.5/x2, requiring PF>1.30, PF>=1.25 and PF>=1.00 respectively before validation.",
+  "blocker": "No observed historical fill-slippage sample; economic-valid and promotion-ready remain false until the post-baseline cost gate passes."
+}

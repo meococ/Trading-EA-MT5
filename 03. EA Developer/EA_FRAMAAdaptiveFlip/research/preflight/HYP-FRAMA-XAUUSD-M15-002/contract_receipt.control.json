@@ -1,0 +1,48 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "hypothesis_id": "HYP-FRAMA-XAUUSD-M15-002",
+  "task_packet_sha256": "0CC50BEA64FA12707CD70ED79176708BD48EBF40183B4FDDA0D6024DD72E7328",
+  "git_commit": "521688f5ee9b7d1f028a91606f64b9ee4134994a",
+  "git_status_sha256": "ECE67094E26B9AC07900E77697A2C197D5EA09F5C1D575FD58F2CD6084663497",
+  "binding": {
+    "hypothesis_id": "HYP-FRAMA-XAUUSD-M15-002", "run_role": "control",
+    "ea_name": "EA_FRAMAAdaptiveFlip", "symbol": "XAUUSD", "period": "M15",
+    "from": "2018.01.01", "to": "2023.01.01", "model": 0,
+    "execution_mode": 0, "fixed_delay_ms": 0, "timeout_sec": 3600,
+    "overrides": "InpDeviationPoints=20;InpFridayFlattenHour=20;InpHypothesisId=HYP-FRAMA-XAUUSD-M15-002;InpMagic=5604102;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpMaxTradesPerDay=1;InpResearchAutoMode=true;InpRiskPercent=0.25;InpVariantTag=FRAMA16_PRICE_CROSS_ADAPTIVE_FLIP_DEFERRED_WARMUP",
+    "telemetry_tier": "off", "telemetry_profile": "none",
+    "deposit": 100000, "leverage": 100, "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {"digits": 2, "point": 0.01, "pip_size": 0.01},
+    "visual_mode": false, "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-10T15:06:15Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {"operator": "gt", "value": 97},
+      "requested_from": "2018.01.01", "requested_to": "2023.01.01",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 4194304
+    }
+  },
+  "evidence": [
+    {"label":"task_packet","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\research\\HYP-FRAMA-XAUUSD-M15-002_BASELINE_TASK.json","sha256":"0CC50BEA64FA12707CD70ED79176708BD48EBF40183B4FDDA0D6024DD72E7328"},
+    {"label":"source","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\EA_FRAMAAdaptiveFlip.mq5","sha256":"6D2F21FCD53097DE82CA584A53CC507EBAC03A0056A4DA9137B46A12CFE2855F"},
+    {"label":"static_ex5","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\EA_FRAMAAdaptiveFlip.ex5","sha256":"832A15FD1FCCC0B62C83157F5F97EB9B237C11F575E0E64CD11799741244CB63"},
+    {"label":"static_compile_log","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\EA_FRAMAAdaptiveFlip.log","sha256":"DA48CC69E7D196F6B0349BD49D463C9855B2374081A65D105C00A11C548C1F69"},
+    {"label":"prereg","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\research\\HYP-FRAMA-XAUUSD-M15-002_FROZEN_PREREG.md","sha256":"729A2CE686A486CEFDDA7F0C8C1A34E3F62D3643273E5F8A348297ED9131D6B8"},
+    {"label":"source_to_spec","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\research\\HYP-FRAMA-XAUUSD-M15-002_SOURCE_TO_SPEC.md","sha256":"992B56CFA679FA3730A7F95BDE42F1C4D3844DEEB00B46E9E9FB662FB29B9480"},
+    {"label":"cost_source_manifest","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\research\\preflight\\HYP-FRAMA-XAUUSD-M15-002\\cost_source_manifest.unverified.json","sha256":"3C24B03FF09D81C790A62645F6BA8BA1EC767EE1EEF96F984B689CBF6116EFEB"},
+    {"label":"candidate_registry","kind":"file","path":"D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl","sha256":"1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"},
+    {"label":"ea_contract","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\ALPHAFACTORY_EA_CONTRACT.json","sha256":"05F3E084BEAD240325638F6DB0FD3C435E3F72651734789122E275EA77D1C280"},
+    {"label":"source_test","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\research\\test_frama_source_contract.py","sha256":"65D733C919502132DE653A3D99ED226CAD03EF092A35BA34DEF6ACFF38739BCC"},
+    {"label":"nonrepaint_manifest","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\HYP-FRAMA-XAUUSD-M15-002_NONREPAINT_MANIFEST.json","sha256":"0CFB64EEB5E41AD726DF57E5B257980F851C252C0FDC75E8991F1FCA6D1F736B"},
+    {"label":"nonrepaint_audit","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\research\\HYP-FRAMA-XAUUSD-M15-002_NONREPAINT_AUDIT.json","sha256":"1D4E83DD58E1613A4034CD36576FAD23056A23AFCF7D8F08402A7AA41B695803"},
+    {"label":"independent_review","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\research\\HYP-FRAMA-XAUUSD-M15-002_INDEPENDENT_PRE_RUN_REVIEW.md","sha256":"38C88D3565F9B6997335C6B805EC71F0204092DD9D357B705831342D1183599C"},
+    {"label":"parent_engineering_failure","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_FRAMAAdaptiveFlip\\research\\HYP-FRAMA-XAUUSD-M15-001_ENGINEERING_FAILURE.md","sha256":"8864D2DD1D89CAED2FB6CA0E188E70AA9E81E0BE933668BD0C6E7B78A9BB7904"},
+    {"label":"alpha_ps1","kind":"file","path":"D:\\Trading EA MT5\\02. AlphaFactory\\alpha.ps1","sha256":"B5AFD1B4478532A284B4B2C53B2AB7E200FC3C2D0D1A7D27EB9D4BE41DA8E226"},
+    {"label":"alpha_terminal_guard_test","kind":"file","path":"D:\\Trading EA MT5\\02. AlphaFactory\\tests\\test_terminal_process_guard.py","sha256":"31BF3C04049598531E5E4A0DEE88102DF9902F47180BD4F8364A259CBCAFF780"}
+  ],
+  "generated_at_utc": "2026-08-10T15:06:15Z",
+  "note": "Fresh engineering revision of HYP001. Sole untuned FRAMA16 TRAIN baseline; no validation or promotion authority."
+}

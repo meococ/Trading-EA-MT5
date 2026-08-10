@@ -1,0 +1,12 @@
+{
+  "schema_version": "alphafactory_collection_only_cost_manifest.v1",
+  "hypothesis_id": "HYP-ST-XAUUSD-H1-004",
+  "purpose": "ZERO_TRADE_MODEL4_MQL5_PARITY_AUDIT",
+  "spread_policy": "Tester spread may be recorded as run provenance but is not converted into performance because the EA submits no orders.",
+  "commission_policy": "Not applicable in HYP004 because orders and deals are forbidden.",
+  "slippage_policy": "Not applicable in HYP004 because orders and deals are forbidden.",
+  "future_economic_child_requirement": "A fresh economic child must freeze observed spread, broker commission and dynamic slippage stress before opening returns.",
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "promotion_eligible": false
+}

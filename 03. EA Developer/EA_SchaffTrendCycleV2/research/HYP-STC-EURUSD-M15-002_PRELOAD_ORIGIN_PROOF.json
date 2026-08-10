@@ -1,0 +1,25 @@
+{
+  "schema_version": "stc_preload_origin_proof.v1",
+  "hypothesis_id": "HYP-STC-EURUSD-M15-002",
+  "symbol": "EURUSD",
+  "target_period": "M15",
+  "server_clock": "FivePercentOnline-Real",
+  "source_manifest": "02. AlphaFactory/data/fivepercent/EURUSD/manifest.json",
+  "source_manifest_sha256": "2CD996FD4416B1E888BF1C9D272BF49056DB3A4CE477CF74FA4E31D474A41B54",
+  "source_file": "02. AlphaFactory/data/fivepercent/EURUSD/EURUSD_M1_2015_now.parquet",
+  "source_file_sha256": "2959C555DB6690FD6EFD6CFB3B4C6323698E590C9B2D71E1E55F1902F724235A",
+  "source_window": {
+    "from_inclusive_server": "2015-01-01T00:00:00",
+    "to_exclusive_server": "2016-01-04T00:00:00",
+    "m1_rows": 370886
+  },
+  "derivation": "Unique floor-to-15-minute server timestamps from the declared native M1 closed-bar source; normal market closures are not synthesized.",
+  "expected_native_m15_population": {
+    "count": 24776,
+    "first_server_time": "2015-01-02T09:00:00",
+    "last_server_time_before_design": "2015-12-31T20:00:00",
+    "strictly_increasing": true
+  },
+  "outcomes_opened": false,
+  "economic_claim": false
+}

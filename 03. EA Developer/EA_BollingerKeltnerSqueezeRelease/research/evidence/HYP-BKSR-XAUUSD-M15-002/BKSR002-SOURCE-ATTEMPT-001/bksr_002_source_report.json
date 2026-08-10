@@ -1,0 +1,59 @@
+{
+  "attempt_id": "BKSR002-SOURCE-ATTEMPT-001",
+  "by_direction": {
+    "LONG": 363,
+    "SHORT": 368
+  },
+  "by_year": {
+    "2018": 139,
+    "2019": 130,
+    "2020": 169,
+    "2021": 157,
+    "2022": 136
+  },
+  "cadence_per_week": 2.8023001095290256,
+  "direction_share": {
+    "LONG": 0.49658002735978113,
+    "SHORT": 0.5034199726402189
+  },
+  "events": {
+    "boundary_rejects": 0,
+    "executable": 731,
+    "gap_rejects": 26,
+    "raw": 757
+  },
+  "formula_dependency_sha256": "CC393F09795346901353DE120D6C9B94E94078AF4EFFC260E4DC43E1E86F8164",
+  "gates": {
+    "candidates_gte_500": true,
+    "design_rows_gte_25000": true,
+    "each_direction_gte_0_30": true,
+    "each_year_cadence_1_25_to_6_5": true,
+    "max_year_share_lte_0_30": true,
+    "pooled_cadence_2_to_5": true,
+    "raw_event_exact_next_h1_coverage_gte_0_97": false,
+    "usable_coverage_gte_0_99": true,
+    "zero_conflicts": true
+  },
+  "hypothesis_id": "HYP-BKSR-XAUUSD-M15-002",
+  "max_year_share": 0.23119015047879618,
+  "post_event_ohlc_rows_read": 0,
+  "profit_factor_computed": 0,
+  "raw_event_exact_next_h1_coverage": 0.9656538969616909,
+  "returns_computed": 0,
+  "rows": {
+    "design": 29461,
+    "h1_total": 107679,
+    "usable_design": 29461
+  },
+  "schema_version": "bksr_h1_next_source_report.v1",
+  "trades_simulated": 0,
+  "verdict": "PARK_SOURCE_FEASIBILITY_EXACT_BBKC_NEXT_H1_OPEN",
+  "weeks": 260.85714285714283,
+  "year_cadence": {
+    "2018": 2.665753424657534,
+    "2019": 2.4931506849315066,
+    "2020": 3.23224043715847,
+    "2021": 3.010958904109589,
+    "2022": 2.6082191780821917
+  }
+}

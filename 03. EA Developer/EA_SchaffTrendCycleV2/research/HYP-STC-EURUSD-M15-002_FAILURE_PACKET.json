@@ -1,0 +1,68 @@
+{
+  "schema_version": "stc_engineering_failure.v1",
+  "hypothesis_id": "HYP-STC-EURUSD-M15-002",
+  "verdict": "KILL_ENGINEERING_PRELOAD_ENDPOINT_OFF_BY_ONE_BAR_NO_ECONOMIC_VERDICT",
+  "run_id": "20260810_165046",
+  "scope": "One frozen EURUSD M15 Model-0 DESIGN baseline, 2016.01.04 through 2021.01.01.",
+  "cause": {
+    "stage": "last_closed",
+    "actual_source_epoch": 1451591100,
+    "actual_time_utc": "2015-12-31T19:45:00Z",
+    "frozen_expected_source_epoch": 1451592000,
+    "frozen_expected_time_utc": "2015-12-31T20:00:00Z",
+    "delta_seconds": -900,
+    "fatal_reason": "INDICATOR_PRELOAD"
+  },
+  "journal_evidence": [
+    "STC002_PRELOAD_FAIL stage=last_closed actual=1451591100 expected=1451592000 error=0",
+    "STC002_FATAL reason=INDICATOR_PRELOAD",
+    "STC002_SUMMARY hypothesis=HYP-STC-EURUSD-M15-002 closed_bars=0 raw=0 long=0 short=0 entries=0 rejects=0 closes=0 clock_rejects=0 invalid=0 runtime_failed=false reason=8"
+  ],
+  "artifacts": {
+    "contract_receipt": {
+      "path": "03. EA Developer/EA_SchaffTrendCycleV2/research/preflight/HYP-STC-EURUSD-M15-002/contract_receipt.control.json",
+      "sha256": "D452AAD33E177269177D43F08F4D09A24DC6196FDE7A776324D8755EAFBEDB86"
+    },
+    "run_manifest": {
+      "path": "02. AlphaFactory/runs/EA_SchaffTrendCycleV2/20260810_165046/run_manifest.json",
+      "sha256": "9468324AC9D8642A2B8EDFADFD4F7EEFDC33C88E3DA440C1EDDB640FCB5C4F02"
+    },
+    "report": {
+      "path": "02. AlphaFactory/runs/EA_SchaffTrendCycleV2/20260810_165046/report.html",
+      "sha256": "33898D7B1DE301D31B9D87C1C41C0FD2F49154C3D6C17B9639FCB17D4C9EB4BF"
+    },
+    "config_snapshot": {
+      "path": "02. AlphaFactory/runs/EA_SchaffTrendCycleV2/20260810_165046/snapshot/config/config.ini",
+      "sha256": "2E9CB8F933D89BBF0AD3D996AEDF14217DCC3154C1F831686DE1070B600703B4"
+    },
+    "source_snapshot": {
+      "path": "02. AlphaFactory/runs/EA_SchaffTrendCycleV2/20260810_165046/snapshot/source/EA_SchaffTrendCycleV2.mq5",
+      "sha256": "F2ED1064789C9FDC8E7487107938608ECAAF5709656E95DFC8A1EFABC0C0D4ED"
+    },
+    "ex5_snapshot": {
+      "path": "02. AlphaFactory/runs/EA_SchaffTrendCycleV2/20260810_165046/snapshot/build/EA_SchaffTrendCycleV2.ex5",
+      "sha256": "8884A7F06C5047501102A819D2C0CA6AF09F34E3177963833C7273EE2F2D7F79"
+    },
+    "tester_log_at_diagnosis": {
+      "path": "02. AlphaFactory/runtime/mt5-portable-fivepercent/Tester/logs/20260810.log",
+      "sha256": "6E391048EF86ECCF9CB39A0EAB0746E76CEC52B8D290FC3874978F6B8F337597",
+      "mutable_source_disclosure": true
+    },
+    "agent_log_at_diagnosis": {
+      "path": "02. AlphaFactory/runtime/mt5-portable-fivepercent/Tester/Agent-127.0.0.1-3000/logs/20260810.log",
+      "sha256": "9CA694FD0EB1AB699F07FD1A15559164A66264E6442D0634C45A37555545D4A0",
+      "mutable_source_disclosure": true
+    }
+  },
+  "economic_boundary": {
+    "preload_completed": false,
+    "closed_bars_processed": 0,
+    "signals_evaluated": 0,
+    "orders": 0,
+    "trades": 0,
+    "profit_factor_available": false,
+    "economic_inference_allowed": false,
+    "same_id_retry_allowed": false
+  },
+  "lawful_next_action": "Fresh HYP-STC-EURUSD-M15-003 may correct only the frozen tester-visible last closed preload endpoint to 2015-12-31T19:45:00Z after independent review; it must preserve the STC recurrence, signal, risk, exit, cost and evaluation windows."
+}

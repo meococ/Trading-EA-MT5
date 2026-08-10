@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-STC-EURUSD-M15-001",
+  "run_id": "STATIC-HYP-STC-EURUSD-M15-001-PACKAGE-20260810",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_SchaffTrendCycle\\NONREPAINT_AUDIT_MANIFEST.json",
+  "manifest_sha256": "8ACD71AFFC454A89968522D253BDD135F354AF29EEED38E586A0FA3E7175F6F3",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_SchaffTrendCycle\\EA_SchaffTrendCycle.mq5",
+      "sha256": "3FA2B8765E2ABD6F04BAE3F442E4696CDD2916BCFE9D9444F9232FAB17A5AF64"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-10T09:27:21.833189+00:00"
+}

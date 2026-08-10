@@ -1,0 +1,11 @@
+{
+  "attempt_id": "BKSR002-SOURCE-ATTEMPT-001",
+  "attempt_started_sha256": "ABBDACC964E78EF5027E4497CB2F1D783D94FEF351C0EA6F769437B676596F0B",
+  "completed_at_utc": "2026-08-10T10:43:38.346645Z",
+  "hypothesis_id": "HYP-BKSR-XAUUSD-M15-002",
+  "receipt_sha256": "7E4A530DEA1DA637297B9095CD7FFC460CE400D40F23B4D5292F10A3CB454FB9",
+  "same_id_retry_authorized": false,
+  "schema_version": "bksr002_source_attempt_terminal.v1",
+  "status": "COMPLETE",
+  "verdict": "PARK_SOURCE_FEASIBILITY_EXACT_BBKC_NEXT_H1_OPEN"
+}

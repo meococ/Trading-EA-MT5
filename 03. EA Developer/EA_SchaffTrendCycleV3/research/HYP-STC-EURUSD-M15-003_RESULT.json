@@ -1,0 +1,71 @@
+{
+  "schema_version": "stc_design_baseline_result.v1",
+  "hypothesis_id": "HYP-STC-EURUSD-M15-003",
+  "run_id": "20260810_170736",
+  "verdict": "KILL_ECONOMIC_BASELINE_PF_CADENCE_DD_AND_STABILITY_FAIL",
+  "engineering_valid": true,
+  "economic_valid": false,
+  "promotion_eligible": false,
+  "scope": {
+    "symbol": "EURUSD",
+    "period": "M15",
+    "design_from": "2016.01.04",
+    "design_to": "2021.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current"
+  },
+  "metrics": {
+    "trades": 119,
+    "profit_factor": 0.6216180107274507,
+    "net_profit": -7335.229999999996,
+    "expectancy_per_trade": -61.64058823529411,
+    "win_rate_pct": 33.61344537815126,
+    "max_equity_drawdown_pct": 8.046399148981813,
+    "cadence_per_full_design_week": 0.4566885964912281,
+    "first_entry": "2016-01-04T02:00:00",
+    "last_entry": "2016-06-17T10:45:00"
+  },
+  "direction_breakdown": {
+    "long": {"trades": 58, "share_pct": 48.739495798319325, "profit_factor": 0.561384, "net_profit": -4323.60, "win_rate_pct": 31.034},
+    "short": {"trades": 61, "share_pct": 51.260504201680675, "profit_factor": 0.683931, "net_profit": -3011.63, "win_rate_pct": 36.066}
+  },
+  "year_breakdown": {
+    "2016": {"trades": 119, "share_pct": 100.0, "profit_factor": 0.621618, "net_profit": -7335.23},
+    "2017": {"trades": 0},
+    "2018": {"trades": 0},
+    "2019": {"trades": 0},
+    "2020": {"trades": 0}
+  },
+  "gates": {
+    "profit_factor_gt_1_30": false,
+    "cadence_2_to_5_per_week": false,
+    "equity_drawdown_lte_8_pct": false,
+    "both_directions_gte_30_pct": true,
+    "max_calendar_year_lte_35_pct": false,
+    "cost_stress_opened": false,
+    "validation_opened": false,
+    "holdout_opened": false
+  },
+  "interpretation": "The exact classic STC trend-aligned cycle-reset mechanism loses broadly in both directions. The frozen 8% account lock stops new entries in June 2016, causing under-cadence and 100% year concentration. Extra slippage stress can only worsen this losing baseline and is not required for falsification.",
+  "forbidden_rescue": [
+    "disable Asia or selected weekdays/hours from the observed breakdown",
+    "change 25/75 thresholds, EMA lengths, stochastic lengths or smoothing",
+    "change ATR stop, target R, holding time or direction",
+    "rerun HYP003 on DESIGN"
+  ],
+  "artifacts": {
+    "contract_receipt_sha256": "FFFFFCA5C4FFA244BD57C2D00BF102E01E0040A98B28C691E7DFAEF732416D40",
+    "run_manifest_sha256": "72F4A62B291E806418AB9E069E5E9DC4C1360E7CA0BC4886D9C45DC862A5299F",
+    "report_sha256": "B8168A49319D14BB1A73060B9416B1BD04700C3364869E05237A7E0FFC6383ED",
+    "config_sha256": "96237187BFDF5B6687B62CEEF8919D52E93D71EE463BCDFE03CA5C1C52939680",
+    "source_snapshot_sha256": "1E499F44F9B8CF56CD9350330A443373C2B8729D3D77466365E11FCD163E82A2",
+    "ex5_snapshot_sha256": "D0BB3C5A94090609E22BF2DE34CEEDAE8C178CEE57353A1DFA3F5D5CBA2A5F9C",
+    "enhanced_summary_sha256": "8E0CC7B6D1AA9B13929FF49FFA5815BB8565225DEE81B5B2CD0056DE3D019126",
+    "analysis_report_sha256": "A7F44F4F480E7B3633BF0C54E142EE8C066D3797C78A4D70982593386F1EB952",
+    "weaknesses_sha256": "4698BD6C7271FE6F0B25B0B1A0485DF18E8AF14DB417E09E7BE3012B42557742"
+  }
+}
