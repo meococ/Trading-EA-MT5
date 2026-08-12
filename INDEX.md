@@ -8,6 +8,7 @@ INDEX chỉ là sitemap. Trạng thái hypothesis nằm ở registry và artifac
 | Mục tiêu và DONE | `01. GOAL/GOAL.md` |
 | Workflow duy nhất | `05. Playbook/WORKFLOW.md` |
 | MT5/AlphaFactory CLI | `02. AlphaFactory/alpha.ps1` |
+| Context capsule (read-only, bounded) | `02. AlphaFactory/alpha.ps1 context` |
 | EA/indicator package | `03. EA Developer/README.md` |
 | Source EA | `03. EA Developer/<EA>/<EA>.mq5` |
 | Custom indicators | `06.Indicator Alpha/` |
@@ -15,6 +16,9 @@ INDEX chỉ là sitemap. Trạng thái hypothesis nằm ở registry và artifac
 | Hypothesis result/failure packet | `03. EA Developer/<EA>/research/` |
 | Registry validator | `04. Memory/research/validate_candidate_registry.py` |
 | Recent handoff | `04. Memory/hot.md` |
+| Active Deep Research frontier | `04. Memory/research/20260811_GROK_DEEP_RESEARCH_LOOP_REVIEW.md` |
+| Latest Sonic revival audit | `04. Memory/research/20260812_ITSM_SONIC_USDJPY_REVIVAL_AUDIT.md` |
+| Post-ITSM Sonic source frontier | `04. Memory/research/20260812_SONICR_POST_ITSM_FRONTIER_CLOSEOUT.md` |
 | Failure radius | `04. Memory/do_not_repeat_failures.md` |
 | Strategy history | `02. AlphaFactory/STRATEGY_LOG.md` |
 | Runs | `02. AlphaFactory/runs/<EA>/<run_id>/` |
@@ -28,6 +32,7 @@ Lệnh bắt đầu:
 
 ```powershell
 ./02. AlphaFactory/alpha.ps1 status
+./02. AlphaFactory/alpha.ps1 context
 python "04. Memory/validate_source_of_truth.py"
 python "04. Memory/research/validate_candidate_registry.py"
 ```
