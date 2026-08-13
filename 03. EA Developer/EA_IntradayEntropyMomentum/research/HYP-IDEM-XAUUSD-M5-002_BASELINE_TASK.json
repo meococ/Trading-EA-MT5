@@ -1,0 +1,38 @@
+{
+  "schema_version": "idem_model0_baseline_task.v1",
+  "hypothesis_id": "HYP-IDEM-XAUUSD-M5-002",
+  "parent_hypothesis_id": "HYP-IDEM-XAUUSD-M5-001",
+  "attempt_id": "IDEM002-MODEL0-BASELINE-001",
+  "one_attempt_only": true,
+  "same_id_retry_authorized": false,
+  "source_signal_count_expected": 638,
+  "visual_mode": false,
+  "indicator_dependencies": [],
+  "command_contract": {
+    "action": "backtest", "ea_name": "EA_IntradayEntropyMomentum",
+    "symbol": "XAUUSD", "period": "M5", "from": "2018.01.01", "to": "2023.01.01",
+    "model": 0, "execution_mode": 0, "fixed_delay_ms": 0, "timeout_sec": 3600,
+    "run_role": "control", "telemetry_tier": "off", "deposit": 100000,
+    "leverage": 100, "spread_semantics": "current_cli_omitted", "holding_contract": "scalp",
+    "overrides": "InpDeviationPoints=20;InpHypothesisId=HYP-IDEM-XAUUSD-M5-002;InpMagic=5604406;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpResearchAutoMode=true;InpRiskPercent=0.10;InpSessionFlattenHourUtc=20;InpVariantTag=INTRADAY_ENTROPY_MOMENTUM"
+  },
+  "acceptance": {
+    "min_profit_factor_strict": 1.3, "min_expectancy_strict": 0.0,
+    "min_closed_positions_per_week": 2.0, "max_closed_positions_per_week": 5.0,
+    "elapsed_calendar_weeks": 260.85714285714283, "max_equity_drawdown_pct": 8.0,
+    "min_each_direction_share": 0.30, "max_calendar_year_share": 0.30,
+    "validation_opened": false, "holdout_opened": false,
+    "optimization_authorized": false, "paper_live_authorized": false
+  },
+  "frozen_evidence": {
+    "parent_engineering_failure_sha256": "4C838D0A5FFAAE714BB5BD802977C0C6A3FAAC51F5EA9E29BA11542B01D97EF1",
+    "source_report_sha256": "09268D4223BEA3CCD25C2433CA3EA8385202A7C4E748EF8B8E9C6F897C6EFA7E",
+    "source_receipt_sha256": "A9BA8F5CE317049FA2EDF19B72ABB167DA5F4A8CBF55DE671E8573CD52B414B8",
+    "mql_source_sha256": "036CA497F321E7B271473F13297EF57EF11F8FC86B1C8D560533CFADB671E889",
+    "static_ex5_sha256": "F6BBA0FAEC7C48D072ADA642E71E9E720A2E47225BD0ECF06D4DFB1ACB674F7A",
+    "static_compile_log_sha256": "68A63E45E604AA7306545B4E19AE70140250E5831F35B7CA9F4C04927569E791",
+    "mql_contract_test_sha256": "EDC31142D065F91EBB9BE36651DFC461459B11CF19A671BEC8B8B6895ACB6EA9",
+    "nonrepaint_manifest_sha256": "C75DF555C6F5FD6F667FD3F31B5A16C0826FD3ADCB4204464266A501132403FE",
+    "nonrepaint_audit_sha256": "AFCCDF8013B5A0A90688869823E5BC913439A6E6E5223769588962615F09A83F"
+  }
+}

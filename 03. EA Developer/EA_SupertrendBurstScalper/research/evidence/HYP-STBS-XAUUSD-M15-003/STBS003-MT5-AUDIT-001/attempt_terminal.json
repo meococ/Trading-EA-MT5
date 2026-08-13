@@ -1,0 +1,1 @@
+{"attempt_id":"STBS003-MT5-AUDIT-001","completed_at_utc":"2026-08-09T05:36:50.118280Z","error":"Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)","error_type":"JSONDecodeError","hypothesis_id":"HYP-STBS-XAUUSD-M15-003","same_id_retry_authorized":false,"schema_version":"stbs001_mt5_audit_terminal.v1","status":"FAILED","verdict":"ENGINEERING_MT5_AUDIT_FAIL"}

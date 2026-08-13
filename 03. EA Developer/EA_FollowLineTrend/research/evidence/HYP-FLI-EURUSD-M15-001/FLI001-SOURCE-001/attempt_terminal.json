@@ -1,0 +1,9 @@
+{
+  "attempt_id": "FLI001-SOURCE-001",
+  "hypothesis_id": "HYP-FLI-EURUSD-M15-001",
+  "receipt_sha256": "70C949FF4C1AFF73BF917BFB5EBC0421C432FFFA0DA2AD9277D6060C1E83EC13",
+  "same_id_retry_allowed": false,
+  "schema_version": "follow_line_source_attempt_terminal.v1",
+  "status": "COMPLETE",
+  "verdict": "PARK_SOURCE_FEASIBILITY"
+}

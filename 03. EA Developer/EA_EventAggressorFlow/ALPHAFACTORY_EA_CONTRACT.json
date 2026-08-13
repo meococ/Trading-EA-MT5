@@ -1,0 +1,34 @@
+{
+  "schema_version": "alphafactory_ea_contract.v1",
+  "telemetry_profile": "none",
+  "market_phase_adapter": "none",
+  "comparison_adapter": "generic-control-improvement-v1",
+  "variant_tag_input": "InpVariantTag",
+  "execution_profile": {
+    "authority": "registered-untuned-model0-baseline",
+    "timeframe": "M1",
+    "research_auto_mode_input": "InpResearchAutoMode",
+    "research_auto_mode_default": false,
+    "telemetry_input": "InpEnableAudit",
+    "telemetry_required_for_execution": true,
+    "hypothesis_id_input": "InpHypothesisId",
+    "hypothesis_id_default": "HYP-EVENT-AGGFLOW-EURUSD-TICK-013",
+    "expected_symbol": "EURUSD",
+    "closed_bar_only": false,
+    "no_trade_api": false,
+    "economic_claims_authorized": true,
+    "promotion_eligible": false
+  },
+  "inputs": {
+    "InpResearchAutoMode": false,
+    "InpEnableAudit": true,
+    "InpHypothesisId": "HYP-EVENT-AGGFLOW-EURUSD-TICK-013",
+    "InpVariantTag": "CME6E_FIRST15S_FLOW_CONTINUATION_V1",
+    "InpReverseComparator": false,
+    "InpMagic": 5604413,
+    "InpRiskPercent": 0.25,
+    "InpSizingStopPips": 15.0,
+    "InpMaxLots": 1.0,
+    "InpDeviationPoints": 100
+  }
+}

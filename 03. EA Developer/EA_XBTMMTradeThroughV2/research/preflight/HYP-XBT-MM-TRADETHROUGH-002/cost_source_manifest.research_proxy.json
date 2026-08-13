@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-XBT-MM-TRADETHROUGH-002",
+  "status": "PASS_RESEARCH_ONLY",
+  "venue": "BitMEX XBTUSD",
+  "base_contract": {
+    "passive_fee_bps": 0.0,
+    "maker_rebate_bps": 0.0,
+    "forced_flatten_taker_fee_bps": 7.5,
+    "forced_flatten_spread": "observed archive Bid/Ask",
+    "fill_model": "strict later opposite-aggressor trade-through only"
+  },
+  "adverse_stress": {
+    "x1_5": "multiply taker and adverse residual funding costs by 1.5; favorable funding zero",
+    "x2": "multiply taker and adverse residual funding costs by 2.0; favorable funding zero"
+  },
+  "promotion_eligible": false
+}

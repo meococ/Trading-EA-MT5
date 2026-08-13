@@ -1,0 +1,215 @@
+{
+  "all_symbols": {
+    "levels": 70579,
+    "modal_volume": 100000000,
+    "modal_volume_share": 0.9997733036738974,
+    "unique_volume_real_values": 8,
+    "unique_volume_values": 2
+  },
+  "files": {
+    "combined_bytes": 26102049,
+    "combined_sha256_not_recomputed_here": true,
+    "csv_bytes": 16487113,
+    "json_bytes": 9614936
+  },
+  "kind_counts": {
+    "DUPLICATE": 115,
+    "HEARTBEAT": 4,
+    "INIT": 2,
+    "SHUTDOWN": 2,
+    "SNAPSHOT": 5172,
+    "SUBSCRIBE": 8,
+    "WRITER_LOCK": 2
+  },
+  "observed_seconds_sum": 143.391,
+  "projected_bytes_per_day_at_smoke_rate": 15727744653.430134,
+  "records": 5305,
+  "sessions": {
+    "1786588528-31573468": {
+      "duration_seconds": 69.157,
+      "records_with_tick": 2818
+    },
+    "1786588643-31687828": {
+      "duration_seconds": 74.234,
+      "records_with_tick": 2487
+    }
+  },
+  "symbols": {
+    "EURUSD": {
+      "constant_volume_snapshot_share": 1.0,
+      "crossed_or_locked_books": 0,
+      "depth": {
+        "max": 15.0,
+        "min": 13.0,
+        "p50": 13.0,
+        "p95": 15.0
+      },
+      "level_count_imbalance": {
+        "max": 0.07692307692307693,
+        "min": -0.07692307692307693,
+        "p50": -0.07692307692307693,
+        "p95": 0.07692307692307693
+      },
+      "levels": 2028,
+      "modal_volume": 100000000,
+      "modal_volume_share": 1.0,
+      "one_sided_books": 0,
+      "outer_ask_gap": {
+        "max": 0.008110000000000062,
+        "min": 0.00810999999999984,
+        "p50": 0.008110000000000062,
+        "p95": 0.008110000000000062
+      },
+      "outer_bid_gap": {
+        "max": 0.008110000000000062,
+        "min": 0.00810999999999984,
+        "p50": 0.008110000000000062,
+        "p95": 0.008110000000000062
+      },
+      "same_shape_transition_share": 0.23809523809523808,
+      "snapshots": 148,
+      "spread": {
+        "max": 6.000000000017103e-05,
+        "min": 3.999999999981796e-05,
+        "p50": 4.0000000000040004e-05,
+        "p95": 4.0000000000040004e-05
+      },
+      "top_shape_share": 0.5540540540540541,
+      "unique_type_volume_shapes": 4,
+      "unique_volume_real_values": 1,
+      "unique_volume_values": 1
+    },
+    "GBPUSD": {
+      "constant_volume_snapshot_share": 1.0,
+      "crossed_or_locked_books": 0,
+      "depth": {
+        "max": 15.0,
+        "min": 11.0,
+        "p50": 13.0,
+        "p95": 15.0
+      },
+      "level_count_imbalance": {
+        "max": 0.23076923076923078,
+        "min": -0.07692307692307693,
+        "p50": 0.0,
+        "p95": 0.09090909090909091
+      },
+      "levels": 5949,
+      "modal_volume": 100000000,
+      "modal_volume_share": 1.0,
+      "one_sided_books": 0,
+      "outer_ask_gap": {
+        "max": 0.008110000000000062,
+        "min": 0.008099999999999996,
+        "p50": 0.00810999999999995,
+        "p95": 0.008110000000000062
+      },
+      "outer_bid_gap": {
+        "max": 0.008110000000000062,
+        "min": 0.008099999999999996,
+        "p50": 0.008110000000000062,
+        "p95": 0.008110000000000062
+      },
+      "same_shape_transition_share": 0.19817767653758542,
+      "snapshots": 440,
+      "spread": {
+        "max": 6.000000000017103e-05,
+        "min": 3.999999999981796e-05,
+        "p50": 4.0000000000040004e-05,
+        "p95": 5.0000000000105516e-05
+      },
+      "top_shape_share": 0.2636363636363636,
+      "unique_type_volume_shapes": 9,
+      "unique_volume_real_values": 1,
+      "unique_volume_values": 1
+    },
+    "USDJPY": {
+      "constant_volume_snapshot_share": 1.0,
+      "crossed_or_locked_books": 0,
+      "depth": {
+        "max": 17.0,
+        "min": 11.0,
+        "p50": 14.0,
+        "p95": 15.0
+      },
+      "level_count_imbalance": {
+        "max": 0.14285714285714285,
+        "min": -0.14285714285714285,
+        "p50": 0.0,
+        "p95": 0.09090909090909091
+      },
+      "levels": 6532,
+      "modal_volume": 100000000,
+      "modal_volume_share": 1.0,
+      "one_sided_books": 0,
+      "outer_ask_gap": {
+        "max": 1.0120000000000005,
+        "min": 0.4939999999999998,
+        "p50": 1.0120000000000005,
+        "p95": 1.0120000000000005
+      },
+      "outer_bid_gap": {
+        "max": 1.0120000000000005,
+        "min": 0.49500000000000455,
+        "p50": 1.0120000000000005,
+        "p95": 1.0120000000000005
+      },
+      "same_shape_transition_share": 0.24789915966386555,
+      "snapshots": 477,
+      "spread": {
+        "max": 0.00899999999998613,
+        "min": 0.003999999999990678,
+        "p50": 0.003999999999990678,
+        "p95": 0.0049999999999954525
+      },
+      "top_shape_share": 0.2641509433962264,
+      "unique_type_volume_shapes": 10,
+      "unique_volume_real_values": 1,
+      "unique_volume_values": 1
+    },
+    "XAUUSD": {
+      "constant_volume_snapshot_share": 0.9961042123204286,
+      "crossed_or_locked_books": 0,
+      "depth": {
+        "max": 14.0,
+        "min": 12.0,
+        "p50": 14.0,
+        "p95": 14.0
+      },
+      "level_count_imbalance": {
+        "max": 0.07692307692307693,
+        "min": -0.07692307692307693,
+        "p50": 0.0,
+        "p95": 0.07692307692307693
+      },
+      "levels": 56070,
+      "modal_volume": 100000000,
+      "modal_volume_share": 0.9997146424112716,
+      "one_sided_books": 0,
+      "outer_ask_gap": {
+        "max": 1.6900000000005093,
+        "min": 1.5900000000001455,
+        "p50": 1.6300000000001091,
+        "p95": 1.6599999999998545
+      },
+      "outer_bid_gap": {
+        "max": 1.699999999999818,
+        "min": 1.5999999999994543,
+        "p50": 1.6300000000001091,
+        "p95": 1.6599999999998545
+      },
+      "same_shape_transition_share": 0.8095470043838285,
+      "snapshots": 4107,
+      "spread": {
+        "max": 0.8599999999996726,
+        "min": 0.5099999999993088,
+        "p50": 0.5199999999995271,
+        "p95": 0.5499999999992724
+      },
+      "top_shape_share": 0.7611395178962747,
+      "unique_type_volume_shapes": 13,
+      "unique_volume_real_values": 8,
+      "unique_volume_values": 2
+    }
+  }
+}

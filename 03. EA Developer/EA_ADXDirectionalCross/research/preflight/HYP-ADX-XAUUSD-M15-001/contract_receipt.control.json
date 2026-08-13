@@ -1,0 +1,37 @@
+{
+  "schema_version":"alphafactory_execution_receipt.v1",
+  "hypothesis_id":"HYP-ADX-XAUUSD-M15-001",
+  "task_packet_sha256":"20F38713D0F8370E199755F9540E235FF9D14D4FFC52604DCC0712D1E94626C5",
+  "git_commit":"1ec53d2d3ad7d29f85b764b7e155631e0c81f9f1",
+  "git_status_sha256":"1A63F9452F253056C788E13C4E824CF7005A2007228D1F5906A63CB5EADDB0AD",
+  "binding": {
+    "hypothesis_id":"HYP-ADX-XAUUSD-M15-001","run_role":"control","ea_name":"EA_ADXDirectionalCross",
+    "symbol":"XAUUSD","period":"M15","from":"2018.01.01","to":"2023.01.01","model":0,
+    "execution_mode":0,"fixed_delay_ms":0,"timeout_sec":3600,
+    "overrides":"InpDeviationPoints=20;InpFridayFlattenHour=20;InpHypothesisId=HYP-ADX-XAUUSD-M15-001;InpMagic=5604401;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpMaxTradesPerDay=1;InpResearchAutoMode=true;InpRiskPercent=0.25;InpVariantTag=ADX14_DI_CROSS_STRENGTH25_RISING",
+    "telemetry_tier":"off","telemetry_profile":"none","deposit":100000,"leverage":100,"spread":"current",
+    "required_sidecars":[],"symbol_geometry":{"digits":2,"point":0.01,"pip_size":0.01},
+    "visual_mode":false,"indicator_dependencies":[],
+    "include_closure_sha256":"E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract":{"availability_asof_utc":"2026-08-10T16:06:50Z","coverage_mode":"fixed_window","history_quality":{"operator":"gt","value":97},"requested_from":"2018.01.01","requested_to":"2023.01.01","require_tester_journal_bounds":true,"max_journal_delta_bytes":4194304}
+  },
+  "evidence": [
+    {"label":"task_packet","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\research\\HYP-ADX-XAUUSD-M15-001_BASELINE_TASK.json","sha256":"20F38713D0F8370E199755F9540E235FF9D14D4FFC52604DCC0712D1E94626C5"},
+    {"label":"source","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\EA_ADXDirectionalCross.mq5","sha256":"CEA49A1F897727451E16C8C18B1ABAFD273B3FAB4CCD7191F4723D49F87DB2EF"},
+    {"label":"static_ex5","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\EA_ADXDirectionalCross.ex5","sha256":"5A0AE306754B9EC13E7C201974550B855341A44F60FCC394F58009D48D24D755"},
+    {"label":"static_compile_log","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\EA_ADXDirectionalCross.log","sha256":"CB5F0925BDDA7CC1E595AC7DAC07197AE0EE24491271D0C27850812A07EDCAE3"},
+    {"label":"prereg","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\research\\HYP-ADX-XAUUSD-M15-001_FROZEN_PREREG.md","sha256":"9A899DB4680DF92954141539321FF90A31C29249BC6F153B1133AAA27759FC13"},
+    {"label":"source_to_spec","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\research\\HYP-ADX-XAUUSD-M15-001_SOURCE_TO_SPEC.md","sha256":"0DE27AE904921D9F8A5D914538153BA80BE275C6F3764615B2629A04C1FFC5A5"},
+    {"label":"cost_source_manifest","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\research\\preflight\\HYP-ADX-XAUUSD-M15-001\\cost_source_manifest.unverified.json","sha256":"CFCA778F98F148EEBF2B6AD46FBF452963E272E724E6D7FC2E4AABA7F8648456"},
+    {"label":"candidate_registry","kind":"file","path":"D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl","sha256":"1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"},
+    {"label":"ea_contract","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\ALPHAFACTORY_EA_CONTRACT.json","sha256":"C2E14EAE938ECC424B2491FD6E29FA493AFADFAB7C08F82BDF5F26E60B6F1A0C"},
+    {"label":"source_test","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\research\\test_adx_source_contract.py","sha256":"5672CEDB29EE7980EAD286E562B0715941F813E147A90DFF89F66EC4DBFEA9E0"},
+    {"label":"nonrepaint_manifest","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\HYP-ADX-XAUUSD-M15-001_NONREPAINT_MANIFEST.json","sha256":"9FB6184BB7340122CCB217F9579D60F685DBE8777247BBB90F3A47C9D9F8C247"},
+    {"label":"nonrepaint_audit","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\research\\HYP-ADX-XAUUSD-M15-001_NONREPAINT_AUDIT.json","sha256":"56520CDC8D110293C226E848D248FBB3AF2E6891085A9D7BF8CEC7ACD58451B6"},
+    {"label":"independent_review","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\research\\HYP-ADX-XAUUSD-M15-001_INDEPENDENT_PRE_RUN_REVIEW.md","sha256":"62A79D6134356E09B701DED4BD5A30B72CC08131B3F103AA0A75EB90E630C919"},
+    {"label":"alpha_ps1","kind":"file","path":"D:\\Trading EA MT5\\02. AlphaFactory\\alpha.ps1","sha256":"8994E6C81777CE399D2474F1C46E5C190487741D709EEBB2ACFD55BB0F087A97"},
+    {"label":"alpha_terminal_guard_test","kind":"file","path":"D:\\Trading EA MT5\\02. AlphaFactory\\tests\\test_terminal_process_guard.py","sha256":"31BF3C04049598531E5E4A0DEE88102DF9902F47180BD4F8364A259CBCAFF780"}
+  ],
+  "generated_at_utc":"2026-08-10T16:06:50Z",
+  "note":"Sole untuned native ADX14 DI polarity baseline; no validation or promotion authority."
+}

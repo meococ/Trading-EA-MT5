@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-DMR-XAUUSD-M15-002",
+  "run_id": "DMR002-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\EA_DeMarkerReentry.mq5",
+  "source_sha256": "D9A86E175E29C2A7BC3913588B8E5CC00A26EDA1564487F82B5EA0F8AE8BA970",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

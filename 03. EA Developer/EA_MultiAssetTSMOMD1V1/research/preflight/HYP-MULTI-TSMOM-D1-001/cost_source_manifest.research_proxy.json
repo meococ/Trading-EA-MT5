@@ -1,0 +1,22 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-001",
+  "status": "PASS_RESEARCH_ONLY",
+  "broker_server": "FivePercentOnline-Real",
+  "account_currency": "USD",
+  "base_contract": {
+    "spread": "native tester Bid/Ask per symbol",
+    "commission": "native tester account schedule",
+    "swap": "current broker symbol schedule charged by MT5 tester",
+    "slippage": "tester execution mode 0; historical slippage not proven"
+  },
+  "adverse_stress": {
+    "x1_5": "multiply negative observed swap and other explicit variable costs by 1.5; positive swap credit set to zero",
+    "x2": "multiply negative observed swap and other explicit variable costs by 2.0; positive swap credit set to zero"
+  },
+  "limitations": [
+    "historical point-in-time swap schedules are unavailable",
+    "a survivor is design-stage only and cannot establish promotion-grade cost truth"
+  ],
+  "promotion_eligible": false
+}

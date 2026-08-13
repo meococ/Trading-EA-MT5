@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-EIBB-XAUUSD-M15-001",
+  "run_id": "EIBB001-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_EuropeInitialBalanceBreakout\\HYP-EIBB-XAUUSD-M15-001_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "3DBAD3F1532E1E883E646BE96EA248395AE32E3ACCFCC65694EBC1053477404D",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EuropeInitialBalanceBreakout\\EA_EuropeInitialBalanceBreakout.mq5",
+      "sha256": "F24FDDC36D51AAED2A27A69CA646058EBB5AA5B1D557C1B7B011B606311A3ABE"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EuropeInitialBalanceBreakout\\EA_EuropeInitialBalanceBreakout.mq5",
+      "line": 202,
+      "rule": "collection_first_date_copytime",
+      "function": "CopyTime",
+      "disposition": "allowed_collection_provenance_read"
+    }
+  ],
+  "generated_at_utc": "2026-08-11T08:07:43.233453+00:00"
+}

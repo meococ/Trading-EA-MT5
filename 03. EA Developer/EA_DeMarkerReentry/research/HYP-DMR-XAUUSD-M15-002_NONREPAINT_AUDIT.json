@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-DMR-XAUUSD-M15-002",
+  "run_id": "DMR002-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\HYP-DMR-XAUUSD-M15-002_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "7D3710DB51B2BE49AAF77BB2AF92FC00A06426E00AE0A9FDFEBE4604EBC2E253",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\EA_DeMarkerReentry.mq5",
+      "sha256": "D9A86E175E29C2A7BC3913588B8E5CC00A26EDA1564487F82B5EA0F8AE8BA970"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\EA_DeMarkerReentry.mq5",
+      "line": 172,
+      "rule": "collection_first_date_copytime",
+      "function": "CopyTime",
+      "disposition": "allowed_collection_provenance_read"
+    }
+  ],
+  "generated_at_utc": "2026-08-10T15:51:47.558863+00:00"
+}

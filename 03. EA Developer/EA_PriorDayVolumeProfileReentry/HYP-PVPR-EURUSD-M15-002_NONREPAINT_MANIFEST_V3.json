@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-PVPR-EURUSD-M15-002",
+  "run_id": "PVPR002-MQL5-STATIC-003",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_PriorDayVolumeProfileReentry",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_PriorDayVolumeProfileReentry\\EA_PriorDayVolumeProfileReentry.mq5",
+  "source_sha256": "16FD5FB21509DE6CB3B51422A20A1B038990DE27D5A6675989E4783A8EB0AC56",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

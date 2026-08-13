@@ -1,0 +1,11 @@
+{
+  "attempt_id": "TLB001-SOURCE-001",
+  "attempt_receipt_sha256": "EAD7736585B4FEA6AD27AB695A2BF052038AA159E59493B47577FA48EC9DBC0D",
+  "attempt_started_sha256": "1C7D22E4C3EA99FF5AF426D53A4361360E022858380CA664B2552EC1EB101FCD",
+  "completed_at_utc": "2026-08-11T05:57:28.866204+00:00",
+  "hypothesis_id": "HYP-TLB-XAUUSD-M15-001",
+  "same_id_retry_authorized": false,
+  "schema_version": "tlb_source_attempt_terminal.v1",
+  "status": "COMPLETE",
+  "verdict": "PARK_SOURCE_GATE_FAILURE"
+}

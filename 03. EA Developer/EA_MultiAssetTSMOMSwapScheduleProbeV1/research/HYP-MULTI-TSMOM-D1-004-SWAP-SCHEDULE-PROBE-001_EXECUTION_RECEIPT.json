@@ -1,0 +1,52 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "authority": "DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-004-SWAP-SCHEDULE-PROBE-001",
+  "task_packet_sha256": "2A42677DC4229277B794042CB23C78B7DE47B2F51A9C6A5C02344C750B117F9C",
+  "git_commit": "1ec53d2d3ad7d29f85b764b7e155631e0c81f9f1",
+  "git_status_sha256": "DFA3CFC66B87176972C9FB604B3C1049494C6901E7AC0E48881951668CC6C128",
+  "binding": {
+    "hypothesis_id": "HYP-MULTI-TSMOM-D1-004-SWAP-SCHEDULE-PROBE-001",
+    "run_role": "control",
+    "ea_name": "EA_MultiAssetTSMOMSwapScheduleProbeV1",
+    "symbol": "EURUSD",
+    "period": "H1",
+    "from": "2026.08.03",
+    "to": "2026.08.05",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 900,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {"digits":5,"point":0.00001,"pip_size":0.0001},
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-12T00:00:00Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {"operator":"gt","value":97},
+      "requested_from": "2026.08.03",
+      "requested_to": "2026.08.05",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 16777216
+    }
+  },
+  "evidence": [
+    {"label":"task_packet","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMSwapScheduleProbeV1\\research\\HYP-MULTI-TSMOM-D1-004-SWAP-SCHEDULE-PROBE-001_TASK.json","sha256":"2A42677DC4229277B794042CB23C78B7DE47B2F51A9C6A5C02344C750B117F9C"},
+    {"label":"source","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMSwapScheduleProbeV1\\EA_MultiAssetTSMOMSwapScheduleProbeV1.mq5","sha256":"BCC32CDC9B9C93310CC976C48BBC45EE0343E71E765FBB4FAC73915B1DA90495"},
+    {"label":"prereg","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMSwapScheduleProbeV1\\research\\HYP-MULTI-TSMOM-D1-004-SWAP-SCHEDULE-PROBE-001_FROZEN_PREREG.md","sha256":"8B65B38E884FCD9F825D392213D32AA1E6D60420BF9D99326A14EF836AA7BFF1"},
+    {"label":"cost_source_manifest","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMSwapScheduleProbeV1\\research\\HYP-MULTI-TSMOM-D1-004-SWAP-SCHEDULE-PROBE-001_COST_SOURCE_MANIFEST.json","sha256":"D49D3586574C7F1AE7BE4F0466DB5ADC71B68AA120B33A526B36F4CFD08B216D"},
+    {"label":"candidate_registry","kind":"file","path":"D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl","sha256":"1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"},
+    {"label":"ea_contract","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMSwapScheduleProbeV1\\ALPHAFACTORY_EA_CONTRACT.json","sha256":"00D60E68843DD28319E06B5BBA2DD7A0995D146691DCDBCA8F6DC5FDD5EEA26B"},
+    {"label":"nonrepaint_audit","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMSwapScheduleProbeV1\\research\\HYP-MULTI-TSMOM-D1-004-SWAP-SCHEDULE-PROBE-001_NONREPAINT_AUDIT.json","sha256":"5C060DE0E88F39BB2C63513C42A6A8558F1FF52140C33500A6D711967FBC0814"}
+  ],
+  "generated_at_utc": "2026-08-12T01:45:00Z",
+  "note": "No-order current weekday swap schedule capture; performance and economics unauthorized."
+}

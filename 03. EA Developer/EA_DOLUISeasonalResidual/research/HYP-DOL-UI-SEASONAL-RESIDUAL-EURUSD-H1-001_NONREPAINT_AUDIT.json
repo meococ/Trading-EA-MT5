@@ -1,0 +1,22 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+  "run_id": "DOLUI001-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "824D523F2CE0D46F1F426352ED38F11AA2EDF204E6C9C11C4638194D2909C002",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\EA_DOLUISeasonalResidual.mq5",
+      "sha256": "72D8C1CFF8F7BD8A8D441A41BB206B9514580FC3AE4034966AE036245429018A"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\resources\\dolui_001_train_table.mqh",
+      "sha256": "E4A4407047A7B2A46EBD9BC7C3817FF41545F5662F1D480D4E5CF10D853388A8"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-13T02:36:52.198197+00:00"
+}

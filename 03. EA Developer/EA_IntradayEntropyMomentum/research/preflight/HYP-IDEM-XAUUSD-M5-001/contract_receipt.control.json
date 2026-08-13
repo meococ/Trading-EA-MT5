@@ -1,0 +1,44 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "hypothesis_id": "HYP-IDEM-XAUUSD-M5-001",
+  "task_packet_sha256": "8A37AFA4C5B2838E61A1612C8769A3D7D4760B37DF23AEECAAF9A3EC20C0E84C",
+  "git_commit": "1ec53d2d3ad7d29f85b764b7e155631e0c81f9f1",
+  "git_status_sha256": "8B8155D47ADBCCB36344A4D86DB75A70CF31885E43BD763E38A4B5695E26B504",
+  "binding": {
+    "hypothesis_id": "HYP-IDEM-XAUUSD-M5-001", "run_role": "control",
+    "ea_name": "EA_IntradayEntropyMomentum", "symbol": "XAUUSD", "period": "M5",
+    "from": "2018.01.01", "to": "2023.01.01", "model": 0,
+    "execution_mode": 0, "fixed_delay_ms": 0, "timeout_sec": 3600,
+    "overrides": "InpDeviationPoints=20;InpHypothesisId=HYP-IDEM-XAUUSD-M5-001;InpMagic=5604405;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpResearchAutoMode=true;InpRiskPercent=0.10;InpSessionFlattenHourUtc=20;InpVariantTag=INTRADAY_ENTROPY_MOMENTUM",
+    "telemetry_tier": "off", "telemetry_profile": "none", "deposit": 100000,
+    "leverage": 100, "spread": "current", "required_sidecars": [],
+    "symbol_geometry": {"digits": 2, "point": 0.01, "pip_size": 0.01},
+    "visual_mode": false, "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-11T06:41:40Z", "coverage_mode": "fixed_window",
+      "history_quality": {"operator": "gt", "value": 97},
+      "requested_from": "2018.01.01", "requested_to": "2023.01.01",
+      "require_tester_journal_bounds": true, "max_journal_delta_bytes": 4194304
+    }
+  },
+  "evidence": [
+    {"label":"task_packet","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\research\\HYP-IDEM-XAUUSD-M5-001_BASELINE_TASK.json","sha256":"8A37AFA4C5B2838E61A1612C8769A3D7D4760B37DF23AEECAAF9A3EC20C0E84C"},
+    {"label":"source","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\EA_IntradayEntropyMomentum.mq5","sha256":"3B83468B173E11F2BC72EDC26AD6634EE902566BFB81CA92F9CDACBE2DA3DC30"},
+    {"label":"static_ex5","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\EA_IntradayEntropyMomentum.ex5","sha256":"88F688605111D22012411C8F6DB7256F3ED59F3D0EB26D1D1EB77F4730C3E1FD"},
+    {"label":"static_compile_log","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\EA_IntradayEntropyMomentum.log","sha256":"AD17C347CBB7A99E782696C47C8109B4AC212C2FC16464194673091656FB1C91"},
+    {"label":"prereg","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\research\\HYP-IDEM-XAUUSD-M5-001_FROZEN_ECONOMIC_PREREG.md","sha256":"046D4CD0AF35D4C8395954BA6327D89116F06F669D08FFE61E23ACF03F5C76EE"},
+    {"label":"source_result","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\research\\HYP-IDEM-XAUUSD-M5-001_SOURCE_RESULT.md","sha256":"A4EC6A8F89F93F334F519A2E3BCA5FAE3FEEC4E2EEF8AA3427B310111CF03CF0"},
+    {"label":"cost_source_manifest","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\research\\preflight\\HYP-IDEM-XAUUSD-M5-001\\cost_source_manifest.unverified.json","sha256":"E5583F20EFEAB2DA2316BB3E5D7EA952E018D289DA4D4E1DDE5A5C3F84596C47"},
+    {"label":"candidate_registry","kind":"file","path":"D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl","sha256":"1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"},
+    {"label":"ea_contract","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\ALPHAFACTORY_EA_CONTRACT.json","sha256":"1F72A837A3CA30CFDE30E7BC7B61A9B4E0A649BBD6C207452DC24AA06657ECC5"},
+    {"label":"source_test","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\research\\tests\\test_analyze_idem_source.py","sha256":"194B512BCF56B2913545939B8E7586523A5DB34651982F2E5132BE37E862BAE5"},
+    {"label":"mql_contract_test","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\research\\test_idem_mql_contract.py","sha256":"A6089223AADAE5FFF35C28DC7B61E7B25D4831C9BE5CC1FD05E1BEC82A08EC54"},
+    {"label":"nonrepaint_manifest","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\HYP-IDEM-XAUUSD-M5-001_NONREPAINT_MANIFEST.json","sha256":"8E779DC9AFE7B4D30EDBDA9C010A1708C9FA9875D6FBA57028575E114246E55C"},
+    {"label":"nonrepaint_audit","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\research\\HYP-IDEM-XAUUSD-M5-001_NONREPAINT_AUDIT.json","sha256":"6F0DE128F70A36C24AD9CD133C3E47C7043E1AFE68B96B23A8AC4D74689BCDE4"},
+    {"label":"alpha_ps1","kind":"file","path":"D:\\Trading EA MT5\\02. AlphaFactory\\alpha.ps1","sha256":"8994E6C81777CE399D2474F1C46E5C190487741D709EEBB2ACFD55BB0F087A97"},
+    {"label":"alpha_terminal_guard_test","kind":"file","path":"D:\\Trading EA MT5\\02. AlphaFactory\\tests\\test_terminal_process_guard.py","sha256":"31BF3C04049598531E5E4A0DEE88102DF9902F47180BD4F8364A259CBCAFF780"}
+  ],
+  "generated_at_utc": "2026-08-11T06:41:40Z",
+  "note": "Sole untuned IDEM TRAIN baseline; no validation, optimization or promotion authority."
+}

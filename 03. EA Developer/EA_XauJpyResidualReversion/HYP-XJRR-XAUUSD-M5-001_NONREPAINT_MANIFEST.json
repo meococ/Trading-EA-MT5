@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-XJRR-XAUUSD-M5-001",
+  "run_id": "XJRR001-MQL5-STATIC-004",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_XauJpyResidualReversion",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_XauJpyResidualReversion\\EA_XauJpyResidualReversion.mq5",
+  "source_sha256": "FAF3F3643303DE5A8998A52E0E6F554EB175238335E9CC77EE981B49A4D5EC99",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

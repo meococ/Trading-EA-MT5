@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-IVRL-XAUUSD-M5-001",
+  "run_id": "IVRL001-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\EA_IntradayVarianceRelocation.mq5",
+  "source_sha256": "BA88581792615CD5CCA8AF0C42D735CFEB141477CBB0BFBA56EB5582EFB5D32A",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

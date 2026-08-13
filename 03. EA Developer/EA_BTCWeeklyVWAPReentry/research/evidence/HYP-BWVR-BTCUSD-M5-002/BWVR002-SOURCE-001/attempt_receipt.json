@@ -1,0 +1,60 @@
+{
+  "attempt_id": "BWVR002-SOURCE-001",
+  "attempt_started_sha256": "626A4E34DB778E378DDC15A62B399CE1EFC14008B9BB209EDF366D3EB1EF36A7",
+  "deterministic_replay": true,
+  "economics_evaluated": false,
+  "generated_at_utc": "2026-08-11T08:37:27.646788+00:00",
+  "hypothesis_id": "HYP-BWVR-BTCUSD-M5-002",
+  "inputs": {
+    "analyzer": {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_BTCWeeklyVWAPReentry\\research\\analyze_bwvr_source_v2.py",
+      "sha256": "629F91A27A50135C4D6B55CC694F4DBE29376BB7A1BDA15A8A65C2DD8B2AD82A"
+    },
+    "formula_dependency": {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_BTCWeeklyVWAPReentry\\research\\analyze_bwvr_source.py",
+      "sha256": "39B2AF7B9EFE21964DD65646FFB7678A17DA6310C61B6434E9379B3F43D81A0E"
+    },
+    "manifest": {
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\fivepercent\\FiveAssetFoundation\\DATA-FIVEPERCENT-5ASSET-MULTITF-004\\manifest.json",
+      "sha256": "D2F48E9CB3809AB447B89DC22E658D4988AD71AE26F864B96EA1D7D9FF83AD23"
+    },
+    "prereg": {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_BTCWeeklyVWAPReentry\\research\\HYP-BWVR-BTCUSD-M5-002_FROZEN_SOURCE_PREREG.md",
+      "sha256": "F15715CCE39C064EA4EAB91B285DF2B0F650071107DBD87B84F692EB3D11468D"
+    },
+    "source": {
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\fivepercent\\FiveAssetFoundation\\DATA-FIVEPERCENT-5ASSET-MULTITF-004\\BTCUSD\\BTCUSD_M5_ALL_AVAILABLE_20260801.parquet",
+      "sha256": "5B4DA734215BA56DE0DEA7C33E06ECC74C44EDE1CED9986AEB5B98F4B2053AE0"
+    },
+    "test": {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_BTCWeeklyVWAPReentry\\research\\test_bwvr_source_v2.py",
+      "sha256": "D456AA1E5553C765F7825741900B36D6803FE0C84EA71DC4412DD67288756E00"
+    }
+  },
+  "observed_source_contract": {
+    "design_rows": 222739,
+    "first_source_epoch": 1514764800,
+    "geometry_pass": true,
+    "last_source_epoch": 1672530900,
+    "minimum_design_rows": 220000,
+    "row_floor_pass": true,
+    "schema_exact": true,
+    "source_epoch_time_server_match": true,
+    "strict_source_epoch_order": true,
+    "time_server_chronology_pass": true,
+    "utc_ambiguity_contract_pass": true,
+    "window_sealed": true
+  },
+  "outcomes_opened": false,
+  "outputs": {
+    "ledger": {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_BTCWeeklyVWAPReentry\\research\\evidence\\HYP-BWVR-BTCUSD-M5-002\\BWVR002-SOURCE-001\\source_ledger.jsonl",
+      "sha256": "03B2C2E778DDF3B467C23179DF6B0BCACE6E11F7B47BE8AAB24E1F2BCC35C08B"
+    },
+    "report": {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_BTCWeeklyVWAPReentry\\research\\evidence\\HYP-BWVR-BTCUSD-M5-002\\BWVR002-SOURCE-001\\source_report.json",
+      "sha256": "3F60E1DB79CCAA1DB0CA4662BB8243DE99041D91AAE1D4F0AD81347637407D84"
+    }
+  },
+  "schema_version": "bwvr002_source_attempt_receipt.v1"
+}

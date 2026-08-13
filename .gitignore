@@ -47,6 +47,12 @@ id_rsa*
 02. AlphaFactory/archive/
 02. AlphaFactory/runtime/
 02. AlphaFactory/external/
+02. AlphaFactory/data/dukascopy/bi5_tsmom_v4/
+02. AlphaFactory/data/dukascopy/jetta_h1_tsmom_v5/
+02. AlphaFactory/data/dukascopy/jetta_h1_tsmom_v5_r1/
+02. AlphaFactory/data/dukascopy/jetta_h1_tsmom_v5_r2/
+02. AlphaFactory/data/dukascopy/jetta_h1_tsmom_v5_r3/
+02. AlphaFactory/data/dukascopy/jetta_h1_tsmom_v5_r4/
 AlphaTester/
 .context/
 00. Old File/

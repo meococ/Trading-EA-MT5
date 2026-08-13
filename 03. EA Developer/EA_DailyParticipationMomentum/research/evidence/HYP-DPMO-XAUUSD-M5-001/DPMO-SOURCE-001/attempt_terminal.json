@@ -1,0 +1,11 @@
+{
+  "attempt_id": "DPMO-SOURCE-001",
+  "attempt_receipt_sha256": "17529FBE5383AAD1D377579BF88B45AD4269375D1D4DD99DD7C4E767C8F050BC",
+  "attempt_started_sha256": "E24301028FD6C85228987168EECE3D746AF9A356FE2B7550632B7B3BC61A28D3",
+  "completed_at_utc": "2026-08-11T05:20:26.798499+00:00",
+  "hypothesis_id": "HYP-DPMO-XAUUSD-M5-001",
+  "same_id_retry_authorized": false,
+  "schema_version": "dpmo_source_attempt_terminal.v1",
+  "status": "COMPLETE",
+  "verdict": "PASS_SOURCE_FEASIBILITY"
+}

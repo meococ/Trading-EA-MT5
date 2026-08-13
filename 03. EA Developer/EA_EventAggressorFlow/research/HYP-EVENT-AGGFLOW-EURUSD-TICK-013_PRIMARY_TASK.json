@@ -1,0 +1,49 @@
+{
+  "schema_version": "event_aggflow_013_model0_task.v1",
+  "hypothesis_id": "HYP-EVENT-AGGFLOW-EURUSD-TICK-013",
+  "attempt_id": "EVENTAGGFLOW013-MODEL0-PRIMARY-001",
+  "one_attempt_only": true,
+  "same_id_retry_authorized": false,
+  "visual_mode": false,
+  "indicator_dependencies": [],
+  "command_contract": {
+    "action": "backtest",
+    "ea_name": "EA_EventAggressorFlow",
+    "symbol": "EURUSD",
+    "period": "M1",
+    "from": "2019.01.01",
+    "to": "2021.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "run_role": "control",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "holding_contract": "scalp",
+    "required_sidecars": [
+      "EVENTAGGFLOW013_RunMeta_PRIMARY.json",
+      "EURUSD_EVENTAGGFLOW013_Trades_PRIMARY.csv"
+    ],
+    "overrides": "InpDeviationPoints=100;InpEnableAudit=true;InpHypothesisId=HYP-EVENT-AGGFLOW-EURUSD-TICK-013;InpMagic=5604413;InpMaxLots=1.0;InpResearchAutoMode=true;InpReverseComparator=false;InpRiskPercent=0.25;InpSizingStopPips=15.0;InpVariantTag=CME6E_FIRST15S_FLOW_CONTINUATION_V1"
+  },
+  "acceptance": {
+    "min_completed_trades": 250,
+    "min_trades_per_week": 2.5,
+    "max_trades_per_week": 5.0,
+    "min_base_profit_factor": 1.30,
+    "min_base_expectancy_strict": 0.0,
+    "min_cost_pf_x1_5": 1.25,
+    "min_cost_pf_x2": 1.0,
+    "min_cost_expectancy_x2": 0.0,
+    "both_calendar_years_positive": true,
+    "max_equity_drawdown_pct": 8.0,
+    "max_top_5pct_profit_contribution": 0.30,
+    "reverse_comparator_required": true,
+    "validation_opened": false,
+    "optimization_authorized": false,
+    "paper_live_authorized": false
+  }
+}

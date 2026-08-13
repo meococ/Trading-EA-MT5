@@ -1,0 +1,33 @@
+{
+  "authority": "ENGINEERING_REPAIRED_50K_IDENTITY_ONLY",
+  "child_exit_code": 1,
+  "economic_claim_authorized": false,
+  "full_replay_authorized": false,
+  "hard_timeout_seconds": 300,
+  "heartbeat_file": "D:\\Trading EA MT5\\03. EA Developer\\EA_VolmanCausalGrammar\\research\\evidence\\T2_P3_REPAIRED_PREFIX_V4_001\\stage_heartbeat.jsonl",
+  "heartbeat_lines": 26,
+  "heartbeat_sha256": "FB9C02393F3206AE70CCECA4B001650D3A8D62D36A8E7EDF8682A29D6B6DEF0F",
+  "last_heartbeat": {
+    "cpu_seconds": 21.40625,
+    "progress_index": null,
+    "progress_total": null,
+    "progress_unit": "none",
+    "pulse_kind": "stage_start",
+    "pulse_sequence": 26,
+    "recorded_at_utc": "2026-08-12T20:32:53.260859Z",
+    "rss_bytes": 568172544,
+    "schema_version": "t2_p3_stage_heartbeat.v3",
+    "stage": "d7_prefix_comparison",
+    "wall_seconds": 21.603364800001145
+  },
+  "lock_sha256": "AC286C1E1AD8AD9DBFB93059C13C1C9E3B45E082403440F78DF0DA4B5CC9B596",
+  "packet_receipt_sha256": null,
+  "packet_verified": false,
+  "parent_wall_seconds": 22.34703470000386,
+  "recorded_at_utc": "2026-08-12T20:32:53.664084Z",
+  "rerun_authorized": false,
+  "schema_version": "t2_p3_repaired_prefix_stage_receipt.v4",
+  "source_field_contract": "IDENTITY_ONLY_NO_TRADE_RESULT_FIELDS",
+  "status": "FAIL_REPAIRED_PREFIX_WORKER_NO_PACKET",
+  "timed_out": false
+}

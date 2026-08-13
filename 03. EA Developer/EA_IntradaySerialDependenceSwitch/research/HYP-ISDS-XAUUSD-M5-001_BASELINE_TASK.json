@@ -1,0 +1,53 @@
+{
+  "schema_version": "isds_model0_baseline_task.v1",
+  "hypothesis_id": "HYP-ISDS-XAUUSD-M5-001",
+  "attempt_id": "ISDS001-MODEL0-BASELINE-001",
+  "one_attempt_only": true,
+  "same_id_retry_authorized": false,
+  "source_signal_count_expected": 1275,
+  "visual_mode": false,
+  "indicator_dependencies": [],
+  "command_contract": {
+    "action": "backtest",
+    "ea_name": "EA_IntradaySerialDependenceSwitch",
+    "symbol": "XAUUSD",
+    "period": "M5",
+    "from": "2018.01.01",
+    "to": "2023.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "run_role": "control",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread_semantics": "current_cli_omitted",
+    "holding_contract": "scalp",
+    "overrides": "InpDeviationPoints=20;InpHypothesisId=HYP-ISDS-XAUUSD-M5-001;InpMagic=5604404;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpResearchAutoMode=true;InpRiskPercent=0.10;InpSessionFlattenHourUtc=20;InpVariantTag=INTRADAY_SERIAL_DEPENDENCE_SWITCH"
+  },
+  "acceptance": {
+    "min_profit_factor_strict": 1.3,
+    "min_expectancy_strict": 0.0,
+    "min_closed_positions_per_week": 2.0,
+    "max_closed_positions_per_week": 5.0,
+    "elapsed_calendar_weeks": 260.85714285714283,
+    "max_equity_drawdown_pct": 8.0,
+    "min_each_direction_share": 0.30,
+    "max_calendar_year_share": 0.30,
+    "validation_opened": false,
+    "holdout_opened": false,
+    "optimization_authorized": false,
+    "paper_live_authorized": false
+  },
+  "frozen_evidence": {
+    "source_report_sha256": "F4706B9D62DCB250F35EF1C4ACE4E912646ED568CC94577F1D54EAABEFC5ED90",
+    "source_receipt_sha256": "0F020559163D3D68F22D1560D129CC42464783DF8B8A11478D34D30526A692AA",
+    "mql_source_sha256": "CD0633CB68B731E5B086630493340F0D090C11F3A8E7BAB0EEE3954D72358C5B",
+    "static_ex5_sha256": "B22E950C88A4CB251A9F0AE09BE26495F178C2B6DB1E3F76676B1249D2DFDF12",
+    "static_compile_log_sha256": "6ACCB63A7DBF4FD8ABC2E73855E5CDD653C9C19D4DB91917C1CD5EF4664D40BC",
+    "mql_contract_test_sha256": "35A8A5066EB9E36A6C30049B6B6F7C7B3F12480AAD97AFEA763F3AC2F89A8A6F",
+    "nonrepaint_manifest_sha256": "ADDB23C320F8C43681DBD355EF7D70958FF8715B7D2C9F654490CBEBCAD9229A",
+    "nonrepaint_audit_sha256": "CB70DB8F47A58CAD98CFB25EF678C7BBFD13F12854FAA9BF275FBEE92900E25E"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "attempt_id": "PVPR001-SOURCE-001",
+  "hypothesis_id": "HYP-PVPR-EURUSD-M15-001",
+  "receipt_sha256": "7DFA2CB48A228A12AF7C32C61497E0C31EB4F76AE478130CBCC96E24A74C2B9D",
+  "same_id_retry_allowed": false,
+  "schema_version": "pvpr_source_attempt_terminal.v1",
+  "status": "COMPLETE",
+  "verdict": "SCREENED_SOURCE_PASS_MQL5_BUILD_AUTHORIZED"
+}

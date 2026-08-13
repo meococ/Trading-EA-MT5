@@ -1,0 +1,1 @@
+{"attempt_id":"ST008-MT5-001","completed_at_utc":"2026-08-08T23:43:33.911205Z","hypothesis_id":"HYP-ST-XAUUSD-H1-008","receipt_sha256":"C10CA25EB8FE6264DD9F1F12EAE0FA44CC53D69C29823D2C694330BCA2AF7CCA","same_id_retry_authorized":false,"schema_version":"st005_mt5_run_terminal.v1","status":"COMPLETE","verdict":"MT5_ZERO_TRADE_COLLECTION_COMPLETE_PENDING_PARITY"}

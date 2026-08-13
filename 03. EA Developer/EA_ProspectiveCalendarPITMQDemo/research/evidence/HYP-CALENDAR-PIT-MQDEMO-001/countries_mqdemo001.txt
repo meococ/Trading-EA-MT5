@@ -1,0 +1,25 @@
+schema=mqdemo001
+n=23
+554	NZ	NZD	New Zealand
+999	EU	EUR	European Union
+392	JP	JPY	Japan
+124	CA	CAD	Canada
+36	AU	AUD	Australia
+156	CN	CNY	China
+380	IT	EUR	Italy
+702	SG	SGD	Singapore
+276	DE	EUR	Germany
+250	FR	EUR	France
+76	BR	BRL	Brazil
+484	MX	MXN	Mexico
+710	ZA	ZAR	South Africa
+344	HK	HKD	Hong Kong
+356	IN	INR	India
+578	NO	NOK	Norway
+840	US	USD	United States
+826	GB	GBP	United Kingdom
+756	CH	CHF	Switzerland
+410	KR	KRW	South Korea
+724	ES	EUR	Spain
+752	SE	SEK	Sweden
+0	WW	ALL	Worldwide

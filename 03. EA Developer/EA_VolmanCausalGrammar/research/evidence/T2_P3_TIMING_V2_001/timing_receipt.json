@@ -1,0 +1,42 @@
+{
+  "authority": "ENGINEERING_TIMING_ONLY_NO_IDENTITY_OUTPUT_NO_ECONOMICS",
+  "derived": {
+    "bars_per_second": 5644.471981941895,
+    "projected_full_wall_seconds": 107.99714203308262
+  },
+  "ea_build_or_mt5_authorized": false,
+  "economics_executed": false,
+  "gates": {
+    "bars_per_second_at_least_minimum": true,
+    "projected_full_wall_within_limit": true,
+    "worker_wall_within_limit": true
+  },
+  "market_outcomes_read": false,
+  "next_action": "Authorize one separately frozen full identity replay only after review.",
+  "outputs_allowed": [
+    "timing_receipt.json"
+  ],
+  "prefix_bars": 50000,
+  "recorded_at_utc": "2026-08-12T20:01:39.669912Z",
+  "schema_version": "t2_p3_timing_receipt.v2",
+  "scope": "EURUSD_M5_EXACT_BOUND_PREFIX",
+  "source_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ECRS_CompressionReleaseScalper\\research\\preflight\\stage0_bars_m5.parquet",
+  "source_rows": 596141,
+  "source_sha256": "A2DDF0D423D188B7BA708ECF4386180853867982123C38418D43A2CE89053532",
+  "status": "PASS_TIMING_ONLY_PREFIX_CADENCE",
+  "timing": {
+    "grammar_cpu_seconds": 8.65625,
+    "grammar_wall_seconds": 8.858224499999778,
+    "load_cpu_seconds": 2.34375,
+    "load_wall_seconds": 2.382125799995265,
+    "prefix_bars": 50000,
+    "rss_after_grammar_bytes": null,
+    "rss_after_load_bytes": null,
+    "rss_start_bytes": null,
+    "source_rows": 596141,
+    "total_cpu_seconds": 11.0625,
+    "total_wall_seconds": 11.30896660000144
+  },
+  "timing_lock_path": "D:\\Trading EA MT5\\04. Memory\\research\\PRO_TRADER_REPLACEMENT_E02_T2_P3_TIMING_EXECUTION_LOCK_V2.json",
+  "timing_lock_sha256": "653E0209EEECE78F500C0E8CCEF6FE420FFAB158D1D5228815427AA941DD2B31"
+}

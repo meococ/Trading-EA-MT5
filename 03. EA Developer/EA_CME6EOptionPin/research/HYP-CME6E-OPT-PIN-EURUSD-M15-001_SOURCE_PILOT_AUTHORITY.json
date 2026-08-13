@@ -1,0 +1,33 @@
+{
+  "schema_version": "cme6e_option_pin_source_pilot_authority.v1",
+  "hypothesis_id": "HYP-CME6E-OPT-PIN-EURUSD-M15-001",
+  "pilot_id": "CME6EOPTPIN001-SOURCE-PILOT-001",
+  "plan_path": "03. EA Developer/EA_CME6EOptionPin/research/HYP-CME6E-OPT-PIN-EURUSD-M15-001_SOURCE_PILOT_PLAN.md",
+  "plan_sha256": "5E4B63F81A02CFB790707D4E607813CDA925993C2BE41EF57C83AD0B978C7C55",
+  "owner_authority_source_path": "03. EA Developer/EA_EventL1Replenishment/research/HYP-EVENT-L1-REPLEN-EURUSD-TICK-002_OWNER_AUTHORITY.json",
+  "owner_authority_source_sha256": "CF68F81DB8717F7EDE8488DC7B17E78CD03486CA0FE225833BAD6847BF21B04D",
+  "standing_research_acquisition_authority_strictly_below_usd": 10.0,
+  "frozen_metadata_quote": {
+    "definition_estimated_usd": 0.001442402601,
+    "definition_billable_bytes": 911040,
+    "statistics_estimated_usd": 0.000819861889,
+    "statistics_billable_bytes": 880320,
+    "combined_estimated_usd": 0.00226226449,
+    "combined_billable_bytes": 1791360
+  },
+  "authorized_payload_calls": 2,
+  "authorized_schemas": [
+    "definition",
+    "statistics"
+  ],
+  "paid_source_acquisition_authorized": true,
+  "source_semantics_analysis_authorized": true,
+  "eurusd_price_or_outcome_authorized": false,
+  "economics_authorized": false,
+  "mql5_authorized": false,
+  "mt5_authorized": false,
+  "validation_or_holdout_authorized": false,
+  "optimization_authorized": false,
+  "paper_or_live_authorized": false,
+  "automatic_retry_authorized": false
+}

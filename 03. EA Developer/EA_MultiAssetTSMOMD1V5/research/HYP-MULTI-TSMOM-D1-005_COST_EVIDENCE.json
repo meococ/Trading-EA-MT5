@@ -1,0 +1,44 @@
+{
+  "schema_version": "mts005_cost_evidence.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-005",
+  "authority": "PRE_ECONOMIC_COST_EVIDENCE_ONLY",
+  "captured_utc": "2026-08-12T02:45:00Z",
+  "broker_context": "FivePercentOnline portable MT5 tester",
+  "official_current_reference": {
+    "url": "https://the5ers.com/asset-specifications",
+    "retrieved_utc": "2026-08-12T02:32:00Z",
+    "claim": "Forex commission is USD 4 per standard lot round trip; current terminal specifications remain the final operational authority."
+  },
+  "official_percentage_formula_reference": {
+    "url": "https://the5ers.com/jp/faqs/%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%83%89%E3%81%A8%E6%89%8B%E6%95%B0%E6%96%99%EF%BC%88%E3%82%B3%E3%83%9F%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/",
+    "page_last_update": "2026-06-11",
+    "retrieved_utc": "2026-08-12T02:32:00Z",
+    "claim": "Crypto and precious-metal commissions are percentage based and charged on both entry and exit notional."
+  },
+  "empirical_same_terminal_receipts": [
+    {
+      "symbol": "XAUUSD",
+      "report_path": "02. AlphaFactory/runs/EA_CompBreak_XAU_M15_V2/20260812_010304/report.html",
+      "report_sha256": "4882015F986711F397FB24D03ADA72D4E05D09CC7849CC6B700217888BACACC4",
+      "commissioned_deals": 56,
+      "contract_size": 100.0,
+      "observed_per_side_notional_fraction_min": 0.000009951749095295537,
+      "observed_per_side_notional_fraction_median": 0.00001000627914881618,
+      "observed_per_side_notional_fraction_max": 0.000010037586197771472,
+      "frozen_per_side_notional_fraction": 0.00001
+    },
+    {
+      "symbol": "BTCUSD",
+      "report_path": "02. AlphaFactory/runs/EA_AIRQMB_RegimeFusion/20260806_024230/report.html",
+      "report_sha256": "ED3CF6AD0FA86EF7384500FA939881B84519435289EC8F6BAED2047A2AF70D79",
+      "commissioned_deals": 218,
+      "contract_size": 1.0,
+      "observed_per_side_notional_fraction_min": 0.00029984698334997045,
+      "observed_per_side_notional_fraction_median": 0.0003000088776569362,
+      "observed_per_side_notional_fraction_max": 0.00030017138293989763,
+      "frozen_per_side_notional_fraction": 0.0003
+    }
+  ],
+  "performance_metrics_authorized": false,
+  "economic_verdict_authorized": false
+}

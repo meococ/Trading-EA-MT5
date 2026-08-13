@@ -1,0 +1,39 @@
+{
+  "schema_version": "mts005_custom_rate_import_run.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-005",
+  "status": "PASS_SOURCE_IMPORT",
+  "authority": "SOURCE_DATA_ONLY_NO_PERFORMANCE",
+  "terminal_exit_code": 0,
+  "terminal_root": "D:/Trading EA MT5/02. AlphaFactory/runtime/mt5-portable-fivepercent",
+  "importer_ex5_path": "D:/Trading EA MT5/02. AlphaFactory/tools/research/mql5/AlphaFactoryCustomRateImport.ex5",
+  "importer_ex5_sha256": "0AF3740031FA1258D11C0E95C18DC1B8B26EBEFA379B8E592E6D5DD0724A5CCA",
+  "active_plan_path": "D:/Trading EA MT5/02. AlphaFactory/runtime/mt5-portable-fivepercent/MQL5/Files/AlphaFactoryCustomRateImport/active_plan.csv",
+  "active_plan_sha256": "DC0CF03352E1AD8298E080DBC7BD620431ED45F4D6179E039F5A39076149396A",
+  "plan_identity_sha256": "025114AD60FB47F9895A8855C493B45DC9235A3A1D1323A6CDAD975C1A854CA3",
+  "mt5_receipt_path": "D:/Trading EA MT5/02. AlphaFactory/runtime/mt5-portable-fivepercent/MQL5/Files/AlphaFactoryCustomRateImport/active_receipt.csv",
+  "mt5_receipt_sha256": "BA0CDD79263D54B4858B4F46134E0827A95FA572DD3B26336C7C913AC83232D2",
+  "readback": {
+    "row_count": 120,
+    "month_pass_count": 116,
+    "custom_symbol": "NZDUSD_AFD_TSMOM_V6",
+    "imported_months": 116,
+    "imported_h1": 59893,
+    "imported_m1": 239572,
+    "d1_bars": 3003,
+    "h1_first_epoch": 1483315200,
+    "source_contract_sha256": "82CB1576C9F7968F111225515A2F303727308A47C5EC2EA47579194F45C6CB9E",
+    "range_manifest_sha256": "79437931B573BF8A0DB03B43B30A117B2C5BFF199091A6341014E2684598EF6F",
+    "import_plan_sha256": "025114AD60FB47F9895A8855C493B45DC9235A3A1D1323A6CDAD975C1A854CA3",
+    "trade_spec": {
+      "custom_symbol": "NZDUSD_AFD_TSMOM_V6",
+      "origin_symbol": "NZDUSD",
+      "currency_base": "NZD",
+      "currency_profit": "USD",
+      "currency_margin": "NZD",
+      "trade_calc_mode": 0,
+      "contract_size": 100000.0
+    }
+  },
+  "economics_authorized": false,
+  "performance_metrics_authorized": false
+}

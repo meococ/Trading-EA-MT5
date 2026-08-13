@@ -1,0 +1,44 @@
+{
+  "cadence_per_week": 2.1391018619934283,
+  "direction_counts": {
+    "LONG": 308,
+    "SHORT": 250
+  },
+  "direction_shares": {
+    "LONG": 0.5519713261648745,
+    "SHORT": 0.44802867383512546
+  },
+  "economics_evaluated": false,
+  "executable_events": 558,
+  "friday_20utc_blocked": 6,
+  "gates": {
+    "cadence_2_to_5": true,
+    "events_gte_500": true,
+    "every_year_1_25_to_6_5": true,
+    "long_share_gte_0_30": true,
+    "max_year_share_lte_0_30": true,
+    "parent_exact_next_coverage_gte_0_97": true,
+    "short_share_gte_0_30": true
+  },
+  "hypothesis_id": "HYP-PDAC-XAUUSD-H1-002",
+  "max_year_share": 0.22401433691756273,
+  "outcomes_opened": false,
+  "parent_executable_events": 564,
+  "parent_hypothesis_id": "HYP-PDAC-XAUUSD-H1-001",
+  "schema_version": "pdac002_source_alignment.v1",
+  "verdict": "PASS_SOURCE_ALIGNMENT",
+  "year_cadence": {
+    "2018": 2.3013698630136985,
+    "2019": 1.9561643835616438,
+    "2020": 2.0655737704918034,
+    "2021": 1.9753424657534246,
+    "2022": 2.3972602739726026
+  },
+  "year_counts": {
+    "2018": 120,
+    "2019": 102,
+    "2020": 108,
+    "2021": 103,
+    "2022": 125
+  }
+}

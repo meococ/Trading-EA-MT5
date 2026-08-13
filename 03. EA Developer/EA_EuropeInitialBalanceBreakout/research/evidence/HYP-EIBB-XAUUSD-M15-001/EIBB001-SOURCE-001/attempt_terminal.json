@@ -1,0 +1,1 @@
+{"attempt_id":"EIBB001-SOURCE-001","hypothesis_id":"HYP-EIBB-XAUUSD-M15-001","receipt_sha256":"57FF0837093DCF2903FC2149487A798842C2FEC3E8B753B071CB7F16E90BAE86","same_id_retry_authorized":false,"schema_version":"eibb_source_attempt_terminal.v1","status":"COMPLETE","verdict":"PASS_SOURCE_FEASIBILITY_DIRECT_M5_TO_M15_MQL5_BUILD_AUTHORIZED"}

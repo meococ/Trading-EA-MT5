@@ -1,0 +1,94 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "authority": "DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-004-CONTRACT-PROBE",
+  "task_packet_sha256": "57EC0C7405A25F430D84B6710AECC89B80884A1D7DFBC1F9F370DB17E2B5C53B",
+  "git_commit": "1ec53d2d3ad7d29f85b764b7e155631e0c81f9f1",
+  "git_status_sha256": "CD7790D27FE7A840A187341C2336703467714BEFA6BE9097ACD992E3A8A61598",
+  "binding": {
+    "hypothesis_id": "HYP-MULTI-TSMOM-D1-004-CONTRACT-PROBE",
+    "run_role": "control",
+    "ea_name": "EA_MultiAssetTSMOMContractProbeV1",
+    "symbol": "EURUSD",
+    "period": "H1",
+    "from": "2026.08.03",
+    "to": "2026.08.05",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 900,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 0.00001,
+      "pip_size": 0.0001
+    },
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-12T01:30:00Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {
+        "operator": "gt",
+        "value": 97
+      },
+      "requested_from": "2026.08.03",
+      "requested_to": "2026.08.05",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 16777216
+    }
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMContractProbeV1\\research\\HYP-MULTI-TSMOM-D1-004-CONTRACT-PROBE_TASK.json",
+      "sha256": "57EC0C7405A25F430D84B6710AECC89B80884A1D7DFBC1F9F370DB17E2B5C53B"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMContractProbeV1\\EA_MultiAssetTSMOMContractProbeV1.mq5",
+      "sha256": "08BCAF71EEDFBC02F41D6BB0005FD7352004E4D0791042C3F3498AA0ACC304E4"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMContractProbeV1\\research\\HYP-MULTI-TSMOM-D1-004-CONTRACT-PROBE_FROZEN_PREREG.md",
+      "sha256": "A5035560EB1838A3F7E42647F6C80B160D6A3007ADFB8E832144A6071490E43E"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMContractProbeV1\\research\\HYP-MULTI-TSMOM-D1-004-CONTRACT-PROBE_COST_SOURCE_MANIFEST.json",
+      "sha256": "7A1FD5B7C0451B76165674DBB57E5CBA762688CA2BDFB617956C472FC0C0934F"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+      "sha256": "1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"
+    },
+    {
+      "label": "ea_contract",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMContractProbeV1\\ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "00D60E68843DD28319E06B5BBA2DD7A0995D146691DCDBCA8F6DC5FDD5EEA26B"
+    },
+    {
+      "label": "nonrepaint_audit",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMContractProbeV1\\research\\HYP-MULTI-TSMOM-D1-004-CONTRACT-PROBE_NONREPAINT_AUDIT.json",
+      "sha256": "FA3B135C886D633A0A853676B62C8C9F78A49BA9009AB8C32F1F0187E7A1F012"
+    }
+  ],
+  "generated_at_utc": "2026-08-12T01:30:00Z",
+  "note": "No-trade current broker symbol and financing contract capture for MTS004; performance and economics unauthorized."
+}

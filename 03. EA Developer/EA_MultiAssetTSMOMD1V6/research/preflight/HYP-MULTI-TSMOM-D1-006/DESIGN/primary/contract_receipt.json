@@ -1,0 +1,135 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-006",
+  "task_packet_sha256": "D8AD6C1986B95D5397ED98A6D948C0AD83A61F26F91EBE43C4A45DFD3426C1D5",
+  "git_commit": "1ec53d2d3ad7d29f85b764b7e155631e0c81f9f1",
+  "git_status_sha256": "BEC933AE96F43C80495340A9A78EDAB3C31682DBF3175D2DBEE7D8C50DFDA500",
+  "binding": {
+    "hypothesis_id": "HYP-MULTI-TSMOM-D1-006",
+    "run_role": "control",
+    "ea_name": "EA_MultiAssetTSMOMD1V6",
+    "symbol": "EURUSD_AFD_TSMOM_V6",
+    "period": "H1",
+    "from": "2018.01.01",
+    "to": "2022.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "overrides": "InpDeviationPoints=20;InpLongOnlyComparator=false;InpMagic=260812009;InpResearchAutoMode=true",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 1e-05,
+      "pip_size": 0.0001
+    },
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-12T04:33:49Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {
+        "operator": "gt",
+        "value": 97
+      },
+      "requested_from": "2018.01.01",
+      "requested_to": "2022.01.01",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 16777216
+    }
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V6\\research\\preflight\\HYP-MULTI-TSMOM-D1-006\\DESIGN\\primary\\task_packet.json",
+      "sha256": "D8AD6C1986B95D5397ED98A6D948C0AD83A61F26F91EBE43C4A45DFD3426C1D5"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V6\\EA_MultiAssetTSMOMD1V6.mq5",
+      "sha256": "FEFF2DF9642CDA30B042BEB1072DCFF90609507CCB37C91CC44FD0FD667D96B3"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V6\\research\\HYP-MULTI-TSMOM-D1-006_FROZEN_DESIGN_PREREG.md",
+      "sha256": "E79C0BBAAE16A528CDA3AC805B5FBAED7B50E8FD625FD32B7C7136097A6FC5CF"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V6\\research\\preflight\\HYP-MULTI-TSMOM-D1-006\\DESIGN\\primary\\cost_source_manifest.json",
+      "sha256": "F674C9191E7D60BD6DF76BA8B07BBB9A8E72EAAE907FCF954C833EEA7C61B740"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+      "sha256": "1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"
+    },
+    {
+      "label": "ea_contract",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V6\\ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "00D60E68843DD28319E06B5BBA2DD7A0995D146691DCDBCA8F6DC5FDD5EEA26B"
+    },
+    {
+      "label": "nonrepaint_audit",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V6\\HYP-MULTI-TSMOM-D1-006_NONREPAINT_MANIFEST.json",
+      "sha256": "8DF58E0E995C28ED379C9A5570A28454629CD22BCACD438F52E918D750594666"
+    },
+    {
+      "label": "source_contract",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V5\\research\\HYP-MULTI-TSMOM-D1-005_JETTA_H1_SOURCE_CONTRACT.json",
+      "sha256": "82CB1576C9F7968F111225515A2F303727308A47C5EC2EA47579194F45C6CB9E"
+    },
+    {
+      "label": "cost_contract",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V6\\research\\HYP-MULTI-TSMOM-D1-006_COST_CONTRACT.json",
+      "sha256": "FE48C57E936457F7423CA96935E79E75B7994963B8270EF6E2198B11B119DC1F"
+    },
+    {
+      "label": "source_validation",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V5\\research\\evidence\\source_validation\\HYP-MULTI-TSMOM-D1-005_SOURCE_VALIDATION.json",
+      "sha256": "34DFCCA6B9DB8228F3E588CE977693F0040E69463F136F543FEAD132E842E995"
+    },
+    {
+      "label": "source_import_receipts",
+      "kind": "directory",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V6\\research\\evidence\\import",
+      "sha256": "E64C52AD40F715BB13296F83293337FE364A35FDF400FEBBF573B98DE2ECBB5E"
+    },
+    {
+      "label": "grok_pre_design_checkpoint",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V6\\research\\HYP-MULTI-TSMOM-D1-006_GROK_DISCOVERY_FRONTIER.md",
+      "sha256": "C81AEB448F5291B07956018E11B5D4B02952750A211353579A67A2CEE18BB32B"
+    },
+    {
+      "label": "source_selection",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V6\\research\\HYP-MULTI-TSMOM-D1-006_SOURCE_SELECTION_RECEIPT.json",
+      "sha256": "4F1930263791E7689B88AD42A2C062547C5FC2015474B9FAF67AE385116E5088"
+    },
+    {
+      "label": "parent_source_failure",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V5\\research\\HYP-MULTI-TSMOM-D1-005_SOURCE_FAILURE.md",
+      "sha256": "763169544502B6B57C40AF95D47A93B83C2DA29340EED98D7B735CFC49F7AFC6"
+    }
+  ],
+  "generated_at_utc": "2026-08-12T04:33:54Z",
+  "note": "Frozen MTS006 DESIGN arm; no validation, holdout, optimization or promotion authority."
+}

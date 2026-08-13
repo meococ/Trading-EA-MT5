@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_id": "HYP-CBC-XAUUSD-M15-001",
+  "ea_name": "EA_CompBreak_XAU_M15_V2",
+  "audited_at": "2026-08-12T00:59:00+07:00",
+  "verdict": "PASS",
+  "signal_availability": "All OHLC is copied from terminal shift 1; the frozen box uses array indices 1..7, corresponding to terminal shifts 2..8, and the break bar is array index 0, terminal shift 1.",
+  "indicator_availability": "ATR14 is copied with start position 1. The ATR trail also uses the just-closed bar and updates only on a detected new M15 bar.",
+  "execution_clock": "The EA asserts availability_time - decision_time equals one M15 period and sends only after the new bar is available.",
+  "repaint_dependencies": [],
+  "lookahead_dependencies": [],
+  "risk_checks": [
+    "No fixed TP or partial-position assumption",
+    "Final volume is the downward-normalized minimum of stop-risk, notional and margin caps",
+    "Post-normalization margin and notional assertions fail closed"
+  ],
+  "evidence_lines": {
+    "closed_rates": 204,
+    "closed_atr": 223,
+    "box_shifts_2_to_8": 246,
+    "break_shift_1": 326,
+    "closed_bar_trail": 579,
+    "three_way_volume_cap": 697,
+    "no_fixed_take_profit": 712
+  }
+}

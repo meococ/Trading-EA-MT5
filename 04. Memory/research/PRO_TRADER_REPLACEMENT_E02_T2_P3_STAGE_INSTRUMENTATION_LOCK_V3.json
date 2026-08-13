@@ -1,0 +1,110 @@
+{
+  "schema_version": "t2_p3_stage_instrumentation_lock.v3",
+  "campaign": "PRO_TRADER_REPLACEMENT",
+  "generation": "T2",
+  "phase": "P3_OUTCOME_BLIND_DEDUP",
+  "status": "FROZEN_PRE_STAGE_INSTRUMENTATION",
+  "authority": "ENGINEERING_STAGE_INSTRUMENTATION_ONLY",
+  "frozen_at_utc": "2026-08-12T20:19:18Z",
+  "owner_scope": "XAU_FOREX_ONLY_BTC_NOT_GATING",
+  "probe": {
+    "scope": "EURUSD_M5_FIRST_50000_STAGE_INSTRUMENTATION",
+    "prefix_bars": 50000,
+    "source_rows": 596141,
+    "max_wall_seconds": 300,
+    "pulse_interval_seconds": 2.0,
+    "progress_stride": 1000,
+    "output_directory": "03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_STAGE_INSTRUMENTATION_V3_001",
+    "ephemeral_directory": "03. EA Developer/EA_VolmanCausalGrammar/research/evidence/.T2_P3_STAGE_INSTRUMENTATION_V3_001_EPHEMERAL",
+    "expected_command": "python \"03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_stage_instrumented_v3.py\" --run-stage-probe --output-dir \"03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_STAGE_INSTRUMENTATION_V3_001\"",
+    "expected_output_files": [
+      "stage_heartbeat.jsonl",
+      "stage_receipt.json"
+    ]
+  },
+  "bindings": {
+    "v3_runner": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_stage_instrumented_v3.py",
+      "sha256": "622389758538131E34BE187EECAE6A11958D330A7D3BE62EAFD321AD8B543C05",
+      "role": "one-shot stage instrumentation wrapper"
+    },
+    "v3_tests": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/test_t2_p3_stage_instrumented_v3.py",
+      "sha256": "3D07B6BABC930070C787EAF12488F41035F1B05B8E1561C1024DC0E109AD5467",
+      "role": "fail-closed instrumentation tests"
+    },
+    "v2_timeout_receipt": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_IDENTITY_PREFIX_V2_TIMEOUT_RECEIPT.json",
+      "sha256": "3AA41F9A5580971D248BC164B941715007AAD97A6701D9DB290C33C3790C6E31",
+      "role": "authorization basis for instrumentation-only revision"
+    },
+    "v2_lock": {
+      "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P3_IDENTITY_PREFIX_LOCK_V2.json",
+      "sha256": "2FA0729777E45851E7F07702B6E9711DD90EDCC8455BB03FFC003BF1AA43769A",
+      "role": "failed single-prefix seal"
+    },
+    "v2_runner": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_identity_prefix_v2.py",
+      "sha256": "88D5991411DC4C610BEF8D7BED3A1F84C02F50A0C3F223DBCC7EB68CBF6C8226",
+      "role": "failed same-path prefix implementation"
+    },
+    "v1_runner": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_dedup.py",
+      "sha256": "03440D65F14C60E586137EF8FAEAEB85A4AA882841225B33F6F5E6A3B8E3A4E2",
+      "role": "frozen full identity runner"
+    },
+    "grammar": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_grammar_reference.py",
+      "sha256": "3EDB434B7AFDDCBC67BB4F9BD26A7A081E405BDA6144175128F53299004B6CE0",
+      "role": "frozen T2 grammar"
+    },
+    "dedup_mirrors": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_dedup_mirrors.py",
+      "sha256": "11124E256986814C70B7BA97A0585F7447081F853D7847A78D205EAA2329EBC9",
+      "role": "frozen emitters and comparisons"
+    },
+    "schedule": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_d7_eurusd_schedule_v1.json",
+      "sha256": "4174A31D8839761A5FE64A9DDD0C3A5A7088A9B44552A5738A3EF070B23F2418",
+      "role": "frozen broker schedule"
+    },
+    "p3_contract": {
+      "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P3_DEDUP_CONTRACT_V2.json",
+      "sha256": "30DD1EBC7DFD722A5F6C2765E1577845FB012983EB943E5C0E4A6CAD5B6C0290",
+      "role": "frozen P3 identity contract"
+    },
+    "stage0_bars": {
+      "path": "03. EA Developer/EA_ECRS_CompressionReleaseScalper/research/preflight/stage0_bars_m5.parquet",
+      "sha256": "A2DDF0D423D188B7BA708ECF4386180853867982123C38418D43A2CE89053532",
+      "role": "bound EURUSD M5 source bars"
+    },
+    "ecrs_news_csv": {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+      "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307",
+      "role": "bound ECRS event schedule"
+    },
+    "ecrs_news_manifest": {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/manifest.json",
+      "sha256": "79C40AE0C7DFF7CF44539D00FD108E6D038648694EABD7AA44E234ACC00EF5B1",
+      "role": "bound ECRS source manifest"
+    },
+    "scc_control_csv": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-EURUSD-M5-001_STAGE0/stage0_control_breaks.csv",
+      "sha256": "CF8002A8FDF617A3E8A216C65DEB6F8A0004B3B8DA16BCD1093A2B505CE50441",
+      "role": "frozen SCC control identities"
+    },
+    "scc_challenger_csv": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-EURUSD-M5-001_STAGE0/stage0_scc_candidates.csv",
+      "sha256": "86493403CBFEA636E845AD4127FB96876D58DE90DCC608C017F4CF8C37B66F63",
+      "role": "frozen SCC challenger identities"
+    }
+  },
+  "prohibitions": [
+    "NO_IDENTITY_AUDIT_REJECT_ROWS_OR_COMPARISON_METRICS_IN_DURABLE_OUTPUT",
+    "NO_MARKET_RULE_THRESHOLD_SCHEDULE_SOURCE_EVENT_KEY_OR_COMPARISON_CHANGE",
+    "NO_FULL_REPLAY_OR_SECOND_V2_PREFIX",
+    "NO_EA_BUILD_COMPILE_MT5_BACKTEST_PAPER_OR_LIVE",
+    "NO_GIT_DEPENDENCY",
+    "NO_V3_RERUN_OR_OVERWRITE"
+  ]
+}

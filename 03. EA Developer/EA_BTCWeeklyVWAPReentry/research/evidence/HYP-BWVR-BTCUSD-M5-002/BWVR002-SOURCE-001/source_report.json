@@ -1,0 +1,58 @@
+{
+  "attempt_id": "BWVR002-SOURCE-001",
+  "cadence_per_week": 4.113362541073385,
+  "conflicts": 0,
+  "design_rows": 222739,
+  "direction_counts": {
+    "LONG": 598,
+    "SHORT": 475
+  },
+  "direction_shares": {
+    "LONG": 0.5573159366262814,
+    "SHORT": 0.4426840633737186
+  },
+  "economics_evaluated": false,
+  "exact_next_coverage": 0.571621014818141,
+  "executable_events": 1073,
+  "feature_coverage": 0.9988371257700113,
+  "friday_blocked": 15,
+  "gates": {
+    "cadence_2_to_5": true,
+    "design_rows_gte_220000": true,
+    "events_gte_500": true,
+    "every_year_1_25_to_6_5": false,
+    "exact_next_gte_0_97": false,
+    "feature_coverage_gte_0_99": true,
+    "long_share_gte_0_30": true,
+    "max_year_share_lte_0_30": false,
+    "short_share_gte_0_30": true,
+    "utc_coverage_gte_0_99": false,
+    "zero_conflicts": true
+  },
+  "hypothesis_id": "HYP-BWVR-BTCUSD-M5-002",
+  "max_year_share": 0.65237651444548,
+  "minimum_design_rows": 220000,
+  "outcomes_opened": false,
+  "parent_formula_analyzer_sha256": "39B2AF7B9EFE21964DD65646FFB7678A17DA6310C61B6434E9379B3F43D81A0E",
+  "raw_consumed_events": 2227,
+  "schema_version": "bwvr002_source_report.v1",
+  "utc_coverage": 0.571621014818141,
+  "verdict": "PARK_SOURCE_FEASIBILITY_GATE_FAIL",
+  "warmup_rows": 15,
+  "weekend_blocked": 185,
+  "year_axis": "availability_time_utc",
+  "year_cadence": {
+    "2018": 0.0,
+    "2019": 0.0,
+    "2020": 0.0,
+    "2021": 7.153424657534246,
+    "2022": 13.424657534246574
+  },
+  "year_counts": {
+    "2018": 0,
+    "2019": 0,
+    "2020": 0,
+    "2021": 373,
+    "2022": 700
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "event_depth_transfer_006_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-006",
+  "broker_program": "The5ers/FivePercentOnline-Real",
+  "commission_round_turn_usd_per_standard_lot": 4.0,
+  "execution_cost_components": [
+    "observed_entry_exit_spread_and_fill",
+    "round_turn_commission",
+    "adverse_entry_spread_excursion_above_prior_10_event_median"
+  ],
+  "stress_multipliers": [1.0, 1.5, 2.0],
+  "selected_before_design_outcome_access": true,
+  "notes": "The commission and reconstruction match the existing verified FivePercent event-EA contract. No target return was opened when this manifest was written."
+}
+

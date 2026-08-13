@@ -1,0 +1,81 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "authority": "DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE",
+  "hypothesis_id": "HYP-QPF-EURUSD-M1-003",
+  "task_packet_sha256": "A63ECB19FDEAA3426CD71B7C355D9560ADFC4A5DB2737A4277840DEA52C4E1D2",
+  "git_commit": "NOGIT-84444A04C8FD17200C431E131FDDEE6AC776ACB630257C10E11A5EDB8DEBC391",
+  "git_status_sha256": "D9A4CB402662144F4C6D9950A289F70EC0CD1DF1CDC6EFA08AE620AFEDD7AD5E",
+  "binding": {
+    "hypothesis_id": "HYP-QPF-EURUSD-M1-003",
+    "run_role": "control",
+    "ea_name": "EA_QuotePathFidelityProbe",
+    "symbol": "EURUSD",
+    "period": "M1",
+    "from": "2018.01.01",
+    "to": "2026.08.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 2400,
+    "overrides": "InpBucketMinutes=5;InpCollectionOnly=1;InpExpectedPeriodMinutes=1;InpExpectedSymbol=EURUSD;InpHypothesisId=HYP-QPF-EURUSD-M1-003",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": ["*_QuotePathFidelity_*.csv"],
+    "symbol_geometry": {"digits": 5, "point": 0.00001, "pip_size": 0.0001},
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-12T13:36:32Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {"operator": "gt", "value": 97},
+      "requested_from": "2018.01.01",
+      "requested_to": "2026.08.01",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 16777216
+    }
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_QuotePathFidelityProbe\\research\\HYP-QPF-EURUSD-M1-003_TASK_PACKET.json",
+      "sha256": "A63ECB19FDEAA3426CD71B7C355D9560ADFC4A5DB2737A4277840DEA52C4E1D2"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_QuotePathFidelityProbe\\EA_QuotePathFidelityProbe.mq5",
+      "sha256": "3CA6544A650149411316C3F14FC0D7410EA84C395E1444A61AB7AA2F9CD76ACD"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_QuotePathFidelityProbe\\research\\HYP-QPF-EURUSD-M1-003_FROZEN_PREREG.md",
+      "sha256": "AAB446D36E1D8E9E01D45F6F69784B14D6942705B0185BFE53B5BF349B234032"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_QuotePathFidelityProbe\\research\\preflight\\HYP-QPF-EURUSD-M1-003\\cost_source_manifest.collection_only.json",
+      "sha256": "A6B56D3C12F3F1585EAC82C3128CC0FBEF0CBE31ACC6D68B11AAC3A0BA55621D"
+    },
+    {
+      "label": "analyzer",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_QuotePathFidelityProbe\\research\\analyze_qpf_003_source.py",
+      "sha256": "B726683A876884F75D2F97BDA2D346983636FE77DC5F0AFF515086B505BC0CD8"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+      "sha256": "A413781B481FC519A70B4308492A8A16A2EAF1FC4FFD004377D0BC9827E20233"
+    }
+  ],
+  "generated_at_utc": "2026-08-12T13:36:32Z",
+  "note": "Outcome-blind EURUSD quote-path fidelity engineering reissue with explicit tester inputs; no economics."
+}

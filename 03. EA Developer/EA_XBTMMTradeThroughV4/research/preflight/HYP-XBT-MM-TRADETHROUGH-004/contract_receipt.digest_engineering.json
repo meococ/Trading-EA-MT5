@@ -1,0 +1,105 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "authority": "DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE",
+  "hypothesis_id": "HYP-XBT-MM-TRADETHROUGH-004",
+  "task_packet_sha256": "11B7C2459D7BCE170C24B1C1F88F5F74E9E05B639EE1ED3CBA70EE02419BF5D0",
+  "git_commit": "1ec53d2d3ad7d29f85b764b7e155631e0c81f9f1",
+  "git_status_sha256": "E719010D54FAB60045233202E9E702E7CED1A74D6B684EF613AC9437C78C7482",
+  "binding": {
+    "hypothesis_id": "HYP-XBT-MM-TRADETHROUGH-004",
+    "run_role": "control",
+    "ea_name": "EA_XBTMMTradeThroughV4",
+    "symbol": "EURUSD",
+    "period": "H1",
+    "from": "2018.01.01",
+    "to": "2018.01.03",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 45,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {"digits": 5, "point": 0.00001, "pip_size": 0.0001},
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-11T23:45:00Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {"operator": "gt", "value": 97},
+      "requested_from": "2018.01.01",
+      "requested_to": "2018.01.03",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 67108864
+    }
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XBTMMTradeThroughV4\\research\\HYP-XBT-MM-TRADETHROUGH-004_DIGEST_ENGINEERING_TASK.json",
+      "sha256": "11B7C2459D7BCE170C24B1C1F88F5F74E9E05B639EE1ED3CBA70EE02419BF5D0"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XBTMMTradeThroughV4\\EA_XBTMMTradeThroughV4.mq5",
+      "sha256": "1D27E34DB10A6D649C13CAC7935A96421661D60A4F4DE0643C8EF92D28E28E9C"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XBTMMTradeThroughV4\\research\\HYP-XBT-MM-TRADETHROUGH-004_FROZEN_DESIGN_PREREG.md",
+      "sha256": "ACB480E60768FFA67201FED976365E4CA2EE77B664B4AB06E3C4C95E8FBE2C11"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XBTMMTradeThroughV4\\research\\preflight\\HYP-XBT-MM-TRADETHROUGH-004\\cost_source_manifest.research_proxy.json",
+      "sha256": "C190FA50FEC4CF3992B1B0030B7162F757E0D1AFA28A540F3ECD71FDA7D7B96E"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+      "sha256": "1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"
+    },
+    {
+      "label": "ea_contract",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XBTMMTradeThroughV4\\ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "00D60E68843DD28319E06B5BBA2DD7A0995D146691DCDBCA8F6DC5FDD5EEA26B"
+    },
+    {
+      "label": "nonrepaint_audit",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XBTMMTradeThroughV4\\research\\HYP-XBT-MM-TRADETHROUGH-004_NONREPAINT_AUDIT.json",
+      "sha256": "675A5D2092FD68A6742F761F380E22C4A7F91A835A510D9C0F7E48E9E52BE18E"
+    },
+    {
+      "label": "event_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XBTMMTradeThroughV4\\research\\preflight\\HYP-XBT-MM-TRADETHROUGH-004\\20180101_event_manifest.json",
+      "sha256": "3A9212EF074674F2F9B2914876EDCE1B8E8B8455606F3EF300B09920EC8F6823"
+    },
+    {
+      "label": "digest_index",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\external\\bitmex_xbtusd\\pilot_v4_20180101_20180101_index.csv",
+      "sha256": "3F9708F359EDBBB00E4391DD0DD3C2A828F561C7F0DD4EA8792194418C7FD26C"
+    },
+    {
+      "label": "digest_index_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\external\\bitmex_xbtusd\\pilot_v4_20180101_20180101_index_manifest.json",
+      "sha256": "F66DEE01B22D4DDAF1748551D09B945AAC906C9AC8ED984F84943BE70F31F125"
+    }
+  ],
+  "generated_at_utc": "2026-08-11T23:54:00Z",
+  "note": "One-day runtime event-digest engineering pilot only; performance and economics unauthorized."
+}

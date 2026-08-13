@@ -1,0 +1,217 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "hypothesis_id": "HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009",
+  "task_packet_sha256": "A1A988ABEF6CDC0240AC7F7A342B6EC8A7133D1F7D885C352DDDD1CACBB8E553",
+  "git_commit": "37cab997bba5aa310f53b5232ef52e8cb4dd181d",
+  "git_status_sha256": "DFE75F04A4135A695AFD9CABAE3E274D274CC442E128B0C402CB41699E11446D",
+  "binding": {
+    "hypothesis_id": "HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009",
+    "run_role": "control",
+    "ea_name": "EA_EventDepthTransfer",
+    "symbol": "EURUSD",
+    "period": "M1",
+    "from": "2019.01.01",
+    "to": "2021.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "overrides": "InpDeviationPoints=100;InpEnableAudit=true;InpHypothesisId=HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009;InpMagic=8132609;InpMaxLots=1.0;InpResearchAutoMode=true;InpReverseComparator=true;InpRiskPercent=0.25;InpSizingStopPips=15.0;InpVariantTag=CME6E_DEPTH_TRANSFER_T60_HOLD60_V1",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [
+      "EVENTDEPTHTRANSFER009_RunMeta_REVERSE.json",
+      "EURUSD_EVENTDEPTHTRANSFER009_Trades_REVERSE.csv"
+    ],
+    "required_input_artifacts": [
+      {
+        "source": "FILE_COMMON",
+        "name": "EVENTDEPTHTRANSFER009_SourceLedger.jsonl",
+        "sha256": "3B3B0F4CF85FD733B26DE0CA84F890265C94693DC7A58170507491985B2687B8"
+      }
+    ],
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 1e-05,
+      "pip_size": 0.0001
+    },
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E85A048E18A358F226FDD186489ADC8AF22164B68D87E9C1B63953A4DB315294",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-13T03:47:05Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {
+        "operator": "gt",
+        "value": 97
+      },
+      "requested_from": "2019.01.01",
+      "requested_to": "2021.01.01",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 4194304
+    }
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\research\\HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009_REVERSE_TASK.json",
+      "sha256": "A1A988ABEF6CDC0240AC7F7A342B6EC8A7133D1F7D885C352DDDD1CACBB8E553"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\EA_EventDepthTransfer.mq5",
+      "sha256": "8B86257A2851CF134DCD5B6A23B30D2ED56D71CCDE9856B214CFDE5FAE92FB88"
+    },
+    {
+      "label": "static_ex5",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\EA_EventDepthTransfer.ex5",
+      "sha256": "0CB0A54CBFAC2A35ECB9EF8419B74CEF907D2C851C780F8B7E1EC2E835B84BE8"
+    },
+    {
+      "label": "static_compile_log",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\EA_EventDepthTransfer.log",
+      "sha256": "CEB5AA8E03AE4AC56E5E261AA4B0F55C4093BCF3FC983668E1216813BD2A6712"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\research\\HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009_FROZEN_ECONOMIC_PREREG.md",
+      "sha256": "8D2ADCEE4DE52B567E872764D6E4C5E013A9D0A76F5F971729AC3FCF448737B6"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\research\\HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009_COST_SOURCE_MANIFEST.json",
+      "sha256": "CC01B000A09745B25B37D2F67D68AC4B574242E9B00036FD9F1B5FFB6190E430"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+      "sha256": "9A91A2314D0B16DC58701E506CE6E36220B9903515CD31B06487E55620634143"
+    },
+    {
+      "label": "ea_contract",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "EF41AAF7CEABC6077A6356AE305194C3A3EF54DE93680E630A6ED0C4069BEE95"
+    },
+    {
+      "label": "nonrepaint_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009_NONREPAINT_MANIFEST.json",
+      "sha256": "DD25049E3A282EF07C9916D078E9B820F2B32F7D77660B183A0996556B575906"
+    },
+    {
+      "label": "nonrepaint_audit",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\research\\HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009_NONREPAINT_AUDIT.md",
+      "sha256": "0A73A017979E0028166084950D029C7490FDA112708B3DE932060762E5F49C36"
+    },
+    {
+      "label": "owner_authority",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\research\\HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-007_OWNER_AUTHORITY_RECONCILIATION.json",
+      "sha256": "7E0E4B8ABE23DBB172BB6E4C3D672E78F3FCE2260A503FF5E2479F901ACA5403"
+    },
+    {
+      "label": "source_reconciliation_plan",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\research\\HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-007_SOURCE_RECONCILIATION_PLAN.md",
+      "sha256": "08FE44ABCA3448AC457A7F4E700F5EC83981CC136CBE2488FC11AF4939BF8D23"
+    },
+    {
+      "label": "source_reconciliation_receipt",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\research\\evidence\\HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-007\\EVENTDEPTHTRANSFER007-SOURCE-RECON-001\\source_reconciliation_receipt.json",
+      "sha256": "1F7C7F908A7DAF9D157C53804890D67FC7F336E563FE6723475F142EB4019D8B"
+    },
+    {
+      "label": "source_ledger",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\research\\evidence\\HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-007\\EVENTDEPTHTRANSFER007-SOURCE-RECON-001\\reconciled_source_ledger.jsonl",
+      "sha256": "3B3B0F4CF85FD733B26DE0CA84F890265C94693DC7A58170507491985B2687B8"
+    },
+    {
+      "label": "pre_model0_review",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\research\\HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009_PRE_MODEL0_REVIEW.md",
+      "sha256": "4155313CF14B0FB67346D62B674BBCAB0CBFA4C68FBD0AB4FD38F8CD3FB3910F"
+    },
+    {
+      "label": "frozen_analyzer",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\research\\analyze_event_depth_transfer_009.py",
+      "sha256": "8E506C3F7DD05768B8F5F4D265516902DA3211FA07EE2B45A7AF3152341F2EFA"
+    },
+    {
+      "label": "table_generator",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\research\\generate_event_depth_transfer_008_table.py",
+      "sha256": "5965E39C4FE16B832C152AFBCD08582A1687EEB4AC3609D7AA6B734E93D8D5F5"
+    },
+    {
+      "label": "alpha_ps1",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\alpha.ps1",
+      "sha256": "523B164ACD6EB480D6268E5A0A61A7899D2D4D62CD1C0A6A94B2863BA583E75E"
+    },
+    {
+      "label": "include_depth_table",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventDepthTransfer\\resources\\event_depth_transfer_008_table.mqh",
+      "sha256": "B3F572C5D68D93DB0CA6A538C33F58610C59146A16E00658A547046316969DA8"
+    },
+    {
+      "label": "include_trade",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\Trade.mqh",
+      "sha256": "96E6781624534377FE7971CBA52CCA3D62D1B030BC10D5E4EBF3ED8C541399ED"
+    },
+    {
+      "label": "include_object",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Object.mqh",
+      "sha256": "DFAD4FDB6D1BF47CF43FCBC2882E52979459F17A776F75F250A7C32D0623AB35"
+    },
+    {
+      "label": "include_stdliberr",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\StdLibErr.mqh",
+      "sha256": "04BB2C47B1B04DCEB052E6DBA1F85E0330C53ABC602F341E2EA95EA1498AB28B"
+    },
+    {
+      "label": "include_order_info",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\OrderInfo.mqh",
+      "sha256": "D0E479578EF91D2EF1B07AE63D28AE54E15CEBB914DD10E5D4510C269A9CA999"
+    },
+    {
+      "label": "include_history_order_info",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\HistoryOrderInfo.mqh",
+      "sha256": "E88F6BE450462A045470315887EF751A4510DA65A5115325DC88542743FC52F8"
+    },
+    {
+      "label": "include_position_info",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\PositionInfo.mqh",
+      "sha256": "DD720B755C7F23DCC109FC81BCF0772B907411D545E4A1117421737BB9FF6897"
+    },
+    {
+      "label": "include_deal_info",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\DealInfo.mqh",
+      "sha256": "9D6FB4E7D8754EAEE761E43943DC49CDC3A32793EE8438119D939EA7BAD71880"
+    }
+  ],
+  "generated_at_utc": "2026-08-13T03:47:05Z",
+  "note": "Frozen DESIGN Model-0 REVERSE; validation and holdout remain sealed."
+}

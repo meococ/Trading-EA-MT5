@@ -1,0 +1,32 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+  "evidence_tier": "PROVIDER_PUBLISHED_PLUS_CAUSAL_TESTER_QUOTES",
+  "provenance_status": "THE5ERS_OFFICIAL_COMMISSION_AND_EVENT_LEVEL_TESTER_QUOTES",
+  "audit_status": "FROZEN_BEFORE_TRAIN_OUTCOME",
+  "verdict": "MODEL0_TRAIN_COST_ARMS_AUTHORIZED",
+  "promotion_eligible": false,
+  "symbol": "EURUSD",
+  "from": "2018.01.01",
+  "to": "2023.01.01",
+  "symbol_geometry": {
+    "digits": 5,
+    "point": 0.00001,
+    "pip_size": 0.0001
+  },
+  "tester_spread_semantics": "broker-native variable tick bid/ask; no spread-entry filter",
+  "official_provider_url": "https://the5ers.com/asset-specifications",
+  "official_provider_observed_at_utc": "2026-08-12T11:29:00Z",
+  "commission_usd_round_turn_per_lot": 4.0,
+  "observed_spread_fill_cost": "max(0, raw_mid_pnl_usd - executable_pnl_usd)",
+  "dynamic_slippage_contract": "0.30 * (entry_spread_pips + exit_spread_pips) * pip_value_per_lot * lots",
+  "base_cost": "observed_spread_fill_cost + USD4/lot round turn commission + frozen dynamic slippage",
+  "stress_arms": [
+    1.0,
+    1.5,
+    2.0
+  ],
+  "upstream_local_manifest": "03. EA Developer/EA_EventAggressorFlow/research/HYP-EVENT-AGGFLOW-EURUSD-TICK-013_COST_SOURCE_MANIFEST.json",
+  "upstream_local_manifest_sha256": "705BC87D0A72FF866AA6C5ACB1464657F71C40981BF8DF206EB2CA22D1800668",
+  "note": "Research proxy only. Every component is emitted per event and independently recomputed; no observed result may alter this manifest."
+}

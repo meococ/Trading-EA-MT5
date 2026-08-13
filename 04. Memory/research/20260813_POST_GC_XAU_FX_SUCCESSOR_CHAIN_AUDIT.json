@@ -1,0 +1,111 @@
+{
+  "schema_version": "alphafactory_successor_chain_audit.v1",
+  "generated_at_utc": "2026-08-12T17:58:04.4054826Z",
+  "scope": "active XAU/FX source cells with a recorded estimate below USD 10 and no still-open economic authority",
+  "registry": {
+    "path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+    "sha256": "0F32F4F05964EBF60B68FEBBD70DA81C48692A03D02673F0C8DD32F97229741D",
+    "line_count": 947,
+    "selection_rule": "latest JSONL row per hypothesis_id; successor inferred only from a later row whose parent_candidate equals the current hypothesis_id"
+  },
+  "considered_source_cells": [
+    {
+      "hypothesis_id": "HYP-GC-OFI-INNOV-XAU-M5-002",
+      "latest_registry_line": 944,
+      "latest_state": "probe",
+      "latest_verdict": "AUTHORIZE_ONE_SHOT_RAW_ID_REFERENCE_RECOVERY_UNDER_USD10",
+      "direct_successor": "HYP-GC-OFI-INNOV-XAU-M5-003",
+      "terminal_successor": "HYP-GC-OFI-INNOV-XAU-M5-003",
+      "closed_for_new_purchase": true,
+      "closure_reason": "The bounded reference recovery was consumed by HYP003; HYP003 then failed the frozen source-integrity gate and forbids retry or revision."
+    },
+    {
+      "hypothesis_id": "HYP-GC-OFI-INNOV-XAU-M5-003",
+      "latest_registry_line": 947,
+      "latest_state": "killed",
+      "latest_verdict": "KILL_SOURCE_INTEGRITY_HYP003",
+      "direct_successor": null,
+      "terminal_successor": "HYP-GC-OFI-INNOV-XAU-M5-003",
+      "closed_for_new_purchase": true,
+      "closure_reason": "Terminal source failure: 49989 duplicate event keys, 5323 bad-quality-flag records, A/B volume share 0.9860960694566356 below 0.99, and 12 definition conflicts. No target outcome or economics was opened."
+    },
+    {
+      "hypothesis_id": "HYP-EURFXOFI-EURUSD-M1-001",
+      "latest_registry_line": 368,
+      "latest_state": "parked",
+      "latest_verdict": "PARK_SOURCE_PAYMENT_AUTHORITY_UNMET",
+      "direct_successor": "HYP-EURFXOFI-EURUSD-M1-002",
+      "terminal_successor": "HYP-EURFXOFI-EURUSD-M1-016",
+      "successor_chain": [
+        "HYP-EURFXOFI-EURUSD-M1-001",
+        "HYP-EURFXOFI-EURUSD-M1-002",
+        "HYP-EURFXOFI-EURUSD-M1-003",
+        "HYP-EURFXOFI-EURUSD-M1-004",
+        "HYP-EURFXOFI-EURUSD-M1-005",
+        "HYP-EURFXOFI-EURUSD-M1-006",
+        "HYP-EURFXOFI-EURUSD-M1-010",
+        "HYP-EURFXOFI-EURUSD-M1-011",
+        "HYP-EURFXOFI-EURUSD-M1-012",
+        "HYP-EURFXOFI-EURUSD-M1-013",
+        "HYP-EURFXOFI-EURUSD-M1-014",
+        "HYP-EURFXOFI-EURUSD-M1-015",
+        "HYP-EURFXOFI-EURUSD-M1-016"
+      ],
+      "closed_for_new_purchase": true,
+      "closure_reason": "The old free quote was superseded by the completed TBBO acquisition in HYP006 and the terminal TRAIN economic verdict in HYP016."
+    },
+    {
+      "hypothesis_id": "HYP-EURFXOFI-EURUSD-M1-004",
+      "latest_registry_line": 374,
+      "latest_state": "parked",
+      "latest_verdict": "PARK_MBP1_FULL_HISTORY_QUOTE_EXCEEDS_OWNER_CEILING",
+      "direct_successor": "HYP-EURFXOFI-EURUSD-M1-005",
+      "terminal_successor": "HYP-EURFXOFI-EURUSD-M1-016",
+      "closed_for_new_purchase": true,
+      "closure_reason": "The MBP-1 quote was replaced by the cheaper TBBO quote in HYP005; that exact TBBO source was acquired in HYP006 and evaluated through terminal HYP016."
+    },
+    {
+      "hypothesis_id": "HYP-EURFXOFI-EURUSD-M1-005",
+      "latest_registry_line": 376,
+      "latest_state": "parked",
+      "latest_verdict": "PASS_TBBO_QUOTE_UNDER_CEILING_HANDOFF_TO_PAID_SOURCE_SUCCESSOR",
+      "direct_successor": "HYP-EURFXOFI-EURUSD-M1-006",
+      "terminal_successor": "HYP-EURFXOFI-EURUSD-M1-016",
+      "closed_for_new_purchase": true,
+      "closure_reason": "The quoted TBBO dataset was already acquired once by HYP006 for USD 2.117540538299; repurchase would duplicate a consumed source cell."
+    }
+  ],
+  "terminal_checkpoints": [
+    {
+      "hypothesis_id": "HYP-EURFXOFI-EURUSD-M1-006",
+      "latest_registry_line": 381,
+      "latest_state": "parked",
+      "latest_verdict": "PARK_RAW_ACQUISITION_COMPLETE_HANDOFF_TO_FRESH_SOURCE_QUALITY_SUCCESSOR",
+      "live_estimated_total_usd": 2.117540538299,
+      "paid_requests_completed": 1356,
+      "source_empty_windows": 3
+    },
+    {
+      "hypothesis_id": "HYP-EURFXOFI-EURUSD-M1-016",
+      "latest_registry_line": 407,
+      "latest_state": "killed",
+      "latest_verdict": "KILL_TRAIN_FLOW_REVERSAL_HOLDOUT_REMAINS_SEALED",
+      "economics_executed": true,
+      "primary_pf_x1": 0.9603694721089836,
+      "economic_gates_passed": 1,
+      "economic_gates_total": 9,
+      "validation_outcomes_opened": false,
+      "holdout_outcomes_opened": false
+    }
+  ],
+  "summary": {
+    "considered_source_cells": 5,
+    "lawful_unsuperseded_sub_usd10_cells": 0,
+    "new_source_spend_usd": 0.0,
+    "new_hypothesis_ids": 0,
+    "target_outcomes_opened": 0,
+    "economic_runs_opened": 0,
+    "edge_claim": false,
+    "verdict": "NO_LAWFUL_UNSUPERSEDED_SUB_USD10_SOURCE_CELL"
+  }
+}

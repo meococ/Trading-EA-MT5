@@ -1,0 +1,48 @@
+{
+  "cadence_per_week": 2.1621029572836803,
+  "conflicts": 0,
+  "design_rows": 29461,
+  "direction_counts": {
+    "LONG": 312,
+    "SHORT": 252
+  },
+  "direction_shares": {
+    "LONG": 0.5531914893617021,
+    "SHORT": 0.44680851063829785
+  },
+  "economics_evaluated": false,
+  "elapsed_weeks": 260.85714285714283,
+  "exact_next_coverage": 0.9842931937172775,
+  "executable_events": 564,
+  "gates": {
+    "events_gte_500": true,
+    "every_year_cadence_1_25_to_6_5": true,
+    "exact_next_gte_0_97": true,
+    "long_share_gte_0_30": true,
+    "max_year_share_lte_0_30": true,
+    "pooled_cadence_2_to_5": true,
+    "rows_gte_25000": true,
+    "short_share_gte_0_30": true,
+    "zero_conflicts": true
+  },
+  "hypothesis_id": "HYP-PDAC-XAUUSD-H1-001",
+  "max_year_share": 0.22695035460992907,
+  "outcomes_opened": false,
+  "raw_events": 573,
+  "schema_version": "pdac_source_report.v1",
+  "verdict": "PASS_SOURCE_FEASIBILITY",
+  "year_cadence": {
+    "2018": 2.33972602739726,
+    "2019": 1.9561643835616438,
+    "2020": 2.0655737704918034,
+    "2021": 1.9945205479452053,
+    "2022": 2.454794520547945
+  },
+  "year_counts": {
+    "2018": 122,
+    "2019": 102,
+    "2020": 108,
+    "2021": 104,
+    "2022": 128
+  }
+}

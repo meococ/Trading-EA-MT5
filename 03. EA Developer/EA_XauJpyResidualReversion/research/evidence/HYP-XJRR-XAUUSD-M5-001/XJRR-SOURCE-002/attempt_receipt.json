@@ -1,0 +1,46 @@
+{
+  "attempt_id": "XJRR-SOURCE-002",
+  "attempt_started_sha256": "467B90348B899198F4F157392DD58A8FBCCE9A1B3215C4B4FF279B41FE2DDC42",
+  "deterministic_replay": true,
+  "economics_evaluated": false,
+  "generated_at_utc": "2026-08-11T04:13:41.878222+00:00",
+  "hypothesis_id": "HYP-XJRR-XAUUSD-M5-001",
+  "inputs": {
+    "analyzer": {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XauJpyResidualReversion\\research\\analyze_xjrr_source.py",
+      "sha256": "54F4B4B19BF99934A35684819A5C80A4B6298B2387C0C46F0C07EF1F019D8228"
+    },
+    "evidence_addendum": {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XauJpyResidualReversion\\research\\HYP-XJRR-XAUUSD-M5-001_SOURCE_EVIDENCE_ADDENDUM.md",
+      "sha256": "A18547680FAD0788EC5C83E07B5520EFD00460129DC92EF79DD6B0AA3A47BAB3"
+    },
+    "jpy_source": {
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\fivepercent\\FiveAssetFoundation\\DATA-FIVEPERCENT-5ASSET-MULTITF-004\\USDJPY\\USDJPY_M5_ALL_AVAILABLE_20260801.parquet",
+      "sha256": "FECD42A01AFD14D4149121A122468DA5597939A20DD1533A36DA711E6FA2DAFD"
+    },
+    "prereg": {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XauJpyResidualReversion\\research\\HYP-XJRR-XAUUSD-M5-001_FROZEN_SOURCE_PREREG.md",
+      "sha256": "3C584DC612763D28662405147FC9B46FE8A3741DFB41E93168DF0B94BB45A727"
+    },
+    "test": {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XauJpyResidualReversion\\research\\test_xjrr_source.py",
+      "sha256": "955BF46D7B4D783D4862BB123C5089C5125E7B2A44FA825548F074C2BCE5B041"
+    },
+    "xau_source": {
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\fivepercent\\FiveAssetFoundation\\DATA-FIVEPERCENT-5ASSET-MULTITF-004\\XAUUSD\\XAUUSD_M5_ALL_AVAILABLE_20260801.parquet",
+      "sha256": "12679E647739D8DB616F78578D924912A1AC580CED535D763DBEA1B04480D380"
+    }
+  },
+  "outcomes_opened": false,
+  "outputs": {
+    "ledger": {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XauJpyResidualReversion\\research\\evidence\\HYP-XJRR-XAUUSD-M5-001\\XJRR-SOURCE-002\\source_ledger.jsonl",
+      "sha256": "DFF7CB591CB091CA86ACC1B62A37105F661EFAB5EBC0DA8155ACD2C3C26753B3"
+    },
+    "report": {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XauJpyResidualReversion\\research\\evidence\\HYP-XJRR-XAUUSD-M5-001\\XJRR-SOURCE-002\\source_report.json",
+      "sha256": "E778EEE072AEE8BDC536AE98D89F0331937FFB8EF5D12A0F95920B675C6943BE"
+    }
+  },
+  "schema_version": "xjrr_source_attempt_receipt.v1"
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "authority": "DATA_ACQUISITION_ONLY_NO_PERFORMANCE",
+  "hypothesis_id": "HYP-XAU-SIGNED-QUOTE-ABSORB-002",
+  "task_packet_sha256": "A8F835D4C12EB8CE72E731559314590F8EDC21AA4CFB808C47D3EC67C7AC4A78",
+  "git_commit": "1ec53d2d3ad7d29f85b764b7e155631e0c81f9f1",
+  "git_status_sha256": "5E54C1FE753CC0F231F00CEAEDBC28F9F9D59FC8C58261C94B4B472CE8CE0A0E",
+  "binding": {
+    "hypothesis_id": "HYP-XAU-SIGNED-QUOTE-ABSORB-002",
+    "run_role": "control",
+    "ea_name": "EA_XAUSignedQuoteAbsorbSourceV1",
+    "symbol": "AFD_XAUUSD_DUKA_V3",
+    "period": "M1",
+    "from": "2018.01.01",
+    "to": "2022.01.01",
+    "model": 4,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 7200,
+    "overrides": "",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {"digits": 3, "point": 0.001, "pip_size": 0.01},
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-07-31T23:59:59Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {"operator": "gt", "value": 97},
+      "requested_from": "2018.01.01",
+      "requested_to": "2022.01.01",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 16777216
+    }
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XAUSignedQuoteAbsorbSourceV1\\research\\HYP-XAU-SIGNED-QUOTE-ABSORB-002_TASK_PACKET.json",
+      "sha256": "A8F835D4C12EB8CE72E731559314590F8EDC21AA4CFB808C47D3EC67C7AC4A78"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XAUSignedQuoteAbsorbSourceV1\\EA_XAUSignedQuoteAbsorbSourceV1.mq5",
+      "sha256": "1AFF686BB845912E8A7283313BB2FB12303164EFD6D5678078152F3CB1F28B60"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XAUSignedQuoteAbsorbSourceV1\\research\\HYP-XAU-SIGNED-QUOTE-ABSORB-002_FROZEN_SOURCE_PREREG.md",
+      "sha256": "C900C10E8C3CFB85073383D1F606FF97B5A0301A46630490DB8F8A163F77F7C6"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XAUSignedQuoteAbsorbSourceV1\\research\\preflight\\HYP-XAU-SIGNED-QUOTE-ABSORB-002\\cost_source_manifest.unverified.json",
+      "sha256": "3A6EA4952D0A61484902B1521D6432B4DE4836ED52726185F41D40FD00C6DBFC"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+      "sha256": "1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"
+    },
+    {
+      "label": "dukascopy_range_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\dukascopy\\bi5_v1\\XAUUSD\\range_manifest.json",
+      "sha256": "E3D03C085191BD2DE4BC3098ED808C5B0207E71655EAA59D93647E813D9C7A26"
+    },
+    {
+      "label": "custom_symbol_import_receipt",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable\\MQL5\\Files\\AlphaFactoryCustomImport\\active_receipt.csv",
+      "sha256": "D44B092B44A1DD6D7FB0D447D44E79EA22A6F9577E13A42B8D2C02336198CB24"
+    }
+  ],
+  "generated_at_utc": "2026-08-11T21:30:00Z",
+  "note": "Outcome-blind MT5 custom-symbol source and signal-population gate; zero orders."
+}

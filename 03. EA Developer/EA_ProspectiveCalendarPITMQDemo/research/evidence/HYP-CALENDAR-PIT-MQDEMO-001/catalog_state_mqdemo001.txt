@@ -1,0 +1,514 @@
+schema=mqdemo001
+version=1.5.1
+frozen=1
+n_all=1051
+n_sel=506
+catalog_hash=1183765039875304157
+rr=3
+enum_ok=1,1,1,1,1,1,1,1
+E	840010001	USD	840	3	1	0	1	0	core-pce-price-index-mm	Core PCE Price Index m/m
+E	840010002	USD	840	3	1	0	1	0	core-pce-price-index-yy	Core PCE Price Index y/y
+E	840010003	USD	840	2	1	0	1	0	pce-price-index-mm	PCE Price Index m/m
+E	840010004	USD	840	2	1	0	1	0	pce-price-index-yy	PCE Price Index y/y
+E	840010005	USD	840	2	1	0	1	0	personal-spending-mm	Personal Spending m/m
+E	840010007	USD	840	3	1	0	1	0	gross-domestic-product-qq	GDP q/q
+E	840010015	USD	840	2	1	0	2	3	current-account	Current Account
+E	840010016	USD	840	2	1	0	1	0	real-pce-qq	Real PCE q/q
+E	840010018	USD	840	3	1	0	1	0	gdp-sales-qq	GDP Sales q/q
+E	840020001	USD	840	2	1	0	2	3	trade-balance	Trade Balance
+E	840020002	USD	840	2	1	0	1	0	construction-spending-mm	Construction Spending m/m
+E	840020003	USD	840	2	1	0	1	0	factory-orders	Factory Orders m/m
+E	840020004	USD	840	2	1	0	0	2	housing-starts	Housing Starts
+E	840020005	USD	840	2	1	0	0	2	building-permits	Building Permits
+E	840020007	USD	840	2	1	0	1	0	business-inventories-mm	Business Inventories m/m
+E	840020008	USD	840	3	1	0	0	2	new-home-sales	New Home Sales
+E	840020009	USD	840	2	1	0	1	0	new-home-sales-mm	New Home Sales m/m
+E	840020010	USD	840	3	1	0	1	0	retail-sales-mm	Retail Sales m/m
+E	840020011	USD	840	3	1	0	1	0	retail-sales-ex-autos-mm	Core Retail Sales m/m
+E	840020012	USD	840	2	1	0	1	0	retail-control-mm	Retail Control m/m
+E	840020013	USD	840	3	1	0	1	0	durable-goods-orders	Durable Goods Orders m/m
+E	840020014	USD	840	2	1	0	1	0	durable-goods-orders-ex-transportation	Core Durable Goods Orders m/m
+E	840020015	USD	840	2	1	0	1	0	housing-starts-mm	Housing Starts m/m
+E	840020019	USD	840	2	1	0	2	3	goods-trade-balance	Goods Trade Balance
+E	840020023	USD	840	2	1	0	2	3	exports	Exports
+E	840020024	USD	840	2	1	0	2	3	imports	Imports
+E	840020027	USD	840	2	1	0	1	0	retail-inventories-mm	Retail Inventories m/m
+E	840020028	USD	840	2	1	0	1	0	retail-inventories-ex-autos-mm	Retail Inventories excl. Autos m/m
+E	840030001	USD	840	3	1	0	1	0	producer-price-index-mm	PPI m/m
+E	840030002	USD	840	2	1	0	1	0	producer-price-index-ex-food-energy-mm	Core PPI m/m
+E	840030005	USD	840	3	1	0	1	0	consumer-price-index-mm	CPI m/m
+E	840030006	USD	840	3	1	0	1	0	consumer-price-index-ex-food-energy-mm	Core CPI m/m
+E	840030007	USD	840	3	1	0	1	0	consumer-price-index-yy	CPI y/y
+E	840030008	USD	840	2	1	0	1	0	consumer-price-index-ex-food-energy-yy	Core CPI y/y
+E	840030011	USD	840	2	1	0	1	0	import-price-index-mm	Import Price Index m/m
+E	840030013	USD	840	2	1	0	1	0	export-price-index-mm	Export Price Index m/m
+E	840030015	USD	840	3	1	0	1	0	unemployment-rate	Unemployment Rate
+E	840030016	USD	840	3	1	0	4	1	nonfarm-payrolls	Nonfarm Payrolls
+E	840030017	USD	840	2	1	0	1	0	labor-force-participation-rate	Participation Rate
+E	840030018	USD	840	3	1	0	1	0	average-hourly-earnings-mm	Average Hourly Earnings m/m
+E	840030019	USD	840	2	1	0	1	0	average-hourly-earnings-yy	Average Hourly Earnings y/y
+E	840030021	USD	840	3	1	0	4	2	jolts-job-openings	JOLTS Job Openings
+E	840030023	USD	840	2	1	0	4	1	private-nonfarm-payrolls	Private Nonfarm Payrolls
+E	840030024	USD	840	2	1	0	1	0	u6-unemployment-rate	U6 Unemployment Rate
+E	840030025	USD	840	2	1	0	1	0	employment-cost-index-qq	Employment Cost Index q/q
+E	840030028	USD	840	2	1	0	1	0	nonfarm-productivity-qq	Nonfarm Productivity q/q
+E	840030029	USD	840	2	1	0	1	0	unit-labor-costs-qq	Unit Labor Costs q/q
+E	840030034	USD	840	3	1	0	1	0	consumer-price-index-ex-food-energy-nsa-mm	Core CPI n.s.a. m/m
+E	840030035	USD	840	3	1	0	0	0	consumer-price-index	CPI
+E	840040001	USD	840	3	1	0	0	0	ism-manufacturing-pmi	ISM Manufacturing PMI
+E	840040002	USD	840	3	1	0	0	0	ism-prices-paid	ISM Manufacturing Prices Paid
+E	840040003	USD	840	3	1	0	0	0	ism-non-manufacturing-pmi	ISM Non-Manufacturing PMI
+E	840040004	USD	840	2	1	0	0	0	ism-manufacturing-employment	ISM Manufacturing Employment
+E	840040005	USD	840	2	1	0	0	0	ism-non-manufacturing-employment	ISM Non-Manufacturing Employment
+E	840040008	USD	840	3	1	0	0	0	ism-non-manufacturing-prices	ISM Non-Manufacturing Prices Paid
+E	840050001	USD	840	2	0	0	0	0	fed-beige-book	Fed Beige Book
+E	840050002	USD	840	2	0	0	0	0	fomc-meeting-statement	FOMC Statement
+E	840050003	USD	840	2	0	0	0	0	fomc-economic-projections	FOMC Economic Projections
+E	840050004	USD	840	2	0	0	0	0	fomc-minutes	FOMC Minutes
+E	840050005	USD	840	3	0	0	0	0	fed-chair-yellen-testimony	Fed Chair Yellen Testimony
+E	840050006	USD	840	3	0	0	0	0	fed-chair-yellen-speech	Fed Chair Yellen Speech
+E	840050007	USD	840	2	0	0	0	0	fed-vice-chairman-fischer-speech	Fed Vice Chairman Fischer Speech
+E	840050008	USD	840	2	0	0	0	0	fed-governor-powell-speech	Fed Governor Powell Speech
+E	840050009	USD	840	2	0	0	0	0	fed-governor-brainard-speech	Fed Governor Brainard Speech
+E	840050010	USD	840	2	0	0	0	0	fed-governor-tarullo-speech	Fed Governor Tarullo Speech
+E	840050011	USD	840	2	1	0	1	0	industrial-production-mm	Fed Industrial Production m/m
+E	840050013	USD	840	2	1	0	2	3	consumer-credit-mm	Fed Consumer Credit m/m
+E	840050014	USD	840	3	1	0	1	0	fed-interest-rate-decision	Fed Interest Rate Decision
+E	840050015	USD	840	2	0	0	0	0	dodd-frank-act-stress-tests-results	Fed DFAST Results
+E	840050016	USD	840	2	0	0	0	0	comprehensive-capital-analysis-review-results	Fed CCAR Results
+E	840050017	USD	840	2	1	0	0	0	labor-market-conditions-index	Fed Labor Market Conditions Index
+E	840050018	USD	840	3	0	0	0	0	fomc-press-conference	FOMC Press Conference
+E	840050019	USD	840	2	0	0	0	0	fed-monetary-policy-report	Fed Monetary Policy Report
+E	840050020	USD	840	2	0	0	0	0	fed-governor-quarles-speech	Fed Governor Quarles Speech
+E	840050021	USD	840	3	0	0	0	0	fed-chair-powell-testimony	Fed Chair Powell Testimony
+E	840050022	USD	840	3	0	0	0	0	fed-chair-powell-speech	Fed Chair Powell Speech
+E	840050023	USD	840	2	0	0	0	0	fed-vice-chairman-clarida-speech	Fed Vice Chairman Clarida Speech
+E	840050025	USD	840	2	0	0	0	0	fed-governor-bowman-speech	Fed Governor Bowman Speech
+E	840050026	USD	840	2	1	0	1	0	industrial-production-yy	Fed Industrial Production y/y
+E	840050028	USD	840	2	0	0	0	0	fed-governor-waller-speech	Fed Governor Waller Speech
+E	840050029	USD	840	2	0	0	0	0	fed-governor-cook-speech	Fed Governor Cook Speech
+E	840050030	USD	840	2	0	0	0	0	fed-governor-jefferson-speech	Fed Governor Jefferson Speech
+E	840050031	USD	840	2	0	0	0	0	fed-vice-chair-brainard-speech	Fed Vice Chair Brainard Speech
+E	840050032	USD	840	2	0	0	0	0	fed-vice-chair-for-supervision-barr-speech	Fed Vice Chair for Supervision Barr Speech
+E	840060002	USD	840	2	0	0	0	0	fomc-member-kaplan-speech	FOMC Member Kaplan Speech
+E	840070001	USD	840	3	1	0	0	0	philadelphia-fed-manufacturing-index	Philadelphia Fed Manufacturing Index
+E	840070002	USD	840	2	1	0	0	0	philadelphia-fed-employment	Philadelphia Fed Employment
+E	840070007	USD	840	2	0	0	0	0	fomc-member-harker-speech	FOMC Member Harker Speech
+E	840080002	USD	840	2	0	0	0	0	fomc-member-evans-speech	FOMC Member Evans Speech
+E	840090001	USD	840	2	0	1	0	0	jackson-hole-economic-symposium	Jackson Hole Economic Symposium
+E	840090002	USD	840	2	0	0	0	0	fomc-member-george-speech	FOMC Member George Speech
+E	840100001	USD	840	2	1	0	5	0	baker-hughes-us-oil-rig-count	Baker Hughes US Oil Rig Count
+E	840100002	USD	840	2	1	0	5	0	baker-hughes-us-total-rig-count	Baker Hughes US Total Rig Count
+E	840120001	USD	840	3	1	0	0	2	existing-home-sales	Existing Home Sales
+E	840120002	USD	840	2	1	0	1	0	existing-home-sales-mm	Existing Home Sales m/m
+E	840120003	USD	840	2	1	0	1	0	pending-home-sales-mm	Pending Home Sales m/m
+E	840140001	USD	840	3	1	0	0	1	initial-jobless-claims	Initial Jobless Claims
+E	840140002	USD	840	2	1	0	0	2	continuing-jobless-claims	Continuing Jobless Claims
+E	840150001	USD	840	2	1	0	2	3	federal-budget-balance	Federal Budget Balance
+E	840160001	USD	840	2	0	0	0	0	us-president-state-of-union-address	U.S. President State of the Union Address
+E	840170001	USD	840	2	1	0	1	0	sp-case-shiller-home-price-index-composite-20-yy	S&P/CS HPI Composite-20 y/y
+E	840170002	USD	840	2	1	0	1	0	sp-case-shiller-home-price-index-composite-20-nsa-mm	S&P/CS HPI Composite-20 n.s.a. m/m
+E	840180001	USD	840	2	1	0	1	0	leading-economic-index	CB Leading Economic Index m/m
+E	840180002	USD	840	3	1	0	0	0	consumer-confidence-index	CB Consumer Confidence Index
+E	840190001	USD	840	3	1	0	0	1	adp-nonfarm-employment-change	ADP Nonfarm Employment Change
+E	840200001	USD	840	3	1	0	10	2	eia-crude-oil-stocks-change	EIA Crude Oil Stocks Change
+E	840200002	USD	840	2	1	0	10	2	eia-cushing-crude-oil-stocks-change	EIA Cushing Crude Oil Stocks Change
+E	840200012	USD	840	2	0	0	0	0	eia-short-term-energy-outlook	EIA Short-Term Energy Outlook
+E	840210001	USD	840	2	1	0	0	0	michigan-consumer-sentiment	Michigan Consumer Sentiment
+E	840210002	USD	840	2	1	0	0	0	michigan-consumer-expectations	Michigan Consumer Expectations
+E	840210004	USD	840	2	1	0	1	0	michigan-inflation-expectations	Michigan Inflation Expectations
+E	840210005	USD	840	2	1	0	1	0	michigan-5-year-inflation-expectations	Michigan 5-Year Inflation Expectations
+E	840220001	USD	840	2	1	0	2	3	tic-net-long-term-transactions	TIC Net Long-Term Transactions
+E	840220010	USD	840	2	1	0	1	0	2-year-note-auction	2-Year Note Auction
+E	840220011	USD	840	2	1	0	1	0	3-year-note-auction	3-Year Note Auction
+E	840220012	USD	840	2	1	0	1	0	5-year-note-auction	5-Year Note Auction
+E	840220013	USD	840	2	1	0	1	0	7-year-note-auction	7-Year Note Auction
+E	840220014	USD	840	3	1	0	1	0	10-year-note-auction	10-Year Note Auction
+E	840220015	USD	840	3	1	0	1	0	30-year-bond-auction	30-Year Bond Auction
+E	840220016	USD	840	2	1	0	1	0	5-year-tips-auction	5-Year TIPS Auction
+E	840220017	USD	840	2	1	0	1	0	10-year-tips-auction	10-Year TIPS Auction
+E	840220018	USD	840	2	1	0	1	0	30-year-tips-auction	30-Year TIPS Auction
+E	840220019	USD	840	2	1	0	1	0	20-year-bond-auction	20-Year Bond Auction
+E	840220020	USD	840	2	0	0	0	0	treasury-secretary-mnuchin-speech	Treasury Secretary Mnuchin Speech
+E	840230001	USD	840	2	1	0	0	0	ny-empire-state-manufacturing-index	NY Fed Empire State Manufacturing Index
+E	840230002	USD	840	2	0	0	0	0	fomc-member-williams-speech	FOMC Member Williams Speech
+E	840230003	USD	840	2	0	0	0	0	fomc-member-strine-speech	FOMC Member Strine Speech
+E	840240001	USD	840	2	0	0	0	0	fomc-member-bullard-speech	FOMC Member Bullard Speech
+E	840250001	USD	840	2	0	0	0	0	fomc-member-kashkari-speech	FOMC Member Kashkari Speech
+E	840260001	USD	840	2	0	0	0	0	fomc-member-bostic-speech	FOMC Member Bostic Speech
+E	840270001	USD	840	2	0	0	0	0	fomc-member-rosengren-speech	FOMC Member Rosengren Speech
+E	840270002	USD	840	2	0	0	0	0	fomc-member-collins-speech	FOMC Member Collins Speech
+E	840280001	USD	840	2	0	0	0	0	fomc-member-mester-speech	FOMC Member Mester Speech
+E	840290001	USD	840	2	0	0	0	0	fomc-member-barkin-speech	FOMC Member Barkin Speech
+E	840300001	USD	840	2	0	0	0	0	fomc-member-daly-speech	FOMC Member Daly Speech
+E	840320001	USD	840	2	0	0	0	0	wasde-report	WASDE Report
+E	840500001	USD	840	3	1	0	0	0	markit-manufacturing-pmi	S&P Global Manufacturing PMI
+E	840500002	USD	840	3	1	0	0	0	markit-services-pmi	S&P Global Services PMI
+E	840500003	USD	840	2	1	0	0	0	markit-composite-pmi	S&P Global Composite PMI
+E	840510001	USD	840	3	1	0	0	0	chicago-pmi	MNI Chicago Business Barometer
+E	840520003	USD	840	2	1	0	12	1	cftc-gold-non-commercial-net-positions	CFTC Gold Non-Commercial Net Positions
+E	840520004	USD	840	2	1	0	12	1	cftc-crude-oil-non-commercial-net-positions	CFTC Crude Oil Non-Commercial Net Positions
+E	840520005	USD	840	2	1	0	12	1	cftc-sp-500-non-commercial-net-positions	CFTC S&P 500 Non-Commercial Net Positions
+E	840520011	USD	840	2	1	0	12	1	cftc-nasdaq-100-non-commercial-net-positions	CFTC Nasdaq 100 Non-Commercial Net Positions
+E	999010001	EUR	999	2	0	0	0	0	ecb-non-monetary-policy-meeting	ECB Non-monetary Policy Meeting
+E	999010002	EUR	999	2	0	0	0	0	ecb-monetary-policy-meeting-accounts	ECB Monetary Policy Meeting Accounts
+E	999010003	EUR	999	3	0	0	0	0	ecb-monetary-policy-press-conference	ECB Monetary Policy Press Conference
+E	999010004	EUR	999	3	0	0	0	0	ecb-president-draghi-speech	ECB President Draghi Speech
+E	999010005	EUR	999	2	0	0	0	0	ecb-vice-president-vitor-constancio-speech	ECB Vice President Constancio Speech
+E	999010006	EUR	999	3	1	0	1	0	ecb-deposit-rate-decision	ECB Deposit Facility Rate Decision
+E	999010007	EUR	999	3	1	0	1	0	ecb-interest-rate-decision	ECB Interest Rate Decision
+E	999010008	EUR	999	2	0	0	0	0	ecb-economic-bulletin	ECB Economic Bulletin
+E	999010009	EUR	999	2	1	0	2	3	targeted-ltro	ECB Targeted LTRO
+E	999010010	EUR	999	2	0	0	0	0	ecb-executive-board-member-praet-speech	ECB Executive Board Member Praet Speech
+E	999010011	EUR	999	2	0	0	0	0	ecb-executive-board-member-mersch-speech	ECB Executive Board Member Mersch Speech
+E	999010012	EUR	999	2	0	0	0	0	ecb-executive-board-member-coeure-speech	ECB Executive Board Member Coeure Speech
+E	999010013	EUR	999	2	0	0	0	0	ecb-executive-board-member-lautenschlaeger-speech	ECB Executive Board Member Lautenschlaeger Speech
+E	999010014	EUR	999	2	0	0	0	0	ecb-vice-president-de-guindos-speech	ECB Vice President de Guindos Speech
+E	999010015	EUR	999	2	1	0	1	0	ecb-marginal-lending-facility-rate-decision	ECB Marginal Lending Facility Rate Decision
+E	999010019	EUR	999	2	1	0	1	0	ecb-households-loans-yy	ECB Households Loans y/y
+E	999010020	EUR	999	2	0	0	0	0	ecb-executive-board-member-lane-speech	ECB Executive Board Member Lane Speech
+E	999010021	EUR	999	2	0	0	0	0	ecb-supervisory-board-chair-enria-speech	ECB Supervisory Board Chair Enria Speech
+E	999010022	EUR	999	2	0	0	0	0	ecb-supervisory-board-member-hakkarainen-speech	ECB Supervisory Board Member Hakkarainen Speech
+E	999010024	EUR	999	2	0	0	0	0	ecb-monetary-policy-statement	ECB Monetary Policy Statement
+E	999010028	EUR	999	2	0	0	0	0	ecb-financial-stability-review	ECB Financial Stability Review
+E	999010029	EUR	999	3	0	0	0	0	ecb-president-lagarde-speech	ECB President Lagarde Speech
+E	999010030	EUR	999	2	0	0	0	0	ecb-supervisory-board-member-af-jochnick-speech	ECB Supervisory Board Member af Jochnick Speech
+E	999010031	EUR	999	2	0	0	0	0	ecb-supervisory-board-member-fernandez-bollo-speech	ECB Supervisory Board Member Fernandez-Bollo Speech
+E	999010032	EUR	999	2	0	0	0	0	ecb-executive-board-member-panetta-speech	ECB Executive Board Member Panetta Speech
+E	999010033	EUR	999	2	0	0	0	0	ecb-executive-board-member-schnabel-speech	ECB Executive Board Member Schnabel Speech
+E	999010034	EUR	999	2	0	0	0	0	ecb-supervisory-board-member-mccaul-speech	ECB Supervisory Board Member McCaul Speech
+E	999010035	EUR	999	2	0	0	0	0	ecb-executive-board-member-elderson-speech	ECB Executive Board Member Elderson Speech
+E	999010036	EUR	999	2	0	0	0	0	ecb-supervisory-board-member-tuominen-speech	ECB Supervisory Board Member Tuominen Speech
+E	999020001	EUR	999	2	0	1	0	0	economic-financial-affairs-council-meeting	Economic and Financial Affairs Council Meeting
+E	999020002	EUR	999	2	0	1	0	0	eurogroup-meeting	Eurogroup Meeting
+E	999020003	EUR	999	3	0	1	0	0	eu-leaders-summit	EU Leaders Summit
+E	999030007	EUR	999	2	1	0	1	0	industrial-production-mm	Industrial Production m/m
+E	999030011	EUR	999	2	1	0	1	0	consumer-price-index-mm	CPI m/m
+E	999030012	EUR	999	2	1	0	1	0	consumer-price-index-ex-food-energy-yy	Core CPI y/y
+E	999030013	EUR	999	3	1	0	1	0	consumer-price-index-yy	CPI y/y
+E	999030016	EUR	999	2	1	0	1	0	gross-domestic-product-qq	GDP q/q
+E	999030017	EUR	999	2	1	0	1	0	gross-domestic-product-yy	GDP y/y
+E	999030018	EUR	999	2	1	0	2	3	trade-balance	Trade Balance
+E	999030019	EUR	999	2	1	0	2	3	trade-balance-nsa	Trade Balance n.s.a.
+E	999030020	EUR	999	2	1	0	1	0	unemployment-rate	Unemployment Rate
+E	999030023	EUR	999	2	1	0	1	0	wage-costs-yy	Wage Costs y/y
+E	999030027	EUR	999	2	1	0	0	0	core-consumer-price-index	Core CPI
+E	999030028	EUR	999	2	1	0	7	2	employment-level	Employment Level
+E	999040001	EUR	999	3	0	0	0	0	european-commission-releases-economic-growth-forecasts	EU Economic Forecasts
+E	999040005	EUR	999	2	1	0	0	0	economic-sentiment-indicator	Economic Sentiment Indicator
+E	999040007	EUR	999	3	1	0	0	0	consumer-price-expectations	Consumer Price Expectations
+E	999050001	EUR	999	2	1	0	0	0	zew-indicator-of-economic-sentiment	ZEW Economic Sentiment Indicator
+E	999500001	EUR	999	2	1	0	0	0	markit-manufacturing-pmi	S&P Global Manufacturing PMI
+E	999500002	EUR	999	2	1	0	0	0	markit-services-pmi	S&P Global Services PMI
+E	999500003	EUR	999	2	1	0	0	0	markit-composite-pmi	S&P Global Composite PMI
+E	999500004	EUR	999	2	1	0	0	0	markit-construction-pmi	S&P Global Construction PMI
+E	999520001	EUR	999	2	1	0	12	1	cftc-eur-non-commercial-net-positions	CFTC EUR Non-Commercial Net Positions
+E	380500001	EUR	380	2	1	0	0	0	markit-manufacturing-pmi	S&P Global Manufacturing PMI
+E	380500002	EUR	380	2	1	0	0	0	markit-services-pmi	S&P Global Services PMI
+E	276010007	EUR	276	2	1	0	2	3	trade-balance	Trade Balance
+E	276010008	EUR	276	3	1	0	1	0	gdp-qq	GDP q/q
+E	276010009	EUR	276	2	1	0	1	0	gdp-yy	GDP y/y
+E	276010010	EUR	276	2	1	0	1	0	industrial-production-mm	Industrial Production m/m
+E	276010014	EUR	276	2	1	0	1	0	ppi-mm	PPI m/m
+E	276010016	EUR	276	2	1	0	1	0	retail-sales-mm	Retail Sales m/m
+E	276010018	EUR	276	2	1	0	1	0	factory-orders-mm	Factory Orders m/m
+E	276010019	EUR	276	2	1	0	1	0	factory-orders-yy	Factory Orders y/y
+E	276010020	EUR	276	2	1	0	1	0	cpi-mm	CPI m/m
+E	276010021	EUR	276	2	1	0	1	0	cpi-yy	CPI y/y
+E	276020003	EUR	276	2	1	3	1	0	10-year-bond-auction	10-Year Bond Auction
+E	276030001	EUR	276	2	1	0	0	0	ifo-business-expectations	Ifo Business Expectations
+E	276030002	EUR	276	2	1	0	0	0	ifo-current-business-situation	Ifo Current Business Situation
+E	276030003	EUR	276	2	1	0	0	0	ifo-business-climate-indicator	Ifo Business Climate
+E	276040001	EUR	276	2	1	0	0	0	gfk-consumer-climate	GfK Consumer Climate
+E	276050001	EUR	276	2	0	0	0	0	bbk-president-weidmann-speech	Bbk President Weidmann Speech
+E	276050003	EUR	276	2	0	0	0	0	bbk-vice-president-buch-speech	Bbk Vice President Buch Speech
+E	276050004	EUR	276	2	0	0	0	0	bbk-vice-president-beermann-speech	Bbk Executive Board Member Beermann Speech
+E	276050005	EUR	276	2	0	0	0	0	bbk-vice-president-wuermeling-speech	Bbk Executive Board Member Wuermeling Speech
+E	276050006	EUR	276	2	0	0	0	0	bbk-vice-president-balz-speech	Bbk Executive Board Member Balz Speech
+E	276050007	EUR	276	2	0	0	0	0	bbk-vice-president-mauderer-speech	Bbk Executive Board Member Mauderer Speech
+E	276050008	EUR	276	2	0	0	0	0	bbk-president-nagel-speech	Bbk President Nagel Speech
+E	276060001	EUR	276	2	1	0	7	1	unemployment-change	Unemployment Change
+E	276060002	EUR	276	2	1	0	1	0	unemployment-rate	Unemployment Rate
+E	276060004	EUR	276	2	1	0	4	2	unemployment	Unemployment
+E	276070001	EUR	276	2	1	0	0	0	zew-economic-sentiment-indicator	ZEW Economic Sentiment Indicator
+E	276070002	EUR	276	2	1	0	0	0	zew-economic-situation	ZEW Economic Situation
+E	276500001	EUR	276	2	1	0	0	0	markit-manufacturing-pmi	S&P Global Manufacturing PMI
+E	276500002	EUR	276	2	1	0	0	0	markit-services-pmi	S&P Global Services PMI
+E	250010001	EUR	250	2	1	0	1	0	cpi-mm	CPI m/m
+E	250010003	EUR	250	2	1	0	1	0	hicp-mm	HICP m/m
+E	250010005	EUR	250	2	1	0	1	0	gdp-qq	GDP q/q
+E	250010006	EUR	250	2	1	0	1	0	gdp-yy	GDP y/y
+E	250010008	EUR	250	2	1	0	1	0	consumer-spending-mm	Consumer Spending m/m
+E	250040001	EUR	250	2	1	0	4	1	jobseekers-total	Jobseekers Total
+E	250500001	EUR	250	2	1	0	0	0	markit-manufacturing-pmi	S&P Global Manufacturing PMI
+E	250500002	EUR	250	2	1	0	0	0	markit-services-pmi	S&P Global Services PMI
+E	724010002	EUR	724	2	1	0	1	0	cpi-yy	CPI y/y
+E	724010004	EUR	724	2	1	0	1	0	hicp-yy	HICP y/y
+E	724010005	EUR	724	2	1	0	1	0	gdp-qq	GDP q/q
+E	724020008	EUR	724	2	1	3	1	0	15-year-obligacion-auction	15-Year Obligacion Auction
+E	724050001	EUR	724	2	1	0	7	1	unemployment-changee	Unemployment Change
+E	724500001	EUR	724	2	1	0	0	0	markit-manufacturing-pmi	S&P Global Manufacturing PMI
+E	724500002	EUR	724	2	1	0	0	0	markit-services-pmi	S&P Global Services PMI
+E	724500003	EUR	724	2	1	0	0	0	markit-composite-pmi	S&P Global Composite PMI
+E	392010001	JPY	392	3	1	0	1	0	gross-domestic-product-qq	GDP q/q
+E	392010002	JPY	392	2	1	0	1	0	gross-domestic-product-price-index-yy	GDP Price Index y/y
+E	392010003	JPY	392	2	1	0	1	0	gross-domestic-product-yy	GDP y/y
+E	392010015	JPY	392	2	1	0	1	0	net-exports-contribution-to-gdp-qq	Net Exports Contribution to GDP q/q
+E	392020002	JPY	392	3	1	0	1	0	retail-sales-mm	Retail Sales m/m
+E	392020004	JPY	392	2	1	0	1	0	large-retailers-sales-yy	Large Retailer's Sales y/y
+E	392020005	JPY	392	2	1	0	1	0	tertiary-industry-activity-index-mm	Tertiary Industry Activity Index m/m
+E	392020006	JPY	392	2	1	0	1	0	industrial-production-mm	Industrial Production m/m
+E	392030002	JPY	392	2	1	0	1	0	national-consumer-price-index-ex-food-energy-yy	CPI excl. Food and Energy y/y
+E	392030003	JPY	392	2	1	0	1	0	national-consumer-price-index-ex-fresh-food-yy	Core CPI y/y
+E	392030005	JPY	392	3	1	0	1	0	tokyo-consumer-price-index-ex-food-energy-yy	Tokyo CPI excl. Food and Energy y/y
+E	392030006	JPY	392	2	1	0	1	0	tokyo-consumer-price-index-ex-fresh-food-yy	Tokyo Core CPI y/y
+E	392030008	JPY	392	2	1	0	1	0	household-spending-yy	Household Spending y/y
+E	392030009	JPY	392	2	1	0	1	0	household-spending-mm	Household Spending m/m
+E	392040001	JPY	392	2	1	0	2	3	adjusted-trade-balance	Adjusted Trade Balance
+E	392040002	JPY	392	2	1	0	2	3	trade-balance	Trade Balance
+E	392040004	JPY	392	2	1	0	1	0	exports-yy	Exports y/y
+E	392060001	JPY	392	3	0	0	0	0	boj-governor-kuroda-speech	BoJ Governor Kuroda Speech
+E	392060002	JPY	392	2	0	0	0	0	boj-deputy-governor-nakaso-speech	BoJ Deputy Governor Nakaso Speech
+E	392060003	JPY	392	2	0	0	0	0	boj-board-member-kiuchi-speech	BoJ Board Member Kiuchi Speech
+E	392060004	JPY	392	2	0	0	0	0	boj-board-member-shirai-speech	BoJ Board Member Shirai Speech
+E	392060005	JPY	392	2	0	0	0	0	boj-board-member-sato-speech	BoJ Board Member Sato Speech
+E	392060006	JPY	392	2	1	0	1	0	tankan-large-all-industry-capex	BoJ Tankan Large All Industry Capex
+E	392060007	JPY	392	2	1	0	0	0	tankan-large-manufacturing-outlook	BoJ Tankan Large Manufacturing Outlook
+E	392060008	JPY	392	2	1	0	0	0	tankan-large-manufacturing-index	BoJ Tankan Large Manufacturing Index
+E	392060010	JPY	392	2	1	0	0	0	tankan-large-non-manufacturing-index	BoJ Tankan Large Non-Manufacturing Index
+E	392060017	JPY	392	3	0	0	0	0	boj-press-conference	BoJ Press Conference
+E	392060018	JPY	392	2	0	3	0	0	boj-monetary-policy-statement	BoJ Monetary Policy Statement
+E	392060019	JPY	392	2	0	0	0	0	boj-monetary-policy-meeting-minutes	BoJ Monetary Policy Meeting Minutes
+E	392060020	JPY	392	2	0	3	0	0	boj-outlook-report	BoJ Outlook Report
+E	392060021	JPY	392	2	0	0	0	0	boj-summary-of-opinions	BoJ Summary of Opinions
+E	392060022	JPY	392	3	1	3	1	0	boj-interest-rate-decision	BoJ Interest Rate Decision
+E	392060023	JPY	392	2	0	0	0	0	boj-deputy-governor-iwata-speech	BoJ Deputy Governor Iwata Speech
+E	392060024	JPY	392	2	0	0	0	0	boj-board-member-funo-speech	BoJ Board Member Funo Speech
+E	392060025	JPY	392	2	0	0	0	0	boj-board-member-masai-speech	BoJ Board Member Masai Speech
+E	392060026	JPY	392	2	0	0	0	0	boj-board-member-harada-speech	BoJ Board Member Harada Speech
+E	392060027	JPY	392	2	0	0	0	0	boj-board-member-sakurai-speech	BoJ Board Member Sakurai Speech
+E	392060033	JPY	392	2	0	0	0	0	boj-board-member-suzuki-speech	BoJ Board Member Suzuki Speech
+E	392060034	JPY	392	2	0	0	0	0	boj-board-member-kataoka-speech	BoJ Board Member Kataoka Speech
+E	392060035	JPY	392	2	0	0	0	0	boj-deputy-governor-amamiya-speech	BoJ Deputy Governor Amamiya Speech
+E	392060036	JPY	392	2	0	0	0	0	boj-deputy-governor-wakatabe-speech	BoJ Deputy Governor Wakatabe Speech
+E	392060037	JPY	392	2	1	0	1	0	boj-trimmed-mean-core-cpi-yy	BoJ Trimmed Mean Core CPI y/y
+E	392060038	JPY	392	2	1	0	1	0	boj-weighted-median-core-cpi-yy	BoJ Weighted Median Core CPI y/y
+E	392060040	JPY	392	3	1	0	1	0	boj-l-money-stock-yy	BoJ L Money Stock y/y
+E	392060041	JPY	392	2	0	0	0	0	boj-board-member-adachi-speech	BoJ Board Member Adachi Speech
+E	392060042	JPY	392	2	0	0	0	0	boj-board-member-nakamura-speech	BoJ Board Member Nakamura Speech
+E	392060043	JPY	392	2	0	0	0	0	boj-board-member-noguchi-speech	BoJ Board Member Noguchi Speech
+E	392060044	JPY	392	2	0	0	0	0	boj-board-member-nakagawa-speech	BoJ Board Member Nakagawa Speech
+E	392060045	JPY	392	2	0	0	0	0	boj-board-member-tamura-speech	BoJ Board Member Tamura Speech
+E	392060046	JPY	392	2	0	0	0	0	boj-board-member-takata-speech	BoJ Board Member Takata Speech
+E	392070001	JPY	392	2	1	0	0	0	bsi-large-manufacturing-conditions	BSI Large Manufacturing
+E	392070002	JPY	392	2	1	0	1	0	capital-spending-yy	Capital Spending y/y
+E	392070005	JPY	392	2	1	0	2	3	current-account-nsa	Current Account n.s.a.
+E	392070008	JPY	392	2	1	0	2	3	adjusted-current-account	Adjusted Current Account
+E	392070009	JPY	392	2	1	0	1	0	10-year-jgb-auction	10-Year JGB Auction
+E	392500002	JPY	392	2	1	0	0	0	nikkei-services-pmi	au Jibun Bank Services PMI
+E	392520001	JPY	392	2	1	0	12	1	cftc-jpy-non-commercial-net-positions	CFTC JPY Non-Commercial Net Positions
+E	826010002	GBP	826	2	1	0	1	0	average-weekly-earnings-total-pay	Average Weekly Earnings, Total Pay y/y
+E	826010003	GBP	826	2	1	0	1	0	unemployment-rate	Unemployment Rate
+E	826010004	GBP	826	2	1	0	7	1	claimant-count-change	Claimant Count Change
+E	826010005	GBP	826	2	1	0	1	0	ppi-input-mm	PPI Input m/m
+E	826010011	GBP	826	2	1	0	1	0	cpi-mm	CPI m/m
+E	826010012	GBP	826	3	1	0	1	0	cpi-yy	CPI y/y
+E	826010019	GBP	826	2	1	0	1	0	retail-sales-mm	Retail Sales m/m
+E	826010020	GBP	826	2	1	0	1	0	retail-sales-yy	Retail Sales y/y
+E	826010021	GBP	826	2	1	0	1	0	core-retail-sales-mm	Core Retail Sales m/m
+E	826010022	GBP	826	2	1	0	1	0	core-retail-sales-yy	Core Retail Sales y/y
+E	826010025	GBP	826	2	1	0	1	0	industrial-production-mm	Industrial Production m/m
+E	826010027	GBP	826	2	1	0	1	0	manufacturing-production-mm	Manufacturing Production m/m
+E	826010029	GBP	826	2	1	0	2	3	trade-balance	Trade Balance
+E	826010030	GBP	826	2	1	0	2	3	trade-balance-non-eu	Trade Balance Non-EU
+E	826010034	GBP	826	2	1	0	1	0	business-investment-qq	Business Investment q/q
+E	826010036	GBP	826	2	1	0	2	3	current-account	Current Account
+E	826010037	GBP	826	3	1	0	1	0	gdp-qq	GDP q/q
+E	826010038	GBP	826	3	1	0	1	0	gdp-yy	GDP y/y
+E	826010039	GBP	826	3	1	0	1	0	gdp-mm	GDP m/m
+E	826010040	GBP	826	2	1	0	1	0	gdp-3m3m	GDP 3m/3m
+E	826010041	GBP	826	2	1	0	1	0	cpih-yy	CPIH y/y
+E	826010042	GBP	826	2	1	0	1	0	cpih-mm	CPIH m/m
+E	826010046	GBP	826	2	1	0	7	1	employment-change-3-months	Employment Change 3-months
+E	826010047	GBP	826	2	1	0	1	0	labour-productivity-qq	Labour Productivity q/q
+E	826010048	GBP	826	2	1	0	1	0	labour-productivity-yy	Labour Productivity y/y
+E	826020001	GBP	826	3	0	0	0	0	boe-governor-carney-speech	BoE Governor Carney Speech
+E	826020002	GBP	826	2	0	0	0	0	boe-deputy-governor-monetary-policy-broadbent-speech	BoE Deputy Governor Monetary Policy Broadbent Speech
+E	826020003	GBP	826	2	0	0	0	0	boe-deputy-governor-financial-stability-cunliffe-speech	BoE Deputy Governor Financial Stability Cunliffe Speech
+E	826020004	GBP	826	2	0	0	0	0	boe-financial-stability-report	BoE Financial Stability Report
+E	826020005	GBP	826	2	0	0	0	0	boe-inflation-report	BoE Inflation Report
+E	826020006	GBP	826	2	0	0	0	0	boe-quarterly-bulletin	BoE Quarterly Bulletin
+E	826020007	GBP	826	2	0	0	0	0	boe-fpc-meeting-minutes	BoE FPC Meeting Minutes
+E	826020008	GBP	826	2	0	0	0	0	boe-mpc-meeting-minutes	BoE MPC Meeting Minutes
+E	826020009	GBP	826	3	1	0	1	0	boe-interest-rate-decision	BoE Interest Rate Decision
+E	826020010	GBP	826	2	1	0	9	0	boe-mpc-vote-cut	BoE MPC Vote Cut
+E	826020011	GBP	826	2	1	0	9	0	boe-mpc-vote-hike	BoE MPC Vote Hike
+E	826020012	GBP	826	2	1	0	9	0	boe-mpc-vote-unchanged	BoE MPC Vote Unchanged
+E	826020013	GBP	826	2	1	0	2	3	boe-qe-total	BoE QE Total
+E	826020021	GBP	826	2	0	0	0	0	boe-inflation-letter	BoE Inflation Letter
+E	826020022	GBP	826	2	0	0	0	0	boe-mpc-member-haldane-speech	BoE MPC Member Haldane Speech
+E	826020023	GBP	826	2	0	0	0	0	boe-credit-conditions-survey	BoE Credit Conditions Survey
+E	826020024	GBP	826	2	0	0	0	0	boe-bank-liabilities-survey	BoE Bank Liabilities Survey
+E	826020025	GBP	826	2	0	0	0	0	boe-deputy-governor-markets-and-banking-ramsden-speech	BoE Deputy Governor Markets and Banking Ramsden Speech
+E	826020026	GBP	826	2	0	0	0	0	boe-mpc-member-vlieghe-speech	BoE MPC Member Vlieghe Speech
+E	826020027	GBP	826	2	0	0	0	0	boe-mpc-member-tenreyro-speech	BoE MPC Member Tenreyro Speech
+E	826020028	GBP	826	2	0	0	0	0	boe-mpc-member-saunders-speech	BoE MPC Member Saunders Speech
+E	826020029	GBP	826	2	0	0	0	0	boe-mpc-member-haskel-speech	BoE MPC Member Haskel Speech
+E	826020030	GBP	826	2	0	0	0	0	boe-deputy-governor-prudential-regulation-woods-speech	BoE Deputy Governor for Prudential Regulation Woods Speech
+E	826020031	GBP	826	2	0	0	0	0	boe-monetary-policy-report	BoE Monetary Policy Report
+E	826020032	GBP	826	3	0	0	0	0	boe-governor-bailey-speech	BoE Governor Bailey Speech
+E	826020033	GBP	826	2	0	0	0	0	boe-mpc-member-mann-speech	BoE MPC Member Mann Speech
+E	826020034	GBP	826	2	0	0	0	0	boe-mpc-member-pill-speech	BoE MPC Member Pill Speech
+E	826020035	GBP	826	2	0	0	0	0	boe-mpc-member-dhingra-speech	BoE MPC Member Dhingra Speech
+E	826030001	GBP	826	2	1	0	1	0	halifax-house-price-index-mm	Halifax HPI m/m
+E	826030002	GBP	826	2	1	0	1	0	halifax-house-price-index-yy	Halifax HPI y/y
+E	826040001	GBP	826	3	0	0	0	0	boe-inflation-report-hearings	BoE Inflation Report Hearings
+E	826050001	GBP	826	2	1	0	8	1	bba-mortgage-approvals	UK Finance Mortgage Approvals
+E	826060001	GBP	826	2	1	0	1	0	rics-house-price-balance	RICS House Price Balance
+E	826080001	GBP	826	2	1	0	1	0	brc-retail-sales-monitor-yy	BRC Retail Sales y/y
+E	826100001	GBP	826	3	0	0	0	0	annual-budget-release	Annual Budget
+E	826100002	GBP	826	3	0	0	0	0	autumn-forecast-statement	Autumn Forecast Statement
+E	826100003	GBP	826	3	0	0	0	0	spring-forecast-statement	Spring Forecast Statement
+E	826110001	GBP	826	2	1	0	1	0	nationwide-hpi-mm	Nationwide HPI m/m
+E	826110002	GBP	826	2	1	0	1	0	nationwide-hpi-yy	Nationwide HPI y/y
+E	826500001	GBP	826	2	1	0	0	0	markit-manufacturing-pmi	S&P Global/CIPS Manufacturing PMI
+E	826500002	GBP	826	2	1	0	0	0	markit-services-pmi	S&P Global/CIPS Services PMI
+E	826500003	GBP	826	2	1	0	0	0	markit-construction-pmi	S&P Global/CIPS Construction PMI
+E	826500004	GBP	826	2	1	0	0	0	markit-all-sector-pmi	S&P Global/CIPS All Sector PMI
+E	826500005	GBP	826	2	1	0	0	0	markit-composite-pmi	S&P Global/CIPS Composite PMI
+E	826520001	GBP	826	2	1	0	12	1	cftc-gbp-non-commercial-net-positions	CFTC GBP Non-Commercial Net Positions
+E	756010001	CHF	756	3	1	0	1	0	snb-interest-rate-decision	SNB Interest Rate Decision
+E	756010002	CHF	756	2	0	0	0	0	snb-monetary-policy-assessment	SNB Monetary Policy Assessment
+E	756010003	CHF	756	2	0	0	0	0	snb-quarterly-bulletin	SNB Quarterly Bulletin
+E	756010004	CHF	756	2	0	0	0	0	snb-financial-stability-report	SNB Financial Stability Report
+E	756010005	CHF	756	3	0	0	0	0	snb-chairman-jordan-speech	SNB Chairman Jordan Speech
+E	756010007	CHF	756	2	0	0	0	0	snb-vice-chairman-zurbrugg-speech	SNB Vice Chairman Zurbrugg Speech
+E	756010008	CHF	756	2	0	0	0	0	snb-governing-board-member-maechler-speech	SNB Governing Board Member Maechler Speech
+E	756010009	CHF	756	3	0	0	0	0	snb-news-conference	SNB News Conference
+E	756010010	CHF	756	2	0	0	0	0	snb-vice-chairman-schlegel-speech	SNB Vice Chairman Schlegel Speech
+E	756020001	CHF	756	2	1	0	1	0	cpi-mm	CPI m/m
+E	756020008	CHF	756	2	1	0	7	2	employment-level	Employment Level
+E	756040001	CHF	756	2	1	0	1	0	gdp-qq	GDP q/q
+E	756040002	CHF	756	2	1	0	1	0	gdp-yy	GDP y/y
+E	756050001	CHF	756	2	1	0	0	0	kof-economic-barometer	KOF Economic Barometer
+E	756060001	CHF	756	2	1	0	0	0	procurech-manufacturing-pmi	procure.ch Manufacturing PMI
+E	124010001	CAD	124	2	1	0	1	0	building-permits-mm	Building Permits m/m
+E	124010003	CAD	124	2	1	0	1	0	cpi-mm	CPI m/m
+E	124010005	CAD	124	2	1	0	1	0	core-cpi-mm	Core CPI m/m
+E	124010006	CAD	124	2	1	0	1	0	core-cpi-yy	Core CPI y/y
+E	124010007	CAD	124	2	1	0	1	0	retail-sales-mm	Retail Sales m/m
+E	124010008	CAD	124	2	1	0	1	0	core-retail-sales-mm	Core Retail Sales m/m
+E	124010010	CAD	124	2	1	0	2	3	current-account	Current Account
+E	124010011	CAD	124	2	1	0	4	1	employment-change	Employment Change
+E	124010014	CAD	124	2	1	0	1	0	unemployment-rate	Unemployment Rate
+E	124010018	CAD	124	2	1	0	2	3	trade-balance	Trade Balance
+E	124010019	CAD	124	2	1	0	2	3	foreign-securities-purchases	Foreign Securities Purchases
+E	124010021	CAD	124	2	1	0	1	0	gdp-mm	GDP m/m
+E	124010022	CAD	124	2	1	0	1	0	gdp-qq	GDP q/q
+E	124010026	CAD	124	2	1	0	1	0	rmpi-mm	RMPI m/m
+E	124010028	CAD	124	2	1	0	1	0	labor-productivity-qq	Labor Productivity q/q
+E	124010030	CAD	124	2	1	0	1	0	new-housing-price-index-mm	New Housing Price Index m/m
+E	124010031	CAD	124	2	1	0	1	0	wholesale-trade-mm	Wholesale Trade m/m
+E	124010035	CAD	124	2	1	0	1	0	gdp-yy	GDP y/y
+E	124010036	CAD	124	2	1	0	1	0	gdp-annualized-qq	GDP Annualized q/q
+E	124020001	CAD	124	2	1	0	0	0	ivey-pmi	Ivey PMI
+E	124020002	CAD	124	2	1	0	0	0	ivey-pmi-nsa	Ivey PMI n.s.a.
+E	124030001	CAD	124	2	1	0	13	1	cmhc-housing-starts	CMHC Housing Starts
+E	124040001	CAD	124	2	0	0	0	0	boc-business-outlook-survey	BoC Business Outlook Survey
+E	124040002	CAD	124	2	0	0	0	0	boc-financial-system-review	BoC Financial System Review
+E	124040003	CAD	124	3	0	0	0	0	boc-governor-poloz-speech	BoC Governor Poloz Speech
+E	124040004	CAD	124	2	0	0	0	0	boc-monetary-policy-report	BoC Monetary Policy Report
+E	124040005	CAD	124	2	0	0	0	0	boc-review	BoC Review
+E	124040006	CAD	124	3	1	0	1	0	boc-interest-rate-decision	BoC Interest Rate Decision
+E	124040007	CAD	124	2	0	0	0	0	boc-rate-statement	BoC Rate Statement
+E	124040009	CAD	124	3	0	0	0	0	boc-press-conference	BoC Monetary Policy Report Press Conference
+E	124040010	CAD	124	3	0	0	0	0	boc-fsr-press-conference	BoC Financial System Review Press Conference
+E	124040011	CAD	124	2	0	0	0	0	boc-senior-deputy-governor-wilkins-speech	BoC Senior Deputy Governor Wilkins Speech
+E	124040012	CAD	124	2	0	0	0	0	boc-deputy-governor-lane-speech	BoC Deputy Governor Lane Speech
+E	124040013	CAD	124	2	0	0	0	0	boc-deputy-governor-patterson-speech	BoC Deputy Governor Patterson Speech
+E	124040014	CAD	124	2	0	0	0	0	boc-deputy-governor-schembri-speech	BoC Deputy Governor Schembri Speech
+E	124040015	CAD	124	2	0	0	0	0	boc-deputy-governor-beaudry-speech	BoC Deputy Governor Beaudry Speech
+E	124040016	CAD	124	2	0	0	0	0	boc-deputy-governor-gravelle-speech	BoC Deputy Governor Gravelle Speech
+E	124040017	CAD	124	3	0	0	0	0	boc-governor-macklem-speech	BoC Governor Macklem Speech
+E	124040018	CAD	124	2	0	0	0	0	boc-senior-deputy-governor-rogers-speech	BoC Senior Deputy Governor Rogers Speech
+E	124040019	CAD	124	2	0	0	0	0	boc-deputy-governor-kozicki-speech	BoC Deputy Governor Kozicki Speech
+E	36010001	AUD	36	2	1	0	1	0	building-approvals-mm	Building Approvals m/m
+E	36010003	AUD	36	2	1	0	4	1	employment-change	Employment Change
+E	36010004	AUD	36	2	1	0	4	1	full-employment-change	Full-Time Employment Change
+E	36010006	AUD	36	2	1	0	1	0	unemployment-rate	Unemployment Rate
+E	36010011	AUD	36	2	1	0	2	3	trade-balance	Trade Balance
+E	36010012	AUD	36	2	1	0	1	0	retail-sales-mm	Retail Sales m/m
+E	36010014	AUD	36	2	1	0	1	0	cpi-qq	CPI q/q
+E	36010015	AUD	36	2	1	0	1	0	cpi-yy	CPI y/y
+E	36010018	AUD	36	2	1	0	0	0	cpi-index-number	CPI
+E	36010019	AUD	36	2	1	0	1	0	gdp-qq	GDP q/q
+E	36010020	AUD	36	2	1	0	1	0	gdp-yy	GDP y/y
+E	36010025	AUD	36	2	1	0	1	0	company-gross-operating-profits-qq	Company Gross Operating Profits q/q
+E	36010029	AUD	36	2	1	0	1	0	ppi-qq	PPI q/q
+E	36010030	AUD	36	2	1	0	1	0	ppi-yy	PPI y/y
+E	36010031	AUD	36	2	1	0	1	0	wage-price-index-qq	Wage Price Index q/q
+E	36010033	AUD	36	2	1	0	1	0	private-new-capital-expenditure-qq	Private New Capital Expenditure q/q
+E	36010039	AUD	36	2	1	0	1	0	construction-work-done-qq	Construction Work Done q/q
+E	36010040	AUD	36	2	1	0	1	0	house-price-index-qq	HPI q/q
+E	36020002	AUD	36	2	1	0	0	0	aig-manufacturing-index	AIG Manufacturing Index
+E	36020004	AUD	36	2	1	0	0	0	ai-group-industry-index	Ai Group Industry Index
+E	36030001	AUD	36	2	0	0	0	0	rba-bulletin	RBA Bulletin
+E	36030002	AUD	36	2	0	0	0	0	rba-financial-stability-review	RBA Financial Stability Review
+E	36030003	AUD	36	2	0	0	0	0	rba-monetary-policy-statement	RBA Monetary Policy Statement
+E	36030004	AUD	36	2	0	0	0	0	rba-meeting-minutes	RBA Meeting Minutes
+E	36030005	AUD	36	2	0	0	0	0	rba-rate-statement	RBA Rate Statement
+E	36030006	AUD	36	3	0	0	0	0	rba-governor-lowe-speech	RBA Governor Lowe Speech
+E	36030007	AUD	36	2	0	0	0	0	rba-deputy-governor-debelle-speech	RBA Deputy Governor Debelle Speech
+E	36030008	AUD	36	3	1	0	1	0	rba-interest-rate-decision	RBA Interest Rate Decision
+E	36030010	AUD	36	2	1	0	1	0	rba-weighted-median-cpi-yy	RBA Weighted Median CPI y/y
+E	36030014	AUD	36	2	1	0	1	0	rba-trimmed-mean-cpi-qq	RBA Trimmed Mean CPI q/q
+E	36030024	AUD	36	2	0	0	0	0	rba-assistant-governor-bullock-speech	RBA Assistant Governor Bullock Speech
+E	36030025	AUD	36	2	0	0	0	0	rba-assistant-governor-ellis-speech	RBA Assistant Governor Ellis Speech
+E	36030026	AUD	36	2	0	0	0	0	rba-assistant-governor-boulton-speech	RBA Assistant Governor Boulton Speech
+E	36030027	AUD	36	2	0	0	0	0	rba-assistant-governor-woods-speech	RBA Assistant Governor Woods Speech
+E	36030028	AUD	36	2	0	0	0	0	rba-assistant-governor-kent-speech	RBA Assistant Governor Kent Speech
+E	36030030	AUD	36	2	0	0	0	0	rba-assistant-governor-mcphee-speech	RBA Assistant Governor McPhee Speech
+E	36030031	AUD	36	2	0	0	0	0	rba-deputy-governor-bullock-speech	RBA Deputy Governor Bullock Speech
+E	36030032	AUD	36	2	0	0	0	0	rba-assistant-governor-jones-speech	RBA Assistant Governor Jones Speech
+E	36040001	AUD	36	2	1	0	0	0	nab-business-confidence	NAB Business Confidence
+E	36070001	AUD	36	2	1	3	1	0	hia-new-home-sales-12-months-mm	HIA New Home Sales 12-months m/m
+E	36070002	AUD	36	2	1	3	1	0	hia-new-home-sales-mm	HIA New Home Sales m/m
+E	36500002	AUD	36	2	1	0	0	0	commonwealth-bank-services-pmi	S&P Global Services PMI
+E	36500003	AUD	36	2	1	0	0	0	commonwealth-bank-composite-pmi	S&P Global Composite PMI
+E	36520001	AUD	36	2	1	0	12	1	cftc-aud-non-commercial-net-positions	CFTC AUD Non-Commercial Net Positions
+E	554010001	NZD	554	2	1	0	1	0	electronic-card-retail-sales-mm	Electronic Card Retail Sales m/m
+E	554010005	NZD	554	2	1	0	1	0	cpi-qq	CPI q/q
+E	554010006	NZD	554	2	1	0	1	0	cpi-yy	CPI y/y
+E	554010010	NZD	554	2	1	0	2	3	trade-balance-12-months	Trade Balance 12-Months
+E	554010016	NZD	554	3	1	0	1	0	employment-change-qq	Employment Change q/q
+E	554010019	NZD	554	2	1	0	1	0	retail-sales-qq	Retail Sales q/q
+E	554010020	NZD	554	2	1	0	1	0	core-retail-sales-qq	Core Retail Sales q/q
+E	554010021	NZD	554	2	1	0	1	0	retail-sales-yy	Retail Sales y/y
+E	554010022	NZD	554	2	1	0	1	0	ppi-input-qq	PPI Input q/q
+E	554010024	NZD	554	2	1	0	1	0	gdp-qq	GDP q/q
+E	554010028	NZD	554	2	1	0	2	3	current-account-12-months	Current Account 12-Months
+E	554010035	NZD	554	2	1	0	1	0	gdp-annual-change	GDP Annual Change
+E	554020001	NZD	554	3	0	0	0	0	rbnz-governor-orr-speech	RBNZ Governor Orr Speech
+E	554020002	NZD	554	2	0	0	0	0	rbnz-deputy-governor-bascand-speech	RBNZ Deputy Governor Bascand Speech
+E	554020003	NZD	554	2	0	0	0	0	rbnz-assistant-governor-mills-speech	RBNZ Assistant Governor Mills Speech
+E	554020004	NZD	554	2	0	0	0	0	rbnz-assistant-governor-mcdermott-speech	RBNZ Assistant Governor McDermott Speech
+E	554020005	NZD	554	2	0	0	0	0	rbnz-rate-statement	RBNZ Rate Statement
+E	554020006	NZD	554	2	0	0	0	0	rbnz-financial-stability-report	RBNZ Financial Stability Report
+E	554020007	NZD	554	2	0	0	0	0	rbnz-monetary-policy-statement	RBNZ Monetary Policy Statement
+E	554020008	NZD	554	3	0	0	0	0	rbnz-press-conference	RBNZ Press Conference
+E	554020009	NZD	554	3	1	0	1	0	rbnz-interest-rate-decision	RBNZ Interest Rate Decision
+E	554020010	NZD	554	2	1	0	1	0	rbnz-2-year-inflation-expectations	RBNZ 2-Year Inflation Expectations
+E	554020013	NZD	554	2	0	0	0	0	rbnz-assistant-governor-wolyncewicz-speech	RBNZ Assistant Governor Wolyncewicz Speech
+E	554020014	NZD	554	2	0	0	0	0	rbnz-assistant-governor-robbers-speech	RBNZ Assistant Governor Robbers Speech
+E	554020015	NZD	554	2	0	0	0	0	rbnz-assistant-governor-hoerler-speech	RBNZ Assistant Governor Hoerler Speech
+E	554020016	NZD	554	2	0	0	0	0	rbnz-assistant-governor-jenkin-speech	RBNZ Assistant Governor Jenkin Speech
+E	554020017	NZD	554	2	0	0	0	0	rbnz-assistant-governor-hawkesby-speech	RBNZ Assistant Governor Hawkesby Speech
+E	554020018	NZD	554	2	0	0	0	0	rbnz-assistant-governor-tainui-hernandez-speech	RBNZ Assistant Governor Tainui-Hernandez Speech
+E	554020019	NZD	554	2	0	0	0	0	rbnz-deputy-governor-hawkesby-speech	RBNZ Deputy Governor Hawkesby Speech
+E	554020020	NZD	554	2	0	0	0	0	rbnz-assistant-governor-kolich-speech	RBNZ Assistant Governor Kolich Speech
+E	554020021	NZD	554	2	0	0	0	0	rbnz-assistant-governor-smith-speech	RBNZ Assistant Governor Smith Speech
+E	554020022	NZD	554	2	0	0	0	0	rbnz-assistant-governor-owen-speech	RBNZ Assistant Governor Owen Speech
+E	554020023	NZD	554	2	0	0	0	0	rbnz-assistant-governor-silk-speech	RBNZ Assistant Governor Silk Speech
+E	554030003	NZD	554	3	0	0	0	0	budget-release	Budget Release
+E	554060001	NZD	554	2	1	0	0	0	businessnz-manufacturing-index	BusinessNZ Manufacturing Index
+E	554070001	NZD	554	2	1	0	0	0	westpac-mcdermott-miller-consumer-confidence	Westpac McDermott Miller Consumer Confidence

@@ -1,0 +1,20 @@
+{
+  "schema_version": "alphafactory.dol_ui_source_run_packet.v1",
+  "hypothesis_id": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+  "attempt_id": "DOLUI001-SOURCE-001",
+  "archive_cutoff": "2026-08-06",
+  "source_run_authorized": true,
+  "network_authorized": true,
+  "paid_requests_authorized": false,
+  "outcome_prices_authorized": false,
+  "economics_authorized": false,
+  "mql5_authorized": false,
+  "mt5_authorized": false,
+  "maximum_source_cost_usd": 0.0,
+  "bindings": {
+    "03. EA Developer/EA_DOLUISeasonalResidual/research/HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001_SOURCE_FEASIBILITY_PLAN.md": "52FE1EBFFD319B450096C2C7A3B724ECBCAA9D7B8D88CC293E37F3F46AD0DF5F",
+    "03. EA Developer/EA_DOLUISeasonalResidual/research/build_dol_ui_source.py": "28E2DE92722FFB9FC89932D77C8B527A3BF42C03764964445C771095BED05B2B",
+    "03. EA Developer/EA_DOLUISeasonalResidual/research/tests/test_build_dol_ui_source.py": "34953CCAFCA58BF500C286072FD7D92859FE23A8E9C1FAA50C93785E8C54170E",
+    "03. EA Developer/EA_DOLUISeasonalResidual/research/HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001_PRE_SOURCE_REVIEW.md": "29A65BF3C50668734F3098DAB24DAB0CDA278B63946EE95C25F689D75B729DB6"
+  }
+}

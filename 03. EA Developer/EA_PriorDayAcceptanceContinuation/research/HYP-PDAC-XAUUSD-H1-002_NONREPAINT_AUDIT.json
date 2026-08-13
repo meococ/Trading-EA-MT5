@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-PDAC-XAUUSD-H1-002",
+  "run_id": "PDAC002-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_PriorDayAcceptanceContinuation\\HYP-PDAC-XAUUSD-H1-002_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "CD9085847005968D607DFD77D0D1E0F4DB9615659C9EAC297E31C89C5681C60B",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_PriorDayAcceptanceContinuation\\EA_PriorDayAcceptanceContinuation.mq5",
+      "sha256": "16DD0E4879DDBF2D479C52DBBA5167630D85A868B50A7670B195DCDC2711BD1D"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_PriorDayAcceptanceContinuation\\EA_PriorDayAcceptanceContinuation.mq5",
+      "line": 178,
+      "rule": "collection_first_date_copytime",
+      "function": "CopyTime",
+      "disposition": "allowed_collection_provenance_read"
+    }
+  ],
+  "generated_at_utc": "2026-08-11T03:48:27.926507+00:00"
+}

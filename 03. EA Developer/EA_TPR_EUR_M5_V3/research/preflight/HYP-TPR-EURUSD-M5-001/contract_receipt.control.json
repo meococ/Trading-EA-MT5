@@ -1,0 +1,51 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "hypothesis_id": "HYP-TPR-EURUSD-M5-001",
+  "task_packet_sha256": "714F2AD032FEE909A8DBA43C1A377578DA902F24B1E1E83F077E9D06FC9767D9",
+  "git_commit": "1ec53d2d3ad7d29f85b764b7e155631e0c81f9f1",
+  "git_status_sha256": "4B16A3F6179FA79BC2DBBEAA7A301D12D371051F61D448D47ADA5F4D811ABF55",
+  "binding": {
+    "hypothesis_id": "HYP-TPR-EURUSD-M5-001",
+    "run_role": "control",
+    "ea_name": "EA_TPR_EUR_M5_V3",
+    "symbol": "EURUSD",
+    "period": "M5",
+    "from": "2018.01.01",
+    "to": "2022.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "overrides": "InpATRPeriod=14;InpBEOffsetR=0.10;InpBETriggerR=1.00;InpDailyFlatHour=21;InpDailyFlatMinute=50;InpDailyLossPct=1.10;InpDeviationPoints=6;InpExpansionBars=5;InpExpansionMinATR=1.60;InpFastEMA=8;InpFridayFlatHour=19;InpFridayFlatMinute=0;InpHypothesisId=HYP-TPR-EURUSD-M5-001;InpMagic=5604901;InpMaxBarsToPullback=7;InpMaxBarsTrendToEntry=9;InpMaxMarginUsagePct=12.0;InpMaxNotionalMult=4.50;InpMaxSLATR=2.40;InpMaxSpreadPoints=18;InpMinSLATR=1.10;InpPullbackBufferATR=0.15;InpResearchAutoMode=true;InpResumptionBodyMin=0.40;InpRiskPercent=0.35;InpSLATRBuffer=0.25;InpSlowEMA=21;InpTimeStopBars=24;InpTrailATRMult=0.75;InpTrailStartR=1.60;InpTrendBodyMinATR=0.35;InpUsePullbackState=true;InpVariantTag=TPR_PRIMARY;InpWeeklyLossPct=2.80",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {"digits": 5, "point": 0.00001, "pip_size": 0.0001},
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-11T18:12:00Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {"operator": "gt", "value": 97},
+      "requested_from": "2018.01.01",
+      "requested_to": "2022.01.01",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 16777216
+    }
+  },
+  "evidence": [
+    {"label": "task_packet", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_TPR_EUR_M5_V3\\research\\HYP-TPR-EURUSD-M5-001_BASELINE_TASK.json", "sha256": "714F2AD032FEE909A8DBA43C1A377578DA902F24B1E1E83F077E9D06FC9767D9"},
+    {"label": "source", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_TPR_EUR_M5_V3\\EA_TPR_EUR_M5_V3.mq5", "sha256": "39CAD397B794E48C42A20BD867CFF36A6197742F48949306DCB208C1952A2A4F"},
+    {"label": "prereg", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_TPR_EUR_M5_V3\\research\\HYP-TPR-EURUSD-M5-001_FROZEN_PREREG.md", "sha256": "4E61A0D48CF619DD224A27C82020058109EFBE96E3D2D0C9EAEB3B5A639F7E7C"},
+    {"label": "cost_source_manifest", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_TPR_EUR_M5_V3\\research\\preflight\\HYP-TPR-EURUSD-M5-001\\cost_source_manifest.unverified.json", "sha256": "B8C0EEBE998C5D37C21B368863353A902B1CE31D0D953A589B6784B029D2FE0B"},
+    {"label": "candidate_registry", "kind": "file", "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl", "sha256": "1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"},
+    {"label": "ea_contract", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_TPR_EUR_M5_V3\\ALPHAFACTORY_EA_CONTRACT.json", "sha256": "15A4FE1343B38059FC7B91D6986E0609808F665F054F0EE4D131F926664D958F"},
+    {"label": "nonrepaint_audit", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_TPR_EUR_M5_V3\\HYP-TPR-EURUSD-M5-001_NONREPAINT_AUDIT.json", "sha256": "2FC8EC9174222F567CC984FF115A3822A73F5600EF2AC714059FD70573DE2E82"}
+  ],
+  "generated_at_utc": "2026-08-11T18:12:00Z",
+  "note": "One untuned EURUSD M5 trend-pullback-resumption design baseline only."
+}

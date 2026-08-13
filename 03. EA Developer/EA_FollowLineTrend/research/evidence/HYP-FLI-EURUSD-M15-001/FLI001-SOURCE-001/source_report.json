@@ -1,0 +1,68 @@
+{
+  "attempt_id": "FLI001-SOURCE-001",
+  "by_direction": {
+    "LONG": 2008,
+    "SHORT": 2007
+  },
+  "by_year": {
+    "2016": 527,
+    "2017": 559,
+    "2018": 550,
+    "2019": 595,
+    "2020": 623,
+    "2021": 578,
+    "2022": 583
+  },
+  "cadence_per_week": 11.004306969459671,
+  "direction_share": {
+    "LONG": 0.5001245330012454,
+    "SHORT": 0.4998754669987547
+  },
+  "economic_fields_read": false,
+  "events": {
+    "boundary_rejects": 0,
+    "executable": 4015,
+    "gap_rejects": 6,
+    "raw": 4021
+  },
+  "exact_next_coverage": 0.9985078338721711,
+  "formula": {
+    "atr_period": 5,
+    "bb_deviation": 1.0,
+    "bb_period": 21,
+    "initial_line": "UNINITIALIZED_FIRST_BREAKOUT_NO_EVENT",
+    "initial_trend": 0,
+    "std_ddof": 0
+  },
+  "gates": {
+    "design_rows_gte_150000": true,
+    "each_direction_gte_0_30": true,
+    "each_year_cadence_1_25_to_6_5": false,
+    "events_gte_500": true,
+    "exact_next_coverage_gte_0_97": true,
+    "max_year_share_lte_0_25": true,
+    "pooled_cadence_2_to_5": false,
+    "usable_coverage_gte_0_99": true,
+    "zero_conflicts": true
+  },
+  "hypothesis_id": "HYP-FLI-EURUSD-M15-001",
+  "max_year_share": 0.1551681195516812,
+  "rows": {
+    "design": 174061,
+    "m15_total": 198837,
+    "usable_design": 174061
+  },
+  "schema_version": "follow_line_source_report.v1",
+  "verdict": "PARK_SOURCE_FEASIBILITY",
+  "weeks": 364.85714285714283,
+  "year_axis": "decision_time_server",
+  "year_cadence": {
+    "2016": 10.162534435261708,
+    "2017": 10.720547945205478,
+    "2018": 10.54794520547945,
+    "2019": 11.410958904109588,
+    "2020": 11.915300546448087,
+    "2021": 11.084931506849314,
+    "2022": 11.180821917808219
+  }
+}

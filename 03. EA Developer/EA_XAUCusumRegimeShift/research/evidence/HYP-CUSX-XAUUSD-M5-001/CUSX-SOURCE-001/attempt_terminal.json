@@ -1,0 +1,11 @@
+{
+  "attempt_id": "CUSX-SOURCE-001",
+  "attempt_receipt_sha256": "48986D08546E0E6DDFE787FEC5485BB831B3F3F6A7155F71D86ED82804509CC8",
+  "attempt_started_sha256": "0D363046EED9AF06838466D9BDBC55CD37E7E229AB0E58385E4ABDE9EC9D0CB0",
+  "completed_at_utc": "2026-08-11T05:09:37.059903+00:00",
+  "hypothesis_id": "HYP-CUSX-XAUUSD-M5-001",
+  "same_id_retry_authorized": false,
+  "schema_version": "cusx_source_attempt_terminal.v1",
+  "status": "COMPLETE",
+  "verdict": "PARK_SOURCE_GATE_FAILURE"
+}

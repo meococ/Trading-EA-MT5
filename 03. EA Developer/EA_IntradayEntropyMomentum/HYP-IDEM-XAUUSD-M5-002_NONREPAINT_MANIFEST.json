@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-IDEM-XAUUSD-M5-002",
+  "run_id": "IDEM002-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\EA_IntradayEntropyMomentum.mq5",
+  "source_sha256": "036CA497F321E7B271473F13297EF57EF11F8FC86B1C8D560533CFADB671E889",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

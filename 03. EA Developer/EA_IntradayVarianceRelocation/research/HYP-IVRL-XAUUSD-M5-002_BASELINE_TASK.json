@@ -1,0 +1,41 @@
+{
+  "schema_version": "ivrl_model0_baseline_task.v1",
+  "hypothesis_id": "HYP-IVRL-XAUUSD-M5-002",
+  "parent_hypothesis_id": "HYP-IVRL-XAUUSD-M5-001",
+  "attempt_id": "IVRL002-MODEL0-BASELINE-001",
+  "one_attempt_only": true,
+  "same_id_retry_authorized": false,
+  "source_signal_count_expected": 1196,
+  "visual_mode": false,
+  "indicator_dependencies": [],
+  "command_contract": {
+    "action": "backtest", "ea_name": "EA_IntradayVarianceRelocation",
+    "symbol": "XAUUSD", "period": "M5", "from": "2018.01.01", "to": "2023.01.01",
+    "model": 0, "execution_mode": 0, "fixed_delay_ms": 0, "timeout_sec": 3600,
+    "run_role": "control", "telemetry_tier": "off", "deposit": 100000,
+    "leverage": 100, "spread_semantics": "current_cli_omitted", "holding_contract": "scalp",
+    "max_journal_delta_bytes": 16777216,
+    "overrides": "InpDeviationPoints=20;InpHypothesisId=HYP-IVRL-XAUUSD-M5-002;InpMagic=5604411;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpResearchAutoMode=true;InpRiskPercent=0.10;InpSessionFlattenHourUtc=20;InpVariantTag=INTRADAY_VARIANCE_RELOCATION"
+  },
+  "acceptance": {
+    "min_profit_factor_strict": 1.3, "min_expectancy_strict": 0.0,
+    "min_closed_positions_per_week": 2.0, "max_closed_positions_per_week": 5.0,
+    "elapsed_calendar_weeks": 260.85714285714283, "max_equity_drawdown_pct": 8.0,
+    "min_each_direction_share": 0.30, "max_calendar_year_share": 0.30,
+    "validation_opened": false, "holdout_opened": false,
+    "optimization_authorized": false, "paper_live_authorized": false
+  },
+  "frozen_evidence": {
+    "parent_engineering_failure_sha256": "6876B389244011336B2446FF5E342AAA4F71C332940EBB543714A0B7E74E7B61",
+    "parent_run_manifest_sha256": "7BE003ED1D42BD38436F4D046B75503E11AC754F510CD04805946F94285E2389",
+    "source_report_sha256": "3399AE29BD1678F15664B16457B0FAE78992DF8F41D08D89A169A0FB6997EFC6",
+    "source_receipt_sha256": "D77E075A99F3395A847A125457CD0516816534606F30E53185816CE45CB57447",
+    "mql_source_sha256": "2BAC58D5BC2FE061CE4593E084E899338CE0615F0B48BC3D3CC8BF53F000E484",
+    "static_ex5_sha256": "A275055014B62AE1DF16395BCFE45C6B7EF5A99BC421B7938C5FC25022F8CB21",
+    "static_compile_log_sha256": "34F341C0AABE8875C669C1725FD12A9F071613429E64EBDE8FE7DE0078DBA860",
+    "mql_contract_test_sha256": "3D595E0213C58F858A68B779278800829966EFB823E90A0D37A5E5FA966DEC8D",
+    "nonrepaint_manifest_sha256": "51D3AF2D4AC890FAC15F406EC2C0FE9E3938137076A8F3E91833005D0A80146C",
+    "nonrepaint_audit_sha256": "9CF0B27A16CA4931418D81302572E816AFA5883E14799160BCC3B661DE52EA23",
+    "economic_prereg_sha256": "3B10BC51C60B16FBC2BFBE8DE55463D26F7806FE738C705BA4BE45A95139CA57"
+  }
+}

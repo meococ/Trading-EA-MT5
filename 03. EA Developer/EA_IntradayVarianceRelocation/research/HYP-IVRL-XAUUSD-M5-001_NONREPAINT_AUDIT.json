@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-IVRL-XAUUSD-M5-001",
+  "run_id": "IVRL001-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\HYP-IVRL-XAUUSD-M5-001_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "0B7159B821610F3A33B6DA58087CCCC0A9CD43AFD2ECECF4F12899BFBF09FFC6",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\EA_IntradayVarianceRelocation.mq5",
+      "sha256": "BA88581792615CD5CCA8AF0C42D735CFEB141477CBB0BFBA56EB5582EFB5D32A"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\EA_IntradayVarianceRelocation.mq5",
+      "line": 200,
+      "rule": "collection_first_date_copytime",
+      "function": "CopyTime",
+      "disposition": "allowed_collection_provenance_read"
+    }
+  ],
+  "generated_at_utc": "2026-08-11T07:18:29.402162+00:00"
+}

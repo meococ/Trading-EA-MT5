@@ -1,0 +1,34 @@
+{
+  "schema_version": "alphafactory_source_tool_receipt.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-004",
+  "authority": "SOURCE_DATA_ONLY_NO_PERFORMANCE",
+  "economics_authorized": false,
+  "source_contract_sha256": "CCFDF202021446F430BFB0FEB8098EF768AD4E7A95CEC15FC65FA1E9979974B3",
+  "tools": [
+    {
+      "path": "02. AlphaFactory/tools/research/dukascopy_bi5.py",
+      "sha256": "97A8148B39BBD40FC5BC0B64F15705559968CC86D389EFABCAA4E6C8CA5494E4",
+      "purpose": "resumable hourly BI5 acquisition, shared 429/503 rate limiting, decode and daily hash receipt"
+    },
+    {
+      "path": "02. AlphaFactory/tools/research/dukascopy_custom_import_plan.py",
+      "sha256": "91E5BF69B06394FB027DA5B38D571BE297641BF5D1C840DA2E40D2B2C4CB4FE6",
+      "purpose": "receipt verification, hard-link staging and MT5 import plan"
+    },
+    {
+      "path": "02. AlphaFactory/tools/research/mql5/AlphaFactoryCustomTickImport.mq5",
+      "sha256": "5FF70CE02CAB95DB25120F7CDE299EAB97EF95B21CE67FBE393907D7A6ED6BB6",
+      "purpose": "custom-symbol import and exact tick/M1 readback"
+    }
+  ],
+  "importer_build": {
+    "ex5_sha256": "FED86B11A758FEC5D16C76E0CC37551E0D653E1BE3154D2AC5089F848FD33116",
+    "compile_log_sha256": "1F3054DD17F63160A40C487846E0F682FFA7E7A4EC47D4E5893F0211339618B0",
+    "compile_result": "0 errors, 0 warnings"
+  },
+  "tests": {
+    "status": "PASS",
+    "count": 25,
+    "scope": "BI5 decoder/rate limiter, fail-closed validation, receipt resume, import-plan hash binding, V4 contract/static nonrepaint, financing overlay and terminal cleanup guard"
+  }
+}

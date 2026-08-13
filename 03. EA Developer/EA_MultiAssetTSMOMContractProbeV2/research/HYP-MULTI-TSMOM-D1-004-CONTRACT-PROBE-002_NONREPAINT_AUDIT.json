@@ -1,0 +1,25 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-004-CONTRACT-PROBE-002",
+  "source_sha256": "15CEA4A3982552EA49191834919701D8F9D1531BA6EFE24FD745B164F90046EB",
+  "status": "PASS_SOURCE_ONLY",
+  "checks": [
+    {
+      "id": "no-orders",
+      "status": "PASS",
+      "evidence": "The EA contains no OrderSend, CTrade, position mutation or trade-request call."
+    },
+    {
+      "id": "d0-proof",
+      "status": "PASS_STATIC",
+      "evidence": "EmitSeriesProof emits the exact M5/M1 D0 line required by AlphaFactory and fails initialization when the proof is invalid."
+    },
+    {
+      "id": "no-outcome-readout",
+      "status": "PASS",
+      "evidence": "The EA emits only current SymbolInfo contract fields, the D0 source proof and a zero-order summary."
+    }
+  ],
+  "performance_metrics_authorized": false,
+  "economics_authorized": false
+}

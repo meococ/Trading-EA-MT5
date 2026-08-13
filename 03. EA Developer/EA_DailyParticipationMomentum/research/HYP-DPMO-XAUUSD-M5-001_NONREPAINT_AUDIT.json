@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-DPMO-XAUUSD-M5-001",
+  "run_id": "DPMO001-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_DailyParticipationMomentum\\HYP-DPMO-XAUUSD-M5-001_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "957B5CD3C51C3CB6EBC5C94C64FD78C5C0A57BE4470464E6B3C242EF6AF78616",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DailyParticipationMomentum\\EA_DailyParticipationMomentum.mq5",
+      "sha256": "A639615CDD02D667BCD8752BD16AED8D677D51AEC22AF965EEBFD63C3C7897B3"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DailyParticipationMomentum\\EA_DailyParticipationMomentum.mq5",
+      "line": 195,
+      "rule": "collection_first_date_copytime",
+      "function": "CopyTime",
+      "disposition": "allowed_collection_provenance_read"
+    }
+  ],
+  "generated_at_utc": "2026-08-11T05:40:00.559577+00:00"
+}

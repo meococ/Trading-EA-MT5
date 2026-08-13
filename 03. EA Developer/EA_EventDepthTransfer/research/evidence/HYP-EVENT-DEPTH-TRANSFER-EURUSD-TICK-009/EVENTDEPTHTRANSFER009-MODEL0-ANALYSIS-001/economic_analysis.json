@@ -1,0 +1,273 @@
+{
+  "schema_version": "event_depth_transfer_009_economic_analysis.v1",
+  "hypothesis_id": "HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009",
+  "source_sha256": "3B3B0F4CF85FD733B26DE0CA84F890265C94693DC7A58170507491985B2687B8",
+  "table_sha256": "BD2D3F6CF9C048F606F822EF2BEDF0C6DCA4CE6C25673A5235D70F8AC096A3DD",
+  "primary_meta": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_EventDepthTransfer\\20260813_104643\\logs\\EVENTDEPTHTRANSFER009_RunMeta_PRIMARY.json",
+    "sha256": "4F7222F6FC5D6EEE1AEF7546113C9515679E0432D74B8952E0BF72C835EFCB21",
+    "payload": {
+      "schema_version": "event_depth_transfer_009_run_meta.v1",
+      "hypothesis_id": "HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009",
+      "role": "PRIMARY",
+      "source_sha256": "3B3B0F4CF85FD733B26DE0CA84F890265C94693DC7A58170507491985B2687B8",
+      "table_sha256": "BD2D3F6CF9C048F606F822EF2BEDF0C6DCA4CE6C25673A5235D70F8AC096A3DD",
+      "events": 329,
+      "next_event": 329,
+      "accounted": 329,
+      "completed": 317,
+      "zero_source": 11,
+      "missed_tick": 0,
+      "overlap_skips": 0,
+      "entry_rejects": 1,
+      "exit_rejects": 0,
+      "max_concurrent": 1,
+      "active_event": -1,
+      "runtime_failed": false,
+      "failure_reason": "",
+      "deinit_reason": 1
+    }
+  },
+  "reverse_meta": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_EventDepthTransfer\\20260813_104719\\logs\\EVENTDEPTHTRANSFER009_RunMeta_REVERSE.json",
+    "sha256": "9DA679379C1FB14FB1B894A6397D127D0F1649CA9F311D171E646A7B8350E047",
+    "payload": {
+      "schema_version": "event_depth_transfer_009_run_meta.v1",
+      "hypothesis_id": "HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009",
+      "role": "REVERSE",
+      "source_sha256": "3B3B0F4CF85FD733B26DE0CA84F890265C94693DC7A58170507491985B2687B8",
+      "table_sha256": "BD2D3F6CF9C048F606F822EF2BEDF0C6DCA4CE6C25673A5235D70F8AC096A3DD",
+      "events": 329,
+      "next_event": 329,
+      "accounted": 329,
+      "completed": 317,
+      "zero_source": 11,
+      "missed_tick": 0,
+      "overlap_skips": 0,
+      "entry_rejects": 1,
+      "exit_rejects": 0,
+      "max_concurrent": 1,
+      "active_event": -1,
+      "runtime_failed": false,
+      "failure_reason": "",
+      "deinit_reason": 1
+    }
+  },
+  "primary": {
+    "role": "PRIMARY",
+    "ledger_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_EventDepthTransfer\\20260813_104643\\logs\\EURUSD_EVENTDEPTHTRANSFER009_Trades_PRIMARY.csv",
+    "ledger_sha256": "4FF68BDB2B643D4C1EEEA9F17979A86E4C6063AAF58994AA1D5175BFCA48B863",
+    "status_counts": {
+      "CLOSED": 317,
+      "SKIP_ZERO": 11,
+      "ENTRY_REJECT": 1
+    },
+    "base": {
+      "trades": 317,
+      "net": -415.5000000002749,
+      "profit_factor": 0.9147255002564876,
+      "expectancy": -1.3107255520513403,
+      "max_drawdown_pct": 1.3908997413907485
+    },
+    "cost_x1_5": {
+      "trades": 317,
+      "net": -1627.2500000004125,
+      "profit_factor": 0.7101184644160783,
+      "expectancy": -5.133280757099093,
+      "max_drawdown_pct": 2.1947866943246224
+    },
+    "cost_x2": {
+      "trades": 317,
+      "net": -2839.00000000055,
+      "profit_factor": 0.558201058200996,
+      "expectancy": -8.955835962146844,
+      "max_drawdown_pct": 3.0869073927789303
+    },
+    "year_base_net": {
+      "2019": -583.5000000003037,
+      "2020": 168.00000000002905
+    },
+    "top_5pct": {
+      "count": 16,
+      "gross_profit_share": 0.3792910029167717
+    },
+    "degraded_cells": [
+      {
+        "event_id": "EVT0006",
+        "source_direction": "1",
+        "direction": "1",
+        "net_base_usd": "15.0"
+      },
+      {
+        "event_id": "EVT0027",
+        "source_direction": "1",
+        "direction": "1",
+        "net_base_usd": "-2.0"
+      },
+      {
+        "event_id": "EVT0031",
+        "source_direction": "1",
+        "direction": "1",
+        "net_base_usd": "6.0"
+      },
+      {
+        "event_id": "EVT0198",
+        "source_direction": "-1",
+        "direction": "-1",
+        "net_base_usd": "-33.9999999999909"
+      },
+      {
+        "event_id": "EVT0270",
+        "source_direction": "1",
+        "direction": "1",
+        "net_base_usd": "-17.999999999990898"
+      }
+    ],
+    "degraded_exclusion_diagnostic": {
+      "rescue_authorized": false,
+      "base": {
+        "trades": 312,
+        "net": -382.5000000002931,
+        "profit_factor": 0.9206184497249597,
+        "expectancy": -1.2259615384624778,
+        "max_drawdown_pct": 1.3611488375811525
+      },
+      "cost_x1_5": {
+        "trades": 312,
+        "net": -1567.5000000004397,
+        "profit_factor": 0.7173001487893294,
+        "expectancy": -5.024038461539871,
+        "max_drawdown_pct": 2.1487450449147376
+      },
+      "cost_x2": {
+        "trades": 312,
+        "net": -2752.500000000586,
+        "profit_factor": 0.5656119308766001,
+        "expectancy": -8.822115384617263,
+        "max_drawdown_pct": 3.027409177725396
+      }
+    }
+  },
+  "reverse": {
+    "role": "REVERSE",
+    "ledger_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_EventDepthTransfer\\20260813_104719\\logs\\EURUSD_EVENTDEPTHTRANSFER009_Trades_REVERSE.csv",
+    "ledger_sha256": "2709375CA4DE881B10FBA77E923A1EEF9385F6909B6B0486E8A0A66AB584A533",
+    "status_counts": {
+      "CLOSED": 317,
+      "SKIP_ZERO": 11,
+      "ENTRY_REJECT": 1
+    },
+    "base": {
+      "trades": 317,
+      "net": -4431.500000000275,
+      "profit_factor": 0.3846420884537746,
+      "expectancy": -13.979495268139667,
+      "max_drawdown_pct": 4.466847266511553
+    },
+    "cost_x1_5": {
+      "trades": 317,
+      "net": -5643.250000000413,
+      "profit_factor": 0.3005391670797959,
+      "expectancy": -17.80205047318742,
+      "max_drawdown_pct": 5.648439335836794
+    },
+    "cost_x2": {
+      "trades": 317,
+      "net": -6855.00000000055,
+      "profit_factor": 0.2376980817347485,
+      "expectancy": -21.624605678235174,
+      "max_drawdown_pct": 6.8550000000006985
+    },
+    "year_base_net": {
+      "2019": -2372.5000000003047,
+      "2020": -2058.9999999999714
+    },
+    "top_5pct": {
+      "count": 16,
+      "gross_profit_share": 0.5460288808664246
+    },
+    "degraded_cells": [
+      {
+        "event_id": "EVT0006",
+        "source_direction": "1",
+        "direction": "-1",
+        "net_base_usd": "-39.0"
+      },
+      {
+        "event_id": "EVT0027",
+        "source_direction": "1",
+        "direction": "-1",
+        "net_base_usd": "-22.0"
+      },
+      {
+        "event_id": "EVT0031",
+        "source_direction": "1",
+        "direction": "-1",
+        "net_base_usd": "-30.0"
+      },
+      {
+        "event_id": "EVT0198",
+        "source_direction": "-1",
+        "direction": "1",
+        "net_base_usd": "17.000000000009102"
+      },
+      {
+        "event_id": "EVT0270",
+        "source_direction": "1",
+        "direction": "-1",
+        "net_base_usd": "9.102052445086883e-12"
+      }
+    ],
+    "degraded_exclusion_diagnostic": {
+      "rescue_authorized": false,
+      "base": {
+        "trades": 312,
+        "net": -4357.500000000293,
+        "profit_factor": 0.3871738977568159,
+        "expectancy": -13.966346153847093,
+        "max_drawdown_pct": 4.410074459047715
+      },
+      "cost_x1_5": {
+        "trades": 312,
+        "net": -5542.50000000044,
+        "profit_factor": 0.30322458985477085,
+        "expectancy": -17.764423076924487,
+        "max_drawdown_pct": 5.559027170245501
+      },
+      "cost_x2": {
+        "trades": 312,
+        "net": -6727.500000000587,
+        "profit_factor": 0.24038841528817276,
+        "expectancy": -21.56250000000188,
+        "max_drawdown_pct": 6.7275000000007275
+      }
+    }
+  },
+  "gates": {
+    "trades_at_least_300": true,
+    "cadence_2_5_to_5_per_week": true,
+    "base_pf_at_least_1_30": false,
+    "base_expectancy_positive": false,
+    "cost_x1_5_pf_at_least_1_25": false,
+    "cost_x2_pf_at_least_1_00": false,
+    "cost_x2_expectancy_nonnegative": false,
+    "both_years_positive": false,
+    "base_drawdown_at_most_8pct": true,
+    "reverse_base_pf_inferior": true,
+    "top_5pct_share_at_most_30pct": false
+  },
+  "passed_all_gates": false,
+  "verdict": "KILL_FROZEN_MAPPING",
+  "failed_gates": [
+    "base_pf_at_least_1_30",
+    "base_expectancy_positive",
+    "cost_x1_5_pf_at_least_1_25",
+    "cost_x2_pf_at_least_1_00",
+    "cost_x2_expectancy_nonnegative",
+    "both_years_positive",
+    "top_5pct_share_at_most_30pct"
+  ],
+  "validation_open_authorized": false,
+  "optimization_authorized": false,
+  "rerun_authorized": false
+}

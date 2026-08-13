@@ -1,0 +1,21 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-EVENT-AGGFLOW-EURUSD-TICK-013",
+  "evidence_tier": "PROVIDER_PUBLISHED_PLUS_RUN_OBSERVED",
+  "provenance_status": "THE5ERS_OFFICIAL_COMMISSION_AND_EVENT_LEVEL_TESTER_QUOTES",
+  "audit_status": "FROZEN_BEFORE_DESIGN_OUTCOME",
+  "verdict": "MODEL0_DESIGN_COST_ARMS_AUTHORIZED",
+  "promotion_eligible": false,
+  "symbol": "EURUSD",
+  "from": "2019.01.01",
+  "to": "2021.01.01",
+  "symbol_geometry": {"digits": 5, "point": 0.00001, "pip_size": 0.0001},
+  "tester_spread_semantics": "current broker-native variable tick bid/ask",
+  "official_provider_url": "https://the5ers.com/asset-specifications",
+  "official_provider_observed_at_utc": "2026-08-12T11:29:00Z",
+  "commission_usd_round_turn_per_lot": 4.0,
+  "slippage_contract": "max(0, entry_spread_pips - causal median of prior ten accepted event entry spreads) charged once at pip-value times lots",
+  "base_cost": "raw mid-to-mid PnL minus observed executable PnL, plus USD4/lot commission, plus frozen dynamic slippage",
+  "stress_arms": [1.0, 1.5, 2.0],
+  "note": "The EA records every price and cost component; the post-run analyzer must independently recompute all arms. No observed result may alter this manifest."
+}

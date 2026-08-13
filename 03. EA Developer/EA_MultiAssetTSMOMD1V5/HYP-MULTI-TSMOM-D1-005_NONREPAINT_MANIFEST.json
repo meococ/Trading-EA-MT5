@@ -1,0 +1,20 @@
+{
+  "schema_version": "alphafactory_nonrepaint_manifest.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-005",
+  "ea_name": "EA_MultiAssetTSMOMD1V5",
+  "source_sha256": "F72034814CFD0FC9A887C574EDBBC3952F73579B8FC36C8EC3FF62149EDDE057",
+  "ex5_sha256": "D9394E9912B2E5EB8732E591F094206D28A22B28B47A6E27DE0D54E43226F87A",
+  "compile_log_sha256": "76B4B29D8E4F40902B01C92C649539FDA0BB6656569F729A262CF5E924253F6F",
+  "compile_result": "0 errors, 0 warnings",
+  "decision_clock": "first common-ready generated H1 tick on observed UTC Monday",
+  "signal_data": "completed D1 bars aggregated by MT5 from source H1 BID rates; CopyRates shift 1 only",
+  "source_timeframe": "H1",
+  "source_intrabar_path_used": false,
+  "current_bar_price_used": false,
+  "deal_cost_telemetry_is_diagnostic_only": true,
+  "frozen_long_only_comparator_available": true,
+  "calendar_lookback_seconds": 31536000,
+  "btc_active_from_utc": "2018-05-14T00:00:00Z",
+  "repaint_or_lookahead_detected": false,
+  "audit_status": "PASS_STATIC"
+}

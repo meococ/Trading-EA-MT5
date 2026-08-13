@@ -1,0 +1,149 @@
+{
+  "schema_version": "t2_p3_repaired_full_lock.v5",
+  "campaign": "PRO_TRADER_REPLACEMENT",
+  "generation": "T2",
+  "phase": "P3_OUTCOME_BLIND_DEDUP",
+  "status": "FROZEN_PRE_REPAIRED_FULL_IDENTITY_REPLAY",
+  "authority": "ENGINEERING_FULL_IDENTITY_ONLY_NO_BUILD_NO_ECONOMICS",
+  "frozen_at_utc": "2026-08-12T20:37:54Z",
+  "owner_scope": "XAU_FOREX_ONLY_BTC_NOT_GATING",
+  "replay": {
+    "symbol": "EURUSD",
+    "timeframe": "M5",
+    "source_rows": 596141,
+    "source_first_utc": "2015-01-02T07:00:00Z",
+    "source_last_utc": "2022-12-30T21:55:00Z",
+    "max_wall_seconds": 900,
+    "output_directory": "03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_REPAIRED_FULL_V5_001",
+    "packet_directory": "identity_packet",
+    "expected_command": "python \"03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_repaired_full_v5.py\" --run-full --output-dir \"03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_REPAIRED_FULL_V5_001\"",
+    "always_files": [
+      "stage_heartbeat.jsonl",
+      "stage_receipt.json"
+    ],
+    "success_top_level": [
+      "stage_heartbeat.jsonl",
+      "stage_receipt.json",
+      "identity_packet"
+    ],
+    "packet_files": [
+      "d8_break_scc_manifest.json",
+      "d8_break_t2_manifest.json",
+      "d8_contact_scc_manifest.json",
+      "d8_contact_t2_manifest.json",
+      "ecrs_manifest.json",
+      "ecrs_v1_full.jsonl",
+      "receipt.json",
+      "result.json",
+      "scc_challenger_full.jsonl",
+      "scc_control_full.jsonl",
+      "t2_manifest.json",
+      "t2_pbp_audit_full.jsonl",
+      "t2_pbp_break_full.jsonl",
+      "t2_pbp_contact_full.jsonl",
+      "t2_pbp_identity_full.jsonl",
+      "t2_reject_full.jsonl",
+      "t2_structural_full.jsonl"
+    ]
+  },
+  "bindings": {
+    "repaired_full_runner": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_repaired_full_v5.py",
+      "sha256": "6D83B5B2D50BF6E2E18BCCAE4136CB8981712207F8FB4C8CB12517813C009F66",
+      "role": "one-shot exact-v1 full replay wrapper"
+    },
+    "repaired_full_tests": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/test_t2_p3_repaired_full_v5.py",
+      "sha256": "95465373213B255383EEB450133AEEE63A1D33B2C13DDEA30CA7255086A15DD3",
+      "role": "cache injection cleanup stderr and authority tests"
+    },
+    "failed_prefix_runner": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_repaired_prefix_v4.py",
+      "sha256": "7D7BEC4792665B1829BD137CB0B80DD88855DDDE93C55192CB85D8DA739EAD9C",
+      "role": "non-rerunnable comparator-mismatch evidence"
+    },
+    "failed_prefix_lock": {
+      "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P3_REPAIRED_PREFIX_LOCK_V4.json",
+      "sha256": "AC286C1E1AD8AD9DBFB93059C13C1C9E3B45E082403440F78DF0DA4B5CC9B596",
+      "role": "failed prefix authorization seal"
+    },
+    "failed_prefix_heartbeat": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_REPAIRED_PREFIX_V4_001/stage_heartbeat.jsonl",
+      "sha256": "FB9C02393F3206AE70CCECA4B001650D3A8D62D36A8E7EDF8682A29D6B6DEF0F",
+      "role": "proof cache passed and D7 prefix compare failed"
+    },
+    "failed_prefix_receipt": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_REPAIRED_PREFIX_V4_001/stage_receipt.json",
+      "sha256": "44C1CC94325FA6FB3653CB23D7FE8325443C5C103DD4B81DECF55EFFAA394988",
+      "role": "fail-closed no-packet receipt"
+    },
+    "cache_successor": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_dedup_mirrors_ecrs_cache.py",
+      "sha256": "B077AD37B657A19406F19DC126007A657650DF963774F2432FB032E20412F7FD",
+      "role": "only substituted ECRS emitter"
+    },
+    "cache_parity_lock": {
+      "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P3_ECRS_CACHE_LOCK_V4.json",
+      "sha256": "FB22FC27D1800589D7F0F291003FF7633BF2D83AE8DF98D1A025F2D4EDDE4363",
+      "role": "deterministic old-vs-new parity seal"
+    },
+    "frozen_mirror": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_dedup_mirrors.py",
+      "sha256": "11124E256986814C70B7BA97A0585F7447081F853D7847A78D205EAA2329EBC9",
+      "role": "all non-ECRS emitters keys manifests and comparisons"
+    },
+    "frozen_v1_runner": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_dedup.py",
+      "sha256": "03440D65F14C60E586137EF8FAEAEB85A4AA882841225B33F6F5E6A3B8E3A4E2",
+      "role": "exact run_identity_comparisons and write_result_packet"
+    },
+    "grammar": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_grammar_reference.py",
+      "sha256": "3EDB434B7AFDDCBC67BB4F9BD26A7A081E405BDA6144175128F53299004B6CE0",
+      "role": "unchanged T2 grammar"
+    },
+    "schedule": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_d7_eurusd_schedule_v1.json",
+      "sha256": "4174A31D8839761A5FE64A9DDD0C3A5A7088A9B44552A5738A3EF070B23F2418",
+      "role": "unchanged broker schedule"
+    },
+    "p3_contract": {
+      "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P3_DEDUP_CONTRACT_V2.json",
+      "sha256": "30DD1EBC7DFD722A5F6C2765E1577845FB012983EB943E5C0E4A6CAD5B6C0290",
+      "role": "unchanged identity contract"
+    },
+    "stage0_bars": {
+      "path": "03. EA Developer/EA_ECRS_CompressionReleaseScalper/research/preflight/stage0_bars_m5.parquet",
+      "sha256": "A2DDF0D423D188B7BA708ECF4386180853867982123C38418D43A2CE89053532",
+      "role": "complete bound EURUSD M5 source"
+    },
+    "ecrs_news_csv": {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+      "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307",
+      "role": "bound ECRS event schedule"
+    },
+    "ecrs_news_manifest": {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/manifest.json",
+      "sha256": "79C40AE0C7DFF7CF44539D00FD108E6D038648694EABD7AA44E234ACC00EF5B1",
+      "role": "bound ECRS source manifest"
+    },
+    "scc_control_csv": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-EURUSD-M5-001_STAGE0/stage0_control_breaks.csv",
+      "sha256": "CF8002A8FDF617A3E8A216C65DEB6F8A0004B3B8DA16BCD1093A2B505CE50441",
+      "role": "frozen SCC control identities"
+    },
+    "scc_challenger_csv": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-EURUSD-M5-001_STAGE0/stage0_scc_candidates.csv",
+      "sha256": "86493403CBFEA636E845AD4127FB96876D58DE90DCC608C017F4CF8C37B66F63",
+      "role": "frozen SCC challenger identities"
+    }
+  },
+  "prohibitions": [
+    "NO_SECOND_FULL_REPLAY_OR_TIMEOUT_EXTENSION",
+    "NO_PREFIX_OR_GENERIC_D7_COMPARATOR",
+    "NO_GATE_THRESHOLD_KEY_SOURCE_SCHEDULE_GRAMMAR_OR_COMPARISON_CHANGE",
+    "NO_OUTCOMES_OPTIMIZATION_EDGE_CLAIM_EA_BUILD_MT5_OR_GIT",
+    "NO_PARTIAL_PACKET_ON_TIMEOUT_OR_NONZERO_EXIT",
+    "NO_BUILD_LIVE_OR_ECONOMIC_AUTHORITY_FROM_SUCCESS"
+  ]
+}

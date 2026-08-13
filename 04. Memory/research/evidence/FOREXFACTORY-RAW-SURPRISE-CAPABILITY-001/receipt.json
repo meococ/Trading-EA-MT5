@@ -1,0 +1,15 @@
+{
+  "auditor_sha256": "1D27833ECD876C9170AD3E307DD706F916FD781D4B914014FED83C88F68DE5EF",
+  "created_at_utc": "2026-08-12T21:53:53.690426+00:00",
+  "hypothesis_authorized": false,
+  "input_sha256": "78CB2656A27278B1DA04B2C594A2C73BB1877DBA3AB52BCCFAC36A215945EA8F",
+  "market_edge_claim_authorized": false,
+  "mql5_or_mt5_authorized": false,
+  "paid_source_authorized": false,
+  "plan_sha256": "0ACF728A9F3D4A25D01F11548EE1B25F9A7C7238D3B98CCC02D26626E3629285",
+  "report_path": "04. Memory/research/evidence/FOREXFACTORY-RAW-SURPRISE-CAPABILITY-001/capability_report.json",
+  "report_sha256": "C5A4C974B3B205DD9E8DEEE36DE261A2889A67E00C46B2E61B2E48B9147DF90D",
+  "schema_version": "alphafactory.forexfactory_raw_surprise_capability_receipt.v1",
+  "test_sha256": "8750A6036143DC0627489259AA86D4271578A65F9CDD0FD83A3328C86D9C7DE8",
+  "verdict": "KILL_RETROSPECTIVE_OR_NON_PIT_SURPRISE_SOURCE"
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "hypothesis_id": "HYP-CBWR-XAUUSD-M15-003",
+  "task_packet_sha256": "13C65525464B11F06E908328788744611D2B86FCDEAF885FC5D45D97EE444BCC",
+  "git_commit": "1ec53d2d3ad7d29f85b764b7e155631e0c81f9f1",
+  "git_status_sha256": "3C2097CF1699A9BD97555B2CFDD6120E00E01BEC075D699B5928F0F97D68394C",
+  "binding": {
+    "hypothesis_id": "HYP-CBWR-XAUUSD-M15-003",
+    "run_role": "control",
+    "ea_name": "EA_WickReject_XAU_M15_V1",
+    "symbol": "XAUUSD",
+    "period": "M15",
+    "from": "2018.01.01",
+    "to": "2022.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "overrides": "InpATRAverageBars=50;InpATRMaxMult=2.20;InpATRMinMult=0.70;InpATRPeriod=14;InpBETriggerR=0.90;InpBodyRatio=0.35;InpDailyFlatHour=21;InpDailyFlatMinute=50;InpDailyLossPct=1.50;InpDeviationPoints=10;InpFridayFlatHour=20;InpHypothesisId=HYP-CBWR-XAUUSD-M15-003;InpMagic=5604703;InpMaxSLATR=2.80;InpMaxSpreadPoints=55;InpMinSLATR=1.20;InpRequireSwing=true;InpResearchAutoMode=true;InpRiskPercent=0.60;InpSLATRBuffer=0.25;InpSwingAtrTolerance=0.15;InpSwingBars=8;InpTargetR=1.60;InpTimeStopBars=12;InpVariantTag=SWING8_PRIMARY;InpWeeklyLossPct=3.50;InpWickRatio=0.60",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 2,
+      "point": 0.01,
+      "pip_size": 0.01
+    },
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-11T08:10:00Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {"operator": "gt", "value": 97},
+      "requested_from": "2018.01.01",
+      "requested_to": "2022.01.01",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 16777216
+    }
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\research\\HYP-CBWR-XAUUSD-M15-003_BASELINE_TASK.json",
+      "sha256": "13C65525464B11F06E908328788744611D2B86FCDEAF885FC5D45D97EE444BCC"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\EA_WickReject_XAU_M15_V1.mq5",
+      "sha256": "015C6FA93A7768C85D5DD4703E50D3D5AC67B3A7DCBED71E73735B0CDCF3DC85"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\research\\HYP-CBWR-XAUUSD-M15-003_FROZEN_PREREG.md",
+      "sha256": "1AA6D8B6CB41178C60A74F6B7D14E2CBCB203E3EBF365F7957CE5D6A306EE3FA"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\research\\preflight\\HYP-CBWR-XAUUSD-M15-003\\cost_source_manifest.unverified.json",
+      "sha256": "A1CE78DC7E64D5FB7DD1642584F1D10260DF11795747ED6D9A45DF55C5AB3B23"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+      "sha256": "1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"
+    },
+    {
+      "label": "ea_contract",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "DDB78BF090FF80A04B533A61E115960FD78C0D6186582F597DD6BAD7EBA95E43"
+    },
+    {
+      "label": "nonrepaint_audit",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\HYP-CBWR-XAUUSD-M15-003_NONREPAINT_AUDIT.json",
+      "sha256": "7E42276DEDA98FECAD90369B1B99434CF956A948163B56F55CA5A123AB3549C1"
+    }
+  ],
+  "generated_at_utc": "2026-08-11T17:42:00Z",
+  "note": "Full explicit frozen input surface; one untuned XAUUSD M15 design baseline only."
+}

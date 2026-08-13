@@ -1,0 +1,10 @@
+{
+  "hypothesis_id": "HYP-XAU-SIGNED-QUOTE-ABSORB-002",
+  "run_id": "SQA002-ECON-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_XAUSignedQuoteAbsorbV1",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_XAUSignedQuoteAbsorbV1\\EA_XAUSignedQuoteAbsorbV1.mq5",
+  "source_sha256": "D77AD7A4415C5FD6FD1DD1DEA35F35AA7FA987EF3A879A2495C6A68D3F94AB21",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}
+

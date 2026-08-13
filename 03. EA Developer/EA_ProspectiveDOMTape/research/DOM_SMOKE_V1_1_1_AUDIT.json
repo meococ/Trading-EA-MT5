@@ -1,0 +1,33 @@
+{
+  "errors": [],
+  "metrics": {
+    "csv_rows": 36924,
+    "csv_snapshot_keys": 2716,
+    "hashes_sha256": {
+      "csv": "50B4E62728181C4CA79E397E1DC58D8967CFEA8C4FD372E855A2539A332E6C92",
+      "json": "2DED375BB979039344E904185D5C99F3802382F29DCB27ED424D0F1430F47308",
+      "state": "6F8F517D1DE089EFF68F37A1391015C7DEDA8B7801D426921AA3C6DE15587557"
+    },
+    "json_snapshots": 2716,
+    "kind_counts": {
+      "DUPLICATE": 93,
+      "HEARTBEAT": 2,
+      "INIT": 1,
+      "SHUTDOWN": 1,
+      "SNAPSHOT": 2716,
+      "SUBSCRIBE": 4,
+      "WRITER_LOCK": 1
+    },
+    "last_session_snapshot_seq": 2716,
+    "records": 2818,
+    "session_id": "1786588528-31573468",
+    "session_records": 2818,
+    "snapshots_by_symbol": {
+      "EURUSD": 81,
+      "GBPUSD": 213,
+      "USDJPY": 234,
+      "XAUUSD": 2188
+    }
+  },
+  "verdict": "PASS"
+}

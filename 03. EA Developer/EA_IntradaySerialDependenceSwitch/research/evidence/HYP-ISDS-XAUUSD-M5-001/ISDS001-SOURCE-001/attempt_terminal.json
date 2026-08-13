@@ -1,0 +1,11 @@
+{
+  "attempt_id": "ISDS001-SOURCE-001",
+  "attempt_receipt_sha256": "0F020559163D3D68F22D1560D129CC42464783DF8B8A11478D34D30526A692AA",
+  "attempt_started_sha256": "B47B09BE6175A5CF80CA36F83C36787763FC194DFF2938F4FA4C29EF3E891E9A",
+  "completed_at_utc": "2026-08-11T06:07:34.258176+00:00",
+  "hypothesis_id": "HYP-ISDS-XAUUSD-M5-001",
+  "same_id_retry_authorized": false,
+  "schema_version": "isds_source_attempt_terminal.v1",
+  "status": "COMPLETE",
+  "verdict": "PASS_SOURCE_FEASIBILITY"
+}

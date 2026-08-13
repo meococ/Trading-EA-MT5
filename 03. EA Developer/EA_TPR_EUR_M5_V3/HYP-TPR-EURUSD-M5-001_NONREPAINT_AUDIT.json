@@ -1,0 +1,14 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_id": "HYP-TPR-EURUSD-M5-001",
+  "ea_name": "EA_TPR_EUR_M5_V3",
+  "audited_at": "2026-08-12T01:12:00+07:00",
+  "verdict": "PASS",
+  "signal_availability": "M5 OHLC begins at terminal shift 1. Trend, pullback and resumption transitions operate only on the just-closed array index 0; state persists forward in time.",
+  "indicator_availability": "ATR14, EMA8 and EMA21 each use CopyBuffer start position 1. Trailing updates only from a newly completed M5 bar.",
+  "execution_clock": "availability_time minus decision bar time must equal exactly one M5 period before order submission.",
+  "repaint_dependencies": [],
+  "lookahead_dependencies": [],
+  "evidence_lines": {"closed_rates": 205, "closed_indicators": 223, "resumption_state": 394, "three_way_volume_cap": 672, "no_fixed_tp": 682},
+  "risk_checks": ["one position", "no fixed TP or partial close", "stop-risk/notional/margin minimum", "post-normalization notional and margin assertions"]
+}

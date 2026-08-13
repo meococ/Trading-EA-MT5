@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-DPMO-XAUUSD-M5-001",
+  "run_id": "DPMO001-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_DailyParticipationMomentum",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_DailyParticipationMomentum\\EA_DailyParticipationMomentum.mq5",
+  "source_sha256": "A639615CDD02D667BCD8752BD16AED8D677D51AEC22AF965EEBFD63C3C7897B3",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

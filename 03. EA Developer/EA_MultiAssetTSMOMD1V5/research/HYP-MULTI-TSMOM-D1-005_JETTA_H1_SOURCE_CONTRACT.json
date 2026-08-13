@@ -1,0 +1,175 @@
+{
+  "schema_version": "alphafactory_dukascopy_jetta_h1_source_contract.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-005",
+  "supersedes_contract_sha256s": [
+    "132B80497D1C0A1AA2AA907234008F764227E28250933179C2CB6E3646474AB2",
+    "173564D07250998740D31FF478031085C520FE831D252B9E07B49C8603864933",
+    "EDA85D841672AE0E5930377834ED8A22EF23006F74DD602C4DC67FC9A516419B"
+  ],
+  "revision_reason": "Final pre-economic source correction: H1 ASK/BID extrema are not contemporaneous and only opens are compared; BTC source precision is two decimals; outcome-blind full-history profiles confine OHLC envelope normalization above one point to 2017-09 and ten crossed opens to 2017-11/12, strictly before BTC activation. Crossed opens after activation fail; inactive-only crossed bars receive one spread point for MT5 rate validity. Retained raw payloads are revalidated and rebound without returns or PnL access.",
+  "authority": "SOURCE_DATA_ONLY_NO_PERFORMANCE",
+  "economics_authorized": false,
+  "performance_metrics_authorized": false,
+  "identity_reason": "Fresh source/execution identity for the same preregistered weekly calendar-365 TSMOM mechanism; V4 remains immutable.",
+  "provider": {
+    "name": "Dukascopy Bank SA",
+    "widget_url": "https://widgets.dukascopy.com/en/historical-data-export",
+    "widget_config_url": "https://widgets.dukascopy.com/config.json",
+    "base_url": "https://jetta.dukascopy.com/v1",
+    "h1_path": "candles/trade/hour/{JETTA_CODE}/{BID_OR_ASK}/{YYYY}/{MONTH_ONE_BASED}",
+    "partial_h1_path": "candles/trade/hour/{JETTA_CODE}/{BID_OR_ASK}?from={MONTH_START_EPOCH_MSC}; response is filtered to history_to_exclusive before encoding",
+    "d1_validation_path": "candles/trade/day/{JETTA_CODE}/BID/{YYYY}",
+    "timestamp_basis": "UTC epoch milliseconds decoded to aligned H1 UTC opens",
+    "price_sides": "separate H1 top-of-book BID and ASK OHLC",
+    "response_encoding": "delta JSON: timestamp,multiplier,shift,base OHLC,times,opens,highs,lows,closes,volumes"
+  },
+  "download": {
+    "workers": 1,
+    "minimum_request_interval_seconds": 0.75,
+    "retries": 4,
+    "timeout_seconds": 45,
+    "rate_limit_backoff": "HTTP 429/503 shared penalty min(60,15*attempt) seconds",
+    "resume_boundary": "hash-verified monthly BID/ASK raw JSON, AFRATE1 binary and month receipt",
+    "raw_retention": "retain both official monthly BID and ASK JSON responses",
+    "output_root": "02. AlphaFactory/data/dukascopy/jetta_h1_tsmom_v5_r4"
+  },
+  "rate_construction": {
+    "bar_timeframe": "H1",
+    "bar_time_basis": "UTC",
+    "price_ohlc": "BID",
+    "spread_points": "max(1,ceil((ASK_open-BID_open)/source_point))",
+    "spread_lookahead": false,
+    "provider_ohlc_geometry_normalization": "Round every price to source point. Default: expand high/low by at most one source point to contain open/close. A symbol/month exception must be frozen in its row, bind an outcome-blind profile, and enforce both per-bar and corrected-bar-frequency caps; fail anything larger.",
+    "missing_side_policy": "fail the source month",
+    "missing_active_symbol_at_decision_policy": "fail the whole weekly snapshot and retry unchanged through Tuesday; never set one asset to zero",
+    "intrabar_path_claimed": false,
+    "economic_use_limit": "Only a weekly-open system with completed-D1 signals and no intraday exits, stops or filters may use this source identity."
+  },
+  "symbols": [
+    {
+      "source_symbol": "EURUSD",
+      "jetta_code": "EUR-USD",
+      "origin_symbol": "EURUSD",
+      "custom_symbol": "AFD_EURUSD_DUKA_TSMOM_V5",
+      "digits": 5,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "GBPUSD",
+      "jetta_code": "GBP-USD",
+      "origin_symbol": "GBPUSD",
+      "custom_symbol": "AFD_GBPUSD_DUKA_TSMOM_V5",
+      "digits": 5,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "AUDUSD",
+      "jetta_code": "AUD-USD",
+      "origin_symbol": "AUDUSD",
+      "custom_symbol": "AFD_AUDUSD_DUKA_TSMOM_V5",
+      "digits": 5,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "NZDUSD",
+      "jetta_code": "NZD-USD",
+      "origin_symbol": "NZDUSD",
+      "custom_symbol": "AFD_NZDUSD_DUKA_TSMOM_V5",
+      "digits": 5,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "USDJPY",
+      "jetta_code": "USD-JPY",
+      "origin_symbol": "USDJPY",
+      "custom_symbol": "AFD_USDJPY_DUKA_TSMOM_V5",
+      "digits": 3,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "USDCAD",
+      "jetta_code": "USD-CAD",
+      "origin_symbol": "USDCAD",
+      "custom_symbol": "AFD_USDCAD_DUKA_TSMOM_V5",
+      "digits": 5,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "USDCHF",
+      "jetta_code": "USD-CHF",
+      "origin_symbol": "USDCHF",
+      "custom_symbol": "AFD_USDCHF_DUKA_TSMOM_V5",
+      "digits": 5,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "XAUUSD",
+      "jetta_code": "XAU-USD",
+      "origin_symbol": "XAUUSD",
+      "custom_symbol": "AFD_XAUUSD_DUKA_TSMOM_V5",
+      "digits": 3,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "BTCUSD",
+      "jetta_code": "BTC-USD",
+      "origin_symbol": "BTCUSD",
+      "custom_symbol": "AFD_BTCUSD_DUKA_TSMOM_V5",
+      "digits": 2,
+      "max_geometry_correction_points": 1,
+      "allow_crossed_open_before_strategy_activation": true,
+      "inactive_crossed_open_spread_points": 1,
+      "crossed_open_profile_path": "03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_geometry/BTCUSD_H1_OPEN_SPREAD_PROFILE.json",
+      "crossed_open_profile_sha256": "CDFDC9BFD8AED137285EF60DFF8CC960D132541ABE6D6F23A951C898ABA946B0",
+      "geometry_exception_months": {
+        "2017-09": {
+          "max_correction_points": 50,
+          "max_corrected_bar_fraction_per_side": 0.05,
+          "reason": "Official Jetta BTC H1 legacy payload has a local delta-envelope defect; 2017-05 through 2026-08 outcome-blind profile found 17/462 BID bars (max 4 points) and 18/462 ASK bars (max 33 points) only in this month, with every other month zero.",
+          "profile_path": "03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_geometry/BTCUSD_H1_GEOMETRY_PROFILE.json",
+          "profile_sha256": "6256A57B87A7B41EE700E0DDFABB3B23CEEFE2BA3D27E529A16B81C51E8CC243"
+        }
+      },
+      "history_from": "2017-05-07",
+      "history_start_utc": "2017-05-07T23:00:00Z",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-05-14T00:00:00Z",
+      "activation_reason": "first Monday after a complete 365-calendar-day warmup"
+    }
+  ],
+  "source_acceptance": {
+    "bid_ask_timestamp_sets_equal": true,
+    "ask_open_not_below_corresponding_bid_open": "required at and after strategy_active_from; before activation only an explicitly profiled symbol exception may synthesize the frozen minimum spread and must report every raw crossing",
+    "ask_bid_h1_extrema_compared": false,
+    "spread_points_minimum": 1,
+    "source_geometry_corrections_reported": true,
+    "btc_geometry_exception": "Only BTCUSD 2017-09 may exceed one point, capped at 50 points per bar and 5% corrected bars per side; all other BTC months use the one-point default.",
+    "btc_preactivation_crossed_open_exception": "The hash-bound profile found 10/75,613 crossed opens, all in 2017-11/12 and strictly before 2018-05-14 activation; those inactive bars receive one spread point only for MT5 rate validity. Any crossed open on/after activation fails the source contract.",
+    "official_d1_session_crosscheck": "Official Dukascopy D1 bars are session anchored (for FX observed at New York 17:00), not UTC-day bars. For every symbol, aggregate H1 BID inside consecutive official D1 session boundaries and match official D1 BID OHLC within one source point on at least 99.5% of common sessions.",
+    "utc_signal_close_policy": "The EA signal remains the last completed H1 BID close strictly before the UTC day boundary. It is not falsely compared with the provider's session-anchored D1 close.",
+    "monday_availability": "All active symbols have a current Monday H1 bar on at least 98% of expected DESIGN weeks; any missing weekly snapshot remains fail-closed.",
+    "mt5_readback": "Exact H1 bar count, first/last epoch, OHLC and spread readback after CustomRatesReplace."
+  },
+  "frozen_splits": {
+    "warmup": "symbol history_from through 2017-12-31; BTC continues warming until 2018-05-13",
+    "design": "2018-01-01T00:00:00Z/2022-01-01T00:00:00Z",
+    "validation": "2022-01-01T00:00:00Z/2024-01-01T00:00:00Z",
+    "holdout": "2024-01-01T00:00:00Z/2026-08-12T00:00:00Z"
+  }
+}

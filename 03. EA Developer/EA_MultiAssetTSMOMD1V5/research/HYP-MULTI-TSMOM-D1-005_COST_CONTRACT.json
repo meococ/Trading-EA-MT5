@@ -1,0 +1,98 @@
+{
+  "schema_version": "mts005_cost_contract.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-005",
+  "status": "FROZEN_BEFORE_ECONOMICS",
+  "authority": "CURRENT_BROKER_AND_SOURCE_COST_PROXY_NOT_HISTORICAL_PIT",
+  "source_receipts": [
+    {
+      "path": "03. EA Developer/EA_MultiAssetTSMOMD1V5/research/HYP-MULTI-TSMOM-D1-005_COST_EVIDENCE.json",
+      "sha256": "D9833E6E8DF3FD3D3959BAB78E284D7869F39307E8837A582333BA595684AC5A"
+    },
+    {
+      "path": "03. EA Developer/EA_MultiAssetTSMOMContractProbeV2/research/HYP-MULTI-TSMOM-D1-004-CONTRACT-PROBE-002_RESULT.json",
+      "sha256": "5FD9A822C25FDF6CF5D5CED46B82BEEFD613A18ABA5FE1B4967B205103DDF237"
+    },
+    {
+      "path": "03. EA Developer/EA_MultiAssetTSMOMSwapScheduleProbeV1/research/HYP-MULTI-TSMOM-D1-004-SWAP-SCHEDULE-PROBE-001_RESULT.json",
+      "sha256": "3D547E929F6D45DD6535011149BF060DE8121103B555CEBCD3745F047B6C9A67"
+    },
+    {
+      "path": "02. AlphaFactory/runs/EA_CompBreak_XAU_M15_V2/20260812_010304/report.html",
+      "sha256": "4882015F986711F397FB24D03ADA72D4E05D09CC7849CC6B700217888BACACC4"
+    },
+    {
+      "path": "02. AlphaFactory/runs/EA_AIRQMB_RegimeFusion/20260806_024230/report.html",
+      "sha256": "ED3CF6AD0FA86EF7384500FA939881B84519435289EC8F6BAED2047A2AF70D79"
+    }
+  ],
+  "native_spread": {
+    "status": "INCLUDED_IN_TESTER_DEAL_PROFIT",
+    "source": "contemporaneous Jetta H1 ASK-open minus BID-open stored as the custom-rate spread",
+    "lookahead": false,
+    "remove_before_overlay": false
+  },
+  "commission_per_side": {
+    "fx": {
+      "basis": "usd_per_standard_lot",
+      "value": 2.0
+    },
+    "xau": {
+      "basis": "deal_notional_fraction",
+      "value": 0.00001,
+      "contract_size": 100.0
+    },
+    "btc": {
+      "basis": "deal_notional_fraction",
+      "value": 0.0003,
+      "contract_size": 1.0
+    }
+  },
+  "commission_reconciliation": "Native signed commission remains in native_net; subtract only max(0, frozen expected commission minus absolute native commission).",
+  "extra_slippage": {
+    "basis": "MTS005_DEAL_COST.one_spread_cost_usd for every entry and exit deal",
+    "native_spread_already_included": true,
+    "scenario_multipliers": {
+      "base": 0.25,
+      "adverse": 0.5,
+      "severe": 1.0
+    }
+  },
+  "financing": {
+    "native_swap_replacement": "Remove signed native swap, then subtract the controlled financing overlay.",
+    "day_count_denominator": 365,
+    "class_contracts": {
+      "fx": {
+        "base_annual_rate": 0.06,
+        "weekday_coefficients_monday_first": [1, 1, 1, 1, 3, 0, 0]
+      },
+      "xau": {
+        "base_annual_rate": 0.09,
+        "weekday_coefficients_monday_first": [1, 1, 1, 1, 3, 0, 0]
+      },
+      "btc": {
+        "base_annual_rate": 0.70,
+        "weekday_coefficients_monday_first": [1, 1, 1, 1, 1, 1, 1]
+      }
+    }
+  },
+  "scenarios": {
+    "base": {
+      "commission_multiplier": 1.0,
+      "slippage_multiplier": 0.25,
+      "financing_multiplier": 1.0
+    },
+    "adverse": {
+      "commission_multiplier": 1.25,
+      "slippage_multiplier": 0.5,
+      "financing_multiplier": 1.5
+    },
+    "severe": {
+      "commission_multiplier": 1.5,
+      "slippage_multiplier": 1.0,
+      "financing_multiplier": 2.0
+    }
+  },
+  "historical_pit_financing_proven": false,
+  "performance_metrics_authorized": false,
+  "economic_verdict_authorized": false
+}

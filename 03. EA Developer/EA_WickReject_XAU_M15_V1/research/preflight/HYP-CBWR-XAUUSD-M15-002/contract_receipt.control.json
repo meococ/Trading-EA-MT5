@@ -1,0 +1,117 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "hypothesis_id": "HYP-CBWR-XAUUSD-M15-002",
+  "task_packet_sha256": "F3296B50E5373E7581B31941C337123DBF73C3418F12DF158DD0FF9C589DC3FC",
+  "git_commit": "1ec53d2d3ad7d29f85b764b7e155631e0c81f9f1",
+  "git_status_sha256": "61F24D807C12DD0D8011E38AF172F4B72176AE59E9B105331372600265CCF0B2",
+  "binding": {
+    "hypothesis_id": "HYP-CBWR-XAUUSD-M15-002",
+    "run_role": "control",
+    "ea_name": "EA_WickReject_XAU_M15_V1",
+    "symbol": "XAUUSD",
+    "period": "M15",
+    "from": "2018.01.01",
+    "to": "2022.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "overrides": "InpHypothesisId=HYP-CBWR-XAUUSD-M15-002;InpRequireSwing=true;InpResearchAutoMode=true;InpVariantTag=SWING8_PRIMARY",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 2,
+      "point": 0.01,
+      "pip_size": 0.01
+    },
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-11T08:10:00Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {
+        "operator": "gt",
+        "value": 97
+      },
+      "requested_from": "2018.01.01",
+      "requested_to": "2022.01.01",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 16777216
+    }
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\research\\HYP-CBWR-XAUUSD-M15-002_BASELINE_TASK.json",
+      "sha256": "F3296B50E5373E7581B31941C337123DBF73C3418F12DF158DD0FF9C589DC3FC"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\EA_WickReject_XAU_M15_V1.mq5",
+      "sha256": "A7102958C470FCBD03B8FE463658DFAC4557991045990BF61F49CE95E09447B0"
+    },
+    {
+      "label": "static_ex5",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\EA_WickReject_XAU_M15_V1.ex5",
+      "sha256": "47B383DEDC106268D728F0B65EBC337DD8F9AA167EC4E504C7A98C9DBC8EB0E0"
+    },
+    {
+      "label": "static_compile_log",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\EA_WickReject_XAU_M15_V1.log",
+      "sha256": "34489C7594BF5917AC3E4558F108F733A1F9165CDF9200A279FE963F02721CD3"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\research\\HYP-CBWR-XAUUSD-M15-002_FROZEN_PREREG.md",
+      "sha256": "E1C30D5A02E9B480DD5A9E8B702D3E66EF456DBD7E7384970D98E8314A1ACA96"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\research\\preflight\\HYP-CBWR-XAUUSD-M15-002\\cost_source_manifest.unverified.json",
+      "sha256": "B4BF47A55383795F69BAC6BB24147FBCB74B73CD7C9A5DC3F617EEFC268F6B17"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+      "sha256": "1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"
+    },
+    {
+      "label": "ea_contract",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "5BD742189FE12070B0A26F975F6EAC129E69C64B5A360084E516D0283186754F"
+    },
+    {
+      "label": "mql_contract_test",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\research\\test_cbwr_mql_contract.py",
+      "sha256": "74DF58BC95D0156FF67DDFCECFDB6C360293215F7ED495EFFBF5CF4432EB3E38"
+    },
+    {
+      "label": "nonrepaint_audit",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_WickReject_XAU_M15_V1\\HYP-CBWR-XAUUSD-M15-002_NONREPAINT_AUDIT.json",
+      "sha256": "F4D0622FEE07A1249BEB7FDA3B74493F883A5F765F28599C6985C05CC4859047"
+    },
+    {
+      "label": "alpha_ps1",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\alpha.ps1",
+      "sha256": "8994E6C81777CE399D2474F1C46E5C190487741D709EEBB2ACFD55BB0F087A97"
+    }
+  ],
+  "generated_at_utc": "2026-08-11T17:37:00Z",
+  "note": "Engineering-only successor. One untuned XAUUSD M15 design baseline; no validation, optimization, holdout, promotion or live authority."
+}

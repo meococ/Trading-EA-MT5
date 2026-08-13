@@ -1,0 +1,62 @@
+{
+  "schema_version": "t2_p3_ecrs_cache_lock.v4",
+  "campaign": "PRO_TRADER_REPLACEMENT",
+  "generation": "T2",
+  "phase": "P3_OUTCOME_BLIND_DEDUP",
+  "status": "FROZEN_CACHE_PARITY_ONLY_NO_SOURCE_RUN",
+  "authority": "ENGINEERING_CACHE_SUCCESSOR_ONLY",
+  "frozen_at_utc": "2026-08-12T20:28:14Z",
+  "owner_scope": "XAU_FOREX_ONLY_BTC_NOT_GATING",
+  "bindings": {
+    "cache_successor": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_dedup_mirrors_ecrs_cache.py",
+      "sha256": "B077AD37B657A19406F19DC126007A657650DF963774F2432FB032E20412F7FD",
+      "role": "cache-only ECRS successor"
+    },
+    "cache_parity_tests": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/test_t2_dedup_mirrors_ecrs_cache.py",
+      "sha256": "4F0D6C2B34F8D2BE7FCE7B5F8DFEDEF540ADA6FBF184C34A0B333A2F0374B477",
+      "role": "old-vs-new per-index trace and event parity"
+    },
+    "frozen_mirror": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_dedup_mirrors.py",
+      "sha256": "11124E256986814C70B7BA97A0585F7447081F853D7847A78D205EAA2329EBC9",
+      "role": "unchanged parity oracle"
+    },
+    "frozen_v1_runner": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_dedup.py",
+      "sha256": "03440D65F14C60E586137EF8FAEAEB85A4AA882841225B33F6F5E6A3B8E3A4E2",
+      "role": "unchanged full identity runner"
+    },
+    "v3_stage_heartbeat": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_STAGE_INSTRUMENTATION_V3_001/stage_heartbeat.jsonl",
+      "sha256": "A9254A66AD20BEA9921E3510801DB0F45122E86E0D620BA91AE86FA7EA4252A8",
+      "role": "stage-localization evidence"
+    },
+    "v3_stage_receipt": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_STAGE_INSTRUMENTATION_V3_001/stage_receipt.json",
+      "sha256": "DBC9FDDFBFBFFCD5EFFCF2FBC6A576A427E090268B76994511014DB81A07D3A9",
+      "role": "one-shot timeout receipt"
+    },
+    "v3_lock": {
+      "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P3_STAGE_INSTRUMENTATION_LOCK_V3.json",
+      "sha256": "52A144562C5625B4E1447C6029003E20D10F0B24F5079F3C07B15B54ECC8C7E3",
+      "role": "instrumentation authorization seal"
+    }
+  },
+  "test_gate": {
+    "command": "python -m pytest -q \"03. EA Developer/EA_VolmanCausalGrammar\"",
+    "required_passed": 78,
+    "required_failed": 0,
+    "old_vs_new_trace_parity": true,
+    "old_vs_new_event_parity": true,
+    "real_source_rows_read": 0
+  },
+  "prohibitions": [
+    "NO_REAL_SOURCE_PREFIX_OR_FULL_REPLAY",
+    "NO_EDIT_TO_FROZEN_MIRROR_RUNNER_GRAMMAR_OR_CONTRACT",
+    "NO_GATE_THRESHOLD_KEY_SOURCE_SCHEDULE_OR_COMPARISON_CHANGE",
+    "NO_OUTCOMES_OPTIMIZATION_EA_BUILD_MT5_OR_GIT",
+    "NO_CLAIM_PACKET_OR_FULL_REPLAY_AUTHORITY"
+  ]
+}

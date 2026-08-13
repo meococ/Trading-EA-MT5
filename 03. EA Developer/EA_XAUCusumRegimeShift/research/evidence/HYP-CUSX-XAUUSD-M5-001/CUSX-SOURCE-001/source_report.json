@@ -1,0 +1,76 @@
+{
+  "all_gates_pass": false,
+  "attempt_id": "CUSX-SOURCE-001",
+  "cadence_per_week": 31.914019715224537,
+  "decision_year_cadence": {
+    "2018": 30.78082191780822,
+    "2019": 33.40821917808219,
+    "2020": 29.262295081967213,
+    "2021": 33.61917808219178,
+    "2022": 32.50684931506849
+  },
+  "decision_year_counts": {
+    "2018": 1605,
+    "2019": 1742,
+    "2020": 1530,
+    "2021": 1753,
+    "2022": 1695
+  },
+  "design_rows": 351303,
+  "deterministic_replay": true,
+  "direction_conflicts": 0,
+  "direction_shares": {
+    "LONG": 0.5005405405405405,
+    "SHORT": 0.49945945945945946
+  },
+  "directions": {
+    "LONG": 4167,
+    "SHORT": 4158
+  },
+  "economics_evaluated": false,
+  "exact_next_coverage": 0.9983517777254532,
+  "executable_events": 8325,
+  "feature_coverage": 0.9962733520472364,
+  "feature_usable_rows": 349945,
+  "friday_blocked": 41,
+  "gap_resets": 1309,
+  "gates": {
+    "cadence_2_to_5": false,
+    "design_rows_gte_300000": true,
+    "deterministic_replay": true,
+    "events_gte_500": true,
+    "every_year_1_25_to_6_5": false,
+    "exact_next_gte_0_97": true,
+    "feature_coverage_gte_0_98": true,
+    "long_share_gte_0_30": true,
+    "max_year_share_lte_0_30": true,
+    "short_share_gte_0_30": true,
+    "zero_conflicts": true
+  },
+  "hypothesis_id": "HYP-CUSX-XAUUSD-M5-001",
+  "max_year_share": 0.21057057057057058,
+  "outcomes_opened": false,
+  "parameters": {
+    "atr_window": 48,
+    "gap_reset_seconds": 300,
+    "reference_allowance": 0.05,
+    "threshold": 3.0
+  },
+  "raw_events": 8494,
+  "schema_version": "cusx_source_report.v1",
+  "validation": {
+    "chronology_strict": true,
+    "design_rows": 351303,
+    "first_source_epoch": 1514883600,
+    "geometry_all_valid": true,
+    "geometry_valid_rows": 351303,
+    "identity_ok": true,
+    "last_source_epoch": 1672444500,
+    "schema_exact": true,
+    "source_epoch_time_server_equal": true,
+    "time_server_ok": true,
+    "utc_complete_unambiguous": true,
+    "window_sealed": true
+  },
+  "weekend_blocked": 114
+}

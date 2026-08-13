@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-XAU-SIGNED-QUOTE-ABSORB-002",
+  "run_id": "SQA002-SOURCE-STATIC-003",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_XAUSignedQuoteAbsorbSourceV3\\HYP-XAU-SIGNED-QUOTE-ABSORB-002_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "FD15B0523393E5E1CFBF35B7EE876633F46B98D512F12F7247BEFB6D53D99717",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XAUSignedQuoteAbsorbSourceV3\\EA_XAUSignedQuoteAbsorbSourceV3.mq5",
+      "sha256": "1797A6AFCA605A70B97A2F52876B44847FA0C97533E5E5568FC15B06FFE3C9DD"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XAUSignedQuoteAbsorbSourceV3\\EA_XAUSignedQuoteAbsorbSourceV3.mq5",
+      "line": 324,
+      "rule": "collection_first_date_copytime",
+      "function": "CopyTime",
+      "disposition": "allowed_collection_provenance_read"
+    }
+  ],
+  "generated_at_utc": "2026-08-11T21:27:35.903234+00:00"
+}

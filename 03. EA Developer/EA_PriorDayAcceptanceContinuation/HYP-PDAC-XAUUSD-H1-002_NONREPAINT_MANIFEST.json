@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-PDAC-XAUUSD-H1-002",
+  "run_id": "PDAC002-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_PriorDayAcceptanceContinuation",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_PriorDayAcceptanceContinuation\\EA_PriorDayAcceptanceContinuation.mq5",
+  "source_sha256": "16DD0E4879DDBF2D479C52DBBA5167630D85A868B50A7670B195DCDC2711BD1D",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

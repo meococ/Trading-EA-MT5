@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-XBT-MM-TRADETHROUGH-003",
+  "run_id": "SOURCE-SNAPSHOT-R3-20260812",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_XBTMMTradeThroughV3\\research\\preflight\\HYP-XBT-MM-TRADETHROUGH-003\\nonrepaint_manifest.json",
+  "manifest_sha256": "B16F2F97A0E45F3A1068B781D617D91C6678B5362D45FF53F1B678BA6F8518B9",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XBTMMTradeThroughV3\\research\\preflight\\HYP-XBT-MM-TRADETHROUGH-003\\nonrepaint_snapshot\\EA_XBTMMTradeThroughV3.mq5",
+      "sha256": "FD37B1752A0C62C7009DA73F147A30FC02715AA5EC0D82E2AC562CF05A02321C"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_XBTMMTradeThroughV3\\research\\preflight\\HYP-XBT-MM-TRADETHROUGH-003\\nonrepaint_snapshot\\EA_XBTMMTradeThroughV3.mq5",
+      "line": 1122,
+      "rule": "collection_first_date_copytime",
+      "function": "CopyTime",
+      "disposition": "allowed_collection_provenance_read"
+    }
+  ],
+  "generated_at_utc": "2026-08-11T23:41:43.389429+00:00"
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-ADX-XAUUSD-M15-001",
+  "run_id": "ADX001-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\HYP-ADX-XAUUSD-M15-001_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "9FB6184BB7340122CCB217F9579D60F685DBE8777247BBB90F3A47C9D9F8C247",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\EA_ADXDirectionalCross.mq5",
+      "sha256": "CEA49A1F897727451E16C8C18B1ABAFD273B3FAB4CCD7191F4723D49F87DB2EF"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_ADXDirectionalCross\\EA_ADXDirectionalCross.mq5",
+      "line": 176,
+      "rule": "collection_first_date_copytime",
+      "function": "CopyTime",
+      "disposition": "allowed_collection_provenance_read"
+    }
+  ],
+  "generated_at_utc": "2026-08-10T16:05:52.361074+00:00"
+}

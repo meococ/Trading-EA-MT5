@@ -1,0 +1,24 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_id": "HYP-CBWR-XAUUSD-M15-002",
+  "ea_name": "EA_WickReject_XAU_M15_V1",
+  "audited_source_sha256": "A7102958C470FCBD03B8FE463658DFAC4557991045990BF61F49CE95E09447B0",
+  "status": "PASS",
+  "decision_timeframe": "M15",
+  "evidence": {
+    "rates_read": "CopyRates(_Symbol,PERIOD_M15,1,required,rates)",
+    "atr_read": "CopyBuffer(g_atr_handle,0,1,needed,values)",
+    "signal_bar": "rates[0] maps to closed shift 1",
+    "swing_bars": "rates[1..8] map to closed shifts 2..9",
+    "entry_clock": "first OnTick after SERIES_LASTBAR_DATE changes",
+    "bar_zero_decision_reads": 0,
+    "future_pivots": 0,
+    "multi_timeframe_signal_alignment_required": false,
+    "engineering_only_change": "canonical M5/M1 D0 series proof for AlphaFactory journal parser"
+  },
+  "limitations": [
+    "M5 and M1 reads occur only during OnInit evidence proof and never enter signal or order logic.",
+    "Post-entry management uses live executable quotes by design.",
+    "The audit proves causal indexing, not economic edge."
+  ]
+}

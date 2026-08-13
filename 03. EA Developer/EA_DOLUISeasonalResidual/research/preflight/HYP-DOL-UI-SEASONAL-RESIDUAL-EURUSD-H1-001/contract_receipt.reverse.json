@@ -1,0 +1,204 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "hypothesis_id": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+  "task_packet_sha256": "ACC2D44E4DC14327D533911295BF1EA62DB2831D07BF60968EDA01FB785543F0",
+  "git_commit": "37cab997bba5aa310f53b5232ef52e8cb4dd181d",
+  "git_status_sha256": "12AA83D7491DDBBC6AE68979BC54807FF5260E34D29F5994DC54DE6401EE1ACB",
+  "binding": {
+    "hypothesis_id": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+    "run_role": "control",
+    "ea_name": "EA_DOLUISeasonalResidual",
+    "symbol": "EURUSD",
+    "period": "H1",
+    "from": "2018.01.01",
+    "to": "2023.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "overrides": "InpDeviationPoints=100;InpEnableAudit=true;InpExposurePercent=0.25;InpHypothesisId=HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001;InpMagic=8132601;InpMaxEntryDelaySec=300;InpMaxLots=1.0;InpResearchAutoMode=true;InpReverseComparator=true;InpSizingPips=40.0;InpVariantTag=DOLUI_RESIDUAL_H1_DELAY4H_V1",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [
+      "DOLUI001_RunMeta_REVERSE.json",
+      "EURUSD_DOLUI001_Trades_REVERSE.csv"
+    ],
+    "symbol_geometry": {
+      "digits": 5,
+      "point": 1e-05,
+      "pip_size": 0.0001
+    },
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "34FE21595B0C8EB3342BB31674AA153101A24F881531CBD40789C2324ED9DA69",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-13T02:49:03Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {
+        "operator": "gt",
+        "value": 97
+      },
+      "requested_from": "2018.01.01",
+      "requested_to": "2023.01.01",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 4194304
+    }
+  },
+  "evidence": [
+    {
+      "label": "task_packet",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\research\\HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001_REVERSE_TASK.json",
+      "sha256": "ACC2D44E4DC14327D533911295BF1EA62DB2831D07BF60968EDA01FB785543F0"
+    },
+    {
+      "label": "source",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\EA_DOLUISeasonalResidual.mq5",
+      "sha256": "72D8C1CFF8F7BD8A8D441A41BB206B9514580FC3AE4034966AE036245429018A"
+    },
+    {
+      "label": "static_ex5",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\EA_DOLUISeasonalResidual.ex5",
+      "sha256": "9CF17ACA48735F1D04004A1349948A8B6AB8772FEB9C05DFC9F3F69A040AC52A"
+    },
+    {
+      "label": "static_compile_log",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\EA_DOLUISeasonalResidual.log",
+      "sha256": "4A8BE4F02E6BD27DCB08728E1D182091B1090789FB0CE45D2DCB306AAE3BE6C1"
+    },
+    {
+      "label": "prereg",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\research\\HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001_FROZEN_ECONOMIC_PREREG.md",
+      "sha256": "8AF78BA6AA15BD2365C9F0CB38DF0CC735382FB3B0B148367850E2C51AF7D053"
+    },
+    {
+      "label": "cost_source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\research\\HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001_COST_SOURCE_MANIFEST.json",
+      "sha256": "A5F43BCBDF859EEF1C8522A4C22D271330158065DC5692529E8C6E728E14C215"
+    },
+    {
+      "label": "candidate_registry",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+      "sha256": "4D8204A319F677EC7DAD6C6419AD32E5DD70BFB4DBE27916D74D6CBFF36C62F6"
+    },
+    {
+      "label": "ea_contract",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\ALPHAFACTORY_EA_CONTRACT.json",
+      "sha256": "810891897D0D41D9208278ACA81B65C45969E679D89CD4882D7597FFA68A85E6"
+    },
+    {
+      "label": "nonrepaint_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001_NONREPAINT_MANIFEST.json",
+      "sha256": "824D523F2CE0D46F1F426352ED38F11AA2EDF204E6C9C11C4638194D2909C002"
+    },
+    {
+      "label": "nonrepaint_audit",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\research\\HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001_NONREPAINT_AUDIT.json",
+      "sha256": "88FBAC3EA6D158B4893EA769B86AC44B0DAFA71FD532FD25E7181DCCBE263F99"
+    },
+    {
+      "label": "source_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\dol_ui\\HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001\\manifest.json",
+      "sha256": "416271B50C17729028E05CB91D1999DF290BBCFED2429BA22E724762D714EFE1"
+    },
+    {
+      "label": "source_csv",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\dol_ui\\HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001\\dol_ui_seasonal_residual_2018_20260806.csv",
+      "sha256": "3CD5D03DC85309724C5E3E616223657ACBA8DF86D4722F4A7EDAAB068C9009BA"
+    },
+    {
+      "label": "source_receipt",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\research\\evidence\\HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001\\DOLUI001-SOURCE-002\\source_feasibility_receipt.json",
+      "sha256": "58AF5CC103F8CFC2CD8D906818736C562E090EC3D3CD361C13903E01E06DB65C"
+    },
+    {
+      "label": "train_table_manifest",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\research\\HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001_TRAIN_TABLE_MANIFEST.json",
+      "sha256": "6178DCC0D4120939B45578EEF068318C778797023599BAAEF543DA703991CE93"
+    },
+    {
+      "label": "pre_model0_review",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\research\\HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001_PRE_MODEL0_REVIEW.md",
+      "sha256": "39557F949A010CC844D029B0A5D8DB68B9B8A5EC4094FA2E2752D9D66BD4A9B4"
+    },
+    {
+      "label": "frozen_analyzer",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\research\\analyze_dolui_001.py",
+      "sha256": "990283BDE792CD2FBDDF0410155F75C5056C73F8378365D38FDED8D1F460A56B"
+    },
+    {
+      "label": "alpha_ps1",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\alpha.ps1",
+      "sha256": "30B63EA6D9B8FCE1BCD27D330FEF5C8A1E9B29399A5E9AE6AB5F97750C015B5B"
+    },
+    {
+      "label": "include_dolui_table",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\resources\\dolui_001_train_table.mqh",
+      "sha256": "E4A4407047A7B2A46EBD9BC7C3817FF41545F5662F1D480D4E5CF10D853388A8"
+    },
+    {
+      "label": "include_trade",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\Trade.mqh",
+      "sha256": "96E6781624534377FE7971CBA52CCA3D62D1B030BC10D5E4EBF3ED8C541399ED"
+    },
+    {
+      "label": "include_object",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Object.mqh",
+      "sha256": "DFAD4FDB6D1BF47CF43FCBC2882E52979459F17A776F75F250A7C32D0623AB35"
+    },
+    {
+      "label": "include_stdliberr",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\StdLibErr.mqh",
+      "sha256": "04BB2C47B1B04DCEB052E6DBA1F85E0330C53ABC602F341E2EA95EA1498AB28B"
+    },
+    {
+      "label": "include_order_info",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\OrderInfo.mqh",
+      "sha256": "D0E479578EF91D2EF1B07AE63D28AE54E15CEBB914DD10E5D4510C269A9CA999"
+    },
+    {
+      "label": "include_history_order_info",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\HistoryOrderInfo.mqh",
+      "sha256": "E88F6BE450462A045470315887EF751A4510DA65A5115325DC88542743FC52F8"
+    },
+    {
+      "label": "include_position_info",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\PositionInfo.mqh",
+      "sha256": "DD720B755C7F23DCC109FC81BCF0772B907411D545E4A1117421737BB9FF6897"
+    },
+    {
+      "label": "include_deal_info",
+      "kind": "file",
+      "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-fivepercent\\MQL5\\Include\\Trade\\DealInfo.mqh",
+      "sha256": "9D6FB4E7D8754EAEE761E43943DC49CDC3A32793EE8438119D939EA7BAD71880"
+    }
+  ],
+  "generated_at_utc": "2026-08-13T02:49:03Z",
+  "note": "Frozen TRAIN Model-0 REVERSE; validation and holdout remain sealed."
+}

@@ -1,0 +1,2 @@
+{"schema_version":"alphafactory_nonrepaint_audit.v1","hypothesis_id":"HYP-FIXCLK-EURUSD-M5-001","ea_name":"EA_FixClock_EUR_M5_V11P","phase":"CLOCK_PREFLIGHT_ONLY","verdict":"PASS","signal_availability":"No signals or orders. The probe observes each newly opened M5 bar and its already-known previous open only.","repaint_dependencies":[],"lookahead_dependencies":[],"risk_checks":["EURUSD M5 binding","no Trade include","no order API","canonical D0 proof","UK-US DST rules frozen in code"]}
+

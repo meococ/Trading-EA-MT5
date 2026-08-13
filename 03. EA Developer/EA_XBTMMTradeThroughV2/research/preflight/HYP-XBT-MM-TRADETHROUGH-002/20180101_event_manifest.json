@@ -1,0 +1,47 @@
+{
+  "schema_version": "xbtmm_event_stream_manifest.v2",
+  "symbol": "XBTUSD",
+  "utc_day": "20180101",
+  "event_order": "trade_before_quote_at_identical_microsecond",
+  "quote_archive": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\external\\bitmex_xbtusd\\raw\\2018\\01\\quote-20180101.csv.gz",
+    "bytes": 12071373,
+    "sha256": "04B9FFBB2D16EE13B0185488A2D7E91107C2C3D58C7DC994E4D922A6811E4DB4"
+  },
+  "trade_archive": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\external\\bitmex_xbtusd\\raw\\2018\\01\\trade-20180101.csv.gz",
+    "bytes": 10977930,
+    "sha256": "9F5FBA250BC6163AC3257548E81F5E5F8E21B5DAE0F3662398258BF649D4B335"
+  },
+  "output": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\external\\bitmex_xbtusd\\events\\20180101.xbtmm",
+    "bytes": 55883752,
+    "sha256": "454CEC6AF9A3C554FC394549EF878D9DC45809D3CDB4C8BD20EF82D4829DC6ED",
+    "record_size": 58,
+    "records": 963512,
+    "quote_records": 730578,
+    "trade_records": 232934,
+    "first_time_us": 1514764802008398,
+    "last_time_us": 1514851199907904
+  },
+  "integrity": {
+    "timestamps_nondecreasing": true,
+    "events_within_utc_day": true,
+    "utc_boundary_coverage_pass": true,
+    "boundary_tolerance_us": 60000000,
+    "crossed_quote_records": 0,
+    "crossed_book_threshold_us": 50000,
+    "crossed_book_invalid_us": 0,
+    "quote_gaps_over_3s": 330,
+    "quote_gap_segment_threshold_us": 60000000,
+    "quote_gap_invalid_us": 0,
+    "trade_gaps_over_3s": 6568,
+    "max_quote_gap_us": 7520132,
+    "max_trade_gap_us": 37748498,
+    "invalid_quote_time_us_union": 0,
+    "invalid_quote_time_ratio": 0.0,
+    "invalid_quote_time_ratio_max": 0.005,
+    "trade_gap_standalone_gate": false,
+    "source_gate_pass": true
+  }
+}

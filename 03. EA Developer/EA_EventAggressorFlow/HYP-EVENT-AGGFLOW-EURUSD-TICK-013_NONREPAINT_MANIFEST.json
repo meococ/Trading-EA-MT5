@@ -1,0 +1,14 @@
+{
+  "hypothesis_id": "HYP-EVENT-AGGFLOW-EURUSD-TICK-013",
+  "run_id": "EVENTAGGFLOW013-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventAggressorFlow",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventAggressorFlow\\EA_EventAggressorFlow.mq5",
+  "source_sha256": "38419266CD210282511A655CE58B805E6D106DE51B753D524DD6E2034E5407CC",
+  "nondecision_provenance_copytime_authorized": false,
+  "include_snapshots": [
+    {
+      "snapshot_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventAggressorFlow\\resources\\event_aggflow_013_table.mqh",
+      "sha256": "20CBE99F9917F4AE1E83054202AA218760BCFD2B96F626C96632D5EF5B51FD46"
+    }
+  ]
+}

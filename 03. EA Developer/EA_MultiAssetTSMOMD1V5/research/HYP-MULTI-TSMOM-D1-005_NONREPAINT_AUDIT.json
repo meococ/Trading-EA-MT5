@@ -1,0 +1,63 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-005",
+  "source_sha256": "AADDDFCC305853DD3C3F1892406935853EA5402F51A9302259D0FA5F30B1991C",
+  "status": "PASS_STATIC",
+  "checks": [
+    {
+      "id": "closed-bars",
+      "status": "PASS",
+      "evidence": "LoadClosedAssetState calls CopyRates(symbol, PERIOD_D1, 1, HISTORY_BUFFER, rates)."
+    },
+    {
+      "id": "shift-zero-price",
+      "status": "PASS",
+      "evidence": "iTime shift 0 supplies only the known close boundary of rates[0]; no shift-zero OHLC value enters signal or volatility."
+    },
+    {
+      "id": "calendar-lookback",
+      "status": "PASS",
+      "evidence": "The first completed close_time <= decision_time - 31536000 seconds is selected without future access."
+    },
+    {
+      "id": "h1-use-boundary",
+      "status": "PASS",
+      "evidence": "The source H1 path is used only to construct completed D1 bars and the weekly open quote; no H1 high, low or synthetic intrabar path enters alpha or an exit."
+    },
+    {
+      "id": "frozen-snapshot",
+      "status": "PASS",
+      "evidence": "Signal, volatility, weights and target volumes are prepared once and retained across transition retries."
+    },
+    {
+      "id": "btc-eligibility",
+      "status": "PASS",
+      "evidence": "BTC eligibility is a compile-time 2018-05-14 UTC listing/warmup boundary, independent of results."
+    },
+    {
+      "id": "indicator-repaint",
+      "status": "PASS",
+      "evidence": "The EA has no indicator handles, CopyBuffer calls, ZigZag/fractal pivots, centered windows or future-bar references."
+    },
+    {
+      "id": "missing-source",
+      "status": "PASS",
+      "evidence": "Any missing active asset invalidates the whole snapshot; no source-missing leg is assigned zero weight."
+    },
+    {
+      "id": "signed-net-delta",
+      "status": "PASS",
+      "evidence": "NormalizeVolumeNearest retains the sign of target-current after rounding absolute lots, so short opens and same-side reductions are executable."
+    },
+    {
+      "id": "financing-state-order",
+      "status": "PASS",
+      "evidence": "A forced post-rebalance financing snapshot supersedes the earlier daily-open state and carries forward only in the external frozen analyzer."
+    }
+  ],
+  "limitations": [
+    "Static audit does not prove full H1 source coverage, MT5 custom-rate readback or runtime execution correctness.",
+    "The source identity is invalid for any intraday alpha, stop, target, filter or exit.",
+    "Economics remain unauthorized until source, commission, slippage and financing gates pass."
+  ]
+}

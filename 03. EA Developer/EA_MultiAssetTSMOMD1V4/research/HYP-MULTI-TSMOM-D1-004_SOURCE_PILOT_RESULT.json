@@ -1,0 +1,97 @@
+{
+  "schema_version": "alphafactory_dukascopy_source_pilot.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-004",
+  "authority": "SOURCE_DATA_ONLY_NO_PERFORMANCE",
+  "economics_authorized": false,
+  "status": "PASS_BOUNDARY_HOURS",
+  "source_contract_sha256": "CCFDF202021446F430BFB0FEB8098EF768AD4E7A95CEC15FC65FA1E9979974B3",
+  "notes": [
+    "Eight core symbols use a January 2017 boundary trading hour.",
+    "XAUUSD 2017-01-02 14:00 UTC returned an explicit empty 200 response during the New Year market holiday; the next ordinary trading day 2017-01-03 14:00 UTC passed.",
+    "BTCUSD uses 2017-05-08 14:00 UTC, after its verified 2017-05-07 23:59:59.058 UTC history start.",
+    "No signal, order, return, PF or drawdown was computed."
+  ],
+  "receipts": [
+    {
+      "symbol": "AUDUSD",
+      "hour_utc": "2017-01-02T14:00:00Z",
+      "tick_count": 2120,
+      "first_time_msc": 1483365602535,
+      "last_time_msc": 1483369199876,
+      "raw_sha256": "7D80C5A52671E21A271FD003A8B65DF016E8A4012D82EC29F81FFD9EC159AADE",
+      "binary_sha256": "A1DF6B692C128A59B904C452A3B5478ADD7A298589CD80045FE44A86678DEBC2"
+    },
+    {
+      "symbol": "BTCUSD",
+      "hour_utc": "2017-05-08T14:00:00Z",
+      "tick_count": 12810,
+      "first_time_msc": 1494252001945,
+      "last_time_msc": 1494255599714,
+      "raw_sha256": "E7AFDE401E14A91864DBBCEB0B53C13F789607C2D7C50DC9974B69856B29D1E4",
+      "binary_sha256": "1100B87A5639AFF184EA0DAAFFEE54D572400F0A50330F7206D2B6C9860545CE"
+    },
+    {
+      "symbol": "EURUSD",
+      "hour_utc": "2017-01-02T14:00:00Z",
+      "tick_count": 4350,
+      "first_time_msc": 1483365600219,
+      "last_time_msc": 1483369198637,
+      "raw_sha256": "521EEBBBCA2FADB62FA8DE0BEDAE2CD74F3DAB49950C39D01D8DE7C55BA3BF9E",
+      "binary_sha256": "67EB7B32B5E328D741670A0169AD0AE21FE401240177093289D582EFB2791610"
+    },
+    {
+      "symbol": "GBPUSD",
+      "hour_utc": "2017-01-02T14:00:00Z",
+      "tick_count": 1097,
+      "first_time_msc": 1483365600175,
+      "last_time_msc": 1483369195976,
+      "raw_sha256": "DB3FF9BC5374A7656E77A041ED3F8AFF5E261CD6733DF174EBE4C081A60426F8",
+      "binary_sha256": "1119E06DD61CBD366427A291766D2CF5467612585E221B377C9E3D01E8C745AF"
+    },
+    {
+      "symbol": "NZDUSD",
+      "hour_utc": "2017-01-02T14:00:00Z",
+      "tick_count": 4175,
+      "first_time_msc": 1483365600217,
+      "last_time_msc": 1483369194807,
+      "raw_sha256": "7AB6DEE8FEBFED180294DEB8758B20ED1DEB5F2C02506F3B4857B7790675803A",
+      "binary_sha256": "7FD8B83BCDC52CBACE1467B03DFB653FAD0CB448E3531BEDF99EF6CCAB41D0F8"
+    },
+    {
+      "symbol": "USDCAD",
+      "hour_utc": "2017-01-02T14:00:00Z",
+      "tick_count": 4378,
+      "first_time_msc": 1483365600169,
+      "last_time_msc": 1483369192483,
+      "raw_sha256": "F77EC7E2E56F176A084A0CB956ECF9493B2993C72BA8C9C69FA59005528C6FE5",
+      "binary_sha256": "FE5F1AAAB9B8285137DEE7D222C3B86CF9B01E2EB96B93C6C248C9393CA0D1C8"
+    },
+    {
+      "symbol": "USDCHF",
+      "hour_utc": "2017-01-02T14:00:00Z",
+      "tick_count": 2701,
+      "first_time_msc": 1483365600216,
+      "last_time_msc": 1483369196607,
+      "raw_sha256": "7CAB6D455A7E8C982E59D696204C3B7D6627618878AEB6B868907F4004542C5F",
+      "binary_sha256": "B98EC807A9FF239F516DFB5274F9F21D54D38005585E654D265D270DF822E318"
+    },
+    {
+      "symbol": "USDJPY",
+      "hour_utc": "2017-01-02T14:00:00Z",
+      "tick_count": 3166,
+      "first_time_msc": 1483365600320,
+      "last_time_msc": 1483369199247,
+      "raw_sha256": "0FB1307B209BE7B3BBCA19B1A7CF37A710211059649327D4388F44BBADC24314",
+      "binary_sha256": "E592FC92B2D0737CE663640EC345050EC98DCCFE90D7AA93DD9CF18DAECC76D1"
+    },
+    {
+      "symbol": "XAUUSD",
+      "hour_utc": "2017-01-03T14:00:00Z",
+      "tick_count": 14294,
+      "first_time_msc": 1483452000083,
+      "last_time_msc": 1483455599927,
+      "raw_sha256": "28901EABB064912C9FE972AAF2F0566D4D5B37C455C66CFD280F3F3C52F3F7FA",
+      "binary_sha256": "2E49EDA9E969ADBEFB1B70D197BEB4BA0BCF66C49999F6F9CA1DB473F1DE7450"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": "alphafactory_nonrepaint_manifest.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-004",
+  "ea_name": "EA_MultiAssetTSMOMD1V4",
+  "source_sha256": "05E03D3045E36903076EDB01E52CB94DFAE0145F4E095AC69AAD99062AFFBE94",
+  "ex5_sha256": "5448DB5B34FF17E1B2EE343AC20011DE8BD516E8AD620B1D514529D119DD7117",
+  "compile_log_sha256": "849BFC32D3C71F33363A916E18ABE928560536722227153A207E82FE8BB33045",
+  "compile_result": "0 errors, 0 warnings",
+  "decision_clock": "first common-ready tick on observed UTC Monday",
+  "signal_data": "completed D1 bars only through CopyRates shift 1",
+  "current_bar_price_used": false,
+  "calendar_lookback_seconds": 31536000,
+  "btc_active_from_utc": "2018-05-14T00:00:00Z",
+  "repaint_or_lookahead_detected": false,
+  "audit_status": "PASS_STATIC"
+}

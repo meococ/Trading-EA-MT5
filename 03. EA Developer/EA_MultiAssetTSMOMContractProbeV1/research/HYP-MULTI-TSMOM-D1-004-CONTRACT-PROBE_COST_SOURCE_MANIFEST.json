@@ -1,0 +1,13 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "authority": "DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-004-CONTRACT-PROBE",
+  "symbol": "EURUSD",
+  "purpose": "Current broker symbol and swap contract capture only; no orders and no economics.",
+  "spread_source": "not_applicable_no_trade_api",
+  "commission_source": "not_applicable_no_trade_api",
+  "slippage_source": "not_applicable_no_trade_api",
+  "verified": false,
+  "economics_authorized": false,
+  "promotion_eligible": false
+}

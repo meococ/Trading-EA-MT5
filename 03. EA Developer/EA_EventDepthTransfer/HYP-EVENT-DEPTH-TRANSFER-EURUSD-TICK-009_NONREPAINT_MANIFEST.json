@@ -1,0 +1,20 @@
+{
+  "schema_version": "event_depth_transfer_009_nonrepaint_manifest.v1",
+  "hypothesis_id": "HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009",
+  "verdict": "PASS",
+  "decision_clock": "tick.time_msc",
+  "source_cutoff_milliseconds_after_event": 60000,
+  "entry_boundary_milliseconds_after_event": 60000,
+  "exit_boundary_milliseconds_after_event": 120000,
+  "signal_bar_series_calls_found": 0,
+  "provenance_only_copytime_calls_found": 1,
+  "bar_zero_decision_paths_found": 0,
+  "source_contains_target_prices": false,
+  "source_ledger_sha256": "3B3B0F4CF85FD733B26DE0CA84F890265C94693DC7A58170507491985B2687B8",
+  "canonical_table_sha256": "BD2D3F6CF9C048F606F822EF2BEDF0C6DCA4CE6C25673A5235D70F8AC096A3DD",
+  "ea_source_sha256": "8B86257A2851CF134DCD5B6A23B30D2ED56D71CCDE9856B214CFDE5FAE92FB88",
+  "compile_log_sha256": "8C6B82C4AF704AEB9BF5848717D9219C854D5568973B84941C130258400E5571",
+  "compile_result": "0 errors, 0 warnings",
+  "economic_validity_claimed": false,
+  "promotion_eligible": false
+}

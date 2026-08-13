@@ -1,0 +1,2 @@
+{"schema_version":"alphafactory_observability_preflight.v1","hypothesis_id":"HYP-WMRR-EURUSD-M5-001","verdict":"PASS","execution_symbol":"EURUSD","period":"M5","native_inputs":["completed M5 OHLC","server bar-open timestamps","current spread","equity and margin"],"external_inputs":[],"reference_symbols":[],"clock_receipt":{"hypothesis_id":"HYP-FIXCLK-EURUSD-M5-001","run_id":"20260812_024540","verdict":"PASS_US_DST_NY_CLOSE"},"fail_closed_conditions":["missing bar","non-contiguous five-minute window","invalid ATR","unreachable broker stops"]}
+

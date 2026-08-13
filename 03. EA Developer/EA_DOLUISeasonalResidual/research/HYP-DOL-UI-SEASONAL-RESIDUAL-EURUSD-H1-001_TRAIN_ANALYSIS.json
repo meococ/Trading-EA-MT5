@@ -1,0 +1,211 @@
+{
+  "schema_version": "dolui_001_train_economic_analysis.v1",
+  "hypothesis_id": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+  "source_sha256": "3CD5D03DC85309724C5E3E616223657ACBA8DF86D4722F4A7EDAAB068C9009BA",
+  "table_sha256": "20377DAA5449E0C10D67620768FA127B8FAEF5F49DDC802AF78DD8848F8C5A05",
+  "primary_meta": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_DOLUISeasonalResidual\\20260813_094716\\logs\\DOLUI001_RunMeta_PRIMARY.json",
+    "sha256": "BECD6B36E11E2FFB85D19146B7FAC287DF080A2B373CBEB988E0CE172139F6F2",
+    "payload": {
+      "schema_version": "dolui_001_run_meta.v1",
+      "hypothesis_id": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+      "role": "PRIMARY",
+      "source_sha256": "3CD5D03DC85309724C5E3E616223657ACBA8DF86D4722F4A7EDAAB068C9009BA",
+      "source_receipt_sha256": "58AF5CC103F8CFC2CD8D906818736C562E090EC3D3CD361C13903E01E06DB65C",
+      "table_sha256": "20377DAA5449E0C10D67620768FA127B8FAEF5F49DDC802AF78DD8848F8C5A05",
+      "events": 260,
+      "next_event": 260,
+      "accounted": 260,
+      "completed": 258,
+      "source_flat": 2,
+      "missed_entry": 0,
+      "bar_mismatch": 0,
+      "weekend_skips": 0,
+      "overlap_skips": 0,
+      "entry_rejects": 0,
+      "exit_rejects": 0,
+      "max_concurrent": 1,
+      "active_event": -1,
+      "runtime_failed": false,
+      "failure_reason": "",
+      "deinit_reason": 1
+    }
+  },
+  "reverse_meta": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_DOLUISeasonalResidual\\20260813_094909\\logs\\DOLUI001_RunMeta_REVERSE.json",
+    "sha256": "3AF51179B99CD33D5BEC677B37327DF6847DEB7E5FE7635F2ACE79E26A7389F6",
+    "payload": {
+      "schema_version": "dolui_001_run_meta.v1",
+      "hypothesis_id": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+      "role": "REVERSE",
+      "source_sha256": "3CD5D03DC85309724C5E3E616223657ACBA8DF86D4722F4A7EDAAB068C9009BA",
+      "source_receipt_sha256": "58AF5CC103F8CFC2CD8D906818736C562E090EC3D3CD361C13903E01E06DB65C",
+      "table_sha256": "20377DAA5449E0C10D67620768FA127B8FAEF5F49DDC802AF78DD8848F8C5A05",
+      "events": 260,
+      "next_event": 260,
+      "accounted": 260,
+      "completed": 258,
+      "source_flat": 2,
+      "missed_entry": 0,
+      "bar_mismatch": 0,
+      "weekend_skips": 0,
+      "overlap_skips": 0,
+      "entry_rejects": 0,
+      "exit_rejects": 0,
+      "max_concurrent": 1,
+      "active_event": -1,
+      "runtime_failed": false,
+      "failure_reason": "",
+      "deinit_reason": 1
+    }
+  },
+  "primary_native_summary": {
+    "path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_DOLUISeasonalResidual\\20260813_094716\\analysis\\enhanced_summary.json",
+    "sha256": "387388E632D2571464FC33F64EA9B283F967D7890C54A53594C6A400F7D66FD7",
+    "payload": {
+      "n_trades": 258,
+      "net_profit": 508.08000000000175,
+      "profit_factor": 1.0273934049439468,
+      "win_rate_pct": 53.100775193798455,
+      "avg_win": 139.09204379562044,
+      "avg_loss": -154.56275,
+      "max_drawdown_pct": 3.607281614692108,
+      "max_drawdown_abs": 3728.25,
+      "expectancy_per_trade": 1.9693023255813962,
+      "start_equity": 100000.0,
+      "final_equity": 100508.08,
+      "streaks": {
+        "max_win_streak": 6,
+        "max_loss_streak": 5,
+        "current_streak": 1,
+        "current_streak_type": "win"
+      },
+      "weaknesses_count": 2
+    }
+  },
+  "primary": {
+    "role": "PRIMARY",
+    "ledger_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_DOLUISeasonalResidual\\20260813_094716\\logs\\EURUSD_DOLUI001_Trades_PRIMARY.csv",
+    "ledger_sha256": "69C3982194F4CDBAD63E7189BE7FF5C78A8E2A9CB459FD8474666F4D45529739",
+    "status_counts": {
+      "CLOSED": 258,
+      "SKIP_SOURCE_FLAT": 2
+    },
+    "base": {
+      "trades": 258,
+      "net": 220.3229999999646,
+      "profit_factor": 1.0118002437462674,
+      "expectancy": 0.8539651162789326,
+      "closed_trade_drawdown_pct": 3.6574403264934485
+    },
+    "cost_x1_5": {
+      "trades": 258,
+      "net": -487.14050000005255,
+      "profit_factor": 0.9743444008123658,
+      "expectancy": -1.8881414728684207,
+      "closed_trade_drawdown_pct": 3.814220513310796
+    },
+    "cost_x2": {
+      "trades": 258,
+      "net": -1194.6040000000708,
+      "profit_factor": 0.9381220407868934,
+      "expectancy": -4.630248062015778,
+      "closed_trade_drawdown_pct": 3.9726540154928767
+    },
+    "year_base_net": {
+      "2018": -116.75700000000998,
+      "2019": 1262.1269999999843,
+      "2020": 895.3709999999799,
+      "2021": 831.413999999986,
+      "2022": -2651.831999999975
+    },
+    "year_completed_trades": {
+      "2018": 52,
+      "2019": 51,
+      "2020": 51,
+      "2021": 52,
+      "2022": 52
+    },
+    "positive_years": 3,
+    "top_5pct": {
+      "count": 13,
+      "gross_profit_share": 0.26131984654586893
+    }
+  },
+  "reverse": {
+    "role": "REVERSE",
+    "ledger_path": "D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_DOLUISeasonalResidual\\20260813_094909\\logs\\EURUSD_DOLUI001_Trades_REVERSE.csv",
+    "ledger_sha256": "9F6B5964460D294BE19211E3ECEDE1A4D732A6A398B6E6362E3A0A894482B901",
+    "status_counts": {
+      "CLOSED": 258,
+      "SKIP_SOURCE_FLAT": 2
+    },
+    "base": {
+      "trades": 258,
+      "net": -3086.0060000000344,
+      "profit_factor": 0.844698642982801,
+      "expectancy": -11.961263565891606,
+      "closed_trade_drawdown_pct": 5.945784682386356
+    },
+    "cost_x1_5": {
+      "trades": 258,
+      "net": -3771.4390000000512,
+      "profit_factor": 0.813904038162647,
+      "expectancy": -14.617980620155237,
+      "closed_trade_drawdown_pct": 6.483756758863382
+    },
+    "cost_x2": {
+      "trades": 258,
+      "net": -4456.8720000000685,
+      "profit_factor": 0.7843313300137013,
+      "expectancy": -17.27469767441887,
+      "closed_trade_drawdown_pct": 7.033311899127421
+    },
+    "year_base_net": {
+      "2018": -591.6660000000101,
+      "2019": -2027.051000000016,
+      "2020": -1303.38600000002,
+      "2021": -1213.923000000012,
+      "2022": 2050.020000000023
+    },
+    "year_completed_trades": {
+      "2018": 52,
+      "2019": 51,
+      "2020": 51,
+      "2021": 52,
+      "2022": 52
+    },
+    "positive_years": 1,
+    "top_5pct": {
+      "count": 13,
+      "gross_profit_share": 0.3331762692048584
+    }
+  },
+  "gates": {
+    "all_260_events_accounted": true,
+    "exactly_2_source_flat": true,
+    "completed_at_least_250": true,
+    "each_year_completed_at_least_48": true,
+    "at_least_3_of_5_positive_years": true,
+    "base_pf_at_least_1_30": false,
+    "base_expectancy_positive": true,
+    "cost_x1_5_pf_at_least_1_25": false,
+    "cost_x2_pf_at_least_1_00": false,
+    "cost_x2_expectancy_nonnegative": false,
+    "native_drawdown_at_most_8pct": true,
+    "reverse_base_pf_inferior": true,
+    "reverse_base_expectancy_inferior": true,
+    "top_5pct_share_at_most_30pct": true
+  },
+  "passed_all_gates": false,
+  "verdict": "KILL_FROZEN_MAPPING",
+  "failed_gates": [
+    "base_pf_at_least_1_30",
+    "cost_x1_5_pf_at_least_1_25",
+    "cost_x2_pf_at_least_1_00",
+    "cost_x2_expectancy_nonnegative"
+  ],
+  "validation_open_authorized": false,
+  "optimization_authorized": false,
+  "same_id_rerun_authorized": false
+}

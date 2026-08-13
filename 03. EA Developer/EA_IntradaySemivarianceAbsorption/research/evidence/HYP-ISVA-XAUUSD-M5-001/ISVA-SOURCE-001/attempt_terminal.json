@@ -1,0 +1,11 @@
+{
+  "attempt_id": "ISVA-SOURCE-001",
+  "attempt_receipt_sha256": "FC174B79984F7450C395460BD231FFE83F9B12CC4ECACC102BD1BEBF481DC278",
+  "attempt_started_sha256": "DC797317614D62B93BB7D1988136FC23B04FA67E1F34F3FD830A07784875A829",
+  "completed_at_utc": "2026-08-11T05:15:44.312016+00:00",
+  "hypothesis_id": "HYP-ISVA-XAUUSD-M5-001",
+  "same_id_retry_authorized": false,
+  "schema_version": "isva_source_attempt_terminal.v1",
+  "status": "COMPLETE",
+  "verdict": "PARK_SOURCE_GATE_FAILURE"
+}

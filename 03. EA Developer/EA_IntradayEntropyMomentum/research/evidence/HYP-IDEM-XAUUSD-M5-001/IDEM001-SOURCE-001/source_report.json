@@ -1,0 +1,74 @@
+{
+  "all_gates_pass": true,
+  "attempt_id": "IDEM001-SOURCE-001",
+  "cadence_per_week": 2.4457831325301207,
+  "complete_sessions": 1276,
+  "decision_year_cadence": {
+    "2018": 2.3013698630136985,
+    "2019": 2.4356164383561643,
+    "2020": 2.5628415300546448,
+    "2021": 2.5123287671232877,
+    "2022": 2.4164383561643836
+  },
+  "decision_year_counts": {
+    "2018": 120,
+    "2019": 127,
+    "2020": 134,
+    "2021": 131,
+    "2022": 126
+  },
+  "design_rows": 351303,
+  "deterministic_replay": true,
+  "direction_shares": {
+    "LONG": 0.5391849529780565,
+    "SHORT": 0.4608150470219436
+  },
+  "directions": {
+    "LONG": 344,
+    "SHORT": 294
+  },
+  "economics_evaluated": false,
+  "exact_next_coverage": 1.0,
+  "executable_events": 638,
+  "expected_weekdays": 1305,
+  "gates": {
+    "cadence_2_to_5": true,
+    "design_rows_gte_300000": true,
+    "deterministic_replay": true,
+    "events_gte_500": true,
+    "every_year_1_25_to_6_5": true,
+    "exact_next_gte_0_97": true,
+    "long_share_gte_0_30": true,
+    "max_year_share_lte_0_30": true,
+    "measurement_coverage_gte_0_95": true,
+    "session_coverage_gte_0_95": true,
+    "short_share_gte_0_30": true,
+    "zero_conflicts": true
+  },
+  "hypothesis_id": "HYP-IDEM-XAUUSD-M5-001",
+  "max_year_share": 0.21003134796238246,
+  "measurement_coverage": 1.0,
+  "outcomes_opened": false,
+  "parameters": {
+    "entropy": "binary_log_return_sign",
+    "reference": "strictly_below_prior20_ordinary_median",
+    "session_utc": "00:00-15:55"
+  },
+  "raw_events": 638,
+  "reference_days": 20,
+  "schema_version": "idem_source_report.v1",
+  "session_coverage": 0.9777777777777777,
+  "valid_measurements": 1276,
+  "validation": {
+    "chronology_strict": true,
+    "clock_ok": true,
+    "design_rows": 351303,
+    "first_source_epoch": 1514883600,
+    "geometry_all_valid": true,
+    "geometry_valid_rows": 351303,
+    "identity_ok": true,
+    "last_source_epoch": 1672444500,
+    "schema_exact": true,
+    "window_sealed": true
+  }
+}

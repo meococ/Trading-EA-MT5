@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_task_packet.v1",
+  "authority": "DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE",
+  "hypothesis_id": "HYP-QPF-EURUSD-M1-004",
+  "ea_name": "EA_QuotePathFidelityProbe",
+  "run_role": "control",
+  "symbol": "EURUSD",
+  "period": "M1",
+  "from": "2018.01.01",
+  "to": "2026.08.01",
+  "model": 0,
+  "overrides": "InpCollectionOnly=1;InpHypothesisId=HYP-QPF-EURUSD-M1-004;InpExpectedSymbol=EURUSD;InpExpectedPeriodMinutes=1;InpBucketMinutes=5",
+  "collection_only": true,
+  "orders_authorized": false,
+  "economics_authorized": false,
+  "visual_mode": false,
+  "telemetry_tier": "off",
+  "telemetry_profile": "none",
+  "required_sidecars": ["*_QuotePathFidelity_*.csv"],
+  "indicator_dependencies": [],
+  "verdict_contract": [
+    "PASS_QUOTE_PATH_FIDELITY_MAY_RESEARCH_CLOSED_M5_M15_CHILD",
+    "KILL_QUOTE_PATH_FIDELITY_EXACT_EURUSD_METATICKS",
+    "ENGINEERING_INVALID_NO_SOURCE_VERDICT"
+  ]
+}

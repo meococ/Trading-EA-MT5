@@ -1,0 +1,73 @@
+{
+  "all_gates_pass": false,
+  "attempt_id": "IRSK001-SOURCE-001",
+  "cadence_per_week": 1.6522453450164296,
+  "complete_sessions": 1276,
+  "decision_year_cadence": {
+    "2018": 1.6301369863013697,
+    "2019": 1.3616438356164382,
+    "2020": 1.8934426229508197,
+    "2021": 1.7068493150684931,
+    "2022": 1.6684931506849314
+  },
+  "decision_year_counts": {
+    "2018": 85,
+    "2019": 71,
+    "2020": 99,
+    "2021": 89,
+    "2022": 87
+  },
+  "design_rows": 351303,
+  "deterministic_replay": true,
+  "direction_shares": {
+    "LONG": 0.39211136890951276,
+    "SHORT": 0.6078886310904872
+  },
+  "directions": {
+    "LONG": 169,
+    "SHORT": 262
+  },
+  "economics_evaluated": false,
+  "exact_next_coverage": 1.0,
+  "executable_events": 431,
+  "expected_weekdays": 1305,
+  "gates": {
+    "cadence_2_to_5": false,
+    "design_rows_gte_300000": true,
+    "deterministic_replay": true,
+    "events_gte_500": false,
+    "every_year_1_25_to_6_5": true,
+    "exact_next_gte_0_97": true,
+    "long_share_gte_0_30": true,
+    "max_year_share_lte_0_30": true,
+    "measurement_coverage_gte_0_95": true,
+    "session_coverage_gte_0_95": true,
+    "short_share_gte_0_30": true,
+    "zero_conflicts": true
+  },
+  "hypothesis_id": "HYP-IRSK-XAUUSD-M5-001",
+  "max_year_share": 0.2296983758700696,
+  "measurement_coverage": 1.0,
+  "outcomes_opened": false,
+  "parameters": {
+    "event": "strict_price_skewness_divergence_fade",
+    "session_utc": "00:00-15:55",
+    "shape": "population_realized_skewness"
+  },
+  "raw_events": 431,
+  "schema_version": "irsk_source_report.v1",
+  "session_coverage": 0.9777777777777777,
+  "valid_measurements": 1276,
+  "validation": {
+    "chronology_strict": true,
+    "clock_ok": true,
+    "design_rows": 351303,
+    "first_source_epoch": 1514883600,
+    "geometry_all_valid": true,
+    "geometry_valid_rows": 351303,
+    "identity_ok": true,
+    "last_source_epoch": 1672444500,
+    "schema_exact": true,
+    "window_sealed": true
+  }
+}

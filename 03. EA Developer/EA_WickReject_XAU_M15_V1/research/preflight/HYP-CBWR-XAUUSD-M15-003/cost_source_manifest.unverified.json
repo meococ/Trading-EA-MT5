@@ -1,0 +1,13 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-CBWR-XAUUSD-M15-003",
+  "symbol": "XAUUSD",
+  "broker": "Five Percent Online Ltd",
+  "server": "configured AlphaFactory portable FivePercent lane",
+  "spread_source": "MT5 Strategy Tester current broker spread",
+  "commission_source": "MT5 report/account contract",
+  "swap_source": "MT5 report/account contract",
+  "slippage_source": "UNVERIFIED; execution mode 0 and fixed delay 0 for design baseline",
+  "status": "UNVERIFIED_DESIGN_BASELINE",
+  "economic_claim_authorized": false
+}

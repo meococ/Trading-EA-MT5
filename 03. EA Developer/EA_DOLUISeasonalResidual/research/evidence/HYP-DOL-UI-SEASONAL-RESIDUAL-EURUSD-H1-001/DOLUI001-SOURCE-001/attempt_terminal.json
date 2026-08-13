@@ -1,0 +1,1 @@
+{"attempt_id":"DOLUI001-SOURCE-001","completed_at_utc":"2026-08-13T02:14:49.353002Z","error":"missing core PDF fields: expected","error_type":"ContractError","hypothesis_id":"HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001","schema_version":"alphafactory.source_attempt_terminal.v1","status":"FAILED","verdict":"SOURCE_ATTEMPT_FAILED_NO_ECONOMICS_AUTHORITY"}

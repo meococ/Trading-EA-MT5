@@ -1,0 +1,1 @@
+{"attempt_id":"STBS004-COMPARATOR-001","completed_at_utc":"2026-08-09T06:14:19.624735Z","error":"report Orders section is not exactly empty","error_type":"ValueError","hypothesis_id":"HYP-STBS-XAUUSD-M15-004","same_id_retry_authorized":false,"schema_version":"stbs004_comparator_terminal.v1","status":"FAILED","verdict":"STBS004_COMPARATOR_FAILED_ATTEMPT_CONSUMED"}

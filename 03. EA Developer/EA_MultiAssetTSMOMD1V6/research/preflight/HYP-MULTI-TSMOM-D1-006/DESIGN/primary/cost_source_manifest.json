@@ -1,0 +1,21 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-006",
+  "symbol": "EURUSD_AFD_TSMOM_V6",
+  "broker": "Five Percent Online portable MT5 contract proxies",
+  "server": "AlphaFactory portable FivePercent lane with Dukascopy Jetta custom symbols",
+  "spread_source": "Contemporaneous Jetta H1 ASK-open minus BID-open, stored in MT5 custom rates",
+  "commission_source": "Official The5ers formula plus same-terminal XAU/BTC commissioned-deal receipts",
+  "swap_source": "Controlled current-broker adverse financing floor overlay; native signed swap removed",
+  "slippage_source": "Frozen 0.25/0.50/1.00 contemporaneous one-spread USD cost per deal",
+  "cost_contract_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V6\\research\\HYP-MULTI-TSMOM-D1-006_COST_CONTRACT.json",
+  "cost_contract_sha256": "FE48C57E936457F7423CA96935E79E75B7994963B8270EF6E2198B11B119DC1F",
+  "source_contract_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V5\\research\\HYP-MULTI-TSMOM-D1-005_JETTA_H1_SOURCE_CONTRACT.json",
+  "source_contract_sha256": "82CB1576C9F7968F111225515A2F303727308A47C5EC2EA47579194F45C6CB9E",
+  "source_validation_sha256": "34DFCCA6B9DB8228F3E588CE977693F0040E69463F136F543FEAD132E842E995",
+  "mt5_import_receipts_tree_sha256": "E64C52AD40F715BB13296F83293337FE364A35FDF400FEBBF573B98DE2ECBB5E",
+  "status": "FROZEN_PRE_ECONOMIC_CONTROLLED_COSTS",
+  "economic_claim_authorized": false,
+  "source_selection_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V6\\research\\HYP-MULTI-TSMOM-D1-006_SOURCE_SELECTION_RECEIPT.json",
+  "source_selection_sha256": "4F1930263791E7689B88AD42A2C062547C5FC2015474B9FAF67AE385116E5088"
+}

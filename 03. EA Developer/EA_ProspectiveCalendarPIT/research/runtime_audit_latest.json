@@ -1,0 +1,38 @@
+{
+  "status": "FAIL",
+  "schema_version": "calendar_pit_runtime_audit.v4",
+  "collector_version": "1.5.0",
+  "total_records": 16,
+  "session_records": 16,
+  "value_records": 0,
+  "api_errors": 2,
+  "heartbeat_seen": true,
+  "runtime_age_seconds": 257.75562,
+  "last_record_age_seconds": 154.75562,
+  "durable_change_ids": null,
+  "durable_event_count": null,
+  "primed_event_count": null,
+  "selected_event_count": 506,
+  "occurrence_count": 0,
+  "future_history_seen": false,
+  "idle_history_seen": false,
+  "paired_history_proof": false,
+  "discovery_currencies": [
+    "AUD",
+    "CAD",
+    "CHF",
+    "EUR",
+    "GBP",
+    "JPY",
+    "NZD",
+    "USD"
+  ],
+  "acceptance_evidence_seen": false,
+  "errors": [
+    "collector stale: 155s",
+    "latest runtime session has 2 Calendar API error(s)",
+    "missing FUTURE_DISCOVERY_HISTORY receipt",
+    "missing IDLE_PROOF_HISTORY receipt"
+  ],
+  "authority": "prospective_source_collection_only_no_edge_claim"
+}

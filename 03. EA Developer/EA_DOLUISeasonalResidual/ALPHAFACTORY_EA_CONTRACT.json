@@ -1,0 +1,35 @@
+{
+  "schema_version": "alphafactory_ea_contract.v1",
+  "telemetry_profile": "none",
+  "market_phase_adapter": "none",
+  "comparison_adapter": "generic-control-improvement-v1",
+  "variant_tag_input": "InpVariantTag",
+  "execution_profile": {
+    "authority": "registered-untuned-model0-baseline",
+    "timeframe": "H1",
+    "research_auto_mode_input": "InpResearchAutoMode",
+    "research_auto_mode_default": false,
+    "telemetry_input": "InpEnableAudit",
+    "telemetry_required_for_execution": true,
+    "hypothesis_id_input": "InpHypothesisId",
+    "hypothesis_id_default": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+    "expected_symbol": "EURUSD",
+    "closed_bar_only": true,
+    "no_trade_api": false,
+    "economic_claims_authorized": true,
+    "promotion_eligible": false
+  },
+  "inputs": {
+    "InpResearchAutoMode": false,
+    "InpEnableAudit": true,
+    "InpHypothesisId": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+    "InpVariantTag": "DOLUI_RESIDUAL_H1_DELAY4H_V1",
+    "InpReverseComparator": false,
+    "InpMagic": 8132601,
+    "InpExposurePercent": 0.25,
+    "InpSizingPips": 40.0,
+    "InpMaxLots": 1.0,
+    "InpMaxEntryDelaySec": 300,
+    "InpDeviationPoints": 100
+  }
+}

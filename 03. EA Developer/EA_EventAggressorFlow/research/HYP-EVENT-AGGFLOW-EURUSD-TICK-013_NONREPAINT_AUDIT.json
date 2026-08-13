@@ -1,0 +1,22 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-EVENT-AGGFLOW-EURUSD-TICK-013",
+  "run_id": "EVENTAGGFLOW013-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventAggressorFlow\\HYP-EVENT-AGGFLOW-EURUSD-TICK-013_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "7EC69E1EDEB4757A9C00BE0E17DE3E7A1333D4C1F07CFFDF99863C496018F0C2",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventAggressorFlow\\EA_EventAggressorFlow.mq5",
+      "sha256": "38419266CD210282511A655CE58B805E6D106DE51B753D524DD6E2034E5407CC"
+    },
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_EventAggressorFlow\\resources\\event_aggflow_013_table.mqh",
+      "sha256": "20CBE99F9917F4AE1E83054202AA218760BCFD2B96F626C96632D5EF5B51FD46"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-12T11:37:26.469545+00:00"
+}

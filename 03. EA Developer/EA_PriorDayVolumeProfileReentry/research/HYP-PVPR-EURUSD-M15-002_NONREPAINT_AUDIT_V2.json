@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "FAIL",
+  "hypothesis_id": "HYP-PVPR-EURUSD-M15-002",
+  "run_id": "PVPR002-MQL5-STATIC-002",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_PriorDayVolumeProfileReentry\\HYP-PVPR-EURUSD-M15-002_NONREPAINT_MANIFEST_V2.json",
+  "manifest_sha256": "880421E32AC7A85269839FEE9E7875C4F99F828C4788D88934642E818D7A41C4",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_PriorDayVolumeProfileReentry\\EA_PriorDayVolumeProfileReentry.mq5",
+      "sha256": "B02E8A510C200D5942727FBED7AFD3FD467AC640A951035D4332012D9A2F316D"
+    }
+  ],
+  "findings": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_PriorDayVolumeProfileReentry\\EA_PriorDayVolumeProfileReentry.mq5",
+      "line": 226,
+      "rule": "unproven_closed_bar_shift",
+      "function": "CopyTime",
+      "shift_expression": "copytime_from"
+    }
+  ],
+  "allowed_new_bar_gates": [],
+  "generated_at_utc": "2026-08-11T09:36:33.992981+00:00"
+}

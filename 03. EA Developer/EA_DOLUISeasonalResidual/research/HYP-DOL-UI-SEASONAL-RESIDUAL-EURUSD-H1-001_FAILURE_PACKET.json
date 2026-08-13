@@ -1,0 +1,56 @@
+{
+  "schema_version": "alphafactory_hypothesis_failure_packet.v1",
+  "hypothesis_id": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+  "terminal_state": "KILLED",
+  "verdict": "KILL_FROZEN_MAPPING",
+  "reason": "The exact primary mapping failed the frozen PF and stressed-cost gates. Reverse was pre-authorized and inferior, so polarity inversion does not rescue the source object.",
+  "train_window": {
+    "from": "2018.01.01",
+    "to": "2023.01.01"
+  },
+  "run_ids": [
+    "20260813_094716",
+    "20260813_094909"
+  ],
+  "events_accounted": 260,
+  "completed_trades": 258,
+  "source_flat": 2,
+  "primary_metrics": {
+    "base_profit_factor": 1.0118002437462674,
+    "base_expectancy_usd": 0.8539651162789326,
+    "base_net_usd": 220.3229999999646,
+    "cost_x1_5_profit_factor": 0.9743444008123658,
+    "cost_x1_5_net_usd": -487.14050000005255,
+    "cost_x2_profit_factor": 0.9381220407868934,
+    "cost_x2_expectancy_usd": -4.630248062015778,
+    "cost_x2_net_usd": -1194.6040000000708,
+    "native_profit_factor": 1.0273934049439468,
+    "native_max_drawdown_pct": 3.607281614692108,
+    "positive_years": 3,
+    "top_5pct_gross_profit_share": 0.26131984654586893
+  },
+  "reverse_metrics": {
+    "base_profit_factor": 0.844698642982801,
+    "base_expectancy_usd": -11.961263565891606,
+    "base_net_usd": -3086.0060000000344
+  },
+  "failed_frozen_gates": [
+    "base_pf_at_least_1_30",
+    "cost_x1_5_pf_at_least_1_25",
+    "cost_x2_pf_at_least_1_00",
+    "cost_x2_expectancy_nonnegative"
+  ],
+  "train_analysis_sha256": "7E9708F0BB3F272534AC1799B71C190D2D9A4573CA76F5AE7F6A75888A3C6005",
+  "validation_opened": false,
+  "holdout_opened": false,
+  "optimization_opened": false,
+  "same_id_retry_authorized": false,
+  "promotion_eligible": false,
+  "forbidden_rescues": [
+    "filtering out 2022",
+    "using Wednesday-only performance",
+    "thresholding residual magnitude from this readout",
+    "changing the four-hour hold from this readout",
+    "post-hoc session, direction, stop, target or sizing changes"
+  ]
+}

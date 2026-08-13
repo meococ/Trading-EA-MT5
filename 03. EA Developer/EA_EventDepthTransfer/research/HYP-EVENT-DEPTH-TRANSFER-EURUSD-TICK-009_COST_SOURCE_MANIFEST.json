@@ -1,0 +1,18 @@
+{
+  "schema_version": "event_depth_transfer_009_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009",
+  "source_hypothesis_id": "HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-007",
+  "source_ledger_sha256": "3B3B0F4CF85FD733B26DE0CA84F890265C94693DC7A58170507491985B2687B8",
+  "compile_table_sha256": "BD2D3F6CF9C048F606F822EF2BEDF0C6DCA4CE6C25673A5235D70F8AC096A3DD",
+  "broker_program": "The5ers/FivePercentOnline-Real",
+  "commission_round_turn_usd_per_standard_lot": 4.0,
+  "execution_cost_components": [
+    "observed_entry_exit_spread_and_fill",
+    "round_turn_commission",
+    "adverse_entry_spread_excursion_above_prior_10_event_median"
+  ],
+  "stress_multipliers": [1.0, 1.5, 2.0],
+  "selected_before_design_outcome_access": true,
+  "notes": "Unchanged from HYP008; HYP009 adds only the canonical D0 provenance proof."
+}
+

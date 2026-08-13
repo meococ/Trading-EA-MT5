@@ -1,0 +1,51 @@
+{
+  "schema_version": "dolui_001_model0_task.v1",
+  "hypothesis_id": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+  "attempt_id": "DOLUI001-MODEL0-REVERSE-001",
+  "one_attempt_only": true,
+  "same_id_retry_authorized": false,
+  "visual_mode": false,
+  "indicator_dependencies": [],
+  "command_contract": {
+    "action": "backtest",
+    "ea_name": "EA_DOLUISeasonalResidual",
+    "symbol": "EURUSD",
+    "period": "H1",
+    "from": "2018.01.01",
+    "to": "2023.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "run_role": "control",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "holding_contract": "fixed_4h_event_trade",
+    "required_sidecars": [
+      "DOLUI001_RunMeta_REVERSE.json",
+      "EURUSD_DOLUI001_Trades_REVERSE.csv"
+    ],
+    "overrides": "InpDeviationPoints=100;InpEnableAudit=true;InpExposurePercent=0.25;InpHypothesisId=HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001;InpMagic=8132601;InpMaxEntryDelaySec=300;InpMaxLots=1.0;InpResearchAutoMode=true;InpReverseComparator=true;InpSizingPips=40.0;InpVariantTag=DOLUI_RESIDUAL_H1_DELAY4H_V1"
+  },
+  "acceptance": {
+    "all_events_accounted": 260,
+    "source_flat_exact": 2,
+    "min_completed_trades": 250,
+    "min_completed_per_year": 48,
+    "min_positive_years_of_five": 3,
+    "min_base_profit_factor": 1.3,
+    "min_base_expectancy_strict": 0.0,
+    "min_cost_pf_x1_5": 1.25,
+    "min_cost_pf_x2": 1.0,
+    "min_cost_expectancy_x2": 0.0,
+    "max_native_equity_drawdown_pct": 8.0,
+    "reverse_pf_and_expectancy_both_inferior": true,
+    "max_top_5pct_profit_contribution": 0.3,
+    "validation_opened": false,
+    "optimization_authorized": false,
+    "paper_live_authorized": false
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": "alphafactory_dukascopy_source_contract.v2",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-004",
+  "authority": "SOURCE_DATA_ONLY_NO_PERFORMANCE",
+  "economics_authorized": false,
+  "performance_metrics_authorized": false,
+  "use_class": "personal-noncommercial",
+  "redistribution_authorized": false,
+  "provider": {
+    "name": "Dukascopy Bank SA",
+    "base_url": "https://datafeed.dukascopy.com/datafeed",
+    "tick_path": "{SYMBOL}/{YYYY}/{MM_ZERO_BASED}/{DD}/{HH}h_ticks.bi5",
+    "history_metadata_path": "{SYMBOL}/metadata/HistoryStart.bi5",
+    "tick_binary_schema": ">3I2f: millisecond_offset,ask_scaled,bid_scaled,ask_volume,bid_volume",
+    "timestamp_basis": "UTC millisecond",
+    "price_sides": "top-of-book Bid and Ask"
+  },
+  "download": {
+    "workers": 4,
+    "retries": 4,
+    "timeout_seconds": 45,
+    "resume_boundary": "hash-verified daily receipt and AFDTICK1 binary",
+    "raw_retention": "retain every nonempty compressed hourly BI5 chunk",
+    "output_root": "02. AlphaFactory/data/dukascopy/bi5_tsmom_v4"
+  },
+  "symbols": [
+    {
+      "source_symbol": "EURUSD",
+      "origin_symbol": "EURUSD",
+      "custom_symbol": "AFD_EURUSD_DUKA_TSMOM_V4",
+      "digits": 5,
+      "divider": 100000,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "GBPUSD",
+      "origin_symbol": "GBPUSD",
+      "custom_symbol": "AFD_GBPUSD_DUKA_TSMOM_V4",
+      "digits": 5,
+      "divider": 100000,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "AUDUSD",
+      "origin_symbol": "AUDUSD",
+      "custom_symbol": "AFD_AUDUSD_DUKA_TSMOM_V4",
+      "digits": 5,
+      "divider": 100000,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "NZDUSD",
+      "origin_symbol": "NZDUSD",
+      "custom_symbol": "AFD_NZDUSD_DUKA_TSMOM_V4",
+      "digits": 5,
+      "divider": 100000,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "USDJPY",
+      "origin_symbol": "USDJPY",
+      "custom_symbol": "AFD_USDJPY_DUKA_TSMOM_V4",
+      "digits": 3,
+      "divider": 1000,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "USDCAD",
+      "origin_symbol": "USDCAD",
+      "custom_symbol": "AFD_USDCAD_DUKA_TSMOM_V4",
+      "digits": 5,
+      "divider": 100000,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "USDCHF",
+      "origin_symbol": "USDCHF",
+      "custom_symbol": "AFD_USDCHF_DUKA_TSMOM_V4",
+      "digits": 5,
+      "divider": 100000,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "XAUUSD",
+      "origin_symbol": "XAUUSD",
+      "custom_symbol": "AFD_XAUUSD_DUKA_TSMOM_V4",
+      "digits": 3,
+      "divider": 1000,
+      "history_from": "2017-01-01",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-01-01T00:00:00Z"
+    },
+    {
+      "source_symbol": "BTCUSD",
+      "origin_symbol": "BTCUSD",
+      "custom_symbol": "AFD_BTCUSD_DUKA_TSMOM_V4",
+      "digits": 1,
+      "divider": 10,
+      "history_from": "2017-05-07",
+      "history_start_utc": "2017-05-07T23:59:59.058Z",
+      "history_to_exclusive": "2026-08-12",
+      "strategy_active_from": "2018-05-14T00:00:00Z",
+      "activation_reason": "first Monday after a complete 365-calendar-day warmup"
+    }
+  ],
+  "frozen_splits": {
+    "warmup": "symbol history_from through 2017-12-31; BTC continues warming until 2018-05-13",
+    "design": "2018-01-01T00:00:00Z/2022-01-01T00:00:00Z",
+    "validation": "2022-01-01T00:00:00Z/2024-01-01T00:00:00Z",
+    "holdout": "2024-01-01T00:00:00Z/2026-08-12T00:00:00Z"
+  }
+}

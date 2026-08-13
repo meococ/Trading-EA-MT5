@@ -1,0 +1,7 @@
+{
+  "attempt_id": "PVPR002-SOURCE-001",
+  "hypothesis_id": "HYP-PVPR-EURUSD-M15-002",
+  "schema_version": "pvpr_source_attempt_started.v2",
+  "source_path": "D:\\Trading EA MT5\\02. AlphaFactory\\data\\fivepercent\\EURUSD\\EURUSD_M1_2015_now.parquet",
+  "started_at_utc": "2026-08-11T09:26:55.352349+00:00"
+}

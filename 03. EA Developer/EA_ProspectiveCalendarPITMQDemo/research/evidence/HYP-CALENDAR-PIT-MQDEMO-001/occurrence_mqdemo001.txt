@@ -1,0 +1,2 @@
+schema=mqdemo001
+n_occ=0

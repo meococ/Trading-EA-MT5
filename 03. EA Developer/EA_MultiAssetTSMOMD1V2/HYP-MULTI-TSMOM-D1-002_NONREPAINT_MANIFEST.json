@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-002",
+  "run_id": "MTS002-DESIGN-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V2",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V2\\EA_MultiAssetTSMOMD1V2.mq5",
+  "source_sha256": "A8856ABF79544C1616B23F776D1EA454F61FEF90D9184B1388A916CD96D0558E",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

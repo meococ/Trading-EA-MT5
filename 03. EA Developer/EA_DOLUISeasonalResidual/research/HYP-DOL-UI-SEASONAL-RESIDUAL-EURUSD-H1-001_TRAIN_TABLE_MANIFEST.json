@@ -1,0 +1,18 @@
+{
+  "schema_version": "alphafactory.dol_ui_train_table_manifest.v1",
+  "hypothesis_id": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+  "source_csv": "02. AlphaFactory/data/dol_ui/HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001/dol_ui_seasonal_residual_2018_20260806.csv",
+  "source_csv_sha256": "3CD5D03DC85309724C5E3E616223657ACBA8DF86D4722F4A7EDAAB068C9009BA",
+  "source_receipt_sha256": "58AF5CC103F8CFC2CD8D906818736C562E090EC3D3CD361C13903E01E06DB65C",
+  "table_include": "03. EA Developer/EA_DOLUISeasonalResidual/resources/dolui_001_train_table.mqh",
+  "table_include_sha256": "E4A4407047A7B2A46EBD9BC7C3817FF41545F5662F1D480D4E5CF10D853388A8",
+  "canonical_table_sha256": "20377DAA5449E0C10D67620768FA127B8FAEF5F49DDC802AF78DD8848F8C5A05",
+  "counts": {
+    "events": 260,
+    "buy": 101,
+    "sell": 157,
+    "flat": 2
+  },
+  "price_outcomes_read": 0,
+  "economic_metrics_computed": 0
+}

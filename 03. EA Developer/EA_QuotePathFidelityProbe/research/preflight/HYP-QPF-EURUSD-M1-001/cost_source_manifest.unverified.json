@@ -1,0 +1,10 @@
+{
+  "schema_version":"alphafactory_cost_source_manifest.v1",
+  "hypothesis_id":"HYP-QPF-EURUSD-M1-001",
+  "status":"NOT_APPLICABLE_SOURCE_ONLY",
+  "commission":"unverified_not_consumed",
+  "slippage":"unverified_not_consumed",
+  "spread":"observed_only_for_quote_fidelity_no_pnl",
+  "swap":"not_consumed",
+  "economic_use_authorized":false
+}

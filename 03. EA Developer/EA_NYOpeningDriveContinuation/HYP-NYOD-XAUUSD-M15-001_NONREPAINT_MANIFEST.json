@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-NYOD-XAUUSD-M15-001",
+  "run_id": "NYOD001-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_NYOpeningDriveContinuation",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_NYOpeningDriveContinuation\\EA_NYOpeningDriveContinuation.mq5",
+  "source_sha256": "183C5B17CCC147C72FA51E183B2EB0D6E717F69B2A9AE2BE8D0CA6F74232878A",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

@@ -1,0 +1,2 @@
+{"schema_version":"alphafactory_cost_source_manifest.v1","hypothesis_id":"HYP-WMRR-EURUSD-M5-001","symbol":"EURUSD","spread_source":"current broker spread in MT5 Strategy Tester","commission_source":"FivePercent tester account contract as reported by MT5","slippage_source":"Model-0 execution mode 0 with deviation guard 7 points","verified":false,"note":"Cost gap must be measured from report versus EA exit telemetry before any verdict."}
+

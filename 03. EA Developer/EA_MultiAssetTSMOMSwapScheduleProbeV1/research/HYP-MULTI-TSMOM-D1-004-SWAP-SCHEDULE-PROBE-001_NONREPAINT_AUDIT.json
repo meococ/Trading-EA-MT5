@@ -1,0 +1,13 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-004-SWAP-SCHEDULE-PROBE-001",
+  "source_sha256": "BCC32CDC9B9C93310CC976C48BBC45EE0343E71E765FBB4FAC73915B1DA90495",
+  "status": "PASS_SOURCE_ONLY",
+  "checks": [
+    {"id":"no-orders","status":"PASS","evidence":"The EA contains no trade request or position mutation API."},
+    {"id":"d0-proof","status":"PASS_STATIC","evidence":"The EA emits and fail-closes on AlphaFactory D0 M1/M5 series proof."},
+    {"id":"field-scope","status":"PASS","evidence":"Only current swap mode, direction values, rollover3 and seven weekday coefficients are emitted."}
+  ],
+  "performance_metrics_authorized": false,
+  "economics_authorized": false
+}

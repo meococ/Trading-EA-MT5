@@ -1,0 +1,37 @@
+{
+  "errors": [
+    "FATAL_RECORDS: IO_ERROR",
+    "NO_INIT_RECEIPT",
+    "SNAPSHOT_SEQ_NOT_STRICT: 3443->3443",
+    "SNAPSHOT_SEQ_NOT_STRICT: 3443->3443",
+    "CSV_JSON_COUNT: key=('EURUSD', 187, 3443, '7570850728108696470') csv=0 json=13",
+    "CSV_LEVEL_INDEX: ('EURUSD', 187, 3443, '7570850728108696470')",
+    "CSV_JSON_COUNT: key=('XAUUSD', 2547, 3443, '3020508093069858512') csv=0 json=14",
+    "CSV_LEVEL_INDEX: ('XAUUSD', 2547, 3443, '3020508093069858512')",
+    "CSV_WITHOUT_JSON: count=199",
+    "STATE_FATAL_COUNTERS"
+  ],
+  "metrics": {
+    "csv_rows": 56760,
+    "csv_snapshot_keys": 4183,
+    "json_snapshots": 3986,
+    "kind_counts": {
+      "DUPLICATE": 20,
+      "HEARTBEAT": 5,
+      "IO_ERROR": 2,
+      "SHUTDOWN": 1,
+      "SNAPSHOT": 3986
+    },
+    "last_snapshot_seq": 4183,
+    "records": 4014,
+    "session_records": 4014,
+    "snapshots_by_symbol": {
+      "EURUSD": 184,
+      "GBPUSD": 513,
+      "USDJPY": 311,
+      "XAUUSD": 2978
+    }
+  },
+  "verdict": "FAIL",
+  "warnings": []
+}

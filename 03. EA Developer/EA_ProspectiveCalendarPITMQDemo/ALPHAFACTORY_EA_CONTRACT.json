@@ -1,0 +1,22 @@
+{
+  "schema_version": "alphafactory_ea_contract.v1",
+  "telemetry_profile": "none",
+  "market_phase_adapter": "none",
+  "comparison_adapter": "generic-control-improvement-v1",
+  "variant_tag_input": null,
+  "execution_profile": {
+    "authority": "prospective-source-capability-only",
+    "timeframe": "ANY",
+    "hypothesis_id_default": "HYP-CALENDAR-PIT-MQDEMO-001",
+    "expected_symbol": "ANY",
+    "expected_server": "MetaQuotes-Demo",
+    "closed_bar_only": true,
+    "no_trade_api": true,
+    "economic_claims_authorized": false,
+    "promotion_eligible": false
+  },
+  "inputs": {
+    "InpTimerMs": 1000,
+    "InpHeartbeatSec": 60
+  }
+}

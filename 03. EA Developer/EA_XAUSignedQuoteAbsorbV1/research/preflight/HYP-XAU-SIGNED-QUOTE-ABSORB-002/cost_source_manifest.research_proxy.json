@@ -1,0 +1,21 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "status": "RESEARCH_PROXY_NOT_PROMOTION_ELIGIBLE",
+  "hypothesis_id": "HYP-XAU-SIGNED-QUOTE-ABSORB-002",
+  "symbol": "AFD_XAUUSD_DUKA_V3",
+  "window": {"from": "2018.01.01", "to": "2022.01.01"},
+  "historical_spread_provenance": {
+    "source": "Dukascopy imported true Bid/Ask ticks",
+    "application": "native MT5 Model 4 Bid/Ask execution"
+  },
+  "commission_provenance": {
+    "status": "UNVERIFIED_ZERO_IN_CUSTOM_SYMBOL",
+    "promotion_use_forbidden": true
+  },
+  "slippage_provenance": {
+    "baseline_price_units_round_trip": 0.0,
+    "predeclared_stress_price_units_round_trip": [0.05, 0.10]
+  },
+  "note": "A surviving design result still requires FivePercent/demo forward execution evidence before promotion."
+}
+

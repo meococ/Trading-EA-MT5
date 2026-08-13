@@ -1,0 +1,51 @@
+{
+  "schema_version": "event_aggflow_source_quality_authority.v1",
+  "recorded_at_utc": "2026-08-12T08:36:00Z",
+  "hypothesis_id": "HYP-EVENT-AGGFLOW-EURUSD-TICK-011",
+  "parent_hypothesis_id": "HYP-EVENT-AGGFLOW-EURUSD-TICK-010",
+  "parent_acquisition_id": "EVENTAGGFLOW010-TRADES-DESIGN-SOURCE-001",
+  "source_quality_plan_sha256": "9326FB7F06E8DBC00D738362A84CC3B735364FE43972F0F4A4CFB404D059A6BA",
+  "reviewed_source_tool_sha256": "A4532579B7AF5456B55BD2C9A0667BFD49FF6DFB92B0EF56F2167B69768D0475",
+  "reviewed_source_test_sha256": "A627A30FE7818F7A95B8068CA644206EC3AD521F5D7B2B7C5A87FD61C5CB345A",
+  "reviewed_source_foundation_sha256": "427D453D54D921493DECC148219404907F80FFD209C957E2803543810B5A1EC0",
+  "runtime_receipt_sha256": "E98FB8FC4E26865DF3FEA1FE75064CA86666E17B7781E543B2912BA49F3CC0BD",
+  "parent_live_plan_sha256": "DA5EFA92EECF29ED0EBA5D75A86DAD0614A0FA40E842CF6154A6CA0B345FC88F",
+  "parent_download_manifest_sha256": "5121989986AB0904C9C8D818D0BC55F053AF4E32CBB164CCD81F6EE92A3102EA",
+  "parent_paid_acquisition_receipt_sha256": "A1F7418A5B9B6A4C767D11EA8041D48FBCD415CEB31B0AD28B92A6EA221A776F",
+  "parent_detached_launch_receipt_sha256": "E5C8DE204952F53D8C60719A33837A250061492049BECBD1AA623DC6D1D9464B",
+  "parent_worker_stderr_sha256": "2953C71043CE86D62F56B52A91B7B161BF3B20CF0672C45ACF0E8119A663F03E",
+  "parent_worker_stdout_sha256": "4814368718B986688435CF2C73B55B1BE78DEE1B832B3BD25071043A3E83227E",
+  "parent_coverage_count": 329,
+  "parent_downloaded_files": 327,
+  "parent_source_empty_windows": 2,
+  "parent_records": 92531,
+  "parent_downloaded_bytes": 1624649,
+  "parent_worst_case_aggregate_usd": 0.8826658129659998,
+  "owner_ceiling_usd": 1.0,
+  "source_condition_caveats": [
+    {
+      "request_id": "EVT0198",
+      "date": "2020-02-28",
+      "condition": "degraded",
+      "records": 408,
+      "bytes": 7197,
+      "sha256": "A327310124EF6DE99888B890FBE0A1322A66236509F0D552411E8F379B8AC6F4"
+    },
+    {
+      "request_id": "EVT0270",
+      "date": "2020-07-01",
+      "condition": "degraded",
+      "records": 82,
+      "bytes": 1716,
+      "sha256": "FC5C15E5FA3AD4C3BA9968A852BEA8BF6BF7A24D9C935C0745A68D86CBD9AA6F"
+    }
+  ],
+  "source_condition_caveat_filter_authorized": false,
+  "network_authorized": false,
+  "api_key_authorized": false,
+  "outcome_prices_authorized": false,
+  "economics_authorized": false,
+  "validation_source_authorized": false,
+  "mql5_authorized": false,
+  "mt5_authorized": false
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "mts004_broker_contract_probe_result.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-004-CONTRACT-PROBE-002",
+  "status": "PASS_SOURCE_ONLY",
+  "authority": "DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE",
+  "run": {
+    "run_id": "20260812_083805",
+    "run_dir": "D:/Trading EA MT5/02. AlphaFactory/runs/EA_MultiAssetTSMOMContractProbeV2/20260812_083805",
+    "source_sha256": "15CEA4A3982552EA49191834919701D8F9D1531BA6EFE24FD745B164F90046EB",
+    "ex5_sha256": "400589AB4722468F154D7CAD6DECFB9943F1CDCCDDEA11F2A578E13B622B744D",
+    "report_sha256": "B533D0CD980AF8227B362A682C3AC7CF717C3E3E7934E55B2456D68092F927ED",
+    "run_manifest_sha256": "04CF14E39EBEFE2D8D8E1552FA267170F8C3E956F70105E5AF05E65D65CC3383",
+    "journal_sha256": "498F5783DD218C7CC6C3908CCA9D55AA65EE035511C8865AFF48D227C31D516C",
+    "zero_trade_summary_sha256": "AC1D0D77F4B0B7E5A2EE895C92B22A022B3C898B6521998CC9945E8078DF4C86",
+    "history_quality_pct": 100,
+    "data_quality_fingerprint": "AAE9A84D3DE352D4813B6615FE5BF06BE240D26D0A4C87EF11EFDF353FFC9753",
+    "n_trades": 0,
+    "performance_metrics_authorized": false,
+    "economics_authorized": false
+  },
+  "d0_series_proof": {
+    "symbol": "EURUSD",
+    "m5_synchronized": 1,
+    "m5_first_epoch": 1735761600,
+    "m5_terminal_first_epoch": 1735761600,
+    "m1_server_first_epoch": 1735761600,
+    "m1_terminal_first_epoch": 1735761600,
+    "m5_bars": 117267,
+    "terminal_maxbars": 10000000,
+    "copytime_result": 1,
+    "copytime_last_error": 0
+  },
+  "contracts": [
+    {"symbol":"EURUSD","digits":5,"point":0.00001,"tick_size":0.00001,"tick_value":1.0,"contract":100000.0,"swap_mode":1,"swap_long":-9.9,"swap_short":-9.8,"rollover3":5,"calc_mode":0,"base":"EUR","profit":"USD","bid":1.15401,"ask":1.15426},
+    {"symbol":"GBPUSD","digits":5,"point":0.00001,"tick_size":0.00001,"tick_value":1.0,"contract":100000.0,"swap_mode":1,"swap_long":-8.4,"swap_short":-8.0,"rollover3":5,"calc_mode":0,"base":"GBP","profit":"USD","bid":1.34913,"ask":1.34924},
+    {"symbol":"AUDUSD","digits":5,"point":0.00001,"tick_size":0.00001,"tick_value":1.0,"contract":100000.0,"swap_mode":1,"swap_long":-9.8,"swap_short":-8.2,"rollover3":5,"calc_mode":0,"base":"AUD","profit":"USD","bid":0.70406,"ask":0.70408},
+    {"symbol":"NZDUSD","digits":5,"point":0.00001,"tick_size":0.00001,"tick_value":1.0,"contract":100000.0,"swap_mode":1,"swap_long":-2.7,"swap_short":-1.1,"rollover3":5,"calc_mode":0,"base":"NZD","profit":"USD","bid":0.58934,"ask":0.58938},
+    {"symbol":"USDJPY","digits":3,"point":0.001,"tick_size":0.001,"tick_value":0.633938533320,"contract":100000.0,"swap_mode":1,"swap_long":-13.8,"swap_short":-13.65,"rollover3":5,"calc_mode":0,"base":"USD","profit":"JPY","bid":157.660,"ask":157.744},
+    {"symbol":"USDCAD","digits":5,"point":0.00001,"tick_size":0.00001,"tick_value":0.713648528100,"contract":100000.0,"swap_mode":1,"swap_long":-9.2,"swap_short":-10.1,"rollover3":5,"calc_mode":0,"base":"USD","profit":"CAD","bid":1.40119,"ask":1.40125},
+    {"symbol":"USDCHF","digits":5,"point":0.00001,"tick_size":0.00001,"tick_value":1.238727579031,"contract":100000.0,"swap_mode":1,"swap_long":-11.3,"swap_short":-12.8,"rollover3":5,"calc_mode":0,"base":"USD","profit":"CHF","bid":0.80724,"ask":0.80728},
+    {"symbol":"XAUUSD","digits":2,"point":0.01,"tick_size":0.01,"tick_value":1.0,"contract":100.0,"swap_mode":1,"swap_long":-89.1,"swap_short":-89.1,"rollover3":5,"calc_mode":4,"base":"USD","profit":"USD","bid":4051.12,"ask":4051.60},
+    {"symbol":"BTCUSD","digits":2,"point":0.01,"tick_size":0.01,"tick_value":0.01,"contract":1.0,"swap_mode":4,"swap_long":-68.8,"swap_short":-60.0,"rollover3":7,"calc_mode":4,"base":"USD","profit":"USD","bid":63469.04,"ask":63471.49}
+  ],
+  "limitations": [
+    "The receipt captures the current FivePercent broker contract, not historical point-in-time swaps.",
+    "A financing stress bound derived from this receipt remains research-only and cannot prove historical financing realism.",
+    "No Strategy Tester profit, factor, drawdown or expectancy field is authorized for this zero-order run."
+  ]
+}

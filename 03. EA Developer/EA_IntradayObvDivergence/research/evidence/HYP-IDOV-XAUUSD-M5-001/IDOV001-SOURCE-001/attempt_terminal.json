@@ -1,0 +1,11 @@
+{
+  "attempt_id": "IDOV001-SOURCE-001",
+  "attempt_receipt_sha256": "A48C8E7100E95D613A96FDF1BE5109ABDE4F932E5CCE42F54B26823BE3B00863",
+  "attempt_started_sha256": "E7375AA6404A946F138755F5AC1463998AF0BBE3D074B1943CEA23E75C2DF0BE",
+  "completed_at_utc": "2026-08-11T07:02:47.804122+00:00",
+  "hypothesis_id": "HYP-IDOV-XAUUSD-M5-001",
+  "same_id_retry_authorized": false,
+  "schema_version": "idov_source_attempt_terminal.v1",
+  "status": "COMPLETE",
+  "verdict": "PARK_SOURCE_GATE_FAILURE"
+}

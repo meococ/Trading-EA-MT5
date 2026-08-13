@@ -1,0 +1,23 @@
+{
+  "schema_version": "alphafactory_nonrepaint_manifest.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-006",
+  "ea_name": "EA_MultiAssetTSMOMD1V6",
+  "source_sha256": "FEFF2DF9642CDA30B042BEB1072DCFF90609507CCB37C91CC44FD0FD667D96B3",
+  "ex5_sha256": "3703DA9939F1A56FC8543C1E3D8BE7A1AE3B8E6EB8035E17DBFFE168177FA198",
+  "compile_log_sha256": "B5351F22A0263AB4BC2D7CD27CD1D8F2B1400DB83826CD9CF68E1178035C25F9",
+  "compile_result": "0 errors, 0 warnings",
+  "decision_clock": "first common-ready generated H1 tick on observed UTC Monday",
+  "signal_data": "completed D1 bars aggregated by MT5 from source H1 BID rates; CopyRates shift 1 only",
+  "source_timeframe": "H1",
+  "source_intrabar_path_used": false,
+  "current_bar_price_used": false,
+  "deal_cost_telemetry_is_diagnostic_only": true,
+  "data_epoch_series_proof_is_diagnostic_only": true,
+  "trade_profit_spec_fail_closed": true,
+  "frozen_long_only_comparator_available": true,
+  "calendar_lookback_seconds": 31536000,
+  "universe": ["EURUSD", "GBPUSD", "AUDUSD", "NZDUSD", "USDJPY", "USDCAD", "USDCHF", "XAUUSD"],
+  "excluded_parent_symbol": "BTCUSD_SOURCE_FAIL",
+  "repaint_or_lookahead_detected": false,
+  "audit_status": "PASS_STATIC"
+}

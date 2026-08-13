@@ -1,0 +1,30 @@
+{
+  "schema_version": "mts005_custom_rate_import_run.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-005",
+  "status": "PASS_SOURCE_IMPORT",
+  "authority": "SOURCE_DATA_ONLY_NO_PERFORMANCE",
+  "terminal_exit_code": 0,
+  "terminal_root": "D:/Trading EA MT5/02. AlphaFactory/runtime/mt5-portable-fivepercent",
+  "importer_ex5_path": "D:/Trading EA MT5/02. AlphaFactory/tools/research/mql5/AlphaFactoryCustomRateImport.ex5",
+  "importer_ex5_sha256": "0C6EBDE8825929EEA67C3C10B0A38DAC3218A5746CDE91506889C89A64590EBC",
+  "active_plan_path": "D:/Trading EA MT5/02. AlphaFactory/runtime/mt5-portable-fivepercent/MQL5/Files/AlphaFactoryCustomRateImport/active_plan.csv",
+  "active_plan_sha256": "6DA64A92CFEB18F41EB867A443520AA333AC125B3316E387A783069A62028367",
+  "plan_identity_sha256": "ECCBCEDA0A4E9A525BAAF4C795D38F268970F56CA37A8F843C0DC05DA313CA8F",
+  "mt5_receipt_path": "D:/Trading EA MT5/02. AlphaFactory/runtime/mt5-portable-fivepercent/MQL5/Files/AlphaFactoryCustomRateImport/active_receipt.csv",
+  "mt5_receipt_sha256": "30CF0737CAD0846FF556B4CBACFB42D89CFB68EEF982C2E16B9AF15BE084613D",
+  "readback": {
+    "row_count": 119,
+    "month_pass_count": 116,
+    "custom_symbol": "AFD_EURUSD_DUKA_TSMOM_V5",
+    "imported_months": 116,
+    "imported_h1": 59791,
+    "imported_m1": 239164,
+    "d1_bars": 3006,
+    "h1_first_epoch": 1483308000,
+    "source_contract_sha256": "132B80497D1C0A1AA2AA907234008F764227E28250933179C2CB6E3646474AB2",
+    "range_manifest_sha256": "D659227BC139417FF507BA164D557A12C4E6DC48A5885E0A46FBC0A0BA0CF683",
+    "import_plan_sha256": "ECCBCEDA0A4E9A525BAAF4C795D38F268970F56CA37A8F843C0DC05DA313CA8F"
+  },
+  "economics_authorized": false,
+  "performance_metrics_authorized": false
+}

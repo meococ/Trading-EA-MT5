@@ -1,0 +1,11 @@
+{
+  "attempt_id": "IVRL001-SOURCE-001",
+  "attempt_receipt_sha256": "D77E075A99F3395A847A125457CD0516816534606F30E53185816CE45CB57447",
+  "attempt_started_sha256": "D77E8DD310DAD95BD929CEF5F9E9B966A2ECD1D1AC4AECED71DCE684356D51BE",
+  "completed_at_utc": "2026-08-11T07:14:15.769716+00:00",
+  "hypothesis_id": "HYP-IVRL-XAUUSD-M5-001",
+  "same_id_retry_authorized": false,
+  "schema_version": "ivrl_source_attempt_terminal.v1",
+  "status": "COMPLETE",
+  "verdict": "PASS_SOURCE_FEASIBILITY"
+}

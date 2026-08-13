@@ -1,0 +1,48 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "hypothesis_id": "HYP-IVRL-XAUUSD-M5-002",
+  "task_packet_sha256": "9DB124D369F58419214F65EAA70F37F27994F2080AD124B73FAA34C965EE5CFC",
+  "git_commit": "1ec53d2d3ad7d29f85b764b7e155631e0c81f9f1",
+  "git_status_sha256": "9BAB45B2B2E0C72E3502E075D41A393E430DA13C8EED1C6928577642ECC41FF2",
+  "binding": {
+    "hypothesis_id": "HYP-IVRL-XAUUSD-M5-002", "run_role": "control",
+    "ea_name": "EA_IntradayVarianceRelocation", "symbol": "XAUUSD", "period": "M5",
+    "from": "2018.01.01", "to": "2023.01.01", "model": 0,
+    "execution_mode": 0, "fixed_delay_ms": 0, "timeout_sec": 3600,
+    "overrides": "InpDeviationPoints=20;InpHypothesisId=HYP-IVRL-XAUUSD-M5-002;InpMagic=5604411;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpResearchAutoMode=true;InpRiskPercent=0.10;InpSessionFlattenHourUtc=20;InpVariantTag=INTRADAY_VARIANCE_RELOCATION",
+    "telemetry_tier": "off", "telemetry_profile": "none", "deposit": 100000,
+    "leverage": 100, "spread": "current", "required_sidecars": [],
+    "symbol_geometry": {"digits": 2, "point": 0.01, "pip_size": 0.01},
+    "visual_mode": false, "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-11T07:27:00Z", "coverage_mode": "fixed_window",
+      "history_quality": {"operator": "gt", "value": 97},
+      "requested_from": "2018.01.01", "requested_to": "2023.01.01",
+      "require_tester_journal_bounds": true, "max_journal_delta_bytes": 16777216
+    }
+  },
+  "evidence": [
+    {"label":"task_packet","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\research\\HYP-IVRL-XAUUSD-M5-002_BASELINE_TASK.json","sha256":"9DB124D369F58419214F65EAA70F37F27994F2080AD124B73FAA34C965EE5CFC"},
+    {"label":"source","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\EA_IntradayVarianceRelocation.mq5","sha256":"2BAC58D5BC2FE061CE4593E084E899338CE0615F0B48BC3D3CC8BF53F000E484"},
+    {"label":"static_ex5","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\EA_IntradayVarianceRelocation.ex5","sha256":"A275055014B62AE1DF16395BCFE45C6B7EF5A99BC421B7938C5FC25022F8CB21"},
+    {"label":"static_compile_log","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\EA_IntradayVarianceRelocation.log","sha256":"34F341C0AABE8875C669C1725FD12A9F071613429E64EBDE8FE7DE0078DBA860"},
+    {"label":"prereg","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\research\\HYP-IVRL-XAUUSD-M5-002_FROZEN_ECONOMIC_PREREG.md","sha256":"3B10BC51C60B16FBC2BFBE8DE55463D26F7806FE738C705BA4BE45A95139CA57"},
+    {"label":"parent_engineering_failure","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\research\\HYP-IVRL-XAUUSD-M5-001_ENGINEERING_FAILURE.md","sha256":"6876B389244011336B2446FF5E342AAA4F71C332940EBB543714A0B7E74E7B61"},
+    {"label":"parent_run_manifest","kind":"file","path":"D:\\Trading EA MT5\\02. AlphaFactory\\runs\\EA_IntradayVarianceRelocation\\20260811_142221\\run_manifest.json","sha256":"7BE003ED1D42BD38436F4D046B75503E11AC754F510CD04805946F94285E2389"},
+    {"label":"source_result","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\research\\HYP-IVRL-XAUUSD-M5-001_SOURCE_RESULT.md","sha256":"63A351EAC66A64D81A08320E74C55B0D11E42A5FFDAB24C53DB748D39ACDB811"},
+    {"label":"source_report","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\research\\evidence\\HYP-IVRL-XAUUSD-M5-001\\IVRL001-SOURCE-001\\source_report.json","sha256":"3399AE29BD1678F15664B16457B0FAE78992DF8F41D08D89A169A0FB6997EFC6"},
+    {"label":"source_receipt","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\research\\evidence\\HYP-IVRL-XAUUSD-M5-001\\IVRL001-SOURCE-001\\attempt_receipt.json","sha256":"D77E075A99F3395A847A125457CD0516816534606F30E53185816CE45CB57447"},
+    {"label":"cost_source_manifest","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\research\\preflight\\HYP-IVRL-XAUUSD-M5-002\\cost_source_manifest.unverified.json","sha256":"8E8B181D45154FF8010533D39472E687DF1DCBEA753761BF8B0143E8950607D3"},
+    {"label":"candidate_registry","kind":"file","path":"D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl","sha256":"1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"},
+    {"label":"ea_contract","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\ALPHAFACTORY_EA_CONTRACT.json","sha256":"0E2E23A348A2F2135F20D96DD39CFF766C1AFC8C7AAF34A0DAD4FFC93152D918"},
+    {"label":"source_test","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\research\\tests\\test_analyze_ivrl_source.py","sha256":"00777F5D6DC4ED5377248C487E8C98B13122D8F9E38DDC4F9A1F4827F1791A26"},
+    {"label":"mql_contract_test","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\research\\test_ivrl_mql_contract.py","sha256":"3D595E0213C58F858A68B779278800829966EFB823E90A0D37A5E5FA966DEC8D"},
+    {"label":"nonrepaint_manifest","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\HYP-IVRL-XAUUSD-M5-002_NONREPAINT_MANIFEST.json","sha256":"51D3AF2D4AC890FAC15F406EC2C0FE9E3938137076A8F3E91833005D0A80146C"},
+    {"label":"nonrepaint_audit","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayVarianceRelocation\\research\\HYP-IVRL-XAUUSD-M5-002_NONREPAINT_AUDIT.json","sha256":"9CF0B27A16CA4931418D81302572E816AFA5883E14799160BCC3B661DE52EA23"},
+    {"label":"alpha_ps1","kind":"file","path":"D:\\Trading EA MT5\\02. AlphaFactory\\alpha.ps1","sha256":"8994E6C81777CE399D2474F1C46E5C190487741D709EEBB2ACFD55BB0F087A97"},
+    {"label":"alpha_terminal_guard_test","kind":"file","path":"D:\\Trading EA MT5\\02. AlphaFactory\\tests\\test_terminal_process_guard.py","sha256":"31BF3C04049598531E5E4A0DEE88102DF9902F47180BD4F8364A259CBCAFF780"}
+  ],
+  "generated_at_utc": "2026-08-11T07:27:00Z",
+  "note": "Sole IVRL-002 telemetry-cap-only baseline; no validation, optimization or promotion authority."
+}

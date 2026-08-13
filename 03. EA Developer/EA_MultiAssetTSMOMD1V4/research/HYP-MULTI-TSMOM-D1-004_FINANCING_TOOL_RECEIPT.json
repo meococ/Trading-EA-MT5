@@ -1,0 +1,46 @@
+{
+  "schema_version": "mts004_financing_tool_receipt.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-004",
+  "status": "PASS_ENGINEERING_ONLY",
+  "created_utc": "2026-08-12T02:01:36Z",
+  "bindings": {
+    "financing_contract": {
+      "path": "03. EA Developer/EA_MultiAssetTSMOMD1V4/research/HYP-MULTI-TSMOM-D1-004_FINANCING_CONTRACT.json",
+      "sha256": "B10202FCEFEFDCA52569FA5C9977EF3B6D5DFD0777EE70378EC1B76738407E4F"
+    },
+    "overlay_tool": {
+      "path": "02. AlphaFactory/tools/research/mts004_financing_overlay.py",
+      "sha256": "0081690BD4F32D8741E5477EB343EDF5ACEAA1A36F28B491D77EE0FC20B26113"
+    },
+    "overlay_tests": {
+      "path": "02. AlphaFactory/tests/test_mts004_financing_overlay.py",
+      "sha256": "F07F6375A35364ED4692670408C103AFD5FDED9E83BCEADF4C6FB023C7122B08"
+    },
+    "broker_contract_result": {
+      "path": "03. EA Developer/EA_MultiAssetTSMOMContractProbeV2/research/HYP-MULTI-TSMOM-D1-004-CONTRACT-PROBE-002_RESULT.json",
+      "sha256": "5FD9A822C25FDF6CF5D5CED46B82BEEFD613A18ABA5FE1B4967B205103DDF237"
+    },
+    "swap_schedule_result": {
+      "path": "03. EA Developer/EA_MultiAssetTSMOMSwapScheduleProbeV1/research/HYP-MULTI-TSMOM-D1-004-SWAP-SCHEDULE-PROBE-001_RESULT.json",
+      "sha256": "3D547E929F6D45DD6535011149BF060DE8121103B555CEBCD3745F047B6C9A67"
+    }
+  },
+  "verification": {
+    "command": "python -m pytest 02. AlphaFactory/tests/test_mts004_financing_overlay.py 02. AlphaFactory/tests/test_dukascopy_bi5.py 02. AlphaFactory/tests/test_dukascopy_custom_import_plan.py 02. AlphaFactory/tests/test_terminal_process_guard.py -q",
+    "status": "PASS",
+    "count": 24,
+    "elapsed_seconds": 1.68,
+    "checks": [
+      "signed native swap is removed before the controlled adverse overlay",
+      "receipt paths are repository-contained and SHA256-bound",
+      "leading no-tick days are treated as zero exposure",
+      "last daily exposure state is carried through missing calendar days",
+      "the calculation result cannot self-authorize an economic or performance verdict",
+      "the CLI writes a complete hash-bound result packet"
+    ]
+  },
+  "calculation_valid": true,
+  "historical_pit_financing_proven": false,
+  "economic_verdict_authorized": false,
+  "performance_verdict_authorized": false
+}

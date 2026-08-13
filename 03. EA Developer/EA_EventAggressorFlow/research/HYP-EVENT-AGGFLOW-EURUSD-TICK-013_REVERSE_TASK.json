@@ -1,0 +1,36 @@
+{
+  "schema_version": "event_aggflow_013_model0_task.v1",
+  "hypothesis_id": "HYP-EVENT-AGGFLOW-EURUSD-TICK-013",
+  "attempt_id": "EVENTAGGFLOW013-MODEL0-REVERSE-001",
+  "one_attempt_only": true,
+  "same_id_retry_authorized": false,
+  "visual_mode": false,
+  "indicator_dependencies": [],
+  "command_contract": {
+    "action": "backtest",
+    "ea_name": "EA_EventAggressorFlow",
+    "symbol": "EURUSD",
+    "period": "M1",
+    "from": "2019.01.01",
+    "to": "2021.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "run_role": "challenger",
+    "telemetry_tier": "off",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "holding_contract": "scalp",
+    "required_sidecars": [
+      "EVENTAGGFLOW013_RunMeta_REVERSE.json",
+      "EURUSD_EVENTAGGFLOW013_Trades_REVERSE.csv"
+    ],
+    "overrides": "InpDeviationPoints=100;InpEnableAudit=true;InpHypothesisId=HYP-EVENT-AGGFLOW-EURUSD-TICK-013;InpMagic=5604413;InpMaxLots=1.0;InpResearchAutoMode=true;InpReverseComparator=true;InpRiskPercent=0.25;InpSizingStopPips=15.0;InpVariantTag=CME6E_FIRST15S_FLOW_CONTINUATION_V1"
+  },
+  "matched_control": {
+    "manifest_path": "02. AlphaFactory/runs/EA_EventAggressorFlow/20260812_184117/run_recovery_manifest.json",
+    "report_path": "02. AlphaFactory/runs/EA_EventAggressorFlow/20260812_184117/report.html"
+  }
+}

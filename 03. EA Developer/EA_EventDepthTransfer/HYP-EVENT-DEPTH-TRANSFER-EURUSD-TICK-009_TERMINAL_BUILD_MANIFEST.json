@@ -1,0 +1,15 @@
+{
+  "schema_version": "event_depth_transfer_009_terminal_build_manifest.v1",
+  "hypothesis_id": "HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-009",
+  "verdict": "TERMINAL_FROZEN_MAPPING_NO_EXECUTION",
+  "mapping_terminal_constant": true,
+  "oninit_fails_closed": true,
+  "ea_source_sha256": "725E65337059183CA13763A100F41296F804A3E6245E8A2171966D7ACDCAF266",
+  "ea_ex5_sha256": "4AD6F60598F71A56B7B3365431B1FA63DC489D9E37E6E00DC0F62B620ECF2E95",
+  "compile_log_sha256": "14C4EADA1CC78222712EC73FF066DF4C4695D987BD7F7826C262DBF26062C267",
+  "compile_result": "0 errors, 0 warnings",
+  "economic_validity": false,
+  "promotion_eligible": false,
+  "same_id_retry_authorized": false
+}
+

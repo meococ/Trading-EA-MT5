@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-ISDS-XAUUSD-M5-001",
+  "run_id": "ISDS001-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_IntradaySerialDependenceSwitch",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_IntradaySerialDependenceSwitch\\EA_IntradaySerialDependenceSwitch.mq5",
+  "source_sha256": "CD0633CB68B731E5B086630493340F0D090C11F3A8E7BAB0EEE3954D72358C5B",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

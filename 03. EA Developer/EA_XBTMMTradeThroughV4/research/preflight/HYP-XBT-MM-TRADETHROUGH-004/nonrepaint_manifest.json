@@ -1,0 +1,10 @@
+{
+  "schema_version": "alphafactory_run_manifest.v1",
+  "hypothesis_id": "HYP-XBT-MM-TRADETHROUGH-004",
+  "run_id": "SOURCE-SNAPSHOT-R4-20260812",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_XBTMMTradeThroughV4\\research\\preflight\\HYP-XBT-MM-TRADETHROUGH-004\\nonrepaint_snapshot",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_XBTMMTradeThroughV4\\research\\preflight\\HYP-XBT-MM-TRADETHROUGH-004\\nonrepaint_snapshot\\EA_XBTMMTradeThroughV4.mq5",
+  "source_sha256": "1D27E34DB10A6D649C13CAC7935A96421661D60A4F4DE0643C8EF92D28E28E9C",
+  "include_snapshots": [],
+  "nondecision_provenance_copytime_authorized": true
+}

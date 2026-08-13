@@ -1,0 +1,4 @@
+kind,ts_local,ts_server,ts_current,tick64,event_id,value_id,scheduled_unix,period_unix,revision,old_forecast,old_actual,old_prev,old_revised_prev,new_forecast,new_actual,new_prev,new_revised_prev,payload_hash,latency_sec,due_set,api_error,gap,importance,event_name,event_code,source_currencies,recv_clock
+API_ERROR_HISTORY,2026.08.13 12:15:56,2026.08.13 08:15:56,2026.08.13 08:15:57,66401125,840010001,,,,,,,,,,,,,,,5401,1,,,,,terminal_observation_not_official_first_public
+API_ERROR_HISTORY,2026.08.13 12:16:46,2026.08.13 08:16:46,2026.08.13 08:16:47,66451265,840010002,,,,,,,,,,,,,,,5401,1,,,,,terminal_observation_not_official_first_public
+API_ERROR_HISTORY,2026.08.13 12:16:59,2026.08.13 08:16:59,2026.08.13 08:17:00,66464625,840010003,,,,,,,,,,,,,,,5401,1,,,,,terminal_observation_not_official_first_public

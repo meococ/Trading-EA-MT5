@@ -1,0 +1,9 @@
+{
+  "hypothesis_id": "HYP-EIBB-XAUUSD-M15-001",
+  "run_id": "EIBB001-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_EuropeInitialBalanceBreakout",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_EuropeInitialBalanceBreakout\\EA_EuropeInitialBalanceBreakout.mq5",
+  "source_sha256": "F24FDDC36D51AAED2A27A69CA646058EBB5AA5B1D557C1B7B011B606311A3ABE",
+  "nondecision_provenance_copytime_authorized": true,
+  "include_snapshots": []
+}

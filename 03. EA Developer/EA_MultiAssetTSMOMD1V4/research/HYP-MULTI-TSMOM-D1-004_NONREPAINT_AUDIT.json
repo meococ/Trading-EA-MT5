@@ -1,0 +1,57 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-004",
+  "source_sha256": "05E03D3045E36903076EDB01E52CB94DFAE0145F4E095AC69AAD99062AFFBE94",
+  "status": "PASS_STATIC",
+  "checks": [
+    {
+      "id": "closed-bars",
+      "status": "PASS",
+      "evidence": "LoadClosedAssetState calls CopyRates(symbol, PERIOD_D1, 1, HISTORY_BUFFER, rates)."
+    },
+    {
+      "id": "shift-zero-price",
+      "status": "PASS",
+      "evidence": "iTime shift 0 supplies only the known close boundary of rates[0]; no shift-zero OHLC value enters signal or volatility."
+    },
+    {
+      "id": "calendar-lookback",
+      "status": "PASS",
+      "evidence": "The first completed close_time <= decision_time - 31536000 seconds is selected without future access."
+    },
+    {
+      "id": "frozen-snapshot",
+      "status": "PASS",
+      "evidence": "Signal, volatility, weights and target volumes are prepared once and retained across transition retries."
+    },
+    {
+      "id": "btc-eligibility",
+      "status": "PASS",
+      "evidence": "BTC eligibility is a compile-time 2018-05-14 UTC listing/warmup boundary, independent of results."
+    },
+    {
+      "id": "indicator-repaint",
+      "status": "PASS",
+      "evidence": "The EA has no indicator handles, CopyBuffer calls, ZigZag/fractal pivots, centered windows or future-bar references."
+    },
+    {
+      "id": "missing-source",
+      "status": "PASS",
+      "evidence": "Any missing active asset invalidates the whole snapshot; no source-missing leg is assigned a result-dependent zero weight."
+    },
+    {
+      "id": "signed-net-delta",
+      "status": "PASS",
+      "evidence": "NormalizeVolumeNearest retains the sign of target-current after rounding absolute lots, so short opens and same-side reductions are executable."
+    },
+    {
+      "id": "financing-state-order",
+      "status": "PASS",
+      "evidence": "A forced post-rebalance financing snapshot supersedes the earlier daily-open snapshot for the same calendar day; the frozen analyzer carries the last state across no-tick days."
+    }
+  ],
+  "limitations": [
+    "Static audit does not prove imported custom-symbol coverage or runtime execution correctness.",
+    "Economics remain unauthorized until the source-only MT5 probe passes."
+  ]
+}

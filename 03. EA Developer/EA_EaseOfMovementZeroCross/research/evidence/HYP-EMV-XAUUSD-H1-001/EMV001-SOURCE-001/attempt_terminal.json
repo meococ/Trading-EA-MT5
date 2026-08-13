@@ -1,0 +1,1 @@
+{"attempt_id":"EMV001-SOURCE-001","hypothesis_id":"HYP-EMV-XAUUSD-H1-001","receipt_sha256":"AC29A0D7B1796F89527CC378447F38A08EDF79ABCB0882CC60F2C00CF43F1458","same_id_retry_authorized":false,"schema_version":"emv_source_attempt_terminal.v1","status":"COMPLETE","verdict":"PARK_SOURCE_FEASIBILITY_EXACT_EMV14_ZERO_CROSS"}

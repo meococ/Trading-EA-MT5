@@ -1,0 +1,11 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "authority": "SOURCE_GATE_ONLY_NO_PERFORMANCE",
+  "symbol": "AFD_XAUUSD_DUKA_V3",
+  "spread": "native imported Bid/Ask",
+  "commission": "not used because this source cell sends zero orders",
+  "slippage": "not used because this source cell sends zero orders",
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "promotion_eligible": false
+}

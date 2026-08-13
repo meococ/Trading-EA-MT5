@@ -1,0 +1,11 @@
+{
+  "attempt_id": "IDEM001-SOURCE-001",
+  "attempt_receipt_sha256": "A9BA8F5CE317049FA2EDF19B72ABB167DA5F4A8CBF55DE671E8573CD52B414B8",
+  "attempt_started_sha256": "4054D1AD51DBF62DF93935886D709B4A880ADD285C90C2E571A38EEAEF0ADD2E",
+  "completed_at_utc": "2026-08-11T06:37:12.785460+00:00",
+  "hypothesis_id": "HYP-IDEM-XAUUSD-M5-001",
+  "same_id_retry_authorized": false,
+  "schema_version": "idem_source_attempt_terminal.v1",
+  "status": "COMPLETE",
+  "verdict": "PASS_SOURCE_FEASIBILITY"
+}

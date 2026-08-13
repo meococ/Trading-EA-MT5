@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-IDEM-XAUUSD-M5-001",
+  "run_id": "IDEM001-MQL5-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\HYP-IDEM-XAUUSD-M5-001_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "8E779DC9AFE7B4D30EDBDA9C010A1708C9FA9875D6FBA57028575E114246E55C",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\EA_IntradayEntropyMomentum.mq5",
+      "sha256": "3B83468B173E11F2BC72EDC26AD6634EE902566BFB81CA92F9CDACBE2DA3DC30"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_IntradayEntropyMomentum\\EA_IntradayEntropyMomentum.mq5",
+      "line": 197,
+      "rule": "collection_first_date_copytime",
+      "function": "CopyTime",
+      "disposition": "allowed_collection_provenance_read"
+    }
+  ],
+  "generated_at_utc": "2026-08-11T06:40:32.040582+00:00"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "grok_deep_research_failure_packet.v1",
+  "hypothesis_id": "HYP-CBC-XAUUSD-M15-001",
+  "ea_name": "EA_CompBreak_XAU_M15_V2",
+  "run_id": "20260812_010304",
+  "verdict": "KILL_SPARSE_AND_CONCENTRATED_NO_OOS_NO_CONTROL",
+  "data": {"symbol": "XAUUSD", "period": "M15", "from": "2018.01.01", "to": "2022.01.01", "model": 0, "history_quality_pct": 99, "full_window": true},
+  "performance": {"trades": 28, "net_profit": 2725.08, "profit_factor": 1.7463212236570036, "win_rate_pct": 57.14285714285714, "expectancy_per_trade": 97.32428571428571, "max_drawdown_pct": 0.7333895972405663},
+  "mechanics": {"closed_bars": 93887, "compressions": 39, "breaks": 33, "entries": 28, "be_moves": 12, "trail_arms": 6, "trail_moves": 11, "max_margin_usage_pct": 11.984},
+  "concentration": {"largest_exit_net": 1474.17, "second_largest_exit_net": 1300.19, "combined_vs_report_net_pct": 101.81},
+  "failure_radius": "Exact seven-bar all-small-body compression box <=1.15 ATR plus 0.10 ATR close break and nine-bar expiry is too sparse; profit is dominated by two rare runners.",
+  "forbidden_rescue": ["compression bars/ATR/body/buffer retuning", "session/hour/day filtering", "direction filtering", "SL/BE/trail/time-stop tuning", "OOS or control access", "claiming edge from PF with n=28"],
+  "next_requirement": "A fresh deterministic native-MT5 M5/M15 mechanism with materially higher event cadence, one position, closed bars, realistic spread, and the same hard risk/notional/margin cap topology.",
+  "evidence": {"report_sha256": "4882015F986711F397FB24D03ADA72D4E05D09CC7849CC6B700217888BACACC4", "journal_sha256": "7DAD53F5FCF4713C2D5AE195D99B5C242087086AAA8D469C09DFFFA4942734FD", "source_sha256": "02E437B7BD015CEC4C2308BFC3E7C45646712B118E84461DADE4C9574FCE2656", "ex5_sha256": "9C1988BF60293949A2BC155675C2295D722A70E35B32F5F3A68BC051E978E20C"}
+}

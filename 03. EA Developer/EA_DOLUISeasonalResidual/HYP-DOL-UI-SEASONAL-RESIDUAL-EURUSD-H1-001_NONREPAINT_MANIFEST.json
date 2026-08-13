@@ -1,0 +1,14 @@
+{
+  "hypothesis_id": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+  "run_id": "DOLUI001-MQL5-STATIC-001",
+  "snapshot_root": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual",
+  "source_snapshot": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\EA_DOLUISeasonalResidual.mq5",
+  "source_sha256": "72D8C1CFF8F7BD8A8D441A41BB206B9514580FC3AE4034966AE036245429018A",
+  "nondecision_provenance_copytime_authorized": false,
+  "include_snapshots": [
+    {
+      "snapshot_path": "D:\\Trading EA MT5\\03. EA Developer\\EA_DOLUISeasonalResidual\\resources\\dolui_001_train_table.mqh",
+      "sha256": "E4A4407047A7B2A46EBD9BC7C3817FF41545F5662F1D480D4E5CF10D853388A8"
+    }
+  ]
+}

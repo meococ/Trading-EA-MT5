@@ -1,0 +1,55 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "hypothesis_id": "HYP-CBC-XAUUSD-M15-001",
+  "task_packet_sha256": "3E5757F80FFB26BD25B407A0C1DD3DEB29E14C033A75C6DA6E9E9CBC37337F91",
+  "git_commit": "1ec53d2d3ad7d29f85b764b7e155631e0c81f9f1",
+  "git_status_sha256": "0EBEE938DE8D9CCE2BD8B5BF2E175081386563D540BBB656A441D0A82A306F7B",
+  "binding": {
+    "hypothesis_id": "HYP-CBC-XAUUSD-M15-001",
+    "run_role": "control",
+    "ea_name": "EA_CompBreak_XAU_M15_V2",
+    "symbol": "XAUUSD",
+    "period": "M15",
+    "from": "2018.01.01",
+    "to": "2022.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "overrides": "InpATRPeriod=14;InpBEOffsetR=0.15;InpBETriggerR=1.10;InpBreakBodyMin=0.50;InpBreakBufferATR=0.10;InpCompressionATRMax=1.15;InpCompressionBars=7;InpCompressionBodyMax=0.55;InpCooldownHours=8;InpDailyFlatHour=21;InpDailyFlatMinute=45;InpDailyLossPct=1.20;InpDeviationPoints=12;InpExpiryBars=9;InpFridayFlatHour=19;InpFridayFlatMinute=30;InpHypothesisId=HYP-CBC-XAUUSD-M15-001;InpLossStreakLimit=4;InpMagic=5604801;InpMaxMarginUsagePct=12.0;InpMaxNotionalMult=4.50;InpMaxSLATR=2.60;InpMaxSpreadPoints=48;InpMinSLATR=1.30;InpResearchAutoMode=true;InpRiskPercent=0.45;InpSLATRBuffer=0.20;InpTimeStopBars=16;InpTrailATRMult=0.90;InpTrailStartR=1.80;InpUseCompression=true;InpVariantTag=COMP7_PRIMARY;InpWeeklyLossPct=3.00",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {
+      "digits": 2,
+      "point": 0.01,
+      "pip_size": 0.01
+    },
+    "visual_mode": false,
+    "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-11T18:00:00Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {"operator": "gt", "value": 97},
+      "requested_from": "2018.01.01",
+      "requested_to": "2022.01.01",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 16777216
+    }
+  },
+  "evidence": [
+    {"label": "task_packet", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CompBreak_XAU_M15_V2\\research\\HYP-CBC-XAUUSD-M15-001_BASELINE_TASK.json", "sha256": "3E5757F80FFB26BD25B407A0C1DD3DEB29E14C033A75C6DA6E9E9CBC37337F91"},
+    {"label": "source", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CompBreak_XAU_M15_V2\\EA_CompBreak_XAU_M15_V2.mq5", "sha256": "02E437B7BD015CEC4C2308BFC3E7C45646712B118E84461DADE4C9574FCE2656"},
+    {"label": "prereg", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CompBreak_XAU_M15_V2\\research\\HYP-CBC-XAUUSD-M15-001_FROZEN_PREREG.md", "sha256": "2A79A8E2917FF27F81286DA0586B47BF9292AD8C9F580C41AAF81E2D5D149C88"},
+    {"label": "cost_source_manifest", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CompBreak_XAU_M15_V2\\research\\preflight\\HYP-CBC-XAUUSD-M15-001\\cost_source_manifest.unverified.json", "sha256": "C378E7C5D8B38E5EC1A350CD687DB7B005800D9AB1B078CEDAD5DC698F96B2F8"},
+    {"label": "candidate_registry", "kind": "file", "path": "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl", "sha256": "1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"},
+    {"label": "ea_contract", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CompBreak_XAU_M15_V2\\ALPHAFACTORY_EA_CONTRACT.json", "sha256": "20420448BA7D46D75FC51855A6C5DDE07F933083F8F0EEA1FF6385E245A5A6DF"},
+    {"label": "nonrepaint_audit", "kind": "file", "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_CompBreak_XAU_M15_V2\\HYP-CBC-XAUUSD-M15-001_NONREPAINT_AUDIT.json", "sha256": "6F7CF1D7F93E599B178A1212E750062F9644F70F982A0402E75DE8EF524D654A"}
+  ],
+  "generated_at_utc": "2026-08-11T18:00:00Z",
+  "note": "One untuned XAUUSD M15 stateful compression-break design baseline only."
+}

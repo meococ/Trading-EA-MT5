@@ -1,0 +1,39 @@
+{
+  "schema_version": "mts005_custom_rate_import_run.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-005",
+  "status": "PASS_SOURCE_IMPORT",
+  "authority": "SOURCE_DATA_ONLY_NO_PERFORMANCE",
+  "terminal_exit_code": 0,
+  "terminal_root": "D:/Trading EA MT5/02. AlphaFactory/runtime/mt5-portable-fivepercent",
+  "importer_ex5_path": "D:/Trading EA MT5/02. AlphaFactory/tools/research/mql5/AlphaFactoryCustomRateImport.ex5",
+  "importer_ex5_sha256": "0AF3740031FA1258D11C0E95C18DC1B8B26EBEFA379B8E592E6D5DD0724A5CCA",
+  "active_plan_path": "D:/Trading EA MT5/02. AlphaFactory/runtime/mt5-portable-fivepercent/MQL5/Files/AlphaFactoryCustomRateImport/active_plan.csv",
+  "active_plan_sha256": "2DCE52C6965FE0454C11C81BAAB4584C6BFFB129A64F0EA554DCE98819B1F3DA",
+  "plan_identity_sha256": "E2C5C21610338EFBD9CC75903BBF28B9B282D405CB3BE3168595A8EAD919A1DC",
+  "mt5_receipt_path": "D:/Trading EA MT5/02. AlphaFactory/runtime/mt5-portable-fivepercent/MQL5/Files/AlphaFactoryCustomRateImport/active_receipt.csv",
+  "mt5_receipt_sha256": "58638E0267E185083E15A9EDA10E258C30E65D62C63F4384E70C74A796A517E7",
+  "readback": {
+    "row_count": 120,
+    "month_pass_count": 116,
+    "custom_symbol": "USDJPY_AFD_TSMOM_V6",
+    "imported_months": 116,
+    "imported_h1": 59902,
+    "imported_m1": 239608,
+    "d1_bars": 3006,
+    "h1_first_epoch": 1483308000,
+    "source_contract_sha256": "82CB1576C9F7968F111225515A2F303727308A47C5EC2EA47579194F45C6CB9E",
+    "range_manifest_sha256": "114DF311749EB03E6DDFB1C5814396C2479B4F11F20B43D50F3DC892823AD2E1",
+    "import_plan_sha256": "E2C5C21610338EFBD9CC75903BBF28B9B282D405CB3BE3168595A8EAD919A1DC",
+    "trade_spec": {
+      "custom_symbol": "USDJPY_AFD_TSMOM_V6",
+      "origin_symbol": "USDJPY",
+      "currency_base": "USD",
+      "currency_profit": "JPY",
+      "currency_margin": "USD",
+      "trade_calc_mode": 0,
+      "contract_size": 100000.0
+    }
+  },
+  "economics_authorized": false,
+  "performance_metrics_authorized": false
+}

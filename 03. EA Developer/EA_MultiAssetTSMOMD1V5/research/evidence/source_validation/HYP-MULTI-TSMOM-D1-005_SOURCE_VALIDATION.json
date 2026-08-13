@@ -1,0 +1,1318 @@
+{
+  "acceptance_threshold": 0.995,
+  "authority": "SOURCE_DATA_ONLY_NO_PERFORMANCE",
+  "comparison_clock": "provider session-anchored D1 boundaries, not UTC signal days",
+  "economics_authorized": false,
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-005",
+  "performance_metrics_authorized": false,
+  "schema_version": "mts005_jetta_h1_source_validation.v1",
+  "source_contract_sha256": "82CB1576C9F7968F111225515A2F303727308A47C5EC2EA47579194F45C6CB9E",
+  "status": "FAIL",
+  "symbols": [
+    {
+      "comparison": {
+        "common_sessions": 2500,
+        "exact_ohlc_sessions": 2484,
+        "maximum_error_points": 1.0000000000065512,
+        "mismatch_samples": [],
+        "missing_official_sessions_without_h1": 0,
+        "status": "PASS",
+        "within_one_point_rate": 1.0,
+        "within_one_point_sessions": 2500
+      },
+      "h1_bar_count": 59791,
+      "official_d1_raw": [
+        {
+          "bytes": 8540,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/EURUSD/2017.json",
+          "sha256": "DE99AB2D634AE92A509F8D9C896FE3E40EC32BF7D41FEFDE62218E5FEC11E53B",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/EUR-USD/BID/2017",
+          "year": 2017
+        },
+        {
+          "bytes": 8623,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/EURUSD/2018.json",
+          "sha256": "9C972E9EFE5CEA28B75862E73E128F6209A69121627C71DBCE8C49DABE9F3FF1",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/EUR-USD/BID/2018",
+          "year": 2018
+        },
+        {
+          "bytes": 8447,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/EURUSD/2019.json",
+          "sha256": "223A36081A121E063B19068C9737FB7614C7C46E387F96B1064E3BEA6BBE76BB",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/EUR-USD/BID/2019",
+          "year": 2019
+        },
+        {
+          "bytes": 8916,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/EURUSD/2020.json",
+          "sha256": "23BF48DD2031C84BF49E6F880EE2679B27076378358239FE3AC7DA7045CB2B1B",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/EUR-USD/BID/2020",
+          "year": 2020
+        },
+        {
+          "bytes": 8560,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/EURUSD/2021.json",
+          "sha256": "447FD9D7AC0F5398B2DBF94C99263CD4A2A0435ACF9EB6D08CDE8EF6CD68BD1B",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/EUR-USD/BID/2021",
+          "year": 2021
+        },
+        {
+          "bytes": 8790,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/EURUSD/2022.json",
+          "sha256": "CC3F33C8D20022323B95B7C9455E299B09A5F46281C1C34FC25701AC5A9B0100",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/EUR-USD/BID/2022",
+          "year": 2022
+        },
+        {
+          "bytes": 8545,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/EURUSD/2023.json",
+          "sha256": "A5FC3364E36787FD3F40A9096FC94882A1E8942AC6CCA673D59A4F9A7889B319",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/EUR-USD/BID/2023",
+          "year": 2023
+        },
+        {
+          "bytes": 8464,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/EURUSD/2024.json",
+          "sha256": "620AFAE052F1EC1824C73C3DBC76143B38F85F95323C5A90C684B76F3350E0AB",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/EUR-USD/BID/2024",
+          "year": 2024
+        },
+        {
+          "bytes": 8511,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/EURUSD/2025.json",
+          "sha256": "F6EEC86FE7078C81AAADE020C4188D805D55A06F0058EFE9F4E7DFB81014E8C7",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/EUR-USD/BID/2025",
+          "year": 2025
+        },
+        {
+          "bytes": 5234,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/EURUSD/2026.json",
+          "sha256": "7E0A9D92B1971BC016F08CAA5D7FA9AC597E5F5CA7F979E02BD57920B64E28C7",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/EUR-USD/BID?from=1767225600000",
+          "year": 2026
+        }
+      ],
+      "symbol": "EURUSD"
+    },
+    {
+      "comparison": {
+        "common_sessions": 2499,
+        "exact_ohlc_sessions": 2499,
+        "maximum_error_points": 0.0,
+        "mismatch_samples": [],
+        "missing_official_sessions_without_h1": 0,
+        "status": "PASS",
+        "within_one_point_rate": 1.0,
+        "within_one_point_sessions": 2499
+      },
+      "h1_bar_count": 59900,
+      "official_d1_raw": [
+        {
+          "bytes": 8590,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/GBPUSD/2017.json",
+          "sha256": "6FFCD2D37CC8DE6E4CD45C902E7BE6ABC8CC63C4FA6541018E6BF6C448606144",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/GBP-USD/BID/2017",
+          "year": 2017
+        },
+        {
+          "bytes": 8680,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/GBPUSD/2018.json",
+          "sha256": "845EA39BB9D9CBD06108657C35C8C4BDD2D323B20AB380FDCD51FD3A962CBF71",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/GBP-USD/BID/2018",
+          "year": 2018
+        },
+        {
+          "bytes": 8665,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/GBPUSD/2019.json",
+          "sha256": "A080B492EBC68B5B347CDD9EFB280946A66C7C39F80640F76975CD31BADF9A94",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/GBP-USD/BID/2019",
+          "year": 2019
+        },
+        {
+          "bytes": 8797,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/GBPUSD/2020.json",
+          "sha256": "18E0C859D6F6E1CF0FE37FA95A9CBC5999EA23891EF685606B564BA7FE49503E",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/GBP-USD/BID/2020",
+          "year": 2020
+        },
+        {
+          "bytes": 8679,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/GBPUSD/2021.json",
+          "sha256": "E8A2E1A0F48731256B17B8B4CE4301F1A8B140D97076D88312A92A19DF9D2F3B",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/GBP-USD/BID/2021",
+          "year": 2021
+        },
+        {
+          "bytes": 8885,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/GBPUSD/2022.json",
+          "sha256": "5904E021FCACBED921BBAE8774B251B772FA05FF3E986A0D1662875ABA6B9DA5",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/GBP-USD/BID/2022",
+          "year": 2022
+        },
+        {
+          "bytes": 8626,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/GBPUSD/2023.json",
+          "sha256": "64643F69E40BF4643E4E7B6AA2517B253BE366B6D7CA7A2831B61EA24C5B2FB2",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/GBP-USD/BID/2023",
+          "year": 2023
+        },
+        {
+          "bytes": 8406,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/GBPUSD/2024.json",
+          "sha256": "5A3B6BB15D3612721A50701D6BF6696CE5D9249AA0C63393C032D737A814BFD9",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/GBP-USD/BID/2024",
+          "year": 2024
+        },
+        {
+          "bytes": 8497,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/GBPUSD/2025.json",
+          "sha256": "E7ED32329C180DF601151C7AA0DA5017CBE87639387D2640A3F641AB1A97219B",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/GBP-USD/BID/2025",
+          "year": 2025
+        },
+        {
+          "bytes": 5282,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/GBPUSD/2026.json",
+          "sha256": "AB7453894ED52E8A878CA15DCFE13B22AF45DEC88593EE4A476D3DA7C112CEFB",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/GBP-USD/BID?from=1767225600000",
+          "year": 2026
+        }
+      ],
+      "symbol": "GBPUSD"
+    },
+    {
+      "comparison": {
+        "common_sessions": 2499,
+        "exact_ohlc_sessions": 2499,
+        "maximum_error_points": 0.0,
+        "mismatch_samples": [],
+        "missing_official_sessions_without_h1": 0,
+        "status": "PASS",
+        "within_one_point_rate": 1.0,
+        "within_one_point_sessions": 2499
+      },
+      "h1_bar_count": 59902,
+      "official_d1_raw": [
+        {
+          "bytes": 8371,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/AUDUSD/2017.json",
+          "sha256": "FA8F92FB148A1C2B08F1BBCE3F18BC5A79EB484C6440FB3F4D5C4F53C6FA1445",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/AUD-USD/BID/2017",
+          "year": 2017
+        },
+        {
+          "bytes": 8400,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/AUDUSD/2018.json",
+          "sha256": "B46F6B78F9936489AACC717F173DF00816581C9775ED6EC6D5FD2686C13DB632",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/AUD-USD/BID/2018",
+          "year": 2018
+        },
+        {
+          "bytes": 8277,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/AUDUSD/2019.json",
+          "sha256": "B30E40EC565893B965FB7D1816E83791352BC6962F38C4CA557E4337A41E6CBB",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/AUD-USD/BID/2019",
+          "year": 2019
+        },
+        {
+          "bytes": 8423,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/AUDUSD/2020.json",
+          "sha256": "C399C265EA44AEB02F9ACA3127661EC32B09952D42008318F61445E2E5208794",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/AUD-USD/BID/2020",
+          "year": 2020
+        },
+        {
+          "bytes": 8356,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/AUDUSD/2021.json",
+          "sha256": "E0AB99332CC05EB90E952026689CEF01CD007A2ED67E8790B05243E47A0979BD",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/AUD-USD/BID/2021",
+          "year": 2021
+        },
+        {
+          "bytes": 8593,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/AUDUSD/2022.json",
+          "sha256": "885DE7865C4D7065F0C23EB9ED3600E039855C63E5730A482DA05BDBE6AC20E5",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/AUD-USD/BID/2022",
+          "year": 2022
+        },
+        {
+          "bytes": 8390,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/AUDUSD/2023.json",
+          "sha256": "B6640A158EC9880B45C9BA54253BC653E4C39B56D6F5BD3537B166D792305A5F",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/AUD-USD/BID/2023",
+          "year": 2023
+        },
+        {
+          "bytes": 8308,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/AUDUSD/2024.json",
+          "sha256": "B107AC8368C287CC665128991BF22EF55BDE6B346BAF9D079576667730C12566",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/AUD-USD/BID/2024",
+          "year": 2024
+        },
+        {
+          "bytes": 8238,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/AUDUSD/2025.json",
+          "sha256": "AD45D3060E29E2E7702E7E62165559474402BF863E60B594C1A5423AEF811B23",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/AUD-USD/BID/2025",
+          "year": 2025
+        },
+        {
+          "bytes": 5177,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/AUDUSD/2026.json",
+          "sha256": "FF00DD5AB2E7D9410C3430350EA0CEB1FC2C8B487BFB7F6E0B2121421B035AC9",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/AUD-USD/BID?from=1767225600000",
+          "year": 2026
+        }
+      ],
+      "symbol": "AUDUSD"
+    },
+    {
+      "comparison": {
+        "common_sessions": 2499,
+        "exact_ohlc_sessions": 2483,
+        "maximum_error_points": 1.0000000000065512,
+        "mismatch_samples": [],
+        "missing_official_sessions_without_h1": 0,
+        "status": "PASS",
+        "within_one_point_rate": 1.0,
+        "within_one_point_sessions": 2499
+      },
+      "h1_bar_count": 59893,
+      "official_d1_raw": [
+        {
+          "bytes": 8244,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/NZDUSD/2017.json",
+          "sha256": "AEE61B8DDC213FE7682DADE51F76410C7D5547C6154DE3D4F6DB0F2C5AF9CA31",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/NZD-USD/BID/2017",
+          "year": 2017
+        },
+        {
+          "bytes": 8280,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/NZDUSD/2018.json",
+          "sha256": "7AA5B16091F44FE2863C8A67386A941689B877506469F3DDA8D82A7A414A76B2",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/NZD-USD/BID/2018",
+          "year": 2018
+        },
+        {
+          "bytes": 8190,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/NZDUSD/2019.json",
+          "sha256": "DDDAD6D485828389714E3BD1AD984CD44DA02415B3F6499D082B7AA5826B3116",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/NZD-USD/BID/2019",
+          "year": 2019
+        },
+        {
+          "bytes": 8298,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/NZDUSD/2020.json",
+          "sha256": "30964A93E5F8396297EC74E99AAFFB3D4B5BA18701339B0C7EB44ED3DDE0938F",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/NZD-USD/BID/2020",
+          "year": 2020
+        },
+        {
+          "bytes": 8240,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/NZDUSD/2021.json",
+          "sha256": "B63646FE645246AE475612E3D6D31CA372289988773BE39440C216E873D227B6",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/NZD-USD/BID/2021",
+          "year": 2021
+        },
+        {
+          "bytes": 8517,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/NZDUSD/2022.json",
+          "sha256": "5C9A8A9D01780002A03FAF586B0B3B1A2AF3D11AD050BF5D1EB4B5106155E819",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/NZD-USD/BID/2022",
+          "year": 2022
+        },
+        {
+          "bytes": 8351,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/NZDUSD/2023.json",
+          "sha256": "6BC25D81ED2A03F77D81D4BBBD09D5F8DF59267D6F81B6F366563D2FBE432191",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/NZD-USD/BID/2023",
+          "year": 2023
+        },
+        {
+          "bytes": 8241,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/NZDUSD/2024.json",
+          "sha256": "078EA555EBBA05BD0A7F7B628C6A8BB2740856569BF8590309E37A1AE4D5E36B",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/NZD-USD/BID/2024",
+          "year": 2024
+        },
+        {
+          "bytes": 8170,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/NZDUSD/2025.json",
+          "sha256": "F1B7D94DF2626CB696DECC473EDAFE9E68D197793800E0248B94A2B4B7A35A53",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/NZD-USD/BID/2025",
+          "year": 2025
+        },
+        {
+          "bytes": 5112,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/NZDUSD/2026.json",
+          "sha256": "9396C72BB40F5CE788D60AB023F963C57682110E8FCF9B5836B7F34487F72EA9",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/NZD-USD/BID?from=1767225600000",
+          "year": 2026
+        }
+      ],
+      "symbol": "NZDUSD"
+    },
+    {
+      "comparison": {
+        "common_sessions": 2499,
+        "exact_ohlc_sessions": 2499,
+        "maximum_error_points": 0.0,
+        "mismatch_samples": [],
+        "missing_official_sessions_without_h1": 0,
+        "status": "PASS",
+        "within_one_point_rate": 1.0,
+        "within_one_point_sessions": 2499
+      },
+      "h1_bar_count": 59902,
+      "official_d1_raw": [
+        {
+          "bytes": 8614,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDJPY/2017.json",
+          "sha256": "F02E1EDA0CEE7FA46978020B988489E2497BA9D88B1EE0048115B7BDBFC5EA92",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-JPY/BID/2017",
+          "year": 2017
+        },
+        {
+          "bytes": 8509,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDJPY/2018.json",
+          "sha256": "E67B9ED36F740766EDF215EA96CF705DD142F70B5D1313EF67B00B22FB5A4F8B",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-JPY/BID/2018",
+          "year": 2018
+        },
+        {
+          "bytes": 8354,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDJPY/2019.json",
+          "sha256": "504B00D3CDC9B2A06CC858DD251C4AFA418562DBB22830A402B0987B88648FFB",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-JPY/BID/2019",
+          "year": 2019
+        },
+        {
+          "bytes": 8485,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDJPY/2020.json",
+          "sha256": "99D79959F2C1BA90C009189D33075E1DC380C6C0966DF2C34954C71F0CA8A20C",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-JPY/BID/2020",
+          "year": 2020
+        },
+        {
+          "bytes": 8238,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDJPY/2021.json",
+          "sha256": "D391FB5BA49365AD5E01F8DD24DF7EE4B0DE8F4E9968AB73E6FF440DD268346D",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-JPY/BID/2021",
+          "year": 2021
+        },
+        {
+          "bytes": 8706,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDJPY/2022.json",
+          "sha256": "DF85243097E3E6E0BA13C74E6E9A1652F52129FFCBA8A480BAF6D0597D82FD7F",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-JPY/BID/2022",
+          "year": 2022
+        },
+        {
+          "bytes": 8738,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDJPY/2023.json",
+          "sha256": "8DD63F9DE03823F90C597180AB2BF2FF0E4EBBC4446B6067ECC5E15CBF3AB220",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-JPY/BID/2023",
+          "year": 2023
+        },
+        {
+          "bytes": 8757,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDJPY/2024.json",
+          "sha256": "749A365F7E8F59708C301D0E177DB9C421E9B0CAC48468282BDCC4852687F2BC",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-JPY/BID/2024",
+          "year": 2024
+        },
+        {
+          "bytes": 8801,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDJPY/2025.json",
+          "sha256": "B5C157A2E13B1A0A063C02C5B135529C18605433FE3661C4D5A1EE47AD5200BF",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-JPY/BID/2025",
+          "year": 2025
+        },
+        {
+          "bytes": 5210,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDJPY/2026.json",
+          "sha256": "2C3ECBA9AE85F4D5C15B9503808D714B06DEF5E8990227E8E186F132EA08A148",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-JPY/BID?from=1767225600000",
+          "year": 2026
+        }
+      ],
+      "symbol": "USDJPY"
+    },
+    {
+      "comparison": {
+        "common_sessions": 2499,
+        "exact_ohlc_sessions": 2499,
+        "maximum_error_points": 0.0,
+        "mismatch_samples": [],
+        "missing_official_sessions_without_h1": 0,
+        "status": "PASS",
+        "within_one_point_rate": 1.0,
+        "within_one_point_sessions": 2499
+      },
+      "h1_bar_count": 59901,
+      "official_d1_raw": [
+        {
+          "bytes": 8581,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCAD/2017.json",
+          "sha256": "F4061584BC29C299CDE5D6BE2B91CF2585FD6DDAA1E0DAC67AF4CD3926D6C4F8",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CAD/BID/2017",
+          "year": 2017
+        },
+        {
+          "bytes": 8439,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCAD/2018.json",
+          "sha256": "15E89D494B7350E1D640B505120FB254FFFB6325D6EDBF572B89445A6445C1AF",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CAD/BID/2018",
+          "year": 2018
+        },
+        {
+          "bytes": 8413,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCAD/2019.json",
+          "sha256": "E99FFF6E27D17CECB9599C5E492B0197CF28EC6AEAC10AA732F6B65113F03A4A",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CAD/BID/2019",
+          "year": 2019
+        },
+        {
+          "bytes": 8556,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCAD/2020.json",
+          "sha256": "DF3D19BD76F60E4C5F750CF3A501EC7B8A1B489ECF424B987A2352E294FFA79D",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CAD/BID/2020",
+          "year": 2020
+        },
+        {
+          "bytes": 8397,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCAD/2021.json",
+          "sha256": "618D285D92E16869E76776905B53A9F7ED074EAD0A2EE060CD41DBFFEF495D44",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CAD/BID/2021",
+          "year": 2021
+        },
+        {
+          "bytes": 8642,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCAD/2022.json",
+          "sha256": "E1B346423330603D5E2C6A67E9F8F434D9E47653DE1FB0104AFF173D24A08252",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CAD/BID/2022",
+          "year": 2022
+        },
+        {
+          "bytes": 8439,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCAD/2023.json",
+          "sha256": "B57A31F974F96F073C62E4B0706BF9179B1E935834967CB176AA6A8A03081432",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CAD/BID/2023",
+          "year": 2023
+        },
+        {
+          "bytes": 8344,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCAD/2024.json",
+          "sha256": "62B2DF1A207594B2B235867D8B9D1B071C91D52BF7BA4FF0B9222DEFD7144482",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CAD/BID/2024",
+          "year": 2024
+        },
+        {
+          "bytes": 8450,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCAD/2025.json",
+          "sha256": "C1FBAC25744CE6044D23A19B9041B2A441AB71285C4D24AFA50802EA6EADC3D5",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CAD/BID/2025",
+          "year": 2025
+        },
+        {
+          "bytes": 5138,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCAD/2026.json",
+          "sha256": "070D6C269ABD3AD60081A361300F259F1D1BA03294533C99F5BDFB816E41E952",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CAD/BID?from=1767225600000",
+          "year": 2026
+        }
+      ],
+      "symbol": "USDCAD"
+    },
+    {
+      "comparison": {
+        "common_sessions": 2500,
+        "exact_ohlc_sessions": 2484,
+        "maximum_error_points": 1.0000000000065512,
+        "mismatch_samples": [],
+        "missing_official_sessions_without_h1": 0,
+        "status": "PASS",
+        "within_one_point_rate": 1.0,
+        "within_one_point_sessions": 2500
+      },
+      "h1_bar_count": 59897,
+      "official_d1_raw": [
+        {
+          "bytes": 8371,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCHF/2017.json",
+          "sha256": "A6E2D607DAC5084D0B809DD444367C0CCF3BDBFF9957E0E6D528189D097BBA81",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CHF/BID/2017",
+          "year": 2017
+        },
+        {
+          "bytes": 8292,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCHF/2018.json",
+          "sha256": "4D331D92668913E1D7606D713B15F54D1965524DD69E7A741C469E24CC5383DB",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CHF/BID/2018",
+          "year": 2018
+        },
+        {
+          "bytes": 8205,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCHF/2019.json",
+          "sha256": "E156404436F26F3DE5EF2E8CD552FA4FF814669EDCA36F57B121E2C5D7AAB180",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CHF/BID/2019",
+          "year": 2019
+        },
+        {
+          "bytes": 8362,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCHF/2020.json",
+          "sha256": "320FE636A8B7FAB34A6827DA5DD6CF934AB7F7486525E0801BDE2630DBAA3413",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CHF/BID/2020",
+          "year": 2020
+        },
+        {
+          "bytes": 8138,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCHF/2021.json",
+          "sha256": "23FFEB8CF0F10A1C27EBA7BF72181FE18598B75AC140C8097609E0EB9635FF3C",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CHF/BID/2021",
+          "year": 2021
+        },
+        {
+          "bytes": 8447,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCHF/2022.json",
+          "sha256": "A5F09F2E03BFFD0980CDBE632E4F032FEB844CE6DA5117D7C3EE332E856E3E4A",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CHF/BID/2022",
+          "year": 2022
+        },
+        {
+          "bytes": 8398,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCHF/2023.json",
+          "sha256": "459741C8B5CA739728D654C8E8D835155D18FB6F80E6CC266B43AAB21412AA95",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CHF/BID/2023",
+          "year": 2023
+        },
+        {
+          "bytes": 8290,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCHF/2024.json",
+          "sha256": "6B413575334AD5B068ABAD0E54AF25873759CFF5EE375BDBCA523C1BE341EC65",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CHF/BID/2024",
+          "year": 2024
+        },
+        {
+          "bytes": 8321,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCHF/2025.json",
+          "sha256": "632C4ADFB43867F6F5F63507EF92D1A357396916C466C2A720F08A8F04FCC128",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CHF/BID/2025",
+          "year": 2025
+        },
+        {
+          "bytes": 5067,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/USDCHF/2026.json",
+          "sha256": "70811BC89F583E32BEE29FB4C99F146C149548728569C92381E07790A2326C82",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/USD-CHF/BID?from=1767225600000",
+          "year": 2026
+        }
+      ],
+      "symbol": "USDCHF"
+    },
+    {
+      "comparison": {
+        "common_sessions": 2478,
+        "exact_ohlc_sessions": 2478,
+        "maximum_error_points": 0.0,
+        "mismatch_samples": [],
+        "missing_official_sessions_without_h1": 0,
+        "status": "PASS",
+        "within_one_point_rate": 1.0,
+        "within_one_point_sessions": 2478
+      },
+      "h1_bar_count": 56791,
+      "official_d1_raw": [
+        {
+          "bytes": 9624,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/XAUUSD/2017.json",
+          "sha256": "775BBE152F05284028E83FDEBC0271433A7A57C489D38E18C3350AE3CF98D3EA",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/XAU-USD/BID/2017",
+          "year": 2017
+        },
+        {
+          "bytes": 9644,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/XAUUSD/2018.json",
+          "sha256": "90F2B08D1AC2A13AB3F6AE3AA0D945EF5F51AC0BC8A654A716D7ADF8CBE98006",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/XAU-USD/BID/2018",
+          "year": 2018
+        },
+        {
+          "bytes": 9711,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/XAUUSD/2019.json",
+          "sha256": "CCF771B01A2EF492C276072A3B1088DB8467671E128C87D2B5D3A366E03A2DBC",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/XAU-USD/BID/2019",
+          "year": 2019
+        },
+        {
+          "bytes": 10116,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/XAUUSD/2020.json",
+          "sha256": "E16FBAD0C9D2B3EC99064965CCE365FB98DC9EAE92F0C338F6F691406E553CF6",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/XAU-USD/BID/2020",
+          "year": 2020
+        },
+        {
+          "bytes": 9937,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/XAUUSD/2021.json",
+          "sha256": "B2FC723EFFAFA21BF3A27389340352198FACEA924006DD66F236EF64543DF1D8",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/XAU-USD/BID/2021",
+          "year": 2021
+        },
+        {
+          "bytes": 9945,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/XAUUSD/2022.json",
+          "sha256": "DB02DBD0529F86340915DF58AD3FCF6B037A390F2219C82A25C6428B6D209C50",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/XAU-USD/BID/2022",
+          "year": 2022
+        },
+        {
+          "bytes": 9810,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/XAUUSD/2023.json",
+          "sha256": "4B674E124D729D41D457A034D4C1D4B2A324376E5CCF54FFCDAA38D3A6D8FF76",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/XAU-USD/BID/2023",
+          "year": 2023
+        },
+        {
+          "bytes": 10018,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/XAUUSD/2024.json",
+          "sha256": "EFA7D1F6B7B1321B23CC333AE3875F324550BBD2359C72A94242CF309CCFC96C",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/XAU-USD/BID/2024",
+          "year": 2024
+        },
+        {
+          "bytes": 10184,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/XAUUSD/2025.json",
+          "sha256": "3A2B910D027DB362213BAE5530D5893E886EE1BB43E1DAEACD623BC7ACEA35B7",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/XAU-USD/BID/2025",
+          "year": 2025
+        },
+        {
+          "bytes": 6489,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/XAUUSD/2026.json",
+          "sha256": "EDEF5C0945BD6B629A5533FD94DB074E753B468AD3DF476A1872C62178AC060B",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/XAU-USD/BID?from=1767225600000",
+          "year": 2026
+        }
+      ],
+      "symbol": "XAUUSD"
+    },
+    {
+      "comparison": {
+        "common_sessions": 3288,
+        "exact_ohlc_sessions": 3265,
+        "maximum_error_points": 15.00000000005457,
+        "mismatch_samples": [
+          {
+            "errors_points": [
+              3.999999999996362,
+              2.0000000000436557,
+              9.000000000014552,
+              15.00000000005457
+            ],
+            "observed_h1_ohlc": [
+              4626.04,
+              4628.22,
+              4157.99,
+              4343.95
+            ],
+            "official_d1_ohlc": [
+              4626.0,
+              4628.2,
+              4157.9,
+              4344.1
+            ],
+            "session_end_epoch": 1504569600,
+            "session_start_epoch": 1504483200
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              1.9999999999527063,
+              1.0000000000218279,
+              14.99999999996362
+            ],
+            "observed_h1_ohlc": [
+              4344.14,
+              4524.32,
+              4029.39,
+              4432.35
+            ],
+            "official_d1_ohlc": [
+              4344.1,
+              4524.3,
+              4029.4,
+              4432.5
+            ],
+            "session_end_epoch": 1504656000,
+            "session_start_epoch": 1504569600
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              1.9999999999527063,
+              0.9999999999308784,
+              14.99999999996362
+            ],
+            "observed_h1_ohlc": [
+              4432.54,
+              4681.32,
+              4419.1900000000005,
+              4616.05
+            ],
+            "official_d1_ohlc": [
+              4432.5,
+              4681.3,
+              4419.2,
+              4616.2
+            ],
+            "session_end_epoch": 1504742400,
+            "session_start_epoch": 1504656000
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              2.0000000000436557,
+              0.9999999999308784,
+              14.99999999996362
+            ],
+            "observed_h1_ohlc": [
+              4616.24,
+              4690.02,
+              4479.1900000000005,
+              4624.05
+            ],
+            "official_d1_ohlc": [
+              4616.2,
+              4690.0,
+              4479.2,
+              4624.2
+            ],
+            "session_end_epoch": 1504828800,
+            "session_start_epoch": 1504742400
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              1.9999999999527063,
+              0.9999999999308784,
+              14.99999999996362
+            ],
+            "observed_h1_ohlc": [
+              4624.24,
+              4692.42,
+              4139.39,
+              4247.25
+            ],
+            "official_d1_ohlc": [
+              4624.2,
+              4692.400000000001,
+              4139.4,
+              4247.4
+            ],
+            "session_end_epoch": 1505001600,
+            "session_start_epoch": 1504828800
+          },
+          {
+            "errors_points": [
+              4.0000000000873115,
+              2.0000000000436557,
+              1.0000000000218279,
+              14.99999999996362
+            ],
+            "observed_h1_ohlc": [
+              4330.4400000000005,
+              4345.02,
+              4226.59,
+              4251.25
+            ],
+            "official_d1_ohlc": [
+              4330.4,
+              4345.0,
+              4226.6,
+              4251.4
+            ],
+            "session_end_epoch": 1505088000,
+            "session_start_epoch": 1505001600
+          },
+          {
+            "errors_points": [
+              4.0000000000873115,
+              2.0000000000436557,
+              1.0000000000218279,
+              14.99999999996362
+            ],
+            "observed_h1_ohlc": [
+              4251.4400000000005,
+              4378.52,
+              4110.09,
+              4214.25
+            ],
+            "official_d1_ohlc": [
+              4251.4,
+              4378.5,
+              4110.1,
+              4214.4
+            ],
+            "session_end_epoch": 1505174400,
+            "session_start_epoch": 1505088000
+          },
+          {
+            "errors_points": [
+              4.0000000000873115,
+              1.9999999999527063,
+              1.0000000000218279,
+              14.99999999996362
+            ],
+            "observed_h1_ohlc": [
+              4214.4400000000005,
+              4384.92,
+              4078.69,
+              4159.75
+            ],
+            "official_d1_ohlc": [
+              4214.4,
+              4384.900000000001,
+              4078.7000000000003,
+              4159.9
+            ],
+            "session_end_epoch": 1505260800,
+            "session_start_epoch": 1505174400
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              2.0000000000436557,
+              0.9999999999763531,
+              15.000000000009095
+            ],
+            "observed_h1_ohlc": [
+              4159.74,
+              4171.52,
+              3731.9900000000002,
+              3855.25
+            ],
+            "official_d1_ohlc": [
+              4159.7,
+              4171.5,
+              3732.0,
+              3855.4
+            ],
+            "session_end_epoch": 1505347200,
+            "session_start_epoch": 1505260800
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              1.999999999998181,
+              0.9999999999763531,
+              15.000000000009095
+            ],
+            "observed_h1_ohlc": [
+              3855.44,
+              3925.32,
+              3212.59,
+              3249.05
+            ],
+            "official_d1_ohlc": [
+              3855.4,
+              3925.3,
+              3212.6,
+              3249.2000000000003
+            ],
+            "session_end_epoch": 1505433600,
+            "session_start_epoch": 1505347200
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              1.999999999998181,
+              0.9999999999763531,
+              15.000000000009095
+            ],
+            "observed_h1_ohlc": [
+              3328.64,
+              3837.32,
+              2972.59,
+              3719.85
+            ],
+            "official_d1_ohlc": [
+              3328.6,
+              3837.3,
+              2972.6,
+              3720.0
+            ],
+            "session_end_epoch": 1505606400,
+            "session_start_epoch": 1505433600
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              1.999999999998181,
+              0.9999999999763531,
+              14.99999999996362
+            ],
+            "observed_h1_ohlc": [
+              3765.34,
+              3796.12,
+              3699.4900000000002,
+              3711.9500000000003
+            ],
+            "official_d1_ohlc": [
+              3765.3,
+              3796.1,
+              3699.5,
+              3712.1
+            ],
+            "session_end_epoch": 1505692800,
+            "session_start_epoch": 1505606400
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              2.0000000000436557,
+              0.9999999999763531,
+              15.000000000009095
+            ],
+            "observed_h1_ohlc": [
+              3712.44,
+              4121.02,
+              3702.59,
+              4094.65
+            ],
+            "official_d1_ohlc": [
+              3712.4,
+              4121.0,
+              3702.6,
+              4094.8
+            ],
+            "session_end_epoch": 1505779200,
+            "session_start_epoch": 1505692800
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              1.999999999998181,
+              1.0000000000218279,
+              14.99999999996362
+            ],
+            "observed_h1_ohlc": [
+              4011.94,
+              4049.02,
+              3850.39,
+              3902.4500000000003
+            ],
+            "official_d1_ohlc": [
+              4011.9,
+              4049.0,
+              3850.4,
+              3902.6
+            ],
+            "session_end_epoch": 1505865600,
+            "session_start_epoch": 1505779200
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              1.999999999998181,
+              0.9999999999763531,
+              15.000000000009095
+            ],
+            "observed_h1_ohlc": [
+              3901.2400000000002,
+              4042.92,
+              3831.9900000000002,
+              3866.55
+            ],
+            "official_d1_ohlc": [
+              3901.2000000000003,
+              4042.9,
+              3832.0,
+              3866.7000000000003
+            ],
+            "session_end_epoch": 1505952000,
+            "session_start_epoch": 1505865600
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              1.999999999998181,
+              1.0000000000218279,
+              15.000000000009095
+            ],
+            "observed_h1_ohlc": [
+              3866.44,
+              3904.7200000000003,
+              3571.79,
+              3623.15
+            ],
+            "official_d1_ohlc": [
+              3866.4,
+              3904.7000000000003,
+              3571.8,
+              3623.3
+            ],
+            "session_end_epoch": 1506038400,
+            "session_start_epoch": 1505952000
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              1.999999999998181,
+              0.9999999999763531,
+              15.000000000009095
+            ],
+            "observed_h1_ohlc": [
+              3652.54,
+              3761.02,
+              3509.59,
+              3614.25
+            ],
+            "official_d1_ohlc": [
+              3652.5,
+              3761.0,
+              3509.6,
+              3614.4
+            ],
+            "session_end_epoch": 1506211200,
+            "session_start_epoch": 1506038400
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              1.999999999998181,
+              1.0000000000218279,
+              15.000000000009095
+            ],
+            "observed_h1_ohlc": [
+              3676.34,
+              3695.32,
+              3655.39,
+              3668.85
+            ],
+            "official_d1_ohlc": [
+              3676.3,
+              3695.3,
+              3655.4,
+              3669.0
+            ],
+            "session_end_epoch": 1506297600,
+            "session_start_epoch": 1506211200
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              1.999999999998181,
+              1.0000000000218279,
+              15.000000000009095
+            ],
+            "observed_h1_ohlc": [
+              3669.04,
+              3960.32,
+              3666.69,
+              3919.05
+            ],
+            "official_d1_ohlc": [
+              3669.0,
+              3960.3,
+              3666.7000000000003,
+              3919.2000000000003
+            ],
+            "session_end_epoch": 1506384000,
+            "session_start_epoch": 1506297600
+          },
+          {
+            "errors_points": [
+              3.999999999996362,
+              1.999999999998181,
+              1.0000000000218279,
+              15.000000000009095
+            ],
+            "observed_h1_ohlc": [
+              3919.34,
+              3964.62,
+              3849.79,
+              3881.25
+            ],
+            "official_d1_ohlc": [
+              3919.3,
+              3964.6,
+              3849.8,
+              3881.4
+            ],
+            "session_end_epoch": 1506470400,
+            "session_start_epoch": 1506384000
+          }
+        ],
+        "missing_official_sessions_without_h1": 0,
+        "status": "FAIL",
+        "within_one_point_rate": 0.9930048661800487,
+        "within_one_point_sessions": 3265
+      },
+      "h1_bar_count": 75610,
+      "official_d1_raw": [
+        {
+          "bytes": 7051,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/BTCUSD/2017.json",
+          "sha256": "54381E82F702036B2F37A41292B88387734B7B80D8B302D6887EAB850C517CF5",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/BTC-USD/BID/2017",
+          "year": 2017
+        },
+        {
+          "bytes": 10751,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/BTCUSD/2018.json",
+          "sha256": "A110AA110249162E20E2BF88BD5F2F0DEA71C2E9F10B392A72C5F95E2382258A",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/BTC-USD/BID/2018",
+          "year": 2018
+        },
+        {
+          "bytes": 12803,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/BTCUSD/2019.json",
+          "sha256": "F96702A9F0B3C2E51151226A20901D9330FBF8F65158373D18CCA5CCCC73B247",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/BTC-USD/BID/2019",
+          "year": 2019
+        },
+        {
+          "bytes": 12890,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/BTCUSD/2020.json",
+          "sha256": "62D9B64ECCD4FBF431A09C32DEC0DCC80DE36846F6028297F9BEF90C45030C71",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/BTC-USD/BID/2020",
+          "year": 2020
+        },
+        {
+          "bytes": 13946,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/BTCUSD/2021.json",
+          "sha256": "A9EB84154C1E5105AFE9A15D994CC476849805688563D85F744414B8B0038C4A",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/BTC-USD/BID/2021",
+          "year": 2021
+        },
+        {
+          "bytes": 13298,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/BTCUSD/2022.json",
+          "sha256": "84E26BD2504A1E9E92A8FCE449B449357A4A00D9D427F7BCD085E5EBFAC9AB0B",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/BTC-USD/BID/2022",
+          "year": 2022
+        },
+        {
+          "bytes": 12974,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/BTCUSD/2023.json",
+          "sha256": "C11EDB5F00FCDAA5F0F8CBF17FB686F8EA08D57CD4206D64397A80635C890FCE",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/BTC-USD/BID/2023",
+          "year": 2023
+        },
+        {
+          "bytes": 13752,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/BTCUSD/2024.json",
+          "sha256": "A10A540347D711C896027D1A3DC4139FFD68AD4B925D9E42551CFBEAF1826E3D",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/BTC-USD/BID/2024",
+          "year": 2024
+        },
+        {
+          "bytes": 13907,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/BTCUSD/2025.json",
+          "sha256": "0F6F092531408163969E4C283C4EF4E9EF82BB053A4221028DF27842EEF7E743",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/BTC-USD/BID/2025",
+          "year": 2025
+        },
+        {
+          "bytes": 8502,
+          "one_point_envelope_corrections": 0,
+          "path": "D:/Trading EA MT5/03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/raw_d1/BTCUSD/2026.json",
+          "sha256": "D6B09EA9DCD923043FB8F8DEB1C05AACF6C9B9ACB90A0E759C44C16CDA472252",
+          "url": "https://jetta.dukascopy.com/v1/candles/trade/day/BTC-USD/BID?from=1767225600000",
+          "year": 2026
+        }
+      ],
+      "symbol": "BTCUSD"
+    }
+  ]
+}

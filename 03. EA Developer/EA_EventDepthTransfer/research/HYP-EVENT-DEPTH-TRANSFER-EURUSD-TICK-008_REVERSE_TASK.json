@@ -1,0 +1,59 @@
+{
+  "schema_version": "event_depth_transfer_008_model0_task.v1",
+  "hypothesis_id": "HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-008",
+  "attempt_id": "EVENTDEPTHTRANSFER008-MODEL0-REVERSE-001",
+  "one_attempt_only": true,
+  "same_id_retry_authorized": false,
+  "visual_mode": false,
+  "indicator_dependencies": [],
+  "required_input_artifacts": [
+    {
+      "source": "FILE_COMMON",
+      "name": "EVENTDEPTHTRANSFER008_SourceLedger.jsonl",
+      "sha256": "3B3B0F4CF85FD733B26DE0CA84F890265C94693DC7A58170507491985B2687B8"
+    }
+  ],
+  "command_contract": {
+    "action": "backtest",
+    "ea_name": "EA_EventDepthTransfer",
+    "symbol": "EURUSD",
+    "period": "M1",
+    "from": "2019.01.01",
+    "to": "2021.01.01",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 3600,
+    "run_role": "control",
+    "telemetry_tier": "off",
+    "telemetry_profile": "none",
+    "deposit": 100000,
+    "leverage": 100,
+    "spread": "current",
+    "holding_contract": "first_tick_at_or_after_T_plus_60_to_T_plus_120",
+    "required_sidecars": [
+      "EVENTDEPTHTRANSFER008_RunMeta_REVERSE.json",
+      "EURUSD_EVENTDEPTHTRANSFER008_Trades_REVERSE.csv"
+    ],
+    "overrides": "InpDeviationPoints=100;InpEnableAudit=true;InpHypothesisId=HYP-EVENT-DEPTH-TRANSFER-EURUSD-TICK-008;InpMagic=8132608;InpMaxLots=1.0;InpResearchAutoMode=true;InpReverseComparator=true;InpRiskPercent=0.25;InpSizingStopPips=15.0;InpVariantTag=CME6E_DEPTH_TRANSFER_T60_HOLD60_V1"
+  },
+  "acceptance": {
+    "all_events_accounted": 329,
+    "source_flat_exact": 11,
+    "min_completed_trades": 300,
+    "min_cadence_per_week": 2.5,
+    "max_cadence_per_week": 5.0,
+    "min_base_profit_factor": 1.3,
+    "min_base_expectancy_strict": 0.0,
+    "min_cost_pf_x1_5": 1.25,
+    "min_cost_pf_x2": 1.0,
+    "min_cost_expectancy_x2": 0.0,
+    "both_design_years_positive": true,
+    "max_native_equity_drawdown_pct": 8.0,
+    "reverse_base_pf_inferior": true,
+    "max_top_5pct_profit_contribution": 0.3,
+    "validation_opened": false,
+    "optimization_authorized": false,
+    "paper_live_authorized": false
+  }
+}

@@ -1,0 +1,2 @@
+{"schema_version":"alphafactory_cost_source_manifest.v1","authority":"DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE","hypothesis_id":"HYP-TSDR-XAUUSD-TICK-001","symbol":"XAUUSD","purpose":"Tick-fidelity observation only; no orders and no performance metrics.","spread_source":"native MqlTick bid/ask observations from the Model-0 tester stream","commission_source":"not_applicable_no_trade_api","slippage_source":"not_applicable_no_trade_api","verified":false,"economics_authorized":false,"promotion_eligible":false}
+

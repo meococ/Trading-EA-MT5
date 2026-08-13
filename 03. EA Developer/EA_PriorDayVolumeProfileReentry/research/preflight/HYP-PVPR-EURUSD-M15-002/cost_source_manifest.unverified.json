@@ -1,0 +1,22 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-PVPR-EURUSD-M15-002",
+  "evidence_tier": "PRE_BASELINE_REFERENCE_ONLY",
+  "provenance_status": "FULL_TRAIN_COVERAGE_RESEARCH_PROXY_NO_OBSERVED_FILLS",
+  "audit_status": "BLOCKED_FOR_PROMOTION_ACCEPTANCE",
+  "verdict": "BASELINE_FALSIFICATION_ONLY",
+  "promotion_eligible": false,
+  "symbol": "EURUSD",
+  "from": "2016.01.04",
+  "to": "2023.01.01",
+  "symbol_geometry": {"digits": 5, "point": 0.00001, "pip_size": 0.0001},
+  "tester_spread_semantics": "current",
+  "reference_cost_manifest_path": "03. EA Developer/EA_JCDR_PureReversal/research/HYP-JCDR-EURUSD-M5-006_COST_SOURCE_MANIFEST.json",
+  "reference_cost_manifest_sha256": "2A288EA74B0C99BB60B023B804BA44614F85A1E3364464FE9AF71D94F5741133",
+  "reference_coverage": "2016.01.04-2022.12.30",
+  "commission_reference_usd_round_turn_per_lot": 4.0,
+  "slippage_reference": "1000 ms adverse executable-quote proxy; p90 roundtrip 0.4 pip; fill_observed=false",
+  "baseline_use": "Sole untuned PVPR-002 falsification run using native tester report costs.",
+  "next_gate_if_baseline_passes": "Rebuild exact trade economics at x1/x1.5/x2 before validation.",
+  "blocker": "Research-only quote-latency proxy, not observed fills; cannot establish promotion readiness."
+}

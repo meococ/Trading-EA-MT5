@@ -1,0 +1,43 @@
+{
+  "schema_version": "mts006_source_selection_receipt.v1",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-006",
+  "parent_hypothesis_id": "HYP-MULTI-TSMOM-D1-005",
+  "status": "PASS_SELECTED_EIGHT_SYMBOL_SOURCE_ONLY",
+  "authority": "SOURCE_DATA_ONLY_NO_PERFORMANCE",
+  "economics_authorized": false,
+  "performance_metrics_authorized": false,
+  "selection_frozen_before_any_parent_or_child_economics": true,
+  "parent_terminal_verdict": "KILL_SOURCE_VALIDATION_BTC_D1_MATCH_BELOW_FROZEN_99P5_NO_ECONOMICS",
+  "parent_source_contract": {
+    "path": "03. EA Developer/EA_MultiAssetTSMOMD1V5/research/HYP-MULTI-TSMOM-D1-005_JETTA_H1_SOURCE_CONTRACT.json",
+    "sha256": "82CB1576C9F7968F111225515A2F303727308A47C5EC2EA47579194F45C6CB9E"
+  },
+  "parent_source_validation": {
+    "path": "03. EA Developer/EA_MultiAssetTSMOMD1V5/research/evidence/source_validation/HYP-MULTI-TSMOM-D1-005_SOURCE_VALIDATION.json",
+    "sha256": "34DFCCA6B9DB8228F3E588CE977693F0040E69463F136F543FEAD132E842E995",
+    "overall_status": "FAIL_DUE_TO_EXCLUDED_BTCUSD_ONLY"
+  },
+  "selected_symbols": [
+    {"symbol": "EURUSD", "common_sessions": 2500, "within_one_point_rate": 1.0, "status": "PASS"},
+    {"symbol": "GBPUSD", "common_sessions": 2499, "within_one_point_rate": 1.0, "status": "PASS"},
+    {"symbol": "AUDUSD", "common_sessions": 2499, "within_one_point_rate": 1.0, "status": "PASS"},
+    {"symbol": "NZDUSD", "common_sessions": 2499, "within_one_point_rate": 1.0, "status": "PASS"},
+    {"symbol": "USDJPY", "common_sessions": 2499, "within_one_point_rate": 1.0, "status": "PASS"},
+    {"symbol": "USDCAD", "common_sessions": 2499, "within_one_point_rate": 1.0, "status": "PASS"},
+    {"symbol": "USDCHF", "common_sessions": 2500, "within_one_point_rate": 1.0, "status": "PASS"},
+    {"symbol": "XAUUSD", "common_sessions": 2478, "within_one_point_rate": 1.0, "status": "PASS"}
+  ],
+  "excluded_symbols": [
+    {
+      "symbol": "BTCUSD",
+      "common_sessions": 3288,
+      "within_one_point_rate": 0.9930048661800487,
+      "frozen_threshold": 0.995,
+      "status": "FAIL_EXCLUDED_FROM_V6",
+      "future_authority": "independent_sleeve_and_source_contract_only"
+    }
+  ],
+  "custom_symbol_identity": "V6 imports the final hash-bound monthly binaries into fresh source-prefixed *_AFD_TSMOM_V6 symbols. The source prefix preserves MT5 base/profit currency parsing; every receipt binds origin currencies, trade calc mode and contract size, plus exact H1/M1/D1 readback. The prior AFD_*_DUKA_TSMOM_V5 namespace is prohibited for V6 economics because MT5 parsed prefixed FX currencies incorrectly.",
+  "posthoc_economic_selection": false,
+  "edge_claim_authorized": false
+}

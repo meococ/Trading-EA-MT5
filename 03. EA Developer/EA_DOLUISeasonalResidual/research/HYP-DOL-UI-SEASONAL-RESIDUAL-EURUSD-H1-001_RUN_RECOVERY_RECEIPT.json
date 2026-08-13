@@ -1,0 +1,31 @@
+{
+  "schema_version": "dolui_001_run_recovery_receipt.v1",
+  "hypothesis_id": "HYP-DOL-UI-SEASONAL-RESIDUAL-EURUSD-H1-001",
+  "recovery_scope": "COLLECTION_AND_DATA_QUALITY_RECEIPT_ONLY_NO_RERUN",
+  "decision_logic_changed": false,
+  "performance_run_repeated": false,
+  "primary": {
+    "run_id": "20260813_094716",
+    "report_sha256": "E596A7A9401DF2455C768D4A4F10FE3A4F190D9018624062AF4136B785C966A7",
+    "run_manifest_sha256": "7C2AC680BCA64273D855151C0F83CCD4530A44257CA649ABAD483A5490351D71",
+    "tester_journal_sha256": "9B0CEE4EC0D0E33312BD28F53E30406C71E00792EB2CCEABD00923519E6613B8",
+    "run_meta_sha256": "BECD6B36E11E2FFB85D19146B7FAC287DF080A2B373CBEB988E0CE172139F6F2",
+    "trade_ledger_sha256": "69C3982194F4CDBAD63E7189BE7FF5C78A8E2A9CB459FD8474666F4D45529739",
+    "enhanced_summary_sha256": "387388E632D2571464FC33F64EA9B283F967D7890C54A53594C6A400F7D66FD7",
+    "history_quality_pct": 100.0,
+    "recovery": "AlphaFactory machine-local CommonFilesRoot pointed to a non-operative portable path. The two exact run-timestamped FILE_COMMON artifacts were recovered from the terminal's actual roaming Common/Files root and hash-bound into the run logs; the report and journal were not regenerated."
+  },
+  "reverse": {
+    "run_id": "20260813_094909",
+    "report_sha256": "FFAE73B27BF8B3EDBA6E8560807CE8D02FEFA07DE2779DC53020FB6BD4263115",
+    "run_manifest_sha256": "49B42FD619D0220EA6976A104C9307B3EC07183B124E90378CBDE3714B10DCAB",
+    "tester_journal_sha256": "35E7395D65E0B085D6D21CB55177BBF681D0A5BD1A0C865E715101542D776AFC",
+    "run_meta_sha256": "3AF51179B99CD33D5BEC677B37327DF6847DEB7E5FE7635F2ACE79E26A7389F6",
+    "trade_ledger_sha256": "9F6B5964460D294BE19211E3ECEDE1A4D732A6A398B6E6362E3A0A894482B901",
+    "enhanced_summary_sha256": "2774429800A8F9F1F18F970B747D33A2E6FC0374BABAA9624857DDEDA3E64B56",
+    "history_quality_pct": 100.0,
+    "recovery": "Required sidecars were collected normally after correcting CommonFilesRoot. AlphaFactory later failed its D0 journal-proof gate because the warm history cache emitted no distinct D0 series line; report, exact H1 bounds, 100% History Quality, event accounting and sidecars are complete."
+  },
+  "verdict": "ENGINEERING_ARTIFACTS_RECOVERED_ECONOMIC_VERDICT_AUTHORIZED",
+  "promotion_eligible": false
+}

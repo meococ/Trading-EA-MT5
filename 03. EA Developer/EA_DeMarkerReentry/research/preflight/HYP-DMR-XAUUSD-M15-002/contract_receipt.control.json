@@ -1,0 +1,48 @@
+{
+  "schema_version": "alphafactory_execution_receipt.v1",
+  "hypothesis_id": "HYP-DMR-XAUUSD-M15-002",
+  "task_packet_sha256": "D81836E578EA937DF33B28BC0F05FF89641F0A3B311121038D6B19FAD8A60474",
+  "git_commit": "1ec53d2d3ad7d29f85b764b7e155631e0c81f9f1",
+  "git_status_sha256": "C8C45609954CBDEBCA70EF0794D0731C78DE4D8A2C72BDAB5D9DB49AC2735D6B",
+  "binding": {
+    "hypothesis_id": "HYP-DMR-XAUUSD-M15-002", "run_role": "control",
+    "ea_name": "EA_DeMarkerReentry", "symbol": "XAUUSD", "period": "M15",
+    "from": "2018.01.01", "to": "2023.01.01", "model": 0,
+    "execution_mode": 0, "fixed_delay_ms": 0, "timeout_sec": 3600,
+    "overrides": "InpDeviationPoints=20;InpFridayFlattenHour=20;InpHypothesisId=HYP-DMR-XAUUSD-M15-002;InpMagic=5604302;InpMaxAccountDrawdownPct=8.0;InpMaxDailyLossPct=3.5;InpMaxTradesPerDay=1;InpResearchAutoMode=true;InpRiskPercent=0.25;InpVariantTag=DEMARKER14_030_070_REENTRY_BROKER_VALID_GEOMETRY",
+    "telemetry_tier": "off", "telemetry_profile": "none",
+    "deposit": 100000, "leverage": 100, "spread": "current",
+    "required_sidecars": [],
+    "symbol_geometry": {"digits": 2, "point": 0.01, "pip_size": 0.01},
+    "visual_mode": false, "indicator_dependencies": [],
+    "include_closure_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "data_quality_contract": {
+      "availability_asof_utc": "2026-08-10T15:55:09Z",
+      "coverage_mode": "fixed_window",
+      "history_quality": {"operator": "gt", "value": 97},
+      "requested_from": "2018.01.01", "requested_to": "2023.01.01",
+      "require_tester_journal_bounds": true,
+      "max_journal_delta_bytes": 4194304
+    }
+  },
+  "evidence": [
+    {"label":"task_packet","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\research\\HYP-DMR-XAUUSD-M15-002_BASELINE_TASK.json","sha256":"D81836E578EA937DF33B28BC0F05FF89641F0A3B311121038D6B19FAD8A60474"},
+    {"label":"parent_failure","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\research\\HYP-DMR-XAUUSD-M15-001_ENGINEERING_FAILURE.md","sha256":"CE931109B4515D81DB85BC1C1657C9B66C95BB4112B6BD6BF8DEC3B77F8FAFA7"},
+    {"label":"source","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\EA_DeMarkerReentry.mq5","sha256":"D9A86E175E29C2A7BC3913588B8E5CC00A26EDA1564487F82B5EA0F8AE8BA970"},
+    {"label":"static_ex5","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\EA_DeMarkerReentry.ex5","sha256":"E87FC4F71BC6F6C58E884484B31B79F5BDA2CF420062AF8E1CB983B26A4E775F"},
+    {"label":"static_compile_log","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\EA_DeMarkerReentry.log","sha256":"4F53E24A28B5655F8140C470A79C09B80DA1FAE80BD7295DB8A7779B6240AD2D"},
+    {"label":"prereg","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\research\\HYP-DMR-XAUUSD-M15-002_FROZEN_PREREG.md","sha256":"D283F82696D5924FAA2471CF83B85C919BCF0EDA675E613D4D987275DEA16DF8"},
+    {"label":"source_to_spec","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\research\\HYP-DMR-XAUUSD-M15-002_SOURCE_TO_SPEC.md","sha256":"2ACEDBB77FC9C0781CE5740B63F911281B57F52FF291BF707C09A7C27FF99BB8"},
+    {"label":"cost_source_manifest","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\research\\preflight\\HYP-DMR-XAUUSD-M15-002\\cost_source_manifest.unverified.json","sha256":"0154E20DFE170F9F8554960259E48A60709D89279DD71F06CE0A8F4F3E1F801C"},
+    {"label":"candidate_registry","kind":"file","path":"D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl","sha256":"1FEB0E88E6DD528932973936233F6A8770F4BC5054F9FAECEF4081E143C87D0F"},
+    {"label":"ea_contract","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\ALPHAFACTORY_EA_CONTRACT.json","sha256":"A4AA4C92FA81E678C5D295CF4F56FBBA4EF6EDBC2DA70F27A014A94C80B5D725"},
+    {"label":"source_test","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\research\\test_demarker_source_contract.py","sha256":"F6C2D90D6889E968FD999B31BE8971B039D9F65B00259C0003CF3CD308048E40"},
+    {"label":"nonrepaint_manifest","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\HYP-DMR-XAUUSD-M15-002_NONREPAINT_MANIFEST.json","sha256":"7D3710DB51B2BE49AAF77BB2AF92FC00A06426E00AE0A9FDFEBE4604EBC2E253"},
+    {"label":"nonrepaint_audit","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\research\\HYP-DMR-XAUUSD-M15-002_NONREPAINT_AUDIT.json","sha256":"5FCE1E0D635B51F2D9267214BC39C261BC78978F3A5F153BB4BDEF552339DE1C"},
+    {"label":"independent_review","kind":"file","path":"D:\\Trading EA MT5\\03. EA Developer\\EA_DeMarkerReentry\\research\\HYP-DMR-XAUUSD-M15-002_INDEPENDENT_PRE_RUN_REVIEW.md","sha256":"9E9524FD1B17120FD497AA3C85A27853A8DFD46FCF3B60F6AF301B391D2809AC"},
+    {"label":"alpha_ps1","kind":"file","path":"D:\\Trading EA MT5\\02. AlphaFactory\\alpha.ps1","sha256":"8994E6C81777CE399D2474F1C46E5C190487741D709EEBB2ACFD55BB0F087A97"},
+    {"label":"alpha_terminal_guard_test","kind":"file","path":"D:\\Trading EA MT5\\02. AlphaFactory\\tests\\test_terminal_process_guard.py","sha256":"31BF3C04049598531E5E4A0DEE88102DF9902F47180BD4F8364A259CBCAFF780"}
+  ],
+  "generated_at_utc": "2026-08-10T15:55:09Z",
+  "note": "Sole HYP002 engineering revision baseline; no validation or promotion authority."
+}

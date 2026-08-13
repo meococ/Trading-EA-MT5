@@ -1,0 +1,21 @@
+{
+  "schema_version":"alphafactory_task_packet.v1",
+  "authority":"DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE",
+  "hypothesis_id":"HYP-QPF-EURUSD-M1-001",
+  "ea_name":"EA_QuotePathFidelityProbe",
+  "run_role":"control",
+  "symbol":"EURUSD",
+  "period":"M1",
+  "from":"2018.01.01",
+  "to":"2025.12.31",
+  "model":0,
+  "collection_only":true,
+  "orders_authorized":false,
+  "economics_authorized":false,
+  "visual_mode":false,
+  "indicator_dependencies":[],
+  "verdict_contract":[
+    "PASS_QUOTE_PATH_FIDELITY_MAY_RESEARCH_CHILD",
+    "KILL_QUOTE_PATH_FIDELITY_EXACT_EURUSD_METATICKS"
+  ]
+}

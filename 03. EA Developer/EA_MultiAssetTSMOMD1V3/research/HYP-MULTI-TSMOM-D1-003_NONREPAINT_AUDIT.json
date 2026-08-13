@@ -1,0 +1,26 @@
+{
+  "schema_version": "alphafactory_nonrepaint_audit.v1",
+  "status": "PASS",
+  "hypothesis_id": "HYP-MULTI-TSMOM-D1-003",
+  "run_id": "MTS003-DESIGN-STATIC-001",
+  "manifest": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V3\\HYP-MULTI-TSMOM-D1-003_NONREPAINT_MANIFEST.json",
+  "manifest_sha256": "C05C65060EBAF8A7B35491BF5B8C0534BFE10151645BDCB2954633C412B96EDD",
+  "collection_authority_verified": false,
+  "audited_files": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V3\\EA_MultiAssetTSMOMD1V3.mq5",
+      "sha256": "B0EC68C05D90B43ECF6D9A7B3F5DF368F4E659BA34C19123E0456C94E3E0BB5B"
+    }
+  ],
+  "findings": [],
+  "allowed_new_bar_gates": [
+    {
+      "path": "D:\\Trading EA MT5\\03. EA Developer\\EA_MultiAssetTSMOMD1V3\\EA_MultiAssetTSMOMD1V3.mq5",
+      "line": 774,
+      "rule": "collection_first_date_copytime",
+      "function": "CopyTime",
+      "disposition": "allowed_collection_provenance_read"
+    }
+  ],
+  "generated_at_utc": "2026-08-11T22:25:02.034901+00:00"
+}
