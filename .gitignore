@@ -64,7 +64,11 @@ worktrees/
 
 # Local agent/editor state
 .serena/
-.cursor/
+.cursor/*
+!.cursor/agents/
+!.cursor/agents/**
+!.cursor/rules/
+!.cursor/rules/**
 .windsurf/
 .vscode/
 .claude/settings.local.json

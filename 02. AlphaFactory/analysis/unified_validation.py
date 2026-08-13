@@ -60,8 +60,9 @@ DEFAULT_RANDOM_SEED = 1729
 
 DEFAULT_GATE_THRESHOLDS: Dict[str, float] = {
     "min_profit_factor": 1.30,
-    "min_trades_per_week": 2.0,
-    "max_trades_per_week": 5.0,
+    # Cadence is mechanism-specific. These fallbacks are not a 2–5/week policy.
+    "min_trades_per_week": 0.01,
+    "max_trades_per_week": 10000.0,
     "max_drawdown_pct": 8.0,
     "min_cost_pf_x1_5": 1.25,
     "min_cost_pf_x2": 1.00,

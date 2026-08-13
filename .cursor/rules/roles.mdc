@@ -1,0 +1,19 @@
+---
+description: Vai trò Main Agent và sáu sub-agent — một người một việc
+alwaysApply: true
+---
+
+# Vai trò
+
+Main Agent = Lead Quant. Chọn cơ chế, quyết KILL/revision, nói với Owner.
+
+| Việc | Ai làm | Không làm |
+|---|---|---|
+| Tra family đã chết | `failure-lookup` | Đọc cả catalog |
+| Advisory pre-run | `contract-reviewer` | Chặn compile; sửa code; MT5 |
+| Compile/backtest | `ea-runner` | Research frontier |
+| Đề xuất chẩn một run | `run-forensics` | Đóng family; rescue subgroup |
+| Cắt file chỉ dẫn | `doctrine-keeper` | Thêm ledger mới |
+| Rà soát repo | `repo-auditor` | Sửa file; dump catalog |
+
+Reviewer không chặn compile. PASS/BLOCK chỉ khi Main đã ủy bước không hoàn nguyên (spend/source/Model-0). Ngân sách revision chỉ ở AGENTS/WORKFLOW: engineering = cùng ID; tối đa 2 market-logic revision rồi KILL. `hot.md` và operator STATUS không siết luật khác.

@@ -11,22 +11,16 @@
 - Use `TASK_PACKET.data_acquisition.template.json` only for a canonical
   zero-trade history probe. Its exact authority forbids PF/WR/cost economics,
   requires telemetry off, and closes after data-quality plus non-repaint proof.
-- Copy `acceptance_contract` exactly from the latest canonical registry row.
-  The runner rejects weaker or different packet gates and passes the frozen
-  values to unified validation.
+- Freeze `acceptance_contract` from this hypothesis prereg (cadence and DD
+  budget). Do not copy 2–5/week or 8% DD from an old registry row or from this
+  template's REPLACE placeholders. The runner re-hashes packet gates immediately
+  before MT5 and rejects weaker-than-frozen values.
 - A challenger packet adds the frozen matched-control run ID and hashes. The
   runner rejects stale registry, source, includes, Git, cost or control identity.
-- Start every implementation with `LOGIC_TO_CODE_MATRIX.template.md`. It keeps
-  trader intent, quantified rule, role, source location, decision-time data,
-  telemetry and test proof in one pre-outcome matrix.
-- A strategy-development closeout must copy
-  `EA_DELIVERY_PACKET.template.json`, replace every placeholder and pass
-  `alpha.ps1 delivery -Packet <packet>`. This gate is additional to
-  `validate-full`: it requires logic fidelity, compile/tests/non-repaint,
-  report/lifecycle/log reconciliation, full performance attribution and a
-  hash-bound multi-timeframe casebook. Bind both `casebook_manifest` (anatomy)
-  and `decision_casebook_manifest` (outcome-blind as-of); their case IDs must
-  match exactly.
+- After a short prereg, go to compile/Model-0. `LOGIC_TO_CODE_MATRIX` is
+  optional implementation hygiene, not a Model-0 gate.
+- `EA_DELIVERY_PACKET` and Grok chart forensics are promotion/postmortem,
+  additional to `validate-full`, not required before the first baseline.
 - For `zero_trade_terminal`, replace `economic_analysis` with
   `funnel_analysis`; economics and win/loss causes are explicitly
   `NOT_APPLICABLE_ZERO_TRADES`, while rejection causes and representative

@@ -2307,7 +2307,11 @@ def test_generic_templates_are_parseable_and_have_no_executable_claim() -> None:
     assert packet["schema_version"] == "alphafactory_research_task_packet.v1"
     assert packet["model"] == 0
     assert packet["acceptance_contract"]["min_profit_factor"] >= 1.30
-    assert packet["acceptance_contract"]["max_drawdown_pct"] <= 8.0
+    assert packet["acceptance_contract"]["min_cost_pf_x1_5"] >= 1.25
+    assert packet["acceptance_contract"]["min_trades_per_week"] != 2.0
+    assert packet["acceptance_contract"]["max_trades_per_week"] != 5.0
+    assert packet["acceptance_contract"]["max_drawdown_pct"] != 8.0
+    assert "REPLACE" in str(packet["acceptance_contract"]["min_trades_per_week"])
     assert "data_quality_contract" in data_packet
     assert "acceptance_contract" not in data_packet
     assert "REPLACE_WITH_64_HEX" in packet.values()

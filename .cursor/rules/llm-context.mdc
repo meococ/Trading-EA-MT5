@@ -1,0 +1,17 @@
+---
+description: Kỷ luật context LLM — không nhồi catalog/checkpoint vào phiên
+alwaysApply: true
+---
+
+# Context LLM
+
+LLM không đọc hết file dài rồi “nhớ”. Attention loãng; đoạn giữa bị bỏ.
+
+Không dán vào phiên: `do_not_repeat_failures.md`,
+`20260813_GOAL_CHECKPOINT_ARCHIVE.md`, `STRATEGY_LOG.md`.
+
+Preflight: `AGENTS.md` (đã nạp), `01. GOAL/GOAL.md`, `04. Memory/hot.md`.
+`WORKFLOW.md` khi sắp build. Catalog chỉ qua `failure-lookup` theo family.
+
+Mỗi vòng: một cơ chế, một contract, một kết quả. Không copy cùng verdict sang
+GOAL + hot + INDEX + STATUS.
