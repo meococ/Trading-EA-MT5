@@ -5,9 +5,9 @@
 //+------------------------------------------------------------------+
 #property copyright "EA_SonicR_PVSRA"
 #property link      "https://www.mql5.com"
-#property version   "1.10"
+#property version   "1.20"
 #property strict
-#property description "Classic Sonic R wave leg-3 Dragon break. EURUSD M15. No Scout. Tester-only."
+#property description "Sonic R system: Classic geometry + discipline host + PVA scanner. Tester-only."
 
 #include <Trade/Trade.mqh>
 #include "Include/SNR_Types.mqh"
@@ -19,17 +19,20 @@
 #include "Include/SNR_Session.mqh"
 #include "Include/SNR_Signal.mqh"
 #include "Include/SNR_Risk.mqh"
+#include "Include/SNR_Discipline.mqh"
+#include "Include/SNR_ContextScan.mqh"
 #include "Include/SNR_Execution.mqh"
 #include "Include/SNR_Telemetry.mqh"
 
 input group "--- Frozen research authority ---"
 input bool   InpResearchAutoMode=false;
 input bool   InpEnableTelemetry=true;
-input string InpHypothesisId="HYP-SONICR-CLASSIC-EURUSD-M15-001";
-input string InpVariantTag="CLASSIC_WAVE_LEG3";
+input bool   InpEnableOverlay=true;
+input string InpHypothesisId="HYP-SONICR-SYSTEM-EURUSD-M15-001";
+input string InpVariantTag="SNR_SYSTEM_V120";
 
 input group "--- Execution ---"
-input long   InpMagic=16081602;
+input long   InpMagic=16081603;
 input bool   InpKillSwitch=false;
 input int    InpDeviationPoints=20;
 input int    InpMaxSpreadPoints=40;
@@ -76,13 +79,14 @@ input double InpRiskPercent=0.25;
 input double InpMaxDailyLossPct=3.5;
 input double InpMaxAccountDrawdownPct=8.0;
 input int    InpMaxTradesPerDay=2;
+input int    InpMaxTradesPerWeek=5;
 input double InpSlBufferAtr=0.10;
 input double InpSlCapPips=120.0;
 input double InpMinSlSpreadMult=3.0;
 
 const string EA_NAME="EA_SonicR_PVSRA";
-const string EXPECTED_HYPOTHESIS="HYP-SONICR-CLASSIC-EURUSD-M15-001";
-const string EXPECTED_VARIANT="CLASSIC_WAVE_LEG3";
+const string EXPECTED_HYPOTHESIS="HYP-SONICR-SYSTEM-EURUSD-M15-001";
+const string EXPECTED_VARIANT="SNR_SYSTEM_V120";
 
 CTrade         g_trade;
 SnrHandles     g_handles;
@@ -102,6 +106,7 @@ bool           g_runtime_failed=false;
 ulong          g_pending_ticket=0;
 datetime       g_pending_signal_time=0;
 int            g_pending_age=0;
+int            g_overlay_handle=INVALID_HANDLE;
 
 bool SymbolAllowed()
   {
@@ -171,6 +176,7 @@ bool InputsSane()
           InpMaxDailyLossPct>0.0 &&
           InpMaxAccountDrawdownPct>0.0 &&
           InpMaxTradesPerDay>=1 &&
+          InpMaxTradesPerWeek==SNR_MAX_TRADES_WEEK &&
           InpMinSlSpreadMult>=1.0 &&
           InpDeviationPoints>=0 &&
           InpMaxSpreadPoints>0 &&
@@ -269,7 +275,8 @@ bool SubmitPending(const SnrSignalDecision &sig)
      }
    if(pos_count>0 || pend_count>0)
       return(false);
-   if(SnrRiskEntryBlocked(g_risk,InpMaxTradesPerDay))
+   string disc_reason="";
+   if(!SnrDisciplineAllowNewRisk(g_risk,InpMaxTradesPerDay,InpMaxTradesPerWeek,disc_reason))
      {
       g_tel.risk_lock_skips++;
       return(false);
@@ -318,7 +325,7 @@ bool SubmitPending(const SnrSignalDecision &sig)
      }
 
    g_tel.entries++;
-   g_risk.daily_entries++;
+   SnrDisciplineNoteEntry(g_risk,InpMagic);
    g_pending_ticket=g_trade.ResultOrder();
    g_pending_signal_time=sig.decision_time;
    g_pending_age=0;
@@ -380,6 +387,7 @@ int OnInit()
    SnrTelemetryReset(g_tel);
    SnrHandlesReset(g_handles);
    ZeroMemory(g_risk);
+   SnrDisciplineLoad(g_risk,InpMagic);
    if(!InputsSane())
       return(INIT_PARAMETERS_INCORRECT);
    if(!SnrDragonCreate(g_handles,_Symbol,PERIOD_M15,InpDragonPeriod,InpATRPeriod) ||
@@ -396,10 +404,14 @@ int OnInit()
    g_trade.SetTypeFillingBySymbol(_Symbol);
    const datetime now=TimeCurrent();
    const double equity=AccountInfoDouble(ACCOUNT_EQUITY);
-   g_risk.day_key=SnrDayKey(now);
-   g_risk.day_start_equity=equity;
-   g_risk.peak_equity=equity;
+   if(g_risk.day_key==0)
+      g_risk.day_key=SnrDayKey(now);
+   if(g_risk.day_start_equity<=0.0)
+      g_risk.day_start_equity=equity;
+   if(g_risk.peak_equity<=0.0)
+      g_risk.peak_equity=equity;
    SnrTelemetryOpenCsv(g_tel,InpEnableTelemetry);
+   g_overlay_handle=SnrContextOpenCsv(InpEnableOverlay);
 
    ulong ticket=0;
    const int scan=SnrScanOwnedPosition(InpMagic,ticket);
@@ -451,8 +463,14 @@ int OnInit()
 
 void OnDeinit(const int reason)
   {
+   SnrDisciplineSave(g_risk,InpMagic);
    SnrTelemetrySummary(g_tel,reason,g_runtime_failed);
    SnrTelemetryCloseCsv(g_tel);
+   if(g_overlay_handle!=INVALID_HANDLE)
+     {
+      FileClose(g_overlay_handle);
+      g_overlay_handle=INVALID_HANDLE;
+     }
    SnrHandlesRelease(g_handles);
   }
 
@@ -461,7 +479,9 @@ void OnTick()
    if(g_runtime_failed)
       return;
    const datetime server_now=TimeCurrent();
-   SnrRiskRefresh(g_risk,server_now,InpMaxDailyLossPct,InpMaxAccountDrawdownPct);
+   SnrDisciplineRefresh(g_risk,TimeGMT(),server_now,InpMaxDailyLossPct,InpMaxAccountDrawdownPct);
+   if(g_risk.dd_locked)
+      SnrDisciplineSave(g_risk,InpMagic);
 
    const datetime current_bar_open=iTime(_Symbol,PERIOD_M15,0);
    if(current_bar_open<=0)
@@ -482,8 +502,6 @@ void OnTick()
       g_runtime_failed=true;
       return;
      }
-   if(owned_scan==SNR_SCAN_OWNED)
-      return;
    ulong pending=0;
    int pend_count=0;
    if(SnrScanOwnedPendings(InpMagic,pending,pend_count)==SNR_SCAN_FAIL)
@@ -491,8 +509,6 @@ void OnTick()
       g_runtime_failed=true;
       return;
      }
-   if(pend_count>0)
-      return;
 
    SnrSignalDecision sig;
    if(!SnrBuildClassicSignal(_Symbol,PERIOD_M15,g_handles,g_cfg,current_bar_open,sig))
@@ -510,12 +526,15 @@ void OnTick()
    MqlTick tick;
    const double spread=(SymbolInfoTick(_Symbol,tick) && tick.ask>tick.bid ? tick.ask-tick.bid : 0.0);
    SnrTelemetryWriteDecision(g_tel,InpEnableTelemetry,sig,spread);
+   SnrContextWrite(g_overlay_handle,sig,g_cfg);
 
    if(!sig.fired)
      {
       SnrNoteReject(g_tel,sig);
       return;
      }
+   if(owned_scan==SNR_SCAN_OWNED || pend_count>0)
+      return;
    g_tel.signals++;
    if(sig.direction>0)
       g_tel.long_signals++;

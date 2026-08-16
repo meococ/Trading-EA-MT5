@@ -3,9 +3,9 @@
 Modular Classic Sonic R host with a reconstructed PVSRA qualifier.
 Tester-only. No edge, PF, or live claim.
 
-Hypothesis: `HYP-SONICR-CLASSIC-EURUSD-M15-001`
-Symbol / TF: EURUSD M15. Classic L-H-HL / H-L-LH, pending 3 pips beyond leg-3 close.
-Scout is compiled off. PVSRA is labels only. NY session off.
+System ID: `HYP-SONICR-SYSTEM-EURUSD-M15-001` (engineering shell). Classic `001` remains KILL hẹp PF 0.94.
+v1.20 system shell: DisciplineHost + PVA scanner + Classic geometry.
+Scout off. PVSRA colors are read-only. NY off. Week cap 5. Overlay `SNR_CONTEXT_OVERLAY.csv`.
 
 ## Modules
 
@@ -30,9 +30,12 @@ The EA computes from native `iMA` / `iATR`. Chart indicators are overlays only.
 Compile each file in MetaEditor, then attach to the same XAUUSD M15 chart as the EA:
 
 1. `Indicators/SNR_Dragon.mq5` — Dragon band
-2. `Indicators/SNR_Trend.mq5` — EMA89, color by slope
-3. `Indicators/SNR_PVSRA.mq5` — tick-volume histogram (separate window)
-4. `Indicators/SNR_SRLevels.mq5` — whole / half / quarter lines
+2. `Indicators/SNR_Trend.mq5` — EMA89
+3. `Indicators/SNR_PVA_Candles.mq5` — reconstructed PVA colors (not an entry)
+4. `Indicators/SNR_PVSRA.mq5` — tick-volume histogram
+5. `Indicators/SNR_SRLevels.mq5` — whole / half / quarter lines
+
+Invariants: `research/SNR_INVARIANTS.md`.
 
 Match EA inputs: Dragon 34, Trend 89, PVSRA rising 1.5× / climax 2.0× (reconstructed), whole step 10 on gold.
 

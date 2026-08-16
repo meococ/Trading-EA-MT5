@@ -4,7 +4,7 @@ Trạng thái: **ACTIVE / UNMET** cho tới khi có ít nhất một symbol-slee
 Compile xanh, workflow xong, hay một frontier `NO_CANDIDATE` không phải DONE
 và không biến cả goal thành `BLOCKED`.
 
-Cơ chế active: **không** — `HYP-SONICR-CLASSIC-EURUSD-M15-001` KILL hẹp, train `20260816_205426` PF 0.94.
+Cơ chế active: **system shell** `HYP-SONICR-SYSTEM-EURUSD-M15-001` — kỷ luật + indicator + overlay. Classic `001` KILL hẹp PF 0.94. Không economics trên shell.
 Không compile-from-archive. Không revive `EA_SonicR` v2 recovered / ITSM / HybridICT / Grok v10.
 `HYP-H4-DONCHIAN-EURUSD-H4-001` KILL hẹp — train `20260816_151429` PF 0.89.
 `HYP-H4-DONCHIAN-XAUUSD-H4-001` KILL hẹp — train `20260816_141128` PF 0.86.

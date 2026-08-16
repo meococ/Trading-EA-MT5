@@ -18,6 +18,6 @@ Cache. Không phải authority. Xác minh bằng GOAL, registry, prereg, artifac
 
 ## Next action
 
-Classic 001 KILL hẹp PF 0.94. Freeze lượng hóa: `04. Memory/research/20260816_SONICR_CONTEXT_QUANT_TEAM_FREEZE.md` — scanner+host, không AND-stack. QC: `qc-challenger`.
+System shell v1.20 on `EA_SonicR_PVSRA`: DisciplineHost + PVA candles + overlay. Classic 001 still KILL hẹp. Compile 75130 B 0 errors. No new Model-0.
 
 Receipts: `INDEX.md` → research/; catalog qua `failure-lookup`.

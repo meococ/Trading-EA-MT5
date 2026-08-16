@@ -36,6 +36,37 @@ bool SnrVolumeAveragePrior(const MqlRates &rates[],const int avg_bars,double &av
    return(SnrFinite(average) && average>0.0);
   }
 
+bool SnrSpreadVolumeMaxPrior(const MqlRates &rates[],const int avg_bars,double &max_sv)
+  {
+   max_sv=0.0;
+   const int n=ArraySize(rates);
+   if(avg_bars<1 || n<avg_bars+1)
+      return(false);
+   for(int i=1;i<=avg_bars;i++)
+     {
+      const double sv=(rates[i].high-rates[i].low)*(double)rates[i].tick_volume;
+      if(!SnrFinite(sv) || sv<0.0)
+         return(false);
+      if(sv>max_sv)
+         max_sv=sv;
+     }
+   return(true);
+  }
+
+int SnrClassifyPvaBar(const MqlRates &bar,const double average,
+                      const double rising_mult,const double climax_mult,
+                      const double max_prior_sv)
+  {
+   const double volume=(double)bar.tick_volume;
+   int cls=SnrClassifyVolume(volume,average,rising_mult,climax_mult);
+   if(cls==SNR_PVSRA_UNKNOWN)
+      return(SNR_PVSRA_UNKNOWN);
+   const double sv=(bar.high-bar.low)*volume;
+   if(SnrFinite(sv) && max_prior_sv>0.0 && sv>=max_prior_sv && cls!=SNR_PVSRA_CLIMAX)
+      cls=SNR_PVSRA_CLIMAX;
+   return(cls);
+  }
+
 bool SnrPvsraReadClosed(const MqlRates &rates[],const int direction,
                         const int avg_bars,const double rising_mult,
                         const double climax_mult,SnrPvsraSnap &out)
@@ -44,10 +75,12 @@ bool SnrPvsraReadClosed(const MqlRates &rates[],const int direction,
    if(ArraySize(rates)<2)
       return(false);
    double average=0.0;
-   if(!SnrVolumeAveragePrior(rates,avg_bars,average))
+   double max_sv=0.0;
+   if(!SnrVolumeAveragePrior(rates,avg_bars,average) ||
+      !SnrSpreadVolumeMaxPrior(rates,avg_bars,max_sv))
       return(false);
    const double volume=(double)rates[0].tick_volume;
-   const int cls=SnrClassifyVolume(volume,average,rising_mult,climax_mult);
+   const int cls=SnrClassifyPvaBar(rates[0],average,rising_mult,climax_mult,max_sv);
    if(cls==SNR_PVSRA_UNKNOWN)
       return(false);
    const bool bull=(rates[0].close>rates[0].open);

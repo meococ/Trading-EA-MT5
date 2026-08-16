@@ -166,6 +166,8 @@ struct SnrRiskState
    bool              day_locked;
    bool              dd_locked;
    int               daily_entries;
+   int               week_key;
+   int               week_entries;
   };
 
 struct SnrRiskPlan

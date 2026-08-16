@@ -111,18 +111,8 @@ bool SnrBuildClassicSignal(const string symbol,const ENUM_TIMEFRAMES tf,
       return(true);
      }
 
-   if(!SnrPvsraReadClosed(rates,direction,cfg.vol_avg_bars,cfg.vol_rising_mult,
-                          cfg.vol_climax_mult,out.pvsra) && cfg.require_pvsra_support)
-     {
-      out.data_fail=true;
-      out.reject_reason="PVSRA_READ";
-      return(false);
-     }
-   if(cfg.require_pvsra_support && !out.pvsra.support)
-     {
-      out.reject_reason="PVSRA";
-      return(true);
-     }
+   SnrPvsraReadClosed(rates,direction,cfg.vol_avg_bars,cfg.vol_rising_mult,
+                      cfg.vol_climax_mult,out.pvsra);
 
    if(!SnrSrReadClosed(rates[0].close,direction,atr[0],cfg.round_whole,
                        cfg.sr_runway_atr,out.sr))
