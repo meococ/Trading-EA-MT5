@@ -20,6 +20,6 @@
     "telemetry_tier": "off",
     "deposit": 10000,
     "leverage": 100,
-    "overrides": "InpHypothesisId=HYP-SONICR-XAU-H4-WHQ-001;InpVariantTag=XAU_H4_WHQ"
+    "overrides": "InpHypothesisId=HYP-SONICR-XAU-H4-WHQ-001;InpMaxSpreadPoints=500;InpMaxTradesPerWeek=3;InpMinTpPips=500;InpNyEndHour=17;InpOffsetPoints=50;InpPipSize=0.01;InpRoundWhole=10.0;InpSlCapPips=2000;InpUseNySession=true;InpVariantTag=XAU_H4_WHQ"
   }
 }

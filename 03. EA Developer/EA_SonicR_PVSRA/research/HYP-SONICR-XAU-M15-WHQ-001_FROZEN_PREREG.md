@@ -19,7 +19,7 @@ Not EUR `001`. Not ITSM. Not Scout. Not PVSRA-as-entry.
 - Train: `2016.01.01`–`2023.12.31` (request 2016; if HQ/bars fail, record actual_from).
 - OOS: `2024.01.01`–`2025.06.30` sealed.
 - Holdout: `2025.07.01`–`2026.08.16` sealed.
-- Model 0, HQ >97, MetaQuotes-Demo portable. Not live.
+- Model **1** (1-minute OHLC): model 0 every-tick generate ~2%/25min on this portable; closed-bar pending logic is the object. Model 0 confirm only if this train survives PF/cadence. HQ >97, MetaQuotes-Demo portable. Not live.
 
 ## Kill
 

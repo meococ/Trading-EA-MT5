@@ -3,8 +3,9 @@
 Trạng thái: **ACTIVE / UNMET**. Owner 2026-08-16: Deploy Sonic R bằng vòng
 nghiên cứu–code–backtest–log/chart liên tục. Main tự quyết tài liệu và hướng kỹ thuật.
 
-Cơ chế active: **HYP-SONICR-XAU-H4-WHQ-001** — XAUUSD H4 WHQ vàng
-(M15/H1 Demo 0 bars tonight; H4 đã chạy được cùng portable).
+Cơ chế active: cần object mới (không widen PULL window, không salvage ngày).
+PULL-002 PARK `20260817_013333` N=86 PF 1.54 cadence 0.24.
+PULL-001 PARK N=60 PF 1.86 cadence 0.16. Classic WHQ/RUN KILL. H4 PARK.
 
 ## Scope
 

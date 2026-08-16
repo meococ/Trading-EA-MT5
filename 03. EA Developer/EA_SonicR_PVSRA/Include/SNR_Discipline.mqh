@@ -34,8 +34,10 @@ string SnrDisciplineFileName(const long magic)
 
 void SnrDisciplineSave(const SnrRiskState &state,const long magic)
   {
+   if(MQLInfoInteger(MQL_TESTER) || MQLInfoInteger(MQL_OPTIMIZATION))
+      return;
    const int h=FileOpen(SnrDisciplineFileName(magic),
-                        FILE_WRITE|FILE_CSV|FILE_ANSI|FILE_COMMON);
+                        FILE_WRITE|FILE_CSV|FILE_ANSI);
    if(h==INVALID_HANDLE)
      {
       Print("SNR001_DISC persist_write_fail");
@@ -48,8 +50,10 @@ void SnrDisciplineSave(const SnrRiskState &state,const long magic)
 
 void SnrDisciplineLoad(SnrRiskState &state,const long magic)
   {
+   if(MQLInfoInteger(MQL_TESTER) || MQLInfoInteger(MQL_OPTIMIZATION))
+      return;
    const int h=FileOpen(SnrDisciplineFileName(magic),
-                        FILE_READ|FILE_CSV|FILE_ANSI|FILE_COMMON);
+                        FILE_READ|FILE_CSV|FILE_ANSI);
    if(h==INVALID_HANDLE)
       return;
    state.day_key=(int)FileReadNumber(h);

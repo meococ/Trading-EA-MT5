@@ -1,13 +1,13 @@
 //+------------------------------------------------------------------+
 //| EA_SonicR_PVSRA.mq5                                              |
-//| HYP-SONICR-CLASSIC-EURUSD-M15-001                                |
-//| Classic L-H-HL / H-L-LH, pending beyond leg-3. Tester-only.      |
+//| HYP-SONICR-XAU-M15-PULL-002                                      |
+//| Dragon mid fresh-tag + reclaim. Whole $20 TP. Tester-only.       |
 //+------------------------------------------------------------------+
 #property copyright "EA_SonicR_PVSRA"
 #property link      "https://www.mql5.com"
-#property version   "1.21"
+#property version   "1.24"
 #property strict
-#property description "Sonic R XAUUSD H4 WHQ/ATR sleeve. Pair-specific. Tester-only."
+#property description "Sonic R XAUUSD M15 Dragon pull. Pair-specific. Tester-only."
 
 #include <Trade/Trade.mqh>
 #include "Include/SNR_Types.mqh"
@@ -24,15 +24,22 @@
 #include "Include/SNR_Execution.mqh"
 #include "Include/SNR_Telemetry.mqh"
 
+#ifndef SNR_DECISION_CSV
+#define SNR_DECISION_CSV 0
+#endif
+#ifndef SNR_OVERLAY_CSV
+#define SNR_OVERLAY_CSV 0
+#endif
+
 input group "--- Frozen research authority ---"
 input bool   InpResearchAutoMode=false;
-input bool   InpEnableTelemetry=true;
-input bool   InpEnableOverlay=true;
-input string InpHypothesisId="HYP-SONICR-XAU-H4-WHQ-001";
-input string InpVariantTag="XAU_H4_WHQ";
+input bool   InpEnableTelemetry=false;
+input bool   InpEnableOverlay=false;
+input string InpHypothesisId="HYP-SONICR-XAU-M15-PULL-002";
+input string InpVariantTag="XAU_PULL_W4";
 
 input group "--- Execution ---"
-input long   InpMagic=16081604;
+input long   InpMagic=16081703;
 input bool   InpKillSwitch=false;
 input int    InpDeviationPoints=40;
 input int    InpMaxSpreadPoints=500;
@@ -50,7 +57,7 @@ input int    InpTrendSlopeBars=3;
 input double InpDragonMinSlopeAtr=0.0;
 input int    InpSwingStrength=2;
 input int    InpWaveLookback=40;
-input int    InpMaxPullbackAge=16;
+input int    InpMaxPullbackAge=4;
 input double InpMaxOverlapRatio=0.55;
 input double InpDragonTouchAtr=0.10;
 
@@ -63,7 +70,7 @@ input double InpVolClimaxMult=2.0;
 input group "--- Round-number S/R ---"
 input double InpRoundWhole=10.0;
 input double InpSrRunwayAtr=0.0;
-input double InpMinTpPips=500.0;
+input double InpMinTpPips=2000.0;
 input double InpPipSize=0.01;
 
 input group "--- Session (TimeGMT + UK DST) ---"
@@ -85,8 +92,8 @@ input double InpSlCapPips=2000.0;
 input double InpMinSlSpreadMult=3.0;
 
 const string EA_NAME="EA_SonicR_PVSRA";
-const string EXPECTED_HYPOTHESIS="HYP-SONICR-XAU-H4-WHQ-001";
-const string EXPECTED_VARIANT="XAU_H4_WHQ";
+const string EXPECTED_HYPOTHESIS="HYP-SONICR-XAU-M15-PULL-002";
+const string EXPECTED_VARIANT="XAU_PULL_W4";
 
 CTrade         g_trade;
 SnrHandles     g_handles;
@@ -146,7 +153,7 @@ void LoadCfg()
 
 bool InputsSane()
   {
-   return(_Period==PERIOD_H4 && SymbolAllowed() &&
+   return(_Period==PERIOD_M15 && SymbolAllowed() &&
           InpHypothesisId==EXPECTED_HYPOTHESIS &&
           InpVariantTag==EXPECTED_VARIANT &&
           !InpResearchAutoMode &&
@@ -180,7 +187,9 @@ bool InputsSane()
           InpMinSlSpreadMult>=1.0 &&
           InpDeviationPoints>=0 &&
           InpMaxSpreadPoints>0 &&
-          InpUseNySession &&
+          InpRoundWhole>=1.0 &&
+          InpPipSize>=0.01 &&
+          InpSlCapPips>=500.0 &&
           !InpRequirePvsraSupport &&
           !SNR_SCOUT_ENABLED);
   }
@@ -299,7 +308,7 @@ bool SubmitPending(const SnrSignalDecision &sig)
    const double offset=(double)InpOffsetPoints*point;
    const double pending=(sig.direction>0 ? sig.signal_high+offset : sig.signal_low-offset);
    double tp=0.0;
-   if(!SnrFirstWhqTarget(pending,sig.direction,InpRoundWhole,g_cfg.min_tp_runway,tp))
+   if(!SnrFirstWholeTarget(pending,sig.direction,InpRoundWhole,g_cfg.min_tp_runway,tp))
      {
       g_tel.sr_blocks++;
       return(false);
@@ -390,8 +399,8 @@ int OnInit()
    SnrDisciplineLoad(g_risk,InpMagic);
    if(!InputsSane())
       return(INIT_PARAMETERS_INCORRECT);
-   if(!SnrDragonCreate(g_handles,_Symbol,PERIOD_H4,InpDragonPeriod,InpATRPeriod) ||
-      !SnrTrendCreate(g_handles,_Symbol,PERIOD_H4,InpTrendPeriod) ||
+   if(!SnrDragonCreate(g_handles,_Symbol,PERIOD_M15,InpDragonPeriod,InpATRPeriod) ||
+      !SnrTrendCreate(g_handles,_Symbol,PERIOD_M15,InpTrendPeriod) ||
       !SnrHandlesReady(g_handles))
      {
       Print("SNR001_FATAL reason=INDICATOR_HANDLE");
@@ -410,8 +419,8 @@ int OnInit()
       g_risk.day_start_equity=equity;
    if(g_risk.peak_equity<=0.0)
       g_risk.peak_equity=equity;
-   SnrTelemetryOpenCsv(g_tel,InpEnableTelemetry);
-   g_overlay_handle=SnrContextOpenCsv(InpEnableOverlay);
+   SnrTelemetryOpenCsv(g_tel,(SNR_DECISION_CSV!=0 && InpEnableTelemetry));
+   g_overlay_handle=SnrContextOpenCsv((SNR_OVERLAY_CSV!=0 && InpEnableOverlay));
 
    ulong ticket=0;
    const int scan=SnrScanOwnedPosition(InpMagic,ticket);
@@ -449,14 +458,14 @@ int OnInit()
       ClearPendingState();
      }
 
-   g_last_bar_open=iTime(_Symbol,PERIOD_H4,0);
+   g_last_bar_open=iTime(_Symbol,PERIOD_M15,0);
    if(g_last_bar_open<=0)
      {
       SnrHandlesRelease(g_handles);
       SnrTelemetryCloseCsv(g_tel);
       return(INIT_FAILED);
      }
-   PrintFormat("SNR001_INIT ea=%s hyp=%s symbol=%s tf=H4 server=tester-only",
+   PrintFormat("SNR001_INIT ea=%s hyp=%s symbol=%s tf=M15 server=tester-only",
                EA_NAME,InpHypothesisId,_Symbol);
    return(INIT_SUCCEEDED);
   }
@@ -483,7 +492,7 @@ void OnTick()
    if(g_risk.dd_locked)
       SnrDisciplineSave(g_risk,InpMagic);
 
-   const datetime current_bar_open=iTime(_Symbol,PERIOD_H4,0);
+   const datetime current_bar_open=iTime(_Symbol,PERIOD_M15,0);
    if(current_bar_open<=0)
       return;
    FlattenIfNeeded(current_bar_open);
@@ -511,7 +520,7 @@ void OnTick()
      }
 
    SnrSignalDecision sig;
-   if(!SnrBuildClassicSignal(_Symbol,PERIOD_H4,g_handles,g_cfg,current_bar_open,sig))
+   if(!SnrBuildPullSignal(_Symbol,PERIOD_M15,g_handles,g_cfg,current_bar_open,sig))
      {
       g_tel.data_fails++;
       return;
@@ -525,8 +534,9 @@ void OnTick()
 
    MqlTick tick;
    const double spread=(SymbolInfoTick(_Symbol,tick) && tick.ask>tick.bid ? tick.ask-tick.bid : 0.0);
-   SnrTelemetryWriteDecision(g_tel,InpEnableTelemetry,sig,spread);
-   SnrContextWrite(g_overlay_handle,sig,g_cfg);
+   SnrTelemetryWriteDecision(g_tel,(SNR_DECISION_CSV!=0 && InpEnableTelemetry),sig,spread);
+   if(SNR_OVERLAY_CSV!=0)
+      SnrContextWrite(g_overlay_handle,sig,g_cfg);
 
    if(!sig.fired)
      {
@@ -540,7 +550,7 @@ void OnTick()
       g_tel.long_signals++;
    else
       g_tel.short_signals++;
-   if(InpEnableTelemetry)
+   if(SNR_DECISION_CSV!=0 && InpEnableTelemetry)
       PrintFormat("SNR001_SIGNAL decision=%I64d dir=%s close=%.5f ema89=%.5f dragon=%.5f/%.5f legs=%d/%d/%d first=%d",
                   (long)sig.decision_time,(sig.direction>0 ? "LONG" : "SHORT"),
                   sig.signal_close,sig.trend.ema,sig.dragon.high,sig.dragon.low,

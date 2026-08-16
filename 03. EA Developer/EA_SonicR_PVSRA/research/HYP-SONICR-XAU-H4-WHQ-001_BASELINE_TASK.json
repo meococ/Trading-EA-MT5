@@ -9,7 +9,7 @@
     "cost_source": "MetaQuotes-Demo"
   },
   "windows": {
-    "train": { "from": "2016.01.01", "to": "2023.12.31" },
+    "train": { "from": "2017.01.03", "to": "2023.12.31" },
     "oos": { "from": "2024.01.01", "to": "2025.06.30", "sealed": true },
     "holdout": { "from": "2025.07.01", "to": "2026.08.16", "sealed": true }
   },
@@ -18,10 +18,10 @@
     "ea_name": "EA_SonicR_PVSRA",
     "symbol": "XAUUSD",
     "period": "H4",
-    "from": "2016.01.01",
+    "from": "2017.01.03",
     "to": "2023.12.31",
     "model": 0,
     "run_role": "control",
-    "overrides": "InpHypothesisId=HYP-SONICR-XAU-H4-WHQ-001;InpVariantTag=XAU_H4_WHQ"
+    "overrides": "InpHypothesisId=HYP-SONICR-XAU-H4-WHQ-001;InpMaxSpreadPoints=500;InpMaxTradesPerWeek=3;InpMinTpPips=500;InpNyEndHour=17;InpOffsetPoints=50;InpPipSize=0.01;InpRoundWhole=10.0;InpSlCapPips=2000;InpUseNySession=true;InpVariantTag=XAU_H4_WHQ"
   }
 }

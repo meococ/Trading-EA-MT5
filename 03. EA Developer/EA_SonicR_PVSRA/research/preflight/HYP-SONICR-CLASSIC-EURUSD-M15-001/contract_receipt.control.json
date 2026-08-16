@@ -1,0 +1,72 @@
+{
+    "schema_version":  "alphafactory_execution_receipt.v1",
+    "hypothesis_id":  "HYP-SONICR-CLASSIC-EURUSD-M15-001",
+    "task_packet_sha256":  "474FC3220E1594508C06B66DC465E249BE0F7DE73482726DF4B9A81C58FD303E",
+    "git_commit":  "b513fa2ad5c4c8474aef4dd72e5efafea11a664b",
+    "git_status_sha256":  "D21B7B189DB48144D32171CEF82479A069AC10C301D20F75A591FD487039AC9B",
+    "binding":  {
+                    "hypothesis_id":  "HYP-SONICR-CLASSIC-EURUSD-M15-001",
+                    "run_role":  "control",
+                    "ea_name":  "EA_SonicR_PVSRA",
+                    "symbol":  "EURUSD",
+                    "period":  "M15",
+                    "from":  "2018.01.01",
+                    "to":  "2023.12.31",
+                    "model":  0,
+                    "execution_mode":  0,
+                    "fixed_delay_ms":  0,
+                    "overrides":  "InpHypothesisId=HYP-SONICR-CLASSIC-EURUSD-M15-001;InpVariantTag=CLASSIC_WAVE_LEG3",
+                    "telemetry_tier":  "off",
+                    "telemetry_profile":  "none",
+                    "deposit":  10000,
+                    "leverage":  100,
+                    "spread":  "current",
+                    "required_sidecars":  [
+
+                                          ],
+                    "symbol_geometry":  {
+                                            "digits":  5,
+                                            "point":  1E-05,
+                                            "pip_size":  0.0001
+                                        },
+                    "include_closure_sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+                    "portable":  "02. AlphaFactory/runtime/mt5-portable-mqdemo",
+                    "server":  "MetaQuotes-Demo",
+                    "cost_source":  "MetaQuotes-Demo",
+                    "login":  "5054517252"
+                },
+    "evidence":  [
+                     {
+                         "label":  "task_packet",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-CLASSIC-EURUSD-M15-001_BASELINE_TASK.json",
+                         "sha256":  "474FC3220E1594508C06B66DC465E249BE0F7DE73482726DF4B9A81C58FD303E"
+                     },
+                     {
+                         "label":  "source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\EA_SonicR_PVSRA.mq5",
+                         "sha256":  "EC24AC7E64E3F6F2B738FF4B1CDFE06A889D01BD0A9DF1D2647D2C4CCAED191D"
+                     },
+                     {
+                         "label":  "prereg",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-CLASSIC-EURUSD-M15-001_FROZEN_PREREG.md",
+                         "sha256":  "002A17CC0D0CD5CA25BC9946F89D322ADA1494783C67D7DAE662BD3EEDE81233"
+                     },
+                     {
+                         "label":  "cost_source_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-CLASSIC-EURUSD-M15-001_COST_SOURCE_MANIFEST.json",
+                         "sha256":  "C3450F5832882B5E3F6350EAA45C965D59774E60603333BEC4ADBC2BB97D235C"
+                     },
+                     {
+                         "label":  "candidate_registry",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+                         "sha256":  "6B23F356FDAE8402DA62056206BAA9328FC53C13C4CAE1371A1A2396F2CBE039"
+                     }
+                 ],
+    "generated_at_utc":  "2026-08-16T13:54:01.4137212Z",
+    "note":  "Tester-only Model-0 on MetaQuotes-Demo portable. Registry bound read-only; not appended. MQ Demo != FivePercent. Friday flat 20:00. Not live-equivalent."
+}

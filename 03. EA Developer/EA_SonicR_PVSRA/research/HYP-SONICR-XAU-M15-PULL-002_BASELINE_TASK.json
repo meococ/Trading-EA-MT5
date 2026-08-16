@@ -1,7 +1,7 @@
 {
-  "schema_version": "sonicr_xau_whq_baseline_task.v1",
-  "hypothesis_id": "HYP-SONICR-XAU-M15-WHQ-001",
-  "attempt_id": "SNR-XAU-001-MODEL1-BASELINE-001",
+  "schema_version": "sonicr_xau_pull_baseline_task.v1",
+  "hypothesis_id": "HYP-SONICR-XAU-M15-PULL-002",
+  "attempt_id": "SNR-XAU-PULL-W4-MODEL1-001",
   "one_attempt_only": true,
   "same_id_retry_authorized": false,
   "visual_mode": false,
@@ -15,7 +15,6 @@
     "fivepercent_equivalent": false
   },
   "windows": {
-    "smoke": { "from": "2023.01.03", "to": "2023.02.17", "role": "engineering_only" },
     "train": { "from": "2017.01.03", "to": "2023.12.31" },
     "oos": { "from": "2024.01.01", "to": "2025.06.30", "sealed": true },
     "holdout": { "from": "2025.07.01", "to": "2026.08.16", "sealed": true }
@@ -30,14 +29,14 @@
     "model": 1,
     "execution_mode": 0,
     "fixed_delay_ms": 0,
-    "timeout_sec": 10800,
+    "timeout_sec": 7200,
     "run_role": "control",
     "telemetry_tier": "off",
     "deposit": 10000,
     "leverage": 100,
     "spread_semantics": "current_cli_omitted",
     "holding_contract": "non_scalp",
-    "overrides": "InpHypothesisId=HYP-SONICR-XAU-M15-WHQ-001;InpMagic=16081604;InpMaxSpreadPoints=500;InpMaxTradesPerWeek=3;InpMinTpPips=500;InpNyEndHour=17;InpOffsetPoints=50;InpPipSize=0.01;InpRoundWhole=10.0;InpSlCapPips=2000;InpUseNySession=true;InpVariantTag=XAU_WHQ_ATR"
+    "overrides": "InpHypothesisId=HYP-SONICR-XAU-M15-PULL-002;InpMagic=16081703;InpMaxPullbackAge=4;InpMaxSpreadPoints=500;InpMaxTradesPerWeek=3;InpMinTpPips=2000;InpNyEndHour=17;InpOffsetPoints=50;InpPipSize=0.01;InpRoundWhole=10.0;InpSlCapPips=2000;InpUseNySession=true;InpVariantTag=XAU_PULL_W4"
   },
   "acceptance": {
     "history_quality_gt": 97,

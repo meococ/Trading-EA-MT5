@@ -152,4 +152,27 @@ bool SnrFirstWhqTarget(const double entry,const int direction,const double whole
    return(false);
   }
 
+bool SnrFirstWholeTarget(const double entry,const int direction,const double whole,
+                         const double min_runway,double &tp)
+  {
+   tp=0.0;
+   if(!SnrFinite(entry) || !SnrFinite(whole) || whole<=0.0 ||
+      !SnrFinite(min_runway) || min_runway<=0.0 || direction==SNR_DIR_NONE)
+      return(false);
+   double level=(direction>0 ? MathCeil(entry/whole)*whole
+                             : MathFloor(entry/whole)*whole);
+   if((direction>0 && level<=entry) || (direction<0 && level>=entry))
+      level+=(direction>0 ? whole : -whole);
+   for(int i=0;i<8;i++)
+     {
+      if(MathAbs(level-entry)>=min_runway)
+        {
+         tp=level;
+         return(true);
+        }
+      level+=(direction>0 ? whole : -whole);
+     }
+   return(false);
+  }
+
 #endif

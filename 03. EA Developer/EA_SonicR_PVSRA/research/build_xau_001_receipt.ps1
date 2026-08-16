@@ -2,12 +2,12 @@ param(
     [string]$From = '2016.01.01',
     [string]$To = '2023.12.31',
     [string]$ReceiptName = 'contract_receipt.control.json',
-    [string]$HypothesisId = 'HYP-SONICR-XAU-H4-WHQ-001',
+    [string]$HypothesisId = 'HYP-SONICR-XAU-M15-PULL-002',
     [string]$Symbol = 'XAUUSD',
     [int]$Digits = 2,
     [double]$Point = 0.01,
     [double]$PipSize = 0.01,
-    [string]$Overrides = 'InpHypothesisId=HYP-SONICR-XAU-H4-WHQ-001;InpVariantTag=XAU_H4_WHQ'
+    [string]$Overrides = 'InpHypothesisId=HYP-SONICR-XAU-M15-PULL-002;InpMagic=16081703;InpMaxPullbackAge=4;InpMaxSpreadPoints=500;InpMaxTradesPerWeek=3;InpMinTpPips=2000;InpNyEndHour=17;InpOffsetPoints=50;InpPipSize=0.01;InpRoundWhole=10.0;InpSlCapPips=2000;InpUseNySession=true;InpVariantTag=XAU_PULL_W4'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -71,10 +71,10 @@ $receipt = [ordered]@{
         run_role = 'control'
         ea_name = 'EA_SonicR_PVSRA'
         symbol = $Symbol
-        period = 'H4'
+        period = 'M15'
         from = $From
         to = $To
-        model = 0
+        model = 1
         execution_mode = 0
         fixed_delay_ms = 0
         overrides = $Overrides
@@ -99,7 +99,7 @@ $receipt = [ordered]@{
         [ordered]@{ label = 'candidate_registry'; kind = 'file'; path = $registryPath; sha256 = Get-FileSha256 $registryPath }
     )
     generated_at_utc = (Get-Date).ToUniversalTime().ToString('o')
-    note = 'XAUUSD M15 gold-scale Sonic. Tester-only MQ Demo. Registry read-only. Not 001 salvage.'
+    note = 'XAUUSD M15 Dragon pull. Tester-only MQ Demo. Registry read-only. Not Classic first-break salvage.'
 }
 Write-Utf8Json $receipt $receiptPath
 

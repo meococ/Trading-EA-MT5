@@ -1,0 +1,72 @@
+{
+    "schema_version":  "alphafactory_execution_receipt.v1",
+    "hypothesis_id":  "HYP-SONICR-XAU-M15-RUN-001",
+    "task_packet_sha256":  "AE56D3129A09A3897830C8AB9FB45206A887E2AF3E14EAECDA1D8C57917F7C10",
+    "git_commit":  "0d6bfea38b86bb59aad8f6de15a14ab82aa09f8c",
+    "git_status_sha256":  "47092585C94F7AE602DF3896389F7B74D3756E86D6B0E51ACB41A45E925BBF8D",
+    "binding":  {
+                    "hypothesis_id":  "HYP-SONICR-XAU-M15-RUN-001",
+                    "run_role":  "control",
+                    "ea_name":  "EA_SonicR_PVSRA",
+                    "symbol":  "XAUUSD",
+                    "period":  "M15",
+                    "from":  "2017.01.03",
+                    "to":  "2023.12.31",
+                    "model":  1,
+                    "execution_mode":  0,
+                    "fixed_delay_ms":  0,
+                    "overrides":  "InpHypothesisId=HYP-SONICR-XAU-M15-RUN-001;InpMagic=16081701;InpMaxSpreadPoints=500;InpMaxTradesPerWeek=3;InpMinTpPips=2000;InpNyEndHour=17;InpOffsetPoints=50;InpPipSize=0.01;InpRoundWhole=10.0;InpSlCapPips=2000;InpUseNySession=true;InpVariantTag=XAU_RUN_WHOLE",
+                    "telemetry_tier":  "off",
+                    "telemetry_profile":  "none",
+                    "deposit":  10000,
+                    "leverage":  100,
+                    "spread":  "current",
+                    "required_sidecars":  [
+
+                                          ],
+                    "symbol_geometry":  {
+                                            "digits":  2,
+                                            "point":  0.01,
+                                            "pip_size":  0.01
+                                        },
+                    "include_closure_sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+                    "portable":  "02. AlphaFactory/runtime/mt5-portable-mqdemo",
+                    "server":  "MetaQuotes-Demo",
+                    "cost_source":  "MetaQuotes-Demo",
+                    "login":  "5054517252"
+                },
+    "evidence":  [
+                     {
+                         "label":  "task_packet",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-XAU-M15-RUN-001_BASELINE_TASK.json",
+                         "sha256":  "AE56D3129A09A3897830C8AB9FB45206A887E2AF3E14EAECDA1D8C57917F7C10"
+                     },
+                     {
+                         "label":  "source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\EA_SonicR_PVSRA.mq5",
+                         "sha256":  "9A66EAE722AC8B41F8A9FAE291F79C4687A3CDE2C8E8D4482287D8001901B17A"
+                     },
+                     {
+                         "label":  "prereg",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-XAU-M15-RUN-001_FROZEN_PREREG.md",
+                         "sha256":  "D541C72D837550E79E4D3489DE7DB549283D72DCD3D190F61CF77AA7E8D6602B"
+                     },
+                     {
+                         "label":  "cost_source_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-XAU-M15-RUN-001_COST_SOURCE_MANIFEST.json",
+                         "sha256":  "62FC4F1B0FF9FEDBFA77D44151532FDE153A212350C998DBB3DFFBAA99FAEC6F"
+                     },
+                     {
+                         "label":  "candidate_registry",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+                         "sha256":  "6B23F356FDAE8402DA62056206BAA9328FC53C13C4CAE1371A1A2396F2CBE039"
+                     }
+                 ],
+    "generated_at_utc":  "2026-08-16T18:26:53.6633787Z",
+    "note":  "XAUUSD M15 RUN whole-target. Tester-only MQ Demo. Registry read-only. Not WHQ-001 salvage."
+}

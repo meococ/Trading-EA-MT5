@@ -1,20 +1,18 @@
 # Hot Cache — Current State
 
-Updated: 2026-08-16.
+Updated: 2026-08-17.
 
 Cache. Không phải authority.
 
 ## Current state
 
 - Goal: **Deploy Sonic R** — `01. GOAL/GOAL.md` ACTIVE / UNMET
-- Active: `HYP-SONICR-XAU-H4-WHQ-001` (gold WHQ, not EUR 001)
-- Compile: 0 errors
-- Smoke XAU M15/H1/H4 tonight: **0 bars / tester error after pass** despite XAU hcc 2012–2026 on disk
-- EUR Classic `001` remains KILL PF 0.94
-- BTC: no Demo history folder yet
-- Portable: `mt5-portable-mqdemo`
+- Active: `HYP-SONICR-XAU-M15-PULL-002` PARK cadence 0.24/wk PF 1.54 N=86
+- PULL-001 PARK 0.16/wk PF 1.86 N=60 — not edge
+- WHQ-001 KILL N=374 PF 0.89; RUN-001 KILL N=431 PF 0.99
+- Gold Classic first-break closed. Portable history: XAU+EUR only
 - Registry hold — không đụng
 
 ## Next action
 
-Sửa tester load XAUUSD **hoặc** mở sleeve FX khác (không salvage 001) khi XAU tester 0 nến. Train 2016 chưa chạy được.
+New gold entry (not wider tag window, not weekday salvage) or EUR non-001 setup. Holdout sealed.
