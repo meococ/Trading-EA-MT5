@@ -2,13 +2,13 @@ param(
     [string]$From = '2016.01.01',
     [string]$To = '2023.12.31',
     [string]$ReceiptName = 'contract_receipt.control.json',
-    [string]$HypothesisId = 'HYP-SONICR-XAU-M5-PULL-001',
-    [string]$Symbol = 'XAUUSD',
-    [string]$Period = 'M5',
-    [int]$Digits = 2,
-    [double]$Point = 0.01,
-    [double]$PipSize = 0.01,
-    [string]$Overrides = 'InpHypothesisId=HYP-SONICR-XAU-M5-PULL-001;InpMagic=16081705;InpMaxPullbackAge=4;InpMaxSpreadPoints=500;InpMaxTradesPerWeek=3;InpMinTpPips=2000;InpNyEndHour=17;InpOffsetPoints=50;InpPendingTtlBars=12;InpPipSize=0.01;InpRoundWhole=10.0;InpSlCapPips=2000;InpUseNySession=true;InpVariantTag=XAU_M5_PULL'
+    [string]$HypothesisId = 'HYP-SONICR-EURUSD-M15-PULL-001',
+    [string]$Symbol = 'EURUSD',
+    [string]$Period = 'M15',
+    [int]$Digits = 5,
+    [double]$Point = 0.00001,
+    [double]$PipSize = 0.0001,
+    [string]$Overrides = 'InpHypothesisId=HYP-SONICR-EURUSD-M15-PULL-001;InpMagic=16081801;InpMaxPullbackAge=4;InpMaxSpreadPoints=30;InpMaxTradesPerWeek=3;InpMinTpPips=300;InpOffsetPoints=10;InpPendingTtlBars=4;InpPipSize=0.0001;InpRoundWhole=0.01;InpSlCapPips=400;InpUseNySession=false;InpVariantTag=EUR_PULL_LONDON'
 )
 
 $ErrorActionPreference = 'Stop'

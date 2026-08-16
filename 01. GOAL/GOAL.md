@@ -3,9 +3,9 @@
 Trạng thái: **ACTIVE / UNMET**. Owner 2026-08-16: Deploy Sonic R bằng vòng
 nghiên cứu–code–backtest–log/chart liên tục. Main tự quyết tài liệu và hướng kỹ thuật.
 
-Cơ chế active: cần object mới (không salvage ngày, không Classic/band).
-M5 PULL-001 PARK `20260817_014254` N=181 PF 1.22 cadence 0.50.
-M15 PULL PARK cadence. BAND/WHQ/RUN KILL. H4 PARK.
+Cơ chế active: cần object mới. EUR PULL-001 KILL `20260817_014610`
+N=67 PF 0.85. EUR Classic 001 KILL. Vàng Classic/BAND KILL; PULL PARK
+cadence. H4 PARK (QC xác nhận 0.06/tuần).
 
 ## Scope
 

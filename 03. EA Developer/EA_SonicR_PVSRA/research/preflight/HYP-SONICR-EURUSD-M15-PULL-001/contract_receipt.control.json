@@ -1,0 +1,72 @@
+{
+    "schema_version":  "alphafactory_execution_receipt.v1",
+    "hypothesis_id":  "HYP-SONICR-EURUSD-M15-PULL-001",
+    "task_packet_sha256":  "D280B27E1F64B1741446ECA78D22A6217920D21CC0E533586E6DEC7CF8B8E5C7",
+    "git_commit":  "52c25511da294f646cfc57e14089c4de514bf06b",
+    "git_status_sha256":  "7C0BD8483A86E92D3679F1950D2F2AC3DE6D5518CDF39D3C252473EA30F6A650",
+    "binding":  {
+                    "hypothesis_id":  "HYP-SONICR-EURUSD-M15-PULL-001",
+                    "run_role":  "control",
+                    "ea_name":  "EA_SonicR_PVSRA",
+                    "symbol":  "EURUSD",
+                    "period":  "M15",
+                    "from":  "2017.01.03",
+                    "to":  "2023.12.31",
+                    "model":  1,
+                    "execution_mode":  0,
+                    "fixed_delay_ms":  0,
+                    "overrides":  "InpHypothesisId=HYP-SONICR-EURUSD-M15-PULL-001;InpMagic=16081801;InpMaxPullbackAge=4;InpMaxSpreadPoints=30;InpMaxTradesPerWeek=3;InpMinTpPips=300;InpOffsetPoints=10;InpPendingTtlBars=4;InpPipSize=0.0001;InpRoundWhole=0.01;InpSlCapPips=400;InpUseNySession=false;InpVariantTag=EUR_PULL_LONDON",
+                    "telemetry_tier":  "off",
+                    "telemetry_profile":  "none",
+                    "deposit":  10000,
+                    "leverage":  100,
+                    "spread":  "current",
+                    "required_sidecars":  [
+
+                                          ],
+                    "symbol_geometry":  {
+                                            "digits":  5,
+                                            "point":  1E-05,
+                                            "pip_size":  0.0001
+                                        },
+                    "include_closure_sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+                    "portable":  "02. AlphaFactory/runtime/mt5-portable-mqdemo",
+                    "server":  "MetaQuotes-Demo",
+                    "cost_source":  "MetaQuotes-Demo",
+                    "login":  "5054517252"
+                },
+    "evidence":  [
+                     {
+                         "label":  "task_packet",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-EURUSD-M15-PULL-001_BASELINE_TASK.json",
+                         "sha256":  "D280B27E1F64B1741446ECA78D22A6217920D21CC0E533586E6DEC7CF8B8E5C7"
+                     },
+                     {
+                         "label":  "source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\EA_SonicR_PVSRA.mq5",
+                         "sha256":  "B827C67A2E92445FFC3C3C85D68283834A1F7881C3ADD53999369AFB44483F9C"
+                     },
+                     {
+                         "label":  "prereg",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-EURUSD-M15-PULL-001_FROZEN_PREREG.md",
+                         "sha256":  "0BC0D8BE0E1A32390FB431F6863531DE049D669550878FE3F1509300BEC06E32"
+                     },
+                     {
+                         "label":  "cost_source_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-EURUSD-M15-PULL-001_COST_SOURCE_MANIFEST.json",
+                         "sha256":  "A8A812113F014362F7655D5C0320F8FF50D117A8C051FCC38134D83768696946"
+                     },
+                     {
+                         "label":  "candidate_registry",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+                         "sha256":  "6B23F356FDAE8402DA62056206BAA9328FC53C13C4CAE1371A1A2396F2CBE039"
+                     }
+                 ],
+    "generated_at_utc":  "2026-08-16T18:46:05.3646027Z",
+    "note":  "XAUUSD M15 Dragon pull. Tester-only MQ Demo. Registry read-only. Not Classic first-break salvage."
+}
