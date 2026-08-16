@@ -2,12 +2,12 @@ param(
     [string]$From = '2016.01.01',
     [string]$To = '2023.12.31',
     [string]$ReceiptName = 'contract_receipt.control.json',
-    [string]$HypothesisId = 'HYP-SONICR-XAU-M15-PULL-002',
+    [string]$HypothesisId = 'HYP-SONICR-XAU-M15-BAND-001',
     [string]$Symbol = 'XAUUSD',
     [int]$Digits = 2,
     [double]$Point = 0.01,
     [double]$PipSize = 0.01,
-    [string]$Overrides = 'InpHypothesisId=HYP-SONICR-XAU-M15-PULL-002;InpMagic=16081703;InpMaxPullbackAge=4;InpMaxSpreadPoints=500;InpMaxTradesPerWeek=3;InpMinTpPips=2000;InpNyEndHour=17;InpOffsetPoints=50;InpPipSize=0.01;InpRoundWhole=10.0;InpSlCapPips=2000;InpUseNySession=true;InpVariantTag=XAU_PULL_W4'
+    [string]$Overrides = 'InpHypothesisId=HYP-SONICR-XAU-M15-BAND-001;InpMagic=16081704;InpMaxSpreadPoints=500;InpMaxTradesPerWeek=3;InpMinTpPips=2000;InpNyEndHour=17;InpOffsetPoints=50;InpPipSize=0.01;InpRoundWhole=10.0;InpSlCapPips=2000;InpUseNySession=true;InpVariantTag=XAU_BAND_WHOLE'
 )
 
 $ErrorActionPreference = 'Stop'

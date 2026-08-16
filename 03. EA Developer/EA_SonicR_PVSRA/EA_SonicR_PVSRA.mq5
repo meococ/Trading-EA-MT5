@@ -1,13 +1,13 @@
 //+------------------------------------------------------------------+
 //| EA_SonicR_PVSRA.mq5                                              |
-//| HYP-SONICR-XAU-M15-PULL-002                                      |
-//| Dragon mid fresh-tag + reclaim. Whole $20 TP. Tester-only.       |
+//| HYP-SONICR-XAU-M15-BAND-001                                      |
+//| First close beyond Dragon, no 3-leg. Whole $20 TP. Tester-only.  |
 //+------------------------------------------------------------------+
 #property copyright "EA_SonicR_PVSRA"
 #property link      "https://www.mql5.com"
-#property version   "1.24"
+#property version   "1.25"
 #property strict
-#property description "Sonic R XAUUSD M15 Dragon pull. Pair-specific. Tester-only."
+#property description "Sonic R XAUUSD M15 Dragon band break. Tester-only."
 
 #include <Trade/Trade.mqh>
 #include "Include/SNR_Types.mqh"
@@ -35,11 +35,11 @@ input group "--- Frozen research authority ---"
 input bool   InpResearchAutoMode=false;
 input bool   InpEnableTelemetry=false;
 input bool   InpEnableOverlay=false;
-input string InpHypothesisId="HYP-SONICR-XAU-M15-PULL-002";
-input string InpVariantTag="XAU_PULL_W4";
+input string InpHypothesisId="HYP-SONICR-XAU-M15-BAND-001";
+input string InpVariantTag="XAU_BAND_WHOLE";
 
 input group "--- Execution ---"
-input long   InpMagic=16081703;
+input long   InpMagic=16081704;
 input bool   InpKillSwitch=false;
 input int    InpDeviationPoints=40;
 input int    InpMaxSpreadPoints=500;
@@ -92,8 +92,8 @@ input double InpSlCapPips=2000.0;
 input double InpMinSlSpreadMult=3.0;
 
 const string EA_NAME="EA_SonicR_PVSRA";
-const string EXPECTED_HYPOTHESIS="HYP-SONICR-XAU-M15-PULL-002";
-const string EXPECTED_VARIANT="XAU_PULL_W4";
+const string EXPECTED_HYPOTHESIS="HYP-SONICR-XAU-M15-BAND-001";
+const string EXPECTED_VARIANT="XAU_BAND_WHOLE";
 
 CTrade         g_trade;
 SnrHandles     g_handles;
@@ -520,7 +520,7 @@ void OnTick()
      }
 
    SnrSignalDecision sig;
-   if(!SnrBuildPullSignal(_Symbol,PERIOD_M15,g_handles,g_cfg,current_bar_open,sig))
+   if(!SnrBuildBandSignal(_Symbol,PERIOD_M15,g_handles,g_cfg,current_bar_open,sig))
      {
       g_tel.data_fails++;
       return;
