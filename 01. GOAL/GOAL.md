@@ -4,7 +4,10 @@ Trạng thái: **ACTIVE / UNMET** cho tới khi có ít nhất một symbol-slee
 Compile xanh, workflow xong, hay một frontier `NO_CANDIDATE` không phải DONE
 và không biến cả goal thành `BLOCKED`.
 
-Cơ chế active: **none**.
+Cơ chế active: **HYP-SONICR-PVSRA-CLASSIC-XAUUSD-M15-001** — Owner reopen, package mới `EA_SonicR_PVSRA`, tester-only, economics chưa chạy.
+Không compile-from-archive. Không revive `EA_SonicR` v2 recovered / ITSM / HybridICT / Grok v10.
+`HYP-H4-DONCHIAN-EURUSD-H4-001` KILL hẹp — train `20260816_151429` PF 0.89.
+`HYP-H4-DONCHIAN-XAUUSD-H4-001` KILL hẹp — train `20260816_141128` PF 0.86.
 
 ## Scope
 
@@ -18,8 +21,9 @@ Native MT5 (OHLC, tick, Bid/Ask, spread, tick volume, symbol state) là nguồn
 hợp lệ cho setup price-derived. Không bắt buộc source-intake/PIT ngoài MT5
 chỉ để hợp thức hóa. External data chỉ khi cơ chế thật sự cần trường MT5 không có.
 
-Spend research in-scope < USD 10 với quote/cap trước khi gọi. Không live vốn.
-Paper/live chỉ Owner cấp.
+Spend/contact mặc định USD 0. Mọi purchase, trial, paid sample, credential hoặc
+vendor contact chỉ được mở sau quyền Owner rõ ràng cho đúng object. Không live
+vốn; paper/live chỉ Owner cấp.
 
 ## Outcome
 
