@@ -264,6 +264,33 @@ bool SnrBuildBandSignal(const string symbol,const ENUM_TIMEFRAMES tf,
    return(true);
   }
 
+bool SnrShouldRideExit(const string symbol,const ENUM_TIMEFRAMES tf,
+                       const SnrHandles &handles,const int direction,
+                       const datetime availability_time,bool &data_fail)
+  {
+   data_fail=false;
+   if(direction==SNR_DIR_NONE || availability_time<=0 || !SnrHandlesReady(handles))
+      return(false);
+   MqlRates rates[];
+   double d_high[],d_low[];
+   if(!SnrCopyClosedRates(symbol,tf,8,rates) ||
+      !SnrCopyClosedBuffer(handles.dragon_high,8,d_high) ||
+      !SnrCopyClosedBuffer(handles.dragon_low,8,d_low))
+     {
+      data_fail=true;
+      return(false);
+     }
+   if(rates[0].time<=0 || rates[0].time>=availability_time ||
+      !SnrFinite(rates[0].close) || !SnrFinite(d_high[0]) || !SnrFinite(d_low[0]))
+     {
+      data_fail=true;
+      return(false);
+     }
+   if(direction>0)
+      return(rates[0].close<d_low[0]);
+   return(rates[0].close>d_high[0]);
+  }
+
 bool SnrBuildPullSignal(const string symbol,const ENUM_TIMEFRAMES tf,
                         const SnrHandles &handles,const SnrClassicCfg &cfg,
                         const datetime availability_time,SnrSignalDecision &out)

@@ -1,0 +1,72 @@
+{
+    "schema_version":  "alphafactory_execution_receipt.v1",
+    "hypothesis_id":  "HYP-SONICR-XAU-M15-RIDE-001",
+    "task_packet_sha256":  "891724084EF6A02EE3F2CA8CEBA59EABB6F99E4E2F9F6AD009060E4769E09FDC",
+    "git_commit":  "cf96b9bf9c851cbfed7abd0f6651ccdccd677b14",
+    "git_status_sha256":  "2754E7EE8DBE169DC84E632CD9B1E844E4285864807E43396433C4A62A729412",
+    "binding":  {
+                    "hypothesis_id":  "HYP-SONICR-XAU-M15-RIDE-001",
+                    "run_role":  "control",
+                    "ea_name":  "EA_SonicR_PVSRA",
+                    "symbol":  "XAUUSD",
+                    "period":  "M15",
+                    "from":  "2017.01.03",
+                    "to":  "2023.12.31",
+                    "model":  1,
+                    "execution_mode":  0,
+                    "fixed_delay_ms":  0,
+                    "overrides":  "InpHypothesisId=HYP-SONICR-XAU-M15-RIDE-001;InpMagic=16081706;InpMaxPullbackAge=1;InpMaxSpreadPoints=500;InpMaxTradesPerWeek=3;InpMinTpPips=5000;InpNyEndHour=17;InpOffsetPoints=50;InpPipSize=0.01;InpRoundWhole=10.0;InpSlCapPips=2000;InpUseNySession=true;InpVariantTag=XAU_RIDE_DRAGON",
+                    "telemetry_tier":  "off",
+                    "telemetry_profile":  "none",
+                    "deposit":  10000,
+                    "leverage":  100,
+                    "spread":  "current",
+                    "required_sidecars":  [
+
+                                          ],
+                    "symbol_geometry":  {
+                                            "digits":  2,
+                                            "point":  0.01,
+                                            "pip_size":  0.01
+                                        },
+                    "include_closure_sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+                    "portable":  "02. AlphaFactory/runtime/mt5-portable-mqdemo",
+                    "server":  "MetaQuotes-Demo",
+                    "cost_source":  "MetaQuotes-Demo",
+                    "login":  "5054517252"
+                },
+    "evidence":  [
+                     {
+                         "label":  "task_packet",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-XAU-M15-RIDE-001_BASELINE_TASK.json",
+                         "sha256":  "891724084EF6A02EE3F2CA8CEBA59EABB6F99E4E2F9F6AD009060E4769E09FDC"
+                     },
+                     {
+                         "label":  "source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\EA_SonicR_PVSRA.mq5",
+                         "sha256":  "38EA99AC44E087D1C1549369538A24A12644B43C4AC5C9B06F1A38163F8F5D4D"
+                     },
+                     {
+                         "label":  "prereg",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-XAU-M15-RIDE-001_FROZEN_PREREG.md",
+                         "sha256":  "CA6F3D91E14848D18115C16A96A582EBCF90FE6F79A2F9FA53967A31AFBE3215"
+                     },
+                     {
+                         "label":  "cost_source_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-XAU-M15-RIDE-001_COST_SOURCE_MANIFEST.json",
+                         "sha256":  "C33E9E216A35BFAF6D7BD900985DBE3B9CD9F76308D2D328EF97DC39A517DC55"
+                     },
+                     {
+                         "label":  "candidate_registry",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+                         "sha256":  "6B23F356FDAE8402DA62056206BAA9328FC53C13C4CAE1371A1A2396F2CBE039"
+                     }
+                 ],
+    "generated_at_utc":  "2026-08-16T18:49:20.6549603Z",
+    "note":  "XAUUSD M15 Dragon pull. Tester-only MQ Demo. Registry read-only. Not Classic first-break salvage."
+}
