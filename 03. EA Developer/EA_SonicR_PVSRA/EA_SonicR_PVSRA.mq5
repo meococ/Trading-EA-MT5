@@ -5,9 +5,9 @@
 //+------------------------------------------------------------------+
 #property copyright "EA_SonicR_PVSRA"
 #property link      "https://www.mql5.com"
-#property version   "1.20"
+#property version   "1.21"
 #property strict
-#property description "Sonic R system: Classic geometry + discipline host + PVA scanner. Tester-only."
+#property description "Sonic R XAUUSD H4 WHQ/ATR sleeve. Pair-specific. Tester-only."
 
 #include <Trade/Trade.mqh>
 #include "Include/SNR_Types.mqh"
@@ -28,16 +28,16 @@ input group "--- Frozen research authority ---"
 input bool   InpResearchAutoMode=false;
 input bool   InpEnableTelemetry=true;
 input bool   InpEnableOverlay=true;
-input string InpHypothesisId="HYP-SONICR-SYSTEM-EURUSD-M15-001";
-input string InpVariantTag="SNR_SYSTEM_V120";
+input string InpHypothesisId="HYP-SONICR-XAU-H4-WHQ-001";
+input string InpVariantTag="XAU_H4_WHQ";
 
 input group "--- Execution ---"
-input long   InpMagic=16081603;
+input long   InpMagic=16081604;
 input bool   InpKillSwitch=false;
-input int    InpDeviationPoints=20;
-input int    InpMaxSpreadPoints=40;
+input int    InpDeviationPoints=40;
+input int    InpMaxSpreadPoints=500;
 input bool   InpUseHardStops=true;
-input int    InpOffsetPoints=30;
+input int    InpOffsetPoints=50;
 input int    InpPendingTtlBars=4;
 
 input group "--- Classic Sonic R ---"
@@ -61,17 +61,17 @@ input double InpVolRisingMult=1.5;
 input double InpVolClimaxMult=2.0;
 
 input group "--- Round-number S/R ---"
-input double InpRoundWhole=0.01;
+input double InpRoundWhole=10.0;
 input double InpSrRunwayAtr=0.0;
-input double InpMinTpPips=15.0;
-input double InpPipSize=0.0001;
+input double InpMinTpPips=500.0;
+input double InpPipSize=0.01;
 
 input group "--- Session (TimeGMT + UK DST) ---"
 input int    InpLondonStartHour=8;
 input int    InpLondonEndHour=16;
-input bool   InpUseNySession=false;
+input bool   InpUseNySession=true;
 input int    InpNyStartHour=12;
-input int    InpNyEndHour=16;
+input int    InpNyEndHour=17;
 input int    InpFridayFlattenHour=20;
 
 input group "--- Risk ---"
@@ -79,14 +79,14 @@ input double InpRiskPercent=0.25;
 input double InpMaxDailyLossPct=3.5;
 input double InpMaxAccountDrawdownPct=8.0;
 input int    InpMaxTradesPerDay=2;
-input int    InpMaxTradesPerWeek=5;
-input double InpSlBufferAtr=0.10;
-input double InpSlCapPips=120.0;
+input int    InpMaxTradesPerWeek=3;
+input double InpSlBufferAtr=0.15;
+input double InpSlCapPips=2000.0;
 input double InpMinSlSpreadMult=3.0;
 
 const string EA_NAME="EA_SonicR_PVSRA";
-const string EXPECTED_HYPOTHESIS="HYP-SONICR-SYSTEM-EURUSD-M15-001";
-const string EXPECTED_VARIANT="SNR_SYSTEM_V120";
+const string EXPECTED_HYPOTHESIS="HYP-SONICR-XAU-H4-WHQ-001";
+const string EXPECTED_VARIANT="XAU_H4_WHQ";
 
 CTrade         g_trade;
 SnrHandles     g_handles;
@@ -110,7 +110,7 @@ int            g_overlay_handle=INVALID_HANDLE;
 
 bool SymbolAllowed()
   {
-   return(StringFind(_Symbol,"EURUSD")==0);
+   return(StringFind(_Symbol,"XAUUSD")==0);
   }
 
 void LoadCfg()
@@ -146,7 +146,7 @@ void LoadCfg()
 
 bool InputsSane()
   {
-   return(_Period==PERIOD_M15 && SymbolAllowed() &&
+   return(_Period==PERIOD_H4 && SymbolAllowed() &&
           InpHypothesisId==EXPECTED_HYPOTHESIS &&
           InpVariantTag==EXPECTED_VARIANT &&
           !InpResearchAutoMode &&
@@ -176,11 +176,11 @@ bool InputsSane()
           InpMaxDailyLossPct>0.0 &&
           InpMaxAccountDrawdownPct>0.0 &&
           InpMaxTradesPerDay>=1 &&
-          InpMaxTradesPerWeek==SNR_MAX_TRADES_WEEK &&
+          InpMaxTradesPerWeek>=1 && InpMaxTradesPerWeek<=SNR_MAX_TRADES_WEEK &&
           InpMinSlSpreadMult>=1.0 &&
           InpDeviationPoints>=0 &&
           InpMaxSpreadPoints>0 &&
-          !InpUseNySession &&
+          InpUseNySession &&
           !InpRequirePvsraSupport &&
           !SNR_SCOUT_ENABLED);
   }
@@ -390,8 +390,8 @@ int OnInit()
    SnrDisciplineLoad(g_risk,InpMagic);
    if(!InputsSane())
       return(INIT_PARAMETERS_INCORRECT);
-   if(!SnrDragonCreate(g_handles,_Symbol,PERIOD_M15,InpDragonPeriod,InpATRPeriod) ||
-      !SnrTrendCreate(g_handles,_Symbol,PERIOD_M15,InpTrendPeriod) ||
+   if(!SnrDragonCreate(g_handles,_Symbol,PERIOD_H4,InpDragonPeriod,InpATRPeriod) ||
+      !SnrTrendCreate(g_handles,_Symbol,PERIOD_H4,InpTrendPeriod) ||
       !SnrHandlesReady(g_handles))
      {
       Print("SNR001_FATAL reason=INDICATOR_HANDLE");
@@ -449,14 +449,14 @@ int OnInit()
       ClearPendingState();
      }
 
-   g_last_bar_open=iTime(_Symbol,PERIOD_M15,0);
+   g_last_bar_open=iTime(_Symbol,PERIOD_H4,0);
    if(g_last_bar_open<=0)
      {
       SnrHandlesRelease(g_handles);
       SnrTelemetryCloseCsv(g_tel);
       return(INIT_FAILED);
      }
-   PrintFormat("SNR001_INIT ea=%s hyp=%s symbol=%s tf=M15 server=tester-only",
+   PrintFormat("SNR001_INIT ea=%s hyp=%s symbol=%s tf=H4 server=tester-only",
                EA_NAME,InpHypothesisId,_Symbol);
    return(INIT_SUCCEEDED);
   }
@@ -483,7 +483,7 @@ void OnTick()
    if(g_risk.dd_locked)
       SnrDisciplineSave(g_risk,InpMagic);
 
-   const datetime current_bar_open=iTime(_Symbol,PERIOD_M15,0);
+   const datetime current_bar_open=iTime(_Symbol,PERIOD_H4,0);
    if(current_bar_open<=0)
       return;
    FlattenIfNeeded(current_bar_open);
@@ -511,7 +511,7 @@ void OnTick()
      }
 
    SnrSignalDecision sig;
-   if(!SnrBuildClassicSignal(_Symbol,PERIOD_M15,g_handles,g_cfg,current_bar_open,sig))
+   if(!SnrBuildClassicSignal(_Symbol,PERIOD_H4,g_handles,g_cfg,current_bar_open,sig))
      {
       g_tel.data_fails++;
       return;

@@ -1,0 +1,42 @@
+{
+  "schema_version": "sonicr_xau_h1_smoke_task.v1",
+  "hypothesis_id": "HYP-SONICR-XAU-H1-WHQ-001",
+  "attempt_id": "SNR-XAU-H1-001-SMOKE-001",
+  "one_attempt_only": true,
+  "same_id_retry_authorized": false,
+  "visual_mode": false,
+  "indicator_dependencies": [],
+  "envelope": {
+    "portable": "02. AlphaFactory/runtime/mt5-portable-mqdemo",
+    "server": "MetaQuotes-Demo",
+    "login": "5054517252",
+    "cost_source": "MetaQuotes-Demo",
+    "live_equivalent": false,
+    "fivepercent_equivalent": false
+  },
+  "command_contract": {
+    "action": "backtest",
+    "ea_name": "EA_SonicR_PVSRA",
+    "symbol": "XAUUSD",
+    "period": "H1",
+    "from": "2023.01.03",
+    "to": "2023.03.31",
+    "model": 0,
+    "execution_mode": 0,
+    "fixed_delay_ms": 0,
+    "timeout_sec": 1800,
+    "run_role": "control",
+    "telemetry_tier": "off",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread_semantics": "current_cli_omitted",
+    "holding_contract": "non_scalp",
+    "overrides": "InpHypothesisId=HYP-SONICR-XAU-H1-WHQ-001;InpVariantTag=XAU_H1_WHQ"
+  },
+  "acceptance": {
+    "history_quality_gt": 97,
+    "forbid_stop_out": true,
+    "require_deals": false,
+    "economic_claims_authorized": false
+  }
+}

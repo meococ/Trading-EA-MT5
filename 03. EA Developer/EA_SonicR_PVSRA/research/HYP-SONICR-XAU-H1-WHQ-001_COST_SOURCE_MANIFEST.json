@@ -1,0 +1,23 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-SONICR-XAU-H1-WHQ-001",
+  "evidence_tier": "PRE_BASELINE_REFERENCE_ONLY",
+  "provenance_status": "TRAIN_PROXY_COVERAGE_NO_OBSERVED_FILLS",
+  "audit_status": "BLOCKED_FOR_ECONOMIC_ACCEPTANCE",
+  "verdict": "BASELINE_FALSIFICATION_ONLY",
+  "promotion_eligible": false,
+  "symbol": "XAUUSD",
+  "from": "2016.01.01",
+  "to": "2023.12.31",
+  "envelope": "MetaQuotes-Demo",
+  "cost_source": "MetaQuotes-Demo",
+  "live_equivalent": false,
+  "fivepercent_equivalent": false,
+  "symbol_geometry": {"digits": 2, "point": 0.01, "pip_size": 0.01},
+  "tester_spread_semantics": "current",
+  "commission_reference_usd_round_turn_per_lot": null,
+  "slippage_reference": "tester current spread; MQ Demo != FivePercent; Friday flat 20:00",
+  "same_bar_cost_gate": "SL >= 3x spread; SL cap 20 USD; no weekend",
+  "baseline_use": "Untuned Model-0 falsification only.",
+  "blocker": "No observed fill-slippage sample."
+}

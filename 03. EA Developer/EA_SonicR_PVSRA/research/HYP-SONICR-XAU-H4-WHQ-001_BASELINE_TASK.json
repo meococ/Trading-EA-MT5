@@ -1,0 +1,27 @@
+{
+  "schema_version": "sonicr_xau_h4_baseline.v1",
+  "hypothesis_id": "HYP-SONICR-XAU-H4-WHQ-001",
+  "attempt_id": "SNR-XAU-H4-001-BASELINE-001",
+  "envelope": {
+    "portable": "02. AlphaFactory/runtime/mt5-portable-mqdemo",
+    "server": "MetaQuotes-Demo",
+    "login": "5054517252",
+    "cost_source": "MetaQuotes-Demo"
+  },
+  "windows": {
+    "train": { "from": "2016.01.01", "to": "2023.12.31" },
+    "oos": { "from": "2024.01.01", "to": "2025.06.30", "sealed": true },
+    "holdout": { "from": "2025.07.01", "to": "2026.08.16", "sealed": true }
+  },
+  "command_contract": {
+    "action": "backtest",
+    "ea_name": "EA_SonicR_PVSRA",
+    "symbol": "XAUUSD",
+    "period": "H4",
+    "from": "2016.01.01",
+    "to": "2023.12.31",
+    "model": 0,
+    "run_role": "control",
+    "overrides": "InpHypothesisId=HYP-SONICR-XAU-H4-WHQ-001;InpVariantTag=XAU_H4_WHQ"
+  }
+}
