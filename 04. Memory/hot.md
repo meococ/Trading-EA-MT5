@@ -7,11 +7,10 @@ Cache. Không phải authority.
 ## Current state
 
 - Goal: **Deploy Sonic R** — `01. GOAL/GOAL.md` ACTIVE / UNMET
-- BAND-001 KILL `20260817_013928` N=81 PF 0.63 (first-close Dragon, no 3-leg)
-- PULL-001/002 PARK cadence 0.16–0.24/wk (PF 1.86/1.54, N nhỏ ≠ edge)
-- WHQ/RUN Classic KILL. H4 PARK. Portable history: XAU+EUR only
-- Registry hold — không đụng
+- M5 PULL-001 PARK `20260817_014254` N=181 PF 1.22 cadence 0.50
+- M15 PULL PARK cadence. BAND/WHQ/RUN KILL. H4 PARK
+- Portable history: XAU+EUR only. Registry hold
 
 ## Next action
 
-New object: gold M5 Dragon pull (cadence) or EUR pull (not Classic 001). No weekday salvage.
+EUR Dragon pull (not Classic 001) or new gold entry. No weekday salvage.
