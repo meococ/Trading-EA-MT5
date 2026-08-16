@@ -64,10 +64,10 @@ bool SnrSessionRead(const datetime gmt,const SnrClassicCfg &cfg,SnrSessionSnap &
    out.london_dow=london.day_of_week;
    const bool weekend=(london.day_of_week==0 || london.day_of_week==6);
    const bool friday_late=(london.day_of_week==5 && london.hour>=cfg.friday_flatten_hour);
-   const bool outside_hold=(london.hour<cfg.london_start_hour || london.hour>=cfg.ny_end_hour);
-   out.flatten=(weekend || friday_late || outside_hold);
+   out.flatten=(weekend || friday_late);
    const bool in_london=(!weekend && SnrHourInRange(london.hour,cfg.london_start_hour,cfg.london_end_hour)==1);
-   const bool in_ny=(!weekend && SnrHourInRange(london.hour,cfg.ny_start_hour,cfg.ny_end_hour)==1);
+   const bool in_ny=(cfg.use_ny_session && !weekend &&
+                     SnrHourInRange(london.hour,cfg.ny_start_hour,cfg.ny_end_hour)==1);
    if(in_london)
       out.zone=SNR_SESS_LONDON;
    else if(in_ny)

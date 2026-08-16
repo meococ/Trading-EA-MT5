@@ -7,9 +7,9 @@ Cache. Không phải authority. Xác minh bằng GOAL, registry, prereg, artifac
 ## Current state
 
 - Goal: `ACTIVE / UNMET` — `01. GOAL/GOAL.md`
-- Pointer: `03. EA Developer/EA_SonicR_PVSRA/`
-- Active hyp: `HYP-SONICR-PVSRA-CLASSIC-XAUUSD-M15-001` (tester-only, no economics)
-- Compile: `alpha.ps1 compile EA_SonicR_PVSRA` → 0 errors, EX5 69788 B
+- Pointer: `03. EA Developer/EA_SonicR_PVSRA/research/HYP-SONICR-CLASSIC-EURUSD-M15-001_KILL.md`
+- Active hyp: none
+- Train `20260816_205426` HQ 100% N=307 PF 0.94 — KILL hẹp
 - Scope: XAUUSD + 7 FX majors; BTC out
 - Spend/contact: cần Owner; không live
 - Portable: `02. AlphaFactory/runtime/mt5-portable-mqdemo`
@@ -18,6 +18,6 @@ Cache. Không phải authority. Xác minh bằng GOAL, registry, prereg, artifac
 
 ## Next action
 
-Không Model-0 XAU hiện tại (wave ≠ Classic). Việc kế: `SNR_ClassicWave.mqh` + cell EURUSD M15 London, ID mới, source-count trước PF. The5ers HS chỉ sau object sống.
+Classic EURUSD M15 KILL hẹp PF 0.94. Việc kế: cơ chế mới, không salvage giờ/thứ. QC đứng: `.cursor/agents/qc-challenger.md`.
 
 Receipts: `INDEX.md` → research/; catalog qua `failure-lookup`.

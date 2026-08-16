@@ -62,6 +62,12 @@ struct SnrClassicCfg
    int               ny_end_hour;
    int               friday_flatten_hour;
    bool              require_pvsra_support;
+   bool              use_ny_session;
+   int               offset_points;
+   int               pending_ttl_bars;
+   double            sl_cap;
+   double            min_tp_runway;
+   double            pip_size;
   };
 
 struct SnrDragonSnap
@@ -93,8 +99,13 @@ struct SnrWaveSnap
    double            impulse_extreme;
    double            structure_swing;
    int               pullback_index;
+   int               leg0_index;
+   int               leg1_index;
+   int               leg2_index;
    bool              into_dragon;
    bool              break_or_reject;
+   bool              first_break;
+   bool              leg1_thru_dragon;
   };
 
 struct SnrPvsraSnap

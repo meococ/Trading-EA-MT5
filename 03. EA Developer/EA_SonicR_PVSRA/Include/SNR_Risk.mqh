@@ -151,6 +151,72 @@ bool SnrPlanTrade(const string symbol,const int direction,const double entry,
    return(true);
   }
 
+bool SnrPlanPendingLevels(const string symbol,const int direction,
+                          const double pending_price,const double structural_sl,
+                          const double tp_price,const double atr,
+                          const double sl_buffer_atr,const double sl_cap,
+                          const double min_sl_spread_mult,const double risk_percent,
+                          const double ask,const double bid,SnrRiskPlan &plan)
+  {
+   ZeroMemory(plan);
+   const double point=SymbolInfoDouble(symbol,SYMBOL_POINT);
+   const double tick_size=SymbolInfoDouble(symbol,SYMBOL_TRADE_TICK_SIZE);
+   if(!SnrFinite(pending_price) || !SnrFinite(structural_sl) || !SnrFinite(tp_price) ||
+      !SnrFinite(atr) || !SnrFinite(ask) || !SnrFinite(bid) || atr<=0.0 ||
+      point<=0.0 || tick_size<=0.0 || direction==SNR_DIR_NONE || ask<=bid)
+      return(false);
+
+   double sl_raw=structural_sl;
+   if(direction>0)
+      sl_raw=MathMin(structural_sl,pending_price)-sl_buffer_atr*atr;
+   else
+      sl_raw=MathMax(structural_sl,pending_price)+sl_buffer_atr*atr;
+
+   double risk_distance=(direction>0 ? pending_price-sl_raw : sl_raw-pending_price);
+   const double spread=ask-bid;
+   risk_distance=MathMax(risk_distance,min_sl_spread_mult*spread);
+   if(!SnrFinite(risk_distance) || risk_distance<=0.0)
+      return(false);
+   if(sl_cap>0.0 && risk_distance>sl_cap)
+      return(false);
+
+   const double sl_adj=pending_price-direction*risk_distance;
+   const double sl=(direction>0 ? SnrFloorToTick(sl_adj,tick_size) : SnrCeilToTick(sl_adj,tick_size));
+   const double tp=(direction>0 ? SnrCeilToTick(tp_price,tick_size) : SnrFloorToTick(tp_price,tick_size));
+   const double min_dist=(double)MathMax(MathMax(SymbolInfoInteger(symbol,SYMBOL_TRADE_STOPS_LEVEL),
+                                                 SymbolInfoInteger(symbol,SYMBOL_TRADE_FREEZE_LEVEL)),0)*point;
+   if(MathAbs(pending_price-sl)<min_dist || MathAbs(tp-pending_price)<min_dist)
+      return(false);
+   if((direction>0 && (sl>=pending_price || tp<=pending_price || pending_price<=ask)) ||
+      (direction<0 && (sl<=pending_price || tp>=pending_price || pending_price>=bid)))
+      return(false);
+
+   const ENUM_ORDER_TYPE order_type=(direction>0 ? ORDER_TYPE_BUY : ORDER_TYPE_SELL);
+   double one_lot_loss=0.0;
+   if(!OrderCalcProfit(order_type,symbol,1.0,pending_price,sl,one_lot_loss) ||
+      !SnrFinite(one_lot_loss) || one_lot_loss>=0.0)
+      return(false);
+   const double equity=AccountInfoDouble(ACCOUNT_EQUITY);
+   if(!SnrFinite(equity) || equity<=0.0 || risk_percent<=0.0)
+      return(false);
+   double volume=SnrNormalizeVolumeDown(symbol,equity*(risk_percent/100.0)/MathAbs(one_lot_loss));
+   if(volume<=0.0)
+      return(false);
+   double margin=0.0;
+   if(!OrderCalcMargin(order_type,symbol,volume,pending_price,margin) || !SnrFinite(margin) ||
+      margin>AccountInfoDouble(ACCOUNT_MARGIN_FREE))
+      return(false);
+
+   plan.valid=true;
+   plan.entry=pending_price;
+   plan.sl=sl;
+   plan.tp=tp;
+   plan.volume=volume;
+   plan.risk_distance=risk_distance;
+   plan.one_lot_loss=one_lot_loss;
+   return(true);
+  }
+
 bool SnrRealizedRiskOverBudget(const string symbol,const int direction,
                                const double fill_price,const double sl,
                                const double volume,const double risk_percent,

@@ -1,19 +1,19 @@
 //+------------------------------------------------------------------+
 //| EA_SonicR_PVSRA.mq5                                              |
-//| HYP-SONICR-PVSRA-CLASSIC-XAUUSD-M15-001                          |
-//| Classic closed-bar Sonic R + PVSRA qualifier. Tester-only.       |
+//| HYP-SONICR-CLASSIC-EURUSD-M15-001                                |
+//| Classic L-H-HL / H-L-LH, pending beyond leg-3. Tester-only.      |
 //+------------------------------------------------------------------+
 #property copyright "EA_SonicR_PVSRA"
 #property link      "https://www.mql5.com"
-#property version   "1.00"
+#property version   "1.10"
 #property strict
-#property description "Classic Sonic R + reconstructed PVSRA qualifier. Closed-bar. No Scout. Tester-only."
+#property description "Classic Sonic R wave leg-3 Dragon break. EURUSD M15. No Scout. Tester-only."
 
 #include <Trade/Trade.mqh>
 #include "Include/SNR_Types.mqh"
 #include "Include/SNR_Dragon.mqh"
 #include "Include/SNR_Trend.mqh"
-#include "Include/SNR_Wave.mqh"
+#include "Include/SNR_ClassicWave.mqh"
 #include "Include/SNR_PVSRA.mqh"
 #include "Include/SNR_SRLevels.mqh"
 #include "Include/SNR_Session.mqh"
@@ -25,15 +25,17 @@
 input group "--- Frozen research authority ---"
 input bool   InpResearchAutoMode=false;
 input bool   InpEnableTelemetry=true;
-input string InpHypothesisId="HYP-SONICR-PVSRA-CLASSIC-XAUUSD-M15-001";
-input string InpVariantTag="SONICR_PVSRA_CLASSIC";
+input string InpHypothesisId="HYP-SONICR-CLASSIC-EURUSD-M15-001";
+input string InpVariantTag="CLASSIC_WAVE_LEG3";
 
 input group "--- Execution ---"
-input long   InpMagic=16081601;
+input long   InpMagic=16081602;
 input bool   InpKillSwitch=false;
-input int    InpDeviationPoints=40;
-input int    InpMaxSpreadPoints=120;
+input int    InpDeviationPoints=20;
+input int    InpMaxSpreadPoints=40;
 input bool   InpUseHardStops=true;
+input int    InpOffsetPoints=30;
+input int    InpPendingTtlBars=4;
 
 input group "--- Classic Sonic R ---"
 input int    InpLookback=120;
@@ -42,26 +44,29 @@ input int    InpTrendPeriod=89;
 input int    InpATRPeriod=14;
 input int    InpDragonSlopeBars=3;
 input int    InpTrendSlopeBars=3;
-input double InpDragonMinSlopeAtr=0.06;
+input double InpDragonMinSlopeAtr=0.0;
 input int    InpSwingStrength=2;
 input int    InpWaveLookback=40;
-input int    InpMaxPullbackAge=12;
+input int    InpMaxPullbackAge=16;
 input double InpMaxOverlapRatio=0.55;
 input double InpDragonTouchAtr=0.10;
 
-input group "--- PVSRA qualifier (reconstructed, not original Ian numbers) ---"
+input group "--- PVSRA labels only ---"
 input bool   InpRequirePvsraSupport=false;
 input int    InpVolAvgBars=10;
 input double InpVolRisingMult=1.5;
 input double InpVolClimaxMult=2.0;
 
 input group "--- Round-number S/R ---"
-input double InpRoundWhole=10.0;
-input double InpSrRunwayAtr=0.25;
+input double InpRoundWhole=0.01;
+input double InpSrRunwayAtr=0.0;
+input double InpMinTpPips=15.0;
+input double InpPipSize=0.0001;
 
-input group "--- Session (TimeGMT + UK DST, reconstructed) ---"
-input int    InpLondonStartHour=7;
-input int    InpLondonEndHour=10;
+input group "--- Session (TimeGMT + UK DST) ---"
+input int    InpLondonStartHour=8;
+input int    InpLondonEndHour=16;
+input bool   InpUseNySession=false;
 input int    InpNyStartHour=12;
 input int    InpNyEndHour=16;
 input int    InpFridayFlattenHour=20;
@@ -70,17 +75,14 @@ input group "--- Risk ---"
 input double InpRiskPercent=0.25;
 input double InpMaxDailyLossPct=3.5;
 input double InpMaxAccountDrawdownPct=8.0;
-input int    InpMaxTradesPerDay=3;
-input double InpTargetR=1.0;
+input int    InpMaxTradesPerDay=2;
 input double InpSlBufferAtr=0.10;
-input double InpMinSlAtr=0.50;
-input double InpMaxSlAtr=3.00;
+input double InpSlCapPips=120.0;
 input double InpMinSlSpreadMult=3.0;
-input int    InpTimeStopBars=16;
 
 const string EA_NAME="EA_SonicR_PVSRA";
-const string EXPECTED_HYPOTHESIS="HYP-SONICR-PVSRA-CLASSIC-XAUUSD-M15-001";
-const string EXPECTED_VARIANT="SONICR_PVSRA_CLASSIC";
+const string EXPECTED_HYPOTHESIS="HYP-SONICR-CLASSIC-EURUSD-M15-001";
+const string EXPECTED_VARIANT="CLASSIC_WAVE_LEG3";
 
 CTrade         g_trade;
 SnrHandles     g_handles;
@@ -97,10 +99,13 @@ double         g_initial_tp=0.0;
 int            g_entry_dir=SNR_DIR_NONE;
 string         g_pending_exit_reason="";
 bool           g_runtime_failed=false;
+ulong          g_pending_ticket=0;
+datetime       g_pending_signal_time=0;
+int            g_pending_age=0;
 
 bool SymbolAllowed()
   {
-   return(StringFind(_Symbol,"XAUUSD")==0);
+   return(StringFind(_Symbol,"EURUSD")==0);
   }
 
 void LoadCfg()
@@ -126,6 +131,12 @@ void LoadCfg()
    g_cfg.ny_end_hour=InpNyEndHour;
    g_cfg.friday_flatten_hour=InpFridayFlattenHour;
    g_cfg.require_pvsra_support=InpRequirePvsraSupport;
+   g_cfg.use_ny_session=InpUseNySession;
+   g_cfg.offset_points=InpOffsetPoints;
+   g_cfg.pending_ttl_bars=InpPendingTtlBars;
+   g_cfg.pip_size=InpPipSize;
+   g_cfg.sl_cap=InpSlCapPips*InpPipSize;
+   g_cfg.min_tp_runway=InpMinTpPips*InpPipSize;
   }
 
 bool InputsSane()
@@ -140,31 +151,31 @@ bool InputsSane()
           InpATRPeriod>=2 &&
           InpDragonSlopeBars>=1 &&
           InpTrendSlopeBars>=1 &&
-          InpDragonMinSlopeAtr>0.0 &&
+          InpDragonMinSlopeAtr>=0.0 &&
           InpSwingStrength>=1 &&
           InpWaveLookback>=10 &&
           InpMaxPullbackAge>=InpSwingStrength &&
-          InpMaxOverlapRatio>0.0 && InpMaxOverlapRatio<1.0 &&
           InpVolAvgBars>=5 &&
           InpVolRisingMult>=1.0 &&
           InpVolClimaxMult>=InpVolRisingMult &&
           InpRoundWhole>0.0 &&
-          InpSrRunwayAtr>=0.0 &&
+          InpPipSize>0.0 &&
+          InpMinTpPips>0.0 &&
+          InpSlCapPips>0.0 &&
+          InpOffsetPoints>=0 &&
+          InpPendingTtlBars>=1 &&
           InpLondonStartHour>=0 && InpLondonStartHour<=23 &&
           InpLondonEndHour>=0 && InpLondonEndHour<=23 &&
-          InpNyStartHour>=0 && InpNyStartHour<=23 &&
-          InpNyEndHour>=0 && InpNyEndHour<=23 &&
           InpFridayFlattenHour>=0 && InpFridayFlattenHour<=23 &&
           InpRiskPercent>0.0 &&
           InpMaxDailyLossPct>0.0 &&
           InpMaxAccountDrawdownPct>0.0 &&
           InpMaxTradesPerDay>=1 &&
-          InpTargetR>0.0 &&
           InpMinSlSpreadMult>=1.0 &&
-          InpMaxSlAtr>=InpMinSlAtr &&
-          InpTimeStopBars>=0 &&
           InpDeviationPoints>=0 &&
           InpMaxSpreadPoints>0 &&
+          !InpUseNySession &&
+          !InpRequirePvsraSupport &&
           !SNR_SCOUT_ENABLED);
   }
 
@@ -178,35 +189,15 @@ void ClearEntryState()
    g_pending_exit_reason="";
   }
 
-double StructuralStop(const SnrSignalDecision &sig)
+void ClearPendingState()
   {
-   if(sig.direction>0)
-     {
-      double sl=sig.dragon.low;
-      if(sig.wave.valid && sig.wave.pullback_price>0.0)
-         sl=MathMin(sl,sig.wave.pullback_price);
-      sl=MathMin(sl,sig.signal_low);
-      return(sl);
-     }
-   double sl=sig.dragon.high;
-   if(sig.wave.valid && sig.wave.pullback_price>0.0)
-      sl=MathMax(sl,sig.wave.pullback_price);
-   sl=MathMax(sl,sig.signal_high);
-   return(sl);
+   g_pending_ticket=0;
+   g_pending_signal_time=0;
+   g_pending_age=0;
   }
 
 bool FlattenIfNeeded(const datetime current_bar_open)
   {
-   ulong ticket=0;
-   const int scan=SnrScanOwnedPosition(InpMagic,ticket);
-   if(scan==SNR_SCAN_FAIL || scan==SNR_SCAN_MULTI)
-     {
-      g_runtime_failed=true;
-      return(false);
-     }
-   if(scan!=SNR_SCAN_OWNED)
-      return(true);
-
    SnrSessionSnap session;
    if(!SnrSessionRead(TimeGMT(),g_cfg,session))
       return(false);
@@ -218,73 +209,60 @@ bool FlattenIfNeeded(const datetime current_bar_open)
       reason="SESSION_FLAT";
    else if(g_risk.dd_locked)
       reason="DD_LOCK";
-   else if(InpTimeStopBars>0)
-     {
-      datetime entry_time=g_entry_time;
-      if(entry_time<=0 && PositionSelectByTicket(ticket))
-         entry_time=(datetime)PositionGetInteger(POSITION_TIME);
-      if(entry_time>0)
-        {
-         const int held=iBarShift(_Symbol,PERIOD_M15,entry_time,false);
-         if(held>=InpTimeStopBars)
-            reason="TIME_STOP";
-        }
-     }
    if(reason=="")
       return(true);
-   if(reason=="TIME_STOP" && g_last_close_attempt_bar==current_bar_open)
+   if(!SnrCancelOwnedPendings(g_trade,InpMagic,reason))
+      return(false);
+   ClearPendingState();
+
+   ulong ticket=0;
+   const int scan=SnrScanOwnedPosition(InpMagic,ticket);
+   if(scan==SNR_SCAN_FAIL || scan==SNR_SCAN_MULTI)
+     {
+      g_runtime_failed=true;
+      return(false);
+     }
+   if(scan!=SNR_SCAN_OWNED)
       return(true);
    g_last_close_attempt_bar=current_bar_open;
    g_pending_exit_reason=reason;
    return(SnrCloseOwned(g_trade,InpMagic,InpDeviationPoints,reason,g_tel));
   }
 
-void ManageVirtualExits()
+bool AgePendings()
   {
-   if(InpUseHardStops)
-      return;
    ulong ticket=0;
-   const int scan=SnrScanOwnedPosition(InpMagic,ticket);
-   if(scan==SNR_SCAN_FAIL || scan==SNR_SCAN_MULTI)
+   int count=0;
+   const int scan=SnrScanOwnedPendings(InpMagic,ticket,count);
+   if(scan==SNR_SCAN_FAIL)
      {
       g_runtime_failed=true;
-      return;
+      return(false);
      }
-   if(scan!=SNR_SCAN_OWNED || !PositionSelectByTicket(ticket))
-      return;
-   if(g_initial_sl<=0.0 && g_initial_tp<=0.0)
-      return;
-   MqlTick tick;
-   if(!SymbolInfoTick(_Symbol,tick) || !SnrFinite(tick.bid) || !SnrFinite(tick.ask))
-      return;
-   const bool is_long=(PositionGetInteger(POSITION_TYPE)==POSITION_TYPE_BUY);
-   string reason="";
-   if(is_long)
+   if(scan==SNR_SCAN_FLAT)
      {
-      if(g_initial_sl>0.0 && tick.bid<=g_initial_sl)
-         reason="SL";
-      else if(g_initial_tp>0.0 && tick.bid>=g_initial_tp)
-         reason="TP";
+      ClearPendingState();
+      return(true);
      }
-   else
+   if(g_pending_ticket==0)
+      g_pending_ticket=ticket;
+   g_pending_age++;
+   if(g_pending_age>=InpPendingTtlBars || scan==SNR_SCAN_MULTI)
      {
-      if(g_initial_sl>0.0 && tick.ask>=g_initial_sl)
-         reason="SL";
-      else if(g_initial_tp>0.0 && tick.ask<=g_initial_tp)
-         reason="TP";
+      if(!SnrCancelOwnedPendings(g_trade,InpMagic,"TTL"))
+         return(false);
+      ClearPendingState();
      }
-   if(reason=="")
-      return;
-   g_pending_exit_reason=reason;
-   SnrCloseOwned(g_trade,InpMagic,InpDeviationPoints,reason,g_tel);
+   return(true);
   }
 
-bool SubmitEntry(const SnrSignalDecision &sig)
+bool SubmitPending(const SnrSignalDecision &sig)
   {
    int pos_count=0;
    int pend_count=0;
+   ulong owned_pending=0;
    if(SnrScanSymbolPositions(pos_count)==SNR_SCAN_FAIL ||
-      SnrScanSymbolPendings(pend_count)==SNR_SCAN_FAIL)
+      SnrScanOwnedPendings(InpMagic,owned_pending,pend_count)==SNR_SCAN_FAIL)
      {
       g_runtime_failed=true;
       return(false);
@@ -311,45 +289,45 @@ bool SubmitEntry(const SnrSignalDecision &sig)
       return(false);
      }
 
-   const double entry=(sig.direction>0 ? tick.ask : tick.bid);
+   const double offset=(double)InpOffsetPoints*point;
+   const double pending=(sig.direction>0 ? sig.signal_high+offset : sig.signal_low-offset);
+   double tp=0.0;
+   if(!SnrFirstWhqTarget(pending,sig.direction,InpRoundWhole,g_cfg.min_tp_runway,tp))
+     {
+      g_tel.sr_blocks++;
+      return(false);
+     }
+
    SnrRiskPlan plan;
-   if(!SnrPlanTrade(_Symbol,sig.direction,entry,StructuralStop(sig),sig.atr,
-                    InpSlBufferAtr,InpMinSlAtr,InpMaxSlAtr,InpMinSlSpreadMult,
-                    InpTargetR,InpRiskPercent,tick.ask,tick.bid,plan))
+   if(!SnrPlanPendingLevels(_Symbol,sig.direction,pending,sig.wave.structure_swing,tp,
+                            sig.atr,InpSlBufferAtr,g_cfg.sl_cap,InpMinSlSpreadMult,
+                            InpRiskPercent,tick.ask,tick.bid,plan))
      {
       g_tel.volume_rejects++;
       return(false);
      }
 
    uint retcode=0;
-   if(!SnrSendMarket(g_trade,InpMagic,InpDeviationPoints,sig.direction,plan,
-                     InpUseHardStops,InpVariantTag,retcode))
+   if(!SnrSendStop(g_trade,InpMagic,InpDeviationPoints,sig.direction,plan,
+                   InpUseHardStops,InpVariantTag,retcode))
      {
       g_tel.entry_rejects++;
-      PrintFormat("SNR001_ENTRY_REJECT dir=%s vol=%.2f entry=%.5f sl=%.5f tp=%.5f retcode=%u",
+      PrintFormat("SNR001_PENDING_REJECT dir=%s vol=%.2f px=%.5f sl=%.5f tp=%.5f retcode=%u",
                   (sig.direction>0 ? "LONG" : "SHORT"),plan.volume,plan.entry,plan.sl,plan.tp,retcode);
       return(false);
      }
 
-   const double fill=(g_trade.ResultPrice()>0.0 ? g_trade.ResultPrice() : plan.entry);
    g_tel.entries++;
    g_risk.daily_entries++;
-   g_entry_time=sig.availability_time;
-   g_entry_price=fill;
+   g_pending_ticket=g_trade.ResultOrder();
+   g_pending_signal_time=sig.decision_time;
+   g_pending_age=0;
+   g_entry_dir=sig.direction;
    g_initial_sl=plan.sl;
    g_initial_tp=plan.tp;
-   g_entry_dir=sig.direction;
-   PrintFormat("SNR001_ENTRY decision=%I64d dir=%s vol=%.2f entry=%.5f sl=%.5f tp=%.5f retcode=%u",
+   PrintFormat("SNR001_PENDING decision=%I64d dir=%s vol=%.2f px=%.5f sl=%.5f tp=%.5f retcode=%u",
                (long)sig.decision_time,(sig.direction>0 ? "LONG" : "SHORT"),
-               plan.volume,fill,plan.sl,plan.tp,retcode);
-
-   if(SnrRealizedRiskOverBudget(_Symbol,sig.direction,fill,plan.sl,plan.volume,
-                                InpRiskPercent,0.05))
-     {
-      g_pending_exit_reason="POSTFILL_RISK";
-      if(SnrCloseOwned(g_trade,InpMagic,InpDeviationPoints,"POSTFILL_RISK",g_tel))
-         g_tel.postfill_closes++;
-     }
+               plan.volume,plan.entry,plan.sl,plan.tp,retcode);
    return(true);
   }
 
@@ -376,20 +354,9 @@ void OnTradeTransaction(const MqlTradeTransaction &trans,
    const long entry_kind=HistoryDealGetInteger(trans.deal,DEAL_ENTRY);
    if(entry_kind==DEAL_ENTRY_IN)
      {
-      const double fill=HistoryDealGetDouble(trans.deal,DEAL_PRICE);
-      const double volume=HistoryDealGetDouble(trans.deal,DEAL_VOLUME);
-      ulong ticket=0;
-      if(SnrScanOwnedPosition(InpMagic,ticket)==SNR_SCAN_OWNED && PositionSelectByTicket(ticket))
-        {
-         const double sl=PositionGetDouble(POSITION_SL);
-         const int dir=(PositionGetInteger(POSITION_TYPE)==POSITION_TYPE_BUY ? SNR_DIR_LONG : SNR_DIR_SHORT);
-         if(sl>0.0 && SnrRealizedRiskOverBudget(_Symbol,dir,fill,sl,volume,InpRiskPercent,0.05))
-           {
-            g_pending_exit_reason="POSTFILL_RISK";
-            if(SnrCloseOwned(g_trade,InpMagic,InpDeviationPoints,"POSTFILL_RISK",g_tel))
-               g_tel.postfill_closes++;
-           }
-        }
+      ClearPendingState();
+      g_entry_time=(datetime)HistoryDealGetInteger(trans.deal,DEAL_TIME);
+      g_entry_price=HistoryDealGetDouble(trans.deal,DEAL_PRICE);
       return;
      }
    if(entry_kind!=DEAL_ENTRY_OUT && entry_kind!=DEAL_ENTRY_OUT_BY)
@@ -442,21 +409,32 @@ int OnInit()
       SnrTelemetryCloseCsv(g_tel);
       return(INIT_FAILED);
      }
-   if(scan==SNR_SCAN_OWNED)
+   if(scan==SNR_SCAN_OWNED && PositionSelectByTicket(ticket))
      {
-      if(!InpUseHardStops)
+      g_entry_time=(datetime)PositionGetInteger(POSITION_TIME);
+      g_entry_price=PositionGetDouble(POSITION_PRICE_OPEN);
+      g_initial_sl=PositionGetDouble(POSITION_SL);
+      g_initial_tp=PositionGetDouble(POSITION_TP);
+      g_entry_dir=(PositionGetInteger(POSITION_TYPE)==POSITION_TYPE_BUY ? SNR_DIR_LONG : SNR_DIR_SHORT);
+     }
+
+   ulong pending=0;
+   int pend_count=0;
+   if(SnrScanOwnedPendings(InpMagic,pending,pend_count)==SNR_SCAN_FAIL)
+     {
+      SnrHandlesRelease(g_handles);
+      SnrTelemetryCloseCsv(g_tel);
+      return(INIT_FAILED);
+     }
+   if(pend_count>0)
+     {
+      if(!SnrCancelOwnedPendings(g_trade,InpMagic,"RESTART_PENDING_UNSAFE"))
         {
-         g_pending_exit_reason="RESTART_VIRTUAL_UNSAFE";
-         SnrCloseOwned(g_trade,InpMagic,InpDeviationPoints,"RESTART_VIRTUAL_UNSAFE",g_tel);
+         SnrHandlesRelease(g_handles);
+         SnrTelemetryCloseCsv(g_tel);
+         return(INIT_FAILED);
         }
-      else if(PositionSelectByTicket(ticket))
-        {
-         g_entry_time=(datetime)PositionGetInteger(POSITION_TIME);
-         g_entry_price=PositionGetDouble(POSITION_PRICE_OPEN);
-         g_initial_sl=PositionGetDouble(POSITION_SL);
-         g_initial_tp=PositionGetDouble(POSITION_TP);
-         g_entry_dir=(PositionGetInteger(POSITION_TYPE)==POSITION_TYPE_BUY ? SNR_DIR_LONG : SNR_DIR_SHORT);
-        }
+      ClearPendingState();
      }
 
    g_last_bar_open=iTime(_Symbol,PERIOD_M15,0);
@@ -484,7 +462,6 @@ void OnTick()
       return;
    const datetime server_now=TimeCurrent();
    SnrRiskRefresh(g_risk,server_now,InpMaxDailyLossPct,InpMaxAccountDrawdownPct);
-   ManageVirtualExits();
 
    const datetime current_bar_open=iTime(_Symbol,PERIOD_M15,0);
    if(current_bar_open<=0)
@@ -495,6 +472,8 @@ void OnTick()
    g_last_bar_open=current_bar_open;
    if(g_runtime_failed || InpKillSwitch)
       return;
+   if(!AgePendings())
+      return;
 
    ulong owned=0;
    const int owned_scan=SnrScanOwnedPosition(InpMagic,owned);
@@ -504,6 +483,15 @@ void OnTick()
       return;
      }
    if(owned_scan==SNR_SCAN_OWNED)
+      return;
+   ulong pending=0;
+   int pend_count=0;
+   if(SnrScanOwnedPendings(InpMagic,pending,pend_count)==SNR_SCAN_FAIL)
+     {
+      g_runtime_failed=true;
+      return;
+     }
+   if(pend_count>0)
       return;
 
    SnrSignalDecision sig;
@@ -534,10 +522,11 @@ void OnTick()
    else
       g_tel.short_signals++;
    if(InpEnableTelemetry)
-      PrintFormat("SNR001_SIGNAL decision=%I64d dir=%s close=%.5f ema89=%.5f dragon_mid=%.5f slope_atr=%.4f overlap=%.3f pvsra=%d vol=%.0f avg=%.1f",
+      PrintFormat("SNR001_SIGNAL decision=%I64d dir=%s close=%.5f ema89=%.5f dragon=%.5f/%.5f legs=%d/%d/%d first=%d",
                   (long)sig.decision_time,(sig.direction>0 ? "LONG" : "SHORT"),
-                  sig.signal_close,sig.trend.ema,sig.dragon.mid,sig.dragon.slope_atr,
-                  sig.wave.overlap_ratio,sig.pvsra.cls,sig.pvsra.volume,sig.pvsra.average);
-   SubmitEntry(sig);
+                  sig.signal_close,sig.trend.ema,sig.dragon.high,sig.dragon.low,
+                  sig.wave.leg0_index,sig.wave.leg1_index,sig.wave.leg2_index,
+                  (sig.wave.first_break ? 1 : 0));
+   SubmitPending(sig);
   }
 //+------------------------------------------------------------------+

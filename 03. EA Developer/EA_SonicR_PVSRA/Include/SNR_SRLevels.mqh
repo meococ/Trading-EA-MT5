@@ -126,4 +126,30 @@ bool SnrSrReadClosed(const double close_price,const int direction,const double a
    return(true);
   }
 
+bool SnrFirstWhqTarget(const double entry,const int direction,const double whole,
+                       const double min_runway,double &tp)
+  {
+   tp=0.0;
+   if(!SnrFinite(entry) || !SnrFinite(whole) || whole<=0.0 ||
+      !SnrFinite(min_runway) || min_runway<=0.0 || direction==SNR_DIR_NONE)
+      return(false);
+   const double half=SnrRoundStep(whole,SNR_SR_HALF);
+   if(half<=0.0)
+      return(false);
+   double level=0.0;
+   int kind=SNR_SR_NONE;
+   if(!SnrNearestDirectionalLevel(entry,direction,whole,level,kind))
+      return(false);
+   for(int i=0;i<8;i++)
+     {
+      if(MathAbs(level-entry)>=min_runway)
+        {
+         tp=level;
+         return(true);
+        }
+      level+=(direction>0 ? half : -half);
+     }
+   return(false);
+  }
+
 #endif

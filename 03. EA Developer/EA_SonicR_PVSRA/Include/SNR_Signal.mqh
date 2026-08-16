@@ -4,7 +4,7 @@
 #include "SNR_Types.mqh"
 #include "SNR_Dragon.mqh"
 #include "SNR_Trend.mqh"
-#include "SNR_Wave.mqh"
+#include "SNR_ClassicWave.mqh"
 #include "SNR_PVSRA.mqh"
 #include "SNR_SRLevels.mqh"
 #include "SNR_Session.mqh"
@@ -69,7 +69,10 @@ bool SnrBuildClassicSignal(const string symbol,const ENUM_TIMEFRAMES tf,
       out.reject_reason="TREND_READ";
       return(false);
      }
-   if(!SnrSessionRead(TimeGMT(),cfg,out.session))
+   const datetime server_now=TimeCurrent();
+   const datetime gmt_now=TimeGMT();
+   const datetime signal_gmt=rates[0].time-(server_now-gmt_now);
+   if(!SnrSessionRead(signal_gmt,cfg,out.session))
      {
       out.data_fail=true;
       out.reject_reason="SESSION_READ";
@@ -82,37 +85,40 @@ bool SnrBuildClassicSignal(const string symbol,const ENUM_TIMEFRAMES tf,
      }
 
    const int direction=out.trend.side;
-   if(!SnrTrendAligned(out.trend,direction) ||
-      out.dragon.side!=direction || !out.dragon.angled)
+   if(direction==SNR_DIR_NONE)
      {
-      if(!SnrTrendAligned(out.trend,direction))
-         out.reject_reason="TREND";
-      else
-         out.reject_reason="DRAGON";
+      out.reject_reason="TREND";
+      return(true);
+     }
+   const bool dragon_ok=((direction>0 && d_mid[0]>=d_mid[cfg.dragon_slope_bars]) ||
+                         (direction<0 && d_mid[0]<=d_mid[cfg.dragon_slope_bars]));
+   if(!dragon_ok)
+     {
+      out.reject_reason="DRAGON";
       return(true);
      }
    out.direction=direction;
 
-   if(!SnrWaveReadClosed(rates,d_high,d_mid,d_low,atr,direction,cfg,out.wave))
+   if(!SnrClassicWaveReadClosed(rates,d_high,d_low,direction,cfg,out.wave))
      {
       out.data_fail=true;
       out.reject_reason="WAVE_READ";
       return(false);
      }
-   if(!out.wave.valid || out.wave.quality!=SNR_WAVE_CLEAN)
+   if(!out.wave.valid || !out.wave.break_or_reject)
      {
       out.reject_reason="WAVE";
       return(true);
      }
 
    if(!SnrPvsraReadClosed(rates,direction,cfg.vol_avg_bars,cfg.vol_rising_mult,
-                          cfg.vol_climax_mult,out.pvsra))
+                          cfg.vol_climax_mult,out.pvsra) && cfg.require_pvsra_support)
      {
       out.data_fail=true;
       out.reject_reason="PVSRA_READ";
       return(false);
      }
-   if(out.pvsra.veto || (cfg.require_pvsra_support && !out.pvsra.support))
+   if(cfg.require_pvsra_support && !out.pvsra.support)
      {
       out.reject_reason="PVSRA";
       return(true);
@@ -124,11 +130,6 @@ bool SnrBuildClassicSignal(const string symbol,const ENUM_TIMEFRAMES tf,
       out.data_fail=true;
       out.reject_reason="SR_READ";
       return(false);
-     }
-   if(out.sr.blocked)
-     {
-      out.reject_reason="SR_RUNWAY";
-      return(true);
      }
 
    out.fired=true;

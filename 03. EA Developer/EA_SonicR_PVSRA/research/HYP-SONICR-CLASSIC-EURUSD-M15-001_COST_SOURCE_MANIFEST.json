@@ -1,0 +1,23 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-SONICR-CLASSIC-EURUSD-M15-001",
+  "evidence_tier": "PRE_BASELINE_REFERENCE_ONLY",
+  "provenance_status": "TRAIN_PROXY_COVERAGE_NO_OBSERVED_FILLS",
+  "audit_status": "BLOCKED_FOR_ECONOMIC_ACCEPTANCE",
+  "verdict": "BASELINE_FALSIFICATION_ONLY",
+  "promotion_eligible": false,
+  "symbol": "EURUSD",
+  "from": "2018.01.01",
+  "to": "2023.12.31",
+  "envelope": "MetaQuotes-Demo",
+  "cost_source": "MetaQuotes-Demo",
+  "live_equivalent": false,
+  "fivepercent_equivalent": false,
+  "symbol_geometry": {"digits": 5, "point": 0.00001, "pip_size": 0.0001},
+  "tester_spread_semantics": "current",
+  "commission_reference_usd_round_turn_per_lot": null,
+  "slippage_reference": "tester current spread + overnight weekday swap; fill_observed=false; MQ Demo != FivePercent; Friday flat 20:00 no weekend hold",
+  "same_bar_cost_gate": "SL distance >= 3x current spread; SL cap 120 pips; weekday overnight lawful; weekend hold forbidden",
+  "baseline_use": "Untuned Model-0 falsification only on MetaQuotes-Demo tester. Not live-equivalent.",
+  "blocker": "No observed historical fill-slippage sample. Envelope is not live-equivalent."
+}

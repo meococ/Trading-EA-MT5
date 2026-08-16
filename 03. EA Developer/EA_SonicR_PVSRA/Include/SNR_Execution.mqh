@@ -93,6 +93,83 @@ bool SnrCloseOwned(CTrade &trade,const long magic,const int deviation,
    return(true);
   }
 
+int SnrScanOwnedPendings(const long magic,ulong &ticket,int &count)
+  {
+   ticket=0;
+   count=0;
+   const int total=OrdersTotal();
+   for(int i=total-1;i>=0;i--)
+     {
+      const ulong current=OrderGetTicket(i);
+      if(current==0 || (ulong)OrderGetInteger(ORDER_TICKET)!=current)
+         return(SNR_SCAN_FAIL);
+      if(OrderGetString(ORDER_SYMBOL)!=_Symbol)
+         continue;
+      if((long)OrderGetInteger(ORDER_MAGIC)!=magic)
+         continue;
+      ticket=current;
+      count++;
+     }
+   if(count>1)
+      return(SNR_SCAN_MULTI);
+   if(count==1)
+      return(SNR_SCAN_OWNED);
+   return(SNR_SCAN_FLAT);
+  }
+
+bool SnrCancelOwnedPendings(CTrade &trade,const long magic,const string reason)
+  {
+   ulong ticket=0;
+   int count=0;
+   const int scan=SnrScanOwnedPendings(magic,ticket,count);
+   if(scan==SNR_SCAN_FLAT)
+      return(true);
+   if(scan==SNR_SCAN_FAIL)
+      return(false);
+   bool ok=true;
+   const int total=OrdersTotal();
+   for(int i=total-1;i>=0;i--)
+     {
+      const ulong current=OrderGetTicket(i);
+      if(current==0 || (ulong)OrderGetInteger(ORDER_TICKET)!=current)
+         return(false);
+      if(OrderGetString(ORDER_SYMBOL)!=_Symbol)
+         continue;
+      if((long)OrderGetInteger(ORDER_MAGIC)!=magic)
+         continue;
+      if(!trade.OrderDelete(current))
+        {
+         PrintFormat("SNR001_PENDING_CANCEL_REJECT reason=%s ticket=%I64u retcode=%u",
+                     reason,current,trade.ResultRetcode());
+         ok=false;
+        }
+     }
+   return(ok);
+  }
+
+bool SnrSendStop(CTrade &trade,const long magic,const int deviation,
+                 const int direction,const SnrRiskPlan &plan,
+                 const bool hard_stops,const string comment,
+                 uint &retcode)
+  {
+   retcode=0;
+   if(!plan.valid || direction==SNR_DIR_NONE || plan.entry<=0.0)
+      return(false);
+   trade.SetExpertMagicNumber(magic);
+   trade.SetDeviationInPoints(deviation);
+   trade.SetTypeFillingBySymbol(_Symbol);
+   const double sl=(hard_stops ? plan.sl : 0.0);
+   const double tp=(hard_stops ? plan.tp : 0.0);
+   bool sent=false;
+   if(direction>0)
+      sent=trade.BuyStop(plan.volume,plan.entry,_Symbol,sl,tp,ORDER_TIME_GTC,0,comment);
+   else
+      sent=trade.SellStop(plan.volume,plan.entry,_Symbol,sl,tp,ORDER_TIME_GTC,0,comment);
+   retcode=trade.ResultRetcode();
+   return(sent && (retcode==TRADE_RETCODE_DONE || retcode==TRADE_RETCODE_DONE_PARTIAL ||
+                   retcode==TRADE_RETCODE_PLACED));
+  }
+
 bool SnrSendMarket(CTrade &trade,const long magic,const int deviation,
                    const int direction,const SnrRiskPlan &plan,
                    const bool hard_stops,const string comment,

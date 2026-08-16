@@ -3,9 +3,9 @@
 Modular Classic Sonic R host with a reconstructed PVSRA qualifier.
 Tester-only. No edge, PF, or live claim.
 
-Hypothesis: `HYP-SONICR-PVSRA-CLASSIC-XAUUSD-M15-001`
-Symbol / TF: XAUUSD M15. Entry is market at the next bar open after a closed signal bar.
-Scout is compiled off. PVSRA cannot open a trade alone.
+Hypothesis: `HYP-SONICR-CLASSIC-EURUSD-M15-001`
+Symbol / TF: EURUSD M15. Classic L-H-HL / H-L-LH, pending 3 pips beyond leg-3 close.
+Scout is compiled off. PVSRA is labels only. NY session off.
 
 ## Modules
 
