@@ -2,12 +2,13 @@ param(
     [string]$From = '2016.01.01',
     [string]$To = '2023.12.31',
     [string]$ReceiptName = 'contract_receipt.control.json',
-    [string]$HypothesisId = 'HYP-SONICR-XAU-M15-BAND-001',
+    [string]$HypothesisId = 'HYP-SONICR-XAU-M5-PULL-001',
     [string]$Symbol = 'XAUUSD',
+    [string]$Period = 'M5',
     [int]$Digits = 2,
     [double]$Point = 0.01,
     [double]$PipSize = 0.01,
-    [string]$Overrides = 'InpHypothesisId=HYP-SONICR-XAU-M15-BAND-001;InpMagic=16081704;InpMaxSpreadPoints=500;InpMaxTradesPerWeek=3;InpMinTpPips=2000;InpNyEndHour=17;InpOffsetPoints=50;InpPipSize=0.01;InpRoundWhole=10.0;InpSlCapPips=2000;InpUseNySession=true;InpVariantTag=XAU_BAND_WHOLE'
+    [string]$Overrides = 'InpHypothesisId=HYP-SONICR-XAU-M5-PULL-001;InpMagic=16081705;InpMaxPullbackAge=4;InpMaxSpreadPoints=500;InpMaxTradesPerWeek=3;InpMinTpPips=2000;InpNyEndHour=17;InpOffsetPoints=50;InpPendingTtlBars=12;InpPipSize=0.01;InpRoundWhole=10.0;InpSlCapPips=2000;InpUseNySession=true;InpVariantTag=XAU_M5_PULL'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -71,7 +72,7 @@ $receipt = [ordered]@{
         run_role = 'control'
         ea_name = 'EA_SonicR_PVSRA'
         symbol = $Symbol
-        period = 'M15'
+        period = $Period
         from = $From
         to = $To
         model = 1
