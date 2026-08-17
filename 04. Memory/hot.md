@@ -7,10 +7,11 @@ Cache. Không phải authority.
 ## Current state
 
 - Goal: **Deploy Sonic R** — `01. GOAL/GOAL.md` ACTIVE / UNMET
-- RIDE-001 PARK `20260817_014925` N=61 PF 1.67 cadence 0.17
-- PULL PARK cadence. Classic/BAND/EUR KILL. H4 PARK (QC 0.06/wk)
-- Portable: XAU+EUR only
+- PULL-TTL-001 PARK `20260817_073710` N=77 PF 1.65 cadence 0.21
+- PULL-001 still best PF 1.86 N=60. ENV-001 KILL PF 0.01
+- Forensics: 32/92 TTL on PULL-001; losers = 2-bar SL
+- Classic/BAND/EUR KILL. H4 PARK
 
 ## Next action
 
-New mechanism. Pull/ride family cadence-capped. Holdout sealed.
+New valid-tag definition (not hour cut). Holdout sealed.

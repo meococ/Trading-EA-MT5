@@ -1,13 +1,13 @@
 //+------------------------------------------------------------------+
 //| EA_SonicR_PVSRA.mq5                                              |
-//| HYP-SONICR-XAU-M15-RIDE-001                                      |
-//| Gold M15 Dragon pull + ride opposite-band exit. Tester-only.     |
+//| HYP-SONICR-XAU-M15-PULL-TTL-001                                  |
+//| Gold M15 Dragon envelope tag + session pending. Tester-only.     |
 //+------------------------------------------------------------------+
 #property copyright "EA_SonicR_PVSRA"
 #property link      "https://www.mql5.com"
-#property version   "1.28"
+#property version   "1.30"
 #property strict
-#property description "Sonic R XAUUSD M15 Dragon ride. Pair-specific. Tester-only."
+#property description "Sonic R XAUUSD M15 pull + session pending. Tester-only."
 
 #include <Trade/Trade.mqh>
 #include "Include/SNR_Types.mqh"
@@ -35,17 +35,17 @@ input group "--- Frozen research authority ---"
 input bool   InpResearchAutoMode=false;
 input bool   InpEnableTelemetry=false;
 input bool   InpEnableOverlay=false;
-input string InpHypothesisId="HYP-SONICR-XAU-M15-RIDE-001";
-input string InpVariantTag="XAU_RIDE_DRAGON";
+input string InpHypothesisId="HYP-SONICR-XAU-M15-PULL-TTL-001";
+input string InpVariantTag="XAU_PULL_SESS";
 
 input group "--- Execution ---"
-input long   InpMagic=16081706;
+input long   InpMagic=16081708;
 input bool   InpKillSwitch=false;
 input int    InpDeviationPoints=40;
 input int    InpMaxSpreadPoints=500;
 input bool   InpUseHardStops=true;
 input int    InpOffsetPoints=50;
-input int    InpPendingTtlBars=4;
+input int    InpPendingTtlBars=32;
 
 input group "--- Classic Sonic R ---"
 input int    InpLookback=120;
@@ -70,7 +70,7 @@ input double InpVolClimaxMult=2.0;
 input group "--- Round-number S/R ---"
 input double InpRoundWhole=10.0;
 input double InpSrRunwayAtr=0.0;
-input double InpMinTpPips=5000.0;
+input double InpMinTpPips=2000.0;
 input double InpPipSize=0.01;
 
 input group "--- Session (TimeGMT + UK DST) ---"
@@ -92,8 +92,8 @@ input double InpSlCapPips=2000.0;
 input double InpMinSlSpreadMult=3.0;
 
 const string EA_NAME="EA_SonicR_PVSRA";
-const string EXPECTED_HYPOTHESIS="HYP-SONICR-XAU-M15-RIDE-001";
-const string EXPECTED_VARIANT="XAU_RIDE_DRAGON";
+const string EXPECTED_HYPOTHESIS="HYP-SONICR-XAU-M15-PULL-TTL-001";
+const string EXPECTED_VARIANT="XAU_PULL_SESS";
 
 CTrade         g_trade;
 SnrHandles     g_handles;
@@ -175,7 +175,7 @@ bool InputsSane()
           InpMinTpPips>0.0 &&
           InpSlCapPips>0.0 &&
           InpOffsetPoints>=0 &&
-          InpPendingTtlBars>=1 &&
+          InpPendingTtlBars>=16 &&
           InpLondonStartHour>=0 && InpLondonStartHour<=23 &&
           InpLondonEndHour>=0 && InpLondonEndHour<=23 &&
           InpFridayFlattenHour>=0 && InpFridayFlattenHour<=23 &&
@@ -518,24 +518,6 @@ void OnTick()
      {
       g_runtime_failed=true;
       return;
-     }
-   if(owned_scan==SNR_SCAN_OWNED)
-     {
-      int ride_dir=g_entry_dir;
-      if(ride_dir==SNR_DIR_NONE && owned!=0 && PositionSelectByTicket(owned))
-         ride_dir=(PositionGetInteger(POSITION_TYPE)==POSITION_TYPE_BUY ? SNR_DIR_LONG : SNR_DIR_SHORT);
-      bool ride_fail=false;
-      if(SnrShouldRideExit(_Symbol,PERIOD_M15,g_handles,ride_dir,current_bar_open,ride_fail))
-        {
-         g_pending_exit_reason="DRAGON_RIDE";
-         if(!SnrCloseOwned(g_trade,InpMagic,InpDeviationPoints,"DRAGON_RIDE",g_tel))
-            return;
-        }
-      else if(ride_fail)
-        {
-         g_runtime_failed=true;
-         return;
-        }
      }
 
    SnrSignalDecision sig;

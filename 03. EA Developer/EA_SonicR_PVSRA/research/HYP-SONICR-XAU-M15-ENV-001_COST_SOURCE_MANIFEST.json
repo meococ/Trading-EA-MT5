@@ -1,0 +1,11 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "hypothesis_id": "HYP-SONICR-XAU-M15-ENV-001",
+  "verdict": "BASELINE_FALSIFICATION_ONLY",
+  "symbol": "XAUUSD",
+  "from": "2017.01.03",
+  "to": "2023.12.31",
+  "envelope": "MetaQuotes-Demo",
+  "cost_source": "MetaQuotes-Demo",
+  "symbol_geometry": {"digits": 2, "point": 0.01, "pip_size": 0.01}
+}
