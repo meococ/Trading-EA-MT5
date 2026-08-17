@@ -382,25 +382,15 @@ bool SnrBuildPullSignal(const string symbol,const ENUM_TIMEFRAMES tf,
    out.direction=direction;
 
    const double touch=MathMax(cfg.dragon_touch_atr,0.05)*atr[0];
-   const int tag_window=MathMax(cfg.max_pullback_age,1);
-   bool tagged=false;
-   for(int i=0;i<tag_window && i<ArraySize(rates);i++)
-     {
-      if(direction>0 && rates[i].low<=d_mid[0]+touch)
-         tagged=true;
-      if(direction<0 && rates[i].high>=d_mid[0]-touch)
-         tagged=true;
-     }
-   const int prior=MathMin(tag_window,ArraySize(rates)-1);
-   const bool not_already_on=(direction>0
-                              ? rates[prior].low>d_mid[0]+touch
-                              : rates[prior].high<d_mid[0]-touch);
-   const bool reclaim=(direction>0
-                       ? (rates[0].close>d_mid[0] && rates[0].close>rates[0].open)
-                       : (rates[0].close<d_mid[0] && rates[0].close<rates[0].open));
+   const bool tag_prior=(direction>0
+                         ? (rates[1].low<=d_mid[0]+touch && rates[2].low>d_mid[0]+touch)
+                         : (rates[1].high>=d_mid[0]-touch && rates[2].high<d_mid[0]-touch));
+   const bool reclaim_now=(direction>0
+                           ? (rates[0].close>d_mid[0] && rates[0].close>rates[0].open)
+                           : (rates[0].close<d_mid[0] && rates[0].close<rates[0].open));
    const bool not_break=(direction>0 ? rates[0].close<=d_high[0]
                                     : rates[0].close>=d_low[0]);
-   if(!tagged || !not_already_on || !reclaim || !not_break)
+   if(!tag_prior || !reclaim_now || !not_break)
      {
       out.reject_reason="PULL";
       return(true);

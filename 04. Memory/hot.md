@@ -7,11 +7,11 @@ Cache. Không phải authority.
 ## Current state
 
 - Goal: **Deploy Sonic R** — `01. GOAL/GOAL.md` ACTIVE / UNMET
-- PULL-TTL-001 PARK `20260817_073710` N=77 PF 1.65 cadence 0.21
-- PULL-001 still best PF 1.86 N=60. ENV-001 KILL PF 0.01
-- Forensics: 32/92 TTL on PULL-001; losers = 2-bar SL
-- Classic/BAND/EUR KILL. H4 PARK
+- RECLAIM-NEXT-001 PARK `20260817_073931` N=288 PF 1.30 cadence 0.79
+- RECLAIM-TTL-001 KILL PF 1.01 (stale pending blocks new tags)
+- PULL-001 still highest PF 1.86 but 0.16/wk
+- QC: same-bar tag+reclaim was the choke; next-bar clock worked
 
 ## Next action
 
-New valid-tag definition (not hour cut). Holdout sealed.
+Keep NEXT clock. Do not lengthen TTL. Next must not cut Wed/2019. Holdout sealed.

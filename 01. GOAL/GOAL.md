@@ -3,10 +3,10 @@
 Trạng thái: **ACTIVE / UNMET**. Owner 2026-08-16: Deploy Sonic R bằng vòng
 nghiên cứu–code–backtest–log/chart liên tục. Main tự quyết tài liệu và hướng kỹ thuật.
 
-Cơ chế active: PULL family PARK cadence (TTL-001 N=77 PF 1.65 / 0.21/wk).
-ENV-001 KILL. Chart: mid-tag + $20 TP còn PF; envelope/2-bar SL/TTL-1h
-là choke. Không salvage giờ. Object mới phải tăng **số tag hợp lệ**, không
-cắt phiên.
+Cơ chế active: **HYP-SONICR-XAU-M15-RECLAIM-NEXT-001** PARK
+`20260817_073931` N=288 PF 1.30 cadence 0.79 — gần GOAL nhất.
+RECLAIM-TTL KILL PF 1.01 (pending lâu chặn tín hiệu mới).
+Không salvage thứ Tư/2019. Holdout kín.
 
 ## Scope
 

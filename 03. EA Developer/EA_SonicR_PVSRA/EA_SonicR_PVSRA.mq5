@@ -1,13 +1,13 @@
 //+------------------------------------------------------------------+
 //| EA_SonicR_PVSRA.mq5                                              |
-//| HYP-SONICR-XAU-M15-PULL-TTL-001                                  |
+//| HYP-SONICR-XAU-M15-RECLAIM-NEXT-001                              |
 //| Gold M15 Dragon envelope tag + session pending. Tester-only.     |
 //+------------------------------------------------------------------+
 #property copyright "EA_SonicR_PVSRA"
 #property link      "https://www.mql5.com"
-#property version   "1.30"
+#property version   "1.32"
 #property strict
-#property description "Sonic R XAUUSD M15 pull + session pending. Tester-only."
+#property description "Sonic R XAUUSD M15 tag-then-reclaim. Tester-only."
 
 #include <Trade/Trade.mqh>
 #include "Include/SNR_Types.mqh"
@@ -35,11 +35,11 @@ input group "--- Frozen research authority ---"
 input bool   InpResearchAutoMode=false;
 input bool   InpEnableTelemetry=false;
 input bool   InpEnableOverlay=false;
-input string InpHypothesisId="HYP-SONICR-XAU-M15-PULL-TTL-001";
-input string InpVariantTag="XAU_PULL_SESS";
+input string InpHypothesisId="HYP-SONICR-XAU-M15-RECLAIM-TTL-001";
+input string InpVariantTag="XAU_RECLAIM_TTL";
 
 input group "--- Execution ---"
-input long   InpMagic=16081708;
+input long   InpMagic=16081710;
 input bool   InpKillSwitch=false;
 input int    InpDeviationPoints=40;
 input int    InpMaxSpreadPoints=500;
@@ -92,8 +92,8 @@ input double InpSlCapPips=2000.0;
 input double InpMinSlSpreadMult=3.0;
 
 const string EA_NAME="EA_SonicR_PVSRA";
-const string EXPECTED_HYPOTHESIS="HYP-SONICR-XAU-M15-PULL-TTL-001";
-const string EXPECTED_VARIANT="XAU_PULL_SESS";
+const string EXPECTED_HYPOTHESIS="HYP-SONICR-XAU-M15-RECLAIM-TTL-001";
+const string EXPECTED_VARIANT="XAU_RECLAIM_TTL";
 
 CTrade         g_trade;
 SnrHandles     g_handles;
@@ -175,7 +175,7 @@ bool InputsSane()
           InpMinTpPips>0.0 &&
           InpSlCapPips>0.0 &&
           InpOffsetPoints>=0 &&
-          InpPendingTtlBars>=16 &&
+          InpPendingTtlBars>=1 &&
           InpLondonStartHour>=0 && InpLondonStartHour<=23 &&
           InpLondonEndHour>=0 && InpLondonEndHour<=23 &&
           InpFridayFlattenHour>=0 && InpFridayFlattenHour<=23 &&

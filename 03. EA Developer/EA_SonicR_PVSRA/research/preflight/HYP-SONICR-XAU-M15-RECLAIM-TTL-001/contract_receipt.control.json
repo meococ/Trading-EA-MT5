@@ -1,0 +1,72 @@
+{
+    "schema_version":  "alphafactory_execution_receipt.v1",
+    "hypothesis_id":  "HYP-SONICR-XAU-M15-RECLAIM-TTL-001",
+    "task_packet_sha256":  "06FE004847BF1F772F2001BB0A96E47E5702366A61075B0924C1B82E9CA9F432",
+    "git_commit":  "852ba4f2ecfc3da7b43688eb8a6d6677cf7dc7c1",
+    "git_status_sha256":  "A6B27C5BFD0DFBE5F1AF658AF9EFCAED0553AD25FFFEF6F88880DE55CDAE1893",
+    "binding":  {
+                    "hypothesis_id":  "HYP-SONICR-XAU-M15-RECLAIM-TTL-001",
+                    "run_role":  "control",
+                    "ea_name":  "EA_SonicR_PVSRA",
+                    "symbol":  "XAUUSD",
+                    "period":  "M15",
+                    "from":  "2017.01.03",
+                    "to":  "2023.12.31",
+                    "model":  1,
+                    "execution_mode":  0,
+                    "fixed_delay_ms":  0,
+                    "overrides":  "InpHypothesisId=HYP-SONICR-XAU-M15-RECLAIM-TTL-001;InpMagic=16081710;InpMaxPullbackAge=1;InpMaxSpreadPoints=500;InpMaxTradesPerWeek=3;InpMinTpPips=2000;InpNyEndHour=17;InpOffsetPoints=50;InpPendingTtlBars=32;InpPipSize=0.01;InpRoundWhole=10.0;InpSlCapPips=2000;InpUseNySession=true;InpVariantTag=XAU_RECLAIM_TTL",
+                    "telemetry_tier":  "off",
+                    "telemetry_profile":  "none",
+                    "deposit":  10000,
+                    "leverage":  100,
+                    "spread":  "current",
+                    "required_sidecars":  [
+
+                                          ],
+                    "symbol_geometry":  {
+                                            "digits":  2,
+                                            "point":  0.01,
+                                            "pip_size":  0.01
+                                        },
+                    "include_closure_sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+                    "portable":  "02. AlphaFactory/runtime/mt5-portable-mqdemo",
+                    "server":  "MetaQuotes-Demo",
+                    "cost_source":  "MetaQuotes-Demo",
+                    "login":  "5054517252"
+                },
+    "evidence":  [
+                     {
+                         "label":  "task_packet",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-XAU-M15-RECLAIM-TTL-001_BASELINE_TASK.json",
+                         "sha256":  "06FE004847BF1F772F2001BB0A96E47E5702366A61075B0924C1B82E9CA9F432"
+                     },
+                     {
+                         "label":  "source",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\EA_SonicR_PVSRA.mq5",
+                         "sha256":  "61145A08FBF46E340805005468DC645D9EBC7427EFFBC10B79667D44BFC4392C"
+                     },
+                     {
+                         "label":  "prereg",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-XAU-M15-RECLAIM-TTL-001_FROZEN_PREREG.md",
+                         "sha256":  "46D92A7962FEA12A0DA0CED6DE7953A615F20325D14BC739DF3CB6EC183E43E1"
+                     },
+                     {
+                         "label":  "cost_source_manifest",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\03. EA Developer\\EA_SonicR_PVSRA\\research\\HYP-SONICR-XAU-M15-RECLAIM-TTL-001_COST_SOURCE_MANIFEST.json",
+                         "sha256":  "E558DA66525984CBF8FA814DBF043728311D720B5E13105736FF94D68DE348BB"
+                     },
+                     {
+                         "label":  "candidate_registry",
+                         "kind":  "file",
+                         "path":  "D:\\Trading EA MT5\\04. Memory\\research\\CANDIDATE_REGISTRY.jsonl",
+                         "sha256":  "6B23F356FDAE8402DA62056206BAA9328FC53C13C4CAE1371A1A2396F2CBE039"
+                     }
+                 ],
+    "generated_at_utc":  "2026-08-17T00:40:49.4858445Z",
+    "note":  "XAUUSD M15 Dragon pull. Tester-only MQ Demo. Registry read-only. Not Classic first-break salvage."
+}
