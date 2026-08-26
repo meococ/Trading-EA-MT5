@@ -1,4 +1,0 @@
-account_currency,close_time_utc,conversion_method,open_time_utc,position_id,round_turn_account_per_lot,source,symbol
-USD,2026-07-07T15:04:22Z,per_trade_contemporaneous,2026-07-07T14:56:07Z,573338240,38.04,mt5_account_history_deals,BTCUSD
-USD,2026-07-09T16:30:08Z,per_trade_contemporaneous,2026-07-09T14:43:09Z,574457416,37.59,mt5_account_history_deals,BTCUSD
-USD,2026-07-09T17:56:30Z,per_trade_contemporaneous,2026-07-09T17:10:36Z,574564815,37.739999999999995,mt5_account_history_deals,BTCUSD

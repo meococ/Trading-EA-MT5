@@ -80,6 +80,14 @@ worktrees/
 .claude/settings.local.json
 .codex/config.toml
 .codex/tmp/
+.codex/operator/
+
+# Maintainer-only handoff and runtime state
+04. Memory/hot*.md
+
+# Broker/account exports and personal execution evidence
+02. AlphaFactory/evidence/execution/*-Real/
+02. AlphaFactory/evidence/execution/**/owner_deal_export_drop/
 
 # Local scratch / peek artifacts
 _tmp_*
@@ -97,4 +105,5 @@ _peek_*
 *.zip
 *.7z
 *.rar
+
 
