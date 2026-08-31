@@ -404,6 +404,22 @@ function Resolve-Mt5ProcessIsolateDecision {
         }
     }
 
+    # Reaching here means the client is not under the factory runtime, is not
+    # under the factory install root, and its command line names no factory
+    # path -- so it cannot hold a file the compile/backtest needs. That is the
+    # Owner GUI. The branch above only recognised one living in Program Files;
+    # on this machine the Owner GUI is D:\Meta 5\terminal64.exe (also the
+    # terminal the MT5 MCP server attaches to), so compile refused to run
+    # unless the Owner closed the terminal they trade from. Hardened
+    # 2026-08-31: allow it, with the same mentionsFactory guard as Program
+    # Files. Set -AllowProgramFilesGui $false for strict mode.
+    if ($AllowProgramFilesGui) {
+        return [pscustomobject][ordered]@{
+            Allowed = $true
+            Reason = ("Owner GUI outside the factory runtime is allowed: {0}" -f $exe)
+        }
+    }
+
     return [pscustomobject][ordered]@{
         Allowed = $false
         Reason = ("non-factory MT5 client is not allowed during compile/backtest: {0}" -f $exe)
@@ -449,7 +465,7 @@ function Assert-Mt5FactoryProcessIsolate {
 
     if ($blocked.Count -gt 0) {
         throw (
-            "Factory isolate failed. Close runtime/portable terminal64 and metaeditor64 first. Owner Program Files GUI is allowed; no process was stopped.`n - " +
+            "Factory isolate failed. Close runtime/portable terminal64 and metaeditor64 first. An Owner GUI outside the factory runtime is allowed; nothing was terminated.`n - " +
             [string]::Join("`n - ", $blocked.ToArray())
         )
     }

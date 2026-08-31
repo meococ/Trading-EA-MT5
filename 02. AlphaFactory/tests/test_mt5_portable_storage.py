@@ -172,13 +172,17 @@ def test_factory_target_rejects_program_files_and_appdata() -> None:
     isolate = f"{runtime}{sep}mt5-portable-mqdemo"
 
     def esc(path: str) -> str:
-        return path.replace(sep, sep * 2)
+        # PowerShell single-quoted strings take backslashes literally, so the
+        # path goes through unchanged. Doubling them would still normalise for
+        # -InstallRoot (GetFullPath collapses separators) but NOT for
+        # -CommandLine, which is compared as a raw string.
+        return path
 
     bad_pf = run_contract(
-        f"Assert-Mt5FactoryTargetIsolate -InstallRoot 'C:{sep*2}Program Files{sep*2}MetaTrader 5' "
-        f"-DataRoot 'C:{sep*2}Users{sep*2}ADMIN{sep*2}AppData{sep*2}Roaming{sep*2}MetaQuotes{sep*2}Terminal{sep*2}D0E8209F77C8CF37AD8BF550E51FF075' "
-        f"-CommonFilesRoot 'C:{sep*2}Users{sep*2}ADMIN{sep*2}AppData{sep*2}Roaming{sep*2}MetaQuotes{sep*2}Terminal{sep*2}Common{sep*2}Files' "
-        f"-TesterRoot 'C:{sep*2}Users{sep*2}ADMIN{sep*2}AppData{sep*2}Roaming{sep*2}MetaQuotes{sep*2}Terminal{sep*2}D0E8209F77C8CF37AD8BF550E51FF075{sep*2}Tester' "
+        f"Assert-Mt5FactoryTargetIsolate -InstallRoot 'C:{sep}Program Files{sep}MetaTrader 5' "
+        f"-DataRoot 'C:{sep}Users{sep}ADMIN{sep}AppData{sep}Roaming{sep}MetaQuotes{sep}Terminal{sep}D0E8209F77C8CF37AD8BF550E51FF075' "
+        f"-CommonFilesRoot 'C:{sep}Users{sep}ADMIN{sep}AppData{sep}Roaming{sep}MetaQuotes{sep}Terminal{sep}Common{sep}Files' "
+        f"-TesterRoot 'C:{sep}Users{sep}ADMIN{sep}AppData{sep}Roaming{sep}MetaQuotes{sep}Terminal{sep}D0E8209F77C8CF37AD8BF550E51FF075{sep}Tester' "
         f"-PortableMode $false -RuntimeRoot '{esc(runtime)}'"
     )
     assert bad_pf.returncode != 0
@@ -191,8 +195,8 @@ def test_factory_target_rejects_program_files_and_appdata() -> None:
     bad_appdata = run_contract(
         f"Assert-Mt5FactoryTargetIsolate -InstallRoot '{esc(isolate)}' "
         f"-DataRoot '{esc(appdata_term)}' "
-        f"-CommonFilesRoot '{esc(appdata_term)}{sep*2}Common{sep*2}Files' "
-        f"-TesterRoot '{esc(appdata_term)}{sep*2}Tester' "
+        f"-CommonFilesRoot '{esc(appdata_term)}{sep}Common{sep}Files' "
+        f"-TesterRoot '{esc(appdata_term)}{sep}Tester' "
         f"-PortableMode $true -RuntimeRoot '{esc(runtime)}'"
     )
     assert bad_appdata.returncode != 0
@@ -202,10 +206,10 @@ def test_factory_target_rejects_program_files_and_appdata() -> None:
     # the Owner machine that is "D:\Meta 5", the terminal the MT5 MCP server
     # attaches to -- must also be refused.
     bad_owner_gui = run_contract(
-        f"Assert-Mt5FactoryTargetIsolate -InstallRoot 'D:{sep*2}Meta 5' "
-        f"-DataRoot 'D:{sep*2}Meta 5' "
-        f"-CommonFilesRoot 'D:{sep*2}Meta 5{sep*2}Common{sep*2}Files' "
-        f"-TesterRoot 'D:{sep*2}Meta 5{sep*2}Tester' "
+        f"Assert-Mt5FactoryTargetIsolate -InstallRoot 'D:{sep}Meta 5' "
+        f"-DataRoot 'D:{sep}Meta 5' "
+        f"-CommonFilesRoot 'D:{sep}Meta 5{sep}Common{sep}Files' "
+        f"-TesterRoot 'D:{sep}Meta 5{sep}Tester' "
         f"-PortableMode $true -RuntimeRoot '{esc(runtime)}'"
     )
     assert bad_owner_gui.returncode != 0
@@ -214,9 +218,9 @@ def test_factory_target_rejects_program_files_and_appdata() -> None:
     # DataRoot must equal the portable InstallRoot.
     bad_split = run_contract(
         f"Assert-Mt5FactoryTargetIsolate -InstallRoot '{esc(isolate)}' "
-        f"-DataRoot '{esc(runtime)}{sep*2}mt5-portable-fivepercent' "
-        f"-CommonFilesRoot '{esc(isolate)}{sep*2}Common{sep*2}Files' "
-        f"-TesterRoot '{esc(isolate)}{sep*2}Tester' "
+        f"-DataRoot '{esc(runtime)}{sep}mt5-portable-fivepercent' "
+        f"-CommonFilesRoot '{esc(isolate)}{sep}Common{sep}Files' "
+        f"-TesterRoot '{esc(isolate)}{sep}Tester' "
         f"-PortableMode $true -RuntimeRoot '{esc(runtime)}'"
     )
     assert bad_split.returncode != 0
@@ -225,8 +229,8 @@ def test_factory_target_rejects_program_files_and_appdata() -> None:
     good = run_contract(
         f"Assert-Mt5FactoryTargetIsolate -InstallRoot '{esc(isolate)}' "
         f"-DataRoot '{esc(isolate)}' "
-        f"-CommonFilesRoot '{esc(isolate)}{sep*2}Common{sep*2}Files' "
-        f"-TesterRoot '{esc(isolate)}{sep*2}Tester' "
+        f"-CommonFilesRoot '{esc(isolate)}{sep}Common{sep}Files' "
+        f"-TesterRoot '{esc(isolate)}{sep}Tester' "
         f"-PortableMode $true -RuntimeRoot '{esc(runtime)}' | ConvertTo-Json -Compress"
     )
     assert good.returncode == 0, good.stdout + good.stderr
@@ -303,3 +307,61 @@ def test_init_machine_paths_refuses_owner_gui_and_alpha_uses_process_isolate() -
     assert "Wait-PortableLiveUpdate" in alpha
     assert "Find-PortablePostUpdateTester" in alpha
     assert "Stop-OrphanPortableTesters" in alpha
+
+
+def test_process_isolate_allows_owner_gui_outside_program_files() -> None:
+    r"""An Owner GUI that is not in Program Files must not block a compile.
+
+    Added 2026-08-31. The decision only exempted Program Files, so on a machine
+    whose Owner GUI lives elsewhere -- here D:\Meta 5\terminal64.exe, which is
+    also what the MT5 MCP server on 127.0.0.1:22346 attaches to -- every
+    compile/backtest demanded the Owner close the terminal they trade from.
+    Such a process is outside the runtime, outside the install root, and names
+    no factory path, so it cannot hold anything the factory needs.
+    """
+    sep = chr(92)
+    runtime = f"D:{sep}Trading EA MT5{sep}02. AlphaFactory{sep}runtime"
+    isolate = f"{runtime}{sep}mt5-portable-mqdemo"
+
+    def esc(path: str) -> str:
+        # PowerShell single-quoted strings take backslashes literally, so the
+        # path goes through unchanged. Doubling them would still normalise for
+        # -InstallRoot (GetFullPath collapses separators) but NOT for
+        # -CommandLine, which is compared as a raw string.
+        return path
+
+    owner_gui = f"D:{sep}Meta 5{sep}terminal64.exe"
+    allow = run_contract(
+        f"Resolve-Mt5ProcessIsolateDecision -ExecutablePath '{esc(owner_gui)}' "
+        f"""-CommandLine '"{esc(owner_gui)}"' """
+        f"-InstallRoot '{esc(isolate)}' -DataRoot '{esc(isolate)}' "
+        f"-RuntimeRoot '{esc(runtime)}' -PortableMode $true | ConvertTo-Json -Compress"
+    )
+    assert allow.returncode == 0, allow.stdout + allow.stderr
+    payload = json.loads(allow.stdout)
+    assert payload["Allowed"] is True
+    assert "Owner GUI outside the factory runtime" in payload["Reason"]
+
+    # ...but the exemption must still fall away the moment that same GUI is
+    # pointed at the factory tree.
+    block = run_contract(
+        f"Resolve-Mt5ProcessIsolateDecision -ExecutablePath '{esc(owner_gui)}' "
+        f"""-CommandLine '"{esc(owner_gui)}" /portable /path:"{esc(isolate)}"' """
+        f"-InstallRoot '{esc(isolate)}' -DataRoot '{esc(isolate)}' "
+        f"-RuntimeRoot '{esc(runtime)}' -PortableMode $true | ConvertTo-Json -Compress"
+    )
+    assert block.returncode == 0, block.stdout + block.stderr
+    blocked = json.loads(block.stdout)
+    assert blocked["Allowed"] is False
+    assert "targets factory data/profile" in blocked["Reason"]
+
+    # Strict mode still refuses any non-factory client.
+    strict = run_contract(
+        f"Resolve-Mt5ProcessIsolateDecision -ExecutablePath '{esc(owner_gui)}' "
+        f"""-CommandLine '"{esc(owner_gui)}"' """
+        f"-InstallRoot '{esc(isolate)}' -DataRoot '{esc(isolate)}' "
+        f"-RuntimeRoot '{esc(runtime)}' -PortableMode $true "
+        f"-AllowProgramFilesGui $false | ConvertTo-Json -Compress"
+    )
+    assert strict.returncode == 0, strict.stdout + strict.stderr
+    assert json.loads(strict.stdout)["Allowed"] is False
