@@ -1,9 +1,10 @@
 from pathlib import Path
 import json
 
+from _shelf import ea_package
 
 ROOT = Path(__file__).resolve().parents[2]
-PACKAGE = ROOT / "03. EA Developer" / "EA_MultiAssetTSMOMD1V6"
+PACKAGE = ea_package("EA_MultiAssetTSMOMD1V6")
 SOURCE = PACKAGE / "EA_MultiAssetTSMOMD1V6.mq5"
 
 

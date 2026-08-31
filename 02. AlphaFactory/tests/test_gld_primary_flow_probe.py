@@ -6,22 +6,34 @@ from datetime import date
 from pathlib import Path
 
 import numpy as np
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[2]
-MODULE_PATH = (
-    ROOT
-    / "03. EA Developer"
-    / "EA_GLDFlowPulse"
-    / "research"
-    / "gld_primary_flow_offline_probe.py"
+
+# EA_GLDFlowPulse was parked to 00. Old File/EA_Archive/ on 2026-08-31 (Owner
+# directive: keep only the essential core). Look for the probe on the live
+# shelf first, then in the graveyard, and skip rather than fail if it is gone
+# entirely -- a parked package is a housekeeping state, not a test regression.
+_REL = Path("EA_GLDFlowPulse") / "research" / "gld_primary_flow_offline_probe.py"
+_CANDIDATES = (
+    ROOT / "03. EA Developer" / _REL,
+    ROOT / "00. Old File" / "EA_Archive" / _REL,
 )
+MODULE_PATH = next((p for p in _CANDIDATES if p.is_file()), None)
+
+if MODULE_PATH is None:
+    pytest.skip(
+        "gld_primary_flow_offline_probe.py not found on the shelf or in "
+        "00. Old File/EA_Archive/; EA_GLDFlowPulse is parked.",
+        allow_module_level=True,
+    )
+
 SPEC = importlib.util.spec_from_file_location("gld_primary_flow_probe", MODULE_PATH)
 assert SPEC and SPEC.loader
 probe = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = probe
 SPEC.loader.exec_module(probe)
-
 
 def test_derived_shares_snap_to_official_basket() -> None:
     assert probe.derive_shares(10_000.0, 0.001) == 10_000_000

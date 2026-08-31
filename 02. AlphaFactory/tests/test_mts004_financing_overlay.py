@@ -8,15 +8,15 @@ from pathlib import Path
 
 import pytest
 
+from _shelf import ea_file
+
 
 ROOT = Path(__file__).resolve().parents[1]
 TOOL = ROOT / "tools" / "research" / "mts004_financing_overlay.py"
-CONTRACT = (
-    ROOT.parent
-    / "03. EA Developer"
-    / "EA_MultiAssetTSMOMD1V4"
-    / "research"
-    / "HYP-MULTI-TSMOM-D1-004_FINANCING_CONTRACT.json"
+CONTRACT = ea_file(
+    "EA_MultiAssetTSMOMD1V4",
+    "research",
+    "HYP-MULTI-TSMOM-D1-004_FINANCING_CONTRACT.json",
 )
 
 spec = importlib.util.spec_from_file_location("mts004_financing_overlay", TOOL)

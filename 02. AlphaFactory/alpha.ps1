@@ -2954,22 +2954,48 @@ switch ($Action.ToLower()) {
     }
     "validate" {
         Write-Status "Validating Python environment..."
-        $required = @("numpy", "pandas", "matplotlib")
-        foreach ($pkg in $required) {
-            $check = python -c "import $pkg; print('OK')" 2>&1
-            if ($check -eq "OK") {
+
+        # Windows PowerShell 5.1 turns a native command's stderr into a
+        # terminating NativeCommandError, and neither 2>&1 nor 2>$null avoids
+        # it. So probe with importlib.find_spec, which never raises and never
+        # writes to stderr; only the exit code carries the answer.
+        function Test-PythonImport([string]$Module) {
+            $probe = "import importlib.util,sys; sys.exit(0 if importlib.util.find_spec('$Module') else 1)"
+            & python -c $probe
+            return ($LASTEXITCODE -eq 0)
+        }
+
+        $missingRequired = @()
+        foreach ($pkg in @("numpy", "pandas", "matplotlib")) {
+            if (Test-PythonImport $pkg) {
                 Write-Status "$pkg - installed" "OK"
             } else {
                 Write-Status "$pkg - MISSING" "ERR"
+                $missingRequired += $pkg
             }
         }
-        # Check vectorbt
-        $vbtCheck = python -c "import vectorbt; print('OK')" 2>&1
-        if ($vbtCheck -eq "OK") {
+
+        foreach ($pkg in @("MetaTrader5", "pytest", "pyarrow", "jsonschema", "pydantic")) {
+            if (Test-PythonImport $pkg) {
+                Write-Status "$pkg - installed" "OK"
+            } else {
+                Write-Status "$pkg - MISSING (needed by tests / session_trader)" "WARN"
+            }
+        }
+
+        if (Test-PythonImport "vectorbt") {
             Write-Status "vectorbt - installed" "OK"
         } else {
-            Write-Status "vectorbt - MISSING (optional for scan)" "WARN"
+            Write-Status "vectorbt - MISSING (optional, scan only)" "WARN"
         }
+
+        if ($missingRequired.Count -gt 0) {
+            throw "Required Python packages missing: $($missingRequired -join ', '). Install with: python -m pip install $($missingRequired -join ' ')"
+        }
+        Write-Status "Python environment OK" "OK"
+        # The optional-package probes leave a non-zero $LASTEXITCODE behind;
+        # clear it so a caller does not read `validate` as failed.
+        $global:LASTEXITCODE = 0
     }
     "help" {
         Write-Host @"

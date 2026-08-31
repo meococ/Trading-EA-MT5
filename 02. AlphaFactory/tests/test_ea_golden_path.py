@@ -742,11 +742,17 @@ def test_alpha_discovers_canonical_active_packages() -> None:
         if re.fullmatch(r"EA_[A-Za-z0-9_.-]+", line.strip())
     ]
     developer_root = WORKSPACE / "03. EA Developer"
+    # alpha.ps1 list returns EA_* packages only. The shelf also holds iCustom
+    # indicators (AI_Regime_Detection, QQE_MOD, ...) that are directories with a
+    # matching .mq5 but are deliberately invisible to Get-EAs, so they must not
+    # be in `expected`. Without this filter the assertion could never hold.
     expected = sorted(
         (
             package.name
             for package in developer_root.iterdir()
-            if package.is_dir() and (package / f"{package.name}.mq5").is_file()
+            if package.is_dir()
+            and package.name.startswith("EA_")
+            and (package / f"{package.name}.mq5").is_file()
         ),
         key=str.casefold,
     )

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import json
 import shutil
 import subprocess
@@ -161,32 +162,72 @@ def test_portable_rejects_appdata_common_even_without_drive_pin() -> None:
 
 
 def test_factory_target_rejects_program_files_and_appdata() -> None:
+    """Every non-isolate target must be refused.
+
+    The fixture paths below are synthetic sentinels and must stay
+    forbidden-shaped; do not retarget them at this machine's real portable.
+    """
+    sep = chr(92)
+    runtime = f"D:{sep}Trading EA MT5{sep}02. AlphaFactory{sep}runtime"
+    isolate = f"{runtime}{sep}mt5-portable-mqdemo"
+
+    def esc(path: str) -> str:
+        return path.replace(sep, sep * 2)
+
     bad_pf = run_contract(
-        "Assert-Mt5FactoryTargetIsolate -InstallRoot 'C:\\Program Files\\MetaTrader 5' "
-        "-DataRoot 'C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075' "
-        "-CommonFilesRoot 'C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files' "
-        "-TesterRoot 'C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\Tester' "
-        "-PortableMode $false -RuntimeRoot 'D:\\Trading EA MT5\\02. AlphaFactory\\runtime'"
+        f"Assert-Mt5FactoryTargetIsolate -InstallRoot 'C:{sep*2}Program Files{sep*2}MetaTrader 5' "
+        f"-DataRoot 'C:{sep*2}Users{sep*2}ADMIN{sep*2}AppData{sep*2}Roaming{sep*2}MetaQuotes{sep*2}Terminal{sep*2}D0E8209F77C8CF37AD8BF550E51FF075' "
+        f"-CommonFilesRoot 'C:{sep*2}Users{sep*2}ADMIN{sep*2}AppData{sep*2}Roaming{sep*2}MetaQuotes{sep*2}Terminal{sep*2}Common{sep*2}Files' "
+        f"-TesterRoot 'C:{sep*2}Users{sep*2}ADMIN{sep*2}AppData{sep*2}Roaming{sep*2}MetaQuotes{sep*2}Terminal{sep*2}D0E8209F77C8CF37AD8BF550E51FF075{sep*2}Tester' "
+        f"-PortableMode $false -RuntimeRoot '{esc(runtime)}'"
     )
     assert bad_pf.returncode != 0
     assert "Program Files" in (bad_pf.stdout + bad_pf.stderr)
 
+    # This machine's real AppData terminal root -- the only way to actually
+    # exercise the AppData branch. The ADMIN fixture above only matches when
+    # the current user happens to be named ADMIN, so it never covered it.
+    appdata_term = str(Path(os.environ["APPDATA"]) / "MetaQuotes" / "Terminal" / "D0E8209F77C8CF37AD8BF550E51FF075")
     bad_appdata = run_contract(
-        "Assert-Mt5FactoryTargetIsolate -InstallRoot 'D:\\mt5' "
-        "-DataRoot 'C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075' "
-        "-CommonFilesRoot 'D:\\mt5\\Common\\Files' "
-        "-TesterRoot 'C:\\Users\\ADMIN\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\Tester' "
-        "-PortableMode $true -RuntimeRoot 'D:\\Trading EA MT5\\02. AlphaFactory\\runtime'"
+        f"Assert-Mt5FactoryTargetIsolate -InstallRoot '{esc(isolate)}' "
+        f"-DataRoot '{esc(appdata_term)}' "
+        f"-CommonFilesRoot '{esc(appdata_term)}{sep*2}Common{sep*2}Files' "
+        f"-TesterRoot '{esc(appdata_term)}{sep*2}Tester' "
+        f"-PortableMode $true -RuntimeRoot '{esc(runtime)}'"
     )
     assert bad_appdata.returncode != 0
     assert "AppData Terminal" in (bad_appdata.stdout + bad_appdata.stderr)
 
+    # Hardened 2026-08-31: an Owner GUI that lives outside Program Files -- on
+    # the Owner machine that is "D:\Meta 5", the terminal the MT5 MCP server
+    # attaches to -- must also be refused.
+    bad_owner_gui = run_contract(
+        f"Assert-Mt5FactoryTargetIsolate -InstallRoot 'D:{sep*2}Meta 5' "
+        f"-DataRoot 'D:{sep*2}Meta 5' "
+        f"-CommonFilesRoot 'D:{sep*2}Meta 5{sep*2}Common{sep*2}Files' "
+        f"-TesterRoot 'D:{sep*2}Meta 5{sep*2}Tester' "
+        f"-PortableMode $true -RuntimeRoot '{esc(runtime)}'"
+    )
+    assert bad_owner_gui.returncode != 0
+    assert "outside the factory runtime" in (bad_owner_gui.stdout + bad_owner_gui.stderr)
+
+    # DataRoot must equal the portable InstallRoot.
+    bad_split = run_contract(
+        f"Assert-Mt5FactoryTargetIsolate -InstallRoot '{esc(isolate)}' "
+        f"-DataRoot '{esc(runtime)}{sep*2}mt5-portable-fivepercent' "
+        f"-CommonFilesRoot '{esc(isolate)}{sep*2}Common{sep*2}Files' "
+        f"-TesterRoot '{esc(isolate)}{sep*2}Tester' "
+        f"-PortableMode $true -RuntimeRoot '{esc(runtime)}'"
+    )
+    assert bad_split.returncode != 0
+    assert "DataRoot must equal" in (bad_split.stdout + bad_split.stderr)
+
     good = run_contract(
-        "Assert-Mt5FactoryTargetIsolate -InstallRoot 'D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-mqdemo' "
-        "-DataRoot 'D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-mqdemo' "
-        "-CommonFilesRoot 'D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-mqdemo\\Common\\Files' "
-        "-TesterRoot 'D:\\Trading EA MT5\\02. AlphaFactory\\runtime\\mt5-portable-mqdemo\\Tester' "
-        "-PortableMode $true -RuntimeRoot 'D:\\Trading EA MT5\\02. AlphaFactory\\runtime' | ConvertTo-Json -Compress"
+        f"Assert-Mt5FactoryTargetIsolate -InstallRoot '{esc(isolate)}' "
+        f"-DataRoot '{esc(isolate)}' "
+        f"-CommonFilesRoot '{esc(isolate)}{sep*2}Common{sep*2}Files' "
+        f"-TesterRoot '{esc(isolate)}{sep*2}Tester' "
+        f"-PortableMode $true -RuntimeRoot '{esc(runtime)}' | ConvertTo-Json -Compress"
     )
     assert good.returncode == 0, good.stdout + good.stderr
     payload = json.loads(good.stdout)
