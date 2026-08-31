@@ -11,7 +11,7 @@ function Resolve-EaSourceContract {
     }
 
     # Active-lane pins. Owner Path-C overrides 2026-07-15.
-    # Compile/backtest from archive remains invalid evidence (AGENTS.md).
+    # Compile/backtest from archive remains invalid evidence.
     $pinnedSources = @{
         'EA_HybridICT_Sonic' = '03. EA Developer/EA_HybridICT_Sonic/EA_HybridICT_Sonic.mq5'
         'EA_FVGConfluence'   = '03. EA Developer/EA_FVGConfluence/EA_FVGConfluence.mq5'

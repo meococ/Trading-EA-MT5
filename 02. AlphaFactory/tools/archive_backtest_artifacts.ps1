@@ -53,8 +53,6 @@ if ($ReferenceRoots.Count -eq 0) {
         (Join-Path $repoRoot '05. Playbook'),
         (Join-Path $repoRoot '03. EA Developer'),
         (Join-Path $repoRoot 'INDEX.md'),
-        (Join-Path $repoRoot 'AGENTS.md'),
-        (Join-Path $repoRoot 'CLAUDE.md'),
         (Join-Path $alphaRoot 'STRATEGY_LOG.md'),
         (Join-Path $repoRoot '00. Old File\hot_details\hot_ledger_details.json')
     )

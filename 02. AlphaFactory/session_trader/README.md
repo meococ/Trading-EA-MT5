@@ -96,7 +96,7 @@ $env:PYTHONPATH=(Resolve-Path "02. AlphaFactory").Path
 # `--terminal` bắt buộc từ 2026-08-31: thiếu nó thì collector gọi
 # mt5.initialize() trần và bám vào bất kỳ terminal nào đang chạy.
 # Observation plane trỏ vào Owner GUI; research/backtest KHÔNG chạy ở đây
-# (AGENTS.md — hai mặt phẳng MT5).
+# (xem "Hai mặt phẳng MT5" bên dưới).
 python -m session_trader probe --symbol EURUSD --terminal "D:\Meta 5\terminal64.exe"
 
 # Offset + tick basis phải đến từ source đã xác minh trước khi pass Risk Gateway.
@@ -176,10 +176,50 @@ Quan sát từ terminal Owner lúc verify: `trade_mode=DEMO`,
 `terminal_trade_allowed=false` (AutoTrading đang tắt), `positions_count=0`.
 
 **`--terminal` là bắt buộc.** Trước đây bỏ trống thì collector gọi
-`mt5.initialize()` trần và bám vào bất kỳ terminal nào đang chạy. Package này
-là *observation plane* và trỏ vào Owner GUI; research/compile/backtest chạy ở
-portable isolate qua `alpha.ps1` và không bao giờ ở đây — xem "Hai mặt phẳng
-MT5" trong `AGENTS.md`.
+`mt5.initialize()` trần và bám vào bất kỳ terminal nào đang chạy.
 
 Còn khoá: `DEMO_EXECUTE` vẫn trả `MQL5_HANDOFF_REQUIRED`. Mở được nó cần một EA
 executor MQL5 canonical đã compile + accept, không phải thêm code Python.
+
+## Hai mặt phẳng MT5
+
+Chốt 2026-08-31 khi bật MCP. Doctrine này trước nằm ở `AGENTS.md`; file đó đã bị
+gỡ khỏi repo nên nội dung chuyển về đây.
+
+- **Research plane** — `alpha.ps1` + portable isolate dưới
+  `02. AlphaFactory/runtime/`. Là **nơi duy nhất** được compile, backtest và sinh
+  evidence. Có thẩm quyền kinh tế.
+- **Observation plane** — package này, và MCP server nội bộ của MT5 tại
+  `127.0.0.1:22346`, gắn vào terminal GUI Owner đang trade. Chỉ đọc:
+  account/positions, lịch sử lệnh, chart/tick history theo giá broker thật,
+  journal. **Không** có thẩm quyền kinh tế, không sinh evidence.
+
+Cấm:
+
+- Dùng `tester_run_backtest` qua MCP để lấy số ra quyết định. MCP backtest được
+  thật (đã verify 2026-08-31, trả report JSON đầy đủ), nhưng nó chạy trong
+  terminal Owner, tranh CPU với lệnh sống và dùng history của broker đó chứ không
+  phải isolate đã pin.
+- Pin `alpha.local.ps1` vào `D:\Meta 5`. `alpha.ps1` throw ở cả hai trường hợp.
+
+Python attach: luôn `mt5.initialize(**mt5_initialize_kwargs())` từ
+`02. AlphaFactory/tools/factory_paths.py`. `mt5.initialize()` trần bám vào
+terminal Owner. Gác bởi `tools/check_mt5_attach_contract.ps1`.
+
+### MCP có đường gửi lệnh — không được dùng
+
+`get_trading_account_info` trả về hai quyền **độc lập**:
+
+```
+"experts_trade_allowed": false     <- nút AutoTrading trong GUI
+"mcp_trade_allowed":     true      <- đường lệnh của MCP, nút trên KHÔNG phủ
+```
+
+MCP expose `trade_send_market_order`, `trade_send_pending_order`,
+`trade_modify_sl_tp`, `trade_close_single_position`, `trade_close_by_position`,
+`trade_delete_order`. Đường đó **đi vòng qua toàn bộ control plane này** — không
+SessionPlan, không blind Critic, không Risk Gateway, không idempotency key, không
+ledger. Quyền thuộc về terminal chứ không phải account, nên nó giữ nguyên sau khi
+login tài khoản funded.
+
+Không gọi bất kỳ tool `mcp__mt5__trade_*` nào. Mọi execution đi qua Risk Gateway.

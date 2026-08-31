@@ -78,8 +78,6 @@ def test_archive_default_reference_roots_cover_current_control_surfaces(tmp_path
         "20260716_010103",
         "20260716_010104",
         "20260716_010105",
-        "20260716_010106",
-        "20260716_010107",
         "20260716_010108",
         "20260716_010109",
     }
@@ -89,8 +87,6 @@ def test_archive_default_reference_roots_cover_current_control_surfaces(tmp_path
         ("01. GOAL/GOAL.md", "20260716_010103"),
         ("03. EA Developer/EA_Current/research/readout.md", "20260716_010104"),
         ("INDEX.md", "20260716_010105"),
-        ("AGENTS.md", "20260716_010106"),
-        ("CLAUDE.md", "20260716_010107"),
         ("02. AlphaFactory/STRATEGY_LOG.md", "20260716_010108"),
         ("00. Old File/hot_details/hot_ledger_details.json", "20260716_010109"),
     ]

@@ -81,14 +81,9 @@ def should_index(path: Path) -> bool:
 def iter_source_paths() -> list[Path]:
     patterns = [
         '.claude/rules/**/*.md',
-        'CLAUDE.md',
-        'AGENTS.md',
         '.claude/agents/**/*.md',
         '.claude/skills/**/*.md',
         'docs/ai/**/*.md',
-        'docs/CLAUDE.md',
-        '02. AlphaFactory/CLAUDE.md',
-        '03. EA Developer/CLAUDE.md',
         '02. AlphaFactory/STRATEGY_LOG.md',
         'CLAUDE-EXP.md',
         '02. AlphaFactory/runs/*/*/analysis/*.json',
@@ -113,7 +108,7 @@ def classify(path: Path) -> tuple[str, str]:
         return 'run_artifacts', 'run_artifact'
     if rel in {'CLAUDE-EXP.md', '02. AlphaFactory/STRATEGY_LOG.md'}:
         return 'lessons_memory', 'lessons'
-    if rel.startswith('docs/ai/') or rel.startswith('.claude/rules/') or rel == 'CLAUDE.md' or rel == 'AGENTS.md':
+    if rel.startswith('docs/ai/') or rel.startswith('.claude/rules/'):
         return 'workspace_docs', 'workspace_doc'
     return 'research_notes', 'research_note'
 

@@ -152,9 +152,8 @@ function Test-NoGitWorkspace {
 }
 
 function Get-NoGitProvenanceSnapshot([string]$ActiveSource = "") {
-    $agentsPath = Join-Path $repoRoot "AGENTS.md"
     $goalPath = Join-Path $repoRoot "01. GOAL\GOAL.md"
-    $provenancePaths = @($agentsPath, $goalPath)
+    $provenancePaths = @($goalPath)
     foreach ($required in $provenancePaths) {
         if (-not (Test-Path -LiteralPath $required -PathType Leaf)) {
             throw "NO-GIT provenance file missing (fail-closed): $required"

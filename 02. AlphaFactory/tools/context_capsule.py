@@ -9,7 +9,6 @@ from pathlib import Path
 
 
 STARTUP_SOURCES = (
-    ("AGENTS.md", "agent_rules"),
     ("01. GOAL/GOAL.md", "owner_goal"),
     ("INDEX.md", "workspace_map"),
 )

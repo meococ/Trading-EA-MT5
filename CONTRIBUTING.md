@@ -6,7 +6,7 @@ Thank you for helping improve reproducible, safety-conscious MT5 research.
 
 - Open an issue or discussion for a substantial strategy, architecture, or workflow change.
 - Keep each pull request focused on one coherent problem.
-- Read `AGENTS.md`, `01. GOAL/GOAL.md`, and `05. Playbook/WORKFLOW.md`.
+- Read `01. GOAL/GOAL.md` and `05. Playbook/WORKFLOW.md`.
 - Do not present a compile result or a single backtest as evidence of profitability.
 
 ## Development workflow

@@ -475,9 +475,8 @@ function Get-NoGitProvenanceSnapshot {
     # Receipt validators only require non-empty git_commit + matching git_status_sha256.
     # ActiveSource (receipt-bound EA .mq5) is included when provided so concurrent
     # Model 0 screens do not collide on a hardcoded single-EA path.
-    $agentsPath = Join-Path $AdvisorsRoot "AGENTS.md"
     $goalPath = Join-Path $AdvisorsRoot "01. GOAL\GOAL.md"
-    $provenancePaths = @($agentsPath, $goalPath)
+    $provenancePaths = @($goalPath)
     foreach ($required in $provenancePaths) {
         if (-not (Test-Path -LiteralPath $required -PathType Leaf)) {
             throw "NO-GIT provenance file missing (fail-closed): $required"

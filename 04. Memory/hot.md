@@ -43,7 +43,11 @@ Next: family mới. Không H4AT-002 / 1R session-clone / session-box.
   Nơi duy nhất có thẩm quyền kinh tế. Pin ngoài runtime bị throw.
 - **Observation** — MCP `127.0.0.1:22346` + `session_trader probe`, trỏ vào
   terminal GUI Owner. Chỉ đọc, không sinh evidence.
-- Chi tiết trong `AGENTS.md` § Quy trình thực thi.
+- MCP **backtest được** (verify 2026-08-31, report JSON đủ PF/Sharpe/DD) nhưng
+  chạy trên terminal Owner với history broker đó — không dùng làm số quyết định.
+- MCP **gửi lệnh được**: `mcp_trade_allowed=true` độc lập với nút AutoTrading,
+  đi vòng qua Risk Gateway. Không gọi tool `mcp__mt5__trade_*`.
+- Chi tiết trong `02. AlphaFactory/session_trader/README.md` § Hai mặt phẳng MT5.
 
 ## Repo state (2026-08-31)
 

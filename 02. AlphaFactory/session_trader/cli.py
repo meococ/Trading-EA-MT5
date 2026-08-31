@@ -321,7 +321,8 @@ def build_parser() -> argparse.ArgumentParser:
         "--terminal",
         required=True,
         help="Path to terminal64.exe to read. The observation plane targets the "
-        "Owner GUI; research/backtest never runs here (see AGENTS.md).",
+        "Owner GUI; research/backtest never runs here (see session_trader/README.md, "
+        "'Hai mat phang MT5').",
     )
     probe.add_argument("--calendar")
     probe.add_argument("--server-utc-offset-minutes", type=int)
