@@ -93,10 +93,14 @@ Chạy từ `02. AlphaFactory` hoặc đặt thư mục này vào `PYTHONPATH`:
 $env:PYTHONPATH=(Resolve-Path "02. AlphaFactory").Path
 
 # Chỉ đọc terminal. Không có calendar/risk ledger thì snapshot ghi rõ unavailable.
-python -m session_trader probe --symbol EURUSD
+# `--terminal` bắt buộc từ 2026-08-31: thiếu nó thì collector gọi
+# mt5.initialize() trần và bám vào bất kỳ terminal nào đang chạy.
+# Observation plane trỏ vào Owner GUI; research/backtest KHÔNG chạy ở đây
+# (AGENTS.md — hai mặt phẳng MT5).
+python -m session_trader probe --symbol EURUSD --terminal "D:\Meta 5\terminal64.exe"
 
 # Offset + tick basis phải đến từ source đã xác minh trước khi pass Risk Gateway.
-python -m session_trader probe --symbol EURUSD `
+python -m session_trader probe --symbol EURUSD --terminal "D:\Meta 5\terminal64.exe" `
   --server-utc-offset-minutes 180 --tick-time-basis SERVER
 
 # Plan là write-once; v2 phải link SHA của v1.
@@ -153,3 +157,29 @@ python -m pytest -q -p no:cacheprovider $tests.FullName
 Focused suite kiểm tra immutability/tamper/concurrent ledger + atomic reservation, heartbeat sleep và
 event triggers, blind critic, risk gates, sizing, time/calendar freshness,
 idempotency, shadow handoff, read-only collector, journal và static no-order-send.
+
+## Trạng thái đã chạy thật (2026-08-31)
+
+Trước ngày này Python trên máy Owner là Microsoft Store stub, nên **chưa dòng
+nào của package này từng chạy**. Sau khi cài Python 3.12.10 và pydantic, đã
+verify end-to-end:
+
+| Bước | Lệnh | Kết quả |
+|---|---|---|
+| OBSERVE | `probe --symbol XAUUSD --terminal "D:\Meta 5\terminal64.exe"` | `connected=true`, `read_only=true`, `orders_sent=0`, XAUUSD 4435.68/4435.98 |
+| Time mapping | thêm `--server-utc-offset-minutes 180 --tick-time-basis SERVER` | `time_mapping_verified=true`, source `EXPLICIT_SERVER_TICK_EPOCH` (không có 2 cờ này thì chỉ `INFERRED`, Gateway reject) |
+| Artifact | `write-plan --input examples/SESSION_PLAN_...v1.json` | ghi kèm SHA256 |
+| Immutability | chạy lại đúng lệnh trên | từ chối: `artifact already exists` |
+| Test | 12 module `test_session_trader_*` | 12/12 pass |
+
+Quan sát từ terminal Owner lúc verify: `trade_mode=DEMO`,
+`terminal_trade_allowed=false` (AutoTrading đang tắt), `positions_count=0`.
+
+**`--terminal` là bắt buộc.** Trước đây bỏ trống thì collector gọi
+`mt5.initialize()` trần và bám vào bất kỳ terminal nào đang chạy. Package này
+là *observation plane* và trỏ vào Owner GUI; research/compile/backtest chạy ở
+portable isolate qua `alpha.ps1` và không bao giờ ở đây — xem "Hai mặt phẳng
+MT5" trong `AGENTS.md`.
+
+Còn khoá: `DEMO_EXECUTE` vẫn trả `MQL5_HANDOFF_REQUIRED`. Mở được nó cần một EA
+executor MQL5 canonical đã compile + accept, không phải thêm code Python.

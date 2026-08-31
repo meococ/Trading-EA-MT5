@@ -313,7 +313,16 @@ def build_parser() -> argparse.ArgumentParser:
 
     probe = commands.add_parser("probe", help="Collect one read-only MT5 snapshot")
     probe.add_argument("--symbol", action="append", required=True)
-    probe.add_argument("--terminal")
+    # Required since 2026-08-31. Without it the collector called
+    # mt5.initialize() with no path, silently attaching to whichever terminal
+    # happened to be running. The observation plane must name the terminal it
+    # reads, so the snapshot's terminal_path_sha256 means something.
+    probe.add_argument(
+        "--terminal",
+        required=True,
+        help="Path to terminal64.exe to read. The observation plane targets the "
+        "Owner GUI; research/backtest never runs here (see AGENTS.md).",
+    )
     probe.add_argument("--calendar")
     probe.add_argument("--server-utc-offset-minutes", type=int)
     probe.add_argument("--tick-time-basis", choices=("UTC", "SERVER"))
