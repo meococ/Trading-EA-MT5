@@ -35,14 +35,14 @@ Compile each file in MetaEditor, then attach to the same XAUUSD M15 chart as the
 4. `Indicators/SNR_PVSRA.mq5` — tick-volume histogram
 5. `Indicators/SNR_SRLevels.mq5` — whole / half / quarter lines
 
-Invariants: `research/SNR_INVARIANTS.md`.
+Invariants: chưa có file rời; contract nằm trong `Include/SNR_Types.mqh` và source của host.
 
 Match EA inputs: Dragon 34, Trend 89, PVSRA rising 1.5× / climax 2.0× (reconstructed), whole step 10 on gold.
 
 ## Compile
 
 ```powershell
-powershell -NoProfile -File .\02. AlphaFactory\alpha.ps1 compile EA_SonicR_PVSRA
+powershell -NoProfile -File ".\02. AlphaFactory\alpha.ps1" compile EA_SonicR_PVSRA
 ```
 
 Do not compile from `00. Old File/`.
