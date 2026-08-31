@@ -1,0 +1,35 @@
+{
+  "label": "EA_Spark_USDJPY_BOJ_REAL",
+  "pre_days": 2,
+  "post_days": 2,
+  "buckets": {
+    "PRE_EVENT": {
+      "n": 24,
+      "net_profit": 64.16,
+      "profit_factor": 1.139,
+      "win_rate_pct": 45.83,
+      "expectancy": 2.67
+    },
+    "EVENT_WEEK": {
+      "n": 10,
+      "net_profit": 289.12,
+      "profit_factor": 5.513,
+      "win_rate_pct": 80.0,
+      "expectancy": 28.91
+    },
+    "POST_EVENT": {
+      "n": 3,
+      "net_profit": 100.03,
+      "profit_factor": 2.036,
+      "win_rate_pct": 33.33,
+      "expectancy": 33.34
+    },
+    "NONE": {
+      "n": 354,
+      "net_profit": 1978.28,
+      "profit_factor": 1.23,
+      "win_rate_pct": 54.8,
+      "expectancy": 5.59
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "alphafactory_ea_delivery_packet.v1",
+  "created_at_utc": "REPLACE_WITH_UTC_TIMESTAMP",
+  "hypothesis_id": "REPLACE_WITH_HYPOTHESIS_ID",
+  "ea_name": "EA_REPLACE_ME",
+  "delivery_class": "economic_run",
+  "completion_claim": true,
+  "verdict": "KILLED",
+  "bindings": [
+    {"role": "preregistration", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "logic_matrix", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "source", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "compiled_binary", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "compile_log", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "test_receipt", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "nonrepaint_audit", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "run_manifest", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "tester_report", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "lifecycle_trades", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "run_meta", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "log_triage", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "economic_analysis", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "casebook_manifest", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "decision_casebook_manifest", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"},
+    {"role": "readout", "path": "REPLACE_WITH_WORKSPACE_RELATIVE_PATH", "bytes": 1, "sha256": "REPLACE_WITH_64_HEX"}
+  ],
+  "logic_contract": {
+    "requirements_total": 1,
+    "requirements_mapped_to_code": 1,
+    "requirements_tested": 1,
+    "closed_bar_decisions": true,
+    "unresolved_material_ambiguities": 0
+  },
+  "engineering_contract": {
+    "tests_passed": 1,
+    "tests_failed": 0,
+    "compile_errors": 0,
+    "compile_warnings": 0,
+    "nonrepaint_status": "PASS"
+  },
+  "run_contract": {
+    "run_id": "REPLACE_WITH_RUN_ID",
+    "model": 0,
+    "trades": 1,
+    "report_lifecycle_reconciled": true,
+    "lifecycle_open_rows": 1,
+    "lifecycle_final_rows": 1,
+    "unresolved_log_errors": 0
+  },
+  "analysis_contract": {
+    "statuses": {
+      "economics": "COMPLETE",
+      "cost_stress": "COMPLETE",
+      "cadence": "COMPLETE",
+      "time_stability": "COMPLETE",
+      "session_breakdown": "COMPLETE",
+      "direction_breakdown": "COMPLETE",
+      "regime_breakdown": "COMPLETE",
+      "execution_quality": "COMPLETE",
+      "funnel": "COMPLETE",
+      "winning_trade_causes": "COMPLETE",
+      "losing_trade_causes": "COMPLETE",
+      "logic_conflicts": "COMPLETE",
+      "limitations": "COMPLETE"
+    },
+    "exceptions": {}
+  },
+  "chart_contract": {
+    "sample_basis": "wins_and_losses",
+    "available_winners": 2,
+    "available_losers": 2,
+    "rendered_winners": 2,
+    "rendered_losers": 2,
+    "available_rejections": 0,
+    "rendered_rejections": 0,
+    "minimum_each": 2,
+    "entry_sl_tp_exit_visible": true,
+    "higher_timeframe_context": true,
+    "higher_timeframe": "H1",
+    "entry_candle_centered": true,
+    "post_entry_bars_visible": true,
+    "outcome_region_labeled": true,
+    "decision_asof_separate": true,
+    "decision_outcome_hidden": true,
+    "decision_net_r_hidden": true,
+    "decision_active_indicators_visible": true,
+    "decision_indicator_provenance": "mt5_decision_telemetry"
+  },
+  "anti_overfit_contract": {
+    "plan_frozen_pre_outcome": true,
+    "one_change_one_run": true,
+    "posthoc_rule_change_authorized": false
+  },
+  "limitations": ["REPLACE_WITH_AT_LEAST_ONE_MATERIAL_LIMITATION"]
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "risk_policy.v1",
+  "policy_id": "EURUSD_LONDON_SHADOW_V1",
+  "runtime_mode": "SHADOW",
+  "kill_switch": true,
+  "demo_execution_authorized": false,
+  "live_execution_authorized": false,
+  "allowed_account_fingerprints": [],
+  "symbols": {
+    "EURUSD": {
+      "max_risk_pct_per_trade": 0.25,
+      "max_spread_points": 20.0,
+      "max_slippage_points": 5,
+      "min_rr": 1.5,
+      "max_open_risk_pct": 0.25
+    }
+  },
+  "max_daily_loss_pct": 1.0,
+  "max_weekly_loss_pct": 2.0,
+  "max_drawdown_pct": 3.0,
+  "max_aggregate_open_risk_pct": 0.5,
+  "max_consecutive_losses": 3,
+  "max_trades_per_session": 1,
+  "quote_ttl_seconds": 15,
+  "account_ttl_seconds": 15,
+  "calendar_ttl_seconds": 60,
+  "news_blackout_before_minutes": 15,
+  "news_blackout_after_minutes": 15,
+  "magic": 26082701,
+  "correlation_groups": [
+    {
+      "group_id": "USD_DIRECTIONAL_RISK",
+      "symbols": ["EURUSD", "GBPUSD"],
+      "max_group_risk_pct": 0.25
+    }
+  ]
+}

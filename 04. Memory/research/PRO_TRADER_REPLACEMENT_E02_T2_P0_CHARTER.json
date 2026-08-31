@@ -1,0 +1,297 @@
+{
+  "schema_version": "pro_trader_replacement_generation_charter.v1",
+  "campaign_id": "CAMPAIGN-PTR-E01",
+  "generation": 2,
+  "generation_id": "T2",
+  "status": "FROZEN_PRE_OUTCOME",
+  "frozen_at_utc": "2026-07-30T22:15:26Z",
+  "owner_goal": "Build at least one confirmed M5 or M15 symbol sleeve with PF above 1.30 after verified cost, cadence of 2 to 5 executed trades per elapsed calendar week on every relevant split, and strict robustness against overfitting. Every economic generation must report XAUUSD, BTCUSD and all seven liquid FX-major cells on all MT5 history available at its frozen cutoff with Strategy Tester History Quality strictly above 97 percent.",
+  "working_name": "Volman Causal Price-Action Grammar",
+  "capability_target": "Replace retrospective chart storytelling with a causal, uncertainty-bearing event grammar that can recognize pressure, buildup, barrier interaction, break, pullback and failure from completed M5 bars, then trade or abstain without future pivots or outcome-informed discretion.",
+  "source_and_claim_boundary": {
+    "primary_contract": "The active research contract is the five-minute framework associated with Bob Volman's Understanding Price Action, verified only through lawful author or publisher material and a lawfully available copy before fidelity sign-off.",
+    "separate_reference_only": "The 70-tick Forex Price Action Scalping framework is a separate first-book data contract. It may contribute vocabulary and failure questions but cannot be called implemented or tested by this M5 generation.",
+    "community_role": "Forex Factory, Reddit and other practitioner forums are discovery sources for vocabulary, ambiguity, implementation failure and falsification questions only; they are not authoritative definitions or profitability evidence.",
+    "implementation_claim": "Volman-inspired causal M5 grammar; not a faithful replication of a discretionary trader, the first book, a 70-tick chart, intrabar stop-entry behavior or Bob Volman's personal execution.",
+    "copyright_boundary": "Do not download, store, quote extensively or reproduce pirated books or copyrighted figures. Store only lawful links, concise paraphrases, independently created definitions and independently rendered evidence.",
+    "unresolved_before_p5": [
+      "Trace every setup name and semantic requirement used by the grammar to lawful source material or mark it as an explicit research adaptation.",
+      "Resolve whether trade-for-failure is in-scope from lawful primary material; community mentions alone cannot add it to this frozen family.",
+      "Produce a source-to-requirement matrix that distinguishes book statement, community interpretation and project adaptation."
+    ]
+  },
+  "mechanism_boundary": {
+    "claim": "A favorable break is more likely to survive transaction cost when a pre-existing barrier is approached by persistent directional pressure, repeated tests and contracting counter-pressure, and less likely when the same close-break occurs without that event order or with little room before opposing structure.",
+    "payer_and_horizon": "If the claim is true, late counter-direction inventory and breakout chasers provide a short-lived repricing window over the next one to twelve completed M5 bars; no claim is made about latent institutional order flow.",
+    "novel_information": [
+      "barrier is frozen before the setup rather than chosen after the break",
+      "event order and duration are retained in a finite-state grammar",
+      "pressure, overlap, contraction, repeated tests and opposing-path room are measured jointly",
+      "the policy includes an explicit ambiguous-state abstention action"
+    ],
+    "not_claimed": [
+      "price action labels are causal explanations by themselves",
+      "a 25-period EMA or round number predicts price",
+      "a visually persuasive chart is an economic observation",
+      "Model 0 preserves real-tick order or stop-entry queue behavior",
+      "one profitable setup or aggregate rescues a losing symbol or split"
+    ],
+    "prior_failure_radius_excluded": [
+      "the exact EURUSD M5 confirmed-pivot first-close BREAK versus HOLD-to-first-passage-retest SCC surface",
+      "the exact ECRS efficiency-ratio compression plus range-break plus volume/session surface",
+      "the exact VRAS seven-gap Session-VWAP and one-bar continuation objects",
+      "PO3 or KLR sweep-displacement-MSS-FVG-retest objects",
+      "post-outcome session, weekday, year, direction, stop, target or setup rescue"
+    ],
+    "ecrs_nondup_contract": {
+      "forbidden_reconstruction": "T2 may not reuse the ECRS conjunction of Kaufman ER10 shift 0.28 to 0.38, ATR14 at most 0.70 times its 20-bar mean, 12-bar range break, 1.7 times tick-volume surge, EMA20 bias and London-New-York session.",
+      "outcome_blind_mirror": "Before P5, replay the exact frozen ECRS trigger as a non-selectable identity mirror on the design-only price contract and report trigger counts, timestamp intersection and Jaccard overlap with T2 structural candidates; do not read excursions, trades or PnL.",
+      "material_difference_gate": "T2 must close before build if more than 50 percent of its structural candidate identities overlap the exact ECRS mirror and the requirement matrix cannot attribute the remaining decisions to locked-barrier provenance plus event order and duration. The mirror cannot become an economic arm or tune T2 thresholds."
+    },
+    "duplicate_surface_gate": "If the event-order challenger cannot beat the matched locked-barrier close-break control on outcome-blind semantic capability and later frozen economic incremental gates, T2 closes as the exact tested object rather than being relabeled as a new pattern."
+  },
+  "universe_contract": {
+    "mandatory_symbols": [
+      "XAUUSD",
+      "BTCUSD",
+      "EURUSD",
+      "USDJPY",
+      "GBPUSD",
+      "USDCHF",
+      "USDCAD",
+      "AUDUSD",
+      "NZDUSD"
+    ],
+    "primary_timeframe": "M5",
+    "m15_status": "OUT_OF_T2_INITIAL_FAMILY_AND_NOT_AN_IMPLICIT_RESCUE",
+    "tester_model": 0,
+    "tester_model_semantics": "Every tick generated from M1 bars; eligible for the completed-bar T2 economic claim only and never represented as broker real ticks.",
+    "requested_from": "1970.01.01",
+    "availability_cutoff_utc": "2026-07-30T23:59:59Z",
+    "cutoff_execution_rule": "No runtime receipt may claim the frozen cutoff until the cutoff has elapsed. A future-as-of or partial-day receipt is invalid and must be repaired without changing logic.",
+    "coverage_mode": "ALL_AVAILABLE_AS_OF_CUTOFF",
+    "exact_coverage_proof": "For each symbol, tester-journal history-synchronized start and end, report, run manifest, task packet, source hash and data-quality fingerprint must agree.",
+    "history_quality_operator": "gt",
+    "history_quality_pct": 97.0,
+    "quality_failure_route": "INVALID_REPAIR_NOT_NO_EDGE",
+    "required_attribution": [
+      "per-symbol all-available history",
+      "per-symbol 2018-current intersection when covered",
+      "per-symbol train, calibration, validation, OOS and T2-locked holdout"
+    ],
+    "no_skip_rule": "All nine mandatory Model-0 cells must produce a selected valid PASS receipt or the generation cannot close economic testing. Missing Model 4, cost or long real-tick coverage limits promotion and fidelity claims; it never removes the Model-0 cell.",
+    "symbol_specific_permissions": [
+      "broker symbol mapping and trading schedule",
+      "point, tick size, tick value and volume geometry",
+      "hash-bound non-zero cost manifest",
+      "train-only median, MAD and deterministic price-grid scale",
+      "train-only fitted coefficient vector and calibrator under the same frozen features, lambda and fitting procedure"
+    ],
+    "symbol_specific_prohibitions": [
+      "setup definition",
+      "bar window or event ordering",
+      "probability threshold",
+      "holding horizon",
+      "risk-reward ratio",
+      "weekday, year or outcome-derived session"
+    ]
+  },
+  "clock_and_cadence": {
+    "time_basis": "UTC",
+    "eligible_decision_closes": "00:30 through 22:50 Monday-Friday on every mandatory symbol; no symbol-specific session veto in T2",
+    "daily_selection": "At most one entry per UTC date and arm. The first upward crossing of the frozen setup probability threshold after all state and cost gates wins; no end-of-day best-signal selection.",
+    "entry": "First available MT5 tick/open of the M5 bar after the completed decision bar",
+    "forced_flat": "Emit close at the first completed bar reaching the frozen exit condition, no later than 12 bars, and force flat by 23:55 UTC Friday; no overnight carry past the daily maximum horizon and no weekend carry.",
+    "btc_weekends": "Observed for coverage but ineligible, so the same five elapsed weekdays and cadence denominator apply to BTC and FX.",
+    "cadence_gate": "2 to 5 executed trades per elapsed calendar week on each claimed symbol and every relevant split; no active-week, pooled-symbol or candidate-only denominator."
+  },
+  "causal_event_grammar": {
+    "observation_rule": "Only completed M5 OHLC bars and indicators computed from bars completed by decision time may enter state. No future-confirmed pivot, zigzag repaint, intrabar reconstruction or outcome path is allowed.",
+    "common_scaling": "All distances use ATR14 known at decision time. Per-symbol robust normalization is fit on train only; symbol identity is never an input feature, while each symbol retains its own predeclared train-only coefficient and calibration fit.",
+    "tokens": {
+      "LOCKED_BARRIER": "A horizontal or angular barrier derived solely from already confirmed extrema or a causal regression segment, timestamped before the buildup and immutable until expiry.",
+      "PRESSURE": "Signed multi-bar displacement, close-location, directional efficiency and EMA25 slope agree; duration and interruptions are recorded rather than collapsed to a single bar.",
+      "BUILDUP": "At least a frozen minimum sequence of bars remains near the locked barrier while range, overlap and counter-direction excursion contract; all counts and boundaries are fixed in P2 before any outcome.",
+      "ROOM": "Distance to the nearest pre-existing opposing barrier or deterministic round-grid magnet, normalized by planned risk and cost, is known before entry.",
+      "CLOSE_BREAK": "A completed close passes the immutable barrier by the frozen ATR-normalized margin; the trade can start only at the next M5 open.",
+      "COMBI": "A frozen pressure-bar then inside-bar sequence retains direction and tension before a causal close-break; the inside bar and trigger must both be completed.",
+      "REVERSAL": "A completed correction of a prior pressure leg reaches its frozen depth band and EMA25 or pre-existing structure, loses counter-pressure and closes back in the original leg direction.",
+      "AMBIGUOUS": "Conflicting direction, expired barrier, missing/gapped bars, inadequate room, non-zero cost unavailable, excessive spread or simultaneous opposing setup produces SKIP."
+    },
+    "state_machine": "OBSERVE -> BARRIER_LOCKED -> PRESSURE_OR_CORRECTION -> BUILDUP_OR_REVERSAL -> TRIGGER_OR_INVALID -> ENTER_OR_SKIP -> EXIT -> COOLDOWN. Every transition records decision_asof, source bar IDs, expiry and reject reason.",
+    "round_grid": "Context feature only. Grid scale is a deterministic order-of-magnitude function of train-median ATR14, never hand-picked per symbol and never an entry veto by itself.",
+    "formalization_gate": "P2 must replace every qualitative phrase above with exact equations, bounds, missing-data behavior and synthetic fixtures. This charter deliberately freezes the concepts and prohibits outcome access; it does not grant build authority."
+  },
+  "arms_and_trial_family": {
+    "arms": [
+      {
+        "id": "A0_LOCKED_BARRIER_BREAK",
+        "role": "matched simple control",
+        "setup": "causal locked barrier plus completed close-break, identical entry, exit, cost and daily-cap geometry; no pressure, buildup, room or sequence score"
+      },
+      {
+        "id": "A1_PATTERN_BREAK",
+        "role": "primary event-order challenger",
+        "setup": "locked barrier plus pressure plus buildup plus room plus completed close-break"
+      },
+      {
+        "id": "A2_PATTERN_BREAK_COMBI",
+        "role": "inside-bar tension challenger",
+        "setup": "A1 context with the frozen pressure-bar and completed inside-bar COMBI sequence before release"
+      },
+      {
+        "id": "A3_PULLBACK_REVERSAL",
+        "role": "trend-correction challenger",
+        "setup": "prior pressure leg plus frozen-depth correction to EMA25 or pre-existing structure, counter-pressure loss and completed reversal release"
+      },
+      {
+        "id": "A4_CAUSAL_GRAMMAR_POLICY",
+        "role": "full policy challenger",
+        "setup": "union of A1 through A3 with a frozen setup-priority conflict rule, one common probability/abstention model and one entry per UTC date; pattern-break pullback is excluded"
+      }
+    ],
+    "trial_family": "5 arms x 9 symbols = 45 performance cells",
+    "trial_total": 45,
+    "alpha_ppm_total": 50000,
+    "multiplicity_n": 45,
+    "model": "One L2-regularized logistic score with lambda=1 per economic arm and symbol, fitted only inside that symbol's train portion under one universal feature/equation contract. All 45 coefficient identities are hash-bound; there is no hyperparameter optimizer, coefficient transfer or cross-symbol pooling of outcomes.",
+    "calibration": "One sigmoid calibrator per arm-symbol fitted only on that symbol's calibration portion. The fitting algorithm is identical across symbols and may not be changed after reading any result.",
+    "conflict_priority": [
+      "A2_PATTERN_BREAK_COMBI",
+      "A1_PATTERN_BREAK",
+      "A3_PULLBACK_REVERSAL"
+    ],
+    "economic_program": "After all equations, model coefficients, calibrators, costs, source and task packets are frozen, run exactly one serial all-available-history MT5 Model-0 cell for every arm-symbol identity. Split and preregistered cost-stress attribution from the same frozen sequence do not create a new strategy trial.",
+    "invalid_run_rule": "A data or engineering invalid run consumes its attempt identity but no economic conclusion; only a bounded logic-identical repair is legal.",
+    "selection_rule": "Each arm and symbol is reported independently. A4 cannot hide a negative component by pooling and no losing symbol is rescued by an aggregate. Simpler survivors are preferred unless added grammar has frozen incremental value.",
+    "non_selectable_controls": [
+      "D0_ALWAYS_SKIP: engineering and accounting sanity only; no PF, selection or promotion claim",
+      "D1_PREVALENCE_MATCHED_RANDOM: seed 20260731 descriptive null only; never a survivor or source of a rule",
+      "D2_EMA25_ONLY: outcome-blind semantic/context diagnostic only",
+      "D3_BARRIER_ONLY: represented economically only by A0_LOCKED_BARRIER_BREAK; no extra trial",
+      "D4_BUILDUP_ONLY: synthetic and outcome-blind token diagnostic only",
+      "D5_SEQUENCE_SHUFFLED_AND_TIME_REVERSED: synthetic causal-order null only",
+      "D6_HUMAN_REVIEW: outcome-blind label-agreement benchmark only; reviewers are not represented as professional-trader performance",
+      "D7_ECRS_EXACT_MIRROR: outcome-blind trigger-identity de-dup only",
+      "D8_PBP_SCC_MIRROR: outcome-blind pattern-break-pullback identity diagnostic only; no trade or PnL"
+    ],
+    "diagnostic_authority": "D0 through D8 cannot select, rescue, promote or contribute economic PnL. All five economic arms run on all nine symbols regardless of diagnostic ranking. If any diagnostic is later allowed to affect economic survival or setup credit, a pre-outcome charter amendment must add it to the economic trial family and multiplicity; after any outcome exposure that amendment is forbidden.",
+    "pbp_scc_boundary": "Pattern-break pullback is not a selectable T2 arm and is excluded from A4. D8 may compare causal identities with the exact prior SCC BREAK-HOLD-RETEST surface before P5, without excursions or outcomes. A future economic PBP object requires a fresh generation/search cell, its own SCC-matched control and preregistration."
+  },
+  "label_exit_and_risk": {
+    "candidate_entry": "Actual next-M5-open MT5 fill after a completed trigger",
+    "planned_risk": "Distance from entry to the setup invalidation known at decision time plus cost buffer, accepted only inside a frozen 0.60 to 1.40 ATR14 envelope; the same envelope applies to control and challengers.",
+    "cost_unit": "c_s_t = max(observed spread_t, train P90 non-zero spread_s) + same-broker commission proxy_s + 2 * tick_size_s, from a hash-bound non-zero manifest.",
+    "close_only_path": [
+      "For completed bars j=1..12 compute signed excursion from the actual entry using close_j only.",
+      "If close excursion is at or below -1.00 planned R, emit CLOSE_STOP and execute at the next M5 open.",
+      "Else if close excursion is at or above +2.00 planned R, emit CLOSE_TARGET and execute at the next M5 open.",
+      "Else after bar 12 or at the frozen daily/weekend boundary emit TIME_EXIT and execute at the next available tick/open."
+    ],
+    "label": "Y=1 only when the +2.00R close threshold precedes the -1.00R close threshold and timeout in the completed-bar sequence; adverse-first and timeout are Y=0.",
+    "trade_threshold": "The calibrated probability must cross upward through its cost-aware break-even probability plus 0.05. The exact formula and price-versus-cash reconciliation are frozen and fixture-tested in P2.",
+    "forbidden_management": [
+      "broker-side intrabar SL or TP in the primary Model-0 claim",
+      "pending stop-entry or tick-order label",
+      "trailing stop",
+      "break-even move",
+      "partial exit",
+      "manual chart-based early exit",
+      "post-outcome target, stop or timeout change"
+    ],
+    "cash_risk_pct_initial_balance": 0.25,
+    "min_lot_max_planned_risk_pct_initial_balance": 0.30,
+    "min_lot_failure": "SKIP_AND_LOG_MIN_LOT_RISK_REJECT",
+    "equity_compounding": false,
+    "tail_treatment": "Retain next-open gaps and realized losses without clipping."
+  },
+  "split_contract": {
+    "basis": "Per-symbol elapsed UTC coverage after warm-up, not bar count.",
+    "train_pct": 50,
+    "calibration_pct": 15,
+    "validation_pct": 15,
+    "oos_pct": 10,
+    "t2_locked_holdout_pct": 10,
+    "holdout_label": "T2-locked holdout, not globally virgin workspace history",
+    "fit_permissions": [
+      "arm-symbol model coefficients on that symbol's train only under one frozen fitting specification",
+      "per-symbol robust scale and deterministic round-grid scale on train only",
+      "sigmoid calibrators on calibration only"
+    ],
+    "post_calibration_mutation": "FORBIDDEN",
+    "holdout_open": "Open once after source, equations, coefficients, calibrators, task packets, cost contract and all 45 identities are frozen.",
+    "minimum_confirmed_coverage_months": 84
+  },
+  "pre_outcome_capability_gates": [
+    "Lawful source matrix distinguishes first-book 70-tick material, second-book M5 material, forum vocabulary and project adaptations without claiming unsupported fidelity.",
+    "The exact ECRS mirror and PBP-to-SCC mirror complete outcome-blind trigger-identity de-dup; PBP remains non-selectable and the T2 grammar passes its frozen ECRS material-difference gate.",
+    "P2 provides exact causal equations, expiry and missing-data behavior for every token, transition and reject reason plus a complete requirement-to-code matrix.",
+    "Synthetic positive fixtures recover each intended state/transition with at least 95 percent sensitivity and shuffled-order or reversible negative fixtures trigger at no more than 5 percent.",
+    "Seed-freeze 60 outcome-hidden codebook windows and a disjoint 60 outcome-hidden reliability windows per mandatory symbol, 1,080 windows total, with candidate/non-candidate and time strata fixed before review. Two independent agents label trade/skip, direction, barrier, token sequence, invalidation and confidence; Gwet AC1 lower bound for trade/skip and setup family is at least 0.70, direction agreement is at least 0.85, barrier median absolute disagreement is at most 0.10 ATR14 and every required token F1 is at least 0.75 before adjudication.",
+    "Grammar development, reliability cases and future outcome/economic evaluation identities are disjoint and hash-bound; no future bar, excursion, trade result or PnL appears in pre-outcome charts or labels.",
+    "Python reference and MQL5 implementation match barrier IDs, token states, trigger timestamps, risk and reject reasons on deterministic fixtures and a bounded outcome-blind parity sample.",
+    "Closed-bar, prefix-invariance and non-repaint audits pass; adding future bars cannot alter any prior barrier, state, signal or decision log.",
+    "Outcome-blind full-policy structural opportunities after the one-per-day rule are at least 3 per elapsed week in every mandatory symbol and split and at least 300 design candidates exist per symbol, leaving room for the final 2-to-5 executed cadence without densification after outcome.",
+    "All nine broker symbols have exact mappings and proposed all-available-history boundaries; runtime History Quality remains a later P4/MT5 receipt fact and must be strictly above 97 percent.",
+    "Cost fields are non-zero or explicitly unavailable, planned-risk geometry is computable before entry and unavailable verified cost blocks promotion.",
+    "No T2 market outcome, trade, PnL, PF, validation, OOS or holdout has been opened before the hypothesis/prereg/task-packet and data epoch are SHA-frozen."
+  ],
+  "economic_success_contract": {
+    "profit_factor_verified_cost_x1": ">1.30",
+    "profit_factor_cost_x1_5": ">=1.25",
+    "profit_factor_cost_x2": ">=1.00",
+    "cadence": "2 to 5 executed trades per elapsed calendar week in train, validation, OOS, T2-locked holdout, all history and relevant 2018-current attribution",
+    "mean_expectancy_r_per_trade": ">=0.08",
+    "directional_stability": "Positive net expectancy in long and short directions for the claimed symbol-sleeve.",
+    "time_stability": "Positive expectancy in a majority of half-years and no single half-year creates the whole positive result.",
+    "historical_drawdown_pct": "<=6.0",
+    "monte_carlo_p95_drawdown_pct": "<=8.0",
+    "calibration": "Block-bootstrap 95 percent lower bound of Brier skill over climatology above zero; slope 0.8 to 1.2; absolute intercept at most 0.10; ECE at most 0.05.",
+    "robustness": "Optimization-aware WFA, PBO, Reality Check or DSR with multiplicity 45, parameter-neighborhood stability, regime buckets, Monte Carlo, cost and execution audits, non-repaint audit and independent QC all pass.",
+    "forensics": "At least 100 seed-frozen random executed trade episodes for a PASS candidate, each with separate decision_asof and anatomy images bound one-to-one to report, lifecycle and log IDs.",
+    "promotion_limit": "Model-0 and proxy cost may kill. Confirmation requires verified same-broker spread, commission and slippage evidence plus no untested intrabar dependence."
+  },
+  "incremental_gates": {
+    "A1_or_A4_vs_A0": [
+      "PF lift at least 0.10",
+      "mean realized-R lift at least 0.05R",
+      "positive Brier and log-loss improvement",
+      "cadence remains 2 to 5 per elapsed week",
+      "improvement is not explained only by fewer trades"
+    ],
+    "setup_components": "A2 and A3 are reported separately against A0 and their matched candidate populations before their vocabulary can be credited as adding edge. PBP has no economic credit or survivor path in T2.",
+    "pro_trader_replacement_claim": "T2 can only contribute a confirmed rule-bound decision sleeve. It cannot claim to replace a professional trader from source fidelity, label agreement, one backtest or aggregate PF alone."
+  },
+  "verdict_routes": {
+    "TARGET_PASS": "At least one arm-symbol sleeve passes every absolute, split, cost, robustness, overfit, forensic and independent-QC gate. All nine symbol cells remain reported.",
+    "VALID_FAIL_T2": "All required data and engineering are valid but no symbol sleeve survives. Close only the exact T2 grammar and open a materially new T3 after a process audit.",
+    "INVALID_REPAIR_T2": "History quality, coverage, identity, implementation, parity, label leakage, log or cost mechanics invalidate inference. Repair only the frozen object within its preregistered retry budget.",
+    "INSUFFICIENT_T2": "The frozen evidence boundary cannot decide or the opportunity density cannot support the target. Do not call it no-edge and do not densify or relax the object post-outcome."
+  },
+  "outcome_authority": {
+    "hypothesis_id": null,
+    "registry_row": null,
+    "preregistration": null,
+    "task_packet": null,
+    "data_epoch": null,
+    "mt5_outcomes_authorized": false,
+    "paper_or_live_authorized": false
+  },
+  "source_register": [
+    "https://upabook.wordpress.com/",
+    "https://upabook.wordpress.com/wp-content/uploads/2014/09/excerpts-upa.pdf",
+    "https://infofpas.wordpress.com/",
+    "https://infofpas.wordpress.com/wp-content/uploads/2011/10/excerpts-fpas-hr-3-6-121.pdf",
+    "https://openlibrary.org/books/OL35893320M/Understanding_Price_Action",
+    "https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr150.pdf",
+    "https://arxiv.org/abs/1011.6402",
+    "https://www.forexfactory.com/thread/733640-understanding-price-action-by-bob-volman-notes-and",
+    "https://www.forexfactory.com/thread/578183-volman-style-70-tick-chart",
+    "https://www.forexfactory.com/thread/post/14385709",
+    "https://www.forexfactory.com/thread/post/14556004",
+    "https://www.trade2win.com/threads/bob-volman-price-action-scalping.153716/",
+    "https://www.reddit.com/r/Forex/comments/15he7bt",
+    "https://www.mql5.com/en/docs/runtime/testing",
+    "https://www.mql5.com/en/articles/2612"
+  ]
+}

@@ -1,0 +1,107 @@
+# Local/runtime noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
+*.bak
+__pycache__/
+*.py[cod]
+
+# Secrets and credentials
+.env
+.env.*
+*.secret
+*recovery-codes*.txt
+*.pem
+*.key
+id_rsa*
+*credentials*
+
+# Machine-local AlphaFactory paths (per-PC MT5 install/data roots)
+02. AlphaFactory/alpha.local.ps1
+
+# MT5 / AlphaFactory heavy outputs
+02. AlphaFactory/data/**/*.parquet
+02. AlphaFactory/data/**/*.csv
+02. AlphaFactory/data/**/*.jsonl
+02. AlphaFactory/data/**/*.json
+02. AlphaFactory/data/**/*.dbn
+02. AlphaFactory/data/**/*.dbn.zst
+02. AlphaFactory/data/**/*.zst
+02. AlphaFactory/data/**/*.partial
+!02. AlphaFactory/data/**/manifest.json
+03. EA Developer/**/research/evidence/*_HISTORICAL_SPREAD_M1.csv
+03. EA Developer/**/research/evidence/*_QUOTE_LATENCY_*.csv
+03. EA Developer/**/research/evidence/*_RESULTS.jsonl
+03. EA Developer/**/research/trials/trial_log.jsonl
+*.ex5
+*.opt
+*.set
+*.hcc
+*.fxt
+02. AlphaFactory/runs/
+02. AlphaFactory/runs.db
+02. AlphaFactory/runs.db-shm
+02. AlphaFactory/runs.db-wal
+02. AlphaFactory/archive/
+02. AlphaFactory/runtime/
+02. AlphaFactory/external/
+02. AlphaFactory/data/dukascopy/bi5_tsmom_v4/
+02. AlphaFactory/data/dukascopy/jetta_h1_tsmom_v5/
+02. AlphaFactory/data/dukascopy/jetta_h1_tsmom_v5_r1/
+02. AlphaFactory/data/dukascopy/jetta_h1_tsmom_v5_r2/
+02. AlphaFactory/data/dukascopy/jetta_h1_tsmom_v5_r3/
+02. AlphaFactory/data/dukascopy/jetta_h1_tsmom_v5_r4/
+AlphaTester/
+.context/
+00. Old File/
+scratch/
+.playwright-mcp/
+worktrees/
+.claude/worktrees/
+
+# Generated analysis outputs
+**/analysis/*result*.json
+**/analysis/*results*.json
+**/analysis/*results*.csv
+**/analysis/ablation_results_*.csv
+**/analysis/*_audit_results.json
+
+# Local agent/editor state
+.serena/
+.cursor/*
+!.cursor/agents/
+!.cursor/agents/**
+!.cursor/rules/
+!.cursor/rules/**
+.windsurf/
+.vscode/
+.claude/settings.local.json
+.codex/config.toml
+.codex/tmp/
+.codex/operator/
+
+# Maintainer-only handoff and runtime state
+04. Memory/hot*.md
+
+# Broker/account exports and personal execution evidence
+02. AlphaFactory/evidence/execution/*-Real/
+02. AlphaFactory/evidence/execution/**/owner_deal_export_drop/
+
+# Local scratch / peek artifacts
+_tmp_*
+_peek_*
+*.ex4
+
+
+# Test/cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+
+# Bulky archives (keep source lists elsewhere)
+*.zip
+*.7z
+*.rar

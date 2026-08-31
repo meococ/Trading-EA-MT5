@@ -1,0 +1,47 @@
+{
+  "label": "GBPUSD_Standalone_DriftSeed",
+  "cost_bps": 2.0,
+  "pre_windows": [
+    30,
+    60,
+    90
+  ],
+  "post_windows": [
+    15,
+    30
+  ],
+  "pre": {
+    "30": {
+      "n": 199,
+      "mean_gross_bps": 0.9447,
+      "mean_net_bps": -1.0553,
+      "hit_rate_pct": 41.71
+    },
+    "60": {
+      "n": 199,
+      "mean_gross_bps": 0.0501,
+      "mean_net_bps": -1.9499,
+      "hit_rate_pct": 39.7
+    },
+    "90": {
+      "n": 199,
+      "mean_gross_bps": 0.2419,
+      "mean_net_bps": -1.7581,
+      "hit_rate_pct": 41.71
+    }
+  },
+  "post": {
+    "15": {
+      "n": 199,
+      "mean_gross_bps": -0.3438,
+      "mean_net_bps": -2.3438,
+      "hit_rate_pct": 32.66
+    },
+    "30": {
+      "n": 199,
+      "mean_gross_bps": -0.0892,
+      "mean_net_bps": -2.0892,
+      "hit_rate_pct": 35.68
+    }
+  }
+}

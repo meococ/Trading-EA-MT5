@@ -1,0 +1,13 @@
+{
+  "quote_ttl_seconds": 600,
+  "account_ttl_seconds": 600,
+  "spread_limits_points": {
+    "EURUSD": 20.0
+  },
+  "spread_increase_ratio": 2.0,
+  "zone_buffer_points": 5.0,
+  "near_sl_tp_points": 10.0,
+  "high_impact_news_horizon_minutes": 30,
+  "account_risk_delta_pct": 0.1,
+  "future_timestamp_tolerance_seconds": 5
+}

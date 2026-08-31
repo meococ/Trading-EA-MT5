@@ -1,0 +1,14 @@
+{
+  "schema_version": "risk_state.v1",
+  "state_id": "TEMPLATE_NOT_RUNTIME_AUTHORITY",
+  "asof_utc": "2099-01-01T06:00:00Z",
+  "account_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "session_plan_id": "SESSION_PLAN_2099-01-01_LONDON",
+  "ledger_head_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "deals_window_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "source": "MQL5_DEAL_LEDGER_RECONCILIATION",
+  "daily_loss_pct": 0.0,
+  "weekly_loss_pct": 0.0,
+  "trades_this_session": 0,
+  "consecutive_losses": 0
+}

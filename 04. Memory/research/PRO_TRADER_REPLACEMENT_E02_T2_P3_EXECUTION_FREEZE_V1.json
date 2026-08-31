@@ -1,0 +1,125 @@
+{
+  "schema_version": "t2_p3_execution_freeze.v1",
+  "campaign": "PRO_TRADER_REPLACEMENT",
+  "generation": "T2",
+  "phase": "P3_OUTCOME_BLIND_DEDUP",
+  "status": "FROZEN_PRE_REAL_T2_IDENTITY_COUNT",
+  "authority": "P3_IDENTITY_ONLY_NO_BUILD_NO_ECONOMICS",
+  "frozen_at_utc": "2026-08-02T11:22:11Z",
+  "real_t2_identity_count_exposed": false,
+  "output_directory": "03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_DEDUP_V1",
+  "test_gate": {
+    "command": "python -m pytest -q 03. EA Developer/EA_VolmanCausalGrammar",
+    "expected_passed": 49
+  },
+  "prior_scc_replay_gate": {
+    "authority": "PRIOR_SCC_IDENTITY_REPLAY_ONLY_NO_T2_COUNT",
+    "source_rows": 596141,
+    "control_records": 1242,
+    "challenger_records": 286
+  },
+  "bindings": {
+    "p3_contract": {
+      "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P3_DEDUP_CONTRACT_V2.json",
+      "sha256": "30DD1EBC7DFD722A5F6C2765E1577845FB012983EB943E5C0E4A6CAD5B6C0290",
+      "role": "outcome_blind_dedup_contract"
+    },
+    "p0_charter": {
+      "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P0_CHARTER.json",
+      "sha256": "D63F782926DEC4F12EA8EBB17B3511BC08C249A0AE4ECD9C1F25F5C611386E9E",
+      "role": "generation_charter"
+    },
+    "p2_formal_spec": {
+      "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P2_FORMAL_SPEC.md",
+      "sha256": "CB1DDA2B678D2F450BB2DDE05327D2734E2A430BBBC4809BB08C71110FA0BA7D",
+      "role": "formal_grammar_spec"
+    },
+    "ecrs_v1_reference": {
+      "path": "03. EA Developer/EA_ECRS_CompressionReleaseScalper/research/preflight/stage0_scan.py",
+      "sha256": "BA15FA9E42B8015CBA148906794580137516F2F09831477335C1612CC7068228",
+      "role": "d7_primary_reference"
+    },
+    "ecrs_v2_diagnostic_only": {
+      "path": "03. EA Developer/EA_ECRS_CompressionReleaseScalper/research/preflight/stage0_scan_v2.py",
+      "sha256": "A456D7723A2CC484F53733731B53A6E52C296541CE1105F3B6A37FABD96B98B3",
+      "role": "d7_secondary_diagnostic_reference"
+    },
+    "indicator_reference": {
+      "path": "02. AlphaFactory/tools/research/indicators.py",
+      "sha256": "95EBEA3C2638E429136D189727097A201FF1ADE1164139161E857645E8EE1F1A",
+      "role": "d7_indicator_semantics"
+    },
+    "ecrs_news_csv": {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.csv",
+      "sha256": "80B9DE46517B42F8B1D9A3ACCEFA6CC6D3DCB4DD06CAE357F16DE46228C64307",
+      "role": "d7_news_calendar"
+    },
+    "ecrs_news_manifest": {
+      "path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/manifest.json",
+      "sha256": "79C40AE0C7DFF7CF44539D00FD108E6D038648694EABD7AA44E234ACC00EF5B1",
+      "role": "d7_news_provenance"
+    },
+    "scc_reference": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/scc_stage0_probe.py",
+      "sha256": "2E491B95795F3681AF7FCDD5BDF0A2DFF7C59707F26E137E858E9E5C1C6A7C4F",
+      "role": "d8_reference_semantics"
+    },
+    "scc_probe_plan": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/HYP-SCC-EURUSD-M5-001_PROBE_PLAN.md",
+      "sha256": "6541239D88FFF99D9C8D1E2B3C78645ECE0BE01A69FFCF32BA1620ED6557FA3B",
+      "role": "d8_reference_contract"
+    },
+    "stage0_bars": {
+      "path": "03. EA Developer/EA_ECRS_CompressionReleaseScalper/research/preflight/stage0_bars_m5.parquet",
+      "sha256": "A2DDF0D423D188B7BA708ECF4386180853867982123C38418D43A2CE89053532",
+      "role": "complete_eurusd_m5_replay_source"
+    },
+    "scc_control_csv": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-EURUSD-M5-001_STAGE0/stage0_control_breaks.csv",
+      "sha256": "CF8002A8FDF617A3E8A216C65DEB6F8A0004B3B8DA16BCD1093A2B505CE50441",
+      "role": "d8_control_identity_source"
+    },
+    "scc_challenger_csv": {
+      "path": "03. EA Developer/EA_SweepCascadeContinuation/research/evidence/HYP-SCC-EURUSD-M5-001_STAGE0/stage0_scc_candidates.csv",
+      "sha256": "86493403CBFEA636E845AD4127FB96876D58DE90DCC608C017F4CF8C37B66F63",
+      "role": "d8_challenger_identity_source"
+    },
+    "runner": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_dedup.py",
+      "sha256": "03440D65F14C60E586137EF8FAEAEB85A4AA882841225B33F6F5E6A3B8E3A4E2",
+      "role": "authoritative_execution_entrypoint"
+    },
+    "grammar": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_grammar_reference.py",
+      "sha256": "3EDB434B7AFDDCBC67BB4F9BD26A7A081E405BDA6144175128F53299004B6CE0",
+      "role": "t2_structural_identity_producer"
+    },
+    "dedup": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_dedup_mirrors.py",
+      "sha256": "11124E256986814C70B7BA97A0585F7447081F853D7847A78D205EAA2329EBC9",
+      "role": "d7_d8_reference_and_comparator"
+    },
+    "schedule": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_d7_eurusd_schedule_v1.json",
+      "sha256": "4174A31D8839761A5FE64A9DDD0C3A5A7088A9B44552A5738A3EF070B23F2418",
+      "role": "causal_reset_schedule"
+    },
+    "grammar_tests": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/test_t2_grammar_reference.py",
+      "sha256": "F324AB99C4B7AA431CD7F66FAF692C7BCAFC58DEDBFBAB7158467D54EB9C13D1",
+      "role": "grammar_acceptance_suite"
+    },
+    "dedup_tests": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/test_t2_dedup_mirrors.py",
+      "sha256": "159CF8AB421D24C70261F4E90DBB2DAAB8A15625EC153A6063C554640536351E",
+      "role": "dedup_and_execution_acceptance_suite"
+    }
+  },
+  "prohibitions": [
+    "NO_MARKET_OUTCOMES_OR_PNL",
+    "NO_THRESHOLD_OR_EVENT_KEY_CHANGES_AFTER_EXPOSURE",
+    "NO_EA_BUILD_AUTHORITY",
+    "NO_ECONOMIC_AUTHORITY",
+    "NO_OVERWRITE_OF_RESULT_PACKET"
+  ]
+}

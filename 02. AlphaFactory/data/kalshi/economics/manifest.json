@@ -1,0 +1,80 @@
+{
+  "schema_version": "market_data_manifest.v1",
+  "created_utc": "2026-07-18T03:17:08Z",
+  "source": "Kalshi public trade API (series-scoped acquisition, cron_20260718_0211)",
+  "coverage": "2021-07-26 .. 2024-12-31 (Economics series trades + markets + XAUUSD H1 join frame)",
+  "lane": "HYP-KALSHI-MACRO-PRINT-H1-XAU-001 (terminal KILL_AT_OFFLINE_PROBE)",
+  "acquisition_evidence": ".context/cron_20260718_0211/",
+  "files": [
+    {
+      "file": "20260718_195945_KALSHI_MACRO_ECON_trades.jsonl",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "file": "20260718_200018_KALSHI_MACRO_ECON_trades.jsonl",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "file": "20260718_200101_KALSHI_MACRO_ECON_trades.jsonl",
+      "bytes": 685801,
+      "sha256": "2CB550234AE1EC69B02E25B024806FB3975CEFB2068A49722379079E4861F28B"
+    },
+    {
+      "file": "20260718_200302_KALSHI_MACRO_ECON_trades.jsonl",
+      "bytes": 685801,
+      "sha256": "2CB550234AE1EC69B02E25B024806FB3975CEFB2068A49722379079E4861F28B"
+    },
+    {
+      "file": "20260718_200326_KALSHI_MACRO_ECON_trades.jsonl",
+      "bytes": 685801,
+      "sha256": "2CB550234AE1EC69B02E25B024806FB3975CEFB2068A49722379079E4861F28B"
+    },
+    {
+      "file": "kalshi_candidate_trades_20210726_20241231.jsonl",
+      "bytes": 80054000,
+      "sha256": "C658B8A40339B7CDCBADBEE2F90BE3CCFFCF17CEE7C3FE72F74D4C0C03EA9449"
+    },
+    {
+      "file": "kalshi_candidate_trades_meta.json",
+      "bytes": 484,
+      "sha256": "1ADCADE5B871E95C102E9C6A6A950DB217E961D191A63E79DADD6B04BC309138"
+    },
+    {
+      "file": "kalshi_series_markets.json",
+      "bytes": 4152658,
+      "sha256": "DF7C34AF8C5347F7A8C53461C1A83FC1A2523372AA82759A44AA47D423273A87"
+    },
+    {
+      "file": "kalshi_series_trades_20210726_20241231.jsonl",
+      "bytes": 93746722,
+      "sha256": "E0B247CCE535DA36C730AE9DFB3A9D1023A6C5D10CC694A061C6AA15590D43A7"
+    },
+    {
+      "file": "kalshi_series_trades_meta.json",
+      "bytes": 4067,
+      "sha256": "E7943D01B135D536DF6E3882D7562E9DABF4D848985E579EF1B57D32880B8B7C"
+    },
+    {
+      "file": "market_resolution_cache.json",
+      "bytes": 4292542,
+      "sha256": "2714C80313AFD25EF426D89D60E7D1D9A1A352E4FE99A05B0781DB5A20EAF885"
+    },
+    {
+      "file": "XAUUSD_H1_202106_202412.csv",
+      "bytes": 2707099,
+      "sha256": "6038B4F595A6A885203DFEC945A3608EEEC0C8BB9E2E805092D058BD8AD5A97A"
+    },
+    {
+      "file": "XAUUSD_H1_202106_202412.parquet",
+      "bytes": 1077472,
+      "sha256": "9F3A2572EA59A7BCCD2DFBB893427DFA291BB9D16B6CD50DE00F8A8C8B46E6E5"
+    },
+    {
+      "file": "XAUUSD_H1_meta.json",
+      "bytes": 785,
+      "sha256": "BB699D981F06A45A206712EC9E3AB53C856C9893F1EAD15F300709E336AE9A6B"
+    }
+  ]
+}

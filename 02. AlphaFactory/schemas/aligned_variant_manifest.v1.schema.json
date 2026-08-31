@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alphafactory_aligned_variant_manifest.v1",
+  "title": "AlphaFactory preregistered aligned variant evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "hypothesis_id", "source_sha256", "frozen_pre_outcome",
+    "full_tried_family", "selection_rule_frozen", "value_semantics", "time_column",
+    "value_column", "preregistration", "expected_variant_ids", "baseline_variant_id", "robustness_variant_ids",
+    "minimum_trades_per_variant", "minimum_variant_mean_net_r",
+    "minimum_robustness_pass_ratio", "analysis_settings", "variants"
+  ],
+  "properties": {
+    "schema_version": {"const": "alphafactory_aligned_variant_manifest.v1"},
+    "hypothesis_id": {"type": "string", "minLength": 1},
+    "source_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "frozen_pre_outcome": {"const": true},
+    "full_tried_family": {"const": true},
+    "selection_rule_frozen": {"const": true},
+    "value_semantics": {"const": "net_r"},
+    "time_column": {"const": "exit_time"},
+    "value_column": {"const": "net_r"},
+    "preregistration": {"$ref": "#/$defs/binding"},
+    "expected_variant_ids": {
+      "type": "array", "minItems": 2, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "baseline_variant_id": {"type": "string", "minLength": 1},
+    "robustness_variant_ids": {
+      "type": "array", "minItems": 2, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "minimum_trades_per_variant": {"type": "integer", "minimum": 1},
+    "minimum_variant_mean_net_r": {"type": "number"},
+    "minimum_robustness_pass_ratio": {"type": "number", "minimum": 0, "maximum": 1},
+    "analysis_settings": {
+      "type": "object", "additionalProperties": false,
+      "required": ["wfa_windows", "cscv_slices", "cscv_max_combinations", "white_reality_bootstrap", "white_reality_block_length", "random_seed"],
+      "properties": {
+        "wfa_windows": {"type": "integer", "minimum": 2},
+        "cscv_slices": {"type": "integer", "minimum": 4, "multipleOf": 2},
+        "cscv_max_combinations": {"type": "integer", "minimum": 1},
+        "white_reality_bootstrap": {"type": "integer", "minimum": 200},
+        "white_reality_block_length": {"type": "integer", "minimum": 2},
+        "random_seed": {"type": "integer"}
+      }
+    },
+    "variants": {
+      "type": "array", "minItems": 2,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["variant_id", "trades_csv", "run_manifest"],
+        "properties": {
+          "variant_id": {"type": "string", "minLength": 1},
+          "trades_csv": {"$ref": "#/$defs/binding"},
+          "run_manifest": {"$ref": "#/$defs/binding"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "binding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+      }
+    }
+  }
+}

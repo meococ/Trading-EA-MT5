@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://alphafactory.local/schemas/execution_data_capture_manifest.v1.schema.json",
+  "title": "AlphaFactory execution data capture manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "created_at_utc",
+    "capture_id",
+    "purpose",
+    "capture_mode",
+    "broker_identity",
+    "research_gates",
+    "symbols",
+    "safety"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "alphafactory_execution_data_capture.v1"
+    },
+    "created_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "capture_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "purpose": {
+      "enum": [
+        "QFSI_DATA_FEASIBILITY_ONLY",
+        "GVBCI_DATA_FEASIBILITY_ONLY"
+      ]
+    },
+    "capture_mode": {
+      "enum": [
+        "PASSIVE_READ_ONLY",
+        "BROKER_HISTORY_READ_ONLY",
+        "LICENSED_VENDOR_HISTORY"
+      ]
+    },
+    "broker_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "expected_server",
+        "observed_server",
+        "server_fingerprint",
+        "account_fingerprint",
+        "account_currency",
+        "terminal_build"
+      ],
+      "properties": {
+        "expected_server": { "type": "string", "minLength": 1 },
+        "observed_server": { "type": "string", "minLength": 1 },
+        "server_fingerprint": { "$ref": "#/$defs/sha256" },
+        "account_fingerprint": { "$ref": "#/$defs/sha256" },
+        "account_currency": { "type": "string", "minLength": 3 },
+        "terminal_build": { "type": "integer", "minimum": 1 },
+        "observed_tick_clock_offset_seconds": { "type": "integer", "minimum": -50400, "maximum": 50400 }
+      }
+    },
+    "research_gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "minimum_quote_elapsed_days",
+        "minimum_quote_rows_per_elapsed_day",
+        "minimum_connected_heartbeat_ratio",
+        "maximum_heartbeat_gap_ms",
+        "minimum_commission_lifecycles_per_symbol",
+        "minimum_slippage_fills_per_symbol",
+        "minimum_slippage_buys_per_symbol",
+        "minimum_slippage_sells_per_symbol",
+        "maximum_reference_age_ms"
+      ],
+      "properties": {
+        "minimum_quote_elapsed_days": { "type": "integer", "minimum": 90 },
+        "minimum_quote_rows_per_elapsed_day": { "type": "integer", "minimum": 1000 },
+        "minimum_connected_heartbeat_ratio": { "type": "number", "minimum": 0.95, "maximum": 1.0 },
+        "maximum_heartbeat_gap_ms": { "type": "integer", "minimum": 1000, "maximum": 60000 },
+        "minimum_commission_lifecycles_per_symbol": { "type": "integer", "minimum": 30 },
+        "minimum_slippage_fills_per_symbol": { "type": "integer", "minimum": 100 },
+        "minimum_slippage_buys_per_symbol": { "type": "integer", "minimum": 30 },
+        "minimum_slippage_sells_per_symbol": { "type": "integer", "minimum": 30 },
+        "maximum_reference_age_ms": { "type": "integer", "minimum": 1, "maximum": 1000 }
+      }
+    },
+    "symbols": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "symbol",
+          "digits",
+          "point",
+          "pip_size",
+          "quote_ticks",
+          "heartbeats",
+          "commission_lifecycles",
+          "slippage_fills"
+        ],
+        "properties": {
+          "symbol": { "type": "string", "minLength": 1 },
+          "digits": { "type": "integer", "minimum": 0 },
+          "point": { "type": "number", "exclusiveMinimum": 0 },
+          "pip_size": { "type": "number", "exclusiveMinimum": 0 },
+          "quote_ticks": { "$ref": "#/$defs/dataArtifact" },
+          "heartbeats": { "$ref": "#/$defs/dataArtifact" },
+          "commission_lifecycles": { "$ref": "#/$defs/dataArtifact" },
+          "slippage_fills": { "$ref": "#/$defs/dataArtifact" }
+        }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "read_only",
+        "orders_sent",
+        "positions_opened",
+        "live_trading_authorized"
+      ],
+      "properties": {
+        "read_only": { "const": true },
+        "orders_sent": { "const": 0 },
+        "positions_opened": { "const": 0 },
+        "live_trading_authorized": { "const": false }
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[A-Fa-f0-9]{64}$"
+    },
+    "dataArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "completeness_method"],
+      "properties": {
+        "status": {
+          "enum": ["AVAILABLE", "PARTIAL", "MISSING", "NOT_APPLICABLE"]
+        },
+        "completeness_method": {
+          "enum": [
+            "PASSIVE_HEARTBEAT",
+            "VENUE_SEQUENCE_NUMBERS",
+            "BROKER_HISTORY_UNVERIFIED",
+            "ACCOUNT_HISTORY",
+            "INDEPENDENT_PRE_SEND_REFERENCE",
+            "NONE"
+          ]
+        },
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "row_count": { "type": "integer", "minimum": 0 }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "status": { "const": "AVAILABLE" } },
+            "required": ["status"]
+          },
+          "then": {
+            "required": ["path", "sha256", "row_count"]
+          }
+        }
+      ]
+    }
+  }
+}

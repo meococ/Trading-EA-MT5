@@ -1,0 +1,13 @@
+{
+  "schema": "alphafactory_candidate_lineage_overrides.v1",
+  "registry_sha256": "2043351DDB09F826187D4A55690646DC946415062531063774A721C334F26391",
+  "edges": [
+    {
+      "parent_hypothesis_id": "HYP-PTR-T2-DATA-EPOCH-D0-M5-001",
+      "superseding_hypothesis_id": "HYP-PTR-T2-DATA-EPOCH-D0-M5-005",
+      "authority_receipt_path": "04. Memory/research/20260813_UNRUN_EA_SHELF_DATABASE_AUDIT.md",
+      "authority_receipt_sha256": "F6AEB7C8DD053EA886AF6C2B328551E5C848666C1D29EC8F83F862E0C3C4B6E0",
+      "reason": "Receipt lines 64-66 record HYP001 as collection-only and superseded by HYP002 through HYP005; HYP005 is terminal."
+    }
+  ]
+}

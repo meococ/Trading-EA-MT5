@@ -1,0 +1,78 @@
+{
+  "schema_version": "t2_p3_timing_execution_lock.v2",
+  "campaign": "PRO_TRADER_REPLACEMENT",
+  "generation": "T2",
+  "phase": "P3_OUTCOME_BLIND_DEDUP",
+  "status": "FROZEN_PRE_TIMING_ONLY_PREFIX_SOURCE_READ",
+  "authority": "ENGINEERING_TIMING_ONLY_NO_IDENTITY_OUTPUT_NO_ECONOMICS",
+  "frozen_at_utc": "2026-08-12T20:00:41Z",
+  "owner_scope": "XAU_FOREX_ONLY_BTC_NOT_GATING",
+  "timing_probe": {
+    "primary_scope": "EURUSD_M5_EXACT_BOUND_PREFIX",
+    "prefix_bars": 50000,
+    "max_wall_seconds": 300,
+    "min_bars_per_second": 500,
+    "max_projected_full_wall_seconds": 1800,
+    "source_rows": 596141,
+    "allowed_output_files": [
+      "timing_receipt.json"
+    ],
+    "expected_command": "python \"03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_dedup_v2.py\" --timing-only --prefix-bars 50000 --output-dir \"03. EA Developer/EA_VolmanCausalGrammar/research/evidence/T2_P3_TIMING_V2_001\""
+  },
+  "bindings": {
+    "v1_execution_freeze": {
+      "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P3_EXECUTION_FREEZE_V1.json",
+      "sha256": "E5D82EBA2F3E2B1A946E581B81DBD878C92410E9E0F5EE31101DB98EC664300A",
+      "role": "prior_no-count_timeout_authority"
+    },
+    "p3_contract": {
+      "path": "04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P3_DEDUP_CONTRACT_V2.json",
+      "sha256": "30DD1EBC7DFD722A5F6C2765E1577845FB012983EB943E5C0E4A6CAD5B6C0290",
+      "role": "unchanged_outcome_blind_dedup_contract"
+    },
+    "v1_runner": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_dedup.py",
+      "sha256": "03440D65F14C60E586137EF8FAEAEB85A4AA882841225B33F6F5E6A3B8E3A4E2",
+      "role": "unchanged_authoritative_identity_runner"
+    },
+    "v2_timing_runner": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/run_t2_p3_dedup_v2.py",
+      "sha256": "C86463D4E9BA6C9CAAD5310B5D5015FD90F95C1EC960534F21864897748B71F1",
+      "role": "timing_only_subprocess_wrapper"
+    },
+    "v2_timing_tests": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/test_t2_p3_timing_v2.py",
+      "sha256": "8D5DECEB522E8EFF4E45EEE3B4EC400D6EB0A23A3D971DD3F8CBD2E4784105D1",
+      "role": "timing_output_and_fail_closed_tests"
+    },
+    "grammar": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_grammar_reference.py",
+      "sha256": "3EDB434B7AFDDCBC67BB4F9BD26A7A081E405BDA6144175128F53299004B6CE0",
+      "role": "unchanged_t2_structural_producer"
+    },
+    "dedup_mirrors": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_dedup_mirrors.py",
+      "sha256": "11124E256986814C70B7BA97A0585F7447081F853D7847A78D205EAA2329EBC9",
+      "role": "unchanged_d7_d8_comparison_semantics"
+    },
+    "schedule": {
+      "path": "03. EA Developer/EA_VolmanCausalGrammar/research/t2_d7_eurusd_schedule_v1.json",
+      "sha256": "4174A31D8839761A5FE64A9DDD0C3A5A7088A9B44552A5738A3EF070B23F2418",
+      "role": "unchanged_eurusd_m5_schedule"
+    },
+    "stage0_bars": {
+      "path": "03. EA Developer/EA_ECRS_CompressionReleaseScalper/research/preflight/stage0_bars_m5.parquet",
+      "sha256": "A2DDF0D423D188B7BA708ECF4386180853867982123C38418D43A2CE89053532",
+      "role": "bound_complete_source_prefix_parent"
+    }
+  },
+  "prohibitions": [
+    "NO_MARKET_OUTCOMES_TRADES_EXCURSIONS_OR_PNL",
+    "NO_IDENTITY_AUDIT_REJECT_ROWS_OR_COUNTS",
+    "NO_D7_D8_SCORE_OR_RESULT_PACKET",
+    "NO_THRESHOLD_SCHEDULE_EVENT_KEY_OR_COMPARISON_CHANGE",
+    "NO_EA_BUILD_COMPILE_BACKTEST_OR_ECONOMICS",
+    "NO_GIT_DEPENDENCY",
+    "NO_OVERWRITE"
+  ]
+}

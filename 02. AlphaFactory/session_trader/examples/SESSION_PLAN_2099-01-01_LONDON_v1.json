@@ -1,0 +1,41 @@
+{
+  "schema_version": "session_plan.v1",
+  "plan_id": "SESSION_PLAN_2099-01-01_LONDON",
+  "version": 1,
+  "session_date": "2099-01-01",
+  "session": "LONDON",
+  "created_at_utc": "2099-01-01T06:00:00Z",
+  "market_asof_utc": "2099-01-01T05:59:00Z",
+  "created_by": "SESSION_PLANNER_TEMPLATE",
+  "input_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "supersedes_sha256": null,
+  "revision_reason": null,
+  "regime": "UNSET_TEMPLATE_NO_TRADE",
+  "biases": [
+    {
+      "symbol": "EURUSD",
+      "stance": "NEUTRAL",
+      "summary": "Template only; replace with causal pre-session evidence"
+    }
+  ],
+  "key_zones": [],
+  "scenarios": [
+    {
+      "scenario_id": "NO_TRADE_TEMPLATE",
+      "name": "No trade until evidence is frozen",
+      "trigger": "No valid trigger",
+      "action": "Do not create a candidate",
+      "invalidation": "Replace this template by creating a new immutable artifact"
+    }
+  ],
+  "global_invalidation": "Template has no trading authority",
+  "calendar": [],
+  "constraints": {
+    "max_risk_pct_per_trade": 0.25,
+    "max_trades": 1,
+    "news_blackout_before_minutes": 15,
+    "news_blackout_after_minutes": 15,
+    "allowed_symbols": ["EURUSD"],
+    "correlation_note": "Do not stack EURUSD and GBPUSD at full risk"
+  }
+}

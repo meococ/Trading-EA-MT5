@@ -1,0 +1,12 @@
+{
+  "schema_version": "alphafactory_impact_calibration.v1",
+  "source_kind": "observed_depth",
+  "symbol": "<SYMBOL>",
+  "quantity_unit": "base_units",
+  "eta": 0.5,
+  "sample_count": 1,
+  "frozen_pre_outcome": true,
+  "verification_status": "UNVERIFIED_DIAGNOSTIC_ONLY",
+  "evidence_path": "<OBSERVED_DEPTH_CALIBRATION_EVIDENCE>",
+  "evidence_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+}

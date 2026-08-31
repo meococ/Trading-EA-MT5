@@ -1,0 +1,79 @@
+{
+  "bindings": {
+    "input_path": "02. AlphaFactory/data/forexfactory/EURUSD/news_events/forexfactory_high_impact_eurusd_2019_2022.weekly.raw.json",
+    "input_sha256": "78CB2656A27278B1DA04B2C594A2C73BB1877DBA3AB52BCCFAC36A215945EA8F",
+    "plan_path": "04. Memory/research/20260813_FOREXFACTORY_RAW_SURPRISE_CAPABILITY_PLAN.md",
+    "plan_sha256": "0ACF728A9F3D4A25D01F11548EE1B25F9A7C7238D3B98CCC02D26626E3629285"
+  },
+  "counts": {
+    "by_currency": {
+      "EUR": 272,
+      "USD": 1010
+    },
+    "duplicate_event_ids": 0,
+    "embedded_validation_events": 1282,
+    "events": 1282,
+    "field_complete_events": 1282,
+    "first_public_pit_rows": 0,
+    "numeric_actual_forecast_pairs": 880,
+    "numeric_by_year": {
+      "2019": 238,
+      "2020": 205,
+      "2021": 180,
+      "2022": 257
+    },
+    "revision_trace_rows": 0,
+    "total_by_year": {
+      "2019": 336,
+      "2020": 356,
+      "2021": 263,
+      "2022": 327
+    },
+    "unit_consistent_numeric_pairs": 880
+  },
+  "coverage": {
+    "numeric_pair_share_by_year": {
+      "2019": 0.7083333333333334,
+      "2020": 0.5758426966292135,
+      "2021": 0.6844106463878327,
+      "2022": 0.7859327217125383
+    },
+    "unit_consistent_numeric_pair_share": 0.6864274570982839
+  },
+  "forbidden_counters": {
+    "directions_assigned": 0,
+    "market_price_fields_read": 0,
+    "mt5_launches": 0,
+    "pnl_pf_dd_metrics_computed": 0,
+    "post_event_returns_computed": 0,
+    "trades_simulated": 0,
+    "validation_or_holdout_reads": 0
+  },
+  "gates": {
+    "container_identity": true,
+    "field_presence": true,
+    "first_public_pit": false,
+    "historical_live_identity": false,
+    "numeric_coverage": false,
+    "revision_trace": false,
+    "source_rank": false,
+    "year_coverage": true
+  },
+  "provenance_observations": {
+    "declared_acquired_at_utc": "2026-07-18T15:40:28.030Z",
+    "declared_limitations": [
+      "Third-party calendar ranking; not an official central-bank/statistics release ledger.",
+      "Times are displayed by the source as approximate and subject to change.",
+      "Untimed EUR/USD and global All-currency events are audit-only and excluded from timestamp blackout rows.",
+      "This artifact is diagnostic-only and does not make the EA promotion eligible."
+    ],
+    "declared_promotion_eligible": false,
+    "declared_source_rank": "C",
+    "live_update_contract_present": false,
+    "per_event_forecast_capture_timestamps": 0,
+    "per_event_revision_histories": 0
+  },
+  "schema_version": "alphafactory.forexfactory_raw_surprise_capability.v1",
+  "source_only": true,
+  "verdict": "KILL_RETROSPECTIVE_OR_NON_PIT_SURPRISE_SOURCE"
+}

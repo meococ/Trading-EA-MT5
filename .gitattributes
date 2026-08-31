@@ -1,0 +1,6 @@
+# Reproducible hashes for append-only research evidence and preregistrations.
+**/EA_SonicR/research/*.jsonl text eol=lf
+**/EA_SonicR/research/preregs/*.md text eol=lf
+**/EA_VolmanCausalGrammar/research/*.py text eol=lf
+**/EA_VolmanCausalGrammar/research/*.json text eol=lf
+**/PRO_TRADER_REPLACEMENT_E02_T2_P3_EXECUTION_FREEZE_*.json text eol=lf

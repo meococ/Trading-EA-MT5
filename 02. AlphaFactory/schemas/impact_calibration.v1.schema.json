@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alphafactory_impact_calibration.v1",
+  "title": "AlphaFactory observed-depth impact calibration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "source_kind",
+    "symbol",
+    "quantity_unit",
+    "eta",
+    "sample_count",
+    "frozen_pre_outcome",
+    "verification_status",
+    "evidence_path",
+    "evidence_sha256"
+  ],
+  "properties": {
+    "schema_version": { "const": "alphafactory_impact_calibration.v1" },
+    "source_kind": { "const": "observed_depth" },
+    "symbol": { "type": "string", "minLength": 1 },
+    "quantity_unit": { "const": "base_units" },
+    "eta": { "type": "number", "exclusiveMinimum": 0 },
+    "sample_count": { "type": "integer", "minimum": 1 },
+    "frozen_pre_outcome": { "const": true },
+    "verification_status": { "const": "UNVERIFIED_DIAGNOSTIC_ONLY" },
+    "evidence_path": { "type": "string", "minLength": 1 },
+    "evidence_sha256": { "type": "string", "pattern": "^[A-Fa-f0-9]{64}$" }
+  }
+}
