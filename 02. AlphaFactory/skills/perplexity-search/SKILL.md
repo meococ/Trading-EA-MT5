@@ -20,7 +20,9 @@ status: DEPRECATED-SOFT — prefer native Claude Code tools
 - Native tools trả kết quả không đủ tốt
 
 ## Lệnh chạy (nếu cần)
-- `$env:PYTHONIOENCODING='utf-8'; python "C:\Users\ADMIN\.openclaw\workspace\skills\perplexity-search\scripts\search.py" "<query>"`
+- Skill này đã `DEPRECATED-SOFT`. Script `scripts/search.py` không có trong
+  checkout này và đường dẫn tuyệt đối cũ (`C:\Users\ADMIN\...`) trỏ vào một
+  máy không tồn tại. Dùng native web search thay thế.
 
 ## Rules
 - Query concise và specific

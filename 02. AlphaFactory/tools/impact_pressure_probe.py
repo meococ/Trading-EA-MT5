@@ -23,6 +23,22 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Iterable, Sequence
 
+# Factory isolate only. The old default was r"C:\Program Files\MetaTrader 5\
+# terminal64.exe", which does not exist on this machine; a bare fallback would
+# have attached to the Owner GUI instead. See tools/factory_paths.py.
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from tools.factory_paths import factory_mt5_terminal as _factory_mt5_terminal
+
+
+def _default_terminal() -> str | None:
+    """Resolve the pinned factory terminal, or None so argparse still builds."""
+    try:
+        return str(_factory_mt5_terminal())
+    except Exception:
+        return None
+
 BAR_MS = 15 * 60 * 1000
 QUOTE_FLAG_MASK = 2 | 4  # TICK_FLAG_BID | TICK_FLAG_ASK
 STRESS_A_PIPS = 0.8  # 0.2 pip slippage/side + 0.4 pip RT commission
@@ -620,7 +636,7 @@ def load_cached_features(args: argparse.Namespace) -> dict[str, list[BarFeature]
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--terminal", default=r"C:\Program Files\MetaTrader 5\terminal64.exe")
+    parser.add_argument("--terminal", default=_default_terminal())
     parser.add_argument("--expected-server", required=True)
     parser.add_argument("--research-only", action="store_true")
     parser.add_argument("--symbols", nargs="+", default=["EURUSD", "GBPUSD"])

@@ -88,15 +88,15 @@ def iter_source_paths() -> list[Path]:
         'docs/ai/**/*.md',
         'docs/CLAUDE.md',
         '02. AlphaFactory/CLAUDE.md',
-        '02. EA Developer/CLAUDE.md',
+        '03. EA Developer/CLAUDE.md',
         '02. AlphaFactory/STRATEGY_LOG.md',
         'CLAUDE-EXP.md',
         '02. AlphaFactory/runs/*/*/analysis/*.json',
         '02. AlphaFactory/runs/*/*/run_manifest.json',
-        '02. EA Developer/**/*.mq5',
-        '02. EA Developer/**/*.mqh',
-        '02. EA Developer/**/README.md',
-        '02. EA Developer/**/REPRO_CHECKLIST.md',
+        '03. EA Developer/**/*.mq5',
+        '03. EA Developer/**/*.mqh',
+        '03. EA Developer/**/README.md',
+        '03. EA Developer/**/REPRO_CHECKLIST.md',
     ]
     found: set[Path] = set()
     for pattern in patterns:
@@ -122,8 +122,8 @@ def parse_run_context(path: Path) -> tuple[str, str, str]:
     parts = relative_path(path).split('/')
     if len(parts) >= 5 and parts[0] == '02. AlphaFactory' and parts[1] == 'runs':
         return parts[2], parts[3], parts[3][:8]
-    if '02. EA Developer' in parts:
-        idx = parts.index('02. EA Developer')
+    if '03. EA Developer' in parts:
+        idx = parts.index('03. EA Developer')
         if len(parts) > idx + 1:
             return parts[idx + 1], '', ''
     return '', '', ''

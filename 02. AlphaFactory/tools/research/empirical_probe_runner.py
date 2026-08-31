@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 from typing import Iterable
 
@@ -37,10 +38,15 @@ PREFLIGHT_PLAN = (
 PREFLIGHT_PLAN_SHA256 = (
     "BB0F95FDF5DA3654D212E443CCDAA87CBE2A1081FC6B8C1E29B0253DF6E916DB"
 )
-SUPPLIED_PLAN = Path(
-    r"C:\Users\ADMIN\.gemini\antigravity\brain"
-    r"\911cac32-2034-4b4f-b7e4-d8a487f0ce4c\final_ea_build_plan.md"
-)
+# The supplied plan was hardcoded to
+#   C:\Users\ADMIN\.gemini\antigravity\brain\911cac32-...\final_ea_build_plan.md
+# a path on a machine that is not this one. The hash check below already made
+# the runner fail there, just with an unreadable error. Make the input explicit
+# and fail closed with a message that names the problem.
+_SUPPLIED_PLAN_ENV = "EMPIRICAL_PROBE_SUPPLIED_PLAN"
+SUPPLIED_PLAN = Path(os.environ.get(_SUPPLIED_PLAN_ENV, "")) if os.environ.get(
+    _SUPPLIED_PLAN_ENV
+) else None
 SUPPLIED_PLAN_SHA256 = (
     "453E8EC25F5C79BCEBBF598D2394AA7E3112531366AA7E7A7C9D72F7B4653B9C"
 )
@@ -365,6 +371,13 @@ def _verify_hash(path: Path, expected: str, label: str) -> None:
 
 def run_preflight(output_dir: Path) -> dict:
     _verify_hash(PREFLIGHT_PLAN, PREFLIGHT_PLAN_SHA256, "PREFLIGHT PLAN")
+    if SUPPLIED_PLAN is None:
+        raise RuntimeError(
+            "SUPPLIED PLAN is not configured. Set "
+            f"{_SUPPLIED_PLAN_ENV}=<path to final_ea_build_plan.md>. The old "
+            r"hardcoded C:\Users\ADMIN\.gemini\... path was removed 2026-08-31; "
+            "it belongs to a machine that is not this one."
+        )
     _verify_hash(SUPPLIED_PLAN, SUPPLIED_PLAN_SHA256, "SUPPLIED PLAN")
     _verify_hash(TRIANGULAR_MANIFEST, TRIANGULAR_MANIFEST_SHA256, "TRIANGULAR MANIFEST")
     _verify_hash(TRIANGULAR_DATA, TRIANGULAR_DATA_SHA256, "TRIANGULAR DATA")
@@ -429,7 +442,7 @@ def run_preflight(output_dir: Path) -> dict:
         "trial_universe": 1,
         "preflight_plan_path": str(PREFLIGHT_PLAN.relative_to(WORKSPACE)).replace("\\", "/"),
         "preflight_plan_sha256": PREFLIGHT_PLAN_SHA256,
-        "supplied_plan_path": str(SUPPLIED_PLAN),
+        "supplied_plan_path": str(SUPPLIED_PLAN) if SUPPLIED_PLAN else None,
         "supplied_plan_sha256": SUPPLIED_PLAN_SHA256,
         "original_runner_sha256": ORIGINAL_RUNNER_SHA256,
         "source": {

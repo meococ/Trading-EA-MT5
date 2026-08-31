@@ -268,12 +268,22 @@ function Assert-Mt5FactoryTargetIsolate {
         throw "AlphaFactory refuses AppData Terminal data root '$data'. That folder is the GUI/profile tree. Pin DataRoot to the portable InstallRoot."
     }
 
+    # Hardened 2026-08-31. The factory target must live inside the AlphaFactory
+    # runtime tree. Program Files and the AppData Terminal root were already
+    # refused above, but an Owner GUI installed anywhere else (this machine
+    # keeps one at 'D:\Meta 5') slipped through and would have compiled and
+    # backtested inside the terminal the Owner trades from.
     if (-not [string]::IsNullOrWhiteSpace($RuntimeRoot)) {
         $runtime = [System.IO.Path]::GetFullPath($RuntimeRoot).TrimEnd([char[]]'\/')
-        if ($install.Equals($runtime, [System.StringComparison]::OrdinalIgnoreCase) -or (Test-Mt5PathUnderRoot -Path $install -Root $runtime)) {
-            if (-not $PortableMode) {
-                throw "InstallRoot under AlphaFactory runtime requires PortableMode=true so MT5 does not clone profiles into AppData. Install='$install'."
-            }
+        $installUnderRuntime = $install.Equals($runtime, [System.StringComparison]::OrdinalIgnoreCase) -or (Test-Mt5PathUnderRoot -Path $install -Root $runtime)
+        if (-not $installUnderRuntime) {
+            throw "AlphaFactory refuses InstallRoot '$install' as a compile/backtest target: it is outside the factory runtime '$runtime'. A terminal64.exe outside that tree is an Owner GUI or a foreign install. Pin a portable isolate under the runtime in alpha.local.ps1."
+        }
+        if (-not $PortableMode) {
+            throw "InstallRoot under AlphaFactory runtime requires PortableMode=true so MT5 does not clone profiles into AppData. Install='$install'."
+        }
+        if (-not $data.Equals($install, [System.StringComparison]::OrdinalIgnoreCase)) {
+            throw "DataRoot must equal the portable InstallRoot. Install='$install' Data='$data'."
         }
     }
 

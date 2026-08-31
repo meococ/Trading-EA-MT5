@@ -30,12 +30,18 @@ try:
     HAS_MT5 = True
 except ImportError:
     HAS_MT5 = False
-    
+
 try:
     import pandas as pd
     HAS_PANDAS = True
 except ImportError:
     HAS_PANDAS = False
+
+# Pin every MT5 attach to the factory isolate. A bare mt5.initialize() grabs
+# whichever terminal is already running, which on the Owner machine is the GUI
+# terminal being traded from -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import FactoryPathError, mt5_initialize_kwargs  # noqa: E402
 
 
 # ============================================================
@@ -69,9 +75,15 @@ def connect_mt5() -> bool:
         print("Install with: pip install MetaTrader5")
         return False
     
-    if not mt5.initialize():
+    try:
+        init_kwargs = mt5_initialize_kwargs()
+    except FactoryPathError as exc:
+        print(f"ERROR: cannot resolve the factory MT5 isolate.\n{exc}")
+        return False
+
+    if not mt5.initialize(**init_kwargs):
         print(f"ERROR: MT5 initialization failed. Error: {mt5.last_error()}")
-        print("Make sure MT5 terminal is running.")
+        print(f"Factory terminal: {init_kwargs['path']}")
         return False
     
     return True

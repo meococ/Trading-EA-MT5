@@ -29,6 +29,22 @@ from sklearn.metrics import accuracy_score, brier_score_loss, log_loss
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
+# Factory isolate only. The old default was r"C:\Program Files\MetaTrader 5\
+# terminal64.exe", which does not exist on this machine; a bare fallback would
+# have attached to the Owner GUI instead. See tools/factory_paths.py.
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from tools.factory_paths import factory_mt5_terminal as _factory_mt5_terminal
+
+
+def _default_terminal() -> str | None:
+    """Resolve the pinned factory terminal, or None so argparse still builds."""
+    try:
+        return str(_factory_mt5_terminal())
+    except Exception:
+        return None
+
 
 FEATURES = [
     "ret4_atr",
@@ -497,7 +513,7 @@ def write_json(path: Path, payload: dict[str, Any]) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--terminal", default=r"C:\Program Files\MetaTrader 5\terminal64.exe")
+    parser.add_argument("--terminal", default=_default_terminal())
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--trades-out", type=Path)
     parser.add_argument("--export-dir", type=Path)

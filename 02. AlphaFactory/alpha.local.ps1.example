@@ -17,7 +17,7 @@
 
 # Factory isolate (InstallRoot = DataRoot). Prefer mqdemo for tester; keep
 # fivepercent as a separate unused tree unless Owner retargets it.
-$MT5InstallRoot = "D:\Meta 5\Trading-EA-MT5\02. AlphaFactory\runtime\mt5-portable-mqdemo"
+$MT5InstallRoot = Join-Path $PSScriptRoot "runtime\mt5-portable-mqdemo"
 $MT5DataRoot = $MT5InstallRoot
 $MT5PortableMode = $true
 $MT5CommonFilesRoot = Join-Path $MT5DataRoot "Common\Files"
@@ -26,7 +26,7 @@ $MT5TesterRoot = Join-Path $MT5DataRoot "Tester"
 $MT5RequiredStorageDrive = "D:"
 
 # Alternate unused live-data tree (do not run tester against it while mqdemo is pinned):
-#   $MT5InstallRoot = "D:\Meta 5\Trading-EA-MT5\02. AlphaFactory\runtime\mt5-portable-fivepercent"
+#   $MT5InstallRoot = Join-Path $PSScriptRoot "runtime\mt5-portable-fivepercent"
 #
 # Owner Program Files GUI stays outside the factory. Do not uncomment this as a
 # factory target:
@@ -34,3 +34,13 @@ $MT5RequiredStorageDrive = "D:"
 #   $MT5DataRoot = "C:\Users\YOUR_USER\AppData\Roaming\MetaQuotes\Terminal\YOUR_32_HEX_TERMINAL_ID"
 #   $MT5PortableMode = $false
 #   $MT5CommonFilesRoot = Join-Path (Split-Path -Parent $MT5DataRoot) "Common\Files"
+
+# Also refused as factory targets (alpha.ps1 throws, verified 2026-08-31):
+#   - the Owner GUI root that holds the terminal you trade from. On this
+#     machine that is "D:\Meta 5" - it is also where the MT5 MCP server on
+#     127.0.0.1:22346 attaches, so pinning it here would let research and live
+#     trading share one terminal.
+#   - "C:\Users\...\AppData\Roaming\MetaQuotes\Terminal\<32-hex>" clones,
+#     including the stale GUID D0E8209F77C8CF37AD8BF550E51FF075.
+# The rule enforced in code is simply: InstallRoot must sit under
+# "02. AlphaFactory\runtime\", with PortableMode = $true and DataRoot = InstallRoot.

@@ -106,52 +106,23 @@ if (Test-Path -LiteralPath $LocalConfigPath -PathType Leaf) {
     $script:Mt5ConfigSource = "alpha.local.ps1"
 }
 
-function Resolve-Mt5InstallRoot {
-    $candidates = @(
-        "C:\Program Files\MetaTrader 5",
-        "C:\Program Files (x86)\MetaTrader 5"
-    )
-    foreach ($root in $candidates) {
-        if (Test-Path -LiteralPath (Join-Path $root "terminal64.exe") -PathType Leaf) {
-            return $root
-        }
-    }
-    return $null
-}
+# Machine paths come from alpha.local.ps1 only. Auto-detect was removed
+# 2026-08-31: Resolve-Mt5InstallRoot probed Program Files and
+# Resolve-Mt5DataRoot walked %APPDATA%\MetaQuotes\Terminal\<32-hex>, so a
+# missing local config silently retargeted the factory at the Owner GUI or at
+# an AppData clone. Fail closed instead.
+if ([string]::IsNullOrWhiteSpace($MT5InstallRoot) -or [string]::IsNullOrWhiteSpace($MT5DataRoot)) {
+    throw @"
+AlphaFactory has no machine paths. Auto-detect is disabled by contract.
 
-function Resolve-Mt5DataRoot([string]$InstallRoot) {
-    $termRoot = Join-Path $env:APPDATA "MetaQuotes\Terminal"
-    if (-not (Test-Path -LiteralPath $termRoot -PathType Container)) {
-        return $null
-    }
-    $dirs = @(Get-ChildItem -LiteralPath $termRoot -Directory -ErrorAction SilentlyContinue |
-        Where-Object { $_.Name -match '^[A-F0-9]{32}$' -and (Test-Path -LiteralPath (Join-Path $_.FullName "MQL5") -PathType Container) })
-    if ($dirs.Count -eq 0) { return $null }
-    if (-not [string]::IsNullOrWhiteSpace($InstallRoot)) {
-        $matched = @($dirs | Where-Object {
-            $origin = Join-Path $_.FullName "origin.txt"
-            if (-not (Test-Path -LiteralPath $origin -PathType Leaf)) { return $false }
-            $originVal = (Get-Content -LiteralPath $origin -Raw).Trim()
-            return ($originVal -ieq $InstallRoot)
-        })
-        if ($matched.Count -eq 1) { return $matched[0].FullName }
-        if ($matched.Count -gt 1) { return $matched[0].FullName }
-    }
-    if ($dirs.Count -gt 1) {
-        Write-Host "[WARN] Multiple MT5 terminal data folders found; using first. Pin the correct one in alpha.local.ps1." -ForegroundColor Yellow
-    }
-    return $dirs[0].FullName
-}
+Generate the pin:
+    & ".\02. AlphaFactory\tools\init_machine_paths.ps1"
 
-if ([string]::IsNullOrWhiteSpace($MT5InstallRoot)) {
-    $MT5InstallRoot = Resolve-Mt5InstallRoot
-    if ($script:Mt5ConfigSource -eq "unset") { $script:Mt5ConfigSource = "auto-detect" }
-    elseif ($script:Mt5ConfigSource -eq "alpha.local.ps1") { $script:Mt5ConfigSource = "alpha.local.ps1+auto-detect" }
-}
-if ([string]::IsNullOrWhiteSpace($MT5DataRoot)) {
-    $MT5DataRoot = Resolve-Mt5DataRoot $MT5InstallRoot
-    if ($script:Mt5ConfigSource -eq "unset") { $script:Mt5ConfigSource = "auto-detect" }
-    elseif ($script:Mt5ConfigSource -eq "alpha.local.ps1") { $script:Mt5ConfigSource = "alpha.local.ps1+auto-detect" }
+alpha.local.ps1 must set InstallRoot = DataRoot = a portable isolate under
+'$(Join-Path $AlphaRoot 'runtime')' with PortableMode = true. Never Program
+Files, never %APPDATA%\MetaQuotes\Terminal\<32-hex>, never the Owner GUI root
+that holds the terminal you trade from.
+"@
 }
 
 $Mt5StorageContractPath = Join-Path $AlphaRoot "tools\mt5_storage_contract.ps1"

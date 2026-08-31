@@ -15,6 +15,13 @@ from typing import Any
 import MetaTrader5 as mt5
 import numpy as np
 
+# Factory isolate only (was r"C:\Program Files\MetaTrader 5\terminal64.exe",
+# a path that does not exist here). See tools/factory_paths.py.
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from tools.factory_paths import factory_mt5_terminal as _factory_mt5_terminal
+
 ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = ROOT / "03. EA Developer/EA_HybridICT_Sonic/research/preflight"
 READOUT = (
@@ -306,7 +313,7 @@ def map_h4_index(m15_t: int, h4_t: np.ndarray) -> int:
 
 
 def main() -> None:
-    terminal = r"C:\Program Files\MetaTrader 5\terminal64.exe"
+    terminal = str(_factory_mt5_terminal())
     if not mt5.initialize(path=terminal):
         raise RuntimeError(f"mt5.initialize failed: {mt5.last_error()}")
     try:

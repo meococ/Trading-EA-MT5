@@ -42,6 +42,23 @@ cập nhật docs).
 
 - Chỉ dùng MQL5/MT5 cho sản phẩm và acceptance. Compile/backtest/analysis đi qua
   `02. AlphaFactory/alpha.ps1`; chart acceptance dùng MT5 native/Visual Tester.
+- **Hai mặt phẳng MT5, không được trộn** (chốt 2026-08-31 khi bật MCP):
+  - *Research plane* — `alpha.ps1` + portable isolate dưới
+    `02. AlphaFactory/runtime/`. Đây là **nơi duy nhất** được compile, backtest,
+    và sinh evidence. Có thẩm quyền kinh tế.
+  - *Observation plane* — MCP server nội bộ của MT5 tại `127.0.0.1:22346`,
+    gắn vào terminal GUI Owner đang trade. **Chỉ đọc**: account/positions,
+    lịch sử lệnh, chart/tick history theo giá broker thật, journal. Không có
+    thẩm quyền kinh tế, không sinh evidence, không thay backtest.
+  - MCP đọc/ghi trong đúng một root:
+    `%APPDATA%\MetaQuotes\Terminal\9CA16B8382AE4CF692710FB36B9DA355\MQL5`.
+    Root đó **không chứa repo này**, nên MCP không phải đường sửa source repo.
+  - Cấm: chạy `tester_run_backtest` qua MCP để lấy số ra quyết định (nó chạy
+    trong terminal Owner, tranh CPU với lệnh sống và dùng history khác isolate);
+    và cấm pin `alpha.local.ps1` vào `D:\Meta 5`. `alpha.ps1` throw ở cả hai.
+  - Python attach: luôn `mt5.initialize(**mt5_initialize_kwargs())` từ
+    `02. AlphaFactory/tools/factory_paths.py`. `mt5.initialize()` trần bám vào
+    terminal Owner. Gác bởi `tools/check_mt5_attach_contract.ps1`.
 - Trước run, đóng băng tối thiểu: hypothesis/revision ID, symbol, timeframe,
   decision clock, entry/exit/risk, data range, cost và train/OOS/holdout.
 - Compile phải có log mới `0 errors, 0 warnings` và EX5 mới, không chỉ exit code.
@@ -119,7 +136,11 @@ dùng hội thoại phụ để trì hoãn compile/backtest/forensics hợp lệ
 
 - Goal/DONE: `01. GOAL/GOAL.md` — slash `/goal` (skill repo; nếu built-in Grok chiếm tên thì `/repo:goal`)
 - Workflow: `05. Playbook/WORKFLOW.md`
-- CLI: `02. AlphaFactory/alpha.ps1`
+- CLI: `02. AlphaFactory/alpha.ps1` — research plane, thẩm quyền kinh tế
+- MCP MT5: `127.0.0.1:22346` (token ở MT5 → Tools → Options → MCP; cấu hình
+  `D:\Meta 5\.mcp.json`) — observation plane, chỉ đọc, không thẩm quyền
+- Factory path helper: `02. AlphaFactory/tools/factory_paths.py`
+- Attach contract: `02. AlphaFactory/tools/check_mt5_attach_contract.ps1`
 - EA shelf: `03. EA Developer/README.md`
 - Registry: `04. Memory/research/CANDIDATE_REGISTRY.jsonl`
 - Failure catalog: chỉ qua `failure-lookup` theo family đang xét

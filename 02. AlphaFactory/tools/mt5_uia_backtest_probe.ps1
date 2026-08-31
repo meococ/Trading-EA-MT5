@@ -92,10 +92,34 @@ if (-not (Test-Path $ConfigPath)) {
     throw "Config not found: $ConfigPath"
 }
 
-$terminalExe = "C:\Program Files\MetaTrader 5\terminal64.exe"
-$existing = Get-Process terminal64 -ErrorAction SilentlyContinue
-if ($existing) {
-    $existing | Stop-Process -Force
+# Factory isolate only. Was "C:\Program Files\MetaTrader 5\terminal64.exe",
+# a path absent on this machine.
+$repoRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
+$localPin = Join-Path $repoRoot "02. AlphaFactory\alpha.local.ps1"
+if (-not (Test-Path -LiteralPath $localPin -PathType Leaf)) {
+    throw "Machine pin missing: $localPin. Run tools\init_machine_paths.ps1."
+}
+. $localPin
+$factoryRuntime = [System.IO.Path]::GetFullPath((Join-Path $repoRoot "02. AlphaFactory\runtime"))
+$factoryInstall = [System.IO.Path]::GetFullPath($MT5InstallRoot)
+if (-not $factoryInstall.StartsWith($factoryRuntime, [System.StringComparison]::OrdinalIgnoreCase)) {
+    throw "Refusing '$factoryInstall': the probe target must sit under '$factoryRuntime'."
+}
+$terminalExe = Join-Path $factoryInstall "terminal64.exe"
+if (-not (Test-Path -LiteralPath $terminalExe -PathType Leaf)) {
+    throw "Factory terminal missing: $terminalExe"
+}
+
+# Only stop terminals launched from the factory isolate. The previous
+# `Get-Process terminal64 | Stop-Process -Force` killed EVERY terminal64,
+# including the Owner GUI being traded from.
+$existing = @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe'" -ErrorAction SilentlyContinue |
+    Where-Object {
+        $_.ExecutablePath -and
+        ([System.IO.Path]::GetFullPath($_.ExecutablePath)).Equals($terminalExe, [System.StringComparison]::OrdinalIgnoreCase)
+    })
+if ($existing.Count -gt 0) {
+    $existing | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
     Start-Sleep -Seconds 3
 }
 
