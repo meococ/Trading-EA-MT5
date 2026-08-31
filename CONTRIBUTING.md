@@ -34,7 +34,7 @@ Thank you for helping improve reproducible, safety-conscious MT5 research.
 
 Never commit live broker exports, credentials, API keys, recovery codes, account numbers, terminal profiles, or personal trading history. Use a small redacted or synthetic fixture when a test needs realistic structure.
 
-If sensitive data is discovered in Git history, stop sharing it, rotate any affected credential, and report the exposure privately according to `SECURITY.md`. Removing a file in a new commit does not remove it from earlier Git history.
+If sensitive data is discovered in Git history, stop sharing it, rotate any affected credential, and report the exposure privately to the Owner directly; do not open a public issue. Removing a file in a new commit does not remove it from earlier Git history.
 
 ## Research integrity
 

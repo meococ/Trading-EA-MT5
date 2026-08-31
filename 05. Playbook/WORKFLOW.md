@@ -181,11 +181,11 @@ Mặc định: compile → backtest → analyze. Trade charts fail-open nếu ha
 `validate-full` / `delivery` / WFA / CPCV chỉ khi survivor.
 
 ```powershell
-./02. AlphaFactory/alpha.ps1 status
-./02. AlphaFactory/alpha.ps1 compile "<EA>"
-./02. AlphaFactory/alpha.ps1 backtest "<EA>" -Symbol <SYMBOL> -Period <TF> -HypothesisId <ID>
-./02. AlphaFactory/alpha.ps1 analyze -Report "<REPORT_PATH>"
+& "./02. AlphaFactory/alpha.ps1" status
+& "./02. AlphaFactory/alpha.ps1" compile "<EA>"
+& "./02. AlphaFactory/alpha.ps1" backtest "<EA>" -Symbol <SYMBOL> -Period <TF> -HypothesisId <ID>
+& "./02. AlphaFactory/alpha.ps1" analyze -Report "<REPORT_PATH>"
 ```
 
-Survivor: `validate-full` / `delivery` — `05. Playbook/tool_runbook.md`.
+Survivor: `validate-full` / `delivery` — xem `alpha.ps1 help`.
 Nếu CLI thay đổi, `alpha.ps1 help` thắng ví dụ trong tài liệu.

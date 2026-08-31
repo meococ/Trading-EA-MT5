@@ -55,7 +55,7 @@ cập nhật docs).
 
 ## Scope và quyền
 
-- Active universe: theo `01. GOAL/GOAL.md` (Owner đã mở `BTCUSD`).
+- Active universe: theo `01. GOAL/GOAL.md`.
 - Timeframe hợp lệ: `M5`, `M15`, `H1`, `H4`, `D1`, chọn theo cơ chế. `2–5
   lệnh/tuần` là ngưỡng DONE Owner, không phải kill-gate mặc định mọi clock.
 - Không giữ qua cuối tuần. Overnight cần swap/cost/risk contract rõ.
@@ -86,7 +86,7 @@ cập nhật docs).
 
 ## Đội hình
 
-Main Agent chọn cơ chế và quyết định. Sub-agent (`.cursor/agents/`):
+Main Agent chọn cơ chế và quyết định. Sub-agent roles (logic; catalog on-disk là tuỳ chọn):
 `failure-lookup`, `contract-reviewer`, `qc-challenger`, `ea-runner`,
 `run-forensics`, `doctrine-keeper`, `repo-auditor`. Reviewer/QC không chặn
 compile; PASS/BLOCK chỉ khi Main ủy bước không hoàn nguyên. Mỗi agent một

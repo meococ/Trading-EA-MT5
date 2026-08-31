@@ -3,6 +3,10 @@
 > **Version:** 1.0 | **Date:** 2026-03-10
 > **Purpose:** Formal decision tree for ITERATE / PIVOT / ABANDON decisions.
 > **Implementation:** `analysis/decision_framework.py`
+>
+> **DIAGNOSTIC CLI ONLY.** `alpha.ps1` never calls this module. Economic law is
+> `01. GOAL/GOAL.md` + `analysis/unified_validation.py`. If a number here
+> disagrees with GOAL, GOAL wins.
 
 ---
 
@@ -89,12 +93,12 @@ Every strategy run ends with one of three decisions:
 
 | Gate | Threshold | Hard/Soft |
 |------|-----------|-----------|
-| PF | >= 1.4 | Hard |
+| PF | > 1.30 (GOAL) | Hard |
 | Max DD | <= 15% | Hard |
 | WFA OOS PF | >= 1.0 (pass rate >= 60%) | Hard |
 | MC P95 DD | <= 15% | Hard |
 | Trades/month | >= 20 | Soft (warn if < 20) |
-| Total trades | >= 200 | Hard |
+| Total trades | >= 200 | Soft (confidence floor; warn if < 200) |
 
 ---
 
@@ -116,7 +120,7 @@ When decision is ITERATE, provide specific next-step recommendations:
 
 | Current Problem | Suggested Fix |
 |----------------|---------------|
-| PF < 1.4 but > 1.1 | Add/refine entry filter (session, trend, volatility) |
+| PF < 1.30 but > 1.1 | Add/refine entry filter (session, trend, volatility) |
 | DD > 15% but < 30% | Reduce position size, tighten SL, add time-based exit |
 | WFA 40-60% | Simplify strategy (reduce params), widen parameter ranges |
 | MC P95 DD 15-30% | Add drawdown circuit breaker, diversify entry conditions |

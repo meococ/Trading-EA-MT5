@@ -36,7 +36,7 @@ class Confidence(str, Enum):
 
 # ── Quality Gate Thresholds ──────────────────────────────────────────
 
-GATE_PF = 1.4
+GATE_PF = 1.30  # GOAL.md:12,36 — economic law. Was 1.4 (2026-03 orphan value).
 GATE_DD = 15.0
 GATE_WFA_PASS = 0.6
 GATE_MC_P95_DD = 15.0
@@ -123,18 +123,15 @@ def evaluate(metrics: StrategyMetrics) -> DecisionResult:
             f"Trades/month ({m.trades_per_month:.1f}) below soft threshold ({GATE_TRADES_PER_MONTH_SOFT})"
         )
 
-    # ── 1. Too few trades ────────────────────────────────────────
+    # ── 1. Too few trades — sample-size WARNING, not ABANDON ─────
+    # GOAL.md:13,37 DONE cadence is 2-5 trades/week; at 2/week a sleeve needs
+    # ~2 years to clear 200. Auto-abandoning on N<200 kills GOAL-compliant
+    # mechanisms during a short Fast-Kill window. Keep 200 as a confidence
+    # floor, not a verdict.
     if m.total_trades < GATE_MIN_TRADES:
-        reasons.append(f"Total trades ({m.total_trades}) < minimum ({GATE_MIN_TRADES})")
-        next_steps.append("Extend backtest period or relax entry filters to get more trades")
-        return DecisionResult(
-            decision=Decision.ABANDON.value,
-            confidence=Confidence.HIGH.value,
-            reasons=reasons,
-            metrics_summary=metrics_summary,
-            gates_passed=gates,
-            next_steps=next_steps,
-            warnings=warnings,
+        warnings.append(
+            f"Total trades ({m.total_trades}) < sample-size floor ({GATE_MIN_TRADES}); "
+            f"read every verdict below as low-confidence"
         )
 
     # ── 2. Max iterations ────────────────────────────────────────
