@@ -84,6 +84,7 @@ worktrees/
 
 # Maintainer-only handoff and runtime state
 04. Memory/hot*.md
+!04. Memory/hot.md
 
 # Broker/account exports and personal execution evidence
 02. AlphaFactory/evidence/execution/*-Real/
