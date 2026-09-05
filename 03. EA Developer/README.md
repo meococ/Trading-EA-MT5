@@ -17,6 +17,8 @@ Không phải EA package (Get-EAs bỏ qua, đúng ý đồ):
 - 6 indicator `iCustom`: `AI_Regime_Detection`, `Modern_Bollinger_Bands_GBB`, `QQE_MOD`,
   `SMC_Order_Block_Detector`, `TB_Smart_Money_Concept_2026`,
   `Volatility_Regime_Classifier_QuantRegime`. Không đổi tên thành `EA_*`.
+  `TB_Smart_Money_Concept_2026` sống ở `TB_Smart_Money_Concept_2026.mq5` (root repo).
+  Compile: `& "./02. AlphaFactory/alpha.ps1" compile "TB_Smart_Money_Concept_2026"`.
 
 ## Đã park (2026-08-31)
 

@@ -21,9 +21,23 @@ function Resolve-EaSourceContract {
     $eaDevRoot = [System.IO.Path]::GetFullPath((Join-Path $repoFull '03. EA Developer'))
     $eaRoot = [System.IO.Path]::GetFullPath((Join-Path $repoFull "03. EA Developer\$EaName"))
     $eaRootPrefix = $eaRoot.TrimEnd([char[]]'\/') + [System.IO.Path]::DirectorySeparatorChar
+    $indicatorRoot = [System.IO.Path]::GetFullPath((Join-Path $repoFull 'Indicator'))
+    $indicatorRootPrefix = $indicatorRoot.TrimEnd([char[]]'\/') + [System.IO.Path]::DirectorySeparatorChar
+    $indicatorFileRelative = "Indicator/$EaName.mq5"
+    $indicatorPackRelative = "Indicator/$EaName/$EaName.mq5"
+    $indicatorFileAbsolute = [System.IO.Path]::GetFullPath((Join-Path $repoFull ($indicatorFileRelative.Replace('/', '\'))))
+    $indicatorPackAbsolute = [System.IO.Path]::GetFullPath((Join-Path $repoFull ($indicatorPackRelative.Replace('/', '\'))))
+    $repoRootFileRelative = "$EaName.mq5"
+    $repoRootFileAbsolute = [System.IO.Path]::GetFullPath((Join-Path $repoFull "$EaName.mq5"))
     $isPinned = $pinnedSources.ContainsKey($EaName)
     $relativeSource = if ($isPinned) {
         [string]$pinnedSources[$EaName]
+    } elseif ($EaName -notlike 'EA_*' -and (Test-Path -LiteralPath $repoRootFileAbsolute -PathType Leaf)) {
+        $repoRootFileRelative
+    } elseif ($EaName -notlike 'EA_*' -and (Test-Path -LiteralPath $indicatorFileAbsolute -PathType Leaf)) {
+        $indicatorFileRelative
+    } elseif ($EaName -notlike 'EA_*' -and (Test-Path -LiteralPath $indicatorPackAbsolute -PathType Leaf)) {
+        $indicatorPackRelative
     } else {
         "03. EA Developer/$EaName/$EaName.mq5"
     }
@@ -37,8 +51,11 @@ function Resolve-EaSourceContract {
         Where-Object { $_.Name -like 'EA_*' } |
         Select-Object -ExpandProperty Name)
 
-    if (-not $absoluteSource.StartsWith($eaRootPrefix, [System.StringComparison]::OrdinalIgnoreCase)) {
-        throw "EA source contract escapes the active EA root: $relativeSource"
+    $inEaRoot = $absoluteSource.StartsWith($eaRootPrefix, [System.StringComparison]::OrdinalIgnoreCase)
+    $inIndicatorRoot = $absoluteSource.StartsWith($indicatorRootPrefix, [System.StringComparison]::OrdinalIgnoreCase)
+    $isRepoRootIndicator = ($EaName -notlike 'EA_*') -and $absoluteSource.Equals($repoRootFileAbsolute, [System.StringComparison]::OrdinalIgnoreCase)
+    if (-not ($inEaRoot -or $inIndicatorRoot -or $isRepoRootIndicator)) {
+        throw "EA source contract escapes the active EA/Indicator root: $relativeSource"
     }
     if ([System.IO.Path]::GetExtension($absoluteSource) -ine '.mq5') {
         throw "EA source contract must resolve to an .mq5 file: $relativeSource"
