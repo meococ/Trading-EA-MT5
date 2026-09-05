@@ -1,0 +1,39 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"${CLAUDE_PROJECT_DIR}/.grok/hooks/bin/session-start.ps1\"",
+            "timeout": 20
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "mt5__trade_|mt5__tester_run_backtest|use_tool|Bash|run_terminal_command|spawn_subagent|Task|Write|Edit|MultiEdit|search_replace|write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"${CLAUDE_PROJECT_DIR}/.grok/hooks/bin/pretool.ps1\"",
+            "timeout": 8
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "mt5__|Bash|run_terminal_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"${CLAUDE_PROJECT_DIR}/.grok/hooks/bin/posttool.ps1\"",
+            "timeout": 8
+          }
+        ]
+      }
+    ]
+  }
+}

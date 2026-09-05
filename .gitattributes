@@ -3,3 +3,4 @@
 # EA_SonicR moved to the gitignored graveyard, EA_VolmanCausalGrammar never
 # existed in this checkout. Re-add a rule when the path it guards exists.
 **/PRO_TRADER_REPLACEMENT_E02_T2_P3_EXECUTION_FREEZE_*.json text eol=lf
+.githooks/pre-commit text eol=lf

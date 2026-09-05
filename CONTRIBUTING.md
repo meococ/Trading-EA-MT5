@@ -9,6 +9,19 @@ Thank you for helping improve reproducible, safety-conscious MT5 research.
 - Read `01. GOAL/GOAL.md` and `05. Playbook/WORKFLOW.md`.
 - Do not present a compile result or a single backtest as evidence of profitability.
 
+## Git hooks
+
+This clone uses `core.hooksPath=.githooks`. After a fresh clone:
+
+```
+git config core.hooksPath .githooks
+```
+
+`pre-commit` blocks secrets, `alpha.local.ps1`, MCP config, deal dumps, parquet,
+files over 5 MB, and machine-local profile paths in **added** lines. Grok
+`PreToolUse` uses the same regex and also denies blanket `git add -A`. Do not
+commit unless the Owner asked in the current message.
+
 ## Development workflow
 
 1. Create a feature branch.

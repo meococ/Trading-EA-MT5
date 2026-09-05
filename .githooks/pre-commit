@@ -1,0 +1,13 @@
+#!/bin/sh
+# Run the PowerShell pre-commit (shared hygiene with Grok hooks).
+hook_dir=$(dirname "$0")
+if command -v powershell.exe >/dev/null 2>&1; then
+  powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$hook_dir/pre-commit.ps1"
+  exit $?
+fi
+if command -v pwsh >/dev/null 2>&1; then
+  pwsh -NoProfile -ExecutionPolicy Bypass -File "$hook_dir/pre-commit.ps1"
+  exit $?
+fi
+echo "pre-commit: powershell.exe not found" >&2
+exit 1
