@@ -90,6 +90,7 @@ def test_read_only_collector_fingerprints_account_and_marks_missing_risk_state()
     fake = FakeMt5()
     market, account = collect_mt5_read_only(
         ["EURUSD"],
+        terminal_path=r"C:\Program Files\MetaTrader 5\terminal64.exe",
         mt5_module=fake,
         server_utc_offset_minutes=180,
         tick_time_basis="SERVER",
@@ -109,6 +110,7 @@ def test_read_only_collector_fingerprints_account_and_marks_missing_risk_state()
 def test_quote_time_uses_explicit_server_epoch_mapping() -> None:
     market, _ = collect_mt5_read_only(
         ["EURUSD"],
+        terminal_path=r"C:\Program Files\MetaTrader 5\terminal64.exe",
         mt5_module=FakeMt5(),
         server_utc_offset_minutes=180,
         tick_time_basis="SERVER",
@@ -145,6 +147,7 @@ def test_read_only_collector_accepts_only_bound_fresh_risk_state() -> None:
     )
     _, account = collect_mt5_read_only(
         ["EURUSD"],
+        terminal_path=r"C:\Program Files\MetaTrader 5\terminal64.exe",
         mt5_module=FakeMt5(),
         server_utc_offset_minutes=180,
         tick_time_basis="SERVER",
@@ -177,6 +180,7 @@ def test_risk_state_account_or_ledger_substitution_fails_closed() -> None:
     )
     _, account = collect_mt5_read_only(
         ["EURUSD"],
+        terminal_path=r"C:\Program Files\MetaTrader 5\terminal64.exe",
         mt5_module=FakeMt5(),
         server_utc_offset_minutes=180,
         tick_time_basis="SERVER",

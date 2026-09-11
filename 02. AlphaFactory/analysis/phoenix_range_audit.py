@@ -19,6 +19,7 @@ import argparse
 import csv
 import json
 import statistics
+import sys
 from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime, timedelta
@@ -26,6 +27,11 @@ from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
 
 import MetaTrader5 as mt5
+
+# Pin the MT5 attach to the factory isolate; a bare mt5.initialize() grabs
+# whichever terminal is already running -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
 
 try:
     import matplotlib.pyplot as plt
@@ -49,7 +55,7 @@ class DayFeature:
 
 
 def mt5_init() -> None:
-    if not mt5.initialize():
+    if not mt5.initialize(**mt5_initialize_kwargs()):
         raise SystemExit(f"MT5 initialize failed: {mt5.last_error()}")
 
 

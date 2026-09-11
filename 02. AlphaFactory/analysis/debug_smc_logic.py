@@ -1,9 +1,17 @@
 """
 Debug SMC Logic - Tìm hiểu tại sao Python có signals mà MT5 không có
 """
+import sys
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import MetaTrader5 as mt5
+
+# Pin the MT5 attach to the factory isolate; a bare mt5.initialize() grabs
+# whichever terminal is already running -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
 
 def main():
     print("=" * 60)
@@ -11,7 +19,7 @@ def main():
     print("=" * 60)
     
     # Connect MT5
-    if not mt5.initialize():
+    if not mt5.initialize(**mt5_initialize_kwargs()):
         print("MT5 init failed")
         return
     

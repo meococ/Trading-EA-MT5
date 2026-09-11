@@ -14,9 +14,15 @@ import json
 import math
 from dataclasses import asdict, dataclass
 from datetime import date, datetime, timedelta, timezone
+import sys
 from pathlib import Path
 
 import MetaTrader5 as mt5
+
+# Pin every MT5 attach to the factory isolate. A bare mt5.initialize() grabs
+# whichever terminal is already running -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
 
 WORKSPACE = Path(__file__).resolve().parents[2]
 RESEARCH = WORKSPACE / "03. EA Developer" / "EA_SonicR" / "research"
@@ -455,7 +461,7 @@ def main() -> int:
     z_eq = build_z(eq_avail)
     z_bond = build_z(bond_avail)
 
-    if not mt5.initialize():
+    if not mt5.initialize(**mt5_initialize_kwargs()):
         raise SystemExit(f"mt5_init_failed:{mt5.last_error()}")
     try:
         info = mt5.account_info()

@@ -96,7 +96,12 @@ def parse_date(value: str, end: bool = False) -> datetime:
 
 
 def fetch_rates(terminal: str, spec: FrozenSpec) -> tuple[pd.DataFrame, dict[str, Any]]:
-    if not mt5.initialize(path=terminal, timeout=60_000):
+    if not terminal:
+        raise RuntimeError(
+            "--terminal is empty and the factory isolate could not be resolved "
+            "(tools.factory_paths.factory_mt5_terminal); refusing a bare attach"
+        )
+    if not mt5.initialize(path=terminal, timeout=60_000, portable=True):
         raise RuntimeError(f"MetaTrader5 initialize failed: {mt5.last_error()}")
     try:
         terminal_info = mt5.terminal_info()

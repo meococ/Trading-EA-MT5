@@ -10,9 +10,15 @@ import MetaTrader5 as mt5
 import pandas as pd
 import numpy as np
 from datetime import datetime
+from pathlib import Path
 import sys
 import warnings
 warnings.filterwarnings('ignore')
+
+# Pin every MT5 attach to the factory isolate. A bare mt5.initialize() grabs
+# whichever terminal is already running -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
 
 # ===========================================================================
 # CONFIG
@@ -28,7 +34,7 @@ SPREAD_COST = 0.30  # $0.30 per unit in price terms
 # DATA LOADING (reuse from edge_scanner.py)
 # ===========================================================================
 def load_data():
-    if not mt5.initialize():
+    if not mt5.initialize(**mt5_initialize_kwargs()):
         print(f"[ERR] MT5 init failed: {mt5.last_error()}")
         sys.exit(1)
 

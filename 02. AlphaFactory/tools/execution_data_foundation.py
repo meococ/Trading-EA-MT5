@@ -539,10 +539,18 @@ def mt5_probe(args: argparse.Namespace) -> dict[str, Any]:
         import MetaTrader5 as mt5
     except ImportError as exc:
         raise RuntimeError("MetaTrader5 Python package is unavailable") from exc
-    init_args: dict[str, Any] = {}
-    if args.terminal_path:
-        init_args["path"] = args.terminal_path
-    if not mt5.initialize(**init_args):
+    # --terminal-path must name a factory isolate under 02. AlphaFactory/runtime.
+    # An omitted path makes mt5.initialize() attach to whichever terminal is
+    # already running (the Owner GUI) -- see tools/factory_paths.py.
+    terminal_path = Path(args.terminal_path).resolve()
+    runtime_root = (ALPHA_ROOT / "runtime").resolve()
+    if runtime_root not in terminal_path.parents:
+        raise RuntimeError(
+            f"--terminal-path must resolve under {runtime_root}; got {terminal_path}"
+        )
+    if not terminal_path.is_file():
+        raise RuntimeError(f"--terminal-path is not a file: {terminal_path}")
+    if not mt5.initialize(path=str(terminal_path), timeout=60_000, portable=True):
         raise RuntimeError(f"MT5 initialize failed: {mt5.last_error()}")
     try:
         terminal = mt5.terminal_info()
@@ -732,7 +740,12 @@ def parse_args() -> argparse.Namespace:
     probe.add_argument("--expected-server", required=True)
     probe.add_argument("--symbols", nargs="+", required=True)
     probe.add_argument("--sample-hours", type=int, default=1)
-    probe.add_argument("--terminal-path")
+    probe.add_argument(
+        "--terminal-path",
+        required=True,
+        help="terminal64.exe of a factory isolate under 02. AlphaFactory/runtime "
+        "(fail-closed: no path -> no attach to a terminal already running)",
+    )
     probe.add_argument("--out", required=True)
 
     validate = subparsers.add_parser("validate", help="validate one hash-bound execution-data bundle")

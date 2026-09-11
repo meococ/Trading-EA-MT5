@@ -1,5 +1,7 @@
 """Quick test for SMC Engine with real data"""
 import sys
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import warnings
@@ -7,12 +9,17 @@ warnings.filterwarnings('ignore')
 
 from smc_engine import SMCEngine
 
+# Pin the MT5 attach to the factory isolate; a bare mt5.initialize() grabs
+# whichever terminal is already running -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
+
 def fetch_forex_data(symbol, start='2024-07-01', end='2024-12-31'):
     """Fetch forex data - try MT5 first, then yfinance"""
     # Try MT5 first
     try:
         import MetaTrader5 as mt5
-        if mt5.initialize():
+        if mt5.initialize(**mt5_initialize_kwargs()):
             rates = mt5.copy_rates_from_pos(symbol, mt5.TIMEFRAME_H1, 0, 5000)
             mt5.shutdown()
             if rates is not None and len(rates) > 100:

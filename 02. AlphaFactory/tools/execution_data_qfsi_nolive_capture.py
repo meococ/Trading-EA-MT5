@@ -181,7 +181,7 @@ def run_capture(args: argparse.Namespace) -> dict[str, Any]:
     except ImportError as exc:
         raise RuntimeError("MetaTrader5 Python package is unavailable") from exc
 
-    if not mt5.initialize():
+    if not mt5.initialize(path=args.terminal, timeout=60_000, portable=True):
         raise RuntimeError(f"MT5 initialize failed: {mt5.last_error()}")
 
     stop_path = Path(args.stop_file).resolve() if args.stop_file else None
@@ -316,7 +316,7 @@ def run_capture(args: argparse.Namespace) -> dict[str, Any]:
                         )
                     mt5.shutdown()
                     time.sleep(1.0)
-                    if not mt5.initialize():
+                    if not mt5.initialize(path=args.terminal, timeout=60_000, portable=True):
                         time.sleep(1.0)
                         continue
                     continue
@@ -573,6 +573,14 @@ def run_capture(args: argparse.Namespace) -> dict[str, Any]:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--terminal",
+        required=True,
+        help="Path to the terminal64.exe to attach to (the isolate logged into "
+        "the expected server, e.g. runtime/mt5-portable-fivepercent). Mandatory: "
+        "without it a bare mt5.initialize() attaches to whichever terminal is "
+        "already running -- see tools/factory_paths.py.",
+    )
     parser.add_argument("--expected-server", default=EXPECTED_DEFAULT)
     parser.add_argument("--symbols", nargs="+", default=list(SYMBOLS_DEFAULT))
     parser.add_argument("--capture-id", required=True)

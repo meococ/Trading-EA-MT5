@@ -153,10 +153,15 @@ def collect_mt5_read_only(
         except ImportError as exc:  # pragma: no cover - environment dependent
             raise CollectorError("MetaTrader5 package is unavailable") from exc
 
-    init_args: dict[str, Any] = {}
-    if terminal_path:
-        init_args["path"] = terminal_path
-    if not mt5_module.initialize(**init_args):
+    # The observation plane must name the terminal it reads: a bare
+    # initialize() attaches to whichever terminal is already running and the
+    # snapshot's terminal_path_sha256 would mean nothing.
+    if not terminal_path or not str(terminal_path).strip():
+        raise CollectorError(
+            "terminal_path is required; refusing a bare mt5.initialize() that "
+            "would attach to whichever terminal is already running"
+        )
+    if not mt5_module.initialize(path=terminal_path):
         raise CollectorError(f"MT5 initialize failed: {mt5_module.last_error()}")
 
     try:

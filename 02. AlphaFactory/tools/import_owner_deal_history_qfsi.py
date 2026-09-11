@@ -112,12 +112,12 @@ def lifecycles_from_mt5_deals(deals: Any, currency: str) -> dict[str, list[dict[
     return out
 
 
-def from_live_mt5(out_dir: Path, history_days: int) -> dict[str, Any]:
+def from_live_mt5(out_dir: Path, history_days: int, terminal: str) -> dict[str, Any]:
     try:
         import MetaTrader5 as mt5
     except ImportError as exc:
         raise RuntimeError("MetaTrader5 package unavailable") from exc
-    if not mt5.initialize():
+    if not mt5.initialize(path=terminal, timeout=60_000, portable=True):
         raise RuntimeError(f"MT5 initialize failed: {mt5.last_error()}")
     try:
         account = mt5.account_info()
@@ -487,6 +487,13 @@ def from_drop(drop_dir: Path, out_dir: Path, currency: str) -> dict[str, Any]:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--from-live-mt5", action="store_true")
+    ap.add_argument(
+        "--terminal",
+        default="",
+        help="terminal64.exe to attach to with --from-live-mt5. Required in that "
+        "mode: without it a bare mt5.initialize() attaches to whichever terminal "
+        "is already running -- see tools/factory_paths.py.",
+    )
     ap.add_argument("--from-drop", type=Path, default=None)
     ap.add_argument("--out-dir", type=Path, required=True)
     ap.add_argument("--history-days", type=int, default=3650)
@@ -496,7 +503,9 @@ def main() -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     if args.from_live_mt5:
-        payload = from_live_mt5(out_dir, args.history_days)
+        if not args.terminal:
+            ap.error("--terminal is required with --from-live-mt5")
+        payload = from_live_mt5(out_dir, args.history_days, args.terminal)
     elif args.from_drop:
         payload = from_drop(args.from_drop.resolve(), out_dir, args.account_currency)
     else:

@@ -1,14 +1,22 @@
 """
 Verify simple breakout logic - exact match with EA_Test_Trades
 """
+import sys
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import MetaTrader5 as mt5
 
+# Pin the MT5 attach to the factory isolate; a bare mt5.initialize() grabs
+# whichever terminal is already running -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
+
 def test_breakout(symbol, bars=1000):
     print(f"\n{symbol}:")
     
-    if not mt5.initialize():
+    if not mt5.initialize(**mt5_initialize_kwargs()):
         return None
     
     rates = mt5.copy_rates_from_pos(symbol, mt5.TIMEFRAME_H1, 0, bars)

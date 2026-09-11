@@ -7,6 +7,9 @@ Assets: EURUSD, GBPUSD, USDJPY, BTCUSD, XAUUSD
 Author: AlphaFactory
 """
 
+import sys
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import vectorbt as vbt
@@ -15,6 +18,11 @@ import warnings
 warnings.filterwarnings('ignore')
 
 from smc_engine import SMCEngine, resample_to_htf, get_htf_bias
+
+# Pin the MT5 attach to the factory isolate; a bare mt5.initialize() grabs
+# whichever terminal is already running -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
 
 # =============================================================================
 # DATA FETCHING
@@ -55,7 +63,7 @@ def fetch_data_mt5(symbol: str, timeframe: str = 'H1', bars: int = 50000) -> pd.
     try:
         import MetaTrader5 as mt5
         
-        if not mt5.initialize():
+        if not mt5.initialize(**mt5_initialize_kwargs()):
             raise Exception("MT5 not initialized")
         
         tf_map = {

@@ -1,16 +1,24 @@
 """
 Test SMC v2 Logic - Structure Break + Pullback
 """
+import sys
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import MetaTrader5 as mt5
+
+# Pin the MT5 attach to the factory isolate; a bare mt5.initialize() grabs
+# whichever terminal is already running -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
 
 def test_smc_v2(symbol, bars=2000):
     print(f"\n{'='*50}")
     print(f"Testing SMC v2 on {symbol}")
     print(f"{'='*50}")
     
-    if not mt5.initialize():
+    if not mt5.initialize(**mt5_initialize_kwargs()):
         print("MT5 init failed")
         return None
     

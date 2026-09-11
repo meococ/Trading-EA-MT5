@@ -11,6 +11,7 @@ import argparse
 import csv
 import json
 import random
+import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import List, Tuple
@@ -20,6 +21,11 @@ try:
     HAS_MT5 = True
 except Exception:
     HAS_MT5 = False
+
+# Pin the MT5 attach to the factory isolate; a bare mt5.initialize() grabs
+# whichever terminal is already running -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
 
 
 TIMEFRAME_MAP = {
@@ -105,7 +111,7 @@ def main() -> int:
         print(f"ERROR: Invalid timeframe {args.timeframe}")
         return 1
 
-    if not mt5.initialize():
+    if not mt5.initialize(**mt5_initialize_kwargs()):
         print(f"ERROR: MT5 initialize failed: {mt5.last_error()}")
         return 1
     if not mt5.symbol_select(args.symbol, True):

@@ -21,9 +21,15 @@ import MetaTrader5 as mt5
 import pandas as pd
 import numpy as np
 from datetime import datetime
+from pathlib import Path
 import sys
 import warnings
 warnings.filterwarnings('ignore')
+
+# Pin every MT5 attach to the factory isolate. A bare mt5.initialize() grabs
+# whichever terminal is already running -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
 
 DATE_FROM = datetime(2019, 1, 1)
 DATE_TO = datetime(2026, 1, 1)
@@ -50,7 +56,7 @@ INSTRUMENTS = {
 
 
 def load_and_prepare(symbol, tf=TF):
-    if not mt5.initialize():
+    if not mt5.initialize(**mt5_initialize_kwargs()):
         return None
     info = mt5.symbol_info(symbol)
     if info is None:

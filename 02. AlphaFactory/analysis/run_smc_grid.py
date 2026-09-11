@@ -7,13 +7,17 @@ import warnings
 warnings.filterwarnings('ignore')
 
 import sys
+from pathlib import Path
+
 sys.path.insert(0, '.')
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from smc_engine import SMCEngine
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
 
 def get_mt5_data(symbol, bars=5000):
     try:
         import MetaTrader5 as mt5
-        if not mt5.initialize():
+        if not mt5.initialize(**mt5_initialize_kwargs()):
             return None
         rates = mt5.copy_rates_from_pos(symbol, mt5.TIMEFRAME_H1, 0, bars)
         mt5.shutdown()

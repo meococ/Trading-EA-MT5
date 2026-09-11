@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import json
+import sys
 from dataclasses import dataclass
 from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
@@ -20,6 +21,11 @@ try:
     import MetaTrader5 as mt5
 except ImportError as exc:
     raise SystemExit("MetaTrader5 package is required for Phase 3B router simulation.") from exc
+
+# Pin the MT5 attach to the factory isolate; a bare mt5.initialize() grabs
+# whichever terminal is already running -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
 
 
 ROOT = Path(r"02. AlphaFactory/runs/XAU_Scalp_Portfolio")
@@ -196,7 +202,7 @@ def load_features() -> pd.DataFrame:
 
 
 def load_mt5_rates() -> Tuple[pd.DataFrame, pd.DataFrame, float]:
-    if not mt5.initialize():
+    if not mt5.initialize(**mt5_initialize_kwargs()):
         raise RuntimeError(f"MT5 initialize failed: {mt5.last_error()}")
     try:
         symbol_info = mt5.symbol_info(SYMBOL)

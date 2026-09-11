@@ -39,6 +39,9 @@ from typing import Any, List, Optional, Sequence, Tuple
 _ANALYSIS_DIR = Path(__file__).resolve().parent
 if str(_ANALYSIS_DIR) not in sys.path:
     sys.path.insert(0, str(_ANALYSIS_DIR))
+_ALPHA_ROOT = _ANALYSIS_DIR.parent
+if str(_ALPHA_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ALPHA_ROOT))
 
 try:
     import MetaTrader5 as mt5
@@ -47,6 +50,11 @@ try:
 except ImportError:
     mt5 = None
     HAS_MT5 = False
+
+try:
+    from tools.factory_paths import mt5_initialize_kwargs
+except ImportError:
+    mt5_initialize_kwargs = None
 
 try:
     import pandas as pd
@@ -505,10 +513,18 @@ def load_bars_file(path: Path):
 def connect_mt5(terminal_path: str = "") -> bool:
     if not HAS_MT5:
         return False
-    kwargs = {}
-    if terminal_path:
-        kwargs["path"] = terminal_path
-    return bool(mt5.initialize(**kwargs))
+    if not terminal_path:
+        # Default --mt5-path to the pinned factory isolate. A bare
+        # mt5.initialize() would attach to whichever terminal is running
+        # (the Owner GUI). mt5_initialize_kwargs() raises FactoryPathError
+        # when no factory path resolves -- fail closed, never bare-attach.
+        if mt5_initialize_kwargs is None:
+            raise RuntimeError(
+                "tools.factory_paths is unavailable and --mt5-path is empty; "
+                "cannot resolve the factory MT5 isolate"
+            )
+        return bool(mt5.initialize(**mt5_initialize_kwargs()))
+    return bool(mt5.initialize(path=terminal_path))
 
 
 def disconnect_mt5() -> None:

@@ -3,6 +3,7 @@
 
 import json
 import math
+import sys
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -15,6 +16,11 @@ try:
     import MetaTrader5 as mt5
 except ImportError as exc:
     raise SystemExit("MetaTrader5 package is required for Phase 3A prep.") from exc
+
+# Pin the MT5 attach to the factory isolate; a bare mt5.initialize() grabs
+# whichever terminal is already running -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
 
 
 ROOT = Path(r"02. AlphaFactory/runs/XAU_Scalp_Portfolio")
@@ -246,7 +252,7 @@ def prototypical_rows(df: pd.DataFrame, label: str, n: int = 3) -> pd.DataFrame:
 
 
 def load_mt5_rates(symbol: str):
-    if not mt5.initialize():
+    if not mt5.initialize(**mt5_initialize_kwargs()):
         raise RuntimeError(f"MT5 initialize failed: {mt5.last_error()}")
     terminal = mt5.terminal_info()
     m1 = mt5.copy_rates_range(symbol, mt5.TIMEFRAME_M1, UTC_FROM, UTC_TO)

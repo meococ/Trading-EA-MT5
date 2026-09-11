@@ -14,9 +14,15 @@ import MetaTrader5 as mt5
 import pandas as pd
 import numpy as np
 from datetime import datetime
+from pathlib import Path
 import sys
 import warnings
 warnings.filterwarnings('ignore')
+
+# Pin every MT5 attach to the factory isolate. A bare mt5.initialize() grabs
+# whichever terminal is already running -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
 
 SYMBOL = "XAUUSD+"
 TF = mt5.TIMEFRAME_M15
@@ -25,7 +31,7 @@ DATE_TO = datetime(2026, 1, 1)
 SPREAD_COST = 0.30  # $0.30 per unit
 
 def load_data():
-    if not mt5.initialize():
+    if not mt5.initialize(**mt5_initialize_kwargs()):
         print(f"[ERR] MT5 init failed"); sys.exit(1)
     rates = mt5.copy_rates_range(SYMBOL, TF, DATE_FROM, DATE_TO)
     if rates is None or len(rates) == 0:

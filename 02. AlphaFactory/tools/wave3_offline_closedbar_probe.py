@@ -12,6 +12,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import sys
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -19,6 +20,11 @@ from typing import Any, Callable
 
 import MetaTrader5 as mt5
 import numpy as np
+
+# Pin every MT5 attach to the factory isolate. A bare mt5.initialize() grabs
+# whichever terminal is already running -- see tools/factory_paths.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 PRE = ROOT / "03. EA Developer/EA_SonicR/research/preflight"
@@ -368,7 +374,7 @@ def signal_pin(i: int, bars: dict[str, np.ndarray], atr: np.ndarray, d1: dict[st
 
 
 def main() -> int:
-    if not mt5.initialize():
+    if not mt5.initialize(**mt5_initialize_kwargs()):
         raise RuntimeError(mt5.last_error())
     try:
         acc = mt5.account_info()

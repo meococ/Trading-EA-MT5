@@ -564,7 +564,12 @@ def gate_decision(primary: dict[str, Any], control: dict[str, Any], data_ok: boo
 def extract_features(args: argparse.Namespace) -> tuple[dict[str, list[BarFeature]], dict[str, Any]]:
     import MetaTrader5 as mt5
 
-    if not mt5.initialize(path=args.terminal):
+    if not args.terminal:
+        raise RuntimeError(
+            "--terminal is empty and the factory isolate could not be resolved "
+            "(tools.factory_paths.factory_mt5_terminal); refusing a bare attach"
+        )
+    if not mt5.initialize(path=args.terminal, timeout=60_000, portable=True):
         raise RuntimeError(f"MT5 initialize failed: {mt5.last_error()}")
     features: dict[str, list[BarFeature]] = {}
     coverage: dict[str, Any] = {}

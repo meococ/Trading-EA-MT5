@@ -7,14 +7,18 @@ import warnings
 warnings.filterwarnings('ignore')
 
 import sys
+from pathlib import Path
+
 sys.path.insert(0, '.')
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from smc_engine import SMCEngine
+from tools.factory_paths import mt5_initialize_kwargs  # noqa: E402
 
 def get_mt5_data(symbol, bars=2000):
     """Lấy data từ MT5"""
     try:
         import MetaTrader5 as mt5
-        if not mt5.initialize():
+        if not mt5.initialize(**mt5_initialize_kwargs()):
             print(f"MT5 init failed")
             return None
         

@@ -38,6 +38,7 @@ if (-not $portable) {
     throw "No AlphaFactory portable isolate found under runtime\mt5-portable-mqdemo or runtime\mt5-portable-fivepercent. Refusing to pin Owner Program Files / AppData. Copy a portable terminal into runtime, or edit $ExamplePath."
 }
 
+$portableLeaf = Split-Path -Leaf $portable
 $drive = [System.IO.Path]::GetPathRoot($portable).TrimEnd([char[]]'\/').ToUpperInvariant()
 $common = Join-Path $portable "Common\Files"
 if (-not (Test-Path -LiteralPath $common -PathType Container)) {
@@ -50,7 +51,7 @@ $content = @"
 # Owner GUI (Program Files, AppData clones, and the root you trade from) is not
 # a factory target. Path is written relative to this file so moving the repo
 # does not silently retarget the factory.
-`$MT5InstallRoot = Join-Path `$PSScriptRoot "runtime\mt5-portable-mqdemo"
+`$MT5InstallRoot = Join-Path `$PSScriptRoot "runtime\$portableLeaf"
 `$MT5DataRoot = `$MT5InstallRoot
 `$MT5PortableMode = `$true
 `$MT5CommonFilesRoot = Join-Path `$MT5DataRoot "Common\Files"
