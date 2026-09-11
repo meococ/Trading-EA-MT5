@@ -17,20 +17,23 @@ $script:ForbiddenNamePatterns = @(
     '(^|[/\\])id_rsa'
 )
 
-# Value patterns carry a placeholder guard (2026-09-11): documentation like
-# `password=...` or `password=<pw>` in hook comments and playbooks is not a
-# secret; only a real-looking value flags.
+# Value patterns carry two guards (2026-09-11): a keyword guard so PowerShell
+# variables and CLI flags (`$token = ...`, `-Secret $x`) are not secrets, and a
+# placeholder guard so documentation like `password=...` or `password=<pw>`
+# does not flag. Only a real-looking literal value matches.
+$script:SecretValuePatterns = @(
+    '(?i)(?<![$\w.-])password["'']?\s*[:=]\s*(?!\.{3}|<|\$|\s*$|\(|@)\S+'
+    '(?i)(?<![$\w.-])passwd["'']?\s*[:=]\s*(?!\.{3}|<|\$|\s*$|\(|@)\S+'
+    '(?i)(?<![$\w.-])token["'']?\s*[:=]\s*(?!\.{3}|<|\$|\s*$|\(|@)\S+'
+    '(?i)(?<![$\w.-])secret["'']?\s*[:=]\s*(?!\.{3}|<|\$|\s*$|\(|@)\S+'
+    '(?i)(?<![$\w.-])api[_-]?key["'']?\s*[:=]\s*(?!\.{3}|<|\$|\s*$|\(|@)\S+'
+)
 $script:SecretLinePatterns = @(
-    'password\s*[:=]\s*(?!\.{3}|<|\$null|\s*$)\S+'
     'BEGIN (?:RSA |OPENSSH |EC |DSA )?PRIVATE KEY'
     '(?i)authorization\s*[:=]\s*bearer\s+\S+'
     '(?i)\bbearer\s+[A-Za-z0-9._~+/=-]{8,}'
-    '(?i)api[_-]?key\s*[:=]\s*(?!\.{3}|<|\$null|\s*$)\S+'
-    '(?i)token\s*[:=]\s*(?!\.{3}|<|\$null|\s*$)\S+'
-    '(?i)secret\s*[:=]\s*(?!\.{3}|<|\$null|\s*$)\S+'
-    '(?i)passwd\s*[:=]\s*(?!\.{3}|<|\$null|\s*$)\S+'
     '"login"\s*:\s*"?\d{6,}'
-)
+) + $script:SecretValuePatterns
 
 # Machine-local absolute paths on the owner drives (2026-09-11). These are
 # skipped for files whose job is to carry them — see OwnerPathAllowedFiles.
