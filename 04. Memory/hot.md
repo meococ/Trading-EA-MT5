@@ -1,8 +1,15 @@
 # Hot Cache — Current State
 
-Updated: 2026-08-31.
+Updated: 2026-09-11.
 
 Cache. Không phải authority. Sự thật live: `01. GOAL/GOAL.md`.
+
+> **STALE 2026-09-11 — shelf đã đổi.** ~410 package `EA_*`/`IND_*` generated
+> hiện nằm dưới `03. EA Developer/` (probe mint 2026-09-08→11, không phải
+> sleeve đã review); `00. Old File/` vẫn tồn tại nhưng đã bị gitignore.
+> Mục "Repo state (2026-08-31)" bên dưới là lịch sử, **không** phải shelf
+> hiện tại — shelf sống = `03. EA Developer/` + `alpha.ps1 list`.
+> Cadence DONE trong GOAL giờ là **10–40 lệnh/tuần/symbol** (không còn 2–5).
 
 ## Next action
 
@@ -17,7 +24,7 @@ và không có artifact trong `02. AlphaFactory/runs/` (thư mục không tồn 
   (WHQ không bù London hour-10 PF 0.00). Không IBRK-002 / I1PB-002 /
   đảo fade / salvage NY. Holdout kín.
 - Host **H4AT-001** magic 16082776 v4.86 1R flatten 21. H4AT best PF
-  living 1.76 nhưng ~0.26/wk — **trượt cadence DONE 2–5/tuần** của GOAL.
+  living 1.76 nhưng ~0.26/wk — **trượt cadence DONE 10–40/tuần** của GOAL.
   IBRK_* / I1PB_* là reject-reason token bên trong host
   (`EA_SonicR_PVSRA/Include/SNR_Signal.mqh`), không phải package rời.
 

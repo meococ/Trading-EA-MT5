@@ -6,6 +6,12 @@
 > information/data contract or decision surface may proceed under a new ID after
 > explicitly stating the delta, running a cheap falsification probe and freezing
 > an independent prereg. Invalid data/engineering runs do not prove no edge.
+>
+> **Path note (2026-09-11):** the `03. EA Developer/EA_*` evidence paths cited
+> below are historical — those packages were parked/removed in the 2026-08-31
+> cleanup (now under gitignored `00. Old File/EA_Archive/` or gone). Catalog
+> entries remain valid as failure patterns bound to hypothesis IDs, not
+> folder names.
 
 - `HYP-M15-TRENDPB-XAUUSD-M15-001` is terminal market KILL (2026-08-16) for
   XAUUSD M15 with-trend pullback guided by closed H1 EMA/HH-HL on

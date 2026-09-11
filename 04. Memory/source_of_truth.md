@@ -1,6 +1,6 @@
 # Source of Truth Registry
 
-Updated: 2026-07-30
+Updated: 2026-09-11
 
 > **Role:** not authority — `AGENTS.md` and `01. GOAL/GOAL.md` win. This file
 > only records path availability. It is not a live shelf inventory and never
@@ -20,23 +20,29 @@ Updated: 2026-07-30
 
 ## Root hygiene rule
 - Keep the project root lean.
-- Root should contain only: `AGENTS.md` (cross-agent launcher), `CLAUDE.md`
-  (pointer-only Claude entry), `INDEX.md` (workspace map), and the
-  `01. GOAL/` folder holding the Owner-frozen `GOAL.md`. The hidden
-  `.codex/operator/` recovery ledger is also allowed for long-running
-  operator-loop tasks, but it is a non-authoritative recovery pointer.
+- Root should contain only: `AGENTS.md` (cross-agent launcher),
+  `CONTRIBUTING.md`, the `01. GOAL/` folder holding the Owner-frozen
+  `GOAL.md`, and the living `TB_Smart_Money_Concept_2026.*` indicator files.
+  Repo-root `CLAUDE.md` moved to `D:\Meta 5\CLAUDE.md` on 2026-08-31 at Owner
+  request; `INDEX.md` and `.codex/operator/` are absent — do **not**
+  recreate any of them.
 - Do **not** keep root stubs for `README-SONIC-R.md` or `SYNC_REPORT.md`
   (archived under `00. Old File/docs_archive/`).
 - Root must not keep MT5 sample experts such as `ExpertMACD.mq5` or their compiled `.ex5` outputs.
 - Move retired markdown to `00. Old File/docs_archive/` (preferred) or
   `00. Old File/markdown_graveyard/`.
 - Keep control docs split: state in `04. Memory/` (hot.md, do_not_repeat,
-  generic research registry), rules in `05. Playbook/` (5 core docs). Archived doctrine + AI/session
+  generic research registry), rules in `05. Playbook/` (`WORKFLOW.md`,
+  `INDICATOR_WORKFLOW.md`; the five legacy core docs are
+  `unavailable-unresolved` below). Archived doctrine + AI/session
   archive under `00. Old File/project_control_archive_20260716/`.
 - Keep raw AlphaFactory runs and local SQLite catalogs out of git; they are operational storage, not source-of-truth documents.
-- Claim “SonicR đã archive” là sai: host Deploy Sonic R là `EA_SonicR_PVSRA`.
-  Classic `EA_SonicR` (shelf và/hoặc `00. Old File/`) không compile cho goal.
-  Không hard-code shelf ở đây.
+- Claim “SonicR đã archive” là sai: host Deploy Sonic R sống là
+  `EA_SonicR_PVSRA` (GOAL.md:34-36 — vẫn compile, không còn bắt buộc làm host).
+  Classic `EA_SonicR` (`00. Old File/EA_Archive/`) và `EA_SilverBullet`
+  binary-only là archive-only, không compile cho goal.
+  Không hard-code shelf ở đây — shelf sống = `03. EA Developer/` +
+  `alpha.ps1 list`.
 - Retired or cached EA source outside an explicitly opened lane belongs under
   `00. Old File/EA_Archive/` and is archive-only.
 
@@ -52,21 +58,21 @@ Updated: 2026-07-30
 | Path | Status | Why it matters |
 | --- | --- | --- |
 | `AGENTS.md` | authoritative | Single cross-agent operating doctrine with the Owner-to-artifact authority order, hard rules and canonical pointers; active scope is resolved from current Owner intent plus frozen contracts and artifacts, never from hot.md. |
-| `CLAUDE.md` | authoritative | Pointer-only session entry file; defers to AGENTS.md, GOAL.md, INDEX.md and current registry/artifact truth. |
-| `INDEX.md` | authoritative | Pointer-only workspace map; dynamic package metrics and hypothesis state stay at their canonical destinations. |
-| `.codex/operator/STATUS.md` | evidence | Non-authoritative recovery pointer for long operator sessions; it contains no live metrics or execution authority. |
-| `.codex/operator/EXPERIMENTS.jsonl` | evidence | Append-only bounded-experiment ledger for the active V2 hardening task, including red-first checks, diagnoses, and stop states. |
-| `01. GOAL/GOAL.md` | authoritative | Owner-frozen north-star target: joint PF/cadence/cost-stress/exposure/evidence-window table, DONE ladder, non-goals, and probe-first operating principle. Changes only on explicit Owner decision; numeric authority remains validation_gates.md. |
-| `05. Playbook/research_doctrine.md` | authoritative | Full research/validation doctrine: research workflow, registry contract, probe-plan freeze and versioning, chart-state label contract, multiple-testing budget, team review roles, MT5 non-repaint rules, and backtest hygiene. |
+| `CLAUDE.md` | unavailable-unresolved | ABSENT at repo root (verified 2026-09-11); the living copy moved to workspace root D:\Meta 5\CLAUDE.md on 2026-08-31 at Owner request — do not recreate the repo file. Historical index only; not usable evidence. Original status: authoritative. Original: Pointer-only session entry file; defers to AGENTS.md, GOAL.md, INDEX.md and current registry/artifact truth. |
+| `INDEX.md` | unavailable-unresolved | ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Pointer-only workspace map; dynamic package metrics and hypothesis state stay at their canonical destinations. |
+| `.codex/operator/STATUS.md` | unavailable-unresolved | ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Non-authoritative recovery pointer for long operator sessions; it contains no live metrics or execution authority. |
+| `.codex/operator/EXPERIMENTS.jsonl` | unavailable-unresolved | ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Append-only bounded-experiment ledger for the active V2 hardening task, including red-first checks, diagnoses, and stop states. |
+| `01. GOAL/GOAL.md` | authoritative | Owner-frozen north-star target: joint PF/cadence/cost-stress/exposure/evidence-window table, DONE ladder, non-goals, and probe-first operating principle. Changes only on explicit Owner decision; numeric authority is GOAL.md itself (validation_gates.md is absent). |
+| `05. Playbook/research_doctrine.md` | unavailable-unresolved | ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Full research/validation doctrine: research workflow, registry contract, probe-plan freeze and versioning, chart-state label contract, multiple-testing budget, team review roles, MT5 non-repaint rules, and backtest hygiene. |
 | `04. Memory/validate_source_of_truth.py` | authoritative | Fail-closed local availability, mounted-backup SHA256, duplicate-path, and JSON-to-Markdown consistency validator; absent optional external backup roots warn by default and --strict-backups restores fail-closed audit mode. |
-| `05. Playbook/validation_gates.md` | authoritative | Stage-gate matrix for every EA lane, including Two-Speed Fast-Kill versus Heavy-Delivery closeout and promotion-grade aligned-variant confirmed evidence. |
+| `05. Playbook/validation_gates.md` | unavailable-unresolved | ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Stage-gate matrix for every EA lane, including Two-Speed Fast-Kill versus Heavy-Delivery closeout and promotion-grade aligned-variant confirmed evidence. |
 | `00. Old File/agent_guidance_archive/20260503_1916_sonic_readme_cleanup/manifest.json` | backup-only | Local availability: absent in the lean checkout; hash-verified backup only. Original status: archive. Manifest for retired Claude/doc/root guidance layers archived during the Sonic R knowledge-map cleanup. |
 | `04. Memory/hot.md` | evidence | Compact recent-routing cache; every claim requires artifact verification and the file grants no execution authority. |
 | `04. Memory/source_of_truth.md` | authoritative | Human-readable registry |
 | `04. Memory/source_of_truth.json` | authoritative | Machine-readable registry |
-| `05. Playbook/ea_engineering_standard.md` | authoritative | Generic MQL5 engineering standard: closed-bar signal contract, ownership/state recovery, broker geometry, risk, lifecycle telemetry, and promotion boundaries. |
-| `05. Playbook/ea_golden_path.md` | authoritative | Generic design-to-decision workflow for every EA: intake, de-dup, probe, prereg, build, Model 0, then Fast-Kill or Heavy-Delivery routing without post-hoc rescue. |
-| `05. Playbook/tool_runbook.md` | authoritative | Generic AlphaFactory command runbook: Two-Speed closeout, confirmed aligned-variant validation, guarded MT5 research, evidence operations and cleanup. |
+| `05. Playbook/ea_engineering_standard.md` | unavailable-unresolved | ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Generic MQL5 engineering standard: closed-bar signal contract, ownership/state recovery, broker geometry, risk, lifecycle telemetry, and promotion boundaries. |
+| `05. Playbook/ea_golden_path.md` | unavailable-unresolved | ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Generic design-to-decision workflow for every EA: intake, de-dup, probe, prereg, build, Model 0, then Fast-Kill or Heavy-Delivery routing without post-hoc rescue. |
+| `05. Playbook/tool_runbook.md` | unavailable-unresolved | ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Generic AlphaFactory command runbook: Two-Speed closeout, confirmed aligned-variant validation, guarded MT5 research, evidence operations and cleanup. |
 | `00. Old File/EA_Archive/README.md` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. Archive-only index for retired/non-current EA source; it makes no claim about the current active shelf. |
 | `02. AlphaFactory/STRATEGY_LOG.md` | authoritative | Experiment memory |
 | `02. AlphaFactory/tools/alpha_json.ps1` | unavailable-unresolved | Local availability: absent in the lean checkout and not found at the declared backup root on 2026-07-11. Original status: authoritative. Historical index only; not usable evidence. JSON wrapper around selected alpha.ps1 actions; separates command completion from strategy validation verdict for agent/MCP workflows. |

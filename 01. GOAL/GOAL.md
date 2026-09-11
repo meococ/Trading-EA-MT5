@@ -4,13 +4,18 @@ Trạng thái: **ACTIVE / UNMET**. Owner 2026-08-25: phát triển EA chạy XAU
 forex; tester → demo; loop research–code–backtest–log/chart và tự cải thiện
 sau mỗi vòng. Main tự quyết cơ chế, TF, risk và thứ tự thử.
 
+Owner 2026-08-31: ưu tiên **scalping**. Cadence band nâng từ 2–5 lên
+**10–40 lệnh/tuần/symbol**. Cơ chế phải có căn cứ đã được chứng minh và bất
+biến theo regime, không đơn giản hóa nhưng cũng không phức tạp hóa. Được dùng
+indicator. Package mới sạch thay vì mở rộng host `EA_SonicR_PVSRA`.
+
 ## Outcome
 
 Một EA MT5 (tín hiệu + kỷ luật + risk) vận hành Strategy Tester rồi tài khoản
 demo. Mỗi cặp **tự pass**, không pool P&L:
 
 - PF > 1.30 sau phí (cost x1)
-- khoảng **2–5 lệnh/tuần** trên đúng symbol
+- khoảng **10–40 lệnh/tuần** trên đúng symbol (scalping; Owner 2026-08-31)
 - né cửa tin tức
 - không giữ qua tuần
 - hạn chế overnight
@@ -26,7 +31,9 @@ Timeframe: `M5`, `M15`, `H1`, `H4`, `D1` theo cơ chế.
 Native MT5 hợp lệ. Demo được phép. Live vốn chỉ Owner cấp. Spend/contact
 USD 0 trừ Owner mở đúng object.
 
-Host compile: `EA_SonicR_PVSRA`. Không compile `EA_SonicR` classic /
+Host compile: package mới dưới `03. EA Developer/` (Owner 2026-08-31), tái
+dùng `_Shared/Execution/AF_ExecutionKernel.mqh`. `EA_SonicR_PVSRA` vẫn compile
+được nhưng không còn là host bắt buộc. Không compile `EA_SonicR` classic /
 `00. Old File/`.
 
 ## Ngưỡng DONE (từng sleeve)
@@ -34,7 +41,7 @@ Host compile: `EA_SonicR_PVSRA`. Không compile `EA_SonicR` classic /
 | Tiêu chí | Tối thiểu |
 |---|---|
 | Profit factor | > 1.30 sau cost x1 |
-| Cadence | 2–5 lệnh/tuần trên đúng symbol |
+| Cadence | 10–40 lệnh/tuần trên đúng symbol |
 | Cost stress | x1.5 PF ≥ 1.25; x2 PF ≥ 1.00 |
 | History quality | Tester >97% |
 | Evidence | 2016→cutoff khi broker có; nếu muộn hơn thì ghi broker-limited, vẫn chạy |

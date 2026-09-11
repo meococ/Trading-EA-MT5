@@ -185,7 +185,37 @@ Mặc định: compile → backtest → analyze. Trade charts fail-open nếu ha
 & "./02. AlphaFactory/alpha.ps1" compile "<EA>"
 & "./02. AlphaFactory/alpha.ps1" backtest "<EA>" -Symbol <SYMBOL> -Period <TF> -HypothesisId <ID>
 & "./02. AlphaFactory/alpha.ps1" analyze -Report "<REPORT_PATH>"
+& "./02. AlphaFactory/alpha.ps1" clean    # dry-run post-run hygiene; -Execute mới dọn thật
 ```
 
 Survivor: `validate-full` / `delivery` — xem `alpha.ps1 help`.
 Nếu CLI thay đổi, `alpha.ps1 help` thắng ví dụ trong tài liệu.
+
+### Research loop (`ea_research_loop.ps1`)
+
+Task packet bắt buộc bind `cost_source_manifest_path` +
+`cost_source_manifest_sha256`; CLI phải truyền đúng cùng manifest đó. Kế hoạch
+(dry-run) trước, chỉ thêm `-Execute` khi JSON plan trả `execution_allowed=true`:
+
+```powershell
+& "./02. AlphaFactory/tools/ea_research_loop.ps1" `
+  -EaName <EA_NAME> -HypothesisId <HYP_ID> -RunRole control `
+  -Symbol <SYMBOL> -Period <TF> -From <YYYY.MM.DD> -To <YYYY.MM.DD> `
+  -Model 0 -TelemetryTier trade-only -TaskPacket <PACKET.json> `
+  -CostSourceManifest <COST_SOURCE_MANIFEST.json>
+
+& "./02. AlphaFactory/tools/ea_research_loop.ps1" `
+  -EaName <EA_NAME> -HypothesisId <HYP_ID> -RunRole control `
+  -Symbol <SYMBOL> -Period <TF> -From <YYYY.MM.DD> -To <YYYY.MM.DD> `
+  -Model 0 -TelemetryTier trade-only -TaskPacket <PACKET.json> `
+  -CostSourceManifest <COST_SOURCE_MANIFEST.json> -Execute
+```
+
+Mọi reference chứng cứ đi kèm task packet (`-WfaArtifact`, `-VariantsDir`, …)
+phải nằm trong workspace và được hash-bound; thiếu hoặc lệch hash là fail-closed.
+
+## Indicator / port TradingView
+
+Look, HUD, object, HTF overlay và gắn chart: không dùng workflow EA-edge này.
+Đi `AGENTS.md` § Indicator và `05. Playbook/INDICATOR_WORKFLOW.md` (research TV
+source + painting → convert plan → implement → snapshot → subagent review).

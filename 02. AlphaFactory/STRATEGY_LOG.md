@@ -2,6 +2,12 @@
 
 > **MỤC ĐÍCH:** File này ghi lại TẤT CẢ chiến lược đã test, kết quả, và bài học.
 > Khi bắt đầu session mới, AI PHẢI đọc file này để biết context.
+>
+> **2026-09-11 — chỉ mục lịch sử, không phải shelf.** Log này và
+> `strategy_index.json` (88 record S001–S088: `EA_Phoenix_*`,
+> `EA_SMC_Confluence_*`, …) không map 1:1 với dir trên disk.
+> Live shelf = `03. EA Developer/` + `alpha.ps1 list` +
+> `04. Memory/research/CANDIDATE_REGISTRY.jsonl`.
 
 ---
 

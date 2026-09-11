@@ -18,8 +18,9 @@ git config core.hooksPath .githooks
 ```
 
 `pre-commit` blocks secrets, `alpha.local.ps1`, MCP config, deal dumps, parquet,
-files over 5 MB, and machine-local profile paths in **added** lines. Grok
-`PreToolUse` uses the same regex and also denies blanket `git add -A`. Do not
+files over 5 MB, and machine-local profile paths in **added** lines. A second
+layer lives in `.grok/hooks/`: Grok `PreToolUse` uses the same regex and also
+denies blanket `git add -A` (see `D:\Meta 5\CLAUDE.md` § Grok hooks). Do not
 commit unless the Owner asked in the current message.
 
 ## Development workflow

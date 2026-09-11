@@ -1,9 +1,9 @@
 {
-    "version": 50,
-  "updated_at": "2026-08-31",
+    "version": 51,
+  "updated_at": "2026-09-11",
   "default_status": "authoritative",
   "root_hygiene": {
-    "rule": "Keep the project root lean: AGENTS.md, CLAUDE.md, 01. GOAL/ only (INDEX.md and .codex/operator are absent as of 2026-08-31; do not recreate them). Keep MT5 sample experts out of root and treat raw AlphaFactory runs as local operational data. Do not hard-code active EA inventory here; resolve it from 03. EA Developer/README.md, disk and AlphaFactory status. EA_SonicR and binary-only EA_SilverBullet are archive-only under 00. Old File/EA_Archive/.",
+    "rule": "Keep the project root lean: AGENTS.md, CONTRIBUTING.md, 01. GOAL/, and the TB_Smart_Money_Concept_2026.* indicator files. Repo-root CLAUDE.md moved to D:\\Meta 5\\CLAUDE.md on 2026-08-31 at Owner request; INDEX.md and .codex/operator are absent — do not recreate any of them. Keep MT5 sample experts out of root and treat raw AlphaFactory runs as local operational data. Do not hard-code active EA inventory here; resolve it from 03. EA Developer/README.md on disk and the AlphaFactory status / alpha.ps1 list commands. EA_SonicR_PVSRA is the living Sonic R host (GOAL.md:34-36); classic EA_SonicR (00. Old File/EA_Archive/) and binary-only EA_SilverBullet are archive-only, never compiled for the goal.",
     "graveyard": "00. Old File/docs_archive/",
     "ai_archive": "00. Old File/project_control_archive_20260716/"
   },
@@ -15,23 +15,31 @@
     },
     {
       "path": "CLAUDE.md",
-      "status": "authoritative",
-      "reason": "Pointer-only session entry file; defers to AGENTS.md, GOAL.md, INDEX.md and current registry/artifact truth."
+      "status": "unavailable-unresolved",
+      "reason": "ABSENT at repo root (verified 2026-09-11); the living copy moved to workspace root D:\\Meta 5\\CLAUDE.md on 2026-08-31 at Owner request — do not recreate the repo file. Historical index only; not usable evidence. Original status: authoritative. Original: Pointer-only session entry file; defers to AGENTS.md, GOAL.md, INDEX.md and current registry/artifact truth.",
+      "original_status": "authoritative",
+      "backup_root_id": "google_drive_advisors"
     },
     {
       "path": "INDEX.md",
       "status": "unavailable-unresolved",
-      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Pointer-only workspace map; dynamic package metrics and hypothesis state stay at their canonical destinations."
+      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Pointer-only workspace map; dynamic package metrics and hypothesis state stay at their canonical destinations.",
+      "original_status": "authoritative",
+      "backup_root_id": "google_drive_advisors"
     },
     {
       "path": ".codex/operator/STATUS.md",
       "status": "unavailable-unresolved",
-      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Non-authoritative recovery pointer for long operator sessions; it contains no live metrics or execution authority."
+      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Non-authoritative recovery pointer for long operator sessions; it contains no live metrics or execution authority.",
+      "original_status": "evidence",
+      "backup_root_id": "google_drive_advisors"
     },
     {
       "path": ".codex/operator/EXPERIMENTS.jsonl",
       "status": "unavailable-unresolved",
-      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Append-only bounded-experiment ledger for the active V2 hardening task, including red-first checks, diagnoses, and stop states."
+      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Append-only bounded-experiment ledger for the active V2 hardening task, including red-first checks, diagnoses, and stop states.",
+      "original_status": "evidence",
+      "backup_root_id": "google_drive_advisors"
     },
     {
       "path": "01. GOAL/GOAL.md",
@@ -41,7 +49,9 @@
     {
       "path": "05. Playbook/research_doctrine.md",
       "status": "unavailable-unresolved",
-      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Full research/validation doctrine: research workflow, registry contract, probe-plan freeze and versioning, chart-state label contract, multiple-testing budget, team review roles, MT5 non-repaint rules, and backtest hygiene."
+      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Full research/validation doctrine: research workflow, registry contract, probe-plan freeze and versioning, chart-state label contract, multiple-testing budget, team review roles, MT5 non-repaint rules, and backtest hygiene.",
+      "original_status": "authoritative",
+      "backup_root_id": "google_drive_advisors"
     },
     {
       "path": "04. Memory/validate_source_of_truth.py",
@@ -51,7 +61,9 @@
     {
       "path": "05. Playbook/validation_gates.md",
       "status": "unavailable-unresolved",
-      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Stage-gate matrix for every EA lane, including Two-Speed Fast-Kill versus Heavy-Delivery closeout and promotion-grade aligned-variant confirmed evidence."
+      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Stage-gate matrix for every EA lane, including Two-Speed Fast-Kill versus Heavy-Delivery closeout and promotion-grade aligned-variant confirmed evidence.",
+      "original_status": "authoritative",
+      "backup_root_id": "google_drive_advisors"
     },
     {
       "path": "00. Old File/agent_guidance_archive/20260503_1916_sonic_readme_cleanup/manifest.json",
@@ -79,17 +91,23 @@
     {
       "path": "05. Playbook/ea_engineering_standard.md",
       "status": "unavailable-unresolved",
-      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Generic MQL5 engineering standard: closed-bar signal contract, ownership/state recovery, broker geometry, risk, lifecycle telemetry, and promotion boundaries."
+      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Generic MQL5 engineering standard: closed-bar signal contract, ownership/state recovery, broker geometry, risk, lifecycle telemetry, and promotion boundaries.",
+      "original_status": "authoritative",
+      "backup_root_id": "google_drive_advisors"
     },
     {
       "path": "05. Playbook/ea_golden_path.md",
       "status": "unavailable-unresolved",
-      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Generic design-to-decision workflow for every EA: intake, de-dup, probe, prereg, build, Model 0, then Fast-Kill or Heavy-Delivery routing without post-hoc rescue."
+      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Generic design-to-decision workflow for every EA: intake, de-dup, probe, prereg, build, Model 0, then Fast-Kill or Heavy-Delivery routing without post-hoc rescue.",
+      "original_status": "authoritative",
+      "backup_root_id": "google_drive_advisors"
     },
     {
       "path": "05. Playbook/tool_runbook.md",
       "status": "unavailable-unresolved",
-      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Generic AlphaFactory command runbook: Two-Speed closeout, confirmed aligned-variant validation, guarded MT5 research, evidence operations and cleanup."
+      "reason": "ABSENT in this checkout (verified 2026-08-31); living process is WORKFLOW.md / GOAL.md / AGENTS.md. Original: Generic AlphaFactory command runbook: Two-Speed closeout, confirmed aligned-variant validation, guarded MT5 research, evidence operations and cleanup.",
+      "original_status": "authoritative",
+      "backup_root_id": "google_drive_advisors"
     },
     {
       "path": "00. Old File/EA_Archive/README.md",
