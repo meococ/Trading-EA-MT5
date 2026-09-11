@@ -106,7 +106,21 @@ function Get-Sha256IfExists($Path) {
     if ([string]::IsNullOrWhiteSpace($Path) -or -not (Test-Path -LiteralPath $Path -PathType Leaf)) {
         return $null
     }
-    return (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash
+    # .NET SHA256, not Get-FileHash: a Windows PowerShell 5.1 child of a pwsh 7
+    # parent inherits the pwsh PSModulePath and loses its own module autoload,
+    # which makes Get-FileHash a CommandNotFoundException (hit by the pytest
+    # harness, 2026-09-11). Same fix as tools/log_storage.ps1.
+    $sha = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        $stream = [System.IO.File]::OpenRead((Resolve-Path -LiteralPath $Path).Path)
+        try {
+            return ([System.BitConverter]::ToString($sha.ComputeHash($stream))).Replace('-', '').ToUpperInvariant()
+        } finally {
+            $stream.Dispose()
+        }
+    } finally {
+        $sha.Dispose()
+    }
 }
 
 function Get-TextSha256([string]$Text) {
@@ -132,6 +146,15 @@ function Get-PathHashSetSha256($Entries) {
 }
 
 function Test-NoGitWorkspace {
+    # `ALPHAFACTORY_FORCE_NOGIT=1|true` forces deterministic NO-GIT provenance and
+    # must be decided before any Git process starts; any other value fails closed.
+    $forceNoGit = [string]$env:ALPHAFACTORY_FORCE_NOGIT
+    if (-not [string]::IsNullOrWhiteSpace($forceNoGit)) {
+        if ($forceNoGit.ToLowerInvariant() -notin @('1', 'true')) {
+            throw "ALPHAFACTORY_FORCE_NOGIT must be '1' or 'true'"
+        }
+        return $true
+    }
     $gitDir = Join-Path $repoRoot ".git"
     $oldEap = $ErrorActionPreference
     $ErrorActionPreference = "SilentlyContinue"
@@ -171,7 +194,7 @@ function Get-NoGitProvenanceSnapshot([string]$ActiveSource = "") {
         } else {
             $full.Replace('\', '/')
         }
-        $fileHash = (Get-FileHash -LiteralPath $full -Algorithm SHA256).Hash.ToUpperInvariant()
+        $fileHash = (Get-Sha256IfExists $full)
         $records.Add(("$rel`t$fileHash"))
     }
     $payload = [string]::Join("`n", @($records))
@@ -365,13 +388,40 @@ function Get-RequiredSidecarsForTier([string]$Tier, [string]$TelemetryProfile = 
     }
 }
 
+function ConvertTo-AlphaRequiredInputArtifactSpecs($Records) {
+    # Task-packet input-escrow records -> the 'basename@sha256;...' CLI spec that
+    # alpha.ps1 parses. Only FILE_COMMON basenames are legal, so a packet can
+    # never smuggle a path or a workspace-relative file into the escrow.
+    $specs = New-Object System.Collections.Generic.List[string]
+    foreach ($record in @($Records)) {
+        if ($null -eq $record) { continue }
+        $source = [string](Get-ObjectProperty $record 'source')
+        $name = [string](Get-ObjectProperty $record 'name')
+        $sha = ([string](Get-ObjectProperty $record 'sha256')).ToUpperInvariant()
+        if ($source -cne 'FILE_COMMON') {
+            throw "required_input_artifacts source must be 'FILE_COMMON': '$source'."
+        }
+        if ([string]::IsNullOrWhiteSpace($name) -or
+            $name -match '[\\/]' -or
+            $name -match '\.\.' -or
+            $name -cne [System.IO.Path]::GetFileName($name)) {
+            throw "required_input_artifacts name must be a plain basename: '$name'."
+        }
+        if ($sha -notmatch '^[A-F0-9]{64}$') {
+            throw "required_input_artifacts sha256 is invalid for '$name'."
+        }
+        $specs.Add("$name@$sha")
+    }
+    return [string]::Join(';', @($specs | Sort-Object))
+}
+
 function Get-DirectoryTreeSha256($Path) {
     if (-not (Test-Path -LiteralPath $Path -PathType Container)) { return $null }
     $root = [System.IO.Path]::GetFullPath($Path).TrimEnd('\')
     $records = @(
         Get-ChildItem -LiteralPath $root -Recurse -File | Sort-Object FullName | ForEach-Object {
             $relative = $_.FullName.Substring($root.Length).TrimStart('\').Replace('\', '/')
-            "$relative`t$((Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash)"
+            "$relative`t$(Get-Sha256IfExists $_.FullName)"
         }
     )
     $payload = [string]::Join("`n", $records)
@@ -1741,6 +1791,48 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
     }
     $Binding | Add-Member -MemberType NoteProperty -Name RequiredSidecars -Value @($requiredSidecars) -Force
 
+    # Prospective input escrow (2026-08-13): the packet may bind external inputs
+    # as {source=FILE_COMMON, name=<basename>, sha256=<64 hex>} records. They are
+    # hashed into the execution receipt and forwarded to alpha.ps1, which copies
+    # the exact bytes into runs/<EA>/<run_id>/inputs/ and re-verifies them.
+    $requiredInputArtifactsProperty = $packet.PSObject.Properties['required_input_artifacts']
+    $requiredInputArtifacts = @()
+    if ($null -ne $requiredInputArtifactsProperty -and $null -ne $requiredInputArtifactsProperty.Value) {
+        $seenInputNames = New-Object System.Collections.Generic.HashSet[string]
+        foreach ($record in @($requiredInputArtifactsProperty.Value)) {
+            if ($null -eq $record) {
+                $blockers.Add("Task packet required_input_artifacts contains a null record.")
+                continue
+            }
+            $recordSource = [string](Get-ObjectProperty $record 'source')
+            $recordName = [string](Get-ObjectProperty $record 'name')
+            $recordSha = ([string](Get-ObjectProperty $record 'sha256')).ToUpperInvariant()
+            if ($recordSource -cne 'FILE_COMMON') {
+                $blockers.Add("Task packet required_input_artifacts source must be 'FILE_COMMON': '$recordSource'.")
+            }
+            if ([string]::IsNullOrWhiteSpace($recordName) -or
+                $recordName -match '[\\/]' -or
+                $recordName -match '\.\.' -or
+                $recordName -cne [System.IO.Path]::GetFileName($recordName)) {
+                $blockers.Add("Task packet required_input_artifacts name must be a plain basename: '$recordName'.")
+            }
+            if ($recordSha -notmatch '^[A-F0-9]{64}$') {
+                $blockers.Add("Task packet required_input_artifacts sha256 is invalid for '$recordName'.")
+            }
+            if (-not [string]::IsNullOrWhiteSpace($recordName) -and
+                -not $seenInputNames.Add($recordName.ToLowerInvariant())) {
+                $blockers.Add("Task packet required_input_artifacts contains a duplicate name: '$recordName'.")
+            }
+            $requiredInputArtifacts += [pscustomobject]@{
+                source = $recordSource
+                name = $recordName
+                sha256 = $recordSha
+            }
+        }
+        $requiredInputArtifacts = @($requiredInputArtifacts | Sort-Object -Property name)
+    }
+    $Binding | Add-Member -MemberType NoteProperty -Name RequiredInputArtifacts -Value @($requiredInputArtifacts) -Force
+
     $requiredManifestHashesProperty = $packet.PSObject.Properties['required_manifest_hashes']
     $requiredManifestHashes = @()
     if ($null -eq $requiredManifestHashesProperty) {
@@ -2330,6 +2422,7 @@ function Resolve-TaskPacket($TaskPacketPath, $Contract, $Binding) {
         IncludeClosure = @($includeClosure | ForEach-Object { $_ })
         IncludeClosureSha256 = $computedIncludeClosureHash
         RequiredSidecars = @($requiredSidecars)
+        RequiredInputArtifacts = @($requiredInputArtifacts)
         RequiredManifestHashes = @($requiredManifestHashes)
         CostEvidence = @($costEvidence | ForEach-Object { $_ })
         Blockers = @($blockers | ForEach-Object { $_ })
@@ -2861,6 +2954,7 @@ function New-ExecutionReceipt($ReceiptPath, $Contract, $PacketResult, $Binding, 
             leverage = $Binding.Leverage
             spread = $Binding.Spread
             required_sidecars = @($Binding.RequiredSidecars)
+            required_input_artifacts = @($Binding.RequiredInputArtifacts)
             broker_fingerprint = $Binding.BrokerFingerprint
             server_fingerprint = $Binding.ServerFingerprint
             account_fingerprint = $Binding.AccountFingerprint
@@ -3392,6 +3486,22 @@ function Assert-RunManifestMatchesPacket($ManifestPath, $PacketResult, $Binding,
     $packetRequiredSidecars = @($PacketResult.RequiredSidecars | ForEach-Object { [string]$_ } | Sort-Object)
     if ([string]::Join("`n", $manifestRequiredSidecars) -cne [string]::Join("`n", $packetRequiredSidecars)) {
         throw "Post-run manifest required_sidecars does not match task packet."
+    }
+
+    # Input escrow: the run manifest must carry the exact same input bindings the
+    # packet froze, otherwise the preserved bytes are not the tested bytes.
+    $manifestInputArtifacts = @(
+        Get-ObjectProperty $manifest 'input_artifacts' | ForEach-Object {
+            "{0}`t{1}`t{2}" -f [string](Get-ObjectProperty $_ 'source'), [string](Get-ObjectProperty $_ 'name'), ([string](Get-ObjectProperty $_ 'sha256')).ToUpperInvariant()
+        } | Sort-Object
+    )
+    $packetInputArtifacts = @(
+        @($PacketResult.RequiredInputArtifacts) | ForEach-Object {
+            "{0}`t{1}`t{2}" -f [string](Get-ObjectProperty $_ 'source'), [string](Get-ObjectProperty $_ 'name'), ([string](Get-ObjectProperty $_ 'sha256')).ToUpperInvariant()
+        } | Sort-Object
+    )
+    if ([string]::Join("`n", $manifestInputArtifacts) -cne [string]::Join("`n", $packetInputArtifacts)) {
+        throw "Post-run manifest input_artifacts do not match task packet."
     }
 
     $hashArtifacts = [ordered]@{
@@ -3974,6 +4084,7 @@ try {
         ContractReceipt = $receiptRecord.Path
         ContractReceiptSha256 = $receiptRecord.Sha256
         RequiredSidecars = [string]::Join(';', @($packetResult.RequiredSidecars))
+        RequiredInputArtifacts = ConvertTo-AlphaRequiredInputArtifactSpecs @($packetResult.RequiredInputArtifacts)
     }
     if (-not [string]::IsNullOrWhiteSpace($Spread)) { $backtestParameters.Spread = $Spread }
     $backtest = Invoke-RequiredStep "Backtest $EaName $Symbol $Period $From-$To Model=$Model" { & $alphaPs1 backtest $EaName @backtestParameters } $steps

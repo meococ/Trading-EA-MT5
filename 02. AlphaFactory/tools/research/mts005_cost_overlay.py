@@ -206,6 +206,27 @@ def find_repo_root(path: Path) -> Path:
     raise CostOverlayError(f"cannot find repository root from {path}")
 
 
+def resolve_evidence_path(root: Path, relative: Path) -> Path:
+    """Resolve a contract receipt, following the 2026-08-31 park of EA packages.
+
+    The Owner cleanup moved every non-host EA package to
+    `00. Old File/EA_Archive/`. Parking is housekeeping, not an economic verdict,
+    so a frozen receipt that no longer sits under `03. EA Developer/` is still the
+    same immutable artifact when its parked twin hashes equal. The graveyard twin
+    is consulted only when the shelf path is absent; the caller still enforces the
+    recorded SHA256, so a parked copy can never satisfy a mismatched hash.
+    """
+    resolved = (root / relative).resolve()
+    if resolved.is_file():
+        return resolved
+    parts = relative.parts
+    if parts and parts[0] == "03. EA Developer":
+        parked = (root / "00. Old File" / "EA_Archive" / Path(*parts[1:])).resolve()
+        if parked.is_file():
+            return parked
+    return resolved
+
+
 def verify_source_receipts(contract: dict[str, object], path: Path) -> list[dict[str, str]]:
     receipts = contract.get("source_receipts")
     if not isinstance(receipts, list) or not receipts:
@@ -218,7 +239,7 @@ def verify_source_receipts(contract: dict[str, object], path: Path) -> list[dict
         relative = Path(str(row["path"]))
         if relative.is_absolute():
             raise CostOverlayError("source receipt path must be relative")
-        resolved = (root / relative).resolve()
+        resolved = resolve_evidence_path(root, relative)
         try:
             resolved.relative_to(root)
         except ValueError as exc:

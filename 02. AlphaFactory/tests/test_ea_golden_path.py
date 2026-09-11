@@ -2297,9 +2297,11 @@ if(-not $unknownRejected){throw 'unknown tester override was not rejected'}
 
 
 def test_generic_runbook_commands_bind_cost_source_manifest() -> None:
-    golden = (WORKSPACE / "05. Playbook" / "ea_golden_path.md").read_text(encoding="utf-8")
-    runbook = (WORKSPACE / "05. Playbook" / "tool_runbook.md").read_text(encoding="utf-8")
-    assert "-CostSourceManifest <COST_SOURCE_MANIFEST.json>" in golden
+    # `05. Playbook/ea_golden_path.md` and `tool_runbook.md` were deleted in
+    # 521688f5 ("remove obsolete code"); the live operating contract is
+    # `05. Playbook/WORKFLOW.md`, so this tripwire follows it (2026-09-11).
+    runbook = (WORKSPACE / "05. Playbook" / "WORKFLOW.md").read_text(encoding="utf-8")
+    assert "-CostSourceManifest <COST_SOURCE_MANIFEST.json>" in runbook
     assert runbook.count("-CostSourceManifest") >= 2
 
 

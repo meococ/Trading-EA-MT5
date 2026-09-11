@@ -27,6 +27,11 @@ RESEARCH_DIR = Path(__file__).resolve().parent
 WORKSPACE = RESEARCH_DIR.parents[1]
 DEFAULT_REGISTRY = RESEARCH_DIR / "CANDIDATE_REGISTRY.jsonl"
 DEFAULT_SCHEMA = RESEARCH_DIR / "CANDIDATE_REGISTRY.schema.json"
+# 2026-08-31 Owner cleanup parked every non-host EA package here (gitignored
+# graveyard). Hash-bound evidence that vanished from the shelf is looked up
+# under this root before a reference is called missing.
+PARKED_EVIDENCE_ROOT = Path("00. Old File") / "EA_Archive"
+SHELF_PREFIX = "03. EA Developer/"
 EXECUTION_STATES = {"screened", "challenger", "confirmed", "portfolio-sleeve"}
 MODEL4_DATA_ACQUISITION_AUTHORITY = "DATA_ACQUISITION_ONLY_NO_PERFORMANCE"
 DATA_ACQUISITION_AUTHORITIES = {
@@ -302,23 +307,79 @@ def resolve_workspace_path(raw: Any, label: str, errors: list[str]) -> Path | No
     return candidate
 
 
+def parked_workspace_path(raw: Any) -> Path | None:
+    """Return the graveyard twin of a parked shelf path, or None.
+
+    The 2026-08-31 Owner cleanup parked every non-host EA package to
+    `00. Old File/EA_Archive/<package>/...`. Parking is housekeeping, not an
+    economic verdict, so a hash-bound artifact that no longer sits under
+    `03. EA Developer/` may still be the very same immutable bytes in the
+    graveyard. This probe is silent: it never records an error and never
+    asserts existence, so the caller keeps fail-closed control. Only shelf
+    paths are mapped -- anything else (including the data/ roots) is returned
+    as None and keeps its original missing-file error.
+    """
+    if not isinstance(raw, str) or not raw.startswith(SHELF_PREFIX):
+        return None
+    tail = raw[len(SHELF_PREFIX) :]
+    if not tail:
+        return None
+    candidate = (
+        WORKSPACE / PARKED_EVIDENCE_ROOT / Path(*tail.split("/"))
+    ).resolve()
+    try:
+        candidate.relative_to(WORKSPACE.resolve())
+    except ValueError:
+        return None
+    return candidate
+
+
+def resolve_hash_bound_path(
+    raw: Any,
+    hash_value: Any,
+    label: str,
+    errors: list[str],
+) -> Path | None:
+    """Resolve a path that must be hash-bound, accepting a parked twin.
+
+    A parked copy is accepted only when the recorded SHA256 is present and
+    matches its exact bytes. A missing file, an invalid or absent hash and a
+    mismatched hash all stay hard errors -- the graveyard probe never widens
+    the accept set beyond byte-identical evidence.
+    """
+    candidate = normalized_workspace_path(raw, label, errors)
+    if candidate is None:
+        return None
+    if not isinstance(hash_value, str) or re.fullmatch(r"[A-Fa-f0-9]{64}", hash_value) is None:
+        errors.append(f"{label}: SHA256 is invalid")
+        return None
+    expected = hash_value.upper()
+    if candidate.is_file():
+        actual = sha256_file(candidate)
+        if actual != expected:
+            errors.append(f"{label}: SHA256 mismatch expected={expected} actual={actual}")
+            return None
+        return candidate
+    parked = parked_workspace_path(raw)
+    if parked is not None and parked.is_file():
+        actual = sha256_file(parked)
+        if actual == expected:
+            return parked
+        errors.append(
+            f"{label}: parked SHA256 mismatch expected={expected} actual={actual}"
+        )
+        return None
+    errors.append(f"{label}: file is missing: {raw}")
+    return None
+
+
 def verify_binding(path_value: Any, hash_value: Any, label: str, errors: list[str]) -> Path | None:
     if path_value is None and hash_value is None:
         return None
     if path_value is None or hash_value is None:
         errors.append(f"{label}: path and SHA256 must be supplied together")
         return None
-    path = resolve_workspace_path(path_value, label, errors)
-    if path is None:
-        return None
-    if not isinstance(hash_value, str) or re.fullmatch(r"[A-Fa-f0-9]{64}", hash_value) is None:
-        errors.append(f"{label}: SHA256 is invalid")
-        return None
-    actual = sha256_file(path)
-    if actual != hash_value.upper():
-        errors.append(f"{label}: SHA256 mismatch expected={hash_value.upper()} actual={actual}")
-        return None
-    return path
+    return resolve_hash_bound_path(path_value, hash_value, label, errors)
 
 
 def verify_recorded_binding_shape(
@@ -349,9 +410,32 @@ def verify_source_binding(
     if source_path is None or source_hash is None:
         errors.append(f"{label}: path and SHA256 must be supplied together")
         return None
-    source_file = resolve_workspace_path(source_path, label, errors)
+    source_file = normalized_workspace_path(source_path, label, errors)
     if source_file is None:
         return None
+    if not source_file.is_file():
+        # The shelf copy may have been parked on 2026-08-31. The graveyard twin
+        # is accepted only when the recorded SHA256 is present and matches its
+        # exact bytes; otherwise the reference stays missing (fail closed) and
+        # the terminal-snapshot fallback is not entered.
+        parked_source = parked_workspace_path(source_path)
+        if parked_source is not None and parked_source.is_file():
+            if (
+                isinstance(source_hash, str)
+                and re.fullmatch(r"[A-Fa-f0-9]{64}", source_hash) is not None
+                and sha256_file(parked_source) == source_hash.upper()
+            ):
+                source_file = parked_source
+            else:
+                actual = sha256_file(parked_source)
+                errors.append(
+                    f"{label}: parked SHA256 mismatch expected={str(source_hash).upper()} "
+                    f"actual={actual}"
+                )
+                return None
+        else:
+            errors.append(f"{label}: file is missing: {source_path}")
+            return None
     if not isinstance(source_hash, str) or re.fullmatch(r"[A-Fa-f0-9]{64}", source_hash) is None:
         errors.append(f"{label}: SHA256 is invalid")
         return None

@@ -3,10 +3,29 @@ from __future__ import annotations
 import importlib.util
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[2]
 MODULE_PATH = ROOT / "02. AlphaFactory" / "tools" / "extract_cme_daily_fx_participation.py"
 SAMPLES = ROOT / "02. AlphaFactory" / "external" / "cme_daily_volume" / "source_samples"
+
+
+def require_sample(name: str) -> Path:
+    """Return a vendor workbook sample, skipping when it is outside this checkout.
+
+    `02. AlphaFactory/external/` is gitignored (`.gitignore`) and holds CME
+    workbooks downloaded by the acquisition tooling; the bytes are vendor input,
+    never committed evidence, and are absent from every git ref. The parser is
+    still exercised wherever the samples exist.
+    """
+    path = SAMPLES / name
+    if not path.is_file():
+        pytest.skip(
+            f"{name} is not in this checkout: 02. AlphaFactory/external/ is "
+            "gitignored vendor input, not tracked evidence"
+        )
+    return path
 
 
 def load_module():
@@ -25,7 +44,7 @@ def test_date_normalization_handles_legacy_and_current_formats() -> None:
 
 def test_parser_handles_legacy_shifted_columns() -> None:
     module = load_module()
-    rows = module.parse_workbook(SAMPLES / "daily_volume_20170103.xlsx")
+    rows = module.parse_workbook(require_sample("daily_volume_20170103.xlsx"))
     by_symbol = {row["symbol"]: row for row in rows}
     assert by_symbol["EURUSD"]["total_volume"] == 244244
     assert by_symbol["EURUSD"]["open_interest"] == 416424
@@ -34,7 +53,7 @@ def test_parser_handles_legacy_shifted_columns() -> None:
 
 def test_parser_handles_current_columns() -> None:
     module = load_module()
-    rows = module.parse_workbook(SAMPLES / "daily_volume_20250102.xlsx")
+    rows = module.parse_workbook(require_sample("daily_volume_20250102.xlsx"))
     by_symbol = {row["symbol"]: row for row in rows}
     assert by_symbol["EURUSD"]["total_volume"] == 282417
     assert by_symbol["EURUSD"]["open_interest"] == 613044

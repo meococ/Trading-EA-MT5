@@ -213,7 +213,8 @@ def test_alpha_cli_lists_real_clean_command() -> None:
     assert "clean                     Dry-run post-run hygiene" in text
     assert "Invoke-AlphaPostRunCleanupSafe" in text
     assert "Get-Mt5JournalLogRoots" in text
-    assert "Test-RunnerPortableOrHarnessTerminal" in text
+    assert "Stop-OrphanPortableTesters" in text
+    assert "Register-RunnerOwnedTerminal" in text
     assert "Assert-Mt5FactoryProcessIsolate" in text
     contract = (ALPHA_ROOT / "tools" / "mt5_storage_contract.ps1").read_text(encoding="utf-8-sig")
     assert "Owner Program Files GUI is allowed" in contract
@@ -331,10 +332,12 @@ def test_post_run_cleanup_refuses_path_outside_repo(tmp_path: Path) -> None:
 
 
 def test_runbook_uses_live_alpha_entrypoints() -> None:
-    runbook = (WORKSPACE / "05. Playbook" / "tool_runbook.md").read_text(encoding="utf-8")
+    # tool_runbook.md was removed in 521688f5 ("remove obsolete code"); the live
+    # equivalent is WORKFLOW.md, so the tripwire follows it (2026-09-11).
+    runbook = (WORKSPACE / "05. Playbook" / "WORKFLOW.md").read_text(encoding="utf-8")
     assert '-File "02. AlphaFactory/tools/alpha_json.ps1"' not in runbook
     assert "Run evidence audit" not in runbook
-    assert '-File "02. AlphaFactory/alpha.ps1"' in runbook
+    assert '-File "02. AlphaFactory/alpha.ps1"' in runbook or "./02. AlphaFactory/alpha.ps1" in runbook
     assert 'alpha.ps1" clean' in runbook or "alpha.ps1 clean" in runbook
 
 
