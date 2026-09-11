@@ -75,8 +75,11 @@ function Get-HookFilePath {
 function Get-EffectiveMcpToolName {
     param($Event)
     $toolName = Get-HookToolName $Event
-    if ($toolName -eq 'use_tool') {
-        $inner = Get-HookProp (Get-HookToolInput $Event) @('tool_name', 'toolName')
+    # use_tool / mcp_call_tool dispatch: the real MCP tool name sits inside the
+    # tool input under tool_name / toolName / name / tool (2026-09-11: added
+    # mcp_call_tool so dispatched mt5__trade_* calls still hit the gates).
+    if ($toolName -eq 'use_tool' -or $toolName -eq 'mcp_call_tool') {
+        $inner = Get-HookProp (Get-HookToolInput $Event) @('tool_name', 'toolName', 'name', 'tool')
         if ($inner) { return [string]$inner }
     }
     return $toolName

@@ -87,6 +87,13 @@ worktrees/
 !04. Memory/hot.md
 04. Memory/mcp_session_status.json
 .grok/hooks/logs/
+.grok/hooks/tmp-pw/
+
+# Generated scratch + research artifacts (research *.md notes stay tracked)
+02. AlphaFactory/tmp/
+04. Memory/research/**/*.html
+04. Memory/research/**/*.png
+04. Memory/research/**/*.jsonl
 
 # Broker/account exports and personal execution evidence
 02. AlphaFactory/evidence/execution/*-Real/

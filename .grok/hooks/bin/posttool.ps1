@@ -13,7 +13,12 @@ function Get-AuditLogPath {
 
 function Write-McpAudit {
     param($Event, [string]$ToolName)
-    if (-not (Test-TextMatch $ToolName '^mt5__')) { return }
+    # Audit effective MCP names (2026-09-11): mt5__* / mcp__-prefixed names,
+    # the raw trade_* verbs, and unresolved dispatchers (use_tool /
+    # mcp_call_tool events whose inner tool name could not be read).
+    $isMt5 = Test-TextMatch $ToolName 'mt5__|(?:^|__|:|\.)trade_(?:send_market_order|send_pending_order|modify_sl_tp|close_single_position|close_by_position|delete_order)\b'
+    $isDispatcher = Test-TextMatch $ToolName '^(?:use_tool|mcp_call_tool)$'
+    if (-not ($isMt5 -or $isDispatcher)) { return }
     $line = [pscustomobject]@{
         ts         = [DateTime]::UtcNow.ToString('o')
         sessionId  = [string](Get-HookProp $Event @('sessionId', 'session_id'))

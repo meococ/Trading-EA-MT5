@@ -13,7 +13,7 @@
     ],
     "PreToolUse": [
       {
-        "matcher": "mt5__trade_|mt5__tester_run_backtest|use_tool|Bash|run_terminal_command|spawn_subagent|Task|Write|Edit|MultiEdit|search_replace|write",
+        "matcher": "mt5__|mcp__|use_tool|mcp_call_tool|EnterWorktree|git_worktree|worktree|Worktree|Bash|run_terminal_command|exec|spawn_subagent|Task|Write|Edit|MultiEdit|search_replace|write|edit",
         "hooks": [
           {
             "type": "command",
@@ -25,7 +25,7 @@
     ],
     "PostToolUse": [
       {
-        "matcher": "mt5__|Bash|run_terminal_command",
+        "matcher": "mt5__|mcp__|use_tool|mcp_call_tool|Bash|run_terminal_command|exec",
         "hooks": [
           {
             "type": "command",

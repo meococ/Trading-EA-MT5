@@ -17,13 +17,42 @@ $script:ForbiddenNamePatterns = @(
     '(^|[/\\])id_rsa'
 )
 
+# Value patterns carry a placeholder guard (2026-09-11): documentation like
+# `password=...` or `password=<pw>` in hook comments and playbooks is not a
+# secret; only a real-looking value flags.
 $script:SecretLinePatterns = @(
-    'password\s*[:=]\s*\S+'
+    'password\s*[:=]\s*(?!\.{3}|<|\$null|\s*$)\S+'
     'BEGIN (?:RSA |OPENSSH |EC |DSA )?PRIVATE KEY'
     '(?i)authorization\s*[:=]\s*bearer\s+\S+'
-    '(?i)api[_-]?key\s*[:=]\s*\S+'
+    '(?i)\bbearer\s+[A-Za-z0-9._~+/=-]{8,}'
+    '(?i)api[_-]?key\s*[:=]\s*(?!\.{3}|<|\$null|\s*$)\S+'
+    '(?i)token\s*[:=]\s*(?!\.{3}|<|\$null|\s*$)\S+'
+    '(?i)secret\s*[:=]\s*(?!\.{3}|<|\$null|\s*$)\S+'
+    '(?i)passwd\s*[:=]\s*(?!\.{3}|<|\$null|\s*$)\S+'
     '"login"\s*:\s*"?\d{6,}'
-    '(?i)C:\\Users\\'
+)
+
+# Machine-local absolute paths on the owner drives (2026-09-11). These are
+# skipped for files whose job is to carry them — see OwnerPathAllowedFiles.
+$script:OwnerPathPatterns = @(
+    '(?i)C:[\\/]+Users[\\/]'
+    '(?i)C:[\\/]+Users[\\/]+toila'
+    '(?i)D:[\\/]+Meta 5'
+    '(?i)D:[\\/]+Trading EA MT5'
+)
+
+# Files that legitimately embed the owner machine paths (hook code, the
+# AlphaFactory machine-config scripts, the memory/source-of-truth docs). The
+# owner-path patterns are skipped for these; the credential patterns still
+# apply.
+$script:OwnerPathAllowedFiles = @(
+    '(^|/)\.grok/hooks/'
+    '(^|/)\.githooks/'
+    '(^|/)02\. AlphaFactory/'
+    '(^|/)04\. Memory/hot[^/]*\.md$'
+    '(^|/)04\. Memory/source_of_truth\.(md|json)$'
+    '(^|/)CONTRIBUTING\.md$'
+    '(^|/)AGENTS\.md$'
 )
 
 function Test-ForbiddenRelativePath {
@@ -41,6 +70,16 @@ function Test-SecretContent {
     if ([string]::IsNullOrWhiteSpace($Text)) { return $false }
     foreach ($pat in $script:SecretLinePatterns) {
         if ([regex]::IsMatch($Text, $pat, 'CultureInvariant')) { return $true }
+    }
+    $normRel = $RelativePath.Replace('\', '/')
+    $skipOwnerPaths = $false
+    foreach ($allow in $script:OwnerPathAllowedFiles) {
+        if ([regex]::IsMatch($normRel, $allow, 'CultureInvariant')) { $skipOwnerPaths = $true; break }
+    }
+    if (-not $skipOwnerPaths) {
+        foreach ($pat in $script:OwnerPathPatterns) {
+            if ([regex]::IsMatch($Text, $pat, 'CultureInvariant')) { return $true }
+        }
     }
     return $false
 }
@@ -87,4 +126,26 @@ function Get-GitStagedViolations {
         Pop-Location
     }
     return $violations
+}
+
+function Get-GitUntrackedForbidden {
+    # 2026-09-11: untracked entries whose names are forbidden. Warn-only — they
+    # cannot enter this commit, but they are one blanket `git add` away from
+    # doing so, and gitignored paths never show up here anyway.
+    param([string]$RepoRoot)
+    $hits = New-Object System.Collections.Generic.List[string]
+    Push-Location -LiteralPath $RepoRoot
+    try {
+        $lines = @(git status --porcelain --untracked-files=all 2>$null)
+        foreach ($l in $lines) {
+            if ($l -match '^\?\?\s+"?(?<p>.+?)"?$') {
+                $rel = $Matches['p'].TrimEnd('/')
+                if (Test-ForbiddenRelativePath $rel) { [void]$hits.Add($rel) }
+            }
+        }
+    }
+    finally {
+        Pop-Location
+    }
+    return $hits
 }
