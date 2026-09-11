@@ -1,5 +1,7 @@
 //+------------------------------------------------------------------+
 //|                                      SMC Order Block Detector.mq5|
+//| NOT TB dialect / not iCustom / do not merge with                 |
+//| TB_Smart_Money_Concept_2026. Independent visual OB detector.     |
 //+------------------------------------------------------------------+
 #property copyright "Ahmad Arju"
 #property link      "https://www.mql5.com/en/users/arju0612_/"
@@ -183,6 +185,149 @@ void UpdateOBGraphics(const datetime &time[], int current_bar)
      }
   }
 
+//+------------------------------------------------------------------+
+//| Physically drop dead blocks so BullOBs/BearOBs cannot grow        |
+//| without bound. Inactive entries are never resurrected, and the    |
+//| drawing/alert passes only ever use the newest InpMaxOB actives.   |
+//| A bounded multiple (4x, min 16) of extra actives is kept so older |
+//| blocks can resurface when newer ones get mitigated. Call AFTER    |
+//| UpdateOBGraphics: every entry it drops has already had its chart  |
+//| objects deleted there (all non-displayed entries are cleaned).    |
+//+------------------------------------------------------------------+
+void CompactOrderBlocks(OrderBlock &blocks[])
+  {
+   const int total = ArraySize(blocks);
+   if(total <= 0)
+      return;
+
+   int active_count = 0;
+   for(int i = 0; i < total; i++)
+      if(blocks[i].active)
+         active_count++;
+
+   // Oldest actives beyond the cap are dropped too (array is oldest->newest).
+   const int keep_active = (InpMaxOB * 4 > 16 ? InpMaxOB * 4 : 16);
+   int drop_actives = active_count - keep_active;
+   if(drop_actives < 0)
+      drop_actives = 0;
+
+   int write = 0;
+   for(int i = 0; i < total; i++)
+     {
+      if(!blocks[i].active)
+         continue;                       // dead block -> drop
+      if(drop_actives > 0)
+        {
+         drop_actives--;
+         continue;                       // oldest active over cap -> drop
+        }
+      if(write != i)
+         blocks[write] = blocks[i];
+      write++;
+     }
+   if(write < total)
+      ArrayResize(blocks, write);
+  }
+
+//+------------------------------------------------------------------+
+//| Live-bar touch/exit bookkeeping and crossing alerts.              |
+//| NOTE: MQL5 indicators have no OnTick - OnCalculate is the         |
+//| per-tick entry point, so this must stay called from OnCalculate   |
+//| to catch intrabar touches (the alert's intent). Closed-bar        |
+//| bookkeeping keys off is_new_bar / prev_live_bar_time.             |
+//+------------------------------------------------------------------+
+void ProcessTouchAlerts(const datetime &time[], const double &close[], const int rates_total)
+  {
+   int live_bar = rates_total - 1;
+   double check_price = (SymbolInfoDouble(_Symbol, SYMBOL_BID) > 0) ? SymbolInfoDouble(_Symbol, SYMBOL_BID) : close[live_bar];
+   if(last_tick_price == 0) last_tick_price = check_price;
+
+   bool is_new_bar = (time[live_bar] != prev_live_bar_time);
+   if(is_new_bar) prev_live_bar_time = time[live_bar];
+
+   // 1. Bullish OB Touch Alert Logic
+   int total_bull = ArraySize(BullOBs);
+   int displayed_bull = 0;
+   for(int b = total_bull - 1; b >= 0; b--)
+     {
+      if(!BullOBs[b].active) continue;
+      displayed_bull++;
+      if(displayed_bull > InpMaxOB) break;
+
+      if(check_price > BullOBs[b].top)
+        {
+         if(!BullOBs[b].has_exited)
+           {
+            BullOBs[b].has_exited = true;
+            BullOBs[b].bars_since_exit = 0;
+           }
+         else if(is_new_bar && BullOBs[b].touch_alerted)
+           {
+            BullOBs[b].bars_since_exit++;
+           }
+
+         if(BullOBs[b].bars_since_exit >= InpAlertCooldownBars)
+           {
+            BullOBs[b].touch_alerted = false;
+           }
+        }
+      else if(check_price <= BullOBs[b].top)
+        {
+         BullOBs[b].has_exited = false;
+        }
+
+      if(last_tick_price > BullOBs[b].top && check_price <= BullOBs[b].top && !BullOBs[b].touch_alerted)
+        {
+         string msg = StringFormat("Bullish OB Touch at %s [%s, %s]", DoubleToString(BullOBs[b].top, _Digits), _Symbol, EnumToString(_Period));
+         if(InpAlertPopup) Alert(msg);
+         if(InpAlertPush) SendNotification(msg);
+         BullOBs[b].touch_alerted = true;
+        }
+     }
+
+   // 2. Bearish OB Touch Alert Logic
+   int total_bear = ArraySize(BearOBs);
+   int displayed_bear = 0;
+   for(int b = total_bear - 1; b >= 0; b--)
+     {
+      if(!BearOBs[b].active) continue;
+      displayed_bear++;
+      if(displayed_bear > InpMaxOB) break;
+
+      if(check_price < BearOBs[b].bottom)
+        {
+         if(!BearOBs[b].has_exited)
+           {
+            BearOBs[b].has_exited = true;
+            BearOBs[b].bars_since_exit = 0;
+           }
+         else if(is_new_bar && BearOBs[b].touch_alerted)
+           {
+            BearOBs[b].bars_since_exit++;
+           }
+
+         if(BearOBs[b].bars_since_exit >= InpAlertCooldownBars)
+           {
+            BearOBs[b].touch_alerted = false;
+           }
+        }
+      else if(check_price >= BearOBs[b].bottom)
+        {
+         BearOBs[b].has_exited = false;
+        }
+
+      if(last_tick_price < BearOBs[b].bottom && check_price >= BearOBs[b].bottom && !BearOBs[b].touch_alerted)
+        {
+         string msg = StringFormat("Bearish OB Touch at %s [%s, %s]", DoubleToString(BearOBs[b].bottom, _Digits), _Symbol, EnumToString(_Period));
+         if(InpAlertPopup) Alert(msg);
+         if(InpAlertPush) SendNotification(msg);
+         BearOBs[b].touch_alerted = true;
+        }
+     }
+
+   last_tick_price = check_price;
+  }
+
 //====================================================================
 // [5] MAIN CALCULATION ENGINE
 //====================================================================
@@ -349,99 +494,17 @@ int OnCalculate(const int rates_total,
      }
 
    // --- REAL-TIME LIVE BAR TOUCH ALERTS ---
+   // Indicators have no OnTick: OnCalculate is the per-tick path, and the
+   // touch alert must see intrabar crossings. Kept here intentionally.
    if(InpEnableAlert && rates_total > 1)
-     {
-      int live_bar = rates_total - 1;
-      double check_price = (SymbolInfoDouble(_Symbol, SYMBOL_BID) > 0) ? SymbolInfoDouble(_Symbol, SYMBOL_BID) : close[live_bar];
-      if(last_tick_price == 0) last_tick_price = check_price;
-
-      bool is_new_bar = (time[live_bar] != prev_live_bar_time);
-      if(is_new_bar) prev_live_bar_time = time[live_bar];
-
-      // 1. Bullish OB Touch Alert Logic
-      int total_bull = ArraySize(BullOBs);
-      int displayed_bull = 0;
-      for(int b = total_bull - 1; b >= 0; b--)
-        {
-         if(!BullOBs[b].active) continue;
-         displayed_bull++;
-         if(displayed_bull > InpMaxOB) break;
-         
-         if(check_price > BullOBs[b].top)
-           {
-            if(!BullOBs[b].has_exited)
-              {
-               BullOBs[b].has_exited = true;
-               BullOBs[b].bars_since_exit = 0;
-              }
-            else if(is_new_bar && BullOBs[b].touch_alerted)
-              {
-               BullOBs[b].bars_since_exit++;
-              }
-               
-            if(BullOBs[b].bars_since_exit >= InpAlertCooldownBars)
-              {
-               BullOBs[b].touch_alerted = false;
-              }
-           }
-         else if(check_price <= BullOBs[b].top)
-           {
-            BullOBs[b].has_exited = false;
-           }
-         
-         if(last_tick_price > BullOBs[b].top && check_price <= BullOBs[b].top && !BullOBs[b].touch_alerted)
-           {
-            string msg = StringFormat("Bullish OB Touch at %s [%s, %s]", DoubleToString(BullOBs[b].top, _Digits), _Symbol, EnumToString(_Period));
-            if(InpAlertPopup) Alert(msg);
-            if(InpAlertPush) SendNotification(msg);
-            BullOBs[b].touch_alerted = true;
-           }
-        }
-
-      // 2. Bearish OB Touch Alert Logic
-      int total_bear = ArraySize(BearOBs);
-      int displayed_bear = 0;
-      for(int b = total_bear - 1; b >= 0; b--)
-        {
-         if(!BearOBs[b].active) continue;
-         displayed_bear++;
-         if(displayed_bear > InpMaxOB) break;
-         
-         if(check_price < BearOBs[b].bottom)
-           {
-            if(!BearOBs[b].has_exited)
-              {
-               BearOBs[b].has_exited = true;
-               BearOBs[b].bars_since_exit = 0;
-              }
-            else if(is_new_bar && BearOBs[b].touch_alerted)
-              {
-               BearOBs[b].bars_since_exit++;
-              }
-               
-            if(BearOBs[b].bars_since_exit >= InpAlertCooldownBars)
-              {
-               BearOBs[b].touch_alerted = false;
-              }
-           }
-         else if(check_price >= BearOBs[b].bottom)
-           {
-            BearOBs[b].has_exited = false;
-           }
-         
-         if(last_tick_price < BearOBs[b].bottom && check_price >= BearOBs[b].bottom && !BearOBs[b].touch_alerted)
-           {
-            string msg = StringFormat("Bearish OB Touch at %s [%s, %s]", DoubleToString(BearOBs[b].bottom, _Digits), _Symbol, EnumToString(_Period));
-            if(InpAlertPopup) Alert(msg);
-            if(InpAlertPush) SendNotification(msg);
-            BearOBs[b].touch_alerted = true;
-           }
-        }
-
-      last_tick_price = check_price;
-     }
+      ProcessTouchAlerts(time, close, rates_total);
 
    UpdateOBGraphics(time, rates_total - 1);
+
+   // Physically drop inactive/capped blocks; UpdateOBGraphics already
+   // deleted the chart objects of every entry this removes.
+   CompactOrderBlocks(BullOBs);
+   CompactOrderBlocks(BearOBs);
 
    return(rates_total);
   }

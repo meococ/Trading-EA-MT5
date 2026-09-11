@@ -73,15 +73,21 @@
 //| Profile 0 = TV honest 2.3 (sweep-live, half-span, no size/age).  |
 //| iCustom hosts that must not litter set InpDrawObjects=false.     |
 //| An EA should also verify buffer 43 >= 2.3 before consuming.      |
-//| Visual 2.38: crop zone fills to origin; no 2099 rectangle walls. |
+//| Visual 2.50: live CELL/void boxes stretch to last closed bar.    |
 //| Buffer 44 stays ExtTrueRange. No public HTF buffers.             |
 //+------------------------------------------------------------------+
 #property copyright   "TBalgo; MQL5 port for workspace owner"
 #property link        "https://www.tradingview.com/script/IM2GxnOK-TB-Smart-Money-Concept-2026/"
-#property version     "2.42"
+// One source of truth for the build tag. The init Print carried a
+// hand-typed "2.52" for four releases, so the only line that could tell
+// which EX5 a chart actually loaded was the one line that lied. Distinct
+// from TB_VERSION below, which is the product/schema version on the HUD.
+#define TB_BUILD "2.60"
+#property version     TB_BUILD
 #property description "Closed-bar TB SMC 2026: BOS/MSS+impulse, origin cells, voids/CE, sweeps"
 #property description "Contract 2.3: live-swing sweeps, no orphan CE, Trail not Protected, CELL≠OB"
-#property description "Visual 2.42: H4 inset hides overlapping LTF objects via OBJ_NO_PERIODS"
+#property description "Visual 2.60: every gap word owns a line in the gap, none orphaned"
+#property description "Inset 2.53: live rays trimmed past the H4 pane, no cross-paint"
 
 #property indicator_chart_window
 #property indicator_buffers 45
@@ -141,7 +147,7 @@ input color InpBearColor=C'251,113,133';      // Bear  TV #FB7185
 input color InpAccentColor=C'129,140,248';    // Accent TV #818CF8
 input color InpMuteColor=C'100,116,139';      // Mute  TV #64748B
 input bool  InpFocusMode=true;                // Cap BOS/MSS labels; nearest live SMC rays, older cropped
-input int   InpFocusLastN=10;                 // Last N BOS/MSS marks when Focus is on (1..150)
+input int   InpFocusLastN=6;                  // Last N BOS/MSS marks when Focus is on (1..150)
 
 //--- Modules
 input group "TB SMC 2026 - Map"
@@ -150,7 +156,7 @@ input bool InpShowCells=true;                 // Origin Cells (not Order Blocks)
 input bool InpShowVoids=true;                 // Price Voids + CE (fill = half-span)
 input bool InpShowSweeps=true;                // Liquidity Sweeps (live swing only)
 input bool InpShowTrail=true;                 // Running extremes (Trail H/L, not protected)
-input bool InpShowHud=true;                   // Bias HUD
+input bool InpShowHud=false;                  // Bias HUD off (Owner: no navy box)
 
 //--- Closed-bar alerts.
 input group "Closed-Bar Alerts"
@@ -172,9 +178,9 @@ input bool            InpShowHtfBreakOnChart=false;       // One H4 BOS/MSS leve
 
 input group "HTF Inset Chart"
 input bool InpShowHtfInset=true;          // M5/M15: large H4 chart, bottom-left
-input int  InpHtfInsetWidthPct=42;        // Width percent of parent (38..45)
-input int  InpHtfInsetHeightPct=36;       // Height percent of parent (32..40)
-input int  InpHtfInsetScale=3;            // Nested candle scale 0..5
+input int  InpHtfInsetWidthPct=52;        // Width percent of parent (45..58)
+input int  InpHtfInsetHeightPct=46;       // Height percent of parent (40..52)
+input int  InpHtfInsetScale=1;            // Nested candle scale 0..5 (1 = HTF overview)
 
 const string TB_VERSION="2026.2.0";
 const double TB_CONTRACT_VERSION=2.3;
@@ -186,14 +192,29 @@ const int    TB_HTF_SPARK_MAX=12;
 const int    TB_HTF_PANEL_WIDTH=220;
 const int    TB_HUD_PANEL_HEIGHT=78;
 const int    TB_HTF_PANEL_HEIGHT=110;
-const int    TB_HTF_INSET_MIN_WIDTH=380;
-const int    TB_HTF_INSET_MIN_HEIGHT=220;
+const int    TB_HTF_INSET_MIN_WIDTH=460;
+const int    TB_HTF_INSET_MIN_HEIGHT=260;
 const int    TB_HTF_INSET_PAD_X=10;
 const int    TB_HTF_INSET_PAD_Y=24;
 const int    TB_PANEL_PAD=12;
 const double TB_ZONE_FILL_MIN_ATR=0.20;
 const double TB_ZONE_FILL_MAX_ATR=6.00;
 const int    TB_CELL_BOX_PAD_BARS=2;
+const double TB_LABEL_ATR_OFF=1.10;
+const int    TB_LABEL_DODGE_BARS=2;
+const int    TB_TRAIL_GAP_BARS=4;
+// Measured on the 2.59 snapshot: ink_top lands exactly at base-9, so a band of
+// 9 had zero margin at the top. One bigger font row — a DPI change, Windows
+// text scaling off 100%, or "Segoe UI Semibold" being substituted — would put
+// the top glyph row outside the band and make InkClearance report a line clear
+// that actually cuts the letters. 10 buys back that row.
+const int    TB_GAP_LABEL_TEXT_PX=10;
+const int    TB_GAP_LABEL_LIFT_PX=3;
+const int    TB_GAP_LABEL_PAD_PX=2;
+const int    TB_GAP_LABEL_SEARCH_PX=26;
+const int    TB_GAP_LABEL_SLACK_PX=2;
+const int    TB_NESTED_STRUCTURE_WORDS=3;
+const int    TB_HOST_STRUCTURE_WORDS=3;
 const color  TB_PANEL_BG=C'15,23,42';
 const color  TB_PANEL_TEXT=C'226,232,240';
 const color  TB_PANEL_KEY_COLOR=C'100,116,139';
@@ -311,6 +332,8 @@ int        g_trailLowOrigin[];
 string   g_prefix="";
 string   g_shortName="";
 datetime g_cachedTime[];
+double   g_cachedHigh[];
+double   g_cachedLow[];
 int      g_cachedRates=0;
 datetime g_lastBarTime=0;
 datetime g_firstBarTime=0;
@@ -456,6 +479,8 @@ bool IsVisualInstanceOnChart()
 
 void DeleteObjectsByPrefix(const string prefix)
   {
+   if(StringLen(prefix)==0)
+      return; // Empty prefix would match and delete every chart object.
    for(int index=ObjectsTotal(0)-1;index>=0;index--)
      {
       const string name=ObjectName(0,index);
@@ -861,6 +886,303 @@ void CreateTextObject(const string name,const datetime atTime,const double atPri
    ObjectSetInteger(0,name,OBJPROP_ZORDER,3);
   }
 
+datetime StructureLabelTime(const datetime &time[],const int pivot,const int index)
+  {
+   const int mid=(pivot+index)/2;
+   if(mid<0 || mid>=ArraySize(time))
+      return(time[index]);
+   return(time[mid]);
+  }
+
+double StructureLabelPrice(const int bar,const int eventBar,const double level,const bool bull,
+                           const double atr,const double &high[],const double &low[])
+  {
+   const double off=(atr>0.0 ? atr*TB_LABEL_ATR_OFF : 0.0);
+   if(ArraySize(high)<=0 || ArraySize(low)<=0)
+      return(bull ? level+off : level-off);
+   int from=MathMax(0,bar-TB_LABEL_DODGE_BARS);
+   int to=MathMin(ArraySize(high)-1,bar+TB_LABEL_DODGE_BARS);
+   if(eventBar>=0)
+     {
+      from=MathMin(from,eventBar);
+      to=MathMax(to,MathMin(eventBar,ArraySize(high)-1));
+     }
+   double localHigh=level;
+   double localLow=level;
+   for(int i=from;i<=to;i++)
+     {
+      if(i<ArraySize(high))
+         localHigh=MathMax(localHigh,high[i]);
+      if(i<ArraySize(low))
+         localLow=MathMin(localLow,low[i]);
+     }
+   return(bull ? localHigh+off : localLow-off);
+  }
+
+datetime RightGapTime(const datetime lastClosed)
+  {
+   const int sec=PeriodSeconds();
+   const int step=(sec>0 ? sec*TB_TRAIL_GAP_BARS : 60*TB_TRAIL_GAP_BARS);
+   return(lastClosed+(datetime)step);
+  }
+
+//+------------------------------------------------------------------+
+//| CE / Trail H / Trail L all anchor at the same gap time, so two    |
+//| levels a few points apart print one word over another, and a      |
+//| live ray a few pixels away slices through the glyphs (an "L" then |
+//| reads as "["). Place each word in the nearest free horizontal slot |
+//| that clears every gap-crossing ray AND every word already placed. |
+//| Only the word moves; the ray still marks the exact level.         |
+//+------------------------------------------------------------------+
+//| A slot's band is taller than the letters in it: with              |
+//| ANCHOR_LEFT_LOWER the bottom rows are descender slack, and none of |
+//| CE / Trail H / Trail L reaches down there. A line crossing         |
+//| the slack is invisible, so only the ink rows are a hazard. Revisit |
+//| TB_GAP_LABEL_SLACK_PX if a word with a descender is ever added.    |
+//| A line is as thick as its own OBJPROP_WIDTH, not one pixel: the    |
+//| width-2 MSS ray paints the row above the one ChartTimePriceToXY    |
+//| reports, so each row carries the half-width it was measured with.  |
+//| Returns how far the nearest line stays off the letters; 0 means it |
+//| crosses them.                                                      |
+//+------------------------------------------------------------------+
+int InkClearance(const int base,const int &rayYs[],const int &rayPad[],const int rayCount)
+  {
+   const int top=base-TB_GAP_LABEL_TEXT_PX;
+   const int bottom=base-TB_GAP_LABEL_SLACK_PX;
+   int worst=INT_MAX;
+   for(int r=0;r<rayCount;r++)
+     {
+      const int lo=rayYs[r]-rayPad[r];
+      const int hi=rayYs[r]+rayPad[r];
+      int gap=0;
+      if(hi<top)
+         gap=top-hi;
+      else
+         if(lo>bottom)
+            gap=lo-bottom;
+      if(gap<worst)
+         worst=gap;
+     }
+   return(worst);
+  }
+
+int RayHalfWidth(const long chart,const string name)
+  {
+   const int w=(int)ObjectGetInteger(chart,name,OBJPROP_WIDTH);
+   return(MathMax(1,(w+1)/2));
+  }
+
+bool BandHitsTaken(const int top,const int bottom,
+                   const int &takenTop[],const int &takenBottom[],const int takenCount)
+  {
+   for(int t=0;t<takenCount;t++)
+      if(bottom+TB_GAP_LABEL_PAD_PX>=takenTop[t] && top-TB_GAP_LABEL_PAD_PX<=takenBottom[t])
+         return(true);
+   return(false);
+  }
+
+//+------------------------------------------------------------------+
+//| The terminal draws its own Bid/Ask/Last lines right across the    |
+//| gap, and they are not DRAW_ objects, so the sweep above cannot    |
+//| see them. On build 2.55 the grey bid line ran through the waist   |
+//| of a gap word. Rebuild-time only: they drift with price between   |
+//| bars, and relaying the words every tick would make them jitter,   |
+//| which is worse than the strike it would avoid.                    |
+//+------------------------------------------------------------------+
+void AddPriceLineRow(const long chart,const datetime gapTime,const bool shown,
+                    const double price,int &rows[],int &pads[],int &count)
+  {
+   if(!shown || price<=0.0)
+      return;
+   int x=0;
+   int y=0;
+   if(!ChartTimePriceToXY(chart,0,gapTime,price,x,y))
+      return;
+   ArrayResize(rows,count+1);
+   ArrayResize(pads,count+1);
+   rows[count]=y;
+   pads[count]=1;                      // terminal furniture is always 1px
+   count++;
+  }
+
+//+------------------------------------------------------------------+
+//| CHART_SHOW_TRADE_LEVELS paints entry/SL/TP as full-width lines    |
+//| that cross the gap exactly like the Bid line. The review snapshot |
+//| had no open position, so this hazard was absent rather than       |
+//| handled; on the funded account it is three more lines per trade.  |
+//+------------------------------------------------------------------+
+void AddTradeLevelRows(const long chart,const datetime gapTime,int &rows[],int &pads[],int &count)
+  {
+   if(!(bool)ChartGetInteger(chart,CHART_SHOW_TRADE_LEVELS))
+      return;
+   for(int i=PositionsTotal()-1;i>=0;i--)
+     {
+      if(PositionGetTicket(i)==0 || PositionGetString(POSITION_SYMBOL)!=_Symbol)
+         continue;
+      // AddPriceLineRow drops a 0.0 price, so an unset SL/TP costs nothing.
+      AddPriceLineRow(chart,gapTime,true,PositionGetDouble(POSITION_PRICE_OPEN),rows,pads,count);
+      AddPriceLineRow(chart,gapTime,true,PositionGetDouble(POSITION_SL),rows,pads,count);
+      AddPriceLineRow(chart,gapTime,true,PositionGetDouble(POSITION_TP),rows,pads,count);
+     }
+   for(int i=OrdersTotal()-1;i>=0;i--)
+     {
+      if(OrderGetTicket(i)==0 || OrderGetString(ORDER_SYMBOL)!=_Symbol)
+         continue;
+      AddPriceLineRow(chart,gapTime,true,OrderGetDouble(ORDER_PRICE_OPEN),rows,pads,count);
+      AddPriceLineRow(chart,gapTime,true,OrderGetDouble(ORDER_SL),rows,pads,count);
+      AddPriceLineRow(chart,gapTime,true,OrderGetDouble(ORDER_TP),rows,pads,count);
+      // A *_STOP_LIMIT order draws a fourth level at its stop-limit price.
+      AddPriceLineRow(chart,gapTime,true,OrderGetDouble(ORDER_PRICE_STOPLIMIT),rows,pads,count);
+     }
+  }
+
+void SpreadRightGapLabels(const datetime gapTime)
+  {
+   const long chart=ChartID();
+   const string prefix=g_prefix+"DRAW_";
+   string names[];
+   int xs[];
+   int ys[];
+   int rayYs[];
+   int rayPad[];
+   int count=0;
+   int rayCount=0;
+   for(int i=ObjectsTotal(chart)-1;i>=0;i--)
+     {
+      const string name=ObjectName(chart,i);
+      if(StringFind(name,prefix)!=0)
+         continue;
+      const ENUM_OBJECT type=(ENUM_OBJECT)ObjectGetInteger(chart,name,OBJPROP_TYPE);
+      int x=0;
+      int y=0;
+      // Every right-ray trend reaches into the gap, so every one of them can
+      // cut a word there — not just the ray belonging to that word.
+      if(type==OBJ_TREND && (bool)ObjectGetInteger(chart,name,OBJPROP_RAY_RIGHT))
+        {
+         // Only a flat ray keeps its anchor price all the way into the gap;
+         // a sloped one would be at some other y there, so skip it.
+         if(ObjectGetDouble(chart,name,OBJPROP_PRICE)!=ObjectGetDouble(chart,name,OBJPROP_PRICE,1))
+            continue;
+         if(!ChartTimePriceToXY(chart,0,gapTime,ObjectGetDouble(chart,name,OBJPROP_PRICE),x,y))
+            continue;
+         ArrayResize(rayYs,rayCount+1);
+         ArrayResize(rayPad,rayCount+1);
+         rayYs[rayCount]=y;
+         rayPad[rayCount]=RayHalfWidth(chart,name);
+         rayCount++;
+         continue;
+        }
+      if(type!=OBJ_TEXT)
+         continue;
+      // Structure words sit on their pivot bar, never in the right gap.
+      if((datetime)ObjectGetInteger(chart,name,OBJPROP_TIME)!=gapTime)
+         continue;
+      if(!ChartTimePriceToXY(chart,0,gapTime,ObjectGetDouble(chart,name,OBJPROP_PRICE),x,y))
+         continue;
+      ArrayResize(names,count+1);
+      ArrayResize(xs,count+1);
+      ArrayResize(ys,count+1);
+      names[count]=name;
+      xs[count]=x;
+      ys[count]=y;
+      count++;
+     }
+   if(count<1)
+      return;
+   AddPriceLineRow(chart,gapTime,(bool)ChartGetInteger(chart,CHART_SHOW_BID_LINE),
+                   SymbolInfoDouble(_Symbol,SYMBOL_BID),rayYs,rayPad,rayCount);
+   AddPriceLineRow(chart,gapTime,(bool)ChartGetInteger(chart,CHART_SHOW_ASK_LINE),
+                   SymbolInfoDouble(_Symbol,SYMBOL_ASK),rayYs,rayPad,rayCount);
+   AddPriceLineRow(chart,gapTime,(bool)ChartGetInteger(chart,CHART_SHOW_LAST_LINE),
+                   SymbolInfoDouble(_Symbol,SYMBOL_LAST),rayYs,rayPad,rayCount);
+   AddTradeLevelRows(chart,gapTime,rayYs,rayPad,rayCount);
+   // Top-down insertion sort; count is four at most.
+   for(int i=1;i<count;i++)
+     {
+      const string keyName=names[i];
+      const int keyX=xs[i];
+      const int keyY=ys[i];
+      int j=i-1;
+      while(j>=0 && ys[j]>keyY)
+        {
+         names[j+1]=names[j];
+         xs[j+1]=xs[j];
+         ys[j+1]=ys[j];
+         j--;
+        }
+      names[j+1]=keyName;
+      xs[j+1]=keyX;
+      ys[j+1]=keyY;
+     }
+   const int chartH=(int)ChartGetInteger(chart,CHART_HEIGHT_IN_PIXELS);
+   int takenTop[];
+   int takenBottom[];
+   int takenCount=0;
+   for(int i=0;i<count;i++)
+     {
+      // ANCHOR_LEFT_LOWER: the anchor is the baseline, glyphs sit above it.
+      // Preferred baseline clears the word's own level by a hair.
+      const int wish=ys[i]-TB_GAP_LABEL_LIFT_PX;
+      int chosen=wish;
+      int bestClear=-1;
+      bool found=false;
+      bool done=false;
+      // Words are never allowed to share rows, so a slot that hits one
+      // already placed is not a candidate at all. Lines are ranked instead
+      // of forbidden: the scan runs nearest-first, so the first slot that
+      // keeps every line off the letters is also the closest one and wins
+      // outright. If the gap is too crowded for that — which is what an
+      // account with open trades looks like — the best clearance seen wins,
+      // so the word lands where a line skims it rather than on the first
+      // slot that merely happened to be free of other words.
+      for(int step=0;step<=TB_GAP_LABEL_SEARCH_PX && !done;step++)
+         for(int dir=0;dir<2 && !done;dir++)
+           {
+            if(step==0 && dir==1)
+               continue;
+            const int base=wish+(dir==0 ? -step : step);
+            const int top=base-TB_GAP_LABEL_TEXT_PX;
+            if(top<2 || base>chartH-2)
+               continue;
+            if(BandHitsTaken(top,base,takenTop,takenBottom,takenCount))
+               continue;
+            const int clear=InkClearance(base,rayYs,rayPad,rayCount);
+            if(clear>bestClear)
+              {
+               bestClear=clear;
+               chosen=base;
+               found=true;
+              }
+            if(bestClear>=1)
+               done=true;
+           }
+      if(!found)
+        {
+         // Pane too short for this word anywhere. Leave it on its own
+         // level, but still reserve the space so the next word steps
+         // around it instead of landing on top.
+         ArrayResize(takenTop,takenCount+1);
+         ArrayResize(takenBottom,takenCount+1);
+         takenTop[takenCount]=ys[i]-TB_GAP_LABEL_TEXT_PX;
+         takenBottom[takenCount]=ys[i];
+         takenCount++;
+         continue;
+        }
+      ArrayResize(takenTop,takenCount+1);
+      ArrayResize(takenBottom,takenCount+1);
+      takenTop[takenCount]=chosen-TB_GAP_LABEL_TEXT_PX;
+      takenBottom[takenCount]=chosen;
+      takenCount++;
+      if(chosen==ys[i])
+         continue;
+      int sub=0;
+      datetime movedTime=0;
+      double movedPrice=0.0;
+      if(ChartXYToTimePrice(chart,xs[i],chosen,sub,movedTime,movedPrice))
+         ObjectSetDouble(chart,names[i],OBJPROP_PRICE,movedPrice);
+     }
+  }
+
 bool ZoneTooSmall(const double top,const double bottom,const double atr)
   {
    if(atr<=0.0)
@@ -1083,21 +1405,20 @@ void UpdateHud(const int index)
    DeleteObjectsByPrefix(g_prefix+"HUD_");
    if(index<0)
       return;
-   // Nested H4 (OBJ_CHART) must not draw a second HUD. Do not use
-   // CHART_IS_OBJECT on the host — some builds report true once an
-   // OBJ_CHART exists, which would also kill the parent HUD.
    if(!InpShowHud)
       return;
+   // H4 inset replaces the bias HUD on M5/M15. Nested H4 also skips HUD.
+   // Do not gate the host on CHART_IS_OBJECT — some builds report true
+   // once an OBJ_CHART exists.
    if(InpShowHtfInset)
      {
       const ENUM_TIMEFRAMES htf=(InpHtfPeriod==PERIOD_CURRENT
                                  ?(ENUM_TIMEFRAMES)_Period:InpHtfPeriod);
-      if((ENUM_TIMEFRAMES)_Period==htf)
-        {
-         long isObj=0;
-         if(ChartGetInteger(ChartID(),CHART_IS_OBJECT,0,isObj) && isObj!=0)
-            return;
-        }
+      if((ENUM_TIMEFRAMES)_Period!=htf)
+         return;
+      long isObj=0;
+      if(ChartGetInteger(ChartID(),CHART_IS_OBJECT,0,isObj) && isObj!=0)
+         return;
      }
 
    const int panelWidth=200;
@@ -1325,12 +1646,24 @@ bool HtfInsetAllowed()
    return(true);
   }
 
+bool IsHtfChildVisual()
+  {
+   if(!InpShowHtfInset)
+      return(false);
+   if(HtfResolvedPeriod()!=(ENUM_TIMEFRAMES)_Period)
+      return(false);
+   long isObj=0;
+   if(ChartGetInteger(ChartID(),CHART_IS_OBJECT,0,isObj) && isObj!=0)
+      return(true);
+   return(false);
+  }
+
 void HtfInsetGeometry(int &width,int &height,int &xDist,int &yDist)
   {
    const int chartW=MathMax(1,(int)ChartGetInteger(0,CHART_WIDTH_IN_PIXELS));
    const int chartH=MathMax(1,(int)ChartGetInteger(0,CHART_HEIGHT_IN_PIXELS));
-   const int pctW=(int)MathRound(Clamp((double)InpHtfInsetWidthPct,38.0,45.0));
-   const int pctH=(int)MathRound(Clamp((double)InpHtfInsetHeightPct,32.0,40.0));
+   const int pctW=(int)MathRound(Clamp((double)InpHtfInsetWidthPct,45.0,58.0));
+   const int pctH=(int)MathRound(Clamp((double)InpHtfInsetHeightPct,40.0,52.0));
    width=chartW*pctW/100;
    height=chartH*pctH/100;
    if(width<TB_HTF_INSET_MIN_WIDTH)
@@ -1344,7 +1677,7 @@ void HtfInsetGeometry(int &width,int &height,int &xDist,int &yDist)
    // OBJ_CHART has no ANCHOR: X/Y is the top-left, size grows right/down.
    // LEFT_LOWER would push the 220px box off the bottom of the pane.
    xDist=TB_HTF_INSET_PAD_X;
-   const int hudClear=(InpShowHud ? 10+88+10 : 8);
+   const int hudClear=8;
    yDist=chartH-height-TB_HTF_INSET_PAD_Y;
    if(yDist<hudClear)
      {
@@ -1357,8 +1690,9 @@ void ApplyHtfInsetTheme(const long insetId)
   {
    ChartSetInteger(insetId,CHART_MODE,CHART_CANDLES);
    ChartSetInteger(insetId,CHART_AUTOSCROLL,true);
-   ChartSetInteger(insetId,CHART_SHIFT,true);
-   ChartSetInteger(insetId,CHART_SHOW_GRID,ChartGetInteger(0,CHART_SHOW_GRID));
+   ChartSetInteger(insetId,CHART_SHIFT,false);
+   ChartSetInteger(insetId,CHART_SCALE,(int)MathRound(Clamp((double)InpHtfInsetScale,0.0,5.0)));
+   ChartSetInteger(insetId,CHART_SHOW_GRID,false);
    ChartSetInteger(insetId,CHART_SHOW_VOLUMES,CHART_VOLUME_HIDE);
    ChartSetInteger(insetId,CHART_SHOW_OHLC,false);
    ChartSetInteger(insetId,CHART_SHOW_ASK_LINE,false);
@@ -1457,6 +1791,51 @@ bool InsetHitBox(const int left,const int top,const int right,const int bottom,
    return(right>=x0-pad && left<=x0+width+pad && bottom>=y0-pad && top<=y0+height+pad);
   }
 
+//+------------------------------------------------------------------+
+//| Live working rays must survive on the right of the tape, so the   |
+//| hide-whole clip is wrong for them — but leaving them alone lets   |
+//| a void/CE/trail level paint straight across the nested H4 pane    |
+//| whenever its price sits inside the inset band. Push the left      |
+//| anchor past the inset's right edge instead: the level keeps its   |
+//| working side and stops crossing the child chart.                  |
+//| Horizontal rays only; moving one anchor of a sloped ray would     |
+//| change its gradient.                                              |
+//+------------------------------------------------------------------+
+void TrimRayPastInset(const long chart,const string name,
+                      const int x0,const int y0,const int width,const int height,
+                      const int pad)
+  {
+   const double p1=ObjectGetDouble(chart,name,OBJPROP_PRICE);
+   const double p2=ObjectGetDouble(chart,name,OBJPROP_PRICE,1);
+   if(p1!=p2)
+      return;
+   const datetime t1=(datetime)ObjectGetInteger(chart,name,OBJPROP_TIME);
+   const datetime t2=(datetime)ObjectGetInteger(chart,name,OBJPROP_TIME,1);
+   int x1=0;
+   int y1=0;
+   if(!ChartTimePriceToXY(chart,0,t1,p1,x1,y1))
+      return;
+   // Horizontal ray: one y test decides whether it crosses the pane at all.
+   if(y1<y0-pad || y1>y0+height+pad)
+      return;
+   const int edgeX=x0+width+2;
+   if(x1>=edgeX)
+      return;
+   int sub=0;
+   datetime edgeTime=0;
+   double edgePrice=0.0;
+   if(!ChartXYToTimePrice(chart,edgeX,y1,sub,edgeTime,edgePrice) || edgeTime<=0)
+      return;
+   datetime newT2=t2;
+   if(newT2<=edgeTime)
+     {
+      const int sec=PeriodSeconds();
+      newT2=edgeTime+(datetime)(sec>0 ? sec : 60);
+     }
+   ObjectSetInteger(chart,name,OBJPROP_TIME,0,edgeTime);
+   ObjectSetInteger(chart,name,OBJPROP_TIME,1,newT2);
+  }
+
 void ClipDrawObjectsUnderInset()
   {
    if(!HtfInsetAllowed())
@@ -1466,7 +1845,7 @@ void ClipDrawObjectsUnderInset()
    int x0=0;
    int y0=0;
    HtfInsetGeometry(width,height,x0,y0);
-   const int pad=80;
+   const int pad=24;
    const string prefix=g_prefix+"DRAW_";
    const long chart=ChartID();
    const int chartW=(int)ChartGetInteger(chart,CHART_WIDTH_IN_PIXELS);
@@ -1476,6 +1855,18 @@ void ClipDrawObjectsUnderInset()
       if(StringFind(name,prefix)!=0)
          continue;
       const ENUM_OBJECT type=(ENUM_OBJECT)ObjectGetInteger(chart,name,OBJPROP_TYPE);
+      // Live working rays must stay on the right of the tape (LuxAlgo/TV shift
+      // gap). Hide-whole AABB would delete trail/MSS/void edges that only
+      // cross the inset band — trim them past the pane instead.
+      if(type==OBJ_TREND && (bool)ObjectGetInteger(chart,name,OBJPROP_RAY_RIGHT))
+        {
+         TrimRayPastInset(chart,name,x0,y0,width,height,pad);
+         ObjectSetInteger(chart,name,OBJPROP_TIMEFRAMES,OBJ_ALL_PERIODS);
+         continue;
+        }
+      // Trail/CE labels live in the right gap, past the pane by construction.
+      if(StringFind(name,"DRAW_TRAIL_")>=0 || StringFind(name,"DRAW_VOID_MID_")>=0)
+         continue;
       bool hit=false;
       if(type==OBJ_TEXT || type==OBJ_ARROW || type==OBJ_ARROW_RIGHT_PRICE)
         {
@@ -2015,10 +2406,11 @@ void UpdateHtfClock()
 
 //+------------------------------------------------------------------+
 //| Rebuild all owned visual objects from deterministic buffers.      |
-//| CELL/void fills stay at the origin/gap. Never 2099 time2.         |
-//| Live edges/CE/Trail are OBJ_TREND + RAY_RIGHT.                    |
+//| Live CELL/void boxes stretch to last closed. Nested stays cropped.|
+//| Live CE/Trail remain OBJ_TREND + RAY_RIGHT.                       |
 //+------------------------------------------------------------------+
-void RebuildVisuals(const int ratesTotal,const datetime &time[])
+void RebuildVisuals(const int ratesTotal,const datetime &time[],
+                    const double &high[],const double &low[])
   {
    DeleteObjectsByPrefix(g_prefix+"DRAW_");
    for(int leftover=ObjectsTotal(0)-1;leftover>=0;leftover--)
@@ -2040,11 +2432,16 @@ void RebuildVisuals(const int ratesTotal,const datetime &time[])
    const color bearVoidStrong=ZoneWash(InpBearColor,0.16);
    const color bearVoidSoft=ZoneWash(InpBearColor,0.10);
    const datetime lastClosedTime=time[g_lastClosedIndex];
-   const int newestVoidEvent=(ArraySize(g_voids)>0 ? g_voids[0].eventIndex : -1);
-   const int structureCap=(InpFocusMode
-                           ? MathMax(1,MathMin(TB_MAX_STRUCTURE_OBJECTS,InpFocusLastN))
-                           : TB_MAX_STRUCTURE_OBJECTS);
+   const bool nestedHtf=IsHtfChildVisual();
+   int structureCap=(InpFocusMode
+                     ? MathMax(1,MathMin(TB_MAX_STRUCTURE_OBJECTS,InpFocusLastN))
+                     : TB_MAX_STRUCTURE_OBJECTS);
+   if(nestedHtf)
+      structureCap=MathMin(structureCap,TB_NESTED_STRUCTURE_WORDS);
    const double atrNow=(IsValue(ExtAtr[g_lastClosedIndex]) ? ExtAtr[g_lastClosedIndex] : 0.0);
+   const int structureFont=(nestedHtf ? 6 : 7);
+   const int wordCap=(nestedHtf ? 2 : TB_HOST_STRUCTURE_WORDS);
+   int structureWords=0;
 
    if(InpShowStructure)
      {
@@ -2059,16 +2456,19 @@ void RebuildVisuals(const int ratesTotal,const datetime &time[])
          pivot=MathMax(0,MathMin(index,pivot));
          const bool mss=(MathAbs(event)==2);
          const bool nearest=(created==0);
-         const color eventColor=(event>0 ? InpBullColor : InpBearColor);
+         const bool bull=(event>0);
+         const color eventColor=(bull ? InpBullColor : InpBearColor);
          const string base=g_prefix+"DRAW_STRUCT_"+IntegerToString(index);
          const datetime structRight=(nearest ? lastClosedTime : time[index]);
          CreateTrendObject(base+"_LN",time[pivot],level,structRight,level,eventColor,
                            (mss ? STYLE_SOLID : STYLE_DASH),(mss ? 2 : 1),nearest);
-         const double labelPrice=(atrNow>0.0
-                                  ? (event>0 ? level+atrNow*0.06 : level-atrNow*0.06)
-                                  : level);
-         CreateTextObject(base+"_LB",time[index],labelPrice,(mss ? "MSS" : "BOS"),
-                          eventColor,(event>0 ? ANCHOR_LOWER : ANCHOR_UPPER),8);
+         if((mss || nearest) && structureWords<wordCap)
+           {
+            CreateTextObject(base+"_LB",StructureLabelTime(time,pivot,index),level,
+                             (mss ? "MSS" : "BOS"),eventColor,
+                             (bull ? ANCHOR_LOWER : ANCHOR_UPPER),structureFont);
+            structureWords++;
+           }
          created++;
         }
      }
@@ -2078,79 +2478,76 @@ void RebuildVisuals(const int ratesTotal,const datetime &time[])
       for(int i=0;i<ArraySize(g_cells);i++)
         {
          const int start=ClampBarIndex(g_cells[i].startIndex,g_lastClosedIndex);
-         const int eventIdx=ClampBarIndex(g_cells[i].eventIndex,g_lastClosedIndex);
-         const bool nearest=(i==0);
          const datetime left=time[start];
-         const datetime boxRight=ZoneBoxRight(time,ratesTotal,start,eventIdx,TB_CELL_BOX_PAD_BARS);
+         const datetime originRight=ZoneBoxRight(time,ratesTotal,start,
+            ClampBarIndex(g_cells[i].eventIndex,g_lastClosedIndex),TB_CELL_BOX_PAD_BARS);
+         const datetime boxRight=(nestedHtf ? originRight : BarRightTime(time,ratesTotal,g_lastClosedIndex));
          const string name=g_prefix+"DRAW_CELL_"+IntegerToString(i);
          const color edge=(g_cells[i].side>0 ? InpBullColor : InpBearColor);
          const color fill=(g_cells[i].side>0 ? bullCellFill : bearCellFill);
+         const bool nearest=(i==0);
          if(!ZoneTooSmall(g_cells[i].top,g_cells[i].bottom,atrNow))
             CreateZoneBox(name,left,g_cells[i].top,boxRight,g_cells[i].bottom,fill,edge,
-                          ZoneFillAllowed(g_cells[i].top,g_cells[i].bottom,atrNow));
-         if(nearest)
+                          nearest && ZoneFillAllowed(g_cells[i].top,g_cells[i].bottom,atrNow));
+         if(nearest && nestedHtf)
            {
             CreateTrendObject(name+"_TH",left,g_cells[i].top,lastClosedTime,g_cells[i].top,edge,STYLE_DOT,1,true);
             CreateTrendObject(name+"_BH",left,g_cells[i].bottom,lastClosedTime,g_cells[i].bottom,edge,STYLE_DOT,1,true);
-            CreateTextObject(name+"_LB",left,g_cells[i].top,"CELL",edge,ANCHOR_RIGHT_UPPER,7);
            }
+         // The CELL word used to sit in the right gap at g_cells[i].top. This
+         // is the !nestedHtf branch, which is exactly the case where the
+         // _TH/_BH gap rays above are NOT drawn - so the word stood in the gap
+         // with no line of its own at that level. SpreadRightGapLabels then
+         // had to push it 17px down into the thicket of other levels, where it
+         // read as the owner of Trail L's ray. A word that names nothing in the
+         // gap does not belong there; in this branch the box already runs out
+         // to the last closed bar and identifies itself.
         }
      }
 
-   if(InpShowVoids)
+   if(InpShowVoids && ArraySize(g_voids)>0)
      {
-      for(int i=0;i<ArraySize(g_voids);i++)
+      const int vStart=ClampBarIndex(g_voids[0].startIndex,g_lastClosedIndex);
+      const int vEvent=MathMax(vStart,ClampBarIndex(g_voids[0].eventIndex,g_lastClosedIndex));
+      const datetime left=time[vStart];
+      const datetime originRight=ZoneBoxRight(time,ratesTotal,vStart,vEvent,0);
+      const datetime boxRight=(nestedHtf ? originRight : BarRightTime(time,ratesTotal,g_lastClosedIndex));
+      const string base=g_prefix+"DRAW_VOID_0";
+      const color strong=(g_voids[0].side>0 ? bullVoidStrong : bearVoidStrong);
+      const color soft=(g_voids[0].side>0 ? bullVoidSoft : bearVoidSoft);
+      const color edge=(g_voids[0].side>0 ? InpBullColor : InpBearColor);
+      const bool tooSmall=ZoneTooSmall(g_voids[0].top,g_voids[0].bottom,atrNow);
+      const bool filled=(!tooSmall && ZoneFillAllowed(g_voids[0].top,g_voids[0].bottom,atrNow));
+      if(g_voids[0].upperActive && !tooSmall)
+         CreateZoneBox(base+"_U",left,g_voids[0].top,boxRight,g_voids[0].ce,strong,edge,filled);
+      if(g_voids[0].lowerActive && !tooSmall)
+         CreateZoneBox(base+"_L",left,g_voids[0].ce,boxRight,g_voids[0].bottom,soft,edge,filled);
+      if(nestedHtf)
         {
-         const int vStart=ClampBarIndex(g_voids[i].startIndex,g_lastClosedIndex);
-         const int vEvent=MathMax(vStart,ClampBarIndex(g_voids[i].eventIndex,g_lastClosedIndex));
-         const bool nearest=(i==0);
-         const datetime left=time[vStart];
-         const datetime boxRight=ZoneBoxRight(time,ratesTotal,vStart,vEvent,0);
-         const string base=g_prefix+"DRAW_VOID_"+IntegerToString(i);
-         const color strong=(g_voids[i].side>0 ? bullVoidStrong : bearVoidStrong);
-         const color soft=(g_voids[i].side>0 ? bullVoidSoft : bearVoidSoft);
-         const color edge=(g_voids[i].side>0 ? InpBullColor : InpBearColor);
-         const bool tooSmall=ZoneTooSmall(g_voids[i].top,g_voids[i].bottom,atrNow);
-         const bool filled=(!tooSmall && ZoneFillAllowed(g_voids[i].top,g_voids[i].bottom,atrNow));
-         if(g_voids[i].upperActive)
-           {
-            if(!tooSmall)
-               CreateZoneBox(base+"_U",left,g_voids[i].top,boxRight,g_voids[i].ce,strong,edge,filled);
-            if(nearest)
-               CreateTrendObject(base+"_UH",left,g_voids[i].top,lastClosedTime,g_voids[i].top,edge,STYLE_SOLID,1,true);
-           }
-         if(g_voids[i].lowerActive)
-           {
-            if(!tooSmall)
-               CreateZoneBox(base+"_L",left,g_voids[i].ce,boxRight,g_voids[i].bottom,soft,edge,filled);
-            if(nearest)
-               CreateTrendObject(base+"_LH",left,g_voids[i].bottom,lastClosedTime,g_voids[i].bottom,edge,STYLE_SOLID,1,true);
-           }
+         if(g_voids[0].upperActive)
+            CreateTrendObject(base+"_UH",left,g_voids[0].top,lastClosedTime,g_voids[0].top,edge,STYLE_SOLID,1,true);
+         if(g_voids[0].lowerActive)
+            CreateTrendObject(base+"_LH",left,g_voids[0].bottom,lastClosedTime,g_voids[0].bottom,edge,STYLE_SOLID,1,true);
         }
-      // Draw CE only while a matching half is still alive. Both-halves-dead
-      // already removed the midline; this filter is belt-and-suspenders.
-      for(int i=0;i<ArraySize(g_voidMids);i++)
+      if(g_voids[0].upperActive || g_voids[0].lowerActive)
         {
-         bool living=false;
-         for(int v=0;v<ArraySize(g_voids);v++)
+         for(int mid=0;mid<ArraySize(g_voidMids);mid++)
            {
-            if(g_voids[v].eventIndex==g_voidMids[i].eventIndex
-               && (g_voids[v].upperActive || g_voids[v].lowerActive))
-              {
-               living=true;
-               break;
-              }
+            if(g_voidMids[mid].eventIndex!=g_voids[0].eventIndex)
+               continue;
+            const int midStart=ClampBarIndex(g_voidMids[mid].startIndex,g_lastClosedIndex);
+            const string midName=g_prefix+"DRAW_VOID_MID_0";
+            CreateTrendObject(midName,time[midStart],g_voidMids[mid].ce,lastClosedTime,g_voidMids[mid].ce,
+                              BlendColor((g_voids[0].side>0 ? InpBullColor : InpBearColor),background,0.65),
+                              STYLE_DOT,1,true);
+            // Text needs more ink than its own dotted line, not less: at 0.35
+            // the word washed out to near-invisible on a white chart.
+            if(!nestedHtf)
+               CreateTextObject(midName+"_LB",RightGapTime(lastClosedTime),g_voidMids[mid].ce,"CE",
+                                BlendColor((g_voids[0].side>0 ? InpBullColor : InpBearColor),background,0.85),
+                                ANCHOR_LEFT_LOWER,6);
+            break;
            }
-         if(!living)
-            continue;
-         const int midStart=ClampBarIndex(g_voidMids[i].startIndex,g_lastClosedIndex);
-         const bool nearestMid=(g_voidMids[i].eventIndex==newestVoidEvent);
-         const datetime midRight=(nearestMid ? lastClosedTime : BarRightTime(time,ratesTotal,
-                                 MathMax(midStart,ClampBarIndex(g_voidMids[i].eventIndex,g_lastClosedIndex))));
-         const string name=g_prefix+"DRAW_VOID_MID_"+IntegerToString(i);
-         CreateTrendObject(name,time[midStart],g_voidMids[i].ce,midRight,g_voidMids[i].ce,
-                           BlendColor((g_voidMids[i].side>0 ? InpBullColor : InpBearColor),background,0.65),
-                           STYLE_DOT,1,nearestMid);
         }
      }
 
@@ -2164,12 +2561,15 @@ void RebuildVisuals(const int ratesTotal,const datetime &time[])
       lowStart=MathMax(0,MathMin(g_lastClosedIndex,lowStart));
       CreateTrendObject(g_prefix+"DRAW_TRAIL_H",time[highStart],highLevel,lastClosedTime,highLevel,InpBearColor,STYLE_DOT,1,true);
       CreateTrendObject(g_prefix+"DRAW_TRAIL_L",time[lowStart],lowLevel,lastClosedTime,lowLevel,InpBullColor,STYLE_DOT,1,true);
-      const int trailBias=(int)MathRound(ExtBias[g_lastClosedIndex]);
-      CreateTextObject(g_prefix+"DRAW_TRAIL_HL",lastClosedTime,highLevel,
-                       (trailBias<0 ? "Protected H" : "Soft H"),InpBearColor,ANCHOR_RIGHT,8);
-      CreateTextObject(g_prefix+"DRAW_TRAIL_LL",lastClosedTime,lowLevel,
-                       (trailBias>0 ? "Protected L" : "Soft L"),InpBullColor,ANCHOR_RIGHT,8);
+      if(!nestedHtf)
+        {
+         const datetime gapT=RightGapTime(lastClosedTime);
+         CreateTextObject(g_prefix+"DRAW_TRAIL_HL",gapT,highLevel,"Trail H",InpBearColor,ANCHOR_LEFT_LOWER,7);
+         CreateTextObject(g_prefix+"DRAW_TRAIL_LL",gapT,lowLevel,"Trail L",InpBullColor,ANCHOR_LEFT_LOWER,7);
+        }
      }
+
+   SpreadRightGapLabels(RightGapTime(lastClosedTime));
 
    UpdateHud(g_lastClosedIndex);
    if(HtfInsetAllowed())
@@ -2251,6 +2651,9 @@ bool ValidateInputs()
 //+------------------------------------------------------------------+
 int OnInit()
   {
+   // Assign the object namespace first: any later INIT_* failure path must
+   // never leave OnDeinit holding an empty prefix ("" matches every object).
+   g_prefix="TB_SMC_"+StringFormat("%I64d",ChartID())+"_"+_Symbol+"_"+IntegerToString((int)_Period)+"_";
    ResolveEngineParameters();
    if(!ValidateInputs())
      {
@@ -2335,7 +2738,6 @@ int OnInit()
                +(g_sweepsRequireLiveSwing ? "1" : "0")+")";
    IndicatorSetString(INDICATOR_SHORTNAME,g_shortName);
    IndicatorSetInteger(INDICATOR_DIGITS,_Digits);
-   g_prefix="TB_SMC_"+StringFormat("%I64d",ChartID())+"_"+_Symbol+"_"+IntegerToString((int)_Period)+"_";
    DeleteObjectsByPrefix(g_prefix);
    g_lastBarTime=0;
    g_firstBarTime=0;
@@ -2344,7 +2746,7 @@ int OnInit()
    g_cachedRates=0;
    ResetEngineState();
    InitHtfHandle();
-   Print("TB SMC 2026 init ver=2.42 hud=",InpShowHud," draw=",InpDrawObjects,
+   Print("TB SMC 2026 init build=",TB_BUILD," hud=",InpShowHud," draw=",InpDrawObjects,
          " inset=",InpShowHtfInset," period=",_Period," chart=",ChartID());
    if(HtfInsetAllowed())
       EventSetTimer(1);
@@ -2802,15 +3204,21 @@ int OnCalculate(const int rates_total,
    PublishEngineState(forming,false);
 
    ArrayResize(g_cachedTime,rates_total);
+   ArrayResize(g_cachedHigh,rates_total);
+   ArrayResize(g_cachedLow,rates_total);
    for(int i=0;i<rates_total;i++)
+     {
       g_cachedTime[i]=time[i];
+      g_cachedHigh[i]=high[i];
+      g_cachedLow[i]=low[i];
+     }
    g_cachedRates=rates_total;
 
    const bool renderObjects=(!(bool)MQLInfoInteger(MQL_TESTER) || (bool)MQLInfoInteger(MQL_VISUAL_MODE));
    if(renderObjects && IsVisualInstanceOnChart())
      {
       RefreshHtfSnapshot(fullRebuild);
-      RebuildVisuals(rates_total,time);
+      RebuildVisuals(rates_total,time,high,low);
       if(fullRebuild)
          g_lastAlertedClosedBar=time[g_lastClosedIndex];
       else
@@ -2834,7 +3242,7 @@ void OnChartEvent(const int id,const long &lparam,const double &dparam,const str
       return;
    ConfigurePlots();
    if(IsVisualInstanceOnChart())
-      RebuildVisuals(g_cachedRates,g_cachedTime);
+      RebuildVisuals(g_cachedRates,g_cachedTime,g_cachedHigh,g_cachedLow);
    else
       DeleteObjectsByPrefix(g_prefix);
    ChartRedraw();
@@ -2861,6 +3269,7 @@ void OnDeinit(const int reason)
    EventKillTimer();
    ReleaseHtfInset();
    ReleaseHtfHandle();
-   DeleteObjectsByPrefix(g_prefix);
+   if(StringLen(g_prefix)>0)
+      DeleteObjectsByPrefix(g_prefix);
   }
 //+------------------------------------------------------------------+

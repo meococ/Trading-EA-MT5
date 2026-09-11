@@ -5,10 +5,16 @@
 //+------------------------------------------------------------------+
 #property copyright "EA_SonicR_PVSRA"
 #property link      "https://www.mql5.com"
-#property version   "4.86"
+#property version   "4.87"
 #property strict
-#property description "Sonic R XAUUSD H1 hour-8 H4 marubozu + body vs ATR. Tester-only."
-
+#property description "Sonic R XAUUSD H1 hour-8 H4 marubozu. Optional QQE H1 filter."
+// Deployment contract: tester_indicator/iCustom resolve relative to
+// MQL5\Indicators, so the tester expects QQE_MOD.ex5 at
+//   <data>\MQL5\Indicators\Trading-EA-MT5\QQE_MOD.ex5
+// Repo source lives in "03. EA Developer\QQE_MOD\"; deploy by copying the
+// compiled EX5 to that path (or to MQL5\Indicators\QQE_MOD.ex5 for the
+// iCustom fallback below). Path string is contractual - do not edit.
+#property tester_indicator "Trading-EA-MT5\\QQE_MOD"
 #include <Trade/Trade.mqh>
 #include "Include/SNR_Types.mqh"
 #include "Include/SNR_Dragon.mqh"
@@ -92,6 +98,9 @@ input double InpSlBufferAtr=0.15;
 input double InpSlCapPips=2000.0;
 input double InpMinSlSpreadMult=3.0;
 
+input group "--- QQE filter ---"
+input bool   InpRequireQqeAgree=false;
+
 const string EA_NAME="EA_SonicR_PVSRA";
 const string EXPECTED_HYPOTHESIS="HYP-SONICR-XAU-H1-H4AT-001";
 const string EXPECTED_VARIANT="XAU_H1_H4AT";
@@ -116,6 +125,7 @@ string         g_pending_exit_reason="";
 bool           g_runtime_failed=false;
 ulong          g_pending_ticket=0;
 datetime       g_pending_signal_time=0;
+int            g_qqe_handle=INVALID_HANDLE;
 int            g_pending_age=0;
 int            g_overlay_handle=INVALID_HANDLE;
 
@@ -499,6 +509,17 @@ int OnInit()
       SnrHandlesRelease(g_handles);
       return(INIT_FAILED);
      }
+   // Expected EX5: <data>\MQL5\Indicators\Trading-EA-MT5\QQE_MOD.ex5
+   // (tester_indicator contract above); fallback: MQL5\Indicators\QQE_MOD.ex5.
+   g_qqe_handle=iCustom(_Symbol,SNR_SIGNAL_TF,"Trading-EA-MT5\\QQE_MOD");
+   if(g_qqe_handle==INVALID_HANDLE)
+      g_qqe_handle=iCustom(_Symbol,SNR_SIGNAL_TF,"QQE_MOD");
+   if(InpRequireQqeAgree && g_qqe_handle==INVALID_HANDLE)
+     {
+      Print("SNR001_FATAL reason=QQE_HANDLE err=",GetLastError());
+      SnrHandlesRelease(g_handles);
+      { /*hg*/ if(g_qqe_handle!=INVALID_HANDLE)IndicatorRelease(g_qqe_handle); if(g_overlay_handle!=INVALID_HANDLE)FileClose(g_overlay_handle); /*hg*/return(INIT_FAILED); }
+     }
 
    g_trade.SetExpertMagicNumber(InpMagic);
    g_trade.SetDeviationInPoints(InpDeviationPoints);
@@ -520,7 +541,7 @@ int OnInit()
      {
       SnrHandlesRelease(g_handles);
       SnrTelemetryCloseCsv(g_tel);
-      return(INIT_FAILED);
+      { /*hg*/ if(g_qqe_handle!=INVALID_HANDLE)IndicatorRelease(g_qqe_handle); if(g_overlay_handle!=INVALID_HANDLE)FileClose(g_overlay_handle); /*hg*/return(INIT_FAILED); }
      }
    if(scan==SNR_SCAN_OWNED && PositionSelectByTicket(ticket))
      {
@@ -537,7 +558,7 @@ int OnInit()
      {
       SnrHandlesRelease(g_handles);
       SnrTelemetryCloseCsv(g_tel);
-      return(INIT_FAILED);
+      { /*hg*/ if(g_qqe_handle!=INVALID_HANDLE)IndicatorRelease(g_qqe_handle); if(g_overlay_handle!=INVALID_HANDLE)FileClose(g_overlay_handle); /*hg*/return(INIT_FAILED); }
      }
    if(pend_count>0)
      {
@@ -545,7 +566,7 @@ int OnInit()
         {
          SnrHandlesRelease(g_handles);
          SnrTelemetryCloseCsv(g_tel);
-         return(INIT_FAILED);
+         { /*hg*/ if(g_qqe_handle!=INVALID_HANDLE)IndicatorRelease(g_qqe_handle); if(g_overlay_handle!=INVALID_HANDLE)FileClose(g_overlay_handle); /*hg*/return(INIT_FAILED); }
         }
       ClearPendingState();
      }
@@ -555,7 +576,7 @@ int OnInit()
      {
       SnrHandlesRelease(g_handles);
       SnrTelemetryCloseCsv(g_tel);
-      return(INIT_FAILED);
+      { /*hg*/ if(g_qqe_handle!=INVALID_HANDLE)IndicatorRelease(g_qqe_handle); if(g_overlay_handle!=INVALID_HANDLE)FileClose(g_overlay_handle); /*hg*/return(INIT_FAILED); }
      }
    PrintFormat("SNR001_INIT ea=%s hyp=%s symbol=%s tf=H1 server=tester-only",
                EA_NAME,InpHypothesisId,_Symbol);
@@ -573,6 +594,11 @@ void OnDeinit(const int reason)
       g_overlay_handle=INVALID_HANDLE;
      }
    SnrHandlesRelease(g_handles);
+   if(g_qqe_handle!=INVALID_HANDLE)
+     {
+      IndicatorRelease(g_qqe_handle);
+      g_qqe_handle=INVALID_HANDLE;
+     }
   }
 
 void OnTick()
@@ -634,6 +660,15 @@ void OnTick()
      {
       SnrNoteReject(g_tel,sig);
       return;
+     }
+   if(InpRequireQqeAgree && g_qqe_handle!=INVALID_HANDLE)
+     {
+      double qqe[];
+      ArraySetAsSeries(qqe,true);
+      if(CopyBuffer(g_qqe_handle,8,1,1,qqe)!=1)
+         return;
+      if((sig.direction>0 && qqe[0]<=0.5) || (sig.direction<0 && qqe[0]>=-0.5))
+         return;
      }
    if(owned_scan==SNR_SCAN_OWNED || pend_count>0)
       return;
