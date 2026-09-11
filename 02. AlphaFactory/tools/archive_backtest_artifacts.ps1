@@ -238,6 +238,24 @@ function Get-ArchiveCandidates($SessionDir) {
     return $items
 }
 
+function Get-FileSha256($Path) {
+    # .NET SHA256, not Get-FileHash: a Windows PowerShell 5.1 child of a pwsh 7
+    # parent inherits the pwsh PSModulePath and loses its own module autoload,
+    # which makes Get-FileHash a CommandNotFoundException (hit by the pytest
+    # harness, 2026-09-11).
+    $sha = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        $stream = [System.IO.File]::OpenRead((Resolve-Path -LiteralPath $Path).Path)
+        try {
+            return ([System.BitConverter]::ToString($sha.ComputeHash($stream))).Replace('-', '').ToLowerInvariant()
+        } finally {
+            $stream.Dispose()
+        }
+    } finally {
+        $sha.Dispose()
+    }
+}
+
 function Get-CandidateFileInventory($Candidate) {
     $sourceItem = Get-Item -LiteralPath $Candidate.Source -Force
     $files = $(if ($sourceItem.PSIsContainer) {
@@ -249,7 +267,7 @@ function Get-CandidateFileInventory($Candidate) {
         [pscustomobject][ordered]@{
             relative_path = $relative
             size_bytes = [long]$_.Length
-            sha256 = (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+            sha256 = Get-FileSha256 $_.FullName
         }
     })
 }
@@ -266,7 +284,7 @@ function Assert-CandidateCopy($Candidate, $Inventory) {
         $target = $(if ($entry.relative_path -eq '.') { $Candidate.Destination } else { Join-Path $Candidate.Destination $entry.relative_path.Replace('/', '\') })
         if (-not (Test-Path -LiteralPath $target -PathType Leaf)) { throw "Archive copy is missing: $target" }
         $item = Get-Item -LiteralPath $target
-        $hash = (Get-FileHash -LiteralPath $target -Algorithm SHA256).Hash.ToLowerInvariant()
+        $hash = Get-FileSha256 $target
         if ([long]$item.Length -ne [long]$entry.size_bytes -or $hash -ne [string]$entry.sha256) {
             throw "Archive copy hash/size mismatch: $target"
         }
@@ -371,7 +389,7 @@ $plan = [pscustomobject][ordered]@{
     items = $candidates
 }
 Write-JsonAtomically $plan $PlanPath 6
-$planHash = (Get-FileHash -LiteralPath $PlanPath -Algorithm SHA256).Hash.ToLowerInvariant()
+$planHash = Get-FileSha256 $PlanPath
 Write-Status ("Plan: {0}" -f ([IO.Path]::GetFullPath($PlanPath))) "OK"
 Write-Status ("Plan SHA256: {0}" -f $planHash) "OK"
 

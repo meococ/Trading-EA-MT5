@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     AlphaFactory v4.3 - Centralized EA Development CLI
 .DESCRIPTION
@@ -58,6 +58,7 @@ param(
     [string]$ContractReceipt = "",
     [string]$ContractReceiptSha256 = "",
     [string]$RequiredSidecars = "",
+    [string]$RequiredInputArtifacts = "",
     [string]$Output = "",
     [string]$Param1 = "",
     [string]$Param2 = "",
@@ -239,7 +240,21 @@ function Get-Sha256Required($Path, $Label) {
     if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) {
         throw "$Label is missing and cannot be hashed: $Path"
     }
-    return (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash
+    # .NET SHA256, not Get-FileHash: a Windows PowerShell 5.1 child of a pwsh 7
+    # parent inherits the pwsh PSModulePath and loses its own module autoload,
+    # which makes Get-FileHash a CommandNotFoundException (hit by the pytest
+    # harness, 2026-09-11). Same fix as tools/log_storage.ps1.
+    $sha = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        $stream = [System.IO.File]::OpenRead((Resolve-Path -LiteralPath $Path).Path)
+        try {
+            return ([System.BitConverter]::ToString($sha.ComputeHash($stream))).Replace('-', '').ToUpperInvariant()
+        } finally {
+            $stream.Dispose()
+        }
+    } finally {
+        $sha.Dispose()
+    }
 }
 
 function Get-TextSha256([string]$Text) {
@@ -250,6 +265,139 @@ function Get-TextSha256([string]$Text) {
     } finally {
         $sha.Dispose()
     }
+}
+
+# --- Prospective input escrow (2026-08-13) -----------------------------------
+# A run must preserve the exact bytes of every external input it consumed, not
+# only their hash in RunMeta. Task packets bind `required_input_artifacts`
+# records as 'basename@sha256'; AlphaFactory rehashes the FILE_COMMON source,
+# copies it into runs/<EA>/<run_id>/inputs/, and re-verifies source + snapshot
+# before launch and again at manifest completion. Any path escape, missing
+# file, hash mismatch, duplicate basename or mid-run mutation fails closed.
+function ConvertTo-RequiredInputArtifactList([string]$Spec) {
+    $items = New-Object System.Collections.Generic.List[object]
+    $seen = New-Object System.Collections.Generic.HashSet[string]
+    foreach ($chunk in @(([string]$Spec) -split ';')) {
+        $token = ([string]$chunk).Trim()
+        if ([string]::IsNullOrWhiteSpace($token)) { continue }
+        $parts = @($token -split '@')
+        if ($parts.Count -ne 2) {
+            throw "RequiredInputArtifacts entries must use 'basename@sha256': $token"
+        }
+        $name = $parts[0].Trim()
+        $expected = $parts[1].Trim().ToUpperInvariant()
+        if ([string]::IsNullOrWhiteSpace($name) -or
+            $name -match '[\\/]' -or
+            $name -match '\.\.' -or
+            $name -match '[\x00-\x1F\x7F]' -or
+            $name -cne [System.IO.Path]::GetFileName($name)) {
+            throw "RequiredInputArtifacts name must be a plain basename@sha256 entry: $token"
+        }
+        if ($expected -notmatch '^[A-F0-9]{64}$') {
+            throw "RequiredInputArtifacts entry has an invalid SHA256: $token"
+        }
+        if (-not $seen.Add($name.ToLowerInvariant())) {
+            throw "RequiredInputArtifacts contains a duplicate name: $name"
+        }
+        $items.Add([pscustomobject]@{
+            source = 'FILE_COMMON'
+            name = $name
+            sha256 = $expected
+        })
+    }
+    # `.ToArray()` instead of `@($items)`: Windows PowerShell 5.1 throws
+    # "Argument types do not match" for an array subexpression over a
+    # List[object] in return position.
+    return $items.ToArray()
+}
+
+function Get-RequiredInputArtifactBindingRecords($Items) {
+    $records = New-Object System.Collections.Generic.List[object]
+    foreach ($item in @($Items)) {
+        if ($null -eq $item) { continue }
+        $name = [string]$item.name
+        $expected = ([string]$item.sha256).ToUpperInvariant()
+        if ([string]::IsNullOrWhiteSpace($name) -or $expected -notmatch '^[A-F0-9]{64}$') {
+            throw "Required input artifact binding is invalid: '$name'."
+        }
+        $records.Add([pscustomobject]@{
+            source = [string]$item.source
+            name = $name
+            sha256 = $expected
+        })
+    }
+    return @($records | Sort-Object -Property name)
+}
+
+function Get-RequiredInputArtifactSetSha256($Snapshots) {
+    $records = @($Snapshots | ForEach-Object {
+        "{0}`t{1}`t{2}" -f [string]$_.source, [string]$_.name, ([string]$_.sha256).ToUpperInvariant()
+    } | Sort-Object)
+    return Get-TextSha256 ([string]::Join("`n", $records))
+}
+
+function New-RequiredInputArtifactSnapshots($Items, $CommonRoot, $InputsDir) {
+    $bindings = @(Get-RequiredInputArtifactBindingRecords $Items)
+    if ($bindings.Count -eq 0) { return @() }
+    New-Item -ItemType Directory -Force -Path $InputsDir | Out-Null
+    $snapshots = New-Object System.Collections.Generic.List[object]
+    foreach ($binding in $bindings) {
+        $sourcePath = Join-Path $CommonRoot $binding.name
+        if (-not (Test-Path -LiteralPath $sourcePath -PathType Leaf)) {
+            throw "Required input artifact is missing: FILE_COMMON/$($binding.name)"
+        }
+        $actual = (Get-Sha256Required $sourcePath "Required input artifact '$($binding.name)'").ToUpperInvariant()
+        if ($actual -ne $binding.sha256) {
+            throw "Required input artifact hash mismatch: FILE_COMMON/$($binding.name) expected=$($binding.sha256) actual=$actual"
+        }
+        $destination = Join-Path $InputsDir $binding.name
+        Copy-Item -LiteralPath $sourcePath -Destination $destination -Force
+        $copied = (Get-Sha256Required $destination "Required input artifact snapshot '$($binding.name)'").ToUpperInvariant()
+        if ($copied -ne $binding.sha256) {
+            throw "Required input artifact snapshot hash mismatch: inputs/$($binding.name) expected=$($binding.sha256) actual=$copied"
+        }
+        $snapshots.Add([pscustomobject]@{
+            source = $binding.source
+            name = $binding.name
+            sha256 = $binding.sha256
+            source_path = $sourcePath
+            path = "inputs/$($binding.name)"
+        })
+    }
+    return $snapshots.ToArray()
+}
+
+function Assert-RequiredInputArtifactSnapshots($Snapshots, $RunDir, $CommonRoot, $SetSha256) {
+    $snapshotList = @($Snapshots)
+    $expectedSet = ([string]$SetSha256).ToUpperInvariant()
+    if ($expectedSet -notmatch '^[A-F0-9]{64}$') {
+        throw "Required input artifact set SHA256 is invalid."
+    }
+    $actualSet = (Get-RequiredInputArtifactSetSha256 $snapshotList).ToUpperInvariant()
+    if ($actualSet -ne $expectedSet) {
+        throw "Required input artifact set hash mismatch: expected=$expectedSet actual=$actualSet"
+    }
+    foreach ($snapshot in $snapshotList) {
+        $name = [string]$snapshot.name
+        $expected = ([string]$snapshot.sha256).ToUpperInvariant()
+        $sourcePath = Join-Path $CommonRoot $name
+        if (-not (Test-Path -LiteralPath $sourcePath -PathType Leaf)) {
+            throw "Required input artifact source is missing: FILE_COMMON/$name"
+        }
+        $sourceHash = (Get-Sha256Required $sourcePath "Required input artifact source '$name'").ToUpperInvariant()
+        if ($sourceHash -ne $expected) {
+            throw "Required input artifact source changed during the run: FILE_COMMON/$name expected=$expected actual=$sourceHash"
+        }
+        $snapshotPath = Join-Path $RunDir ([string]$snapshot.path)
+        if (-not (Test-Path -LiteralPath $snapshotPath -PathType Leaf)) {
+            throw "Required input artifact snapshot is missing: $($snapshot.path)"
+        }
+        $snapshotHash = (Get-Sha256Required $snapshotPath "Required input artifact snapshot '$name'").ToUpperInvariant()
+        if ($snapshotHash -ne $expected) {
+            throw "Required input artifact snapshot changed during the run: $($snapshot.path) expected=$expected actual=$snapshotHash"
+        }
+    }
+    return $expectedSet
 }
 
 function Assert-BacktestScalarContract($EAName, $Hypothesis, $Sym, $Per, $FromD, $ToD, $SpreadValue, $ExecutionModeValue, $FixedDelayValue) {
@@ -443,7 +591,16 @@ function ConvertTo-RequiredSidecarList([string]$Value, [string]$Tier, [string]$T
 
 function Test-NoGitWorkspace {
     # Fail-closed NO-GIT: not a work tree, or empty .git placeholder (sandbox mount).
+    # `ALPHAFACTORY_FORCE_NOGIT=1|true` forces deterministic NO-GIT provenance and
+    # must be decided before any Git process starts; any other value fails closed.
     # Native git stderr must not throw under $ErrorActionPreference=Stop.
+    $forceNoGit = [string]$env:ALPHAFACTORY_FORCE_NOGIT
+    if (-not [string]::IsNullOrWhiteSpace($forceNoGit)) {
+        if ($forceNoGit.ToLowerInvariant() -notin @('1', 'true')) {
+            throw "ALPHAFACTORY_FORCE_NOGIT must be '1' or 'true'"
+        }
+        return $true
+    }
     $gitDir = Join-Path $AdvisorsRoot ".git"
     $oldEap = $ErrorActionPreference
     $ErrorActionPreference = "SilentlyContinue"
@@ -499,7 +656,7 @@ function Get-NoGitProvenanceSnapshot {
         } else {
             $full.Replace('\', '/')
         }
-        $fileHash = (Get-FileHash -LiteralPath $full -Algorithm SHA256).Hash.ToUpperInvariant()
+        $fileHash = Get-Sha256Required $full "NO-GIT provenance file"
         $records.Add(("$rel`t$fileHash"))
     }
     $payload = [string]::Join("`n", @($records))
@@ -746,29 +903,6 @@ function Stop-AllRunnerOwnedTerminals {
     Write-BacktestLockPayload
 }
 
-function Get-Terminal64ExecutablePath([int]$ProcessId) {
-    $process = Get-Process -Id $ProcessId -ErrorAction SilentlyContinue
-    $rawPath = if ($null -ne $process) { [string]$process.Path } else { '' }
-    if ([string]::IsNullOrWhiteSpace($rawPath)) {
-        $cim = Get-CimInstance Win32_Process -Filter "ProcessId=$ProcessId" -ErrorAction SilentlyContinue
-        if ($null -ne $cim -and -not [string]::IsNullOrWhiteSpace([string]$cim.ExecutablePath)) {
-            $rawPath = [string]$cim.ExecutablePath
-        }
-    }
-    if ([string]::IsNullOrWhiteSpace($rawPath)) { return $null }
-    return [System.IO.Path]::GetFullPath($rawPath)
-}
-
-function Test-RunnerPortableOrHarnessTerminal([int]$ProcessId) {
-    $full = Get-Terminal64ExecutablePath $ProcessId
-    if ([string]::IsNullOrWhiteSpace($full)) { return $true }
-    $expected = [System.IO.Path]::GetFullPath($MT5)
-    if ($full.Equals($expected, [StringComparison]::OrdinalIgnoreCase)) { return $true }
-    $runtime = [System.IO.Path]::GetFullPath((Join-Path $AlphaRoot 'runtime'))
-    $prefix = $runtime + [IO.Path]::DirectorySeparatorChar
-    return $full.StartsWith($prefix, [StringComparison]::OrdinalIgnoreCase)
-}
-
 function Assert-NoUnrelatedTerminal {
     $ownedPids = @(
         $script:OwnedTerminalIdentities.Keys |
@@ -828,19 +962,28 @@ function Find-PortablePostUpdateTester([string]$ConfigPath) {
 
 function Stop-OrphanPortableTesters([string]$KeepConfigPath = '') {
     $portableExe = [System.IO.Path]::GetFullPath($MT5)
+    $runtimePrefix = [System.IO.Path]::GetFullPath($script:Mt5FactoryRuntimeRoot).TrimEnd('\') + '\'
+    # Owner-GUI protection: the tradable terminal at the workspace drive root
+    # (D:\Meta 5\terminal64.exe) is never a factory orphan - deny it explicitly
+    # on top of the runtime-root scope below.
+    $ownerGuiExe = [System.IO.Path]::GetFullPath((Join-Path (Split-Path -Parent $AdvisorsRoot) 'terminal64.exe'))
     $keep = ''
     if (-not [string]::IsNullOrWhiteSpace($KeepConfigPath)) {
         $keep = [System.IO.Path]::GetFullPath($KeepConfigPath)
     }
-    foreach ($proc in @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe'" -ErrorAction SilentlyContinue)) {
+    foreach ($proc in @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe' OR Name='metatester64.exe'" -ErrorAction SilentlyContinue)) {
         $exe = [string]$proc.ExecutablePath
         $line = [string]$proc.CommandLine
         if ([string]::IsNullOrWhiteSpace($exe)) { continue }
         try { $exe = [System.IO.Path]::GetFullPath($exe) } catch { continue }
-        if ($exe -ine $portableExe) { continue }
+        if ($exe -ieq $ownerGuiExe) { continue }
+        # Any portable terminal/tester under the factory runtime root is an
+        # orphan candidate, not only the configured $MT5 isolate.
+        $isFactoryExe = $exe.StartsWith($runtimePrefix, [System.StringComparison]::OrdinalIgnoreCase) -or ($exe -ieq $portableExe)
+        if (-not $isFactoryExe) { continue }
         if ($line -notmatch '(?i)/portable') { continue }
         if ($keep -and $line.IndexOf($keep, [System.StringComparison]::OrdinalIgnoreCase) -ge 0) { continue }
-        Write-Status "Closing orphan portable tester PID $($proc.ProcessId)" "WARN"
+        Write-Status "Closing orphan portable tester PID $($proc.ProcessId) ($exe)" "WARN"
         Stop-Process -Id ([int]$proc.ProcessId) -Force -ErrorAction SilentlyContinue
     }
 }
@@ -1089,7 +1232,7 @@ function Get-DirectoryTreeSha256($Path) {
     $records = @(
         Get-ChildItem -LiteralPath $root -Recurse -File | Sort-Object FullName | ForEach-Object {
             $relative = $_.FullName.Substring($root.Length).TrimStart('\').Replace('\', '/')
-            "$relative`t$((Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash)"
+            "$relative`t$(Get-Sha256Required $_.FullName 'Include closure file')"
         }
     )
     return Get-TextSha256 ([string]::Join("`n", $records))
@@ -1897,6 +2040,14 @@ function Complete-RunManifest($ManifestPath) {
     $manifest.account_fingerprint = $identity.AccountFingerprint
     $manifest.data_fingerprint = $identity.DataFingerprint
     $manifest.sidecars = @($sidecars)
+    # Input-escrow identity stays separate from the MT5 price/history
+    # data_fingerprint: the escrow binds the external input bytes, the
+    # fingerprint binds the tested market data.
+    $inputArtifactSetSha256 = ([string]$InputArtifactSetSha256).ToUpperInvariant()
+    if ([string]::IsNullOrWhiteSpace($inputArtifactSetSha256)) {
+        $inputArtifactSetSha256 = Get-RequiredInputArtifactSetSha256 @($InputArtifactSnapshots)
+    }
+    $manifest | Add-Member -MemberType NoteProperty -Name input_artifacts_sha256 -Value $inputArtifactSetSha256 -Force
     $manifest | Add-Member -MemberType NoteProperty -Name fingerprint_basis -Value $identity.Basis -Force
     $dataQuality = Assert-DataQualityRunEvidence $manifest
     if ($null -ne $dataQuality) {
@@ -1926,7 +2077,7 @@ function Complete-RunManifest($ManifestPath) {
     return $ManifestPath
 }
 
-function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $Model, $ExecutionMode, $FixedDelayMs, $TimeoutSec, $Overrides, $MainFile, $CompiledEx5File, $Ex5File, $ReportPath, $ConfigPath, $Snapshot, $HypothesisId, $RunRole, $Deposit, $Leverage, $Spread, $TelemetryTier, $TelemetryProfile, $RunStartUtc, $GitSnapshot, $RequiredSidecarList, $ReceiptSha256, $SymbolGeometry, $DataQualityContract = $null, $DataQualityJournalDelta = $null) {
+function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $Model, $ExecutionMode, $FixedDelayMs, $TimeoutSec, $Overrides, $MainFile, $CompiledEx5File, $Ex5File, $ReportPath, $ConfigPath, $Snapshot, $HypothesisId, $RunRole, $Deposit, $Leverage, $Spread, $TelemetryTier, $TelemetryProfile, $RunStartUtc, $GitSnapshot, $RequiredSidecarList, $ReceiptSha256, $SymbolGeometry, $DataQualityContract = $null, $DataQualityJournalDelta = $null, $RequiredInputArtifactList = $null, $InputArtifactSnapshots = $null, $InputArtifactSetSha256 = "") {
     $spreadValue = if ([string]::IsNullOrWhiteSpace($Spread)) { "current" } else { $Spread }
     $manifest = [ordered]@{
         schema_version = "alphafactory_run_manifest.v2"
@@ -1979,6 +2130,14 @@ function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $
             $RequiredSidecarList |
                 Where-Object { $null -ne $_ -and -not [string]::IsNullOrWhiteSpace([string]$_) }
         )
+        required_input_artifacts = @(
+            $RequiredInputArtifactList |
+                Where-Object { $null -ne $_ }
+        )
+        input_artifacts = @(
+            $InputArtifactSnapshots |
+                Where-Object { $null -ne $_ }
+        )
         sidecars = @()
         contract_receipt_sha256 = $ReceiptSha256
         contract_symbol_geometry = [ordered]@{
@@ -2005,6 +2164,9 @@ function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $
 
 function Do-Compile($EAName) {
     Write-Status "Compiling $EAName..."
+    # Sweep crashed-run orphans BEFORE asserting isolation: a leftover portable
+    # terminal/tester under runtime\ must not block the next run.
+    Stop-OrphanPortableTesters
     Assert-NoUnrelatedTerminal
     $sourceContract = Resolve-EaSourceContract -RepoRoot $AdvisorsRoot -EaName $EAName
     $main = $sourceContract.AbsoluteSource
@@ -2064,8 +2226,11 @@ function Do-Compile($EAName) {
     return $ex5
 }
 
-function Do-Backtest($EAName, $Sym, $Per, $FromD, $ToD, $TimeoutSec, $Overrides = "", $Model = 0, $ExecutionMode = 0, $FixedDelayMs = 0, $Spread = "", $HypothesisId = "", $RunRole = "challenger", $TelemetryTier = "off", $Deposit = 10000, $Leverage = 100, $ContractReceiptPath = "", $ExpectedReceiptSha256 = "", $RequiredSidecarPatterns = "") {
+function Do-Backtest($EAName, $Sym, $Per, $FromD, $ToD, $TimeoutSec, $Overrides = "", $Model = 0, $ExecutionMode = 0, $FixedDelayMs = 0, $Spread = "", $HypothesisId = "", $RunRole = "challenger", $TelemetryTier = "off", $Deposit = 10000, $Leverage = 100, $ContractReceiptPath = "", $ExpectedReceiptSha256 = "", $RequiredSidecarPatterns = "", $RequiredInputArtifactSpec = "") {
     Write-Status "Backtest: $EAName on $Sym $Per"
+    # Sweep crashed-run orphans BEFORE asserting isolation (also re-runs inside
+    # Do-Compile below): a leftover portable tester must not block this run.
+    Stop-OrphanPortableTesters
     $testerExecutionMode = if ($ExecutionMode -gt 0) { $ExecutionMode } elseif ($FixedDelayMs -gt 0) { $FixedDelayMs } else { $ExecutionMode }
     
     $sourceContract = Resolve-EaSourceContract -RepoRoot $AdvisorsRoot -EaName $EAName
@@ -2179,6 +2344,12 @@ Port=$testerAgentPort
     }
     $snapshot = New-RunSnapshot $localRunDir $main $stagedEx5Path $iniPath
 
+    # Prospective input escrow: preserve the exact external input bytes this run
+    # consumes, then re-verify source + snapshot immediately before MT5 launch.
+    $requiredInputArtifactList = @(ConvertTo-RequiredInputArtifactList $RequiredInputArtifactSpec)
+    $inputArtifactSnapshots = @(New-RequiredInputArtifactSnapshots $requiredInputArtifactList $MT5CommonFilesRoot (Join-Path $localRunDir 'inputs'))
+    $inputArtifactSetSha256 = Get-RequiredInputArtifactSetSha256 $inputArtifactSnapshots
+
     # Shared tester cache, Tester profiles, and Common Files are evidence stores.
     # Leave all pre-existing artifacts untouched; post-run collection is bound by
     # this UTC lower bound and the run-local manifest/RunMeta identity.
@@ -2187,6 +2358,7 @@ Port=$testerAgentPort
     if ((Get-Sha256Required $stagedEx5Path "Staged EX5") -ine $stagedEx5Hash) {
         throw "Staged EX5 changed immediately before MT5 launch."
     }
+    [void](Assert-RequiredInputArtifactSnapshots $inputArtifactSnapshots $localRunDir $MT5CommonFilesRoot $inputArtifactSetSha256)
     $dataQualityContract = $receiptCheck.DataQualityContract
     # Scoped journal directories only (terminal/tester/agent logs). Never the
     # whole Tester tree — bases/.hcc/cache are not journals.
@@ -2195,7 +2367,6 @@ Port=$testerAgentPort
     if ($null -ne $dataQualityContract) {
         $journalSnapshot = @(New-Mt5JournalLogSnapshot $journalRoots)
     }
-    Stop-OrphanPortableTesters
     Write-Status "Starting MT5..."
     $mt5LaunchArgs = @(Get-Mt5LaunchArguments `
         -ConfigPath $iniPath `
@@ -2218,7 +2389,7 @@ Port=$testerAgentPort
         $mt5Running = Get-Process -Id $mt5Pid -ErrorAction SilentlyContinue
         if ($completeNow) {
             try {
-                $h = (Get-FileHash -LiteralPath $reportAbsPath -Algorithm SHA256).Hash
+                $h = Get-Sha256Required $reportAbsPath "Tester report"
             } catch {
                 $h = ''
             }
@@ -2301,6 +2472,7 @@ Port=$testerAgentPort
     if ((Get-Sha256Required $stagedEx5Path "Staged EX5") -ine $stagedEx5Hash) {
         throw "Staged EX5 changed during MT5 execution."
     }
+    [void](Assert-RequiredInputArtifactSnapshots $inputArtifactSnapshots $localRunDir $MT5CommonFilesRoot $inputArtifactSetSha256)
     $dataQualityJournalDelta = $null
     if ($null -ne $dataQualityContract) {
         $deltaPath = Join-Path $logsDir "tester_journal_delta.log"
@@ -2325,7 +2497,7 @@ Port=$testerAgentPort
     Copy-Item $reportAbsPath (Join-Path $buildDir "report.html") -Force
     Copy-Item $iniPath (Join-Path $localRunDir "config.ini") -Force
     Copy-Item $iniPath (Join-Path $configDir "config.ini") -Force
-    $manifestPath = Write-RunManifest -RunDir $localRunDir -RunId $ts -EAName $EAName -Sym $Sym -Per $Per -FromD $FromD -ToD $ToD -Model $Model -ExecutionMode $ExecutionMode -FixedDelayMs $FixedDelayMs -TimeoutSec $TimeoutSec -Overrides $effectiveOverrides -MainFile $main -CompiledEx5File $ex5 -Ex5File $stagedEx5Path -ReportPath $localReportPath -ConfigPath $iniPath -Snapshot $snapshot -HypothesisId $HypothesisId -RunRole $RunRole -Deposit $Deposit -Leverage $Leverage -Spread $Spread -TelemetryTier $TelemetryTier -TelemetryProfile $sourceContract.TelemetryProfile -RunStartUtc $runStartUtc -GitSnapshot $receiptCheck.Git -RequiredSidecarList $requiredSidecarList -ReceiptSha256 $receiptCheck.ReceiptSha256 -SymbolGeometry $receiptCheck.Receipt.binding.symbol_geometry -DataQualityContract $dataQualityContract -DataQualityJournalDelta $dataQualityJournalDelta
+    $manifestPath = Write-RunManifest -RunDir $localRunDir -RunId $ts -EAName $EAName -Sym $Sym -Per $Per -FromD $FromD -ToD $ToD -Model $Model -ExecutionMode $ExecutionMode -FixedDelayMs $FixedDelayMs -TimeoutSec $TimeoutSec -Overrides $effectiveOverrides -MainFile $main -CompiledEx5File $ex5 -Ex5File $stagedEx5Path -ReportPath $localReportPath -ConfigPath $iniPath -Snapshot $snapshot -HypothesisId $HypothesisId -RunRole $RunRole -Deposit $Deposit -Leverage $Leverage -Spread $Spread -TelemetryTier $TelemetryTier -TelemetryProfile $sourceContract.TelemetryProfile -RunStartUtc $runStartUtc -GitSnapshot $receiptCheck.Git -RequiredSidecarList $requiredSidecarList -ReceiptSha256 $receiptCheck.ReceiptSha256 -SymbolGeometry $receiptCheck.Receipt.binding.symbol_geometry -DataQualityContract $dataQualityContract -DataQualityJournalDelta $dataQualityJournalDelta -RequiredInputArtifactList $requiredInputArtifactList -InputArtifactSnapshots $inputArtifactSnapshots -InputArtifactSetSha256 $inputArtifactSetSha256
     Copy-Item -LiteralPath $manifestPath -Destination (Join-Path $configDir "run_manifest.json") -Force
 
     if ($effectiveOverrides) {
@@ -2638,7 +2810,7 @@ switch ($Action.ToLower()) {
         Assert-BacktestScalarContract $Name $HypothesisId $Symbol $Period $From $To $Spread $ExecutionMode $FixedDelayMs
         Enter-GlobalBacktestLock $Name $HypothesisId
         try {
-            Do-Backtest $Name $Symbol $Period $From $To $TimeoutSec $Overrides $Model $ExecutionMode $FixedDelayMs $Spread $HypothesisId $RunRole $TelemetryTier $Deposit $Leverage $ContractReceipt $ContractReceiptSha256 $RequiredSidecars
+            Do-Backtest $Name $Symbol $Period $From $To $TimeoutSec $Overrides $Model $ExecutionMode $FixedDelayMs $Spread $HypothesisId $RunRole $TelemetryTier $Deposit $Leverage $ContractReceipt $ContractReceiptSha256 $RequiredSidecars $RequiredInputArtifacts
         } finally {
             try {
                 Stop-AllRunnerOwnedTerminals
@@ -2979,6 +3151,16 @@ switch ($Action.ToLower()) {
                 Write-Status "$pkg - installed" "OK"
             } else {
                 Write-Status "$pkg - MISSING (needed by tests / session_trader)" "WARN"
+            }
+        }
+
+        # Import names, not distribution names: bs4=beautifulsoup4,
+        # sklearn=scikit-learn, PIL=pillow.
+        foreach ($pkg in @("streamlit", "plotly", "bs4", "sklearn", "lancedb", "fastembed", "PIL", "databento")) {
+            if (Test-PythonImport $pkg) {
+                Write-Status "$pkg - installed" "OK"
+            } else {
+                Write-Status "$pkg - MISSING (needed by dashboard / analysis tooling)" "WARN"
             }
         }
 

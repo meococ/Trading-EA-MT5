@@ -5,7 +5,21 @@ function Get-AlphaFileSha256 {
     if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) {
         throw "File is missing: $Path"
     }
-    return (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash.ToLowerInvariant()
+    # .NET SHA256, not Get-FileHash: a Windows PowerShell 5.1 child of a pwsh 7
+    # parent inherits the pwsh PSModulePath and loses its own module autoload,
+    # which makes Get-FileHash a CommandNotFoundException (hit by the pytest
+    # harness, 2026-09-11).
+    $sha = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        $stream = [System.IO.File]::OpenRead((Resolve-Path -LiteralPath $Path).Path)
+        try {
+            return ([System.BitConverter]::ToString($sha.ComputeHash($stream))).Replace('-', '').ToLowerInvariant()
+        } finally {
+            $stream.Dispose()
+        }
+    } finally {
+        $sha.Dispose()
+    }
 }
 
 function Get-AlphaFileId {

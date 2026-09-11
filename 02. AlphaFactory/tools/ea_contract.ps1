@@ -115,7 +115,21 @@ function Resolve-EaSourceContract {
         if ($comparisonAdapter -ceq 'sonic-v1' -and $telemetryProfile -cne 'sonic-strict') {
             throw "comparison_adapter 'sonic-v1' requires telemetry_profile 'sonic-strict': $contractAbsolute"
         }
-        $contractSha256 = (Get-FileHash -LiteralPath $contractAbsolute -Algorithm SHA256).Hash
+        # .NET SHA256, not Get-FileHash: a Windows PowerShell 5.1 child of a pwsh 7
+        # parent inherits the pwsh PSModulePath and loses its own module autoload,
+        # which makes Get-FileHash a CommandNotFoundException (hit by the pytest
+        # harness, 2026-09-11). Same fix as tools/log_storage.ps1.
+        $sha = [System.Security.Cryptography.SHA256]::Create()
+        try {
+            $stream = [System.IO.File]::OpenRead((Resolve-Path -LiteralPath $contractAbsolute).Path)
+            try {
+                $contractSha256 = ([System.BitConverter]::ToString($sha.ComputeHash($stream))).Replace('-', '').ToUpperInvariant()
+            } finally {
+                $stream.Dispose()
+            }
+        } finally {
+            $sha.Dispose()
+        }
     }
 
     return [pscustomobject]@{
