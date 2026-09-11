@@ -1,4 +1,7 @@
 """
+NOT TB dialect. Do not claim MT5 / TB_Smart_Money_Concept_2026 match.
+Do not run bare mt5.initialize(). Independent Python research engine.
+
 SMC (Smart Money Concepts) Engine for Python
 ============================================
 This module implements SMC/ICT concepts for backtesting with VectorBT.
@@ -133,26 +136,48 @@ class SMCEngine:
         return atr
     
     def detect_swing_points(
-        self, 
-        high: np.ndarray, 
-        low: np.ndarray, 
+        self,
+        high: np.ndarray,
+        low: np.ndarray,
         length: int
-    ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
         """
-        Detect swing highs and lows
-        
+        Detect swing highs and lows — causal, no lookahead.
+
+        A pivot at bar i becomes known only at confirmation bar i + length,
+        once the `length` bars to its right have CLOSED. This is the same
+        contract as analysis/tb_smc_closedbar_replay.py is_pivot_high /
+        is_pivot_low, where the check runs at `index` for
+        `pivot_index = index - swing_length`.
+
         Returns:
-            swing_high_idx: indices where swing highs occur
+            swing_high_idx: pivot bar index of each swing high (timestamp is
+                            the pivot bar itself, NOT the confirmation bar)
             swing_high_prices: prices at swing highs
-            swing_low_idx: indices where swing lows occur  
+            swing_high_confirmed: bar index at which each swing high becomes
+                            known (= swing_high_idx + length, always <= n-1)
+            swing_low_idx: pivot bar index of each swing low
             swing_low_prices: prices at swing lows
+            swing_low_confirmed: confirmation bar index of each swing low
+
+        Downstream consumers that walk bars in time order must gate on the
+        *_confirmed arrays, never on the pivot index — the pivot index is
+        i but the information only exists from bar i + length onward.
         """
         n = len(high)
-        swing_highs = np.full(n, np.nan)
-        swing_lows = np.full(n, np.nan)
-        
-        for i in range(length, n - length):
-            # Check swing high
+        sh_idx_list: List[int] = []
+        sh_price_list: List[float] = []
+        sl_idx_list: List[int] = []
+        sl_price_list: List[float] = []
+
+        # `confirm` is the first bar at which pivot candidate
+        # i = confirm - length can be evaluated: it needs `length` closed
+        # bars on each side, so the right-side checks top out at
+        # i + length = confirm <= n - 1. No out-of-bounds-right access.
+        for confirm in range(2 * length, n):
+            i = confirm - length
+
+            # Check swing high at pivot bar i
             is_swing_high = True
             pivot_high = high[i]
             for j in range(1, length + 1):
@@ -160,9 +185,10 @@ class SMCEngine:
                     is_swing_high = False
                     break
             if is_swing_high:
-                swing_highs[i] = pivot_high
-                
-            # Check swing low
+                sh_idx_list.append(i)
+                sh_price_list.append(pivot_high)
+
+            # Check swing low at pivot bar i
             is_swing_low = True
             pivot_low = low[i]
             for j in range(1, length + 1):
@@ -170,33 +196,44 @@ class SMCEngine:
                     is_swing_low = False
                     break
             if is_swing_low:
-                swing_lows[i] = pivot_low
-        
-        # Extract non-nan values
-        sh_idx = np.where(~np.isnan(swing_highs))[0]
-        sh_prices = swing_highs[sh_idx]
-        sl_idx = np.where(~np.isnan(swing_lows))[0]
-        sl_prices = swing_lows[sl_idx]
-        
-        return sh_idx, sh_prices, sl_idx, sl_prices
+                sl_idx_list.append(i)
+                sl_price_list.append(pivot_low)
+
+        sh_idx = np.asarray(sh_idx_list, dtype=int)
+        sh_prices = np.asarray(sh_price_list, dtype=float)
+        sl_idx = np.asarray(sl_idx_list, dtype=int)
+        sl_prices = np.asarray(sl_price_list, dtype=float)
+        sh_confirmed = sh_idx + length
+        sl_confirmed = sl_idx + length
+
+        return sh_idx, sh_prices, sh_confirmed, sl_idx, sl_prices, sl_confirmed
     
     def determine_structure(
         self,
         close: np.ndarray,
-        swing_high_idx: np.ndarray,
+        swing_high_confirmed: np.ndarray,
         swing_high_prices: np.ndarray,
-        swing_low_idx: np.ndarray,
+        swing_low_confirmed: np.ndarray,
         swing_low_prices: np.ndarray
     ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
         """
         Determine market structure (bias, BOS, CHoCH)
-        
+
+        Args:
+            swing_high_confirmed / swing_low_confirmed: CONFIRMATION bar index
+                of each swing (pivot_index + length), as returned by
+                detect_swing_points. A swing only becomes breakable on its
+                confirmation bar — using the pivot index here would be
+                lookahead.
+            swing_high_prices / swing_low_prices: swing levels, parallel to
+                the confirmed arrays.
+
         Logic:
         - BOS Bullish: Close breaks above swing high in uptrend
         - CHoCH Bullish: Close breaks above swing high in downtrend (reversal)
         - BOS Bearish: Close breaks below swing low in downtrend
         - CHoCH Bearish: Close breaks below swing low in uptrend (reversal)
-        
+
         Returns:
             bias: array of MarketBias values
             bos_signals: array (1=bullish BOS, -1=bearish BOS, 0=none)
@@ -217,13 +254,14 @@ class SMCEngine:
         sl_ptr = 0  # Pointer to current swing low
         
         for i in range(n):
-            # Update swing points as we pass them
-            while sh_ptr < len(swing_high_idx) and swing_high_idx[sh_ptr] <= i:
+            # Update swing points as their CONFIRMATION bars pass — a pivot
+            # is not tradeable information until `length` bars after it.
+            while sh_ptr < len(swing_high_confirmed) and swing_high_confirmed[sh_ptr] <= i:
                 last_sh_price = swing_high_prices[sh_ptr]
                 last_sh_broken = False
                 sh_ptr += 1
-                
-            while sl_ptr < len(swing_low_idx) and swing_low_idx[sl_ptr] <= i:
+
+            while sl_ptr < len(swing_low_confirmed) and swing_low_confirmed[sl_ptr] <= i:
                 last_sl_price = swing_low_prices[sl_ptr]
                 last_sl_broken = False
                 sl_ptr += 1
@@ -391,13 +429,18 @@ class SMCEngine:
         self,
         close: np.ndarray,
         swing_high_prices: np.ndarray,
-        swing_high_idx: np.ndarray,
+        swing_high_confirmed: np.ndarray,
         swing_low_prices: np.ndarray,
-        swing_low_idx: np.ndarray
+        swing_low_confirmed: np.ndarray
     ) -> Tuple[np.ndarray, np.ndarray]:
         """
         Calculate Premium/Discount Zone
-        
+
+        Args:
+            swing_high_confirmed / swing_low_confirmed: CONFIRMATION bar index
+                of each swing (pivot_index + length). A swing only enters the
+                premium/discount range once confirmed — no lookahead.
+
         Returns:
             pd_zone: 1=premium, -1=discount, 0=neutral
             pd_level: 0-1 position within range
@@ -405,19 +448,19 @@ class SMCEngine:
         n = len(close)
         pd_zone = np.zeros(n, dtype=int)
         pd_level = np.full(n, 0.5)
-        
+
         # Use rolling swing high/low
         last_sh = 0.0
         last_sl = float('inf')
         sh_ptr = 0
         sl_ptr = 0
-        
+
         for i in range(n):
-            # Update swings
-            while sh_ptr < len(swing_high_idx) and swing_high_idx[sh_ptr] <= i:
+            # Update swings as their CONFIRMATION bars pass
+            while sh_ptr < len(swing_high_confirmed) and swing_high_confirmed[sh_ptr] <= i:
                 last_sh = swing_high_prices[sh_ptr]
                 sh_ptr += 1
-            while sl_ptr < len(swing_low_idx) and swing_low_idx[sl_ptr] <= i:
+            while sl_ptr < len(swing_low_confirmed) and swing_low_confirmed[sl_ptr] <= i:
                 last_sl = swing_low_prices[sl_ptr]
                 sl_ptr += 1
             
@@ -454,14 +497,15 @@ class SMCEngine:
         # Calculate ATR
         atr = self.calculate_atr(high, low, close, self.atr_period)
         
-        # Detect swing points
-        sh_idx, sh_prices, sl_idx, sl_prices = self.detect_swing_points(
+        # Detect swing points (causal: pivot timestamp is bar i, but the
+        # swing only becomes known at confirmation bar i + ltf_swing_len)
+        sh_idx, sh_prices, sh_conf, sl_idx, sl_prices, sl_conf = self.detect_swing_points(
             high, low, self.ltf_swing_len
         )
-        
-        # Determine structure
+
+        # Determine structure — gate on CONFIRMED bars, not pivot bars
         bias, bos, choch = self.determine_structure(
-            close, sh_idx, sh_prices, sl_idx, sl_prices
+            close, sh_conf, sh_prices, sl_conf, sl_prices
         )
         
         # Detect Order Blocks
@@ -482,7 +526,7 @@ class SMCEngine:
         pd_zone, pd_level = np.zeros(n, dtype=int), np.full(n, 0.5)
         if self.use_pd_zone:
             pd_zone, pd_level = self.calculate_pd_zone(
-                close, sh_prices, sh_idx, sl_prices, sl_idx
+                close, sh_prices, sh_conf, sl_prices, sl_conf
             )
         
         # Generate entry signals

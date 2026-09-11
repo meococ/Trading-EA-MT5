@@ -93,10 +93,11 @@ def discover_runs() -> list[dict]:
         n_trades = data.get("n_trades", 0)
         net_profit = data.get("net_profit", 0)
 
-        # Estimate years from run_dir config.ini or use 7 as default
+        # Years from run_dir config.ini only. None when there is no
+        # evidence — better an indeterminate gate than an invented window.
         years = _estimate_years(run_dir)
         cagr = _calc_cagr(start_eq, final_eq, years)
-        trades_per_year = n_trades / years if years > 0 else 0
+        trades_per_year = (n_trades / years) if years else None
         avg_win = abs(data.get("avg_win", 0))
         avg_loss = abs(data.get("avg_loss", 1))
         avg_win_loss_ratio = avg_win / avg_loss if avg_loss > 0 else 0
@@ -120,8 +121,8 @@ def discover_runs() -> list[dict]:
             "avg_win_loss_ratio": round(avg_win_loss_ratio, 2),
             "start_equity": start_eq,
             "final_equity": final_eq,
-            "cagr": round(cagr, 2),
-            "trades_per_year": round(trades_per_year, 1),
+            "cagr": round(cagr, 2) if cagr is not None else None,
+            "trades_per_year": round(trades_per_year, 1) if trades_per_year is not None else None,
             "max_win_streak": streaks.get("max_win_streak", 0),
             "max_loss_streak": streaks.get("max_loss_streak", 0),
             "weaknesses_count": data.get("weaknesses_count", 0),
@@ -132,11 +133,16 @@ def discover_runs() -> list[dict]:
     return runs
 
 
-def _estimate_years(run_dir: Path) -> float:
-    """Try to parse config.ini for date range, fallback to 7 years."""
+def _estimate_years(run_dir: Path) -> float | None:
+    """Parse config.ini for the test window.
+
+    Returns None when the evidence is missing or unparseable — never
+    invent a duration (a fabricated window fabricates CAGR and
+    trades/year, which then feed PROP_GATES as if they were real).
+    """
     config_path = run_dir / "config.ini"
     if not config_path.exists():
-        return 7.0
+        return None
     try:
         # config.ini is UTF-16LE encoded (MT5 style)
         raw = config_path.read_bytes()
@@ -148,7 +154,7 @@ def _estimate_years(run_dir: Path) -> float:
             except Exception:
                 continue
         else:
-            return 7.0
+            return None
 
         from_date = None
         to_date = None
@@ -164,12 +170,15 @@ def _estimate_years(run_dir: Path) -> float:
             return max((d2 - d1).days / 365.25, 0.5)
     except Exception:
         pass
-    return 7.0
+    return None
 
 
-def _calc_cagr(start: float, end: float, years: float) -> float:
-    if start <= 0 or end <= 0 or years <= 0:
-        return 0.0
+def _calc_cagr(start: float, end: float, years: float | None) -> float | None:
+    """CAGR % over `years`; None when the test window is unknown."""
+    if years is None or years <= 0 or start <= 0:
+        return None
+    if end <= 0:
+        return -100.0
     return ((end / start) ** (1 / years) - 1) * 100
 
 
@@ -264,7 +273,9 @@ def gate_icon(passed: bool | None) -> str:
 
 
 def gate_check(value: float | None, op: str, target: float) -> bool | None:
-    if value is None:
+    # NaN counts as missing too — after pd.DataFrame() a stored None comes
+    # back as float nan, and `nan >= target` would wrongly render a FAIL.
+    if value is None or (isinstance(value, float) and math.isnan(value)):
         return None
     if op == ">=":
         return value >= target
@@ -367,7 +378,7 @@ if page == "🏆 Run Leaderboard":
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Total Runs", len(fdf))
     col2.metric("Best PF", f"{fdf['profit_factor'].max():.3f}" if len(fdf) else "—")
-    col3.metric("Best CAGR", f"{fdf['cagr'].max():.1f}%" if len(fdf) else "—")
+    col3.metric("Best CAGR", f"{fdf['cagr'].max():.1f}%" if len(fdf) and pd.notna(fdf['cagr'].max()) else "—")
     col4.metric("Avg Trades", f"{fdf['n_trades'].mean():.0f}" if len(fdf) else "—")
 
     st.markdown("---")
@@ -428,13 +439,13 @@ if page == "🏆 Run Leaderboard":
             with c1:
                 st.metric("Profit Factor", f"{run['profit_factor']:.3f}")
                 st.metric("Net Profit", f"${run['net_profit']:,.2f}")
-                st.metric("CAGR", f"{run['cagr']:.1f}%")
+                st.metric("CAGR", f"{run['cagr']:.1f}%" if pd.notna(run['cagr']) else "N/A")
                 st.metric("Start Equity", f"${run['start_equity']:,.0f}")
             with c2:
                 st.metric("Total Trades", f"{run['n_trades']}")
                 st.metric("Win Rate", f"{run['win_rate_pct']:.1f}%")
                 st.metric("Expectancy", f"${run['expectancy']:.2f}")
-                st.metric("Trades/Year", f"{run['trades_per_year']:.0f}")
+                st.metric("Trades/Year", f"{run['trades_per_year']:.0f}" if pd.notna(run['trades_per_year']) else "N/A")
             with c3:
                 st.metric("Max DD%", f"{run['max_drawdown_pct']:.2f}%")
                 st.metric("Max DD Abs", f"${run['max_drawdown_abs']:,.2f}")
@@ -526,6 +537,8 @@ elif page == "⚖️ Run Comparison":
         values = []
         for _, key, suffix in metrics_to_show:
             val = run.get(key, "—")
+            if val is None or (isinstance(val, float) and math.isnan(val)):
+                val = "—"
             if isinstance(val, float):
                 if suffix == "$":
                     values.append(f"${val:,.2f}")
@@ -666,7 +679,7 @@ elif page == "🎯 PROP_READY Gate":
     # Header metrics
     c1, c2, c3, c4, c5 = st.columns(5)
     c1.metric("PF", f"{run['profit_factor']:.3f}")
-    c2.metric("CAGR", f"{run['cagr']:.1f}%")
+    c2.metric("CAGR", f"{run['cagr']:.1f}%" if pd.notna(run['cagr']) else "N/A")
     c3.metric("DD%", f"{run['max_drawdown_pct']:.2f}%")
     c4.metric("Trades", f"{run['n_trades']}")
     c5.metric("Net $", f"${run['net_profit']:,.0f}")
@@ -691,7 +704,10 @@ elif page == "🎯 PROP_READY Gate":
             failed_count += 1
         else:
             na_count += 1
-        display_val = f"{val:.2f}" if isinstance(val, float) else str(val)
+        if val is None or (isinstance(val, float) and math.isnan(val)):
+            display_val = "N/A"
+        else:
+            display_val = f"{val:.2f}" if isinstance(val, float) else str(val)
         gate_results.append((icon, gate_name, display_val, gate_cfg["target"], result))
 
     # Display core gates in 2 columns

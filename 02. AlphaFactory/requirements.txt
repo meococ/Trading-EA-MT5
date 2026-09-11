@@ -24,5 +24,16 @@ pytest
 pyarrow            # parquet engine for research_kit / probe_sdk fixtures
 openpyxl           # xlsx source samples in the CME participation extractor
 
+# --- required by dashboard.py and the analysis/tools scripts ----------------
+streamlit          # dashboard.py UI
+plotly             # dashboard.py charts
+beautifulsoup4     # bs4: critical_dashboard.py, trade_forensics*.py, trade_visualizer.py
+scikit-learn       # sklearn: tools/drat_onnx_ict_probe.py, phase3b/3c/3d analysis
+lancedb            # tools/vector_memory.py
+fastembed          # tools/vector_memory.py
+pillow             # PIL: tmp/snap_*.py screenshot helpers
+databento          # tools/databento_fx_options_acquire.py (lazy import)
+
 # --- optional --------------------------------------------------------------
-# vectorbt         # only `alpha.ps1 scan`; heavy, pins old numpy. Install ad hoc.
+# vectorbt         # `alpha.ps1 scan`, smc_multi_asset_test.py, quick_scan.py,
+                  # tools/vectorbt_bridge.py; heavy, pins old numpy. Install ad hoc.
