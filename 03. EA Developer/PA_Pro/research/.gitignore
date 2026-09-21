@@ -1,0 +1,14 @@
+# PA-PRO research/: track source code, tests, specs and small metadata only.
+# Derived data is regenerable from source plus the read-only M1 cache, and the
+# sealed inputs are pinned by sha256 in the FREEZE manifests and the out-of-tree
+# witness docs, so it does not belong in git history (GitHub remote).
+_scratch/
+*.pkl
+*.csv
+*.png
+*.log
+__pycache__/
+.pytest_cache/
+*.py[cod]
+# Windows reserved device name that git cannot index
+nul

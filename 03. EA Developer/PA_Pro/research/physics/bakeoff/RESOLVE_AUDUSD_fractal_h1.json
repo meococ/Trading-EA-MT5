@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 11579,
+  "break": 5395,
+  "cont": 2437,
+  "cont_none": 1299,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 23525,
+  "none": 6551,
+  "resolved": 16974,
+  "ret": 1659
+ },
+ "events": {
+  "bounce": 3041,
+  "break": 1690,
+  "cont": 731,
+  "cont_none": 453,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 6872,
+  "none": 2141,
+  "resolved": 4731,
+  "ret": 506
+ },
+ "generator": "fractal_h1",
+ "symbol": "AUDUSD",
+ "utc": "2026-09-20T15:36:25Z"
+}

@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 21050,
+  "break": 10272,
+  "cont": 5427,
+  "cont_none": 1932,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 42711,
+  "none": 11389,
+  "resolved": 31322,
+  "ret": 2913
+ },
+ "events": {
+  "bounce": 5168,
+  "break": 2614,
+  "cont": 1282,
+  "cont_none": 610,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 11460,
+  "none": 3678,
+  "resolved": 7782,
+  "ret": 722
+ },
+ "generator": "line1_cluster",
+ "symbol": "USDJPY",
+ "utc": "2026-09-20T15:36:16Z"
+}

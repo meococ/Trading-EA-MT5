@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 11391,
+  "break": 6140,
+  "cont": 3159,
+  "cont_none": 1181,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 23395,
+  "none": 5864,
+  "resolved": 17531,
+  "ret": 1800
+ },
+ "events": {
+  "bounce": 3023,
+  "break": 1759,
+  "cont": 894,
+  "cont_none": 411,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 6802,
+  "none": 2020,
+  "resolved": 4782,
+  "ret": 454
+ },
+ "generator": "fractal_h1",
+ "symbol": "USDJPY",
+ "utc": "2026-09-20T15:36:17Z"
+}

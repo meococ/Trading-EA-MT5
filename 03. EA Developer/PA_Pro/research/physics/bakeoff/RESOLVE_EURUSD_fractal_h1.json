@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 11709,
+  "break": 5812,
+  "cont": 2868,
+  "cont_none": 1100,
+  "cont_window_missing": 4,
+  "dropped_window": 0,
+  "events": 21982,
+  "none": 4461,
+  "resolved": 17521,
+  "ret": 1840
+ },
+ "events": {
+  "bounce": 3128,
+  "break": 1743,
+  "cont": 887,
+  "cont_none": 336,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 6436,
+  "none": 1565,
+  "resolved": 4871,
+  "ret": 520
+ },
+ "generator": "fractal_h1",
+ "symbol": "EURUSD",
+ "utc": "2026-09-20T15:36:05Z"
+}

@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 10947,
+  "break": 5174,
+  "cont": 2778,
+  "cont_none": 1019,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 22230,
+  "none": 6109,
+  "resolved": 16121,
+  "ret": 1377
+ },
+ "events": {
+  "bounce": 2534,
+  "break": 1267,
+  "cont": 645,
+  "cont_none": 278,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 5791,
+  "none": 1990,
+  "resolved": 3801,
+  "ret": 344
+ },
+ "generator": "kde_swing",
+ "symbol": "USDJPY",
+ "utc": "2026-09-20T15:36:18Z"
+}

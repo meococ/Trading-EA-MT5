@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 2352,
+  "break": 924,
+  "cont": 487,
+  "cont_none": 170,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 4424,
+  "none": 1148,
+  "resolved": 3276,
+  "ret": 267
+ },
+ "events": {
+  "bounce": 590,
+  "break": 268,
+  "cont": 134,
+  "cont_none": 59,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 1190,
+  "none": 332,
+  "resolved": 858,
+  "ret": 75
+ },
+ "generator": "profile_va",
+ "symbol": "GBPUSD",
+ "utc": "2026-09-20T15:36:12Z"
+}

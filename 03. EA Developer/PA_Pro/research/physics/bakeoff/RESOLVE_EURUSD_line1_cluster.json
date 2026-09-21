@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 21270,
+  "break": 9428,
+  "cont": 4817,
+  "cont_none": 1766,
+  "cont_window_missing": 16,
+  "dropped_window": 0,
+  "events": 39495,
+  "none": 8797,
+  "resolved": 30698,
+  "ret": 2829
+ },
+ "events": {
+  "bounce": 4977,
+  "break": 2670,
+  "cont": 1323,
+  "cont_none": 553,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 10595,
+  "none": 2948,
+  "resolved": 7647,
+  "ret": 794
+ },
+ "generator": "line1_cluster",
+ "symbol": "EURUSD",
+ "utc": "2026-09-20T15:36:04Z"
+}

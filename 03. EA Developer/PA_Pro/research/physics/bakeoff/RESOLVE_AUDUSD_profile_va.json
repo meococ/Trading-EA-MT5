@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 2397,
+  "break": 900,
+  "cont": 445,
+  "cont_none": 227,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 4801,
+  "none": 1504,
+  "resolved": 3297,
+  "ret": 228
+ },
+ "events": {
+  "bounce": 556,
+  "break": 242,
+  "cont": 112,
+  "cont_none": 73,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 1254,
+  "none": 456,
+  "resolved": 798,
+  "ret": 57
+ },
+ "generator": "profile_va",
+ "symbol": "AUDUSD",
+ "utc": "2026-09-20T15:36:26Z"
+}

@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 5938,
+  "break": 2822,
+  "cont": 1391,
+  "cont_none": 562,
+  "cont_window_missing": 10,
+  "dropped_window": 0,
+  "events": 11184,
+  "none": 2424,
+  "resolved": 8760,
+  "ret": 859
+ },
+ "events": {
+  "bounce": 1252,
+  "break": 630,
+  "cont": 309,
+  "cont_none": 137,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 2631,
+  "none": 749,
+  "resolved": 1882,
+  "ret": 184
+ },
+ "generator": "sd_base",
+ "symbol": "EURUSD",
+ "utc": "2026-09-20T15:36:06Z"
+}

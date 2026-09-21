@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 2200,
+  "break": 903,
+  "cont": 486,
+  "cont_none": 179,
+  "cont_window_missing": 7,
+  "dropped_window": 0,
+  "events": 4160,
+  "none": 1057,
+  "resolved": 3103,
+  "ret": 231
+ },
+ "events": {
+  "bounce": 538,
+  "break": 272,
+  "cont": 160,
+  "cont_none": 46,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 1119,
+  "none": 309,
+  "resolved": 810,
+  "ret": 66
+ },
+ "generator": "profile_va",
+ "symbol": "EURUSD",
+ "utc": "2026-09-20T15:36:06Z"
+}

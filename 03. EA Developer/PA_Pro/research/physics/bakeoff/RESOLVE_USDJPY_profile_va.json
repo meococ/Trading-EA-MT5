@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 2129,
+  "break": 1135,
+  "cont": 640,
+  "cont_none": 232,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 4536,
+  "none": 1272,
+  "resolved": 3264,
+  "ret": 263
+ },
+ "events": {
+  "bounce": 565,
+  "break": 257,
+  "cont": 121,
+  "cont_none": 58,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 1222,
+  "none": 400,
+  "resolved": 822,
+  "ret": 78
+ },
+ "generator": "profile_va",
+ "symbol": "USDJPY",
+ "utc": "2026-09-20T15:36:18Z"
+}

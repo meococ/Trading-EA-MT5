@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 12543,
+  "break": 4735,
+  "cont": 2363,
+  "cont_none": 896,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 22434,
+  "none": 5156,
+  "resolved": 17278,
+  "ret": 1476
+ },
+ "events": {
+  "bounce": 2858,
+  "break": 1366,
+  "cont": 691,
+  "cont_none": 265,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 5780,
+  "none": 1556,
+  "resolved": 4224,
+  "ret": 410
+ },
+ "generator": "kde_swing",
+ "symbol": "GBPUSD",
+ "utc": "2026-09-20T15:36:12Z"
+}

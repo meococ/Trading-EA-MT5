@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 5505,
+  "break": 2715,
+  "cont": 1156,
+  "cont_none": 678,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 11136,
+  "none": 2916,
+  "resolved": 8220,
+  "ret": 881
+ },
+ "events": {
+  "bounce": 1157,
+  "break": 631,
+  "cont": 307,
+  "cont_none": 169,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 2610,
+  "none": 822,
+  "resolved": 1788,
+  "ret": 155
+ },
+ "generator": "sd_base",
+ "symbol": "AUDUSD",
+ "utc": "2026-09-20T15:36:27Z"
+}

@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 11957,
+  "break": 4580,
+  "cont": 2193,
+  "cont_none": 1158,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 23894,
+  "none": 7357,
+  "resolved": 16537,
+  "ret": 1229
+ },
+ "events": {
+  "bounce": 2650,
+  "break": 1245,
+  "cont": 570,
+  "cont_none": 336,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 6021,
+  "none": 2126,
+  "resolved": 3895,
+  "ret": 339
+ },
+ "generator": "kde_swing",
+ "symbol": "AUDUSD",
+ "utc": "2026-09-20T15:36:26Z"
+}

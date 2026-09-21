@@ -1,0 +1,79 @@
+{
+  "task": "T-PAPRO-ZONE-1",
+  "symbol": "EURUSD",
+  "tf": "M5",
+  "split": "DESIGN",
+  "seed": 20260920,
+  "rng": "numpy.random.default_rng(20260920)",
+  "rule": "1 in-session (05:00-11:00 or 11:30-17:30 UTC) non-warmup DESIGN bar per year 2016..2021, plus 2 extra in-session bars uniform from the same pool, without replacement; each window = the 120 M5 bars ending at the chosen decision bar; chosen BEFORE any snapshot was rendered",
+  "window_bars": 120,
+  "n_bars": 445858,
+  "data_first_utc": "2015-12-02 00:00:00",
+  "data_last_utc": "2021-12-31 20:55:00",
+  "windows": [
+    {
+      "window_id": 0,
+      "bar_idx": 44161,
+      "utc_close": "2016-07-11 12:25:00",
+      "utc_window_start": "2016-07-11 02:30:00",
+      "server_close": "2016-07-11 15:25:00",
+      "year": 2016
+    },
+    {
+      "window_id": 1,
+      "bar_idx": 82544,
+      "utc_close": "2017-01-17 08:45:00",
+      "utc_window_start": "2017-01-16 22:50:00",
+      "server_close": "2017-01-17 10:45:00",
+      "year": 2017
+    },
+    {
+      "window_id": 2,
+      "bar_idx": 169665,
+      "utc_close": "2018-03-28 11:40:00",
+      "utc_window_start": "2018-03-28 01:45:00",
+      "server_close": "2018-03-28 14:40:00",
+      "year": 2018
+    },
+    {
+      "window_id": 3,
+      "bar_idx": 224849,
+      "utc_close": "2018-12-27 11:30:00",
+      "utc_window_start": "2018-12-27 01:35:00",
+      "server_close": "2018-12-27 13:30:00",
+      "year": 2018
+    },
+    {
+      "window_id": 4,
+      "bar_idx": 232352,
+      "utc_close": "2019-02-05 05:40:00",
+      "utc_window_start": "2019-02-04 19:25:00",
+      "server_close": "2019-02-05 07:40:00",
+      "year": 2019
+    },
+    {
+      "window_id": 5,
+      "bar_idx": 358313,
+      "utc_close": "2020-10-22 09:15:00",
+      "utc_window_start": "2020-10-21 23:20:00",
+      "server_close": "2020-10-22 12:15:00",
+      "year": 2020
+    },
+    {
+      "window_id": 6,
+      "bar_idx": 406933,
+      "utc_close": "2021-06-23 10:15:00",
+      "utc_window_start": "2021-06-23 00:20:00",
+      "server_close": "2021-06-23 13:15:00",
+      "year": 2021
+    },
+    {
+      "window_id": 7,
+      "bar_idx": 423050,
+      "utc_close": "2021-09-10 06:15:00",
+      "utc_window_start": "2021-09-09 20:00:00",
+      "server_close": "2021-09-10 09:15:00",
+      "year": 2021
+    }
+  ]
+}

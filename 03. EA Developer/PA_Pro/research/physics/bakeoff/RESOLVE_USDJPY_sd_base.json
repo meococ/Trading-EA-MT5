@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 5544,
+  "break": 2895,
+  "cont": 1414,
+  "cont_none": 599,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 11218,
+  "none": 2779,
+  "resolved": 8439,
+  "ret": 882
+ },
+ "events": {
+  "bounce": 1137,
+  "break": 655,
+  "cont": 284,
+  "cont_none": 161,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 2638,
+  "none": 846,
+  "resolved": 1792,
+  "ret": 210
+ },
+ "generator": "sd_base",
+ "symbol": "USDJPY",
+ "utc": "2026-09-20T15:36:18Z"
+}

@@ -1,0 +1,4 @@
+# Byte-exact: no line-ending conversion. Files here are pinned by sha256 in
+# the R02 FREEZE manifests; with core.autocrlf=true an LF file would be
+# rewritten as CRLF on checkout, changing its hash and breaking the freeze check.
+* -text

@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 12083,
+  "break": 6325,
+  "cont": 2989,
+  "cont_none": 1076,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 22438,
+  "none": 4030,
+  "resolved": 18408,
+  "ret": 2260
+ },
+ "events": {
+  "bounce": 2818,
+  "break": 1961,
+  "cont": 980,
+  "cont_none": 325,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 5953,
+  "none": 1174,
+  "resolved": 4779,
+  "ret": 656
+ },
+ "generator": "ref_levels",
+ "symbol": "GBPUSD",
+ "utc": "2026-09-20T15:36:13Z"
+}

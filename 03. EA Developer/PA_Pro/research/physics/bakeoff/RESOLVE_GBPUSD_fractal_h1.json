@@ -1,0 +1,29 @@
+{
+ "controls": {
+  "bounce": 11557,
+  "break": 5306,
+  "cont": 2567,
+  "cont_none": 896,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 21044,
+  "none": 4181,
+  "resolved": 16863,
+  "ret": 1843
+ },
+ "events": {
+  "bounce": 2922,
+  "break": 1725,
+  "cont": 838,
+  "cont_none": 316,
+  "cont_window_missing": 0,
+  "dropped_window": 0,
+  "events": 6133,
+  "none": 1486,
+  "resolved": 4647,
+  "ret": 571
+ },
+ "generator": "fractal_h1",
+ "symbol": "GBPUSD",
+ "utc": "2026-09-20T15:36:11Z"
+}
