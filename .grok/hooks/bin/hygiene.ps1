@@ -21,12 +21,15 @@ $script:ForbiddenNamePatterns = @(
 # variables and CLI flags (`$token = ...`, `-Secret $x`) are not secrets, and a
 # placeholder guard so documentation like `password=...` or `password=<pw>`
 # does not flag. Only a real-looking literal value matches.
+# 2026-09-21: an identifier placeholder such as `{tok}` (f-string / template)
+# is a placeholder too, like `<pw>`. A brace that opens an object, e.g.
+# `{"k": "v"}`, still flags.
 $script:SecretValuePatterns = @(
-    '(?i)(?<![$\w.-])password["'']?\s*[:=]\s*(?!\.{3}|<|\$|\s*$|\(|@)\S+'
-    '(?i)(?<![$\w.-])passwd["'']?\s*[:=]\s*(?!\.{3}|<|\$|\s*$|\(|@)\S+'
-    '(?i)(?<![$\w.-])token["'']?\s*[:=]\s*(?!\.{3}|<|\$|\s*$|\(|@)\S+'
-    '(?i)(?<![$\w.-])secret["'']?\s*[:=]\s*(?!\.{3}|<|\$|\s*$|\(|@)\S+'
-    '(?i)(?<![$\w.-])api[_-]?key["'']?\s*[:=]\s*(?!\.{3}|<|\$|\s*$|\(|@)\S+'
+    '(?i)(?<![$\w.-])password["'']?\s*[:=]\s*(?!\.{3}|<|\$|\{[A-Za-z_][\w.]*\}|\s*$|\(|@)\S+'
+    '(?i)(?<![$\w.-])passwd["'']?\s*[:=]\s*(?!\.{3}|<|\$|\{[A-Za-z_][\w.]*\}|\s*$|\(|@)\S+'
+    '(?i)(?<![$\w.-])token["'']?\s*[:=]\s*(?!\.{3}|<|\$|\{[A-Za-z_][\w.]*\}|\s*$|\(|@)\S+'
+    '(?i)(?<![$\w.-])secret["'']?\s*[:=]\s*(?!\.{3}|<|\$|\{[A-Za-z_][\w.]*\}|\s*$|\(|@)\S+'
+    '(?i)(?<![$\w.-])api[_-]?key["'']?\s*[:=]\s*(?!\.{3}|<|\$|\{[A-Za-z_][\w.]*\}|\s*$|\(|@)\S+'
 )
 $script:SecretLinePatterns = @(
     'BEGIN (?:RSA |OPENSSH |EC |DSA )?PRIVATE KEY'
