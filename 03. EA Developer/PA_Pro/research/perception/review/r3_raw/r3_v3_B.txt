@@ -1,0 +1,22 @@
+[tt_view_v3 batch B, 3.1 Pro + P4, app/3bbc33b49ac8a70a, between 14:17 and 14:30Z (approx.)] verbatim (heading and "PNG" echo lines dropped)
+
+Dưới đây là báo cáo Kiểm tra chất lượng (QA) đối với phần mềm vẽ chú thích hình học trên 4 ảnh đồ thị bạn đã cung cấp:
+
+1. Đồ thị 9.2b — Đánh giá: Lỗi nặng
+- Đường chéo hướng lên (khoảng 10:30 đến 12:15, mức ~1.3250): Lỗi: Cắt xuyên qua thân của rất nhiều nến liên tiếp. Đường xu hướng (trendline) phải đóng vai trò hỗ trợ/kháng cự chứ không đâm xuyên qua vùng giá. Cách sửa: Nối từ đáy thấp nhất gần đó, dóng lên chạm các đáy (râu nến) tiếp theo mà không được cắt qua thân nến.
+- Đường chéo hướng xuống (khoảng 09:30 đến 11:45, mức ~1.3275 xuống 1.3240): Lỗi: Tương tự như trên, đoạn cuối của đường này (từ 11:00) đâm xuyên thẳng qua thân các nến tăng. Cách sửa: Vẽ nối các đỉnh (râu nến trên) của xu hướng giảm, không để đường thẳng đi vào trong thân nến.
+- Đường ngang nét liền "Ww" (dưới cùng, mức ~1.3235): Lỗi: Quá dài và bắt đầu từ quá khứ rất xa (từ tận 05:30). Đến thời điểm cuối dữ liệu, đường này không còn tương tác trực tiếp với hành động giá hiện tại, gây rác biểu đồ. Cách sửa: Rút ngắn lại, chỉ nên kéo dài từ điểm có ý nghĩa gần nhất hoặc chuyển thành hộp đứt nét nếu vùng này đã kết thúc.
+
+2. Đồ thị 9.33c — Đánh giá: Lỗi
+- Đường chéo hướng xuống (09:00 đến 12:15, mức ~1.3025): Lỗi: Là dữ liệu cũ, đã cách rất xa vùng giá cuối dữ liệu (hiện đang ở 17:30). Nó không còn tác dụng phân tích cho bối cảnh hiện tại. Cách sửa: Xóa hoặc làm mờ/ẩn đi đối với các đường chéo đã quá hạn và bị giá bỏ lại quá xa.
+- Hai vạch ngang nét đứt nhỏ xíu (dưới 10:00, mức ~1.2995): Lỗi: Trông giống như lỗi render hoặc ký hiệu rác không hoàn thiện, không tạo thành hình học có ý nghĩa (như hộp hay đường kẻ). Cách sửa: Cần xóa bỏ.
+- Thiếu hình cần có: Từ 14:00 đến cuối dữ liệu đang có một xu hướng tăng rất mạnh, nhưng phần mềm hoàn toàn không vẽ đường chéo hướng lên (trendline hỗ trợ) nào cho đoạn này. Cần bổ sung đường chéo nối các đáy tăng dần.
+
+3. Đồ thị 9.36c — Đánh giá: Lỗi nặng
+- Hình elip (16:15 đến cuối dữ liệu, mức ~1.3130): Lỗi: Cắt xuyên qua chính giữa thân nến của toàn bộ vùng giá đi ngang (sideways). Elip bao quanh kiểu này làm hỏng tính trực quan của đồ thị nến. Cách sửa: Nếu muốn đánh dấu vùng giá đi ngang, cần thay elip này bằng một hộp chữ nhật bao trùm toàn bộ từ đỉnh đến đáy của cụm nến đi ngang đó (tương tự như cách vẽ hộp đứt nét màu xám nhạt ở lúc 13:30 - 15:00 rất tốt).
+- Đường ngang nét đứt ở giữa (mức ~1.3095): Lỗi: Bị giá cắt qua cắt lại nhiều lần trong quá khứ (đoạn 13:00 - 15:00) nhưng vẫn kéo dài không cần thiết. Cách sửa: Rút ngắn lại hoặc chuyển thành dạng hộp (phần mềm đã có hộp ở đó nên đường nét đứt này trở nên thừa thãi).
+
+4. Đồ thị 9.40a — Đánh giá: Lỗi nặng
+- Đường chéo hướng lên (08:00 đến cuối dữ liệu, từ ~1.3180): Lỗi: Cắt xuyên qua thân nến và râu nến sâu ở các thời điểm 08:45 và 10:20 - 10:30. Một đường hỗ trợ xu hướng không được phép xuyên thủng giá như vậy. Cách sửa: Điều chỉnh lại độ dốc, nối từ đáy thấp nhất (08:00) tiếp xúc với đáy của nhịp điều chỉnh lúc 10:30.
+- Đường ngang nét liền "Ww" (dưới cùng, mức ~1.3170): Lỗi: Nằm hoàn toàn lơ lửng bên dưới biểu đồ, không chạm vào bất kỳ đáy thấp nhất nào của giá (đáy thấp nhất thực tế ở ~1.3180 lúc 08:00). Hình vẽ bị "trượt" so với tọa độ giá và kéo dài từ tận 02:30 là quá xa. Cách sửa: Nâng tọa độ của đường này lên chạm đúng vào mức giá của đáy gần nhất, và rút ngắn thời gian lại.
+- Đường ngang nét đứt có chữ 'F' (mức ~1.3202): Lỗi: Kéo dài từ 02:30 nhưng lại bị giá cắt qua lại liên tục trong giai đoạn từ 03:00 đến 07:00, làm mất đi ý nghĩa của một ngưỡng cản. Cách sửa: Chuyển vùng bị cắt qua cắt lại thành một "hộp đã kết thúc" (màu xám nhạt nét đứt) thay vì dùng đường thẳng tắp.

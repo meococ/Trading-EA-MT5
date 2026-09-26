@@ -1,0 +1,19 @@
+  20/198
+  40/198
+  60/198
+  80/198
+  100/198
+  120/198
+  140/198
+  160/198
+  180/198
+== lab ==
+evalpy LEVEL_CARRIED recall 25/48=0.521  prec 0.037  trusted 24/40=0.600  e/panel med 3.0
+evalpy MINI_LEVEL    recall 16/32=0.500  prec 0.019  trusted 15/29=0.517  e/panel med 4.0
+v2 LEVEL_CARRIED recall 28/48=0.583  prec 0.041  trusted 27/40=0.675  e/panel med 3.0
+v2 MINI_LEVEL    recall 17/31=0.548  prec 0.021  trusted 16/28=0.571  e/panel med 4.0
+oracle LEVEL_CARRIED 33/48 = 0.688
+oracle MINI_LEVEL    22/31 = 0.710
+snapshot LEVEL_CARRIED hit 22/47=0.468  live-levels med 4.0
+snapshot MINI_LEVEL    hit 17/30=0.567  live-levels med 4.0
+saved lab_r8.json

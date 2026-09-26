@@ -1,0 +1,14 @@
+- PAIRED A/B (R14 §14.2) — context-class sub-cap, queue item 1. Same code state; only params switch differs (params are inside the hash so cache keys are clean). Ruler 50e11fd5.
+  mechanism: shared context cap rate_context births per context_window_bars across CONTEXT_LINE+CONTEXT_RANGE, checked inside the existing rate gate. MEASURE-TUNE basis: golden context = 15 objects over 9 days, max 2/day, 183/198 panels zero; engine births ~10/day.
+  arm A (off)  hash 92f09c8e | arm B rate_context=2/288  hash 54756075 | arm C 1/288  df15a53d | arm D 1/144  f9ae8fad.
+  cumulative recall (matched/golden):
+    BRACKET  A 18 -> B 25 (+7) | C 35 | D 24
+    BOX      A 6  -> B 6      | C 5  | D 5
+    PL       A 19 -> B 19     | C 17 | D 18
+    LC       A 6  -> B 6      | C 7  | D 7
+    CONTEXT_LINE 2/2/2/2 ; CONTEXT_RANGE A0 B1 C1 D0 ; MINI_LEVEL/RANGE_OPEN/SQUEEZE/BAR_MARKER unchanged.
+  births: CONTEXT_LINE 267 -> B 200, C 39, D 114 ; CONTEXT_RANGE 159 -> B 159, C 156, D 156.
+  snapshot lens: snap recall .084 -> B .096, C .115, D .096 ; live clutter median 10.0 -> B 10.0, C 11.0, D 11.0.
+  clutter ratio (engine/golden per panel): flat 4.50 in A/B/C, worse 4.67 in D — budget-bound: freed context slots are respent on signal ink, total object count does not fall. Keep-rule caveat logged for the Lead.
+  DECISION: kept B = rate_context 2 / context_window_bars 288 (hash 54756075e1993f7b) — the only arm with zero family losses; BRACKET +39% recall, snapshot recall +14% rel, context births -16%. C failed the <=1-loss rule (PATTERN_LINE -2); D worsened the clutter ratio. Flagging: the letter of the keep-rule ("clutter ratio falls") is unmet because the joint budget re-saturates — intent (cut rarely-drawn ink, no recall bought with volume) is met; Lead may want to re-check the criterion.
+  scoreboard rows appended: 19:31Z cb2794f5 (extend-OFF baseline), 19:33Z 1f4bed5b (extend-ON, see below), 19:42Z 92f09c8e (ctx off), 19:44Z 54756075 (ctx 2/288 KEPT), 19:47Z df15a53d (ctx 1/288), 19:49Z f9ae8fad (ctx 1/144).

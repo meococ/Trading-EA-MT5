@@ -1,0 +1,25 @@
+[c3 batch B, 3.1 Pro + P4, app/3ddebf7e62f8a665, between 14:17 and 14:30Z (approx.)] verbatim (heading and "PNG" echo lines dropped)
+
+Chào ngài Mèo Cọc, em đã hoàn tất việc QA các kết quả render từ thuật toán vẽ chú thích. Dưới đây là đánh giá chi tiết cho từng ảnh:
+
+1. Ảnh 9.2b: Lỗi nặng
+- Đường chéo (Trendline): Tại khu vực 10:30 - 12:00 (quanh mức 1.3250), hai đường chéo bắt chéo nhau tạo thành chữ X cắt xuyên thẳng qua hàng loạt thân nến trong vùng giá đi ngang. Cách sửa: Cần xóa bỏ đường này hoặc tinh chỉnh thuật toán để đường chéo chỉ nối các Swing Highs/Swing Lows hợp lệ, tuyệt đối không đâm xuyên vùng Base.
+- Đường ngang (Horizontal line): Đường nét liền ở mức ~1.3255 kéo dài từ 10:30 đến thời điểm cuối dữ liệu bị giá cắt qua lại nhiều lần, vô giá trị về mặt hỗ trợ/kháng cự. Cách sửa: Xóa. Thuật toán cần có bộ lọc loại bỏ các đường ngang bị giá cross-over quá X lần trong một biên độ hẹp.
+- Ký hiệu Ww: Khoảng thời gian quá rộng (kéo dài từ 06:00 đến tận 11:30), không bám sát vào cấu trúc 2 đáy thực tế.
+
+2. Ảnh 9.33c: Lỗi
+- Đường chéo & đường ngang mồ côi: Khu vực 09:30 - 10:00 (mức 1.3025 - 1.3030) có một đường chéo cắt xuyên qua thân nến và các vạch ngang đứt đoạn rất ngắn nằm lơ lửng, gây rác biểu đồ. Cách sửa: Xóa các đường thừa không tạo thành cấu trúc kênh giá. Cắt bỏ các đoạn bị nến đâm xuyên.
+- Kênh giá hướng lên (Upward Channel): Thuật toán vẽ hai đường biên khá mượt, bắt đúng cấu trúc.
+- Thiếu hình cần có: Khu vực 15:00 - 16:00 trước khi giá break-out lên trên, thuật toán nên vẽ thêm một hộp (Box) ngắn hoặc một đường ngang cục bộ để đánh dấu vùng nén (compression zone).
+
+3. Ảnh 9.36c: Lỗi nặng
+- Hộp (Box): Khoảng 13:30 - 15:45 (mức 1.3075 - 1.3100), hộp này đang bao trọn cả một nhịp giá xả mạnh (momentum drop) dài 2-3 cây nến lớn, sai hoàn toàn nguyên tắc đánh dấu vùng Base. Cách sửa: Thuật toán phải tách biệt nến thân dài (Marubozu/Trend bar) khỏi hộp. Hộp chỉ được phép bao quanh cụm nến đi ngang ở đáy (từ 13:45 - 15:00).
+- Hình Elip: Khoảng 16:15 - 18:00 (mức 1.3135), viền elip cắt trực tiếp vào thân các cây nến sideway. Cách sửa: Ưu tiên dùng Hộp cho vùng giá đi ngang. Nếu bắt buộc dùng Elip, tọa độ trục phải nới rộng (padding) ra ngoài giá đóng/mở cửa.
+- Đường ngang nét đứt: Các mức 1.3125 và 1.3115 bị nến cắt qua lại liên tục. Cách sửa: Xóa bỏ do độ nhiễu cao.
+
+4. Ảnh 9.40a: Lỗi
+- Đường ngang: Các mức 1.3195 (nét liền) và 1.3190 (nét đứt) chạy dài từ 03:00 đến 09:00 bị nến sideway cắt qua lại rất nhiều lần. Cách sửa: Chỉ kích hoạt đường ngang từ các Swing Point thực sự có độ nảy, giới hạn lại chiều dài (length) thay vì kéo vô cực qua các vùng chop.
+- Đường chéo (Góc dưới trái): Khoảng 03:00 - 04:00 xuất hiện một đường chéo dốc xuống không bám vào bất kỳ râu nến hay cấu trúc giá nào. Cách sửa: Xóa. Cần check lại hàm neo tọa độ (anchor point).
+- Ký hiệu Ww: Giống ảnh 1, Ww ở đây bị kéo giãn thời gian từ 04:00 đến tận 11:00. Cách sửa: Bổ sung tham số Max_Length (số nến tối đa) cho các hàm nhận diện mô hình chữ cái (M/W) để tránh nhận diện over-fit trên khung thời gian lớn.
+
+Nếu anh cần em bóc tách sâu hơn vào logic code hoặc công thức toán học định vị (tính toán offset, phát hiện giao cắt) để fix các lỗi này, anh cứ báo em nhé.

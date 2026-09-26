@@ -1,0 +1,169 @@
+{
+ "panel": "9.52a",
+ "date": "2012-05-11",
+ "tau": 350,
+ "arm_source": "c3:uip2_pbbirth@8361fe85e73f9437 (STABLE 1a5502129b4c1554)",
+ "axis": {
+  "panel": "9.52a",
+  "date": "2012-05-11",
+  "tau": 350,
+  "tau_x": 1445.3103448275863,
+  "plot_rect_px": {
+   "x0": 70,
+   "x1": 1604,
+   "y0": 26,
+   "y1": 580
+  },
+  "time_map": {
+   "t_lo": 90,
+   "t_hi": 380,
+   "x_lo": 70,
+   "x_hi": 1604
+  },
+  "price_map": {
+   "p_lo": 1.2896400000000001,
+   "p_hi": 1.29511,
+   "y_lo": 26,
+   "y_hi": 580
+  },
+  "bar_open_times": [
+   90,
+   95,
+   100,
+   105,
+   110,
+   115,
+   120,
+   125,
+   130,
+   135,
+   140,
+   145,
+   150,
+   155,
+   160,
+   165,
+   170,
+   175,
+   180,
+   185,
+   190,
+   195,
+   200,
+   205,
+   210,
+   215,
+   220,
+   225,
+   230,
+   235,
+   240,
+   245,
+   250,
+   255,
+   260,
+   265,
+   270,
+   275,
+   280,
+   285,
+   290,
+   295,
+   300,
+   305,
+   310,
+   315,
+   320,
+   325,
+   330,
+   335,
+   340,
+   345,
+   350
+  ]
+ },
+ "objects": [
+  {
+   "id": "RAN0000",
+   "type": "RANGE_OPEN",
+   "state": "CLOSED",
+   "t0_min": 20,
+   "t1_min": 150,
+   "lo_raw": 1.29258,
+   "hi_raw": 1.29408
+  },
+  {
+   "id": "PAT0001",
+   "type": "PATTERN_LINE",
+   "state": "CLOSED",
+   "t0_min": 20,
+   "t1_min": 220,
+   "p0_raw": 1.29344,
+   "slope": -0.4125,
+   "anchor_bar": 0
+  },
+  {
+   "id": "BOX0002",
+   "type": "BOX",
+   "state": "ACTIVE",
+   "t0_min": 35,
+   "t1_min": 350,
+   "lo_raw": 1.29175,
+   "hi_raw": 1.2927700000000002
+  },
+  {
+   "id": "BRA0003",
+   "type": "BRACKET",
+   "state": "ACTIVE",
+   "t0_min": 55,
+   "t1_min": 350,
+   "price_raw": 1.2945145,
+   "letter": "M"
+  },
+  {
+   "id": "PAT0005",
+   "type": "PATTERN_LINE",
+   "state": "CLOSED",
+   "t0_min": 45,
+   "t1_min": 185,
+   "p0_raw": 1.2938200000000002,
+   "slope": -0.4,
+   "anchor_bar": 5
+  },
+  {
+   "id": "LAB0006",
+   "type": "LABEL_TF",
+   "state": "ACTIVE",
+   "t0_min": 110,
+   "t1_min": 350,
+   "price_raw": 1.29356,
+   "letter": "T"
+  },
+  {
+   "id": "LAB0007",
+   "type": "LABEL_TF",
+   "state": "ACTIVE",
+   "t0_min": 130,
+   "t1_min": 350,
+   "price_raw": 1.29299,
+   "letter": "F"
+  },
+  {
+   "id": "LEV0008",
+   "type": "LEVEL_CARRIED",
+   "state": "CLOSED",
+   "t0_min": 145,
+   "t1_min": 320,
+   "price_raw": 1.2938500000000002
+  },
+  {
+   "id": "CON0009",
+   "type": "CONTEXT_RANGE",
+   "state": "ACTIVE",
+   "t0_min": 45,
+   "t1_min": 350,
+   "lo_raw": 1.29299,
+   "hi_raw": 1.2938200000000002
+  }
+ ]
+}

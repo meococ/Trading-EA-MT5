@@ -1,0 +1,39 @@
+freeze_v3_sha256: f0462985710d35ad9bafd7a07d3b0ef69b03321bac64d02201881df0f856157f
+freeze_v3_bytes: 56928
+freeze_v3_mtime_utc: 2026-09-21T01:14:58Z
+freeze_v1_sha256: 1cd4001801db3acfc370bc5e0f4846fce571b1bda4fc3b306d1c662498069964
+v1_intact: YES
+freeze_v2_sha256: 5b2f49809576b245acc13e4b940fcb0204e3becd33561bcb35ac6bf1698a0793
+v2_intact: YES
+prereg_sha256: 6d6c751cfab873fcb70a1389c92fc870bf999669f3d617030889a93b1a632581
+prereg_bytes: 65026
+ledger_n_lines: 27
+ledger_anchor_sha256: 4f1d3af88f2f833fc6f2cc49b1c6bd479d208abcd1ad1aa03fbd099d383a8776
+anchors_jsonl_bytes: 1303
+anchors_jsonl_lines: 5
+code_sha256:
+  research/arrival/arrival_common.py = 47b1bb5203aa9418d52c4e2b7018de8767a19fefee8c08fb9e2d04d872eba9c5
+  research/arrival/arrival_contrast.py = 9f9ad8aaacba7a7371b19577a88e9361136aaff78070b6f10bd33c3c268c79ef
+  research/arrival/arrival_estimate.py = 103fdaa4975605aea4bb337adbc9d9bc16c0ffbe6f1c6e3084c42404604e5e5d
+  research/arrival/arrival_feas2.py = 9c15f0b24cb5c210ab91e40cdad58aed1339060ae04354a70846847b9a764811
+  research/arrival/arrival_outcome.py = 71b18746d86eff5eac896a5b0c68523bb81366c4dfcea154c03853ab0ccde065
+  research/arrival/arrival_freeze2.py = 41efd850c694da20b3624432882a0b487068f2c7d25da6b447e664a3504d4ace
+  research/arrival/tests/test_arrival.py = 2e788fffb6a3a38caddf0dbece1315f2b881c9c9c844f085d32a10460c6bdf63
+  research/physics/phys_resolve.py = b4f05d05431c2435a56e6df5246b46685867fd94c4ce8f569ad9e335b2f27a86
+  research/physics/phys_common.py = bb00eb48b627dae57b169dae6e15f0c47f1b51a4205f6ab06686a8b942a56567
+  research/arrival/arrival_outcome_run.py = 97e17afb20dcddecdc5e604bb518774846930fee151688563b3488be6db7705b
+bundle_sha256:
+  AUDUSD.pkl = 13179081f4522609442a8a1d3b5ad469d5d171c19e13ae01b4526f8291a9ec7c (46029985 bytes)
+  EURUSD.pkl = 9dcbd9239281648f1d7c1999d0cec5368eec7f56ba1b0e37cd0ddce7da16ef8e (41512689 bytes)
+  GBPUSD.pkl = c6cec7f7d7c0991f676c90f96c494f925981604c317031d78a4c7088317ac5d6 (41737237 bytes)
+  USDJPY.pkl = b361ca30a171324050053d637c0e8041fc1ff570b82f01c0456326310a9c0c01 (44513752 bytes)
+code_matches_freeze_v3: YES
+P1_key_schema: v3 adds /known_limitations; all other keys identical (recursive diff vs v2)
+P2_hash_provenance: RECOMPUTED-MATCH via arrival_freeze2._sha256 (=sha256(file bytes), source unchanged; same function that produced v2's hashes)
+P3_tables_vs_v2: IDENTICAL (tables + thresholds, NaN-aware recursive compare)
+deviation_d41_sha256: 2ca480c82e838f7d91798f446d348262c191df90712084699b7913d6cb9bb0e0 (3853 bytes)
+deviation_d42_sha256: 5bdb6ca3dd4fc8360560bfc371901f3a3b14f8098af428e7ab910ce951282005 (1573 bytes)
+review_fix_d41_sha256: 4f6083e93c59d18ce5c6b47c89017162aeddbf466afc10e50f2f3cc3d22e49f5 (8071 bytes)
+outcome_rows_in_ledger_at_witness_time: 0
+witness_utc: 2026-09-21T01:30:01Z
+RECOMPUTED_INDEPENDENTLY_BY: zigzag-hellebore

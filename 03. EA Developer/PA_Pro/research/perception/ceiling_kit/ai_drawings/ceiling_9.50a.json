@@ -1,0 +1,21 @@
+{
+ "panel": "9.50a",
+ "objects": [
+  {
+   "type": "level",
+   "t0": 510,
+   "t1": 590,
+   "p0": 1.29905,
+   "why": "ceiling tested six times since 08:30"
+  },
+  {
+   "type": "box",
+   "t0": 575,
+   "t1": 590,
+   "p_top": 1.29903,
+   "p_bot": 1.2981,
+   "why": "tight pressure block under ceiling, higher lows"
+  }
+ ],
+ "note": "Uptrend range; pressure building under 1.2990 ceiling, long on break."
+}

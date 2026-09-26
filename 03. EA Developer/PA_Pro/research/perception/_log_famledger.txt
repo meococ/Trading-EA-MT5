@@ -1,0 +1,29 @@
+rulings read up to R26. R25 §25.5 per-family ledger implemented —
+flag `salience.fam_ledger`, default OFF, in salience.py:528-534.
+Shares from the 584c7743 default birth mix (PL 878, BOX 470, LC 461,
+BRA 350, CL 200, CR 159, MINI 90 of 2608 ledger births): largest-
+remainder allocation of rate_total=5 -> fam_rate_pattern_line=2,
+fam_rate_box=1, fam_rate_level_carried=1, fam_rate_bracket=1; other
+kinds share 0. Defended LC births draw on level_carried's share
+(same kind key); cont routes stay joint-exempt but count toward
+their kind's share, same as the joint pool today.
+
+Paired A/B at ONE hash 2795e5e0 (runtime arms in _ab_onehash.py,
+R24 §24.3):
+  off: BOX 6/2snap, BRACKET 25, PL 19, LC 6, CL 2, CR 1, MINI 1;
+       clutter@tau 10, ratio 4.50, LABEL_TF 0/51
+  on:  BOX 4/2snap (-2), BRACKET 30 (+5), PL 19, LC 5 (-1),
+       CL 3, CR 0 (-1), MINI 0 (-1); clutter@tau 10, ratio 4.33,
+       LABEL_TF 0/51
+Keep-rule FAILS: BOX -2. Flag stays OFF. Birth detail: share-0 kinds
+(context_line, context_range, mini_level) go to zero joint births as
+designed; BOX births actually rise 470->499 but matched falls 6->4 —
+the freed share is spent on more wrong BOX proposals (proposal flood
+again, not ledger theft). BRACKET +5 shows a dedicated share does
+release a suppressed family. The zero-sum is NOT removable at the
+ledger level: it moves from shared-pool timing to per-kind floods.
+
+Scoreboard rows appended at 2795e5e0 (both arms, lane=build).
+LEVEL-LAB's §25.5 three-arm test can reuse ARMS in _ab_onehash.py —
+arm (b) = famledger_on; arm (c) adds level.defended_origin +
+def_mini_off on top.

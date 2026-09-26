@@ -1,0 +1,4 @@
+pooled rows=4145 cells=115 pos=172
+liveness4 pooled CV cell@1 = 18/57 = 0.316
+baseline score_last pooled cell@1 = 5/57 = 0.088
+shuffle p95 = 0.298 -> PASS

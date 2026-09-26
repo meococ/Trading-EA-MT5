@@ -1,0 +1,82 @@
+{
+ "S18.0/line1_cluster/h1": {
+  "n": 610,
+  "per_wk": 1.94
+ },
+ "S18.0/line1_cluster/h4": {
+  "n": 730,
+  "per_wk": 2.32
+ },
+ "S18.0/sd_base/h1": {
+  "n": 180,
+  "per_wk": 0.57
+ },
+ "S18.0/sd_base/h4": {
+  "n": 222,
+  "per_wk": 0.71
+ },
+ "S24.0/line1_cluster/h1": {
+  "n": 109,
+  "per_wk": 0.35
+ },
+ "S24.0/line1_cluster/h4": {
+  "n": 122,
+  "per_wk": 0.39
+ },
+ "S24.0/sd_base/h1": {
+  "n": 37,
+  "per_wk": 0.12
+ },
+ "S24.0/sd_base/h4": {
+  "n": 62,
+  "per_wk": 0.2
+ },
+ "S32.0/line1_cluster/h1": {
+  "n": 53,
+  "per_wk": 0.17
+ },
+ "S32.0/line1_cluster/h4": {
+  "n": 66,
+  "per_wk": 0.21
+ },
+ "S32.0/sd_base/h1": {
+  "n": 26,
+  "per_wk": 0.08
+ },
+ "S32.0/sd_base/h4": {
+  "n": 37,
+  "per_wk": 0.12
+ },
+ "S40.0/line1_cluster/h1": {
+  "n": 30,
+  "per_wk": 0.1
+ },
+ "S40.0/line1_cluster/h4": {
+  "n": 51,
+  "per_wk": 0.16
+ },
+ "S40.0/sd_base/h1": {
+  "n": 14,
+  "per_wk": 0.04
+ },
+ "S40.0/sd_base/h4": {
+  "n": 15,
+  "per_wk": 0.05
+ },
+ "S55.0/line1_cluster/h1": {
+  "n": 37,
+  "per_wk": 0.12
+ },
+ "S55.0/line1_cluster/h4": {
+  "n": 42,
+  "per_wk": 0.13
+ },
+ "S55.0/sd_base/h1": {
+  "n": 17,
+  "per_wk": 0.05
+ },
+ "S55.0/sd_base/h4": {
+  "n": 23,
+  "per_wk": 0.07
+ }
+}

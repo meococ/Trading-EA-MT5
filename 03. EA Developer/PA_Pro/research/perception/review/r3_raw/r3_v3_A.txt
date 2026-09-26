@@ -1,0 +1,26 @@
+[tt_view_v3 batch A, 3.1 Pro + P4, app/926c8e1e56830930, between 14:17 and 14:30Z (approx.)] verbatim (heading and image-name echo lines dropped; the answer opened with a greeting that used the Owner's nickname from Gemini's own account memory - the prompt did not contain it)
+
+Em gửi anh Mèo Cọc kết quả kiểm tra chất lượng (QA) các hình vẽ chú thích do phần mềm tự động xuất ra. Dưới đây là phân tích chi tiết từng trường hợp theo đúng bộ quy tắc logic mà anh đang build:
+
+1. Ảnh 9.10c — Đánh giá: Lỗi
+Hình vẽ sai:
+- Đường chéo phía trên (từ ~13:00 đến 15:45, mức 1.3060 - 1.3050): Cắt xuyên qua thân và râu nến tại khu vực 14:00.
+- Đường chéo ngắn bên trái (từ ~09:30 đến 10:30, mức 1.3050): Cắt ngang trực tiếp qua thân nến.
+Cách sửa: Xóa bỏ đường chéo ngắn bên trái. Hiệu chỉnh lại tọa độ đường chéo phía trên để nối đúng các đỉnh (swing highs) mà không vi phạm quy tắc cắt nến.
+Thiếu: Cần bổ sung một hộp (box) hoặc kênh giá nhỏ để đóng khung đoạn giá đi ngang tích lũy ở sát thời điểm cuối dữ liệu (15:00 - 15:45).
+
+2. Ảnh 9.11b — Đánh giá: Lỗi nặng
+- Đường chéo hướng xuống (từ đỉnh ~08:30 kéo đến ~10:45, mức 1.3075 - 1.3030): Lỗi logic nghiêm trọng vì cắt xuyên thẳng qua hàng loạt thân nến trong giai đoạn 09:00 - 10:00.
+- Đường ngang ở giữa (mức ~1.3065): Bị nến cắt qua cắt lại liên tục xuyên suốt biểu đồ, không đóng vai trò hỗ trợ hay kháng cự hợp lệ.
+Cách sửa: Xóa hoàn toàn đường chéo hướng xuống và đường ngang ở giữa để làm sạch chart. Giữ lại đường ngang trên cùng (M) và đường chéo hỗ trợ hướng lên.
+
+3. Ảnh 9.17b — Đánh giá: Lỗi
+- Đường chéo ngắn ngoài cùng bên trái (khu vực 04:30 - 05:00, mức 1.3195): Bị lỗi cắt xuyên nến.
+Cách sửa: Thu hồi/xóa đường chéo lỗi ở góc trái.
+Thiếu: Hệ thống đang bỏ lỡ nhịp thị trường hiện tại. Cần vẽ thêm một hộp (box) bao quanh vùng giá đi ngang sau nhịp tăng mạnh, nằm ở cuối dữ liệu (từ 10:30 đến 12:00, biên độ 1.3245 - 1.3260).
+
+4. Ảnh 9.25a — Đánh giá: Lỗi nặng
+- Cụm đường chéo (khu vực 01:30 - 02:30, mức 1.3225): Lỗi vẽ cắt chéo lung tung xuyên qua vùng giá đang đi ngang (sideway).
+- Hộp nét đứt (01:45 - 02:45): Đây là vùng sideway đã cũ, giá đã phá vỡ (breakout) và sập mạnh xuống dưới, hộp này hiện quá xa so với vùng dữ liệu cuối và không còn giá trị.
+Cách sửa: Gỡ bỏ toàn bộ cụm đường chéo và hộp nét đứt cũ ở đầu phiên.
+Thiếu: Thuật toán chưa nhận diện được vùng tích lũy mới. Bắt buộc phải bổ sung một hộp bao quanh đoạn đi ngang ở cuối biểu đồ (từ 04:00 đến 05:00, quanh mức 1.3200).

@@ -1,0 +1,3 @@
+liveness4      CV cell@1=18/67=0.269 shuffle_p95=0.254 PASS
+liveness3      CV cell@1=18/67=0.269 shuffle_p95=0.254 PASS
+keep4+prior    CV cell@1=18/67=0.269 shuffle_p95=0.254 PASS

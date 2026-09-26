@@ -1,0 +1,414 @@
+
+## STABLE_EURUSD_M5  (author ref: live med 1.0 p90 2.0; over5 0.00; box h 16.0p/3.45ABR dur 28b; slope 9.2 p/hr)
+| year | sess | days | bars | struct med/p90 | >5 | >8 | sa% | emL/100 | emU/100 | rn50w2 | births/d top | boxH abr | boxDur | slope | lvl/d |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 2016 | asia | 33 | 3100 | 4.0 / 4.5 | 0.002 | 0.000 | 0.62 | 6.00 | 12.94 | 0.08 | PATTERN_LINE:2.12, BOX:1.67, BRACKET:1.18, LEVEL_CARRIED:1.15 | 5.1 | 58 | 2.2 | 1.18 |
+| 2016 | eu | 33 | 2374 | 3.0 / 4.2 | 0.004 | 0.000 | 0.57 | 5.69 | 0.25 | 0.09 | PATTERN_LINE:1.82, LEVEL_CARRIED:0.97, BOX:0.94, BRACKET:0.70 | 2.5 | 43 | 3.5 | 0.97 |
+| 2016 | other | 40 | 1845 | 3.0 / 3.7 | 0.000 | 0.000 | 0.55 | 5.15 | 0.00 | 0.07 | PATTERN_LINE:1.20, LEVEL_CARRIED:0.68, BOX:0.65, BRACKET:0.50 | 3.5 | 44 | 3.5 | 0.68 |
+| 2016 | us | 33 | 1973 | 3.0 / 3.8 | 0.000 | 0.000 | 0.68 | 4.11 | 0.00 | 0.04 | PATTERN_LINE:1.33, BRACKET:0.91, BOX:0.82, LEVEL_CARRIED:0.76 | 2.0 | 44 | 3.4 | 0.79 |
+| 2017 | asia | 35 | 3356 | 3.5 / 4.5 | 0.000 | 0.000 | 0.56 | 5.87 | 9.56 | 0.07 | PATTERN_LINE:2.20, BOX:1.74, LEVEL_CARRIED:1.23, BRACKET:1.06 | 5.0 | 57 | 2.0 | 1.26 |
+| 2017 | eu | 35 | 2520 | 3.0 / 4.0 | 0.000 | 0.000 | 0.58 | 5.67 | 0.24 | 0.11 | PATTERN_LINE:1.77, BOX:1.00, LEVEL_CARRIED:0.94, BRACKET:0.71 | 2.6 | 43 | 3.3 | 0.97 |
+| 2017 | other | 40 | 1924 | 3.0 / 3.8 | 0.001 | 0.000 | 0.59 | 6.24 | 0.00 | 0.14 | PATTERN_LINE:1.35, LEVEL_CARRIED:0.70, BOX:0.62, BRACKET:0.57 | 3.3 | 48 | 2.6 | 0.70 |
+| 2017 | us | 35 | 2098 | 3.0 / 3.7 | 0.000 | 0.000 | 0.70 | 4.15 | 0.00 | 0.11 | PATTERN_LINE:1.34, LEVEL_CARRIED:0.77, BOX:0.74, BRACKET:0.74 | 2.3 | 45 | 3.8 | 0.77 |
+| 2018 | asia | 32 | 3070 | 4.0 / 4.8 | 0.007 | 0.000 | 0.60 | 6.81 | 10.68 | 0.11 | PATTERN_LINE:1.97, BOX:1.62, BRACKET:1.16, LEVEL_CARRIED:1.16 | 4.5 | 58 | 1.8 | 1.16 |
+| 2018 | eu | 32 | 2300 | 3.0 / 4.1 | 0.000 | 0.000 | 0.58 | 5.04 | 0.13 | 0.08 | PATTERN_LINE:1.56, BRACKET:1.03, BOX:1.00, LEVEL_CARRIED:0.91 | 2.7 | 46 | 3.3 | 0.91 |
+| 2018 | other | 40 | 1782 | 2.2 / 3.5 | 0.000 | 0.000 | 0.59 | 5.11 | 0.00 | 0.10 | PATTERN_LINE:1.05, BRACKET:0.72, BOX:0.70, LEVEL_CARRIED:0.68 | 3.4 | 44 | 2.4 | 0.68 |
+| 2018 | us | 32 | 1920 | 3.0 / 3.8 | 0.000 | 0.000 | 0.71 | 4.79 | 0.00 | 0.10 | PATTERN_LINE:1.56, BOX:0.81, LEVEL_CARRIED:0.78, BRACKET:0.69 | 2.3 | 42 | 5.1 | 0.84 |
+| 2019 | asia | 28 | 2685 | 4.0 / 4.9 | 0.000 | 0.000 | 0.55 | 6.26 | 9.31 | 0.10 | PATTERN_LINE:2.04, BRACKET:1.39, BOX:1.14, LEVEL_CARRIED:1.04 | 6.3 | 75 | 1.1 | 1.14 |
+| 2019 | eu | 28 | 2015 | 4.0 / 4.5 | 0.000 | 0.000 | 0.60 | 5.96 | 0.05 | 0.04 | PATTERN_LINE:1.54, BRACKET:1.25, BOX:0.89, LEVEL_CARRIED:0.82 | 3.1 | 49 | 1.9 | 0.93 |
+| 2019 | other | 40 | 1553 | 3.0 / 3.8 | 0.006 | 0.000 | 0.58 | 5.54 | 0.00 | 0.05 | PATTERN_LINE:0.88, BOX:0.60, BRACKET:0.57, LEVEL_CARRIED:0.45 | 4.6 | 49 | 2.5 | 0.47 |
+| 2019 | us | 28 | 1680 | 3.0 / 4.2 | 0.029 | 0.000 | 0.71 | 5.06 | 0.00 | 0.04 | PATTERN_LINE:1.36, BOX:0.93, LEVEL_CARRIED:0.79, BRACKET:0.54 | 2.5 | 50 | 3.2 | 0.79 |
+| 2020 | asia | 36 | 3456 | 4.0 / 4.8 | 0.004 | 0.000 | 0.57 | 5.44 | 11.69 | 0.07 | PATTERN_LINE:1.81, BOX:1.69, BRACKET:1.31, LEVEL_CARRIED:1.19 | 5.2 | 61 | 2.3 | 1.28 |
+| 2020 | eu | 36 | 2591 | 3.0 / 4.2 | 0.000 | 0.000 | 0.56 | 6.02 | 0.08 | 0.05 | PATTERN_LINE:1.69, BOX:1.00, LEVEL_CARRIED:0.92, BRACKET:0.89 | 2.5 | 42 | 3.7 | 0.94 |
+| 2020 | other | 40 | 1989 | 3.0 / 3.8 | 0.000 | 0.000 | 0.59 | 5.63 | 0.00 | 0.05 | PATTERN_LINE:1.30, LEVEL_CARRIED:0.70, BOX:0.70, BRACKET:0.68 | 3.6 | 39 | 2.2 | 0.70 |
+| 2020 | us | 36 | 2160 | 3.0 / 4.0 | 0.001 | 0.000 | 0.71 | 5.65 | 0.00 | 0.06 | PATTERN_LINE:1.61, BOX:0.86, LEVEL_CARRIED:0.64, BRACKET:0.56 | 2.6 | 42 | 4.9 | 0.69 |
+| 2021 | asia | 35 | 3360 | 4.0 / 4.8 | 0.000 | 0.000 | 0.54 | 5.83 | 13.21 | 0.07 | PATTERN_LINE:2.11, BOX:1.69, LEVEL_CARRIED:1.29, BRACKET:1.29 | 5.3 | 66 | 1.7 | 1.37 |
+| 2021 | eu | 35 | 2519 | 3.0 / 4.1 | 0.000 | 0.000 | 0.60 | 5.20 | 0.08 | 0.10 | PATTERN_LINE:1.69, LEVEL_CARRIED:1.00, BOX:1.00, BRACKET:0.80 | 2.6 | 45 | 2.5 | 1.03 |
+| 2021 | other | 40 | 1924 | 3.0 / 3.7 | 0.000 | 0.000 | 0.58 | 6.70 | 0.00 | 0.05 | PATTERN_LINE:1.35, BRACKET:0.75, LEVEL_CARRIED:0.65, BOX:0.55 | 4.4 | 49 | 1.9 | 0.65 |
+| 2021 | us | 35 | 2097 | 3.0 / 4.0 | 0.000 | 0.000 | 0.69 | 5.15 | 0.00 | 0.09 | PATTERN_LINE:1.37, BOX:0.89, LEVEL_CARRIED:0.66, BRACKET:0.63 | 2.7 | 45 | 3.2 | 0.66 |
+
+flags (>2x author):
+  2016 asia: struct_med = 4 vs author 1 (x4.0)  ex: 2016-02-12/asia, 2016-04-01/asia, 2016-05-04/asia
+  2016 asia: box_dur_med = 58 vs author 28 (x2.1)  ex: 2016-01-06/asia, 2016-06-03/asia, 2016-02-10/asia
+  2016 asia: line_slope_med = 2.25 vs author 9.21 (x0.2)  ex: 2016-01-06/asia, 2016-06-03/asia, 2016-02-10/asia
+  2016 asia: em_unlogged_100 = 12.9 vs author 0 (xinf)  ex: 2016-03-02/asia, 2016-03-03/asia, 2016-12-26/asia
+  2016 asia: em_logged_100 = 6 vs author 0 (xinf)  ex: 2016-10-25/asia, 2016-03-02/asia, 2016-08-09/asia
+  2016 asia: births|PATTERN_LINE = 2.12 vs author 0.424 (x5.0)  ex: 2016-01-06/asia, 2016-06-03/asia, 2016-02-10/asia
+  2016 asia: births|BOX = 1.67 vs author 0.53 (x3.1)  ex: 2016-01-06/asia, 2016-06-03/asia, 2016-02-10/asia
+  2016 asia: births|BRACKET = 1.18 vs author 0.0758 (x15.6)  ex: 2016-01-06/asia, 2016-06-03/asia, 2016-02-10/asia
+  2016 asia: births|LEVEL_CARRIED = 1.15 vs author 0.121 (x9.5)  ex: 2016-01-06/asia, 2016-06-03/asia, 2016-02-10/asia
+  2016 asia: births|CONTEXT_LINE = 0.636 vs author 0.0303 (x21.0)  ex: 2016-01-06/asia, 2016-06-03/asia, 2016-02-10/asia
+  2016 asia: births|RANGE_OPEN = 0.394 vs author 0.0758 (x5.2)  ex: 2016-01-06/asia, 2016-06-03/asia, 2016-02-10/asia
+  2016 eu: struct_med = 3 vs author 1 (x3.0)  ex: 2016-01-06/eu, 2016-02-16/eu, 2016-03-03/eu
+  2016 eu: line_slope_med = 3.5 vs author 9.21 (x0.4)  ex: 2016-03-02/eu, 2016-12-29/eu, 2016-07-06/eu
+  2016 eu: em_logged_100 = 5.69 vs author 0 (xinf)  ex: 2016-10-31/eu, 2016-12-26/eu, 2016-06-03/eu
+  2016 eu: births|LEVEL_CARRIED = 0.97 vs author 0.424 (x2.3)  ex: 2016-03-02/eu, 2016-12-29/eu, 2016-07-06/eu
+  2016 eu: births|CONTEXT_LINE = 0.545 vs author 0.0758 (x7.2)  ex: 2016-03-02/eu, 2016-12-29/eu, 2016-07-06/eu
+  2016 eu: births|BAR_MARKER = 0.0909 vs author 0.0303 (x3.0)  ex: 2016-03-02/eu, 2016-12-29/eu, 2016-07-06/eu
+  2016 other: struct_med = 3 vs author 1 (x3.0)  ex: 2016-01-06/other, 2016-04-13/other, 2016-05-04/other
+  2016 other: line_slope_med = 3.51 vs author 9.21 (x0.4)  ex: 2016-02-07/other, 2016-04-01/other, 2016-12-26/other
+  2016 other: em_logged_100 = 5.15 vs author 0 (xinf)  ex: 2016-09-04/other, 2016-03-13/other, 2016-10-02/other
+  2016 us: struct_med = 3 vs author 1 (x3.0)  ex: 2016-10-31/us, 2016-01-25/us, 2016-02-16/us
+  2016 us: line_slope_med = 3.42 vs author 9.21 (x0.4)  ex: 2016-05-03/us, 2016-11-09/us, 2016-12-26/us
+  2016 us: em_logged_100 = 4.11 vs author 0 (xinf)  ex: 2016-07-06/us, 2016-11-16/us, 2016-11-04/us
+  2016 us: rn50_w2 = 0.0353 vs author 0.0762 (x0.5)  ex: 2016-05-03/us, 2016-11-09/us, 2016-12-26/us
+  2016 us: births|PATTERN_LINE = 1.33 vs author 0.621 (x2.1)  ex: 2016-05-03/us, 2016-11-09/us, 2016-12-26/us
+  2016 us: births|BRACKET = 0.909 vs author 0.394 (x2.3)  ex: 2016-05-03/us, 2016-11-09/us, 2016-12-26/us
+  2016 us: births|BOX = 0.818 vs author 0.273 (x3.0)  ex: 2016-05-03/us, 2016-11-09/us, 2016-12-26/us
+  2016 us: births|LEVEL_CARRIED = 0.758 vs author 0.167 (x4.5)  ex: 2016-05-03/us, 2016-11-09/us, 2016-12-26/us
+  2016 us: births|CONTEXT_LINE = 0.303 vs author 0.0152 (x20.0)  ex: 2016-05-03/us, 2016-11-09/us, 2016-12-26/us
+  2016 us: births|BAR_MARKER = 0.182 vs author 0.0303 (x6.0)  ex: 2016-05-03/us, 2016-11-09/us, 2016-12-26/us
+  2016 us: births|MINI_LEVEL = 0.0303 vs author 0.136 (x0.2)  ex: 2016-05-03/us, 2016-11-09/us, 2016-12-26/us
+  2017 asia: struct_med = 3.5 vs author 1 (x3.5)  ex: 2017-02-06/asia, 2017-02-28/asia, 2017-01-11/asia
+  2017 asia: box_dur_med = 57 vs author 28 (x2.0)  ex: 2017-01-12/asia, 2017-11-01/asia, 2017-04-19/asia
+  2017 asia: line_slope_med = 1.99 vs author 9.21 (x0.2)  ex: 2017-01-12/asia, 2017-11-01/asia, 2017-04-19/asia
+  2017 asia: em_unlogged_100 = 9.56 vs author 0 (xinf)  ex: 2017-02-21/asia, 2017-03-13/asia, 2017-03-21/asia
+  2017 asia: em_logged_100 = 5.87 vs author 0 (xinf)  ex: 2017-02-06/asia, 2017-06-07/asia, 2017-07-28/asia
+  2017 asia: births|PATTERN_LINE = 2.2 vs author 0.424 (x5.2)  ex: 2017-01-12/asia, 2017-11-01/asia, 2017-04-19/asia
+  2017 asia: births|BOX = 1.74 vs author 0.53 (x3.3)  ex: 2017-01-12/asia, 2017-11-01/asia, 2017-04-19/asia
+  2017 asia: births|LEVEL_CARRIED = 1.23 vs author 0.121 (x10.1)  ex: 2017-01-12/asia, 2017-11-01/asia, 2017-04-19/asia
+  2017 asia: births|BRACKET = 1.06 vs author 0.0758 (x14.0)  ex: 2017-01-12/asia, 2017-11-01/asia, 2017-04-19/asia
+  2017 asia: births|CONTEXT_LINE = 0.629 vs author 0.0303 (x20.7)  ex: 2017-01-12/asia, 2017-11-01/asia, 2017-04-19/asia
+  2017 asia: births|RANGE_OPEN = 0.343 vs author 0.0758 (x4.5)  ex: 2017-01-12/asia, 2017-11-01/asia, 2017-04-19/asia
+  2017 eu: struct_med = 3 vs author 1 (x3.0)  ex: 2017-01-11/eu, 2017-01-31/eu, 2017-04-03/eu
+  2017 eu: line_slope_med = 3.27 vs author 9.21 (x0.4)  ex: 2017-11-23/eu, 2017-12-21/eu, 2017-02-28/eu
+  2017 eu: em_logged_100 = 5.67 vs author 0 (xinf)  ex: 2017-02-24/eu, 2017-12-21/eu, 2017-01-12/eu
+  2017 eu: births|LEVEL_CARRIED = 0.943 vs author 0.424 (x2.2)  ex: 2017-11-23/eu, 2017-12-21/eu, 2017-02-28/eu
+  2017 eu: births|CONTEXT_LINE = 0.6 vs author 0.0758 (x7.9)  ex: 2017-11-23/eu, 2017-12-21/eu, 2017-02-28/eu
+  2017 eu: births|BAR_MARKER = 0.4 vs author 0.0303 (x13.2)  ex: 2017-11-23/eu, 2017-12-21/eu, 2017-02-28/eu
+  2017 eu: births|MINI_LEVEL = 0.0286 vs author 0.318 (x0.1)  ex: 2017-11-23/eu, 2017-12-21/eu, 2017-02-28/eu
+  2017 other: struct_med = 3 vs author 1 (x3.0)  ex: 2017-11-23/other, 2017-03-21/other, 2017-11-01/other
+  2017 other: line_slope_med = 2.65 vs author 9.21 (x0.3)  ex: 2017-01-05/other, 2017-04-09/other, 2017-07-28/other
+  2017 other: em_logged_100 = 6.24 vs author 0 (xinf)  ex: 2017-07-16/other, 2017-01-31/other, 2017-04-09/other
+  2017 us: struct_med = 3 vs author 1 (x3.0)  ex: 2017-01-12/us, 2017-03-21/us, 2017-05-05/us
+  2017 us: line_slope_med = 3.84 vs author 9.21 (x0.4)  ex: 2017-11-15/us, 2017-11-23/us, 2017-02-06/us
+  2017 us: em_logged_100 = 4.15 vs author 0 (xinf)  ex: 2017-03-13/us, 2017-01-05/us, 2017-11-23/us
+  2017 us: births|PATTERN_LINE = 1.34 vs author 0.621 (x2.2)  ex: 2017-11-15/us, 2017-11-23/us, 2017-02-06/us
+  2017 us: births|LEVEL_CARRIED = 0.771 vs author 0.167 (x4.6)  ex: 2017-11-15/us, 2017-11-23/us, 2017-02-06/us
+  2017 us: births|BOX = 0.743 vs author 0.273 (x2.7)  ex: 2017-11-15/us, 2017-11-23/us, 2017-02-06/us
+  2017 us: births|CONTEXT_LINE = 0.486 vs author 0.0152 (x32.1)  ex: 2017-11-15/us, 2017-11-23/us, 2017-02-06/us
+  2017 us: births|BAR_MARKER = 0.143 vs author 0.0303 (x4.7)  ex: 2017-11-15/us, 2017-11-23/us, 2017-02-06/us
+  2018 asia: struct_med = 4 vs author 1 (x4.0)  ex: 2018-11-13/asia, 2018-12-06/asia, 2018-01-19/asia
+  2018 asia: box_dur_med = 57.5 vs author 28 (x2.1)  ex: 2018-03-30/asia, 2018-02-02/asia, 2018-03-01/asia
+  2018 asia: line_slope_med = 1.79 vs author 9.21 (x0.2)  ex: 2018-03-30/asia, 2018-02-02/asia, 2018-03-01/asia
+  2018 asia: em_unlogged_100 = 10.7 vs author 0 (xinf)  ex: 2018-11-13/asia, 2018-01-10/asia, 2018-11-02/asia
+  2018 asia: em_logged_100 = 6.81 vs author 0 (xinf)  ex: 2018-10-04/asia, 2018-12-17/asia, 2018-07-13/asia
+  2018 asia: births|PATTERN_LINE = 1.97 vs author 0.424 (x4.6)  ex: 2018-03-30/asia, 2018-02-02/asia, 2018-03-01/asia
+  2018 asia: births|BOX = 1.62 vs author 0.53 (x3.1)  ex: 2018-03-30/asia, 2018-02-02/asia, 2018-03-01/asia
+  2018 asia: births|BRACKET = 1.16 vs author 0.0758 (x15.3)  ex: 2018-03-30/asia, 2018-02-02/asia, 2018-03-01/asia
+  2018 asia: births|LEVEL_CARRIED = 1.16 vs author 0.121 (x9.5)  ex: 2018-03-30/asia, 2018-02-02/asia, 2018-03-01/asia
+  2018 asia: births|CONTEXT_LINE = 0.656 vs author 0.0303 (x21.7)  ex: 2018-03-30/asia, 2018-02-02/asia, 2018-03-01/asia
+  2018 asia: births|RANGE_OPEN = 0.438 vs author 0.0758 (x5.8)  ex: 2018-03-30/asia, 2018-02-02/asia, 2018-03-01/asia
+  2018 eu: struct_med = 3 vs author 1 (x3.0)  ex: 2018-11-13/eu, 2018-01-19/eu, 2018-03-05/eu
+  2018 eu: line_slope_med = 3.26 vs author 9.21 (x0.4)  ex: 2018-07-27/eu, 2018-02-02/eu, 2018-11-21/eu
+  2018 eu: em_logged_100 = 5.04 vs author 0 (xinf)  ex: 2018-03-30/eu, 2018-03-19/eu, 2018-07-26/eu
+  2018 eu: births|LEVEL_CARRIED = 0.906 vs author 0.424 (x2.1)  ex: 2018-07-27/eu, 2018-02-02/eu, 2018-11-21/eu
+  2018 eu: births|CONTEXT_LINE = 0.562 vs author 0.0758 (x7.4)  ex: 2018-07-27/eu, 2018-02-02/eu, 2018-11-21/eu
+  2018 eu: births|BAR_MARKER = 0.281 vs author 0.0303 (x9.3)  ex: 2018-07-27/eu, 2018-02-02/eu, 2018-11-21/eu
+  2018 other: struct_med = 2.25 vs author 1 (x2.2)  ex: 2018-03-30/other, 2018-03-18/other, 2018-06-10/other
+  2018 other: line_slope_med = 2.4 vs author 9.21 (x0.3)  ex: 2018-09-23/other, 2018-06-04/other, 2018-11-21/other
+  2018 other: em_logged_100 = 5.11 vs author 0 (xinf)  ex: 2018-03-18/other, 2018-08-19/other, 2018-07-27/other
+  2018 us: struct_med = 3 vs author 1 (x3.0)  ex: 2018-03-01/us, 2018-03-30/us, 2018-07-19/us
+  2018 us: em_logged_100 = 4.79 vs author 0 (xinf)  ex: 2018-01-10/us, 2018-11-13/us, 2018-03-14/us
+  2018 us: births|PATTERN_LINE = 1.56 vs author 0.621 (x2.5)  ex: 2018-01-10/us, 2018-05-04/us, 2018-12-17/us
+  2018 us: births|BOX = 0.812 vs author 0.273 (x3.0)  ex: 2018-01-10/us, 2018-05-04/us, 2018-12-17/us
+  2018 us: births|LEVEL_CARRIED = 0.781 vs author 0.167 (x4.7)  ex: 2018-01-10/us, 2018-05-04/us, 2018-12-17/us
+  2018 us: births|CONTEXT_LINE = 0.344 vs author 0.0152 (x22.7)  ex: 2018-01-10/us, 2018-05-04/us, 2018-12-17/us
+  2018 us: births|BAR_MARKER = 0.125 vs author 0.0303 (x4.1)  ex: 2018-01-10/us, 2018-05-04/us, 2018-12-17/us
+  2018 us: births|MINI_LEVEL = 0.0625 vs author 0.136 (x0.5)  ex: 2018-01-10/us, 2018-05-04/us, 2018-12-17/us
+  2019 asia: struct_med = 4 vs author 1 (x4.0)  ex: 2019-01-22/asia, 2019-03-15/asia, 2019-05-16/asia
+  2019 asia: box_dur_med = 75 vs author 28 (x2.7)  ex: 2019-05-16/asia, 2019-02-01/asia, 2019-01-22/asia
+  2019 asia: line_slope_med = 1.13 vs author 9.21 (x0.1)  ex: 2019-05-16/asia, 2019-02-01/asia, 2019-01-22/asia
+  2019 asia: em_unlogged_100 = 9.31 vs author 0 (xinf)  ex: 2019-09-20/asia, 2019-03-28/asia, 2019-07-04/asia
+  2019 asia: em_logged_100 = 6.26 vs author 0 (xinf)  ex: 2019-05-16/asia, 2019-06-21/asia, 2019-03-20/asia
+  2019 asia: births|PATTERN_LINE = 2.04 vs author 0.424 (x4.8)  ex: 2019-05-16/asia, 2019-02-01/asia, 2019-01-22/asia
+  2019 asia: births|BRACKET = 1.39 vs author 0.0758 (x18.4)  ex: 2019-05-16/asia, 2019-02-01/asia, 2019-01-22/asia
+  2019 asia: births|BOX = 1.14 vs author 0.53 (x2.2)  ex: 2019-05-16/asia, 2019-02-01/asia, 2019-01-22/asia
+  2019 asia: births|LEVEL_CARRIED = 1.04 vs author 0.121 (x8.5)  ex: 2019-05-16/asia, 2019-02-01/asia, 2019-01-22/asia
+  2019 asia: births|CONTEXT_LINE = 0.821 vs author 0.0303 (x27.1)  ex: 2019-05-16/asia, 2019-02-01/asia, 2019-01-22/asia
+  2019 asia: births|RANGE_OPEN = 0.393 vs author 0.0758 (x5.2)  ex: 2019-05-16/asia, 2019-02-01/asia, 2019-01-22/asia
+  2019 asia: births|MINI_LEVEL = 0.107 vs author 0.0152 (x7.1)  ex: 2019-05-16/asia, 2019-02-01/asia, 2019-01-22/asia
+  2019 eu: struct_med = 4 vs author 1 (x4.0)  ex: 2019-03-20/eu, 2019-05-16/eu, 2019-05-23/eu
+  2019 eu: line_slope_med = 1.9 vs author 9.21 (x0.2)  ex: 2019-01-22/eu, 2019-06-21/eu, 2019-05-23/eu
+  2019 eu: em_logged_100 = 5.96 vs author 0 (xinf)  ex: 2019-09-27/eu, 2019-01-22/eu, 2019-02-01/eu
+  2019 eu: births|CONTEXT_LINE = 0.464 vs author 0.0758 (x6.1)  ex: 2019-01-22/eu, 2019-06-21/eu, 2019-05-23/eu
+  2019 eu: births|BAR_MARKER = 0.25 vs author 0.0303 (x8.2)  ex: 2019-01-22/eu, 2019-06-21/eu, 2019-05-23/eu
+  2019 eu: births|MINI_LEVEL = 0.107 vs author 0.318 (x0.3)  ex: 2019-01-22/eu, 2019-06-21/eu, 2019-05-23/eu
+  2019 other: struct_med = 3 vs author 1 (x3.0)  ex: 2019-04-19/other, 2019-05-16/other, 2019-08-28/other
+  2019 other: line_slope_med = 2.45 vs author 9.21 (x0.3)  ex: 2019-01-25/other, 2019-11-27/other, 2019-01-13/other
+  2019 other: em_logged_100 = 5.54 vs author 0 (xinf)  ex: 2019-09-22/other, 2019-01-13/other, 2019-05-12/other
+  2019 us: struct_med = 3 vs author 1 (x3.0)  ex: 2019-04-19/us, 2019-08-28/us, 2019-08-30/us
+  2019 us: line_slope_med = 3.17 vs author 9.21 (x0.3)  ex: 2019-12-16/us, 2019-01-25/us, 2019-05-23/us
+  2019 us: em_logged_100 = 5.06 vs author 0 (xinf)  ex: 2019-07-08/us, 2019-08-30/us, 2019-03-28/us
+  2019 us: births|PATTERN_LINE = 1.36 vs author 0.621 (x2.2)  ex: 2019-12-16/us, 2019-01-25/us, 2019-05-23/us
+  2019 us: births|BOX = 0.929 vs author 0.273 (x3.4)  ex: 2019-12-16/us, 2019-01-25/us, 2019-05-23/us
+  2019 us: births|LEVEL_CARRIED = 0.786 vs author 0.167 (x4.7)  ex: 2019-12-16/us, 2019-01-25/us, 2019-05-23/us
+  2019 us: births|CONTEXT_LINE = 0.464 vs author 0.0152 (x30.6)  ex: 2019-12-16/us, 2019-01-25/us, 2019-05-23/us
+  2019 us: births|BAR_MARKER = 0.143 vs author 0.0303 (x4.7)  ex: 2019-12-16/us, 2019-01-25/us, 2019-05-23/us
+  2020 asia: struct_med = 4 vs author 1 (x4.0)  ex: 2020-09-30/asia, 2020-11-27/asia, 2020-04-08/asia
+  2020 asia: box_dur_med = 61 vs author 28 (x2.2)  ex: 2020-09-22/asia, 2020-11-06/asia, 2020-06-03/asia
+  2020 asia: line_slope_med = 2.34 vs author 9.21 (x0.3)  ex: 2020-09-22/asia, 2020-11-06/asia, 2020-06-03/asia
+  2020 asia: em_unlogged_100 = 11.7 vs author 0 (xinf)  ex: 2020-09-10/asia, 2020-09-30/asia, 2020-06-09/asia
+  2020 asia: em_logged_100 = 5.44 vs author 0 (xinf)  ex: 2020-04-30/asia, 2020-09-30/asia, 2020-04-09/asia
+  2020 asia: births|PATTERN_LINE = 1.81 vs author 0.424 (x4.3)  ex: 2020-09-22/asia, 2020-11-06/asia, 2020-06-03/asia
+  2020 asia: births|BOX = 1.69 vs author 0.53 (x3.2)  ex: 2020-09-22/asia, 2020-11-06/asia, 2020-06-03/asia
+  2020 asia: births|BRACKET = 1.31 vs author 0.0758 (x17.2)  ex: 2020-09-22/asia, 2020-11-06/asia, 2020-06-03/asia
+  2020 asia: births|LEVEL_CARRIED = 1.19 vs author 0.121 (x9.9)  ex: 2020-09-22/asia, 2020-11-06/asia, 2020-06-03/asia
+  2020 asia: births|CONTEXT_LINE = 0.528 vs author 0.0303 (x17.4)  ex: 2020-09-22/asia, 2020-11-06/asia, 2020-06-03/asia
+  2020 asia: births|RANGE_OPEN = 0.278 vs author 0.0758 (x3.7)  ex: 2020-09-22/asia, 2020-11-06/asia, 2020-06-03/asia
+  2020 asia: births|MINI_LEVEL = 0.0833 vs author 0.0152 (x5.5)  ex: 2020-09-22/asia, 2020-11-06/asia, 2020-06-03/asia
+  2020 eu: struct_med = 3 vs author 1 (x3.0)  ex: 2020-09-18/eu, 2020-03-04/eu, 2020-04-08/eu
+  2020 eu: line_slope_med = 3.69 vs author 9.21 (x0.4)  ex: 2020-09-30/eu, 2020-03-04/eu, 2020-06-04/eu
+  2020 eu: em_logged_100 = 6.02 vs author 0 (xinf)  ex: 2020-08-04/eu, 2020-12-30/eu, 2020-04-09/eu
+  2020 eu: births|LEVEL_CARRIED = 0.917 vs author 0.424 (x2.2)  ex: 2020-09-30/eu, 2020-03-04/eu, 2020-06-04/eu
+  2020 eu: births|CONTEXT_LINE = 0.472 vs author 0.0758 (x6.2)  ex: 2020-09-30/eu, 2020-03-04/eu, 2020-06-04/eu
+  2020 eu: births|BAR_MARKER = 0.0833 vs author 0.0303 (x2.7)  ex: 2020-09-30/eu, 2020-03-04/eu, 2020-06-04/eu
+  2020 eu: births|MINI_LEVEL = 0.0278 vs author 0.318 (x0.1)  ex: 2020-09-30/eu, 2020-03-04/eu, 2020-06-04/eu
+  2020 other: struct_med = 3 vs author 1 (x3.0)  ex: 2020-07-28/other, 2020-09-22/other, 2020-10-02/other
+  2020 other: line_slope_med = 2.18 vs author 9.21 (x0.2)  ex: 2020-07-05/other, 2020-11-12/other, 2020-09-22/other
+  2020 other: em_logged_100 = 5.63 vs author 0 (xinf)  ex: 2020-07-05/other, 2020-11-12/other, 2020-11-22/other
+  2020 us: struct_med = 3 vs author 1 (x3.0)  ex: 2020-10-02/us, 2020-04-08/us, 2020-06-04/us
+  2020 us: em_logged_100 = 5.65 vs author 0 (xinf)  ex: 2020-03-04/us, 2020-10-27/us, 2020-11-24/us
+  2020 us: births|PATTERN_LINE = 1.61 vs author 0.621 (x2.6)  ex: 2020-05-25/us, 2020-08-12/us, 2020-04-17/us
+  2020 us: births|BOX = 0.861 vs author 0.273 (x3.2)  ex: 2020-05-25/us, 2020-08-12/us, 2020-04-17/us
+  2020 us: births|LEVEL_CARRIED = 0.639 vs author 0.167 (x3.8)  ex: 2020-05-25/us, 2020-08-12/us, 2020-04-17/us
+  2020 us: births|CONTEXT_LINE = 0.556 vs author 0.0152 (x36.7)  ex: 2020-05-25/us, 2020-08-12/us, 2020-04-17/us
+  2020 us: births|MINI_LEVEL = 0.0556 vs author 0.136 (x0.4)  ex: 2020-05-25/us, 2020-08-12/us, 2020-04-17/us
+  2021 asia: struct_med = 4 vs author 1 (x4.0)  ex: 2021-03-17/asia, 2021-05-14/asia, 2021-05-25/asia
+  2021 asia: box_dur_med = 66 vs author 28 (x2.4)  ex: 2021-08-27/asia, 2021-10-07/asia, 2021-12-03/asia
+  2021 asia: line_slope_med = 1.73 vs author 9.21 (x0.2)  ex: 2021-08-27/asia, 2021-10-07/asia, 2021-12-03/asia
+  2021 asia: em_unlogged_100 = 13.2 vs author 0 (xinf)  ex: 2021-10-19/asia, 2021-05-14/asia, 2021-06-23/asia
+  2021 asia: em_logged_100 = 5.83 vs author 0 (xinf)  ex: 2021-09-24/asia, 2021-11-19/asia, 2021-04-13/asia
+  2021 asia: births|PATTERN_LINE = 2.11 vs author 0.424 (x5.0)  ex: 2021-08-27/asia, 2021-10-07/asia, 2021-12-03/asia
+  2021 asia: births|BOX = 1.69 vs author 0.53 (x3.2)  ex: 2021-08-27/asia, 2021-10-07/asia, 2021-12-03/asia
+  2021 asia: births|LEVEL_CARRIED = 1.29 vs author 0.121 (x10.6)  ex: 2021-08-27/asia, 2021-10-07/asia, 2021-12-03/asia
+  2021 asia: births|BRACKET = 1.29 vs author 0.0758 (x17.0)  ex: 2021-08-27/asia, 2021-10-07/asia, 2021-12-03/asia
+  2021 asia: births|CONTEXT_LINE = 0.629 vs author 0.0303 (x20.7)  ex: 2021-08-27/asia, 2021-10-07/asia, 2021-12-03/asia
+  2021 asia: births|RANGE_OPEN = 0.286 vs author 0.0758 (x3.8)  ex: 2021-08-27/asia, 2021-10-07/asia, 2021-12-03/asia
+  2021 asia: births|MINI_LEVEL = 0.0857 vs author 0.0152 (x5.7)  ex: 2021-08-27/asia, 2021-10-07/asia, 2021-12-03/asia
+  2021 eu: struct_med = 3 vs author 1 (x3.0)  ex: 2021-01-18/eu, 2021-08-09/eu, 2021-08-26/eu
+  2021 eu: line_slope_med = 2.49 vs author 9.21 (x0.3)  ex: 2021-05-31/eu, 2021-04-13/eu, 2021-10-19/eu
+  2021 eu: em_logged_100 = 5.2 vs author 0 (xinf)  ex: 2021-06-28/eu, 2021-10-13/eu, 2021-11-10/eu
+  2021 eu: births|LEVEL_CARRIED = 1 vs author 0.424 (x2.4)  ex: 2021-05-31/eu, 2021-04-13/eu, 2021-10-19/eu
+  2021 eu: births|CONTEXT_LINE = 0.486 vs author 0.0758 (x6.4)  ex: 2021-05-31/eu, 2021-04-13/eu, 2021-10-19/eu
+  2021 eu: births|MINI_LEVEL = 0.0286 vs author 0.318 (x0.1)  ex: 2021-05-31/eu, 2021-04-13/eu, 2021-10-19/eu
+  2021 other: struct_med = 3 vs author 1 (x3.0)  ex: 2021-09-28/other, 2021-04-13/other, 2021-05-24/other
+  2021 other: line_slope_med = 1.9 vs author 9.21 (x0.2)  ex: 2021-08-15/other, 2021-08-27/other, 2021-01-08/other
+  2021 other: em_logged_100 = 6.7 vs author 0 (xinf)  ex: 2021-05-16/other, 2021-01-15/other, 2021-08-15/other
+  2021 us: struct_med = 3 vs author 1 (x3.0)  ex: 2021-01-18/us, 2021-08-09/us, 2021-03-17/us
+  2021 us: line_slope_med = 3.25 vs author 9.21 (x0.4)  ex: 2021-01-08/us, 2021-10-07/us, 2021-05-27/us
+  2021 us: em_logged_100 = 5.15 vs author 0 (xinf)  ex: 2021-05-27/us, 2021-06-23/us, 2021-01-19/us
+  2021 us: births|PATTERN_LINE = 1.37 vs author 0.621 (x2.2)  ex: 2021-01-08/us, 2021-10-07/us, 2021-05-27/us
+  2021 us: births|BOX = 0.886 vs author 0.273 (x3.2)  ex: 2021-01-08/us, 2021-10-07/us, 2021-05-27/us
+  2021 us: births|LEVEL_CARRIED = 0.657 vs author 0.167 (x3.9)  ex: 2021-01-08/us, 2021-10-07/us, 2021-05-27/us
+  2021 us: births|CONTEXT_LINE = 0.514 vs author 0.0152 (x33.9)  ex: 2021-01-08/us, 2021-10-07/us, 2021-05-27/us
+
+## KEPT_EURUSD_M5  (author ref: live med 1.0 p90 2.0; over5 0.00; box h 16.0p/3.45ABR dur 28b; slope 9.2 p/hr)
+| year | sess | days | bars | struct med/p90 | >5 | >8 | sa% | emL/100 | emU/100 | rn50w2 | births/d top | boxH abr | boxDur | slope | lvl/d |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 2016 | asia | 33 | 3100 | 4.0 / 4.9 | 0.000 | 0.000 | 0.58 | 3.97 | 14.29 | 0.08 | BOX:1.97, BRACKET:1.94, PATTERN_LINE:1.48, LEVEL_CARRIED:1.27 | 4.9 | 59 | 2.4 | 1.27 |
+| 2016 | eu | 33 | 2374 | 3.0 / 4.1 | 0.000 | 0.000 | 0.56 | 3.96 | 0.21 | 0.05 | BRACKET:1.45, PATTERN_LINE:1.18, BOX:0.94, LEVEL_CARRIED:0.85 | 2.5 | 50 | 2.9 | 0.91 |
+| 2016 | other | 40 | 1845 | 3.0 / 3.9 | 0.000 | 0.000 | 0.55 | 3.36 | 0.00 | 0.09 | BRACKET:0.93, BOX:0.70, LEVEL_CARRIED:0.53, PATTERN_LINE:0.45 | 3.3 | 40 | 2.4 | 0.55 |
+| 2016 | us | 33 | 1973 | 3.0 / 3.9 | 0.001 | 0.000 | 0.67 | 3.04 | 0.00 | 0.07 | BRACKET:1.09, PATTERN_LINE:0.88, LEVEL_CARRIED:0.82, BOX:0.79 | 2.6 | 38 | 4.8 | 0.85 |
+| 2017 | asia | 35 | 3356 | 4.0 / 4.7 | 0.000 | 0.000 | 0.53 | 4.32 | 11.71 | 0.05 | BOX:1.97, BRACKET:1.77, PATTERN_LINE:1.71, LEVEL_CARRIED:1.20 | 4.9 | 69 | 1.8 | 1.31 |
+| 2017 | eu | 35 | 2520 | 3.0 / 4.2 | 0.000 | 0.000 | 0.52 | 3.61 | 0.40 | 0.08 | BRACKET:1.60, BOX:0.97, LEVEL_CARRIED:0.89, PATTERN_LINE:0.86 | 2.5 | 42 | 2.4 | 0.94 |
+| 2017 | other | 40 | 1924 | 3.0 / 4.0 | 0.000 | 0.000 | 0.51 | 3.79 | 0.00 | 0.15 | BRACKET:0.72, BOX:0.68, PATTERN_LINE:0.65, LEVEL_CARRIED:0.60 | 3.3 | 43 | 3.1 | 0.60 |
+| 2017 | us | 35 | 2098 | 3.0 / 3.9 | 0.000 | 0.000 | 0.65 | 2.34 | 0.00 | 0.10 | BRACKET:1.26, PATTERN_LINE:0.89, BOX:0.89, LEVEL_CARRIED:0.74 | 2.4 | 47 | 4.0 | 0.80 |
+| 2018 | asia | 32 | 3070 | 4.0 / 4.8 | 0.009 | 0.000 | 0.57 | 4.72 | 11.86 | 0.10 | BOX:1.66, PATTERN_LINE:1.66, BRACKET:1.47, LEVEL_CARRIED:1.12 | 4.6 | 70 | 1.8 | 1.19 |
+| 2018 | eu | 32 | 2300 | 3.0 / 4.2 | 0.002 | 0.000 | 0.54 | 3.70 | 0.09 | 0.09 | BRACKET:1.59, BOX:1.00, LEVEL_CARRIED:0.91, PATTERN_LINE:0.88 | 2.4 | 44 | 3.7 | 1.06 |
+| 2018 | other | 40 | 1782 | 3.0 / 3.5 | 0.000 | 0.000 | 0.56 | 3.25 | 0.00 | 0.03 | BRACKET:0.97, PATTERN_LINE:0.78, LEVEL_CARRIED:0.57, BOX:0.50 | 3.4 | 38 | 2.6 | 0.60 |
+| 2018 | us | 32 | 1920 | 3.0 / 3.6 | 0.000 | 0.000 | 0.68 | 3.18 | 0.00 | 0.08 | BRACKET:1.41, BOX:0.94, PATTERN_LINE:0.91, LEVEL_CARRIED:0.75 | 2.5 | 46 | 4.8 | 0.78 |
+| 2019 | asia | 28 | 2685 | 4.5 / 5.1 | 0.038 | 0.000 | 0.59 | 5.62 | 11.40 | 0.10 | PATTERN_LINE:1.68, BRACKET:1.57, BOX:1.25, LEVEL_CARRIED:1.21 | 6.9 | 85 | 0.9 | 1.29 |
+| 2019 | eu | 28 | 2015 | 4.0 / 4.8 | 0.034 | 0.000 | 0.56 | 4.07 | 0.05 | 0.09 | BRACKET:1.61, BOX:0.96, LEVEL_CARRIED:0.75, PATTERN_LINE:0.68 | 3.0 | 50 | 1.4 | 0.93 |
+| 2019 | other | 40 | 1553 | 3.0 / 4.0 | 0.030 | 0.000 | 0.54 | 4.12 | 0.00 | 0.07 | BRACKET:0.85, PATTERN_LINE:0.62, BOX:0.55, LEVEL_CARRIED:0.50 | 4.3 | 44 | 2.4 | 0.55 |
+| 2019 | us | 28 | 1680 | 3.0 / 4.2 | 0.004 | 0.000 | 0.66 | 3.63 | 0.00 | 0.07 | BRACKET:1.07, PATTERN_LINE:1.00, BOX:0.93, LEVEL_CARRIED:0.71 | 2.7 | 52 | 1.9 | 0.75 |
+| 2020 | asia | 36 | 3456 | 4.0 / 4.8 | 0.004 | 0.000 | 0.52 | 3.85 | 14.50 | 0.08 | BOX:1.86, BRACKET:1.83, PATTERN_LINE:1.36, LEVEL_CARRIED:1.28 | 5.4 | 67 | 1.6 | 1.39 |
+| 2020 | eu | 36 | 2591 | 3.0 / 4.3 | 0.000 | 0.000 | 0.55 | 4.05 | 0.15 | 0.06 | BRACKET:1.61, BOX:0.97, LEVEL_CARRIED:0.94, PATTERN_LINE:0.89 | 2.3 | 41 | 4.0 | 1.03 |
+| 2020 | other | 40 | 1989 | 3.0 / 3.8 | 0.000 | 0.000 | 0.55 | 4.42 | 0.00 | 0.06 | BRACKET:1.00, PATTERN_LINE:0.90, BOX:0.78, LEVEL_CARRIED:0.53 | 3.6 | 42 | 2.0 | 0.53 |
+| 2020 | us | 36 | 2160 | 3.0 / 3.8 | 0.000 | 0.000 | 0.67 | 3.10 | 0.00 | 0.08 | BRACKET:1.17, PATTERN_LINE:0.92, BOX:0.83, LEVEL_CARRIED:0.75 | 2.4 | 37 | 2.7 | 0.81 |
+| 2021 | asia | 35 | 3360 | 4.0 / 4.8 | 0.003 | 0.000 | 0.52 | 4.05 | 14.73 | 0.10 | BOX:1.97, PATTERN_LINE:1.74, BRACKET:1.60, LEVEL_CARRIED:1.26 | 5.3 | 71 | 1.3 | 1.31 |
+| 2021 | eu | 35 | 2519 | 3.0 / 4.2 | 0.000 | 0.000 | 0.57 | 4.21 | 0.24 | 0.06 | BRACKET:1.63, BOX:1.00, PATTERN_LINE:0.89, LEVEL_CARRIED:0.86 | 2.5 | 44 | 2.8 | 0.94 |
+| 2021 | other | 40 | 1924 | 3.0 / 3.9 | 0.000 | 0.000 | 0.56 | 3.90 | 0.00 | 0.09 | BRACKET:1.00, PATTERN_LINE:0.75, BOX:0.68, LEVEL_CARRIED:0.53 | 4.4 | 54 | 1.4 | 0.60 |
+| 2021 | us | 35 | 2097 | 3.0 / 4.2 | 0.000 | 0.000 | 0.67 | 3.15 | 0.00 | 0.10 | BRACKET:1.26, PATTERN_LINE:0.83, BOX:0.83, LEVEL_CARRIED:0.74 | 2.6 | 43 | 2.8 | 0.80 |
+
+flags (>2x author):
+  2016 asia: struct_med = 4 vs author 1 (x4.0)  ex: 2016-04-01/asia, 2016-05-10/asia, 2016-08-04/asia
+  2016 asia: box_dur_med = 59 vs author 28 (x2.1)  ex: 2016-06-03/asia, 2016-02-10/asia, 2016-08-04/asia
+  2016 asia: line_slope_med = 2.4 vs author 9.21 (x0.3)  ex: 2016-06-03/asia, 2016-02-10/asia, 2016-08-04/asia
+  2016 asia: em_unlogged_100 = 14.3 vs author 0 (xinf)  ex: 2016-12-29/asia, 2016-11-02/asia, 2016-11-09/asia
+  2016 asia: em_logged_100 = 3.97 vs author 0 (xinf)  ex: 2016-12-26/asia, 2016-03-02/asia, 2016-05-10/asia
+  2016 asia: births|BOX = 1.97 vs author 0.53 (x3.7)  ex: 2016-06-03/asia, 2016-02-10/asia, 2016-08-04/asia
+  2016 asia: births|BRACKET = 1.94 vs author 0.0758 (x25.6)  ex: 2016-06-03/asia, 2016-02-10/asia, 2016-08-04/asia
+  2016 asia: births|PATTERN_LINE = 1.48 vs author 0.424 (x3.5)  ex: 2016-06-03/asia, 2016-02-10/asia, 2016-08-04/asia
+  2016 asia: births|LEVEL_CARRIED = 1.27 vs author 0.121 (x10.5)  ex: 2016-06-03/asia, 2016-02-10/asia, 2016-08-04/asia
+  2016 asia: births|CONTEXT_LINE = 0.424 vs author 0.0303 (x14.0)  ex: 2016-06-03/asia, 2016-02-10/asia, 2016-08-04/asia
+  2016 asia: births|RANGE_OPEN = 0.182 vs author 0.0758 (x2.4)  ex: 2016-06-03/asia, 2016-02-10/asia, 2016-08-04/asia
+  2016 eu: struct_med = 3 vs author 1 (x3.0)  ex: 2016-02-09/eu, 2016-03-02/eu, 2016-05-10/eu
+  2016 eu: line_slope_med = 2.86 vs author 9.21 (x0.3)  ex: 2016-06-03/eu, 2016-11-04/eu, 2016-09-06/eu
+  2016 eu: em_logged_100 = 3.96 vs author 0 (xinf)  ex: 2016-04-01/eu, 2016-01-25/eu, 2016-02-10/eu
+  2016 eu: births|CONTEXT_LINE = 0.394 vs author 0.0758 (x5.2)  ex: 2016-06-03/eu, 2016-11-04/eu, 2016-09-06/eu
+  2016 eu: births|BAR_MARKER = 0.0909 vs author 0.0303 (x3.0)  ex: 2016-06-03/eu, 2016-11-04/eu, 2016-09-06/eu
+  2016 eu: births|MINI_LEVEL = 0.0606 vs author 0.318 (x0.2)  ex: 2016-06-03/eu, 2016-11-04/eu, 2016-09-06/eu
+  2016 other: struct_med = 3 vs author 1 (x3.0)  ex: 2016-04-13/other, 2016-11-27/other, 2016-02-12/other
+  2016 other: line_slope_med = 2.36 vs author 9.21 (x0.3)  ex: 2016-04-01/other, 2016-11-27/other, 2016-12-26/other
+  2016 other: em_logged_100 = 3.36 vs author 0 (xinf)  ex: 2016-09-04/other, 2016-11-27/other, 2016-08-09/other
+  2016 us: struct_med = 3 vs author 1 (x3.0)  ex: 2016-05-10/us, 2016-12-26/us, 2016-01-25/us
+  2016 us: em_logged_100 = 3.04 vs author 0 (xinf)  ex: 2016-07-06/us, 2016-10-25/us, 2016-10-31/us
+  2016 us: births|BRACKET = 1.09 vs author 0.394 (x2.8)  ex: 2016-11-09/us, 2016-10-31/us, 2016-01-25/us
+  2016 us: births|LEVEL_CARRIED = 0.818 vs author 0.167 (x4.9)  ex: 2016-11-09/us, 2016-10-31/us, 2016-01-25/us
+  2016 us: births|BOX = 0.788 vs author 0.273 (x2.9)  ex: 2016-11-09/us, 2016-10-31/us, 2016-01-25/us
+  2016 us: births|CONTEXT_LINE = 0.333 vs author 0.0152 (x22.0)  ex: 2016-11-09/us, 2016-10-31/us, 2016-01-25/us
+  2016 us: births|BAR_MARKER = 0.182 vs author 0.0303 (x6.0)  ex: 2016-11-09/us, 2016-10-31/us, 2016-01-25/us
+  2016 us: births|MINI_LEVEL = 0.0303 vs author 0.136 (x0.2)  ex: 2016-11-09/us, 2016-10-31/us, 2016-01-25/us
+  2017 asia: struct_med = 4 vs author 1 (x4.0)  ex: 2017-11-10/asia, 2017-12-11/asia, 2017-01-05/asia
+  2017 asia: box_dur_med = 69 vs author 28 (x2.5)  ex: 2017-06-16/asia, 2017-11-01/asia, 2017-11-10/asia
+  2017 asia: line_slope_med = 1.77 vs author 9.21 (x0.2)  ex: 2017-06-16/asia, 2017-11-01/asia, 2017-11-10/asia
+  2017 asia: em_unlogged_100 = 11.7 vs author 0 (xinf)  ex: 2017-06-07/asia, 2017-01-12/asia, 2017-07-18/asia
+  2017 asia: em_logged_100 = 4.32 vs author 0 (xinf)  ex: 2017-06-07/asia, 2017-10-10/asia, 2017-02-21/asia
+  2017 asia: births|BOX = 1.97 vs author 0.53 (x3.7)  ex: 2017-06-16/asia, 2017-11-01/asia, 2017-11-10/asia
+  2017 asia: births|BRACKET = 1.77 vs author 0.0758 (x23.4)  ex: 2017-06-16/asia, 2017-11-01/asia, 2017-11-10/asia
+  2017 asia: births|PATTERN_LINE = 1.71 vs author 0.424 (x4.0)  ex: 2017-06-16/asia, 2017-11-01/asia, 2017-11-10/asia
+  2017 asia: births|LEVEL_CARRIED = 1.2 vs author 0.121 (x9.9)  ex: 2017-06-16/asia, 2017-11-01/asia, 2017-11-10/asia
+  2017 asia: births|CONTEXT_LINE = 0.4 vs author 0.0303 (x13.2)  ex: 2017-06-16/asia, 2017-11-01/asia, 2017-11-10/asia
+  2017 asia: births|MINI_LEVEL = 0.114 vs author 0.0152 (x7.5)  ex: 2017-06-16/asia, 2017-11-01/asia, 2017-11-10/asia
+  2017 eu: struct_med = 3 vs author 1 (x3.0)  ex: 2017-01-11/eu, 2017-01-31/eu, 2017-04-03/eu
+  2017 eu: line_slope_med = 2.44 vs author 9.21 (x0.3)  ex: 2017-02-28/eu, 2017-11-23/eu, 2017-12-11/eu
+  2017 eu: em_logged_100 = 3.61 vs author 0 (xinf)  ex: 2017-02-28/eu, 2017-01-13/eu, 2017-05-05/eu
+  2017 eu: births|LEVEL_CARRIED = 0.886 vs author 0.424 (x2.1)  ex: 2017-02-28/eu, 2017-11-23/eu, 2017-12-11/eu
+  2017 eu: births|PATTERN_LINE = 0.857 vs author 1.74 (x0.5)  ex: 2017-02-28/eu, 2017-11-23/eu, 2017-12-11/eu
+  2017 eu: births|CONTEXT_LINE = 0.571 vs author 0.0758 (x7.5)  ex: 2017-02-28/eu, 2017-11-23/eu, 2017-12-11/eu
+  2017 eu: births|BAR_MARKER = 0.4 vs author 0.0303 (x13.2)  ex: 2017-02-28/eu, 2017-11-23/eu, 2017-12-11/eu
+  2017 eu: births|MINI_LEVEL = 0.0571 vs author 0.318 (x0.2)  ex: 2017-02-28/eu, 2017-11-23/eu, 2017-12-11/eu
+  2017 other: struct_med = 3 vs author 1 (x3.0)  ex: 2017-01-13/other, 2017-02-06/other, 2017-03-13/other
+  2017 other: line_slope_med = 3.05 vs author 9.21 (x0.3)  ex: 2017-01-05/other, 2017-07-16/other, 2017-12-04/other
+  2017 other: em_logged_100 = 3.79 vs author 0 (xinf)  ex: 2017-06-04/other, 2017-07-16/other, 2017-05-08/other
+  2017 other: rn50_w2 = 0.154 vs author 0.0762 (x2.0)  ex: 2017-01-05/other, 2017-07-16/other, 2017-12-04/other
+  2017 us: struct_med = 3 vs author 1 (x3.0)  ex: 2017-02-06/us, 2017-02-21/us, 2017-02-28/us
+  2017 us: line_slope_med = 3.97 vs author 9.21 (x0.4)  ex: 2017-02-06/us, 2017-11-23/us, 2017-12-27/us
+  2017 us: em_logged_100 = 2.34 vs author 0 (xinf)  ex: 2017-11-15/us, 2017-04-17/us, 2017-02-21/us
+  2017 us: births|BRACKET = 1.26 vs author 0.394 (x3.2)  ex: 2017-02-06/us, 2017-11-23/us, 2017-12-27/us
+  2017 us: births|BOX = 0.886 vs author 0.273 (x3.2)  ex: 2017-02-06/us, 2017-11-23/us, 2017-12-27/us
+  2017 us: births|LEVEL_CARRIED = 0.743 vs author 0.167 (x4.5)  ex: 2017-02-06/us, 2017-11-23/us, 2017-12-27/us
+  2017 us: births|CONTEXT_LINE = 0.343 vs author 0.0152 (x22.6)  ex: 2017-02-06/us, 2017-11-23/us, 2017-12-27/us
+  2017 us: births|BAR_MARKER = 0.143 vs author 0.0303 (x4.7)  ex: 2017-02-06/us, 2017-11-23/us, 2017-12-27/us
+  2017 us: births|MINI_LEVEL = 0.0571 vs author 0.136 (x0.4)  ex: 2017-02-06/us, 2017-11-23/us, 2017-12-27/us
+  2018 asia: struct_med = 4 vs author 1 (x4.0)  ex: 2018-07-13/asia, 2018-09-17/asia, 2018-10-09/asia
+  2018 asia: box_dur_med = 70 vs author 28 (x2.5)  ex: 2018-02-02/asia, 2018-11-20/asia, 2018-10-09/asia
+  2018 asia: line_slope_med = 1.83 vs author 9.21 (x0.2)  ex: 2018-02-02/asia, 2018-11-20/asia, 2018-10-09/asia
+  2018 asia: em_unlogged_100 = 11.9 vs author 0 (xinf)  ex: 2018-01-10/asia, 2018-11-13/asia, 2018-11-21/asia
+  2018 asia: em_logged_100 = 4.72 vs author 0 (xinf)  ex: 2018-09-17/asia, 2018-09-11/asia, 2018-06-07/asia
+  2018 asia: births|BOX = 1.66 vs author 0.53 (x3.1)  ex: 2018-02-02/asia, 2018-11-20/asia, 2018-10-09/asia
+  2018 asia: births|PATTERN_LINE = 1.66 vs author 0.424 (x3.9)  ex: 2018-02-02/asia, 2018-11-20/asia, 2018-10-09/asia
+  2018 asia: births|BRACKET = 1.47 vs author 0.0758 (x19.4)  ex: 2018-02-02/asia, 2018-11-20/asia, 2018-10-09/asia
+  2018 asia: births|LEVEL_CARRIED = 1.12 vs author 0.121 (x9.3)  ex: 2018-02-02/asia, 2018-11-20/asia, 2018-10-09/asia
+  2018 asia: births|CONTEXT_LINE = 0.688 vs author 0.0303 (x22.7)  ex: 2018-02-02/asia, 2018-11-20/asia, 2018-10-09/asia
+  2018 asia: births|RANGE_OPEN = 0.281 vs author 0.0758 (x3.7)  ex: 2018-02-02/asia, 2018-11-20/asia, 2018-10-09/asia
+  2018 asia: births|MINI_LEVEL = 0.0625 vs author 0.0152 (x4.1)  ex: 2018-02-02/asia, 2018-11-20/asia, 2018-10-09/asia
+  2018 eu: struct_med = 3 vs author 1 (x3.0)  ex: 2018-07-13/eu, 2018-12-17/eu, 2018-01-19/eu
+  2018 eu: line_slope_med = 3.72 vs author 9.21 (x0.4)  ex: 2018-07-27/eu, 2018-11-21/eu, 2018-03-30/eu
+  2018 eu: em_logged_100 = 3.7 vs author 0 (xinf)  ex: 2018-03-30/eu, 2018-01-10/eu, 2018-01-19/eu
+  2018 eu: births|LEVEL_CARRIED = 0.906 vs author 0.424 (x2.1)  ex: 2018-07-27/eu, 2018-11-21/eu, 2018-03-30/eu
+  2018 eu: births|CONTEXT_LINE = 0.438 vs author 0.0758 (x5.8)  ex: 2018-07-27/eu, 2018-11-21/eu, 2018-03-30/eu
+  2018 eu: births|BAR_MARKER = 0.281 vs author 0.0303 (x9.3)  ex: 2018-07-27/eu, 2018-11-21/eu, 2018-03-30/eu
+  2018 eu: births|MINI_LEVEL = 0.156 vs author 0.318 (x0.5)  ex: 2018-07-27/eu, 2018-11-21/eu, 2018-03-30/eu
+  2018 other: struct_med = 3 vs author 1 (x3.0)  ex: 2018-03-18/other, 2018-02-18/other, 2018-03-05/other
+  2018 other: line_slope_med = 2.64 vs author 9.21 (x0.3)  ex: 2018-06-04/other, 2018-08-19/other, 2018-03-01/other
+  2018 other: em_logged_100 = 3.25 vs author 0 (xinf)  ex: 2018-03-18/other, 2018-01-21/other, 2018-02-18/other
+  2018 other: rn50_w2 = 0.0345 vs author 0.0762 (x0.5)  ex: 2018-06-04/other, 2018-08-19/other, 2018-03-01/other
+  2018 us: struct_med = 3 vs author 1 (x3.0)  ex: 2018-03-14/us, 2018-07-31/us, 2018-10-04/us
+  2018 us: em_logged_100 = 3.18 vs author 0 (xinf)  ex: 2018-10-09/us, 2018-07-27/us, 2018-07-31/us
+  2018 us: births|BRACKET = 1.41 vs author 0.394 (x3.6)  ex: 2018-12-17/us, 2018-07-13/us, 2018-09-11/us
+  2018 us: births|BOX = 0.938 vs author 0.273 (x3.4)  ex: 2018-12-17/us, 2018-07-13/us, 2018-09-11/us
+  2018 us: births|LEVEL_CARRIED = 0.75 vs author 0.167 (x4.5)  ex: 2018-12-17/us, 2018-07-13/us, 2018-09-11/us
+  2018 us: births|CONTEXT_LINE = 0.156 vs author 0.0152 (x10.3)  ex: 2018-12-17/us, 2018-07-13/us, 2018-09-11/us
+  2018 us: births|BAR_MARKER = 0.125 vs author 0.0303 (x4.1)  ex: 2018-12-17/us, 2018-07-13/us, 2018-09-11/us
+  2018 us: births|MINI_LEVEL = 0.0312 vs author 0.136 (x0.2)  ex: 2018-12-17/us, 2018-07-13/us, 2018-09-11/us
+  2019 asia: struct_med = 4.5 vs author 1 (x4.5)  ex: 2019-01-22/asia, 2019-02-01/asia, 2019-03-15/asia
+  2019 asia: box_dur_med = 85 vs author 28 (x3.0)  ex: 2019-03-28/asia, 2019-05-16/asia, 2019-09-20/asia
+  2019 asia: line_slope_med = 0.945 vs author 9.21 (x0.1)  ex: 2019-03-28/asia, 2019-05-16/asia, 2019-09-20/asia
+  2019 asia: em_unlogged_100 = 11.4 vs author 0 (xinf)  ex: 2019-09-20/asia, 2019-03-28/asia, 2019-10-28/asia
+  2019 asia: em_logged_100 = 5.62 vs author 0 (xinf)  ex: 2019-11-20/asia, 2019-08-28/asia, 2019-10-30/asia
+  2019 asia: births|PATTERN_LINE = 1.68 vs author 0.424 (x4.0)  ex: 2019-03-28/asia, 2019-05-16/asia, 2019-09-20/asia
+  2019 asia: births|BRACKET = 1.57 vs author 0.0758 (x20.7)  ex: 2019-03-28/asia, 2019-05-16/asia, 2019-09-20/asia
+  2019 asia: births|BOX = 1.25 vs author 0.53 (x2.4)  ex: 2019-03-28/asia, 2019-05-16/asia, 2019-09-20/asia
+  2019 asia: births|LEVEL_CARRIED = 1.21 vs author 0.121 (x10.0)  ex: 2019-03-28/asia, 2019-05-16/asia, 2019-09-20/asia
+  2019 asia: births|CONTEXT_LINE = 0.75 vs author 0.0303 (x24.8)  ex: 2019-03-28/asia, 2019-05-16/asia, 2019-09-20/asia
+  2019 asia: births|RANGE_OPEN = 0.393 vs author 0.0758 (x5.2)  ex: 2019-03-28/asia, 2019-05-16/asia, 2019-09-20/asia
+  2019 asia: births|MINI_LEVEL = 0.0714 vs author 0.0152 (x4.7)  ex: 2019-03-28/asia, 2019-05-16/asia, 2019-09-20/asia
+  2019 eu: struct_med = 4 vs author 1 (x4.0)  ex: 2019-01-25/eu, 2019-03-15/eu, 2019-03-20/eu
+  2019 eu: line_slope_med = 1.42 vs author 9.21 (x0.2)  ex: 2019-01-22/eu, 2019-03-28/eu, 2019-05-23/eu
+  2019 eu: em_logged_100 = 4.07 vs author 0 (xinf)  ex: 2019-03-28/eu, 2019-03-15/eu, 2019-04-19/eu
+  2019 eu: births|PATTERN_LINE = 0.679 vs author 1.74 (x0.4)  ex: 2019-01-22/eu, 2019-03-28/eu, 2019-05-23/eu
+  2019 eu: births|CONTEXT_LINE = 0.286 vs author 0.0758 (x3.8)  ex: 2019-01-22/eu, 2019-03-28/eu, 2019-05-23/eu
+  2019 eu: births|BAR_MARKER = 0.25 vs author 0.0303 (x8.2)  ex: 2019-01-22/eu, 2019-03-28/eu, 2019-05-23/eu
+  2019 other: struct_med = 3 vs author 1 (x3.0)  ex: 2019-04-19/other, 2019-03-15/other, 2019-08-28/other
+  2019 other: line_slope_med = 2.36 vs author 9.21 (x0.3)  ex: 2019-01-13/other, 2019-02-03/other, 2019-08-18/other
+  2019 other: em_logged_100 = 4.12 vs author 0 (xinf)  ex: 2019-12-16/other, 2019-09-22/other, 2019-06-09/other
+  2019 us: struct_med = 3 vs author 1 (x3.0)  ex: 2019-04-19/us, 2019-08-28/us, 2019-11-27/us
+  2019 us: line_slope_med = 1.89 vs author 9.21 (x0.2)  ex: 2019-12-16/us, 2019-03-20/us, 2019-08-28/us
+  2019 us: em_logged_100 = 3.63 vs author 0 (xinf)  ex: 2019-08-30/us, 2019-09-17/us, 2019-09-20/us
+  2019 us: births|BRACKET = 1.07 vs author 0.394 (x2.7)  ex: 2019-12-16/us, 2019-03-20/us, 2019-08-28/us
+  2019 us: births|BOX = 0.929 vs author 0.273 (x3.4)  ex: 2019-12-16/us, 2019-03-20/us, 2019-08-28/us
+  2019 us: births|LEVEL_CARRIED = 0.714 vs author 0.167 (x4.3)  ex: 2019-12-16/us, 2019-03-20/us, 2019-08-28/us
+  2019 us: births|CONTEXT_LINE = 0.429 vs author 0.0152 (x28.3)  ex: 2019-12-16/us, 2019-03-20/us, 2019-08-28/us
+  2019 us: births|BAR_MARKER = 0.143 vs author 0.0303 (x4.7)  ex: 2019-12-16/us, 2019-03-20/us, 2019-08-28/us
+  2019 us: births|MINI_LEVEL = 0.0357 vs author 0.136 (x0.3)  ex: 2019-12-16/us, 2019-03-20/us, 2019-08-28/us
+  2020 asia: struct_med = 4 vs author 1 (x4.0)  ex: 2020-09-10/asia, 2020-09-29/asia, 2020-11-02/asia
+  2020 asia: box_dur_med = 67 vs author 28 (x2.4)  ex: 2020-07-01/asia, 2020-04-30/asia, 2020-04-08/asia
+  2020 asia: line_slope_med = 1.63 vs author 9.21 (x0.2)  ex: 2020-07-01/asia, 2020-04-30/asia, 2020-04-08/asia
+  2020 asia: em_unlogged_100 = 14.5 vs author 0 (xinf)  ex: 2020-03-23/asia, 2020-10-02/asia, 2020-04-08/asia
+  2020 asia: em_logged_100 = 3.85 vs author 0 (xinf)  ex: 2020-06-16/asia, 2020-09-10/asia, 2020-04-17/asia
+  2020 asia: births|BOX = 1.86 vs author 0.53 (x3.5)  ex: 2020-07-01/asia, 2020-04-30/asia, 2020-04-08/asia
+  2020 asia: births|BRACKET = 1.83 vs author 0.0758 (x24.2)  ex: 2020-07-01/asia, 2020-04-30/asia, 2020-04-08/asia
+  2020 asia: births|PATTERN_LINE = 1.36 vs author 0.424 (x3.2)  ex: 2020-07-01/asia, 2020-04-30/asia, 2020-04-08/asia
+  2020 asia: births|LEVEL_CARRIED = 1.28 vs author 0.121 (x10.5)  ex: 2020-07-01/asia, 2020-04-30/asia, 2020-04-08/asia
+  2020 asia: births|CONTEXT_LINE = 0.611 vs author 0.0303 (x20.2)  ex: 2020-07-01/asia, 2020-04-30/asia, 2020-04-08/asia
+  2020 asia: births|RANGE_OPEN = 0.278 vs author 0.0758 (x3.7)  ex: 2020-07-01/asia, 2020-04-30/asia, 2020-04-08/asia
+  2020 asia: births|MINI_LEVEL = 0.111 vs author 0.0152 (x7.3)  ex: 2020-07-01/asia, 2020-04-30/asia, 2020-04-08/asia
+  2020 eu: struct_med = 3 vs author 1 (x3.0)  ex: 2020-03-04/eu, 2020-11-02/eu, 2020-04-30/eu
+  2020 eu: line_slope_med = 3.98 vs author 9.21 (x0.4)  ex: 2020-04-08/eu, 2020-11-19/eu, 2020-06-04/eu
+  2020 eu: em_logged_100 = 4.05 vs author 0 (xinf)  ex: 2020-06-16/eu, 2020-07-03/eu, 2020-07-28/eu
+  2020 eu: births|LEVEL_CARRIED = 0.944 vs author 0.424 (x2.2)  ex: 2020-04-08/eu, 2020-11-19/eu, 2020-06-04/eu
+  2020 eu: births|CONTEXT_LINE = 0.389 vs author 0.0758 (x5.1)  ex: 2020-04-08/eu, 2020-11-19/eu, 2020-06-04/eu
+  2020 eu: births|MINI_LEVEL = 0.0833 vs author 0.318 (x0.3)  ex: 2020-04-08/eu, 2020-11-19/eu, 2020-06-04/eu
+  2020 eu: births|BAR_MARKER = 0.0833 vs author 0.0303 (x2.7)  ex: 2020-04-08/eu, 2020-11-19/eu, 2020-06-04/eu
+  2020 other: struct_med = 3 vs author 1 (x3.0)  ex: 2020-05-25/other, 2020-07-28/other, 2020-10-02/other
+  2020 other: line_slope_med = 2.04 vs author 9.21 (x0.2)  ex: 2020-05-25/other, 2020-07-05/other, 2020-11-12/other
+  2020 other: em_logged_100 = 4.42 vs author 0 (xinf)  ex: 2020-05-25/other, 2020-07-26/other, 2020-08-10/other
+  2020 us: struct_med = 3 vs author 1 (x3.0)  ex: 2020-10-02/us, 2020-04-08/us, 2020-06-03/us
+  2020 us: line_slope_med = 2.69 vs author 9.21 (x0.3)  ex: 2020-05-25/us, 2020-10-19/us, 2020-11-02/us
+  2020 us: em_logged_100 = 3.1 vs author 0 (xinf)  ex: 2020-08-19/us, 2020-11-19/us, 2020-04-08/us
+  2020 us: births|BRACKET = 1.17 vs author 0.394 (x3.0)  ex: 2020-05-25/us, 2020-10-19/us, 2020-11-02/us
+  2020 us: births|BOX = 0.833 vs author 0.273 (x3.1)  ex: 2020-05-25/us, 2020-10-19/us, 2020-11-02/us
+  2020 us: births|LEVEL_CARRIED = 0.75 vs author 0.167 (x4.5)  ex: 2020-05-25/us, 2020-10-19/us, 2020-11-02/us
+  2020 us: births|CONTEXT_LINE = 0.361 vs author 0.0152 (x23.8)  ex: 2020-05-25/us, 2020-10-19/us, 2020-11-02/us
+  2020 us: births|MINI_LEVEL = 0.0556 vs author 0.136 (x0.4)  ex: 2020-05-25/us, 2020-10-19/us, 2020-11-02/us
+  2021 asia: struct_med = 4 vs author 1 (x4.0)  ex: 2021-03-11/asia, 2021-04-20/asia, 2021-05-06/asia
+  2021 asia: box_dur_med = 71 vs author 28 (x2.5)  ex: 2021-09-24/asia, 2021-12-03/asia, 2021-01-26/asia
+  2021 asia: line_slope_med = 1.28 vs author 9.21 (x0.1)  ex: 2021-09-24/asia, 2021-12-03/asia, 2021-01-26/asia
+  2021 asia: em_unlogged_100 = 14.7 vs author 0 (xinf)  ex: 2021-10-19/asia, 2021-06-23/asia, 2021-08-27/asia
+  2021 asia: em_logged_100 = 4.05 vs author 0 (xinf)  ex: 2021-03-17/asia, 2021-11-10/asia, 2021-04-13/asia
+  2021 asia: births|BOX = 1.97 vs author 0.53 (x3.7)  ex: 2021-09-24/asia, 2021-12-03/asia, 2021-01-26/asia
+  2021 asia: births|PATTERN_LINE = 1.74 vs author 0.424 (x4.1)  ex: 2021-09-24/asia, 2021-12-03/asia, 2021-01-26/asia
+  2021 asia: births|BRACKET = 1.6 vs author 0.0758 (x21.1)  ex: 2021-09-24/asia, 2021-12-03/asia, 2021-01-26/asia
+  2021 asia: births|LEVEL_CARRIED = 1.26 vs author 0.121 (x10.4)  ex: 2021-09-24/asia, 2021-12-03/asia, 2021-01-26/asia
+  2021 asia: births|CONTEXT_LINE = 0.486 vs author 0.0303 (x16.0)  ex: 2021-09-24/asia, 2021-12-03/asia, 2021-01-26/asia
+  2021 asia: births|RANGE_OPEN = 0.171 vs author 0.0758 (x2.3)  ex: 2021-09-24/asia, 2021-12-03/asia, 2021-01-26/asia
+  2021 asia: births|MINI_LEVEL = 0.0571 vs author 0.0152 (x3.8)  ex: 2021-09-24/asia, 2021-12-03/asia, 2021-01-26/asia
+  2021 eu: struct_med = 3 vs author 1 (x3.0)  ex: 2021-07-09/eu, 2021-09-24/eu, 2021-01-15/eu
+  2021 eu: line_slope_med = 2.77 vs author 9.21 (x0.3)  ex: 2021-01-28/eu, 2021-10-19/eu, 2021-04-13/eu
+  2021 eu: em_logged_100 = 4.21 vs author 0 (xinf)  ex: 2021-05-24/eu, 2021-09-24/eu, 2021-06-28/eu
+  2021 eu: births|LEVEL_CARRIED = 0.857 vs author 0.424 (x2.0)  ex: 2021-01-28/eu, 2021-10-19/eu, 2021-04-13/eu
+  2021 eu: births|CONTEXT_LINE = 0.514 vs author 0.0758 (x6.8)  ex: 2021-01-28/eu, 2021-10-19/eu, 2021-04-13/eu
+  2021 eu: births|MINI_LEVEL = 0.0857 vs author 0.318 (x0.3)  ex: 2021-01-28/eu, 2021-10-19/eu, 2021-04-13/eu
+  2021 other: struct_med = 3 vs author 1 (x3.0)  ex: 2021-05-16/other, 2021-01-19/other, 2021-04-19/other
+  2021 other: line_slope_med = 1.36 vs author 9.21 (x0.1)  ex: 2021-08-15/other, 2021-08-26/other, 2021-08-27/other
+  2021 other: em_logged_100 = 3.9 vs author 0 (xinf)  ex: 2021-05-16/other, 2021-01-19/other, 2021-05-14/other
+  2021 us: struct_med = 3 vs author 1 (x3.0)  ex: 2021-04-20/us, 2021-12-03/us, 2021-01-15/us
+  2021 us: line_slope_med = 2.78 vs author 9.21 (x0.3)  ex: 2021-05-25/us, 2021-08-26/us, 2021-05-31/us
+  2021 us: em_logged_100 = 3.15 vs author 0 (xinf)  ex: 2021-07-09/us, 2021-08-26/us, 2021-01-08/us
+  2021 us: births|BRACKET = 1.26 vs author 0.394 (x3.2)  ex: 2021-05-25/us, 2021-08-26/us, 2021-05-31/us
+  2021 us: births|BOX = 0.829 vs author 0.273 (x3.0)  ex: 2021-05-25/us, 2021-08-26/us, 2021-05-31/us
+  2021 us: births|LEVEL_CARRIED = 0.743 vs author 0.167 (x4.5)  ex: 2021-05-25/us, 2021-08-26/us, 2021-05-31/us
+  2021 us: births|CONTEXT_LINE = 0.371 vs author 0.0152 (x24.5)  ex: 2021-05-25/us, 2021-08-26/us, 2021-05-31/us
+  2021 us: births|MINI_LEVEL = 0.0571 vs author 0.136 (x0.4)  ex: 2021-05-25/us, 2021-08-26/us, 2021-05-31/us

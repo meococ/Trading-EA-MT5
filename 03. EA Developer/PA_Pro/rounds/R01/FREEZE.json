@@ -1,0 +1,1124 @@
+{
+ "addendum1_sha256": "37756d6922c7134901e94940a10e03ef4e11f7b72418f754d2ceffe525d38592",
+ "addendum2_sha256": "dcb85c81e4d1755d7fa2dd8ef5fd934e4f2b65c62556308aa6be4f5b964088ce",
+ "charter_sha256": "3c57536848a4aa6113950d06d50331b8c664e18b79d34e08def2f1019bc5dc2c",
+ "data_files": {
+  "AUDCAD_M1_2010_2026.parquet": {
+   "mtime": 1789835393,
+   "size": 103288508
+  },
+  "AUDCHF_M1_2010_2026.parquet": {
+   "mtime": 1789835484,
+   "size": 104609817
+  },
+  "AUDJPY_M1_2010_2026.parquet": {
+   "mtime": 1789835217,
+   "size": 104220307
+  },
+  "AUDNZD_M1_2010_2026.parquet": {
+   "mtime": 1789835303,
+   "size": 104234478
+  },
+  "AUDUSD_M1_2010_2026.parquet": {
+   "mtime": 1789749991,
+   "size": 104653195
+  },
+  "CADCHF_M1_2010_2026.parquet": {
+   "mtime": 1789840895,
+   "size": 104519320
+  },
+  "CADJPY_M1_2010_2026.parquet": {
+   "mtime": 1789838463,
+   "size": 104956072
+  },
+  "CHFJPY_M1_2010_2026.parquet": {
+   "mtime": 1789838557,
+   "size": 107323136
+  },
+  "EURAUD_M1_2010_2026.parquet": {
+   "mtime": 1789840190,
+   "size": 109789849
+  },
+  "EURCAD_M1_2010_2026.parquet": {
+   "mtime": 1789840259,
+   "size": 107139192
+  },
+  "EURCHF_M1_2010_2026.parquet": {
+   "mtime": 1789840331,
+   "size": 103277561
+  },
+  "EURGBP_M1_2010_2026.parquet": {
+   "mtime": 1789840124,
+   "size": 101709496
+  },
+  "EURJPY_M1_2010_2026.parquet": {
+   "mtime": 1789838309,
+   "size": 106724036
+  },
+  "EURNOK_M1_2010_2026.parquet": {
+   "mtime": 1789841021,
+   "size": 125114607
+  },
+  "EURNZD_M1_2010_2026.parquet": {
+   "mtime": 1789840400,
+   "size": 111521356
+  },
+  "EURSEK_M1_2010_2026.parquet": {
+   "mtime": 1789840963,
+   "size": 114965337
+  },
+  "EURUSD_M1_2010_2026.parquet": {
+   "mtime": 1789749721,
+   "size": 105405101
+  },
+  "EURZAR_M1_2010_2026.parquet": {
+   "mtime": 1789841066,
+   "size": 118771910
+  },
+  "GBPAUD_M1_2010_2026.parquet": {
+   "mtime": 1789840468,
+   "size": 113640307
+  },
+  "GBPCAD_M1_2010_2026.parquet": {
+   "mtime": 1789840534,
+   "size": 111059202
+  },
+  "GBPCHF_M1_2010_2026.parquet": {
+   "mtime": 1789840604,
+   "size": 109375281
+  },
+  "GBPJPY_M1_2010_2026.parquet": {
+   "mtime": 1789838390,
+   "size": 109650294
+  },
+  "GBPNZD_M1_2010_2026.parquet": {
+   "mtime": 1789840670,
+   "size": 108774119
+  },
+  "GBPUSD_M1_2010_2026.parquet": {
+   "mtime": 1789749812,
+   "size": 108258529
+  },
+  "NZDCAD_M1_2010_2026.parquet": {
+   "mtime": 1789840743,
+   "size": 101930442
+  },
+  "NZDCHF_M1_2010_2026.parquet": {
+   "mtime": 1789840818,
+   "size": 102399663
+  },
+  "NZDJPY_M1_2010_2026.parquet": {
+   "mtime": 1789838637,
+   "size": 103950535
+  },
+  "NZDUSD_M1_2010_2026.parquet": {
+   "mtime": 1789750086,
+   "size": 103866871
+  },
+  "USDCAD_M1_2010_2026.parquet": {
+   "mtime": 1789749897,
+   "size": 105491247
+  },
+  "USDCHF_M1_2010_2026.parquet": {
+   "mtime": 1789750407,
+   "size": 105237822
+  },
+  "USDCNH_M1_2010_2026.parquet": {
+   "mtime": 1789836018,
+   "size": 77331675
+  },
+  "USDJPY_M1_2010_2026.parquet": {
+   "mtime": 1789750181,
+   "size": 104861610
+  },
+  "USDMXN_M1_2010_2026.parquet": {
+   "mtime": 1789835963,
+   "size": 171518658
+  },
+  "USDNOK_M1_2010_2026.parquet": {
+   "mtime": 1789835658,
+   "size": 154926885
+  },
+  "USDPLN_M1_2010_2026.parquet": {
+   "mtime": 1789835730,
+   "size": 101057738
+  },
+  "USDSEK_M1_2010_2026.parquet": {
+   "mtime": 1789835570,
+   "size": 171139953
+  },
+  "USDSGD_M1_2010_2026.parquet": {
+   "mtime": 1789836105,
+   "size": 102003670
+  },
+  "USDTRY_M1_2010_2026.parquet": {
+   "mtime": 1789835806,
+   "size": 135995300
+  },
+  "USDZAR_M1_2010_2026.parquet": {
+   "mtime": 1789835886,
+   "size": 170229227
+  },
+  "XAUUSD_M1_2010_2026.parquet": {
+   "mtime": 1789750268,
+   "size": 112046448
+  }
+ },
+ "generators": {
+  "fractal_h1": {
+   "coverage_med": 0.2369275398679157,
+   "per_symbol": {
+    "AUDUSD": {
+     "controls": {
+      "contam_ref": 7348,
+      "contam_zone": 10002,
+      "controls": 23525,
+      "draws": 113070,
+      "events": 6872,
+      "events_with_lt5": 2332,
+      "paired_tk_delta_med": 148.0,
+      "reject_empty_interval": 7990,
+      "reject_no_event": 75451,
+      "reject_zone_self": 6104,
+      "slots_empty": 10835
+     },
+     "coverage_med": 0.2369275398679157,
+     "extract": {
+      "events": 6872,
+      "events_all_live": 7086,
+      "events_armed": 6872,
+      "overlap_events": 323,
+      "skip_atr": 0,
+      "skip_broken": 731,
+      "skip_no_away": 2509,
+      "skip_not_armed": 214,
+      "skip_side": 3,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 34605,
+      "zones_short": 0,
+      "zones_total": 5784,
+      "zones_with_events": 4212
+     },
+     "n_events": 6872
+    },
+    "EURUSD": {
+     "controls": {
+      "contam_ref": 4421,
+      "contam_zone": 8945,
+      "controls": 21982,
+      "draws": 104760,
+      "events": 6436,
+      "events_with_lt5": 2219,
+      "paired_tk_delta_med": 149.0,
+      "reject_empty_interval": 7585,
+      "reject_no_event": 66599,
+      "reject_zone_self": 8594,
+      "slots_empty": 10198
+     },
+     "coverage_med": 0.24099312404815143,
+     "extract": {
+      "events": 6436,
+      "events_all_live": 6654,
+      "events_armed": 6436,
+      "overlap_events": 355,
+      "skip_atr": 0,
+      "skip_broken": 895,
+      "skip_no_away": 2688,
+      "skip_not_armed": 218,
+      "skip_side": 3,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 34439,
+      "zones_short": 1,
+      "zones_total": 6111,
+      "zones_with_events": 4223
+     },
+     "n_events": 6436
+    },
+    "GBPUSD": {
+     "controls": {
+      "contam_ref": 5106,
+      "contam_zone": 8576,
+      "controls": 21044,
+      "draws": 105072,
+      "events": 6133,
+      "events_with_lt5": 2069,
+      "paired_tk_delta_med": 147.0,
+      "reject_empty_interval": 6885,
+      "reject_no_event": 68082,
+      "reject_zone_self": 9061,
+      "slots_empty": 9621
+     },
+     "coverage_med": 0.23868882931877589,
+     "extract": {
+      "events": 6133,
+      "events_all_live": 6313,
+      "events_armed": 6133,
+      "overlap_events": 318,
+      "skip_atr": 0,
+      "skip_broken": 842,
+      "skip_no_away": 2595,
+      "skip_not_armed": 180,
+      "skip_side": 1,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 34033,
+      "zones_short": 0,
+      "zones_total": 6005,
+      "zones_with_events": 4070
+     },
+     "n_events": 6133
+    },
+    "USDJPY": {
+     "controls": {
+      "contam_ref": 7126,
+      "contam_zone": 10083,
+      "controls": 23395,
+      "draws": 114843,
+      "events": 6802,
+      "events_with_lt5": 2320,
+      "paired_tk_delta_med": 145.0,
+      "reject_empty_interval": 7650,
+      "reject_no_event": 77528,
+      "reject_zone_self": 6270,
+      "slots_empty": 10615
+     },
+     "coverage_med": 0.246849964112896,
+     "extract": {
+      "events": 6802,
+      "events_all_live": 7035,
+      "events_armed": 6802,
+      "overlap_events": 310,
+      "skip_atr": 0,
+      "skip_broken": 835,
+      "skip_no_away": 2687,
+      "skip_not_armed": 233,
+      "skip_side": 1,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 34485,
+      "zones_short": 0,
+      "zones_total": 6072,
+      "zones_with_events": 4266
+     },
+     "n_events": 6802
+    }
+   },
+   "tercile_bounds": [
+    0.6616666666666666,
+    0.7783333333333333
+   ]
+  },
+  "kde_swing": {
+   "coverage_med": 0.3184458236626748,
+   "per_symbol": {
+    "AUDUSD": {
+     "controls": {
+      "contam_ref": 9254,
+      "contam_zone": 15481,
+      "controls": 23894,
+      "draws": 104110,
+      "events": 6021,
+      "events_with_lt5": 1403,
+      "paired_tk_delta_med": 144.0,
+      "reject_empty_interval": 3510,
+      "reject_no_event": 69868,
+      "reject_zone_self": 6838,
+      "slots_empty": 6211
+     },
+     "coverage_med": 0.3184458236626748,
+     "extract": {
+      "events": 6021,
+      "events_all_live": 6150,
+      "events_armed": 6021,
+      "overlap_events": 243,
+      "skip_atr": 0,
+      "skip_broken": 293,
+      "skip_no_away": 1933,
+      "skip_not_armed": 129,
+      "skip_side": 5,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 30056,
+      "zones_short": 0,
+      "zones_total": 5282,
+      "zones_with_events": 3566
+     },
+     "n_events": 6021
+    },
+    "EURUSD": {
+     "controls": {
+      "contam_ref": 6236,
+      "contam_zone": 13824,
+      "controls": 22286,
+      "draws": 95321,
+      "events": 5719,
+      "events_with_lt5": 1412,
+      "paired_tk_delta_med": 165.0,
+      "reject_empty_interval": 3840,
+      "reject_no_event": 59500,
+      "reject_zone_self": 9695,
+      "slots_empty": 6309
+     },
+     "coverage_med": 0.3060233123340129,
+     "extract": {
+      "events": 5719,
+      "events_all_live": 5863,
+      "events_armed": 5719,
+      "overlap_events": 265,
+      "skip_atr": 0,
+      "skip_broken": 325,
+      "skip_no_away": 1875,
+      "skip_not_armed": 144,
+      "skip_side": 3,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 29282,
+      "zones_short": 0,
+      "zones_total": 5396,
+      "zones_with_events": 3593
+     },
+     "n_events": 5719
+    },
+    "GBPUSD": {
+     "controls": {
+      "contam_ref": 7492,
+      "contam_zone": 13941,
+      "controls": 22434,
+      "draws": 105294,
+      "events": 5780,
+      "events_with_lt5": 1458,
+      "paired_tk_delta_med": 163.0,
+      "reject_empty_interval": 3685,
+      "reject_no_event": 71327,
+      "reject_zone_self": 7848,
+      "slots_empty": 6466
+     },
+     "coverage_med": 0.3078381161925138,
+     "extract": {
+      "events": 5780,
+      "events_all_live": 5946,
+      "events_armed": 5780,
+      "overlap_events": 308,
+      "skip_atr": 0,
+      "skip_broken": 305,
+      "skip_no_away": 1828,
+      "skip_not_armed": 166,
+      "skip_side": 1,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 29837,
+      "zones_short": 0,
+      "zones_total": 5475,
+      "zones_with_events": 3685
+     },
+     "n_events": 5780
+    },
+    "USDJPY": {
+     "controls": {
+      "contam_ref": 8648,
+      "contam_zone": 13811,
+      "controls": 22230,
+      "draws": 102934,
+      "events": 5791,
+      "events_with_lt5": 1496,
+      "paired_tk_delta_med": 149.0,
+      "reject_empty_interval": 3980,
+      "reject_no_event": 70201,
+      "reject_zone_self": 6523,
+      "slots_empty": 6725
+     },
+     "coverage_med": 0.30923475354010405,
+     "extract": {
+      "events": 5791,
+      "events_all_live": 5902,
+      "events_armed": 5791,
+      "overlap_events": 228,
+      "skip_atr": 0,
+      "skip_broken": 275,
+      "skip_no_away": 1961,
+      "skip_not_armed": 111,
+      "skip_side": 1,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 29073,
+      "zones_short": 1,
+      "zones_total": 5150,
+      "zones_with_events": 3454
+     },
+     "n_events": 5791
+    }
+   },
+   "tercile_bounds": [
+    0.40669619513765,
+    0.6788320975177434
+   ]
+  },
+  "line1_cluster": {
+   "coverage_med": 0.5527899917649635,
+   "per_symbol": {
+    "AUDUSD": {
+     "controls": {
+      "contam_ref": 15363,
+      "contam_zone": 26124,
+      "controls": 43216,
+      "draws": 207054,
+      "events": 11546,
+      "events_with_lt5": 3234,
+      "paired_tk_delta_med": 158.0,
+      "reject_empty_interval": 9105,
+      "reject_no_event": 144104,
+      "reject_zone_self": 10629,
+      "slots_empty": 14514
+     },
+     "coverage_med": 0.5527899917649635,
+     "extract": {
+      "events": 11546,
+      "events_all_live": 13859,
+      "events_armed": 11546,
+      "overlap_events": 582,
+      "skip_atr": 0,
+      "skip_broken": 1393,
+      "skip_no_away": 5825,
+      "skip_not_armed": 2313,
+      "skip_side": 78,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 110589,
+      "zones_short": 1,
+      "zones_total": 15862,
+      "zones_with_events": 9087
+     },
+     "n_events": 11546
+    },
+    "EURUSD": {
+     "controls": {
+      "contam_ref": 9955,
+      "contam_zone": 22477,
+      "controls": 39495,
+      "draws": 187753,
+      "events": 10595,
+      "events_with_lt5": 2991,
+      "paired_tk_delta_med": 164.0,
+      "reject_empty_interval": 8580,
+      "reject_no_event": 124516,
+      "reject_zone_self": 15162,
+      "slots_empty": 13480
+     },
+     "coverage_med": 0.5571739941790143,
+     "extract": {
+      "events": 10595,
+      "events_all_live": 13145,
+      "events_armed": 10595,
+      "overlap_events": 602,
+      "skip_atr": 0,
+      "skip_broken": 1760,
+      "skip_no_away": 6210,
+      "skip_not_armed": 2550,
+      "skip_side": 76,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 113548,
+      "zones_short": 0,
+      "zones_total": 16650,
+      "zones_with_events": 9062
+     },
+     "n_events": 10595
+    },
+    "GBPUSD": {
+     "controls": {
+      "contam_ref": 11375,
+      "contam_zone": 22770,
+      "controls": 39043,
+      "draws": 200161,
+      "events": 10450,
+      "events_with_lt5": 2930,
+      "paired_tk_delta_med": 169.0,
+      "reject_empty_interval": 7710,
+      "reject_no_event": 137797,
+      "reject_zone_self": 15611,
+      "slots_empty": 13207
+     },
+     "coverage_med": 0.5528909395126735,
+     "extract": {
+      "events": 10450,
+      "events_all_live": 13062,
+      "events_armed": 10450,
+      "overlap_events": 640,
+      "skip_atr": 0,
+      "skip_broken": 1655,
+      "skip_no_away": 5986,
+      "skip_not_armed": 2612,
+      "skip_side": 65,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 113841,
+      "zones_short": 0,
+      "zones_total": 16692,
+      "zones_with_events": 9035
+     },
+     "n_events": 10450
+    },
+    "USDJPY": {
+     "controls": {
+      "contam_ref": 15107,
+      "contam_zone": 25701,
+      "controls": 42711,
+      "draws": 213053,
+      "events": 11460,
+      "events_with_lt5": 3274,
+      "paired_tk_delta_med": 163.0,
+      "reject_empty_interval": 8865,
+      "reject_no_event": 148787,
+      "reject_zone_self": 12690,
+      "slots_empty": 14589
+     },
+     "coverage_med": 0.5654814228138197,
+     "extract": {
+      "events": 11460,
+      "events_all_live": 13920,
+      "events_armed": 11460,
+      "overlap_events": 590,
+      "skip_atr": 0,
+      "skip_broken": 1534,
+      "skip_no_away": 6312,
+      "skip_not_armed": 2460,
+      "skip_side": 80,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 111437,
+      "zones_short": 0,
+      "zones_total": 16210,
+      "zones_with_events": 9150
+     },
+     "n_events": 11460
+    }
+   },
+   "tercile_bounds": [
+    0.6518055555555556,
+    0.7455555555555556
+   ]
+  },
+  "profile_va": {
+   "coverage_med": 0.0,
+   "per_symbol": {
+    "AUDUSD": {
+     "controls": {
+      "contam_ref": 1809,
+      "contam_zone": 593,
+      "controls": 4801,
+      "draws": 21793,
+      "events": 1254,
+      "events_with_lt5": 325,
+      "paired_tk_delta_med": 142.0,
+      "reject_empty_interval": 890,
+      "reject_no_event": 14764,
+      "reject_zone_self": 1338,
+      "slots_empty": 1469
+     },
+     "coverage_med": 0.0,
+     "extract": {
+      "events": 1254,
+      "events_all_live": 1820,
+      "events_armed": 1254,
+      "overlap_events": 79,
+      "skip_atr": 0,
+      "skip_broken": 70,
+      "skip_no_away": 511,
+      "skip_not_armed": 566,
+      "skip_side": 0,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 7825,
+      "zones_short": 0,
+      "zones_total": 1577,
+      "zones_with_events": 1041
+     },
+     "n_events": 1254
+    },
+    "EURUSD": {
+     "controls": {
+      "contam_ref": 1259,
+      "contam_zone": 448,
+      "controls": 4160,
+      "draws": 17938,
+      "events": 1119,
+      "events_with_lt5": 308,
+      "paired_tk_delta_med": 128.0,
+      "reject_empty_interval": 960,
+      "reject_no_event": 10595,
+      "reject_zone_self": 2223,
+      "slots_empty": 1435
+     },
+     "coverage_med": 0.0,
+     "extract": {
+      "events": 1119,
+      "events_all_live": 1693,
+      "events_armed": 1119,
+      "overlap_events": 80,
+      "skip_atr": 0,
+      "skip_broken": 71,
+      "skip_no_away": 585,
+      "skip_not_armed": 574,
+      "skip_side": 0,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 7096,
+      "zones_short": 0,
+      "zones_total": 1577,
+      "zones_with_events": 1051
+     },
+     "n_events": 1119
+    },
+    "GBPUSD": {
+     "controls": {
+      "contam_ref": 1625,
+      "contam_zone": 487,
+      "controls": 4424,
+      "draws": 22372,
+      "events": 1190,
+      "events_with_lt5": 338,
+      "paired_tk_delta_med": 122.0,
+      "reject_empty_interval": 910,
+      "reject_no_event": 15105,
+      "reject_zone_self": 1933,
+      "slots_empty": 1526
+     },
+     "coverage_med": 0.0,
+     "extract": {
+      "events": 1190,
+      "events_all_live": 1810,
+      "events_armed": 1190,
+      "overlap_events": 93,
+      "skip_atr": 0,
+      "skip_broken": 69,
+      "skip_no_away": 496,
+      "skip_not_armed": 620,
+      "skip_side": 0,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 7719,
+      "zones_short": 0,
+      "zones_total": 1577,
+      "zones_with_events": 1057
+     },
+     "n_events": 1190
+    },
+    "USDJPY": {
+     "controls": {
+      "contam_ref": 1839,
+      "contam_zone": 522,
+      "controls": 4536,
+      "draws": 21368,
+      "events": 1222,
+      "events_with_lt5": 332,
+      "paired_tk_delta_med": 143.0,
+      "reject_empty_interval": 980,
+      "reject_no_event": 13748,
+      "reject_zone_self": 2104,
+      "slots_empty": 1574
+     },
+     "coverage_med": 0.0,
+     "extract": {
+      "events": 1222,
+      "events_all_live": 1819,
+      "events_armed": 1222,
+      "overlap_events": 96,
+      "skip_atr": 0,
+      "skip_broken": 76,
+      "skip_no_away": 517,
+      "skip_not_armed": 597,
+      "skip_side": 0,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 7515,
+      "zones_short": 0,
+      "zones_total": 1577,
+      "zones_with_events": 999
+     },
+     "n_events": 1222
+    }
+   },
+   "tercile_bounds": [
+    0.4801989618756546,
+    0.7645879034910963
+   ]
+  },
+  "ref_levels": {
+   "coverage_med": 0.1301646367987952,
+   "per_symbol": {
+    "AUDUSD": {
+     "controls": {
+      "contam_ref": 4981,
+      "contam_zone": 5113,
+      "controls": 21639,
+      "draws": 100056,
+      "events": 6057,
+      "events_with_lt5": 1892,
+      "paired_tk_delta_med": 146.0,
+      "reject_empty_interval": 6130,
+      "reject_no_event": 69682,
+      "reject_zone_self": 2605,
+      "slots_empty": 8646
+     },
+     "coverage_med": 0.1301646367987952,
+     "extract": {
+      "events": 6057,
+      "events_all_live": 7080,
+      "events_armed": 6057,
+      "overlap_events": 326,
+      "skip_atr": 0,
+      "skip_broken": 602,
+      "skip_no_away": 2191,
+      "skip_not_armed": 1023,
+      "skip_side": 0,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 40030,
+      "zones_short": 0,
+      "zones_total": 11473,
+      "zones_with_events": 5265
+     },
+     "n_events": 6057
+    },
+    "EURUSD": {
+     "controls": {
+      "contam_ref": 3158,
+      "contam_zone": 4922,
+      "controls": 21980,
+      "draws": 94652,
+      "events": 5952,
+      "events_with_lt5": 1721,
+      "paired_tk_delta_med": 129.0,
+      "reject_empty_interval": 5530,
+      "reject_no_event": 63874,
+      "reject_zone_self": 3268,
+      "slots_empty": 7780
+     },
+     "coverage_med": 0.14496908508290346,
+     "extract": {
+      "events": 5952,
+      "events_all_live": 7028,
+      "events_armed": 5952,
+      "overlap_events": 369,
+      "skip_atr": 0,
+      "skip_broken": 920,
+      "skip_no_away": 2587,
+      "skip_not_armed": 1076,
+      "skip_side": 0,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 43114,
+      "zones_short": 0,
+      "zones_total": 11402,
+      "zones_with_events": 5440
+     },
+     "n_events": 5952
+    },
+    "GBPUSD": {
+     "controls": {
+      "contam_ref": 3875,
+      "contam_zone": 5255,
+      "controls": 22438,
+      "draws": 98202,
+      "events": 5953,
+      "events_with_lt5": 1618,
+      "paired_tk_delta_med": 121.0,
+      "reject_empty_interval": 4975,
+      "reject_no_event": 66719,
+      "reject_zone_self": 4070,
+      "slots_empty": 7327
+     },
+     "coverage_med": 0.15037522987629165,
+     "extract": {
+      "events": 5953,
+      "events_all_live": 7148,
+      "events_armed": 5953,
+      "overlap_events": 444,
+      "skip_atr": 0,
+      "skip_broken": 942,
+      "skip_no_away": 2664,
+      "skip_not_armed": 1195,
+      "skip_side": 0,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 46002,
+      "zones_short": 0,
+      "zones_total": 11417,
+      "zones_with_events": 5533
+     },
+     "n_events": 5953
+    },
+    "USDJPY": {
+     "controls": {
+      "contam_ref": 4898,
+      "contam_zone": 4781,
+      "controls": 21284,
+      "draws": 98870,
+      "events": 5857,
+      "events_with_lt5": 1752,
+      "paired_tk_delta_med": 139.0,
+      "reject_empty_interval": 5505,
+      "reject_no_event": 68982,
+      "reject_zone_self": 3099,
+      "slots_empty": 8001
+     },
+     "coverage_med": 0.13604511726408605,
+     "extract": {
+      "events": 5857,
+      "events_all_live": 6798,
+      "events_armed": 5857,
+      "overlap_events": 272,
+      "skip_atr": 0,
+      "skip_broken": 641,
+      "skip_no_away": 2569,
+      "skip_not_armed": 941,
+      "skip_side": 0,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 39238,
+      "zones_short": 0,
+      "zones_total": 11458,
+      "zones_with_events": 5143
+     },
+     "n_events": 5857
+    }
+   },
+   "tercile_bounds": [
+    0.42138888888888887,
+    0.6831944444444443
+   ]
+  },
+  "sd_base": {
+   "coverage_med": 0.06532140338489202,
+   "per_symbol": {
+    "AUDUSD": {
+     "controls": {
+      "contam_ref": 3235,
+      "contam_zone": 1442,
+      "controls": 11136,
+      "draws": 45381,
+      "events": 2610,
+      "events_with_lt5": 472,
+      "paired_tk_delta_med": 157.0,
+      "reject_empty_interval": 760,
+      "reject_no_event": 32604,
+      "reject_zone_self": 881,
+      "slots_empty": 1914
+     },
+     "coverage_med": 0.06532140338489202,
+     "extract": {
+      "events": 2610,
+      "events_all_live": 2726,
+      "events_armed": 2610,
+      "overlap_events": 126,
+      "skip_atr": 0,
+      "skip_broken": 393,
+      "skip_no_away": 980,
+      "skip_not_armed": 116,
+      "skip_side": 0,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 13448,
+      "zones_short": 0,
+      "zones_total": 2702,
+      "zones_with_events": 1713
+     },
+     "n_events": 2610
+    },
+    "EURUSD": {
+     "controls": {
+      "contam_ref": 2213,
+      "contam_zone": 1613,
+      "controls": 11184,
+      "draws": 49617,
+      "events": 2631,
+      "events_with_lt5": 477,
+      "paired_tk_delta_med": 162.0,
+      "reject_empty_interval": 615,
+      "reject_no_event": 36402,
+      "reject_zone_self": 1416,
+      "slots_empty": 1971
+     },
+     "coverage_med": 0.07732194530798381,
+     "extract": {
+      "events": 2631,
+      "events_all_live": 2769,
+      "events_armed": 2631,
+      "overlap_events": 128,
+      "skip_atr": 0,
+      "skip_broken": 442,
+      "skip_no_away": 992,
+      "skip_not_armed": 138,
+      "skip_side": 0,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 14528,
+      "zones_short": 0,
+      "zones_total": 3004,
+      "zones_with_events": 1828
+     },
+     "n_events": 2631
+    },
+    "GBPUSD": {
+     "controls": {
+      "contam_ref": 2614,
+      "contam_zone": 1614,
+      "controls": 11746,
+      "draws": 52128,
+      "events": 2728,
+      "events_with_lt5": 481,
+      "paired_tk_delta_med": 165.0,
+      "reject_empty_interval": 575,
+      "reject_no_event": 38608,
+      "reject_zone_self": 1199,
+      "slots_empty": 1894
+     },
+     "coverage_med": 0.08160779184063806,
+     "extract": {
+      "events": 2728,
+      "events_all_live": 2845,
+      "events_armed": 2728,
+      "overlap_events": 122,
+      "skip_atr": 0,
+      "skip_broken": 510,
+      "skip_no_away": 1175,
+      "skip_not_armed": 117,
+      "skip_side": 0,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 15893,
+      "zones_short": 0,
+      "zones_total": 3235,
+      "zones_with_events": 1933
+     },
+     "n_events": 2728
+    },
+    "USDJPY": {
+     "controls": {
+      "contam_ref": 3174,
+      "contam_zone": 1493,
+      "controls": 11218,
+      "draws": 48705,
+      "events": 2638,
+      "events_with_lt5": 466,
+      "paired_tk_delta_med": 150.0,
+      "reject_empty_interval": 680,
+      "reject_no_event": 35813,
+      "reject_zone_self": 994,
+      "slots_empty": 1972
+     },
+     "coverage_med": 0.0693436549667586,
+     "extract": {
+      "events": 2638,
+      "events_all_live": 2764,
+      "events_armed": 2638,
+      "overlap_events": 116,
+      "skip_atr": 0,
+      "skip_broken": 492,
+      "skip_no_away": 1119,
+      "skip_not_armed": 126,
+      "skip_side": 0,
+      "skip_strength": 0,
+      "skip_warm": 0,
+      "skip_window": 13987,
+      "zones_short": 0,
+      "zones_total": 2883,
+      "zones_with_events": 1772
+     },
+     "n_events": 2638
+    }
+   },
+   "tercile_bounds": [
+    0.5816666666666667,
+    0.7190536779119984
+   ]
+  }
+ },
+ "lib_code_sha256": "afa4ac305f19cc7aa4daf2acdc70b5e64686e91a6bf3bcc0fc530141120ef87f",
+ "parity_sha256": "a3dece3575afafa25afdd5e0903fe05db05451b406a1da6e58b5981cc0a9d074",
+ "phase": "physics-zone-bakeoff",
+ "physics_code_sha256": "d118b72fee2b6e11493386eca5f4fb8b195d801a6e712b297edddc358c290be9",
+ "prereg_sha256": "91b21dc7dc5d3701ba5d68904c8621eb7e10df9e1324bf4aae59d26335252184",
+ "round": "R01",
+ "runbook_sha256": "ce35ed66a6513436d9e1d80f3d7d1a7fc2a67fa5576fe109ad2759d8d8929365",
+ "seed": 20260920,
+ "shortlist_sha256": "d669410078bc0410ba6addec52386cfd4abbcb0680767c973f1e2741fc3abe2d",
+ "split": "DESIGN",
+ "symbols": [
+  "EURUSD",
+  "GBPUSD",
+  "USDJPY",
+  "AUDUSD"
+ ],
+ "tables": {
+  "CONTROLS_AUDUSD_fractal_h1.csv": "48a14aa36767e54d04f5026a1c2f13ab33973592ed0d93c6a3a51367d9690d1f",
+  "CONTROLS_AUDUSD_kde_swing.csv": "d91b6ab5e6ff131f7fa5ceccc6475419798cbf0835880de4697bdd72c71e6d84",
+  "CONTROLS_AUDUSD_line1_cluster.csv": "8f70d43093f7cbeb35a3d7cc67636304f36c3cd3c8a21113ed59b151d20af2b5",
+  "CONTROLS_AUDUSD_profile_va.csv": "51c5a41b33922699f9ec5ac841ae0da7568b704802fab4a222236dde1952f597",
+  "CONTROLS_AUDUSD_ref_levels.csv": "b1d9e1a329ebee07f510e7fffef91347a19990f2703ac657dfd0d85fbf49bd32",
+  "CONTROLS_AUDUSD_sd_base.csv": "ceb35a7a3c5913f1b78c2322bcff2bab8556b477eed39b1812101c7625b9d18a",
+  "CONTROLS_EURUSD_fractal_h1.csv": "ab0021e0bbff19d97a79ac8d273a0b460fdf53308340b03b0d991e5f1b2ad6c2",
+  "CONTROLS_EURUSD_kde_swing.csv": "89674a12e5bd2008bf9570cd96110f3d08a36b7707e696bb801704d2f3630cfc",
+  "CONTROLS_EURUSD_line1_cluster.csv": "66006ad58889971513ea7334848bde4dad75cadf46151bf9c5fb2387d711c969",
+  "CONTROLS_EURUSD_profile_va.csv": "8cc2d2199aa292d43f5df12ecb9e0a63b56ef09a837d2e6adb6da7192a5357bb",
+  "CONTROLS_EURUSD_ref_levels.csv": "c03d5653aa674984490c7301af07fc3540dfe6711f8cd98fc6260f233ecde9fd",
+  "CONTROLS_EURUSD_sd_base.csv": "ed6d8e353ab7f7384c0ac49bccec2c28ab843d71d4c9888e6262431912fe5c0c",
+  "CONTROLS_GBPUSD_fractal_h1.csv": "2d8aa31ca4b79304fdb99a6c4fe6eb8ed106431cf802ab593a33fa231b6173d6",
+  "CONTROLS_GBPUSD_kde_swing.csv": "43da907a192bc9138f9ed362205bc0f1fbc726efe9252c0f3ea58ac8aaf52373",
+  "CONTROLS_GBPUSD_line1_cluster.csv": "34eebc7c68ce95ab3766d8fff45809b2fd97df626cf0c5415d7369858c71ba55",
+  "CONTROLS_GBPUSD_profile_va.csv": "6df6ff955faf922e06a7bab95c222ab681133b68554e8f0817f04c9701051fd0",
+  "CONTROLS_GBPUSD_ref_levels.csv": "5bb4a2a52bb853dc4b81e4601645c836df7d87a8ba82efb009d6b2ee5e08bebc",
+  "CONTROLS_GBPUSD_sd_base.csv": "3f6bd12f2f557a78d4c36784db77ec436be5d88adcbbc716e8b602ddd9a28a17",
+  "CONTROLS_USDJPY_fractal_h1.csv": "a45211632cf38cc045201269e7ecf9ba56a44b839d055c3f3a9f4ce43a3ac516",
+  "CONTROLS_USDJPY_kde_swing.csv": "6c8ed03e1ad71000e6706dbb75a07249fc232e6822e1726a664113e7808f7abe",
+  "CONTROLS_USDJPY_line1_cluster.csv": "9cada9df77a91546d8e84b2d82e7ab0a0178e5a510f9c8dcf8173e0ae82cdf3b",
+  "CONTROLS_USDJPY_profile_va.csv": "bf05f76ac928d58102decb7eab3aa3264ca7f33940685f89b63d74ed146a07d2",
+  "CONTROLS_USDJPY_ref_levels.csv": "dc1b521ea965b0c8dc0044dbccad7fd911aaf07fd22e7b4b2d40e3ccc59432f0",
+  "CONTROLS_USDJPY_sd_base.csv": "fc3b80d5d1eaf1c17c77e9eb31131bbbb3f7ce83b67d54817dc505bfec222511",
+  "EVENTS_AUDUSD_fractal_h1.csv": "98c3e9b180e55cce5916cca66709f0f7f2237ede9f35ca31d42f199900b3ba9b",
+  "EVENTS_AUDUSD_kde_swing.csv": "dcd6f606359d225d735ebb209630464ac6185568a7b9f4d68857e34b50bd3016",
+  "EVENTS_AUDUSD_line1_cluster.csv": "b09ec1c98617a8a5172b313369989b53de6e8bd7ca93df6dfeeb6016ebd53e55",
+  "EVENTS_AUDUSD_profile_va.csv": "53e377a6d52b6ccf4e6ee3cf11e96d90ce202b3d52f1fa2fad427986603b529f",
+  "EVENTS_AUDUSD_ref_levels.csv": "8a8b0b0061c75fb429268ef287df61fdb3fa6b7d4c8fb837b8f23294df948b5a",
+  "EVENTS_AUDUSD_sd_base.csv": "6b0b00dbaebd090dd9b9a89781ebc917a7778070a3278ab13bf7f5b1a936a3b1",
+  "EVENTS_EURUSD_fractal_h1.csv": "36632a8e1ed5c5da013b2fb8010bcfe8bec9370a6e40c63b70e68aa45e31608c",
+  "EVENTS_EURUSD_kde_swing.csv": "f45076ff9460f8a3b667a0d63f896ace1cdcefe92dffd6b3e72a3890e8b0bdd5",
+  "EVENTS_EURUSD_line1_cluster.csv": "4eaf1241cf0a55f6e3c22ef658f302482233c291bbe63912e445e7971cc18e5d",
+  "EVENTS_EURUSD_profile_va.csv": "e598df18b065d85534861363de910c518a35c35641fc42cfbcb7e6fded75f349",
+  "EVENTS_EURUSD_ref_levels.csv": "f3205b87924b4bab553b920c51bc42f2ad412bfa5d0f6a0e6c7dbb5f5bf88299",
+  "EVENTS_EURUSD_sd_base.csv": "ce3e9f6ede98fd87c82484e10d313d8c4f476b156a3e7f009835dfb36b987c2c",
+  "EVENTS_GBPUSD_fractal_h1.csv": "6e35931952088b1e8823ce6f8515a7841320e300c99c69f41e42e0b52b8235aa",
+  "EVENTS_GBPUSD_kde_swing.csv": "5a4be642cad6f52a0372427921df4004c85636df28f340c99b6939e4f3131f9e",
+  "EVENTS_GBPUSD_line1_cluster.csv": "194b670e242f488642fd89bbc8bee60f23ac2c4a9c0db454fc9c9079df2378f1",
+  "EVENTS_GBPUSD_profile_va.csv": "1141536d2eedc59a979010a318485d76c5f2181457774d577ebf86a404fe1223",
+  "EVENTS_GBPUSD_ref_levels.csv": "d4944a189910fb7a60a2baa385670cca77f22581be8dcb880e2628b4779ddb99",
+  "EVENTS_GBPUSD_sd_base.csv": "5d03d6d150befd5518020960eae2d891811629a9e3687474a3c422f433a51efa",
+  "EVENTS_USDJPY_fractal_h1.csv": "7689a2fabe879f1d36d7e99eb35a776351910510440e03c45d3dc1e2183965f9",
+  "EVENTS_USDJPY_kde_swing.csv": "53eba6f3c7ee8aa84c8d2923308269e069e22fb3b1cee9f5dcbf54374061f7d7",
+  "EVENTS_USDJPY_line1_cluster.csv": "9bd3dc62d4395c547b8dcaf0fd274f4334443348a9f11a22bef12b54b08319ec",
+  "EVENTS_USDJPY_profile_va.csv": "f69ee313029a4ada40a3034ff0304567bb1ed8647a2d9b6e474d5feb065948d8",
+  "EVENTS_USDJPY_ref_levels.csv": "ab2c03691833753f6ca940e488d5784b2a3d9c5ecc367153e9efc6f7bb4252da",
+  "EVENTS_USDJPY_sd_base.csv": "02a33d7eab3e3b70a801367b582b4efba078eae38b43f94b41e101eacc20b93c"
+ },
+ "tf": "M5",
+ "utc": "2026-09-20T15:35:54Z",
+ "zone_modules": [
+  "common.py",
+  "data_helpers.py",
+  "diagnostics.py",
+  "fractal_zones.py",
+  "kde_swing_zones.py",
+  "line1_cluster_zones.py",
+  "pick_windows.py",
+  "profile_zones.py",
+  "ref_zones.py",
+  "refs.py",
+  "registry.py",
+  "runner.py",
+  "sd_base_zones.py"
+ ],
+ "zones_code_sha256": "3676262d514d50cea959944387559471c999578112f651f641fb0ae12cf1c92d",
+ "zones_review_sha256": "870f8ae66de532cb18d72c64f27206301a7578d9db8f93800cddabcb29b48b16"
+}

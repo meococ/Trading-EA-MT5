@@ -1,0 +1,51 @@
+arm flag_off ...
+    50/198
+    100/198
+    150/198
+arm famledger_v2 ...
+    50/198
+    100/198
+    150/198
+
+=== arm flag_off ===
+births/panel: LC 0.98  MINI 0.04  all 6.0   clutter ratio med 2.50   flicker med 0.33 ch/h
+ LEVEL_CARRIED born recall 0.146 [0.07-0.27] (7/48)  prec 0.036  trusted 6/40=0.150
+   snapshot 0.021 (1/47)   live@tau med 0.0
+   recall@k: k1 0.021[0.00-0.11] tr 0.026  k2 0.021[0.00-0.11] tr 0.026  k3 0.021[0.00-0.11] tr 0.026
+ MINI_LEVEL    born recall 0.065 [0.02-0.21] (2/31)  prec 0.000  trusted 2/28=0.071
+   snapshot 0.000 (0/30)   live@tau med 0.0
+   recall@k: k1 0.000[0.00-0.11] tr 0.000  k2 0.000[0.00-0.11] tr 0.000  k3 0.000[0.00-0.11] tr 0.000
+
+=== arm famledger_v2 ===
+births/panel: LC 1.05  MINI 0.00  all 6.0   clutter ratio med 2.50   flicker med 0.33 ch/h
+ LEVEL_CARRIED born recall 0.229 [0.13-0.37] (11/48)  prec 0.043  trusted 11/40=0.275
+   snapshot 0.128 (6/47)   live@tau med 0.0
+   recall@k: k1 0.064[0.02-0.17] tr 0.077  k2 0.128[0.06-0.25] tr 0.154  k3 0.128[0.06-0.25] tr 0.154
+ MINI_LEVEL    born recall 0.065 [0.02-0.21] (2/31)  prec 0.000  trusted 2/28=0.071
+   snapshot 0.000 (0/30)   live@tau med 0.0
+   recall@k: k1 0.000[0.00-0.11] tr 0.000  k2 0.000[0.00-0.11] tr 0.000  k3 0.000[0.00-0.11] tr 0.000
+ defended_origin cand outcomes (281754):
+   proposed           164067
+   suppressed_budget  113125
+   rate_limited       2191
+   expired            1942
+   outranked          257
+   born               165
+   nms_suppressed     7
+
+=== keep-rule: per-family matched-object delta (famledger_v2-off) ===
+  BAR_MARKER     gold   4  hit off   2 on   2  (delta +0)
+  BOX            gold 108  hit off   6 on   6  (delta +0)
+  BRACKET        gold  85  hit off  25 on  30  (delta +5)
+  CONTEXT_LINE   gold   9  hit off   2 on   3  (delta +1)
+  CONTEXT_RANGE  gold   6  hit off   1 on   0  (delta -1)
+  LEVEL_CARRIED  gold  48  hit off   7 on  11  (delta +4)
+  MINI_LEVEL     gold  31  hit off   2 on   2  (delta +0)
+  PATTERN_LINE   gold 184  hit off  19 on  19  (delta +0)
+  RANGE_OPEN     gold   8  hit off   2 on   2  (delta +0)
+  SQUEEZE        gold   2  hit off   0 on   0  (delta +0)
+paired day-bootstrap LC born recall (on-off): 0.120 [0.009, 0.242] over 33 days
+paired day-bootstrap MINI born recall (on-off): 0.000 [-0.062, 0.062] over 24 days  weak evidence (CI includes 0)
+paired day-bootstrap LC recall@2 (on-off): 0.119 [0.021, 0.233] over 32 days
+paired day-bootstrap MINI recall@2 (on-off): 0.000 [0.000, 0.000] over 24 days  weak evidence (CI includes 0)
+saved _l12_ab.json

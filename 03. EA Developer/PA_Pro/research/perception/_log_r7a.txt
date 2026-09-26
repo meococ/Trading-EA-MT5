@@ -1,0 +1,12 @@
+21:25Z RESUME 7 round — paired A/Bs at one code state (revive OFF per §20.1), all hashes + scoreboard rows labelled:
+
+BAR_MARKER day-extreme lever (R22 §22.2): golden marks only NAMED day extremes (4 objects). Paired at a606f9b1-family code state:
+- marker_off (a606f9b1): markers born 764, TF marks 247, BRACKET 25, BOX 6, PL 19, LC 6, clutter 10, snapR 46, ratio 4.50
+- marker_on (e9fd5283): markers born 474 (-38%), TF marks 432 (+185 survive), BRACKET 27, BOX 7, PL 17, LC 6, clutter 9, snapR 47, ratio 4.00
+- marker_anchor variant (20ac1e24, gate + live-edge exemption): markers 745 — the exemption re-admits nearly all star-pivots (every one sits on some live edge) -> PL restored to 19 but the ink win is gone; OFF-equivalent.
+VERDICT: pure gate fails R18 keep-rule (PL -2). Both flags default OFF; lever logged for Owner (net +1 snapshot at -1 clutter, cost PL -2).
+NOTE: first _ab_report run was cache-poisoned (variant="" keys stored flag-ON runs for both hashes — same trap as 1f4bed5b). Quarantined 1152 pickles to _cache/_quarantine/ per §19.2, re-measured with params file matching each arm. Numbers above are clean.
+
+BOX drawn tail (R21 §21.3): implemented — close at break_confirm + t1_drawn=break+tail_bars (drawn, not live barrier). Provenance: golden t1-build_end med 6.2 bars/31min (p75 17/85min), break-proxy tail med 5/p75 16; arm uses 12. Paired a7b09b74 (off) vs 1c24be53 (on): ZERO delta on every family/clutter/snapR — the existing right_edge window (6-18 bars, proximity-bounded) already draws an equivalent tail on this ruler; break_tail fired 466x with identical output. Default OFF, logged as lever.
+
+Queue state: REQ-1(b) OFF confirmed (584c7743 STABLE row: BOX .06/.02 PL .10/.04 LC .12/.03 clutter 10 snapR .10). live_budget withdrawn per R22 §22.1 (already measured: right-outranked med score 2.16 vs incumbents ~14 — displacement-by-score cannot select).

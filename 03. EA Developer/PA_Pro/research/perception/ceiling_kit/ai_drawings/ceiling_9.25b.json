@@ -1,0 +1,14 @@
+{
+ "panel": "9.25b",
+ "objects": [
+  {
+   "type": "box",
+   "t0": 800,
+   "t1": 840,
+   "p_top": 1.3153,
+   "p_bot": 1.31417,
+   "why": "bear flag block below EMA after 13:15 drop"
+  }
+ ],
+ "note": "Downtrend; tight block under EMA, trade the break (short below floor)."
+}

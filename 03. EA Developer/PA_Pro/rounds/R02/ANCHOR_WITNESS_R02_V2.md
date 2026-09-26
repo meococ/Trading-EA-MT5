@@ -1,0 +1,34 @@
+freeze_v2_sha256: 5b2f49809576b245acc13e4b940fcb0204e3becd33561bcb35ac6bf1698a0793
+freeze_v2_bytes: 56779
+freeze_v2_mtime_utc: 2026-09-20T23:37:36Z
+freeze_v1_sha256: 1cd4001801db3acfc370bc5e0f4846fce571b1bda4fc3b306d1c662498069964
+freeze_v1_mtime_utc: 2026-09-20T22:09:42Z
+v1_intact: YES
+ledger_n_lines: 27
+ledger_anchor_sha256: 4f1d3af88f2f833fc6f2cc49b1c6bd479d208abcd1ad1aa03fbd099d383a8776
+anchors_jsonl_bytes: 1105
+anchors_jsonl_lines: 4
+prereg_sha256: 6d6c751cfab873fcb70a1389c92fc870bf999669f3d617030889a93b1a632581
+prereg_bytes: 65026
+code_sha256:
+  research/arrival/arrival_common.py = 47b1bb5203aa9418d52c4e2b7018de8767a19fefee8c08fb9e2d04d872eba9c5
+  research/arrival/arrival_contrast.py = 9f9ad8aaacba7a7371b19577a88e9361136aaff78070b6f10bd33c3c268c79ef
+  research/arrival/arrival_estimate.py = 103fdaa4975605aea4bb337adbc9d9bc16c0ffbe6f1c6e3084c42404604e5e5d
+  research/arrival/arrival_feas2.py = 9c15f0b24cb5c210ab91e40cdad58aed1339060ae04354a70846847b9a764811
+  research/arrival/arrival_outcome.py = 71b18746d86eff5eac896a5b0c68523bb81366c4dfcea154c03853ab0ccde065
+  research/arrival/arrival_freeze2.py = 41efd850c694da20b3624432882a0b487068f2c7d25da6b447e664a3504d4ace
+  research/arrival/tests/test_arrival.py = 4f984cb1ae5db2639f2f07e7e6fae23ffa84929e1bbfcf1259430b849a6d2090
+  research/physics/phys_resolve.py = b4f05d05431c2435a56e6df5246b46685867fd94c4ce8f569ad9e335b2f27a86
+  research/physics/phys_common.py = bb00eb48b627dae57b169dae6e15f0c47f1b51a4205f6ab06686a8b942a56567
+  research/arrival/arrival_outcome_run.py = fd3abc4bb14a909b27eb5b96e3afce4979d22e56e1fd509b3a327d1c231d9665
+bundle_sha256:
+  AUDUSD.pkl = 13179081f4522609442a8a1d3b5ad469d5d171c19e13ae01b4526f8291a9ec7c (46029985 bytes)
+  EURUSD.pkl = 9dcbd9239281648f1d7c1999d0cec5368eec7f56ba1b0e37cd0ddce7da16ef8e (41512689 bytes)
+  GBPUSD.pkl = c6cec7f7d7c0991f676c90f96c494f925981604c317031d78a4c7088317ac5d6 (41737237 bytes)
+  USDJPY.pkl = b361ca30a171324050053d637c0e8041fc1ff570b82f01c0456326310a9c0c01 (44513752 bytes)
+code_matches_freeze_v2: YES
+review5_mtime_utc: 2026-09-20T22:01:51Z
+deviation_d40_mtime_utc: 2026-09-20T23:22:24Z
+outcome_rows_in_ledger_at_witness_time: 0
+witness_utc: 2026-09-20T23:45:54Z
+RECOMPUTED_INDEPENDENTLY_BY: zigzag-hellebore

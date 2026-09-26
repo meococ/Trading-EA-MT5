@@ -1,0 +1,587 @@
+{
+ "pack": "M2-TV",
+ "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1",
+ "seed": 20260923,
+ "mix": "30 engine tradeable + 10 golden + 10 neg",
+ "key": {
+  "p001": {
+   "truth": "negative",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.62b",
+   "tau": 675,
+   "tags": [
+    "line_broken"
+   ],
+   "obj_id": "PAT0011",
+   "how": "nonpivot",
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p002": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.22b",
+   "tau": 800,
+   "tags": [],
+   "obj_id": "PAT0018",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p003": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.58a",
+   "tau": 545,
+   "tags": [],
+   "obj_id": "LEV0014",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p004": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.10a",
+   "tau": 580,
+   "tags": [],
+   "obj_id": "PAT0007",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p005": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.49a",
+   "tau": 565,
+   "tags": [],
+   "obj_id": "PAT0014",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p006": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.58a",
+   "tau": 650,
+   "tags": [],
+   "obj_id": null,
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p007": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.58b",
+   "tau": 738,
+   "tags": [],
+   "obj_id": "LEV0014",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p008": {
+   "truth": "golden",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.43a",
+   "tau": 540,
+   "tags": [],
+   "obj_id": null,
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p009": {
+   "truth": "engine_hit",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.26c",
+   "tau": 925,
+   "tags": [],
+   "obj_id": "BRA0015",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p010": {
+   "truth": "negative",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.56b",
+   "tau": 585,
+   "tags": [
+    "line_broken",
+    "line_cuts_bodies",
+    "zombie"
+   ],
+   "obj_id": "PAT0011",
+   "how": "nonpivot",
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p011": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.66b",
+   "tau": 692,
+   "tags": [
+    "lone_edge"
+   ],
+   "obj_id": "BOX0001",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p012": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.42a",
+   "tau": 540,
+   "tags": [
+    "lone_edge"
+   ],
+   "obj_id": "BOX0001",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p013": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.60b",
+   "tau": 571,
+   "tags": [],
+   "obj_id": "PAT0013",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p014": {
+   "truth": "negative",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.56b",
+   "tau": 780,
+   "tags": [],
+   "obj_id": "BRA0014",
+   "how": "price",
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p015": {
+   "truth": "negative",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.43b",
+   "tau": 840,
+   "tags": [
+    "line_broken",
+    "stale_far"
+   ],
+   "obj_id": "PAT0015",
+   "how": "price",
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p016": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.63c",
+   "tau": 1080,
+   "tags": [
+    "lone_edge"
+   ],
+   "obj_id": "BOX0001",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p017": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.19a",
+   "tau": 545,
+   "tags": [],
+   "obj_id": "PAT0006",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p018": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.29a",
+   "tau": 510,
+   "tags": [],
+   "obj_id": null,
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p019": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.3c",
+   "tau": 978,
+   "tags": [],
+   "obj_id": "PAT0012",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p020": {
+   "truth": "golden",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.40c",
+   "tau": 905,
+   "tags": [],
+   "obj_id": null,
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p021": {
+   "truth": "negative",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.54b",
+   "tau": 840,
+   "tags": [],
+   "obj_id": "BRA0016",
+   "how": "price",
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p022": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.42c",
+   "tau": 1080,
+   "tags": [
+    "lone_edge"
+   ],
+   "obj_id": "BOX0001",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p023": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.29b",
+   "tau": 705,
+   "tags": [],
+   "obj_id": "LEV0015",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p024": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "CONTEXT_LINE",
+   "panel": "9.35a",
+   "tau": 595,
+   "tags": [],
+   "obj_id": "CON0012",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p025": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.43b",
+   "tau": 840,
+   "tags": [],
+   "obj_id": "PAT0014",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p026": {
+   "truth": "engine_hit",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.6a",
+   "tau": 565,
+   "tags": [
+    "lone_edge"
+   ],
+   "obj_id": "BOX0001",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p027": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.33b",
+   "tau": 715,
+   "tags": [],
+   "obj_id": "LEV0008",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p028": {
+   "truth": "negative",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.30b",
+   "tau": 515,
+   "tags": [],
+   "obj_id": "BRA0011",
+   "how": "price",
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p029": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.54a",
+   "tau": 470,
+   "tags": [],
+   "obj_id": "LEV0007",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p030": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.59a",
+   "tau": 545,
+   "tags": [],
+   "obj_id": "LEV0013",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p031": {
+   "truth": "golden",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.3b",
+   "tau": 785,
+   "tags": [],
+   "obj_id": null,
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p032": {
+   "truth": "golden",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.34a",
+   "tau": 495,
+   "tags": [],
+   "obj_id": null,
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p033": {
+   "truth": "negative",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.59c",
+   "tau": 1035,
+   "tags": [
+    "line_broken"
+   ],
+   "obj_id": "PAT0019",
+   "how": "price",
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p034": {
+   "truth": "engine_fp",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.16a",
+   "tau": 540,
+   "tags": [],
+   "obj_id": "BRA0005",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p035": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.36c",
+   "tau": 1060,
+   "tags": [
+    "lone_edge"
+   ],
+   "obj_id": "BOX0001",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p036": {
+   "truth": "negative",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.57c",
+   "tau": 857,
+   "tags": [
+    "line_broken"
+   ],
+   "obj_id": "PAT0014",
+   "how": "time",
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p037": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.36b",
+   "tau": 560,
+   "tags": [],
+   "obj_id": "PAT0010",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p038": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.30b",
+   "tau": 515,
+   "tags": [],
+   "obj_id": "PAT0013",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p039": {
+   "truth": "engine_fp",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.66c",
+   "tau": 730,
+   "tags": [],
+   "obj_id": "BRA0015",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p040": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.50b",
+   "tau": 610,
+   "tags": [],
+   "obj_id": null,
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p041": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "CONTEXT_LINE",
+   "panel": "9.30a",
+   "tau": 430,
+   "tags": [],
+   "obj_id": "CON0009",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p042": {
+   "truth": "golden",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.36b",
+   "tau": 645,
+   "tags": [
+    "lone_edge"
+   ],
+   "obj_id": null,
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p043": {
+   "truth": "engine_fp",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.64a",
+   "tau": 405,
+   "tags": [],
+   "obj_id": "BRA0002",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p044": {
+   "truth": "engine_fp",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.64c",
+   "tau": 919,
+   "tags": [],
+   "obj_id": "BRA0002",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p045": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.37b",
+   "tau": 619,
+   "tags": [],
+   "obj_id": "PAT0007",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p046": {
+   "truth": "negative",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.51b",
+   "tau": 715,
+   "tags": [],
+   "obj_id": "BRA0011",
+   "how": "price",
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p047": {
+   "truth": "golden",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.33c",
+   "tau": 1055,
+   "tags": [],
+   "obj_id": null,
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p048": {
+   "truth": "golden",
+   "family": "level",
+   "src_type": "MINI_LEVEL",
+   "panel": "9.34a",
+   "tau": 545,
+   "tags": [],
+   "obj_id": null,
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p049": {
+   "truth": "negative",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.58b",
+   "tau": 738,
+   "tags": [],
+   "obj_id": "BRA0010",
+   "how": "price",
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  },
+  "p050": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.37b",
+   "tau": 810,
+   "tags": [
+    "lone_edge"
+   ],
+   "obj_id": "BOX0004",
+   "how": null,
+   "engine": "C-3 canonical uip2_pbbirth@8361fe85 + trade_tags=1"
+  }
+ }
+}

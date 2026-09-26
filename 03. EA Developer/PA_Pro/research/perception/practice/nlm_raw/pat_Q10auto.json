@@ -1,0 +1,287 @@
+{
+  "answer": "### Key Disagreements Among Experts on Pattern Definitions\n\nExperts in this corpus disagree sharply on the validity, geometry, drawing techniques, and confirmation rules of technical chart patterns.\n\n#### 1. Diagonal Trendlines vs. Horizontal Boundaries\n* **Peter Brandt** strongly warns against diagonal chart constructions (trendlines, symmetrical triangles, wedges), labeling trendlines \"the most unreliable diagonal chart construction\" [1]. He notes that violating a trendline carries no price target or guaranteed direction shift [2], restricts his analysis primarily to horizontal boundaries [3, 4], and jokes that \"an ape with a ruler\" can draw trendlines [5].\n* **Support And Resistance Trading** agrees, declaring trendlines to be \"the weakest form of S/R\" due to subjective anchor selection, and notes having eliminated them for trade entries in favor of horizontal zones [6].\n* **Adam Grimes** defends standard trendlines but acknowledges they are \"the most used and abused tool\" [7]. He provides strict parameters: an uptrend line must connect successive higher lows without cutting through prices, and must connect a pivot low to a pivot low preceding a new trend high [8-10].\n* **Al Brooks** relies heavily on trendlines, trend channels, and \"micro trend lines\" (2 to 10 bars) across all timeframes to gauge market strength and identify flag setups [11, 12].\n* **Tom DeMark** rejects subjective drawing entirely, substituting manual line fitting with mathematical, automated **TD Lines** [13].\n\n#### 2. Geometry: Candle Wicks vs. Body Closes & Lines vs. Zones\n* **Adam Grimes** explicitly calls drawing trendlines through candle shadows/wicks or bodies a \"sloppy practice\" that invalidates the support/resistance reference [9].\n* **Al Brooks** explicitly permits and recommends drawing trendlines using candle bodies rather than wicks in strong trend environments [11].\n* **Support And Resistance Trading** uses candle body closes as the primary reference level for horizontal levels, utilizing wicks strictly to define the outer boundary [14].\n* **Rayner Teo & ChartMini Blog** view support/resistance as flexible **zones** rather than single lines [15-17]. Teo adjusts lines to capture the maximum number of touches across bodies or wicks [18], while ChartMini formalizes a two-layer definition separating a \"core\" (closes/bodies) from an outer \"envelope\" (wicks) [19, 20].\n\n#### 3. Pattern Confirmation vs. Dynamic Structure\n* **Thomas Bulkowski** defines chart patterns through rigid quantitative filters and insists that a pattern is **not valid** until confirmed by a price close above the intervening peak [21, 22]. Without this breakout confirmation, unconfirmed formations are merely \"squiggles on a chart\" with a high failure rate [21, 22].\n* **Lo, Mamaysky, and Wang (LMW)** define pattern occurrence algorithmically at the instant the final local extremum completes based on price proximity and temporal separation [23, 24], evaluating conditional returns immediately following pattern completion rather than waiting for a breakout.\n* **Wyckoff Method (StoicFX)** rejects fixed static geometric definitions altogether. Wyckoff's Rule 1 states that *\"The Market and Individual Securities Never Behave in the Same Way Twice\"* [25]; accumulation and distribution patterns are dynamic, shapeshifting structures with infinite variations that cannot be trapped in rigid geometric rules [25, 26].\n\n---\n\n### Mechanical Pattern Rules for Causal Automation\n\nSeveral frameworks in the corpus provide objective mathematical rules that can be coded into automated algorithms without human subjectivity:\n\n```\n                  ┌─────────────────────────────────────────┐\n                  │      RAW PRICE TIME SERIES (P_t)        │\n                  └────────────────────┬────────────────────┘\n                                       │\n                         [Rolling Window Filtering]\n                                       │\n                  ┌────────────────────▼────────────────────┐\n                  │    KERNEL REGRESSION SMOOTHING m̂_h(t)   │\n                  └────────────────────┬────────────────────┘\n                                       │\n                        [Derivative Sign Changes]\n                                       │\n                  ┌────────────────────▼────────────────────┐\n                  │       LOCAL EXTREMA (E_1...E_n)         │\n                  └────────────────────┬────────────────────┘\n                                       │\n                        [Deterministic Inequality Check]\n                                       │\n        ┌──────────────────────────────┼──────────────────────────────┐\n        │                              │                              │\n┌───────▼────────┐             ┌───────▼────────┐             ┌───────▼────────┐\n│ Double Bottom  │             │   Rectangle    │             │   Broadening   │\n│  |E1-Eb| ≤1.5% │             │ Tops/Bottoms   │             │  Tops/Bottoms  │\n│ Δt ≥ 22 Days   │             │ Tops/Bots ≤.75%│             │ E1 < E3 < E5   │\n└────────────────┘             └────────────────┘             └────────────────┘\n```\n\n#### 1. Lo-Mamaysky-Wang (LMW) Kernel Smoothing Method\nLo, Mamaysky, and Wang automate classical pattern recognition using nonparametric kernel regression [27, 28]:\n* **Smoothing Estimator**: Fits a kernel regression \\\\(\\hat{m}_h(t)\\\\) over rolling time windows (e.g., \\\\(l + d = 38\\\\) trading days) to filter out high-frequency white noise \\\\(\\epsilon_t\\\\) [24, 28, 29].\n* **Derivative Zero-Crossings**: Evaluates the continuous first derivative \\\\(\\hat{m}_h'(t)\\\\) and identifies local extrema at points where the derivative changes sign (\\\\(Sgn(\\hat{m}_h'(t)) = -Sgn(\\hat{m}_h'(t+1))\\\\)) [29]. These smoothed extrema are then mapped to local extrema in raw prices [30].\n* **Deterministic Inequality Rules**:\n  * **Double Tops / Bottoms (DTOP / DBOT)**: Identifies an initial extremum \\\\(E_1\\\\) and a subsequent extremum \\\\(E_a\\\\) or \\\\(E_b\\\\) such that the two tops/bottoms are within **1.5% of their average price** and separated by at least **22 trading days** (\\\\(\\Delta t \\ge 22\\\\)) [23, 24].\n  * **Rectangle Tops / Bottoms (RTOP / RBOT)**: Identifies 5 consecutive extrema (\\\\(E_1, \\dots, E_5\\\\)) where all local tops and all local bottoms fall within **0.75% of their respective averages** [23].\n  * **Broadening Tops / Bottoms (BTOP / BBOT)**: Identifies 5 consecutive extrema with expanding highs and lows (\\\\(E_1 < E_3 < E_5\\\\) and \\\\(E_2 > E_4\\\\) for tops) [31].\n\n#### 2. Bulkowski Identification & Confirmation Guidelines\nBulkowski’s guidelines convert chart patterns into programmatic parameters [21]:\n* **Metric Filters**: Valleys must bottom near the same price level; the intervening peak must represent at least a **10% price rise** from the lowest valley [21].\n* **Shape Classification**: Programmatically distinguishes narrow, sharp V-shaped spikes (Adam) from wide, rounded multi-bar troughs (Eve) [21].\n* **Causal Trigger**: Automation rules trigger a valid breakout signal **only when price completes a daily close above the highest peak** between the two valleys [21, 22].\n\n#### 3. Tom DeMark (TD Lines)\nDeMark replaces manual trendlines with fully algorithmic **TD Points** [13]:\n* **Level-\\\\(N\\\\) TD Points**: A Level 1 TD Point High requires a bar high flanked by 1 preceding bar and 1 succeeding bar with lower highs (3 bars total) [13]. A Level-\\\\(N\\\\) TD Point requires \\\\(N\\\\) preceding and \\\\(N\\\\) succeeding bars with lower highs (or higher lows for TD Point Lows) [13].\n* **Automated Line & Breakout Qualification**: Trendlines connect active TD Points, and breakouts are automatically classified as qualified (solid line) or disqualified (dashed line) via mathematical criteria [13].\n\n#### 4. Algorithmic Market Structure (SMC / LuxAlgo)\n* **Lookback Extremal Windows**: Scans for swing highs and lows using fixed lookback periods (e.g., 5–49 bars for internal structure, 50–100 bars for swing structure) [32].\n* **Causal Event Rules**:\n  * **Change of Character (CHoCH)**: Programmatically triggers when price breaks a prior swing low during an uptrend or prior swing high during a downtrend [32].\n  * **Break of Structure (BOS)**: Programmatically triggers when price breaks a prior swing high during an uptrend or prior swing low during a downtrend [32].\n\n---\n\nWould you like to explore building an automated Python backtest for one of these mechanical frameworks (such as LMW kernel regression or DeMark TD Lines)?",
+  "question": "Object: PATTERN MARKS. Q10+AUTOMATION: Where do the experts in this corpus DISAGREE about pattern definitions, and which pattern rules are mechanical enough to automate causally (Lo-Mamaysky-Wang kernel method, Bulkowski identification guidelines)? Cite sources.",
+  "conversation_id": "4e6ea719-6908-4f28-80a4-e7a34d5d76fe",
+  "sources_used": [
+    "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "65c415d9-576b-43cd-b52b-40ee996f829a",
+    "cb3c4375-b981-4665-94ab-336e6f1f87e0",
+    "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "283dd470-a3d1-4134-8024-282191338c10",
+    "35993b7d-f788-421a-acbc-f540d2373fd5",
+    "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "7360ee4d-d55e-46fd-b016-d7697df264b1",
+    "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "b0799ea5-221a-454a-9f96-083966104b14",
+    "5c67f357-ef0b-46ae-b18a-eb61b26e2f88",
+    "3726d651-2b1f-4a31-9ab6-64457c7ce70f"
+  ],
+  "citations": {
+    "1": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "2": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "3": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "4": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "5": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "6": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "7": "65c415d9-576b-43cd-b52b-40ee996f829a",
+    "8": "65c415d9-576b-43cd-b52b-40ee996f829a",
+    "9": "65c415d9-576b-43cd-b52b-40ee996f829a",
+    "10": "cb3c4375-b981-4665-94ab-336e6f1f87e0",
+    "11": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "12": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "13": "283dd470-a3d1-4134-8024-282191338c10",
+    "14": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "15": "35993b7d-f788-421a-acbc-f540d2373fd5",
+    "16": "35993b7d-f788-421a-acbc-f540d2373fd5",
+    "17": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "18": "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "19": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "20": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "21": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+    "22": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+    "23": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "24": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "25": "b0799ea5-221a-454a-9f96-083966104b14",
+    "26": "5c67f357-ef0b-46ae-b18a-eb61b26e2f88",
+    "27": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "28": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "29": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "30": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "31": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "32": "3726d651-2b1f-4a31-9ab6-64457c7ce70f"
+  },
+  "references": [
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 1,
+      "cited_text": "The most unreliable diagonal chart construction is the trendline, followed closely by the symmetrical triangle. Do NOT read this to mean that diagonal patterns do not produce profitable trades. I have experienced some wonderful trades involving diagonal chart construction. In fact, over the years many of my most profitable trades have occurred when a horizontal area pattern was completed simultaneously with the penetration of a multi-contact point trendline. In this sense I find trendlines to be of particular importance."
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 2,
+      "cited_text": "· Horns (or sloping patterns) · Compound fulcrums (borrowed from point and figure charting) · Rounding patterns Diagonal chart construction · Head and shoulders – when the neckline slants into the right shoulder · Symmetrical triangles · Right-angled triangles – when the breakout is through the diagonal boundary · Wedges (falling wedge more unreliable than rising wedge) · Trendlines · Channels One additional point about trendlines must be made. All other chart construction listed above carry an implication that price will experience a “measured move.” The violation of a trendline does not carry with it a price target – but simply indicates that the price behavior of the previous trend has altered. Thus, on its face the penetration of a trendline does not convert a bear market into a bull market or visa-versa."
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 3,
+      "cited_text": "a futures stock or forex cross chances are I've drawn too many lines i get comments all the time about my markings and charts being oversimplified i take that as a as as a great compliment the most reliable chart patterns tend to be those that require more than 12 weeks to form i want to see a market I want to see a chart pattern that's 12 weeks to form then all of a sudden I have a chart uh that I can build a trade around i want to be aware of chart patterns that that I call diagonal nature now those those folks of you that are there that uh that I communicate with on a pretty regular basis understand what I mean by diagonal i'm talking about a line that's kind of uh diagonal on the chart it's angled on the chart uh be aware of chart patterns that have dot boundaries i I want chart patterns that have horizontal boundaries or at least chart patterns that break out through a horizontal boundary now uh examples of diagonal chart patterns would include symmetrical triangles it would incl"
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 4,
+      "cited_text": "u and make money as patterns as a day trader all the more power to you uh patterns on weekly charts I find are the most reliable and horizontal patterns are far more reliable than diagonal patterns now there's some reason for that i'm not going to go into that in this webinar but there are some specific reasons why that's true okay I want to kind of now go through how factor uses trade navigator you what we do is we go through and review the weekly charts of what we call the long list and I'll show you that in a minute from the long list we create what we call the short list of 20 to 30 markets that on the weekly chart have grabbed our attention they've stood out there's something about the chart that we look at now I go through a lot of charts and I'll show you that I'll spend about one maybe two seconds on a chart if there isn't something that has grabbed me on a chart within uh one or two seconds it's not a chart that I'm going to spend any more time from that the daily then we go t"
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 5,
+      "cited_text": "ude trend lines i don't use trend lines uh you know G here now I know some traders who make money trading trend lines and so you know I want to give them uh I I I want to give them the nod and say \"Congratulations you can do it.\" But in my own way of thinking you give a chart book a ruler and a pencil to an ape and you come back a day later he's probably going to have driven some line that makes sense uh a wedge falling wedge rising wedge these are diagonal patterns uh beware of diagonal patterns and then finally a pattern is not a pattern until it's completed and even then it can fail you know oftentimes I'll talk about patterns and usually I'll talk about possible patterns there's a possible head and shoulders there's a possible rectangle there's a possible this or that and you that doesn't mean that I believe that there is a head and shoulders there is a head and shoulders pattern and it it's really not a head and shoulders pattern till it's completed and even then it can fail uh Sh"
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 6,
+      "cited_text": "Trendlines are the weakest form of S/R in my experience. Drawing a trendline requires at least two swing points, and different traders will connect different points. That subjectivity means less order concentration at the level. I stopped using trendlines for entries about two years ago. I still draw them for context, to identify the general direction of the move, but I don't take trades off them. <cited_table>",
+      "cited_table": {
+        "num_columns": 5,
+        "rows": [
+          [
+            "S/R Type",
+            "Examples",
+            "Reliability",
+            "Best Use",
+            "Weakness"
+          ],
+          [
+            "S/R Type",
+            "Examples Prior highs/lows, daily pivots, round numbers",
+            "Reliability 🏆 Highest",
+            "Best Use Direct entries, stop placement",
+            "Weakness Static; can go stale if untested for weeks"
+          ],
+          [
+            "S/R Type",
+            "Examples Session VWAP, developing VWAP",
+            "Reliability High",
+            "Best Use Trend bias, confluence confirmation",
+            "Weakness Less useful in the first 30 minutes of the session"
+          ],
+          [
+            "S/R Type",
+            "Examples 20 EMA, 50 EMA, 200 SMA",
+            "Reliability Moderate",
+            "Best Use Trend direction, pullback zones",
+            "Weakness Lagging; setting-dependent (period, type)"
+          ],
+          [
+            "S/R Type",
+            "Examples Ascending/descending trend channels",
+            "Reliability Lowest",
+            "Best Use General direction context",
+            "Weakness Highly subjective; traders draw them differently"
+          ]
+        ]
+      }
+    },
+    {
+      "source_id": "65c415d9-576b-43cd-b52b-40ee996f829a",
+      "citation_number": 7,
+      "cited_text": "Trendlines are perhaps the most used and abused tool in modern technical analysis. It is difficult to even come up with a precise definition of a trendline, or with firm rules for where and how to draw them. One good working definition is that a trendline is a line drawn between two points on a chart, but then there are the internal trendlines, which can be drawn anywhere through the middle of price bars. In my experience teaching and mentoring, as soon as you start telling traders that some trendlines may be better than others, you are met with the argument that they can draw any trendline they want. To further complicate matters, market action is so random that we can see price action that looks convincing around even random trendlines, so it is very difficult to evaluate trendlines subjectively. But they are usually drawn subjectively, so it is impossible to evaluate them objectively. I do not have a perfect answer here, but I will share a no-nonsense approach to trendlines that has served me very well over the years. As always, adapt these tools for your own style and methodology."
+    },
+    {
+      "source_id": "65c415d9-576b-43cd-b52b-40ee996f829a",
+      "citation_number": 8,
+      "cited_text": "Standard trendlines Standard uptrend lines are drawn between higher lows in an uptrend; the standard downtrend line is a line drawn between lower highs in a downtrend. The uptrend line shows where buyers have stepped in on the declines with additional demand and have bid the market higher, which is why Wyckoff called this line the demand line. In a downtrend, the downtrend line, or the supply line, shows where additional sellers have come into the market to arrest the bounces. Though it is possible to draw trendlines according to other rule sets, breaks of those trendlines are not likely to be as significant. If you are drawing standard trendlines, be certain of these points:"
+    },
+    {
+      "source_id": "65c415d9-576b-43cd-b52b-40ee996f829a",
+      "citation_number": 9,
+      "cited_text": "\"Nonstandard\" trendlines in the XLF. Don't \"cut\" prices There is a debate among traders and analysts about whether trendlines should cut through prices, as shown in the next chart and example B of the chart above . Of course, you can draw any line you want to and there are good arguments to be made on both sides, but my preference is to draw them so that they do not pass through any prices at or between the two attachment points for the line. Why is this important? For the simple reason that, if the trendline had already been violated when you first drew it, how significant can you expect that line to be when it is touched again? To me, it is far more logical to create a line that defines the slope of the trend so that the line is potentially meaningful when it is touched in the future. A word of warning to traders who use candlestick charts is in order here. Because the body of the candle emphasizes the space between the open and the close of the bar, it is often tempting to draw trendlines that touch these bodies but that cut the shadows. This is a sloppy practice that should be avoided (unless you are only executing on the close of the bar and intrabar penetrations do not matter.)"
+    },
+    {
+      "source_id": "cb3c4375-b981-4665-94ab-336e6f1f87e0",
+      "citation_number": 10,
+      "cited_text": "Why does this trendline end? Because price action at the end of 2016 invalidated the line. The line was broken decisively, and once a line is cut or broken we don't have any good reason to expect it to be meaningful in the future. (In other words, it's a mistake to carry this line forward.) Now look at the dark trendlines. These were drawn according to the same, consistent rule set I published many years ago in my book (and in this blog ). A valid trendline: Is drawn from a significant pivot low to A pivot low that precedes a new trend high. The line may not cut prices in between those attachment points."
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 11,
+      "cited_text": "flat the trend line is when the trend line breaks we can use this to gauge the strength of the other side counter Trend Traders sometimes it's better to use the bodies of the candles to draw trend lines here's an example of multiple trend lines we have broad bull trend lines here and here and then within that we have Micro trend lines that ultimately break with steep bare trend lines here's a micr trend line for the Bears contained within a broader trend line for the Bears this is just bullish trend lines very strong bull Trend with and within that we also had strong bull channels trend lines being drawn here here and here trend lines for the Bears we can see it starts at the swing high and we pull down containing one one trend line will contain all the price action and within this trend line there are mult"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 12,
+      "cited_text": "multiple trend lines that also contain bearish price action micro trend lines small steep trend lines and strong Trends a micro trend line can be drawn on any time frame it's a smaller trend line drawn between two and 10 bars within a bigger Trend when a micro trend line has a false breakout this can set up for a good bull or bare flag at at least for a couple points when the trend line is steep only take with trend entries new Traders should avoid counter Trend entries as a trend goes on the trend line will become flatter eventually the markets will have trend lines in the opposite direction there's no need to go down on a smaller time frame when looking at micr trend lines they can be seen and traded on the 5 minute chart smaller time frames generate more false signals micro trend lines bullish here we can see a strong bull Trend with multiple trend line breaks shown on these Wicks here"
+    },
+    {
+      "source_id": "283dd470-a3d1-4134-8024-282191338c10",
+      "citation_number": 13,
+      "cited_text": "TD Lines™ TD Lines™ TD Lines are mechanically and objectively constructed. The trendlines drawn are TD Supply Lines and TD Demand Lines. Once the TD Lines are broken and qualified, the study automatically calculates a price projection. A qualified breakout appears as a solid line; whereas, a disqualified breakout is a dashed line. TD Lines are drawn by connecting TD Points. A level one TD Point high is formed once a high is immediately preceded and succeeded by bars with lower highs. Thus, a level one high requires only three bars to make this determination. TD Point highs vary in “ magnitude” based on the number of immediately preceding and succeeding bars that have lower highs. For example, level two has two bars preceding, two bars succeeding, and so on through level nine. The converse of these principles governs TD Point lows. For further information on TD Lines, please refer to Thomas R. DeMark, The New Science of Technical Analysis , New York: John Wiley & Sons, 1994, Chapter 1. Topics: Qualifying TD Lines Parameters"
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 14,
+      "cited_text": "My rules for drawing S/R: Use the body close of candles as the primary reference, not wicks. Wicks show the extreme, but closes show where price actually settled. I mark the zone using the cluster of closes, then extend the zone to capture the worst wick. Draw zones, not lines. I use a rectangle tool on NinjaTrader to shade a 5-10 point zone on NQ, 2-4 points on ES. Delete levels once they're broken cleanly. A level that held three times and then got blown through with volume is gone. Don't keep it on the chart hoping for a \"retest.\" If the break was clean, the level is dead. Reassess every session. I spend about 5 minutes before the RTH open updating my levels. Old ones get removed, new ones from overnight price action get added."
+    },
+    {
+      "source_id": "35993b7d-f788-421a-acbc-f540d2373fd5",
+      "citation_number": 15,
+      "cited_text": "My approach to drawing Support and Resistance uses either 1 line or 2 lines. It is much cleaner and immediately tells you which area of the chart to pay attention to. I use a single line when price respect a level almost to the pip and i use 2 lines when price bounces off an area. I highlight only the key Support and Resistance of a chart meaning the obvious swing highs and lows. The intermediate SR i will not draw any lines so as to maintain my focus on the key areas. Besides, with enough screen time you can easily identify those intermediate Support and Resistance without any lines."
+    },
+    {
+      "source_id": "35993b7d-f788-421a-acbc-f540d2373fd5",
+      "citation_number": 16,
+      "cited_text": "Reply nmesoma says: December 21, 2015 at 12:39 am For the example of the second last picture, why do you choose to have 2 SR lines for some areas but only 1 SR line for other areas? Do you Draw the SR line at the Top of the wick? at the close of the candle? How do you decide which is more accurate? Some of your SR lines touch the wicks exactly while other of your SR lines touch the middle of the wick while others touch the open/close of the candles Reply Rayner says: December 21, 2015 at 8:42 am Hi nmesome, I treat SR as a zone and try to get my lines to encompass as much of the price action. But these days, I use one line one my chart only as its neater. But I always treat SR as a zone, that's important. Rayner Reply"
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 17,
+      "cited_text": "A zone can be based on: several swing highs or swing lows; a cluster of closes; overlapping candle bodies; a wick envelope around a narrower body or close cluster; the edge of a range or consolidation; a gap, session, auction, settlement, or other clearly identified price boundary; a calculated reference kept separate from raw-price reactions. The candidate-identification guide explains how to find these source areas. This guide begins after candidate observations have been selected. Line, Zone, or Two-Layer Area? A line and a zone are not competing beliefs. They are different representations of the evidence."
+    },
+    {
+      "source_id": "a45cd69d-f030-439c-aee6-a757201e57ac",
+      "citation_number": 18,
+      "cited_text": "Zoom out your charts (at least 200 bars for me) Draw the most obvious levels (if you need to second guess, then it's not an important level) Adjust your levels to get the most number of “touches” (it can be body or wick) Now, if you want a full training on how to draw Support and Resistance, then check out this video below… Tap to unmute Your browser can't play this video. Learn more Next… Dynamic Support & Resistance According to Classical Technical Analysis, Support and Resistance are horizontal areas on your chart."
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 19,
+      "cited_text": "<cited_table>",
+      "cited_table": {
+        "num_columns": 3,
+        "rows": [
+          [
+            "Representation",
+            "Use it when",
+            "Main control"
+          ],
+          [
+            "Single line",
+            "Relevant closes or turns cluster near one price",
+            "Define the allowed distance from the line separately"
+          ],
+          [
+            "Single zone",
+            "Reactions are distributed across a visible band",
+            "Record exactly which observations set the top and bottom"
+          ],
+          [
+            "Core plus envelope",
+            "Bodies or closes form a tight core while wicks extend farther",
+            "Keep the core and outer envelope as separate fields"
+          ],
+          [
+            "Calculated band",
+            "A formula creates the reference",
+            "Keep it separate from a zone derived directly from price reactions"
+          ]
+        ]
+      }
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 20,
+      "cited_text": "Before using this method, define whether all wicks qualify or whether an anomaly rule excludes specific observations. Method 4: Core plus wick envelope Create two related bands: Core: close cluster or body range. Envelope: qualifying wick extremes. This method preserves more information than forcing one rectangle to serve every purpose. A later candle can interact with the envelope without reaching the core, or close through the core while remaining inside the envelope. Those are different observations."
+    },
+    {
+      "source_id": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+      "citation_number": 21,
+      "cited_text": "Adam & Eve Double Bottoms: Bull Market Results Overall performance rank (1 is best): 17 out of 39   Break even failure rate: 12%   Average rise: 43%   Throwback rate: 67%   Percentage meeting price target: 69% The above numbers are based on 1,020 perfect trades. See the glossary for definitions. Score your chart pattern \n for performance Adam & Eve Double Bottoms: Identification Guidelines Characteristic Discussion   Adam & Eve Double Bottom Confirmation   Price trend Downward leading to the pattern.   Shape Two distinct valleys that look different. Adam bottoms appear first and are narrow, V-shaped, sometimes with one long price spike. Eve bottoms appear after Adam and are wide and more rounded looking. Spikes that appear tend to be more numerous and shorter on Eve bottoms.  Peak The rise between bottoms should measure at least 10%, but allow variations. Tall patterns perform better. The link discusses performance of short and tall chart patterns.  Bottom price The price variation between bottoms is small. The two valleys should appear to bottom near the same price.   Separation The average separation between bottoms is almost two months.   Confirmation The double bottom confirms as a true double bottom once price closes above the peak between the two valleys. See the figure to the right. Without confirmation you do not have an Adam & Eve double bottom, just squiggles on a chart.  Volume Usually higher on formation of the left valley."
+    },
+    {
+      "source_id": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+      "citation_number": 22,
+      "cited_text": "More Adam & Eve Double Bottoms: Trading Tips A trading setup related to double bottoms and throwbacks is located here . Trading Tactic Explanation   Measure Rule for Adam & Eve Double Bottoms Measure rule The link to the left gives more information about the measure rule. Compute the height from the highest peak between the two bottoms (point A in the figure to the right) to the lowest valley (B) in the Adam & Eve double bottom and then multiply it by the above 'percentage meeting price target.' Add the result to the breakout price (A, the highest peak in the pattern) to get the price target (C).  Price reversal Price must have something to reverse, so if the decline leading to the double bottom is small, expect a small rise. Big W Look for a double bottom with a tall left side, one with a steep decline and few or no price consolidations along the way. Expect price to return to near where the downtrend began. The link to the left discusses the Big W chart pattern.  Confirmation   Wait for confirmation -- price to close above the peak between the valleys. If you don't wait, there's a 48% chance that price will continue lower without confirming the double bottom.   Adam & Eve Double Bottom Handle   Handle Sometimes price will confirm the double bottom then waffle up and down, forming a handle. When price breaks out of this region, it often moves up in a strong trend. See the chart to the right.   Flat base Expect a large rise if the double bottom appears after a long, flat base. Use the weekly scale to find the flat base -- the double bottom will look like a pothole in a road. The Flat Base figure to the lower right shows an example.  Trends A short-term decline leading to the double bottom results in the best post breakout performance. Yearly high The best performance comes from patterns with breakouts within a third of the yearly high. The link to the left provides performance statistics and this link provides more information about buying near the yearly low.   Flat Base Volume trend A downward volume trend suggests good post breakout performance. The link to the left gives an example and shows other chart patterns that outperform after a downward volume trend. Throwbacks Throwbacks hurt post breakout performance. The link to the left gives an explanation of a throwback and this link provides performance statistics."
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 23,
+      "cited_text": "lowest top . highest bottom, 7 After all, for two consecutive maxima to be local maxima, there must be a local minimum in between and vice versa for two consecutive minima. Foundations of Technical Analysis 1717 RBOT [ 5 E1 is a minimum tops are within 0.75 percent of their average bottoms are within 0.75 percent of their average lowest top . highest bottom. The definition for double tops and bottoms is slightly more involved. Con-sider first the double top. Starting at a local maximum E1, we locate the highest local maximum Ea occurring after E1 in the set of all local extrema in the sample. We require that the two tops, E1 and Ea, be within 1.5 percent of their average. Finally, following Edwards and Magee ~1966!, we require that the two tops occur at least a month, or 22 trading days, apart. There-fore, we have the following definition."
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 24,
+      "cited_text": "Definition 5 (Double Top and Bottom) Double tops ~DTOP! and bottoms ~DBOT! are characterized by an initial local extremum E1 and subsequent local extrema Ea and Eb such that Ea [ sup $Ptk * : tk * . t1 * , k 5 2, . . . , n% Eb [ inf $Ptk * : tk * . t1 * , k 5 2, . . . , n% and DTOP [ 5 E1 is a maximum E1 and Ea are within 1.5 percent of their average ta *2 t1 * . 22 DBOT [ 5 E1 is a minimum E1 and Eb are within 1.5 percent of their average ta *2 t1 * . 22 B. The Identification Algorithm Our algorithm begins with a sample of prices $P1, . . . , PT % for which we fit kernel regressions, one for each subsample or window from t to t 1 l 1 d 2 1, where t varies from 1 to T 2 l 2 d 1 1, and l and d are fixed parameters whose purpose is explained below. In the empirical analysis of Section III, we set l 5 35 and d 5 3; hence each window consists of 38 trading days."
+    },
+    {
+      "source_id": "b0799ea5-221a-454a-9f96-083966104b14",
+      "citation_number": 25,
+      "cited_text": "Understanding Wyckoff’s Market Rules These rules are derived from Wyckoff’s studies and experience charting the stock market. Rule 1: The Market and Individual Securities Never Behave in the Same Way Twice Rather, trends unfold through a broad array of similar price patterns that show infinite variations in size, detail, and extension. Each incarnation changes just enough from prior patterns to surprise and confuse market participants. Many modern traders might call this a shapeshifting phenomenon that always stays one step ahead of profit-seeking."
+    },
+    {
+      "source_id": "5c67f357-ef0b-46ae-b18a-eb61b26e2f88",
+      "citation_number": 26,
+      "cited_text": "Selling Climax Spring Sign of Strength Last Point of Support Reaccumulation Continuation Accumulation Schematics Not every accumulation range follows the textbook. Wyckoff documented multiple variations to account for ranges that skip events, repeat phases, or resolve differently. Schematic 1: Classic The textbook sequence. SC sets the floor, AR sets the ceiling, Phase B builds cause, a clear Spring shakes out lows, SOS and LPS provide confirmation signals, and markup may follow. This is the version most educational material shows."
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 27,
+      "cited_text": "Foundations of Technical Analysis: Computational Algorithms, Statistical Inference, and Empirical Implementation ANDREW W. LO, HARRY MAMAYSKY, AND JIANG WANG* ABSTRACT Technical analysis, also known as “charting,” has been a part of financial practice for many decades, but this discipline has not received the same level of academic scrutiny and acceptance as more traditional approaches such as fundamental analysis. One of the main obstacles is the highly subjective nature of technical analysis—the presence of geometric shapes in historical price charts is often in the eyes of the beholder. In this paper, we propose a systematic and automatic approach to technical pattern recognition using nonparametric kernel regression, and we apply this method to a large number of U.S. stocks from 1962 to 1996 to evaluate the effectiveness of technical analysis. By comparing the unconditional empirical distribution of daily stock returns to the conditional distribution—conditioned on specific technical indicators such as head-and-shoulders or double-bottoms—we find that over the 31-year sample period, several technical indicators do provide incremental information and may have some practical value."
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 28,
+      "cited_text": "I. Smoothing Estimators and Kernel Regression The starting point for any study of technical analysis is the recognition that prices evolve in a nonlinear fashion over time and that the nonlinearities contain certain regularities or patterns. To capture such regularities quantitatively, we begin by asserting that prices $Pt % satisfy the following expression: Pt 5 m~Xt ! 1 et , t 5 1, . . . ,T, ~1! where m~Xt ! is an arbitrary fixed but unknown nonlinear function of a state variable Xt and $et % is white noise."
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 29,
+      "cited_text": "Within each window, we estimate a kernel regression using the prices in that window, hence: [mh~t! 5 ( s5t t1l1d21 Kh~t 2 s!Ps ( s5t t1l1d21 Kh~t 2 s! , t 5 1, . . . ,T 2 l 2 d 1 1, ~14! where Kh~z! is given in equation ~10! and h is the bandwidth parameter ~see Sec. II.C!. It is clear that [mh~t! is a differentiable function of t. Once the function [mh~t! has been computed, its local extrema can be readily identified by finding times t such that Sgn~ [mh ' ~t!! 5 2Sgn~ [mh ' ~t 1 1!!, where [mh ' denotes the derivative of [mh with respect to t and Sgn~{! is the signum"
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 30,
+      "cited_text": "function. If the signs of [mh ' ~t! and [mh ' ~t 1 1! are 11 and 21, respectively, then 8 If we are willing to place additional restrictions on m~{!, for example, linearity, we can obtain considerably more accurate inferences even for partially completed patterns in any fixed window. Foundations of Technical Analysis 1719 we have found a local maximum, and if they are 21 and 11, respectively, then we have found a local minimum. Once such a time t has been identified, we proceed to identify a maximum or minimum in the original price series $Pt % in the range @t 2 1, t 1 1# , and the extrema in the original price series are used to determine whether or not a pattern has occurred according to the definitions of Section II.A."
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 31,
+      "cited_text": "Because broadening, rectangle, and triangle patterns can begin on either a local maximum or minimum, we allow for both of these possibilities in our definitions by distinguishing between broadening tops and bottoms. Definition 2 (Broadening) Broadening tops ~BTOP! and bottoms ~BBOT! are characterized by a sequence of five consecutive local extrema E1, . . . , E5 such that BTOP [ 5 E1 is a maximum E1 , E3 , E5 E2 . E4 , BBOT [ 5 E1 is a minimum E1 . E3 . E5 E2 , E4 . Definitions for triangle and rectangle patterns follow naturally."
+    },
+    {
+      "source_id": "3726d651-2b1f-4a31-9ab6-64457c7ce70f",
+      "citation_number": 32
+    }
+  ]
+}

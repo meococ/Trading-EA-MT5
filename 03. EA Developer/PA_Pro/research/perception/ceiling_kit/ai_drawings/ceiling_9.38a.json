@@ -1,0 +1,21 @@
+{
+ "panel": "9.38a",
+ "objects": [
+  {
+   "type": "level",
+   "t0": 235,
+   "t1": 505,
+   "p0": 1.31834,
+   "why": "04:00 floor, broken 08:05, retested from below"
+  },
+  {
+   "type": "line",
+   "t0": 420,
+   "p0": 1.31968,
+   "t1": 505,
+   "p1": 1.31863,
+   "why": "lower highs 07:00-08:15 bear pullback line"
+  }
+ ],
+ "note": "Downtrend below broken 1.3183 floor; lower-highs line caps pullbacks."
+}

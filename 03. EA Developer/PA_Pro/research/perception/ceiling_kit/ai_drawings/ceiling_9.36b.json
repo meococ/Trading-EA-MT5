@@ -1,0 +1,21 @@
+{
+ "panel": "9.36b",
+ "objects": [
+  {
+   "type": "box",
+   "t0": 745,
+   "t1": 795,
+   "p_top": 1.312,
+   "p_bot": 1.31131,
+   "why": "12:25-13:15 flat block, floor now broken"
+  },
+  {
+   "type": "level",
+   "t0": 460,
+   "t1": 800,
+   "p0": 1.31062,
+   "why": "session low 07:45/09:00, breakout bar hits it"
+  }
+ ],
+ "note": "Block breaks down into day low; level is next obstacle."
+}

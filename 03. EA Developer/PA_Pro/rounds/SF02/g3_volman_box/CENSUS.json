@@ -1,0 +1,82 @@
+{
+ "S11.0/line1_cluster/pct10": {
+  "n": 4,
+  "per_wk": 0.01
+ },
+ "S11.0/line1_cluster/pct20": {
+  "n": 17,
+  "per_wk": 0.05
+ },
+ "S11.0/sd_base/pct10": {
+  "n": 0,
+  "per_wk": 0.0
+ },
+ "S11.0/sd_base/pct20": {
+  "n": 5,
+  "per_wk": 0.02
+ },
+ "S14.0/line1_cluster/pct10": {
+  "n": 14,
+  "per_wk": 0.04
+ },
+ "S14.0/line1_cluster/pct20": {
+  "n": 69,
+  "per_wk": 0.22
+ },
+ "S14.0/sd_base/pct10": {
+  "n": 6,
+  "per_wk": 0.02
+ },
+ "S14.0/sd_base/pct20": {
+  "n": 20,
+  "per_wk": 0.06
+ },
+ "S18.0/line1_cluster/pct10": {
+  "n": 28,
+  "per_wk": 0.09
+ },
+ "S18.0/line1_cluster/pct20": {
+  "n": 68,
+  "per_wk": 0.22
+ },
+ "S18.0/sd_base/pct10": {
+  "n": 7,
+  "per_wk": 0.02
+ },
+ "S18.0/sd_base/pct20": {
+  "n": 25,
+  "per_wk": 0.08
+ },
+ "S24.0/line1_cluster/pct10": {
+  "n": 12,
+  "per_wk": 0.04
+ },
+ "S24.0/line1_cluster/pct20": {
+  "n": 35,
+  "per_wk": 0.11
+ },
+ "S24.0/sd_base/pct10": {
+  "n": 2,
+  "per_wk": 0.01
+ },
+ "S24.0/sd_base/pct20": {
+  "n": 7,
+  "per_wk": 0.02
+ },
+ "S32.0/line1_cluster/pct10": {
+  "n": 5,
+  "per_wk": 0.02
+ },
+ "S32.0/line1_cluster/pct20": {
+  "n": 16,
+  "per_wk": 0.05
+ },
+ "S32.0/sd_base/pct10": {
+  "n": 0,
+  "per_wk": 0.0
+ },
+ "S32.0/sd_base/pct20": {
+  "n": 2,
+  "per_wk": 0.01
+ }
+}

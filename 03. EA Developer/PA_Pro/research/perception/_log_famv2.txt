@@ -1,0 +1,22 @@
+hash e62f2dc9 | arm famv2_on
+
+=== v0 ===
+  box@1 0.134 (16/119)
+  level@1 0.066 (5/76)
+  line@2 0.093 (18/193)
+  bracket@1 0.388 (33/85)
+  diag: BOX rec 0.213 prec 0.027 | PL 0.109 | LC 0.146 | LTF-agree 0/4 | clutter ratio med 9.00
+
+=== parent famv2_off ===
+  box@1 0.025 (3/119)  vs v0 -0.110 [-0.181..-0.050]
+  level@1 0.053 (4/76)  vs v0 -0.001 [-0.051..+0.059]
+  line@2 0.093 (18/193)  vs v0 +0.003 [-0.044..+0.054]
+  bracket@1 0.329 (28/85)  vs v0 -0.019 [-0.190..+0.139]
+  diag: BOX rec 0.046 prec 0.020 | PL 0.082 | LC 0.146 | LTF-agree 0/1 | clutter ratio med 5.00
+
+=== arm famv2_on ===
+  box@1 0.034 (4/119)  vs v0 -0.101 [-0.187..-0.026]
+  level@1 0.053 (4/76)  vs v0 +0.017 [-0.050..+0.094]
+  line@2 0.093 (18/193)  vs v0 +0.007 [-0.049..+0.065]
+  bracket@1 0.282 (24/85)  vs v0 -0.068 [-0.226..+0.085]
+  diag: BOX rec 0.046 prec 0.011 | PL 0.120 | LC 0.208 | LTF-agree 0/0 | clutter ratio med 5.33

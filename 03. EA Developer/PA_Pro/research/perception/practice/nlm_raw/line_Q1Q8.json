@@ -1,0 +1,294 @@
+{
+  "answer": "### What a Trend Line Represents & Why Price Reacts There\n\n* **Supply/Demand and Order Flow Balance**: \n  * An **up trendline (demand line)** connects higher swing lows, acting as dynamic support [1, 2]. It represents increasing net demand as price rises, marking areas where buyers step in with additional demand during pullbacks [1, 2].\n  * A **down trendline (supply line)** connects lower swing highs, acting as dynamic resistance [2, 3]. It indicates increasing net supply, marking points where sellers enter the market to halt bounces [2, 3].\n  * A break of an up trendline signals that net demand has weakened, while a break of a down trendline indicates that net supply is decreasing [1, 3].\n\n* **Market Psychology, Anchoring Bias, and Order Clustering**:\n  * Trendlines and price channels function due to **trader psychology, cognitive heuristics, and anchoring bias** [4, 5]. Because market participants lack an absolute scale for instrument value, their minds anchor perception to visible reference points like swing highs and lows [5].\n  * Because thousands of traders monitor the same visual chart points, resting orders (stop-losses, limit orders, institutional entry orders) **cluster along these trend boundaries** [6-9]. This concentration of order flow makes the trendline a self-reinforcing price barrier [7, 8, 10, 11].\n\n* **Dynamic Risk/Reward Framework**:\n  * Unlike static horizontal levels, trendlines represent **dynamic support and resistance** that moves continuously with price over time [12, 13].\n  * To the trader, a trendline defines a structured location for **lower-risk, higher-probability trades**, enabling precise entry timing and defined stop-loss placement just beyond the line [10, 14].\n\n* **Practitioner Skepticism and Structural Limitations**:\n  * The practitioner corpus highlights notable disagreement regarding the reliability and interpretation of trendlines:\n    * **Al Brooks** views trendlines and channels as tools to measure trend strength/steepness, where trendline breaks signal counter-trend momentum or transitions into trading ranges [15-17].\n    * **Rayner Teo / Antivestor** considers trendlines to be the weakest form of support and resistance due to subjectivity—because drawing a line requires connecting at least two swing points, different traders connect different points, leading to lower order concentration compared to horizontal levels [18, 19].\n    * **Peter Brandt** views diagonal trendlines as inherently unreliable compared to horizontal boundary patterns [20-23]. He notes that violating a trendline does **not** carry a measured price target or guarantee a trend reversal; it merely indicates that the velocity or behavior of the prior trend has altered [24].\n    * Empirical studies by **Osler (NY Fed)** note that technical analysts routinely use trendlines and channels as visual inputs to identify temporary price barriers where clustered order flow causes statistically significant trend halts or reversals [11, 25, 26].\n\n---\n\n### Timeframe Interplay & Which Timeframe's Line Matters\n\n* **Hierarchy and Authority of Higher Timeframes**:\n  * **Higher timeframes dominate**: A trendline or support/resistance zone drawn on a higher timeframe (e.g., daily or weekly) strictly outranks one drawn on a lower timeframe (e.g., 5-minute or 1-minute) [27-29].\n  * **Why higher-timeframe lines matter more**: Higher-timeframe bars aggregate significantly more trading volume and market activity [30]. More participants across the market see and act on higher-timeframe charts, concentrating far larger pools of resting order flow around those boundaries [27-29].\n\n* **Role Separation Across Timeframes**:\n  * Practitioners enforce a strict division of labor across timeframes [27-29, 31]:\n    * **Higher Timeframes (Weekly / Daily)**: Used to identify macro market structure, trend bias, and primary trend channels/levels [27-29, 31].\n    * **Lower Timeframes (5-Minute / 1-Minute)**: Used strictly for execution timing, reading candle rejection patterns, and placing tight stops once price interacts with the higher-timeframe line [27-29].\n\n* **Nested Micro-Structure vs. Macro Channels**:\n  * Lower-timeframe lines exist **within** the context of higher-timeframe trend structures [32-34].\n  * Al Brooks points out that **micro trendlines** (2- to 10-bar lines on lower timeframes) frequently break to form flags and pullbacks inside a broader higher-timeframe channel [16, 32, 35]. Taking counter-trend trades off steep lower-timeframe trendlines generates frequent false breakouts; traders achieve higher profitability by taking only with-trend entries in the direction of the higher-timeframe line [16, 33].\n\n* **Noise and Pattern Failure on Intraday Charts**:\n  * Intraday and lower-timeframe trendlines are highly prone to false breakouts and noise [16, 21]. Peter Brandt establishes a strict rule that chart analysis must begin on weekly charts, observing that intraday patterns are far more susceptible to failure, whereas weekly chart patterns provide the highest reliability [21, 31].\n\n* **Multi-Timeframe Confluence**:\n  * When a lower-timeframe trendline or chart pattern aligns directly with a higher-timeframe level or trend channel (confluence), trade probability and reaction speed increase because participants across multiple timeframes act simultaneously at that price location [27, 36-38].\n\n---\n\nWould you like to explore how practitioners construct specific trendline entry setups (such as Al Brooks' spike-and-channel setups or Trader Vic's 2B trend-reversal rules)?",
+  "question": "You are analysing a corpus of practitioner price-action sources. Object type: SLOPED TREND LINE / CHANNEL / PATTERN LINE. Q1+Q8: What does a trend line represent to the trader (why does price react there), and how does timeframe interplay work (which timeframe's line matters)? Cite sources for every claim.",
+  "conversation_id": "b0537405-92f4-42a7-95fa-e2991a441760",
+  "sources_used": [
+    "9d618c07-1f7d-4f96-838f-5973aa136077",
+    "65c415d9-576b-43cd-b52b-40ee996f829a",
+    "99abc436-6964-4641-ab4d-44922b73c44a",
+    "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "e95edc36-36c1-4bb1-a44f-51877eeced95",
+    "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "f46f6efd-575e-4c4d-b947-72b613b7e891",
+    "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "3868e6a1-5f6b-4417-abce-dd9ec8f1e3c2"
+  ],
+  "citations": {
+    "1": "9d618c07-1f7d-4f96-838f-5973aa136077",
+    "2": "65c415d9-576b-43cd-b52b-40ee996f829a",
+    "3": "9d618c07-1f7d-4f96-838f-5973aa136077",
+    "4": "99abc436-6964-4641-ab4d-44922b73c44a",
+    "5": "99abc436-6964-4641-ab4d-44922b73c44a",
+    "6": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "7": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "8": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "9": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "10": "e95edc36-36c1-4bb1-a44f-51877eeced95",
+    "11": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "12": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "13": "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "14": "e95edc36-36c1-4bb1-a44f-51877eeced95",
+    "15": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "16": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "17": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "18": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "19": "65c415d9-576b-43cd-b52b-40ee996f829a",
+    "20": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "21": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "22": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "23": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "24": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "25": "f46f6efd-575e-4c4d-b947-72b613b7e891",
+    "26": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "27": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "28": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "29": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "30": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "31": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "32": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "33": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "34": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "35": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "36": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "37": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "38": "3868e6a1-5f6b-4417-abce-dd9ec8f1e3c2"
+  },
+  "references": [
+    {
+      "source_id": "9d618c07-1f7d-4f96-838f-5973aa136077",
+      "citation_number": 1,
+      "cited_text": "Trend lines Trend lines Technical analysis is built on the assumption that prices trend. Trendlines are an important tool in technical analysis for both trend identification and confirmation. A trendline is a straight line that connects two or more price points and then extends into the future to act as a line of support or resistance. Many of the principles applicable to support and resistance levels can be applied to trendlines as well. Up Trendline An up trendline has a positive slope and is formed by connecting two or more low points. The second low must be higher than the first for the line to have a positive slope. Up trendlines act as support and indicate that net-demand (demand less supply) is increasing even as the price rises. A rising price combined with increasing demand is very bullish and shows a strong determination on the part of the buyers. As long as prices remain above the trendline, the uptrend is considered solid and intact. A break below the up trendline indicates that net-demand has weakened and a change in trend could be imminent."
+    },
+    {
+      "source_id": "65c415d9-576b-43cd-b52b-40ee996f829a",
+      "citation_number": 2,
+      "cited_text": "Standard trendlines Standard uptrend lines are drawn between higher lows in an uptrend; the standard downtrend line is a line drawn between lower highs in a downtrend. The uptrend line shows where buyers have stepped in on the declines with additional demand and have bid the market higher, which is why Wyckoff called this line the demand line. In a downtrend, the downtrend line, or the supply line, shows where additional sellers have come into the market to arrest the bounces. Though it is possible to draw trendlines according to other rule sets, breaks of those trendlines are not likely to be as significant. If you are drawing standard trendlines, be certain of these points:"
+    },
+    {
+      "source_id": "9d618c07-1f7d-4f96-838f-5973aa136077",
+      "citation_number": 3,
+      "cited_text": "Down Trendline A down trendline has a negative slope and is formed by connecting two or more high points. The second high must be lower than the first for the line to have a negative slope. Down trendlines act as resistance and indicate that net-supply (supply less demand) is increasing even as the price declines. A declining price combined with increasing supply is very bearish and shows the strong resolve of the sellers. As long as prices remain below the down trendline, the downtrend is considered solid and intact. A break above the down trendline indicates that net-supply is decreasing and a change of trend could be imminent."
+    },
+    {
+      "source_id": "99abc436-6964-4641-ab4d-44922b73c44a",
+      "citation_number": 4,
+      "cited_text": "Thanks from Brian. Answer: Hi Brian, Support and resistance are only about the behavior of traders – nothing else. This is a big topic which won't be adequately addressed by a short email, but hopefully a summary will make it sufficiently clear… Price movement is a function of the balance or imbalance of supply and demand. This supply/demand imbalance changes based on the sentiment of the market participants. More bullish sentiment and price rises. More bearish sentiment and price falls. Support areas are areas which have objectively shown an increase in bullish sentiment. We know this because price rallied from that area. Resistance areas are areas which have objectively shown an increase in bearish sentiment. We know this because price fell from that area. (See any material by Sam Seiden on this topic – he teaches it better than anyone else I've read)."
+    },
+    {
+      "source_id": "99abc436-6964-4641-ab4d-44922b73c44a",
+      "citation_number": 5,
+      "cited_text": "Now consider a trader conducting analysis on the market with the view to trading. What creates the support and resistance areas are the heuristics and cognitive biases that are part of human decision making. Of particular interest here is the anchoring bias. There's a whole heap of others which influence our decision making, including the formation of support and resistance, but this is the main one for s/r. There is no absolute scale that can be used to determine the value of a tradable instrument. Overpriced or underpriced is determined relative to previous price action. So, in the absence of a scale, our mind needs to create a reference point (an anchor), which is a fixed point from which it can then determine whether a security is overvalued or undervalued. The points that stand out are the swing highs and lows, in particular those which create support or resistance areas."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 6,
+      "cited_text": "Mid-range, no such explanation exists. The wick still shows rejection, yet nobody had a reason to defend that spot, so the reaction rarely draws further interest. A Pattern Describes, It Does Not Predict Keep the language honest. A hammer does not forecast a bounce; it records one bar in which sellers lost control of the low. Prediction needs context, and the level supplies it. Levels mark where resting orders already sit and where other traders plan to act. Treat the candle as evidence, then, and treat location as the thing that prices that evidence. Neither half works alone."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 7,
+      "cited_text": "Why the Crowd Effect Matters Levels work partly because enough people believe in them. Traders mark the same swing high, orders cluster there, and price reacts to the cluster. That reaction leaves a footprint on the chart. A long wick, a tiny body or a sharp reversal bar all record the same burst of clustered intent. So the candle becomes a receipt for order flow you cannot see directly. Strip the level away and the receipt has no story behind it. How to Mark a Level That Actually Matters Most charts end up covered in lines that never mattered. A short, strict routine keeps only the areas with real history behind them."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 8,
+      "cited_text": "Support and resistance trading is the practice of identifying price levels where buying or selling pressure has historically concentrated, then using those levels as decision points for trade entries, exits, and stop-loss placement. Every market participant, from algorithmic systems to retail scalpers, watches S/R levels. That makes them self-reinforcing. I have tested more than 50 prop firms since 2022; S/R is presented here as a testable evaluation filter. Not because support and resistance is some magical concept. It's because it gives me clear structure: a defined entry level, a defined invalidation point, and a target. That structure keeps me inside drawdown limits, which is the whole game in funded trading. Ignoring or inventing a support/resistance level is a preventable evaluation failure mode."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 9,
+      "cited_text": "Why do S/R levels form in the first place? Because traders have memory. If NQ bounced hard off 19,800 three times last week, thousands of traders have that level marked on their charts. When price approaches it again, buy orders stack up. Algorithms programmed to watch that level trigger. The collective behavior creates the zone. This is more pronounced on futures than on forex or stocks because futures volume is centralized on one exchange. Everyone sees the same data. The strongest S/R zones tend to form at prior session highs and lows, prior day close, psychological round numbers (19,000, 20,000 on NQ), and areas of heavy volume accumulation visible on volume profile. I rank these by the number of times price has reacted at the level. A level that held twice is worth noting. A level that held five times across different sessions is a fortress."
+    },
+    {
+      "source_id": "e95edc36-36c1-4bb1-a44f-51877eeced95",
+      "citation_number": 10,
+      "cited_text": "(a) Traders expect it to act as support or resistance, and so trade accordingly, thereby creating support or resistance; or (b) Traders have a psychological need to trade in this area, which once again creates the support or resistance zone. The simple fact that we can now expect these areas to provide support or resistance again, and therefore stall and possibly turn price, provides us with a higher probability trade. And the closer we can get our entry to the point of support or resistance, the lower our risk on that particular trade, because our stop can typically be placed just beyond that support or resistance zone."
+    },
+    {
+      "source_id": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+      "citation_number": 11,
+      "cited_text": "The predictive power of support and resistance levels has many possible sources, some of which are discussed in Osler (2000). Central bank intervention has been cited as a possible source of the predictive power of other technical trading strategies (Szakmary and Mathur 1997; LeBaron 1999). However, central bank intervention seems unlikely to be an important source of the predictive power of support and resistance levels since there was no reported intervention for the mark and the pound during the sample period. Other possible explanations include clustered order flow, which receives support in Osler (2000), and self-fulfilling prophecies."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 12,
+      "cited_text": "What Is the Difference Between Horizontal and Dynamic Support and Resistance? Horizontal S/R is a fixed price level. It doesn't move. Yesterday's high at 19,900 is 19,900 today, tomorrow, and next week. Dynamic S/R moves with time. The most common examples are moving averages, VWAP, and trendlines. I use both, but I trust horizontal levels more for trade entries on futures. Dynamic S/R works better as confirmation. Horizontal S/R forms from prior price reactions. It's objective. Two traders looking at the same daily chart will identify roughly the same horizontal zones. The disagreement is minimal, which means the levels attract more attention and more orders."
+    },
+    {
+      "source_id": "a45cd69d-f030-439c-aee6-a757201e57ac",
+      "citation_number": 13,
+      "cited_text": "This is useful when the market is in a range or weak trend. But in strong trend markets, it won't work well and that's where you need to rely on dynamic Support and Resistance. What the heck is dynamic? It means Support and Resistance “move along” with the price instead of being static. For example: The 20-period Moving Average can act as dynamic Support in strong trending market… Or the 50-period Moving Average can act as dynamic Resistance in a healthy trend… Pro Tip: Dynamic Support & Resistance can also be in the form of Trendline or Trend Channel."
+    },
+    {
+      "source_id": "e95edc36-36c1-4bb1-a44f-51877eeced95",
+      "citation_number": 14,
+      "cited_text": "And where better to start than the first item on the above list – a setup which provides the potential for a lower risk and/or higher probability trade. Every technical analysis book on the market shows a number of charts with horizontal lines, and labels them support or resistance. Why is that? Because they look cool, and you can show your friends how clever you are at analyzing the market? Well, yeah, perhaps that's part of it. But have you ever really stopped and asked why you should care if the price action can be bounded by a line? What does it really mean if price has been unable to break through a particular level in the past? Why should you care if price consistently rallies every time it falls to a certain level?"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 15,
+      "cited_text": "how's it going guys we do a summary of chapter two reading price charts bar by bar the technical analysis of price action for the serious Trader chapter two trend lines and Trend channels table of contents trend lines micro trend lines small steep trend lines and a strong Trend horizontal lines swing points and other key price levels Trend Channel lines and finally dual lines intersecting trend lines and Trend Channel lines trend lines the most profitable trades will always be with the with Trend entries once a trend line can be drawn wait for a pullback into the trend line if the market gives a good with Trend signal take the trade we can gauge how strong a trend is by how steep or"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 16,
+      "cited_text": "multiple trend lines that also contain bearish price action micro trend lines small steep trend lines and strong Trends a micro trend line can be drawn on any time frame it's a smaller trend line drawn between two and 10 bars within a bigger Trend when a micro trend line has a false breakout this can set up for a good bull or bare flag at at least for a couple points when the trend line is steep only take with trend entries new Traders should avoid counter Trend entries as a trend goes on the trend line will become flatter eventually the markets will have trend lines in the opposite direction there's no need to go down on a smaller time frame when looking at micr trend lines they can be seen and traded on the 5 minute chart smaller time frames generate more false signals micro trend lines bullish here we can see a strong bull Trend with multiple trend line breaks shown on these Wicks here"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 17,
+      "cited_text": "we approach support i expect traders to be buying down here so the downside is probably limited and then nine went outside up nine tested that support the bar 78 high breakout point bar 81 high also a breakout point the breakout i'm talking about is the gap up so bull breakout gap up functionally they're the same thing it's a breakout pullback second leg but fairly tight and not quite a micro channel because bar 2 pulled back below one but a fairly tight channel from bar 78 to bar 4 today and this is a pullback testing support i talked about the major trend reversal structure fairly tight bare channel bulls got a decent trend line break here far above the moving average price moved a long distance from you know here's one way to draw the trend line for the bears market broke above the trend line tested it and then rallied far above it so at this point the market's either in a trading range or a bull trend because it's no longer creating lower highs and lower lows we broke out above thi"
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 18,
+      "cited_text": "Trendlines are the weakest form of S/R in my experience. Drawing a trendline requires at least two swing points, and different traders will connect different points. That subjectivity means less order concentration at the level. I stopped using trendlines for entries about two years ago. I still draw them for context, to identify the general direction of the move, but I don't take trades off them. <cited_table>",
+      "cited_table": {
+        "num_columns": 5,
+        "rows": [
+          [
+            "S/R Type",
+            "Examples",
+            "Reliability",
+            "Best Use",
+            "Weakness"
+          ],
+          [
+            "S/R Type",
+            "Examples Prior highs/lows, daily pivots, round numbers",
+            "Reliability 🏆 Highest",
+            "Best Use Direct entries, stop placement",
+            "Weakness Static; can go stale if untested for weeks"
+          ],
+          [
+            "S/R Type",
+            "Examples Session VWAP, developing VWAP",
+            "Reliability High",
+            "Best Use Trend bias, confluence confirmation",
+            "Weakness Less useful in the first 30 minutes of the session"
+          ],
+          [
+            "S/R Type",
+            "Examples 20 EMA, 50 EMA, 200 SMA",
+            "Reliability Moderate",
+            "Best Use Trend direction, pullback zones",
+            "Weakness Lagging; setting-dependent (period, type)"
+          ],
+          [
+            "S/R Type",
+            "Examples Ascending/descending trend channels",
+            "Reliability Lowest",
+            "Best Use General direction context",
+            "Weakness Highly subjective; traders draw them differently"
+          ]
+        ]
+      }
+    },
+    {
+      "source_id": "65c415d9-576b-43cd-b52b-40ee996f829a",
+      "citation_number": 19,
+      "cited_text": "Trendlines are perhaps the most used and abused tool in modern technical analysis. It is difficult to even come up with a precise definition of a trendline, or with firm rules for where and how to draw them. One good working definition is that a trendline is a line drawn between two points on a chart, but then there are the internal trendlines, which can be drawn anywhere through the middle of price bars. In my experience teaching and mentoring, as soon as you start telling traders that some trendlines may be better than others, you are met with the argument that they can draw any trendline they want. To further complicate matters, market action is so random that we can see price action that looks convincing around even random trendlines, so it is very difficult to evaluate trendlines subjectively. But they are usually drawn subjectively, so it is impossible to evaluate them objectively. I do not have a perfect answer here, but I will share a no-nonsense approach to trendlines that has served me very well over the years. As always, adapt these tools for your own style and methodology."
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 20,
+      "cited_text": "a futures stock or forex cross chances are I've drawn too many lines i get comments all the time about my markings and charts being oversimplified i take that as a as as a great compliment the most reliable chart patterns tend to be those that require more than 12 weeks to form i want to see a market I want to see a chart pattern that's 12 weeks to form then all of a sudden I have a chart uh that I can build a trade around i want to be aware of chart patterns that that I call diagonal nature now those those folks of you that are there that uh that I communicate with on a pretty regular basis understand what I mean by diagonal i'm talking about a line that's kind of uh diagonal on the chart it's angled on the chart uh be aware of chart patterns that have dot boundaries i I want chart patterns that have horizontal boundaries or at least chart patterns that break out through a horizontal boundary now uh examples of diagonal chart patterns would include symmetrical triangles it would incl"
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 21,
+      "cited_text": "urse Shabacher also identifies a whole number of minor patterns the horn mtop tops W bottoms compound fulcrums all the way on uh the last one on the right hand side the cup and handle i have accepted that even though Shaw Bacher never alluded to a pattern called a cup and handle I have been convinced that that's a good pattern and I put it into my repertoire of patterns that I'll identify but you can kind of take a look at the rest of them uh general rules uh that I follow is the more isolated a pattern is vertically the greater its reliability i'll show you example of that with the wheat market currently now patterns need to be isolated vertically uh the overwhelming the vast overwhelming of chart patterns will fail uh patterns on inday graphs are even more susceptible to failure uh you know I know people are day traders i know people look at patterns i know there are some patterns that work on on as day traders and you know I give you credit to if you can make uh patterns work for yo"
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 22,
+      "cited_text": "The most unreliable diagonal chart construction is the trendline, followed closely by the symmetrical triangle. Do NOT read this to mean that diagonal patterns do not produce profitable trades. I have experienced some wonderful trades involving diagonal chart construction. In fact, over the years many of my most profitable trades have occurred when a horizontal area pattern was completed simultaneously with the penetration of a multi-contact point trendline. In this sense I find trendlines to be of particular importance."
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 23,
+      "cited_text": "An exercise in sequencing Shown (below) are 30 random sequences of 5-year outcomes (shown as NAV curves) based on Factor LLC's historical benchmark trading metrics (at a win rate at 41%). Shown (below) are 30 random sequences of 5-year outcomes (shown as NAV curves) based on Factor LLC's historical benchmark trading metrics with one change – lowering the win rate to 30% which has been my experience with diagonal chart construction. In summary, trading diagonal chart construction (in contrast to horizontal chart construction) produces significantly lower trading performance and most likely adds frustration to the lives of those traders who use diagonality in their signaling and opinion-forming processes."
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 24,
+      "cited_text": "· Horns (or sloping patterns) · Compound fulcrums (borrowed from point and figure charting) · Rounding patterns Diagonal chart construction · Head and shoulders – when the neckline slants into the right shoulder · Symmetrical triangles · Right-angled triangles – when the breakout is through the diagonal boundary · Wedges (falling wedge more unreliable than rising wedge) · Trendlines · Channels One additional point about trendlines must be made. All other chart construction listed above carry an implication that price will experience a “measured move.” The violation of a trendline does not carry with it a price target – but simply indicates that the price behavior of the previous trend has altered. Thus, on its face the penetration of a trendline does not convert a bear market into a bull market or visa-versa."
+    },
+    {
+      "source_id": "f46f6efd-575e-4c4d-b947-72b613b7e891",
+      "citation_number": 25,
+      "cited_text": "View PDF HTML (experimental) Abstract: This paper investigates the phenomenon of support and resistance levels (SR levels) in financial time series, which act as temporary price barriers that reverses price trends. We develop a heuristic discovery algorithm for this purpose, to discover and evaluate SR levels for intraday price series. Our simple approach discovers SR levels which are able to reverse price trends statistically significantly. Asset price entering SR levels with higher number of price bounces before are more likely to bounce on such SR levels again. We also show that the decay aspect of the discovered SR levels as decreasing probability of price bounce over time. We conclude SR levels are features in financial time series are not explained simply by AR(1) processes, stationary or otherwise; and that they contribute to the temporary predictability and stationarity of the investigated price series."
+    },
+    {
+      "source_id": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+      "citation_number": 26,
+      "cited_text": "To identify the support and resistance levels relevant for the coming day, practicing technical analysts consult a variety of information inputs. These include visual assessments of recent price performance, simple numerical rules based on recent price performance, inference based on knowledge about order flow, and market psychology. The simplest approach to visual assessment is to look at recent minima and maxima: “Usually, a support level is identified beforehand by a previous reaction low,” and “a resistance level is identified by a previous peak” (Murphy 1986, p. 59). According to Pring (1991), one could also identify support and resistance levels by drawing a trendline,"
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 27,
+      "cited_text": "Which Timeframe Owns the Level A zone drawn on the daily chart outranks one drawn on the five-minute. More participants see it, so more orders gather around it. Use the higher chart to place the zone and the lower chart to read the candle. That split keeps your levels meaningful and your entries precise. Our walkthrough of multi-timeframe analysis covers the pairing in detail. Two charts usually suffice, and a third adds more noise than value. What a Rejection Bar Says When It Lands on a Level Picture a bar with a long lower wick, a small body near the top and almost no upper wick. Traders call that shape a hammer, or a bullish pin bar."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 28,
+      "cited_text": "On NQ, I typically end up with 3-5 daily levels on my chart. On ES, same thing. More than that creates clutter and decision paralysis. I've met traders with 15 horizontal lines on a single chart. They can't pull the trigger because every 10-point move hits \"a level.\" Fewer levels, higher conviction. Once I have my daily levels, I drop to the 1-hour chart and add session-specific levels: yesterday's high, yesterday's low, overnight high, overnight low. These shorter-term levels matter for intraday setups but don't carry the same weight as a daily level that's held across multiple sessions."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 29,
+      "cited_text": "What is the best timeframe for identifying support and resistance on NQ? The daily chart is the best timeframe for identifying the most significant support and resistance levels on NQ futures. Daily levels carry the most weight because they reflect the broadest participation. After marking daily levels, the 1-hour chart fills in shorter-term zones from recent sessions. For trade execution, I use the 5-minute chart to spot rejection candles at my pre-marked levels and the 1-minute chart for precise entry timing. This multi-timeframe approach captures both structural significance and execution precision."
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 30,
+      "cited_text": "median candle range over a stated window; average true range using a stated period and timeframe; a percentile of historical bar ranges; tick size or minimum price increment. There is no universal ATR multiplier or percentage that fits every instrument, provider, session, and timeframe. A volatility rule should not be introduced after a narrow zone fails merely to make the historical result look better. Best Practices for Initial Zone Width on Higher Timeframes Higher-timeframe candles aggregate more underlying price movement, so a weekly zone will often be wider in dollars, pips, or points than a five-minute zone. That is a property of aggregation, not proof that the weekly zone is automatically more important or more likely to hold."
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 31,
+      "cited_text": "d of the rules as we approach markets in terms of our own trading what rules do we have what rules do we impose upon ourselves related to classical charting principles in our physical trading operation and I want to touch on those all chart analysis begins with weekly charts this is our rule doesn't have to be yours but it's my rule if a weekly chart does not show a pattern there's no sense in looking at a daily graph or no sense in looking certainly at any intraday graph i start with weekly charts and and I'll touch on this toward the end of this presentation as to how we do that but weekly charts are our starting point i want to be able to see a chart pattern on weekly chart now it just so happens uh and I don't know why that generally speaking if a chart pattern is not at least uh 10 12 14 weeks in duration on a daily chart pattern it normally then will not show up on a weekly chart pattern as something that I can recognize if I draw more than four lines on a 12 month daily chart of"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 32,
+      "cited_text": "flat the trend line is when the trend line breaks we can use this to gauge the strength of the other side counter Trend Traders sometimes it's better to use the bodies of the candles to draw trend lines here's an example of multiple trend lines we have broad bull trend lines here and here and then within that we have Micro trend lines that ultimately break with steep bare trend lines here's a micr trend line for the Bears contained within a broader trend line for the Bears this is just bullish trend lines very strong bull Trend with and within that we also had strong bull channels trend lines being drawn here here and here trend lines for the Bears we can see it starts at the swing high and we pull down containing one one trend line will contain all the price action and within this trend line there are mult"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 33,
+      "cited_text": "creating bare flags on smaller time frames they all lead to Bare flags that have double tops that had bearish breakouts and led to profitable trades these are steep trend lines and we should only take trades in that direction here's an overall trend line and then smaller trend lines within the bigger trend line you could try and short but you would have to make a very quick scalp and it's not worth it because you can make a lot more money in the with Trend Direction here maybe this is a two three point bullar but you can make five or six points just getting short after a trend line break which creates the double top bare flag strong trend lines going flat bullish to bearish Bare trend lines becoming stronger bull trend lines is becoming flat and Broad so see how the longer the bull Trend goes the flatter it gets and at one point bears actually do start making money this was this ended up being a very deep pullback to a"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 34,
+      "cited_text": "hey everybody i hope everyone is doing well and had a good day in this video we're going to review the e- mini s&p 500 5 minute chart for wednesday may 20th 2026 let's see the daily chart higher time frame context we have a tight bull channel and now we have a four bar bare micro channel if we pay attention to the structure through here from the high close of the rally we had a gap down and a follow-through bar so that's a bare spike and then from the close of this was last friday the 15th so may 15th to the open of may 18th monday of this week the market gapped up that's an implied pullback so we have a gap down that's a breakout implied pullback a second push down to the low of tuesday and then a rally into the close that's another implied pullback on the lower time frame and then the gap down on tuesday yesterday so it's basically a spike pullback and three-legged channel you could connect the lows of these bars and have a bare channel line which we'll see on the five-minute chart o"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 35,
+      "cited_text": "something I want to say is these arrows that I drew were on the 5 minute chart and I swapped over to the 1 minute time frame I didn't re redraw these arrows so what that means is these these Wicks breaking down do lead to good bull Flags we have the trend line break here's the arrow leading to a good bull flag of pull pullback strong pull pull back higher low bull flag strong pull pull back leads to another breakout in a bull flag same thing with the last one what we're looking at here are these small Wicks on the five minute micro trend lines bearish same thing goes for the Bears we have a good trend line we have a couple breaks here and here a deeper pullback here and smaller breaks here these all led to profitable bare flags on the one minute time frame but again we don't have to watch the one minute time frame to understand that these Wicks are"
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 36,
+      "cited_text": "When Two Levels Agree Sometimes a horizontal zone lines up with something else, such as a round number, a moving average or a retracement level. Traders call that agreement confluence. Confluence raises your interest in the location rather than your certainty about the outcome. More participants watch the spot, so reactions there tend to arrive faster and travel further. Keep the overlays few, though. A chart carrying six tools will always find agreement somewhere, which quietly turns every location into a good one."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 37,
+      "cited_text": "Dynamic S/R from moving averages and VWAP is subjective in setup but powerful in context. The 20 EMA on a 5-minute chart gives you a trend bias. If NQ is trading above the 20 EMA, I'm biased long. But I wouldn't enter a trade solely because price \"bounced off the 20 EMA.\" That's too loose. Where dynamic S/R shines is confluence. If a horizontal support zone at 19,800 lines up with the VWAP at 19,802 and the 50 EMA on the 15-minute chart is sitting at 19,805, that triple confluence tells me the zone is heavily watched. My confidence in a bounce trade goes up significantly."
+    },
+    {
+      "source_id": "3868e6a1-5f6b-4417-abce-dd9ec8f1e3c2",
+      "citation_number": 38,
+      "cited_text": "is in my handout materials. GOLD - In January, 1988 two things happend in Gold. On the weekly chart, a major trendline was penetrated. On the daily chart, a massive rectangle was completed. Notice how a symmetrical triangle launched the major breakout, Often in a major move, a pattern will develop just prior to the launch. SWISS FRANC - In May, 1988 the Swiss completed a complex continuation head and shoulders pattern. At the same time, the major trendline from the 1985 low was being penetrated."
+    }
+  ]
+}

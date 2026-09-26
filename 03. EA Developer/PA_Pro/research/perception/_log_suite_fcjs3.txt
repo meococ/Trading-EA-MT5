@@ -1,0 +1,30 @@
+..........................F............................................. [100%]
+================================== FAILURES ===================================
+____________________________ test_pierce_and_keep _____________________________
+
+    def test_pierce_and_keep():
+        """Fig 3.5 / p66: a close through the line marks it PIERCED; the
+        line object is kept (not deleted)."""
+        bars = zigzag([1.3300, 1.3340, 1.3320, 1.3342, 1.3322], 6)
+        eng = feed(E.PerceptionEngine(), bars)
+        lines = by_type(eng, "PATTERN_LINE")
+        if not lines:
+            pytest.skip("no line formed in fixture")
+        ln = lines[0]
+        # drive a close through the line
+        i = len(bars)
+        g = ln.geometry
+        px = (g["p0"] + g["slope"] * (i - g["t0"])) * P
+        through = px + 6 * P if g["side"] == "top" else px - 6 * P
+        bars2 = [mk(i, px, through + 2 * P, px - 1 * P, through)]
+        feed(eng, bars2)
+>       assert ln.geometry.get("pierced") is True
+E       AssertionError: assert None is True
+E        +  where None = <built-in method get of dict object at 0x0000029923734F00>('pierced')
+E        +    where <built-in method get of dict object at 0x0000029923734F00> = {'t0': 3, 'p0': 13299.2, 'slope': 1.3333, 'side': 'bottom', ...}.get
+E        +      where {'t0': 3, 'p0': 13299.2, 'slope': 1.3333, 'side': 'bottom', ...} = <engine.Obj object at 0x00000298E35C6B70>.geometry
+
+tests\test_engine.py:163: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_engine.py::test_pierce_and_keep - AssertionError: assert No...
+1 failed, 71 passed in 107.51s (0:01:47)

@@ -1,0 +1,78 @@
+9.6a | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "its top sits on the 07:00 wick", "prec": "eye", "price": null, "pri
+9.7b | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "a short segment under the bars, ~11:15–11:35", "prec": "eye", "price
+9.8c | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "caption on its top: the boundary is not clear", "prec": "eye", "pri
+9.10a | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "its top is the 1,305 gridline", "prec": "eye", "price": 1.305, "pri
+9.11b | {"approx_price": false, "approx_time": false, "dir": "down", "meas": false, "note": "falling lines 08:25→09:55", "prec": "eye", "price": null, "price2
+9.11b | {"approx_price": false, "approx_time": false, "dir": "down", "inherited": true, "meas": false, "note": "10:40→12:40", "prec": "eye", "price": null, "p
+9.11c | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "- the dotted range, ~11:35–17:50 (closed after price leaves)", "prec
+9.24b | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "- the dotted range, ~07:30–13:40 (closed)", "prec": "eye", "price": 
+9.31a | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "touches at ~06:20 and ~08:30), extended past the break", "prec": "ey
+9.37c | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "an evening-star marker over the ~14:00 spike bar", "prec": "eye", "p
+9.41b | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "an evening-star marker, ~14:00", "prec": "eye", "price": null, "pric
+9.45c | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "a scalp back to the round number is possible but there is no contex
+9.45c | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "[skip↑] ~15:50. *Lesson*: no structure, no drawing", "prec": "eye", 
+9.46c | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "don't trade\n  continuation of a news-made wave, nor fade it. *Less
+9.48a | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "bottom ~1.2960 = the 00:35 spike low)", "prec": "eye", "price": 1.2
+9.48c | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "second small M-type span above 13:35–14:25", "prec": "eye", "price"
+9.51a | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "M\n  span above 09:20–09:55", "prec": "eye", "price": null, "price2
+9.51c | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "the\n  bulls are still fairly strong (higher lows). *Lesson*: highe
+9.53c | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "stubs. Callouts: selling pressure fading", "prec": "eye", "price": 
+9.53c | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "[skip↑] ~17:00. *Lesson*: fading pressure is not a reason to reverse
+9.56c | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "US news 16:00", "prec": "eye", "price": null, "price2": null, "span
+9.62a | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "tick under the 08:05 low (Morning\n  Star)", "prec": "eye", "price"
+9.64b | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "no clear trend, so no continuation while the\n  round number below 
+9.64b | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "[skip↓] ~13:20. *Lesson*: no trend + round-number pull = no trade", 
+9.66a | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "ticks over the 09:15–09:25 highs\n  (Evening Star) and under the ~09
+9.68a | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "W\n  span under 02:45–04:45", "prec": "eye", "price": null, "price2
+9.68b | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "a reversal exit around here is\n  possible", "prec": "eye", "price"
+9.69b | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "a typical stall after a strong early-UK move", "prec": "eye", "pric
+9.73c | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "[stay out]", "prec": "eye", "price": null, "price2": null, "span_pi
+9.73c | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "US news 16:00. *Lesson*: a lower-high pullback into news is not sho
+9.76a | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "ticks over the 09:45–09:55 top", "prec": "eye", "price": null, "pri
+9.76a | {"approx_price": false, "approx_time": true, "dir": null, "inherited": true, "meas": false, "note": "~10:00–10:20", "prec": "eye", "price": null, "pri
+9.77b | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "bars numbered 1 and 2 (~13:05, ~13:15)", "prec": "eye", "price": nul
+9.86a | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "don't short", "prec": "eye", "price": null, "price2": null, "span_p
+9.88b | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "the 11:30 spike bar's long lower wick touches it", "prec": "eye", "
+9.91b | {"approx_price": false, "approx_time": false, "dir": "up", "meas": false, "note": "rising lines under the 11:40–12:25", "prec": "eye", "price": null, 
+9.91b | {"approx_price": false, "approx_time": false, "dir": "up", "inherited": true, "meas": false, "note": "12:35–13:45 lows. News label: EU release 13:00 C
+9.94a | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "F under the ~09:25 bar", "prec": "eye", "price": null, "price2": nul
+9.95b | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "T above ~12:30", "prec": "eye", "price": null, "price2": null, "span
+9.96c | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "T above ~17:30", "prec": "eye", "price": null, "price2": null, "span
+9.98a | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "short segments at the entries", "prec": "eye", "price": null, "pric
+9.98c | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "a short extension", "prec": "eye", "price": null, "price2": null, "
+9.101b | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "the earlier lines", "prec": "eye", "price": null, "price2": null, "
+9.103b | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "T above ~10:45", "prec": "eye", "price": null, "price2": null, "span
+9.104a | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "T under ~08:05", "prec": "eye", "price": null, "price2": null, "span
+9.105b | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "short lines at the 12:05–12:25 double low", "prec": "eye", "price":
+9.105c | {"approx_price": false, "approx_time": false, "dir": "down", "meas": false, "note": "descending TLs 11:45→12:15", "prec": "eye", "price": null, "price
+9.105c | {"approx_price": false, "approx_time": false, "dir": "down", "inherited": true, "meas": false, "note": "13:05→14:25", "prec": "eye", "price": null, "p
+9.105c | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "*bears in trouble* at ~17:20", "prec": "eye", "price": null, "price2
+9.106a | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "false top labelled ~10:00", "prec": "eye", "price": null, "price2": 
+9.107a | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "T above ~07:55", "prec": "eye", "price": null, "price2": null, "span
+9.108b | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "T below ~12:55", "prec": "eye", "price": null, "price2": null, "span
+9.108b | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "false top ~13:15", "prec": "eye", "price": null, "price2": null, "sp
+9.108b | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "magnet near 1.225", "prec": "eye", "price": 1.225, "price2": null, 
+9.108c | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "T above ~17:20", "prec": "eye", "price": null, "price2": null, "span
+9.108c | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "label good buildup", "prec": "eye", "price": null, "price2": null, 
+9.110c | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "T above ~16:00", "prec": "eye", "price": null, "price2": null, "span
+9.111a | {"approx_price": true, "approx_time": true, "dir": null, "meas": false, "note": "≈1.2239 bottom to ~09:20)", "prec": "eye", "price": 1.2239, "price2":
+9.111a | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "T above ~09:25", "prec": "eye", "price": null, "price2": null, "span
+9.111a | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "false low ~10:10", "prec": "eye", "price": null, "price2": null, "sp
+9.111b | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "the range top to ~09:45", "prec": "eye", "price": null, "price2": nu
+9.112b | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "arrows at later breaks far from the EMA", "prec": "eye", "price": n
+9.112c | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "+150 p rally", "prec": "eye", "price": null, "price2": null, "span_
+9.113b | {"approx_price": true, "approx_time": false, "dir": null, "meas": false, "note": "a *fairly strong pullback* note at the 10:20–10:25 bullish bars (low
+9.115c | {"approx_price": false, "approx_time": false, "dir": "up", "meas": false, "note": "rising lines", "prec": "eye", "price": null, "price2": null, "span_
+9.117c | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "the range lines (~12:40–16:20)", "prec": "eye", "price": null, "pric
+9.117c | {"approx_price": true, "approx_time": true, "dir": null, "meas": false, "note": "a false low ~15:35 (≈1.2245), then a rally", "prec": "eye", "price": 
+9.118b | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "T above ~10:40", "prec": "eye", "price": null, "price2": null, "span
+9.120a | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "lines around the ~09:00–10:45 dip", "prec": "eye", "price": null, "p
+9.120b | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "a false top (~11:05)", "prec": "eye", "price": null, "price2": null,
+9.120c | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "T above ~14:30", "prec": "eye", "price": null, "price2": null, "span
+9.120c | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "F below ~16:10 with a note *another trap*", "prec": "eye", "price": 
+9.121b | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "false low (~11:55)", "prec": "eye", "price": null, "price2": null, "
+9.122c | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "two consecutive false tops noted", "prec": "eye", "price": null, "p
+9.126c | {"approx_price": false, "approx_time": true, "dir": null, "meas": false, "note": "T above ~14:20 with a note that a very poor break attracts sellers",
+9.127c | {"approx_price": false, "approx_time": false, "dir": null, "meas": false, "note": "small lines 13:50–14:40", "prec": "eye", "price": null, "price2": n
+9.131c | {"approx_price": false, "approx_time": false, "dir": "up", "meas": false, "note": "rising lines 11:30→12:15", "prec": "eye", "price": null, "price2": 
+9.131c | {"approx_price": false, "approx_time": false, "dir": "up", "inherited": true, "meas": false, "note": "15:00→16:30", "prec": "eye", "price": null, "pri

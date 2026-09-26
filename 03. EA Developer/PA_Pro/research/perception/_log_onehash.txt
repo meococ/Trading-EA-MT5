@@ -1,0 +1,39 @@
+R24 §24.3 one-hash re-runs (build lane). Arms switched at runtime via zero-arg
+param-override factories in _ab_onehash.py (plain PerceptionEngine pickles);
+both arms share one engine hash per pair. Harness fix history: local-scope
+subclasses were unpicklable -> CA.run wrote 0-byte files; 5996 zero-byte +
+3115 __main__-ref pickles quarantined to _cache/_quarantine (no deletes).
+
+IDENTITY (R24 §24.4): a9d6af1c default == 584c7743 marker_off cache,
+canonical bytes equal on 198/198 TUNE panels (objects+cand_log). LEVEL-LAB
+flag-off + score exposure change nothing.
+
+CORRECTION — earlier tail "zero delta" was a measurement artifact: _ab_report
+called CA.run without variant keys, so both hash-keyed arms re-ran under the
+live params file (tail_bars=12) at report time. The one-hash rerun shows the
+tail mechanism DOES change output. Exactly the failure §24.3 exists to catch.
+
+TAIL pair @ one hash (tail_bars 0 vs 12, provenance: golden drawn-tail med
+6.2 bars/31 min, p75 17 bars/85 min; 12 bars ~= ruling's ~60 min):
+  off: BOX cum 6/108 snap 2/106; BRACKET 25; PL 19; LC 6; clutter@tau 10;
+       ratio 4.50; LABEL_TF 0/51
+  on:  BOX cum 6/108 snap 3/106 (+1); BRACKET 26 (+1); PL 18 (-1); LC 6;
+       clutter@tau 11 (+1.0 med); ratio 4.50; LABEL_TF 0/51
+  keep-rule (R21 §21.3): snap BOX +1 costs +1.0 median live objects > 0.5
+  allowed -> FAIL. Flag stays default OFF. Real lever, not a no-op:
+  it buys snapshot BOX ink at measurable clutter cost.
+
+MARKER pair @ one hash:
+  off:    BOX 6/2snap; BRACKET 25; PL 19; LC 6; marker births 764;
+          LABEL_TF births 247; clutter 10; ratio 4.50; LTF 0/51
+  on:     BOX 7/3snap; BRACKET 27; PL 17 (-2); LC 6; marker births 474;
+          LABEL_TF births 432; clutter 9; ratio 4.00; LTF 2/51
+  anchor: BOX 6/2; BRACKET 25; PL 19; marker births 745 (ink win lost);
+          clutter 10; LTF 0/51
+  marker_on fails R18 (PL -2 > 1). anchor variant keeps PL but re-admits
+  ~all markers (745 vs 764). Both flags default OFF. Lever table entry:
+  marker_on halves marker ink, frees annot slots (LABEL_TF births +185,
+  agreement 0->2/51), gains BOX+BRACKET — blocked only by PL -2.
+
+Scoreboard rows appended: 5 arms at one hash, lane=build, variants
+tail_off|tail_on|marker_off|marker_on|marker_anchor.

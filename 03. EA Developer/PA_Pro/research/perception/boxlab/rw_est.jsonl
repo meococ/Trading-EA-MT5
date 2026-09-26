@@ -1,0 +1,56 @@
+{"item": "p0a", "k": "cand_def", "n": 54, "med": 0.5616217962666401, "p75": 1.1127387345835018}
+{"item": "p0a", "k": "cand_opp", "n": 54, "med": 0.6203360238038453, "p75": 1.542913806651139}
+{"item": "p0a", "k": "gold_def", "n": 54, "med": 0.9086733041011731, "p75": 1.6838532662948278}
+{"item": "p0a", "k": "gold_opp", "n": 54, "med": 0.8537416665944582, "p75": 1.8417687764839124}
+{"item": "p0a", "k": "hit_def", "n": 16, "med": 0.2335111030766105, "p75": 0.38818566506275554}
+{"item": "p0a", "k": "hit_opp", "n": 16, "med": 0.19139244997778415, "p75": 0.43632468658327145}
+{"item": "p0b", "counts": {"DTOL": 13, "pb_gate_fail": 13}, "n_rows": 12}
+{"item": "fidelity", "exact": 119, "n": 119, "diverge": []}
+{"item": "rw_hits", "variant": "e", "lost": [["9.6a", 600], ["9.15b", 900], ["9.32a", 510], ["9.44b", 730]], "gained": [["9.15b", 895]], "net": -3}
+{"item": "rw_hits", "variant": "g", "lost": [["9.17a", 475], ["9.34a", 495], ["9.44b", 730]], "gained": [["9.25b", 775]], "net": -2}
+{"item": "rw_rewrites", "variant": "e", "med_sim": 29.0, "med_real": 29.0, "added": 0, "removed": 0}
+{"item": "rw_rewrites", "variant": "g", "med_sim": 23.0, "med_real": 29.0, "added": 0, "removed": 707}
+{"item": "rw_atrisk", "variant": "e", "fam": "level", "rows": [["9.61c", 745, "LEV0010", ["birth-bar-differs"]]]}
+{"item": "rw_atrisk", "variant": "e", "fam": "line", "rows": []}
+{"item": "rw_atrisk", "variant": "e", "fam": "bracket", "rows": [["9.26c", 925, "BRA0015", ["birth-bar-differs"]], ["9.61c", 935, "BRA0005", ["birth-bar-differs"]]]}
+{"item": "rw_armY", "variant": "e", "rows": [["9.1b", 710, "line", true], ["9.5c", 1030, "level", true], ["9.32b", 571, "level", true], ["9.40c", 921, "level", true], ["9.44c", 1050, "line", true], ["9.60c", 1140, "line", true], ["9.64c", 1020, "level", true]]}
+{"item": "rw_atrisk", "variant": "g", "fam": "level", "rows": [["9.61c", 745, "LEV0010", ["birth-bar-differs"]]]}
+{"item": "rw_atrisk", "variant": "g", "fam": "line", "rows": [["9.4a", 530, "PAT0011", ["birth-bar-differs"]]]}
+{"item": "rw_atrisk", "variant": "g", "fam": "bracket", "rows": [["9.26c", 925, "BRA0015", ["birth-bar-differs"]], ["9.61c", 935, "BRA0005", ["birth-bar-differs"]]]}
+{"item": "rw_armY", "variant": "g", "rows": [["9.1b", 710, "line", true], ["9.5c", 1030, "level", true], ["9.32b", 571, "level", true], ["9.40c", 921, "level", true], ["9.44c", 1050, "line", true], ["9.60c", 1140, "line", true], ["9.64c", 1020, "level", true]]}
+{"item": "rw_review", "variant": "base", "panel": "9.2b", "n_vers": 22, "final": [13239.8, 13253.9], "author_match": false}
+{"item": "rw_review", "variant": "e", "panel": "9.2b", "n_vers": 22, "final": [13239.8, 13253.9], "author_match": false}
+{"item": "rw_review", "variant": "g", "panel": "9.2b", "n_vers": 14, "final": [13239.8, 13253.9], "author_match": false}
+{"item": "rw_review", "variant": "base", "panel": "9.10c", "n_vers": 41, "final": [13045.3, 13068.1], "author_match": false}
+{"item": "rw_review", "variant": "e", "panel": "9.10c", "n_vers": 41, "final": [13045.3, 13068.1], "author_match": false}
+{"item": "rw_review", "variant": "g", "panel": "9.10c", "n_vers": 37, "final": [13030.6, 13090.1], "author_match": false}
+{"item": "rw_review", "variant": "base", "panel": "9.11b", "n_vers": 35, "final": [13040.5, 13064.1], "author_match": false}
+{"item": "rw_review", "variant": "e", "panel": "9.11b", "n_vers": 35, "final": [13040.5, 13064.1], "author_match": false}
+{"item": "rw_review", "variant": "g", "panel": "9.11b", "n_vers": 30, "final": [13040.5, 13064.1], "author_match": false}
+{"item": "rw_review", "variant": "base", "panel": "9.17b", "n_vers": 35, "final": [13201.6, 13208.4], "author_match": false}
+{"item": "rw_review", "variant": "e", "panel": "9.17b", "n_vers": 35, "final": [13201.6, 13208.4], "author_match": false}
+{"item": "rw_review", "variant": "g", "panel": "9.17b", "n_vers": 26, "final": [13202.7, 13208.4], "author_match": false}
+{"item": "rw_review", "variant": "base", "panel": "9.25a", "n_vers": 12, "final": [13216.0, 13225.2], "author_match": false}
+{"item": "rw_review", "variant": "e", "panel": "9.25a", "n_vers": 12, "final": [13216.0, 13225.2], "author_match": false}
+{"item": "rw_review", "variant": "g", "panel": "9.25a", "n_vers": 6, "final": [13216.0, 13232.4], "author_match": false}
+{"item": "rw_review", "variant": "base", "panel": "9.33c", "n_vers": 57, "final": [12994.5, 13075.1], "author_match": false}
+{"item": "rw_review", "variant": "e", "panel": "9.33c", "n_vers": 57, "final": [12998.0, 13075.1], "author_match": false}
+{"item": "rw_review", "variant": "g", "panel": "9.33c", "n_vers": 50, "final": [12994.5, 13075.1], "author_match": false}
+{"item": "rw_review", "variant": "base", "panel": "9.36c", "n_vers": 49, "final": [13129.8, 13152.3], "author_match": false}
+{"item": "rw_review", "variant": "e", "panel": "9.36c", "n_vers": 49, "final": [13129.8, 13152.3], "author_match": false}
+{"item": "rw_review", "variant": "g", "panel": "9.36c", "n_vers": 40, "final": [13129.8, 13152.3], "author_match": false}
+{"item": "rw_review", "variant": "base", "panel": "9.40a", "n_vers": 35, "final": [13200.7, 13222.0], "author_match": false}
+{"item": "rw_review", "variant": "e", "panel": "9.40a", "n_vers": 35, "final": [13200.7, 13222.0], "author_match": false}
+{"item": "rw_review", "variant": "g", "panel": "9.40a", "n_vers": 29, "final": [13200.7, 13222.0], "author_match": false}
+{"item": "rw_review", "variant": "base", "panel": "9.42b", "n_vers": 29, "final": [13157.2, 13188.7], "author_match": false}
+{"item": "rw_review", "variant": "e", "panel": "9.42b", "n_vers": 29, "final": [13157.2, 13188.7], "author_match": false}
+{"item": "rw_review", "variant": "g", "panel": "9.42b", "n_vers": 21, "final": [13157.2, 13188.7], "author_match": false}
+{"item": "rw_review", "variant": "base", "panel": "9.48b", "n_vers": 31, "final": [13011.6, 13020.8], "author_match": false}
+{"item": "rw_review", "variant": "e", "panel": "9.48b", "n_vers": 31, "final": [13011.6, 13020.8], "author_match": false}
+{"item": "rw_review", "variant": "g", "panel": "9.48b", "n_vers": 27, "final": [13011.6, 13020.8], "author_match": false}
+{"item": "rw_review", "variant": "base", "panel": "9.52a", "n_vers": 5, "final": [12917.5, 12927.7], "author_match": false}
+{"item": "rw_review", "variant": "e", "panel": "9.52a", "n_vers": 5, "final": [12920.9, 12927.7], "author_match": false}
+{"item": "rw_review", "variant": "g", "panel": "9.52a", "n_vers": 5, "final": [12917.5, 12927.7], "author_match": false}
+{"item": "rw_review", "variant": "base", "panel": "9.57b", "n_vers": 28, "final": [12672.7, 12702.1], "author_match": false}
+{"item": "rw_review", "variant": "e", "panel": "9.57b", "n_vers": 28, "final": [12672.7, 12698.8], "author_match": false}
+{"item": "rw_review", "variant": "g", "panel": "9.57b", "n_vers": 21, "final": [12672.7, 12702.1], "author_match": false}

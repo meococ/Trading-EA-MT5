@@ -1,0 +1,3 @@
+panels: 179 | baseline <=5.0: 101 | baseline hits: 83
+sim(ii): <=5.0=109 (delta +8) | hits lost=3 [('9.17a', 2), ('9.1a', 0), ('9.55a', 1)]
+sim(iii): <=5.0=104 (delta +3) | hits lost=3 [('9.51a', 1), ('9.61c', 0), ('9.66c', 0)]

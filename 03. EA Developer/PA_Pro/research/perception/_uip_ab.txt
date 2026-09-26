@@ -1,0 +1,52 @@
+engine hash 6d9557837a66f462 (one hash for every arm)
+arm evb_off ...
+
+=== arm evb_off ===
+  BAR_MARKER     cum   0/4   = 0.000   snap   0/4   = 0.000
+  BOX            cum  11/108 = 0.102   snap  10/106 = 0.094
+  BRACKET        cum  34/85  = 0.400   snap  31/85  = 0.365
+  CONTEXT_LINE   cum   3/9   = 0.333   snap   3/9   = 0.333
+  CONTEXT_RANGE  cum   0/6   = 0.000   snap   0/6   = 0.000
+  LEVEL_CARRIED  cum  10/48  = 0.208   snap   7/46  = 0.152
+  MINI_LEVEL     cum   2/31  = 0.065   snap   2/30  = 0.067
+  PATTERN_LINE   cum  21/184 = 0.114   snap  20/184 = 0.109
+  RANGE_OPEN     cum   2/8   = 0.250   snap   1/7   = 0.143
+  SQUEEZE        cum   0/2   = 0.000   snap   0/2   = 0.000
+  LABEL_TF agreement 2/51
+  births: {'PATTERN_LINE': 897, 'LEVEL_CARRIED': 482, 'MINI_LEVEL': 375, 'BRACKET': 364, 'LABEL_TF': 359, 'BOX': 309, 'CONTEXT_LINE': 200, 'RANGE_OPEN': 198, 'CONTEXT_RANGE': 195, 'SQUEEZE': 38}
+  engine objs: {'PATTERN_LINE': 460, 'LEVEL_CARRIED': 323, 'BRACKET': 294, 'BOX': 247, 'CONTEXT_RANGE': 160, 'MINI_LEVEL': 127, 'CONTEXT_LINE': 107, 'SQUEEZE': 10, 'RANGE_OPEN': 9}
+  live clutter@tau med 7.00 | ratio med 3.500 p90 9.000
+arm uip_on ...
+
+=== arm uip_on ===
+  BAR_MARKER     cum   0/4   = 0.000   snap   0/4   = 0.000
+  BOX            cum  13/108 = 0.120   snap  12/106 = 0.113
+  BRACKET        cum  34/85  = 0.400   snap  31/85  = 0.365
+  CONTEXT_LINE   cum   3/9   = 0.333   snap   3/9   = 0.333
+  CONTEXT_RANGE  cum   1/6   = 0.167   snap   1/6   = 0.167
+  LEVEL_CARRIED  cum  11/48  = 0.229   snap   4/46  = 0.087
+  MINI_LEVEL     cum   1/31  = 0.032   snap   1/30  = 0.033
+  PATTERN_LINE   cum  23/184 = 0.125   snap  22/184 = 0.120
+  RANGE_OPEN     cum   1/8   = 0.125   snap   1/7   = 0.143
+  SQUEEZE        cum   0/2   = 0.000   snap   0/2   = 0.000
+  LABEL_TF agreement 1/51
+  births: {'PATTERN_LINE': 887, 'BOX': 489, 'LEVEL_CARRIED': 484, 'LABEL_TF': 381, 'MINI_LEVEL': 375, 'BRACKET': 369, 'CONTEXT_LINE': 199, 'RANGE_OPEN': 198, 'CONTEXT_RANGE': 192, 'SQUEEZE': 65}
+  engine objs: {'PATTERN_LINE': 462, 'BOX': 443, 'LEVEL_CARRIED': 314, 'BRACKET': 296, 'CONTEXT_RANGE': 152, 'MINI_LEVEL': 137, 'CONTEXT_LINE': 108, 'SQUEEZE': 19, 'RANGE_OPEN': 6}
+  live clutter@tau med 8.00 | ratio med 3.667 p90 10.000
+arm uip2_on ...
+
+=== arm uip2_on ===
+  BAR_MARKER     cum   0/4   = 0.000   snap   0/4   = 0.000
+  BOX            cum  14/108 = 0.130   snap  20/106 = 0.189
+  BRACKET        cum  34/85  = 0.400   snap  31/85  = 0.365
+  CONTEXT_LINE   cum   3/9   = 0.333   snap   3/9   = 0.333
+  CONTEXT_RANGE  cum   2/6   = 0.333   snap   2/6   = 0.333
+  LEVEL_CARRIED  cum  12/48  = 0.250   snap   4/46  = 0.087
+  MINI_LEVEL     cum   1/31  = 0.032   snap   2/30  = 0.067
+  PATTERN_LINE   cum  25/184 = 0.136   snap  24/184 = 0.130
+  RANGE_OPEN     cum   1/8   = 0.125   snap   1/7   = 0.143
+  SQUEEZE        cum   0/2   = 0.000   snap   0/2   = 0.000
+  LABEL_TF agreement 1/51
+  births: {'PATTERN_LINE': 898, 'LEVEL_CARRIED': 482, 'LABEL_TF': 377, 'MINI_LEVEL': 374, 'BRACKET': 370, 'BOX': 342, 'RANGE_OPEN': 198, 'CONTEXT_LINE': 197, 'CONTEXT_RANGE': 189, 'SQUEEZE': 78}
+  engine objs: {'BOX': 485, 'PATTERN_LINE': 476, 'LEVEL_CARRIED': 315, 'BRACKET': 297, 'CONTEXT_RANGE': 149, 'MINI_LEVEL': 135, 'CONTEXT_LINE': 115, 'SQUEEZE': 25, 'RANGE_OPEN': 8}
+  live clutter@tau med 9.00 | ratio med 4.000 p90 9.000

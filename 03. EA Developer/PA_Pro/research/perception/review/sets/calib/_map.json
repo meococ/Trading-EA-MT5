@@ -1,0 +1,30 @@
+{
+ "seed": 20260923,
+ "note": "p099-p102 re-rendered blind for G-REVIEW calibration (R80 s80.6); truth stays in the sealed key, never here.",
+ "mapping": {
+  "calib_1": {
+   "seq": "p102",
+   "panel": "9.46a",
+   "tau": 630,
+   "kind": "BOX"
+  },
+  "calib_2": {
+   "seq": "p100",
+   "panel": "9.34b",
+   "tau": 655,
+   "kind": "BOX"
+  },
+  "calib_3": {
+   "seq": "p099",
+   "panel": "9.1a",
+   "tau": 480,
+   "kind": "BOX"
+  },
+  "calib_4": {
+   "seq": "p101",
+   "panel": "9.30c",
+   "tau": 945,
+   "kind": "BRACKET"
+  }
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "panel": "9.62a",
+ "objects": [
+  {
+   "type": "level",
+   "t0": 590,
+   "t1": 600,
+   "p0": 1.25841,
+   "why": "triple top 09:50-10:00, new ceiling"
+  },
+  {
+   "type": "box",
+   "t0": 565,
+   "t1": 585,
+   "p_top": 1.25774,
+   "p_bot": 1.25695,
+   "why": "prior flag block, now support below"
+  }
+ ],
+ "note": "Strong uptrend; bear bar rejects 1.2584 ceiling, back to prior block top."
+}

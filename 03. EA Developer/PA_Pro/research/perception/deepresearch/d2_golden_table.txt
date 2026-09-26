@@ -1,0 +1,822 @@
+====================================================================================================
+9.1c  2012-03-01  win[720-1080] tau=795 j_tau=155 abr=7.9  box BOX 13317.0-13332.0  drawn 695-830  build None-795
+  clause: - a rectangle, ~11:35–13:50, at 1.3317–1.3332 [meas 15 pips]
+  lesson: a late M on a rising line breaks toward a round number about 20 pips away. Nearness to lunch is weighed against the volatility still left.
+  mark t=1075 (tau280) dir=down : @ pbc down-arrow ~17:55
+  mark t=None (tauNone) dir=None : SESS:lunch
+  n_avail=45 n_match=2
+====================================================================================================
+9.2a  2012-03-02  win[240-600] tau=250 j_tau=46 abr=3.5  box BOX 13295.0-13307.0  drawn 230-535  build 240-250
+  clause: - a long rectangle, ~03:50–08:55, at ≈1.3295–1.3307 [meas ≈10–12 pips], straddling 1,33
+  lesson: the Asian box around 1.33 breaks at the EU open after the bulls fail at its top. Leaving a round number is marked bold.
+  mark t=480 (tau230) dir=down : @ pbc down-arrow on the 08:00 bar, with an E
+  mark t=None (tauNone) dir=None : SESS:EU-open
+  n_avail=12 n_match=0
+====================================================================================================
+9.2b  2012-03-02  win[480-840] tau=765 j_tau=149 abr=7.1  box BOX 13239.0-13261.0  drawn 580-810  build None-765
+  clause: - a rectangle, ~09:40–13:30, at ≈1.3239–1.3261, straddling 1,325
+  lesson: inside a falling box, repeated false highs at EMA25 set up the entries. One bar can be both pr and tff.
+  mark t=695 (tau-70) dir=down : pr / tff down-arrow ~11:35
+    - @ pr down-arrow ~12:45
+  n_avail=40 n_match=3
+====================================================================================================
+9.2b  2012-03-02  win[480-840] tau=835 j_tau=163 abr=6.7  box BOX 13212.0-13225.0  drawn 770-855  build 780-835
+  clause: a second rectangle, ~12:50–14:15, at ≈1.3212–1.3225
+  lesson: inside a falling box, repeated false highs at EMA25 set up the entries. One bar can be both pr and tff.
+  mark t=695 (tau-140) dir=down : pr / tff down-arrow ~11:35
+    - @ pr down-arrow ~12:45
+  n_avail=43 n_match=1
+====================================================================================================
+9.2c  2012-03-02  win[720-1080] tau=780 j_tau=152 abr=7.3  box BOX 13222.0-13238.0  drawn 770-965  build None-780
+  clause: a rectangle, ~12:50–16:05, at ≈1.3222–1.3238, just above 1,32
+  lesson: a failed upside break gives a tff down to the round number. The fight that follows at 1.32 is left alone.
+  mark t=935 (tau155) dir=down : tff down-arrow ~15:35
+  n_avail=40 n_match=0
+====================================================================================================
+9.3b  2012-03-05  win[540-900] tau=745 j_tau=145 abr=8.3  box BOX 13183.0-13196.0  drawn 730-825  build None-745
+  clause: - a rectangle, ~12:10–13:45, at ≈1.3183–1.3196 under the EMA
+  lesson: a good structure (Ww plus a false low) is still skipped when the signal bar has the wrong colour.
+  n_avail=44 n_match=5
+====================================================================================================
+9.4b  2012-03-06  win[540-900] tau=815 j_tau=159 abr=7.4  box BOX 13131.0-13150.0  drawn 660-905  build 675-815
+  clause: a rectangle, ~11:00–15:05, at 1.3131–1.3150 [meas 19 pips]
+  lesson: an M built just above a box top is a failed break (tff). The exit is set at the next range edge below.
+  mark t=860 (tau45) dir=down : tff down-arrow ~14:20
+    - caption: an M with two eve
+  n_avail=44 n_match=1
+====================================================================================================
+9.4b  2012-03-06  win[540-900] tau=855 j_tau=167 abr=7.4  box BOX 13144.7-13155.7  drawn 820-855  build None-855
+  clause: an M bracket above the box top, ~13:40–14:15
+  lesson: an M built just above a box top is a failed break (tff). The exit is set at the next range edge below.
+  mark t=860 (tau5) dir=down : tff down-arrow ~14:20
+    - caption: an M with two eve
+  n_avail=47 n_match=2
+====================================================================================================
+9.4b  2012-03-06  win[540-900] tau=890 j_tau=174 abr=7.5  box RANGE_OPEN 13112.0-13133.0  drawn 880-900  build 885-885
+  clause: a small box open to the right from ~14:40, at ≈1.3112–1.3133 (a new range below)
+  lesson: an M built just above a box top is a failed break (tff). The exit is set at the next range edge below.
+  mark t=860 (tau-30) dir=down : tff down-arrow ~14:20
+    - caption: an M with two eve
+  n_avail=49 n_match=0
+====================================================================================================
+9.6a  2012-03-08  win[240-600] tau=600 j_tau=116 abr=5.1  box BOX 13167.0-13185.0  drawn 355-630  build None-605
+  clause: - a large rectangle, ~05:55–10:30, at ≈1.3167–1.3185 [meas ≈18 pips]
+  lesson: a box teased on both sides breaks out of its small inner squeeze in the direction of the prevailing pressure.
+  mark t=610 (tau10) dir=up : pb up-arrow ~10:10
+    - caption: the bulls still h
+  mark t=None (tauNone) dir=None : pressure
+  n_avail=30 n_match=3
+====================================================================================================
+9.6a  2012-03-08  win[240-600] tau=565 j_tau=109 abr=4.7  box BOX 13173.0-13179.0  drawn 565-610  build None-565
+  clause: a small inner rectangle, ~09:25–10:10, at ≈1.3173–1.3179
+  lesson: a box teased on both sides breaks out of its small inner squeeze in the direction of the prevailing pressure.
+  mark t=610 (tau45) dir=up : pb up-arrow ~10:10
+    - caption: the bulls still h
+  mark t=None (tauNone) dir=None : pressure
+  n_avail=27 n_match=2
+====================================================================================================
+9.7a  2012-03-09  win[300-660] tau=580 j_tau=112 abr=6.4  box BOX 13228.0-13240.0  drawn 580-695  build None-580
+  clause: a rectangle, ~09:40–11:35, at ≈1.3228–1.3240 [meas ≈11 pips], with a W bracket under it
+  lesson: Asian-session breaks are acknowledged but not traded. The EU-session flag break after a false high is traded.
+  mark t=500 (tau-80) dir=down : pb / pr down-arrow ~08:20
+  n_avail=35 n_match=0
+====================================================================================================
+9.7b  2012-03-09  win[480-840] tau=540 j_tau=104 abr=5.6  box BOX 13222.0-13239.0  drawn 515-865  build None-540
+  clause: a long rectangle, ~08:35–14:25, at ≈1.3222–1.3239 (the day's range)
+  lesson: a 6-hour box stays the frame. False highs in the squeeze at its bottom come before the pb.
+  mark t=835 (tau295) dir=down : pb down-arrow ~13:55
+    - a sharp drop follows at ~1
+  mark t=None (tauNone) dir=None : SESS:news
+  n_avail=32 n_match=3
+====================================================================================================
+9.8b  2012-03-12  win[480-840] tau=600 j_tau=116 abr=6.0  box BOX 13092.0-13114.0  drawn 450-690  build None-600
+  clause: a rectangle, ~07:30–11:30, at 1.3092–1.3114 [meas 21.7 pips], kept ~1.5 h past the break
+  lesson: a break with no build-up is labelled false even though it ran well above the box. The return to EMA is not bought.
+  n_avail=36 n_match=2
+====================================================================================================
+9.8c  2012-03-12  win[600-1080] tau=805 j_tau=157 abr=6.3  box BOX 13104.0-13132.0  drawn 600-1010  build None-805
+  clause: a large rectangle, ~10:00–16:50, at 1.3104–1.3132 [meas 29 pips]
+  lesson: even an unclear box is drawn. After a false break and a tease at the top, the squeeze under the edge gives the proper break toward the 50 level.
+  mark t=1010 (tau205) dir=up : pb up-arrow ~16:50
+    - magnet callout → 1,315
+  n_avail=48 n_match=0
+====================================================================================================
+9.10a  2012-03-14  win[300-660] tau=580 j_tau=111 abr=6.2  box BOX 13034.0-13050.0  drawn 390-670  build 415-580
+  clause: - a rectangle, ~06:30–11:10, at 1.3034–1.3050 [meas 16 pips]
+  lesson: a box pinned under a 50 level and broken by an oversized bar is not traded.
+  n_avail=33 n_match=2
+====================================================================================================
+9.10a  2012-03-14  win[300-660] tau=660 j_tau=127 abr=8.0  box BOX 13051.2-13071.9  drawn 610-675  build None-675
+  clause: a falling line, ~10:10→~11:15
+  lesson: a box pinned under a 50 level and broken by an oversized bar is not traded.
+  n_avail=37 n_match=0
+====================================================================================================
+9.10c  2012-03-14  win[720-1080] tau=980 j_tau=191 abr=8.6  box BOX 13013.0-13027.0  drawn 970-1075  build 975-980
+  clause: a rectangle, ~16:10–17:55, at 1.3013–1.3027 [meas 14 pips], with a W bracket
+  lesson: a no-trade day is annotated as carefully as a trading day, and every rejected setup gets a reason.
+  n_avail=56 n_match=0
+====================================================================================================
+9.11a  2012-03-15  win[300-660] tau=660 j_tau=128 abr=8.1  box CONTEXT_RANGE 13031.0-13067.0  drawn 445-660  build None-None
+  clause: from the ~07:25 breakout bar to the right edge, at ≈1.3031–1.3067 [meas ≈36 pips], centred on 1,305
+  lesson: inside a wide range, trades aim at the range edge or prior high. A light retest of the pattern line before the trigger improves quality.
+  mark t=595 (tau-65) dir=up : @ pbp up-arrow ~09:55
+    - T at the range t
+  mark t=None (tauNone) dir=None : prior high, if the target is not reached
+  n_avail=34 n_match=2
+====================================================================================================
+9.11c  2012-03-15  win[720-1080] tau=1070 j_tau=210 abr=7.2  box CONTEXT_RANGE 13040.5-13086.0  drawn 695-1070  build None-1070
+  clause: - the dotted range, ~11:35–17:50 (closed after price leaves)
+  lesson: once a flag builds above the range edge, the range break is expected and traded as a continuation.
+  mark t=925 (tau-145) dir=up : pbc up-arrow ~15:25
+    - pr / pb up-arrow
+  n_avail=57 n_match=0
+====================================================================================================
+9.12c  2012-03-16  win[780-1140] tau=1020 j_tau=200 abr=9.0  box BOX 13165.0-13176.0  drawn 995-1080  build None-1020
+  clause: a rectangle, ~16:35–18:00, at ≈1.3165–1.3176
+  lesson: a with-trend congestion is skipped because of where it sits: an old trend, a shallow pullback, an obstacle, and the time of day.
+  mark t=None (tauNone) dir=None : price must push through the block to the l
+  mark t=None (tauNone) dir=None : SESS:lunch
+  n_avail=54 n_match=0
+====================================================================================================
+9.13a  2012-03-19  win[180-540] tau=190 j_tau=34 abr=2.8  box BOX 13164.0-13176.0  drawn 165-580  build None-190
+  clause: - a long rectangle, ~02:45–09:40, at 1.3164–1.3176 [meas 12 pips] (Asia into the early EU session, ~7 h), drawn past the break
+  lesson: the failed upside poke fuels the downside break. The pbp doubles as a re-entry after a stop-out.
+  mark t=None (tauNone) dir=None : price cannot break a range one way, it set
+  mark t=515 (tau325) dir=down : pb down-arrow ~08:35
+    - pbp down-arrow ~08:55
+  n_avail=10 n_match=2
+====================================================================================================
+9.13a  2012-03-19  win[180-540] tau=505 j_tau=97 abr=3.2  box BOX 13164.0-13176.3  drawn 425-505  build None-None
+  clause: a rising line inside the box bottom, ~07:05→~08:25
+  lesson: the failed upside poke fuels the downside break. The pbp doubles as a re-entry after a stop-out.
+  mark t=None (tauNone) dir=None : price cannot break a range one way, it set
+  mark t=515 (tau10) dir=down : pb down-arrow ~08:35
+    - pbp down-arrow ~08:55
+  n_avail=34 n_match=13
+====================================================================================================
+9.13b  2012-03-19  win[480-840] tau=545 j_tau=105 abr=4.0  box BOX 13154.0-13165.0  drawn 525-655  build None-545
+  clause: a rectangle, ~08:50–10:55, at 1.3154–1.3165 [meas 10.7 pips], on the 1,315 level
+  lesson: a W on a round number stops the follow-through short. Both directions are skipped.
+  mark t=None (tauNone) dir=None : pressure is not strong enough to short whi
+  n_avail=38 n_match=0
+====================================================================================================
+9.14a  2012-03-20  win[120-540] tau=530 j_tau=102 abr=3.7  box RANGE_OPEN 13227.0-13241.0  drawn 520-540  build 525-525
+  clause: two open parallel horizontal lines: ≈1.3241
+  lesson: a range still forming is drawn as two lines. A short under a nearby ceiling plus EMA is skipped.
+  n_avail=34 n_match=18
+====================================================================================================
+9.14b  2012-03-20  win[480-840] tau=515 j_tau=99 abr=3.5  box BOX 13228.4-13240.9  drawn 435-515  build None-515
+  clause: - the range, now a closed rectangle, ~07:15–08:35
+  lesson: shorts right under the 00 zone and EMA are bold. He prefers entries after price has cleared the magnets.
+  mark t=615 (tau100) dir=down : @ tff / pr down-arrow ~10:15
+  mark t=775 (tau260) dir=down : @ pbc down-arrow ~12:55
+  mark t=None (tauNone) dir=None : price has left these magnets
+  n_avail=32 n_match=3
+====================================================================================================
+9.14b  2012-03-20  win[480-840] tau=615 j_tau=119 abr=5.4  box BOX 13224.0-13237.0  drawn 585-630  build 595-615
+  clause: a small rectangle, ~09:45–10:30, at 1.3224–1.3237 [meas 12.4 pips]
+  lesson: shorts right under the 00 zone and EMA are bold. He prefers entries after price has cleared the magnets.
+  mark t=615 (tau0) dir=down : @ tff / pr down-arrow ~10:15
+  mark t=775 (tau160) dir=down : @ pbc down-arrow ~12:55
+  mark t=None (tauNone) dir=None : price has left these magnets
+  n_avail=37 n_match=4
+====================================================================================================
+9.15b  2012-03-21  win[540-900] tau=900 j_tau=176 abr=6.8  box BOX 13212.0-13236.0  drawn 780-930  build 785-910
+  clause: a rectangle, ~13:00–15:30, at 1.3212–1.3236 [meas 24 pips]
+  lesson: a bold entry can survive a shake-out. The dotted inner line marks the flag inside the box.
+  mark t=895 (tau-5) dir=down : @ pbc down-arrow ~14:55
+  mark t=None (tauNone) dir=None : price back, though 1
+  n_avail=51 n_match=2
+====================================================================================================
+9.15b  2012-03-21  win[540-900] tau=895 j_tau=175 abr=6.8  box BOX 13216.7-13236.7  drawn 805-895  build None-895
+  clause: a W bracket below the box, ~13:25–14:55
+  lesson: a bold entry can survive a shake-out. The dotted inner line marks the flag inside the box.
+  mark t=895 (tau0) dir=down : @ pbc down-arrow ~14:55
+  mark t=None (tauNone) dir=None : price back, though 1
+  n_avail=51 n_match=1
+====================================================================================================
+9.15c  2012-03-21  win[780-1140] tau=980 j_tau=192 abr=8.4  box BOX 13186.0-13206.0  drawn 950-1060  build 955-980
+  clause: a rectangle, ~15:50–17:40, at 1.3186–1.3206 [meas 19.5 pips]
+  lesson: after a violent counter-spike, the failure short is put off.
+  mark t=None (tauNone) dir=up : preceding up-wave was too strong
+  n_avail=53 n_match=0
+====================================================================================================
+9.16b  2012-03-22  win[480-840] tau=625 j_tau=121 abr=7.7  box BOX 13141.0-13165.0  drawn 515-865  build 570-625
+  clause: a large rectangle, ~08:35–14:25, at ≈1.3141–1.3165 (the floor of the post-drop range
+  lesson: a strength bar against the trend lowers quality but does not veto a failure short in a clear downtrend.
+  mark t=855 (tau230) dir=down : @ tff down-arrow ~14:15
+  n_avail=29 n_match=0
+====================================================================================================
+9.16c  2012-03-22  win[720-1080] tau=1035 j_tau=203 abr=8.6  box BOX 13145.1-13199.8  drawn 670-1035  build None-1035
+  clause: - a rectangle, ~11:10–17:15 (the same range)
+  lesson: a Ww with a false low ends the down-move, and the break of the dotted roof is the long.
+  mark t=980 (tau-55) dir=down : pb up-arrow ~16:20
+    - skip down-arrow ~18:05
+  n_avail=57 n_match=0
+====================================================================================================
+9.16c  2012-03-22  win[720-1080] tau=1070 j_tau=210 abr=8.0  box BOX 13188.0-13202.0  drawn 990-1085  build 1000-1070
+  clause: a rectangle, ~16:30–18:05, at ≈1.3188–1.3202
+  lesson: a Ww with a false low ends the down-move, and the break of the dotted roof is the long.
+  mark t=980 (tau-90) dir=down : pb up-arrow ~16:20
+    - skip down-arrow ~18:05
+  n_avail=58 n_match=2
+====================================================================================================
+9.17a  2012-03-23  win[240-600] tau=475 j_tau=91 abr=3.0  box BOX 13191.0-13200.0  drawn 385-500  build None-475
+  clause: a rectangle, ~06:25–08:20, at 1.3191–1.3200 [meas 8 pips]
+  lesson: a tiny inverse-H&S box under a round number breaks up at the EU open.
+  mark t=480 (tau5) dir=up : pb up-arrow ~08:00
+    - caption: at the EU open, p
+  mark t=None (tauNone) dir=None : SESS:EU open
+  n_avail=36 n_match=2
+====================================================================================================
+9.17b  2012-03-23  win[420-780] tau=705 j_tau=137 abr=8.0  box BOX 13244.0-13251.0  drawn 660-720  build 675-705
+  clause: a rectangle, ~11:00–12:00, at ≈1.3244–1.3251 [meas ≈7 pips]
+  lesson: the W base at a 50% pullback gives the pb, and its exit is the dashed old high.
+  mark t=810 (tau105) dir=up : pb up-arrow ~13:30
+    - caption: exit at resistanc
+  n_avail=47 n_match=1
+====================================================================================================
+9.17b  2012-03-23  win[420-780] tau=775 j_tau=151 abr=8.1  box BOX 13230.0-13242.0  drawn 735-830  build 740-775
+  clause: a rectangle, ~12:15–13:50, at ≈1.3230–1.3242
+  lesson: the W base at a 50% pullback gives the pb, and its exit is the dashed old high.
+  mark t=810 (tau35) dir=up : pb up-arrow ~13:30
+    - caption: exit at resistanc
+  n_avail=49 n_match=0
+====================================================================================================
+9.17c  2012-03-23  win[720-1080] tau=830 j_tau=162 abr=7.5  box BOX 13222.4-13251.7  drawn 735-830  build None-830
+  clause: the W-congestion rectangle, ~12:15–13:50
+  lesson: a burst of very long bars ends structure reading for the rest of the session.
+  n_avail=51 n_match=0
+====================================================================================================
+9.18a  2012-03-26  win[240-660] tau=515 j_tau=99 abr=3.5  box BOX 13250.0-13263.0  drawn 370-520  build None-515
+  clause: - a rectangle, ~06:10–08:40, at ≈1.3250–1.3263
+  lesson: a second break at the reversal area confirms the short. A weak W against the position is ignored.
+  mark t=505 (tau-10) dir=down : pb / tff down-arrow ~08:25
+    - ceiling-test arrow ~08:55
+  mark t=560 (tau45) dir=down : pr down-arrow ~09:20
+  mark t=None (tauNone) dir=None : SESS:EU-open
+  mark t=None (tauNone) dir=None : SESS:UK-open
+  n_avail=30 n_match=6
+====================================================================================================
+9.18a  2012-03-26  win[240-660] tau=660 j_tau=128 abr=7.0  box BOX 13196.0-13210.0  drawn 645-680  build None-None
+  clause: a rectangle, ~10:45–11:20, at ≈1.3196–1.3210 (on 1,32)
+  lesson: a second break at the reversal area confirms the short. A weak W against the position is ignored.
+  mark t=505 (tau-155) dir=down : pb / tff down-arrow ~08:25
+    - ceiling-test arrow ~08:55
+  mark t=560 (tau-100) dir=down : pr down-arrow ~09:20
+  mark t=None (tauNone) dir=None : SESS:EU-open
+  mark t=None (tauNone) dir=None : SESS:UK-open
+  n_avail=39 n_match=0
+====================================================================================================
+9.18b  2012-03-26  win[480-840] tau=635 j_tau=123 abr=6.2  box BOX 13192.0-13209.0  drawn 625-725  build 635-635
+  clause: a rectangle, ~10:25–12:05, at 1.3192–1.3209 [meas 17 pips] (a base on 1,32)
+  lesson: once a box has broken up, shorts back into it are not taken.
+  n_avail=38 n_match=0
+====================================================================================================
+9.19a  2012-03-27  win[240-600] tau=560 j_tau=108 abr=3.7  box BOX 13317.0-13331.0  drawn 540-605  build 555-560
+  clause: a rectangle, ~09:00–10:05, at ≈1.3317–1.3331
+  lesson: a combi against the position at a round number is itself the reversal-exit trigger.
+  n_avail=29 n_match=0
+====================================================================================================
+9.19b  2012-03-27  win[480-840] tau=840 j_tau=163 abr=6.2  box BOX 13330.7-13341.2  drawn 820-840  build None-840
+  clause: a long-dashed horizontal from the box top ≈1.3327 to ~13:40
+  lesson: the short's exit is drawn in advance at the old box top.
+  mark t=775 (tau-65) dir=down : pb down-arrow ~12:55
+    - caption: exit at the dashe
+  n_avail=44 n_match=0
+====================================================================================================
+9.20a  2012-03-28  win[180-540] tau=535 j_tau=102 abr=3.6  box BOX 13319.0-13338.0  drawn 140-575  build None-535
+  clause: a long rectangle, ~02:20–09:35, at 1.3319–1.3338 [meas 19 pips]
+  lesson: T and F are information only; the eventual break came after both.
+  n_avail=36 n_match=1
+====================================================================================================
+9.20b  2012-03-28  win[420-840] tau=605 j_tau=116 abr=5.3  box BOX 13350.0-13368.0  drawn 560-655  build 570-605
+  clause: a rectangle, ~09:20–10:55, at ≈1.3350–1.3368
+  lesson: stacked boxes around a round number mean a battle, and everything is skipped.
+  n_avail=38 n_match=0
+====================================================================================================
+9.20b  2012-03-28  win[420-840] tau=715 j_tau=138 abr=7.5  box CONTEXT_RANGE 13337.0-13352.0  drawn 620-715  build 645-685
+  clause: a rectangle, ~10:20–11:55, at 1.3337–1.3352 [meas 16 pips], with a DOTTED rising line inside
+  lesson: stacked boxes around a round number mean a battle, and everything is skipped.
+  n_avail=43 n_match=0
+====================================================================================================
+9.20c  2012-03-28  win[720-1080] tau=1080 j_tau=211 abr=7.7  box CONTEXT_RANGE 13312.0-13322.0  drawn 985-1110  build None-None
+  clause: a rectangle, ~16:25–18:30, at ≈1.3312–1.3322, with a DOTTED rising line inside
+  lesson: a steep pullback into the EMA gives the pr. The base under 1.33 that follows is not shorted.
+  mark t=940 (tau-140) dir=down : pr down-arrow ~15:40
+  n_avail=67 n_match=1
+====================================================================================================
+9.22a  2012-03-30  win[240-600] tau=600 j_tau=116 abr=6.9  box BOX 13320.0-13335.0  drawn 600-640  build 615-635
+  clause: a small rectangle at the chart edge, ~10:00–10:40, at ≈1.3320–1.3335
+  lesson: an Mm on a rising line breaks down.
+  mark t=600 (tau0) dir=down : pb down-arrow ~10:00
+  n_avail=39 n_match=0
+====================================================================================================
+9.22b  2012-03-30  win[480-840] tau=640 j_tau=124 abr=7.7  box BOX 13321.0-13338.0  drawn 601-715  build 615-640
+  clause: the W-base rectangle, ~10:00–11:55, at 1.3321–1.3338 [meas ≈16 pips], with a W bracket
+  lesson: too little room to the next round number (under 20 pips) is a reason to skip.
+  n_avail=40 n_match=0
+====================================================================================================
+9.22c  2012-03-30  win[660-1080] tau=1010 j_tau=198 abr=8.0  box BOX 13318.0-13331.0  drawn 985-1085  build 990-1010
+  clause: a rectangle, ~16:25–18:05, at 1.3318–1.3331 [meas 13 pips]
+  lesson: the break of a 6-hour line on an oversized bar is skipped.
+  n_avail=63 n_match=0
+====================================================================================================
+9.23c  2012-04-02  win[720-1080] tau=985 j_tau=193 abr=6.8  box BOX 13292.0-13305.0  drawn 890-1055  build 940-985
+  clause: a rectangle, ~14:50–17:35, at ≈1.3292–1.3305
+  lesson: a long out of the base is skipped because it would run straight into the dashed resistance.
+  n_avail=61 n_match=0
+====================================================================================================
+9.24a  2012-04-03  win[360-720] tau=720 j_tau=140 abr=6.8  box CONTEXT_RANGE 13331.0-13353.0  drawn 320-720  build None-690
+  clause: - a DOTTED range rectangle from ~05:20 to the right edge, at ≈1.3331–1.3353 [meas ≈21 pips]
+  lesson: a W on a context range's floor gives a long toward its top. The spike beyond the top and its collapse call for the reversal exit.
+  mark t=665 (tau-55) dir=up : @ pbc up-arrow ~11:05
+    - caption: close a
+  n_avail=44 n_match=2
+====================================================================================================
+9.24b  2012-04-03  win[480-840] tau=820 j_tau=160 abr=6.4  box CONTEXT_RANGE 13328.9-13354.5  drawn 450-820  build None-690
+  clause: - the dotted range, ~07:30–13:40 (closed)
+  lesson: an SHS inside a range breaks down. A nearby range edge is not a veto under strong pressure.
+  mark t=790 (tau-30) dir=down : pb down-arrow ~13:10
+    - caption: with the bears in
+  n_avail=52 n_match=4
+====================================================================================================
+9.24b  2012-04-03  win[480-840] tau=825 j_tau=161 abr=6.4  box BOX 13311.2-13311.6  drawn 625-850  build 825-825
+  clause: a long rising line inside the box, ~10:25→~14:10
+  lesson: an SHS inside a range breaks down. A nearby range edge is not a veto under strong pressure.
+  mark t=790 (tau-35) dir=down : pb down-arrow ~13:10
+    - caption: with the bears in
+  n_avail=52 n_match=0
+====================================================================================================
+9.24c  2012-04-03  win[720-1140] tau=1015 j_tau=199 abr=6.9  box BOX 13306.5-13345.8  drawn 985-1015  build None-1015
+  clause: short horizontals forming a combi box, ~16:25–16:55
+  lesson: a W bottom is recognised early, but no long is taken until the turn has happened.
+  n_avail=62 n_match=0
+====================================================================================================
+9.25b  2012-04-04  win[420-840] tau=775 j_tau=150 abr=7.2  box BOX 13161.0-13175.0  drawn 635-785  build 645-775
+  clause: a rectangle, ~10:35–13:05, at 1.3161–1.3175 [meas 14 pips], under a falling EMA
+  lesson: a clean box break in a downtrend is skipped close to the ECB decision.
+  mark t=None (tauNone) dir=None : SESS:ECB
+  n_avail=43 n_match=3
+====================================================================================================
+9.27a  2012-04-06  win[240-600] tau=600 j_tau=116 abr=2.5  box BOX 13062.0-13078.0  drawn 465-600  build None-None
+  clause: a rectangle from ~07:45 to the right edge, at 1.3062–1.3078 [meas 16 pips]. The Asian bars are dead flat and not boxed
+  lesson: 
+  n_avail=43 n_match=0
+====================================================================================================
+9.29b  2012-04-10  win[420-840] tau=705 j_tau=137 abr=7.3  box RANGE_OPEN 13064.0-13087.0  drawn 695-840  build None-830
+  clause: a rectangle open to the right, starting at ~11:35, at ≈1.3064–1.3087
+  lesson: 
+  mark t=825 (tau120) dir=up : @ pb up-arrow ~13:45
+  n_avail=31 n_match=0
+====================================================================================================
+9.30a  2012-04-11  win[180-600] tau=430 j_tau=82 abr=3.7  box BOX 13076.0-13097.0  drawn 205-600  build None-430
+  clause: - a large rectangle from ~03:25 to the right edge, at 1.3076–1.3097 [meas 20.5 pips]
+  lesson: 
+  mark t=480 (tau50) dir=up : @ pbp up-arrow ~08:00
+    - caption: unpleas
+  n_avail=29 n_match=0
+====================================================================================================
+9.30c  2012-04-11  win[720-1080] tau=880 j_tau=172 abr=8.9  box BOX 13119.0-13131.0  drawn 845-945  build 855-880
+  clause: a rectangle, ~14:05–15:45, at ≈1.3119–1.3131
+  lesson: 
+  mark t=925 (tau45) dir=up : pbc up-arrow ~15:25
+    - caption: close a
+  n_avail=54 n_match=2
+====================================================================================================
+9.31c  2012-04-12  win[720-1140] tau=950 j_tau=186 abr=8.5  box BOX 13163.0-13175.0  drawn 935-1075  build 940-950
+  clause: a rectangle, ~15:35–17:55, at ≈1.3163–1.3175
+  lesson: 
+  mark t=None (tauNone) dir=None : SESS:lunch
+  n_avail=61 n_match=0
+====================================================================================================
+9.32a  2012-04-13  win[180-600] tau=478 j_tau=91 abr=3.8  box BOX 13166.0-13176.0  drawn 220-478  build 240-None
+  clause: - a rectangle, ~03:40–08:00, at 1.3166–1.3176 [meas 10 pips]
+  lesson: 
+  mark t=505 (tau27) dir=down : pb down-arrow ~08:25
+    - shake-out caption ~08:45
+  mark t=None (tauNone) dir=None : SESS:UK-open
+  n_avail=25 n_match=4
+====================================================================================================
+9.32a  2012-04-13  win[180-600] tau=510 j_tau=98 abr=3.5  box BOX 13163.0-13170.9  drawn 485-510  build None-510
+  clause: a short dashed horizontal at the box floor, ~08:05–08:30
+  lesson: 
+  mark t=505 (tau-5) dir=down : pb down-arrow ~08:25
+    - shake-out caption ~08:45
+  mark t=None (tauNone) dir=None : SESS:UK-open
+  n_avail=27 n_match=1
+====================================================================================================
+9.32b  2012-04-13  win[480-840] tau=735 j_tau=143 abr=6.8  box BOX 13143.0-13159.0  drawn 635-775  build None-735
+  clause: a rectangle, ~10:35–12:55, at 1.3143–1.3159 [meas 16 pips]
+  lesson: 
+  n_avail=39 n_match=1
+====================================================================================================
+9.33c  2012-04-16  win[720-1140] tau=1055 j_tau=207 abr=7.7  box BOX 13061.0-13076.0  drawn 1000-1140  build 1005-1055
+  clause: a rectangle from ~16:40 to the right edge, at 1.3061–1.3076 [meas 14 pips]
+  lesson: 
+  mark t=870 (tau-185) dir=up : @ pbp up-arrow ~14:30
+    - skip up-arrow ~1
+  mark t=985 (tau-70) dir=up : @ pr up-arrow ~16:25
+    - an up-arrow labelled with
+  mark t=None (tauNone) dir=None : pressure from the opposing magnet, EMA25
+  mark t=None (tauNone) dir=None : SESS:lunch
+  n_avail=66 n_match=0
+====================================================================================================
+9.34a  2012-04-17  win[240-600] tau=465 j_tau=89 abr=3.3  box BOX 13107.0-13129.0  drawn 215-650  build None-465
+  clause: - a long rectangle, ~03:35–10:50, at 1.3107–1.3129 [meas 21.6 pips], kept after the break-down and return
+  lesson: 
+  mark t=505 (tau40) dir=down : @ pb down-arrow ~08:25
+  mark t=None (tauNone) dir=None : SESS:UK open
+  mark t=None (tauNone) dir=None : SESS:UK-open
+  n_avail=20 n_match=0
+====================================================================================================
+9.34a  2012-04-17  win[240-600] tau=495 j_tau=95 abr=3.5  box BOX 13102.1-13112.0  drawn 465-495  build 470-495
+  clause: a short horizontal at the box floor, ~07:45–08:15, with a short continuation
+  lesson: 
+  mark t=505 (tau10) dir=down : @ pb down-arrow ~08:25
+  mark t=None (tauNone) dir=None : SESS:UK open
+  mark t=None (tauNone) dir=None : SESS:UK-open
+  n_avail=22 n_match=0
+====================================================================================================
+9.34b  2012-04-17  win[480-840] tau=655 j_tau=127 abr=6.6  box BOX 13089.9-13145.9  drawn 450-715  build None-655
+  clause: - a solid horizontal at the old box top, ~07:30→~11:55
+  lesson: 
+  mark t=None (tauNone) dir=None : SESS:lunch
+  n_avail=28 n_match=0
+====================================================================================================
+9.35a  2012-04-18  win[180-600] tau=260 j_tau=48 abr=3.7  box BOX 13115.0-13130.0  drawn 185-600  build None-260
+  clause: - a long rectangle from ~03:05 to the right edge, at 1.3115–1.3130 [meas 14.8 pips]
+  lesson: 
+  n_avail=11 n_match=0
+====================================================================================================
+9.35a  2012-04-18  win[180-600] tau=595 j_tau=115 abr=5.3  box BOX 13101.0-13110.0  drawn 550-623  build 580-595
+  clause: a small rectangle, ~09:10–10:15, at ≈1.3101–1.3110, with a rising line inside it
+  lesson: 
+  n_avail=31 n_match=0
+====================================================================================================
+9.36b  2012-04-19  win[480-840] tau=560 j_tau=108 abr=4.5  box BOX 13108.8-13127.0  drawn 465-610  build None-560
+  clause: - the range as a closed rectangle, ~07:45–10:10
+  lesson: 
+  n_avail=41 n_match=13
+====================================================================================================
+9.36b  2012-04-19  win[480-840] tau=645 j_tau=125 abr=7.4  box BOX 13136.0-13143.0  drawn 640-730  build 645-645
+  clause: a rectangle, ~10:40–12:10, at ≈1.3136–1.3143, with a Ww bracket
+  lesson: 
+  n_avail=47 n_match=1
+====================================================================================================
+9.37b  2012-04-20  win[420-840] tau=645 j_tau=125 abr=6.5  box BOX 13128.6-13178.5  drawn 560-645  build None-645
+  clause: a steep rising line from the ~09:20 low at the box floor to ~10:45
+  lesson: 
+  mark t=820 (tau175) dir=up : tff up-arrow ~13:40
+  n_avail=39 n_match=0
+====================================================================================================
+9.38c  2012-04-23  win[720-1080] tau=1010 j_tau=198 abr=6.9  box BOX 13110.0-13123.0  drawn 975-1042  build None-1010
+  clause: a rectangle, ~16:15–17:25, at ≈1.3110–1.3123
+  lesson: 
+  mark t=960 (tau-50) dir=down : tff down-arrow ~16:00
+    - caption: a morning-star va
+  n_avail=48 n_match=0
+====================================================================================================
+9.39a  2012-04-24  win[120-480] tau=475 j_tau=91 abr=2.8  box BOX 13146.0-13157.0  drawn 70-515  build None-475
+  clause: a long rectangle, ~01:10–08:35, at 1.3146–1.3157 [meas 11 pips]
+  lesson: 
+  mark t=480 (tau5) dir=up : pb up-arrow ~08:00
+    - caption: the fight at the
+  mark t=None (tauNone) dir=None : SESS:EU open
+  mark t=None (tauNone) dir=None : SESS:EU-open
+  n_avail=33 n_match=7
+====================================================================================================
+9.40c  2012-04-25  win[720-1080] tau=960 j_tau=188 abr=6.3  box BOX 13214.0-13226.0  drawn 880-1000  build 905-960
+  clause: a rectangle, ~14:40–16:40, at ≈1.3214–1.3226
+  lesson: 
+  mark t=965 (tau5) dir=down : pb down-arrow ~16:05
+    - caption: close at resistan
+  n_avail=61 n_match=1
+====================================================================================================
+9.41b  2012-04-26  win[480-840] tau=835 j_tau=163 abr=5.9  box BOX 13203.0-13219.0  drawn 710-865  build 720-835
+  clause: a rectangle, ~11:50–14:25, at ≈1.3203–1.3219
+  lesson: 
+  n_avail=45 n_match=5
+====================================================================================================
+9.42b  2012-04-27  win[420-780] tau=640 j_tau=124 abr=7.0  box BOX 13157.2-13204.6  drawn 395-650  build None-640
+  clause: BOX around the whole 06:35–10:50
+  congestion
+  lesson: a good base with an inverse H&S is still not bought on a long bar far above
+  EMA25.
+  n_avail=41 n_match=0
+====================================================================================================
+9.42b  2012-04-27  win[420-780] tau=780 j_tau=152 abr=8.1  box BOX 13157.2-13241.5  drawn 420-780  build None-780
+  clause: SHS span under the
+  box (inverse H&S inside it)
+  lesson: a good base with an inverse H&S is still not bought on a long bar far above
+  EMA25.
+  n_avail=46 n_match=0
+====================================================================================================
+9.43b  2012-04-30  win[480-840] tau=840 j_tau=164 abr=5.9  box BOX 13212.0-13232.0  drawn 685-840  build None-None
+  clause: top
+  ~1.3232, bottom ~1.3212 as the EMA flattens. No marks. *Lesson*: the first sideways block after a
+  leg is boxed immediately, before it resolves
+  lesson: the first sideways block after a
+  leg is boxed immediately, before it resolves.
+  n_avail=46 n_match=0
+====================================================================================================
+9.43c  2012-04-30  win[720-1080] tau=1080 j_tau=212 abr=5.3  box BOX 13225.1-13241.6  drawn 970-1080  build None-1080
+  clause: box continued to ~16:10
+  lesson: T → pullback → pbp. For a counter-pressure trade the exit line
+  (TL↗) is drawn in advance.
+  mark t=935 (tau-145) dir=up : pbp↑@ ~15:35 (US-open label at 15:30)
+  mark t=None (tauNone) dir=None : SESS:US-open
+  n_avail=63 n_match=1
+====================================================================================================
+9.43c  2012-04-30  win[720-1080] tau=870 j_tau=170 abr=5.8  box BOX 13207.8-13223.8  drawn 740-870  build None-870
+  clause: lows 12:20 and 14:30
+  lesson: T → pullback → pbp. For a counter-pressure trade the exit line
+  (TL↗) is drawn in advance.
+  mark t=935 (tau65) dir=up : pbp↑@ ~15:35 (US-open label at 15:30)
+  mark t=None (tauNone) dir=None : SESS:US-open
+  n_avail=47 n_match=0
+====================================================================================================
+9.44a  2012-05-01  win[180-600] tau=600 j_tau=116 abr=4.3  box BOX 13267.2-13277.0  drawn 596-630  build None-None
+  clause: small BOX around the tight 09:45–10:30
+  congestion (~13 pips)
+  lesson: a small edge next to
+  a round number is not tradable.
+  mark t=None (tauNone) dir=None : SESS:UK open
+  mark t=None (tauNone) dir=None : SESS:UK-open
+  n_avail=38 n_match=0
+====================================================================================================
+9.44b  2012-05-01  win[420-840] tau=685 j_tau=133 abr=4.6  box BOX 13257.8-13277.7  drawn 585-700  build None-685
+  clause: BOX around the 09:45–11:40 top
+  lesson: a multi-peak top whose box floor breaks is an
+  exit trigger.
+  n_avail=42 n_match=0
+====================================================================================================
+9.44b  2012-05-01  win[420-840] tau=730 j_tau=142 abr=4.8  box BOX 13243.1-13253.6  drawn 710-730  build None-730
+  clause: rising line from ~11:50 under the 12:10/13:10 lows. Callout: reversal exit below the Mm if long
+  lesson: a multi-peak top whose box floor breaks is an
+  exit trigger.
+  n_avail=45 n_match=1
+====================================================================================================
+9.45a  2012-05-02  win[180-540] tau=350 j_tau=66 abr=2.8  box BOX 13211.5-13229.5  drawn 160-590  build 160-350
+  clause: long BOX ~02:40–09:50 over the Asian and early-EU
+  range
+  lesson: pokes of a few pips during a flat EMA are teases. Wait for the open.
+  mark t=None (tauNone) dir=None : SESS:UK open
+  n_avail=17 n_match=2
+====================================================================================================
+9.45b  2012-05-02  win[420-840] tau=740 j_tau=144 abr=7.9  box BOX 13134.6-13149.6  drawn 680-775  build None-740
+  clause: BOX ~11:20–12:55 around the
+  base on the 1.315
+  lesson: a base sitting on a round number blocks shorts from it.
+  n_avail=50 n_match=1
+====================================================================================================
+9.46a  2012-05-03  win[240-660] tau=660 j_tau=128 abr=5.1  box BOX 13130.4-13162.4  drawn 240-660  build None-660
+  clause: tiny box around the last 2 bars on the line
+  lesson: the textbook
+  Mm-plus-rising-line pattern break. A tiny box marks the buildup bars on the line.
+  mark t=635 (tau-25) dir=down : pb / pbp"↓
+  ~10:35
+  mark t=None (tauNone) dir=None : SESS:UK open
+  n_avail=33 n_match=0
+====================================================================================================
+9.47a  2012-05-04  win[120-540] tau=130 j_tau=22 abr=1.6  box RANGE_OPEN 13143.8-13161.7  drawn 120-540  build None-540
+  clause: BOX (two long H edges, left edge off-chart)
+  around the whole Asian range (~22 pips)
+  lesson: the Asian range is the day's
+  first reference box.
+  mark t=None (tauNone) dir=None : SESS:EU open
+  mark t=None (tauNone) dir=None : SESS:EU-open
+  mark t=None (tauNone) dir=None : SESS:UK-open
+  n_avail=6 n_match=0
+====================================================================================================
+9.47b  2012-05-04  win[420-840] tau=840 j_tau=164 abr=4.1  box BOX 13120.9-13139.2  drawn 650-840  build None-840
+  clause: Asian box to ~10:50
+  lesson: skip a box break when EMA and a round number sit right behind
+  the entry.
+  mark t=None (tauNone) dir=None : SESS:US data
+  n_avail=63 n_match=0
+====================================================================================================
+9.48a  2012-05-07  win[60-420] tau=70 j_tau=10 abr=11.4  box RANGE_OPEN 12960.7-12989.4  drawn 60-420  build None-420
+  clause: top ~1.2987 at the rebound highs
+  lesson: an absorption box after a spike includes the spike extreme.
+  n_avail=1 n_match=0
+====================================================================================================
+9.48a  2012-05-07  win[60-420] tau=420 j_tau=80 abr=3.8  box BOX 12976.2-12987.2  drawn 420-465  build None-465
+  clause: a new
+  tall box starts at the right edge ~07:45. Callouts: sell-off in the first Asian hours
+  lesson: an absorption box after a spike includes the spike extreme.
+  n_avail=27 n_match=0
+====================================================================================================
+9.48a  2012-05-07  win[60-420] tau=420 j_tau=80 abr=3.8  box BOX 12960.7-12989.4  drawn 60-420  build None-420
+  clause: absorption phase.
+  *Lesson*: an absorption box after a spike includes the spike extreme
+  lesson: an absorption box after a spike includes the spike extreme.
+  n_avail=27 n_match=1
+====================================================================================================
+9.48b  2012-05-07  win[360-720] tau=480 j_tau=92 abr=3.7  box BOX 12991.2-12991.6  drawn 470-550  build None-480
+  clause: Asian-box edges to ~07:50/09:10
+  lesson: an EU-open combi out of the Asian box is valid but bold. The round number above
+  is both target and exit reason.
+  mark t=480 (tau0) dir=up : pbc↑@ 08:00 (EU open, out
+  of the Asian b
+  mark t=710 (tau230) dir=up : pb↑ ~11:50 (out of the Ww)
+  mark t=None (tauNone) dir=None : pressure
+  mark t=None (tauNone) dir=None : SESS:EU open
+  mark t=None (tauNone) dir=None : SESS:EU-open
+  n_avail=32 n_match=0
+====================================================================================================
+9.48b  2012-05-07  win[360-720] tau=705 j_tau=137 abr=5.8  box BOX 12990.0-13020.0  drawn 470-720  build None-705
+  clause: ~1.2990–1.3020
+  lesson: an EU-open combi out of the Asian box is valid but bold. The round number above
+  is both target and exit reason.
+  mark t=480 (tau-225) dir=up : pbc↑@ 08:00 (EU open, out
+  of the Asian b
+  mark t=710 (tau5) dir=up : pb↑ ~11:50 (out of the Ww)
+  mark t=None (tauNone) dir=None : pressure
+  mark t=None (tauNone) dir=None : SESS:EU open
+  mark t=None (tauNone) dir=None : SESS:EU-open
+  n_avail=42 n_match=2
+====================================================================================================
+9.48c  2012-05-07  win[720-1080] tau=1080 j_tau=212 abr=6.2  box BOX 13021.6-13058.6  drawn 820-1080  build None-1080
+  clause: tall-box stubs to ~13:40
+  lesson: a pr is drawn as a steep counter-line broken by the entry, with the next TL↗ as
+  the exit trigger.
+  mark t=805 (tau-275) dir=up : pr↑@ ~13:25 (after a dip just under the nec
+  mark t=None (tauNone) dir=None : pr is drawn as a steep counter-line broken
+  n_avail=62 n_match=0
+====================================================================================================
+9.50a  2012-05-09  win[180-600] tau=590 j_tau=114 abr=5.2  box BOX 12976.9-12989.9  drawn 490-605  build 490-590
+  clause: BOX ~08:10–10:05 under the 1.30 (~13 pips)
+  lesson: inverse H&S in a box under a
+  round number = bold long toward the number.
+  mark t=595 (tau5) dir=up : pb↑@ ~09:55
+  n_avail=31 n_match=2
+====================================================================================================
+9.50c  2012-05-09  win[720-1080] tau=875 j_tau=171 abr=6.9  box BOX 12932.3-12944.3  drawn 845-980  build 860-875
+  clause: BOX ~14:05–16:20 (~12 pips) around
+  the post-drop base
+  lesson: once a false break has tagged the magnets behind the entry, they no longer
+  block it.
+  mark t=950 (tau75) dir=down : tff↓ ~15:50 (false break up into EMA25 and
+  mark t=None (tauNone) dir=None : problem
+  n_avail=48 n_match=0
+====================================================================================================
+9.51a  2012-05-10  win[180-600] tau=300 j_tau=56 abr=3.9  box BOX 12938.3-12956.3  drawn 205-595  build 205-300
+  clause: long BOX ~03:25–09:55 (~18 pips) around
+  Asia
+  lesson: the exit level is drawn dashed at entry time.
+  mark t=595 (tau295) dir=down : pb↓@ ~09:55
+  mark t=None (tauNone) dir=None : SESS:UK open
+  n_avail=9 n_match=0
+====================================================================================================
+9.51b  2012-05-10  win[420-840] tau=840 j_tau=164 abr=5.8  box BOX 12924.4-12960.7  drawn 595-840  build None-840
+  clause: Asian box closed with a vertical edge ~09:55
+  lesson: range +
+  round number = skip.
+  n_avail=44 n_match=0
+====================================================================================================
+9.52a  2012-05-11  win[240-600] tau=250 j_tau=46 abr=4.4  box RANGE_OPEN 12907.5-12930.9  drawn 240-600  build None-600
+  clause: BOX (two long H edges, ~27 pips)
+  lesson: a dashed inner
+  falling line inside a box is the break trigger. Two setup labels can share one bar.
+  mark t=600 (tau350) dir=up : pbc↑ and pb↑ at ~10:00
+  n_avail=11 n_match=0
+====================================================================================================
+9.52b  2012-05-11  win[480-840] tau=840 j_tau=164 abr=5.5  box BOX 12930.2-12953.5  drawn 685-840  build None-840
+  clause: box closed
+  ~11:25
+  lesson: an M straddling the 50 blocks longs.
+  n_avail=51 n_match=0
+====================================================================================================
+9.53a  2012-05-14  win[240-600] tau=250 j_tau=46 abr=4.5  box RANGE_OPEN 12878.8-12895.3  drawn 240-600  build None-565
+  clause: BOX (two long H edges, ~16 pips) around Asia
+  lesson: the first break is skipped for poor buildup. The pennant after it is the entry.
+  mark t=615 (tau365) dir=down : pbp↓ ~10:15
+  n_avail=15 n_match=1
+====================================================================================================
+9.53b  2012-05-14  win[480-840] tau=840 j_tau=164 abr=5.7  box BOX 12861.6-12876.8  drawn 700-840  build None-840
+  clause: box to ~11:40
+  lesson: a drift line under a falling EMA broken = pb, then its retest = pbp.
+  mark t=825 (tau-15) dir=down : pb↓ ~13:45
+  mark t=855 (tau15) dir=down : pbp↓
+  ~14:15
+  mark t=None (tauNone) dir=None : SESS:news
+  n_avail=54 n_match=0
+====================================================================================================
+9.54a  2012-05-15  win[120-540] tau=470 j_tau=90 abr=3.2  box BOX 12815.4-12837.1  drawn 120-550  build None-470
+  clause: long BOX ~02:00–09:10 (~22 pips)
+  lesson: a tease into a round number from an Asian box.
+  mark t=None (tauNone) dir=None : SESS:EU-open
+  n_avail=27 n_match=1
+====================================================================================================
+9.56a  2012-05-17  win[120-540] tau=125 j_tau=21 abr=2.2  box BOX 12735.1-12748.1  drawn 115-540  build 125-125
+  clause: top ≈ the 1.2750
+  round number, ~13 pips tall
+  lesson: a short below an untested ceiling
+  and EMA is premature.
+  mark t=None (tauNone) dir=None : premature
+  n_avail=3 n_match=0
+====================================================================================================
+9.56a  2012-05-17  win[120-540] tau=540 j_tau=104 abr=4.0  box BOX 12717.4-12734.3  drawn 515-555  build None-555
+  clause: DASH ~08:35–09:15 at the pre-break lows
+  inside the box (the ceiling)
+  lesson: a short below an untested ceiling
+  and EMA is premature.
+  mark t=None (tauNone) dir=None : premature
+  n_avail=30 n_match=0
+====================================================================================================
+9.56b  2012-05-17  win[360-780] tau=780 j_tau=151 abr=7.0  box BOX 12689.3-12729.8  drawn 610-780  build None-780
+  clause: Asian box closed ~10:10
+  lesson: a
+  false high at a pullback top is where pbp/pr trigger.
+  mark t=590 (tau-190) dir=down : pbp / pr"↓ ~09:50
+  mark t=725 (tau-55) dir=down : pbc↓ ~12:05
+  mark t=None (tauNone) dir=None : pbp/pr trigger
+  n_avail=37 n_match=0
+====================================================================================================
+9.56c  2012-05-17  win[660-1080] tau=840 j_tau=163 abr=7.2  box BOX 12668.0-12676.0  drawn 795-895  build 805-840
+  clause: BOX ~13:15–14:55 (~8 pips) around
+  the low base. Callouts: [skip↓]
+  lesson: a base at the day's low before
+  news is skipped.
+  n_avail=41 n_match=0
+====================================================================================================
+9.57c  2012-05-18  win[720-1080] tau=980 j_tau=192 abr=6.2  box BOX 12703.4-12716.4  drawn 955-1020  build 960-980
+  clause: BOX ~15:55–17:00
+  (~13 pips)
+  lesson: weakening
+  momentum with a round number behind = no trade.
+  n_avail=47 n_match=1
+====================================================================================================
+9.58a  2012-05-21  win[300-660] tau=545 j_tau=105 abr=4.4  box BOX 12762.7-12778.3  drawn 505-545  build None-545
+  clause: BOX
+  ~08:25–09:05 around the base with a TL↗ inside
+  lesson: broken
+  support is extended dashed as resistance. An M under it + TL↗ break = bold pb.
+  mark t=540 (tau-5) dir=down : tff↓ ~09:00
+  mark t=650 (tau105) dir=down : pb↓@ ~10:50
+  n_avail=37 n_match=1
+====================================================================================================
+9.59c  2012-05-22  win[720-1140] tau=1035 j_tau=203 abr=7.5  box BOX 12748.2-12777.0  drawn 950-1035  build None-1035
+  clause: BOX
+  ~15:50–17:15 around the congestion under or at it
+  lesson: an M plus box pressed under a
+  dashed ceiling = pb to the round number.
+  mark t=1005 (tau-30) dir=down : pb↓@ ~16:45
+  mark t=None (tauNone) dir=None : pressed under a
+  dashed ceiling = pb to t
+  n_avail=54 n_match=1
+====================================================================================================
+9.60b  2012-05-23  win[480-900] tau=770 j_tau=150 abr=8.3  box BOX 12614.5-12663.0  drawn 595-770  build None-770
+  clause: BOX ~09:55–12:50
+  lesson: a double bottom
+  at the round number + TL↘ break = bold long, with the exit at the prior-top line.
+  n_avail=39 n_match=0
+====================================================================================================
+9.60b  2012-05-23  win[480-900] tau=900 j_tau=176 abr=7.4  box BOX 12614.5-12680.1  drawn 480-900  build None-900
+  clause: small TL↗ inside the box
+  lesson: a double bottom
+  at the round number + TL↘ break = bold long, with the exit at the prior-top line.
+  n_avail=49 n_match=0
+====================================================================================================
+9.61b  2012-05-24  win[480-900] tau=895 j_tau=175 abr=7.2  box BOX 12554.8-12585.1  drawn 825-900  build 835-895
+  clause: BOX ~13:45–15:00 under it
+  lesson: a strong pullback cancels the with-trend
+  short.
+  n_avail=51 n_match=1
+====================================================================================================
+9.62a  2012-05-25  win[180-600] tau=600 j_tau=116 abr=5.4  box BOX 12567.9-12594.2  drawn 580-635  build 590-635
+  clause: BOX ~09:40–10:35 at the top just under 1.26
+  lesson: shakeout under a long Ww at EU open → tease → combi through the TL.
+  mark t=525 (tau-75) dir=up : pbc↑@ ~08:45
+  mark t=None (tauNone) dir=None : SESS:EU-open
+  mark t=None (tauNone) dir=None : SESS:EU open
+  n_avail=33 n_match=0
+====================================================================================================
+9.62b  2012-05-25  win[420-840] tau=675 j_tau=130 abr=6.7  box BOX 12575.7-12594.7  drawn 545-840  build 590-675
+  clause: BOX ~09:05→right edge (~19 pips)
+  lesson: F → ceiling test → second break is the tradable sequence.
+  mark t=810 (tau135) dir=down : pb↓@ ~13:30
+  n_avail=35 n_match=0
+====================================================================================================
+9.62b  2012-05-25  win[420-840] tau=840 j_tau=163 abr=7.3  box BOX 12528.2-12594.2  drawn 420-840  build None-840
+  clause: small box at bottom-right after the drop
+  lesson: F → ceiling test → second break is the tradable sequence.
+  mark t=810 (tau-30) dir=down : pb↓@ ~13:30
+  n_avail=46 n_match=0
+====================================================================================================
+9.63a  2012-05-28  win[180-600] tau=450 j_tau=86 abr=3.2  box BOX 12587.4-12600.4  drawn 206-555  build 225-450
+  clause: long BOX ~03:30–09:15 (~13 pips, straddling
+  1.26)
+  lesson: T → ceiling test → flag break = pbp.
+  mark t=520 (tau70) dir=up : pbp↑@ ~08:40
+  mark t=None (tauNone) dir=None : pbp
+  mark t=None (tauNone) dir=None : SESS:UK open
+  mark t=None (tauNone) dir=None : SESS:UK-open
+  n_avail=21 n_match=0
+====================================================================================================
+9.66c  2012-05-31  win[720-1140] tau=1140 j_tau=224 abr=9.4  box BOX 12358.5-12390.5  drawn 960-1160  build 980-1160
+  clause: BOX ~16:00–19:20 (~32 pips, the late range)
+  lesson: one poke is F to the counter-trader and T once the real break follows.
+  mark t=930 (tau-210) dir=down : pb↓@ ~15:30
+  n_avail=58 n_match=1

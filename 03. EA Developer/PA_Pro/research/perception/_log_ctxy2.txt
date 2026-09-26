@@ -1,0 +1,22 @@
+hash fcd56aaf | arm ctxy_on
+
+=== v0 ===
+  box@1 0.134 (16/119)
+  level@1 0.066 (5/76)
+  line@2 0.093 (18/193)
+  bracket@1 0.388 (33/85)
+  diag: BOX rec 0.213 prec 0.027 | PL 0.109 | LC 0.146 | LTF-agree 0/4 | clutter ratio med 9.00
+
+=== parent ctxy_off ===
+  box@1 0.076 (9/119)  vs v0 -0.069 [-0.142..-0.003]
+  level@1 0.079 (6/76)  vs v0 +0.039 [-0.033..+0.117]
+  line@2 0.104 (20/193)  vs v0 +0.015 [-0.040..+0.070]
+  bracket@1 0.341 (29/85)  vs v0 -0.015 [-0.171..+0.135]
+  diag: BOX rec 0.111 prec 0.047 | PL 0.114 | LC 0.188 | LTF-agree 0/1 | clutter ratio med 5.00
+
+=== arm ctxy_on ===
+  box@1 0.092 (11/119)  vs v0 -0.067 [-0.142..-0.001]
+  level@1 0.039 (3/76)  vs v0 -0.006 [-0.072..+0.072]
+  line@2 0.098 (19/193)  vs v0 -0.004 [-0.054..+0.044]
+  bracket@1 0.329 (28/85)  vs v0 -0.036 [-0.188..+0.113]
+  diag: BOX rec 0.130 prec 0.027 | PL 0.092 | LC 0.229 | LTF-agree 0/1 | clutter ratio med 5.67

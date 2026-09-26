@@ -1,0 +1,1649 @@
+{
+ "family": "g1_htf_pullback",
+ "round": "SF02",
+ "split": "DESIGN",
+ "symbols": [
+  "EURUSD",
+  "GBPUSD",
+  "USDJPY",
+  "AUDUSD"
+ ],
+ "tiers": [
+  "x1",
+  "x1.5",
+  "x2"
+ ],
+ "grid": {
+  "S_pips": [
+   18.0,
+   24.0,
+   32.0,
+   40.0,
+   55.0
+  ],
+  "gen": [
+   "line1_cluster",
+   "sd_base"
+  ],
+  "tr_src": [
+   "h1",
+   "h4"
+  ]
+ },
+ "spec_sha256": "948b62d2ad10953a8afb7028ee014481e09adc85b94fa149cdce107acefe5262",
+ "rows": [
+  {
+   "params": {
+    "S_pips": 18.0,
+    "gen": "line1_cluster",
+    "tr_src": "h1"
+   },
+   "n_signals": 613,
+   "N": 440,
+   "exp_r_x1": -0.07844242211616738,
+   "t_x1": -1.3273758877014674,
+   "PF_x1": 0.8688316517354878,
+   "PF_x15": 0.8264707102960416,
+   "PF_x2": 0.8086685406253498,
+   "exp_r_x2": -0.11676151779309595,
+   "WR_x1": 0.3568181818181818,
+   "b_x1": 1.5661105569499558,
+   "R_total_x1": -34.514665731113645,
+   "max_dd_pct": 17.755788643245634,
+   "rand_N": 7572,
+   "rand_exp_r": -0.04478414626988528,
+   "rand_PF": 0.9211257086074366,
+   "lift_pp": -1.34,
+   "lift_ci_pp": [
+    -5.81,
+    3.37
+   ],
+   "years_pf_pos": 0,
+   "year_R": {
+    "2016": -6.198598111071197,
+    "2017": -0.31374796070652167,
+    "2018": -10.963211792967183,
+    "2019": -1.3810862697378412,
+    "2020": -9.157203393133084,
+    "2021": -6.5008182034978175
+   },
+   "max_year_share": null,
+   "symbols_pos": 2,
+   "per_symbol_expr": {
+    "EURUSD": -0.06003479304947475,
+    "GBPUSD": -0.15812084973160034,
+    "USDJPY": 0.14643284714704938,
+    "AUDUSD": 0.18878662517089587
+   },
+   "top5_share_net": null,
+   "top5_share_gross": 0.06998576702809556,
+   "time_exit_share": 0.2,
+   "trades_per_week": 1.4179141457332618,
+   "exit_mix": {
+    "SL": 255,
+    "FRIDAY": 28,
+    "TP": 97,
+    "DAILY": 60
+   },
+   "status_counts": {
+    "EXPIRED": 167,
+    "FILLED": 440,
+    "CANCELLED": 5,
+    "VETO_FRIDAY": 1
+   },
+   "p_norm": 0.18438437183009915,
+   "ledger_trials": [
+    "T000306"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 33.71,
+   "i": 0,
+   "elapsed": 63.5,
+   "q": 0.31963381297804677,
+   "gates": {
+    "n300": true,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": false,
+    "lift": false,
+    "years": false,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": true,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 18.0,
+    "gen": "line1_cluster",
+    "tr_src": "h4"
+   },
+   "n_signals": 724,
+   "N": 548,
+   "exp_r_x1": -0.2154964639744106,
+   "t_x1": -4.300726601860183,
+   "PF_x1": 0.6675744691625451,
+   "PF_x15": 0.6290509296919039,
+   "PF_x2": 0.5979385623170783,
+   "exp_r_x2": -0.26834704936593284,
+   "WR_x1": 0.30474452554744524,
+   "b_x1": 1.5230291781492797,
+   "R_total_x1": -118.09206225797702,
+   "max_dd_pct": 45.187739340735334,
+   "rand_N": 9051,
+   "rand_exp_r": -0.040456548693209596,
+   "rand_PF": 0.9293895194682031,
+   "lift_pp": -6.42,
+   "lift_ci_pp": [
+    -10.26,
+    -2.32
+   ],
+   "years_pf_pos": 0,
+   "year_R": {
+    "2016": -29.216561881460976,
+    "2017": -19.79579694228508,
+    "2018": -21.91580731520249,
+    "2019": -18.033041597749786,
+    "2020": -13.711871084151916,
+    "2021": -15.418983437126776
+   },
+   "max_year_share": null,
+   "symbols_pos": 1,
+   "per_symbol_expr": {
+    "EURUSD": -0.3475150226426316,
+    "GBPUSD": -0.14356462915453255,
+    "USDJPY": -0.36855863106877274,
+    "AUDUSD": 0.10557147546521221
+   },
+   "top5_share_net": null,
+   "top5_share_gross": 0.0759008169038271,
+   "time_exit_share": 0.19343065693430658,
+   "trades_per_week": 1.764892510651486,
+   "exit_mix": {
+    "SL": 343,
+    "TP": 99,
+    "DAILY": 71,
+    "FRIDAY": 35
+   },
+   "status_counts": {
+    "FILLED": 548,
+    "EXPIRED": 168,
+    "VETO_FRIDAY": 2,
+    "CANCELLED": 6
+   },
+   "p_norm": 1.702389884665998e-05,
+   "ledger_trials": [
+    "T000308"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 29.16,
+   "i": 1,
+   "elapsed": 60.7,
+   "q": 0.00034047797693319965,
+   "gates": {
+    "n300": true,
+    "exp_t": false,
+    "bh_q": true,
+    "pf": false,
+    "lift": false,
+    "years": false,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": true,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 18.0,
+    "gen": "sd_base",
+    "tr_src": "h1"
+   },
+   "n_signals": 232,
+   "N": 180,
+   "exp_r_x1": -0.1803607741956075,
+   "t_x1": -2.0039777388042683,
+   "PF_x1": 0.7213984589756612,
+   "PF_x15": 0.6621146183489047,
+   "PF_x2": 0.6065608533886792,
+   "exp_r_x2": -0.2686908759342198,
+   "WR_x1": 0.3111111111111111,
+   "b_x1": 1.5973823020175355,
+   "R_total_x1": -32.46493935520935,
+   "max_dd_pct": 16.61482058535732,
+   "rand_N": 2907,
+   "rand_exp_r": -0.06773305813553733,
+   "rand_PF": 0.8809620571175192,
+   "lift_pp": -5.73,
+   "lift_ci_pp": [
+    -12.28,
+    1.58
+   ],
+   "years_pf_pos": 3,
+   "year_R": {
+    "2016": -24.845920629945766,
+    "2017": -5.468252627791669,
+    "2018": 5.856846433780628,
+    "2019": 0.4166738360607325,
+    "2020": 0.2801851618835265,
+    "2021": -8.704471529196805
+   },
+   "max_year_share": null,
+   "symbols_pos": 0,
+   "per_symbol_expr": {
+    "EURUSD": -0.168003514422658,
+    "GBPUSD": -0.15837909537258446,
+    "USDJPY": -0.04211593724845241,
+    "AUDUSD": -0.5344058446265313
+   },
+   "top5_share_net": null,
+   "top5_share_gross": 0.07137480890202191,
+   "time_exit_share": 0.2,
+   "trades_per_week": 0.5920623701682013,
+   "exit_mix": {
+    "TP": 32,
+    "FRIDAY": 11,
+    "SL": 112,
+    "DAILY": 25
+   },
+   "status_counts": {
+    "FILLED": 180,
+    "EXPIRED": 51,
+    "CANCELLED": 1
+   },
+   "p_norm": 0.045072445109390236,
+   "ledger_trials": [
+    "T000310"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 12.74,
+   "i": 2,
+   "elapsed": 22.6,
+   "q": 0.22536222554695118,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": false,
+    "lift": false,
+    "years": false,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": true,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 18.0,
+    "gen": "sd_base",
+    "tr_src": "h4"
+   },
+   "n_signals": 286,
+   "N": 230,
+   "exp_r_x1": -0.20074433390291688,
+   "t_x1": -2.568968359524926,
+   "PF_x1": 0.6878284713075817,
+   "PF_x15": 0.6269905727959443,
+   "PF_x2": 0.6026048705547506,
+   "exp_r_x2": -0.265717437752237,
+   "WR_x1": 0.29130434782608694,
+   "b_x1": 1.673373743628893,
+   "R_total_x1": -46.17119679767088,
+   "max_dd_pct": 23.498093052778458,
+   "rand_N": 3606,
+   "rand_exp_r": -0.06788839588340696,
+   "rand_PF": 0.8805554652007456,
+   "lift_pp": -7.75,
+   "lift_ci_pp": [
+    -13.47,
+    -1.38
+   ],
+   "years_pf_pos": 2,
+   "year_R": {
+    "2016": -24.873710219667018,
+    "2017": -13.278938849698413,
+    "2018": -5.790514029282556,
+    "2019": 1.133856795604936,
+    "2020": 2.0995092998454545,
+    "2021": -5.4613997944732855
+   },
+   "max_year_share": null,
+   "symbols_pos": 0,
+   "per_symbol_expr": {
+    "EURUSD": -0.16939930523206878,
+    "GBPUSD": -0.10179399851847896,
+    "USDJPY": -0.706322464855771,
+    "AUDUSD": -0.36766718644925656
+   },
+   "top5_share_net": null,
+   "top5_share_gross": 0.07863791633480431,
+   "time_exit_share": 0.21304347826086956,
+   "trades_per_week": 0.7572300873538591,
+   "exit_mix": {
+    "SL": 139,
+    "DAILY": 32,
+    "TP": 42,
+    "FRIDAY": 17
+   },
+   "status_counts": {
+    "FILLED": 230,
+    "EXPIRED": 53,
+    "VETO_FRIDAY": 1,
+    "CANCELLED": 2
+   },
+   "p_norm": 0.010200177027898204,
+   "ledger_trials": [
+    "T000312"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 9.08,
+   "i": 3,
+   "elapsed": 20.1,
+   "q": 0.06800118018598802,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": true,
+    "pf": false,
+    "lift": false,
+    "years": false,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 24.0,
+    "gen": "line1_cluster",
+    "tr_src": "h1"
+   },
+   "n_signals": 154,
+   "N": 120,
+   "exp_r_x1": 0.17201434040486077,
+   "t_x1": 1.5681244245111714,
+   "PF_x1": 1.4024289089887882,
+   "PF_x15": 1.3377180066223284,
+   "PF_x2": 1.3140234448096735,
+   "exp_r_x2": 0.13894486578865084,
+   "WR_x1": 0.48333333333333334,
+   "b_x1": 1.4991481440914634,
+   "R_total_x1": 20.641720848583294,
+   "max_dd_pct": 2.9830181769707793,
+   "rand_N": 1883,
+   "rand_exp_r": -0.03164719419366256,
+   "rand_PF": 0.9329979012068059,
+   "lift_pp": 7.39,
+   "lift_ci_pp": [
+    -1.64,
+    16.51
+   ],
+   "years_pf_pos": 4,
+   "year_R": {
+    "2016": 9.703753286389988,
+    "2017": -5.995238437616639,
+    "2018": 5.01384076506649,
+    "2019": -1.5497511096866072,
+    "2020": 5.756788166953675,
+    "2021": 7.7123281774763885
+   },
+   "max_year_share": 0.470103890929035,
+   "symbols_pos": 3,
+   "per_symbol_expr": {
+    "EURUSD": 0.27122018818988725,
+    "GBPUSD": 0.257835959246915,
+    "USDJPY": -0.13089778260127125,
+    "AUDUSD": 0.3039228812109648
+   },
+   "top5_share_net": 0.2906734396813529,
+   "top5_share_gross": 0.08340914427336607,
+   "time_exit_share": 0.38333333333333336,
+   "trades_per_week": 0.3893564320581717,
+   "exit_mix": {
+    "DAILY": 37,
+    "SL": 46,
+    "TP": 28,
+    "FRIDAY": 9
+   },
+   "status_counts": {
+    "FILLED": 120,
+    "EXPIRED": 34
+   },
+   "p_norm": 0.11685209745600568,
+   "ledger_trials": [
+    "T000314"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 28.73,
+   "i": 4,
+   "elapsed": 58.5,
+   "q": 0.28094105276484416,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": true,
+    "lift": false,
+    "years": true,
+    "symbols": true,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 24.0,
+    "gen": "line1_cluster",
+    "tr_src": "h4"
+   },
+   "n_signals": 182,
+   "N": 142,
+   "exp_r_x1": -0.04330420380307998,
+   "t_x1": -0.45175911290640675,
+   "PF_x1": 0.9165121838864888,
+   "PF_x15": 0.863087142477126,
+   "PF_x2": 0.8096707213808904,
+   "exp_r_x2": -0.10403839474380897,
+   "WR_x1": 0.39436619718309857,
+   "b_x1": 1.4075008538256792,
+   "R_total_x1": -6.149196940037356,
+   "max_dd_pct": 6.845247754149042,
+   "rand_N": 2211,
+   "rand_exp_r": -0.06326322930800764,
+   "rand_PF": 0.8740408607395411,
+   "lift_pp": -0.5,
+   "lift_ci_pp": [
+    -8.43,
+    7.96
+   ],
+   "years_pf_pos": 2,
+   "year_R": {
+    "2016": 4.28195175217855,
+    "2017": -6.990588244645946,
+    "2018": 7.8444033003321465,
+    "2019": -0.04531756768149167,
+    "2020": -7.782035129288897,
+    "2021": -3.4576110509317184
+   },
+   "max_year_share": null,
+   "symbols_pos": 1,
+   "per_symbol_expr": {
+    "EURUSD": -0.04943827551417528,
+    "GBPUSD": 0.1339499220260492,
+    "USDJPY": -0.29822154646528765,
+    "AUDUSD": -0.21597866754640307
+   },
+   "top5_share_net": null,
+   "top5_share_gross": 0.08888279565088643,
+   "time_exit_share": 0.36619718309859156,
+   "trades_per_week": 0.46511008248672203,
+   "exit_mix": {
+    "SL": 67,
+    "TP": 23,
+    "DAILY": 45,
+    "FRIDAY": 7
+   },
+   "status_counts": {
+    "FILLED": 142,
+    "EXPIRED": 40
+   },
+   "p_norm": 0.6514425278709134,
+   "ledger_trials": [
+    "T000316"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 29.92,
+   "i": 5,
+   "elapsed": 61.0,
+   "q": 0.6857289767062247,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": false,
+    "lift": false,
+    "years": false,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 24.0,
+    "gen": "sd_base",
+    "tr_src": "h1"
+   },
+   "n_signals": 101,
+   "N": 78,
+   "exp_r_x1": -0.11247948358262888,
+   "t_x1": -1.0152746934690695,
+   "PF_x1": 0.7632417897113402,
+   "PF_x15": 0.7389875851988805,
+   "PF_x2": 0.7152521060526233,
+   "exp_r_x2": -0.13785341520656486,
+   "WR_x1": 0.3974358974358974,
+   "b_x1": 1.1571730360139674,
+   "R_total_x1": -8.773399719445052,
+   "max_dd_pct": 5.672928623825309,
+   "rand_N": 1281,
+   "rand_exp_r": -0.03798464741087747,
+   "rand_PF": 0.9166898519707497,
+   "lift_pp": -1.16,
+   "lift_ci_pp": [
+    -11.65,
+    10.25
+   ],
+   "years_pf_pos": 2,
+   "year_R": {
+    "2016": 0.1439767203479314,
+    "2017": -1.0836346815073667,
+    "2018": -1.9086735321211277,
+    "2019": 2.899791239998434,
+    "2020": -4.118611544448484,
+    "2021": -4.706247921714439
+   },
+   "max_year_share": null,
+   "symbols_pos": 1,
+   "per_symbol_expr": {
+    "EURUSD": -0.17890186060045712,
+    "GBPUSD": 0.06993290291369506,
+    "USDJPY": -0.259219340209106,
+    "AUDUSD": -0.20729463877128854
+   },
+   "top5_share_net": null,
+   "top5_share_gross": 0.14142786393824222,
+   "time_exit_share": 0.5,
+   "trades_per_week": 0.25803563546165253,
+   "exit_mix": {
+    "DAILY": 36,
+    "SL": 33,
+    "TP": 6,
+    "FRIDAY": 3
+   },
+   "status_counts": {
+    "FILLED": 78,
+    "EXPIRED": 23
+   },
+   "p_norm": 0.30997490408790873,
+   "ledger_trials": [
+    "T000318"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 8.43,
+   "i": 6,
+   "elapsed": 17.9,
+   "q": 0.41329987211721164,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": false,
+    "lift": false,
+    "years": false,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 24.0,
+    "gen": "sd_base",
+    "tr_src": "h4"
+   },
+   "n_signals": 121,
+   "N": 101,
+   "exp_r_x1": 0.13669689595369336,
+   "t_x1": 1.2597433037090566,
+   "PF_x1": 1.3354564288147572,
+   "PF_x15": 1.2636319378587446,
+   "PF_x2": 1.2051306200627812,
+   "exp_r_x2": 0.08867659652933259,
+   "WR_x1": 0.5148514851485149,
+   "b_x1": 1.258410865613906,
+   "R_total_x1": 13.806386491323028,
+   "max_dd_pct": 4.78761628750841,
+   "rand_N": 1457,
+   "rand_exp_r": -0.04897048730267517,
+   "rand_PF": 0.8943810522420312,
+   "lift_pp": 10.79,
+   "lift_ci_pp": [
+    0.83,
+    20.62
+   ],
+   "years_pf_pos": 5,
+   "year_R": {
+    "2016": 10.713981345061898,
+    "2017": 2.0651091358927305,
+    "2018": 2.5085218396438176,
+    "2019": 1.8032385334632548,
+    "2020": -4.0335753990950955,
+    "2021": 0.7491110363564228
+   },
+   "max_year_share": 0.7760163277911545,
+   "symbols_pos": 2,
+   "per_symbol_expr": {
+    "EURUSD": -0.038114525065674386,
+    "GBPUSD": 0.3728121923384183,
+    "USDJPY": -0.283311974179537,
+    "AUDUSD": 0.4597389385554779
+   },
+   "top5_share_net": 0.4345814890645609,
+   "top5_share_gross": 0.10916354229541002,
+   "time_exit_share": 0.49504950495049505,
+   "trades_per_week": 0.3309742165987757,
+   "exit_mix": {
+    "SL": 39,
+    "TP": 12,
+    "DAILY": 44,
+    "FRIDAY": 6
+   },
+   "status_counts": {
+    "FILLED": 101,
+    "EXPIRED": 20
+   },
+   "p_norm": 0.2077619784357304,
+   "ledger_trials": [
+    "T000320"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 9.22,
+   "i": 7,
+   "elapsed": 19.1,
+   "q": 0.31963381297804677,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": true,
+    "lift": true,
+    "years": true,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 32.0,
+    "gen": "line1_cluster",
+    "tr_src": "h1"
+   },
+   "n_signals": 136,
+   "N": 102,
+   "exp_r_x1": -0.15577582304187923,
+   "t_x1": -1.657087571809076,
+   "PF_x1": 0.6740305001835386,
+   "PF_x15": 0.6568198255036781,
+   "PF_x2": 0.640016172244224,
+   "exp_r_x2": -0.17516920539482328,
+   "WR_x1": 0.35294117647058826,
+   "b_x1": 1.216999514220278,
+   "R_total_x1": -15.889133950271683,
+   "max_dd_pct": 10.45145103739969,
+   "rand_N": 1655,
+   "rand_exp_r": -0.006151812688820193,
+   "rand_PF": 0.9848333907473481,
+   "lift_pp": -8.51,
+   "lift_ci_pp": [
+    -17.43,
+    1.43
+   ],
+   "years_pf_pos": 2,
+   "year_R": {
+    "2016": -0.4584085165574123,
+    "2017": -4.779939138055216,
+    "2018": 3.9865474139346215,
+    "2019": -5.50728156254915,
+    "2020": -10.463275185148799,
+    "2021": 1.3332230381042753
+   },
+   "max_year_share": null,
+   "symbols_pos": 1,
+   "per_symbol_expr": {
+    "EURUSD": -0.1771683579261302,
+    "GBPUSD": -0.22811449175402945,
+    "USDJPY": -0.22930067668943424,
+    "AUDUSD": 0.11585342740329757
+   },
+   "top5_share_net": null,
+   "top5_share_gross": 0.12174669546364018,
+   "time_exit_share": 0.5,
+   "trades_per_week": 0.33362439803633537,
+   "exit_mix": {
+    "SL": 43,
+    "DAILY": 39,
+    "TP": 8,
+    "FRIDAY": 12
+   },
+   "status_counts": {
+    "FILLED": 102,
+    "EXPIRED": 33,
+    "VETO_FRIDAY": 1
+   },
+   "p_norm": 0.09750177144528359,
+   "ledger_trials": [
+    "T000322"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 29.23,
+   "i": 8,
+   "elapsed": 58.9,
+   "q": 0.28094105276484416,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": false,
+    "lift": false,
+    "years": false,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 32.0,
+    "gen": "line1_cluster",
+    "tr_src": "h4"
+   },
+   "n_signals": 162,
+   "N": 130,
+   "exp_r_x1": -0.23128812513590552,
+   "t_x1": -2.8592413631197338,
+   "PF_x1": 0.5500593809629187,
+   "PF_x15": 0.5357999476340202,
+   "PF_x2": 0.4794613301494191,
+   "exp_r_x2": -0.27599966359744443,
+   "WR_x1": 0.3384615384615385,
+   "b_x1": 1.0751160627911593,
+   "R_total_x1": -30.06745626766772,
+   "max_dd_pct": 14.934182550764033,
+   "rand_N": 2026,
+   "rand_exp_r": 0.01054726061204494,
+   "rand_PF": 1.0272724734673733,
+   "lift_pp": -11.22,
+   "lift_ci_pp": [
+    -19.09,
+    -2.46
+   ],
+   "years_pf_pos": 1,
+   "year_R": {
+    "2016": -8.528009076690399,
+    "2017": -2.993779554600538,
+    "2018": -8.901673899730268,
+    "2019": 5.4220414704798365,
+    "2020": -11.44603083997751,
+    "2021": -3.620004367148839
+   },
+   "max_year_share": null,
+   "symbols_pos": 0,
+   "per_symbol_expr": {
+    "EURUSD": -0.3788242807460529,
+    "GBPUSD": -0.18307992181811544,
+    "USDJPY": -0.20716226598546827,
+    "AUDUSD": -0.12202859544687651
+   },
+   "top5_share_net": null,
+   "top5_share_gross": 0.16323007800608955,
+   "time_exit_share": 0.47692307692307695,
+   "trades_per_week": 0.4236566182929522,
+   "exit_mix": {
+    "TP": 9,
+    "SL": 59,
+    "FRIDAY": 12,
+    "DAILY": 50
+   },
+   "status_counts": {
+    "FILLED": 130,
+    "EXPIRED": 32
+   },
+   "p_norm": 0.0042465554447097,
+   "ledger_trials": [
+    "T000324"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 30.06,
+   "i": 9,
+   "elapsed": 61.3,
+   "q": 0.042465554447096994,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": true,
+    "pf": false,
+    "lift": false,
+    "years": false,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 32.0,
+    "gen": "sd_base",
+    "tr_src": "h1"
+   },
+   "n_signals": 82,
+   "N": 73,
+   "exp_r_x1": -0.07083987288384333,
+   "t_x1": -0.6546049824688581,
+   "PF_x1": 0.8293559975660941,
+   "PF_x15": 0.7910059255595927,
+   "PF_x2": 0.7671553408650531,
+   "exp_r_x2": -0.10054877699343498,
+   "WR_x1": 0.3972602739726027,
+   "b_x1": 1.2583332376864875,
+   "R_total_x1": -5.171310720520563,
+   "max_dd_pct": 6.347727937450946,
+   "rand_N": 996,
+   "rand_exp_r": -0.04123995983936016,
+   "rand_PF": 0.8983630135397355,
+   "lift_pp": -3.95,
+   "lift_ci_pp": [
+    -14.84,
+    7.92
+   ],
+   "years_pf_pos": 3,
+   "year_R": {
+    "2016": -2.074533603410665,
+    "2017": -5.9789587252914975,
+    "2018": 0.5827224685004423,
+    "2019": 2.9331186258273068,
+    "2020": -2.087544246736022,
+    "2021": 1.4538847605898715
+   },
+   "max_year_share": null,
+   "symbols_pos": 1,
+   "per_symbol_expr": {
+    "EURUSD": -0.17838287287844573,
+    "GBPUSD": -0.04890835584605077,
+    "USDJPY": 0.40943722981375963,
+    "AUDUSD": -0.2822008694947397
+   },
+   "top5_share_net": null,
+   "top5_share_gross": 0.15915100932429005,
+   "time_exit_share": 0.6301369863013698,
+   "trades_per_week": 0.24632985785417447,
+   "exit_mix": {
+    "TP": 4,
+    "SL": 23,
+    "FRIDAY": 11,
+    "DAILY": 34,
+    "MIDNIGHT": 1
+   },
+   "status_counts": {
+    "FILLED": 73,
+    "EXPIRED": 8,
+    "VETO_FRIDAY": 1
+   },
+   "p_norm": 0.5127221153443897,
+   "ledger_trials": [
+    "T000326"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 8.43,
+   "i": 10,
+   "elapsed": 18.1,
+   "q": 0.6032024886404584,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": false,
+    "lift": false,
+    "years": false,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 32.0,
+    "gen": "sd_base",
+    "tr_src": "h4"
+   },
+   "n_signals": 91,
+   "N": 81,
+   "exp_r_x1": 0.13373378151931012,
+   "t_x1": 1.3023174337617522,
+   "PF_x1": 1.4382698583502986,
+   "PF_x15": 1.3725655648662227,
+   "PF_x2": 1.3202420439236284,
+   "exp_r_x2": 0.10244520127238975,
+   "WR_x1": 0.5308641975308642,
+   "b_x1": 1.2710291771467754,
+   "R_total_x1": 10.832436303064119,
+   "max_dd_pct": 2.1147882644141736,
+   "rand_N": 1088,
+   "rand_exp_r": -0.0705853630514694,
+   "rand_PF": 0.8234579962931593,
+   "lift_pp": 10.26,
+   "lift_ci_pp": [
+    -0.9,
+    21.13
+   ],
+   "years_pf_pos": 4,
+   "year_R": {
+    "2016": -0.26190750661951046,
+    "2017": 5.249602585466644,
+    "2018": -1.5549302564307388,
+    "2019": 1.010759297550255,
+    "2020": 1.551004081879456,
+    "2021": 4.837908101218012
+   },
+   "max_year_share": 0.484618827989943,
+   "symbols_pos": 2,
+   "per_symbol_expr": {
+    "EURUSD": -0.07065657835023223,
+    "GBPUSD": 0.5093385342846559,
+    "USDJPY": 0.13978645470590895,
+    "AUDUSD": -0.12652157802566671
+   },
+   "top5_share_net": 0.5538920176528348,
+   "top5_share_gross": 0.1687820784873495,
+   "time_exit_share": 0.6790123456790124,
+   "trades_per_week": 0.26098171804653675,
+   "exit_mix": {
+    "DAILY": 46,
+    "SL": 19,
+    "FRIDAY": 8,
+    "TP": 7,
+    "MIDNIGHT": 1
+   },
+   "status_counts": {
+    "FILLED": 81,
+    "EXPIRED": 10
+   },
+   "p_norm": 0.19280789439350288,
+   "ledger_trials": [
+    "T000328"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 8.95,
+   "i": 11,
+   "elapsed": 18.7,
+   "q": 0.31963381297804677,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": true,
+    "lift": false,
+    "years": true,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 40.0,
+    "gen": "line1_cluster",
+    "tr_src": "h1"
+   },
+   "n_signals": 108,
+   "N": 89,
+   "exp_r_x1": 0.11913018732298417,
+   "t_x1": 1.265001695406734,
+   "PF_x1": 1.412238469998791,
+   "PF_x15": 1.3707640496918503,
+   "PF_x2": 1.3302855307374122,
+   "exp_r_x2": 0.09797850192972163,
+   "WR_x1": 0.5280898876404494,
+   "b_x1": 1.2620003348925368,
+   "R_total_x1": 10.602586671745591,
+   "max_dd_pct": 3.5132557317216686,
+   "rand_N": 1334,
+   "rand_exp_r": -0.03798163418290849,
+   "rand_PF": 0.8844553145880371,
+   "lift_pp": 9.33,
+   "lift_ci_pp": [
+    -1.28,
+    19.71
+   ],
+   "years_pf_pos": 5,
+   "year_R": {
+    "2016": -2.518295614245478,
+    "2017": 6.9177182744778865,
+    "2018": 0.7762413817215736,
+    "2019": 1.810372681477664,
+    "2020": 3.3721962699993733,
+    "2021": 0.2443536783145719
+   },
+   "max_year_share": 0.6524557156333026,
+   "symbols_pos": 3,
+   "per_symbol_expr": {
+    "EURUSD": 0.11174173642262458,
+    "GBPUSD": 0.22255107748669686,
+    "USDJPY": 0.15401652271768432,
+    "AUDUSD": -0.11151659355600084
+   },
+   "top5_share_net": 0.5658996418288341,
+   "top5_share_gross": 0.1651885340020387,
+   "time_exit_share": 0.6966292134831461,
+   "trades_per_week": 0.29524317279782003,
+   "exit_mix": {
+    "SL": 21,
+    "DAILY": 49,
+    "FRIDAY": 13,
+    "TP": 6
+   },
+   "status_counts": {
+    "EXPIRED": 19,
+    "FILLED": 89
+   },
+   "p_norm": 0.2058707201134823,
+   "ledger_trials": [
+    "T000330"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 28.65,
+   "i": 12,
+   "elapsed": 58.5,
+   "q": 0.31963381297804677,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": true,
+    "lift": false,
+    "years": true,
+    "symbols": true,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 40.0,
+    "gen": "line1_cluster",
+    "tr_src": "h4"
+   },
+   "n_signals": 116,
+   "N": 99,
+   "exp_r_x1": -0.11999125632497702,
+   "t_x1": -1.5283588179285208,
+   "PF_x1": 0.6878677841922222,
+   "PF_x15": 0.6652937410825942,
+   "PF_x2": 0.6432714266296526,
+   "exp_r_x2": -0.1396124684461898,
+   "WR_x1": 0.46464646464646464,
+   "b_x1": 0.7925433165692995,
+   "R_total_x1": -11.879134376172725,
+   "max_dd_pct": 6.476237512150004,
+   "rand_N": 1423,
+   "rand_exp_r": -0.042847856640902134,
+   "rand_PF": 0.8725158120328188,
+   "lift_pp": 1.28,
+   "lift_ci_pp": [
+    -8.58,
+    11.38
+   ],
+   "years_pf_pos": 2,
+   "year_R": {
+    "2016": -4.121777258086414,
+    "2017": -4.1152063611681635,
+    "2018": 0.27395241135451354,
+    "2019": 0.31291371404047386,
+    "2020": -2.22335077728758,
+    "2021": -2.005666105025557
+   },
+   "max_year_share": null,
+   "symbols_pos": 1,
+   "per_symbol_expr": {
+    "EURUSD": -0.20517718494326548,
+    "GBPUSD": -0.21716439636187626,
+    "USDJPY": -0.031160608370965143,
+    "AUDUSD": 0.13254530246987814
+   },
+   "top5_share_net": null,
+   "top5_share_gross": 0.22919233049618887,
+   "time_exit_share": 0.6565656565656566,
+   "trades_per_week": 0.323456634860789,
+   "exit_mix": {
+    "DAILY": 53,
+    "FRIDAY": 12,
+    "SL": 31,
+    "TP": 3
+   },
+   "status_counts": {
+    "FILLED": 99,
+    "EXPIRED": 17
+   },
+   "p_norm": 0.12642347374417987,
+   "ledger_trials": [
+    "T000332"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 30.85,
+   "i": 13,
+   "elapsed": 62.4,
+   "q": 0.28094105276484416,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": false,
+    "lift": false,
+    "years": false,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 40.0,
+    "gen": "sd_base",
+    "tr_src": "h1"
+   },
+   "n_signals": 48,
+   "N": 40,
+   "exp_r_x1": 0.14280785735946105,
+   "t_x1": 1.0706265696334314,
+   "PF_x1": 1.5834045226436555,
+   "PF_x15": 1.5311237770225987,
+   "PF_x2": 1.4795775360004855,
+   "exp_r_x2": 0.12043285735945868,
+   "WR_x1": 0.625,
+   "b_x1": 0.9500427135861933,
+   "R_total_x1": 5.712314294378443,
+   "max_dd_pct": 1.113795046394428,
+   "rand_N": 611,
+   "rand_exp_r": -0.05155891980360387,
+   "rand_PF": 0.8452706934024149,
+   "lift_pp": 18.64,
+   "lift_ci_pp": [
+    2.67,
+    32.47
+   ],
+   "years_pf_pos": 5,
+   "year_R": {
+    "2016": 0.4299973476783536,
+    "2017": 0.7480750859070739,
+    "2018": 1.2433728486006221,
+    "2019": 0.8461413981471497,
+    "2020": -0.36274277802106036,
+    "2021": 2.807470392066304
+   },
+   "max_year_share": 0.4914768773891117,
+   "symbols_pos": 3,
+   "per_symbol_expr": {
+    "EURUSD": -0.09491781029948836,
+    "GBPUSD": 0.14308678173993727,
+    "USDJPY": 0.25337452269087635,
+    "AUDUSD": 0.37121174724259937
+   },
+   "top5_share_net": 0.7002415822841626,
+   "top5_share_gross": 0.2580036245985058,
+   "time_exit_share": 0.75,
+   "trades_per_week": 0.13376319800204495,
+   "exit_mix": {
+    "SL": 7,
+    "FRIDAY": 4,
+    "DAILY": 26,
+    "TP": 3
+   },
+   "status_counts": {
+    "FILLED": 40,
+    "EXPIRED": 8
+   },
+   "p_norm": 0.2843373718079958,
+   "ledger_trials": [
+    "T000334"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 8.59,
+   "i": 14,
+   "elapsed": 17.8,
+   "q": 0.406196245439994,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": true,
+    "lift": true,
+    "years": true,
+    "symbols": true,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 40.0,
+    "gen": "sd_base",
+    "tr_src": "h4"
+   },
+   "n_signals": 52,
+   "N": 39,
+   "exp_r_x1": 0.24989127006546893,
+   "t_x1": 1.5319730214605127,
+   "PF_x1": 1.9245683049212647,
+   "PF_x15": 1.8369633596796666,
+   "PF_x2": 1.671869845019988,
+   "exp_r_x2": 0.20495537262956595,
+   "WR_x1": 0.5128205128205128,
+   "b_x1": 1.8283398896752012,
+   "R_total_x1": 9.745759532553288,
+   "max_dd_pct": 1.8721433833314027,
+   "rand_N": 652,
+   "rand_exp_r": -0.03194401840490873,
+   "rand_PF": 0.9073859972875002,
+   "lift_pp": 6.5,
+   "lift_ci_pp": [
+    -9.07,
+    21.82
+   ],
+   "years_pf_pos": 4,
+   "year_R": {
+    "2016": 0.2439236749582343,
+    "2017": -0.12591209993000696,
+    "2018": 2.921682462102067,
+    "2019": 4.4373093287557985,
+    "2020": 3.463112827651882,
+    "2021": -1.194356660984687
+   },
+   "max_year_share": 0.45530667096125954,
+   "symbols_pos": 3,
+   "per_symbol_expr": {
+    "EURUSD": 0.2331396820554761,
+    "GBPUSD": 0.21719460897095394,
+    "USDJPY": 0.5706109286407788,
+    "AUDUSD": -1.0
+   },
+   "top5_share_net": 0.20521745825140636,
+   "top5_share_gross": 0.0985870738027744,
+   "time_exit_share": 0.6923076923076923,
+   "trades_per_week": 0.1328355379666958,
+   "exit_mix": {
+    "FRIDAY": 4,
+    "DAILY": 23,
+    "TP": 5,
+    "SL": 7
+   },
+   "status_counts": {
+    "FILLED": 39,
+    "EXPIRED": 13
+   },
+   "p_norm": 0.1255290923552326,
+   "ledger_trials": [
+    "T000336"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 9.2,
+   "i": 15,
+   "elapsed": 18.9,
+   "q": 0.28094105276484416,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": true,
+    "lift": false,
+    "years": true,
+    "symbols": true,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 55.0,
+    "gen": "line1_cluster",
+    "tr_src": "h1"
+   },
+   "n_signals": 126,
+   "N": 97,
+   "exp_r_x1": -0.10943968085356391,
+   "t_x1": -1.7660439328561839,
+   "PF_x1": 0.6413538697037896,
+   "PF_x15": 0.6134153769325872,
+   "PF_x2": 0.5897329386886303,
+   "exp_r_x2": -0.12957088985075557,
+   "WR_x1": 0.4639175257731959,
+   "b_x1": 0.7411200272132679,
+   "R_total_x1": -10.615649042795699,
+   "max_dd_pct": 6.586477990620525,
+   "rand_N": 1534,
+   "rand_exp_r": 0.015669076686025123,
+   "rand_PF": 1.069139728148025,
+   "lift_pp": -4.06,
+   "lift_ci_pp": [
+    -13.98,
+    6.12
+   ],
+   "years_pf_pos": 2,
+   "year_R": {
+    "2016": 0.9127031991131727,
+    "2017": -3.2351856373106074,
+    "2018": 0.2638190440144293,
+    "2019": -1.1183537751621462,
+    "2020": -3.9098899035636694,
+    "2021": -3.528741969886877
+   },
+   "max_year_share": null,
+   "symbols_pos": 0,
+   "per_symbol_expr": {
+    "EURUSD": -0.1040095490332251,
+    "GBPUSD": -0.12733959475182693,
+    "USDJPY": -0.056223768128864246,
+    "AUDUSD": -0.1732643914303167
+   },
+   "top5_share_net": null,
+   "top5_share_gross": 0.25432318338886106,
+   "time_exit_share": 0.8762886597938144,
+   "trades_per_week": 0.3125775241875465,
+   "exit_mix": {
+    "DAILY": 68,
+    "SL": 11,
+    "FRIDAY": 17,
+    "TP": 1
+   },
+   "status_counts": {
+    "FILLED": 97,
+    "EXPIRED": 28,
+    "CANCELLED": 1
+   },
+   "p_norm": 0.07738847859772217,
+   "ledger_trials": [
+    "T000338"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 29.29,
+   "i": 16,
+   "elapsed": 59.7,
+   "q": 0.28094105276484416,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": false,
+    "lift": false,
+    "years": false,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 55.0,
+    "gen": "line1_cluster",
+    "tr_src": "h4"
+   },
+   "n_signals": 128,
+   "N": 106,
+   "exp_r_x1": -0.042633077441777405,
+   "t_x1": -0.5822081086122407,
+   "PF_x1": 0.8637390952927796,
+   "PF_x15": 0.8396122597170437,
+   "PF_x2": 0.8161784293299138,
+   "exp_r_x2": -0.05906532444006443,
+   "WR_x1": 0.4339622641509434,
+   "b_x1": 1.1266162112514517,
+   "R_total_x1": -4.519106208828405,
+   "max_dd_pct": 5.5257293392990725,
+   "rand_N": 1569,
+   "rand_exp_r": -0.016799351063216138,
+   "rand_PF": 0.9353565711380831,
+   "lift_pp": -1.86,
+   "lift_ci_pp": [
+    -11.23,
+    7.96
+   ],
+   "years_pf_pos": 2,
+   "year_R": {
+    "2016": -0.6676348683787563,
+    "2017": -3.8059993197543007,
+    "2018": 1.9825103530611465,
+    "2019": -2.059734902601773,
+    "2020": -2.3118677413480055,
+    "2021": 2.3436202701932847
+   },
+   "max_year_share": null,
+   "symbols_pos": 1,
+   "per_symbol_expr": {
+    "EURUSD": -0.03734670303470278,
+    "GBPUSD": 0.040715384758335485,
+    "USDJPY": -0.17916921845419503,
+    "AUDUSD": -0.16014872785609932
+   },
+   "top5_share_net": null,
+   "top5_share_gross": 0.20945338948660455,
+   "time_exit_share": 0.7735849056603774,
+   "trades_per_week": 0.34553312862901464,
+   "exit_mix": {
+    "DAILY": 70,
+    "SL": 20,
+    "FRIDAY": 12,
+    "TP": 4
+   },
+   "status_counts": {
+    "FILLED": 106,
+    "EXPIRED": 22
+   },
+   "p_norm": 0.5604265122451461,
+   "ledger_trials": [
+    "T000340"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 30.36,
+   "i": 17,
+   "elapsed": 62.5,
+   "q": 0.6226961247168289,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": false,
+    "lift": false,
+    "years": false,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 55.0,
+    "gen": "sd_base",
+    "tr_src": "h1"
+   },
+   "n_signals": 56,
+   "N": 50,
+   "exp_r_x1": 0.07221791963096692,
+   "t_x1": 0.6817081435755309,
+   "PF_x1": 1.3320646905299705,
+   "PF_x15": 1.2892244438437872,
+   "PF_x2": 1.2099652815938324,
+   "exp_r_x2": 0.04837217316032106,
+   "WR_x1": 0.58,
+   "b_x1": 0.9645985690044614,
+   "R_total_x1": 3.610895981548346,
+   "max_dd_pct": 1.2448340821951736,
+   "rand_N": 655,
+   "rand_exp_r": -0.038326162387232056,
+   "rand_PF": 0.8305348945675878,
+   "lift_pp": 12.2,
+   "lift_ci_pp": [
+    -2.09,
+    25.38
+   ],
+   "years_pf_pos": 3,
+   "year_R": {
+    "2016": -0.24269244983492277,
+    "2017": -0.2375922671551602,
+    "2018": 3.2113353077490396,
+    "2019": -1.389106212836216,
+    "2020": 0.6816338474308092,
+    "2021": 1.5873177561947955
+   },
+   "max_year_share": 0.8893458366452375,
+   "symbols_pos": 2,
+   "per_symbol_expr": {
+    "EURUSD": 0.2625732734403299,
+    "GBPUSD": 0.1024955062537669,
+    "USDJPY": -0.022799014813194032,
+    "AUDUSD": -0.15892400021645647
+   },
+   "top5_share_net": 1.107758301662516,
+   "top5_share_gross": 0.27614831339551466,
+   "time_exit_share": 0.78,
+   "trades_per_week": 0.16324325479842858,
+   "exit_mix": {
+    "DAILY": 32,
+    "FRIDAY": 7,
+    "TP": 4,
+    "SL": 7
+   },
+   "status_counts": {
+    "FILLED": 50,
+    "EXPIRED": 6
+   },
+   "p_norm": 0.4954235170502336,
+   "ledger_trials": [
+    "T000342"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 8.7,
+   "i": 18,
+   "elapsed": 17.7,
+   "q": 0.6032024886404584,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": true,
+    "lift": false,
+    "years": false,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  },
+  {
+   "params": {
+    "S_pips": 55.0,
+    "gen": "sd_base",
+    "tr_src": "h4"
+   },
+   "n_signals": 67,
+   "N": 57,
+   "exp_r_x1": 0.005399288782181267,
+   "t_x1": 0.04811316855001182,
+   "PF_x1": 1.0178220717419724,
+   "PF_x15": 0.9941407263241676,
+   "PF_x2": 0.970960356878716,
+   "exp_r_x2": -0.008986676130102029,
+   "WR_x1": 0.47368421052631576,
+   "b_x1": 1.1309134130466358,
+   "R_total_x1": 0.30775946058433223,
+   "max_dd_pct": 3.1718292141563285,
+   "rand_N": 817,
+   "rand_exp_r": -0.021540002225440384,
+   "rand_PF": 0.9174681946860261,
+   "lift_pp": 0.86,
+   "lift_ci_pp": [
+    -11.99,
+    14.02
+   ],
+   "years_pf_pos": 3,
+   "year_R": {
+    "2016": 0.7094170028694163,
+    "2017": 2.681365829192145,
+    "2018": -0.63730197465763,
+    "2019": -2.372484177036943,
+    "2020": -0.4843394129695793,
+    "2021": 0.41110219318692254
+   },
+   "max_year_share": 8.712537460590582,
+   "symbols_pos": 3,
+   "per_symbol_expr": {
+    "EURUSD": 0.06210151473360825,
+    "GBPUSD": 0.03722849091355722,
+    "USDJPY": -0.36916770434968016,
+    "AUDUSD": 0.26147105860786374
+   },
+   "top5_share_net": 12.997163409389067,
+   "top5_share_gross": 0.22758042407926074,
+   "time_exit_share": 0.6842105263157895,
+   "trades_per_week": 0.18816045774707849,
+   "exit_mix": {
+    "DAILY": 30,
+    "FRIDAY": 9,
+    "TP": 5,
+    "SL": 13
+   },
+   "status_counts": {
+    "FILLED": 57,
+    "EXPIRED": 10
+   },
+   "p_norm": 0.9616260513752632,
+   "ledger_trials": [
+    "T000344"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 8.89,
+   "i": 19,
+   "elapsed": 18.4,
+   "q": 0.9616260513752632,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": false,
+    "lift": false,
+    "years": false,
+    "symbols": true,
+    "plateau": false,
+    "plateau_nb_n": 6,
+    "concentration": false,
+    "ALL": false
+   }
+  }
+ ],
+ "utc": "2026-09-21T06:58:39Z"
+}

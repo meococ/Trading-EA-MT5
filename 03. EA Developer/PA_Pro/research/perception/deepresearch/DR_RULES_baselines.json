@@ -1,0 +1,97 @@
+{
+ "bl_tdlines_k2": {
+  "fam": "line",
+  "k": 2,
+  "n_gold": 193,
+  "hits0": 29,
+  "n_live": 492,
+  "clutter0": 6.666666666666667,
+  "variants": {
+   "C2@q95": {
+    "hits": 26,
+    "removed_live": 27,
+    "clutter": 6.333333333333333
+   },
+   "C2@q90": {
+    "hits": 25,
+    "removed_live": 47,
+    "clutter": 5.666666666666667
+   },
+   "C7@2": {
+    "hits": 29,
+    "removed_live": 0,
+    "clutter": 4.666666666666667
+   },
+   "C7@3": {
+    "hits": 29,
+    "removed_live": 0,
+    "clutter": 5.666666666666667
+   }
+  }
+ },
+ "bl_donchian_alt": {
+  "fam": "level",
+  "k": 1,
+  "n_gold": 76,
+  "hits0": 16,
+  "n_live": 1882,
+  "clutter0": 10.333333333333334,
+  "variants": {
+   "C1@0.5": {
+    "hits": 9,
+    "removed_live": 1600,
+    "clutter": 1.25
+   },
+   "C1@1.0": {
+    "hits": 16,
+    "removed_live": 1274,
+    "clutter": 2.5
+   },
+   "C1p@2": {
+    "hits": 6,
+    "removed_live": 1696,
+    "clutter": 1.0
+   },
+   "C2@q95": {
+    "hits": 15,
+    "removed_live": 57,
+    "clutter": 9.666666666666666
+   },
+   "C2@q90": {
+    "hits": 14,
+    "removed_live": 160,
+    "clutter": 9.333333333333334
+   },
+   "C7@2": {
+    "hits": 16,
+    "removed_live": 0,
+    "clutter": 7.0
+   },
+   "C7@3": {
+    "hits": 16,
+    "removed_live": 0,
+    "clutter": 8.0
+   },
+   "C8@1": {
+    "hits": 16,
+    "removed_live": 9,
+    "clutter": 4.666666666666667
+   },
+   "C8@2": {
+    "hits": 16,
+    "removed_live": 0,
+    "clutter": 6.333333333333333
+   },
+   "C8a@1": {
+    "hits": 16,
+    "removed_live": 9,
+    "clutter": 4.666666666666667
+   },
+   "C8a@2": {
+    "hits": 16,
+    "removed_live": 0,
+    "clutter": 6.333333333333333
+   }
+  }
+ }
+}

@@ -1,0 +1,118 @@
+# lvl_Q4Q5.json
+
+Q: Object: HORIZONTAL LEVEL / ZONE. Q4+Q5 MAINTENANCE and DEATH: When do experts adjust a zone's boundaries, when do they keep it despite pokes/undershoots/overshoots, what counts as a decisive break vs a false break, and how does role reversal (support becomes resistance) work? Cite sources.
+
+When technical traders analyze **horizontal support and resistance levels/zones**, maintaining and defining the "lifecycle" (maintenance, validity, break, and death) of a zone relies on specific rules of market structure, order flow, and trader psychology [1-3].
+
+---
+
+### 1. Zone Maintenance: Adjusting Boundaries vs. Keeping Existing Zones
+
+#### **Why Experts Use Zones Instead of Single Lines**
+Price rarely honors a single exact figure or one-pixel line [4-6]. Experts treat support and resistance as **bounded price zones** [4, 6, 7]:
+* **NQ / ES Futures**: Drawn as 5–10 point rectangles on NQ or 2–4 points on ES [6, 8].
+* **Core vs. Outer Envelope**: Formal zone construction splits a level into a **tight core** (the cluster of candle bodies or closes) and an **outer envelope** (the span of extreme wicks) [9-12].
+
+#### **When Experts Adjust a Zone’s Boundaries**
+* **Cluster Realignment**: If price forms a new tight cluster of closes or dojis slightly above or below the original boundary, traders refine or redraw the boundary line by 1–2 pips/points to encompass the high-density price action [13-16].
+* **Systematic Version Control (\\(v1 \rightarrow v2\\))**: Institutional frameworks update zone boundaries when a new qualifying reaction occurs outside the boundary under a pre-written rule [17, 18]. However, they preserve the original version (\\(v1\\)) to prevent "boundary drift" and post-hoc curve fitting [17-19].
+
+#### **When Experts Keep a Zone Intact (Handling Pokes, Undershoots, & Overshoots)**
+* **Undershoots (Stalling Short of the Zone)**: An undershoot occurs when price approaches a level but turns before touching it [20]. Traders **keep the zone intact** because the reaction demonstrates buying/selling interest nearby, but they ignore trade entries on the undershoot since price did not re-test the actual decision boundary [20, 21].
+* **Pokes & Overshoots (Wick Probes / Rejections)**: A "poke" or "overshoot" occurs when a candle wick pierces the outer boundary or horizontal line, but the candle **closes back inside** the zone [20, 22-24]. Experts explicitly **keep the zone unchanged** because long wicks record strong price rejection and order absorption—confirming that resting orders defended the level [22-25].
+
+---
+
+### 2. Zone "Death" & Retirement: When a Level is Devalued or Deleted
+
+Experts declare a horizontal zone **dead or retired** under three main conditions:
+
+1. **Decisive Clean Break**: Once price closes well beyond a zone for several bars or penetrates it on expanding volume, the level is considered dead in its original form [4, 8, 26]. Keeping broken, stale lines clutters the chart and creates decision paralysis [8, 26-28].
+2. **Order Exhaustion / Worn Levels**: A zone tested once or twice holds the highest probability of reversing price [25, 29]. By the 4th or 5th test, the resting limit orders defending the level have been "chewed through" or depleted [25]. A slow, grinding advance into a level signals thinning order flow and imminent zone death [25, 30].
+3. **Time Decay / Stale Levels**: Empirical studies and prop trading practice show that the predictive power of a level decays over time [31-33]. Levels not tested or reacted to within ~2 weeks lose market memory and are pruned [31, 34].
+
+---
+
+### 3. Decisive Break vs. False Break (Fakeout)
+
+| Feature | Decisive Break (Valid Breakout) | False Break (Fakeout / Shakeout) |
+| :--- | :--- | :--- |
+| **Candle Close** | Candle body **closes clearly beyond** the zone boundary [4, 8, 35, 36]. | Candle wicks past the zone but **closes back inside** the range [23, 24, 37, 38]. |
+| **Penetration Depth** | Price exceeds the level by a buffer (e.g., Peter Brandt's classic **1% to 3% price penetration rule** or ATR buffer) [35, 39]. | Price penetrates briefly before violently reversing [37, 40]. |
+| **Volume Profile** | **Expanding volume** (2x–3x average) as aggressive buyers/sellers overwhelm defenders [30, 41, 42]. | **Contracting volume** on the break, or a high-volume rejection wick showing instant absorption [41-43]. |
+| **Market Structure** | Preceded by a **buildup** (tight consolidation below/above the level) or followed by a clean **break-and-retest** [44, 45]. | Represents a **Wyckoff Spring** or **Upthrust**, triggering resting stop-losses (stop hunting) to collect liquidity before reversing [38, 40, 46]. |
+
+---
+
+### 4. Role Reversal (Support Becomes Resistance / Polarity Flip)
+
+Role reversal—also called the **Principle of Polarity** or **Flip Zone**—occurs when a broken support level transforms into resistance (or vice versa) [47-49].
+
+#### **The Underlying Order Flow & Psychology**
+1. **Trapped Traders Seeking Breakeven**: Long traders who bought at support and suffered losses when price broke below are in the "red" [47, 49, 50]. When price rallies back to the old support level, these trapped traders sell to exit at breakeven, creating supply/selling pressure [47, 49, 50].
+2. **Sidelined Traders (FOMO)**: Traders who missed the initial breakdown wait for a pullback to sell short at the former support level, adding further selling volume [47, 50].
+3. **Shift in Value Perception**: Anchoring bias shifts market perception: the old support floor is now perceived as an overvalued ceiling [47, 51].
+
+#### **Trading the Retest (Throwback / Back-up)**
+In both Wyckoff market cycle theory (Phase E "Back-up" to range boundary) and price action scalping, the **break-and-retest** pattern provides a high-conviction setup [45, 52-54]:
+* Traders wait for price to break the zone, wait for a light-volume pullback (throwback) that tests the broken boundary from the opposite side, and enter when a rejection candle confirms the level has flipped [24, 45, 52, 53].
+
+---
+
+Would you like to explore specific trade entry triggers (e.g., Wyckoff Phase C entries or buildup breakouts) or see a custom quantitative backtesting setup for these rules?
+
+## CITED SOURCES
+- [1] src=7853e888: Why the Crowd Effect Matters Levels work partly because enough people believe in them. Traders mark the same swing high, orders cluster there, and price reacts to the cluster. That reaction leaves a footprint on the chart. A long wick, a tiny body or a sharp reversal bar all record the same burst of
+- [2] src=99abc436: Thanks from Brian. Answer: Hi Brian, Support and resistance are only about the behavior of traders – nothing else. This is a big topic which won't be adequately addressed by a short email, but hopefully a summary will make it sufficiently clear… Price movement is a function of the balance or imbalan
+- [3] src=2ae36cf5: Support and resistance trading is the practice of identifying price levels where buying or selling pressure has historically concentrated, then using those levels as decision points for trade entries, exits, and stop-loss placement. Every market participant, from algorithmic systems to retail scalpe
+- [4] src=7853e888: Zoom out first. Drop to the daily or four-hour chart before you mark anything, because higher timeframes hold the levels most traders share. Find the real turns. Look for prices where the market reversed sharply or stalled for several bars, not every minor pivot. Draw a zone. Use the cluster of wick
+- [5] src=7853e888: How to mark a level worth trading: zoom out, find the real turns, draw a zone, count the touches, then prune (click to enlarge) Five or six zones per pair covers almost everything you need. Our guide to support and resistance walks through the drawing routine in more depth. Zones Beat Lines Price ne
+- [6] src=2ae36cf5: What Are Support and Resistance Levels in Futures Trading? Support is a price level where buying interest is strong enough to prevent further decline. Resistance is a price level where selling interest is strong enough to prevent further advance. That's the textbook version. In practice, it's messie
+- [7] src=7e0b3a3d: Support and Resistance Zones: Width and Rules | ChartMini Blog Simulator Blog Toolkit Log in Sign up All posts Technical Analysis 2026/01/05 · Updated: 2026/07/31 · By Iven W. Support and Resistance Zones: How to Draw, Size, and Update Them Learn how to draw support and resistance zones, define zone
+- [8] src=2ae36cf5: My rules for drawing S/R: Use the body close of candles as the primary reference, not wicks. Wicks show the extreme, but closes show where price actually settled. I mark the zone using the cluster of closes, then extend the zone to capture the worst wick. Draw zones, not lines. I use a rectangle too
+- [9] src=7e0b3a3d: <cited_table>
+- [10] src=7e0b3a3d: When a zone is more faithful A zone can be more faithful when qualifying reactions are spread across different prices. For example, if three selected closes occur at 99.80, 100.10, and 100.25, a line at exactly 100.00 would hide some of the observed variation. A band can represent that variation wit
+- [11] src=7e0b3a3d: Before using this method, define whether all wicks qualify or whether an anomaly rule excludes specific observations. Method 4: Core plus wick envelope Create two related bands: Core: close cluster or body range. Envelope: qualifying wick extremes. This method preserves more information than forcing
+- [12] src=7e0b3a3d: Example: Drawing a Zone Without Creating a Trade Setup Assume three qualifying daily reactions were selected before a cutoff date: <cited_table> Different predefined methods produce different zones: Close cluster: 99.95 to 100.20 Body range: 99.80 to 100.25 Wick envelope: 99.35 to 100.50 Core plus e
+- [13] src=19b055cc: 4.1 pip loss for me today. Attachments Capture.PNG 7 KB · Views: 1,898 USD Spot4.png 13.3 KB · Views: 1,857 USD Spot3.png 13.1 KB · Views: 2,296 USD Spot1.png 12.4 KB · Views: 2,918 USD Spot.png 12.2 KB · Views: 2,531 BLS Established member Messages 642 Likes 229 Jul 13, 2012 #10 Sorry, I don't have
+- [14] src=19b055cc: Or maybe I'm just a slow learner. :innocent: BLS Established member Messages 642 Likes 229 Jul 20, 2012 #20 Guess I'll post one trade from 7/19 (I took a total of four trades). I think there are a couple more lurkers in this thread. 😉 Charts are in GMT. E1: Prices near the beginning of the chart cam
+- [15] src=35993b7d: Reply nmesoma says: December 21, 2015 at 12:39 am For the example of the second last picture, why do you choose to have 2 SR lines for some areas but only 1 SR line for other areas? Do you Draw the SR line at the Top of the wick? at the close of the candle? How do you decide which is more accurate? 
+- [16] src=a45cd69d: Zoom out your charts (at least 200 bars for me) Draw the most obvious levels (if you need to second guess, then it's not an important level) Adjust your levels to get the most number of “touches” (it can be body or wick) Now, if you want a full training on how to draw Support and Resistance, then ch
+- [17] src=7e0b3a3d: When Should a Zone Be Updated or Changed? A zone should not move every time price creates an inconvenient wick. Use a versioned update policy. Valid reasons to create a new version a new qualifying reaction occurs outside the existing boundary; the analysis window or timeframe changes; the data prov
+- [18] src=7e0b3a3d: Weak reasons to move a zone the latest candle would otherwise count as a failed interaction; a wider band improves historical results; the analyst wants the midpoint to align with a preferred indicator; later price reveals a cleaner boundary that was not available at the cutoff; the original source 
+- [19] src=7e0b3a3d: The example does not provide a direction, entry, stop, target, or expected return. It demonstrates how one evidence set can support several transparent boundary definitions. Common Zone-Drawing Errors Expanding the zone after every wick This makes the zone difficult to invalidate and can create the 
+- [20] src=35993b7d: These three things stands for: Reaction Setup Management Now take notes because this is important… Reaction Here's the truth: Drawing support and resistance lines aren't the holy grail. There will be times when the market will “smell” your support level and then reverses away from it which is called
+- [21] src=35993b7d: This means that when the price has touched your support or resistance level. Don't place a trade immediately. No. Wait for the price to “play its hand” around the key area of support or resistance first, then make your move to enter the trade. Because remember… Your lines on the chart don't get to d
+- [22] src=7853e888: Every candle describes a fight over one session. The body shows where that fight settled, and the wicks show how far each side pushed before losing ground. So a long lower wick simply reports rejection. It says sellers drove price down, buyers pushed back, and the close finished near the high. A rej
+- [23] src=7853e888: Read it literally first. Sellers pushed price down through the session, buyers reclaimed the ground, and the close landed near the high. Now add the zone underneath. The wick pierced your support band and the close finished back inside it, so the band absorbed a genuine test. The Three Questions to 
+- [24] src=2ae36cf5: My bounce setup has three requirements: 1. The level must be pre-identified. I don't draw levels in real time while price is approaching. Every S/R zone on my chart was placed before the RTH session opened. If I see price reacting at a level I didn't mark, I note it for tomorrow but I don't trade it
+- [25] src=7853e888: Width matters as well. On a major pair's daily chart a zone might span twenty to thirty pips, while an intraday zone runs far tighter. Fresh Levels Versus Worn Levels A zone tested once often holds again. Each further test chews through the orders sitting there, so a fourth touch usually carries les
+- [26] src=2ae36cf5: Ignoring context. A support level during a strong downtrend is much less reliable than the same level during a range. S/R doesn't exist in a vacuum. If the daily chart shows a clear selloff and you're trying to catch a bounce at a minor intraday support, you're fighting the current. I always check t
+- [27] src=7853e888: Too Many Zones on One Chart Twelve lines put a candle near one of them at all times. Cut the list back to the handful with genuine history, because a crowded chart manufactures signals rather than finding them. Stop Placement Invited the Loss Plenty of losses trace back to a stop parked at an obviou
+- [28] src=2ae36cf5: What Are the Most Common Support and Resistance Mistakes? I've made every one of these mistakes personally. Some of them cost me funded accounts. Drawing too many levels. This is the number one problem. If your chart has 10 horizontal lines on a 100-point range, every 10-point move "hits a level." T
+- [29] src=2ae36cf5: Why do S/R levels form in the first place? Because traders have memory. If NQ bounced hard off 19,800 three times last week, thousands of traders have that level marked on their charts. When price approaches it again, buy orders stack up. Algorithms programmed to watch that level trigger. The collec
+- [30] src=2ae36cf5: How do you know when a support or resistance level will break? Volume is the strongest indicator of whether an S/R level will break. Rising volume on the approach to a level signals increasing pressure that may overwhelm defenders. A breakout candle with 2-3 times average volume usually confirms a g
+- [31] src=2ae36cf5: Anchor bias on stale levels. A level from three weeks ago that hasn't been tested since is losing relevance. Markets evolve. New participants enter. Old levels get forgotten. I give a level about two weeks of life. If it hasn't been tested or hasn't generated a reaction in that window, I remove it a
+- [32] src=f46f6efd: View PDF HTML (experimental) Abstract: This paper investigates the phenomenon of support and resistance levels (SR levels) in financial time series, which act as temporary price barriers that reverses price trends. We develop a heuristic discovery algorithm for this purpose, to discover and evaluate
+- [33] src=84388829: * Statistically significant at the 10 percent level. ** Statistically significant at the 5 percent level. *** Statistically significant at the 1 percent level. Could an analyst using support and resistance levels published today have any success predicting intraday trend reversals one week from toda
+- [34] src=7e0b3a3d: the lookback window moved beyond all source reactions; the instrument or contract changed; adjusted data invalidated the original prices; repeated crossing met a specified threshold; the market structure or range being studied ended under a stated definition. Retirement does not mean the price can n
+- [35] src=216c23c3: Are there other recognizable chart configurations at play in Gold at the present time? Answer – NO! On the Validity of Penetration – “We can set up three tests or criteria … for determining decisive breakouts [from trendlines].” The first is the extent of penetration. To be decisive, prices must not
+- [36] src=3868e6a1: LOW 5290 ON 03/30/09 .. .......  60 .’ .59 F-, HEAD AND __..._.___ : .._._..........__.  57 SHOULDERS * * . ._. ._ _ . 52 =i.:. VOL. . THS. . CTRS I 9 23 7 OCT 21 4 N3\ la 2 I I 1 DEC 16 30 1 JAN 13 27 1 FEB 10 24 1 IO MAR 24 1 7 APR 21 15 So that is one part of my personal trading: taking action on
+- [37] src=35993b7d: Undershoot Overshoot (false breakout) Buildup I taught you that undershoots should be avoided, but how about false breaks and buildups? False breakout These kinds of setups always put you at an advantage because oftentimes you would be entering right at confirmation of support or resistance. Plus, y
+- [38] src=5c67f357: B Phase B: Building Cause Multiple STs The longest and most ambiguous phase. Price bounces between the SC and AR boundaries while institutions continue absorbing supply. Multiple secondary tests occur, each ideally on declining volume. The range feels random because it is, on the surface. Volume is 
+- [39] src=7853e888: Where the Stop Belongs Put the stop beyond the far side of the zone, not merely beyond the candle. A wick that pierced the band already showed you how far the market will probe. Then add a small buffer for spread and volatility. Our guide to ATR shows one simple way to size that buffer from recent r
+- [40] src=b0799ea5: A new cycle starts with accumulation, creating a trading range . The pattern often produces a failure point or spring before a strong trend exits on the opposite side. The last decline matches algo-driven stop hunting often observed near downtrend lows, where price undercuts key support and triggers
+- [41] src=216c23c3: “The second is volume of trading. Activity should always be expected to rise notably on a genuine up-side breakout ….” Did Gold's trading volume expand as prices penetrated the Gold Trendline? Answer – NO! Volume actually contracted. “The third test … applies particularly to breaks which are borderl
+- [42] src=2ae36cf5: Breakouts get a bad reputation because the failure rate on raw breakouts is high. I've seen stats claiming 60-70% of breakouts fail and turn into traps. That matches my experience. The fix isn't to avoid breakouts entirely. It's to filter them. My breakout filter has two parts: Volume expansion thro
+- [43] src=5c67f357: Expanding volume on rallies As the range progresses, rallies toward the AR high should carry increasing volume. Buyers are stepping in with more conviction. If rallies fade on declining volume, demand isn't building. Volume shift on the spring The dip below support should show selling volume, but th
+- [44] src=35993b7d: Waited for the price to reach that level: And then the price reacted to the level by closing below the area of resistance: Then place enter at the next candle open, and then set your stop loss below the nearest swing low… How about the buildup? Buildup Compared to false breakouts which is a reversal
+- [45] src=2ae36cf5: No immediate retest that reclaims the level. After the break, I wait two full 5-minute candles. If price doesn't dip back below the broken level within those 10 minutes, I enter on a pullback toward the broken level. The old resistance becomes new support (or old support becomes new resistance). Thi
+- [46] src=fa505d90: here are two distribution schematics we've talked about them in the past and so the one on the left is a the distinction here is the up thrust after distribution with a final up thrusting action above the area of resistance with an attempt to rally up and away from the distribution area which then f
+- [47] src=99abc436: Why does resistance, once broken, become support. The perception of value now changes. The rally as price breaks through resistance is quite painful to those who went short, and took a loss. It's even more painful to those who closed their long positions and missed the extra profits. They now see th
+- [48] src=2ae36cf5: How many support and resistance levels should you have on your chart? Three to five levels per instrument is the sweet spot for intraday futures trading. More than that creates clutter and decision paralysis. Fewer than three leaves gaps where you have no reference points during the session. I grade
+- [49] src=a45cd69d: Resistance – A horizontal area on your chart where you can expect sellers to push the price lower. Here are a few examples… Support and Resistance on EUR/USD Daily: Support on (USD/CAD): Resistance on (GBP/JPY): Also: Support and Resistance can swop roles. This means when Support breaks it can becom
+- [50] src=a45cd69d: So, when the price rallies back to Support, this group of traders can now get out of their losing trade at breakeven — and that induce selling pressure. And that's not all because traders who missed the breakout will want to short the markets which increase the selling pressure. And that's why when 
+- [51] src=99abc436: Now consider a trader conducting analysis on the market with the view to trading. What creates the support and resistance areas are the heuristics and cognitive biases that are part of human decision making. Of particular interest here is the anchoring bias. There's a whole heap of others which infl
+- [52] src=99abc436: Read More Entering A Breakout Before The Breakout Trading Process and Strategy First Pullback after Structural Change By Lance Beggs December 8, 2023 September 16, 2024 Always consider taking the very first pullback after a structural change, such as change of trend, confirmed breakout or confirmed 
+- [53] src=8acdb9ad: What should be observed this time is that the stock prices are no longer contained and has moved past the marked support or resistance boundaries that have been marked. This is what I consider something new in development. Further to this, I require confirmation in the form of a pullback. A pullback
+- [54] src=5c67f357: D Phase D: Trend Within the Range SOS, LPS The direction begins to emerge. Signs of Strength (SOS) rally on expanding volume toward the AR high. Last Points of Support (LPS) pull back on light volume, forming higher lows. The range is no longer flat. It stair-steps upward. The SOS supports the accum

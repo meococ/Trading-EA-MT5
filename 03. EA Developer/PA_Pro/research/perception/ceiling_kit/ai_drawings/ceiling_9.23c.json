@@ -1,0 +1,14 @@
+{
+ "panel": "9.23c",
+ "objects": [
+  {
+   "type": "box",
+   "t0": 945,
+   "t1": 985,
+   "p_top": 1.33024,
+   "p_bot": 1.32912,
+   "why": "pullback block under EMA, ceiling 1.3302"
+  }
+ ],
+ "note": "Downtrend; flat pullback capped by EMA/1.3302, short a break of block floor."
+}

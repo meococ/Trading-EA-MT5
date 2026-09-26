@@ -1,0 +1,210 @@
+{
+  "answer": "### 1. When Experts Redraw or Re-Anchor a Trendline\n\nExperts follow specific structural rules to maintain, adjust, or re-anchor sloped trendlines as price action unfolds:\n\n* **The \"Lowest Low Preceding Highest High\" Anchor Rule (Trader Vic / Sperandeo)**: In classical technical analysis, a standard uptrend line is anchored from the lowest low of the move to the lowest reaction low *preceding the highest high* [1]. If price breaks this initial trendline but subsequently recovers to print a **new higher high**, the trendline is rotated downward and re-anchored to the new intervening reaction low [2]. This fan-like downward rotation reflects a slowing of momentum into a more sustainable, gradual slope rather than a trend death [3].\n* **No Price-Cutting Rule (Adam Grimes)**: Standard trendlines are defined as lines connecting successive swing pivots that **must not cut through prices** between attachment points [4, 5]. If price action penetrates or cuts through a line between pivots, or if a new trend high forms after a deeper pullback, the old line is invalidated and a new line must be drawn connecting the valid pivot points [5].\n* **Trend Maturation and Flattening (Al Brooks)**: As a trend progresses, steep micro trendlines break frequently [6]. Brooks notes that as counter-trend traders step in, trendlines naturally become **flatter and broader** [7]. Experts adjust their lines from steep micro trendlines to broader channel lines as the market transitions from a strong spike into a wider channel or trading range [7, 8].\n* **Mechanical Re-Anchoring (Thomas DeMark / TD Lines)**: DeMark removes subjectivity by anchoring supply and demand lines exclusively to mechanically defined \"TD Points\" (such as Level 1 or Level 2 pivot highs/lows) [9]. When new qualifying TD Points form, old lines are automatically replaced or updated according to strict bar-count criteria [9].\n\n---\n\n### 2. When Experts Keep a Line Despite Wick Pokes\n\nNot every penetration invalidates a sloped trendline. Experts decide whether to keep or prune a line based on how price finishes relative to the level:\n\n* **Wicks as Rejection / Zone Buffer**: Price action experts emphasize that trendlines and boundary levels act as **zones rather than zero-thickness lines** [10, 11]. A wick that spears through a line or zone during the bar but recovers to **close back on the correct side** is classified as a test and rejection of the level, confirming that order flow is defending the line rather than breaking it [12, 13].\n* **Timeframe Noise and Flag Setups (Al Brooks)**: Intraday wick penetrations through a steep micro trendline on a higher timeframe (e.g., 5-minute chart) often represent minor pullbacks or flag formations on lower timeframes (e.g., 1-minute chart) [6, 14]. In strong trends, wicks poking through a trendline do not require redrawing the main line; instead, they offer high-probability **with-trend entries** (bull/bear flags) [6, 14].\n* **Body vs. Wick Construction**: Some experts prefer drawing trendlines through candle bodies (closes) rather than extreme wicks to filter out intrabar noise [8]. However, Grimes warns against \"sloppy\" candle-cutting unless execution rules strictly operate on bar closes [4].\n\n---\n\n### 3. Decisive Breakout vs. False Break / Tease\n\nDistinguishing a genuine trendline break from a false breakout relies on specific quantitative and structural filters:\n\n* **Edwards & Magee’s Classical Criteria (Peter Brandt)**: Classical charting applies three strict tests to declare a trendline breakout decisive:\n  1. **Extent of Penetration**: Price must close beyond the trendline by a defined margin (typically **3%** for equities/commodities, or **1%–2%** for futures/forex) [15].\n  2. **Volume Expansion**: A genuine breakout requires a notable rise in trading volume; breaks on contracting volume are considered \"bogus\" or suspect [16].\n  3. **Underside Roll-Over**: If price feebly reaches the underside of the broken trendline and rolls over, the breakout is confirmed [16].\n* **Tease Breaks and Squeezes (Bob Volman)**: A \"tease break\" occurs when price pierces a boundary or trendline **without prior buildup or consolidation** [17, 18]. Breaks lacking a tight squeeze or doji cluster right under the line frequently trap traders and fail immediately [17, 18]. Real breakouts require a \"buildup\" where price coils tightly against the level before breaking [19, 20].\n* **Failure Metrics (Peter Brandt)**: Brandt notes that **70% of diagonal trendline violations fail** or fizzle out quickly, while only 30% result in a sustained, meaningful move [21, 22].\n\n---\n\n### 4. Post-Break Significance: Do Broken Sloped Lines Matter?\n\nOnce a sloped trendline is broken, its role changes fundamentally depending on whether you look at the diagonal line itself or the horizontal market structure it left behind:\n\n* **Death of the Diagonal Line**: Experts like Adam Grimes state unequivocally that once a sloped trendline is cut or broken, **it is invalidated and should not be projected forward** [5]. Carrying broken diagonal lines into the future clutters charts without providing reliable support or resistance [5]. Furthermore, Peter Brandt emphasizes that violating a trendline carries **no measured price target**; it merely signals that the rate/slope of the prior trend has changed [23, 24].\n* **Shift to Horizontal Structure & Role Reversal**: While the sloped line dies, the **horizontal price levels** established at the break point and adjacent swing pivots become primary support and resistance zones [5]. When a major structural level breaks, it undergoes **polarity flip / role reversal** (broken support becomes new resistance, and vice versa) [25-28]. This happens because trapped traders look to exit at breakeven upon a retest, while sidelined traders enter in the direction of the new move [25, 26, 28].\n* **Major Trend Reversal Sequence (Al Brooks)**: In price action theory, a trendline break is rarely an immediate full reversal on its own [29]. Instead, the trendline break represents **Step 1** of a major reversal, signaling a transition into a trading range [29, 30]. The market must then retest the old trend's extreme (forming a higher low, lower high, or double top/bottom) before a new opposite trend can be confirmed [29, 31].\n\n💡 *Would you like to explore how to combine these trendline breakout rules with horizontal volume profile or market structure concepts like BOS (Break of Structure)?*",
+  "question": "Object: SLOPED TREND LINE. Q4+Q5 MAINTENANCE and DEATH: When do experts redraw or re-anchor a line, when do they keep it despite wick pokes, what counts as a decisive break vs a false break/tease, and does a broken line keep mattering (as horizontal level or flipped role)? Cite sources.",
+  "conversation_id": "b0537405-92f4-42a7-95fa-e2991a441760",
+  "sources_used": [
+    "91c7353f-c3b7-43d5-b3d0-51f4d144a896",
+    "65c415d9-576b-43cd-b52b-40ee996f829a",
+    "cb3c4375-b981-4665-94ab-336e6f1f87e0",
+    "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "283dd470-a3d1-4134-8024-282191338c10",
+    "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "19b055cc-66b7-436a-9154-cc98d0df44be",
+    "35993b7d-f788-421a-acbc-f540d2373fd5",
+    "99abc436-6964-4641-ab4d-44922b73c44a",
+    "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "f6bf50f2-19dd-4c4b-80fb-4b67fab82184"
+  ],
+  "citations": {
+    "1": "91c7353f-c3b7-43d5-b3d0-51f4d144a896",
+    "2": "91c7353f-c3b7-43d5-b3d0-51f4d144a896",
+    "3": "91c7353f-c3b7-43d5-b3d0-51f4d144a896",
+    "4": "65c415d9-576b-43cd-b52b-40ee996f829a",
+    "5": "cb3c4375-b981-4665-94ab-336e6f1f87e0",
+    "6": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "7": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "8": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "9": "283dd470-a3d1-4134-8024-282191338c10",
+    "10": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "11": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "12": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "13": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "14": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "15": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "16": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "17": "19b055cc-66b7-436a-9154-cc98d0df44be",
+    "18": "19b055cc-66b7-436a-9154-cc98d0df44be",
+    "19": "35993b7d-f788-421a-acbc-f540d2373fd5",
+    "20": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "21": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "22": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "23": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "24": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "25": "99abc436-6964-4641-ab4d-44922b73c44a",
+    "26": "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "27": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "28": "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "29": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "30": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "31": "e544c5e4-50d7-4d63-9cfc-088bb52f840e"
+  },
+  "references": [
+    {
+      "source_id": "91c7353f-c3b7-43d5-b3d0-51f4d144a896",
+      "citation_number": 1,
+      "cited_text": "More... A lower high means nothing in an uptrend except that probably some kind of consolidation is forming. In an uptrend you draw the trendline from the lowest low to the lowest low preceding the highest high. At that point in time the highest high was in oct., so no pullback in between should penetrate the line. However, if you would draw the line anytime in aug., it might have been broken, in aug., but then again it might not, because you can not see prices before may. I think the valid point of Vic's book is that he defined a consistent way how to draw trendlines."
+    },
+    {
+      "source_id": "91c7353f-c3b7-43d5-b3d0-51f4d144a896",
+      "citation_number": 2,
+      "cited_text": "In any case, the price makes a 50% retracement, then rallies not only to test the August high but to make a new one. At this point, your June-Aug TL can be rotated downward so that it is under the September low. Because the \"highest high\" is sometimes not tested, you may decide that your best course is to exit at the TL break or even a break below the last reaction low, depending on how far the LRL is from the TL break (if it's too far, you may feel you're giving up too much). Then, once you're out and have money in your pocket, watch the price to see how it behaves at the 50% retracement level. If it looks as though it's going to recover, you can re-enter. Or you may want to wait for a test of this level and a higher low. If it doesn't work out, you're out and you still have a profit. If it does, you wind up with a larger profit than if you'd stayed in and hoped for the best. And, of course, if price drops below the 50% level, you can trigger one of your shorting tactics."
+    },
+    {
+      "source_id": "91c7353f-c3b7-43d5-b3d0-51f4d144a896",
+      "citation_number": 3,
+      "cited_text": "Incidentally, the fact that you've had to rotate your TL downward suggests that momentum is slowing. This is not necessarily a bad thing since a more gradual trend is easier to sustain than a parabolic one. However, you may want to adjust your trade management tactics to account for this change in the trend's character. Jun 8, 2003 #5 S Starn Thank you all for your comments. After stepping back and reading your posts I was able to go back and make sense of the points in that chapter that were throwing me off."
+    },
+    {
+      "source_id": "65c415d9-576b-43cd-b52b-40ee996f829a",
+      "citation_number": 4,
+      "cited_text": "\"Nonstandard\" trendlines in the XLF. Don't \"cut\" prices There is a debate among traders and analysts about whether trendlines should cut through prices, as shown in the next chart and example B of the chart above . Of course, you can draw any line you want to and there are good arguments to be made on both sides, but my preference is to draw them so that they do not pass through any prices at or between the two attachment points for the line. Why is this important? For the simple reason that, if the trendline had already been violated when you first drew it, how significant can you expect that line to be when it is touched again? To me, it is far more logical to create a line that defines the slope of the trend so that the line is potentially meaningful when it is touched in the future. A word of warning to traders who use candlestick charts is in order here. Because the body of the candle emphasizes the space between the open and the close of the bar, it is often tempting to draw trendlines that touch these bodies but that cut the shadows. This is a sloppy practice that should be avoided (unless you are only executing on the close of the bar and intrabar penetrations do not matter.)"
+    },
+    {
+      "source_id": "cb3c4375-b981-4665-94ab-336e6f1f87e0",
+      "citation_number": 5,
+      "cited_text": "Why does this trendline end? Because price action at the end of 2016 invalidated the line. The line was broken decisively, and once a line is cut or broken we don't have any good reason to expect it to be meaningful in the future. (In other words, it's a mistake to carry this line forward.) Now look at the dark trendlines. These were drawn according to the same, consistent rule set I published many years ago in my book (and in this blog ). A valid trendline: Is drawn from a significant pivot low to A pivot low that precedes a new trend high. The line may not cut prices in between those attachment points."
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 6,
+      "cited_text": "multiple trend lines that also contain bearish price action micro trend lines small steep trend lines and strong Trends a micro trend line can be drawn on any time frame it's a smaller trend line drawn between two and 10 bars within a bigger Trend when a micro trend line has a false breakout this can set up for a good bull or bare flag at at least for a couple points when the trend line is steep only take with trend entries new Traders should avoid counter Trend entries as a trend goes on the trend line will become flatter eventually the markets will have trend lines in the opposite direction there's no need to go down on a smaller time frame when looking at micr trend lines they can be seen and traded on the 5 minute chart smaller time frames generate more false signals micro trend lines bullish here we can see a strong bull Trend with multiple trend line breaks shown on these Wicks here"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 7,
+      "cited_text": "creating bare flags on smaller time frames they all lead to Bare flags that have double tops that had bearish breakouts and led to profitable trades these are steep trend lines and we should only take trades in that direction here's an overall trend line and then smaller trend lines within the bigger trend line you could try and short but you would have to make a very quick scalp and it's not worth it because you can make a lot more money in the with Trend Direction here maybe this is a two three point bullar but you can make five or six points just getting short after a trend line break which creates the double top bare flag strong trend lines going flat bullish to bearish Bare trend lines becoming stronger bull trend lines is becoming flat and Broad so see how the longer the bull Trend goes the flatter it gets and at one point bears actually do start making money this was this ended up being a very deep pullback to a"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 8,
+      "cited_text": "flat the trend line is when the trend line breaks we can use this to gauge the strength of the other side counter Trend Traders sometimes it's better to use the bodies of the candles to draw trend lines here's an example of multiple trend lines we have broad bull trend lines here and here and then within that we have Micro trend lines that ultimately break with steep bare trend lines here's a micr trend line for the Bears contained within a broader trend line for the Bears this is just bullish trend lines very strong bull Trend with and within that we also had strong bull channels trend lines being drawn here here and here trend lines for the Bears we can see it starts at the swing high and we pull down containing one one trend line will contain all the price action and within this trend line there are mult"
+    },
+    {
+      "source_id": "283dd470-a3d1-4134-8024-282191338c10",
+      "citation_number": 9,
+      "cited_text": "TD Lines™ TD Lines™ TD Lines are mechanically and objectively constructed. The trendlines drawn are TD Supply Lines and TD Demand Lines. Once the TD Lines are broken and qualified, the study automatically calculates a price projection. A qualified breakout appears as a solid line; whereas, a disqualified breakout is a dashed line. TD Lines are drawn by connecting TD Points. A level one TD Point high is formed once a high is immediately preceded and succeeded by bars with lower highs. Thus, a level one high requires only three bars to make this determination. TD Point highs vary in “ magnitude” based on the number of immediately preceding and succeeding bars that have lower highs. For example, level two has two bars preceding, two bars succeeding, and so on through level nine. The converse of these principles governs TD Point lows. For further information on TD Lines, please refer to Thomas R. DeMark, The New Science of Technical Analysis , New York: John Wiley & Sons, 1994, Chapter 1. Topics: Qualifying TD Lines Parameters"
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 10,
+      "cited_text": "How to mark a level worth trading: zoom out, find the real turns, draw a zone, count the touches, then prune (click to enlarge) Five or six zones per pair covers almost everything you need. Our guide to support and resistance walks through the drawing routine in more depth. Zones Beat Lines Price never respects a one-pixel line. Wicks overshoot, spreads widen, and probes run a few points past the obvious figure. So mark the band between the extreme wick and the cluster of closes. That band gives a candle signal room to form without breaking your idea."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 11,
+      "cited_text": "How many touches make a level worth trading? Two clear prior reactions form a workable minimum. One reaction gives you a guess rather than a level. Beyond three or four touches, the orders sitting there tend to thin out, so watch how sharply price leaves the zone on each test. Should I draw a line or a zone? Draw a zone. Price overshoots exact figures constantly, and a band between the extreme wick and the cluster of closes tolerates that noise. Your candle signal then has room to form without invalidating the idea on a one-pip technicality."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 12,
+      "cited_text": "Read it literally first. Sellers pushed price down through the session, buyers reclaimed the ground, and the close landed near the high. Now add the zone underneath. The wick pierced your support band and the close finished back inside it, so the band absorbed a genuine test. The Three Questions to Ask Ask where the wick ended. A wick that pokes into the zone and recovers reads very differently from one that stops short of it. Ask where the close landed. A close back above the zone supports the defence, while a close below it does the opposite."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 13,
+      "cited_text": "My bounce setup has three requirements: 1. The level must be pre-identified. I don't draw levels in real time while price is approaching. Every S/R zone on my chart was placed before the RTH session opened. If I see price reacting at a level I didn't mark, I note it for tomorrow but I don't trade it today. Reactive level drawing leads to confirmation bias. 2. I need a rejection candle. On a 5-minute chart, I want to see price wick into the S/R zone and close back on the \"right\" side. For a support bounce, that means a candle that dips into the support zone but closes above it. The wick shows the level was tested. The close shows it held. I enter on the close of that candle."
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 14,
+      "cited_text": "something I want to say is these arrows that I drew were on the 5 minute chart and I swapped over to the 1 minute time frame I didn't re redraw these arrows so what that means is these these Wicks breaking down do lead to good bull Flags we have the trend line break here's the arrow leading to a good bull flag of pull pullback strong pull pull back higher low bull flag strong pull pull back leads to another breakout in a bull flag same thing with the last one what we're looking at here are these small Wicks on the five minute micro trend lines bearish same thing goes for the Bears we have a good trend line we have a couple breaks here and here a deeper pullback here and smaller breaks here these all led to profitable bare flags on the one minute time frame but again we don't have to watch the one minute time frame to understand that these Wicks are"
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 15,
+      "cited_text": "Are there other recognizable chart configurations at play in Gold at the present time? Answer – NO! On the Validity of Penetration – “We can set up three tests or criteria … for determining decisive breakouts [from trendlines].” The first is the extent of penetration. To be decisive, prices must not only push through the line but close beyond it by a margin equal to about 3% of the stock's [or commodity's] price.” Has Gold closed above 1325 to 1330, a 3% penetration of the Gold Trendline? Answer – NO! Can the trendline be considered to be valid without a close above 1330? Answer – NO! (I could legitimately argue that the 3% rule is not as applicable to commodities or forex – that 1% to 2% might be more appropriate)."
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 16,
+      "cited_text": "“The second is volume of trading. Activity should always be expected to rise notably on a genuine up-side breakout ….” Did Gold's trading volume expand as prices penetrated the Gold Trendline? Answer – NO! Volume actually contracted. “The third test … applies particularly to breaks which are borderline as far as the margin of penetration is concerned. If prices simply edge up feebly to the underside of the trendline and tend to 'roll over' without being able to close clearly above it – then the situation is … critical and the slightest sign of renewed selling pressure may be taken as a signal that the up-trend has been decisively broken.”"
+    },
+    {
+      "source_id": "19b055cc-66b7-436a-9154-cc98d0df44be",
+      "citation_number": 17,
+      "cited_text": "The lesson here today is that you should exercise some aggression in the face of a strong trend. There will be times when you get stopped out but the rewards for your aggression will outweigh them. I didn't really understand or accept this lesson until today. Attachments USD Spot.png 14.5 KB · Views: 3,265 BLS Established member Messages 642 Likes 229 Jul 18, 2012 #16 E1: I got caught in an obvious tease break. According to Bob, a trader's main concern is to avoid the most classic and costliest mistakes because those are the biggest threats to profitability. I think I am ready to accept that now."
+    },
+    {
+      "source_id": "19b055cc-66b7-436a-9154-cc98d0df44be",
+      "citation_number": 18,
+      "cited_text": "On with today's trades: S1: Skipped Range Break setup. The overall pressure favors a short trade but the break itself was of the tease variety (prices bounce off the 20EMA and break without much buildup). After prices dropped a bit below the 60 level, sideline bulls entered and deployed their longs. The bears decide to push back the 1.2269 level. The bulls, ever keen to defend the 60 area, buy prices back up at a higher support level than (1). But all they could muster was a lower high (3). We can't count the bulls out yet as they fall back and defend their earlier support level (4). Yet again they are served with a lower high (5). The bears are shorting at lower and lower levels while the bulls are trying to defend the same support level). The mistake the bears made was to break the bottom barrier without buildup; they are quickly countered by the bulls. I would have liked to see prices test the 20EMA/60 level again before taking a break of the range to the downside; this would have given us a proper squeeze the could lead to double pressure (bulls bail and bears enter, pushing prices down)."
+    },
+    {
+      "source_id": "35993b7d-f788-421a-acbc-f540d2373fd5",
+      "citation_number": 19,
+      "cited_text": "Waited for the price to reach that level: And then the price reacted to the level by closing below the area of resistance: Then place enter at the next candle open, and then set your stop loss below the nearest swing low… How about the buildup? Buildup Compared to false breakouts which is a reversal setup… A Buildup is a trend continuation setup instead! It means that if the price makes a buildup below resistance, then you want to be trading in the direction of that breakout. Here's what I mean: Again, where should your entries and stop loss be?"
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 20,
+      "cited_text": "No immediate retest that reclaims the level. After the break, I wait two full 5-minute candles. If price doesn't dip back below the broken level within those 10 minutes, I enter on a pullback toward the broken level. The old resistance becomes new support (or old support becomes new resistance). This \"break and retest\" pattern is my highest-conviction breakout setup because it confirms the level has flipped. I avoid breakout trades during the first 15 minutes of RTH. The open generates massive volume that can blow through any level, only to reverse 20 minutes later. FOMC days, CPI releases, and NFP mornings are the same story. Volatility drives false breakouts on news events. I wait 30-45 minutes after a major release before considering any breakout trade."
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 21,
+      "cited_text": "Classical charting remains a very valid tool for market speculation, but chartists must be increasingly selective in trade identification. Here's why – WIN RATE DOES MATTER! My experience is that 30% of trendline violations on longer-term charts (weeklies) produce a meaningful move while 70% of trendline violations completely fail or produce moves that fizzle out quickly. While risk management is far more important than trade selection, all other things being equal the performance metrics of being right 30% of the time are far different than the performance metrics with a 41% win rate (Factor's historic baseline)."
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 22,
+      "cited_text": "The most unreliable diagonal chart construction is the trendline, followed closely by the symmetrical triangle. Do NOT read this to mean that diagonal patterns do not produce profitable trades. I have experienced some wonderful trades involving diagonal chart construction. In fact, over the years many of my most profitable trades have occurred when a horizontal area pattern was completed simultaneously with the penetration of a multi-contact point trendline. In this sense I find trendlines to be of particular importance."
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 23,
+      "cited_text": "· Horns (or sloping patterns) · Compound fulcrums (borrowed from point and figure charting) · Rounding patterns Diagonal chart construction · Head and shoulders – when the neckline slants into the right shoulder · Symmetrical triangles · Right-angled triangles – when the breakout is through the diagonal boundary · Wedges (falling wedge more unreliable than rising wedge) · Trendlines · Channels One additional point about trendlines must be made. All other chart construction listed above carry an implication that price will experience a “measured move.” The violation of a trendline does not carry with it a price target – but simply indicates that the price behavior of the previous trend has altered. Thus, on its face the penetration of a trendline does not convert a bear market into a bull market or visa-versa."
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 24,
+      "cited_text": "Time will tell if this third test applies to Gold. If it does apply, then the next profitable play in Gold will be on the short side. Bottom line is this – if the apparent Gold Trendline does not qualify as a trendline, then there is NO TRENDLINE. In my opinion – for what it is worth – a pattern (any pattern) is only a pattern if it performs according to the expectations set forth by classical charting principles. Otherwise all we have are some coincidental lines drawn on a graph page that have no real meaning."
+    },
+    {
+      "source_id": "99abc436-6964-4641-ab4d-44922b73c44a",
+      "citation_number": 25,
+      "cited_text": "Why does resistance, once broken, become support. The perception of value now changes. The rally as price breaks through resistance is quite painful to those who went short, and took a loss. It's even more painful to those who closed their long positions and missed the extra profits. They now see this area as providing great value, and swear to the market Gods that if price can just get back to that area they'll never be so stupid again. So when it drops back to that new support area, these traders go Long."
+    },
+    {
+      "source_id": "a45cd69d-f030-439c-aee6-a757201e57ac",
+      "citation_number": 26,
+      "cited_text": "Resistance – A horizontal area on your chart where you can expect sellers to push the price lower. Here are a few examples… Support and Resistance on EUR/USD Daily: Support on (USD/CAD): Resistance on (GBP/JPY): Also: Support and Resistance can swop roles. This means when Support breaks it can become Resistance. And when Resistance breaks it can become Support. An example… Previous Support turns Resistance on (GBP/AUD): Previous Resistances turns Support on (NZD/USD): But why does it happen? Because when the price breaks Support, traders who are long are losing money and in the “red'."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 27,
+      "cited_text": "How many support and resistance levels should you have on your chart? Three to five levels per instrument is the sweet spot for intraday futures trading. More than that creates clutter and decision paralysis. Fewer than three leaves gaps where you have no reference points during the session. I grade my levels as A (daily chart, multiple touches) or B (session-based, single touch), and I only take trades at A-grade levels unless a B-grade level has strong confluence from VWAP or a moving average. What is the polarity flip in support and resistance trading? The polarity flip (also called role reversal) happens when a broken support level becomes resistance, or a broken resistance level becomes support. When NQ breaks below support at 19,800, that level often acts as resistance on the next attempt to rally back to it. The polarity flip creates one of the cleanest breakout entries in futures trading: wait for the break, wait for the retest of the broken level, then enter in the direction of the break."
+    },
+    {
+      "source_id": "a45cd69d-f030-439c-aee6-a757201e57ac",
+      "citation_number": 28,
+      "cited_text": "So, when the price rallies back to Support, this group of traders can now get out of their losing trade at breakeven — and that induce selling pressure. And that's not all because traders who missed the breakout will want to short the markets which increase the selling pressure. And that's why when Support breaks it tends to become Resistance. Make sense? Now you're probably wondering… “But how do I draw Support and Resistance on my charts?” That's a good question. So, here are the guidelines I use…"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 29,
+      "cited_text": "y trader who bought bar 69 was trapped by the reversal 70 and 71 and then further selling so the expectation here as bar one is testing the bar 69 close is that you have bulls who bought 69 who got trapped on 70 and 71 with the follow through and whoever bought there is trapped into a losing position and when the market comes back and tests their entry price if they in theory they use a wide stop scale in lower they're probably happy just to get out at their original entry also if we talk about the structure regarding major reversals in this case it's a bare trend and a trend line break usually the market tests the trend the old trends extreme before reversing in a major way so i do not expect this tight bare channel to reverse immediately into a strong bull trend at a minimum there's probably going to be more sideways price action trading range probably more sideways before the bulls get any kind of reversal again the micro channel yesterday that's a very strong breakout trap traders"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 30,
+      "cited_text": "we approach support i expect traders to be buying down here so the downside is probably limited and then nine went outside up nine tested that support the bar 78 high breakout point bar 81 high also a breakout point the breakout i'm talking about is the gap up so bull breakout gap up functionally they're the same thing it's a breakout pullback second leg but fairly tight and not quite a micro channel because bar 2 pulled back below one but a fairly tight channel from bar 78 to bar 4 today and this is a pullback testing support i talked about the major trend reversal structure fairly tight bare channel bulls got a decent trend line break here far above the moving average price moved a long distance from you know here's one way to draw the trend line for the bears market broke above the trend line tested it and then rallied far above it so at this point the market's either in a trading range or a bull trend because it's no longer creating lower highs and lower lows we broke out above thi"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 31,
+      "cited_text": "take counter Trend trades until there's a strong break and retest of the channel line bull channels will break into a bare Channel after a double top is formed bare channels will break into a bull Channel after a double bottom is formed both these setups indicate a wedge top or bottom how to draw bull Channel lines we start at the bottom left and extend it to the top right this is the trend line for the Bulls and the opposite is containing the price and that's the Trend channel line bullish channel line break here we can see the same channel we just talked about and then they had a very strong break and they come to retest the highs here's that wedge top and it led to two legs down for the Bears how to draw bear Channel lines you start here and you pull it down containing the price action this is also acting as resistance the line opposite of this is called the"
+    }
+  ]
+}

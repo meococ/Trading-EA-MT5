@@ -1,0 +1,22 @@
+hash cfb862d4 | arm bxsup_on
+
+=== v0 ===
+  box@1 0.134 (16/119)
+  level@1 0.066 (5/76)
+  line@2 0.093 (18/193)
+  bracket@1 0.388 (33/85)
+  diag: BOX rec 0.213 prec 0.027 | PL 0.109 | LC 0.146 | LTF-agree 0/4 | clutter ratio med 9.00
+
+=== parent bxsup_off ===
+  box@1 0.025 (3/119)  vs v0 -0.118 [-0.196..-0.051]
+  level@1 0.079 (6/76)  vs v0 +0.028 [-0.039..+0.089]
+  line@2 0.098 (19/193)  vs v0 +0.018 [-0.037..+0.081]
+  bracket@1 0.341 (29/85)  vs v0 -0.015 [-0.171..+0.135]
+  diag: BOX rec 0.037 prec 0.020 | PL 0.103 | LC 0.167 | LTF-agree 0/1 | clutter ratio med 5.00
+
+=== arm bxsup_on ===
+  box@1 0.059 (7/119)  vs v0 -0.077 [-0.149..-0.015]
+  level@1 0.079 (6/76)  vs v0 +0.028 [-0.039..+0.089]
+  line@2 0.098 (19/193)  vs v0 +0.018 [-0.037..+0.081]
+  bracket@1 0.341 (29/85)  vs v0 -0.015 [-0.171..+0.135]
+  diag: BOX rec 0.093 prec 0.042 | PL 0.103 | LC 0.188 | LTF-agree 0/1 | clutter ratio med 5.00

@@ -1,0 +1,113 @@
+{
+ "gold_n": {
+  "PATTERN_LINE": 184,
+  "BRACKET": 85,
+  "LEVEL_CARRIED": 48,
+  "BOX": 108,
+  "MINI_LEVEL": 31,
+  "RANGE_OPEN": 8,
+  "CONTEXT_LINE": 9,
+  "CONTEXT_RANGE": 6,
+  "SQUEEZE": 2,
+  "BAR_MARKER": 4
+ },
+ "hit_g": {
+  "PATTERN_LINE": 20,
+  "BRACKET": 23,
+  "LEVEL_CARRIED": 5,
+  "BOX": 3,
+  "MINI_LEVEL": 1,
+  "RANGE_OPEN": 2,
+  "CONTEXT_LINE": 2,
+  "CONTEXT_RANGE": 1,
+  "SQUEEZE": 0,
+  "BAR_MARKER": 1
+ },
+ "eng_n": {
+  "RANGE_OPEN": 59,
+  "CONTEXT_RANGE": 145,
+  "BAR_MARKER": 731,
+  "BRACKET": 241,
+  "LEVEL_CARRIED": 256,
+  "CONTEXT_LINE": 125,
+  "PATTERN_LINE": 478,
+  "BOX": 297,
+  "SQUEEZE": 16,
+  "MINI_LEVEL": 10
+ },
+ "hit_e": {
+  "RANGE_OPEN": 1,
+  "CONTEXT_RANGE": 1,
+  "BAR_MARKER": 1,
+  "BRACKET": 23,
+  "LEVEL_CARRIED": 6,
+  "CONTEXT_LINE": 3,
+  "PATTERN_LINE": 19,
+  "BOX": 4,
+  "SQUEEZE": 0,
+  "MINI_LEVEL": 0
+ },
+ "born": {
+  "RANGE_OPEN": 198,
+  "MINI_LEVEL": 90,
+  "CONTEXT_RANGE": 195,
+  "BAR_MARKER": 764,
+  "PATTERN_LINE": 876,
+  "BRACKET": 343,
+  "LABEL_TF": 248,
+  "BOX": 470,
+  "LEVEL_CARRIED": 459,
+  "CONTEXT_LINE": 187,
+  "SQUEEZE": 63
+ },
+ "born_box_per_panel": 2.3737373737373737,
+ "oracle_box": 0.3148148148148148,
+ "oracle_box_n": [
+  34,
+  108
+ ],
+ "clutter": 10.0,
+ "clutter_ratio": 4.5,
+ "live_at_tau_med": 10.0,
+ "fam_at_budget": {
+  "box": [
+   1,
+   119
+  ],
+  "bracket": [
+   19,
+   85
+  ],
+  "level": [
+   1,
+   76
+  ],
+  "line": [
+   17,
+   193
+  ]
+ },
+ "fam_at_budget_rankscore": {
+  "box": [
+   1,
+   119
+  ],
+  "bracket": [
+   19,
+   85
+  ],
+  "level": [
+   1,
+   76
+  ],
+  "line": [
+   17,
+   193
+  ]
+ },
+ "arm": "dense",
+ "overrides": {
+  "box.dense_anchors": true
+ },
+ "hash": "8f15aca9a3244c52"
+}

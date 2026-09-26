@@ -1,0 +1,182 @@
+[
+ {
+  "pid": "p01",
+  "truth_src": "fp",
+  "truth_truth": "engine_fp",
+  "judge_verdict": "yes",
+  "origin_item": "item_043",
+  "panel": "9.54b",
+  "kind": "BAR_MARKER"
+ },
+ {
+  "pid": "p02",
+  "truth_src": "control",
+  "truth_truth": "control",
+  "judge_verdict": "yes",
+  "origin_item": "item_004",
+  "panel": "9.14b",
+  "kind": "PATTERN_LINE"
+ },
+ {
+  "pid": "p03",
+  "truth_src": "control",
+  "truth_truth": "control",
+  "judge_verdict": "yes",
+  "origin_item": "item_091",
+  "panel": "9.8c",
+  "kind": "BOX"
+ },
+ {
+  "pid": "p04",
+  "truth_src": "fp",
+  "truth_truth": "engine_fp",
+  "judge_verdict": "yes",
+  "origin_item": "item_032",
+  "panel": "9.44a",
+  "kind": "PATTERN_LINE"
+ },
+ {
+  "pid": "p05",
+  "truth_src": "neg",
+  "truth_truth": "neg",
+  "judge_verdict": "no",
+  "origin_item": "neg_025",
+  "panel": "9.22c",
+  "kind": "BOX"
+ },
+ {
+  "pid": "p06",
+  "truth_src": "neg",
+  "truth_truth": "neg",
+  "judge_verdict": "no",
+  "origin_item": "neg_013",
+  "panel": "9.41b",
+  "kind": "BOX"
+ },
+ {
+  "pid": "p07",
+  "truth_src": "fp",
+  "truth_truth": "engine_fp",
+  "judge_verdict": "yes",
+  "origin_item": "item_058",
+  "panel": "9.8b",
+  "kind": "BOX"
+ },
+ {
+  "pid": "p08",
+  "truth_src": "fp",
+  "truth_truth": "engine_fp",
+  "judge_verdict": "yes",
+  "origin_item": "item_117",
+  "panel": "9.22b",
+  "kind": "BRACKET"
+ },
+ {
+  "pid": "p09",
+  "truth_src": "control",
+  "truth_truth": "control",
+  "judge_verdict": "yes",
+  "origin_item": "item_052",
+  "panel": "9.62b",
+  "kind": "BOX"
+ },
+ {
+  "pid": "p10",
+  "truth_src": "fp",
+  "truth_truth": "engine_fp",
+  "judge_verdict": "cant_tell",
+  "origin_item": "item_083",
+  "panel": "9.13c",
+  "kind": "BAR_MARKER"
+ },
+ {
+  "pid": "p11",
+  "truth_src": "control",
+  "truth_truth": "control",
+  "judge_verdict": "no",
+  "origin_item": "item_129",
+  "panel": "9.19a",
+  "kind": "PATTERN_LINE"
+ },
+ {
+  "pid": "p12",
+  "truth_src": "neg",
+  "truth_truth": "neg",
+  "judge_verdict": "yes",
+  "origin_item": "neg_018",
+  "panel": "9.30c",
+  "kind": "BRACKET"
+ },
+ {
+  "pid": "p13",
+  "truth_src": "neg",
+  "truth_truth": "neg",
+  "judge_verdict": "no",
+  "origin_item": "neg_003",
+  "panel": "9.6b",
+  "kind": "BOX"
+ },
+ {
+  "pid": "p14",
+  "truth_src": "control",
+  "truth_truth": "control",
+  "judge_verdict": "yes",
+  "origin_item": "item_112",
+  "panel": "9.12a",
+  "kind": "PATTERN_LINE"
+ },
+ {
+  "pid": "p15",
+  "truth_src": "fp",
+  "truth_truth": "engine_fp",
+  "judge_verdict": "yes",
+  "origin_item": "item_002",
+  "panel": "9.3c",
+  "kind": "BAR_MARKER"
+ },
+ {
+  "pid": "p16",
+  "truth_src": "neg",
+  "truth_truth": "neg",
+  "judge_verdict": "yes",
+  "origin_item": "neg_012",
+  "panel": "9.20b",
+  "kind": "CONTEXT_RANGE"
+ },
+ {
+  "pid": "p17",
+  "truth_src": "control",
+  "truth_truth": "control",
+  "judge_verdict": "yes",
+  "origin_item": "item_005",
+  "panel": "9.42a",
+  "kind": "PATTERN_LINE"
+ },
+ {
+  "pid": "p18",
+  "truth_src": "fp",
+  "truth_truth": "engine_fp",
+  "judge_verdict": "no",
+  "origin_item": "item_094",
+  "panel": "9.23a",
+  "kind": "BOX"
+ },
+ {
+  "pid": "p19",
+  "truth_src": "neg",
+  "truth_truth": "neg",
+  "judge_verdict": "no",
+  "origin_item": "neg_004",
+  "panel": "9.30a",
+  "kind": "BOX"
+ },
+ {
+  "pid": "p20",
+  "truth_src": "fp",
+  "truth_truth": "engine_fp",
+  "judge_verdict": "yes",
+  "origin_item": "item_108",
+  "panel": "9.24b",
+  "kind": "LEVEL_CARRIED"
+ }
+]

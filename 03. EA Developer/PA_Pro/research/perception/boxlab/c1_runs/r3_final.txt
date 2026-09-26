@@ -1,0 +1,14 @@
+rows=4145 cells=115 days=57 pos=172
+baseline score_last cell@1 = 5/57
+baseline box_rank   cell@1 = 5/57
+  feat neg_dist_edge_abr      vs-rest d=1.476 null p95 0.278  KEEP
+  feat close_at_box           vs-rest d=0.387 null p95 0.068  KEEP
+  feat neg_recency            vs-rest d=31.822 null p95 5.359  KEEP
+  feat neg_bars_since_touch   vs-rest d=13.482 null p95 2.938  KEEP
+  feat prior_leg_abr          vs-rest d=0.339 null p95 0.161  KEEP
+  feat h_rel_day              vs-rest d=0.030 null p95 0.026  KEEP
+  feat h_abr                  vs-rest d=0.129 null p95 0.192  drop
+kept features: ['neg_recency', 'neg_bars_since_touch', 'neg_dist_edge_abr', 'close_at_box']
+MODEL CV cell@1 = 18/57 = 0.316
+shuffle-control CV cell@1 p95 = 0.298
+A3 verdict: PASS

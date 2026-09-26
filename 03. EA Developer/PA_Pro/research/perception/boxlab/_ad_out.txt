@@ -1,0 +1,57 @@
+decisions: {('line', True): 20, ('bracket', False): 56, ('bracket', True): 29, ('level', False): 69, ('line', False): 173, ('box', False): 103, ('level', True): 7, ('box', True): 16}
+
+=== PART 1a: box@1 age anatomy (119) ===
+  hit id  n=16 med=98 p25=83 p75=112
+  hit ver n=16 med=2 p25=1 p75=2
+  hit wid n=16 med=24 p25=16 p75=35
+  miss id  n=103 med=129 p25=98 p75=158
+  miss ver n=103 med=3 p25=1 p75=10
+  miss wid n=103 med=30 p25=19 p75=48
+
+=== PART 1b: rewrite-in-window (E3 edge-matched) ===
+  edge-matched rows: 46 | incumbent rewrote inside window: 24
+  clause presence per row: {'no_cand': 17, 'rd': 24, 'no_confirmed_pivot': 19, 'pb_only': 1}
+
+=== PART 2: AD simulation ===
+  AD-a: box hits lost 1 [('9.7b', 540, 'BOX0001', 2)] | gained 2 [('9.16c', 1070, 7), ('9.23c', 985, 13)] | net +1
+  AD-b: box hits lost 1 [('9.7b', 540, 'BOX0001', 2)] | gained 4 [('9.4b', 855, 7), ('9.16c', 1070, 7), ('9.45b', 740, 5), ('9.56c', 840, 5)] | net +3
+  AD-a adoptions/panel: med=5 p90=9 max=16 | hit panels: [2, 2, 6, 3, 9, 0, 5, 1, 1, 2, 5, 8, 5, 1, 7, 5]
+  AD-b adoptions/panel: med=4 p90=7 max=11 | hit panels: [2, 2, 6, 2, 7, 0, 3, 1, 1, 1, 4, 7, 3, 1, 3, 3]
+
+=== ITEM 3: cross-family at-risk ===
+  AD-a level at-risk: 0 []
+  AD-a line at-risk: 0 []
+  AD-a bracket at-risk: 0 []
+  AD-a arm-Y lost hits: [('9.1b', 710, 'line', 'PAT0014', 10), ('9.5c', 1030, 'level', 'LEV0016', 6), ('9.32b', 571, 'level', 'LEV0013', 4), ('9.40c', 921, 'level', 'LEV0016', 9), ('9.44c', 1050, 'line', 'PAT0017', 8), ('9.60c', 1140, 'line', 'PAT0018', 12), ('9.64c', 1020, 'level', 'LEV0017', 5)]
+  AD-b level at-risk: 0 []
+  AD-b line at-risk: 0 []
+  AD-b bracket at-risk: 0 []
+  AD-b arm-Y lost hits: [('9.1b', 710, 'line', 'PAT0014', 7), ('9.5c', 1030, 'level', 'LEV0016', 6), ('9.32b', 571, 'level', 'LEV0013', 2), ('9.40c', 921, 'level', 'LEV0016', 7), ('9.44c', 1050, 'line', 'PAT0017', 6), ('9.60c', 1140, 'line', 'PAT0018', 10), ('9.64c', 1020, 'level', 'LEV0017', 4)]
+
+=== ITEM 4: fixed review panels ===
+  9.2b   AD-a adoptions=8 box@1-author-match=False final=[13239.8,13253.9]
+  9.2b   AD-b adoptions=5 box@1-author-match=False final=[13239.8,13253.9]
+  9.10c  AD-a adoptions=8 box@1-author-match=False final=[13036.6,13067.8]
+  9.10c  AD-b adoptions=6 box@1-author-match=False final=[13036.6,13067.8]
+  9.11b  AD-a adoptions=6 box@1-author-match=False final=[13040.5,13064.1]
+  9.11b  AD-b adoptions=6 box@1-author-match=False final=[13040.5,13064.1]
+  9.17b  AD-a adoptions=4 box@1-author-match=False final=[13242.4,13290.7]
+  9.17b  AD-b adoptions=5 box@1-author-match=False final=[13243.0,13261.2]
+  9.25a  AD-a adoptions=2 box@1-author-match=False final=[13189.2,13200.6]
+  9.25a  AD-b adoptions=2 box@1-author-match=False final=[13189.2,13200.6]
+  9.33c  AD-a adoptions=6 box@1-author-match=False final=[12994.5,13075.1]
+  9.33c  AD-b adoptions=6 box@1-author-match=False final=[12994.5,13075.1]
+  9.36c  AD-a adoptions=9 box@1-author-match=False final=[13119.6,13144.4]
+  9.36c  AD-b adoptions=7 box@1-author-match=False final=[13119.6,13144.4]
+  9.40a  AD-a adoptions=4 box@1-author-match=False final=[13200.7,13222.0]
+  9.40a  AD-b adoptions=3 box@1-author-match=False final=[13200.7,13222.0]
+  9.42b  AD-a adoptions=5 box@1-author-match=False final=[13157.2,13188.7]
+  9.42b  AD-b adoptions=4 box@1-author-match=False final=[13157.2,13188.7]
+  9.48b  AD-a adoptions=9 box@1-author-match=False final=[13011.6,13020.8]
+  9.48b  AD-b adoptions=4 box@1-author-match=False final=[13011.6,13020.8]
+  9.52a  AD-a adoptions=2 box@1-author-match=False final=[12917.5,12927.7]
+  9.52a  AD-b adoptions=2 box@1-author-match=False final=[12917.5,12927.7]
+  9.57b  AD-a adoptions=6 box@1-author-match=False final=[12672.7,12702.1]
+  9.57b  AD-b adoptions=4 box@1-author-match=False final=[12672.7,12702.1]
+
+wrote ad_est.jsonl (88 rows)

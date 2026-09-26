@@ -1,0 +1,3 @@
+# research scratch (sub-agent downloads, extractions) never goes into git
+_tmp*/
+*.pdf

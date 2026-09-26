@@ -1,0 +1,45 @@
+rulings read up to R31.
+
+STABLE 9283b389 — build lane freeze (R28 §28.7, ~00:05Z).
+
+State: all flags OFF — salience.revive_exempt, salience.fam_ledger,
+marker.day_extreme_only, marker.day_extreme_live_anchor_ok,
+box.tail_bars=0, level.defended_origin, level.def_mini_off.
+Default behavior == 584c7743, canonical-equal on 198/198 TUNE
+panels (verified at this hash). Suite 72/72 at this hash. Ruler
+50e11fd5. labels_v1_9283b3892c7fe8fc.jsonl regenerated. Live
+salience score IS in STABLE: Obj.score serialized in to_dict,
+assigned per round in Salience; output-only, objects+cand_log
+identity proven. Final scoreboard row appended (variant=stable):
+BOX .06/.02, PL .10/.04, LC .12/.03, clutter@tau 10, snapR .10.
+
+One-screen status (R14 §14.5, R22 §22.4):
+
+COVERAGE — right proposals exist for most families: BOX oracle .29,
+PATTERN_LINE oracle .41 (scoreboard); LC coverage solved per R27
+§27.5 (defended proposal within tolerance during golden span .851,
+trusted .923). BOX generation still limits (BOX-LAB oracle ladder
+.556 -> .630 -> .667 lab-side).
+
+SELECTION AT THE AUTHOR'S BUDGET (R31 §31.3 headline): v1 STABLE
+selects worse than v0 in every family — box@1 .025 vs .134,
+level@1 .013 vs .066, line@2 .078 vs .093, bracket@1 .224 vs .388
+(upper bound, R30 §30.3). v1's gain is ink only: live@tau 10 vs
+v0 16, clutter ratio 4.50 vs 9.0. No HOLD gate is met.
+
+WHAT REMAINS — generator proposal precision (R22 §22.2): production
+birth precision ~0.7%; no causal feature separates right/wrong on
+the production stream at >=0.60/fold except BOX prom_abr (.743,
+folds .70-.79), which does not convert to births under the caps.
+Levers measured tonight, all OFF by the keep-rule: revive_exempt
+(+3 BOX, +7 BRACKET for +2 live); marker day-extreme gate (marker
+ink -38%, LABEL_TF births +185, agreement 0->2/51, BOX +1, but PL
+-2); box tail (+1 BOX snapshot for +1.0 median live); famledger +
+defended LC — the only verified keep-rule pass but flat at the
+author's budget (R29 §29.2 defects: zero-share kinds silenced,
+shared live budget/NMS/timing still couple families, cont bypass).
+Next build round per R29 §29.4: floor share for every kind,
+per-family live budget, NMS limited within family; then per-family
+generators + per-family ranking at the author's budget (R27 §27.5).
+
+No engine-file edits after this entry.

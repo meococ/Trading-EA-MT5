@@ -1,0 +1,240 @@
+{
+  "answer": "### **1. Chart Economy: How Many Ranges or Boxes to Keep at Once**\n\nAcross technical and price action literature, professionals emphasize **strict minimalism and clutter reduction** [1-3]:\n\n* **The 3–5 Level Rule:** Most professional intraday and swing traders keep only **3 to 5 primary zones** (or boxes/ranges) on an active chart at any given time [2, 4, 5]. Having more than that leads to \"chart clutter\" and decision paralysis where every minor move hits an artificial line [2, 3].\n* **The \"15-Second\" / Visual Clarity Test:** Veteran chartists like Peter Brandt state that if you draw more than 4 lines on a daily chart, you have drawn too many [1]. If a pattern or range takes longer than 15 seconds to identify, it is discarded [6]. Similarly, price action educators note that if you have to second-guess a level, it isn't an important one [7].\n* **Active Pruning:** Professionals continuously delete broken or stale boxes [8, 9]. Once price closes cleanly beyond a range boundary with volume, that structure is retired so it does not interfere with current context [8-10].\n\n---\n\n### **2. Which Range / Box Matters NOW?**\n\nThe range that matters most in the present turn is determined by **immediate price proximity and structural context** [11, 12]:\n\n* **The Active \"Kill Zone\" / Immediate Boundaries:** The primary range of interest is defined by the immediate support zone below current price and resistance zone above current price [11, 12]. \n* **Market Evolution (Spike, Channel, Trading Range):** Traders like Al Brooks evaluate how current market structure evolves [13]. For example, when a trend channel breaks down, the market transitions into a trading range, making the start of the prior channel or recent major swing points the primary active magnets [13, 14].\n* **Wyckoff Phase Boundaries:** In Wyckoff analysis, the active box is defined by the outer boundaries set by the Stopping Action (e.g., Buying/Selling Climax and Automatic Reaction/Rally) [15]. Whatever phase the range is currently in (Accumulation, Reaccumulation, or Distribution) dictates how price behavior at those ceiling/floor boundaries is interpreted *now* [15, 16].\n\n---\n\n### **3. How Professionals Select Among Candidate Ranges**\n\nWhen multiple valid ranges or support/resistance candidates exist, traders filter them using a clear hierarchy of criteria [8, 11, 17]:\n\n#### **A. Higher Timeframe Ownership (Hierarchy)**\n* **Higher Timeframes Rule:** A zone drawn from a weekly or daily chart always outranks an intraday (e.g., 5-minute or 15-minute) range [2, 18]. Because more market participants see higher-timeframe boundaries, significantly larger order flow clusters around them [2, 18].\n* **Grading System:** Professionals categorize daily/weekly macro ranges as **\"A-grade\"** setup areas, whereas session-specific or intraday swings are classified as **\"B-grade\"** auxiliary boundaries [5, 11, 19].\n\n#### **B. Significance & Impulse (Strength of Reaction)**\n* **Sharpness of Rejection:** The validity of a range boundary depends heavily on how aggressively price moved away from it in the past [20, 21]. A level that generated a violent price displacement or trend reversal carries far higher significance than a shallow or sluggish pivot [17, 21].\n* **Minimum Touch Rule:** At least **two clear prior reactions** are required to establish a valid boundary; a single touch is regarded as a guess rather than a verified level [8, 22, 23].\n\n#### **C. Freshness vs. Degradation (The Decay Factor)**\n* **Order Consumption:** Fresh ranges (tested once or twice with sharp rejections) are the most reliable [20]. As a range boundary gets tested repeatedly (3rd, 4th, or 5th touch), the resting orders sitting at that level thin out, making eventual breakout far more likely [20, 23].\n* **Stale Expiration:** Academic research (such as Federal Reserve Bank studies on foreign exchange S/R levels) and professional guidelines show that S/R effectiveness decays over time [24-26]. Levels that have not been tested within 1–2 weeks lose relevance and are removed [24].\n\n#### **D. Round Numbers & Confluence**\n* **Psychological Anchors:** Statistical analysis shows that over **70% of professional S/R levels end in '0'**, and over **96% end in '0' or '5'** (such as '00' or '50' levels) [27]. Round numbers act as natural psychological magnets where institutional orders stack [28, 29].\n* **Confluence Upgrades:** When a horizontal range boundary aligns with a key round number, prior session high/low, or dynamic indicator (e.g., VWAP or moving average), its quality is upgraded from fair to high-conviction [11, 30, 31].\n\n---\n\nWould you like to explore how to set precise entry stops and targets relative to these range boundaries, or examine how breakout vs. bounce setups are confirmed at key levels?",
+  "question": "Object: TRADING RANGE / BOX. Q6 SELECTION and ECONOMY: How many ranges or boxes do professionals keep on a chart at once, which one matters NOW, and how do they choose among several valid candidates - freshness, significance, higher timeframe, round numbers? Cite sources.",
+  "conversation_id": "1107f965-8ab1-4a95-984e-752d2116c2a9",
+  "sources_used": [
+    "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "3868e6a1-5f6b-4417-abce-dd9ec8f1e3c2",
+    "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "8224f447-8582-47a6-8c21-4d26240a3892",
+    "5c67f357-ef0b-46ae-b18a-eb61b26e2f88",
+    "8acdb9ad-dfb6-4a56-be4b-77fd47937833",
+    "f46f6efd-575e-4c4d-b947-72b613b7e891",
+    "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "19b055cc-66b7-436a-9154-cc98d0df44be"
+  ],
+  "citations": {
+    "1": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "2": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "3": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "4": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "5": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "6": "3868e6a1-5f6b-4417-abce-dd9ec8f1e3c2",
+    "7": "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "8": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "9": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "10": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "11": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "12": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "13": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "14": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "15": "8224f447-8582-47a6-8c21-4d26240a3892",
+    "16": "5c67f357-ef0b-46ae-b18a-eb61b26e2f88",
+    "17": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "18": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "19": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "20": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "21": "8acdb9ad-dfb6-4a56-be4b-77fd47937833",
+    "22": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "23": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "24": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "25": "f46f6efd-575e-4c4d-b947-72b613b7e891",
+    "26": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "27": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "28": "19b055cc-66b7-436a-9154-cc98d0df44be",
+    "29": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "30": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "31": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a"
+  },
+  "references": [
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 1,
+      "cited_text": "d of the rules as we approach markets in terms of our own trading what rules do we have what rules do we impose upon ourselves related to classical charting principles in our physical trading operation and I want to touch on those all chart analysis begins with weekly charts this is our rule doesn't have to be yours but it's my rule if a weekly chart does not show a pattern there's no sense in looking at a daily graph or no sense in looking certainly at any intraday graph i start with weekly charts and and I'll touch on this toward the end of this presentation as to how we do that but weekly charts are our starting point i want to be able to see a chart pattern on weekly chart now it just so happens uh and I don't know why that generally speaking if a chart pattern is not at least uh 10 12 14 weeks in duration on a daily chart pattern it normally then will not show up on a weekly chart pattern as something that I can recognize if I draw more than four lines on a 12 month daily chart of"
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 2,
+      "cited_text": "On NQ, I typically end up with 3-5 daily levels on my chart. On ES, same thing. More than that creates clutter and decision paralysis. I've met traders with 15 horizontal lines on a single chart. They can't pull the trigger because every 10-point move hits \"a level.\" Fewer levels, higher conviction. Once I have my daily levels, I drop to the 1-hour chart and add session-specific levels: yesterday's high, yesterday's low, overnight high, overnight low. These shorter-term levels matter for intraday setups but don't carry the same weight as a daily level that's held across multiple sessions."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 3,
+      "cited_text": "What Are the Most Common Support and Resistance Mistakes? I've made every one of these mistakes personally. Some of them cost me funded accounts. Drawing too many levels. This is the number one problem. If your chart has 10 horizontal lines on a 100-point range, every 10-point move \"hits a level.\" That makes the levels meaningless. Strip your chart down to the 3-5 that matter. If you have to explain why a level exists, it probably shouldn't be there. Treating lines as exact prices. Support at 19,800 doesn't mean price will bounce at exactly 19,800.00. It means the zone around 19,800 is likely to generate a reaction. I've watched traders get stopped out by 2 ticks because they placed their stop right at the level instead of giving it room. Use zones. Give the trade space to breathe."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 4,
+      "cited_text": "How to mark a level worth trading: zoom out, find the real turns, draw a zone, count the touches, then prune (click to enlarge) Five or six zones per pair covers almost everything you need. Our guide to support and resistance walks through the drawing routine in more depth. Zones Beat Lines Price never respects a one-pixel line. Wicks overshoot, spreads widen, and probes run a few points past the obvious figure. So mark the band between the extreme wick and the cluster of closes. That band gives a candle signal room to form without breaking your idea."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 5,
+      "cited_text": "How many support and resistance levels should you have on your chart? Three to five levels per instrument is the sweet spot for intraday futures trading. More than that creates clutter and decision paralysis. Fewer than three leaves gaps where you have no reference points during the session. I grade my levels as A (daily chart, multiple touches) or B (session-based, single touch), and I only take trades at A-grade levels unless a B-grade level has strong confluence from VWAP or a moving average. What is the polarity flip in support and resistance trading? The polarity flip (also called role reversal) happens when a broken support level becomes resistance, or a broken resistance level becomes support. When NQ breaks below support at 19,800, that level often acts as resistance on the next attempt to rally back to it. The polarity flip creates one of the cleanest breakout entries in futures trading: wait for the break, wait for the retest of the broken level, then enter in the direction of the break."
+    },
+    {
+      "source_id": "3868e6a1-5f6b-4417-abce-dd9ec8f1e3c2",
+      "citation_number": 6,
+      "cited_text": "need to find them. My rule is that if I have to spend over 15 seconds on a chart, it is time to turn the page. These six points are extremely important, and should never be under- stated. I maintain daily, weekly and monthly bar charts and closing price charts on 24 markets. I do not chart livestock, OJ, Coffee, Oats, 11 Lumber, and some of the stock indexes. Wherever possible, my preference is to use cash market charts, for instance, the DOW, NY Composite Index and all of the currency markets."
+    },
+    {
+      "source_id": "a45cd69d-f030-439c-aee6-a757201e57ac",
+      "citation_number": 7,
+      "cited_text": "Zoom out your charts (at least 200 bars for me) Draw the most obvious levels (if you need to second guess, then it's not an important level) Adjust your levels to get the most number of “touches” (it can be body or wick) Now, if you want a full training on how to draw Support and Resistance, then check out this video below… Tap to unmute Your browser can't play this video. Learn more Next… Dynamic Support & Resistance According to Classical Technical Analysis, Support and Resistance are horizontal areas on your chart."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 8,
+      "cited_text": "Zoom out first. Drop to the daily or four-hour chart before you mark anything, because higher timeframes hold the levels most traders share. Find the real turns. Look for prices where the market reversed sharply or stalled for several bars, not every minor pivot. Draw a zone. Use the cluster of wicks and closes to set a band rather than a single line, since price rarely honours an exact figure. Count the touches. Two prior reactions make a level; one makes a guess. Note how hard price left the area each time. Prune often. Delete a zone once price closes well beyond it for several bars, because stale lines clutter every later decision."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 9,
+      "cited_text": "My rules for drawing S/R: Use the body close of candles as the primary reference, not wicks. Wicks show the extreme, but closes show where price actually settled. I mark the zone using the cluster of closes, then extend the zone to capture the worst wick. Draw zones, not lines. I use a rectangle tool on NinjaTrader to shade a 5-10 point zone on NQ, 2-4 points on ES. Delete levels once they're broken cleanly. A level that held three times and then got blown through with volume is gone. Don't keep it on the chart hoping for a \"retest.\" If the break was clean, the level is dead. Reassess every session. I spend about 5 minutes before the RTH open updating my levels. Old ones get removed, new ones from overnight price action get added."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 10,
+      "cited_text": "Ignoring context. A support level during a strong downtrend is much less reliable than the same level during a range. S/R doesn't exist in a vacuum. If the daily chart shows a clear selloff and you're trying to catch a bounce at a minor intraday support, you're fighting the current. I always check the higher-timeframe trend before taking a bounce trade at any level. Not deleting broken levels. Once price breaks through a level with conviction (volume, clean close beyond it), that level is done as S/R in its original form. It might become resistance if it was support (the \"polarity flip\"), but I always redraw it fresh. Traders who keep every line they've ever drawn end up with a chart that looks like a blueprint, and it paralyzes them."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 11,
+      "cited_text": "Step 2: Mark the prior session's key points. Yesterday's RTH high, RTH low, and closing price. The overnight session's high and low. These are my B-grade levels. They're important for the current session but decay in relevance over time. Step 3: Check for confluence. Do any of my daily levels overlap with yesterday's session levels? Do round numbers align with historical zones? Where does VWAP from the prior session close sit relative to my levels? Confluence upgrades a B-grade level to A-grade. Step 4: Identify the \"kill zone.\" I look at the range between the nearest support and nearest resistance. If those two levels are 30 points apart on NQ, there's room for bounce trades inside that range. If they're 100 points apart, I'm looking at breakout setups at one of the boundaries instead."
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 12,
+      "cited_text": "This page owns zone construction and maintenance , not bounce, breakout, fakeout, or role-reversal trading rules. Practice Modes Practice with ChartMini Two ways to practice. Build consistency and improve your edge. Daily Replay Day Trading Simulator What Is a Support or Resistance Zone? A zone is an interval with a lower boundary and an upper boundary. The interval can summarize several prices that the analyst has decided belong to the same chart area. A support zone is below the current reference price when it is labeled. A resistance zone is above the current reference price. The same historical band can receive a different label later if current price moves from one side to the other. That relabeling does not prove role reversal; it only describes location relative to current price."
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 13,
+      "cited_text": "ly and there's also increasing buying pressure pretty strong rally here the strong rally yesterday so stop order bulls even on the 15minute chart here are making money so it started as the big gap down spike pullback and channel pretty tight channel through here but increasingly became more and more two-sided and the expectation is that the channel evolved into a trading range and that's why i have the high of bar of tuesday's bar marked on this chart or this was actually monday's chart the high of monday i have marked there's two ways to look at it when a channel evolves into a trading range you expect the beginning of the channel to be tested so it's a spike pullback and this is a highest point and the start of the channel down so this is a magnet as well but i just have the high of the 18th marked because it was more relevant for today now for the five-minute chart going into the day it's a gap up and we look at the five-minute context we have the strong rally this was a major suppo"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 14,
+      "cited_text": "s lower high this was a major lower high lower highs lower lows strong breakout to a new low this is a major lower high the market broke above it so you know it's no longer a bare trend but a trading range or an opposite trend so in this case a bull trend it's certainly a trading range open the bulls are hoping it's a gap up and a double bottom bull flag on bar nine and putting in again the bulls hoping they're putting in an early low of the day and a swing trade here it's possible that it's another expanding triangle open kind of like yesterday we talked about this but i also talked about this yesterday so it was an expanding triangle higher highs and lower lows but the sell-off down to bar 8 was strong enough that the first reversal attempt back up would probably fail and now i'm saying the same is true but opposite today expanding triangle lower lows higher highs but so much momentum bars nine and 10 especially bar 10 that breakout bar that the first reversal down will probably fail"
+    },
+    {
+      "source_id": "8224f447-8582-47a6-8c21-4d26240a3892",
+      "citation_number": 15,
+      "cited_text": "The condition of Reaccumulation and Distribution begin with the same action and in the same manner. This is a stopping action of the prior trend. What follows is a large and often long trading range. After the Buying Climax (BCLX) an Automatic Reaction (AR) follows, which is a big and volatile correction that is far larger than the corrections within the preceding uptrend. This is confirmation of the BCLX, if we were unsure before. We label the BCLX and AR and immediately draw a Resistance line at the peak of the BCLX and a Support line at the low of the AR. If this sounds familiar, it is because we apply the same technique after a Selling Climax and an Automatic Rally establishing the outer boundaries of the Accumulation."
+    },
+    {
+      "source_id": "5c67f357-ef0b-46ae-b18a-eb61b26e2f88",
+      "citation_number": 16,
+      "cited_text": "D Phase D: Trend Within the Range SOS, LPS The direction begins to emerge. Signs of Strength (SOS) rally on expanding volume toward the AR high. Last Points of Support (LPS) pull back on light volume, forming higher lows. The range is no longer flat. It stair-steps upward. The SOS supports the accumulation thesis, and the LPS may offer a potential entry area with defined risk. E Phase E: Markup Begins Breakout + possible back-up to range Price breaks above the range ceiling. Volume expands on the breakout. The cause built during Phases B and C converts into the effect. Early markup often includes a retest of the range boundary from above, which is often interpreted as confirmation that what was resistance has become support."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 17,
+      "cited_text": "Ranking Levels Before the Session Starts Preparation beats reaction in this method. Ten minutes with a clean chart gives you a ranked list of zones and saves you from improvising later. The table below sets out a simple grading scheme. Treat it as a starting point, then adapt the wording to match your own notes. <cited_table>",
+      "cited_table": {
+        "num_columns": 3,
+        "rows": [
+          [
+            "Zone quality",
+            "What you see",
+            "How to treat a candle signal there"
+          ],
+          [
+            "Strong",
+            "Two or three sharp reactions, drawn on the daily chart, untouched for weeks",
+            "Plan a normal-size trade if the close confirms"
+          ],
+          [
+            "Fair",
+            "Two reactions on the four-hour chart, or a daily zone already tested three times",
+            "Trade smaller, or wait for a second bar"
+          ],
+          [
+            "Weak",
+            "One shallow pivot, or a zone price recently sliced straight through",
+            "Watch only, and take no signal from it"
+          ],
+          [
+            "None",
+            "Open space between marked zones",
+            "Ignore every candle shape that forms here"
+          ]
+        ]
+      }
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 18,
+      "cited_text": "Which Timeframe Owns the Level A zone drawn on the daily chart outranks one drawn on the five-minute. More participants see it, so more orders gather around it. Use the higher chart to place the zone and the lower chart to read the candle. That split keeps your levels meaningful and your entries precise. Our walkthrough of multi-timeframe analysis covers the pairing in detail. Two charts usually suffice, and a third adds more noise than value. What a Rejection Bar Says When It Lands on a Level Picture a bar with a long lower wick, a small body near the top and almost no upper wick. Traders call that shape a hammer, or a bullish pin bar."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 19,
+      "cited_text": "What Is My Full S/R Identification Process Before the Trading Session? Every morning, I spend about 10 minutes marking levels before the RTH open at 9:30 AM ET. This is a non-negotiable part of my routine. Trading without pre-marked levels is gambling. Step 1: Daily chart review. I pull up the NQ daily chart and identify the 3-5 most obvious horizontal zones from the last 20 sessions. I'm looking for clusters of highs, clusters of lows, and areas where price consolidated for multiple days. These are my A-grade levels."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 20,
+      "cited_text": "Width matters as well. On a major pair's daily chart a zone might span twenty to thirty pips, while an intraday zone runs far tighter. Fresh Levels Versus Worn Levels A zone tested once often holds again. Each further test chews through the orders sitting there, so a fourth touch usually carries less weight than a second. Traders disagree about the exact count, and no fixed number settles it. Watch behaviour instead: a slow grind into the zone hints that the orders have thinned. Sharp rejections tell the opposite story. When price snaps away from the band, plenty of interest still defends it."
+    },
+    {
+      "source_id": "8acdb9ad-dfb6-4a56-be4b-77fd47937833",
+      "citation_number": 21,
+      "cited_text": "Most of the time you will have a support and resistance zone. This zone could be quite wide or narrow and in both cases it is just fine. At the early stages of your trading career, you may stay away from these wide vague levels. There are lots of more specific and well defined levels you can use. Levels of interest: What makes a level more interesting than others? A significant shift in supply and demand that causes not just a move away from a price level, but to also accelerate away. How to draw support and resistance lines “Ok Phil, I hear what you are saying, but how do you draw support and resistance lines and plot them on the stock chart?”"
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 22,
+      "cited_text": "Strong Trends Eat Levels Inside a powerful move, support gives way with barely a pause. Countertrend candle signals fail most often in exactly those conditions. News Overrides Structure A scheduled release can push price through three zones in a minute. Check the calendar, because structure loses much of its meaning during a repricing event. The Level Was Never Real A zone drawn from one weak pivot has no order flow behind it. Two clear prior reactions remain the minimum before you trade a level at all."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 23,
+      "cited_text": "How many touches make a level worth trading? Two clear prior reactions form a workable minimum. One reaction gives you a guess rather than a level. Beyond three or four touches, the orders sitting there tend to thin out, so watch how sharply price leaves the zone on each test. Should I draw a line or a zone? Draw a zone. Price overshoots exact figures constantly, and a band between the extreme wick and the cluster of closes tolerates that noise. Your candle signal then has room to form without invalidating the idea on a one-pip technicality."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 24,
+      "cited_text": "Anchor bias on stale levels. A level from three weeks ago that hasn't been tested since is losing relevance. Markets evolve. New participants enter. Old levels get forgotten. I give a level about two weeks of life. If it hasn't been tested or hasn't generated a reaction in that window, I remove it and focus on fresh data. No volume confirmation. Taking every bounce at S/R without checking volume is a coin flip. Volume is the difference between a level that's going to hold and a level that's about to collapse. I don't enter a single S/R trade without looking at volume on the candle that touches the level."
+    },
+    {
+      "source_id": "f46f6efd-575e-4c4d-b947-72b613b7e891",
+      "citation_number": 25,
+      "cited_text": "View PDF HTML (experimental) Abstract: This paper investigates the phenomenon of support and resistance levels (SR levels) in financial time series, which act as temporary price barriers that reverses price trends. We develop a heuristic discovery algorithm for this purpose, to discover and evaluate SR levels for intraday price series. Our simple approach discovers SR levels which are able to reverse price trends statistically significantly. Asset price entering SR levels with higher number of price bounces before are more likely to bounce on such SR levels again. We also show that the decay aspect of the discovered SR levels as decreasing probability of price bounce over time. We conclude SR levels are features in financial time series are not explained simply by AR(1) processes, stationary or otherwise; and that they contribute to the temporary predictability and stationarity of the investigated price series."
+    },
+    {
+      "source_id": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+      "citation_number": 26,
+      "cited_text": "* Statistically significant at the 10 percent level. ** Statistically significant at the 5 percent level. *** Statistically significant at the 1 percent level. Could an analyst using support and resistance levels published today have any success predicting intraday trend reversals one week from today? The answer seems to be yes. their publication, bounce frequencies for our six firms still exceeded those from arbitrary levels for all firms and currencies, and the differences were statistically significant in nine of the sixteen cases (Table 10). Not surprisingly, the published levels were not quite as useful at predicting intraday trend reversals five days after publication as they were on their actual publication day. On average, five days after publication, rates bounced at published levels 1.7 percentage points less frequently than they did on the actual publication day.8"
+    },
+    {
+      "source_id": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+      "citation_number": 27,
+      "cited_text": "Use of Round Numbers More than 70 percent of the support and resistance levels in the sample end in 0, and a full 96 percent end in either 0 or 5 (Table 4). These proportions greatly exceed the proportions we would observe if levels were chosen randomly, which would be 10 or 20 percent, respectively. Levels ending in 00 or 50 were also disproportionately represented. This may be a manifestation of the psychological interpretation of support and resistance levels mentioned earlier. It is interesting to note that"
+    },
+    {
+      "source_id": "19b055cc-66b7-436a-9154-cc98d0df44be",
+      "citation_number": 28,
+      "cited_text": "S2 and S3: If this range had formed anywhere else I probably would have taken these trades. I skipped this perfectly good range break because I find trading right under a 00 level to be tricky. I been burned a few times before. Judging by the slow price action earlier, I didn't think the bulls would be able to break the 00 level successfully. Would it be easier for you guys/gals to read if I had my analysis on the charts themselves like what Kalp does? Attachments USD Spot.png 11.9 KB · Views: 10,173"
+    },
+    {
+      "source_id": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+      "citation_number": 29,
+      "cited_text": "Market insiders sometimes identify support and resistance levels using private information or information circulated informally in the market about certain market participants. For example, if a technical analyst learned in conversation that Japanese exporters are selling at 100, he or she would report a resistance level at ¥100.00/$. Similarly, if a trader knew that his or her own firm had a large order at DM1.50/$, he or she might expect unusual price behavior at that point. Simple market psychology is also used to help identify support and resistance levels. According to Murphy (1986): “Traders tend to think in terms of important round numbers . . . as price objectives and act accordingly. These round numbers, therefore, will often act as psychological support or resistance levels.” As I will demonstrate later, published support and resistance levels are round numbers that end in 0 or 5 much more often than they would if they were chosen at random."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 30,
+      "cited_text": "When Two Levels Agree Sometimes a horizontal zone lines up with something else, such as a round number, a moving average or a retracement level. Traders call that agreement confluence. Confluence raises your interest in the location rather than your certainty about the outcome. More participants watch the spot, so reactions there tend to arrive faster and travel further. Keep the overlays few, though. A chart carrying six tools will always find agreement somewhere, which quietly turns every location into a good one."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 31,
+      "cited_text": "Dynamic S/R from moving averages and VWAP is subjective in setup but powerful in context. The 20 EMA on a 5-minute chart gives you a trend bias. If NQ is trading above the 20 EMA, I'm biased long. But I wouldn't enter a trade solely because price \"bounced off the 20 EMA.\" That's too loose. Where dynamic S/R shines is confluence. If a horizontal support zone at 19,800 lines up with the VWAP at 19,802 and the 50 EMA on the 15-minute chart is sitting at 19,805, that triple confluence tells me the zone is heavily watched. My confidence in a bounce trade goes up significantly."
+    }
+  ]
+}

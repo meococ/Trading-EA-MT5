@@ -1,0 +1,22 @@
+hash 2ca5c67f | arm bxleg_on
+
+=== v0 ===
+  box@1 0.134 (16/119)
+  level@1 0.066 (5/76)
+  line@2 0.093 (18/193)
+  bracket@1 0.388 (33/85)
+  diag: BOX rec 0.213 prec 0.027 | PL 0.109 | LC 0.146 | LTF-agree 0/4 | clutter ratio med 9.00
+
+=== parent bxleg_off ===
+  box@1 0.017 (2/119)  vs v0 -0.115 [-0.186..-0.057]
+  level@1 0.079 (6/76)  vs v0 +0.021 [-0.034..+0.087]
+  line@2 0.088 (17/193)  vs v0 -0.001 [-0.053..+0.052]
+  bracket@1 0.341 (29/85)  vs v0 -0.025 [-0.193..+0.132]
+  diag: BOX rec 0.037 prec 0.017 | PL 0.076 | LC 0.188 | LTF-agree 0/1 | clutter ratio med 5.00
+
+=== arm bxleg_on ===
+  box@1 0.017 (2/119)  vs v0 -0.115 [-0.186..-0.057]
+  level@1 0.079 (6/76)  vs v0 +0.021 [-0.034..+0.087]
+  line@2 0.088 (17/193)  vs v0 -0.001 [-0.053..+0.052]
+  bracket@1 0.341 (29/85)  vs v0 -0.025 [-0.193..+0.132]
+  diag: BOX rec 0.037 prec 0.017 | PL 0.076 | LC 0.188 | LTF-agree 0/1 | clutter ratio med 5.00

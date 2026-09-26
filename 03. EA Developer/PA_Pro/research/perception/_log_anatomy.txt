@@ -1,0 +1,28 @@
+panels 179 | marginal: 34 | <=5.0 now: 90
+
+type | count on 34 marginal | M1 hits | mark hits
+BAR_MARKER      117   0   0
+PATTERN_LINE     82   4   0
+LEVEL_CARRIED    54   1   0
+BRACKET          52   7   0
+BOX              46   4   0
+LABEL_TF         40   0   1
+CONTEXT_RANGE    29   0   0
+MINI_LEVEL       28   0   0
+CONTEXT_LINE     27   0   0
+SQUEEZE           1   0   0
+RANGE_OPEN        1   0   0
+
+=== per-type removal sim, ALL panels ===
+baseline <=5.0: 90
+BAR_MARKER      126 (d+36) | M1 -1 | mark -0
+BOX              98 (d+8) | M1 -10 | mark -0
+BRACKET          99 (d+9) | M1 -34 | mark -0
+CONTEXT_LINE     95 (d+5) | M1 -3 | mark -0
+CONTEXT_RANGE    94 (d+4) | M1 -4 | mark -0
+LABEL_TF         98 (d+8) | M1 -0 | mark -3
+LEVEL_CARRIED   100 (d+10) | M1 -9 | mark -0
+MINI_LEVEL       95 (d+5) | M1 -1 | mark -0
+PATTERN_LINE    115 (d+25) | M1 -21 | mark -0
+RANGE_OPEN       90 (d+0) | M1 -0 | mark -0
+SQUEEZE          90 (d+0) | M1 -0 | mark -0

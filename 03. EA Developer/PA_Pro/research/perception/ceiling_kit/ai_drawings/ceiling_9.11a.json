@@ -1,0 +1,21 @@
+{
+ "panel": "9.11a",
+ "objects": [
+  {
+   "type": "level",
+   "t0": 505,
+   "t1": 660,
+   "p0": 1.30665,
+   "why": "double-top ceiling 08:25/10:40-10:50 highs"
+  },
+  {
+   "type": "box",
+   "t0": 600,
+   "t1": 625,
+   "p_top": 1.30595,
+   "p_bot": 1.30531,
+   "why": "10:00-10:25 base, pullback now testing its floor at EMA"
+  }
+ ],
+ "note": "Uptrend pulling back from double top; watch base/EMA hold for long, ceiling above."
+}

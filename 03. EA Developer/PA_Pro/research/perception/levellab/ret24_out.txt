@@ -1,0 +1,7 @@
+cands 12179  right 72 (0.006)  ret24=1 share 0.595
+ret_24 AUC overall: 0.606
+  fold0: AUC 0.612  (n=2621 pos=15)
+  fold1: AUC 0.651  (n=2379 pos=14)
+  fold2: AUC 0.702  (n=2460 pos=12)
+  fold3: AUC 0.526  (n=2367 pos=11)
+  fold4: AUC 0.558  (n=2352 pos=20)

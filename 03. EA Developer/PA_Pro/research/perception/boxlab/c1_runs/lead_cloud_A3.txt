@@ -1,0 +1,48 @@
+LEAD CLOUD CHECK (R58/R59) - 2026-09-22T16:07:36Z - run in the Lead's cloud workspace, not on the Owner's PC
+inputs: rows.csv sha256 8a7ff75c1179fce7, r3_fit.py sha256 73f56159398daa2c (BOX-LAB 16:00:07Z copy), numpy 2.4.4
+
+== 1. r3_fit.py reproduced (pooled routes, LODO by date, seed 20261202) ==
+rows=4145 cells=115 days=57 pos=172
+baseline score_last cell@1 = 5/57
+baseline box_rank   cell@1 = 5/57
+  feat neg_dist_edge_abr      vs-rest d=1.476 null p95 0.278  KEEP
+  feat close_at_box           vs-rest d=0.387 null p95 0.068  KEEP
+  feat neg_recency            vs-rest d=31.822 null p95 5.359  KEEP
+  feat neg_bars_since_touch   vs-rest d=13.482 null p95 2.938  KEEP
+  feat prior_leg_abr          vs-rest d=0.339 null p95 0.161  KEEP
+  feat h_rel_day              vs-rest d=0.030 null p95 0.026  KEEP
+  feat h_abr                  vs-rest d=0.129 null p95 0.192  drop
+kept features: ['neg_recency', 'neg_bars_since_touch', 'neg_dist_edge_abr', 'close_at_box']
+MODEL CV cell@1 = 18/57 = 0.316
+shuffle-control CV cell@1 p95 = 0.298
+A3 verdict: PASS
+
+== 2. stated no-fit rules, expected cell@1 with random tie-break (same pooled set) ==
+pooled rows 4145 cells 115 cells with a right cand 57
+chance (random pick) cell@1 = 0.113 (6.4/57)
+neg_dist_edge_abr            expected cell@1 =  6.68/57 = 0.117
+close_at_box                 expected cell@1 = 12.58/57 = 0.221
+neg_recency                  expected cell@1 = 19.17/57 = 0.336
+neg_bars_since_touch         expected cell@1 = 11.79/57 = 0.207
+prior_leg_abr                expected cell@1 =  7.60/57 = 0.133
+h_rel_day                    expected cell@1 =  3.00/57 = 0.053
+h_abr                        expected cell@1 =  3.00/57 = 0.053
+neg_age_bars (youngest)      expected cell@1 = 17.92/57 = 0.314
+score_last (engine)          expected cell@1 =  5.00/57 = 0.088
+box_rank (engine)            expected cell@1 =  5.00/57 = 0.088
+touches                      expected cell@1 =  4.00/57 = 0.070
+touch>edge (stated A4 order) expected cell@1 =  6.68/57
+recency>edge                 expected cell@1 = 20.67/57
+
+label_edge cells with right cand = 57
+   chance                  6.45/57
+   engine score_last       5.00/57
+   recency (stated)       19.17/57
+   recency>age (stated)   21.50/57
+   youngest               17.92/57
+label_golden cells with right cand = 14
+   chance                  2.06/14
+   engine score_last       3.00/14
+   recency (stated)        1.00/14
+   recency>age (stated)    1.00/14
+   youngest                0.00/14

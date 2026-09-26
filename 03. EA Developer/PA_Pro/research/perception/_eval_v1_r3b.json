@@ -1,0 +1,25 @@
+# EVAL_TUNE — spec §6.1 on BOOK2012_TUNE_v2
+
+Frozen yardstick: T000366. Engine run per panel day up to window.x1 (CET). All counts per spec matching table.
+
+## v1
+
+| type | golden | engine | matched | recall | precision |
+|---|---|---|---|---|---|
+| BAR_MARKER | 4 | 0 | 2 | 0.50 | nan |
+| BOX | 111 | 723 | 24 | 0.22 | 0.03 |
+| BRACKET | 85 | 129 | 2 | 0.02 | 0.02 |
+| CONTEXT_LINE | 9 | 236 | 7 | 0.78 | 0.03 |
+| CONTEXT_RANGE | 6 | 153 | 0 | 0.00 | 0.00 |
+| LABEL_TF | 63 | 191 | 5 | 0.08 | 0.03 |
+| LEVEL_CARRIED | 48 | 307 | 9 | 0.19 | 0.03 |
+| MINI_LEVEL | 32 | 14 | 3 | 0.09 | 0.21 |
+| PATTERN_LINE | 186 | 824 | 4 | 0.02 | 0.00 |
+| RANGE_OPEN | 8 | 53 | 3 | 0.38 | 0.06 |
+| SQUEEZE | 2 | 109 | 0 | 0.00 | 0.00 |
+
+- clutter ratio median: **5.67** (n=181 panels)
+- LABEL_TF agreement on matched boxes: **0.00** (0/3)
+- re_anchor events: 1064 (all edge moves are logged by construction)
+- excluded: 36 unusable/fragment, 5 time_only (time/type only)
+- panels: 198

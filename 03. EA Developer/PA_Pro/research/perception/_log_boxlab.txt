@@ -1,0 +1,22 @@
+hash c451f1d2 | arm boxlab_on
+
+=== v0 ===
+  box@1 0.134 (16/119)
+  level@1 0.066 (5/76)
+  line@2 0.093 (18/193)
+  bracket@1 0.388 (33/85)
+  diag: BOX rec 0.213 prec 0.027 | PL 0.109 | LC 0.146 | LTF-agree 0/4 | clutter ratio med 9.00
+
+=== parent boxlab_off ===
+  box@1 0.025 (3/119)  vs v0 -0.110 [-0.181..-0.050]
+  level@1 0.053 (4/76)  vs v0 -0.001 [-0.051..+0.059]
+  line@2 0.093 (18/193)  vs v0 +0.003 [-0.044..+0.054]
+  bracket@1 0.329 (28/85)  vs v0 -0.019 [-0.190..+0.139]
+  diag: BOX rec 0.046 prec 0.020 | PL 0.082 | LC 0.146 | LTF-agree 0/1 | clutter ratio med 5.00
+
+=== arm boxlab_on ===
+  box@1 0.034 (4/119)  vs v0 -0.126 [-0.209..-0.054]
+  level@1 0.013 (1/76)  vs v0 -0.028 [-0.089..+0.039]
+  line@2 0.093 (18/193)  vs v0 +0.008 [-0.041..+0.063]
+  bracket@1 0.294 (25/85)  vs v0 -0.037 [-0.208..+0.130]
+  diag: BOX rec 0.065 prec 0.030 | PL 0.082 | LC 0.042 | LTF-agree 0/1 | clutter ratio med 5.00

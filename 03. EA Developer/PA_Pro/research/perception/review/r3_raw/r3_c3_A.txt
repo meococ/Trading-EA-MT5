@@ -1,0 +1,30 @@
+[c3 batch A, 3.1 Pro + P4, app/58b133424b664044, between 14:17 and 14:30Z (approx.)] verbatim (heading "Gemini đã nói" dropped; image-name echo lines dropped)
+
+Chào anh, em đã kiểm tra logic vẽ của phần mềm trên các ảnh anh gửi. Dưới đây là báo cáo QA chi tiết từng trường hợp để anh tiện điều chỉnh thuật toán cho bot:
+
+1. Hình 9.10c — Đánh giá: Lỗi-nặng
+Lỗi chi tiết:
+- Đường ngang liền (mức ~1.3060, kéo dài từ đầu đến cuối): Bị giá cắt qua lại liên tục trong giai đoạn đi ngang (13:30 - 15:30). Đường này không còn đóng vai trò cản hay hỗ trợ. -> Cách sửa: Xóa bỏ.
+- Đường chéo hướng xuống (khoảng 10:00 - 12:30, mức ~1.3075 xuống 1.3065): Cắt xuyên thẳng qua vùng giá đang có xu hướng tăng mạnh. -> Cách sửa: Xóa bỏ vì sai logic nối đỉnh/đáy.
+- Đường chéo (khoảng 09:45 - 10:30, mức ~1.3050): Cắt xuyên thân nến trong đoạn giá đi ngang. -> Cách sửa: Xóa hoặc viết lại điều kiện điểm neo.
+- Đường ngang nét đứt (mức ~1.3040, kết thúc lúc 13:15): Bị nến rút chân đâm xuyên qua ngay tại điểm kết thúc. Mặc dù là mốc cũ nhưng vẽ cắt râu nến là không hợp lý. -> Cách sửa: Điều chỉnh ngưỡng chịu đựng (tolerance) hoặc xóa.
+Hình còn thiếu: Cần vẽ một hộp (box) bao quanh vùng giá đi ngang ở cuối chuỗi dữ liệu (từ 15:00 đến 16:00, kẹp giữa mức 1.3045 - 1.3055).
+
+2. Hình 9.11b — Đánh giá: Lỗi-nặng
+- Đường chéo (từ 09:30, mức ~1.3050 kéo dài tới 11:30): Cắt xuyên qua toàn bộ các thân nến của nhịp tăng giá phía sau. Đây là lỗi logic vẽ trendline rất nặng. -> Cách sửa: Xóa bỏ.
+- Đường ngang dưới cùng (khoảng 06:00 - 08:30, mức ~1.3015): Quá cũ, quá xa vùng giá hiện hành ở mốc thời gian cuối và còn cắt qua thân nến lúc 06:45. -> Cách sửa: Tối ưu bộ lọc để xóa các đối tượng đã hết hạn (expired).
+- Chữ M (mức ~1.3075 lúc 07:00): Ký hiệu khoảng thời gian này đã quá cũ, không còn giá trị phân tích cho vùng hiện tại. -> Cách sửa: Giới hạn số lượng ký hiệu M/W chỉ hiển thị ở các đỉnh/đáy gần nhất.
+
+3. Hình 9.17b — Đánh giá: Lỗi-nặng
+- Đường chéo tăng (08:00 - 12:00): Cắt xuyên ngay giữa thân nến tăng động lượng (momentum) cực mạnh lúc 09:30. Góc dốc của giá thay đổi gắt nên trendline cũ không còn đúng. -> Cách sửa: Viết thêm logic cập nhật lại độ dốc hoặc xóa trendline khi bị một nến thân dài đâm thủng phá vỡ cấu trúc.
+- Đường ngang liền (08:30 - 11:00, mức ~1.3240): Bị giá đâm xuyên qua dễ dàng lúc 09:30 (đi lên) và 10:30 (đi xuống). -> Cách sửa: Xóa bỏ do mức này đã bị phá vỡ hoàn toàn.
+- Hộp nét liền (04:30 - 12:15, mức 1.3200 - 1.3210): Kéo dài quá xa và bao gồm cả vùng đi ngang cũ không còn tác dụng với hành vi giá ở mốc 12:00. -> Cách sửa: Hộp này nên được chuyển thành dạng "đã kết thúc" (nét đứt mờ) từ thời điểm giá bứt phá lúc 09:00.
+Hình còn thiếu: Nên có một hộp (box) củng cố biên độ nhỏ bao quanh vùng giá đi ngang ở ngay sát mốc cuối (11:00 - 12:15).
+
+4. Hình 9.25a — Đánh giá: Lỗi
+- Đường ngang liền (01:30 - 05:00, mức ~1.3225): Bị cắt qua lại nhiều lần trong vùng giá đi ngang trước cú sập (từ 02:00 đến 03:30). Mức này không hoạt động như một cản/hỗ trợ chuẩn. -> Cách sửa: Xóa bỏ hoặc thay bằng một hộp (box) bao trọn vùng sideway này.
+- Đường chéo tăng (01:30 - 02:30): Bị thân nến giảm mạnh đâm xuyên qua lúc 02:00. -> Cách sửa: Xóa bỏ.
+- Đường ngang và hộp nét đứt (mức ~1.3210 kéo dài đến 05:00): Dữ liệu cũ bị cụm nến giảm động lượng đâm xuyên thẳng qua lúc 03:30. -> Cách sửa: Xóa hoặc ngắt ngay tại thời điểm bị nến đâm thủng.
+Hình còn thiếu: Cần vẽ một hộp củng cố bao quanh vùng đi ngang sau nhịp giảm mạnh ở cuối đồ thị (khoảng 04:00 - 05:00, mức 1.3195 - 1.3205).
+
+Anh kiểm tra lại phần code logic cấp phát điểm neo (anchor points) và thêm điều kiện invalidate (vô hiệu hóa) khi có một nến đóng cửa đâm xuyên qua (breakout) với thân nến lớn nhé. Nếu cần em hỗ trợ rà soát thuật toán EA đoạn này, anh cứ gửi.

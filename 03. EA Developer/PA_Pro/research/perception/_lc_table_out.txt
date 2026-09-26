@@ -1,0 +1,76 @@
+level goldens unhit@1 under parent: 72
+with a right LC proposal rate_limited: 8
+of those, hit@1 under arm: 0
+of those, live at any rank under arm: 0
+  9.1b tau=580 LEVEL_CARRIED props=[('expired', 1.9873)] | arm hit@1=False any=False
+  9.1c tau=1080 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.3c tau=863 LEVEL_CARRIED props=[('rate_limited', 1.385), ('expired', 2.13)] | arm hit@1=False any=False
+  9.3c tau=1015 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.4a tau=495 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.4a tau=585 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.5c tau=1030 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.6c tau=843 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.11b tau=785 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.12a tau=630 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.14a tau=505 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.14c tau=820 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.15b tau=900 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.17b tau=565 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.17b tau=615 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.17b tau=730 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.18c tau=890 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.21b tau=735 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.21c tau=1025 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.22a tau=590 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.22b tau=700 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.22b tau=730 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.22c tau=1045 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.23c tau=851 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.24c tau=890 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.25a tau=300 LEVEL_CARRIED props=[('rate_limited', 1.4393), ('expired', 1.5333)] | arm hit@1=False any=False
+  9.25c tau=962 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.26a tau=555 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.30b tau=515 MINI_LEVEL    props=[('rate_limited', 8.3057)] | arm hit@1=False any=False
+  9.31b tau=670 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.32b tau=571 LEVEL_CARRIED props=[('born', 11.6867), ('expired', 11.6867), ('expired', 1.9513)] | arm hit@1=False any=False
+  9.33b tau=435 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.34a tau=545 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.34b tau=670 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.36b tau=755 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.37c tau=870 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.38a tau=505 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.39b tau=655 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.39b tau=750 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.40b tau=550 LEVEL_CARRIED props=[('outranked', 28.838), ('outranked', 11.1513), ('born', 28.537), ('rate_limited', 11.0723), ('expired', 28.537), ('expired', 10.9393)] | arm hit@1=False any=False
+  9.42c tau=920 MINI_LEVEL    props=[('expired', 1.759)] | arm hit@1=False any=False
+  9.48c tau=746 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.50a tau=555 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.51a tau=490 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.51b tau=715 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.52a tau=350 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.52b tau=660 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.54b tau=825 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.56b tau=625 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.57b tau=635 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.57b tau=635 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.57b tau=685 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.57b tau=720 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.58a tau=300 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.59a tau=545 LEVEL_CARRIED props=[('rate_limited', 27.3167), ('expired', 1.1883)] | arm hit@1=False any=False
+  9.59c tau=850 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.60a tau=395 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.60a tau=590 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.60b tau=571 LEVEL_CARRIED props=[('rate_limited', 1.538)] | arm hit@1=False any=False
+  9.60b tau=815 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.61c tau=745 LEVEL_CARRIED props=[('rate_limited', 14.6287)] | arm hit@1=False any=False
+  9.61c tau=1045 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.62b tau=745 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.63a tau=465 LEVEL_CARRIED props=[('rate_limited', 1.7663)] | arm hit@1=False any=False
+  9.64a tau=405 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.64c tau=1020 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.65a tau=290 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.65a tau=550 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.66a tau=530 MINI_LEVEL    props=[('outranked', 12.6583)] | arm hit@1=False any=False
+  9.66a tau=585 MINI_LEVEL    props=[] | arm hit@1=False any=False
+  9.66c tau=730 LEVEL_CARRIED props=[] | arm hit@1=False any=False
+  9.66c tau=765 LEVEL_CARRIED props=[] | arm hit@1=False any=False

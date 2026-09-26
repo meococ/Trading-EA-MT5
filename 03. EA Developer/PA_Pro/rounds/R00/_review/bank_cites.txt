@@ -1,0 +1,525 @@
+### do_not_repeat_failures.md (04. Memory/do_not_repeat_failures.md) total 2262
+     25: - `HYP-SWEEPFADE-XAUUSD-H1-001` is terminal market KILL (2026-08-16) for
+     26:   closed-bar PDH/PDL sweep-reclaim fade on XAUUSD H1 MetaQuotes-Demo only.
+     27:   Train `20260816_130548` HQ 99% / N=1150 / PF 1.01 / net +85 / DD 4.70% /
+     28:   exp +0.07. Six years PF 0.78–1.21 around 1; none ≥1.30. Exit mix
+     29:   SL-like ~48% / TP-like ~29% / DAILY_FLAT ~17% / FRIDAY_FLAT ~5% /
+     30:   TIME_STOP ~0 — no single exit defect. STOP same-ID rescue, H1-002
+     31:   without a new defect, session/year/hour salvage, holdout read, or
+     32:   nới HQ/DD. Radius is this PDH/PDL fade envelope, not every sweep
+     33:   forever and not the goal.
+  ---
+   1912: - Visual feature-discovery is a valid METHOD but does not rescue a cost-dominated
+   1913:   object (`HYP-ICTVIS-EURUSD-M5-001`, KILL). The generous M5 sweep-reversion
+   1914:   universe is near-random gross (PF 1.019 at zero cost) and its stops are too
+   1915:   tight (median 4.5 pips) for realistic EURUSD cost; even the best in-sample
+   1916:   DESIGN feature selection (range-position + wick morphology) posts PF 0.573 at
+   1917:   1.5 pip RT and dies by 0.5 pip. Do not re-probe tight-stop M5 sweep objects
+   1918:   expecting a visual/quantified feature to beat cost. Two standing lessons: (1)
+   1919:   quantify every eyeballed pattern on the full DESIGN set before believing it —
+   1920:   the "short-into-momentum-is-bad" read was refuted by population stats; (2) a
+   1921:   visually-seeded OPEN search that still cannot clear cost IN-SAMPLE is a stronger
+   1922:   kill than a memo-funnel assertion, but it is still a kill. Reopen needs a
+   1923:   different object GEOMETRY (wider stops / different entry) as its own hypothesis,
+   1924:   or a new information set — not another feature on the same tight-stop object.
+  ---
+   1342: - **AMENDMENT 2026-07-17 (Owner scope directive, pre-run).** The regime-gated
+   1343:   OHLC-MR family closure is converted from a single-config kill
+   1344:   (`HYP-MR-REGIME-EURUSD-H1-001`, which stays terminal/killed) into an
+   1345:   **exhaustive pre-registered grid falsification** under the NEW id
+   1346:   `HYP-MR-GRID-EURUSD-H1-002`. The Owner explicitly directed research to
+   1347:   enumerate the full legal variant grid (W / Z / K_sl / TP_cap / k_ts /
+   1348:   trailing × 6 gate arms per cell; conditional gate-subset/threshold/session
+   1349:   ablation) offline on the unsealed 2015–2022 splits, log EVERY simulation,
+   1350:   and pass one deflated verdict (DSR, Bailey & López de Prado 2014) over the
+   1351:   full trial count. This is the **sanctioned closure instrument, not a rescue
+   1352:   of -001**: the same tune list forbidden as rescue is permitted only because
+   1353:   every cell is declared pre-outcome, every trial is counted, and the verdict
+   1354:   defaults to `KILL_FAMILY_EXHAUSTIVE`. Hard exclusions unchanged: no
+   1355:   M15/lower TF, no XAUUSD/other symbol, no CI/Hurst/new trendiness gate, no
+   1356:   news filter without calendar, no post-hoc cells/axes, entry object stays
+   1357:   std-normalized detrended-z, holdout 2023+ sealed, cost stays frozen
+   1358:   UNVERIFIED_PROXY. A DSR survivor is a flag requiring fresh Owner-approved
+   1359:   prereg + verified cost + Model 0 — the grid never authorizes `.mq5`/live.
+   1360:   If no cell survives, the family is `CLOSED_EXHAUSTIVE`. Evidence:
+   1361:   `03. EA Developer/EA_HybridRegimeMR/research/HYP-MR-GRID-EURUSD-H1-002_GRID_PLAN.md`.
+   1362:   **RESULT (same day): the grid ran and the family IS `CLOSED_EXHAUSTIVE`.**
+   1363:   8100 simulations, ZERO arms reached the necessary condition gross PF ≥ 1.25
+   1364:   (max 1.2476, median 0.8902); max net PF@x1 anywhere 1.0991; best deflated
+   1365:   arm DSR 0.0129 vs floor 0.95 with negative expectancy; Stage-2 auto-skipped.
+   1366:   The failure is the object, not the tuning. Do not run any further OHLC
+   1367:   regime-gated MR variant on majors/gold — reopen requires a materially
+   1368:   different information set + fresh Owner-scoped prereg. The sealed 2023+
+   1369:   holdout was never opened. Scope (addendum 2026-07-18): Stage-1 axes at
+   1370:   session [7,16) were simulated; Stage-2 session-shift/threshold arms were
+   1371:   routed away by the frozen necessary-condition rule, not simulated, and the
+   1372:   gate-ablation sub-claim is contingent on unverified MT5 indicator parity.
+   1373:   Evidence:
+   1374:   `03. EA Developer/EA_HybridRegimeMR/research/HYP-MR-GRID-EURUSD-H1-002_READOUT.md`
+   1375:   + `_READOUT_ADDENDUM.md`.
+  ---
+   1475: | RR2 BE@1R, MFE stall-cut | Path exits destroy edge | Densify arm/stall/giveback; revive BE@1R |
+   1476: | Scale-out 1R50 / timebox 2h / vol-regime R-mult | Kill under joint PF+stress | Densify scale/timebox/R-mult |
+   1477: | ATR-trail M1 path proxy | KILL (false early SL); envelope survivors ≠ deployable | Treat offline PF as Model 0; densify arm/k |
+  ---
+    344: - `HYP-ECRS-EURUSD-M5-001` is `PARK_STAGE0_CADENCE_INFEASIBLE_NO_OUTCOME_READ` (2026-07-22).
+    345:   Report-default ECRS object (Kaufman ER10 shift 0.28→0.38 + ATR14≤0.70×SMA20
+    346:   compression + 12-bar range breakout + 1.7× tick-volume surge + EMA20 bias +
+    347:   London–NY session) on EURUSD M5/FivePercent: outcome-blind Stage-0 funnel over
+    348:   2019–2022 found 8 eligible entries in 208.71 elapsed weeks (0.0383/week) —
+    349:   26× below the tpw≥1.0 floor; ceiling with session/news/spread gates removed is
+    350:   73 (0.35/week), still infeasible. Mechanism fires off-session 22:00–00:00 UTC
+    351:   (47/73) where the tick-volume baseline is thinnest (rollover cost trap). NO
+    352:   trade outcome/PnL/excursion was ever computed; frozen probe never ran — this
+    353:   park is frequency-plane only and says NOTHING about economic edge. Deep-research
+    354:   report's "2–5 setups/day" claim falsified ~3 orders of magnitude at its own
+    355:   defaults. STOP re-running this exact object or citing its Stage-0 frequency
+    356:   data in a successor prereg without declaring it. A re-scoped ECRS (e.g. no/weaker
+    357:   volume-surge gate, different release trigger) is a NEW hypothesis: fresh ID,
+    358:   fresh de-dup, own prereg. Readout:
+    359:   `03. EA Developer/EA_ECRS_CompressionReleaseScalper/research/HYP-ECRS-EURUSD-M5-001_STAGE0_READOUT.md`.
+  ---
+   1439: | Generic sideway/range, compression breakout, retest, context-rescue | Failed on Sonic fields | Portfolio audit | Materially different feature set |
+  ---
+   1447: | Post-hoc hour/day/year veto | Forbidden rescue | `AGENTS.md` | New preregistered idea |
+  ---
+   1654: - Do not rerun, tune or rename the exact tick-volume London-anchor Session
+   1655:   VWAP/SD + ADX 25/19/dwell6 + confirmed fractal AVWAP + rejection + M15-bias
+   1656:   object. Valid Model 0 produced N=93, PF0.5914, net -$5,243.22 and only
+   1657:   0.4465 trades/elapsed week; Range PF0.1331 and Trend PF0.6412 both failed.
+   1658: - Do not rescue it by disabling 2020, Monday/Tuesday/Friday, Europe/New York,
+   1659:   hours 11/16/17, one direction or one branch. Those suggestions were observed
+   1660:   after outcome and are explicitly illegal under the terminal ID.
+   1661: - The report's ADX hysteresis patch did not solve the intended regime problem:
+   1662:   10,090 switches equal 6.92 per elapsed calendar day, above the frozen >4/day
+   1663:   whipsaw red flag. A new threshold/dwell grid would be post-hoc tuning.
+   1664: - HYP-001 and HYP-002 are mechanical invalid records only (wrong OrderCheck
+   1665:   retcode contract; stale OnInit identity guard). They are not economic runs
+   1666:   and their byte-identical packages remain audit evidence, not rerun targets.
+   1667: - EURUSD cost truth is still invalid for promotion: 24.55% zero-spread rows,
+   1668:   assumed 0.70-pip commission and no independent slippage samples. Strict TCA
+   1669:   remains BLOCKED even though manual report/lifecycle count and net reconcile.
+   1670: - Failure radius is the exact seven-gap EURUSD M5 primary configuration and its
+   1671:   obvious filter/threshold rescues, not every VWAP/AVWAP or regime mechanism.
+   1672:   Reopening requires a materially new causal mechanism or information set with
+   1673:   a fresh ID; it cannot be a sensitivity arm from this failed object.
+  ---
+   1420: | **EA_InsideBar** | Killed in portfolio teardown table. | — |
+  ---
+   1145: - `HYP-FVG-SCALP-CONFL-M5-EUR-001` is terminal at de-dup. Its M5
+   1146:   three-candle FVG plus 40-60% fill/rejection is the same primary object as
+   1147:   killed `HYP-H1-DISPLACE-FVG-CONT-001`; HTF BOS, OB, premium/discount,
+   1148:   liquidity sweep, session and management scoring only densify the dead
+   1149:   price-only family. Current source compiles 0/0 and is closed-bar clean, but
+   1150:   engineering validity does not authorize Model 0. Do not change FVG fill,
+   1151:   confluence, session, timeframe, symbol, RR, BE/partial or year as rescue.
+   1152:   Evidence:
+   1153:   `03. EA Developer/EA_FVGConfluence/research/HYP-FVG-SCALP-CONFL-M5-EUR-001_DEDUP_READOUT.md`.
+  ---
+    699: - `HYP-BR-SESSDRIFT-EURUSD-H1-001` is terminal at offline probe (2026-07-18).
+    700:   Breedon-Ranaldo unconditional intraday drift (daily SHORT EURUSD 07:00→11:00
+    701:   UTC + LONG 13:00→17:00 UTC, Owner-approved standalone probe of the last
+    702:   untested MR-v3-spec branch): pooled 2015-2022 N=4146, gross PF 1.036
+    703:   (microscopic residual drift), PF@x1 0.889, only 2/8 positive years with
+    704:   2018–2022 all negative — the published anomaly (sample 1997–2007) has
+    705:   decayed away. Both arms (no-stop and 2×ATR SL) and both direction
+    706:   partitions dead. Do not tune windows/local-time variants, flip directions,
+    707:   or add conditioning (that becomes the separately killed conditional
+    708:   London→NY family, S528/S588/S622-623). With this, EVERY branch of the Owner
+    709:   MR v3 spec is evidence-terminal: Variant A (HYP-MR-REGIME-…-001), the full
+    710:   variant grid (HYP-MR-GRID-…-002, 8100 sims), and the B-R overlay (this);
+    711:   Variant B (OB confluence) is moot as a filter on a dead base object.
+    712:   Evidence:
+    713:   `03. EA Developer/EA_EURSessionDrift/research/HYP-BR-SESSDRIFT-EURUSD-H1-001_READOUT.md`.
+  ---
+     16: - `HYP-M15-TRENDPB-XAUUSD-M15-001` is terminal market KILL (2026-08-16) for
+     17:   XAUUSD M15 with-trend pullback guided by closed H1 EMA/HH-HL on
+     18:   MetaQuotes-Demo only. Train `20260816_132913` HQ 99% / Bars 141366 /
+     19:   SO 0 / N=721 / PF 0.66 / net −790 / DD 8.02% / WR ~33%. 2018 PF 0.67
+     20:   n=625; 2019 PF 0.59 n=96; 2020–2023 n=0 after DD lock. STOP same-ID
+     21:   rescue, EMA/k/TP revision, session/year salvage, holdout read, or nới
+     22:   HQ/DD. Radius is this M15 pullback envelope, not every breakout and
+     23:   not the goal.
+  ---
+### hot.md (04. Memory/hot.md) total 641
+     14: ## Active direction (Owner 2026-09-17) — KILLED 2026-09-18
+     15: 
+     16: **XAUUSD session-sweep scalp** = `EA_LiquiditySweep` sleeve
+     17: `HYP-LSWEEP-XAU-M5-001`. Governed Model 0 run `20260918_002905`
+     18: (1970→2026.09.10, HQ 98%): **N=136, PF 0.556, net -950 USD, cadence
+     19: ~0.12/tuần** → KILLED_AT_MODEL_0 (cadence + economics, cả 2 frozen kill
+     20: criteria). Cost PF x1/x1.5/x2 = 0.48/0.44/0.41; robustness 0/7; PASS:
+     21: nonrepaint, DD 9.9%, MC p95 11.3%, overnight/weekend 0/0. Mechanism hiếm
+     22: một cách cấu trúc (~6 sweep/năm) trên cả EUR lẫn XAU — không burn revision.
+  ---
+     24: **Session open-drive ORB** = `EA_SessionDrive` (minted 2026-09-18, cả 2
+     25: sleeve đều KILLED_AT_MODEL_0 cùng ngày):
+     26: 
+     27: - `HYP-SDRIVE-GBP-M5-001` run `20260918_080056` (1999→2026.09.11): 21,099
+     28:   signals ~14.6/tuần (đúng probe) nhưng contract safety veto 98.6%
+     29:   (DD-lock 14,354 + spread 6,248) → 287 trades, PF 0.778 gross / 0.717
+     30:   cost-x1. Cadence 0.20/tuần. Cả 2 kill criteria.
+     31: - `HYP-SDRIVE-JPY-M5-001` run `20260918_081608` (1999→2026.09.11, HQ 99%):
+     32:   21,049 signals, veto 99.1% (DD-lock 12,402 + spread 7,924) → 180 trades,
+     33:   PF 0.660 gross / 0.585 cost-x1. Cadence 0.125/tuần. **SDRIVE family
+     34:   falsified trên cả 2 symbol** — per prereg, không còn cell nào legal.
+     35: 
+     36: Bài học chung: signal rate ~15/tuần đạt được, nhưng contract DD-lock 10%
+     37: latch vĩnh viễn sau drawdown đầu + spread filter chặn ~99% — và executed
+     38: trades PF 0.66–0.78 nên edge cũng âm kể cả khi mở khóa.
+  ---
+    631: - H1 compression-breakout DEAD (gross PF<=1.45, net ~1.0, 0.5/wk).
+    632: - Asia-range->London brk DEAD (net -0.02..-1.41p, n~2500/sym).
+  ---
+     67: - **Residual anomaly duy nhất** (lookahead-free): ASIA open (00:00 GMT)
+     68:   close-pierce của previous-hour extreme → fade về session end. GBP
+     69:   +2.4~6.7p t~2.3–6.2, EUR +2.1~4.7p, ~2.5–3.5/wk. Dưới band 10–40 —
+     70:   chỉ dùng được nếu Owner nới cadence (low-frequency sleeve).
+  ---
+    181: ## SMOM family — KILLED airtight 2026-09-18 (2 regimes)
+    182: 
+    183: `HYP-SMOM-JPY-M5-001` run `20260918_115433`: passive session-exit
+    184: **PF 1.0045**, n=6205 — best-ever governed result but economic null.
+    185: 
+    186: `HYP-SMOM-JPY-M5-002` run `20260918_135142`: autopsy-driven engineered
+    187: exits (BE+2p@15, trail peak-12p@20, inv-cut 2h/MFE<10p) executed exactly
+    188: as designed — INV_CUT 46%, SL stop-outs 46%, BE armed ~4026 — and made it
+    189: **WORSE: PF 0.903**, n=8542, -$1133, LDN 0.833 / NY 0.963.
+    190: 
+    191: **Lesson (the real one): MFE excursion != harvestable edge.** SMOM signal
+    192: produces volatility, not drift — any ratchet tight enough to lock profit
+    193: gets hit by ordinary retracement (+2p scratches); passive exits net ~0
+    194: after cost. Under 2 independent management regimes realized edge <= 0 →
+    195: premise dead, not just management-dead. Autopsy must check whether
+    196: excursions survive ANY plausible ratchet before minting an exit-stack
+    197: hypothesis.
+  ---
+    281: ## 2026-09-18 — HYP-RGR-CHF-M1-001 KILLED + hcc_reader FABRICATION TRAP (critical)
+    282: 
+    283: **Verdict**: KILLED_AT_MODEL_0. Run `EA_RollReversion/20260918_205000`: PF 0.14
+    284: (<< 1.30 gate), 857 trades, -$7026, DD 70.5%, win 19.3%, ~80% SL -15p stopouts.
+    285: HQ 98%, 6.06M bars, 261M ticks — evidence authoritative. Every year negative.
+    286: 
+    287: **Root cause — premise was a DATA ARTIFACT, not market economics:**
+    288: 
+    289: `tools/hcc_reader.py` (60-byte phase-scan) fabricates M1 records inside the
+    290: roll-minute tick burst (00:00-00:10 server). Evidence:
+    291: - 2781/2789 USDCHF days show an absurd 00:00 "spike bar" (range 59-173p,
+    292:   tv ~50-57k vs normal ~50, sp=0) — misaligned record, not a real bar.
+    293: - 86% of real tester entry fills fall OUTSIDE the reader's bar range for that
+    294:   minute. Decisive: 2026-04-10 fill BUY @0.79050 vs reader 00:04 bar max
+    295:   0.78843 — the tester fill proves the reader's bar is wrong by 20p.
+    296: - The probe "enter at 00:05 open" systematically landed on fabricated prices
+    297:   sitting at the post-flush bottom → manufactured +3.8p "reversion" / PF 4.3
+    298:   that never existed at tradable prices.
+    299: - Gap event itself (open0 − prev_close) WAS real — EA journal gaps match.
+    300:   What does not exist: the reversion at executable prices.
+    301: 
+    302: **TRAP — standing rule:** never measure entries/exits inside roll/burst windows
+    303: on hcc_reader output. Any probe edge whose entry or exit price lands in a
+    304: burst region must be validated against real fills (tester journal / tick data)
+    305: before minting. Bar-open entries near liquidity events are fabrication-prone.
+    306: 
+    307: **Secondary conformance defect**: nonrepaint audit FAIL — time-range
+    308: `CopyRates(start,stop)` / `CopyTime(from,1)` flagged as unproven shift
+    309: (no lookahead possible, but contract requires guarded helpers).
+    310: 
+    311: Day-boundary family now fully dead: pierce-fade (up-pierce=continuation),
+    312: 23h pre-roll (dead post-2016), fix-window reversions, roll-gap reversion.
+  ---
+    457: ## Falsification map (76k+ cells, real conventions)
+    458: 
+    459: DEAD at demo-feed cost (v4): every unconditional + event + gap surface
+    460: (0/20k drift cells ≥1.30). DEAD at both costs: daily-open gap fade,
+    461: multi-day context holds, trend-pullback@scale. MARGINAL (PF 1.2–1.45,
+    462: sub-cadence, erratic years): Monday cluster at deploy cost (CHF/JPY
+    463: Mon-01h, XAU Mon-8/9h), EURUSD prior-day sweep-low fade, ML follow
+    464: EURUSD-shorts (PF 1.31, ~3/wk) + USDJPY both-sides (~PF1.22, ~8/wk).
+    465: 
+    466: Structural law: cadence×edge inverse — every family peaks PF~1.2–1.45
+    467: on ~100–900 events/17y. GOAL's joint contract (PF>1.3 × 10–40/wk × 2x
+    468: cost) is beyond measured density on this feed.
+  ---
+    528: ## 2026-09-19 — Cross-asset lead-lag killed; falsification map complete
+    529: 
+    530: - HYP-XLEAD-AUDXAU-M1-001 KILLED_AT_PROBE: AUDUSD 15m impulse >20p →
+    531:   XAUUSD +60m. Genuine lead-lag confirmed (XAU-flat subset +10.3p PF2.15)
+    532:   but deduped+net: PF 1.20 @ 7.8/wk, edge concentrated 2011-2014 gold era.
+    533: - New probe rule: cross-asset screens must dedup events (60-bar cooldown)
+    534:   before believing PF — undeduped raw was PF 1.55 vs deduped 1.45 vs net 1.20.
+    535: - XAUUSD `sp` is 41.7% corrupt (0 or >=500 pts); sane-median = 16 pts
+    536:   (1.6p of 0.1-pips). Always v4-style cap before cost math.
+    537: - Every mechanism family on this data plane is now falsified. Only two
+    538:   lawful doors: Owner cadence amendment, or different data plane.
+    539: 
+  ---
+    585: ## 2026-09-20 CORRECTION (important)
+    586: - Exotic "edges" (EURZAR WGAP 4.26, daily-01:00 drift +28p, USDMXN
+    587:   bidirectional) were PHANTOMS: spread_cost_arr's <200pts sane bound treats
+    588:   real exotic spreads (22-107p median!) as corrupt and imputes ~5p cost.
+    589:   Re-priced at real spread every exotic cell is PF 0.03-0.28. VOID.
+    590: - Trap: if >50% of `sp` corrupt on a symbol, sane-median fallback is
+    591:   meaningless — measure (0,5000]pts band first. Majors bound 200pts does
+    592:   not transfer to exotics.
+    593: - Standing truth: M1 plane survivors = USDJPY WGAP core only (~0.5/wk).
+    594:   GOAL via M1 remains cadence-blocked. Tick plane is the active hope.
+    595: 
+    596: ## 2026-09-20 late — cost fix consequences
+    597: - spread_cost_arr bound fixed: sane = 0<=sp<1e6pts (garbage signature),
+    598:   was <200 which silently imputed ~5p cost on exotics w/ real 22-107p spreads.
+    599: - Re-priced: AUDJPY WGAP -2.36p PF 0.70 (was +1.04 phantom). Basket now
+    600:   USDJPY 1.54 + GBPJPY 1.21 + EURJPY 1.14 only -> ~1.6 trades/wk. Dead floor.
+    601: - Hold-sweep: gap-fade completes ~60m, longer holds decay to 0.
+  ---
+    610: ## 2026-09-20 final iteration state
+    611: - AUDUSD session-open dead on full 110d (all cells PF<1.5, most <1).
+    612: - BTC tick momentum dead all scales (~-$56 = round-trip spread).
+    613: - Week-open CLOSED definitively: n=15 Sundays all cells negative both
+    614:   directions. Lab void + EA guard + tick cost = 3 confirmations.
+    615: - News-drift dead (869 events 2019-22, majors PF 0.67-0.78).
+    616: - Pair-divergence dead (EURGBP/AUDNZD/EURCHF PF<0.90; EUR->GBP mean +16p
+    617:   is fat-tail lottery, not GOAL cell).
+    618: - Unconditional hour-sweep: EVERY hour×side on USDJPY/EURUSD/XAUUSD
+    619:   PF<0.70 (n=180-260k/cell). Clock families dead unconditionally.
+  ---
+### LAB_FALSIFICATION_MAP (04. Memory/research/20260919_LAB_FALSIFICATION_MAP_AND_COST_REFRAME.md) total 411
+     32: | daily-open gap fade/follow | ~4.6k cells | zero PF>1.15 | DEAD |
+     33: | weekend-gap conditional fade | ~200 | +2.82 gross → PF 0.97 @realcost | DEAD (gap-conditioned variant too) |
+     34: | prior-day sweep fade | ~700 | EURUSD sweepLo PF 1.40, erratic years (−18.6/−27.9), n collapse post-2021 | MARGINAL — fails stability, sub-cadence |
+     35: | trend-pullback multi-hour | ~200 | zero PF>1.2 | DEAD |
+     36: | daily-context follow/fade (prev-day dir) | ~700 | 2 cells PF 1.22–1.23 | MARGINAL |
+     37: | multi-day holds (1–3d) day-context | ~700 | zero PF>1.15 | DEAD |
+  ---
+     35: | trend-pullback multi-hour | ~200 | zero PF>1.2 | DEAD |
+  ---
+     36: | daily-context follow/fade (prev-day dir) | ~700 | 2 cells PF 1.22–1.23 | MARGINAL |
+     37: | multi-day holds (1–3d) day-context | ~700 | zero PF>1.15 | DEAD |
+  ---
+    178: 
+    179: ## 2026-09-20 — Tick-plane (Dukascopy) early findings
+    180: 
+    181: **HYP-WGAP-JPY-M1-002** (slot variant 00:05, governed run 20260920_000259):
+    182: 0 trades. Signals fire with real gap reads (-21.1p, -7.9p, -5.0p) but 100%
+    183: rejected by FILTER/SESSION — Monday 00:05 sits inside the substrate rollover/
+    184: weekend guard. The lab's PF~3.8 estimate for this window was void (suspect
+    185: bars); the guard exists precisely because that zone is untradeable. Verdict:
+    186: KILLED_AT_MODEL_0 (untradeable window, not economics).
+    187: 
+    188: **Week-open real-tick cost measurement** (AUDUSD Sunday 2026-06-07, n=1):
+    189: first-10min median spread 15.6p (p90 17.3p) vs normal ~1.0p; spread stays
+    190: >14p for ~30min, normalizes ~120min. Any week-open edge <15p is dead on
+    191: spread alone. Drift in first 2h was +9.9p — below cost. Structural, not
+    192: statistical: the rollover guard is justified by real spread data.
+    193: 
+    194: **AUDUSD->XAUUSD tick lead-lag** (2-day overlap Jun 1-2, pipeline check only):
+    195: W=300s/H=900s/th=3p showed PF 1.68 but n=11 — no economic claim. Most
+    196: 5s-60s cells negative after real spread. Cadence potential is real
+    197: (35-70 events/wk at small thresholds) — pending full pilot data.
+  ---
+    304: ## 2026-09-20 — week-open definitive + divergence + news families
+    305: 
+    306: **Week-open AUDUSD real-tick (n=15 Sundays)**: DEAD all cells both
+    307: directions (-1 to -10p). Spread ~15p first 30min + no systematic drift.
+    308: HYPOTHESIS SPACE CLOSED: lab-side suspect bars void, EA-side rollover
+    309: guard blocks, tick-side cost kills. Three independent confirmations.
+    310: 
+    311: **News-event drift** (calendar 2019-2022, 869 events, majors):
+    312: USDJPY/EURUSD/GBPUSD post-impulse continuation all PF 0.67-0.78 net,
+    313: n~1300/symbol. DEAD.
+    314: 
+    315: **Pair-divergence mean-reversion** (EURUSD-GBPUSD, AUDUSD-NZDUSD,
+    316: EURUSD-USDCHF, z>2-3, dedup): all PF<0.90 net. EURUSD->GBPUSD mean
+    317: +16-21p but PF 0.84-0.90 = fat-tail lottery profile, not a GOAL cell.
+    318: DEAD.
+    319: 
+    320: **Tick data integrity**: 178 afdticks files, 13.46M ticks, all valid
+  ---
+    324: ## 2026-09-20 — unconditional hour-sweep (majors, full range, corrected cost)
+    325: 
+    326: USDJPY / EURUSD / XAUUSD: every hour-of-day x long/short, 60m hold, net
+    327: of recorded spread+commission. n=180k-260k events/hour-cell. EVERY cell
+    328: PF<0.70. No unconditional intraday drift exists on majors at retail
+    329: cost. Any surviving mechanism must be conditional (event/state), not
+    330: clock-based. The clock family's last hope is dead.
+  ---
+    390: ## 2026-09-20 — AUD->XAU lead-lag KILLED (53d tick overlap) + 2 more families
+    391: 
+    392: **Lead-lag** (W300 H900 th6, 53d, 97 events): headline PF1.43 +17p BUT
+    393: ex-top1=1.22, ex-top2=1.07, ex-top3=0.98, ex-top5=0.84. The whole edge
+    394: is 3 fat events (Jun5 +525, Jun11 +695, Jun17 +400). Jun PF1.39 vs Jul
+    395: PF1.62 — not decaying, just lottery-clustered. Same profile as
+    396: EUR->GBP divergence: mean positive, PF<1 without tails. DEAD as GOAL
+    397: mechanism — a 3-events-in-2-months edge is tail luck, not alpha.
+    398: 
+    399: **Asia-range -> London breakout** (M1, all majors, tight-range 3-40p):
+    400: EURUSD n=3091 net -0.45p PF0.92; USDJPY -0.02p PF0.99; GBPUSD -1.11p;
+    401: AUDUSD -1.41p. DEAD.
+  ---
+  [440-441] OUT OF RANGE (file has 411 lines)
+    115: ## Cross-asset lead-lag (AUDUSD -> XAUUSD) — TESTED, KILLED_AT_PROBE
+    116: 
+    117: Last untested exotic family, probed 2026-09-19 on synchronized M1 parquet
+    118: (5.7M common bars, suspect bars excluded from trigger AND forward window,
+    119: 60-bar dedup cooldown, honest cost = recorded sane-spread + 0.7p slip).
+    120: 
+    121: Raw undeduped screen looked strong (|AUDUSD ret15|>20p -> XAUUSD +60m,
+    122: PF 1.55, +9.6p). Decomposition confirmed the lead-lag is genuine —
+    123: the XAU-flat-at-trigger subset earns +10.3p PF 2.15 (target has not moved
+    124: when the leader fires; true spillover, not shared momentum). But:
+    125: 
+    126: - Deduped: 6762 events, 7.8 trades/wk (below 10/wk floor).
+    127: - After honest cost: net PF 1.20, edge +3.56p (gross 7.29p).
+    128: - Per-year net PF: 1.45-4.74 in the 2011-2014 gold-vol era, ~0.8-1.2
+    129:   across 2015-2026 — the edge is a dead regime artifact.
+    130: 
+    131: Same edge x cadence inverse law as every prior family. Registry row
+    132: HYP-XLEAD-AUDXAU-M1-001, state=killed, KILLED_AT_PROBE. No EA minted.
+  ---
+### NR4_KILL (04. Memory/research/20260912_NR4_GBPUSD_KILL.md) total 57
+      7: ## Hypothesis
+      8: 
+      9: M5 NR4 volatility-compression breakout: closed bar 2 has the smallest
+     10: range of bars 2..5, then bar 1 closes beyond bar 2's high/low, H4 EMA50
+     11: agreeing. SL max(1.5xATR, 80pts), TP 1.5R, 12-bar time stop,
+  ---
+     33: 
+     34: **KILL.** Gross-negative before full cost loading; every cost scenario
+     35: below break-even. Range compression does not resolve into directional
+     36: edge on GBPUSD either — same signature as all 15 prior cells: PF in the
+     37: 0.68-1.00 band, uniform decay across years/sessions/weekdays.
+  ---
+### LSWEEP_KILL (04. Memory/research/20260912_LSWEEP_EURUSD_KILL_AND_AUDIT_UPGRADE.md) total 73
+     16: | Verdict | REVIEW → **KILLED_AT_MODEL_0** |
+     17: 
+     18: ## Reading
+     19: 
+     20: The mechanism is real but unusable at the required cadence: true
+     21: bounded-penetration sweeps that close back inside salient levels printed
+     22: only 172 qualifying events across 27 years of EURUSD — 0.12 trades/week
+     23: against a 10–40/week band. Economics were also negative (PF 0.62 at
+     24: measured cost, WR 28.5%), so even a relaxed cadence gate would not save
+     25: the sleeve. No post-hoc rescue.
+  ---
+### M15BR_KILL (04. Memory/research/20260912_M15BR_EURUSD_KILL.md) total 61
+     32: Second momentum/continuation candidate after H1 displacement — same fate.
+     33: M15-bar range expansion (M5 close breaking last-completed M15 high/low with
+     34: H4 EMA50 agreement) produced plenty of trades but negative expectancy
+     35: (−0.38/trade, avg win 4.12 vs avg loss 3.45 at 40% hit rate). Breakout
+     36: entries on EURUSD intraday systematically buy local tops / sell local
+     37: bottoms — the fade candidates that profit from the opposite side also lost
+     38: to costs, meaning neither side of the M5/M15 microstructure has harvestable
+     39: edge at this cost tier.
+  ---
+     54: ## Implication for next cell
+     55: 
+     56: Six distinct mechanism families now killed on EURUSD M5/M15. Remaining
+     57: untested classes in fleet: session-open drive (London/NY open momentum),
+     58: ORFade (opening-range fade — but fades all died), volatility-regime filters.
+  ---
+### H4PB_KILLS (04. Memory/research/20260912_FVG_H4PB_EURUSD_KILLS.md) total 48
+     15: ## EA_H4pb — `HYP-H4PB-EU-M5-001`, run `20260912_115954`
+     16: 
+     17: - EURUSD M5, same window/class, quality 99%.
+     18: - 1,251 trades (**0.87/wk — FAIL**), PF **0.929** (best gross on the board),
+     19:   net **−$383**, DD **6.6%**, WR 43.8%.
+     20: - Cost PF x1.0 **0.765** / x1.5 0.694 / x2.0 0.629.
+     21: - Non-repaint PASS, Monte Carlo p95 PASS, overnight/weekend PASS.
+     22: - **Verdict: KILL.** H4-EMA50 reclaim is structurally too rare (one signal per
+     23:   H4-EMA cross; ~1/wk) and still negative after costs — the cleanest DD on the
+     24:   board but cannot meet the scalping cadence contract.
+  ---
+### CAMF_KILL (04. Memory/research/20260912_CAMF_EURUSD_KILL_AND_LIVEUPDATE_FP.md) total 70
+      7: | Hypothesis | HYP-CAMF-EU-M15-001 (Camarilla H3/L3 reclaim fade, 8-bar / 1.0 ATR) |
+  ---
+     53: Camarilla H3/L3 reclaim fade on EURUSD M15, 1999–2026 verified-M1 window:
+     54: 
+     55: - Gross PF 0.886 — already below the 1.30 gate before costs.
+     56: - Cost-bound repricing pushes it to 0.763 @x1.0 → the mechanism has no
+     57:   edge even at the cheapest measured venue (spread p90 0.1 pips).
+  ---
+### H1D_KILL (04. Memory/research/20260912_H1D_EURUSD_KILL_MOMENTUM_CLASS.md) total 52
+     20: First momentum-class test on the cheap venue (EURUSD spread p90 0.1
+     21: pips). Two independent disqualifiers:
+     22: 
+     23: 1. **Cadence** — 4.78 trades/week vs the 10/week floor. H1-level signals
+     24:    (one decision per closed H1, Mon–Thu 08–16, body ≥ 0.5×ATR(H1)) are
+     25:    intrinsically sparse; reaching 10/wk would require leaving the frozen
+     26:    spec, which is not permitted.
+     27: 2. **Economics** — PF 0.869 gross, 0.763 at measured cost. Europe 0.89 /
+     28:    NY 0.82 both negative; losses spread across 13 flagged years — no
+     29:    regime concentration to even hypothesize about.
+     30: 
+     31: Momentum continuation is not better than the fade/MR family on this
+     32: venue: three EURUSD mechanisms (IBS continuation, Camarilla fade, H1
+     33: displacement) all land at cost-PF ≈ 0.68–0.76.
+  ---
+### VOLSPIKE (04. Memory/research/20260912_VOLSPIKE_EURUSD_KILL.md) total 67
+     60: 
+     61: 1. GBPUSD London ORB / NYORB — needs GBPUSD cost evidence; ~5/wk cadence
+     62:    likely fails the floor.
+  ---
+### VWF (04. Memory/research/20260912_VWF_CONTROL_KILL.md) total 43
+      5: `HYP-VWF-XAU-M5-001` (EA_VwapFade, XAUUSD M5, session VWAP deviation fade)
+      6: → **killed** at Model 0, registry row updated (screened→killed, validator
+      7: green). Second hypothesis to traverse the complete governed chain.
+      8: 
+      9: Run `20260912_030641` (governed, portable isolate, MetaQuotes-Demo):
+     10: 
+     11: | Metric | Value |
+     12: |---|---|
+     13: | Window | all-available; history 2004.06.11 → 2026.09.10 |
+     14: | Trades | 25,417 (~8.6/week — below 10–40 cadence band) |
+     15: | Report PF | 0.87; Net -7,645 USD; Max DD 76.8%; WR 43.8% |
+     16: | History Quality | 98% |
+     17: | Cost-bound PF | **0.50** @x1.0 / **0.38** @x1.5 / **0.29** @x2.0 |
+     18: | Monte Carlo p95 DD | 77.9% (limit 20) |
+     19: | Robustness pass rate | 14.3% |
+     20: | Overnight/weekend | **PASS** — 0/0 (Friday flatten + Mon–Thu session works) |
+     21: | Unified verdict | REVIEW — 9 FAIL / 2 BLOCKED / 3 PASS of 14 gates |
+     22: 
+     23: Disqualifying on economics under every stress tier. VWAP-fade has no positive
+  ---
+### GAP_VS_SPEC: FILE MISSING 03. EA Developer/EA_VolmanPA/PLAN/GAP_VS_SPEC.md
+### AUDIT125 (04. Memory/research/20260813_XAU_FOREX_ONLY_SCOPE_AND_CATALOG_AUDIT.md) total 338
+    125: - `03. EA Developer/EA_RoundNumberCascade/research/`
+  ---
+### CLEANUP37 (04. Memory/research/20260831_REPO_CLEANUP_AND_PATH_MIGRATION_PLAN.md) total 436
+     37: | 18 | CONFIRMED | Recomputed from `CANDIDATE_REGISTRY.jsonl` (469 rows): 156 non-empty `source_path` occurrences / 25 unique / **25/25 resolve**. 166 unique `prereg_path` / **0/166 resolve**. 53 uniq
+  ---
+### SOURCE_MATRIX43 (04. Memory/research/PRO_TRADER_REPLACEMENT_E02_T2_P1_SOURCE_MATRIX.md) total 80
+     43: | Round levels may behave as magnets or obstacles. | `S1`; `S4` supports FX clustering plausibility. | Round-grid distance starts as telemetry. A universal train-only order-of-magnitude grid across FX
+  ---
+### ch02 (03. EA Developer/EA_VolmanPA/PLAN/book/notes/ch02.md) total 476
+     15: - **Áp lực kép (double pressure)**: ngay khi giá phá đỉnh/đáy một thanh giá quan
+     16:   trọng, Phe Bò mua muộn tiếc vì đã không mua sớm hơn, còn Phe Gấu bị buộc dừng lỗ
+     17:   — cả hai dòng lệnh cùng đẩy giá theo hướng phá vỡ. Đây là cơ chế chính của một
+     18:   cú phá vỡ mạnh (tr. 50, 53).
+  ---
+### ch07 (03. EA Developer/EA_VolmanPA/PLAN/book/notes/ch07.md) total 249
+     49: ### 1. Giao dịch với tín hiệu phá vỡ giả (trade-for-failure) — thiết lập trọng tâm Chương 7
+     50: - **Context/điều kiện**: (a) có một cú phá vỡ mô hình/hộp trước đó không được giá tiếp diễn; (b) cú phá vỡ thường xảy ra tại **cú chạm lại đầu tiên với đường trung bình** tính từ điểm khởi đầu của con
+     51: - **Cách kẻ line/barrier**: kẻ biên hộp/vùng tích lũy; lệnh bán đặt khi giá **nằm dưới cạnh trên của hộp** (xác nhận cú phá vỡ tăng trước đó thất bại). Cộng thêm nếu cú phá vỡ trùng với việc phá đường
+     52: - **Buildup**: hộp/đoạn giằng co phải có độ dày nhất định; ví dụ thanh 5 (Fig 7.8) chỉ cần đánh giá nhanh vài giây là đủ nhận ra bẫy (tr. 225–226).
+     53: - **Signal bar**: thanh bao/thanh đảo chiều mạnh đóng dưới biên; với trường hợp thanh 4 (Fig 7.6) chính thanh này + phá trendline chéo tạo "bẫy giá" hoàn chỉnh (tr. 218).
+     54: - **Entry trigger**: **stop order (bán khống) bên dưới thanh tín hiệu**, đặt sau khi giá đã quay lại dưới cạnh trên hộp (tr. 218, 226). Với bẫy mua: **stop order mua bên trên thanh tín hiệu** (mua sau
+     55: - **Stop**: không nêu con số riêng trong range; nhắc chung bộ 20/10 (tr. 233); trường hợp đặt ngoài vùng phạm vi thì dừng lỗ đặt ngay ngoài biên (tr. 244).
+     56: - **Target**: cục nam châm thuận chiều — vùng số tròn phía dưới/trên, vùng kháng cự kế tiếp (tr. 219, 236, 238, 263).
+     57: - **Quản lý**: thoát tại **điểm đảo chiều** là kỹ thuật chủ lực (bán khống thoát khi giá vượt đỉnh thanh liền kề / đỉnh thanh giữa thiết lập) (tr. 209, 235, 248, 255); có thể chốt sớm ở vùng kháng cự 
+     58: - **Skip/tránh**: (a) không phải cú phá vỡ ngược *đầu tiên* khỏi EMA25 có xu hướng ⇒ tùy ý, chất lượng thấp hơn hẳn (tr. 228); (b) cú phá vỡ ngược không tự động dẫn tới phá vỡ thuận xu hướng chất lượn
+     59: - (tr. 207–210, 218–219, 226, 228, 231, 233, 239–240, 244–245, 263)
+  ---
+     73: ### 3. Phá vỡ mô hình có kéo ngược (pullback-pattern breakout)
+     74: - **Context/điều kiện**: cú kéo ngược (thường về phía EMA25) tạo lá cờ treo trên cán; xu hướng chủ đạo rõ; cờ phải hài hòa với cán; vùng hồi quy 50–60% của sóng trước là điểm cộng (tr. 237, 243, 245, 
+     75: - **Cách kẻ line/barrier**: biên cờ nối các đỉnh/đáy của cú kéo ngược (đôi khi vẽ hơi chủ quan) + trendline của cán; xác nhận khi giá đóng cửa **trên/dưới đường biên** (thanh tín hiệu nằm trên biên) (
+     76: - **Buildup**: thiết lập 2–4 thanh (ví dụ 11–12, 13–14) hoặc mô hình Sao Hôm hoàn chỉnh gồm 3 thanh; thanh trong + thanh sức mạnh phía sau là dạng đẹp (tr. 236, 243, 245, 257).
+     77: - **Signal bar**: thanh đóng cửa vượt biên cờ/trên dải đỉnh; thanh 12 (Fig 8.4) đóng trên biên xác nhận phá vỡ (tr. 243).
+     78: - **Entry trigger**: stop order **trên đỉnh thanh tín hiệu** hoặc trên đỉnh thanh nằm trong (inside bar) — có thể vào 1 pip cao hơn bình thường (tr. 243, 245, 263).
+     79: - **Stop**: bộ 20/10 mặc định; đoạn nhắc dừng lỗ đặt ngay ngoài vùng phạm vi khi giao dịch phá vỡ ở rìa (tr. 233, 244).
+     80: - **Target**: nam châm thuận chiều (vùng 50, vùng số tròn khác, đường biên hộp kéo dài), mục tiêu 20 pip (tr. 236, 255, 262–263).
+     81: - **Quản lý**: thoát tại vùng kháng cự khi gặp đỉnh cũ; nếu chưa đủ thì thoát ở cú phá vỡ phần chính giữa mô hình W/M kế tiếp (đảo chiều) (tr. 248, 258, 263).
+     82: - **Skip/tránh**: (a) cán cờ quá mạnh, xuất phát từ tin tức/điểm đảo chiều đáy không tích lũy — tiếp diễn kém (tr. 237, 252); (b) cờ không hài hòa cán (thanh quá dài) (tr. 258–259); (c) điểm vào quá x
+     83: - (tr. 226, 236–238, 240–245, 252–253, 256–259, 262–263)
+  ---
+### EA_LSQ_README (03. EA Developer/EA_LiquiditySweep/README.md) total 294
+    142: | | `InpRoundStep` | 5.0 | round grid; XAU 5.0, EUR 0.0050, JPY 0.50, 0 = off |
+  ---

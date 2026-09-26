@@ -1,0 +1,3 @@
+variant c1r_p_cong_k3 576
+variant c1r_p_cong_n8 576
+VARIANTS IDENTICAL 1152 / DIFF 0 / ERR 0

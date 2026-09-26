@@ -1,0 +1,22 @@
+hash ee2cbf12 | arm lnsf42_on
+
+=== v0 ===
+  box@1 0.134 (16/119)
+  level@1 0.066 (5/76)
+  line@2 0.093 (18/193)
+  bracket@1 0.388 (33/85)
+  diag: BOX rec 0.213 prec 0.027 | PL 0.109 | LC 0.146 | LTF-agree 0/4 | clutter ratio med 9.00
+
+=== parent lnsf42_off ===
+  box@1 0.084 (10/119)  vs v0 -0.064 [-0.137..-0.001]
+  level@1 0.105 (8/76)  vs v0 +0.072 [-0.011..+0.167]
+  line@2 0.104 (20/193)  vs v0 +0.015 [-0.040..+0.070]
+  bracket@1 0.341 (29/85)  vs v0 -0.015 [-0.171..+0.135]
+  diag: BOX rec 0.102 prec 0.039 | PL 0.114 | LC 0.208 | LTF-agree 0/1 | clutter ratio med 4.33
+
+=== arm lnsf42_on ===
+  box@1 0.084 (10/119)  vs v0 -0.064 [-0.137..-0.001]
+  level@1 0.092 (7/76)  vs v0 +0.067 [-0.022..+0.167]
+  line@2 0.083 (16/193)  vs v0 +0.001 [-0.052..+0.055]
+  bracket@1 0.353 (30/85)  vs v0 -0.008 [-0.164..+0.148]
+  diag: BOX rec 0.102 prec 0.040 | PL 0.114 | LC 0.188 | LTF-agree 0/1 | clutter ratio med 4.00

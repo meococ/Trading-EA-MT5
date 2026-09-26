@@ -1,0 +1,364 @@
+{
+  "answer": "In price action trading, a **horizontal support or resistance level (or zone)** represents a foundational structural element reflecting market psychology, supply and demand balance, order flow, and multi-timeframe organization.\n\n---\n\n### What a Horizontal Level Represents & Why Price Reacts\n\n#### 1. Supply and Demand Balance\nAt its core, price movement is driven by the balance or imbalance of supply (sellers) and demand (buyers) [1, 2]. \n* **Support** represents a price band where demand expands sufficiently to absorb supply and halt a decline [3-5].\n* **Resistance** represents a price band where supply expands sufficiently to absorb demand and cap an advance [3, 5, 6].\n* Rather than arbitrary chart lines, traders view these levels as **areas of value** or **logical stopping points** where market sentiment objectively shifts [1, 5, 7].\n\n#### 2. Market Psychology and Anchoring Bias\nHorizontal levels exist because of human decision-making heuristics and cognitive biases rather than intrinsic valuation [1, 8].\n* **Anchoring Bias**: Because financial assets lack an absolute intrinsic value scale, traders rely on past price action to establish visual anchors [9]. Swing highs and swing lows serve as reference points against which traders judge whether an asset is overvalued or undervalued [9, 10].\n* **Psychological Round Numbers**: Round numbers (such as \"00\" and \"50\" levels, gold at \\$1,000, or major stock index figures) act as major psychological anchor points where traders set price targets and stack orders [11-15].\n\n#### 3. Trader Memory, Regret, and Breakeven Order Flow (Role Reversal)\nTraders possess memory, making price reactions self-reinforcing [14].\n* **Pain and Regret**: When resistance breaks to the upside, short sellers suffer losses, while traders who closed long positions experience regret at missed gains [16, 17].\n* **Breakeven Exit Demand**: When price retests the broken resistance level from above, trapped shorts and sidelined traders seek to enter or exit at breakeven [16-19]. This surge in net buying pressure converts former resistance into new support (the **polarity flip** or role reversal) [16, 20].\n\n#### 4. Clustered Order Flow and Institutional Absorption\nHorizontal levels mark zones where resting limit orders, stop-loss orders, and institutional execution algorithms cluster in advance [14, 21-23].\n* **Candlesticks as Receipts**: Price action patterns (such as long lower wicks or engulfing bars) printed at horizontal levels serve as visual \"receipts\" recording the absorption or rejection of clustered order flow [22, 24, 25].\n* **Institutional Absorption**: In Wyckoff methodology, horizontal trading ranges represent systematic **absorption**, where institutional market participants (the \"Composite Operator\") systematically accumulate or distribute positions from retail traders over time [26-29].\n\n#### 5. Empirical Reality\nEmpirical studies confirm that horizontal S/R levels act as statistically significant intraday price barriers, interrupting or reversing trends well beyond random chance [30-33]. Furthermore, levels with a higher number of historical touches demonstrate stronger order memory and higher probabilities of subsequent bounces [30].\n\n---\n\n### Timeframe Interplay (Multi-Timeframe Analysis)\n\n#### 1. Higher Timeframe (HTF) Hierarchy\nHigher timeframe levels (e.g., Daily or 4-Hour) dominate lower timeframe levels (e.g., 5-minute or 1-minute) [34-36]. Because a broader cross-section of market participants across all timeframes observes HTF charts, significantly larger pools of resting liquidity aggregate around HTF zones [14, 35, 36].\n\n#### 2. Functional Split: \"Where\" (Location) vs. \"When\" (Execution Trigger)\nMulti-timeframe trading assigns explicit, non-overlapping roles to different timeframes:\n* **Higher Timeframes** define the structural **location** (\"where\" to trade) [35, 37, 38].\n* **Lower Timeframes** provide the execution trigger and entry timing (\"when\" to trade) [35, 36, 38].\n* A candlestick rejection pattern (e.g., a hammer or pin bar) printed in open space on a 5-minute chart is mere noise; the exact same candle printed at a Daily or 4-Hour zone carries high signal value because order flow defends the location [21, 35, 39, 40].\n\n#### 3. Nested Zones and Confluence\n* **Nested Levels**: Lower timeframe zones frequently reside entirely inside broader higher timeframe zones [41].\n* **Confluence**: When a horizontal HTF level aligns with LTF structure or dynamic indicators (such as VWAP or moving averages), order density multiplies, increasing the probability of a decisive price rejection [42-44].\n\n#### 4. Micro-Structures within Higher-Timeframe Context\n* **Structure within Structure**: Higher timeframe trends or ranges contain smaller internal market structures on lower timeframes [45-47]. \n* For example, a minor pullback to a Daily support level often manifests on a 5-minute chart as a steep micro-channel or an internal Change of Character (CHoCH) / Break of Structure (BOS) [45, 46, 48-50].\n* **Relative Market Regimes**: An asset can simultaneously exist in a horizontal consolidation range on an intraday timeframe while maintaining a broader directional trend on a weekly or daily chart [51].\n\n---\n\n🎯 Would you like to explore how to combine horizontal levels with volume profile and VWAP for entry confirmation, or dive into specific breakout vs. bounce setup rules?",
+  "question": "You are analysing a corpus of practitioner price-action sources. Object type: HORIZONTAL SUPPORT/RESISTANCE LEVEL or ZONE. Q1+Q8: What does a horizontal level represent to the trader (why does price react there - anchoring, order flow, memory), and how does timeframe interplay work? Cite sources for every claim.",
+  "conversation_id": "575b681d-b23b-4e75-bdc7-33bf21dddc90",
+  "sources_used": [
+    "99abc436-6964-4641-ab4d-44922b73c44a",
+    "e95edc36-36c1-4bb1-a44f-51877eeced95",
+    "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "8acdb9ad-dfb6-4a56-be4b-77fd47937833",
+    "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "19b055cc-66b7-436a-9154-cc98d0df44be",
+    "35993b7d-f788-421a-acbc-f540d2373fd5",
+    "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "b0799ea5-221a-454a-9f96-083966104b14",
+    "8224f447-8582-47a6-8c21-4d26240a3892",
+    "5c67f357-ef0b-46ae-b18a-eb61b26e2f88",
+    "f46f6efd-575e-4c4d-b947-72b613b7e891",
+    "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "3726d651-2b1f-4a31-9ab6-64457c7ce70f",
+    "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "15bb7a83-fc71-43c6-858d-0c4a8abdbcec",
+    "cc06b1a5-a69d-4342-98b5-784155be5fa8"
+  ],
+  "citations": {
+    "1": "99abc436-6964-4641-ab4d-44922b73c44a",
+    "2": "e95edc36-36c1-4bb1-a44f-51877eeced95",
+    "3": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "4": "e95edc36-36c1-4bb1-a44f-51877eeced95",
+    "5": "8acdb9ad-dfb6-4a56-be4b-77fd47937833",
+    "6": "e95edc36-36c1-4bb1-a44f-51877eeced95",
+    "7": "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "8": "99abc436-6964-4641-ab4d-44922b73c44a",
+    "9": "99abc436-6964-4641-ab4d-44922b73c44a",
+    "10": "99abc436-6964-4641-ab4d-44922b73c44a",
+    "11": "19b055cc-66b7-436a-9154-cc98d0df44be",
+    "12": "99abc436-6964-4641-ab4d-44922b73c44a",
+    "13": "35993b7d-f788-421a-acbc-f540d2373fd5",
+    "14": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "15": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "16": "99abc436-6964-4641-ab4d-44922b73c44a",
+    "17": "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "18": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "19": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "20": "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "21": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "22": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "23": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "24": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "25": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "26": "b0799ea5-221a-454a-9f96-083966104b14",
+    "27": "8224f447-8582-47a6-8c21-4d26240a3892",
+    "28": "8224f447-8582-47a6-8c21-4d26240a3892",
+    "29": "5c67f357-ef0b-46ae-b18a-eb61b26e2f88",
+    "30": "f46f6efd-575e-4c4d-b947-72b613b7e891",
+    "31": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "32": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "33": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "34": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "35": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "36": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "37": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "38": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "39": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "40": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "41": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "42": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "43": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "44": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "45": "3726d651-2b1f-4a31-9ab6-64457c7ce70f",
+    "46": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "47": "15bb7a83-fc71-43c6-858d-0c4a8abdbcec",
+    "48": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "49": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "50": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "51": "cc06b1a5-a69d-4342-98b5-784155be5fa8"
+  },
+  "references": [
+    {
+      "source_id": "99abc436-6964-4641-ab4d-44922b73c44a",
+      "citation_number": 1,
+      "cited_text": "Thanks from Brian. Answer: Hi Brian, Support and resistance are only about the behavior of traders – nothing else. This is a big topic which won't be adequately addressed by a short email, but hopefully a summary will make it sufficiently clear… Price movement is a function of the balance or imbalance of supply and demand. This supply/demand imbalance changes based on the sentiment of the market participants. More bullish sentiment and price rises. More bearish sentiment and price falls. Support areas are areas which have objectively shown an increase in bullish sentiment. We know this because price rallied from that area. Resistance areas are areas which have objectively shown an increase in bearish sentiment. We know this because price fell from that area. (See any material by Sam Seiden on this topic – he teaches it better than anyone else I've read)."
+    },
+    {
+      "source_id": "e95edc36-36c1-4bb1-a44f-51877eeced95",
+      "citation_number": 2,
+      "cited_text": "The reason we care is because support and resistance are providing you with setup areas with the potential for lower risk and/or higher probability trades. While there are numerous ways to define an area of low risk and/or higher probability trading, I have not personally found one that works for me as well as the concept of support and resistance. So, how do support and resistance work? We discussed in a recent article how price moves, due to an imbalance between supply and demand. When there is more demand than supply, price rises until they are once again balanced. When there is more supply than demand, price falls until once again the supply/demand balance is restored. We can also use this concept to explain support or resistance areas."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 3,
+      "cited_text": "What Are Support and Resistance Levels in Futures Trading? Support is a price level where buying interest is strong enough to prevent further decline. Resistance is a price level where selling interest is strong enough to prevent further advance. That's the textbook version. In practice, it's messier. I think of S/R levels as zones, not lines. On NQ, a \"support level\" at 19,800 really means a 5-10 point zone around 19,800 where I expect buying pressure to show up. Some sessions, the level holds at 19,798. Other sessions, price dips to 19,792 before bouncing. If you're placing limit orders at a single tick and expecting precision, you'll get stopped out constantly."
+    },
+    {
+      "source_id": "e95edc36-36c1-4bb1-a44f-51877eeced95",
+      "citation_number": 4,
+      "cited_text": "Support works much the same. Price falls while supply is greater than demand. As price falls though, it will become less attractive to sellers, leading to reduced supply. And it will become more attractive to buyers, leading to increased demand. If the supply/demand ratio can be tipped in favor of demand, price will rally. Support, then, is simply an area which has shown past evidence of stopping a price fall, and leading to a price rally. If it helps, think of support as a floor that supports price."
+    },
+    {
+      "source_id": "8acdb9ad-dfb6-4a56-be4b-77fd47937833",
+      "citation_number": 5,
+      "cited_text": "Most commonly, I refer to these points on the charts as logical stopping points. Support is therefore a price level where the demand is such that people are prepared to buy that lower price and prevents the prices from moving any lower. Resistance is therefore a price level where supply is such that people are prepared to sell that higher price and prevents the prices from moving any higher. In this illustration, we could easily be talking about a stock price or the price of an Xbox or the latest iPhone. You get my point (hopefully). This is a fundamental truth in business and not just the stock market."
+    },
+    {
+      "source_id": "e95edc36-36c1-4bb1-a44f-51877eeced95",
+      "citation_number": 6,
+      "cited_text": "Let's first consider resistance. Price rises while demand is greater than supply. As price rises though, it will become less attractive to the buyers, leading to reduced demand. And it will become more attractive to sellers, leading to increased supply. If the supply/demand ratio can be tipped in favor of supply, price will fall. Resistance is simply an area which has shown past evidence of halting a price rise. Price hits the resistance zone, and turns around to fall again. If it helps, think of resistance as a ceiling that resists any further price rise."
+    },
+    {
+      "source_id": "a45cd69d-f030-439c-aee6-a757201e57ac",
+      "citation_number": 7,
+      "cited_text": "For example: If the market is in an uptrend, you look to buy only. If the market is in a downtrend, you look to sell only. If the market is in a range, you can buy and sell. Next… #2: Area of value Now, identifying the market structure alone isn't enough. Because you also need to know where to enter your trade. Now you're wondering: “There are so many places to enter a trade. Which one should I choose?” Well, you want to trade from an area of value so you can buy low and sell high. For example: Support and Resistance Respected Moving Average Trendline"
+    },
+    {
+      "source_id": "99abc436-6964-4641-ab4d-44922b73c44a",
+      "citation_number": 8,
+      "cited_text": "How Support and Resistance Areas are Created - YourTradingCoach.org Skip to content YourTradingCoach.org YourTradingCoach.org Be Trading For A Living! Home About Contact YourTradingCoach.org YourTradingCoach.org Be Trading For A Living! Trading Process and Strategy How Support and Resistance Areas are Created By Lance Beggs December 9, 2023 Question: Hi Lance, In his text on support and resistance, Mike Reed talks about traders hoping the market will return to a level of support or resistance so they can break even in that trade. So are levels of support and resistance more to do with the behavior of traders than the actual value of the dollar,"
+    },
+    {
+      "source_id": "99abc436-6964-4641-ab4d-44922b73c44a",
+      "citation_number": 9,
+      "cited_text": "Now consider a trader conducting analysis on the market with the view to trading. What creates the support and resistance areas are the heuristics and cognitive biases that are part of human decision making. Of particular interest here is the anchoring bias. There's a whole heap of others which influence our decision making, including the formation of support and resistance, but this is the main one for s/r. There is no absolute scale that can be used to determine the value of a tradable instrument. Overpriced or underpriced is determined relative to previous price action. So, in the absence of a scale, our mind needs to create a reference point (an anchor), which is a fixed point from which it can then determine whether a security is overvalued or undervalued. The points that stand out are the swing highs and lows, in particular those which create support or resistance areas."
+    },
+    {
+      "source_id": "99abc436-6964-4641-ab4d-44922b73c44a",
+      "citation_number": 10,
+      "cited_text": "Consider a stock channeling between lower support and upper resistance. Prices towards the lower end of the range are considered good value, because it's close to the anchor from which price has previously rallied. As price gets higher though, it is perceived to be less of good 'buy', as it is further from the good value area. And in fact as it approaches resistance, it's not a good buy at all, because our mind sees it as being at an area (reference point / anchor) which we've determined is overvalued, due to past evidence of price falling from that point."
+    },
+    {
+      "source_id": "19b055cc-66b7-436a-9154-cc98d0df44be",
+      "citation_number": 11,
+      "cited_text": "S2 and S3: If this range had formed anywhere else I probably would have taken these trades. I skipped this perfectly good range break because I find trading right under a 00 level to be tricky. I been burned a few times before. Judging by the slow price action earlier, I didn't think the bulls would be able to break the 00 level successfully. Would it be easier for you guys/gals to read if I had my analysis on the charts themselves like what Kalp does? Attachments USD Spot.png 11.9 KB · Views: 10,173"
+    },
+    {
+      "source_id": "99abc436-6964-4641-ab4d-44922b73c44a",
+      "citation_number": 12,
+      "cited_text": "Quick summary of a fairly advanced concept. Hope it helped bit. You did mention price though, so I should point out one thing regarding price. Round numbers can also be subject to the anchoring bias. For example, the difficulty in Gold getting over $1000. It's such a psychological barrier – five figures seems much larger than four figures – so we perceive anything over $1000 being overpriced, thereby creating resistance. This was seen as well when the Dow spent years trying to break through 10,000 for the first time. It's the same reason why products sell for $97 instead of $103."
+    },
+    {
+      "source_id": "35993b7d-f788-421a-acbc-f540d2373fd5",
+      "citation_number": 13,
+      "cited_text": "Examples of how you should draw your Support and Resistance Also notice how Support and Resistance bounces off at key levels like 00 and the 50? You should definitely pay attention to them as well. If you're one of those traders who's charts are filled with indicators and lines, please consider my approach to drawing Support & Resistance . This way it is much cleaner and you are able to focus on the key areas of the chart. But once you learn how to draw support and resistance like a pro… How do you trade it?"
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 14,
+      "cited_text": "Why do S/R levels form in the first place? Because traders have memory. If NQ bounced hard off 19,800 three times last week, thousands of traders have that level marked on their charts. When price approaches it again, buy orders stack up. Algorithms programmed to watch that level trigger. The collective behavior creates the zone. This is more pronounced on futures than on forex or stocks because futures volume is centralized on one exchange. Everyone sees the same data. The strongest S/R zones tend to form at prior session highs and lows, prior day close, psychological round numbers (19,000, 20,000 on NQ), and areas of heavy volume accumulation visible on volume profile. I rank these by the number of times price has reacted at the level. A level that held twice is worth noting. A level that held five times across different sessions is a fortress."
+    },
+    {
+      "source_id": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+      "citation_number": 15,
+      "cited_text": "Market insiders sometimes identify support and resistance levels using private information or information circulated informally in the market about certain market participants. For example, if a technical analyst learned in conversation that Japanese exporters are selling at 100, he or she would report a resistance level at ¥100.00/$. Similarly, if a trader knew that his or her own firm had a large order at DM1.50/$, he or she might expect unusual price behavior at that point. Simple market psychology is also used to help identify support and resistance levels. According to Murphy (1986): “Traders tend to think in terms of important round numbers . . . as price objectives and act accordingly. These round numbers, therefore, will often act as psychological support or resistance levels.” As I will demonstrate later, published support and resistance levels are round numbers that end in 0 or 5 much more often than they would if they were chosen at random."
+    },
+    {
+      "source_id": "99abc436-6964-4641-ab4d-44922b73c44a",
+      "citation_number": 16,
+      "cited_text": "Why does resistance, once broken, become support. The perception of value now changes. The rally as price breaks through resistance is quite painful to those who went short, and took a loss. It's even more painful to those who closed their long positions and missed the extra profits. They now see this area as providing great value, and swear to the market Gods that if price can just get back to that area they'll never be so stupid again. So when it drops back to that new support area, these traders go Long."
+    },
+    {
+      "source_id": "a45cd69d-f030-439c-aee6-a757201e57ac",
+      "citation_number": 17,
+      "cited_text": "So, when the price rallies back to Support, this group of traders can now get out of their losing trade at breakeven — and that induce selling pressure. And that's not all because traders who missed the breakout will want to short the markets which increase the selling pressure. And that's why when Support breaks it tends to become Resistance. Make sense? Now you're probably wondering… “But how do I draw Support and Resistance on my charts?” That's a good question. So, here are the guidelines I use…"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 18,
+      "cited_text": "y trader who bought bar 69 was trapped by the reversal 70 and 71 and then further selling so the expectation here as bar one is testing the bar 69 close is that you have bulls who bought 69 who got trapped on 70 and 71 with the follow through and whoever bought there is trapped into a losing position and when the market comes back and tests their entry price if they in theory they use a wide stop scale in lower they're probably happy just to get out at their original entry also if we talk about the structure regarding major reversals in this case it's a bare trend and a trend line break usually the market tests the trend the old trends extreme before reversing in a major way so i do not expect this tight bare channel to reverse immediately into a strong bull trend at a minimum there's probably going to be more sideways price action trading range probably more sideways before the bulls get any kind of reversal again the micro channel yesterday that's a very strong breakout trap traders"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 19,
+      "cited_text": "re trend for 30 bars and then you get this trend line break and the trend line break is pretty strong pretty strong buying pressure 39 pulling retracing half of this trend that's enough buying pressure to disappoint the traders selling down here which means let's imagine it this way if you're selling it's a low one short bar 37 let's say you're selling bar 37 you get filled on 38 and then you get bar 39 and you just sold you're disappointed because you're trapped into a losing position you never would have sold 37 if you knew you were going to get bar 39 you would have sold the pullback instead so the traders who sold down here are trapped by the bull breakout that strong momentum by the bulls and it's probably going to get second leg because of those trapped traders so when the market comes back and tests support the expectation is that you have trapped bears who sold were disappointed by the breakout and when price comes back and tests their entry price they're going to buy back shor"
+    },
+    {
+      "source_id": "a45cd69d-f030-439c-aee6-a757201e57ac",
+      "citation_number": 20,
+      "cited_text": "Resistance – A horizontal area on your chart where you can expect sellers to push the price lower. Here are a few examples… Support and Resistance on EUR/USD Daily: Support on (USD/CAD): Resistance on (GBP/JPY): Also: Support and Resistance can swop roles. This means when Support breaks it can become Resistance. And when Resistance breaks it can become Support. An example… Previous Support turns Resistance on (GBP/AUD): Previous Resistances turns Support on (NZD/USD): But why does it happen? Because when the price breaks Support, traders who are long are losing money and in the “red'."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 21,
+      "cited_text": "Mid-range, no such explanation exists. The wick still shows rejection, yet nobody had a reason to defend that spot, so the reaction rarely draws further interest. A Pattern Describes, It Does Not Predict Keep the language honest. A hammer does not forecast a bounce; it records one bar in which sellers lost control of the low. Prediction needs context, and the level supplies it. Levels mark where resting orders already sit and where other traders plan to act. Treat the candle as evidence, then, and treat location as the thing that prices that evidence. Neither half works alone."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 22,
+      "cited_text": "Why the Crowd Effect Matters Levels work partly because enough people believe in them. Traders mark the same swing high, orders cluster there, and price reacts to the cluster. That reaction leaves a footprint on the chart. A long wick, a tiny body or a sharp reversal bar all record the same burst of clustered intent. So the candle becomes a receipt for order flow you cannot see directly. Strip the level away and the receipt has no story behind it. How to Mark a Level That Actually Matters Most charts end up covered in lines that never mattered. A short, strict routine keeps only the areas with real history behind them."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 23,
+      "cited_text": "For tooling, browse our support and resistance indicators to automate the zone drawing. Our candlestick indicators flag the shapes as each bar closes, which saves screen time on lower timeframes. FAQ Do candlestick patterns work better at support and resistance? Traders widely treat location as the deciding factor, and the reasoning holds up: a level marks where resting orders already sit, so a rejection there has a cause behind it. Nobody can promise a better outcome, though. Treat the level as the reason to look and the candle as the reason to act."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 24,
+      "cited_text": "Every candle describes a fight over one session. The body shows where that fight settled, and the wicks show how far each side pushed before losing ground. So a long lower wick simply reports rejection. It says sellers drove price down, buyers pushed back, and the close finished near the high. A rejection bar that speared through a twice-tested four-hour level, then closed back above it near the top of its range (click to enlarge) Now ask where the rejection happened. If price had already turned twice from the same area, other traders watched that area too, so their orders help explain the wick."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 25,
+      "cited_text": "The same bar at a tested level versus mid-range: what changes is the order flow behind it, not the geometry (click to enlarge) Marking Levels After the Candle Appears Hindsight will find a level under any attractive bar. Draw your zones before the session opens, then judge candles against lines you cannot move. Using a Single Line Instead of a Zone An exact price gets pierced routinely. Mark the band between the wick extreme and the closes, and let the candle form anywhere inside it. Ignoring the Prevailing Trend A bullish rejection inside a strong downtrend faces far more supply than the same bar inside a range. Check the higher timeframe direction before you treat any zone as a springboard."
+    },
+    {
+      "source_id": "b0799ea5-221a-454a-9f96-083966104b14",
+      "citation_number": 26,
+      "cited_text": "The Wyckoff market cycle phases are accumulation, markup , distribution, and markdown . Essentially, the phases represent the behavior of traders and can reveal the direction of a stock’s future price movement. Generally speaking, the accumulation phase forms as institutional investors increase their buying and drive demand. As more interest develops, the trading range displays higher lows as prices position themselves to move higher. With buyers gaining power, prices push through the upper level of the trading range. At this markup phase, a chart will show a consistent upward trend."
+    },
+    {
+      "source_id": "8224f447-8582-47a6-8c21-4d26240a3892",
+      "citation_number": 27,
+      "cited_text": "Once a trend emerges from an Accumulation it begins to mature and changes internally. At a trend's beginning, strong holders (the Composite Operator) of the stock are the dominant owners and almost immediately shorter term traders jump on board the uptrend and ride along. These trader types will not hold the stock for the duration of the uptrend, they will repeatedly take quick profits and leave at early signs of trouble. The Composite Operator has the intention of staying on the trend for the entire multi-year move. They expect pauses in the uptrend that occur along the way to the final conclusion of the bull move. The C.O. will use these Reaccumulation phases to add to their holdings. Wyckoffians also use these Reaccumulation phases to initiate a position or add to an existing holding."
+    },
+    {
+      "source_id": "8224f447-8582-47a6-8c21-4d26240a3892",
+      "citation_number": 28,
+      "cited_text": "As the trading range grows longer and longer, trader pessimism is on the increase. The momentum traders are long gone and speculators are fishing in different waters. Sometimes the catalyst for the pause is a bearish news item or a disappointing quarterly earnings report that alarms traders. The Composite Operator is using this turn of events to begin accumulating stock. Just as in the initial Accumulation, the C.O. will systematically Absorb shares as prices correct toward Support and will cease buying activity as the price rises back to Resistance. It becomes harder for the price to return back to Support and will be reflected in the Vertical bar chart with narrowing price ranges and generally diminishing volume. The principles of Absorption are the same here as we previously discussed in Accumulation."
+    },
+    {
+      "source_id": "5c67f357-ef0b-46ae-b18a-eb61b26e2f88",
+      "citation_number": 29,
+      "cited_text": "Wyckoff Accumulation Explained: Phases, Events, and Schematics | StoicFX StoicFXStoicFX Platforms Markets Accounts Funding Liquidity Stoicism Affiliate Help en English Español Português 中文 Français العربية Deutsch Login Open Account Home Learn Wyckoff Accumulation Wyckoff Accumulation Accumulation is where institutions build positions at low prices while retail traders are still selling. The range looks like indecision. Underneath, supply is being absorbed bar by bar. Here's how the full cycle works, phase by phase."
+    },
+    {
+      "source_id": "f46f6efd-575e-4c4d-b947-72b613b7e891",
+      "citation_number": 30,
+      "cited_text": "View PDF HTML (experimental) Abstract: This paper investigates the phenomenon of support and resistance levels (SR levels) in financial time series, which act as temporary price barriers that reverses price trends. We develop a heuristic discovery algorithm for this purpose, to discover and evaluate SR levels for intraday price series. Our simple approach discovers SR levels which are able to reverse price trends statistically significantly. Asset price entering SR levels with higher number of price bounces before are more likely to bounce on such SR levels again. We also show that the decay aspect of the discovered SR levels as decreasing probability of price bounce over time. We conclude SR levels are features in financial time series are not explained simply by AR(1) processes, stationary or otherwise; and that they contribute to the temporary predictability and stationarity of the investigated price series."
+    },
+    {
+      "source_id": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+      "citation_number": 31,
+      "cited_text": "Carol Osler is a senior economist at the Federal Reserve Bank of New York. The author thanks Franklin Allen, Alain Chaboud, and Charles Jordan for thoughtful comments, Gijoon Hong for excellent research assistance, and two anonymous referees. The views expressed are those of the author and do not necessarily reflect the position of the Federal Reserve Bank of New York or the Federal Reserve System. Among the technical trading signals supplied to customers by foreign exchange trading firms are “support” and “resistance” levels. These levels indicate points at which an exchange rate trend is likely to be interrupted or reversed. A rigorous test of the levels specified by six trading firms during the 1996-98 period reveals that these signals were quite successful in predicting intraday trend interruptions. Although all six firms were able to identify turning points in exchange rate trends, some firms performed markedly better than others. As a group, the firms predicted turning points in the dollar-yen and dollar-pound exchange rates more accurately than turning points in the dollar-mark exchange rate. In addition, the predictive power of the support and resistance levels appeared to last at least five business days after they were first communicated to customers."
+    },
+    {
+      "source_id": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+      "citation_number": 32,
+      "cited_text": "These tests strongly support the claim that support and resistance levels help predict intraday trend interruptions for exchange rates. All six of the firms studied were able to identify points where intraday trends were likely to end. However, some firms were better than others at identifying such points. For most firms, the predictive power of support and resistance levels lasted at least five business days beyond the levels’ publication date. Despite their overall success at identifying points of trend interruptions, none of the firms correctly assessed the relative likelihood of trend interruptions at the different levels. These results are consistent across firms and are sustained over a number of sensitivity analyses."
+    },
+    {
+      "source_id": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+      "citation_number": 33,
+      "cited_text": "The month-by-month breakdown shows that for most firm-currency pairs bounce frequencies for the published levels exceeded average bounce frequencies for artificial levels in twenty or more months. As noted above, these outcomes would be extremely unlikely if the support and resistance levels were truly not informative. More rigorously, the marginal significance levels indicate that the results are statistically significant at the 5 percent level for all but three firm-currency pairs. The firms’ ability to predict turning points in intraday trends seems to have been stronger for the yen and weaker for the mark and the pound. On average, bounce frequencies for published support and resistance levels exceeded those for arbitrary levels by 4.2 percentage points for the mark, 5.6 percentage points for the yen, and 4.0 percentage points for the pound. This relative ranking was maintained fairly consistently for individual firms."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 34,
+      "cited_text": "Zoom out first. Drop to the daily or four-hour chart before you mark anything, because higher timeframes hold the levels most traders share. Find the real turns. Look for prices where the market reversed sharply or stalled for several bars, not every minor pivot. Draw a zone. Use the cluster of wicks and closes to set a band rather than a single line, since price rarely honours an exact figure. Count the touches. Two prior reactions make a level; one makes a guess. Note how hard price left the area each time. Prune often. Delete a zone once price closes well beyond it for several bars, because stale lines clutter every later decision."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 35,
+      "cited_text": "Which Timeframe Owns the Level A zone drawn on the daily chart outranks one drawn on the five-minute. More participants see it, so more orders gather around it. Use the higher chart to place the zone and the lower chart to read the candle. That split keeps your levels meaningful and your entries precise. Our walkthrough of multi-timeframe analysis covers the pairing in detail. Two charts usually suffice, and a third adds more noise than value. What a Rejection Bar Says When It Lands on a Level Picture a bar with a long lower wick, a small body near the top and almost no upper wick. Traders call that shape a hammer, or a bullish pin bar."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 36,
+      "cited_text": "Can you use support and resistance on the 1-minute chart for scalping? You can, but S/R levels on the 1-minute chart are weaker than on higher timeframes because they reflect less trading activity. For scalping NQ and ES, I draw my levels on the daily and 1-hour charts, then use the 1-minute chart only for timing entries once price reaches those higher-timeframe levels. Pure 1-minute S/R levels based on small intraday swings break too often to be useful as primary trade signals. How does support and resistance work differently in futures versus forex? Futures S/R works with centralized volume data from a single exchange (the CME for NQ and ES), meaning all traders see identical candles, highs, and lows. Forex volume is decentralized across brokers, so S/R levels can differ slightly between platforms. Futures also have clearly defined RTH session boundaries, giving traders unambiguous prior-session highs and lows. Forex runs 24 hours without a formal close, making session-based S/R levels dependent on convention rather than exchange rules."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 37,
+      "cited_text": "My bounce setup has three requirements: 1. The level must be pre-identified. I don't draw levels in real time while price is approaching. Every S/R zone on my chart was placed before the RTH session opened. If I see price reacting at a level I didn't mark, I note it for tomorrow but I don't trade it today. Reactive level drawing leads to confirmation bias. 2. I need a rejection candle. On a 5-minute chart, I want to see price wick into the S/R zone and close back on the \"right\" side. For a support bounce, that means a candle that dips into the support zone but closes above it. The wick shows the level was tested. The close shows it held. I enter on the close of that candle."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 38,
+      "cited_text": "What is the best timeframe for identifying support and resistance on NQ? The daily chart is the best timeframe for identifying the most significant support and resistance levels on NQ futures. Daily levels carry the most weight because they reflect the broadest participation. After marking daily levels, the 1-hour chart fills in shorter-term zones from recent sessions. For trade execution, I use the 5-minute chart to spot rejection candles at my pre-marked levels and the 1-minute chart for precise entry timing. This multi-timeframe approach captures both structural significance and execution precision."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 39,
+      "cited_text": "The Same Bar in Open Space Take that identical hammer and drop it into the middle of a range. Nothing about the geometry changes, yet the meaning collapses. No resting orders sit under it. The wick records a brief burst of selling against a brief burst of buying, and the two simply cancel. So the bar becomes noise. Our note on candlestick wicks covers what a long tail can and cannot tell you on its own. How Other Patterns Read at a Level An engulfing bar at resistance shows a second body swallowing the first. That takeover matters more when it happens where sellers already stepped in twice."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 40,
+      "cited_text": "Meanwhile the mid-range bar fails the first input outright. A perfect candle cannot rescue a location that nobody else cares about. Write those three scores in your journal beside every trade. After thirty entries, your own records will teach you more about location than any article can. Download the complete indicator database Put these concepts on your charts. One email unlocks the full library of 1,380+ indicators with compiled MT4 and MT5 files, plus my TradingView scripts. No paywall, no spam, unsubscribe any time."
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 41,
+      "cited_text": "A higher-timeframe zone can answer a location question while a lower-timeframe zone answers a more granular observation question. They do not need to have identical edges. How to Handle Overlapping Zones Across Timeframes When a lower-timeframe zone overlaps a higher-timeframe zone, record the relationship instead of combining them automatically. <cited_table>",
+      "cited_table": {
+        "num_columns": 2,
+        "rows": [
+          [
+            "Relationship",
+            "What to record"
+          ],
+          [
+            "Lower-timeframe zone is fully inside",
+            "Nested zone; retain both original boundaries"
+          ],
+          [
+            "Partial overlap",
+            "Record the intersection and non-overlapping portions"
+          ],
+          [
+            "Same midpoint, different width",
+            "Compare boundary methods and normalized width"
+          ],
+          [
+            "Similar width, shifted location",
+            "Check provider, session, candle cutoff, and source reactions"
+          ],
+          [
+            "No overlap",
+            "Treat them as separate candidates unless a written merge rule applies"
+          ]
+        ]
+      }
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 42,
+      "cited_text": "When Two Levels Agree Sometimes a horizontal zone lines up with something else, such as a round number, a moving average or a retracement level. Traders call that agreement confluence. Confluence raises your interest in the location rather than your certainty about the outcome. More participants watch the spot, so reactions there tend to arrive faster and travel further. Keep the overlays few, though. A chart carrying six tools will always find agreement somewhere, which quietly turns every location into a good one."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 43,
+      "cited_text": "Dynamic S/R from moving averages and VWAP is subjective in setup but powerful in context. The 20 EMA on a 5-minute chart gives you a trend bias. If NQ is trading above the 20 EMA, I'm biased long. But I wouldn't enter a trade solely because price \"bounced off the 20 EMA.\" That's too loose. Where dynamic S/R shines is confluence. If a horizontal support zone at 19,800 lines up with the VWAP at 19,802 and the 50 EMA on the 15-minute chart is sitting at 19,805, that triple confluence tells me the zone is heavily watched. My confidence in a bounce trade goes up significantly."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 44,
+      "cited_text": "Step 2: Mark the prior session's key points. Yesterday's RTH high, RTH low, and closing price. The overnight session's high and low. These are my B-grade levels. They're important for the current session but decay in relevance over time. Step 3: Check for confluence. Do any of my daily levels overlap with yesterday's session levels? Do round numbers align with historical zones? Where does VWAP from the prior session close sit relative to my levels? Confluence upgrades a B-grade level to A-grade. Step 4: Identify the \"kill zone.\" I look at the range between the nearest support and nearest resistance. If those two levels are 30 points apart on NQ, there's room for bounce trades inside that range. If they're 100 points apart, I'm looking at breakout setups at one of the boundaries instead."
+    },
+    {
+      "source_id": "3726d651-2b1f-4a31-9ab6-64457c7ce70f",
+      "citation_number": 45
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 46,
+      "cited_text": "flat the trend line is when the trend line breaks we can use this to gauge the strength of the other side counter Trend Traders sometimes it's better to use the bodies of the candles to draw trend lines here's an example of multiple trend lines we have broad bull trend lines here and here and then within that we have Micro trend lines that ultimately break with steep bare trend lines here's a micr trend line for the Bears contained within a broader trend line for the Bears this is just bullish trend lines very strong bull Trend with and within that we also had strong bull channels trend lines being drawn here here and here trend lines for the Bears we can see it starts at the swing high and we pull down containing one one trend line will contain all the price action and within this trend line there are mult"
+    },
+    {
+      "source_id": "15bb7a83-fc71-43c6-858d-0c4a8abdbcec",
+      "citation_number": 47,
+      "cited_text": "Structure within Structure – 2 - YourTradingCoach.org Skip to content YourTradingCoach.org YourTradingCoach.org Be Trading For A Living! Home About Contact YourTradingCoach.org YourTradingCoach.org Be Trading For A Living! Trading Process and Strategy Structure within Structure – 2 By Lance Beggs December 5, 2023 September 15, 2024 Sideways trend structure is more common than many new traders imagine. So it's important to learn how to recognise a sideways market. (For my Sideways Trend Definition, see Page 101 (and Fig 3.44) of Chapter 3 of the YTC Price Action Trader .)"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 48,
+      "cited_text": "something I want to say is these arrows that I drew were on the 5 minute chart and I swapped over to the 1 minute time frame I didn't re redraw these arrows so what that means is these these Wicks breaking down do lead to good bull Flags we have the trend line break here's the arrow leading to a good bull flag of pull pullback strong pull pull back higher low bull flag strong pull pull back leads to another breakout in a bull flag same thing with the last one what we're looking at here are these small Wicks on the five minute micro trend lines bearish same thing goes for the Bears we have a good trend line we have a couple breaks here and here a deeper pullback here and smaller breaks here these all led to profitable bare flags on the one minute time frame but again we don't have to watch the one minute time frame to understand that these Wicks are"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 49,
+      "cited_text": "r maybe we can look at the 15minute chart but on the daily chart we don't see any of the pullbacks it's simply a four bar bare micro channel but i think the structure is important because we had this initial burst of momentum a shallow pullback and then a couple of pushes down to this support the start of this final micro channel in this rally so now we have basically three legs down to support the expectation here probably buyers below yesterday's low and yesterday was a trading range day it's a bad buy signal bar so there's probably sellers above the bar it's a trading range bar however the structure makes sense for buying because the tight channel is likely to get a second leg up and a test of the highs and this is more likely a minor reversal here's the 15inut chart context as we go into the day here's that support on the daily chart here's the channel line that i drew on the daily chart connecting the lows of these days you can see the market testing the bare channel line repeated"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 50,
+      "cited_text": "in trading ranges just tell you that the market is going sideways it's a trading range we can see that there's a lot of overlapping bars bars with big tails and small bodies and six just range compression a lower high and a higher low probably sellers above six and buyers below six seven's a breakout bar any trader buying below six just got trapped on bar 7 that that might be enough fuel to get a second leg down it's also a micro channel technically we're getting lower highs since bar 4 no high or i should say every high is at or below the high of the prior bar so it's a micro channel from bar four to bar 7 it's probably going to get a second leg down structurally it's already two pushes one pullback two so might be some buyers here but i wonder if the traders come in and buy lower based on this structure instead of buying here maybe buying below bar three a strong bull bar or even below bar two a follow-through bar for the bears that's good for the bears but it's a smaller bar and as"
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 51,
+      "cited_text": "p they go down but then you see after the fact they really haven't gone anywhere they remained in a trading area or a trading zone and this trending versus congesting uh dilemma can really take place in any time zone you can find it on monthly charts on weekly charts on daily charts on innerday charts and you can find in some cases that they're not all the same you can you can see on a daily chart that a market may be trending but on an hourly chart you may find that it's a a market in a trading range and so I just want to make sure that I make the point here that this trending versus congesting really is relative to different time frames the time frames I use are daily and weekly and so when I think about time frames I'm not thinking about 60 minute charts five minute charts 15minute charts those don't come into the equation as uh for me as as a position trader you know during some and I want to emphasize the word some periods of congestions prices plotted on a graph can form a number"
+    }
+  ]
+}

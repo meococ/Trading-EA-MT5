@@ -1,0 +1,112 @@
+{
+  "version": "v1",
+  "note": "Perception v1 parameters. EURUSD M5. Pips are 1e-4. ABR = mean M5 bar range over abr_len closed bars (spec 1). Values listed as pips have their ABR equivalent in brackets; the engine uses pips on EURUSD and scales by ABR for other symbols.",
+  "abr_len": 50,
+  "ema_len": 25,
+  "window_bars": 84,
+  "edge_tol": {
+    "pips": 1.0,
+    "abr_frac": 0.25,
+    "note": "tol = max(pips, abr_frac*ABR); ~1-2 pips EURUSD"
+  },
+  "swing": {
+    "confirm_pullback_pips": 4.0,
+    "confirm_pullback_abr_frac": 0.8,
+    "min_swing_pips": 6.0,
+    "note": "a pivot is confirmed when price pulls back confirm_pullback beyond the extreme; min_swing filters noise pivots"
+  },
+  "box": {
+    "double_top_tol_pips": 2.0,
+    "double_top_tol_max_pips": 4.0,
+    "double_top_min_sep_bars": 4,
+    "height_min_pips": 6.0,
+    "height_max_pips": 34.0,
+    "width_min_bars": 9,
+    "width_max_bars": 100,
+    "birth_cooldown_bars": 10,
+    "one_active": true,
+    "breakout_edge_min_touches": 2,
+    "poke_min_pips": 1.0,
+    "poke_max_pips": 3.0,
+    "tf_relabel_bars": 3,
+    "tf_relabel_frac_height": 0.5,
+    "reanchor_min_touches": 2,
+    "right_edge_min_bars_after_break": 6,
+    "right_edge_max_bars_after_break": 18,
+    "tighten_within_tol": true,
+    "asia": {
+      "start_min_cet": 0,
+      "end_min_cet": 480,
+      "height_min_pips": 8.0,
+      "height_max_pips": 27.0,
+      "thin_height_pips": 10.0
+    },
+    "reanchor_max_pips": 8.0,
+    "reanchor_cooldown_bars": 12
+  },
+  "pattern_line": {
+    "touch_tol_pips": 1.0,
+    "touch_tol_abr_frac": 0.25,
+    "min_touches": 2,
+    "trigger_bars": 12,
+    "extend_min_bars": 3,
+    "extend_max_bars": 17,
+    "context_min_hours": 3,
+    "context_max_hours": 8,
+    "context_max_touches": 4
+  },
+  "level_carried": {
+    "dome_zone_pips": 8.0,
+    "consume_after_touch": true,
+    "dedupe_within_pips": 4.0
+  },
+  "mini_level": {
+    "min_bars": 2,
+    "max_bars": 8
+  },
+  "squeeze": {
+    "max_bar_range_abr": 0.8,
+    "min_bars": 2,
+    "preferred_bars": 3,
+    "narrowing_frac": 0.6,
+    "cooldown_bars": 12
+  },
+  "mw": {
+    "min_sep_bars": 4,
+    "max_sep_bars": 28
+  },
+  "dome": {
+    "shrink_flag": "mostly shrinking sequence"
+  },
+  "bar_facts": {
+    "strong_bar_vs_neighbours": 1.8,
+    "inside_protrusion_pips": 1.0,
+    "doji_body_frac": 0.15
+  },
+  "derived": {
+    "ema_slope_hysteresis_bars": 3,
+    "magnet_min_pips": 12.0,
+    "magnet_max_pips": 30.0,
+    "counter_magnet_pips": 10.0,
+    "room_rule_pips": 14.0,
+    "chop_bar_abr_mult": 2.0,
+    "chop_overlap_bars": 6,
+    "low_vol_daily_range_pips": 60.0,
+    "news_windows_cet": [
+      [
+        865,
+        895
+      ],
+      [
+        955,
+        970
+      ]
+    ],
+    "news_note": "14:25-14:55 and 15:55-16:10 CET around US data / fixes",
+    "grid_window_days": 10
+  },
+  "budget": {
+    "structural_soft": 5,
+    "structural_hard": 8
+  }
+}

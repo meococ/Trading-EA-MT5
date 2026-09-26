@@ -1,0 +1,116 @@
+{
+ "family": "g3_volman_box",
+ "round": "SF02",
+ "split": "DESIGN",
+ "symbols": [
+  "EURUSD",
+  "GBPUSD",
+  "USDJPY",
+  "AUDUSD"
+ ],
+ "tiers": [
+  "x1",
+  "x1.5",
+  "x2"
+ ],
+ "grid": {
+  "S_pips": [
+   11.0,
+   14.0,
+   18.0,
+   24.0,
+   32.0
+  ],
+  "gen": [
+   "line1_cluster",
+   "sd_base"
+  ],
+  "pct_max": [
+   10.0,
+   20.0
+  ]
+ },
+ "spec_sha256": "cbd7011f3db469a3dfadbdb6348a7dbd4ae435454c11ebd3cf535307865aa63e",
+ "rows": [
+  {
+   "params": {
+    "S_pips": 14.0,
+    "gen": "line1_cluster",
+    "pct_max": 20.0
+   },
+   "n_signals": 69,
+   "N": 68,
+   "exp_r_x1": -0.04810924369748055,
+   "t_x1": -0.29344552475448626,
+   "PF_x1": 0.9247453171212594,
+   "PF_x15": 0.8543215799152426,
+   "PF_x2": 0.7280902301478388,
+   "exp_r_x2": -0.18739495798319672,
+   "WR_x1": 0.3088235294117647,
+   "b_x1": 2.0696680906999614,
+   "R_total_x1": -3.2714285714286775,
+   "max_dd_pct": 3.841814699780076,
+   "rand_N": 654,
+   "rand_exp_r": -0.0349716033202291,
+   "rand_PF": 0.9441888029003666,
+   "lift_pp": -2.55,
+   "lift_ci_pp": [
+    -13.33,
+    10.04
+   ],
+   "years_pf_pos": 2,
+   "year_R": {
+    "2016": -2.028571428571457,
+    "2017": -0.8571428571427882,
+    "2018": 6.78571428571431,
+    "2019": -5.0,
+    "2020": 1.6285714285713748,
+    "2021": -3.800000000000117
+   },
+   "max_year_share": null,
+   "symbols_pos": 1,
+   "per_symbol_expr": {
+    "EURUSD": -0.4791005291005329,
+    "GBPUSD": 0.315413533834584,
+    "USDJPY": -0.6607142857142411,
+    "AUDUSD": -1.0
+   },
+   "top5_share_net": null,
+   "top5_share_gross": 0.09950248756218935,
+   "time_exit_share": 0.08823529411764706,
+   "trades_per_week": 0.24378524392217396,
+   "exit_mix": {
+    "SL": 42,
+    "TP": 20,
+    "DAILY": 6
+   },
+   "status_counts": {
+    "FILLED": 68,
+    "EXPIRED": 1
+   },
+   "p_norm": 0.7691816324428624,
+   "ledger_trials": [
+    "T000347"
+   ],
+   "data_sha256": "2f8a0d4582c3e71d32fde856a0aa3aefa83e94ee01e2884f2ed92356d784ac62",
+   "elapsed_s": 202.09,
+   "i": 0,
+   "elapsed": 202.1,
+   "q": 0.7691816324428624,
+   "gates": {
+    "n300": false,
+    "exp_t": false,
+    "bh_q": false,
+    "pf": false,
+    "lift": false,
+    "years": false,
+    "symbols": false,
+    "plateau": false,
+    "plateau_nb_n": 0,
+    "concentration": true,
+    "ALL": false
+   }
+  }
+ ],
+ "utc": "2026-09-21T07:10:06Z"
+}

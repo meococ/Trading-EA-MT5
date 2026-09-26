@@ -1,0 +1,22 @@
+cells=115  paired=12  vs-rest=67
+
+feature                | PAIRED (right-pick)        | VS-REST (right-rest)      
+                       |      obs      p95     verd |      obs      p95     verd
+bars_since_in_band     |  -26.479    9.917     drop |  -13.758    2.149     drop
+px_in_box              |    0.455    0.250     KEEP |    0.305    0.045     KEEP
+close_at_box           |    0.547    0.167     KEEP |    0.338    0.051     KEEP
+neg_dist_edge_abr      |    2.206    1.347     KEEP |    1.283    0.215     KEEP
+neg_recency            |   66.376   43.283     KEEP |   30.022    4.268     KEEP
+neg_bars_since_touch   |   22.077   14.925     KEEP |   12.243    2.206     KEEP
+prior_leg_abr          |    0.272    0.818     drop |    0.243    0.117     KEEP
+h_rel_day              |    0.006    0.059     drop |    0.031    0.017     KEEP
+h_abr                  |    0.022    0.474     drop |    0.158    0.154     KEEP
+pressure               |   -0.011      nan     drop |      nan      nan     drop
+probes                 |   -3.114    0.000     drop |   -2.090    0.357     drop
+neg_ema_slope_span     |   -0.456    0.059     drop |   -0.144    0.049     drop
+overlap_ratio          |    0.000    0.000     drop |    0.000    0.000     drop
+
+density-aware null (pseudo-right ~ band-overlap count):
+  px_in_box            obs    0.305  dens-null p95    0.066  KEEP
+  close_at_box         obs    0.338  dens-null p95    0.055  KEEP
+  neg_dist_edge_abr    obs    1.283  dens-null p95    0.235  KEEP

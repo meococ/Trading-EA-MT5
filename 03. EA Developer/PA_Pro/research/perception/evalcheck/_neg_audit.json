@@ -1,0 +1,504 @@
+[
+ {
+  "item_id": "neg_000",
+  "panel": "9.53b",
+  "kind": "PATTERN_LINE",
+  "how": "price",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "PATTERN_LINE",
+   "ov_min": 25,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Smooth fitted arc hugging the whole 8h decline \u2014 disciplined lines are straight segments between named pivots,"
+ },
+ {
+  "item_id": "neg_001",
+  "panel": "9.23a",
+  "kind": "BOX",
+  "how": "trendbox",
+  "in_pack": false,
+  "nearest": null,
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box encloses a one-way rally leg (~09:05-10:15); price transits diagonally bottom-left to top-right \u2014 edges ar"
+ },
+ {
+  "item_id": "neg_002",
+  "panel": "9.30c",
+  "kind": "BRACKET",
+  "how": "price",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "BRACKET",
+   "ov_min": 100,
+   "gap_min": 0
+  },
+  "matches": [
+   [
+    null,
+    "BRACKET",
+    "bracket"
+   ]
+  ],
+  "valid": false,
+  "judge": "no",
+  "judge_reason": "'w' bracket at ~1.3095 floats in empty space under 14:10-15:35 price (which stays ~40 pips above); no lows ins"
+ },
+ {
+  "item_id": "neg_003",
+  "panel": "9.6b",
+  "kind": "BOX",
+  "how": "trendbox",
+  "in_pack": true,
+  "nearest": null,
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box wraps the 10:10 rally leg plus brief stall at the top; interior is a one-way ascent from launch shelf to t"
+ },
+ {
+  "item_id": "neg_004",
+  "panel": "9.30a",
+  "kind": "BOX",
+  "how": "price",
+  "in_pack": true,
+  "nearest": {
+   "id": null,
+   "type": "BOX",
+   "ov_min": 395,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box spans 02:55-09:55 over a steady ascent: left third hangs in empty space and price crosses the box diagonal"
+ },
+ {
+  "item_id": "neg_005",
+  "panel": "9.36a",
+  "kind": "PATTERN_LINE",
+  "how": "nonpivot",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "PATTERN_LINE",
+   "ov_min": 35,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "yes",
+  "judge_reason": "Rising line hugging the steep leg's pullback lows (09:05-09:55) into decision time \u2014 a bull line on the defend"
+ },
+ {
+  "item_id": "neg_006",
+  "panel": "9.5c",
+  "kind": "BRACKET",
+  "how": "time",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "BRACKET",
+   "ov_min": 0.0,
+   "gap_min": 35
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "yes",
+  "judge_reason": "'w' line at ~1.3110 sits on a genuine double probe (14:05 low + 14:45-55 low) with the second probe completing"
+ },
+ {
+  "item_id": "neg_007",
+  "panel": "9.60b",
+  "kind": "BOX",
+  "how": "trendbox",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "BOX",
+   "ov_min": 60,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box wraps the one-way collapse (top edge ~old flat range ~1.2680, bottom ~terminal low ~1.2620); interior is a"
+ },
+ {
+  "item_id": "neg_008",
+  "panel": "9.22b",
+  "kind": "PATTERN_LINE",
+  "how": "time",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "PATTERN_LINE",
+   "ov_min": 0.0,
+   "gap_min": 60
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "yes",
+  "judge_reason": "Falling line along the decline's highs (10:10-11:20) ending at the leg's low \u2014 a bear line over the defended s"
+ },
+ {
+  "item_id": "neg_009",
+  "panel": "9.58c",
+  "kind": "PATTERN_LINE",
+  "how": "nonpivot",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "PATTERN_LINE",
+   "ov_min": 160,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Rising chord slices across the V-swing interior \u2014 starts mid-decline, floats below/through price, ends on the "
+ },
+ {
+  "item_id": "neg_010",
+  "panel": "9.62b",
+  "kind": "BOX",
+  "how": "trendbox",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "BOX",
+   "ov_min": 60,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box encloses the 08:20-09:30 rally leg (~1.2535->1.2580); one-way interior \u2014 a transit, not containment betwee"
+ },
+ {
+  "item_id": "neg_011",
+  "panel": "9.14c",
+  "kind": "BRACKET",
+  "how": "price",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "BRACKET",
+   "ov_min": 55,
+   "gap_min": 0
+  },
+  "matches": [
+   [
+    null,
+    "BRACKET",
+    "bracket"
+   ]
+  ],
+  "valid": false,
+  "judge": "yes",
+  "judge_reason": "Horizontal level at ~1.3240 = the 15:00-15:40 consolidation ceiling carried forward; price is retesting that f"
+ },
+ {
+  "item_id": "neg_012",
+  "panel": "9.20b",
+  "kind": "CONTEXT_RANGE",
+  "how": "time",
+  "in_pack": true,
+  "nearest": {
+   "id": null,
+   "type": "CONTEXT_RANGE",
+   "ov_min": 0.0,
+   "gap_min": 25
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "yes",
+  "judge_reason": "Box over the ~12:30-13:50 midday chop: both edges sit on multi-touch clusters and the interior is genuinely tw"
+ },
+ {
+  "item_id": "neg_013",
+  "panel": "9.41b",
+  "kind": "BOX",
+  "how": "time",
+  "in_pack": true,
+  "nearest": {
+   "id": null,
+   "type": "BOX",
+   "ov_min": 35,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box floats in empty space for ~80% of its 09:55-12:15 span; price only reaches the 1.3200-15 zone in the final"
+ },
+ {
+  "item_id": "neg_014",
+  "panel": "9.31b",
+  "kind": "PATTERN_LINE",
+  "how": "time",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "PATTERN_LINE",
+   "ov_min": 0.0,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "yes",
+  "judge_reason": "Floating horizontal level at ~1.3135-40 = the 09:20-09:45 breakdown shelf / morning ceiling carried forward as"
+ },
+ {
+  "item_id": "neg_015",
+  "panel": "9.18a",
+  "kind": "BOX",
+  "how": "price",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "BOX",
+   "ov_min": 150,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box hangs below the 07:00-08:35 drift; its lower edge (~1.3235) has no touch cluster and its interior sits mos"
+ },
+ {
+  "item_id": "neg_016",
+  "panel": "9.30a",
+  "kind": "PATTERN_LINE",
+  "how": "nonpivot",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "PATTERN_LINE",
+   "ov_min": 75,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "yes",
+  "judge_reason": "Descending line hugging the sequence of lower pullback highs off the 09:00 top \u2014 textbook bear-pressure trendl"
+ },
+ {
+  "item_id": "neg_017",
+  "panel": "9.57b",
+  "kind": "LEVEL_CARRIED",
+  "how": "price",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "LEVEL_CARRIED",
+   "ov_min": 50,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "yes",
+  "judge_reason": "Horizontal level at ~1.2660 matches the defended morning shelf (~07:00 lows) before the 08:35 flush; defensibl"
+ },
+ {
+  "item_id": "neg_018",
+  "panel": "9.30c",
+  "kind": "BRACKET",
+  "how": "time",
+  "in_pack": true,
+  "nearest": {
+   "id": null,
+   "type": "BRACKET",
+   "ov_min": 0.0,
+   "gap_min": 20
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "yes",
+  "judge_reason": "'w' over the double-probe lows ~1.3110-18 (16:55 + 17:35-45), second probe printing just before the line \u2014 a d"
+ },
+ {
+  "item_id": "neg_019",
+  "panel": "9.56b",
+  "kind": "BOX",
+  "how": "time",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "BOX",
+   "ov_min": 50,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box over the 08:30-11:00 congestion is ~2x too tall; bottom edge ~1.2690 floats ~15 pips below the lowest wick"
+ },
+ {
+  "item_id": "neg_020",
+  "panel": "9.19a",
+  "kind": "BOX",
+  "how": "trendbox",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "BOX",
+   "ov_min": 0.0,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box wraps a vertical flush-and-V (08:00-09:00), not a range; bottom edge rests on a single spike low, which is"
+ },
+ {
+  "item_id": "neg_021",
+  "panel": "9.20b",
+  "kind": "BOX",
+  "how": "trendbox",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "BOX",
+   "ov_min": 25,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box encloses a unidirectional rally leg (08:40-09:45); price traversed the interior once rather than oscillati"
+ },
+ {
+  "item_id": "neg_022",
+  "panel": "9.66c",
+  "kind": "BOX",
+  "how": "trendbox",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "BOX",
+   "ov_min": 60,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box wraps the final decline leg + bottoming (16:15-17:15); interior is a one-way drop from top edge to bottom "
+ },
+ {
+  "item_id": "neg_023",
+  "panel": "9.41b",
+  "kind": "BOX",
+  "how": "trendbox",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "BOX",
+   "ov_min": 0.0,
+   "gap_min": 125
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box wraps a dip plus steep rally (08:20-09:45); interior crossed once \u2014 a move, not a two-sided range."
+ },
+ {
+  "item_id": "neg_024",
+  "panel": "9.58b",
+  "kind": "BOX",
+  "how": "trendbox",
+  "in_pack": false,
+  "nearest": null,
+  "matches": [],
+  "valid": true,
+  "judge": "yes",
+  "judge_reason": "Small bear-flag congestion inside the decline (13:25-14:25); top edge on the 13:25-13:40 highs, bottom on the "
+ },
+ {
+  "item_id": "neg_025",
+  "panel": "9.22c",
+  "kind": "BOX",
+  "how": "trendbox",
+  "in_pack": true,
+  "nearest": {
+   "id": null,
+   "type": "BOX",
+   "ov_min": 35,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box spans a breakdown leg (16:10-17:00): top cluster, vertical drop, weak bounce \u2014 not a defended range; edges"
+ },
+ {
+  "item_id": "neg_026",
+  "panel": "9.49b",
+  "kind": "BOX",
+  "how": "trendbox",
+  "in_pack": false,
+  "nearest": null,
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box stitches the 13:40-14:05 top cluster to the 14:35 flush low across a crash; the interior was never traded "
+ },
+ {
+  "item_id": "neg_027",
+  "panel": "9.21c",
+  "kind": "PATTERN_LINE",
+  "how": "price",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "PATTERN_LINE",
+   "ov_min": 160,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Rising line floats above a flat chop, ending ~20 pips over price; it hugs no ascending pivot sequence \u2014 arbitr"
+ },
+ {
+  "item_id": "neg_028",
+  "panel": "9.41b",
+  "kind": "BOX",
+  "how": "trendbox",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "BOX",
+   "ov_min": 0.0,
+   "gap_min": 125
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Same panel/annotation as neg_023: box around the 08:20-09:45 dip-and-rally leg, interior traversed once \u2014 not "
+ },
+ {
+  "item_id": "neg_029",
+  "panel": "9.50c",
+  "kind": "BOX",
+  "how": "price",
+  "in_pack": false,
+  "nearest": {
+   "id": null,
+   "type": "BOX",
+   "ov_min": 135,
+   "gap_min": 0
+  },
+  "matches": [],
+  "valid": true,
+  "judge": "no",
+  "judge_reason": "Box floats entirely below the market; no bar ever traded inside its span \u2014 a phantom zone with zero touches."
+ }
+]

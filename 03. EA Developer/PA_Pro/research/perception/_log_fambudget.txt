@@ -1,0 +1,22 @@
+hash fbf0b920 | arm fambudget_on
+
+=== v0 ===
+  box@1 0.134 (16/119)
+  level@1 0.066 (5/76)
+  line@2 0.093 (18/193)
+  bracket@1 0.388 (33/85)
+  diag: BOX rec 0.213 prec 0.027 | PL 0.109 | LC 0.146 | LTF-agree 0/4 | clutter ratio med 9.00
+
+=== parent fambudget_off ===
+  box@1 0.017 (2/119)  vs v0 -0.127 [-0.205..-0.060]
+  level@1 0.013 (1/76)  vs v0 -0.046 [-0.090..-0.007]
+  line@2 0.083 (16/193)  vs v0 -0.005 [-0.052..+0.048]
+  bracket@1 0.224 (19/85)  vs v0 -0.138 [-0.289..-0.003]
+  diag: BOX rec 0.056 prec 0.025 | PL 0.103 | LC 0.125 | LTF-agree 0/1 | clutter ratio med 5.00
+
+=== arm fambudget_on ===
+  box@1 0.034 (4/119)  vs v0 -0.101 [-0.170..-0.042]
+  level@1 0.039 (3/76)  vs v0 +0.006 [-0.061..+0.083]
+  line@2 0.083 (16/193)  vs v0 -0.009 [-0.060..+0.044]
+  bracket@1 0.271 (23/85)  vs v0 -0.097 [-0.250..+0.047]
+  diag: BOX rec 0.046 prec 0.013 | PL 0.087 | LC 0.208 | LTF-agree 0/1 | clutter ratio med 5.33

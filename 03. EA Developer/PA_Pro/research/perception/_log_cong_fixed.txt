@@ -1,0 +1,22 @@
+hash df79ade3 | arm cong_on
+
+=== v0 ===
+  box@1 0.134 (16/119)
+  level@1 0.066 (5/76)
+  line@2 0.093 (18/193)
+  bracket@1 0.388 (33/85)
+  diag: BOX rec 0.213 prec 0.027 | PL 0.109 | LC 0.146 | LTF-agree 0/4 | clutter ratio med 9.00
+
+=== parent cong_off ===
+  box@1 0.059 (7/119)  vs v0 -0.077 [-0.149..-0.015]
+  level@1 0.079 (6/76)  vs v0 +0.039 [-0.033..+0.117]
+  line@2 0.104 (20/193)  vs v0 +0.015 [-0.040..+0.070]
+  bracket@1 0.341 (29/85)  vs v0 -0.015 [-0.171..+0.135]
+  diag: BOX rec 0.093 prec 0.041 | PL 0.114 | LC 0.188 | LTF-agree 0/1 | clutter ratio med 5.00
+
+=== arm cong_on ===
+  box@1 0.076 (9/119)  vs v0 -0.069 [-0.142..-0.003]
+  level@1 0.079 (6/76)  vs v0 +0.039 [-0.033..+0.117]
+  line@2 0.104 (20/193)  vs v0 +0.015 [-0.040..+0.070]
+  bracket@1 0.341 (29/85)  vs v0 -0.015 [-0.171..+0.135]
+  diag: BOX rec 0.111 prec 0.047 | PL 0.114 | LC 0.188 | LTF-agree 0/1 | clutter ratio med 5.00

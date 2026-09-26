@@ -1,0 +1,158 @@
+{
+ "panel": "9.25a",
+ "date": "2012-04-04",
+ "tau": 300,
+ "arm_source": "c3:uip2_pbbirth@8361fe85e73f9437 (STABLE 1a5502129b4c1554)",
+ "axis": {
+  "panel": "9.25a",
+  "date": "2012-04-04",
+  "tau": 300,
+  "tau_x": 1412.25,
+  "plot_rect_px": {
+   "x0": 70,
+   "x1": 1604,
+   "y0": 26,
+   "y1": 580
+  },
+  "time_map": {
+   "t_lo": 90,
+   "t_hi": 330,
+   "x_lo": 70,
+   "x_hi": 1604
+  },
+  "price_map": {
+   "p_lo": 1.3175500000000002,
+   "p_hi": 1.3240999999999998,
+   "y_lo": 26,
+   "y_hi": 580
+  },
+  "bar_open_times": [
+   90,
+   95,
+   100,
+   105,
+   110,
+   115,
+   120,
+   125,
+   130,
+   135,
+   140,
+   145,
+   150,
+   155,
+   160,
+   165,
+   170,
+   175,
+   180,
+   185,
+   190,
+   195,
+   200,
+   205,
+   210,
+   215,
+   220,
+   225,
+   230,
+   235,
+   240,
+   245,
+   250,
+   255,
+   260,
+   265,
+   270,
+   275,
+   280,
+   285,
+   290,
+   295,
+   300
+  ]
+ },
+ "objects": [
+  {
+   "id": "RAN0000",
+   "type": "RANGE_OPEN",
+   "state": "CLOSED",
+   "t0_min": 20,
+   "t1_min": 150,
+   "lo_raw": 1.32168,
+   "hi_raw": 1.3233000000000001
+  },
+  {
+   "id": "BOX0001",
+   "type": "BOX",
+   "state": "ACTIVE",
+   "t0_min": 25,
+   "t1_min": 300,
+   "lo_raw": 1.3216,
+   "hi_raw": 1.3225200000000001
+  },
+  {
+   "id": "PAT0002",
+   "type": "PATTERN_LINE",
+   "state": "CLOSED",
+   "t0_min": 20,
+   "t1_min": 120,
+   "p0_raw": 1.32313,
+   "slope": -0.6,
+   "anchor_bar": 0
+  },
+  {
+   "id": "LEV0003",
+   "type": "LEVEL_CARRIED",
+   "state": "CLOSED",
+   "t0_min": 20,
+   "t1_min": 130,
+   "price_raw": 1.3223500000000001
+  },
+  {
+   "id": "LAB0004",
+   "type": "LABEL_TF",
+   "state": "ACTIVE",
+   "t0_min": 95,
+   "t1_min": 300,
+   "price_raw": 1.32329,
+   "letter": "T"
+  },
+  {
+   "id": "BRA0005",
+   "type": "BRACKET",
+   "state": "ACTIVE",
+   "t0_min": 25,
+   "t1_min": 300,
+   "price_raw": 1.323644,
+   "letter": "M"
+  },
+  {
+   "id": "PAT0006",
+   "type": "PATTERN_LINE",
+   "state": "CLOSED",
+   "t0_min": 50,
+   "t1_min": 155,
+   "p0_raw": 1.32168,
+   "slope": 1.16,
+   "anchor_bar": 6
+  },
+  {
+   "id": "MIN0007",
+   "type": "MINI_LEVEL",
+   "state": "CLOSED",
+   "t0_min": 55,
+   "t1_min": 135,
+   "price_raw": 1.3233000000000001
+  },
+  {
+   "id": "CON0008",
+   "type": "CONTEXT_RANGE",
+   "state": "ACTIVE",
+   "t0_min": 25,
+   "t1_min": 300,
+   "lo_raw": 1.3217,
+   "hi_raw": 1.3233000000000001
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+- PAIRED A/B retirement per-rule (R14 §14.3), same code state, flag-only diffs. Ruler 50e11fd5. Baseline = a01bf298 (all rules ON + ctx cap 2/288 + extend off).
+  arms: allOn a01bf298 | noFar a3feb448 | noStale dd9ead35 | noWall 38b2289d | allOff 0cf85d73. Scoreboard rows appended 19:58-20:03Z.
+  retirements on allOn: retire_far 426, wall_exit 60, retire_stale 12.
+  BAD retirements (retired obj matches golden by ruler geometry AND golden span runs >=3 bars past retire bar): 0 for every rule.
+  snapshot lens: live clutter median allOn 10.0 vs allOff 11.0 — retirement cuts clutter at author decision moments. snap recall .096 allOn vs .102 allOff.
+  cumulative recall per family (allOn vs allOff): BRACKET 25/25, PL 19/22, BOX 6/5, LC 6/6, CONTEXT_LINE 2/2, CONTEXT_RANGE 1/1.
+  PER RULE:
+    retire_far — OFF arm: BOX .05 PL .12 LC .10 clutter 11. Far retirement costs ~3 PL matches (freed-budget competition, not bad kills — bad=0) but cuts snapshot clutter and adds BOX/LC. KEEP per §14.3 (clutter falls, bad 0% <= 10%).
+    retire_stale — OFF arm identical row (12 retirements, marginal): keep, harmless.
+    wall_exit — OFF arm identical row (SQUEEZE is annot-class, spends no rate/budget): keep for lifecycle hygiene per §11.4a; eval-neutral.
+  caveat for the Lead: PL 19->22 when retirement off — the cost is real recall, priced at +1 live-clutter and worse snapshot recall overall.

@@ -1,0 +1,10 @@
+21:05Z build round 2 — HOLD-gate probes, all paired vs live b4913da0:
+
+4) Golden LIVE-count measured (per-panel objects alive per bar): med 1.0, p90 1.0, max 4. Engine live med 8.0, ratio ~9.75. The clutter gate (ratio <=1.5) targets ~1-2 live objects; RT1's "~3/~9" budget estimate is 4x over golden's actual live distribution.
+5) Golden-faithful budgets arm (signal 2/context 1/annot 2/hard 4, hash 0090488f): live clutter 12->7 but BOX .08->.05, located .10->.05, snapR .11->.06 — recall halves while clutter stays ~7x golden. REJECTED, reverted. Clutter is proposal-flood-bound upstream of the budget.
+6) LABEL_TF agreement gate (R15): measured 0/14 — golden marks sitting inside matched golden spans never find an engine mark on the matched object. Root cause visible on 9.1a: golden T-marks at 435/455 on golden line 225-510; the matched engine object (CONTEXT_LINE 240-430) had ENDED before the pokes — mark emission is parent-side (boxes.py poke events), so agreement needs BOX/LINE recall + lifespan, not selection. Cross-lane dependency, logged as gate risk.
+7) LABEL_TF annot-cap exemption arm (marks ride parent slot, hard cap still applies, hash 28de3f03): mark births 242->462 but BOX 9->6, LC 5->4, snapR 52->50 — freed marks consume hard-cap slots and displace matched ink. REJECTED, reverted.
+
+Position after 7 measured arms this session: every selection-layer lever is now measured. The residual gap is proposal-stream composition — wrong structures carry span/prom scores as high as right ones (BOX wrong p75=23 vs right med 15), so they saturate the ledger AND hold the live budget against displacement (right-outranked med score 2.16 vs incumbent ~14). HOLD gates unreachable from salience alone; needs generator-lane proposal precision.
+
+Live: 80fe9f1b (verified bit-identical behavior to b4913da0: objects + cand_log equal on probe panel). 72/72 green.

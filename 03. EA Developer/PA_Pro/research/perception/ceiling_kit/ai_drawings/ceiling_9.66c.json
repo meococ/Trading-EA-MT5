@@ -1,0 +1,21 @@
+{
+ "panel": "9.66c",
+ "objects": [
+  {
+   "type": "box",
+   "t0": 1115,
+   "t1": 1140,
+   "p_top": 1.23759,
+   "p_bot": 1.23645,
+   "why": "drift block after 18:20 spike, top 1.2376"
+  },
+  {
+   "type": "level",
+   "t0": 1055,
+   "t1": 1140,
+   "p0": 1.23645,
+   "why": "base ceiling 17:35-18:15 now floor, tested"
+  }
+ ],
+ "note": "Post-spike drift down to old base ceiling; block edges decide direction."
+}

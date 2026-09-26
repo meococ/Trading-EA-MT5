@@ -1,0 +1,1 @@
+buckets: {'below_min_score': 16, 'no_coverage': 62, 'hit': 10, 'rate_limited': 8, 'outranked': 11, 'log_only': 10, 'expired': 2}

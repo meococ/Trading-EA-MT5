@@ -1,0 +1,1029 @@
+{
+ "pack": "M2 C-3",
+ "engine_hash": "8361fe85e73f9437",
+ "stable": "1a5502129b4c1554",
+ "seed": 20260923,
+ "mix": "48 engine top-k + 30 golden + 24 neg",
+ "key": {
+  "p001": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.58a",
+   "tau": 650,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p002": {
+   "truth": "golden",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.32b",
+   "tau": 571,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p003": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.46b",
+   "tau": 805,
+   "tau_at": 805,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p004": {
+   "truth": "golden",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.56a",
+   "tau": 555,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p005": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.62a",
+   "tau": 485,
+   "tau_at": 485,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p006": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.12b",
+   "tau": 705,
+   "tau_at": 705,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p007": {
+   "truth": "golden",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.31c",
+   "tau": 950,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p008": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.42b",
+   "tau": 770,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p009": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "CONTEXT_LINE",
+   "panel": "9.39a",
+   "tau": 415,
+   "tau_at": 475,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p010": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.7a",
+   "tau": 310,
+   "tau_at": 425,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p011": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "CONTEXT_LINE",
+   "panel": "9.50b",
+   "tau": 430,
+   "tau_at": 610,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p012": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.2c",
+   "tau": 780,
+   "tau_at": 780,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p013": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.58b",
+   "tau": 870,
+   "tau_at": null,
+   "engine": null,
+   "how": "trendbox"
+  },
+  "p014": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.29b",
+   "tau": 590,
+   "tau_at": 705,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p015": {
+   "truth": "golden",
+   "family": "annot",
+   "src_type": "BAR_MARKER",
+   "panel": "9.66a",
+   "tau": 555,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p016": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "CONTEXT_LINE",
+   "panel": "9.55a",
+   "tau": 580,
+   "tau_at": 580,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p017": {
+   "truth": "golden",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.61c",
+   "tau": 985,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p018": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "CONTEXT_LINE",
+   "panel": "9.58b",
+   "tau": 735,
+   "tau_at": 738,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p019": {
+   "truth": "golden",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.64c",
+   "tau": 1015,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p020": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "CONTEXT_LINE",
+   "panel": "9.20a",
+   "tau": 535,
+   "tau_at": 535,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p021": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.30a",
+   "tau": 600,
+   "tau_at": null,
+   "engine": null,
+   "how": "price"
+  },
+  "p022": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.11c",
+   "tau": 980,
+   "tau_at": 980,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p023": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.58c",
+   "tau": 975,
+   "tau_at": 975,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p024": {
+   "truth": "engine_hit",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.32b",
+   "tau": 490,
+   "tau_at": 571,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p025": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.54c",
+   "tau": 1010,
+   "tau_at": 1010,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p026": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.41b",
+   "tau": 585,
+   "tau_at": null,
+   "engine": null,
+   "how": "trendbox"
+  },
+  "p027": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.19b",
+   "tau": 820,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p028": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.31b",
+   "tau": 700,
+   "tau_at": null,
+   "engine": null,
+   "how": "time"
+  },
+  "p029": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.14c",
+   "tau": 820,
+   "tau_at": 820,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p030": {
+   "truth": "golden",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.5c",
+   "tau": 1030,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p031": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.35b",
+   "tau": 490,
+   "tau_at": 840,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p032": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.57b",
+   "tau": 760,
+   "tau_at": null,
+   "engine": null,
+   "how": "price"
+  },
+  "p033": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.59a",
+   "tau": 600,
+   "tau_at": 600,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p034": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.50c",
+   "tau": 980,
+   "tau_at": null,
+   "engine": null,
+   "how": "price"
+  },
+  "p035": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.22c",
+   "tau": 1020,
+   "tau_at": null,
+   "engine": null,
+   "how": "trendbox"
+  },
+  "p036": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.30c",
+   "tau": 1065,
+   "tau_at": null,
+   "engine": null,
+   "how": "time"
+  },
+  "p037": {
+   "truth": "golden",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.40c",
+   "tau": 905,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p038": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.34a",
+   "tau": 465,
+   "tau_at": 465,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p039": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.10b",
+   "tau": 875,
+   "tau_at": 875,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p040": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.25c",
+   "tau": 820,
+   "tau_at": 899,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p041": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.56b",
+   "tau": 660,
+   "tau_at": null,
+   "engine": null,
+   "how": "time"
+  },
+  "p042": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.37c",
+   "tau": 965,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p043": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.52c",
+   "tau": 835,
+   "tau_at": 906,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p044": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.30c",
+   "tau": 880,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p045": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.62b",
+   "tau": 430,
+   "tau_at": 675,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p046": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.21c",
+   "tau": 1030,
+   "tau_at": null,
+   "engine": null,
+   "how": "price"
+  },
+  "p047": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.59a",
+   "tau": 425,
+   "tau_at": 545,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p048": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.15c",
+   "tau": 790,
+   "tau_at": 980,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p049": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.3c",
+   "tau": 1015,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p050": {
+   "truth": "golden",
+   "family": "level",
+   "src_type": "MINI_LEVEL",
+   "panel": "9.38a",
+   "tau": 505,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p051": {
+   "truth": "golden",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.48b",
+   "tau": 660,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p052": {
+   "truth": "golden",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.1c",
+   "tau": 795,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p053": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.31a",
+   "tau": 600,
+   "tau_at": 600,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p054": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.24a",
+   "tau": 660,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p055": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.49b",
+   "tau": 885,
+   "tau_at": null,
+   "engine": null,
+   "how": "trendbox"
+  },
+  "p056": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.36c",
+   "tau": 850,
+   "tau_at": 852,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p057": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.60a",
+   "tau": 505,
+   "tau_at": 585,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p058": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.23a",
+   "tau": 595,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p059": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.62b",
+   "tau": 570,
+   "tau_at": null,
+   "engine": null,
+   "how": "trendbox"
+  },
+  "p060": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.48a",
+   "tau": 70,
+   "tau_at": 420,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p061": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.19a",
+   "tau": 540,
+   "tau_at": null,
+   "engine": null,
+   "how": "trendbox"
+  },
+  "p062": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.30a",
+   "tau": 615,
+   "tau_at": null,
+   "engine": null,
+   "how": "nonpivot"
+  },
+  "p063": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.66b",
+   "tau": 690,
+   "tau_at": 692,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p064": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.12a",
+   "tau": 470,
+   "tau_at": 490,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p065": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.14c",
+   "tau": 1000,
+   "tau_at": null,
+   "engine": null,
+   "how": "price"
+  },
+  "p066": {
+   "truth": "golden",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.41b",
+   "tau": 835,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p067": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.21b",
+   "tau": 830,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p068": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.43b",
+   "tau": 490,
+   "tau_at": 840,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p069": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.66a",
+   "tau": 530,
+   "tau_at": 530,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p070": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.36a",
+   "tau": 600,
+   "tau_at": null,
+   "engine": null,
+   "how": "nonpivot"
+  },
+  "p071": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.58c",
+   "tau": 1015,
+   "tau_at": null,
+   "engine": null,
+   "how": "nonpivot"
+  },
+  "p072": {
+   "truth": "golden",
+   "family": "level",
+   "src_type": "MINI_LEVEL",
+   "panel": "9.64c",
+   "tau": 1020,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p073": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "CONTEXT_LINE",
+   "panel": "9.36a",
+   "tau": 600,
+   "tau_at": 600,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p074": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.28b",
+   "tau": 865,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p075": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.60b",
+   "tau": 630,
+   "tau_at": null,
+   "engine": null,
+   "how": "trendbox"
+  },
+  "p076": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "CONTEXT_LINE",
+   "panel": "9.50a",
+   "tau": 430,
+   "tau_at": 555,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p077": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.56b",
+   "tau": 585,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p078": {
+   "truth": "golden",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.27a",
+   "tau": 600,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p079": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.47b",
+   "tau": 430,
+   "tau_at": 840,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p080": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.15c",
+   "tau": 790,
+   "tau_at": 980,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p081": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.26b",
+   "tau": 645,
+   "tau_at": 840,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p082": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.41b",
+   "tau": 585,
+   "tau_at": null,
+   "engine": null,
+   "how": "trendbox"
+  },
+  "p083": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.13a",
+   "tau": 315,
+   "tau_at": 505,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p084": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.43c",
+   "tau": 725,
+   "tau_at": 870,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p085": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "CONTEXT_LINE",
+   "panel": "9.17a",
+   "tau": 475,
+   "tau_at": 475,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p086": {
+   "truth": "golden",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.35a",
+   "tau": 595,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p087": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.1a",
+   "tau": 250,
+   "tau_at": 480,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p088": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.20b",
+   "tau": 585,
+   "tau_at": null,
+   "engine": null,
+   "how": "trendbox"
+  },
+  "p089": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.40b",
+   "tau": 785,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p090": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.41b",
+   "tau": 745,
+   "tau_at": null,
+   "engine": null,
+   "how": "time"
+  },
+  "p091": {
+   "truth": "golden",
+   "family": "bracket",
+   "src_type": "BRACKET",
+   "panel": "9.41b",
+   "tau": 777,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p092": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.21b",
+   "tau": 515,
+   "tau_at": 735,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p093": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.53b",
+   "tau": 855,
+   "tau_at": null,
+   "engine": null,
+   "how": "price"
+  },
+  "p094": {
+   "truth": "golden",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.58b",
+   "tau": 815,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p095": {
+   "truth": "engine_fp",
+   "family": "level",
+   "src_type": "LEVEL_CARRIED",
+   "panel": "9.52c",
+   "tau": 745,
+   "tau_at": 906,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p096": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.6b",
+   "tau": 660,
+   "tau_at": null,
+   "engine": null,
+   "how": "trendbox"
+  },
+  "p097": {
+   "truth": "engine_hit",
+   "family": "line",
+   "src_type": "PATTERN_LINE",
+   "panel": "9.38c",
+   "tau": 795,
+   "tau_at": 797,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p098": {
+   "truth": "engine_fp",
+   "family": "line",
+   "src_type": "CONTEXT_LINE",
+   "panel": "9.45b",
+   "tau": 555,
+   "tau_at": 740,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p099": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.1a",
+   "tau": 480,
+   "tau_at": 480,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  },
+  "p100": {
+   "truth": "golden",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.34b",
+   "tau": 655,
+   "tau_at": null,
+   "engine": null,
+   "how": null
+  },
+  "p101": {
+   "truth": "negative",
+   "family": "neg",
+   "src_type": null,
+   "panel": "9.30c",
+   "tau": 945,
+   "tau_at": null,
+   "engine": null,
+   "how": "price"
+  },
+  "p102": {
+   "truth": "engine_fp",
+   "family": "box",
+   "src_type": "BOX",
+   "panel": "9.46a",
+   "tau": 630,
+   "tau_at": 630,
+   "engine": "8361fe85e73f9437",
+   "how": null
+  }
+ }
+}

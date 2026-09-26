@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "perception_v1",
+  "title": "PA-PRO Perception v1 — object model (spec §2)",
+  "description": "Objects the perception engine may place on the chart, plus the per-bar Snapshot the setup lanes consume. Prices are absolute (e.g. 1.3312); times are integer M5 bar indices unless suffixed _cet (ISO-8601 CET wall clock, informational). 'open' t_right is null.",
+  "type": "object",
+  "required": ["t", "abr", "ema25", "objects", "facts", "stand_aside"],
+  "properties": {
+    "t": {"type": "integer", "description": "current closed-bar index"},
+    "t_cet": {"type": "string", "description": "CET wall time of bar t (info only)"},
+    "abr": {"type": "number", "description": "average bar range of last 50 closed M5 bars, in pips"},
+    "ema25": {"type": ["number", "null"]},
+    "objects": {"type": "array", "items": {"$ref": "#/$defs/object"}},
+    "facts": {"$ref": "#/$defs/facts"},
+    "stand_aside": {"type": "array", "items": {"type": "string"},
+      "description": "machine codes: CHOP, NEWS_WINDOW, RN_BATTLE, QUIET_SESSION, TREND_LEG"}
+  },
+  "$defs": {
+    "object": {
+      "type": "object",
+      "required": ["id", "type", "style", "t_birth", "t_left", "t_right",
+                   "geometry", "state", "touches", "events", "role", "why"],
+      "properties": {
+        "id": {"type": "string"},
+        "type": {"enum": ["BOX", "RANGE_OPEN", "CONTEXT_RANGE",
+                          "PATTERN_LINE", "CONTEXT_LINE", "LEVEL_CARRIED",
+                          "MINI_LEVEL", "SQUEEZE", "LABEL_TF", "BRACKET",
+                          "FALSE_EXT"]},
+        "style": {"enum": ["solid", "open_lines", "dotted", "long_dashed",
+                           "short_solid", "dashed_ellipse", "letter",
+                           "bracket", "tick"]},
+        "t_birth": {"type": "integer"},
+        "t_left": {"type": "integer"},
+        "t_right": {"type": ["integer", "null"],
+          "description": "null = open right edge (extends with price)"},
+        "geometry": {"type": "object"},
+        "state": {"enum": ["PROVISIONAL", "CONFIRMED", "BROKEN", "PIERCED",
+                           "CONSUMED", "DEAD", "ACTIVE"]},
+        "touches": {"type": "array", "items": {"$ref": "#/$defs/touch"}},
+        "events": {"type": "array", "items": {"$ref": "#/$defs/event"}},
+        "role": {"enum": ["PRIMARY", "NESTED", "CONTEXT", "CARRIED",
+                          "TRIGGER", "SPAWNED", "GRID"]},
+        "why": {"type": "string",
+          "description": "machine reason code, e.g. BIRTH_PULLBACK, BIRTH_RANGE, BIRTH_ASIA"}
+      },
+      "allOf": [
+        {"if": {"properties": {"type": {"const": "BOX"}}},
+         "then": {"properties": {"style": {"const": "solid"},
+           "geometry": {"$ref": "#/$defs/range_geom"}}}},
+        {"if": {"properties": {"type": {"const": "CONTEXT_RANGE"}}},
+         "then": {"properties": {"style": {"const": "dotted"},
+           "geometry": {"$ref": "#/$defs/range_geom"}}}},
+        {"if": {"properties": {"type": {"const": "RANGE_OPEN"}}},
+         "then": {"properties": {"style": {"const": "open_lines"},
+           "geometry": {"$ref": "#/$defs/range_geom"}}}},
+        {"if": {"properties": {"type": {"const": "PATTERN_LINE"}}},
+         "then": {"properties": {"style": {"const": "solid"},
+           "geometry": {"$ref": "#/$defs/line_geom"}}}},
+        {"if": {"properties": {"type": {"const": "CONTEXT_LINE"}}},
+         "then": {"properties": {"style": {"const": "dotted"},
+           "geometry": {"$ref": "#/$defs/line_geom"}}}},
+        {"if": {"properties": {"type": {"const": "LEVEL_CARRIED"}}},
+         "then": {"properties": {"style": {"const": "long_dashed"},
+           "geometry": {"$ref": "#/$defs/level_geom"}}}},
+        {"if": {"properties": {"type": {"const": "MINI_LEVEL"}}},
+         "then": {"properties": {"style": {"const": "short_solid"},
+           "geometry": {"$ref": "#/$defs/level_geom"}}}},
+        {"if": {"properties": {"type": {"const": "SQUEEZE"}}},
+         "then": {"properties": {"style": {"const": "dashed_ellipse"},
+           "geometry": {"$ref": "#/$defs/squeeze_geom"}}}},
+        {"if": {"properties": {"type": {"const": "LABEL_TF"}}},
+         "then": {"properties": {"style": {"const": "letter"},
+           "geometry": {"$ref": "#/$defs/label_geom"}}}},
+        {"if": {"properties": {"type": {"const": "BRACKET"}}},
+         "then": {"properties": {"style": {"const": "bracket"},
+           "geometry": {"$ref": "#/$defs/bracket_geom"}}}},
+        {"if": {"properties": {"type": {"const": "FALSE_EXT"}}},
+         "then": {"properties": {"style": {"const": "tick"},
+           "geometry": {"$ref": "#/$defs/false_ext_geom"}}}}
+      ]
+    },
+    "range_geom": {
+      "type": "object", "required": ["top", "bottom"],
+      "properties": {"top": {"type": "number"}, "bottom": {"type": "number"},
+        "height_pips": {"type": "number"}}
+    },
+    "line_geom": {
+      "type": "object", "required": ["anchor1", "anchor2"],
+      "properties": {
+        "anchor1": {"$ref": "#/$defs/point"},
+        "anchor2": {"$ref": "#/$defs/point"},
+        "slope_pips_per_bar": {"type": "number"},
+        "extends_to": {"type": ["integer", "null"],
+          "description": "right end of drawn segment (may exceed t_right of influence)"}
+      }
+    },
+    "point": {"type": "object", "required": ["t", "price"],
+      "properties": {"t": {"type": "integer"}, "price": {"type": "number"}}},
+    "level_geom": {
+      "type": "object", "required": ["price"],
+      "properties": {"price": {"type": "number"},
+        "source": {"type": "string",
+          "description": "BOX_EDGE|DOME_ZONE|CEILING_TEST|BLOCK_EDGE|PRIOR_EXTREME"}}
+    },
+    "squeeze_geom": {
+      "type": "object", "required": ["t0", "t1", "price_hi", "price_lo"],
+      "properties": {"t0": {"type": "integer"}, "t1": {"type": "integer"},
+        "price_hi": {"type": "number"}, "price_lo": {"type": "number"},
+        "wall_a": {"type": "string"}, "wall_b": {"type": "string"}}
+    },
+    "label_geom": {
+      "type": "object", "required": ["letter", "t_bar", "side", "edge_id"],
+      "properties": {"letter": {"enum": ["T", "F"]},
+        "t_bar": {"type": "integer"},
+        "side": {"enum": ["above", "below"]},
+        "edge_id": {"type": "string"},
+        "price": {"type": "number"}}
+    },
+    "bracket_geom": {
+      "type": "object", "required": ["letter", "t0", "t1", "side"],
+      "properties": {"letter": {"enum": ["M", "W", "Mm", "Ww", "SHS"]},
+        "t0": {"type": "integer"}, "t1": {"type": "integer"},
+        "side": {"enum": ["above", "below"]},
+        "mid_price": {"type": ["number", "null"],
+          "description": "price of the middle section (dip/peak), when known"}}
+    },
+    "false_ext_geom": {
+      "type": "object", "required": ["t_bar", "price", "side"],
+      "properties": {"t_bar": {"type": "integer"}, "price": {"type": "number"},
+        "side": {"enum": ["above", "below"]}}
+    },
+    "touch": {
+      "type": "object", "required": ["t", "edge", "price"],
+      "properties": {"t": {"type": "integer"},
+        "edge": {"enum": ["top", "bottom", "line"]},
+        "price": {"type": "number"},
+        "kind": {"enum": ["anchor", "touch", "poke", "break", "retest", "ceiling_test"]}}
+    },
+    "event": {
+      "type": "object", "required": ["t", "kind"],
+      "properties": {"t": {"type": "integer"},
+        "kind": {"type": "string",
+          "description": "BORN|CONFIRMED|REANCHOR|T|F|BREAK|BREAK_CLASS|CLOSED|CONSUMED|PIERCED|DELETED|REFIT|TIGHTEN"},
+        "detail": {"type": "object"}}
+    },
+    "facts": {
+      "type": "object",
+      "properties": {
+        "pressure": {"enum": ["UP", "DOWN", "NEUTRAL"]},
+        "pressure_conf": {"type": "number"},
+        "ema_slope": {"type": "number", "description": "pips/bar"},
+        "magnet_ahead": {"type": ["number", "null"], "description": "00/50 price"},
+        "magnet_ahead_dist_pips": {"type": ["number", "null"]},
+        "counter_magnet": {"type": ["number", "null"]},
+        "obstacles_up": {"type": "array", "items": {"$ref": "#/$defs/obstacle"}},
+        "obstacles_down": {"type": "array", "items": {"$ref": "#/$defs/obstacle"}},
+        "domes": {"type": "array", "items": {"$ref": "#/$defs/dome"}},
+        "bar_facts": {"$ref": "#/$defs/bar_facts"}
+      }
+    },
+    "obstacle": {
+      "type": "object", "required": ["price", "dist_pips", "grade", "source"],
+      "properties": {"price": {"type": "number"}, "dist_pips": {"type": "number"},
+        "grade": {"enum": ["minor", "double", "dense"]},
+        "source": {"type": "string"}}
+    },
+    "dome": {
+      "type": "object", "required": ["t0", "t1", "height_pips", "on"],
+      "properties": {"t0": {"type": "integer"}, "t1": {"type": "integer"},
+        "height_pips": {"type": "number"},
+        "on": {"type": "string", "description": "object id the dome rests on"},
+        "shrinking": {"type": "boolean"}}
+    },
+    "bar_facts": {
+      "type": "object",
+      "properties": {
+        "breakout_up": {"type": "boolean"}, "breakout_down": {"type": "boolean"},
+        "false_high": {"type": "boolean"}, "false_low": {"type": "boolean"},
+        "power_bar": {"type": "boolean"}, "inside_bar": {"type": "boolean"},
+        "doji": {"type": "boolean"}
+      }
+    }
+  }
+}

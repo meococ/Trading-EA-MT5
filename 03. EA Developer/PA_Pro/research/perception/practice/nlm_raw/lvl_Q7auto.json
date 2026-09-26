@@ -1,0 +1,409 @@
+{
+  "answer": "### Level Rules Mechanical Enough to Automate Causally\n\nSeveral level-identification and zone-construction methodologies within the corpus are governed by strict, deterministic rules that can be fully coded into automated algorithms:\n\n*   **Mechanical Pivot Detection & Trendline Construction**:\n    *   **Tom DeMark's TD Lines™**: DeMark defines TD Points through exact bar-count conditions [1]. A Level 1 TD Point high/low requires a bar's high/low to be immediately preceded and succeeded by bars with lower highs or higher lows (a 3-bar rule) [1]. Higher-magnitude TD Points (Level 2 up to Level 9) scale the exact number of required preceding and succeeding bars, allowing for fully automated, objective trendline construction, breakout qualification, and price projections [1].\n    *   **Fixed-Lookback Market Structure**: Automated toolkits (such as LuxAlgo's Price Action Concepts) construct swing points (HH, HL, LH, LL) and market structure signals (Change of Character / CHoCH and Break of Structure / BOS) by applying fixed lookback windows (e.g., 5–49 bars for internal structure, 50–100 bars for swing structure) [2, 3].\n    *   **Kernel Regression & Nonparametric Extrema**: Academic frameworks (such as Lo, Mamaysky & Wang, 2000) automate pattern recognition by applying kernel regression to rolling price windows (e.g., 38 trading days) [4-6]. Local extrema are detected mechanically wherever the derivative of the smoothed price curve changes sign (\\\\(\\text{Sgn}(\\hat{m}'_h(t)) \\neq \\text{Sgn}(\\hat{m}'_h(t+1))\\\\)), identifying geometric patterns (double tops/bottoms, head & shoulders, rectangles) without visual bias [5, 7, 8]. Heuristic discovery algorithms similarly map and evaluate intraday support/resistance levels statistically based on bounce frequencies and touch counts [9].\n*   **Zone Boundary & Width Construction Rules**:\n    *   **Deterministic Boundary Methods**: ChartMini lays out four mathematical ways to set horizontal support/resistance zone boundaries from a set of price reactions [107, 120, 403–406]:\n        1.  *Close-Cluster Boundaries*: Upper and lower edges set strictly to the highest and lowest qualifying completed bar closes [10, 11].\n        2.  *Body-Range Boundaries*: Upper and lower edges set to the open-to-close body extremes of selected candles [10, 12].\n        3.  *Wick-Envelope Boundaries*: Boundaries set from the lowest qualifying wick low to the highest qualifying wick high [10, 13].\n        4.  *Core plus Wick Envelope*: A two-layer area maintaining a tight core (closes/bodies) surrounded by an outer envelope (wick extremes) [10, 14].\n    *   **Algorithmic Width & Maintenance Rules**: Zone width is defined strictly as \\\\(\\text{Upper Boundary} - \\text{Lower Boundary}\\\\) (measured in pips, ticks, or percentage of midpoint) [15, 16]. Updating or retiring zones follows written rules (e.g., issuing a versioned update \\\\(v_1 \\to v_2\\\\) when a new qualifying close occurs outside the boundary; retiring levels when cleanly broken by volume) [88, 108, 119, 415–418].\n*   **Fixed Reference Anchors**:\n    *   **Session & Psychological Levels**: Mechanically plotting prior regular trading hours (RTH) highs/lows, overnight session extremes, prior day closes, 50% retracement levels, or psychological round numbers (ending in 00 or 50) provides objective, unambiguous levels [17-23].\n    *   **Order-Flow & Volume Anchors**: Combining horizontal price levels with Volume Profile High-Volume Nodes (HVNs), Value Area boundaries, session VWAP, or initializing Wyckoff trading range boundaries (setting resistance at the Buying Climax peak and support at the Automatic Reaction low) can be executed algorithmically upon event trigger [17, 24-27].\n\n---\n\n### Parts That Still Require Human Judgment\n\nDespite the availability of mechanical rules, the corpus highlights several critical areas where fully automated systems struggle and human judgment remains necessary:\n\n*   **Location Context & Market Regime Filtering**:\n    *   **Location as a Filter**: A candlestick rejection pattern (pin bar, hammer, engulfing bar) carries no inherent predictive value in open space or mid-range; its validity depends entirely on forming at a pre-identified higher-timeframe (HTF) zone [28-32].\n    *   **Trend Regimes vs. Level Validity**: Automated systems frequently fail in strong trend environments because powerful moves easily slice through support/resistance levels (\"strong trends eat levels\") [33]. Judging whether a market is trending, ranging, or undergoing a major structural reversal requires contextual analysis [33, 34]. Furthermore, scheduled economic news releases override technical chart structure, requiring macro calendar oversight [33].\n*   **Subjective Geometry & Level Selection**:\n    *   **Pattern Completion & Vertical Isolation**: Classical chartists (such as Peter Brandt) emphasize that chart patterns must be vertically isolated and completed before trading; drawing diagonal trendlines or identifying complex formations is highly subjective and prone to misinterpretation [35-37]. Adam Grimes notes that trendlines are \"the most used and abused tool\" because traders draw them subjectively, making objective evaluation difficult [38].\n    *   **Grading & Pruning Levels**: Distinguishing between \"A-grade\" (strong HTF levels with multiple sharp reactions) and \"Weak\" levels, determining whether a break is clean or merely an overshoot/liquidity sweep, and avoiding chart clutter (keeping only 3–5 key levels) require human discretion [19, 20, 39-41].\n    *   **Algorithmic Approximation Limits**: Academic researchers (Lo, Mamaysky & Wang) explicitly state that pattern recognition algorithms only approximate human chart reading and \"may miss some of the more subtle nuances that human cognition is capable of discerning\" [42]. Furthermore, standard automated cross-validation for bandwidth selection in kernel regression yielded curves that professional chartists judged as overly smooth, requiring human trial-and-error tuning [43, 44].\n*   **Order Flow & Participant Intent Interpretation**:\n    *   **Reading Absorption vs. Distribution**: Differentiating Wyckoff Reaccumulation (institutional supply absorption) from Distribution cannot be accomplished by raw OHLC geometry alone; it requires evaluating volume asymmetry, bar spread narrowing, and dampening volatility versus expanding volatility [45-49]. OHLC candles alone cannot reveal hidden limit order quantities or order exhaustion [46, 47].\n    *   **Psychological Discretion**: Support and resistance reflect human cognitive biases (such as anchoring bias and breakeven exit behavior) [50-52]. Discretionary traders (such as Lance Beggs) emphasize knowing when to step back and stand aside when market price flow becomes \"choppy\" or unreadable—a form of self-awareness that automated code lacks [53].\n\n💡 Would you like me to build a Python script in the sandbox to code and backtest one of these mechanical level-detection rules (such as DeMark TD Points or ChartMini's close/wick zone methods) against a sample dataset?",
+  "question": "Object: HORIZONTAL LEVEL / ZONE. Q7+AUTOMATION: Which level rules in the corpus are mechanical enough to automate causally (pivot clustering, order-flow studies, zone-from-wick-cluster methods)? Which parts still need human judgement? Cite sources.",
+  "conversation_id": "575b681d-b23b-4e75-bdc7-33bf21dddc90",
+  "sources_used": [
+    "283dd470-a3d1-4134-8024-282191338c10",
+    "3726d651-2b1f-4a31-9ab6-64457c7ce70f",
+    "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "f46f6efd-575e-4c4d-b947-72b613b7e891",
+    "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "8224f447-8582-47a6-8c21-4d26240a3892",
+    "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "65c415d9-576b-43cd-b52b-40ee996f829a",
+    "5c67f357-ef0b-46ae-b18a-eb61b26e2f88",
+    "99abc436-6964-4641-ab4d-44922b73c44a",
+    "15bb7a83-fc71-43c6-858d-0c4a8abdbcec"
+  ],
+  "citations": {
+    "1": "283dd470-a3d1-4134-8024-282191338c10",
+    "2": "3726d651-2b1f-4a31-9ab6-64457c7ce70f",
+    "3": "3726d651-2b1f-4a31-9ab6-64457c7ce70f",
+    "4": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "5": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "6": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "7": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "8": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "9": "f46f6efd-575e-4c4d-b947-72b613b7e891",
+    "10": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "11": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "12": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "13": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "14": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "15": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "16": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "17": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "18": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "19": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "20": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "21": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "22": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "23": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+    "24": "8224f447-8582-47a6-8c21-4d26240a3892",
+    "25": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "26": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "27": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "28": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "29": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "30": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "31": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "32": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "33": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "34": "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "35": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "36": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "37": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "38": "65c415d9-576b-43cd-b52b-40ee996f829a",
+    "39": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "40": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "41": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "42": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "43": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "44": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "45": "8224f447-8582-47a6-8c21-4d26240a3892",
+    "46": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "47": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+    "48": "5c67f357-ef0b-46ae-b18a-eb61b26e2f88",
+    "49": "8224f447-8582-47a6-8c21-4d26240a3892",
+    "50": "99abc436-6964-4641-ab4d-44922b73c44a",
+    "51": "99abc436-6964-4641-ab4d-44922b73c44a",
+    "52": "99abc436-6964-4641-ab4d-44922b73c44a",
+    "53": "15bb7a83-fc71-43c6-858d-0c4a8abdbcec"
+  },
+  "references": [
+    {
+      "source_id": "283dd470-a3d1-4134-8024-282191338c10",
+      "citation_number": 1,
+      "cited_text": "TD Lines™ TD Lines™ TD Lines are mechanically and objectively constructed. The trendlines drawn are TD Supply Lines and TD Demand Lines. Once the TD Lines are broken and qualified, the study automatically calculates a price projection. A qualified breakout appears as a solid line; whereas, a disqualified breakout is a dashed line. TD Lines are drawn by connecting TD Points. A level one TD Point high is formed once a high is immediately preceded and succeeded by bars with lower highs. Thus, a level one high requires only three bars to make this determination. TD Point highs vary in “ magnitude” based on the number of immediately preceding and succeeding bars that have lower highs. For example, level two has two bars preceding, two bars succeeding, and so on through level nine. The converse of these principles governs TD Point lows. For further information on TD Lines, please refer to Thomas R. DeMark, The New Science of Technical Analysis , New York: John Wiley & Sons, 1994, Chapter 1. Topics: Qualifying TD Lines Parameters"
+    },
+    {
+      "source_id": "3726d651-2b1f-4a31-9ab6-64457c7ce70f",
+      "citation_number": 2
+    },
+    {
+      "source_id": "3726d651-2b1f-4a31-9ab6-64457c7ce70f",
+      "citation_number": 3
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 4,
+      "cited_text": "Foundations of Technical Analysis: Computational Algorithms, Statistical Inference, and Empirical Implementation ANDREW W. LO, HARRY MAMAYSKY, AND JIANG WANG* ABSTRACT Technical analysis, also known as “charting,” has been a part of financial practice for many decades, but this discipline has not received the same level of academic scrutiny and acceptance as more traditional approaches such as fundamental analysis. One of the main obstacles is the highly subjective nature of technical analysis—the presence of geometric shapes in historical price charts is often in the eyes of the beholder. In this paper, we propose a systematic and automatic approach to technical pattern recognition using nonparametric kernel regression, and we apply this method to a large number of U.S. stocks from 1962 to 1996 to evaluate the effectiveness of technical analysis. By comparing the unconditional empirical distribution of daily stock returns to the conditional distribution—conditioned on specific technical indicators such as head-and-shoulders or double-bottoms—we find that over the 31-year sample period, several technical indicators do provide incremental information and may have some practical value."
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 5,
+      "cited_text": "Definition 5 (Double Top and Bottom) Double tops ~DTOP! and bottoms ~DBOT! are characterized by an initial local extremum E1 and subsequent local extrema Ea and Eb such that Ea [ sup $Ptk * : tk * . t1 * , k 5 2, . . . , n% Eb [ inf $Ptk * : tk * . t1 * , k 5 2, . . . , n% and DTOP [ 5 E1 is a maximum E1 and Ea are within 1.5 percent of their average ta *2 t1 * . 22 DBOT [ 5 E1 is a minimum E1 and Eb are within 1.5 percent of their average ta *2 t1 * . 22 B. The Identification Algorithm Our algorithm begins with a sample of prices $P1, . . . , PT % for which we fit kernel regressions, one for each subsample or window from t to t 1 l 1 d 2 1, where t varies from 1 to T 2 l 2 d 1 1, and l and d are fixed parameters whose purpose is explained below. In the empirical analysis of Section III, we set l 5 35 and d 5 3; hence each window consists of 38 trading days."
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 6,
+      "cited_text": "The motivation for fitting kernel regressions to rolling windows of data is to narrow our focus to patterns that are completed within the span of the window—l 1 d trading days in our case. If we fit a single kernel regression to the entire dataset, many patterns of various durations may emerge, and without imposing some additional structure on the nature of the patterns, it 1718 The Journal of Finance is virtually impossible to distinguish signal from noise in this case. There-fore, our algorithm fixes the length of the window at l 1 d, but kernel regressions are estimated on a rolling basis and we search for patterns in each window."
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 7,
+      "cited_text": "function. If the signs of [mh ' ~t! and [mh ' ~t 1 1! are 11 and 21, respectively, then 8 If we are willing to place additional restrictions on m~{!, for example, linearity, we can obtain considerably more accurate inferences even for partially completed patterns in any fixed window. Foundations of Technical Analysis 1719 we have found a local maximum, and if they are 21 and 11, respectively, then we have found a local minimum. Once such a time t has been identified, we proceed to identify a maximum or minimum in the original price series $Pt % in the range @t 2 1, t 1 1# , and the extrema in the original price series are used to determine whether or not a pattern has occurred according to the definitions of Section II.A."
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 8,
+      "cited_text": "Within each window, we estimate a kernel regression using the prices in that window, hence: [mh~t! 5 ( s5t t1l1d21 Kh~t 2 s!Ps ( s5t t1l1d21 Kh~t 2 s! , t 5 1, . . . ,T 2 l 2 d 1 1, ~14! where Kh~z! is given in equation ~10! and h is the bandwidth parameter ~see Sec. II.C!. It is clear that [mh~t! is a differentiable function of t. Once the function [mh~t! has been computed, its local extrema can be readily identified by finding times t such that Sgn~ [mh ' ~t!! 5 2Sgn~ [mh ' ~t 1 1!!, where [mh ' denotes the derivative of [mh with respect to t and Sgn~{! is the signum"
+    },
+    {
+      "source_id": "f46f6efd-575e-4c4d-b947-72b613b7e891",
+      "citation_number": 9,
+      "cited_text": "View PDF HTML (experimental) Abstract: This paper investigates the phenomenon of support and resistance levels (SR levels) in financial time series, which act as temporary price barriers that reverses price trends. We develop a heuristic discovery algorithm for this purpose, to discover and evaluate SR levels for intraday price series. Our simple approach discovers SR levels which are able to reverse price trends statistically significantly. Asset price entering SR levels with higher number of price bounces before are more likely to bounce on such SR levels again. We also show that the decay aspect of the discovered SR levels as decreasing probability of price bounce over time. We conclude SR levels are features in financial time series are not explained simply by AR(1) processes, stationary or otherwise; and that they contribute to the temporary predictability and stationarity of the investigated price series."
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 10,
+      "cited_text": "Example: Drawing a Zone Without Creating a Trade Setup Assume three qualifying daily reactions were selected before a cutoff date: <cited_table> Different predefined methods produce different zones: Close cluster: 99.95 to 100.20 Body range: 99.80 to 100.25 Wick envelope: 99.35 to 100.50 Core plus envelope: core 99.80 to 100.25; envelope 99.35 to 100.50 None is automatically correct. The selected method depends on whether the study is about completed closes, candle bodies, full extremes, or layered interactions. The method should be chosen before later candles are reviewed.",
+      "cited_table": {
+        "num_columns": 6,
+        "rows": [
+          [
+            "Reaction",
+            "Lowest price",
+            "Body low",
+            "Body high",
+            "Highest price",
+            "Close"
+          ],
+          [
+            "A",
+            "99.40",
+            "99.85",
+            "100.20",
+            "100.45",
+            "100.10"
+          ],
+          [
+            "B",
+            "99.55",
+            "99.90",
+            "100.15",
+            "100.30",
+            "99.95"
+          ],
+          [
+            "C",
+            "99.35",
+            "99.80",
+            "100.25",
+            "100.50",
+            "100.20"
+          ]
+        ]
+      }
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 11,
+      "cited_text": "Also define exclusions. Examples: incomplete candles; bad ticks or provider anomalies; prices outside the selected session; adjusted and unadjusted data mixed together; observations added only because later price reacted there. The exact rule can vary. The important control is that the same rule is applied to every zone in the comparison sample. Four Defensible Ways to Set Zone Boundaries No boundary method is universally correct. Each method should be tied to the question being studied. Method 1: Close-cluster boundaries Set the lower boundary to the lowest qualifying close and the upper boundary to the highest qualifying close."
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 12,
+      "cited_text": "This method asks: Across the selected reactions, where did completed candles finish? It reduces the influence of isolated wick extremes, but it can miss prices reached during the candle. It is most useful when the study explicitly gives completed closes more importance than intrabar extremes. Method 2: Body-range boundaries Set the zone around the open-to-close bodies of selected candles. Depending on the rule, the lower edge may be the lowest body price and the upper edge the highest body price. This method asks:"
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 13,
+      "cited_text": "Across the selected candles, where was the body of trading activity represented? A candle body is not a direct measure of volume, liquidity, or participant intent. It simply records the distance between open and close. Method 3: Wick-envelope boundaries Set the zone from the lowest qualifying low to the highest qualifying high. This method captures the full extremes of the selected candles. It may be appropriate when the purpose is to include every observed price in the source reactions. Its main risk is excessive width: one unusual wick can dominate the entire band."
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 14,
+      "cited_text": "Before using this method, define whether all wicks qualify or whether an anomaly rule excludes specific observations. Method 4: Core plus wick envelope Create two related bands: Core: close cluster or body range. Envelope: qualifying wick extremes. This method preserves more information than forcing one rectangle to serve every purpose. A later candle can interact with the envelope without reaching the core, or close through the core while remaining inside the envelope. Those are different observations."
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 15,
+      "cited_text": "How Wide Should a Support or Resistance Zone Be? A zone should be only as wide as the chosen boundary rule requires. Width is an output of the method, not a universal preset. Let: Upper boundary be the top price of the zone; Lower boundary be the bottom price of the zone. Then: Zone width = Upper boundary - Lower boundary Record the result in the instrument's natural units. Depending on the market, also record: ticks; pips; basis points; percentage of the zone midpoint; percentage of a separately specified volatility measure."
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 16,
+      "cited_text": "The normalized values help compare zones across prices and timeframes. They do not prove that one zone is stronger. Width as a percentage of the midpoint For comparison purposes: Midpoint = (Upper boundary + Lower boundary) / 2 Normalized width % = Zone width / Midpoint × 100 This can show that a two-dollar band is very different for a twenty-dollar asset and a two-thousand-dollar asset. It still does not tell you whether the future reaction will hold. Should volatility determine zone width? Volatility can be used as a separate tolerance rule, but the rule must be chosen before the later interaction is seen. Examples include comparing zone width with:"
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 17,
+      "cited_text": "Quick Answer, Support and Resistance Trading • Support and resistance trading means buying near price levels where selling has historically stalled (support) and selling near levels where buying has stalled (resistance), using those zones as decision points for entries, exits, and stop placement. • On futures like NQ and ES, the most reliable S/R levels are horizontal zones derived from prior session highs/lows, the overnight high/low, and areas where price reversed multiple times on the daily chart. • Bounce trades (fading into S/R) work best in range-bound sessions and require a rejection candle for confirmation, while breakout trades need volume expansion through the level. • As of March 2026, combining S/R zones with volume profile data and VWAP gives the highest-probability setups for passing prop firm evaluations within drawdown limits. • The most common S/R mistake is drawing too many levels and treating every line as equally important, which leads to hesitation and missed entries on the levels that actually matter."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 18,
+      "cited_text": "Why do S/R levels form in the first place? Because traders have memory. If NQ bounced hard off 19,800 three times last week, thousands of traders have that level marked on their charts. When price approaches it again, buy orders stack up. Algorithms programmed to watch that level trigger. The collective behavior creates the zone. This is more pronounced on futures than on forex or stocks because futures volume is centralized on one exchange. Everyone sees the same data. The strongest S/R zones tend to form at prior session highs and lows, prior day close, psychological round numbers (19,000, 20,000 on NQ), and areas of heavy volume accumulation visible on volume profile. I rank these by the number of times price has reacted at the level. A level that held twice is worth noting. A level that held five times across different sessions is a fortress."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 19,
+      "cited_text": "What Is My Full S/R Identification Process Before the Trading Session? Every morning, I spend about 10 minutes marking levels before the RTH open at 9:30 AM ET. This is a non-negotiable part of my routine. Trading without pre-marked levels is gambling. Step 1: Daily chart review. I pull up the NQ daily chart and identify the 3-5 most obvious horizontal zones from the last 20 sessions. I'm looking for clusters of highs, clusters of lows, and areas where price consolidated for multiple days. These are my A-grade levels."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 20,
+      "cited_text": "Step 2: Mark the prior session's key points. Yesterday's RTH high, RTH low, and closing price. The overnight session's high and low. These are my B-grade levels. They're important for the current session but decay in relevance over time. Step 3: Check for confluence. Do any of my daily levels overlap with yesterday's session levels? Do round numbers align with historical zones? Where does VWAP from the prior session close sit relative to my levels? Confluence upgrades a B-grade level to A-grade. Step 4: Identify the \"kill zone.\" I look at the range between the nearest support and nearest resistance. If those two levels are 30 points apart on NQ, there's room for bounce trades inside that range. If they're 100 points apart, I'm looking at breakout setups at one of the boundaries instead."
+    },
+    {
+      "source_id": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+      "citation_number": 21,
+      "cited_text": "or “channel,” in which recent peaks are connected by one line and recent troughs are connected by another: “A good trendline represents an important support and resistance zone” (p. 105). One numerical rule used to infer support and resistance levels is the “50 percent rule,” which asserts that a major market move will often be reversed by about 50 percent in the first major correction (Pring, p. 187). Fibonacci series, which are widely used, suggest that 38.2 percent and 61.8 percent retracements of recent rises or declines are common."
+    },
+    {
+      "source_id": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+      "citation_number": 22,
+      "cited_text": "Market insiders sometimes identify support and resistance levels using private information or information circulated informally in the market about certain market participants. For example, if a technical analyst learned in conversation that Japanese exporters are selling at 100, he or she would report a resistance level at ¥100.00/$. Similarly, if a trader knew that his or her own firm had a large order at DM1.50/$, he or she might expect unusual price behavior at that point. Simple market psychology is also used to help identify support and resistance levels. According to Murphy (1986): “Traders tend to think in terms of important round numbers . . . as price objectives and act accordingly. These round numbers, therefore, will often act as psychological support or resistance levels.” As I will demonstrate later, published support and resistance levels are round numbers that end in 0 or 5 much more often than they would if they were chosen at random."
+    },
+    {
+      "source_id": "84388829-d0c8-4c43-ae19-f566d8ab5053",
+      "citation_number": 23,
+      "cited_text": "Use of Round Numbers More than 70 percent of the support and resistance levels in the sample end in 0, and a full 96 percent end in either 0 or 5 (Table 4). These proportions greatly exceed the proportions we would observe if levels were chosen randomly, which would be 10 or 20 percent, respectively. Levels ending in 00 or 50 were also disproportionately represented. This may be a manifestation of the psychological interpretation of support and resistance levels mentioned earlier. It is interesting to note that"
+    },
+    {
+      "source_id": "8224f447-8582-47a6-8c21-4d26240a3892",
+      "citation_number": 24,
+      "cited_text": "The condition of Reaccumulation and Distribution begin with the same action and in the same manner. This is a stopping action of the prior trend. What follows is a large and often long trading range. After the Buying Climax (BCLX) an Automatic Reaction (AR) follows, which is a big and volatile correction that is far larger than the corrections within the preceding uptrend. This is confirmation of the BCLX, if we were unsure before. We label the BCLX and AR and immediately draw a Resistance line at the peak of the BCLX and a Support line at the low of the AR. If this sounds familiar, it is because we apply the same technique after a Selling Climax and an Automatic Rally establishing the outer boundaries of the Accumulation."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 25,
+      "cited_text": "Dynamic S/R from moving averages and VWAP is subjective in setup but powerful in context. The 20 EMA on a 5-minute chart gives you a trend bias. If NQ is trading above the 20 EMA, I'm biased long. But I wouldn't enter a trade solely because price \"bounced off the 20 EMA.\" That's too loose. Where dynamic S/R shines is confluence. If a horizontal support zone at 19,800 lines up with the VWAP at 19,802 and the 50 EMA on the 15-minute chart is sitting at 19,805, that triple confluence tells me the zone is heavily watched. My confidence in a bounce trade goes up significantly."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 26,
+      "cited_text": "How do you combine support and resistance with volume profile? Volume profile and horizontal S/R complement each other directly. Volume profile shows where the most trading activity occurred at each price level, which naturally reveals support and resistance zones. When a horizontal S/R level from your daily chart aligns with a high-volume node or the Value Area boundary on volume profile, that confluence creates a high-confidence trading zone. I mark both on my chart and prioritize levels where the two agree. On NQ, I find this confluence at 2-3 levels per session, and those are my best trades."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 27,
+      "cited_text": "What Is the Difference Between Horizontal and Dynamic Support and Resistance? Horizontal S/R is a fixed price level. It doesn't move. Yesterday's high at 19,900 is 19,900 today, tomorrow, and next week. Dynamic S/R moves with time. The most common examples are moving averages, VWAP, and trendlines. I use both, but I trust horizontal levels more for trade entries on futures. Dynamic S/R works better as confirmation. Horizontal S/R forms from prior price reactions. It's objective. Two traders looking at the same daily chart will identify roughly the same horizontal zones. The disagreement is minimal, which means the levels attract more attention and more orders."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 28,
+      "cited_text": "How to Trade Candlestick Patterns at Support and Resistance Written by Dominic Walsh · Published 4 Aug 2026 · Last updated 20 Aug 2026 A candlestick tells you what just happened inside one bar. Candlestick patterns at support and resistance carry far more weight than the identical shapes printed in the middle of a range, and that difference decides most of your results. This guide treats location as the first filter and the pattern as the second. You will learn how to mark a level worth trading, how to read a rejection bar that lands on it, and why the same bar mid-range deserves nothing at all."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 29,
+      "cited_text": "Read it literally first. Sellers pushed price down through the session, buyers reclaimed the ground, and the close landed near the high. Now add the zone underneath. The wick pierced your support band and the close finished back inside it, so the band absorbed a genuine test. The Three Questions to Ask Ask where the wick ended. A wick that pokes into the zone and recovers reads very differently from one that stops short of it. Ask where the close landed. A close back above the zone supports the defence, while a close below it does the opposite."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 30,
+      "cited_text": "Meanwhile the mid-range bar fails the first input outright. A perfect candle cannot rescue a location that nobody else cares about. Write those three scores in your journal beside every trade. After thirty entries, your own records will teach you more about location than any article can. Download the complete indicator database Put these concepts on your charts. One email unlocks the full library of 1,380+ indicators with compiled MT4 and MT5 files, plus my TradingView scripts. No paywall, no spam, unsubscribe any time."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 31,
+      "cited_text": "Mid-range, no such explanation exists. The wick still shows rejection, yet nobody had a reason to defend that spot, so the reaction rarely draws further interest. A Pattern Describes, It Does Not Predict Keep the language honest. A hammer does not forecast a bounce; it records one bar in which sellers lost control of the low. Prediction needs context, and the level supplies it. Levels mark where resting orders already sit and where other traders plan to act. Treat the candle as evidence, then, and treat location as the thing that prices that evidence. Neither half works alone."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 32,
+      "cited_text": "The Same Bar in Open Space Take that identical hammer and drop it into the middle of a range. Nothing about the geometry changes, yet the meaning collapses. No resting orders sit under it. The wick records a brief burst of selling against a brief burst of buying, and the two simply cancel. So the bar becomes noise. Our note on candlestick wicks covers what a long tail can and cannot tell you on its own. How Other Patterns Read at a Level An engulfing bar at resistance shows a second body swallowing the first. That takeover matters more when it happens where sellers already stepped in twice."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 33,
+      "cited_text": "Strong Trends Eat Levels Inside a powerful move, support gives way with barely a pause. Countertrend candle signals fail most often in exactly those conditions. News Overrides Structure A scheduled release can push price through three zones in a minute. Check the calendar, because structure loses much of its meaning during a repricing event. The Level Was Never Real A zone drawn from one weak pivot has no order flow behind it. Two clear prior reactions remain the minimum before you trade a level at all."
+    },
+    {
+      "source_id": "a45cd69d-f030-439c-aee6-a757201e57ac",
+      "citation_number": 34,
+      "cited_text": "Here's how it works… Market structure Area of value Entry trigger I'll explain… #1: Market structure Now, I know it can be daunting to be looking at a blank chart. Because you don't know what to do. Should you buy, sell, or stay out? That's why the first thing to do is identify the market structure as it tells you what to do. So ask yourself: “Is the market in an uptrend, downtrend, or range?” (In other words, identify the current stage of the market.) Once you can identify the market structure, then you'll know trade along the path of least resistance."
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 35,
+      "cited_text": "of recognizing recognizable geometric configurations and I'll touch on the word some later i'll try to uh open that up and unpack that a little bit in the vast overwhelming cases a given market will defy understanding from the standpoint of classical charting principles you know when I look at a somebody who who is attempting to be a classical chartist and I see you know 50 different lines and all kinds of different letters and identifiers what it tells me is that individual is attempting to come to terms with that market they're studying that market expecting that that market must speak to them and in reality for the most part classical charting cannot define what a market's doing it is the exception actually that you can look at a market and understand it based on classical charting principles i I have this I make this claim not only at classical charting principles but on any form of understanding the markets whether it's uh Elliot wave or GAN or whatever it is uh the reality is is"
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 36,
+      "cited_text": "t are truly identified and are correctly identified will do what they are supposed to do but more often than not uh the geometry of a pattern or geometry of a chart is is misinterpreted i want to talk about some big surprises and some of these uh may find some disagreement out there with you and and if so uh that's fine uh at any given time the vast majority of stocks futures or forex pairs cannot be understood based on classical charting principles you know again I I touched on this already but you can't sit and study a chart and if you just study it hard enough whatever your your stick is whether it's Elliot wave classical charting GAN whatever it is if you just study it hard enough you can figure out what a market's doing i disagree with that i think that that's false i think in the vast overwhelming majority of cases you can't figure it out you can sit and study it and draw lines until you're blew in the face but the reality is the market may not comply with the with the tools that"
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 37,
+      "cited_text": "ude trend lines i don't use trend lines uh you know G here now I know some traders who make money trading trend lines and so you know I want to give them uh I I I want to give them the nod and say \"Congratulations you can do it.\" But in my own way of thinking you give a chart book a ruler and a pencil to an ape and you come back a day later he's probably going to have driven some line that makes sense uh a wedge falling wedge rising wedge these are diagonal patterns uh beware of diagonal patterns and then finally a pattern is not a pattern until it's completed and even then it can fail you know oftentimes I'll talk about patterns and usually I'll talk about possible patterns there's a possible head and shoulders there's a possible rectangle there's a possible this or that and you that doesn't mean that I believe that there is a head and shoulders there is a head and shoulders pattern and it it's really not a head and shoulders pattern till it's completed and even then it can fail uh Sh"
+    },
+    {
+      "source_id": "65c415d9-576b-43cd-b52b-40ee996f829a",
+      "citation_number": 38,
+      "cited_text": "Trendlines are perhaps the most used and abused tool in modern technical analysis. It is difficult to even come up with a precise definition of a trendline, or with firm rules for where and how to draw them. One good working definition is that a trendline is a line drawn between two points on a chart, but then there are the internal trendlines, which can be drawn anywhere through the middle of price bars. In my experience teaching and mentoring, as soon as you start telling traders that some trendlines may be better than others, you are met with the argument that they can draw any trendline they want. To further complicate matters, market action is so random that we can see price action that looks convincing around even random trendlines, so it is very difficult to evaluate trendlines subjectively. But they are usually drawn subjectively, so it is impossible to evaluate them objectively. I do not have a perfect answer here, but I will share a no-nonsense approach to trendlines that has served me very well over the years. As always, adapt these tools for your own style and methodology."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 39,
+      "cited_text": "Ranking Levels Before the Session Starts Preparation beats reaction in this method. Ten minutes with a clean chart gives you a ranked list of zones and saves you from improvising later. The table below sets out a simple grading scheme. Treat it as a starting point, then adapt the wording to match your own notes. <cited_table>",
+      "cited_table": {
+        "num_columns": 3,
+        "rows": [
+          [
+            "Zone quality",
+            "What you see",
+            "How to treat a candle signal there"
+          ],
+          [
+            "Strong",
+            "Two or three sharp reactions, drawn on the daily chart, untouched for weeks",
+            "Plan a normal-size trade if the close confirms"
+          ],
+          [
+            "Fair",
+            "Two reactions on the four-hour chart, or a daily zone already tested three times",
+            "Trade smaller, or wait for a second bar"
+          ],
+          [
+            "Weak",
+            "One shallow pivot, or a zone price recently sliced straight through",
+            "Watch only, and take no signal from it"
+          ],
+          [
+            "None",
+            "Open space between marked zones",
+            "Ignore every candle shape that forms here"
+          ]
+        ]
+      }
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 40,
+      "cited_text": "My rules for drawing S/R: Use the body close of candles as the primary reference, not wicks. Wicks show the extreme, but closes show where price actually settled. I mark the zone using the cluster of closes, then extend the zone to capture the worst wick. Draw zones, not lines. I use a rectangle tool on NinjaTrader to shade a 5-10 point zone on NQ, 2-4 points on ES. Delete levels once they're broken cleanly. A level that held three times and then got blown through with volume is gone. Don't keep it on the chart hoping for a \"retest.\" If the break was clean, the level is dead. Reassess every session. I spend about 5 minutes before the RTH open updating my levels. Old ones get removed, new ones from overnight price action get added."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 41,
+      "cited_text": "What is the biggest mistake traders make with support and resistance? The biggest support and resistance mistake is drawing too many levels and treating every line as equally important. When your chart has a horizontal line every 10 points, every minor price move \"hits a level\" and no single level carries conviction. The fix is brutal simplicity: keep only 3-5 levels, grade them by the number of prior touches and the timeframe they come from, and only trade at A-grade levels. I've seen more prop firm accounts blow up from hesitation caused by chart clutter than from any other single issue."
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 42,
+      "cited_text": "While pattern-recognition techniques have been successful in automating a number of tasks previously considered to be uniquely human endeavors— fingerprint identification, handwriting analysis, face recognition, and so on— nevertheless it is possible that no algorithm can completely capture the skills of an experienced technical analyst. We acknowledge that any automated procedure for pattern recognition may miss some of the more subtle nuances that human cognition is capable of discerning, but whether an algorithm is a poor approximation to human judgment can only be determined by investigating the approximation errors empirically. As long as an algorithm can provide a reasonable approximation to some of the cognitive abilities of a human analyst, we can use such an algorithm to investigate the empirical performance of those aspects of technical analysis for which the algorithm is a good approximation. Moreover, if technical analysis is an art form that can"
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 43,
+      "cited_text": "Interestingly, the bandwidths obtained from minimizing the cross-validation function are generally too large for our application to technical analysis— when we presented several professional technical analysts with plots of cross-validation-fitted functions [mh~{!, they all concluded that the fitted functions were too smooth. In other words, the cross-validation-determined bandwidth places too much weight on prices far away from any given time t, inducing too much averaging and discarding valuable information in local price movements. Through trial and error, and by polling professional technical analysts, we have found that an acceptable solution to this problem is to use a bandwidth of 0.3 3 h*, where h* minimizes CV~h!.5 Admittedly, this is an ad hoc approach, and it remains an important challenge for future research to develop a more rigorous procedure."
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 44,
+      "cited_text": "4 However, there are other bandwidth-selection methods that yield the same asymptotic optimality properties but that have different implications for the finite-sample properties of kernel estimators. See Härdle ~1990! for further discussion. 5 Specifically, we produced fitted curves for various bandwidths and compared their extrema to the original price series visually to see if we were fitting more “noise” than “signal,” and we asked several professional technical analysts to do the same. Through this informal process, we settled on the bandwidth of 0.3 3 h* and used it for the remainder of our analysis. This procedure was followed before we performed the statistical analysis of Section III, and we made no revision to the choice of bandwidth afterward."
+    },
+    {
+      "source_id": "8224f447-8582-47a6-8c21-4d26240a3892",
+      "citation_number": 45,
+      "cited_text": "As the trading range grows longer and longer, trader pessimism is on the increase. The momentum traders are long gone and speculators are fishing in different waters. Sometimes the catalyst for the pause is a bearish news item or a disappointing quarterly earnings report that alarms traders. The Composite Operator is using this turn of events to begin accumulating stock. Just as in the initial Accumulation, the C.O. will systematically Absorb shares as prices correct toward Support and will cease buying activity as the price rises back to Resistance. It becomes harder for the price to return back to Support and will be reflected in the Vertical bar chart with narrowing price ranges and generally diminishing volume. The principles of Absorption are the same here as we previously discussed in Accumulation."
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 46,
+      "cited_text": "Define: whether a wick entry counts; whether a body overlap counts; whether a close inside the band counts; how far price must move away before a later visit becomes a new touch; whether several candles in one consolidation are one interaction or many; whether interactions from different sessions or timeframes are comparable. Without these controls, “three touches” can mean three independent tests in one study and three adjacent candles in another. Do Repeated Tests Mean a Zone Is Exhausted? A chart can show repeated visits, narrower departures, wider overlaps, closes through a band, or repeated crossings. It cannot show how many hidden orders remain at the area or prove that a bank, fund, market maker, algorithm, or group of retail traders is defending it."
+    },
+    {
+      "source_id": "7e0b3a3d-9d73-47f4-a72d-65b1fee853e9",
+      "citation_number": 47,
+      "cited_text": "Counting adjacent candles as independent touches Several candles overlapping the zone during one consolidation may represent one prolonged interaction rather than several independent tests. Define separation by time, distance, or a new swing before counting touches. Assuming multiple touches consume hidden orders OHLC candles do not report the remaining quantity of hidden limit orders. Describe repeated interactions without claiming that orders are being depleted. Turning the zone into a complete strategy A zone is a chart reference. Breakout definitions belong to the boundary-theory guide , while formal later-outcome evaluation belongs to the validation guide ."
+    },
+    {
+      "source_id": "5c67f357-ef0b-46ae-b18a-eb61b26e2f88",
+      "citation_number": 48,
+      "cited_text": "Schematic 4: Spring with Test An extended range with a clear Spring in Phase C followed by a Test of the spring low. The Test revisits the spring zone to check whether buyers absorbed the shakeout. Dual ST events in Phase B make the range look noisy before the Spring resolves it. The Spring-Test sequence offers two potential entry points with defined risk. Reading Volume Inside the Range Volume is how you assess whether the range is accumulation and not distribution or directionless consolidation. Declining volume on tests of the lows Each time price revisits the SC area, selling volume should be lighter than the previous test. This shows supply is being absorbed. If volume stays heavy on retests, the stopping action isn't complete."
+    },
+    {
+      "source_id": "8224f447-8582-47a6-8c21-4d26240a3892",
+      "citation_number": 49,
+      "cited_text": "A common mistake traders make with Reaccumulation is to conclude it is Distribution and they initiate a short selling campaign. We will study this in detail. For now, the key points to be made are that during Distribution volatility and volume increase as the trading range matures and prepares for a bearish downtrend. During Reaccumulation the opposite takes place because of the principals of Absorption. Reaccumulations have various 'looks' and here is one example. Absorption is occurring as the trading range progresses. With the Creek we observe diminished volatility and volume, an indication that the Reaccumulation is nearly concluded. Once Absorption is complete, Jumping action will take the price out of the trading range and into a new markup phase. This is the place where Wyckoffians get busy adding shares to the portfolio."
+    },
+    {
+      "source_id": "99abc436-6964-4641-ab4d-44922b73c44a",
+      "citation_number": 50,
+      "cited_text": "Now consider a trader conducting analysis on the market with the view to trading. What creates the support and resistance areas are the heuristics and cognitive biases that are part of human decision making. Of particular interest here is the anchoring bias. There's a whole heap of others which influence our decision making, including the formation of support and resistance, but this is the main one for s/r. There is no absolute scale that can be used to determine the value of a tradable instrument. Overpriced or underpriced is determined relative to previous price action. So, in the absence of a scale, our mind needs to create a reference point (an anchor), which is a fixed point from which it can then determine whether a security is overvalued or undervalued. The points that stand out are the swing highs and lows, in particular those which create support or resistance areas."
+    },
+    {
+      "source_id": "99abc436-6964-4641-ab4d-44922b73c44a",
+      "citation_number": 51,
+      "cited_text": "So, those in a trade in the long direction will be looking at the previous resistance area as an opportunity to lighten their position, if not exit entirely. (That of course goes against the whole idea of letting trades run, but there's other biases which make it 'human' for us to want to get out of our winners rather than letting them run). Other traders will be looking to enter short at the resistance. Both these actions, taken due to decisions influenced by the anchoring bias, lead to the spt/res continuing to function in future."
+    },
+    {
+      "source_id": "99abc436-6964-4641-ab4d-44922b73c44a",
+      "citation_number": 52,
+      "cited_text": "Why does resistance, once broken, become support. The perception of value now changes. The rally as price breaks through resistance is quite painful to those who went short, and took a loss. It's even more painful to those who closed their long positions and missed the extra profits. They now see this area as providing great value, and swear to the market Gods that if price can just get back to that area they'll never be so stupid again. So when it drops back to that new support area, these traders go Long."
+    },
+    {
+      "source_id": "15bb7a83-fc71-43c6-858d-0c4a8abdbcec",
+      "citation_number": 53,
+      "cited_text": "At this point I stepped back. The P&L was in the green, but it's clear that (a) the level was not providing clear directional follow through, with buyers and sellers battling for dominance and causing chop, and (b) I was not reading this well. Do NOT be afraid to step back and say, “ I can't read this. I don't know which side is in control here. I don't see the structure that is building (ahead of price). And basically, I have no idea what is going on. “ It happens more than we like to admit. Step back. And wait."
+    }
+  ]
+}

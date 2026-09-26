@@ -1,0 +1,344 @@
+{
+  "answer": "### **1. Double Tops & Double Bottoms**\n\n#### **Confirmation**\n* **Confirmation Event:** A double bottom confirms as a valid chart pattern only when price rises and **closes above the peak between the two valleys** (the confirmation line / neckline) [1-4]. Similarly, a double top confirms when price drops and closes below the valley between the two peaks [5, 6].\n* **Statistical Context:** Without a close beyond the confirmation line, the price structure is considered unconfirmed \"squiggles on a chart\" [1, 4]. Bulkowski notes that entering prior to confirmation carries a 48% chance that price will continue lower without ever confirming the double bottom [2]. Lo, Mamaysky, and Wang define double tops/bottoms as requiring the two extreme price points to be within 1.5% of their average [7].\n\n#### **Invalidation**\n* A double bottom is **invalidated** if price drops and closes below the lowest valley extreme of the pattern [8].\n* For a double top, the pattern is invalidated if price rises and closes above the highest peak extreme [9, 10].\n\n#### **Role of the Middle Peak / Valley**\n* **Confirmation Price Level:** The middle peak (in a double bottom) or middle valley (in a double top) defines the **confirmation threshold** [1, 2, 4]. \n* **Target Calculation (Measure Rule):** Under classical measure rules, the vertical height is calculated from the highest peak between the two bottoms down to the lowest valley [2]. This height is then added to the breakout price (the peak) to project the price target [2].\n* **Market Structure & Order Flow:** In price action theory, this middle point serves as the neckline and retest level [6]. It marks the boundary where trapped traders attempt to exit at breakeven or where new trend traders enter [6, 11].\n\n#### **Trader Response Upon Failure**\n* **When Invalidation Triggers:** If price breaches the extreme opposite of the pattern (e.g., dropping below the lowest valley of an attempted double bottom), protective stops placed a penny below the lower extreme trigger a loss exit [8].\n* **Trading the \"Busted\" Pattern:** When a reversal pattern collapses and rejoins the primary trend, it creates a \"busted double bottom/top\" [12, 13]. Traders switch bias to trade in the direction of the dominant trend, capitalizing on liquidation pressure from trapped reversal traders [6, 12, 14].\n\n---\n\n### **2. Wedges (Rising and Falling Wedges)**\n\n#### **Confirmation**\n* **Confirmation Event:** Wedges (typically 3-push diagonal structures) confirm when price breaks decisively through the trend channel line or diagonal boundary and establishes follow-through or a successful retest [15-18].\n* **Criteria:** A valid penetration requires decisive close beyond the diagonal line (often accompanied by volume or price momentum) [17-19].\n\n#### **Invalidation**\n* Wedges are diagonal chart constructions, which are prone to \"morphology\" (where price breaks briefly, fails to follow through, and morphs into a longer-duration pattern) [20, 21].\n* A wedge is **invalidated** if a breakout attempt fails immediately and price rolls back inside the diagonal boundaries, or if price breaks out in the direction of the existing trend rather than reversing [18, 20, 21].\n\n#### **Trader Response Upon Failure**\n* **Cut Losses Quickly / Strict Risk Management:** Because diagonal structures like wedges have higher failure rates (~70% failure or fizzle rate on diagonal trendlines according to Brandt), traders avoid holding through pattern morphology and exit quickly at designated stop levels [20, 22, 23].\n* **Trade Trend Resumption:** If a countertrend wedge failure occurs, price action traders look to enter in the direction of the prevailing trend as soon as the countertrend move stalls [11, 24, 25].\n\n---\n\n### **3. Flags (Bull Flags and Bear Flags)**\n\n#### **Confirmation**\n* **Confirmation Event:** A flag confirms when price breaks out of the flag consolidation range in the direction of the preceding impulse trend (e.g., a bull flag breaking above its upper resistance line) and achieves follow-through (such as a second leg up or a moving average / trendline breakout) [26-29].\n\n#### **Invalidation**\n* A flag setup is **invalidated** if price retraces deeply beyond the origin or swing pivot of the flag structure, or if it breaks out in the opposite direction of the expected trend continuation [30-32].\n\n#### **Trader Response Upon Failure**\n* **Fading Trapped Breakout Traders:** When a flag fails (for instance, a double bottom bull flag that breaks to the downside as a strong bear bar), bulls who bought early become trapped [32, 33]. Traders exploit this by shorting the failure, targeting a measured move down driven by the liquidation of trapped positions [11, 32, 33].\n\n---\n\n### **4. Squeezes (Range Contraction & Price Compression)**\n\n#### **Confirmation**\n* **Confirmation Event:** A squeeze (where price is compressed between a trendline/EMA and a horizontal boundary or within narrow-range inside bars) confirms when a strong breakout candle or cluster of signal bars closes decisively outside the compression boundary [34-38].\n* **Volume Filter:** Legitimate squeeze breakouts are confirmed by expanding volume on the breakout bar [19, 35].\n\n#### **Invalidation**\n* A squeeze is **invalidated** when one side \"wriggles out\" of the squeeze without breaking the primary barrier, or when price produces a false \"tease break\" and immediately closes back inside the contraction range [34-36, 39].\n\n#### **Trader Response Upon Failure**\n* **Neutralize Bias & Shift Strategy:** If price fails to break the barrier and escapes the squeeze in the unexpected direction, traders quickly abandon the biased thesis, adjust their technical \"tipping points\" (stops), or trade the counter-move back across the range [34-36, 40].\n\n---\n\n### **5. Failed Breakouts / False Breakouts (BOF / Overshoots / Traps)**\n\n#### **Confirmation**\n* **Confirmation Event:** A failed breakout setup (also known as a Touch-Search-Test [TST] or Breakout Failure [BOF]) confirms when price probes/overshoots beyond a key support or resistance level, fails to attract follow-through buying/selling (\"stretching like a rubber band\"), and closes back on the \"right\" side of the level inside the range [41-45].\n* **Candle Evidence:** Confirmation typically appears as a high-volume rejection bar (e.g., a long-wick pin bar, hammer, shooting star, or engulfing candle) closing back inside the range [41, 43, 46-48].\n\n#### **Invalidation**\n* A failed breakout setup is **invalidated** if price achieves true breakout acceptance—characterized by strong volume expansion through the level and a successful \"break-and-retest\" where old resistance holds as new support (or vice versa) without price returning inside the range [19, 49, 50].\n\n#### **Trader Response Upon Failure (Trading the Breakout Failure)**\n* **Trade Mean Reversion:** A confirmed breakout failure at one extreme of a range indicates that supply/demand has absorbed the move; traders enter on the open of the bar following the rejection close, expecting price to traverse to the opposite side of the range [41, 42, 44, 51].\n* **Stop Placement:** Stops are placed just beyond the extreme spike/wick of the false breakout overshoot [41, 51, 52].\n* **Capitalizing on Double Pressure:** Traders recognize that breakout traders are trapped in losing positions; as those trapped traders liquidate, their stop-runs generate \"double pressure\" that accelerates price in the reversal direction [6, 11, 33, 53].\n\n---\n\n💡 **Next Step Suggestion:** Would you like to build a structured visual summary table comparing all five pattern rules side by side, or explore trade entry and stop-loss placement rules for any specific setup?",
+  "question": "Object: PATTERN MARKS. Q4+Q5: For double tops/bottoms, wedges, flags, squeezes and failed breakouts - when is each pattern INVALIDATED or confirmed, and what does the trader do when it fails? What is the role of the middle peak/valley in a double top/bottom? Cite sources.",
+  "conversation_id": "4e6ea719-6908-4f28-80a4-e7a34d5d76fe",
+  "sources_used": [
+    "7360ee4d-d55e-46fd-b016-d7697df264b1",
+    "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "19b055cc-66b7-436a-9154-cc98d0df44be",
+    "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "8224f447-8582-47a6-8c21-4d26240a3892",
+    "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "35993b7d-f788-421a-acbc-f540d2373fd5",
+    "a3b7add9-bfc6-4385-b9ab-0cbf844786f3",
+    "69dd79e7-ecc3-46ce-af5e-5dabe2984be0",
+    "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "8acdb9ad-dfb6-4a56-be4b-77fd47937833"
+  ],
+  "citations": {
+    "1": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+    "2": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+    "3": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+    "4": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+    "5": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "6": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "7": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+    "8": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+    "9": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "10": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "11": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "12": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+    "13": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+    "14": "19b055cc-66b7-436a-9154-cc98d0df44be",
+    "15": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "16": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "17": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "18": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "19": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "20": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "21": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "22": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "23": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "24": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "25": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "26": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "27": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "28": "8224f447-8582-47a6-8c21-4d26240a3892",
+    "29": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "30": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "31": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "32": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "33": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+    "34": "19b055cc-66b7-436a-9154-cc98d0df44be",
+    "35": "19b055cc-66b7-436a-9154-cc98d0df44be",
+    "36": "19b055cc-66b7-436a-9154-cc98d0df44be",
+    "37": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "38": "35993b7d-f788-421a-acbc-f540d2373fd5",
+    "39": "19b055cc-66b7-436a-9154-cc98d0df44be",
+    "40": "19b055cc-66b7-436a-9154-cc98d0df44be",
+    "41": "35993b7d-f788-421a-acbc-f540d2373fd5",
+    "42": "a3b7add9-bfc6-4385-b9ab-0cbf844786f3",
+    "43": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "44": "69dd79e7-ecc3-46ce-af5e-5dabe2984be0",
+    "45": "69dd79e7-ecc3-46ce-af5e-5dabe2984be0",
+    "46": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "47": "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "48": "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "49": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "50": "69dd79e7-ecc3-46ce-af5e-5dabe2984be0",
+    "51": "8acdb9ad-dfb6-4a56-be4b-77fd47937833",
+    "52": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "53": "19b055cc-66b7-436a-9154-cc98d0df44be"
+  },
+  "references": [
+    {
+      "source_id": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+      "citation_number": 1,
+      "cited_text": "Adam & Eve Double Bottoms: Bull Market Results Overall performance rank (1 is best): 17 out of 39   Break even failure rate: 12%   Average rise: 43%   Throwback rate: 67%   Percentage meeting price target: 69% The above numbers are based on 1,020 perfect trades. See the glossary for definitions. Score your chart pattern \n for performance Adam & Eve Double Bottoms: Identification Guidelines Characteristic Discussion   Adam & Eve Double Bottom Confirmation   Price trend Downward leading to the pattern.   Shape Two distinct valleys that look different. Adam bottoms appear first and are narrow, V-shaped, sometimes with one long price spike. Eve bottoms appear after Adam and are wide and more rounded looking. Spikes that appear tend to be more numerous and shorter on Eve bottoms.  Peak The rise between bottoms should measure at least 10%, but allow variations. Tall patterns perform better. The link discusses performance of short and tall chart patterns.  Bottom price The price variation between bottoms is small. The two valleys should appear to bottom near the same price.   Separation The average separation between bottoms is almost two months.   Confirmation The double bottom confirms as a true double bottom once price closes above the peak between the two valleys. See the figure to the right. Without confirmation you do not have an Adam & Eve double bottom, just squiggles on a chart.  Volume Usually higher on formation of the left valley."
+    },
+    {
+      "source_id": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+      "citation_number": 2,
+      "cited_text": "More Adam & Eve Double Bottoms: Trading Tips A trading setup related to double bottoms and throwbacks is located here . Trading Tactic Explanation   Measure Rule for Adam & Eve Double Bottoms Measure rule The link to the left gives more information about the measure rule. Compute the height from the highest peak between the two bottoms (point A in the figure to the right) to the lowest valley (B) in the Adam & Eve double bottom and then multiply it by the above 'percentage meeting price target.' Add the result to the breakout price (A, the highest peak in the pattern) to get the price target (C).  Price reversal Price must have something to reverse, so if the decline leading to the double bottom is small, expect a small rise. Big W Look for a double bottom with a tall left side, one with a steep decline and few or no price consolidations along the way. Expect price to return to near where the downtrend began. The link to the left discusses the Big W chart pattern.  Confirmation   Wait for confirmation -- price to close above the peak between the valleys. If you don't wait, there's a 48% chance that price will continue lower without confirming the double bottom.   Adam & Eve Double Bottom Handle   Handle Sometimes price will confirm the double bottom then waffle up and down, forming a handle. When price breaks out of this region, it often moves up in a strong trend. See the chart to the right.   Flat base Expect a large rise if the double bottom appears after a long, flat base. Use the weekly scale to find the flat base -- the double bottom will look like a pothole in a road. The Flat Base figure to the lower right shows an example.  Trends A short-term decline leading to the double bottom results in the best post breakout performance. Yearly high The best performance comes from patterns with breakouts within a third of the yearly high. The link to the left provides performance statistics and this link provides more information about buying near the yearly low.   Flat Base Volume trend A downward volume trend suggests good post breakout performance. The link to the left gives an example and shows other chart patterns that outperform after a downward volume trend. Throwbacks Throwbacks hurt post breakout performance. The link to the left gives an explanation of a throwback and this link provides performance statistics."
+    },
+    {
+      "source_id": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+      "citation_number": 3,
+      "cited_text": "More Adam & Eve Double Bottoms: Example The figure on the right shows an example of an Adam & Eve double bottom chart pattern. This is a perfect example. The Adam valley is pointed and narrow whereas Eve is wide and flat. The contrast between the two is startling enough that it will probably keep you awake at night wondering how such a pattern could occur. Confirmation, when the squiggles turn into a true Adam & Eve double bottom, occurs when price closes above the blue line shown in the figure. Price makes a hefty advance thereafter in this example."
+    },
+    {
+      "source_id": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+      "citation_number": 4,
+      "cited_text": "This is a setup that you'll want to avoid. More Adam & Eve: 10 Examples The following is a slide show. Click the right or left arrows, or the circles below the chart to navigate around the slides. 1 / 10 An Adam & Eve double bottom appears at AB. If you compare the two bottoms, the left looks narrow and the right looks wide. At C, a close above the red line says that the chart pattern is valid and not just squiggles on the chart. The next chart gives more examples.   2 / 10 The confirmation rule says that the highest peak between the two bottoms is the confirmation price. I suppose it's subject to interpretation, with C being the highest price and D being the highest peak between the two bottoms. D will get you into a trade sooner, so I prefer it over C."
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 5,
+      "cited_text": "broader bull trend line same thing goes for the Bears we can see how it starts off very steep but as the bulls start to step up it gets flatter and flatter and the bull trend lines become stronger the last bear trend line is almost the high of a range horizontal lines swing points another key price levels the market ranges more than it Trends horizontal lines can set up for good trades Traders should wait for a test of the recent swing high or low then take the trade in that direction for a bullish setup Traders want to see a double bottom this shows the Bears have failed twice to make a new low for a bear setup Traders want to see a double top this shows the Bulls failed twice to make a new high horizontal line swing points here's a swing high and then I extend the line out and this gives the Range High and the Bulls get the range lows"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 6,
+      "cited_text": "all these trades were a retest this was a retest of this this is a higher high retest of this area here we're retesting this swing low here we're retesting this swing low and this swing high and all three of these trades are bare flag double tops this shows that the Bulls tried once tried twice and they hit out of their position creating selling pressure for the bears bears see that Bulls got trapped here and they get short for a few legs down and the opposite is true for the Bulls Bulls see the bears go short here and they want to get out here and that creates buying pressure as Bears buy back their shorts Bulls buy lows and they get two legs higher same thing goes here they see that the market had a failed breakout and plls by the low and they go for a few legs higher this is a double bottom of this swing High come up pull back swing High double bottom led to a test of the recent high and that's when the Bears will take over Bulls"
+    },
+    {
+      "source_id": "1a586e7f-5e85-4125-b4ef-5de2025704b7",
+      "citation_number": 7,
+      "cited_text": "lowest top . highest bottom, 7 After all, for two consecutive maxima to be local maxima, there must be a local minimum in between and vice versa for two consecutive minima. Foundations of Technical Analysis 1717 RBOT [ 5 E1 is a minimum tops are within 0.75 percent of their average bottoms are within 0.75 percent of their average lowest top . highest bottom. The definition for double tops and bottoms is slightly more involved. Con-sider first the double top. Starting at a local maximum E1, we locate the highest local maximum Ea occurring after E1 in the set of all local extrema in the sample. We require that the two tops, E1 and Ea, be within 1.5 percent of their average. Finally, following Edwards and Magee ~1966!, we require that the two tops occur at least a month, or 22 trading days, apart. There-fore, we have the following definition."
+    },
+    {
+      "source_id": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+      "citation_number": 8,
+      "cited_text": "The next chart gives more examples.   3 / 10 AB is the double bottom. C is confirmation. Because price does not close below the bottom of the pattern (D) the hunt for the ultimate high continues. However, a stop placed a penny below the lower of the two bottoms would have triggered for a loss. The next chart gives more examples.   4 / 10 AB is the double bottom with C being the bottom of a throwback. A throwback happens in Adam & Eve double bottoms 67% of the time, on average. Notice that the pattern ABC looks like a head-and-shoulders bottom."
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 9,
+      "cited_text": "ude trend lines i don't use trend lines uh you know G here now I know some traders who make money trading trend lines and so you know I want to give them uh I I I want to give them the nod and say \"Congratulations you can do it.\" But in my own way of thinking you give a chart book a ruler and a pencil to an ape and you come back a day later he's probably going to have driven some line that makes sense uh a wedge falling wedge rising wedge these are diagonal patterns uh beware of diagonal patterns and then finally a pattern is not a pattern until it's completed and even then it can fail you know oftentimes I'll talk about patterns and usually I'll talk about possible patterns there's a possible head and shoulders there's a possible rectangle there's a possible this or that and you that doesn't mean that I believe that there is a head and shoulders there is a head and shoulders pattern and it it's really not a head and shoulders pattern till it's completed and even then it can fail uh Sh"
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 10,
+      "cited_text": "a symmetrical triangle would be a right angle triangle and ascending triangle or cup and handle here's crude oil this is this is a weekly chart and shows the massive symmetrical triangle top that developed in crude oil that broke up at late in 2014 and has resulted in cheap gas i paid $157 at the pump the other day i don't think prices are there anymore uh here's cotton this is what's probably called a common turn it hasn't completed yet it you can't really identify anything specific it's just kind of lazily rolling around and that's that's common turn here's a head and shoulders top that occurred just recently in the S&Ps you can see the shoulder you can see the head you can see the shoulder in this case is a complex head and shoulders top because they're not cleanly uh they're not clean shoulders they they have different characteristics here's Australian dollar where you can see a symmetrical triangle with a rectangle at the tail end here's the Canadian dollar and you can see a doubl"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 11,
+      "cited_text": "re trend for 30 bars and then you get this trend line break and the trend line break is pretty strong pretty strong buying pressure 39 pulling retracing half of this trend that's enough buying pressure to disappoint the traders selling down here which means let's imagine it this way if you're selling it's a low one short bar 37 let's say you're selling bar 37 you get filled on 38 and then you get bar 39 and you just sold you're disappointed because you're trapped into a losing position you never would have sold 37 if you knew you were going to get bar 39 you would have sold the pullback instead so the traders who sold down here are trapped by the bull breakout that strong momentum by the bulls and it's probably going to get second leg because of those trapped traders so when the market comes back and tests support the expectation is that you have trapped bears who sold were disappointed by the breakout and when price comes back and tests their entry price they're going to buy back shor"
+    },
+    {
+      "source_id": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+      "citation_number": 12,
+      "cited_text": "This setup, where the upward breakout from a double bottom (or other reversal pattern) rejoins the uptrend can lead to substantial gains (not always, of course). But it's a setup worth looking for. More In this example, price is dropping (shown by the thick red lines). A double bottom acts as a reversal of the downtrend (because price moves UP to A, confirming the double bottom as a valid reversal), but when the stock rejoins the current, the reversal collapses and the stock continues lower (to B)."
+    },
+    {
+      "source_id": "7360ee4d-d55e-46fd-b016-d7697df264b1",
+      "citation_number": 13,
+      "cited_text": "An example of a Adam & Eve double bottom (AB) The End. ❮ ❯ -- Thomas Bulkowski More See Also Pattern pairs trading: double bottoms, Adam & Eve . Double bottoms , overview. Article explains the four varieties. Double bottom trading setup. Cat's Ears: A double bottom in a downward price trend. Score your chart pattern for performance. Adam & Adam double bottoms are mid list performers. Eve & Adam double bottoms may be what you are looking for. Eve & Eve double bottoms are the classic double bottom. What happens when a double bottoms grows a third bottom? Is your double bottoms is really a right-angled and ascending broadening formation? Busted double bottoms"
+    },
+    {
+      "source_id": "19b055cc-66b7-436a-9154-cc98d0df44be",
+      "citation_number": 14,
+      "cited_text": "S2 & S3: This SB setup itself if fine but the conditions seem unfavorable to me. Prices retrace about 46% of the last swing of the first pullback, right into the former support turned resistance from the block at S1. The unfavorable part of this trade was visible chart support (green line). My concerns were reinforced when prices broke through the green line and immediately pulled back, leading me to skip S3 as well (a DD setup). M1: Prices bounced off a level of support after 40+ pip downward move (1) and proceeded to form a mini double top (2 and 3). There's not much to make of this price action until a second bottom formed (4). This is a very noticeable double bottom; things are getting interesting. I immediately start looking for counter trend opportunities after that false break (F). If prices can stay around the 80 level and slowly make a squeeze we'll have a good countertrend RB setup. Things didn't work out that way but I was still looking for a long trade even after prices started to move away from the 80 level. I started to get distracted because prices weren't going my way; I was bored. I did not notice that the bulls failed to testing the 80 level to the pip (5) and I did not notice this IRB setup form. Given the failure of the bulls to keep the pressure up on the bears, I think taking this break was the right thing to do, despite that prominent double bottom (we have the trend on our side). I think this example illustrates one of Volman's points very well; we should not expect anything from the market. All expectations do is cloud your judgment and blind you to other possibilities. We should keep an open mind while trading because anything can happen."
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 15,
+      "cited_text": "take counter Trend trades until there's a strong break and retest of the channel line bull channels will break into a bare Channel after a double top is formed bare channels will break into a bull Channel after a double bottom is formed both these setups indicate a wedge top or bottom how to draw bull Channel lines we start at the bottom left and extend it to the top right this is the trend line for the Bulls and the opposite is containing the price and that's the Trend channel line bullish channel line break here we can see the same channel we just talked about and then they had a very strong break and they come to retest the highs here's that wedge top and it led to two legs down for the Bears how to draw bear Channel lines you start here and you pull it down containing the price action this is also acting as resistance the line opposite of this is called the"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 16,
+      "cited_text": "channel line and we draw that after we draw the first line here containing the bare price action bearish channel line break channel line break here we can see the same exact Channel we just had Bulls make a strong twole push up breaking the bearish channel line and they come for a retest of the lows this creates a double bottom formed at the recent lows here's the wedge bottom giving us one two and three pushes down down which also let the two legs higher for the Bulls this is more of a inside look at the charts we just looked at the horizontal price action containing everything dueling lines intersecting trend lines and Trend channel line dueling lines have two trend lines usually a long-term trend line and a short-term opposite trend line the goal is to see how price action reacts at the intersection and then place a trade this is a bullish"
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 17,
+      "cited_text": "Are there other recognizable chart configurations at play in Gold at the present time? Answer – NO! On the Validity of Penetration – “We can set up three tests or criteria … for determining decisive breakouts [from trendlines].” The first is the extent of penetration. To be decisive, prices must not only push through the line but close beyond it by a margin equal to about 3% of the stock's [or commodity's] price.” Has Gold closed above 1325 to 1330, a 3% penetration of the Gold Trendline? Answer – NO! Can the trendline be considered to be valid without a close above 1330? Answer – NO! (I could legitimately argue that the 3% rule is not as applicable to commodities or forex – that 1% to 2% might be more appropriate)."
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 18,
+      "cited_text": "“The second is volume of trading. Activity should always be expected to rise notably on a genuine up-side breakout ….” Did Gold's trading volume expand as prices penetrated the Gold Trendline? Answer – NO! Volume actually contracted. “The third test … applies particularly to breaks which are borderline as far as the margin of penetration is concerned. If prices simply edge up feebly to the underside of the trendline and tend to 'roll over' without being able to close clearly above it – then the situation is … critical and the slightest sign of renewed selling pressure may be taken as a signal that the up-trend has been decisively broken.”"
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 19,
+      "cited_text": "Breakouts get a bad reputation because the failure rate on raw breakouts is high. I've seen stats claiming 60-70% of breakouts fail and turn into traps. That matches my experience. The fix isn't to avoid breakouts entirely. It's to filter them. My breakout filter has two parts: Volume expansion through the level. A real breakout happens on increasing volume. The candle that breaks the level should have noticeably more volume than the candles approaching it. If NQ has been grinding toward resistance at 20,000 with 15,000 contracts per 5-minute candle, and the breakout candle prints 35,000 contracts, that's legitimate participation. If the breakout candle has average or below-average volume, I skip it. That's likely a stop-run that will reverse."
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 20,
+      "cited_text": "Second Perspective – My experience as a chart trader It has been my experience as a trader that certain chart configurations are more reliable than other chart configurations. My test of reliability is that a completed chart construction produces the expected price move outcome and does so in an orderly and sustained manner without deeply challenging the integrity of the completed chart construction. I have found that patterns with horizontal (or nearly horizontal) boundaries are far more reliable (as much as two times more reliable) than diagonal chart construction. Examples of horizontal and diagonal chart construction are found on page 3."
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 21,
+      "cited_text": "But, the main problem with diagonal chart configurations is that they are subject to a concept I call “morphology.” For example, a completed falling wedge may advance briefly and then fall back to begin forming a longer-duration TBD pattern. As a trader I have little interest in chart construction that is likely to morph. Horizontal chart construction · Head and shoulders – when the neckline is flat or slants away from the right shoulder · H&S failures · Rectangles · Right-angled (ascending and descending triangles) – when the breakout is through the horizontal boundary"
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 22,
+      "cited_text": "d what we showed you is we actually bought that symmetrical triangle but because of aggressive risk management we always assume that maybe we're wrong in our interpretation so we use aggre aggressive risk management we walked away from the gold market uh without losing money and that's the idea of aggressive risk management is that even if you misidentify a classical chart pattern there's a chance the least you can minimize your loss so thanks for hanging in there uh I there are some other things I wanted to cover but we've we're here for 35 minutes this is as long as really I want to take any of your time it's quitting time i want to thanks uh for your attendance and uh uh we will talk to you again when we do the third uh webinar and that'll be our final webinar and that market in that webinar what I want to do is is get a little bit into our risk management look at a market like gold why even though we were wrong in our interpretation were we able to walk away without being scarred i"
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 23,
+      "cited_text": "Classical charting remains a very valid tool for market speculation, but chartists must be increasingly selective in trade identification. Here's why – WIN RATE DOES MATTER! My experience is that 30% of trendline violations on longer-term charts (weeklies) produce a meaningful move while 70% of trendline violations completely fail or produce moves that fizzle out quickly. While risk management is far more important than trade selection, all other things being equal the performance metrics of being right 30% of the time are far different than the performance metrics with a 41% win rate (Factor's historic baseline)."
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 24,
+      "cited_text": "and the bulls will probably get a second leg up inside bar it's a sell signal bar but like i said the first reversal will probably fail and be a pullback minor reversal before the bulls get trend resumption good risk-reward but low probability relatively small risk if you sell below bar 11 with the hope being the expanding triangle structure continues and the market gets all the way down back down below bar 9 but in that case you're making two or three times your risk and the only way you get good riskreward is if the other side of the trade has the high probability which means selling bar 11 you probably have a low probability of winning that trade but you make up for the low probability the low win rate with the good risk reward the two or three times your initial risk then market goes immediately outside up 12 and 13 market looks like it's respecting this bull channel line as it tests it on bar 13 breaking out to a new high and then finding sellers again but look at the selling pre"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 25,
+      "cited_text": "6 a buy reversal bar closing above its midpoint but another additional bar added to the micro channel like i said more likely sellers above 36 than buyers too much momentum usually the first reversal fails the bulls need a trend line break and a test of the lows before they can get their major reversal most of the time and then the bears like i said 22 the high of 22 down to 24 that's a micro channel this is a pullback and that's a second leg down they seem to be similar in size so it's close to a leg one pullback leg two measured move so some support here the leg two measured move the bar 20 low we may bounce here 37 triggered the buy and then immediately failed and went back down so that's bears selling the first pullback looking for a scalp whenever there's a high probability event the riskreward is really bad and that's what we're seeing here i said it's more likely the first reversal fails which means there's a high probability limit order sell above the bear bar above the first p"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 26,
+      "cited_text": "something I want to say is these arrows that I drew were on the 5 minute chart and I swapped over to the 1 minute time frame I didn't re redraw these arrows so what that means is these these Wicks breaking down do lead to good bull Flags we have the trend line break here's the arrow leading to a good bull flag of pull pullback strong pull pull back higher low bull flag strong pull pull back leads to another breakout in a bull flag same thing with the last one what we're looking at here are these small Wicks on the five minute micro trend lines bearish same thing goes for the Bears we have a good trend line we have a couple breaks here and here a deeper pullback here and smaller breaks here these all led to profitable bare flags on the one minute time frame but again we don't have to watch the one minute time frame to understand that these Wicks are"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 27,
+      "cited_text": "creating bare flags on smaller time frames they all lead to Bare flags that have double tops that had bearish breakouts and led to profitable trades these are steep trend lines and we should only take trades in that direction here's an overall trend line and then smaller trend lines within the bigger trend line you could try and short but you would have to make a very quick scalp and it's not worth it because you can make a lot more money in the with Trend Direction here maybe this is a two three point bullar but you can make five or six points just getting short after a trend line break which creates the double top bare flag strong trend lines going flat bullish to bearish Bare trend lines becoming stronger bull trend lines is becoming flat and Broad so see how the longer the bull Trend goes the flatter it gets and at one point bears actually do start making money this was this ended up being a very deep pullback to a"
+    },
+    {
+      "source_id": "8224f447-8582-47a6-8c21-4d26240a3892",
+      "citation_number": 28,
+      "cited_text": "[ MEMBERS ONLY 3d ago Bull Flags Are Everywhere. But Are They Confirmed? by David Keller, President and Chief Strategist, Sierra Alpha Research 3d ago Bull flag patterns are appearing across individual stocks and the S&P 500, but the pattern means little without confirmation. Dave Keller, CMT, explains how trendlines, moving averages, and RSI can help confirm a bullish breakout or warn that the setup is failing.... READ MORE](https://articles.stockcharts.com/article/bull-flags-are-everywhere-but-are-they-confirmed/)"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 29,
+      "cited_text": "s lower high this was a major lower high lower highs lower lows strong breakout to a new low this is a major lower high the market broke above it so you know it's no longer a bare trend but a trading range or an opposite trend so in this case a bull trend it's certainly a trading range open the bulls are hoping it's a gap up and a double bottom bull flag on bar nine and putting in again the bulls hoping they're putting in an early low of the day and a swing trade here it's possible that it's another expanding triangle open kind of like yesterday we talked about this but i also talked about this yesterday so it was an expanding triangle higher highs and lower lows but the sell-off down to bar 8 was strong enough that the first reversal attempt back up would probably fail and now i'm saying the same is true but opposite today expanding triangle lower lows higher highs but so much momentum bars nine and 10 especially bar 10 that breakout bar that the first reversal down will probably fail"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 30,
+      "cited_text": "rt on the daily chart and a very strong rally that 15 bar micro channel followed by the deep pullback and that's a channel we have lower lows and lower highs in theory the bulls have a stop below bar 33 or the low of yesterday and based on this chart they were able to defend those stops so if you have a stop loss below 33 or yesterday's low market never reached that stop-loss which means 78 and then the gap up is a higher low the channel down is fairly tight there's pretty decent buying pressure along the way this is a pretty strong micro channel you don't get bars like 68 69 in strong bare trends but in a leg in a trading range you might get these deep pullbacks with strong buying pressure bull bars closing near their highs here the gap up is immediately testing resistance so i mentioned the micro channel here the close of 69 is probably resistance because well it's a pretty strong micro channel but the context is bad it's following this bigger selloff the bigger tight bare channel an"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 31,
+      "cited_text": "y trader who bought bar 69 was trapped by the reversal 70 and 71 and then further selling so the expectation here as bar one is testing the bar 69 close is that you have bulls who bought 69 who got trapped on 70 and 71 with the follow through and whoever bought there is trapped into a losing position and when the market comes back and tests their entry price if they in theory they use a wide stop scale in lower they're probably happy just to get out at their original entry also if we talk about the structure regarding major reversals in this case it's a bare trend and a trend line break usually the market tests the trend the old trends extreme before reversing in a major way so i do not expect this tight bare channel to reverse immediately into a strong bull trend at a minimum there's probably going to be more sideways price action trading range probably more sideways before the bulls get any kind of reversal again the micro channel yesterday that's a very strong breakout trap traders"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 32,
+      "cited_text": "s a double bottom bull flag 31 and 33 is a double bottom so there might be traders buying above 33 looking for a second leg up but the bears now have a fairly tight channel down from 29 to 33 and then they got the bare breakout on 34 any trader buying bar 33 front running the bull breakout just got trapped by the bare breakout 34 bull's hoping that it's a double bottom bull flag now we get the breakout below it's possible we fall for a measured move and this double bottom becomes resistance because the bears got a breakout and then follow through and there's the measured move down just about testing that measured move from 29 to 31 the smaller measured move based on this neckline certainly got reached from what is it bar 32 and 33 so fairly strong micro channel 32 to 35 second leg down likely the first reversal up is probably going to fail so traders can sell above any bar here expecting the bears to at least get a second leg selling here may not be ideal because it's testing support 3"
+    },
+    {
+      "source_id": "f6bf50f2-19dd-4c4b-80fb-4b67fab82184",
+      "citation_number": 33,
+      "cited_text": "ssure from bar 9 to bar 13 there's only one bar for the bears and it's a smaller inside bar so some traders will take the low probability swing trade maybe even selling with limit orders above bar 10 or below bar 11 or excuse me bar 13 but if you're taking the cells you're trading against a strong bull breakout where it's really difficult to make money selling you have open breakout gaps like this is a micro gap the high of bar 9 and the low of bar 12 do not overlap bar 10 is the breakout the pullback does not overlap the breakout point bar nine so you have traders selling above nine trapped by the bull breakout unable to get out at their original entry and that creates more fuel more buying to the upside the bears who sold and got trapped have to liquidate their position exit their shorts and that contributes to the buying and the bulls are always buying they're buying because strong momentum on the breakout 10 they're expecting at least a second leg up which they got 12 and 13 but no"
+    },
+    {
+      "source_id": "19b055cc-66b7-436a-9154-cc98d0df44be",
+      "citation_number": 34,
+      "cited_text": "Attachments 09.07.2012 16.29GMT.jpg 289.3 KB · Views: 16,549 Reactions: MajorMagnuM BLS Established member Messages 642 Likes 229 Jul 9, 2012 #5 No trades for me today but there were some skipped ones. S1: Skipped IRB setup. The chart starts off with a slight downtrend, after which bulls enter 4 pip above the 80 level. After a false break of the 20EMA, the bulls manage to bring prices within 3 pip of the 1.2300 level. They try three times to attack the 00 zone (1,2,3), but they fail. We can draw a line with this three tops but we don't have much of bottom barrier yet. After that triple top, the bears start to flex their muscles. The bring prices down the 80 level, taking out earlier support. The bulls aren't done yet and they serve the bears a false break (4). The bears keep shorting at lower and lower levels while the bulls buy at the same level of support (5 and 6). Something's got to give. Either the bulls realize they are losing of the bears get cold feet and fail at break the bottom barrier. I was rather surprised when the bulls managed to get themselves out of that squeeze. I was ready to trade the break of the bottom barrier. But after the bulls managed to escape the grip of the bears, I quickly switched to a neutral view. I wasn't sure who was winning, so by the time this setup formed I chose to skip it."
+    },
+    {
+      "source_id": "19b055cc-66b7-436a-9154-cc98d0df44be",
+      "citation_number": 35,
+      "cited_text": "E1: Prices continued to range around the 60 area for a good hour after S1. The top and bottom barriers aren't too well defined; the bottom barrier wasn't final until (6) had occurred. The overall pressure supported a short trade. We still have that downtrend on our chart from earlier. We also have a series of lower highs (2, 3, 4,5), leading up to a squeeze (prices bounce off 6, test the 20EMA, then proceed to break). It would have been preferable to see more buildup with prices bouncing between the bottom barrier and 20EMA a bit more but I felt that the big bearish doji that broke the range was enough push me over the edge to take a short. Unfortunately prices have trouble following through with the break and stall a bit before testing the 20EMA again. Prices pierced the 20EMA a bit, which is usually normal, but with a lack of follow through and prices crawling back inside the range, I thought it best to use this as my next tipping point should prices break through the lows of (1). Prices again stall, luring countertrend traders in, and I am stopped out for a 4.1 pip loss (0.7 pip from commission)."
+    },
+    {
+      "source_id": "19b055cc-66b7-436a-9154-cc98d0df44be",
+      "citation_number": 36,
+      "cited_text": "Jul 16, 2012 #13 Skip/Miss: I was looking for a short trade before the bulls wriggled themselves out of that squeeze (3). After a nice uptrend, the bulls printed a double top (1 and 2) and were getting squeezed (3), but I guess it may have been too early, in hindsight, to even take a countertrend trade. Bob says that we need to see a convincing reversal pattern and if we don't have it (11.9 I think), that we should wait for more price action to confirm that the indeed the bulls are losing. I was put off by that huge bullish candle (4) because I thought that was a terrible way for the bulls to make a break. I guess I'm still shocked, even after that pullback inside the range, that I hesitate to trade this ARB setup."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 37,
+      "cited_text": "A doji at a level reports indecision right where a decision was due. Traders treat it as a pause rather than a turn, and they wait for the next close. An inside bar at a zone shows the range contracting on arrival. Contraction at a level often precedes a fast move, though the direction stays open until price breaks the small bar. A Worked Example: The Same Bar, Two Locations Take a cross that has stalled twice under one price on its four-hour chart. You mark the line, then price grinds back up to it."
+    },
+    {
+      "source_id": "35993b7d-f788-421a-acbc-f540d2373fd5",
+      "citation_number": 38,
+      "cited_text": "Waited for the price to reach that level: And then the price reacted to the level by closing below the area of resistance: Then place enter at the next candle open, and then set your stop loss below the nearest swing low… How about the buildup? Buildup Compared to false breakouts which is a reversal setup… A Buildup is a trend continuation setup instead! It means that if the price makes a buildup below resistance, then you want to be trading in the direction of that breakout. Here's what I mean: Again, where should your entries and stop loss be?"
+    },
+    {
+      "source_id": "19b055cc-66b7-436a-9154-cc98d0df44be",
+      "citation_number": 39,
+      "cited_text": "The lesson here today is that you should exercise some aggression in the face of a strong trend. There will be times when you get stopped out but the rewards for your aggression will outweigh them. I didn't really understand or accept this lesson until today. Attachments USD Spot.png 14.5 KB · Views: 3,265 BLS Established member Messages 642 Likes 229 Jul 18, 2012 #16 E1: I got caught in an obvious tease break. According to Bob, a trader's main concern is to avoid the most classic and costliest mistakes because those are the biggest threats to profitability. I think I am ready to accept that now."
+    },
+    {
+      "source_id": "19b055cc-66b7-436a-9154-cc98d0df44be",
+      "citation_number": 40,
+      "cited_text": "E1: Prices found support above the 60 level, right above that previous bulls flag (dotted box). This trade was perhaps a bit aggressive seeing at the test of the 20EMA and that test of the upper barrier occur in the same bar. The bulls were unable to follow through on the break after such a strong candle so I move my tipping point up to the level of the upper barrier after that bounce created a lower higher. I get stopped out for a total loss of 3.8 pip. Attachments USD Spot.png 13.2 KB · Views: 2,201"
+    },
+    {
+      "source_id": "35993b7d-f788-421a-acbc-f540d2373fd5",
+      "citation_number": 41,
+      "cited_text": "Undershoot Overshoot (false breakout) Buildup I taught you that undershoots should be avoided, but how about false breaks and buildups? False breakout These kinds of setups always put you at an advantage because oftentimes you would be entering right at confirmation of support or resistance. Plus, you have a clear picture of the market's reaction that the level you are looking at, is valid. How do you enter this? Simple, once you've marked your levels: www.tradingwithrayner.com/wp-content/uploads/2016/09/15.-Mark.png"
+    },
+    {
+      "source_id": "a3b7add9-bfc6-4385-b9ab-0cbf844786f3",
+      "citation_number": 42,
+      "cited_text": "Read More Buy because there are No More Sellers Trading Process and Strategy A Failed Break of a Range will lead to a Test of the Other Side By Lance Beggs December 8, 2023 September 16, 2024 Here's a great email question from a reader: Question: I'd like to get your opinion about a question I saw on a forum. To be honest I wonder if there is a proper answer but nevertheless I think this behaviour occurs often. It is a form of strong rejection at an extreme of a range… Read More A Failed Break of a Range will lead to a Test of the Other Side"
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 43,
+      "cited_text": "My bounce setup has three requirements: 1. The level must be pre-identified. I don't draw levels in real time while price is approaching. Every S/R zone on my chart was placed before the RTH session opened. If I see price reacting at a level I didn't mark, I note it for tomorrow but I don't trade it today. Reactive level drawing leads to confirmation bias. 2. I need a rejection candle. On a 5-minute chart, I want to see price wick into the S/R zone and close back on the \"right\" side. For a support bounce, that means a candle that dips into the support zone but closes above it. The wick shows the level was tested. The close shows it held. I enter on the close of that candle."
+    },
+    {
+      "source_id": "69dd79e7-ecc3-46ce-af5e-5dabe2984be0",
+      "citation_number": 44,
+      "cited_text": "When Price Stretches to Reach the Level – 2 - YourTradingCoach.org Skip to content YourTradingCoach.org YourTradingCoach.org Be Trading For A Living! Home About Contact YourTradingCoach.org YourTradingCoach.org Be Trading For A Living! Trading Process and Strategy When Price Stretches to Reach the Level – 2 By Lance Beggs December 3, 2023 September 15, 2024 Take note of the way that price approaches an S/R level. The more that price has to stretch to reach it, the better. This is a time to FOCUS. Because if this move stalls, unable to attract sufficient buying to continue higher, it can potentially set up a very nice TST/BOF trade for reversion to the mean, or even complete reversal."
+    },
+    {
+      "source_id": "69dd79e7-ecc3-46ce-af5e-5dabe2984be0",
+      "citation_number": 45,
+      "cited_text": "This is without doubt one of the best ways I like to see price set up for TST/BOF reversal from a support or resistance. Happy trading, Lance Beggs Post navigation Previous Drive – Pause – Drive Next Feel the Emotion. Don't Just See Price Similar Posts Trading Process and Strategy Three Key YTC Lessons in this Opening Price Sequence! By Lance Beggs December 6, 2023 September 16, 2024 Lesson 1: When two trade ideas fail to work, consider a break. When three trade ideas fail to work, force a break. Lesson 2: When the pullback is deeper and stronger than expected, let it roll over. Get in on the other side. Lesson 3: An exit is not necessarily final. Remain focused and consider…"
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 46,
+      "cited_text": "Every candle describes a fight over one session. The body shows where that fight settled, and the wicks show how far each side pushed before losing ground. So a long lower wick simply reports rejection. It says sellers drove price down, buyers pushed back, and the close finished near the high. A rejection bar that speared through a twice-tested four-hour level, then closed back above it near the top of its range (click to enlarge) Now ask where the rejection happened. If price had already turned twice from the same area, other traders watched that area too, so their orders help explain the wick."
+    },
+    {
+      "source_id": "a45cd69d-f030-439c-aee6-a757201e57ac",
+      "citation_number": 47,
+      "cited_text": "Little to no upper shadow The price closes at the top ¼ of the range The lower shadow is about 2 or 3 times the length of the body And this is what a Hammer means… When the market opens, the sellers took control and pushed price lower At the selling climax, huge buying pressure stepped in and pushed price higher The buying pressure is so strong that it closed above the opening price In short, a hammer is a bullish reversal candlestick pattern that shows rejection of lower prices. Now, just because you see a Hammer doesn't mean the trend will reverse immediately."
+    },
+    {
+      "source_id": "a45cd69d-f030-439c-aee6-a757201e57ac",
+      "citation_number": 48,
+      "cited_text": "Here's what I mean: Make sense? Shooting Star A Shooting Star is a (1- candle) bearish reversal pattern that forms after an advanced in price. (The opposite of a Shooting Star is Hammer.) Here's how to recognize it: Little to no lower shadow The price closes at the bottom ¼ of the range The upper shadow is about 2 or 3 times the length of the body And this is what a Shooting Star means… When the market opens, the buyers took control and pushed price higher At the buying climax, huge selling pressure stepped in and pushed price lower The selling pressure is so strong that it closed below the opening price"
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 49,
+      "cited_text": "No immediate retest that reclaims the level. After the break, I wait two full 5-minute candles. If price doesn't dip back below the broken level within those 10 minutes, I enter on a pullback toward the broken level. The old resistance becomes new support (or old support becomes new resistance). This \"break and retest\" pattern is my highest-conviction breakout setup because it confirms the level has flipped. I avoid breakout trades during the first 15 minutes of RTH. The open generates massive volume that can blow through any level, only to reverse 20 minutes later. FOMC days, CPI releases, and NFP mornings are the same story. Volatility drives false breakouts on news events. I wait 30-45 minutes after a major release before considering any breakout trade."
+    },
+    {
+      "source_id": "69dd79e7-ecc3-46ce-af5e-5dabe2984be0",
+      "citation_number": 50,
+      "cited_text": "Like a rubber band stretched and released. We discussed this concept recently in the following article – https://yourtradingcoach.com/trading-process-and-strategy/when-price-stretches-to-reach-the-level/ But it happens over and over again, so let's look at another example. Similar in concept but slightly different in how it sets up. Higher timeframe context first: Here are three features that easily attract my attention: Could the market continue higher from here? Absolutely. If the break can hold and if these prices can attract sufficient new buying, the market could push higher targeting the prior day's high. My job will be to recognise this and seek BPB/PB opportunity LONG."
+    },
+    {
+      "source_id": "8acdb9ad-dfb6-4a56-be4b-77fd47937833",
+      "citation_number": 51,
+      "cited_text": "I like to use this spiked candle as my trigger bar and will use the high (off support) to trigger my trade. While I use options to place my trades I have no need for a stop loss as my risk is defined on the entry, a protective stop loss if using stock or spreadbetting can be placed below the spike lows. Targets are based on the stocks price continuing to do what it's always done and moving back to the midpoint of the range and ultimately back to the upper boundary level of the range. The opposite is also true bearish trade setups."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 52,
+      "cited_text": "3. Volume must confirm. If price hits my support zone but volume on the approach was climbing aggressively, that tells me sellers are pressing hard. The bounce is less likely to hold. Ideal bounce conditions show volume declining as price approaches the level, then a spike of volume on the rejection candle. That spike is the buy orders defending the level. My stop goes 2-3 points below the zone on NQ, depending on the width of the zone. If the zone spans 19,795 to 19,805, my stop sits at 19,792. Target depends on market structure, but the next resistance zone above is usually my first scale point."
+    },
+    {
+      "source_id": "19b055cc-66b7-436a-9154-cc98d0df44be",
+      "citation_number": 53,
+      "cited_text": "All the bears have to do now is put the squeeze on the bears to create some double pressure. We can begin to consider a bottom barrier when the lows of (4) and (6) formed but the bottom barrier was rough any way you put it. The bulls find support and manage to test that earlier dotted block (5). All looks well for the bears until the bull print a higher high (7), where the test that dotted box to the pip. The following drop is prices suggest there was some double pressure here; perhaps I missed the boat on this one. The bulls having tried to break through an earlier defense of the 00 level and failing led many to bail out and led some bears to enter. Prices drop 12 pip, straight through my barrier."
+    }
+  ]
+}

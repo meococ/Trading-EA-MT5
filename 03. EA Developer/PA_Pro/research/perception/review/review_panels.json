@@ -1,0 +1,161 @@
+{
+ "seed": 20260923,
+ "fixed": true,
+ "tune_only": true,
+ "hold": "sealed",
+ "source": "deepresearch/DR_RULES_events.jsonl kind=obj",
+ "excluded": {
+  "p099_p102_panels": [
+   "9.1a",
+   "9.30c",
+   "9.34b",
+   "9.46a"
+  ],
+  "ceiling_panels": [
+   "9.11a",
+   "9.19a",
+   "9.23c",
+   "9.24c",
+   "9.25b",
+   "9.36b",
+   "9.38a",
+   "9.50a",
+   "9.62a",
+   "9.66c"
+  ]
+ },
+ "panels": [
+  {
+   "name": "9.2b",
+   "panel": "9.2b",
+   "date": "2012-03-02",
+   "tau": 765,
+   "golden_fam": "box",
+   "window": {
+    "x0": 480,
+    "x1": 840
+   }
+  },
+  {
+   "name": "9.10c",
+   "panel": "9.10c",
+   "date": "2012-03-14",
+   "tau": 945,
+   "golden_fam": "line",
+   "window": {
+    "x0": 720,
+    "x1": 1080
+   }
+  },
+  {
+   "name": "9.11b",
+   "panel": "9.11b",
+   "date": "2012-03-15",
+   "tau": 840,
+   "golden_fam": "line",
+   "window": {
+    "x0": 480,
+    "x1": 840
+   }
+  },
+  {
+   "name": "9.17b",
+   "panel": "9.17b",
+   "date": "2012-03-23",
+   "tau": 730,
+   "golden_fam": "level",
+   "window": {
+    "x0": 420,
+    "x1": 780
+   }
+  },
+  {
+   "name": "9.25a",
+   "panel": "9.25a",
+   "date": "2012-04-04",
+   "tau": 300,
+   "golden_fam": "level",
+   "window": {
+    "x0": 240,
+    "x1": 660
+   }
+  },
+  {
+   "name": "9.33c",
+   "panel": "9.33c",
+   "date": "2012-04-16",
+   "tau": 1055,
+   "golden_fam": "box",
+   "window": {
+    "x0": 720,
+    "x1": 1140
+   }
+  },
+  {
+   "name": "9.36c",
+   "panel": "9.36c",
+   "date": "2012-04-19",
+   "tau": 1085,
+   "golden_fam": "line",
+   "window": {
+    "x0": 780,
+    "x1": 1140
+   }
+  },
+  {
+   "name": "9.40a",
+   "panel": "9.40a",
+   "date": "2012-04-25",
+   "tau": 660,
+   "golden_fam": "line",
+   "window": {
+    "x0": 300,
+    "x1": 660
+   }
+  },
+  {
+   "name": "9.42b",
+   "panel": "9.42b",
+   "date": "2012-04-27",
+   "tau": 640,
+   "golden_fam": "box",
+   "window": {
+    "x0": 420,
+    "x1": 780
+   }
+  },
+  {
+   "name": "9.48b",
+   "panel": "9.48b",
+   "date": "2012-05-07",
+   "tau": 705,
+   "golden_fam": "box",
+   "window": {
+    "x0": 360,
+    "x1": 720
+   }
+  },
+  {
+   "name": "9.52a",
+   "panel": "9.52a",
+   "date": "2012-05-11",
+   "tau": 350,
+   "golden_fam": "level",
+   "window": {
+    "x0": 240,
+    "x1": 600
+   }
+  },
+  {
+   "name": "9.57b",
+   "panel": "9.57b",
+   "date": "2012-05-18",
+   "tau": 685,
+   "golden_fam": "level",
+   "window": {
+    "x0": 420,
+    "x1": 840
+   }
+  }
+ ]
+}

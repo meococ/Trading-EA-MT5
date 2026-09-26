@@ -1,0 +1,10 @@
+# Golden labels, overlays and book-derived data stay local (gitignored),
+# per CHARTER_ADDENDUM_4 A4.3 and the P1 mandate. Only CODE (*.py) and this
+# file are tracked.
+
+*.jsonl
+*.json
+*.png
+draft/
+qa/
+_scan_cache/

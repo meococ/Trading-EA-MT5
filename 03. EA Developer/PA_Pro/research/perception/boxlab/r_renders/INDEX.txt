@@ -1,0 +1,36 @@
+9.2b_g0_hit.png  9.2b g0 tau=765 clause=- a rectangle, ~09:40–13:30, at ≈1.3239–1.3261, straddling 1,325
+9.4b_g0_hit.png  9.4b g0 tau=815 clause=a rectangle, ~11:00–15:05, at 1.3131–1.3150 [meas 19 pips]
+9.6a_g0_hit.png  9.6a g0 tau=600 clause=- a large rectangle, ~05:55–10:30, at ≈1.3167–1.3185 [meas ≈18 pips]
+9.14a_g0_hit.png  9.14a g0 tau=530 clause=two open parallel horizontal lines: ≈1.3241
+9.15b_g3_hit.png  9.15b g3 tau=895 clause=a W bracket below the box, ~13:25–14:55
+9.25b_g0_hit.png  9.25b g0 tau=775 clause=a rectangle, ~10:35–13:05, at 1.3161–1.3175 [meas 14 pips], under a falling EMA
+9.36b_g0_hit.png  9.36b g0 tau=560 clause=- the range as a closed rectangle, ~07:45–10:10
+9.39a_g0_hit.png  9.39a g0 tau=475 clause=a long rectangle, ~01:10–08:35, at 1.3146–1.3157 [meas 11 pips]
+9.45b_g0_hit.png  9.45b g0 tau=740 clause=BOX ~11:20–12:55 around the
+  base on the 1.315
+9.48b_g1_hit.png  9.48b g1 tau=705 clause=~1.2990–1.3020
+9.48a_g2_log_only.png  9.48a g2 tau=420 clause=absorption phase.
+  *Lesson*: an absorption box after a spike includes the spike
+9.27a_g0_log_only.png  9.27a g0 tau=600 clause=a rectangle from ~07:45 to the right edge, at 1.3062–1.3078 [meas 16 pips]. The 
+9.16c_g2_rate_limited.png  9.16c g2 tau=1070 clause=a rectangle, ~16:30–18:05, at ≈1.3188–1.3202
+9.32b_g1_outranked.png  9.32b g1 tau=735 clause=a rectangle, ~10:35–12:55, at 1.3143–1.3159 [meas 16 pips]
+9.24b_g0_expired.png  9.24b g0 tau=820 clause=- the dotted range, ~07:30–13:40 (closed)
+9.52b_g0_outranked.png  9.52b g0 tau=840 clause=box closed
+  ~11:25
+9.43b_g0_below_min_score.png  9.43b g0 tau=840 clause=top
+  ~1.3232, bottom ~1.3212 as the EMA flattens. No marks. *Lesson*: the first
+9.56c_g0_rate_limited.png  9.56c g0 tau=840 clause=BOX ~13:15–14:55 (~8 pips) around
+  the low base. Callouts: [skip↓]
+9.47b_g0_outranked.png  9.47b g0 tau=840 clause=Asian box to ~10:50
+9.53b_g0_outranked.png  9.53b g0 tau=840 clause=box to ~11:40
+9.13a_g0_no_coverage.png  9.13a g0 tau=190 clause=- a long rectangle, ~02:45–09:40, at 1.3164–1.3176 [meas 12 pips] (Asia into the
+9.60b_g2_no_coverage.png  9.60b g2 tau=770 clause=BOX ~09:55–12:50
+9.30c_g1_no_coverage.png  9.30c g1 tau=880 clause=a rectangle, ~14:05–15:45, at ≈1.3119–1.3131
+9.54a_g0_no_coverage.png  9.54a g0 tau=470 clause=long BOX ~02:00–09:10 (~22 pips)
+9.56b_g0_no_coverage.png  9.56b g0 tau=780 clause=Asian box closed ~10:10
+9.7a_g2_no_coverage.png  9.7a g2 tau=580 clause=a rectangle, ~09:40–11:35, at ≈1.3228–1.3240 [meas ≈11 pips], with a W bracket u
+9.12c_g0_no_coverage.png  9.12c g0 tau=1020 clause=a rectangle, ~16:35–18:00, at ≈1.3165–1.3176
+9.60b_g4_no_coverage.png  9.60b g4 tau=900 clause=small TL↗ inside the box
+9.50c_g0_no_coverage.png  9.50c g0 tau=875 clause=BOX ~14:05–16:20 (~12 pips) around
+  the post-drop base
+9.20b_g1_no_coverage.png  9.20b g1 tau=715 clause=a rectangle, ~10:20–11:55, at 1.3337–1.3352 [meas 16 pips], with a DOTTED rising

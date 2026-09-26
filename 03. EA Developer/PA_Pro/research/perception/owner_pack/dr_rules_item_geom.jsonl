@@ -1,0 +1,102 @@
+{"seq": "p001", "panel": "9.58a", "tau": 650, "kind": "PATTERN_LINE", "t0": 545, "t1": 650, "p0": 1.2757, "p1": 1.277548, "family": "line"}
+{"seq": "p002", "panel": "9.32b", "tau": 571, "kind": "LEVEL_CARRIED", "t0": 561, "t1": 710, "price": 1.3167, "family": "level"}
+{"seq": "p003", "panel": "9.46b", "tau": 805, "kind": "BOX", "t0": 480, "t1": 805, "lo": 1.3130700000000002, "hi": 1.3139, "price": null, "p0": null, "slope": null, "family": "box"}
+{"seq": "p004", "panel": "9.56a", "tau": 555, "kind": "BOX", "t0": 515, "t1": 555, "lo": 1.2717399999999999, "hi": 1.27343, "family": "box"}
+{"seq": "p005", "panel": "9.62a", "tau": 485, "kind": "BOX", "t0": 180, "t1": 485, "lo": 1.25181, "hi": 1.25384, "price": null, "p0": null, "slope": null, "family": "box"}
+{"seq": "p006", "panel": "9.12b", "tau": 705, "kind": "PATTERN_LINE", "t0": 480, "t1": 705, "lo": null, "hi": null, "price": null, "p0": 1.308, "slope": -4.118e-05, "family": "line"}
+{"seq": "p007", "panel": "9.31c", "tau": 950, "kind": "BOX", "t0": 935, "t1": 1075, "lo": 1.3163, "hi": 1.3175, "family": "box"}
+{"seq": "p008", "panel": "9.42b", "tau": 770, "kind": "PATTERN_LINE", "t0": 700, "t1": 770, "p0": 1.32415, "p1": 1.3239992307692308, "family": "line"}
+{"seq": "p009", "panel": "9.39a", "tau": 415, "kind": "CONTEXT_LINE", "t0": 120, "t1": 415, "lo": null, "hi": null, "price": null, "p0": 1.31554, "slope": -1.28e-06, "family": "line"}
+{"seq": "p010", "panel": "9.7a", "tau": 310, "kind": "PATTERN_LINE", "t0": 300, "t1": 310, "lo": null, "hi": null, "price": null, "p0": 1.3263200000000002, "slope": -2.9230000000000003e-05, "family": "line"}
+{"seq": "p011", "panel": "9.50b", "tau": 430, "kind": "CONTEXT_LINE", "t0": 420, "t1": 430, "lo": null, "hi": null, "price": null, "p0": 1.298, "slope": 1.464e-05, "family": "line"}
+{"seq": "p012", "panel": "9.2c", "tau": 780, "kind": "PATTERN_LINE", "t0": 720, "t1": 780, "lo": null, "hi": null, "price": null, "p0": 1.32865, "slope": -7.133000000000001e-05, "family": "line"}
+{"seq": "p013", "panel": "9.58b", "tau": 870, "kind": "BOX", "t0": 810, "t1": 870, "lo": 1.2743529999999998, "hi": 1.2767769999999998, "family": null}
+{"seq": "p014", "panel": "9.29b", "tau": 590, "kind": "PATTERN_LINE", "t0": 420, "t1": 590, "lo": null, "hi": null, "price": null, "p0": 1.31218, "slope": -0.00028643, "family": "line"}
+{"seq": "p015", "panel": "9.66a", "tau": 555, "kind": "BAR_MARKER", "t0": 555, "t1": 565, "price": null, "family": "annot"}
+{"seq": "p016", "panel": "9.55a", "tau": 580, "kind": "CONTEXT_LINE", "t0": 180, "t1": 580, "lo": null, "hi": null, "price": null, "p0": 1.27343, "slope": -2.6390000000000003e-05, "family": "line"}
+{"seq": "p017", "panel": "9.61c", "tau": 985, "kind": "BRACKET", "t0": 945, "t1": 985, "price": null, "family": "bracket"}
+{"seq": "p018", "panel": "9.58b", "tau": 735, "kind": "CONTEXT_LINE", "t0": 480, "t1": 735, "lo": null, "hi": null, "price": null, "p0": 1.2800600000000002, "slope": -2.7500000000000004e-05, "family": "line"}
+{"seq": "p019", "panel": "9.64c", "tau": 1015, "kind": "BRACKET", "t0": 964, "t1": 1015, "price": 1.256528776978417, "family": "bracket"}
+{"seq": "p020", "panel": "9.20a", "tau": 535, "kind": "CONTEXT_LINE", "t0": 180, "t1": 535, "lo": null, "hi": null, "price": null, "p0": 1.33188, "slope": -2.78e-06, "family": "line"}
+{"seq": "p021", "panel": "9.30a", "tau": 600, "kind": "BOX", "t0": 205, "t1": 600, "lo": 1.3093648089169978, "hi": 1.3114648089169978, "family": null}
+{"seq": "p022", "panel": "9.11c", "tau": 980, "kind": "BOX", "t0": 720, "t1": 980, "lo": 1.3040500000000002, "hi": 1.3069000000000002, "price": null, "p0": null, "slope": null, "family": "box"}
+{"seq": "p023", "panel": "9.58c", "tau": 975, "kind": "BOX", "t0": 720, "t1": 975, "lo": 1.27528, "hi": 1.2812000000000001, "price": null, "p0": null, "slope": null, "family": "box"}
+{"seq": "p024", "panel": "9.32b", "tau": 490, "kind": "LEVEL_CARRIED", "t0": 480, "t1": 570, "lo": null, "hi": null, "price": 1.3166, "p0": null, "slope": null, "family": "level"}
+{"seq": "p025", "panel": "9.54c", "tau": 1010, "kind": "BOX", "t0": 780, "t1": 1010, "lo": 1.27777, "hi": 1.28003, "price": null, "p0": null, "slope": null, "family": "box"}
+{"seq": "p026", "panel": "9.41b", "tau": 585, "kind": "BOX", "t0": 525, "t1": 585, "lo": 1.3228099999999998, "hi": 1.32585, "family": null}
+{"seq": "p027", "panel": "9.19b", "tau": 820, "kind": "PATTERN_LINE", "t0": 785, "t1": 820, "p0": 1.33533, "p1": 1.3359366666666668, "family": "line"}
+{"seq": "p028", "panel": "9.31b", "tau": 700, "kind": "PATTERN_LINE", "t0": 635, "t1": 700, "p0": 1.3134700000000001, "p1": 1.3134700000000001, "family": null}
+{"seq": "p029", "panel": "9.14c", "tau": 820, "kind": "PATTERN_LINE", "t0": 720, "t1": 820, "lo": null, "hi": null, "price": null, "p0": 1.3188700000000002, "slope": -4.4640000000000006e-05, "family": "line"}
+{"seq": "p030", "panel": "9.5c", "tau": 1030, "kind": "LEVEL_CARRIED", "t0": 1020, "t1": 1080, "price": 1.3137, "family": "level"}
+{"seq": "p031", "panel": "9.35b", "tau": 490, "kind": "LEVEL_CARRIED", "t0": 480, "t1": 645, "lo": null, "hi": null, "price": 1.31224, "p0": null, "slope": null, "family": "level"}
+{"seq": "p032", "panel": "9.57b", "tau": 760, "kind": "LEVEL_CARRIED", "t0": 710, "t1": 760, "price": 1.2660790172310965, "family": null}
+{"seq": "p033", "panel": "9.59a", "tau": 600, "kind": "PATTERN_LINE", "t0": 330, "t1": 600, "lo": null, "hi": null, "price": null, "p0": 1.2789000000000001, "slope": 4.044e-05, "family": "line"}
+{"seq": "p034", "panel": "9.50c", "tau": 980, "kind": "BOX", "t0": 845, "t1": 980, "lo": 1.2903394642734631, "hi": 1.291539464273463, "family": null}
+{"seq": "p035", "panel": "9.22c", "tau": 1020, "kind": "BOX", "t0": 960, "t1": 1020, "lo": 1.331332, "hi": 1.334628, "family": null}
+{"seq": "p036", "panel": "9.30c", "tau": 1065, "kind": "BRACKET", "t0": 965, "t1": 1065, "price": 1.31186, "family": null}
+{"seq": "p037", "panel": "9.40c", "tau": 905, "kind": "BRACKET", "t0": 825, "t1": 905, "price": 1.3182801418439718, "family": "bracket"}
+{"seq": "p038", "panel": "9.34a", "tau": 465, "kind": "BOX", "t0": 240, "t1": 465, "lo": 1.31068, "hi": 1.31139, "price": null, "p0": null, "slope": null, "family": "box"}
+{"seq": "p039", "panel": "9.10b", "tau": 875, "kind": "BOX", "t0": 540, "t1": 875, "lo": 1.30306, "hi": 1.30673, "price": null, "p0": null, "slope": null, "family": "box"}
+{"seq": "p040", "panel": "9.25c", "tau": 820, "kind": "PATTERN_LINE", "t0": 780, "t1": 820, "lo": null, "hi": null, "price": null, "p0": 1.31959, "slope": -0.0001022, "family": "line"}
+{"seq": "p041", "panel": "9.56b", "tau": 660, "kind": "BOX", "t0": 490, "t1": 660, "lo": 1.2689300000000001, "hi": 1.27298, "family": null}
+{"seq": "p042", "panel": "9.37c", "tau": 965, "kind": "PATTERN_LINE", "t0": 940, "t1": 965, "p0": 1.31917, "p1": 1.31917, "family": "line"}
+{"seq": "p043", "panel": "9.52c", "tau": 835, "kind": "PATTERN_LINE", "t0": 720, "t1": 835, "lo": null, "hi": null, "price": null, "p0": 1.29557, "slope": -8.176e-05, "family": "line"}
+{"seq": "p044", "panel": "9.30c", "tau": 880, "kind": "PATTERN_LINE", "t0": 755, "t1": 880, "p0": 1.31322, "p1": 1.3142557142857136, "family": "line"}
+{"seq": "p045", "panel": "9.62b", "tau": 430, "kind": "LEVEL_CARRIED", "t0": 420, "t1": 500, "lo": null, "hi": null, "price": 1.25333, "p0": null, "slope": null, "family": "level"}
+{"seq": "p046", "panel": "9.21c", "tau": 1030, "kind": "PATTERN_LINE", "t0": 870, "t1": 1030, "p0": 1.327788419360619, "p1": 1.3297284193606191, "family": null}
+{"seq": "p047", "panel": "9.59a", "tau": 425, "kind": "LEVEL_CARRIED", "t0": 415, "t1": 545, "lo": null, "hi": null, "price": 1.2784700000000002, "p0": null, "slope": null, "family": "level"}
+{"seq": "p048", "panel": "9.15c", "tau": 790, "kind": "LEVEL_CARRIED", "t0": 780, "t1": 915, "lo": null, "hi": null, "price": 1.323507, "p0": null, "slope": null, "family": "level"}
+{"seq": "p049", "panel": "9.3c", "tau": 1015, "kind": "PATTERN_LINE", "t0": 900, "t1": 1015, "p0": 1.32363, "p1": 1.3212463636363636, "family": "line"}
+{"seq": "p050", "panel": "9.38a", "tau": 505, "kind": "MINI_LEVEL", "t0": 495, "t1": 530, "price": 1.31651, "family": "level"}
+{"seq": "p051", "panel": "9.48b", "tau": 660, "kind": "BRACKET", "t0": 635, "t1": 660, "price": 1.299159445407279, "family": "bracket"}
+{"seq": "p052", "panel": "9.1c", "tau": 795, "kind": "BOX", "t0": 695, "t1": 830, "lo": 1.3317, "hi": 1.3332, "family": "box"}
+{"seq": "p053", "panel": "9.31a", "tau": 600, "kind": "BOX", "t0": 240, "t1": 600, "lo": 1.3106, "hi": 1.31169, "price": null, "p0": null, "slope": null, "family": "box"}
+{"seq": "p054", "panel": "9.24a", "tau": 660, "kind": "PATTERN_LINE", "t0": 560, "t1": 660, "p0": 1.33533, "p1": 1.33308, "family": "line"}
+{"seq": "p055", "panel": "9.49b", "tau": 885, "kind": "BOX", "t0": 825, "t1": 885, "lo": 1.2994970000000001, "hi": 1.303233, "family": null}
+{"seq": "p056", "panel": "9.36c", "tau": 850, "kind": "PATTERN_LINE", "t0": 780, "t1": 850, "lo": null, "hi": null, "price": null, "p0": 1.3111000000000002, "slope": -4.9090000000000006e-05, "family": "line"}
+{"seq": "p057", "panel": "9.60a", "tau": 505, "kind": "LEVEL_CARRIED", "t0": 495, "t1": 555, "lo": null, "hi": null, "price": 1.2664900000000001, "p0": null, "slope": null, "family": "level"}
+{"seq": "p058", "panel": "9.23a", "tau": 595, "kind": "PATTERN_LINE", "t0": 520, "t1": 595, "p0": 1.33502, "p1": 1.3352985714285712, "family": "line"}
+{"seq": "p059", "panel": "9.62b", "tau": 570, "kind": "BOX", "t0": 510, "t1": 570, "lo": 1.254026, "hi": 1.257354, "family": null}
+{"seq": "p060", "panel": "9.48a", "tau": 70, "kind": "LEVEL_CARRIED", "t0": 60, "t1": 420, "lo": null, "hi": null, "price": 1.2973940000000002, "p0": null, "slope": null, "family": "level"}
+{"seq": "p061", "panel": "9.19a", "tau": 540, "kind": "BOX", "t0": 480, "t1": 540, "lo": 1.3335730000000001, "hi": 1.335517, "family": null}
+{"seq": "p062", "panel": "9.30a", "tau": 615, "kind": "PATTERN_LINE", "t0": 540, "t1": 615, "p0": 1.31276, "p1": 1.310365, "family": null}
+{"seq": "p063", "panel": "9.66b", "tau": 690, "kind": "BOX", "t0": 480, "t1": 690, "lo": 1.23868, "hi": 1.24167, "price": null, "p0": null, "slope": null, "family": "box"}
+{"seq": "p064", "panel": "9.12a", "tau": 470, "kind": "PATTERN_LINE", "t0": 300, "t1": 470, "lo": null, "hi": null, "price": null, "p0": 1.30798, "slope": 8.857000000000001e-05, "family": "line"}
+{"seq": "p065", "panel": "9.14c", "tau": 1000, "kind": "BRACKET", "t0": 945, "t1": 1000, "price": 1.324014597506677, "family": null}
+{"seq": "p066", "panel": "9.41b", "tau": 835, "kind": "BOX", "t0": 710, "t1": 865, "lo": 1.3203, "hi": 1.3219, "family": "box"}
+{"seq": "p067", "panel": "9.21b", "tau": 830, "kind": "PATTERN_LINE", "t0": 785, "t1": 830, "p0": 1.32771, "p1": 1.32889, "family": "line"}
+{"seq": "p068", "panel": "9.43b", "tau": 490, "kind": "LEVEL_CARRIED", "t0": 480, "t1": 680, "lo": null, "hi": null, "price": 1.32434, "p0": null, "slope": null, "family": "level"}
+{"seq": "p069", "panel": "9.66a", "tau": 530, "kind": "PATTERN_LINE", "t0": 240, "t1": 530, "lo": null, "hi": null, "price": null, "p0": 1.23758, "slope": 3.63e-05, "family": "line"}
+{"seq": "p070", "panel": "9.36a", "tau": 600, "kind": "PATTERN_LINE", "t0": 565, "t1": 600, "p0": 1.3125850000000001, "p1": 1.31398, "family": null}
+{"seq": "p071", "panel": "9.58c", "tau": 1015, "kind": "PATTERN_LINE", "t0": 855, "t1": 1015, "p0": 1.2749949999999999, "p1": 1.2768000000000002, "family": null}
+{"seq": "p072", "panel": "9.64c", "tau": 1020, "kind": "MINI_LEVEL", "t0": 1010, "t1": 1025, "price": 1.25277, "family": "level"}
+{"seq": "p073", "panel": "9.36a", "tau": 600, "kind": "CONTEXT_LINE", "t0": 160, "t1": 600, "lo": null, "hi": null, "price": null, "p0": 1.31113, "slope": -6.79e-06, "family": "line"}
+{"seq": "p074", "panel": "9.28b", "tau": 865, "kind": "PATTERN_LINE", "t0": 545, "t1": 865, "p0": 1.3068437500000012, "p1": 1.3080437499999997, "family": "line"}
+{"seq": "p075", "panel": "9.60b", "tau": 630, "kind": "BOX", "t0": 570, "t1": 630, "lo": 1.262086, "hi": 1.2671739999999998, "family": null}
+{"seq": "p076", "panel": "9.50a", "tau": 430, "kind": "CONTEXT_LINE", "t0": 180, "t1": 430, "lo": null, "hi": null, "price": null, "p0": 1.298, "slope": 1.464e-05, "family": "line"}
+{"seq": "p077", "panel": "9.56b", "tau": 585, "kind": "PATTERN_LINE", "t0": 555, "t1": 585, "p0": 1.27139, "p1": 1.27273, "family": "line"}
+{"seq": "p078", "panel": "9.27a", "tau": 600, "kind": "BOX", "t0": 465, "t1": 600, "lo": 1.3062, "hi": 1.3078, "family": "box"}
+{"seq": "p079", "panel": "9.47b", "tau": 430, "kind": "LEVEL_CARRIED", "t0": 420, "t1": 660, "lo": null, "hi": null, "price": 1.31565, "p0": null, "slope": null, "family": "level"}
+{"seq": "p080", "panel": "9.15c", "tau": 790, "kind": "PATTERN_LINE", "t0": 780, "t1": 790, "lo": null, "hi": null, "price": null, "p0": 1.32661, "slope": -3.0420000000000004e-05, "family": "line"}
+{"seq": "p081", "panel": "9.26b", "tau": 645, "kind": "PATTERN_LINE", "t0": 480, "t1": 645, "lo": null, "hi": null, "price": null, "p0": 1.31509, "slope": 4.097e-05, "family": "line"}
+{"seq": "p082", "panel": "9.41b", "tau": 585, "kind": "BOX", "t0": 525, "t1": 585, "lo": 1.3228099999999998, "hi": 1.32585, "family": null}
+{"seq": "p083", "panel": "9.13a", "tau": 315, "kind": "LEVEL_CARRIED", "t0": 305, "t1": 505, "lo": null, "hi": null, "price": 1.316675, "p0": null, "slope": null, "family": "level"}
+{"seq": "p084", "panel": "9.43c", "tau": 725, "kind": "PATTERN_LINE", "t0": 720, "t1": 725, "lo": null, "hi": null, "price": null, "p0": 1.32471, "slope": -3.548e-05, "family": "line"}
+{"seq": "p085", "panel": "9.17a", "tau": 475, "kind": "CONTEXT_LINE", "t0": 240, "t1": 475, "lo": null, "hi": null, "price": null, "p0": 1.32122, "slope": -6.750000000000001e-06, "family": "line"}
+{"seq": "p086", "panel": "9.35a", "tau": 595, "kind": "BOX", "t0": 550, "t1": 623, "lo": 1.3101, "hi": 1.311, "family": "box"}
+{"seq": "p087", "panel": "9.1a", "tau": 250, "kind": "LEVEL_CARRIED", "t0": 240, "t1": 480, "lo": null, "hi": null, "price": 1.334482, "p0": null, "slope": null, "family": "level"}
+{"seq": "p088", "panel": "9.20b", "tau": 585, "kind": "BOX", "t0": 525, "t1": 585, "lo": 1.3320019999999997, "hi": 1.335778, "family": null}
+{"seq": "p089", "panel": "9.40b", "tau": 785, "kind": "PATTERN_LINE", "t0": 630, "t1": 785, "p0": 1.3201399999999999, "p1": 1.3225213636363637, "family": "line"}
+{"seq": "p090", "panel": "9.41b", "tau": 745, "kind": "BOX", "t0": 590, "t1": 745, "lo": 1.3203, "hi": 1.3219, "family": null}
+{"seq": "p091", "panel": "9.41b", "tau": 777, "kind": "BRACKET", "t0": 720, "t1": 777, "price": 1.319090909090909, "family": "bracket"}
+{"seq": "p092", "panel": "9.21b", "tau": 515, "kind": "PATTERN_LINE", "t0": 480, "t1": 515, "lo": null, "hi": null, "price": null, "p0": 1.33094, "slope": 0.00032429000000000003, "family": "line"}
+{"seq": "p093", "panel": "9.53b", "tau": 855, "kind": "PATTERN_LINE", "t0": 830, "t1": 855, "p0": 1.2841684597260392, "p1": 1.2841684597260392, "family": null}
+{"seq": "p094", "panel": "9.58b", "tau": 815, "kind": "PATTERN_LINE", "t0": 665, "t1": 815, "p0": 1.27658, "p1": 1.27658, "family": "line"}
+{"seq": "p095", "panel": "9.52c", "tau": 745, "kind": "LEVEL_CARRIED", "t0": 735, "t1": 880, "lo": null, "hi": null, "price": 1.293771, "p0": null, "slope": null, "family": "level"}
+{"seq": "p096", "panel": "9.6b", "tau": 660, "kind": "BOX", "t0": 600, "t1": 660, "lo": 1.3174379999999999, "hi": 1.322062, "family": null}
+{"seq": "p097", "panel": "9.38c", "tau": 795, "kind": "PATTERN_LINE", "t0": 720, "t1": 795, "lo": null, "hi": null, "price": null, "p0": 1.3196700000000001, "slope": -6.858999999999999e-05, "family": "line"}
+{"seq": "p098", "panel": "9.45b", "tau": 555, "kind": "CONTEXT_LINE", "t0": 420, "t1": 555, "lo": null, "hi": null, "price": null, "p0": 1.32387, "slope": -1.8390000000000002e-05, "family": "line"}
+{"seq": "p099", "panel": "9.1a", "tau": 480, "kind": "BOX", "t0": 240, "t1": 480, "lo": 1.3335100000000002, "hi": 1.33453, "price": null, "p0": null, "slope": null, "family": "box"}
+{"seq": "p100", "panel": "9.34b", "tau": 655, "kind": "BOX", "t0": 450, "t1": 715, "lo": 1.30899, "hi": 1.31459, "family": "box"}
+{"seq": "p101", "panel": "9.30c", "tau": 945, "kind": "BRACKET", "t0": 845, "t1": 945, "price": 1.3088820697011134, "family": null}
+{"seq": "p102", "panel": "9.46a", "tau": 630, "kind": "BOX", "t0": 240, "t1": 630, "lo": 1.3148700000000002, "hi": 1.31624, "price": null, "p0": null, "slope": null, "family": "box"}

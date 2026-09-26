@@ -1,0 +1,226 @@
+{
+  "answer": "### Patterns Professionals Mark vs. Leave Unmarked\n\n**What Professionals Mark:**\n* **Obvious Horizontal Support & Resistance Zones:** Professionals prioritize major horizontal levels where price reversed multiple times, such as prior session highs/lows, overnight extremes, and major daily/weekly swing points [1-4]. \n* **Horizontal Classical Formations:** Classical chartists prioritize completed geometric structures with horizontal boundaries (e.g., horizontal Head & Shoulders, double tops/bottoms, rectangles, and cup & handles) on higher timeframes [1, 5-7].\n* **Standard Trendlines & Channels:** When trendlines are used, professionals only mark standard lines connecting clear successive swing pivots (higher lows in uptrends, lower highs in downtrends) and parallel trend channels that contain price action [8-11].\n\n**What Professionals Leave Unmarked:**\n* **Diagonal Patterns & Slanted Structures:** Strict classical chartists (such as Peter Brandt) intentionally leave diagonal patterns (e.g., trendlines, symmetrical triangles, wedges, and channels) unmarked because violations carry no defined price targets and suffer higher failure rates than horizontal breakouts [6, 12].\n* **Intermediate & Single-Pivot Levels:** Minor intraday fluctuations, single weak pivots, or intermediate levels inside a range are left off the chart to maintain focus on major structural levels [3, 13-15].\n* **Incomplete or Forced Geometry:** Formations that do not adhere strictly to precise geometric guidelines or have not fully completed are ignored [16, 17].\n* **Stale & Broken Levels:** The moment a level or trendline is broken cleanly with volume, or fails to generate a reaction over extended time, professionals **delete/prune** it rather than leaving it on the chart [13, 18-20].\n\n---\n\n### How Many Marks Professionals Keep on a Chart at Once\n\nProfessionals enforce strict limits on chart markings to prevent visual clutter and decision paralysis [21-24]:\n\n* **The 4-Line Limit:** Veteran chartist Peter Brandt notes that drawing more than **four lines** on a 12-month daily chart indicates that a trader is likely over-analyzing or forcing structure onto the market [25].\n* **3 to 5 Key Levels:** Intraday price action and futures trading frameworks recommend keeping **3 to 5 horizontal zones** per instrument (or 5 to 6 key zones per forex pair) at any given time [2, 23, 26].\n* **1 or 2 Lines per Zone:** When marking a level, traders use either a single line for exact pip/tick reactions or two lines to mark the boundaries of an active support/resistance band [15].\n\n---\n\n### Common Beginner Mistakes\n\n1. **Forcing Patterns & Over-Analyzing Noise:** \n   Beginners often assume every chart must contain a tradable pattern if studied long enough, resulting in forced lines across random market noise [27-29]. In reality, valid chart patterns are rare exceptions that \"pop off the page\" naturally; forcing a label onto unstructured market action is a primary cause of losses [27-29].\n2. **Chart Clutter (Too Many Lines):**\n   Drawing 10 to 50 lines creates a scenario where price is constantly touching a line, manufacturing false trade signals and inducing hesitation on setups that actually matter [21, 22, 24, 27].\n3. **Drawing Rigid Lines Instead of Zones:**\n   Beginners treat support and resistance as exact 1-pixel figures rather than shaded bands [18, 26, 30]. Price routinely overshoots or wicks through exact numbers; marking the area between candle closes and wick extremes provides proper room for signals to form without breaking the trade idea [18, 26, 30].\n4. **Accumulating Dead Lines:**\n   Failing to delete old or broken levels turns the chart into a cluttered blueprint [18, 19]. Stale levels lose relevance as market participants change, and keeping them leads to anchor bias [19, 31].\n5. **Improper Trendline Technique:**\n   Common errors include drawing trendlines directly through candle bodies, connecting non-pivot points, drawing lines underneath a downtrend (or above an uptrend), or drawing lines on timeframes lacking distinct swings [32-34].\n\n🔍 Would you like to dive deeper into the specific rules for setting support/resistance zone width, or explore how professionals handle polarity flips when a level breaks?",
+  "question": "Object: PATTERN MARKS. Q6+Q9: Which patterns do professionals actually mark on a chart vs leave unmarked, how many marks at once, and what are common beginner mistakes (forcing patterns, marking noise)? Cite sources.",
+  "conversation_id": "4e6ea719-6908-4f28-80a4-e7a34d5d76fe",
+  "sources_used": [
+    "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "65c415d9-576b-43cd-b52b-40ee996f829a",
+    "cb3c4375-b981-4665-94ab-336e6f1f87e0",
+    "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "35993b7d-f788-421a-acbc-f540d2373fd5",
+    "3868e6a1-5f6b-4417-abce-dd9ec8f1e3c2",
+    "91c7353f-c3b7-43d5-b3d0-51f4d144a896"
+  ],
+  "citations": {
+    "1": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "2": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "3": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "4": "a45cd69d-f030-439c-aee6-a757201e57ac",
+    "5": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "6": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "7": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "8": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "9": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+    "10": "65c415d9-576b-43cd-b52b-40ee996f829a",
+    "11": "cb3c4375-b981-4665-94ab-336e6f1f87e0",
+    "12": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+    "13": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "14": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "15": "35993b7d-f788-421a-acbc-f540d2373fd5",
+    "16": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "17": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "18": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "19": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "20": "cb3c4375-b981-4665-94ab-336e6f1f87e0",
+    "21": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "22": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "23": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "24": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "25": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "26": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "27": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "28": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "29": "3868e6a1-5f6b-4417-abce-dd9ec8f1e3c2",
+    "30": "7853e888-0e2f-4530-966f-5d02d1315e60",
+    "31": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+    "32": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+    "33": "91c7353f-c3b7-43d5-b3d0-51f4d144a896",
+    "34": "65c415d9-576b-43cd-b52b-40ee996f829a"
+  },
+  "references": [
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 1,
+      "cited_text": "broader bull trend line same thing goes for the Bears we can see how it starts off very steep but as the bulls start to step up it gets flatter and flatter and the bull trend lines become stronger the last bear trend line is almost the high of a range horizontal lines swing points another key price levels the market ranges more than it Trends horizontal lines can set up for good trades Traders should wait for a test of the recent swing high or low then take the trade in that direction for a bullish setup Traders want to see a double bottom this shows the Bears have failed twice to make a new low for a bear setup Traders want to see a double top this shows the Bulls failed twice to make a new high horizontal line swing points here's a swing high and then I extend the line out and this gives the Range High and the Bulls get the range lows"
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 2,
+      "cited_text": "Quick Answer, Support and Resistance Trading • Support and resistance trading means buying near price levels where selling has historically stalled (support) and selling near levels where buying has stalled (resistance), using those zones as decision points for entries, exits, and stop placement. • On futures like NQ and ES, the most reliable S/R levels are horizontal zones derived from prior session highs/lows, the overnight high/low, and areas where price reversed multiple times on the daily chart. • Bounce trades (fading into S/R) work best in range-bound sessions and require a rejection candle for confirmation, while breakout trades need volume expansion through the level. • As of March 2026, combining S/R zones with volume profile data and VWAP gives the highest-probability setups for passing prop firm evaluations within drawdown limits. • The most common S/R mistake is drawing too many levels and treating every line as equally important, which leads to hesitation and missed entries on the levels that actually matter."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 3,
+      "cited_text": "How Do You Draw Support and Resistance Levels Correctly? Drawing S/R well is the entire foundation. Get this wrong and everything downstream fails. I've blown accounts because I drew a level based on a single candle wick and treated it like gospel. Here's my process. I start on the daily chart. I mark the most obvious horizontal zones where price reversed at least twice in the last 20 trading sessions. I don't mark every wick, every candle body, every tiny reaction. I want the levels that jump out at you without squinting. If you have to zoom in to find the level, it's probably not strong enough to trade."
+    },
+    {
+      "source_id": "a45cd69d-f030-439c-aee6-a757201e57ac",
+      "citation_number": 4,
+      "cited_text": "Zoom out your charts (at least 200 bars for me) Draw the most obvious levels (if you need to second guess, then it's not an important level) Adjust your levels to get the most number of “touches” (it can be body or wick) Now, if you want a full training on how to draw Support and Resistance, then check out this video below… Tap to unmute Your browser can't play this video. Learn more Next… Dynamic Support & Resistance According to Classical Technical Analysis, Support and Resistance are horizontal areas on your chart."
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 5,
+      "cited_text": "e classical charting principles well they're really the chart patterns that we all hear about the head and shoulders the double bottoms the triangles and so forth and those are the things we're really looking at patterns formations configurations i use all three terms interchangeably uh when I write about the markets they all mean the same thing to me it's basically geometric patterns that take place on a price for uh chart uh classical charting principles really were formalized in the 1920s by Richard W shawacher you can actually trace them back a little bit further than that charles Dao actually started getting into the whole idea of geometry but it was really picked up by Richard W shabach who at the time was the editor of Fortune magazine uh and he wrote the book technical analysis and stock market profits if you're interested in charting and there's only one book to buy and that's technical analysis and stock market uh profits it it is really the real bible of classical charting p"
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 6,
+      "cited_text": "a futures stock or forex cross chances are I've drawn too many lines i get comments all the time about my markings and charts being oversimplified i take that as a as as a great compliment the most reliable chart patterns tend to be those that require more than 12 weeks to form i want to see a market I want to see a chart pattern that's 12 weeks to form then all of a sudden I have a chart uh that I can build a trade around i want to be aware of chart patterns that that I call diagonal nature now those those folks of you that are there that uh that I communicate with on a pretty regular basis understand what I mean by diagonal i'm talking about a line that's kind of uh diagonal on the chart it's angled on the chart uh be aware of chart patterns that have dot boundaries i I want chart patterns that have horizontal boundaries or at least chart patterns that break out through a horizontal boundary now uh examples of diagonal chart patterns would include symmetrical triangles it would incl"
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 7,
+      "cited_text": "urse Shabacher also identifies a whole number of minor patterns the horn mtop tops W bottoms compound fulcrums all the way on uh the last one on the right hand side the cup and handle i have accepted that even though Shaw Bacher never alluded to a pattern called a cup and handle I have been convinced that that's a good pattern and I put it into my repertoire of patterns that I'll identify but you can kind of take a look at the rest of them uh general rules uh that I follow is the more isolated a pattern is vertically the greater its reliability i'll show you example of that with the wheat market currently now patterns need to be isolated vertically uh the overwhelming the vast overwhelming of chart patterns will fail uh patterns on inday graphs are even more susceptible to failure uh you know I know people are day traders i know people look at patterns i know there are some patterns that work on on as day traders and you know I give you credit to if you can make uh patterns work for yo"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 8,
+      "cited_text": "flat the trend line is when the trend line breaks we can use this to gauge the strength of the other side counter Trend Traders sometimes it's better to use the bodies of the candles to draw trend lines here's an example of multiple trend lines we have broad bull trend lines here and here and then within that we have Micro trend lines that ultimately break with steep bare trend lines here's a micr trend line for the Bears contained within a broader trend line for the Bears this is just bullish trend lines very strong bull Trend with and within that we also had strong bull channels trend lines being drawn here here and here trend lines for the Bears we can see it starts at the swing high and we pull down containing one one trend line will contain all the price action and within this trend line there are mult"
+    },
+    {
+      "source_id": "e544c5e4-50d7-4d63-9cfc-088bb52f840e",
+      "citation_number": 9,
+      "cited_text": "will get out at recent highs and bears are short recent highs for two legs down we can see this on all time frames throughout the market here's another example of a strong pull a double test excuse me a double bottom test of the Swing Low here Bulls buy the lows and they go for two legs up into the previous swing High over here Bears get short and they go for two legs down so you can see how the bulls and bears need each other to make money this is is more of the price action you will see on a daily basis instead of trending environments Trend Channel lines when drawing trend lines for the Bulls the trend line is drawn below the bars the line drawn opposite of this is called the trend channel line it goes above the bars when drawing trend lines for the Bears the trend line is drawn above the bars the line drawn opposite of this is called the trend channel line and it goes below the bear bars Traders should not take"
+    },
+    {
+      "source_id": "65c415d9-576b-43cd-b52b-40ee996f829a",
+      "citation_number": 10,
+      "cited_text": "Standard trendlines Standard uptrend lines are drawn between higher lows in an uptrend; the standard downtrend line is a line drawn between lower highs in a downtrend. The uptrend line shows where buyers have stepped in on the declines with additional demand and have bid the market higher, which is why Wyckoff called this line the demand line. In a downtrend, the downtrend line, or the supply line, shows where additional sellers have come into the market to arrest the bounces. Though it is possible to draw trendlines according to other rule sets, breaks of those trendlines are not likely to be as significant. If you are drawing standard trendlines, be certain of these points:"
+    },
+    {
+      "source_id": "cb3c4375-b981-4665-94ab-336e6f1f87e0",
+      "citation_number": 11,
+      "cited_text": "Next, a parallel trendline ( trend channel line) was reflected and positioned according to this rule: The parallel trendline is attached to a pivot high in between the two attachment points for the lower trendline. The parallel trendline may not cut prices in between those attachment points (though it may later). Notice what we can learn from these properly drawn trendlines: The trend channel did (and often does) an outstanding job of containing the trend through 2017. When price pressed above the channel line in late 2017, this was the first evidence that the market was going into an overheated phase. The February 2018 collapse has merely pulled the market back within the trend channel. This move is still consistent with the intact uptrend."
+    },
+    {
+      "source_id": "216c23c3-73b8-400d-b882-068b2e2cd0e2",
+      "citation_number": 12,
+      "cited_text": "· Horns (or sloping patterns) · Compound fulcrums (borrowed from point and figure charting) · Rounding patterns Diagonal chart construction · Head and shoulders – when the neckline slants into the right shoulder · Symmetrical triangles · Right-angled triangles – when the breakout is through the diagonal boundary · Wedges (falling wedge more unreliable than rising wedge) · Trendlines · Channels One additional point about trendlines must be made. All other chart construction listed above carry an implication that price will experience a “measured move.” The violation of a trendline does not carry with it a price target – but simply indicates that the price behavior of the previous trend has altered. Thus, on its face the penetration of a trendline does not convert a bear market into a bull market or visa-versa."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 13,
+      "cited_text": "Zoom out first. Drop to the daily or four-hour chart before you mark anything, because higher timeframes hold the levels most traders share. Find the real turns. Look for prices where the market reversed sharply or stalled for several bars, not every minor pivot. Draw a zone. Use the cluster of wicks and closes to set a band rather than a single line, since price rarely honours an exact figure. Count the touches. Two prior reactions make a level; one makes a guess. Note how hard price left the area each time. Prune often. Delete a zone once price closes well beyond it for several bars, because stale lines clutter every later decision."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 14,
+      "cited_text": "Strong Trends Eat Levels Inside a powerful move, support gives way with barely a pause. Countertrend candle signals fail most often in exactly those conditions. News Overrides Structure A scheduled release can push price through three zones in a minute. Check the calendar, because structure loses much of its meaning during a repricing event. The Level Was Never Real A zone drawn from one weak pivot has no order flow behind it. Two clear prior reactions remain the minimum before you trade a level at all."
+    },
+    {
+      "source_id": "35993b7d-f788-421a-acbc-f540d2373fd5",
+      "citation_number": 15,
+      "cited_text": "My approach to drawing Support and Resistance uses either 1 line or 2 lines. It is much cleaner and immediately tells you which area of the chart to pay attention to. I use a single line when price respect a level almost to the pip and i use 2 lines when price bounces off an area. I highlight only the key Support and Resistance of a chart meaning the obvious swing highs and lows. The intermediate SR i will not draw any lines so as to maintain my focus on the key areas. Besides, with enough screen time you can easily identify those intermediate Support and Resistance without any lines."
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 16,
+      "cited_text": "rinciples you know I just want to make the point here that when we deal with classical charting there is a right and there's a wrong way uh I cannot tell you how many times in a day I see somebody post a chart and they attempt to be labeling it based on classical charting principles and it is does that doesn't even come close that there's great abuse that is taken uh by some individuals when they attempt to mark up a chart and actually then define it by a geometric term you know a chart pattern cannot be what what's somebody decides it is going to be to themselves chart patterns must comply with fairly precise guidelines and standards and you have to go back to Richard Shawer who really does a very good job at at laying out what these guidelines and standards are that a chart pattern must comply with to be a chart pattern and in any given time frame markets tend to either be in a sustained trend or in a congestion area where prices advance they decline they go up they go down they go u"
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 17,
+      "cited_text": "ude trend lines i don't use trend lines uh you know G here now I know some traders who make money trading trend lines and so you know I want to give them uh I I I want to give them the nod and say \"Congratulations you can do it.\" But in my own way of thinking you give a chart book a ruler and a pencil to an ape and you come back a day later he's probably going to have driven some line that makes sense uh a wedge falling wedge rising wedge these are diagonal patterns uh beware of diagonal patterns and then finally a pattern is not a pattern until it's completed and even then it can fail you know oftentimes I'll talk about patterns and usually I'll talk about possible patterns there's a possible head and shoulders there's a possible rectangle there's a possible this or that and you that doesn't mean that I believe that there is a head and shoulders there is a head and shoulders pattern and it it's really not a head and shoulders pattern till it's completed and even then it can fail uh Sh"
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 18,
+      "cited_text": "My rules for drawing S/R: Use the body close of candles as the primary reference, not wicks. Wicks show the extreme, but closes show where price actually settled. I mark the zone using the cluster of closes, then extend the zone to capture the worst wick. Draw zones, not lines. I use a rectangle tool on NinjaTrader to shade a 5-10 point zone on NQ, 2-4 points on ES. Delete levels once they're broken cleanly. A level that held three times and then got blown through with volume is gone. Don't keep it on the chart hoping for a \"retest.\" If the break was clean, the level is dead. Reassess every session. I spend about 5 minutes before the RTH open updating my levels. Old ones get removed, new ones from overnight price action get added."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 19,
+      "cited_text": "Ignoring context. A support level during a strong downtrend is much less reliable than the same level during a range. S/R doesn't exist in a vacuum. If the daily chart shows a clear selloff and you're trying to catch a bounce at a minor intraday support, you're fighting the current. I always check the higher-timeframe trend before taking a bounce trade at any level. Not deleting broken levels. Once price breaks through a level with conviction (volume, clean close beyond it), that level is done as S/R in its original form. It might become resistance if it was support (the \"polarity flip\"), but I always redraw it fresh. Traders who keep every line they've ever drawn end up with a chart that looks like a blueprint, and it paralyzes them."
+    },
+    {
+      "source_id": "cb3c4375-b981-4665-94ab-336e6f1f87e0",
+      "citation_number": 20,
+      "cited_text": "Why does this trendline end? Because price action at the end of 2016 invalidated the line. The line was broken decisively, and once a line is cut or broken we don't have any good reason to expect it to be meaningful in the future. (In other words, it's a mistake to carry this line forward.) Now look at the dark trendlines. These were drawn according to the same, consistent rule set I published many years ago in my book (and in this blog ). A valid trendline: Is drawn from a significant pivot low to A pivot low that precedes a new trend high. The line may not cut prices in between those attachment points."
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 21,
+      "cited_text": "Too Many Zones on One Chart Twelve lines put a candle near one of them at all times. Cut the list back to the handful with genuine history, because a crowded chart manufactures signals rather than finding them. Stop Placement Invited the Loss Plenty of losses trace back to a stop parked at an obvious figure. Push it beyond the zone and cut size to keep the money risked unchanged. The Break Itself Was the Signal Sometimes the useful trade runs the other way. A zone that fails after several tests often starts a move, so a break and retest deserves its own plan."
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 22,
+      "cited_text": "uh some school of charting that I'm not aware of but they're they're definitely do not comply with anything that could be termed classical charting principles or or this although I do see I think what some people call Ballinger bands but if you look at this charts there are lines drawn everywhere uh that many lines in the chart immediately tells me that somebody is not looking at a chart and understanding it from the standpoint of classical charting principles here's here's uh you know I take uh I take shot at people who I think make abusive fraudulent claims and here's one that I just saw today you know give me three days and I'll show you how to read the charts with 90% accuracy um I can show you charts with 90% inaccuracy uh so I I don't know how you can be 90% accurate with charts that to me just defines reason and everything that I've learned about charting quite frankly I want to go through the factor self-imposed rules for trading with classical charting principles these are kin"
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 23,
+      "cited_text": "How many support and resistance levels should you have on your chart? Three to five levels per instrument is the sweet spot for intraday futures trading. More than that creates clutter and decision paralysis. Fewer than three leaves gaps where you have no reference points during the session. I grade my levels as A (daily chart, multiple touches) or B (session-based, single touch), and I only take trades at A-grade levels unless a B-grade level has strong confluence from VWAP or a moving average. What is the polarity flip in support and resistance trading? The polarity flip (also called role reversal) happens when a broken support level becomes resistance, or a broken resistance level becomes support. When NQ breaks below support at 19,800, that level often acts as resistance on the next attempt to rally back to it. The polarity flip creates one of the cleanest breakout entries in futures trading: wait for the break, wait for the retest of the broken level, then enter in the direction of the break."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 24,
+      "cited_text": "What is the biggest mistake traders make with support and resistance? The biggest support and resistance mistake is drawing too many levels and treating every line as equally important. When your chart has a horizontal line every 10 points, every minor price move \"hits a level\" and no single level carries conviction. The fix is brutal simplicity: keep only 3-5 levels, grade them by the number of prior touches and the timeframe they come from, and only trade at A-grade levels. I've seen more prop firm accounts blow up from hesitation caused by chart clutter than from any other single issue."
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 25,
+      "cited_text": "d of the rules as we approach markets in terms of our own trading what rules do we have what rules do we impose upon ourselves related to classical charting principles in our physical trading operation and I want to touch on those all chart analysis begins with weekly charts this is our rule doesn't have to be yours but it's my rule if a weekly chart does not show a pattern there's no sense in looking at a daily graph or no sense in looking certainly at any intraday graph i start with weekly charts and and I'll touch on this toward the end of this presentation as to how we do that but weekly charts are our starting point i want to be able to see a chart pattern on weekly chart now it just so happens uh and I don't know why that generally speaking if a chart pattern is not at least uh 10 12 14 weeks in duration on a daily chart pattern it normally then will not show up on a weekly chart pattern as something that I can recognize if I draw more than four lines on a 12 month daily chart of"
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 26,
+      "cited_text": "How to mark a level worth trading: zoom out, find the real turns, draw a zone, count the touches, then prune (click to enlarge) Five or six zones per pair covers almost everything you need. Our guide to support and resistance walks through the drawing routine in more depth. Zones Beat Lines Price never respects a one-pixel line. Wicks overshoot, spreads widen, and probes run a few points past the obvious figure. So mark the band between the extreme wick and the cluster of closes. That band gives a candle signal room to form without breaking your idea."
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 27,
+      "cited_text": "of recognizing recognizable geometric configurations and I'll touch on the word some later i'll try to uh open that up and unpack that a little bit in the vast overwhelming cases a given market will defy understanding from the standpoint of classical charting principles you know when I look at a somebody who who is attempting to be a classical chartist and I see you know 50 different lines and all kinds of different letters and identifiers what it tells me is that individual is attempting to come to terms with that market they're studying that market expecting that that market must speak to them and in reality for the most part classical charting cannot define what a market's doing it is the exception actually that you can look at a market and understand it based on classical charting principles i I have this I make this claim not only at classical charting principles but on any form of understanding the markets whether it's uh Elliot wave or GAN or whatever it is uh the reality is is"
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 28,
+      "cited_text": "t are truly identified and are correctly identified will do what they are supposed to do but more often than not uh the geometry of a pattern or geometry of a chart is is misinterpreted i want to talk about some big surprises and some of these uh may find some disagreement out there with you and and if so uh that's fine uh at any given time the vast majority of stocks futures or forex pairs cannot be understood based on classical charting principles you know again I I touched on this already but you can't sit and study a chart and if you just study it hard enough whatever your your stick is whether it's Elliot wave classical charting GAN whatever it is if you just study it hard enough you can figure out what a market's doing i disagree with that i think that that's false i think in the vast overwhelming majority of cases you can't figure it out you can sit and study it and draw lines until you're blew in the face but the reality is the market may not comply with the with the tools that"
+    },
+    {
+      "source_id": "3868e6a1-5f6b-4417-abce-dd9ec8f1e3c2",
+      "citation_number": 29,
+      "cited_text": "principles. The real danger is trying to fit a chart interpretation to all markets all of the time. More often than not, a given market will defy clas- sical charting principles. 6. It is very easy to over analyze a chart. The temptation for a novice chartist is to keep studying a chart until something is made of it. The mentality is one of . . . \"there has got to be something on this chart and I have to find it\". My experience is that chart patterns pop off the page; that legit- imate chart patterns will find us. We don't"
+    },
+    {
+      "source_id": "7853e888-0e2f-4530-966f-5d02d1315e60",
+      "citation_number": 30,
+      "cited_text": "The same bar at a tested level versus mid-range: what changes is the order flow behind it, not the geometry (click to enlarge) Marking Levels After the Candle Appears Hindsight will find a level under any attractive bar. Draw your zones before the session opens, then judge candles against lines you cannot move. Using a Single Line Instead of a Zone An exact price gets pierced routinely. Mark the band between the wick extreme and the closes, and let the candle form anywhere inside it. Ignoring the Prevailing Trend A bullish rejection inside a strong downtrend faces far more supply than the same bar inside a range. Check the higher timeframe direction before you treat any zone as a springboard."
+    },
+    {
+      "source_id": "2ae36cf5-eb4d-466c-a9b9-1e3f6fa8f04a",
+      "citation_number": 31,
+      "cited_text": "Anchor bias on stale levels. A level from three weeks ago that hasn't been tested since is losing relevance. Markets evolve. New participants enter. Old levels get forgotten. I give a level about two weeks of life. If it hasn't been tested or hasn't generated a reaction in that window, I remove it and focus on fresh data. No volume confirmation. Taking every bounce at S/R without checking volume is a coin flip. Volume is the difference between a level that's going to hold and a level that's about to collapse. I don't enter a single S/R trade without looking at volume on the candle that touches the level."
+    },
+    {
+      "source_id": "cc06b1a5-a69d-4342-98b5-784155be5fa8",
+      "citation_number": 32,
+      "cited_text": "ere charts pay off i want to talk about uh some of the things that I see that just kind of make me cringe this is this is a chart of Johnson and Johnson where somebody put this up and called this a head and shoulders you know left shoulder right shoulder left shoulder head right shoulder uh based on the principles of correct principles of classical charting this is not a head and shoulders this does not this does not comply to the requirements of head and shoulders pattern and you know I look through a number of social uh bulletin boards during the course of the day just to kind of get a feel for what people are thinking and and often times you know I'm amazed at the abuse charters do to true classical charting principles here's a couple of examples the top one there's a dash trend line i would never draw that trend line on the chart that trend line does not exist based on true classical charting principles the charts below I I don't know what those are uh they probably comply to some"
+    },
+    {
+      "source_id": "91c7353f-c3b7-43d5-b3d0-51f4d144a896",
+      "citation_number": 33,
+      "cited_text": "Good Trading Starn Jun 9, 2003 #6 D dotslashfuture being able to draw a trendline is the first step to truly understanding trends. May seem very simple, but its fundamental. Trends are what its all about. as was said before, NEVER DRAW TRENDLINES THROUGH PRICES. Jun 9, 2003 #7 You must log in or register to reply here. Similar threads The vicious circle of a typical retail trader. quantrader Aug 6, 2026 Trading Replies 29 Views 3K Aug 7, 2026 Peanut The first move right after a big release usually isn't the real move."
+    },
+    {
+      "source_id": "65c415d9-576b-43cd-b52b-40ee996f829a",
+      "citation_number": 34,
+      "cited_text": "They slope with the trend. Uptrend lines are upward sloping, and downtrend lines slope downward. Uptrend lines are underneath prices, marking areas of potential support. Downtrend lines are possible resistance areas, and must be drawn above Examples of correctly drawn standard trendlines in the XLF The next chart shows examples of nonstandard trendlines: A is drawn between lows in a downtrend instead of between highs in a downtrend. B is also drawn between lows in a downtrend. Furthermore, it ignores a large price spike in an effort to fit the line to later data. C is more of a best-fit line drawn through the center of a price area. These may be drawn freehand or via a procedure like linear regression. D is drawn between highs in an uptrend. E raises a critical point about trendlines: They are lines drawn between successive swings in the market. If there are no swings, there should be no trendline. It would be hard to argue that the market was showing any swings at E, at least on this time frame. This trendline may be valid on a lower time frame, but it is nonstandard on this time frame."
+    }
+  ]
+}

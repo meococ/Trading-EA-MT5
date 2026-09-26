@@ -1,0 +1,9 @@
+20:45Z build round — rulings re-read (R13-R15). Paired A/Bs this round, all at ctx-cap 2/288 + revive-on + retirement-on state:
+
+1) revive-anywhere extension (REQ-1b broadened: exempt check moved BEFORE rate gate, slot-free still required). Arm c188ae66 vs b4913da0: all families flat except LEVEL_CARRIED 5->4 (one match lost — resurrected obj keeps stale geometry vs fresh birth). Ledger relief only matters when rate-bound; unblocked births rarely have a dead twin + free slot simultaneously. REJECTED, reverted (salience.py back to revive-inside-rate-limited; live hash ef049c28, comment-delta only).
+
+2) BRACKET anchor choice: measured on FUNNEL labels 03dbe495 — for every pivot whose sibling set contains a right proposal, the RIGHT sibling is the longest-sep one in 85/85 cases (max-prom likewise, correlated). Emit-once-for-furthest-anchor arm 9044ab77 vs b4913da0: BRACKET 32->33, PL 19->18, snapR 52->50. Net wash (births cap-bound; anchor choice changes geometry not counts). REVERTED, nearest-first kept.
+
+3) Feature AUCs on production labels (n=11971 BRACKET, pos=156): sep all=.634 folds .60-.73 (borderline pass, but floor unusable — right p25=7); mid_depth .557 fail; prom_abr .607 fold-min .57 fail. Score-at-birth: wrong births score as high as right (BOX wrong p75=23 vs right med 15) — no score floor separates. Birth precision ~0.7% is proposal-flood-bound, not selection-bound.
+
+Live: ef049c28 (= b4913da0 behavior). 72/72 tests green.
