@@ -1,0 +1,1 @@
+2026-09-23T11:35Z R1C: captions verified on 8/10 videos; added 5 lesson videos (NhatHoai 2o9DQQ8yXX0, Lucy hwbi_-3DFys+1OGTB-I36vs, Bai14 lbkMihV7nUM, Sell-thuan 2zwASKYFifE) + 2 tamnhindautu pages; skipped QeMOELmb0d4+oAhsx5brL_Y (login wall), jmwGfu9Q2kY (NLM ingest fail x2), forexvietnam+hocdautu (HTTP timeout); pvsra-khai-thac page resolved to existing S32 article
