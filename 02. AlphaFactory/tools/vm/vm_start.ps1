@@ -20,10 +20,13 @@ $ErrorActionPreference = 'Stop'
 Set-StrictMode -Off
 
 $vmToolsRoot = $PSScriptRoot
-$toolsRoot = Split-Path -Parent $vmToolsRoot
-$alphaRoot = Split-Path -Parent $toolsRoot
-$repoRoot = Split-Path -Parent $alphaRoot
-$isolateRoot = Join-Path $alphaRoot 'runtime\mt5-portable-mqdemo'
+. (Join-Path $vmToolsRoot 'vm_common.ps1')
+$layout = Get-VmRepoLayout -VmToolsRoot $vmToolsRoot
+$toolsRoot = $layout.ToolsRoot
+$alphaRoot = $layout.AlphaRoot
+$repoRoot = $layout.RepoRoot
+$isolateRoot = $layout.IsolateRoot
+if (-not $isolateRoot) { $isolateRoot = Join-Path $alphaRoot 'runtime\mt5-portable-mqdemo' }
 $doctor = Join-Path $vmToolsRoot 'vm_doctor.ps1'
 
 $lines = New-Object System.Collections.Generic.List[string]
