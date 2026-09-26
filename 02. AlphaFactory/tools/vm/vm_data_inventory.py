@@ -5,6 +5,16 @@ Attaches MetaTrader5 to the portable isolate via tools.factory_paths
 first/last M1 bar, real-tick availability (one sample day per year),
 symbol spec, and on-disk history footprint under Bases/.
 
+Measurement method (v2): copy_rates_from only sees history the terminal
+has already downloaded, so a single shallow call under-reports depth
+(repo precedent: 16 months reported where 16 years existed). For each
+symbol we run a sync-walk: repeated copy_rates_from(M1, 2000-01-01)
+requests force the terminal to pull history from the server until the
+earliest returned bar converges. EURUSD/XAUUSD get a deep walk
+(max_iter=25, settle=4); the rest get a shallow one (max_iter=8,
+settle=2). Ticks are probed with one capped day per year (200 ticks) —
+existence probe only, never a bulk pull.
+
 Writes CSV + JSON to --out-dir. Prints nothing sensitive.
 """
 from __future__ import annotations
@@ -14,6 +24,7 @@ import csv
 import json
 import os
 import sys
+import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -26,6 +37,40 @@ SYMBOLS = [
     "GBPUSD", "USDJPY", "AUDUSD", "NZDUSD", "USDCAD", "USDCHF",
     "EURJPY", "GBPJPY", "EURGBP", "AUDJPY",
 ]
+
+DEEP_SYMBOLS = {"EURUSD", "XAUUSD"}
+M1_SYNC_FLOOR = datetime(2000, 1, 1)
+
+
+def m1_sync_walk(mt5, symbol: str, max_iter: int, settle: int, sleep_s: float = 2.5):
+    """Force-download M1 history: repeat copy_rates_from(M1_SYNC_FLOOR, 5)
+    until the earliest returned bar stops moving earlier. Returns
+    (earliest_iso | None, iters, converged)."""
+    earliest = None
+    stable = 0
+    iters = 0
+    for i in range(max_iter):
+        iters = i + 1
+        try:
+            bars = mt5.copy_rates_from(symbol, mt5.TIMEFRAME_M1, M1_SYNC_FLOOR, 5)
+        except Exception:
+            bars = None
+        if bars is not None and len(bars):
+            t = int(bars[0]["time"])
+            if earliest is None or t < earliest:
+                earliest = t
+                stable = 0
+            else:
+                stable += 1
+        if stable >= settle:
+            break
+        time.sleep(sleep_s)
+    iso = (
+        datetime.fromtimestamp(earliest, tz=timezone.utc).isoformat()
+        if earliest is not None
+        else None
+    )
+    return iso, iters, stable >= settle
 
 
 def dir_size_bytes(path: Path) -> int:
@@ -69,6 +114,9 @@ def probe_symbol(mt5, isolate: Path, symbol: str) -> dict:
         "swap_short": None,
         "m1_first": None,
         "m1_last": None,
+        "m1_probe_method": None,
+        "m1_probe_iters": 0,
+        "m1_probe_converged": False,
         "tick_years_with_data": [],
         "disk_bytes": symbol_disk_bytes(isolate, symbol),
         "error": None,
@@ -87,10 +135,17 @@ def probe_symbol(mt5, isolate: Path, symbol: str) -> dict:
     if not info.visible:
         mt5.symbol_select(symbol, True)
 
-    # first M1: earliest bars after epoch start
-    first = mt5.copy_rates_from(symbol, mt5.TIMEFRAME_M1, datetime(2000, 1, 1), 5)
-    if first is not None and len(first):
-        row["m1_first"] = datetime.fromtimestamp(int(first[0]["time"]), tz=timezone.utc).isoformat()
+    # first M1 via sync-walk (see module docstring): deep for the two
+    # reference symbols, shallow for the rest.
+    if symbol in DEEP_SYMBOLS:
+        m1_first, iters, converged = m1_sync_walk(mt5, symbol, max_iter=25, settle=4)
+        row["m1_probe_method"] = "deep_sync_walk"
+    else:
+        m1_first, iters, converged = m1_sync_walk(mt5, symbol, max_iter=8, settle=2, sleep_s=2.0)
+        row["m1_probe_method"] = "shallow_sync_walk"
+    row["m1_first"] = m1_first
+    row["m1_probe_iters"] = iters
+    row["m1_probe_converged"] = converged
     last = mt5.copy_rates_from_pos(symbol, mt5.TIMEFRAME_M1, 0, 5)
     if last is not None and len(last):
         row["m1_last"] = datetime.fromtimestamp(int(last[-1]["time"]), tz=timezone.utc).isoformat()
@@ -99,7 +154,7 @@ def probe_symbol(mt5, isolate: Path, symbol: str) -> dict:
     # copy_ticks_from with a small cap — existence probe, not a bulk pull
     first_year = 2000
     if row["m1_first"]:
-        first_year = int(row["m1_first"][:4])
+        first_year = max(2000, int(row["m1_first"][:4]))
     now_year = datetime.now(tz=timezone.utc).year
     for year in range(first_year, now_year + 1):
         start = datetime(year, 6, 15, tzinfo=timezone.utc)
@@ -176,7 +231,13 @@ def main() -> int:
         }
 
         payload = {
-            "schema_version": "alphafactory_vm_data_inventory.v1",
+            "schema_version": "alphafactory_vm_data_inventory.v2",
+            "measurement_method": (
+                "m1_first via sync-walk: repeated copy_rates_from(M1, 2000-01-01) "
+                "forces terminal download until earliest bar converges "
+                "(deep: EURUSD/XAUUSD 25x/settle4; shallow: others 8x/settle2); "
+                "ticks probed one capped day/year (max 200 ticks)"
+            ),
             "attached": True,
             "attach_method": attach_note,
             "terminal_build": build,
@@ -194,6 +255,7 @@ def main() -> int:
             w.writerow([
                 "symbol", "available", "digits", "point", "contract_size",
                 "swap_long", "swap_short", "m1_first", "m1_last",
+                "m1_probe_method", "m1_probe_iters", "m1_probe_converged",
                 "tick_years_with_data", "disk_bytes", "error",
             ])
             for r in rows:
@@ -201,6 +263,7 @@ def main() -> int:
                     r["symbol"], r["available"], r["digits"], r["point"],
                     r["contract_size"], r["swap_long"], r["swap_short"],
                     r["m1_first"], r["m1_last"],
+                    r["m1_probe_method"], r["m1_probe_iters"], r["m1_probe_converged"],
                     "|".join(str(y) for y in r["tick_years_with_data"]),
                     r["disk_bytes"], r["error"],
                 ])

@@ -4,10 +4,10 @@
 #>
 
 function Resolve-VmIsolateRoot {
-    # Same candidate list as tools/init_machine_paths.ps1: first portable
-    # isolate present wins. Never falls back to Program Files / AppData.
+    # VM only ever uses the MetaQuotes-Demo isolate. Never falls back to
+    # Program Files / AppData; fivepercent isolate belongs to the Owner plane.
     param([Parameter(Mandatory = $true)][string]$AlphaRoot)
-    foreach ($leaf in @('mt5-portable-mqdemo', 'mt5-portable-fivepercent')) {
+    foreach ($leaf in @('mt5-portable-mqdemo')) {
         $root = Join-Path $AlphaRoot ('runtime\' + $leaf)
         if ((Test-Path -LiteralPath (Join-Path $root 'terminal64.exe') -PathType Leaf) -and
             (Test-Path -LiteralPath (Join-Path $root 'MQL5') -PathType Container)) {
