@@ -1,0 +1,6 @@
+{
+  "selected": [],
+  "rule": "D5 on H0 AND H1, both PF_R and pip PF, pct>=95 on both",
+  "n_candidates": 50,
+  "n_pass": 0
+}
