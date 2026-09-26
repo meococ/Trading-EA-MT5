@@ -1,0 +1,112 @@
+{
+  "symbol": "GBPUSD",
+  "bars": 439687,
+  "seconds": 6.28,
+  "records": 19980,
+  "counters": {
+    "skip_barrier_insufficient_touches": 66867,
+    "raw_break": 19937,
+    "skip_warmup": 1,
+    "barrier_expired": 27496,
+    "skip_duplicate_barrier": 5396,
+    "skip_session": 10228,
+    "skip_chop": 2304,
+    "skip_no_pressure": 5855,
+    "buildup_fail_inside": 3072,
+    "skip_no_buildup": 515,
+    "executable_pattern_break": 6,
+    "skip_bias": 1026,
+    "executable_pullback_reversal": 43,
+    "pr_skip_chop": 15,
+    "skip_pbp_excluded": 100,
+    "buildup_fail_touches": 17,
+    "skip_barrier_already_broken": 20,
+    "buildup_fail_progression": 7,
+    "pr_skip_session": 46,
+    "buildup_fail_contraction": 20,
+    "skip_room": 2,
+    "buildup_fail_counter": 3
+  },
+  "weekly_stats": {
+    "raw_break": {
+      "total": 19937,
+      "per_week_mean": 63.494,
+      "per_week_median": 64.0,
+      "per_week_p10": 53.0,
+      "per_week_p90": 73.0
+    },
+    "exec_pb": {
+      "total": 6,
+      "per_week_mean": 0.019,
+      "per_week_median": 0.0,
+      "per_week_p10": 0.0,
+      "per_week_p90": 0.0
+    },
+    "exec_combi": {
+      "total": 0,
+      "per_week_mean": 0.0,
+      "per_week_median": 0.0,
+      "per_week_p10": 0.0,
+      "per_week_p90": 0.0
+    },
+    "exec_pr": {
+      "total": 43,
+      "per_week_mean": 0.137,
+      "per_week_median": 0.0,
+      "per_week_p10": 0.0,
+      "per_week_p90": 1.0
+    },
+    "exec_total": {
+      "total": 49,
+      "per_week_mean": 0.156,
+      "per_week_median": 0.0,
+      "per_week_p10": 0.0,
+      "per_week_p90": 1.0
+    }
+  },
+  "by_year": {
+    "raw_break": {
+      "2016": 3355,
+      "2017": 3342,
+      "2018": 3308,
+      "2019": 3342,
+      "2020": 3224,
+      "2021": 3366
+    },
+    "exec_pb": {
+      "2016": 2,
+      "2017": 1,
+      "2018": 0,
+      "2019": 0,
+      "2020": 0,
+      "2021": 3
+    },
+    "exec_combi": {
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 0,
+      "2020": 0,
+      "2021": 0
+    },
+    "exec_pr": {
+      "2016": 4,
+      "2017": 6,
+      "2018": 8,
+      "2019": 5,
+      "2020": 8,
+      "2021": 12
+    }
+  },
+  "by_session": {
+    "london": {
+      "exec": 24,
+      "raw": 4780
+    },
+    "ny": {
+      "exec": 25,
+      "raw": 4928
+    }
+  },
+  "weeks": 314
+}

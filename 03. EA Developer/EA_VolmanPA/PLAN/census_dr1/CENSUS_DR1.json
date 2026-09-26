@@ -1,0 +1,85 @@
+{
+  "symbol": "EURUSD",
+  "window": "2016.01.01-2021.12.31",
+  "weeks": 314,
+  "runtime_seconds": 11.9,
+  "median_atr_pips": 3.406,
+  "round_grid_pips": 50.0,
+  "barriers_locked": 45073,
+  "signal_evals": 19957,
+  "in_session_evals": 4681,
+  "unique_in_session_barriers": 3312,
+  "missed_breaks": 23067,
+  "executable_total": 1,
+  "exec_pb": 1,
+  "exec_combi": 0,
+  "per_week": 0.0032,
+  "by_year": {
+    "2017": 1
+  },
+  "by_session": {
+    "us": 1
+  },
+  "funnel": {
+    "skip_warmup": 0,
+    "skip_session": 15276,
+    "skip_direction": 202,
+    "skip_trend": 2752,
+    "skip_chop": 284,
+    "skip_no_buildup": 635,
+    "skip_room": 779,
+    "skip_adverse_magnet": 2,
+    "skip_anti_chase": 26,
+    "skip_cost": 0
+  },
+  "chop_exempt_buildup": 278,
+  "cadence_rule": "STOP (<3/week): report funnel + recommendation, STATUS PARTIAL",
+  "whatif_diagnostics": [
+    {
+      "variant": "theta_slope=0.0 (book-literal EMA direction)",
+      "executable": 1,
+      "per_week": 0.003
+    },
+    {
+      "variant": "trend gate off (theta=0, frac=0)",
+      "executable": 1,
+      "per_week": 0.003
+    },
+    {
+      "variant": "room_r_min=1.4 (book-literal, needs manual exit)",
+      "executable": 2,
+      "per_week": 0.006
+    },
+    {
+      "variant": "room gate off",
+      "executable": 33,
+      "per_week": 0.105
+    },
+    {
+      "variant": "signal_max_atr=0.5 (wider signal-bar window)",
+      "executable": 1,
+      "per_week": 0.003
+    },
+    {
+      "variant": "chop veto off",
+      "executable": 1,
+      "per_week": 0.003
+    },
+    {
+      "variant": "buildup band widened (hi 0.75, 1 close)",
+      "executable": 2,
+      "per_week": 0.006
+    },
+    {
+      "variant": "theta=0.0 + room=1.4 + signal 0.5 + no chop",
+      "executable": 2,
+      "per_week": 0.006
+    },
+    {
+      "variant": "all gates loose (ceiling diagnostic)",
+      "executable": 10,
+      "per_week": 0.032
+    }
+  ],
+  "outcome_fields": []
+}

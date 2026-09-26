@@ -1,0 +1,52 @@
+[hash-ok] vpa_econ1_sim.py 87D3C73507666B58AAA0553D1A3F6FE0EF03EDFB645D012C59080A2E23E33930
+[hash-ok] vpa_econ1_costs.py 4B9F0EC330A2003935276876BEF952D1CBCE045F6E54E0EF5F4C01B72532F274
+[hash-ok] vpa_dr1.py 73497484E2C26EDF44DAE5F1D574C56BBF40BBBFE8192A05AD38B4D782A781E0
+[hash-ok] vpa_data.py E0DEC3808AF7D2BD730C1A6185D6E850B306459DDFC00DDD8AA776A909D7212F
+[hash-ok] vpa_econ1_random.py 07719AF87CB35298B2D990B8339E6883488537E258AC6FB879C08EC19A210A99
+[hash] vpa_random_baseline.py 2BF11A5BFF9E071070B940C16384A34063164A887C9C66CA17D1732855668A9F
+[hash] vpa_core.py B6B72B987738C7B4DEA1043CB4DA539006F43CFE1D13991538F0766E0E507478
+[hash] vpa_econ1_run.py D2F67BA533DAA9700631097A8338E3FD549947325D0638601CEB1006EED83614
+[frame] 2016-01-04T00:20:00Z -> 2021-12-31T22:55:00Z 440040 M5 bars; 2208641 M1 bars
+[dr3] records 91734 accepted 4331
+[labels] set1 majority cross-checked vs FIDELITY_DR3.csv; 3-way splits: 4
+[set1] mapped 180 / 180
+[set2] Lead-graded 20 of set 1; {'C': 14, 'A': 2, 'B': 4}
+[set3] mapped 60 / 60 ; routes {'v1_last_touch_before_break': 49, 'v1_release_bar': 11} ; touch-scan fallback (used lock pivot): []
+[sim] x1 cost_mult=1.0 entries 240 status {'FILLED': 132, 'EXPIRED': 94, 'CANCELLED': 14}
+[sim] gross cost_mult=0.0 entries 240 status {'FILLED': 132, 'EXPIRED': 94, 'CANCELLED': 14}
+[xcheck] ECON-1 TRADES_DESIGN.csv (2436 rows): 62 set-1 accepted fills matched exactly (reason+r), 58 set-1 accepted non-fills absent from the file, 2374 TD rows belong to ECON-1 signals outside this 120-case sample
+[sim-A] x1 entries 60 status {'EXPIRED': 40, 'FILLED': 14, 'CANCELLED': 6}
+[sim-A] gross entries 60 status {'EXPIRED': 40, 'FILLED': 14, 'CANCELLED': 6}
+[sim-C] x1 entries 60 status {'FILLED': 35, 'EXPIRED': 24, 'CANCELLED': 1}
+[sim-C] gross entries 60 status {'FILLED': 35, 'EXPIRED': 24, 'CANCELLED': 1}
+[write] CASES_OUTCOMES.csv rows 240
+[set1_majority/x1] AB cases 100 fills 50 WR 34.00% PF 1.030 | C cases 80 fills 46 WR 36.96% PF 0.993 | dWR -2.96pp CI [-21.46, +15.65]
+[set1_majority/gross] AB cases 100 fills 50 WR 36.00% PF 1.141 | C cases 80 fills 46 WR 45.65% PF 1.492 | dWR -9.65pp CI [-28.13, +9.69]
+[set2_lead_dr3/x1] AB cases 6 fills 3 WR 33.33% PF 1.000 | C cases 14 fills 7 WR 42.86% PF 0.662 | dWR -9.52pp CI [-51.59, +43.75]
+[set2_lead_dr3/gross] AB cases 6 fills 3 WR 33.33% PF 1.000 | C cases 14 fills 7 WR 42.86% PF 0.725 | dWR -9.52pp CI [-51.59, +43.75]
+[set3_lead_v1/x1] AB cases 16 fills 9 WR 22.22% PF 0.571 | C cases 44 fills 27 WR 51.85% PF 2.119 | dWR -29.63pp CI [-53.20, +7.47]
+[set3_lead_v1/gross] AB cases 16 fills 9 WR 22.22% PF 0.571 | C cases 44 fills 27 WR 55.56% PF 2.524 | dWR -33.33pp CI [-56.51, +3.95]
+[pooled_lead_2plus3/x1] AB cases 22 fills 12 WR 25.00% PF 0.667 | C cases 58 fills 34 WR 50.00% PF 1.761 | dWR -25.00pp CI [-47.65, +7.42]
+[pooled_lead_2plus3/gross] AB cases 22 fills 12 WR 25.00% PF 0.667 | C cases 58 fills 34 WR 52.94% PF 2.049 | dWR -27.94pp CI [-50.37, +4.61]
+[set3_lead_v1_varA/x1] AB cases 16 fills 5 WR 40.00% PF 1.333 | C cases 44 fills 9 WR 55.56% PF 2.447 | dWR -15.56pp CI [-53.65, +31.33]
+[set3_lead_v1_varA/gross] AB cases 16 fills 5 WR 40.00% PF 1.333 | C cases 44 fills 9 WR 55.56% PF 2.583 | dWR -15.56pp CI [-53.65, +31.33]
+[pooled_lead_2plus3_varA/x1] AB cases 22 fills 8 WR 37.50% PF 1.200 | C cases 58 fills 16 WR 50.00% PF 1.466 | dWR -12.50pp CI [-44.92, +26.27]
+[pooled_lead_2plus3_varA/gross] AB cases 22 fills 8 WR 37.50% PF 1.200 | C cases 58 fills 16 WR 50.00% PF 1.544 | dWR -12.50pp CI [-44.92, +26.27]
+[set3_lead_v1_varC/x1] AB cases 16 fills 8 WR 12.50% PF 0.321 | C cases 44 fills 27 WR 55.56% PF 2.484 | dWR -43.06pp CI [-62.79, -3.95]
+[set3_lead_v1_varC/gross] AB cases 16 fills 8 WR 12.50% PF 0.328 | C cases 44 fills 27 WR 55.56% PF 2.524 | dWR -43.06pp CI [-62.79, -3.95]
+[pooled_lead_2plus3_varC/x1] AB cases 22 fills 11 WR 18.18% PF 0.486 | C cases 58 fills 34 WR 52.94% PF 2.007 | dWR -34.76pp CI [-55.10, -1.09]
+[pooled_lead_2plus3_varC/gross] AB cases 22 fills 11 WR 18.18% PF 0.494 | C cases 58 fills 34 WR 52.94% PF 2.049 | dWR -34.76pp CI [-55.10, -1.09]
+[set1 A/x1] cases 43 fills 18 WR 44.44% PF 1.600
+[set1 B/x1] cases 57 fills 32 WR 28.12% PF 0.783
+[set1 C/x1] cases 80 fills 46 WR 36.96% PF 0.993
+[set1 A/gross] cases 43 fills 18 WR 44.44% PF 1.600
+[set1 B/gross] cases 57 fills 32 WR 31.25% PF 0.928
+[set1 C/gross] cases 80 fills 46 WR 45.65% PF 1.492
+[set1-accepted/x1] AB fills 43 WR 37.21% | C fills 19 WR 47.37% | dWR -10.16pp CI [-34.71, +14.83]
+[set1-accepted/gross] AB fills 43 WR 39.53% | C fills 19 WR 57.89% | dWR -18.36pp CI [-41.45, +7.89]
+[random-ref] RANDOM_MATCHED.csv: N 42257 WR 29.92% PF 0.783; ECON1_METRICS.json x1 random: N 42257 WR 29.94% PF 0.783; r==0.0 rows (6-dp rounding): 25
+[verdict/bullets] set1_majority=INCONCLUSIVE; set2_lead_dr3=INCONCLUSIVE; set3_lead_v1=NO; pooled_lead_2plus3=NO; set3_lead_v1_varA=INCONCLUSIVE; pooled_lead_2plus3_varA=INCONCLUSIVE; set3_lead_v1_varC=NO; pooled_lead_2plus3_varC=NO -> NO (bullet order: YES if any of set1/pooled YES; else NO if any of set1/pooled NO; else INCONCLUSIVE)
+[power] set1_majority: p_ref(C) 36.96%, n_AB 50, n_C 46, MDD(80% power) 27.5pp, CI half-width 18.6pp
+[power] pooled_lead_2plus3: p_ref(C) 50.00%, n_AB 12, n_C 34, MDD(80% power) 36.6pp, CI half-width 27.5pp
+[write] EVIDENCE.json
+[write] GRADE_VS_OUTCOME.md

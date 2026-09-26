@@ -1,0 +1,200 @@
+case_001,A,clear 1.0893 barrier with two touch marks; tight coil under it; bull break bar closes above with EMA25 up
+case_002,C,thin barrier with a single touch; tiny last bar closes at/below the level; EMA25 rolling down against the long
+case_003,A,40-bar tight base resting on the 1.1546 barrier (two touches); red break bar closes below it; EMA25 falling
+case_004,A,two touches of 1.1190 with a tight coil above; strong bear bar closes well through the level; EMA25 down
+case_005,C,40 bars of chaotic chop straddling the barrier; no tight buildup; last bar closes at the line with a flat EMA25
+case_006,C,barrier is a long chop mean with no clean touches; steep V-recovery into it; last bar closes below the level
+case_007,B,three touches and a decent coil but the entry runs into the 1.1739-40 prior spike supply and the break bar is marginal
+case_008,A,two touches of 1.2184 with a tight coil at the level; bear bar closes through it; EMA25 falling
+case_009,A,two touches of 1.1304 with a tight hold just below; bull break closes above the barrier with a rising EMA25
+case_010,B,level 1.1852 shows repeated interaction and a coil above it; weakness is the last bar closing only at the trigger with no confirmed break
+case_011,C,tight coil at 1.1562 but the last bar is a doji closing at/below the level; spike supply at 1.1566-70 overhead; EMA25 faded
+case_012,A,tight coil at the highs on 1.1395 (three touches); strong bull close through the level; EMA25 rising hard
+case_013,B,1.1233 rejection with two touches and a red break bar; weakness is the close staying above the prior range low - thin room
+case_014,B,coil on the 1.0552 shelf (two touches) with a red break close; weakness is the 1-2 pip close below the level and thin room
+case_015,B,20-bar tight coil pressed under 1.1933 in an uptrend; weakness is only one marked touch and a marginal close above the level
+case_016,A,textbook spike-then-flag; tight coil on 1.18855 (three touches); bull close through it; EMA25 rising
+case_017,C,no marked barrier or touches visible; steep V-bounce inside a down day; last bar closes at/below the trigger
+case_018,B,flush to 1.1190 then a strong reclaim bar at the three-touch 1.1198 level; weakness is the EMA25 still falling against the long
+case_019,A,textbook; tight coil on 1.0972 (three touches) in a steady uptrend; huge bull bar closing clean through the level
+case_020,B,lower highs into the 1.18345 shelf (two touches) with a red drift down; weakness is the close only at the entry after the shelf was pierced earlier
+case_021,A,steady downtrend with a tight coil resting on 1.1196 (two touches); red bar closes through the floor; EMA25 falling
+case_022,B,pullback coil on 1.1775 support (two touches) with a bull bounce bar; weakness is the flattened EMA25 and 1.1783-85 supply close overhead
+case_023,B,uptrend coil with a strong bull bar through 1.2123; weakness is the level being marked only by the entry line and the close only at the trigger
+case_024,B,downtrend base under the 1.1050 shelf (two touches) closing below; weakness is the trigger sitting only about 3 pips above the 1.1045 base low
+case_025,A,40-bar tight coil at the highs resting on 1.1887 (two touches); close above it; EMA25 rising - continuation textbook
+case_026,B,rounded base after the waterfall closing above the 1.12265 shelf (two touches); weakness is the long against the day's strong downtrend with the EMA25 only just flattening
+case_027,B,multi-touch 1.09165 barrier and a decisive bull break bar; weakness is the entry running into the prior spike highs 1.0919-20 - thin room
+case_028,B,tight 60-bar base on the 1.1181 shelf with a bull close above; weakness is only one marked touch and a flat/declining EMA25
+case_029,C,barrier is a mid-range pivot chopped both ways; flat EMA25 and only about 4 pips of room to the 1.1640 base low
+case_030,C,short break against a steeply rising EMA25 in a fresh uptrend; the small last bar does not confirm the break
+case_031,C,long against a waterfall downtrend with a hard-falling EMA25; last bar closes at the line with no break
+case_032,C,level sits inside a choppy base; EMA25 has turned up on the recovery and the last bar closes above the short trigger
+case_033,C,chaotic overlapping chop around the level with big wicks; no tight buildup; tiny non-committal last bar; flat EMA25
+case_034,B,decisive bull bar through the 1.1367 shelf (three touches) with EMA25 flattening; weakness is the sharp V-recovery approach and 1.1378-80 supply just overhead
+case_035,C,long armed under a freshly broken barrier with falling EMA25 and a choppy base
+case_036,C,long buy-stop right after a waterfall drop with steep falling EMA25 and a red close below the barrier
+case_037,B,sell-stop break of a lightly-touched support with loosening buildup and mild down EMA25
+case_038,B,sell-stop under a twice-touched support sitting on the level but EMA25 rising off the V
+case_039,B,sell-stop below a 3-touch support with a tight-enough base but flat EMA25 and wicky chop
+case_040,C,sell-stop below a 4-touch base floor against a strongly rising EMA25 with no break close
+case_041,B,momentum long through the old 1.2048 level with rising EMA25 but thin build at the barrier
+case_042,B,sell-stop below a tight post-drop base with flattening EMA25 but the last bar still neutral
+case_043,B,vertical rally through the barrier with rising EMA25 but thin buildup and stale touches
+case_044,B,tight base under the 1.2180 trigger after the V-plunge but price still sits below the level
+case_045,C,mid-range chop with the entry line through the middle and a flat EMA25
+case_046,B,sell-stop under a tight base in a flattening post-drop EMA25 but final bars thrust up
+case_047,B,sell-stop at a heavily re-tested range floor but wide whipsaw history and flat EMA25
+case_048,A,clean 4-touch barrier with tight base break-through and rising EMA25
+case_049,B,long above the base ceiling after a decline with flat EMA25 and only grazing touches
+case_050,B,strong red breakdown bar at a 4-touch base but trigger sits far below price and EMA25 rising
+case_051,C,thin 10-bar build after a choppy V with no clear drawn barrier and a red final bar
+case_052,B,clean return-to-barrier short with declining EMA25 but decision bar still on the barrier
+case_053,A,tight 40-bar shelf under a 3-touch barrier in a rising EMA25 with the entry just above
+case_054,C,wide flat range with the line mid-range and a loose drift into an untested floor
+case_055,B,big red rejection back through the barrier but EMA25 has turned up against the short
+case_056,A,failed retest from below with a tight press and a strong red breakdown bar under rolling EMA25
+case_057,B,tight shelf and strong red breakdown bar through the pivot but EMA25 flat
+case_058,B,downtrend base on the barrier with aligned EMA25 but thin buildup and a soft final bar
+case_059,B,tight recovery cluster at the barrier with rising EMA25 but room capped by the prior top
+case_060,B,high-range shelf breakdown with a strong red bar but EMA25 flat across the top
+case_061,C,sideways drift with the barrier mid-range and a flat EMA25
+case_062,B,pullback to the 2-touch support with eased EMA25 but a slide-not-press buildup
+case_063,B,tight high shelf in a strong uptrend but the decision bar is a soft red pullback
+case_064,C,pure range chop with the barrier mid-range and a flat EMA25
+case_065,B,steady trend-down grind along a 2-touch level with aligned EMA25 but loose base and soft bar
+case_066,C,wide wavy channel with the line mid-channel and a flat EMA25
+case_067,A,strong uptrend with a tight 60-bar shelf and a green breakout bar through the entry
+case_068,B,strong 4-touch base after a downtrend with the entry above but EMA25 still falling
+case_069,A,Strong uptrend holding tightly above the twice-touched teal barrier; last bar closes above the level with no overhead obstruction.
+case_070,C,Long choppy range around the level after a vertical rally; short trigger off a flat EMA with no tight buildup.
+case_071,B,Clear twice-touched barrier with a tight hold above it in an uptrend; only weakness is the extended rally and weak final bars before the trigger.
+case_072,C,No solid barrier visible; long trigger sits inside a fresh decline with EMA25 rolling down and last bar closing weak.
+case_073,C,Long breakout into the underside of a steeply falling EMA25; break bar closes red below the level and right into the EMA.
+case_074,B,Tight low base with a red break bar closing down and EMA25 declining, but no barrier is drawn and prior lows sit close below.
+case_075,C,Flat choppy range with spike lows; price sits above the short trigger and the level is mid-range with a flat EMA.
+case_076,B,Barrier clear with two touches and the break bar closes down at it, but the base around the level is loose and range-bound.
+case_077,C,Range chop around the level after an earlier spike-and-reject; opposing dotted barriers sit just below the short trigger.
+case_078,C,Violent whipsaw with no drawn barrier; entry is a small doji trigger in the middle of a wide range.
+case_079,A,Clean uptrend with a tight ten-bar base hugging the thrice-touched barrier; trigger sits just above with room.
+case_080,B,Tight three-touch consolidation at the level after a spike top, but the short runs against the still-rising EMA25 with price just rolling over.
+case_081,C,Countertrend short off a fresh rally high; falling bar closes mid-air with no supporting barrier and EMA25 rising.
+case_082,B,Decisive red bar closes through the twice-touched support with EMA25 declining; weakness is the wide choppy range base behind it.
+case_083,A,Steep uptrend, tight base under the thrice-touched barrier, big bull break bar closing through the level and the trigger.
+case_084,B,Two-touch barrier with a tight base in an uptrend; last bar is a red close right at the level inside a long forty-bar box.
+case_085,B,Downtrend with a touched shelf and a red break bar closing at the trigger; base is only briefly tight and sits in a dip zone.
+case_086,B,Long ceiling with many touches and a strong breakout bar closing at a new high, but the sixty-bar box is loose rather than a tight buildup.
+case_087,B,Big bull bar breaks to new highs above a many-touch ceiling in an uptrend, but the prior box is long and loose and no barrier line is drawn.
+case_088,A,Uptrend with a tight base hugging the thrice-touched barrier and a bull break bar closing through it with clear room.
+case_089,C,Choppy swings with no drawn barrier; flat EMA25 and a tiny trigger bar under the range top.
+case_090,B,Tight base hugging the touched barrier with a break bar closing above, but the backdrop is a long wide range and the entry sits at its top.
+case_091,B,Heavily touched barrier with a tight twelve-bar range above it in an uptrend; last bar is a red pullback close at the level.
+case_092,B,Strong bar clears the touched level and the 1.1640 shelf, but EMA25 is flat and the setup sits in a sixty-bar consolidation.
+case_093,C,Tight base at the barrier but the long runs into a falling EMA25 and the overhead broken-support shelf in a decline.
+case_094,B,Uptrend with a tight base under the thrice-touched barrier; last bar is a red close at the level and the prior spike high is just overhead.
+case_095,C,Choppy W-base with flat EMA25; trigger sits just above a level that already rejected price twice, no clean buildup.
+case_096,B,Tight base holds above the touched barrier with a strong bull bar, but the buy stop sits far above price under the 1.1025 shelf.
+case_097,B,Red break bar closes through the twice-touched shelf after the top; weakness is the EMA25 only now rolling over from the rally.
+case_098,B,Downtrend with a thrice-touched level and a small red bar at it; immediate box is choppy and EMA25 is flat above price.
+case_099,B,Strong red bar breaks the touched shelf after a rounded fade; the band above is tight-ish but EMA25 has been flat.
+case_100,C,Wide hundred-bar range with flat EMA25; short trigger mid-band with the dotted barrier sitting just below.
+case_101,B,Strong bull bar clears the thrice-touched barrier and the base, but EMA25 is still declining so the breakout is countertrend.
+case_102,B,long above the well-touched 1.1288 level with EMA25 turning up but the approach is a steep V-recovery, not a tight buildup
+case_103,B,price dips to a 2-touch 1.1795 support and closes back up off a long tight base but EMA25 is flat-to-down so alignment is missing
+case_104,B,red bar breaks the 1.1610 shelf downward with EMA25 fading but the barrier has only one clear touch and the buildup is thin
+case_105,C,overlapping chop with no cleanly drawn barrier and the entry line straddling the last bar
+case_106,A,clear 2-touch barrier with price climbing into it and a big teal break bar closing up through it with EMA25 turning up
+case_107,A,tight 2-touch shelf at 1.2190 broken upward by the last bar with open room above and EMA25 turned up
+case_108,B,tight base pressed on a 3-touch 1.1656 support in a downtrend but the last bar is a small indecisive bar at the line
+case_109,B,big red bar fails back through a 3-touch 1.1258 shelf but the short fights the still-rising EMA25
+case_110,B,red bar closes on a 3-touch mid-range level with EMA25 flat but the surrounding range is choppy
+case_111,B,reclaim of a 2-touch 1.18425 barrier with the last bar closing above but the prior swing high caps room and price action is choppy
+case_112,A,long tight shelf riding a 2-touch support with a decisive up-break through the entry and a rising EMA25
+case_113,B,tight base and up-break at a 2-touch barrier but an active dotted barrier sits immediately overhead
+case_114,A,continuation short with a tight base hugging a 3-touch support, break bar closing down, EMA25 declining in line
+case_115,B,strong up-break of a multi-touch 1.1110 barrier but EMA25 is flat and prior congestion sits just overhead
+case_116,B,red bar back at a 2-touch barrier after a failed rally but the approach is a steep V-drop not a tight buildup
+case_117,B,tight flat line at a 2-touch barrier with the last bar poking through but EMA25 is flat and room is small
+case_118,A,40-bar tight base over a 2-touch barrier with a decisive teal break bar closing at the entry and EMA25 up
+case_119,B,strong reclaim bar off a multi-touch barrier with EMA25 turning up but the V-recovery approach is loose
+case_120,A,tight base on a 2-touch barrier in a steep downtrend with the red break bar closing below and EMA25 declining in line
+case_121,C,violent chop with an oversized final spike bar and the stop entry parked far above the range
+case_122,B,red bar breaks down through a 2-touch shelf after a failed high but it fights the recent up-trend and EMA25
+case_123,B,clean downtrend with a tight base on a 2-touch barrier but the small last bar only just reaches the level
+case_124,B,tight base under a 2-touch resistance but EMA25 is flat and the small last bar only pushes at the barrier
+case_125,B,red bar breaks a 2-touch pivot with EMA25 declining but chop and the prior low sits just below the entry
+case_126,B,up-break of a 2-touch barrier with the last bar closing above but room is capped by round 1.1130 and the early highs
+case_127,B,small bar on a 2-touch pivot with EMA25 slightly down but the approach is thin after the V-crash
+case_128,B,tight base at a 2-touch barrier in a clean decline but the last bar is small and the prior swing low limits room
+case_129,B,retest break of a 2-touch breakout level but the short fights the steep bull-impulse EMA25
+case_130,B,4-touch level broken upward by a strong teal bar but mid-range chop and the range top sits just overhead
+case_131,B,tight range at a 2-touch level with a red fade bar but the direction fights the rising EMA25 uptrend
+case_132,C,no solid barrier drawn and the level is reached only by a sharp V-recovery with an ambiguous close
+case_133,A,clean downtrend with a super-tight base on a 2-touch barrier and a red bar closing down at the line with EMA25 declining
+case_134,B,up-break of a 2-touch level with a bullish close but the wide choppy range leaves limited room
+case_135,B,strong uptrend pressing a multi-touch top; EMA up but no tight pause and the close only reaches the barrier
+case_136,A,textbook shelf: thrice-touched line, tight consolidation, EMA rising, bull closes through
+case_137,B,reclaim of a twice-touched level with EMA flat/slightly down and close short of the entry
+case_138,B,downtrend with tight low base on twice-touched support; small red bar barely clears the line
+case_139,B,range-low break aligned with EMA but the red close barely undercuts the line in choppy range
+case_140,C,short entry sits under a bar closing up off support while EMA curls up - direction fights the thesis
+case_141,B,tight shelf under twice-touched resistance, EMA rolling down; decision bar only marginal at the line
+case_142,C,no clearly visible solid barrier, V-recovery into the level and EMA only just turning
+case_143,C,fresh post-crash bounce: no barrier line and the break bar closes up against a steeply declining EMA
+case_144,B,steep downtrend with tight base on twice-touched support; red close only marginal below line/entry
+case_145,C,no barrier visible; recovery bar stalls below the long entry under a falling EMA
+case_146,B,long downtrend, very tight base on twice-touched line; decision bar closes at the line, not through
+case_147,B,uptrend reclaim of twice-touched support with rising EMA; strong bull stops just shy of the entry
+case_148,B,decisive red break of a thrice-touched level with EMA rolled down; base before it is loose range chop
+case_149,B,range-bottom break with two touches; close only marginal at entry and the range is choppy
+case_150,C,tight low base but the long entry fights a clearly declining EMA and close is ~1 pip past the line
+case_151,C,no barrier/touches, V-bounce, and the decision bar closes below the entry against a falling EMA
+case_152,B,strong red close through a thrice-touched line with EMA rolled over; base is a wide 20-pip range
+case_153,A,uptrend pullback on twice-touched line, EMA rising, tall bull closes through
+case_154,B,recovery breaks a twice-touched level with EMA rising; impulse leaves only a thin pause and close under entry
+case_155,C,long into a twice-touched line while EMA declines steeply - countertrend retest
+case_156,B,long base breaks down through thrice-touched line; flat EMA and marginal close weaken it
+case_157,B,tight top range; short stop under a doji that never clears the entry with a just-rolled EMA
+case_158,C,line is crossed all chart long (no clean barrier), EMA down, decision bar closes at the line
+case_159,B,strong bull reclaims a twice-touched line but EMA is still turning down - mildly countertrend
+case_160,A,textbook tight base on thrice-touched line, rising EMA, breakout bull closes through
+case_161,B,long grind with four touches of the line and EMA down; decision bar sits on the line, no clear trigger
+case_162,B,twice-touched support after wide choppy range; small doji at the line doesn't clear the short entry
+case_163,B,strong bull clears a twice-touched line but barrier is mid-range, EMA flat, close under entry
+case_164,B,decisive red close through a twice-touched line with EMA down; messy spike history and support dotted right below
+case_165,C,short entry sits below a bar closing strongly above the twice-touched line with EMA rising - direction conflicts
+case_166,B,tight band under twice-touched line, EMA flat/up; prior highs sit right above the entry
+case_167,B,very tight base on a twice-touched line; tiny decision bar hasn't cleared the entry and EMA still falls
+case_168,C,long break pending under dotted barriers just overhead with a marginal break close in a flat-to-down EMA tape
+case_169,C,green close above the barrier but it fights the falling window EMA into overhead supply from the prior decline
+case_170,C,short stop sits under a barrier that just held twice with price above it and the EMA turning up
+case_171,C,short would break a thrice-held support in a strong uptrend with a rising EMA and a dotted barrier just below entry
+case_172,B,with-trend short at a twice-touched barrier but the break close is only marginal and the prior low sits just under the entry
+case_173,B,long retest above a thrice-touched broken barrier with EMA rising; overhead consolidation caps the room to about 7 pips
+case_174,C,no barrier drawn and the pending stop fades a strong window uptrend at the pullback
+case_175,C,pending short fades a strong uptrend with no barrier drawn and only a shallow pullback
+case_176,C,short below a twice-held support after the up-break with the EMA rising - fading the trend
+case_177,B,good consolidation-top barrier and rolling EMA but the approach is a thin seven-bar recovery not a tight coil
+case_178,A,tight with-trend slide breaks the twice-tested barrier with a decisive red close and the entry confirms the prior-low break
+case_179,B,with-trend breakdown below a twice-touched barrier but the buildup above is wide chop and the EMA is flat
+case_180,B,with-trend short through a multi-touch base level but the barrier is not drawn teal and the buildup is thin
+case_181,B,short at the floor break with EMA rolling over but the floor already held twice and the approach is a drift
+case_182,B,short at the twice-held support break after the rally stalled; a dotted barrier sits about 3 pips below the entry
+case_183,C,long break fights a steep falling EMA and runs straight into the crash-body congestion overhead
+case_184,B,long reclaim of the old base with the EMA turning up but no barrier drawn and the window trend is down
+case_185,B,clean range break with a green close through a thrice-touched barrier; prior spike high a few pips above caps the immediate room
+case_186,B,with-trend short at the launch-plateau break with EMA rolling over but the level is mid-plateau and the last bar has not closed through
+case_187,C,long break against the down and flat EMA straight into heavy 1.1110-1.1120 congestion overhead
+case_188,B,barrier with three touches and a strong green close but the stop-entry chases the top of an extended spike bar
+case_189,B,steady uptrend press under a multi-touch ceiling but the barrier is only the entry line and the last bar has not cleared it
+case_190,A,forty-bar tight coil under the visible top barrier with EMA rising and clear room above
+case_191,C,short stop under a barrier the price just broke upward with the EMA freshly turning up - a false-break fade
+case_192,B,short at the coil-floor break under the ceiling but the price straddles the barrier and the EMA is flat
+case_193,C,long break of broken support fights the window downtrend and runs into the overhead chop zone
+case_194,C,long break of a mid-range line capped by the range top a few pips up in flat-EMA chop
+case_195,B,strong V-recovery reclaim with the EMA turning up but it is a counter-window move right under the prior high
+case_196,C,long chases the spike top after an extended V with the EMA far below and range-top resistance overhead
+case_197,B,short at the range-floor break after the ceiling failed but the barrier is straddled by wide chop and the EMA is flat
+case_198,B,with-trend short at the retest of a thrice-touched barrier after the bounce failed; the approach is a slow drift
+case_199,B,with-trend shelf-break short but no barrier is drawn and the prior low sits a few pips under the entry
+case_200,B,teal barrier with circles and a red breakdown close with EMA down but the old shelf sits right under the entry

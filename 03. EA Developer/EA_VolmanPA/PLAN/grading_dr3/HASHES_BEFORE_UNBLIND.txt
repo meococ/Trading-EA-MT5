@@ -1,0 +1,4 @@
+Hash-before-unblind record (F5). Written 2026-09-20 17:10:12 (local).
+GRADES_V3_G1.csv  5bef16c7ba965f93b5a9ca02bb66e1c4b25dbd68b8c9de660160d071362f51c6  (180 rows, concatenated from batches 1-6)
+GRADES_V3_G2.csv  7df3c09abfb2f90fa76dc7d7a51b56ab027ba751eeffebb85ae4b821945e098b  (180 rows, concatenated from batches 1-6)
+Disagreements: 60 (A/B 15, B/C 16, C/B 22, B/A 5, A/C 2) -> G3 grades these 60 only.

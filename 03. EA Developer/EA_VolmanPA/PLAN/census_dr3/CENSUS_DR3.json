@@ -1,0 +1,197 @@
+{
+ "config": "DR3_CFG",
+ "prereg_sha256": "A61F06BA776BD0D74A94FBFD243ECFFC9C880988832BAEC789F50DAA675E05A2",
+ "bars": 440040,
+ "records": 91734,
+ "evaluated": 29780,
+ "accepted": 4331,
+ "rejected": 25449,
+ "cadence": {
+  "exec_total": 4331,
+  "weeks": 312.7,
+  "per_week": 13.85,
+  "per_year": {
+   "2016": 717,
+   "2017": 744,
+   "2018": 723,
+   "2019": 735,
+   "2020": 668,
+   "2021": 744
+  },
+  "per_session": {
+   "eu": 2055,
+   "us": 2276
+  }
+ },
+ "d2_verdict": "NORMAL",
+ "funnel": {
+  "skip_trend": 22010,
+  "skip_integrity": 3439,
+  "executable": 4331
+ },
+ "counters": {
+  "barrier_expired": 21112,
+  "barrier_locked": 45599,
+  "chop_exempt_buildup": 903,
+  "executable_combi": 10,
+  "executable_pattern_break": 4321,
+  "signal_eval": 91734,
+  "skip_barrier_already_broken": 26,
+  "skip_barrier_insufficient_touches": 67321,
+  "skip_direction": 7358,
+  "skip_duplicate_barrier": 5671,
+  "skip_integrity": 3439,
+  "skip_missed_break": 20154,
+  "skip_session": 54596,
+  "skip_trend": 22010
+ },
+ "feature_dist": {
+  "n": {
+   "acc_med": 10,
+   "acc_iqr": 2,
+   "rej_med": 10.0,
+   "rej_iqr": 1
+  },
+  "band_closes": {
+   "acc_med": 3,
+   "acc_iqr": 2,
+   "rej_med": 3.0,
+   "rej_iqr": 2
+  },
+  "buildup_touches": {
+   "acc_med": 2,
+   "acc_iqr": 1,
+   "rej_med": 2.0,
+   "rej_iqr": 2
+  },
+  "overlap": {
+   "acc_med": 0.7652350568478041,
+   "acc_iqr": 0.12498350697336891,
+   "rej_med": 0.7575071939110349,
+   "rej_iqr": 0.12596489855234683
+  },
+  "contraction": {
+   "acc_med": 0.7590361445781038,
+   "acc_iqr": 0.12713734142289146,
+   "rej_med": 0.7628865979380853,
+   "rej_iqr": 0.1303158223888261
+  },
+  "conditions_passed": {
+   "acc_med": 4,
+   "acc_iqr": 0,
+   "rej_med": 4.0,
+   "rej_iqr": 0
+  },
+  "v2of4_n": {
+   "acc_med": 10,
+   "acc_iqr": 0,
+   "rej_med": 10.0,
+   "rej_iqr": 0
+  },
+  "vtight_n": {
+   "acc_med": 10.0,
+   "acc_iqr": 1,
+   "rej_med": 10,
+   "rej_iqr": 0
+  },
+  "room_r": {
+   "acc_med": 0.612,
+   "acc_iqr": 0.263,
+   "rej_med": 0.6,
+   "rej_iqr": 0.21299999999999997
+  },
+  "entry_b_atr": {
+   "acc_med": 0.1849,
+   "acc_iqr": 0.3448,
+   "rej_med": 0.2761,
+   "rej_iqr": 0.3904000000000001
+  },
+  "range_atr": {
+   "acc_med": 0.8227,
+   "acc_iqr": 0.4201999999999999,
+   "rej_med": 0.8156,
+   "rej_iqr": 0.4262
+  },
+  "ema_dist_atr": {
+   "acc_med": 1.5082,
+   "acc_iqr": 0.7394999999999998,
+   "rej_med": 0.72135,
+   "rej_iqr": 0.7566999999999999
+  },
+  "bars_since_pressure": {
+   "acc_med": 10,
+   "acc_iqr": 14,
+   "rej_med": 11,
+   "rej_iqr": 15
+  },
+  "rho": {
+   "acc_med": 0.125,
+   "acc_iqr": 0.0,
+   "rej_med": 0.125,
+   "rej_iqr": 0.0
+  },
+  "atr": {
+   "acc_med": 0.000422568922793529,
+   "acc_iqr": 0.00024096647135604345,
+   "rej_med": 0.00041653538609863304,
+   "rej_iqr": 0.00023457188889655845
+  }
+ },
+ "feature_rates": {
+  "squeeze": {
+   "acc": 0.0074,
+   "rej": 0.1129
+  },
+  "chop_legacy": {
+   "acc": 0.2937,
+   "rej": 0.303
+  },
+  "chop_window": {
+   "acc": 0.1155,
+   "rej": 0.1259
+  },
+  "adverse": {
+   "acc": 0.2445,
+   "rej": 0.2714
+  },
+  "pressure": {
+   "acc": 0.1154,
+   "rej": 0.0574
+  },
+  "lunch": {
+   "acc": 0.1866,
+   "rej": 0.1925
+  },
+  "room_inf": {
+   "acc": 0.0071,
+   "rej": 0.0016
+  }
+ },
+ "burned_diagnostic": {
+  "evaluated": {
+   "AB": 15,
+   "C": 34
+  },
+  "accepted": {
+   "AB": 9,
+   "C": 8
+  },
+  "integrity_fail": {
+   "AB": 3,
+   "C": 13
+  },
+  "trend_fail": {
+   "AB": 1,
+   "C": 23
+  },
+  "hard_first_fail": {
+   "C:skip_direction": 6,
+   "C:skip_integrity": 1,
+   "C:skip_session": 1,
+   "C:skip_trend": 18,
+   "AB:skip_direction": 3,
+   "AB:skip_integrity": 2,
+   "AB:skip_trend": 1
+  }
+ }
+}

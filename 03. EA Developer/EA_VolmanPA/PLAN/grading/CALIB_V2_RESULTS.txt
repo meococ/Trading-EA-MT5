@@ -1,0 +1,5 @@
+hashes_before_lead_open={'GRADES_V2_G1.csv': '91F842E218884A5AB74FACDC5D025C50008100B6BFA70F389A6AFFE72BBF2BFD', 'GRADES_V2_G2.csv': 'C1A7069223DBE6C73277EA7E851245E87E7BA67AC2618E65871175E957310784'}
+G1 vs Lead: binary_AC1=0.7701 binary_raw=0.8667 three_AC1=0.7418 three_raw=0.8000
+G2 vs Lead: binary_AC1=0.6062 binary_raw=0.7833 three_AC1=0.6671 three_raw=0.7500
+G1 vs G2: binary_AC1=0.4667 binary_raw=0.7167 three_AC1=0.4829 three_raw=0.6167
+extra_graded=[]
