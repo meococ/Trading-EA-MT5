@@ -1,0 +1,2 @@
+EA_Ibsc includes only stdlib <Trade/Trade.mqh> plus workspace shared telemetry
+(../_Shared/Telemetry/AF_LifecycleTelemetry.mqh). No custom iCustom indicator.

@@ -1,51 +1,34 @@
 # 03. EA Developer
 
-Sự thật package = `& "./02. AlphaFactory/alpha.ps1" list` + contract của EA đang mở.
-Graveyard = `00. Old File/EA_Archive/` (gitignore; **không** phải nguồn compile/evidence).
+Sự thật package = `& "./02. AlphaFactory/alpha.ps1" list` + contract của EA
+đang mở. Graveyard = `00. Old File/EA_Archive/` (gitignore; **không** phải
+nguồn compile/evidence).
 
-## Shelf (khớp disk 2026-09-11)
+## Shelf (khớp disk 2026-09-17)
 
-Package có artifact thật (không phải probe generated):
+| Path | Vai trò |
+|---|---|
+| `EA_SonicR_PVSRA/` | Host Sonic R — vẫn compile được, không còn là host bắt buộc (GOAL.md:34-36) |
+| `EA_ExecutionKernelHarness/` | Harness compile-check cho `_Shared/`; không phải sleeve giao dịch |
+| `EA_LiquiditySweep/` | Sleeve liquidity-sweep (source + artifact thật; HYP-LSWEEP-EUR-M5-001 đã kill trên EURUSD — engineering còn dùng lại được) |
+| `_Shared/` | `Execution/AF_ExecutionKernel.mqh`, `MarketData/AF_TickCursor.mqh`, `Telemetry/AF_LifecycleTelemetry.mqh` — shared infra, không phải EA |
+| `AI_Regime_Detection/`, `Modern_Bollinger_Bands_GBB/`, `QQE_MOD/`, `SMC_Order_Block_Detector/`, `Volatility_Regime_Classifier_QuantRegime/` | Indicator `iCustom`, không đổi tên thành `EA_*` |
 
-| Sống | Path | Vai trò |
-|---|---|---|
-| `EA_SonicR_PVSRA` | `03. EA Developer/EA_SonicR_PVSRA/` | Host Sonic R — vẫn compile được, không còn là host bắt buộc (GOAL.md:34-36) |
-| `EA_ExecutionKernelHarness` | `03. EA Developer/EA_ExecutionKernelHarness/` | Harness compile-check cho `_Shared/`; không phải sleeve giao dịch |
-| `EA_LiquiditySweep` | `03. EA Developer/EA_LiquiditySweep/` | Sleeve liquidity-sweep, source + artifact thật |
+`TB_Smart_Money_Concept_2026` sống ở `TB_Smart_Money_Concept_2026.mq5` (root
+repo). Compile: `& "./02. AlphaFactory/alpha.ps1" compile "TB_Smart_Money_Concept_2026"`.
 
-## Generated probes (mint 2026-09-08 → 2026-09-11)
+## Fleet mint — đã xóa (Owner 2026-09-17)
 
-~371 dir `EA_*` + ~39 dir `IND_*` còn lại dưới đây là **probe generated**
-(mỗi package một `.mq5` + `.ex5` + `research/CONTRACT.md`), không phải sleeve
-đã review. Đừng đọc tên folder như verdict kinh tế; inventory chuẩn qua
-`alpha.ps1 list`, hypothesis state qua
-`04. Memory/research/CANDIDATE_REGISTRY.jsonl`.
-
-Không phải EA package (Get-EAs bỏ qua, đúng ý đồ):
-
-- `_Shared/Execution/AF_ExecutionKernel.mqh`, `_Shared/MarketData/AF_TickCursor.mqh`
-  — consumer duy nhất là `EA_ExecutionKernelHarness`. Chưa có sleeve production nào dùng.
-- 6 indicator `iCustom`: `AI_Regime_Detection`, `Modern_Bollinger_Bands_GBB`, `QQE_MOD`,
-  `SMC_Order_Block_Detector`, `TB_Smart_Money_Concept_2026`,
-  `Volatility_Regime_Classifier_QuantRegime`. Không đổi tên thành `EA_*`.
-  `TB_Smart_Money_Concept_2026` sống ở `TB_Smart_Money_Concept_2026.mq5` (root repo).
-  Compile: `& "./02. AlphaFactory/alpha.ps1" compile "TB_Smart_Money_Concept_2026"`.
+~410 dir `EA_*`/`IND_*` probe generated (mint 2026-09-08→11) đã bị xóa hẳn.
+Era-2 screen: 26 hypothesis registered → 25 `KILLED_AT_MODEL_0` (PF
+0.7–0.9), 1 pending. Verdict kinh tế sống ở
+`04. Memory/research/CANDIDATE_REGISTRY.jsonl`, run evidence prune-slim ở
+`02. AlphaFactory/runs/`. Đừng đọc tên folder archive như verdict — catalog
+failure pattern: `04. Memory/do_not_repeat_failures.md`.
 
 ## Đã park (2026-08-31)
 
-94 package `EA_*` nằm ở `00. Old File/EA_Archive/` (gitignore):
-
-- 9 package chỉ có `README.md`, không có canonical `.mq5` → nguồn của 9 warning `Get-EAs`.
-- `EA_SonicR` classic — `GOAL.md:36-37` cấm compile cho goal.
-- 84 package `EA_*` còn lại — park theo lệnh Owner "chỉ giữ tinh túy".
-
-Park **không** phải kết luận kinh tế. Verdict kinh tế nằm ở
-`04. Memory/do_not_repeat_failures.md` và bound theo hypothesis ID, không theo tên folder.
-
-Khôi phục một package:
-
-```bash
-git checkout 61ee7e0 -- "03. EA Developer/<Tên>"
-```
-
-hoặc copy ngược từ `00. Old File/EA_Archive/<Tên>/`.
+94 package `EA_*` nằm ở `00. Old File/EA_Archive/` (gitignore), gồm
+`EA_SonicR` classic (GOAL cấm compile cho goal). Park **không** phải kết
+luận kinh tế. Khôi phục: `git checkout 61ee7e0 -- "03. EA Developer/<Tên>"`
+hoặc copy ngược từ archive.

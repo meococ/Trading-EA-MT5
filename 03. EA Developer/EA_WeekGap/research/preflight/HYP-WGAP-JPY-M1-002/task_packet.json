@@ -1,0 +1,152 @@
+{
+  "schema_version": "alphafactory_research_task_packet.v1",
+  "hypothesis_id": "HYP-WGAP-JPY-M1-002",
+  "run_role": "control",
+  "ea_name": "EA_WeekGap",
+  "source_path": "03. EA Developer/EA_WeekGap/EA_WeekGap.mq5",
+  "source_sha256": "F98F67C00D77D8254B2C8392D58CA85E14BA5C39E5689732EA38BEC647FDB1EA",
+  "registry_path": "04. Memory/research/CANDIDATE_REGISTRY.jsonl",
+  "registry_sha256": "C9C6CE29ACF47EF5F5240E5C6B2FF66D5460B2147CB120187DC98E5A19C06264",
+  "registry_row_sha256": "F72E28B4914B8DAD632E7FF7755CBAD10393E4E87DC1417C6C1FCAEABDABC1CF",
+  "prereg_path": "03. EA Developer/EA_WeekGap/research/HYP-WGAP-JPY-M1-002_FROZEN_PREREG.md",
+  "prereg_sha256": "634761DD3E40B93F2A9533F774F3C7E74D4353EE7F9814B74FE0E02546F990D8",
+  "ea_contract_path": "03. EA Developer/EA_WeekGap/ALPHAFACTORY_EA_CONTRACT.json",
+  "ea_contract_sha256": "82CC9B1BAFB6722F57E1B4BE89D6B18C29FC27C8518AECDD233C4045A9ED61E5",
+  "telemetry_profile": "lifecycle-v3",
+  "comparison_adapter": "generic-control-improvement-v1",
+  "symbol": "USDJPY",
+  "period": "M1",
+  "from": "2010.01.04",
+  "to": "2026.09.18",
+  "data_quality_contract": {
+    "history_quality": {
+      "operator": "gt",
+      "value": 97.0
+    },
+    "coverage_mode": "verified_m1_asof",
+    "availability_asof_utc": "2026-09-18T23:59:59Z",
+    "requested_from": "2010.01.04",
+    "requested_to": "2026.09.18",
+    "require_tester_journal_bounds": true
+  },
+  "model": 0,
+  "execution_mode": 0,
+  "fixed_delay_ms": 0,
+  "overrides": "InpEnableTelemetry=true;InpFlattenHourServer=22;InpFridayFlattenHourServer=20;InpGapThreshPips=2.0;InpHypothesisId=HYP-WGAP-JPY-M1-002;InpMagic=26451824;InpMaxAccountDdPct=10.0;InpMaxConsecutiveLosses=4;InpMaxDailyLossPct=2.0;InpMaxHoldBars=61;InpMaxSpreadPips=8.0;InpMaxTradesPerDay=2;InpNewsBlackoutMin=20;InpRiskPercent=0.25;InpServerDstUsRule=true;InpServerGmtOffsetHours=2;InpSignalDowServer=1;InpSignalHourServer=0;InpSignalMinuteServer=5;InpSlippagePoints=20;InpSlPips=20.0;InpVerboseLog=true",
+  "telemetry_tier": "trade-only",
+  "deposit": 10000,
+  "leverage": 100,
+  "spread": "4",
+  "validation_stage": "challenger",
+  "holding_contract": "scalp",
+  "cost_evidence_tier": "research_proxy",
+  "acceptance_contract": {
+    "min_profit_factor": 1.3,
+    "min_trades_per_week": 10.0,
+    "max_trades_per_week": 40.0,
+    "max_drawdown_pct": 20.0,
+    "min_cost_pf_x1_5": 1.25,
+    "min_cost_pf_x2": 1.0,
+    "max_monte_carlo_p95_dd_pct": 20.0
+  },
+  "git_commit": "NOGIT-12E7F92F4293091B8056D62D35E8DAD784F428A306E4371F2D4BFC90C09AE25A",
+  "git_status": [
+    "nogit=true",
+    "dirty=true",
+    "provenance_sha256=12E7F92F4293091B8056D62D35E8DAD784F428A306E4371F2D4BFC90C09AE25A"
+  ],
+  "git_status_sha256": "5657748D4431DD0382F5EC7B5DEB2E7CD2EF06BFA2C222B3016353EFCB144827",
+  "include_closure": [
+    {
+      "path": "03. EA Developer/_Shared/Execution/AF_ExecutionKernel.mqh",
+      "sha256": "08EC6959CDEB437E20422C96B5C88B7C9CB3AC62F9356B32D631638FD925097C"
+    },
+    {
+      "path": "02. AlphaFactory/runtime/mt5-portable-mqdemo/MQL5/Include/Trade/Trade.mqh",
+      "sha256": "96E6781624534377FE7971CBA52CCA3D62D1B030BC10D5E4EBF3ED8C541399ED"
+    },
+    {
+      "path": "03. EA Developer/EA_LiquiditySweep/Include/LSW_Types.mqh",
+      "sha256": "E198FBA9853C6E32E92BA77EC81D3010B0E8B07FF7B5BFB9A1C7F1FBBA6CAD3D"
+    },
+    {
+      "path": "03. EA Developer/EA_LiquiditySweep/Include/LSW_Session.mqh",
+      "sha256": "EE588AEF4FABAD691CD9A2C5A1F36C5EC518850EF5A2AAB00F1398827CD3B232"
+    },
+    {
+      "path": "03. EA Developer/EA_LiquiditySweep/Include/LSW_Risk.mqh",
+      "sha256": "E7A8E76D1027BBD1267F4E18F71607263A0B902D9420444F9EB4418FBFF81541"
+    },
+    {
+      "path": "03. EA Developer/EA_WeekGap/Include/WG_Telemetry.mqh",
+      "sha256": "E284D9B1E27C02A5A7B1B4EF6AE9A2C6538976C53EF4661365A68E0F42E024F2"
+    },
+    {
+      "path": "03. EA Developer/_Shared/Telemetry/AF_LifecycleTelemetry.mqh",
+      "sha256": "7671C49DF1AAC577BA9A5491ACBBF9428A1905D519E0FE3C266B4EF9C274BF28"
+    },
+    {
+      "path": "02. AlphaFactory/runtime/mt5-portable-mqdemo/MQL5/Include/Object.mqh",
+      "sha256": "DFAD4FDB6D1BF47CF43FCBC2882E52979459F17A776F75F250A7C32D0623AB35"
+    },
+    {
+      "path": "02. AlphaFactory/runtime/mt5-portable-mqdemo/MQL5/Include/Trade/OrderInfo.mqh",
+      "sha256": "D0E479578EF91D2EF1B07AE63D28AE54E15CEBB914DD10E5D4510C269A9CA999"
+    },
+    {
+      "path": "02. AlphaFactory/runtime/mt5-portable-mqdemo/MQL5/Include/Trade/HistoryOrderInfo.mqh",
+      "sha256": "E88F6BE450462A045470315887EF751A4510DA65A5115325DC88542743FC52F8"
+    },
+    {
+      "path": "02. AlphaFactory/runtime/mt5-portable-mqdemo/MQL5/Include/Trade/PositionInfo.mqh",
+      "sha256": "DD720B755C7F23DCC109FC81BCF0772B907411D545E4A1117421737BB9FF6897"
+    },
+    {
+      "path": "02. AlphaFactory/runtime/mt5-portable-mqdemo/MQL5/Include/Trade/DealInfo.mqh",
+      "sha256": "9D6FB4E7D8754EAEE761E43943DC49CDC3A32793EE8438119D939EA7BAD71880"
+    },
+    {
+      "path": "02. AlphaFactory/runtime/mt5-portable-mqdemo/MQL5/Include/StdLibErr.mqh",
+      "sha256": "04BB2C47B1B04DCEB052E6DBA1F85E0330C53ABC602F341E2EA95EA1498AB28B"
+    }
+  ],
+  "include_closure_sha256": "D80B65EC369227D5204484BA898E6732EB2DC5968F611909796BBDDA1E0EAE42",
+  "broker_fingerprint": "FC306F344FFA2E4F8938B9B067ACB70CBB7424A3326BD3EB4F22B715B83E9CE5",
+  "server_fingerprint": "2642107A6FEB6123DC4C12328F4DDE61F06DD479039BC45963EAD69929B25724",
+  "account_fingerprint": "EC8EC5B400924AB80E8F82BDFA1F8599E5AB0ECB496A7DBEB874DC230A0429B9",
+  "data_fingerprint": "B395374C4B4D46304B41F2DA1A8A5D4606556F84443DACF545FF928D3A7D42AE",
+  "symbol_geometry": {
+    "digits": 3,
+    "point": 0.001,
+    "pip_size": 0.01
+  },
+  "required_sidecars": [
+    "*_LifecycleTrades_*.csv",
+    "*_RunMeta_*.json"
+  ],
+  "required_input_artifacts": [],
+  "required_manifest_hashes": [
+    "source_sha256",
+    "config_sha256",
+    "report_sha256",
+    "ex5_sha256",
+    "includes_sha256"
+  ],
+  "cost_source_manifest_path": "03. EA Developer/EA_WeekGap/research/evidence/COST_SOURCE_MANIFEST.json",
+  "cost_source_manifest_sha256": "BB30DC8756C3AC4858A0049AB091FACE0D89D5C12FCF8CCA33B1F7195723798F",
+  "matched_control_run_id": "",
+  "matched_control_hypothesis_id": "",
+  "matched_control_manifest_sha256": "",
+  "matched_control_report_sha256": "",
+  "matched_control_overrides": "",
+  "matched_control_source_sha256": "",
+  "matched_control_config_sha256": "",
+  "matched_control_ex5_sha256": "",
+  "matched_control_includes_sha256": "",
+  "matched_control_git_commit": "",
+  "matched_control_git_status_sha256": "",
+  "wfa_artifact_path": "",
+  "wfa_artifact_sha256": "",
+  "variants_dir": "",
+  "variants_sha256": ""
+}

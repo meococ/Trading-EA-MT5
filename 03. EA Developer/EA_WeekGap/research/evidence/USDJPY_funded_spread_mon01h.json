@@ -1,0 +1,18 @@
+{
+  "measurement": "funded-venue spread at the probed window",
+  "venue": "FivePercentOnline-Real (Owner GUI, deploy target)",
+  "symbol": "USDJPY",
+  "window_server": "Monday 01:00-02:00",
+  "method": "mt5.copy_ticks_from over six recent Mondays; spread=(ask-bid)/0.01",
+  "captured_at": "2026-09-19",
+  "samples": [
+    {"date": "2026-06-22", "ticks": 9187, "spread_med_p": 0.30, "spread_p90_p": 0.60},
+    {"date": "2026-06-29", "ticks": 6265, "spread_med_p": 0.20, "spread_p90_p": 0.50},
+    {"date": "2026-07-06", "ticks": 9337, "spread_med_p": 0.30, "spread_p90_p": 0.50},
+    {"date": "2026-07-13", "ticks": 13703, "spread_med_p": 0.20, "spread_p90_p": 0.50},
+    {"date": "2026-07-20", "ticks": 9600, "spread_med_p": 0.30, "spread_p90_p": 0.50},
+    {"date": "2026-07-27", "ticks": 10676, "spread_med_p": 0.20, "spread_p90_p": 0.50}
+  ],
+  "caveat": "n=6 reopens is a thin bound on the weekly spread tail; a single ~1.5-2.0p reopen print pushes deploy RT to ~2.2-2.7p and the +3.24 deploy row to ~+0.5-1.0p. Deploy-plane numbers are estimates, not stress bounds.",
+  "deploy_rt_estimate_p": 1.0
+}

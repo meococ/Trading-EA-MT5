@@ -1,0 +1,78 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "RESEARCH_PROXY",
+  "provenance_status": "VERIFIED_RESEARCH_PROXY",
+  "audit_status": "PASS_RESEARCH_ONLY",
+  "verdict": "PASS_RESEARCH_ONLY",
+  "promotion_eligible": false,
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "broker": "MetaQuotes Ltd.",
+  "server": "MetaQuotes-Demo (Build 6198)",
+  "account_currency": "USD",
+  "broker_fingerprint": "FC306F344FFA2E4F8938B9B067ACB70CBB7424A3326BD3EB4F22B715B83E9CE5",
+  "server_fingerprint": "8B03F315FE656C2B7983B4981342C8D50CA72BA13D72E8F849C30A915D3E0C2D",
+  "account_fingerprint": "4A0507D2EE775D94A381F9B6001DD27E3EA09797C2BEE7D8112FB7EEF0B7E032",
+  "data_fingerprint": "93E115E533F400E1B3ADF3897A953F9FA99A2D30BBB00F737747825394DFADC9",
+  "symbol": "XAUUSD",
+  "from": "1970.01.01",
+  "to": "2026.09.10",
+  "symbol_geometry": {
+    "digits": 2,
+    "point": 0.01,
+    "pip_size": 0.1
+  },
+  "historical_spread_provenance": {
+    "verification_status": "VERIFIED",
+    "source": "03. EA Developer/EA_LiquiditySweep/research/evidence/XAUUSD_spread_ticks.csv",
+    "source_sha256": "D54335DB6418D789ED6847B9A45EA4502F048B0BCC0D7C9CCFFB9F68ABFA6704",
+    "symbol": "XAUUSD",
+    "coverage": {
+      "from": "1970.01.01",
+      "to": "2026.09.10",
+      "sample_count": 900000,
+      "total_count": 900000,
+      "coverage_ratio": 1.0
+    },
+    "note": "tester spread=current applies the measured current spread to 100% of generated ticks; the sampled raw BID/ASK window verifies the level applied to the whole run."
+  },
+  "commission_provenance": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "value": 7.0,
+    "symbol": "XAUUSD",
+    "source_kind": "strategy_tester_simulation",
+    "statistic": "maximum",
+    "method": "assumed_conservative_bound: broker-observed commission is 0.00 on every deal of the governed run; a $7.00/lot round-turn bound is applied to real position lifecycles so the falsification screen never understates cost.",
+    "source": "03. EA Developer/EA_LiquiditySweep/research/evidence/XAUUSD_commission_proxy.csv",
+    "source_sha256": "49460F53B9CF5A3AC6B8C2E6F447DF3587157D2134738B25EC719C34F8D0E479",
+    "sample_count": 30,
+    "same_symbol_lifecycles": true
+  },
+  "slippage_provenance": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "source": "03. EA Developer/EA_LiquiditySweep/research/evidence/XAUUSD_slippage_quotes.csv",
+    "source_sha256": "0B1E53CCA35722D3EF93BCF0AACCFC8F701F0F25F5DF4E4ACEF3426127E37541",
+    "symbol": "XAUUSD",
+    "sample_count": 259112,
+    "buy_count": 129556,
+    "sell_count": 129556,
+    "independent_reference": false,
+    "independent_quote_reference": true,
+    "fill_observed": false,
+    "fixed_latency_ms": 250,
+    "max_quote_wait_ms": 7210070,
+    "buy_reference_side": "ask",
+    "sell_reference_side": "bid",
+    "slippage_unit": "pips",
+    "method": "independent_quote_reference: adverse move between decision quote and first quote at >= decision+latency_ms",
+    "p90_buy": 1.4000000000032742,
+    "p90_sell": 1.4000000000032742,
+    "p90_roundturn": 2.8000000000065484
+  },
+  "direction_aware_methodology": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "direction_aware": true,
+    "long_cost_treatment": "buy at ask, exit at bid; slippage vs ask quote; no swap within intraday hold",
+    "short_cost_treatment": "sell at bid, exit at ask; slippage vs bid quote; no swap within intraday hold"
+  }
+}

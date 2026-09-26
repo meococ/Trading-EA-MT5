@@ -1,0 +1,78 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "RESEARCH_PROXY",
+  "provenance_status": "VERIFIED_RESEARCH_PROXY",
+  "audit_status": "PASS_RESEARCH_ONLY",
+  "verdict": "PASS_RESEARCH_ONLY",
+  "promotion_eligible": false,
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "broker": "MetaQuotes Ltd.",
+  "server": "MetaQuotes-Demo (Build 6201)",
+  "account_currency": "USD",
+  "broker_fingerprint": "FC306F344FFA2E4F8938B9B067ACB70CBB7424A3326BD3EB4F22B715B83E9CE5",
+  "server_fingerprint": "31F43AD14C8EBD67E9AE046CFCF304BF786DA9B0CBB7A6BC7C4312ABB2405AD8",
+  "account_fingerprint": "4175453ACA7E4FB91C5333AD8E7500FEE54C4B6BE93DAB0F480796153E563AB1",
+  "data_fingerprint": "0E96F38D257BC85A9A2874372B7DACE96A06D03E3143D4B1FEB5D2A153161BE7",
+  "symbol": "USDCHF",
+  "from": "2010.05.10",
+  "to": "2026.09.11",
+  "symbol_geometry": {
+    "digits": 5,
+    "point": 1e-05,
+    "pip_size": 0.0001
+  },
+  "historical_spread_provenance": {
+    "verification_status": "VERIFIED",
+    "source": "03. EA Developer/EA_RollReversion/research/evidence/USDCHF_spread_ticks.csv",
+    "source_sha256": "191269C05C483D80A8DB4339949ABEF6606883B01844732E259A7899870C30AA",
+    "symbol": "USDCHF",
+    "coverage": {
+      "from": "2010.05.10",
+      "to": "2026.09.11",
+      "sample_count": 400000,
+      "total_count": 400000,
+      "coverage_ratio": 1.0
+    },
+    "note": "tester spread=current applies the measured current spread to 100% of generated ticks; the sampled raw BID/ASK window verifies the level applied to the whole run."
+  },
+  "commission_provenance": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "value": 7.0,
+    "symbol": "USDCHF",
+    "source_kind": "strategy_tester_simulation",
+    "statistic": "maximum",
+    "method": "assumed_conservative_bound: broker-observed commission is 0.00 on every deal of the governed run; a $7.00/lot round-turn bound is applied to real position lifecycles so the falsification screen never understates cost.",
+    "source": "03. EA Developer/EA_RollReversion/research/evidence/USDCHF_commission_proxy.csv",
+    "source_sha256": "5C47B17785D96890DB8E98B1939A3353EA164928C9123E0D54539E1C86B90FE7",
+    "sample_count": 30,
+    "same_symbol_lifecycles": true
+  },
+  "slippage_provenance": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "source": "03. EA Developer/EA_RollReversion/research/evidence/USDCHF_slippage_quotes.csv",
+    "source_sha256": "86AC69195AA56201E908F955DE93BBC3C0FA3FBDD6ECCC32FBE47C7B2A8049B0",
+    "symbol": "USDCHF",
+    "sample_count": 115174,
+    "buy_count": 57587,
+    "sell_count": 57587,
+    "independent_reference": false,
+    "independent_quote_reference": true,
+    "fill_observed": false,
+    "fixed_latency_ms": 250,
+    "max_quote_wait_ms": 66422,
+    "buy_reference_side": "ask",
+    "sell_reference_side": "bid",
+    "slippage_unit": "pips",
+    "method": "independent_quote_reference: adverse move between decision quote and first quote at >= decision+latency_ms",
+    "p90_buy": 0.10000000000065512,
+    "p90_sell": 0.10000000000065512,
+    "p90_roundturn": 0.20000000000131024
+  },
+  "direction_aware_methodology": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "direction_aware": true,
+    "long_cost_treatment": "buy at ask, exit at bid; slippage vs ask quote; no swap within intraday hold",
+    "short_cost_treatment": "sell at bid, exit at ask; slippage vs bid quote; no swap within intraday hold"
+  }
+}

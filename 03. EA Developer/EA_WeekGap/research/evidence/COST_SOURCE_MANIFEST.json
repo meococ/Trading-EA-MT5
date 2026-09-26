@@ -1,0 +1,78 @@
+{
+  "schema_version": "alphafactory_cost_source_manifest.v1",
+  "evidence_tier": "RESEARCH_PROXY",
+  "provenance_status": "VERIFIED_RESEARCH_PROXY",
+  "audit_status": "PASS_RESEARCH_ONLY",
+  "verdict": "PASS_RESEARCH_ONLY",
+  "promotion_eligible": false,
+  "performance_metrics_authorized": false,
+  "economics_authorized": false,
+  "broker": "MetaQuotes Ltd.",
+  "server": "MetaQuotes-Demo (Build 6204)",
+  "account_currency": "USD",
+  "broker_fingerprint": "FC306F344FFA2E4F8938B9B067ACB70CBB7424A3326BD3EB4F22B715B83E9CE5",
+  "server_fingerprint": "2642107A6FEB6123DC4C12328F4DDE61F06DD479039BC45963EAD69929B25724",
+  "account_fingerprint": "EC8EC5B400924AB80E8F82BDFA1F8599E5AB0ECB496A7DBEB874DC230A0429B9",
+  "data_fingerprint": "B395374C4B4D46304B41F2DA1A8A5D4606556F84443DACF545FF928D3A7D42AE",
+  "symbol": "USDJPY",
+  "from": "2010.01.04",
+  "to": "2026.09.18",
+  "symbol_geometry": {
+    "digits": 3,
+    "point": 0.001,
+    "pip_size": 0.01
+  },
+  "historical_spread_provenance": {
+    "verification_status": "VERIFIED",
+    "source": "03. EA Developer/EA_WeekGap/research/evidence/USDJPY_spread_ticks.csv",
+    "source_sha256": "CC307F72B4395A9A21AE57C621195BF20AB43DCB76969D00ED72FC13EE8501D2",
+    "symbol": "USDJPY",
+    "coverage": {
+      "from": "2010.01.04",
+      "to": "2026.09.18",
+      "sample_count": 400000,
+      "total_count": 400000,
+      "coverage_ratio": 1.0
+    },
+    "note": "tester spread=current applies the measured current spread to 100% of generated ticks; the sampled raw BID/ASK window verifies the level applied to the whole run."
+  },
+  "commission_provenance": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "value": 7.0,
+    "symbol": "USDJPY",
+    "source_kind": "strategy_tester_simulation",
+    "statistic": "maximum",
+    "method": "assumed_conservative_bound: broker-observed commission is 0.00 on every deal of the governed run; a $7.00/lot round-turn bound is applied to real position lifecycles so the falsification screen never understates cost.",
+    "source": "03. EA Developer/EA_WeekGap/research/evidence/USDJPY_commission_proxy.csv",
+    "source_sha256": "F947F57E2CDBD2B596FDBC9AD743C1E389AFDAD3FE1B40FCC381F010129592C8",
+    "sample_count": 30,
+    "same_symbol_lifecycles": true
+  },
+  "slippage_provenance": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "source": "03. EA Developer/EA_WeekGap/research/evidence/USDJPY_slippage_quotes.csv",
+    "source_sha256": "20D7633977AFFFE8EC4B403B89590B3E3BF9E353876EE2AC0E549C289C1C9942",
+    "symbol": "USDJPY",
+    "sample_count": 95202,
+    "buy_count": 47601,
+    "sell_count": 47601,
+    "independent_reference": false,
+    "independent_quote_reference": true,
+    "fill_observed": false,
+    "fixed_latency_ms": 250,
+    "max_quote_wait_ms": 31345,
+    "buy_reference_side": "ask",
+    "sell_reference_side": "bid",
+    "slippage_unit": "pips",
+    "method": "independent_quote_reference: adverse move between decision quote and first quote at >= decision+latency_ms",
+    "p90_buy": 0.2999999999985903,
+    "p90_sell": 0.2999999999985903,
+    "p90_roundturn": 0.5999999999971806
+  },
+  "direction_aware_methodology": {
+    "verification_status": "VERIFIED_RESEARCH_PROXY",
+    "direction_aware": true,
+    "long_cost_treatment": "buy at ask, exit at bid; slippage vs ask quote; no swap within intraday hold",
+    "short_cost_treatment": "sell at bid, exit at ask; slippage vs bid quote; no swap within intraday hold"
+  }
+}
