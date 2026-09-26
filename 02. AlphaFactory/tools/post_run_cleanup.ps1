@@ -155,6 +155,18 @@ function Test-LockOrphan([string]$Path) {
     $name = $item.Name
     if ($name -match '(?i)\.stale(\.|-)|stale-lock') { return $true }
     if ([int64]$item.Length -le 0) { return $true }
+    # A lock held open (FileShare.None) by a live runner cannot even be probed
+    # exclusively — that is an ACTIVE lock, never an orphan. Without this check
+    # the JSON-read failure below falls through to the age test, and with
+    # MinAgeHours=0 a just-written live lock classifies as deletable, which then
+    # throws mid-sweep and aborts the remaining candidates.
+    try {
+        $probe = [System.IO.File]::Open($Path, [System.IO.FileMode]::Open,
+            [System.IO.FileAccess]::ReadWrite, [System.IO.FileShare]::None)
+        $probe.Dispose()
+    } catch [System.IO.IOException] {
+        return $false
+    }
     try {
         $json = Get-Content -LiteralPath $Path -Raw -ErrorAction Stop | ConvertFrom-Json
         $pidProperty = $json.PSObject.Properties['runner_pid']
@@ -215,7 +227,10 @@ if ($includeSafe) {
             }
             foreach ($eaDir in $eaDirs) {
                 Get-ChildItem -LiteralPath $eaDir.FullName -Directory -Force -ErrorAction SilentlyContinue |
-                    Where-Object { (Test-TimestampName $_.Name) -and (Test-AgeOrRunMatch $_.Name $_.LastWriteTimeUtc) } |
+                    Where-Object {
+                        (Test-TimestampName $_.Name) -and $_.Name -ne $RunId -and
+                        $_.LastWriteTimeUtc -le $cutoff
+                    } |
                     ForEach-Object { $candidates.Add((New-Candidate 'StagedEx5' $_.FullName $stagedRoot)) }
             }
             Get-ChildItem -LiteralPath $stagedRoot -Directory -Force -ErrorAction SilentlyContinue |

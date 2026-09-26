@@ -585,8 +585,8 @@ function Resolve-DataQualityContract($Packet, $Binding, $Blockers) {
     }
 
     $coverageMode = [string](Get-ObjectProperty $dataQuality 'coverage_mode')
-    if ($coverageMode -cne 'all_available_asof') {
-        $Blockers.Add("Task packet data_quality_contract.coverage_mode must equal 'all_available_asof'.")
+    if ($coverageMode -cne 'all_available_asof' -and $coverageMode -cne 'verified_m1_asof') {
+        $Blockers.Add("Task packet data_quality_contract.coverage_mode must equal 'all_available_asof' or 'verified_m1_asof'.")
     }
     $availabilityAsOfUtc = [string](Get-ObjectProperty $dataQuality 'availability_asof_utc')
     if (-not (Test-ZuluTimestamp $availabilityAsOfUtc)) {
@@ -607,8 +607,14 @@ function Resolve-DataQualityContract($Packet, $Binding, $Blockers) {
         $Blockers.Add("Task packet data_quality_contract.requested_from must use YYYY.MM.DD.")
     } elseif ($requestedFrom -cne [string]$Binding.From) {
         $Blockers.Add("Task packet data_quality_contract.requested_from must match task packet/from binding '$($Binding.From)'.")
-    } elseif ($requestedFrom -cne '1970.01.01') {
+    } elseif ($coverageMode -ceq 'all_available_asof' -and $requestedFrom -cne '1970.01.01') {
         $Blockers.Add("Task packet all_available_asof requested_from must equal the frozen sentinel '1970.01.01'.")
+    } elseif ($coverageMode -ceq 'verified_m1_asof') {
+        $verifiedFrom = [datetime]::MinValue
+        if (-not [datetime]::TryParseExact($requestedFrom, 'yyyy.MM.dd', [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::None, [ref]$verifiedFrom) -or
+            $verifiedFrom -le [datetime]::new(1970, 1, 1)) {
+            $Blockers.Add("Task packet verified_m1_asof requested_from must be a verified M1 boundary after the sentinel '1970.01.01'.")
+        }
     }
     if (-not (Test-ResearchDate $requestedTo)) {
         $Blockers.Add("Task packet data_quality_contract.requested_to must use YYYY.MM.DD.")
@@ -2992,7 +2998,7 @@ function Add-DataQualityContractToReceiptBinding($ReceiptBinding, $DataQualityCo
     $ReceiptBinding['data_quality_contract'] = $DataQualityContract
 }
 
-function Assert-EvidenceUnchanged($ReceiptPath, $ExpectedReceiptSha256, $Binding) {
+function Assert-EvidenceUnchanged($ReceiptPath, $ExpectedReceiptSha256, $Binding, [string]$ActiveSource = "") {
     $actualReceiptHash = Get-Sha256IfExists $ReceiptPath
     if (-not (Test-Sha256Text $ExpectedReceiptSha256) -or $actualReceiptHash -ine $ExpectedReceiptSha256) {
         throw "Execution receipt changed: expected '$ExpectedReceiptSha256', got '$actualReceiptHash'."
@@ -3017,7 +3023,7 @@ function Assert-EvidenceUnchanged($ReceiptPath, $ExpectedReceiptSha256, $Binding
             throw "Execution evidence '$($item.label)' changed after preflight."
         }
     }
-    $git = Get-GitSnapshot
+    $git = Get-GitSnapshot $ActiveSource
     if ($git.Commit -cne [string]$receipt.git_commit -or $git.StatusSha256 -ine [string]$receipt.git_status_sha256 -or
         $git.Commit -cne [string]$Binding.GitCommit -or $git.StatusSha256 -ine [string]$Binding.GitStatusSha256) {
         throw "Git identity changed after execution receipt creation."
@@ -3075,7 +3081,7 @@ function Get-DataQualityHistoryRangeFromJournal([string]$JournalText, [string]$S
     }
 }
 
-function Get-DataQualitySeriesProofFromJournal([string]$JournalText, [string]$Symbol, [string]$ActualFrom) {
+function Get-DataQualitySeriesProofFromJournal([string]$JournalText, [string]$Symbol, [string]$ActualFrom, [string]$ExpectedProofFrom = "", [string]$CoverageMode = "") {
     $symbolPattern = [regex]::Escape($Symbol)
     $pattern = '(?im)DATA_EPOCH_D0_SERIES_PROOF\s+symbol=' + $symbolPattern +
         '\s+m5_synchronized=(?<sync>[01])' +
@@ -3121,12 +3127,21 @@ function Get-DataQualitySeriesProofFromJournal([string]$JournalText, [string]$Sy
     }
     $culture = [System.Globalization.CultureInfo]::InvariantCulture
     $actualFromDate = [datetime]::ParseExact($ActualFrom, 'yyyy.MM.dd', $culture, [System.Globalization.DateTimeStyles]::None)
+    $expectedProofDate = if ([string]::IsNullOrWhiteSpace($ExpectedProofFrom)) {
+        $actualFromDate
+    } else {
+        [datetime]::ParseExact($ExpectedProofFrom, 'yyyy.MM.dd', $culture, [System.Globalization.DateTimeStyles]::None)
+    }
     $m5FirstDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m5_first_epoch).UtcDateTime.Date
     $m5TerminalDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m5_terminal_first_epoch).UtcDateTime.Date
     $m1ServerDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m1_server_first_epoch).UtcDateTime.Date
     $m1TerminalDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m1_terminal_first_epoch).UtcDateTime.Date
     $copyFirstDate = [datetimeoffset]::FromUnixTimeSeconds($proof.copytime_first_epoch).UtcDateTime.Date
-    if ($actualFromDate -ne $m5FirstDate -or $m5FirstDate -ne $m5TerminalDate -or $m5FirstDate -ne $copyFirstDate) {
+    if ($CoverageMode -ceq 'verified_m1_asof') {
+        if ($m5FirstDate -gt $expectedProofDate -or $m5FirstDate -lt $actualFromDate -or $m5FirstDate -ne $m5TerminalDate -or $m5FirstDate -ne $copyFirstDate) {
+            throw "INVALID_TRUNCATED_TERMINAL_CACHE: journal/M5/terminal/CopyTime first dates disagree."
+        }
+    } elseif ($expectedProofDate -ne $m5FirstDate -or $m5FirstDate -ne $m5TerminalDate -or $m5FirstDate -ne $copyFirstDate) {
         throw "INVALID_TRUNCATED_TERMINAL_CACHE: journal/M5/terminal/CopyTime first dates disagree."
     }
     if ($m1TerminalDate -ne $m1ServerDate -or $m1ServerDate -gt $m5FirstDate) {
@@ -3134,7 +3149,9 @@ function Get-DataQualitySeriesProofFromJournal([string]$JournalText, [string]$Sy
     }
     $reportingFloor = [datetime]::new(2018, 1, 1)
     $coverageClass = 'FULL_2018_PLUS'
-    if ($actualFromDate -gt $reportingFloor) {
+    if ($CoverageMode -ceq 'verified_m1_asof') {
+        $coverageClass = 'VERIFIED_M1_START'
+    } elseif ($actualFromDate -gt $reportingFloor) {
         if ($m1ServerDate -le $reportingFloor -or ($m5FirstDate - $m1ServerDate).TotalDays -gt 7) {
             throw "INVALID_TRUNCATED_TERMINAL_CACHE: post-2018 start is not justified by MT5 server history."
         }
@@ -3215,7 +3232,7 @@ function Assert-DataQualityManifestMatchesPacket($Manifest, $PacketResult, [stri
         [string](Get-ObjectProperty $manifestContract 'requested_from') -cne [string](Get-ObjectProperty $packetContract 'requested_from') -or
         [string](Get-ObjectProperty $manifestContract 'requested_to') -cne [string](Get-ObjectProperty $packetContract 'requested_to') -or
         [string](Get-ObjectProperty $manifestContract 'coverage_mode') -cne [string](Get-ObjectProperty $packetContract 'coverage_mode') -or
-        [int64](Get-ObjectProperty $manifestContract 'max_journal_delta_bytes') -ne 1048576L) {
+        [int64](Get-ObjectProperty $manifestContract 'max_journal_delta_bytes') -ne 268435456L) {
         throw "Post-run normalized data_quality_contract does not match the task packet."
     }
     $packetThreshold = [double](Get-ObjectProperty (Get-ObjectProperty $packetContract 'history_quality') 'value')
@@ -3279,6 +3296,12 @@ function Assert-DataQualityManifestMatchesPacket($Manifest, $PacketResult, [stri
     if ($actualToDate -lt $requestedToDate) {
         throw "Post-run data_quality_gate ends before the frozen requested_to date."
     }
+    if ([string](Get-ObjectProperty $manifestContract 'coverage_mode') -ceq 'verified_m1_asof') {
+        $requestedFromDate = [datetime]::ParseExact([string](Get-ObjectProperty $manifestContract 'requested_from'), 'yyyy.MM.dd', [System.Globalization.CultureInfo]::InvariantCulture)
+        if ($actualFromDate -gt $requestedFromDate) {
+            throw "Post-run data_quality_gate begins after the verified_m1_asof requested_from date."
+        }
+    }
     if ((Get-ObjectProperty $gate 'journal_truncated') -isnot [bool] -or [bool](Get-ObjectProperty $gate 'journal_truncated') -or
         [int64](Get-ObjectProperty $gate 'journal_bytes_read') -le 0 -or
         [int64](Get-ObjectProperty $gate 'journal_files_read') -le 0 -or
@@ -3326,9 +3349,13 @@ function Assert-DataQualityManifestMatchesPacket($Manifest, $PacketResult, [stri
         [int]$journalRange.distinct_range_count -ne [int](Get-ObjectProperty $gate 'distinct_range_count')) {
         throw "Post-run data_quality_gate history bounds/counts do not match the hashed journal."
     }
-    $seriesProof = Get-DataQualitySeriesProofFromJournal $journalText ([string](Get-ObjectProperty $Manifest 'symbol')) $actualFrom
+    $proofExpectedFrom = $actualFrom
+    if ([string](Get-ObjectProperty $manifestContract 'coverage_mode') -ceq 'verified_m1_asof') {
+        $proofExpectedFrom = [string](Get-ObjectProperty $manifestContract 'requested_from')
+    }
+    $seriesProof = Get-DataQualitySeriesProofFromJournal $journalText ([string](Get-ObjectProperty $Manifest 'symbol')) $actualFrom $proofExpectedFrom ([string](Get-ObjectProperty $manifestContract 'coverage_mode'))
     $gateCoverageClass = [string](Get-ObjectProperty $gate 'coverage_class')
-    if ($gateCoverageClass -notin @('FULL_2018_PLUS', 'BROKER_LIMITED_START') -or
+    if ($gateCoverageClass -notin @('FULL_2018_PLUS', 'BROKER_LIMITED_START', 'VERIFIED_M1_START') -or
         $gateCoverageClass -cne [string]$seriesProof.coverage_class -or
         ((Get-ObjectProperty $gate 'series_proof') | ConvertTo-Json -Depth 8 -Compress) -cne ($seriesProof.series_proof | ConvertTo-Json -Depth 8 -Compress)) {
         throw "Post-run data_quality_gate series proof/coverage class does not match the hashed MT5 journal."
@@ -4054,10 +4081,49 @@ try {
         $binding.GitStatus = @($postClaimGitSnapshot.Status)
         $binding.GitStatusSha256 = $postClaimGitSnapshot.StatusSha256
     }
-    $existingTerminals = @(Get-Process -Name "terminal64" -ErrorAction SilentlyContinue)
+    # Only terminal64 processes inside the factory runtime can contaminate a
+    # governed run; the Owner GUI outside this tree is a different install and
+    # is explicitly allowed by Assert-Mt5FactoryProcessIsolate semantics.
+    # Orphan sweep first: while a governed run is live, alpha.ps1 holds
+    # runtime/alpha_backtest.lock with FileShare.None. If that lock is free,
+    # no live runner owns the isolate and any factory terminal64/metatester64
+    # left behind by a completed or crashed run is a purposeless orphan — the
+    # same class Stop-OrphanPortableTesters removes (it also covers bare-flag
+    # terminals spawned by attach probes, which that sweep cannot see).
+    $runtimePrefix = ([System.IO.Path]::GetFullPath($runtimeRoot)).TrimEnd('\') + '\'
+    $backtestLockHeld = $false
+    $backtestLockPath = Join-Path $runtimeRoot 'alpha_backtest.lock'
+    if (Test-Path -LiteralPath $backtestLockPath -PathType Leaf) {
+        try {
+            $lockProbe = [System.IO.File]::Open($backtestLockPath, 'Open', 'ReadWrite', 'None')
+            $lockProbe.Dispose()
+        } catch [System.IO.IOException] {
+            $backtestLockHeld = $true
+        }
+    }
+    $orphansKilled = 0
+    if (-not $backtestLockHeld) {
+        foreach ($orphan in @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe' OR Name='metatester64.exe'" -ErrorAction SilentlyContinue |
+            Where-Object {
+                $orphanExe = [string]$_.ExecutablePath
+                -not [string]::IsNullOrWhiteSpace($orphanExe) -and
+                [System.IO.Path]::GetFullPath($orphanExe).StartsWith($runtimePrefix, [System.StringComparison]::OrdinalIgnoreCase)
+            })) {
+            Write-Status "Closing orphan factory terminal/metatester PID $($orphan.ProcessId) (no live backtest lock)" "WARN"
+            Stop-Process -Id ([int]$orphan.ProcessId) -Force -ErrorAction SilentlyContinue
+            $orphansKilled++
+        }
+        if ($orphansKilled -gt 0) { Start-Sleep -Milliseconds 500 }
+    }
+    $existingTerminals = @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe'" -ErrorAction SilentlyContinue |
+        Where-Object {
+            $exe = [string]$_.ExecutablePath
+            -not [string]::IsNullOrWhiteSpace($exe) -and
+            [System.IO.Path]::GetFullPath($exe).StartsWith($runtimePrefix, [System.StringComparison]::OrdinalIgnoreCase)
+        })
     if ($existingTerminals.Count -gt 0) {
-        $terminalPids = ($existingTerminals | ForEach-Object { $_.Id }) -join ","
-        throw "Unrelated terminal64 process already running (PID(s): $terminalPids). Research loop failed closed before backtest."
+        $terminalPids = ($existingTerminals | ForEach-Object { $_.ProcessId }) -join ","
+        throw "Unrelated factory terminal64 process already running (PID(s): $terminalPids). Research loop failed closed before backtest."
     }
     Add-StateTransition "execution_started" "Registry, source, prereg, task packet, and cost-source contract validated." | Out-Null
 
@@ -4188,7 +4254,7 @@ try {
     # Evidence revalidation before validation: close the backtest-to-validator
     # TOCTOU window for packet/source/cost/WFA/variants/control and run outputs.
     $validationLock = Enter-GlobalValidationLock $receiptRecord
-    [void](Assert-EvidenceUnchanged $receiptRecord.Path $receiptRecord.Sha256 $binding)
+    [void](Assert-EvidenceUnchanged $receiptRecord.Path $receiptRecord.Sha256 $binding $contract.CanonicalSourceAbsolute)
     [void](Assert-RunManifestMatchesPacket (Join-Path $runDir 'run_manifest.json') $packetResult $binding $contract $receiptRecord.Sha256)
 
     $validationArgs = @(

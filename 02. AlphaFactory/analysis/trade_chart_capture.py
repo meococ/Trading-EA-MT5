@@ -29,6 +29,7 @@ import csv
 import json
 import math
 import re
+import subprocess
 import sys
 import traceback
 from dataclasses import dataclass
@@ -510,6 +511,42 @@ def load_bars_file(path: Path):
     return df[["open", "high", "low", "close", "tick_volume"]]
 
 
+_LAUNCHED_TERMINAL_PIDS: List[int] = []
+
+
+def _isolate_terminal_pids(isolate_exe: str) -> List[int]:
+    """PIDs of running terminal64.exe whose ExecutablePath is the isolate.
+
+    Win32_Process, not Get-Process: the Owner GUI shares the image name and
+    must never appear in the launch-diff set."""
+    try:
+        out = subprocess.check_output(
+            [
+                "powershell", "-NoProfile", "-Command",
+                "Get-CimInstance Win32_Process -Filter \"Name='terminal64.exe'\" "
+                "| Select-Object ProcessId,ExecutablePath "
+                "| ConvertTo-Json -Compress",
+            ],
+            timeout=15,
+            text=True,
+        )
+    except Exception:
+        return []
+    try:
+        rows = json.loads(out) if out.strip() else []
+    except json.JSONDecodeError:
+        return []
+    if isinstance(rows, dict):
+        rows = [rows]
+    norm = str(Path(isolate_exe)).lower()
+    return [
+        int(r["ProcessId"])
+        for r in rows
+        if isinstance(r, dict)
+        and str(r.get("ExecutablePath", "")).lower() == norm
+    ]
+
+
 def connect_mt5(terminal_path: str = "") -> bool:
     if not HAS_MT5:
         return False
@@ -523,13 +560,38 @@ def connect_mt5(terminal_path: str = "") -> bool:
                 "tools.factory_paths is unavailable and --mt5-path is empty; "
                 "cannot resolve the factory MT5 isolate"
             )
-        return bool(mt5.initialize(**mt5_initialize_kwargs()))
+        kwargs = mt5_initialize_kwargs()
+        # mt5.initialize(path=...) LAUNCHES the isolate when it is not
+        # running, and mt5.shutdown() only detaches -- a bare orphan
+        # terminal64 would linger and trip the next run's factory-process
+        # guard. Snapshot isolate PIDs first; any new PID is ours to reap
+        # in disconnect_mt5().
+        before = set(_isolate_terminal_pids(str(kwargs["path"])))
+        ok = bool(mt5.initialize(**kwargs))
+        if ok:
+            spawned = [
+                pid
+                for pid in _isolate_terminal_pids(str(kwargs["path"]))
+                if pid not in before
+            ]
+            _LAUNCHED_TERMINAL_PIDS.extend(spawned)
+        return ok
     return bool(mt5.initialize(path=terminal_path))
 
 
 def disconnect_mt5() -> None:
     if HAS_MT5:
         mt5.shutdown()
+    for pid in _LAUNCHED_TERMINAL_PIDS:
+        try:
+            subprocess.check_call(
+                ["powershell", "-NoProfile", "-Command",
+                 f"Stop-Process -Id {pid} -Force -ErrorAction SilentlyContinue"],
+                timeout=15,
+            )
+        except Exception:
+            pass
+    _LAUNCHED_TERMINAL_PIDS.clear()
 
 
 def copy_rates_range(symbol: str, timeframe: str, dt_from: datetime, dt_to: datetime):

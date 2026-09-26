@@ -25,6 +25,7 @@ HELPERS = [
     "ConvertTo-FiniteInvariantDouble",
     "Resolve-DataQualityContract",
     "Get-Mt5JournalLogFiles",
+    "Get-Mt5JournalHeadSha256",
     "New-Mt5JournalLogSnapshot",
     "ConvertFrom-Mt5LogBytes",
     "Export-Mt5JournalLogDelta",
@@ -123,6 +124,7 @@ def write_manifest(
     requested_from: str = "1970.01.01",
     requested_to: str = "2024.12.31",
     threshold: float = 97.0,
+    coverage_mode: str | None = None,
 ) -> Path:
     run_dir = tmp_path / "run"
     logs = run_dir / "logs"
@@ -148,6 +150,7 @@ def write_manifest(
             "requested_to": requested_to,
             "history_quality_threshold": threshold,
             "max_journal_delta_bytes": 4096,
+            **({"coverage_mode": coverage_mode} if coverage_mode else {}),
         },
         "data_quality_journal_delta": {
             "path": "logs/tester_journal_delta.log",
@@ -243,6 +246,98 @@ def test_end_short_fails_and_broker_declared_later_start_is_accepted(tmp_path: P
         ),
     )
     assert later_start.returncode == 0, later_start.stdout + later_start.stderr
+
+
+def test_verified_m1_asof_requires_journal_to_cover_requested_from(tmp_path: Path) -> None:
+    # Tester pre-loads ~1y warm-up before the requested window: series first
+    # date (1998.01.02) legitimately precedes requested_from (1999.01.01).
+    covered_text = (
+        "EURUSD: history synchronized from 1971.01.04 to 2024.12.31\n"
+        + series_proof_line("1998.01.02")
+        + "\n"
+    )
+    covered = validate_manifest(
+        tmp_path / "covered",
+        write_manifest(
+            tmp_path / "covered",
+            journal_text=covered_text,
+            requested_from="1999.01.01",
+            coverage_mode="verified_m1_asof",
+        ),
+    )
+    assert covered.returncode == 0, covered.stdout + covered.stderr
+    assert json.loads(covered.stdout)["coverage_class"] == "VERIFIED_M1_START"
+
+    uncovered = validate_manifest(
+        tmp_path / "uncovered",
+        write_manifest(
+            tmp_path / "uncovered",
+            journal_text="EURUSD: history synchronized from 2005.01.03 to 2024.12.31\n",
+            requested_from="1999.01.01",
+            coverage_mode="verified_m1_asof",
+        ),
+    )
+    assert uncovered.returncode != 0
+    assert "begins after requested_from" in uncovered.stderr
+
+    # Series first date later than requested_from = requested window start not covered.
+    late_text = (
+        "EURUSD: history synchronized from 1971.01.04 to 2024.12.31\n"
+        + series_proof_line("2000.01.03")
+        + "\n"
+    )
+    late = validate_manifest(
+        tmp_path / "late",
+        write_manifest(
+            tmp_path / "late",
+            journal_text=late_text,
+            requested_from="1999.01.01",
+            coverage_mode="verified_m1_asof",
+        ),
+    )
+    assert late.returncode != 0
+    assert "INVALID_TRUNCATED_TERMINAL_CACHE" in late.stderr
+
+
+def test_resolve_receipt_contract_verified_m1_asof_mode(tmp_path: Path) -> None:
+    receipt = {
+        "binding": {
+            "data_quality_contract": {
+                "history_quality": {"operator": "gt", "value": 97.0},
+                "coverage_mode": "verified_m1_asof",
+                "availability_asof_utc": "2024-12-31T23:59:59Z",
+                "requested_from": "1999.01.01",
+                "requested_to": "2024.12.31",
+                "require_tester_journal_bounds": True,
+            }
+        }
+    }
+    body = r"""
+$receipt = Get-Content -LiteralPath $ArgsPassthrough[0] -Raw | ConvertFrom-Json
+$binding = [pscustomobject]@{ symbol = 'EURUSD'; from = '1999.01.01'; to = '2024.12.31' }
+Resolve-DataQualityContract $receipt $binding | ConvertTo-Json -Depth 8
+"""
+    receipt_path = tmp_path / "receipt_ok.json"
+    receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+    ok = run_ps(tmp_path, body, str(receipt_path))
+    assert ok.returncode == 0, ok.stdout + ok.stderr
+    assert json.loads(ok.stdout)["coverage_mode"] == "verified_m1_asof"
+    assert json.loads(ok.stdout)["requested_from"] == "1999.01.01"
+
+    receipt["binding"]["data_quality_contract"]["requested_from"] = "1970.01.01"
+    sentinel_path = tmp_path / "receipt_sentinel.json"
+    sentinel_path.write_text(json.dumps(receipt), encoding="utf-8")
+    rejected = run_ps(
+        tmp_path,
+        r"""
+$receipt = Get-Content -LiteralPath $ArgsPassthrough[0] -Raw | ConvertFrom-Json
+$binding = [pscustomobject]@{ symbol = 'EURUSD'; from = '1970.01.01'; to = '2024.12.31' }
+Resolve-DataQualityContract $receipt $binding | ConvertTo-Json -Depth 8
+""",
+        str(sentinel_path),
+    )
+    assert rejected.returncode != 0
+    assert "verified_m1_asof" in rejected.stderr
 
 
 def test_second_source_distinguishes_full_broker_limited_and_truncated_cache(tmp_path: Path) -> None:
@@ -485,7 +580,10 @@ def test_journal_delta_reads_only_appended_utf16le_bytes(tmp_path: Path) -> None
     log = root / "tester.log"
     before = "old line\n"
     appended = "EURUSD: history synchronized from 2021.02.01 to 2024.12.31\n"
-    log.write_bytes(before.encode("utf-16le"))
+    # Real MT5 journals are BOM-prefixed UTF-16LE; writing without a BOM lets
+    # Add-Content insert one, which shifts every offset and is not the append
+    # semantics the delta contract is built on.
+    log.write_bytes((before).encode("utf-16"))
     result = run_ps(
         tmp_path,
         r"""
@@ -513,6 +611,46 @@ $text = Get-Content -LiteralPath $out -Raw
     assert appended.strip() in payload["text"]
     assert before.strip() not in payload["text"]
     assert payload["sha256"] == sha(tmp_path / "delta.log")
+
+
+def test_journal_delta_reads_recreated_same_size_log_in_full(tmp_path: Path) -> None:
+    # MT5 deletes and recreates the Tester/agent journals at every run start.
+    # A recreated file that lands on the exact same byte length must still be
+    # read in full; treating length==offset as "nothing new" drops the run's
+    # entire evidence (observed on the 20260912_010332 XAUUSD governed run).
+    root = tmp_path / "mt5" / "logs"
+    root.mkdir(parents=True)
+    log = root / "tester.log"
+    old_line = "XAUUSD: history synchronized from 2004.06.11 to 2026.09.10 OLD"
+    new_line = "XAUUSD: history synchronized from 2004.06.11 to 2026.09.10 NEW"
+    log.write_bytes(old_line.encode("utf-16le"))
+    result = run_ps(
+        tmp_path,
+        r"""
+$root = $ArgsPassthrough[0]
+$log = $ArgsPassthrough[1]
+$out = $ArgsPassthrough[2]
+$newLine = $ArgsPassthrough[3]
+$snapshot = @(New-Mt5JournalLogSnapshot @($root))
+Remove-Item -LiteralPath $log -Force
+[System.IO.File]::WriteAllText($log, $newLine, [System.Text.Encoding]::Unicode)
+$delta = Export-Mt5JournalLogDelta -Snapshot $snapshot -Roots @($root) -OutputPath $out -MaxBytes 4096
+$text = Get-Content -LiteralPath $out -Raw
+[pscustomobject]@{
+    files_read = [int]$delta.files_read
+    text = [string]$text
+} | ConvertTo-Json -Depth 4
+""",
+        str(root.parent),
+        str(log),
+        str(tmp_path / "delta.log"),
+        new_line,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    payload = json.loads(result.stdout)
+    assert payload["files_read"] == 1
+    assert new_line.strip() in payload["text"]
+    assert "OLD" not in payload["text"]
 
 
 def test_journal_delta_exact_limit_is_complete_and_over_limit_is_truncated(tmp_path: Path) -> None:

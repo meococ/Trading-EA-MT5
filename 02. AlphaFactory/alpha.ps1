@@ -1515,8 +1515,9 @@ function Resolve-DataQualityContract($Receipt, $Binding) {
     if ($threshold -lt 97 -or $threshold -ge 100) {
         throw "data_quality_contract.history_quality.value must be >= 97 and < 100."
     }
-    if ([string]$contract.coverage_mode -cne 'all_available_asof') {
-        throw "data_quality_contract.coverage_mode must be 'all_available_asof'."
+    $coverageModeValue = [string]$contract.coverage_mode
+    if ($coverageModeValue -cne 'all_available_asof' -and $coverageModeValue -cne 'verified_m1_asof') {
+        throw "data_quality_contract.coverage_mode must be 'all_available_asof' or 'verified_m1_asof'."
     }
     $asofText = [string]$contract.availability_asof_utc
     $asof = [datetimeoffset]::MinValue
@@ -1528,8 +1529,11 @@ function Resolve-DataQualityContract($Receipt, $Binding) {
     if ($asof.UtcDateTime -gt (Get-Date).ToUniversalTime()) {
         throw "data_quality_contract.availability_asof_utc must not be in the future at preflight."
     }
-    if ($requestedFrom -cne '1970.01.01') {
+    if ($coverageModeValue -ceq 'all_available_asof' -and $requestedFrom -cne '1970.01.01') {
         throw "data_quality_contract all_available_asof requested_from must equal the frozen sentinel '1970.01.01'."
+    }
+    if ($coverageModeValue -ceq 'verified_m1_asof' -and $fromDate -le (ConvertTo-ResearchDate '1970.01.01' 'data_quality_contract.requested_from')) {
+        throw "data_quality_contract verified_m1_asof requested_from must be a verified M1 boundary after the sentinel."
     }
     $asofDate = $asof.UtcDateTime.ToString('yyyy.MM.dd')
     if ($requestedTo -cne $asofDate) {
@@ -1549,7 +1553,7 @@ function Resolve-DataQualityContract($Receipt, $Binding) {
         coverage_mode = [string]$contract.coverage_mode
         availability_asof_utc = $asof.UtcDateTime.ToString('o')
         require_tester_journal_bounds = $true
-        max_journal_delta_bytes = 1048576L
+        max_journal_delta_bytes = 268435456L
     }
 }
 
@@ -1578,12 +1582,44 @@ function Get-Mt5JournalLogFiles([string[]]$Roots) {
     return @($filesByPath.Values | Sort-Object FullName)
 }
 
+function Get-Mt5JournalHeadSha256([System.IO.FileInfo]$File, [int64]$HeadLength) {
+    # Hash exactly the first HeadLength bytes so an appended tail can never
+    # change the value: the comparison region must not grow with the file.
+    $take = [int][Math]::Min([int64]$File.Length, [int64]$HeadLength)
+    if ($take -le 0) { return 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' }
+    $buffer = New-Object byte[] $take
+    $stream = [System.IO.File]::Open($File.FullName, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read, [System.IO.FileShare]::ReadWrite)
+    try {
+        $read = 0
+        while ($read -lt $take) {
+            $chunk = $stream.Read($buffer, $read, $take - $read)
+            if ($chunk -le 0) { break }
+            $read += $chunk
+        }
+    } finally {
+        $stream.Dispose()
+    }
+    if ($read -lt $take) {
+        $buffer = $buffer[0..($read - 1)]
+    }
+    return [BitConverter]::ToString([System.Security.Cryptography.SHA256]::Create().ComputeHash($buffer)).Replace('-', '').ToLowerInvariant()
+}
+
 function New-Mt5JournalLogSnapshot([string[]]$Roots) {
     return @(
         Get-Mt5JournalLogFiles $Roots | ForEach-Object {
+            $headLength = [int64][Math]::Min([int64]$_.Length, 4096L)
             [pscustomobject]@{
                 path = [System.IO.Path]::GetFullPath($_.FullName)
                 length = [int64]$_.Length
+                # MT5 deletes and recreates the Tester/agent journals at every
+                # run start, and NTFS tunneling can preserve the old creation
+                # time across a delete+create of the same name. The head hash
+                # is the reliable discriminator: an append-only file keeps its
+                # head, a rewritten/recreated one does not — so it gets a full
+                # re-read even when it lands on the exact same byte length.
+                head_length = $headLength
+                head_sha256 = Get-Mt5JournalHeadSha256 $_ $headLength
             }
         }
     )
@@ -1608,12 +1644,16 @@ function ConvertFrom-Mt5LogBytes([byte[]]$Bytes) {
     return [System.Text.UTF8Encoding]::new($false, $false).GetString($Bytes)
 }
 
-function Export-Mt5JournalLogDelta($Snapshot, [string[]]$Roots, [string]$OutputPath, [int64]$MaxBytes = 1048576) {
+function Export-Mt5JournalLogDelta($Snapshot, [string[]]$Roots, [string]$OutputPath, [int64]$MaxBytes = 268435456) {
     if ($MaxBytes -le 0) { throw "MT5 journal delta MaxBytes must be positive." }
     $offsetByPath = @{}
     foreach ($entry in @($Snapshot)) {
         $path = [System.IO.Path]::GetFullPath([string]$entry.path)
-        $offsetByPath[$path.ToLowerInvariant()] = [int64]$entry.length
+        $offsetByPath[$path.ToLowerInvariant()] = [pscustomobject]@{
+            length = [int64]$entry.length
+            head_length = [int64]$entry.head_length
+            head_sha256 = [string]$entry.head_sha256
+        }
     }
     $currentFiles = @(Get-Mt5JournalLogFiles $Roots)
     $fileSlices = New-Object System.Collections.Generic.List[object]
@@ -1621,7 +1661,15 @@ function Export-Mt5JournalLogDelta($Snapshot, [string[]]$Roots, [string]$OutputP
     foreach ($file in $currentFiles) {
         $full = [System.IO.Path]::GetFullPath($file.FullName)
         $key = $full.ToLowerInvariant()
-        $offset = if ($offsetByPath.ContainsKey($key)) { [int64]$offsetByPath[$key] } else { 0L }
+        $offset = 0L
+        if ($offsetByPath.ContainsKey($key)) {
+            $snap = $offsetByPath[$key]
+            if ([string]::IsNullOrEmpty($snap.head_sha256) -or
+                ($file.Length -ge $snap.head_length -and
+                 (Get-Mt5JournalHeadSha256 $file $snap.head_length) -eq $snap.head_sha256)) {
+                $offset = [int64]$snap.length
+            }
+        }
         if ([int64]$file.Length -lt $offset) { $offset = 0L }
         $available = [int64]$file.Length - $offset
         if ($available -le 0) { continue }
@@ -1698,7 +1746,7 @@ function Get-DataQualityHistoryRange([string]$JournalText, [string]$Symbol) {
     }
 }
 
-function Get-DataQualitySeriesProof([string]$JournalText, [string]$Symbol, [string]$ActualFrom) {
+function Get-DataQualitySeriesProof([string]$JournalText, [string]$Symbol, [string]$ActualFrom, [string]$ExpectedProofFrom = "", [string]$CoverageMode = "") {
     $symbolPattern = [regex]::Escape($Symbol)
     $pattern = '(?im)DATA_EPOCH_D0_SERIES_PROOF\s+symbol=' + $symbolPattern +
         '\s+m5_synchronized=(?<sync>[01])' +
@@ -1744,12 +1792,25 @@ function Get-DataQualitySeriesProof([string]$JournalText, [string]$Symbol, [stri
     }
 
     $actualFromDate = ConvertTo-ResearchDate $ActualFrom "journal actual_from"
+    $expectedProofDate = if ([string]::IsNullOrWhiteSpace($ExpectedProofFrom)) {
+        $actualFromDate
+    } else {
+        ConvertTo-ResearchDate $ExpectedProofFrom "data_quality_contract.requested_from"
+    }
     $m5FirstDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m5_first_epoch).UtcDateTime.Date
     $m5TerminalDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m5_terminal_first_epoch).UtcDateTime.Date
     $m1ServerDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m1_server_first_epoch).UtcDateTime.Date
     $m1TerminalDate = [datetimeoffset]::FromUnixTimeSeconds($proof.m1_terminal_first_epoch).UtcDateTime.Date
     $copyFirstDate = [datetimeoffset]::FromUnixTimeSeconds($proof.copytime_first_epoch).UtcDateTime.Date
-    if ($actualFromDate -ne $m5FirstDate -or $m5FirstDate -ne $m5TerminalDate -or $m5FirstDate -ne $copyFirstDate) {
+    if ($CoverageMode -ceq 'verified_m1_asof') {
+        # The tester pre-loads warm-up history before the requested window, so
+        # the series first date precedes requested_from. The invariant is:
+        # the series reaches at least the requested start, and journal/M5/
+        # terminal/CopyTime still agree internally.
+        if ($m5FirstDate -gt $expectedProofDate -or $m5FirstDate -lt $actualFromDate -or $m5FirstDate -ne $m5TerminalDate -or $m5FirstDate -ne $copyFirstDate) {
+            throw "INVALID_TRUNCATED_TERMINAL_CACHE: journal, M5 series, terminal series, and CopyTime first dates disagree."
+        }
+    } elseif ($expectedProofDate -ne $m5FirstDate -or $m5FirstDate -ne $m5TerminalDate -or $m5FirstDate -ne $copyFirstDate) {
         throw "INVALID_TRUNCATED_TERMINAL_CACHE: journal, M5 series, terminal series, and CopyTime first dates disagree."
     }
     if ($m1TerminalDate -ne $m1ServerDate -or $m1ServerDate -gt $m5FirstDate) {
@@ -1758,7 +1819,9 @@ function Get-DataQualitySeriesProof([string]$JournalText, [string]$Symbol, [stri
 
     $reportingFloor = [datetime]::new(2018, 1, 1)
     $coverageClass = 'FULL_2018_PLUS'
-    if ($actualFromDate -gt $reportingFloor) {
+    if ($CoverageMode -ceq 'verified_m1_asof') {
+        $coverageClass = 'VERIFIED_M1_START'
+    } elseif ($actualFromDate -gt $reportingFloor) {
         if ($m1ServerDate -le $reportingFloor -or ($m5FirstDate - $m1ServerDate).TotalDays -gt 7) {
             throw "INVALID_TRUNCATED_TERMINAL_CACHE: post-2018 M5 start is not justified by the MT5 server first date."
         }
@@ -1813,7 +1876,17 @@ function Assert-DataQualityRunEvidence($Manifest) {
     if ($actualTo -lt $requestedTo) {
         throw "MT5 synchronized history ends before requested_to: actual '$($range.actual_to)', requested '$($contract.requested_to)'."
     }
-    $seriesProof = Get-DataQualitySeriesProof $journalText ([string]$contract.symbol) ([string]$range.actual_from)
+    if ([string]$contract.coverage_mode -ceq 'verified_m1_asof') {
+        $requestedFromGate = ConvertTo-ResearchDate ([string]$contract.requested_from) "data_quality_contract.requested_from"
+        if ($actualFrom -gt $requestedFromGate) {
+            throw "MT5 synchronized history begins after requested_from: actual '$($range.actual_from)', requested '$($contract.requested_from)'."
+        }
+    }
+    $proofExpectedFrom = [string]$range.actual_from
+    if ([string]$contract.coverage_mode -ceq 'verified_m1_asof') {
+        $proofExpectedFrom = [string]$contract.requested_from
+    }
+    $seriesProof = Get-DataQualitySeriesProof $journalText ([string]$contract.symbol) ([string]$range.actual_from) $proofExpectedFrom ([string]$contract.coverage_mode)
 
     $rawHistoryQuality = Get-ReportLabeledValue (Get-Mt5ReportHtml ([string]$Manifest.report_path)) @('History Quality') 'history quality'
     $historyQuality = ConvertTo-FiniteInvariantDouble $rawHistoryQuality "Report History Quality"
@@ -2362,6 +2435,17 @@ Port=$testerAgentPort
     $dataQualityContract = $receiptCheck.DataQualityContract
     # Scoped journal directories only (terminal/tester/agent logs). Never the
     # whole Tester tree — bases/.hcc/cache are not journals.
+    # MT5 creates the Tester manager/agent log directories lazily; if a prior
+    # run's cleanup removed them they would be absent from the root list and
+    # this run's journals would be silently invisible to the delta collector.
+    # Seed the standard locations so coverage never depends on leftovers.
+    if ($null -ne $dataQualityContract) {
+        foreach ($seedDir in @(
+            (Join-Path $MT5TesterRoot 'logs'),
+            (Join-Path $MT5TesterRoot 'Agent-127.0.0.1-3000\logs'))) {
+            New-Item -ItemType Directory -Force -Path $seedDir | Out-Null
+        }
+    }
     $journalRoots = @(Get-Mt5JournalLogRoots -DataRoot $MT5DataRoot -TesterRoot $MT5TesterRoot)
     $journalSnapshot = $null
     if ($null -ne $dataQualityContract) {
@@ -2476,9 +2560,17 @@ Port=$testerAgentPort
     $dataQualityJournalDelta = $null
     if ($null -ne $dataQualityContract) {
         $deltaPath = Join-Path $logsDir "tester_journal_delta.log"
+        # Re-derive roots at export: agent log dirs created during this run
+        # (e.g. a fresh Agent-127.0.0.1-3xxx on a different port) are not in
+        # the pre-launch root list but their journals are still this run's
+        # evidence — unseen files read as offset 0, i.e. captured in full.
+        $exportJournalRoots = @(
+            @($journalRoots) +
+            @(Get-Mt5JournalLogRoots -DataRoot $MT5DataRoot -TesterRoot $MT5TesterRoot)
+        ) | Sort-Object -Unique
         $deltaReceipt = Export-Mt5JournalLogDelta `
             -Snapshot $journalSnapshot `
-            -Roots $journalRoots `
+            -Roots $exportJournalRoots `
             -OutputPath $deltaPath `
             -MaxBytes ([int64]$dataQualityContract.max_journal_delta_bytes)
         $dataQualityJournalDelta = [ordered]@{

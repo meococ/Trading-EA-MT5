@@ -152,6 +152,9 @@ def parse_deals_from_html_report(report_path: Path) -> List[Deal]:
 
         time_s = tds[0]
         deal_id_s = tds[1]
+        # Balance/carry rows (e.g. the initial deposit) have no timestamp.
+        if not re.match(r"^\d{4}\.\d{2}\.\d{2}\s+\d{2}:\d{2}", time_s):
+            continue
         symbol = tds[2]
         side = tds[3]
         direction = tds[4]
