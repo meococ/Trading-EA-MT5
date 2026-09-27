@@ -2408,18 +2408,26 @@ finally:
 
 function Stop-IsolateAttachTerminals {
     # Runs after the runner-owned set has been stopped, so every surviving
-    # isolate terminal is by definition a leftover (python-attach spawns and
-    # crashed-run strays). mt5.initialize(path=..., portable=True) launches
-    # carry /portable while other attach styles do not, so matching is by exe
-    # path alone — cmdline flag filtering is unreliable. Scope: isolate exe
-    # only — the Owner's tradable GUI lives outside the isolate.
-    $isolateExe = [System.IO.Path]::GetFullPath($MT5)
+    # isolate process is by definition a leftover (python-attach spawns and
+    # crashed-run strays). Kill law: only a process whose fully-resolved exe
+    # path sits UNDER this run's isolate root (normalized, case-insensitive)
+    # may be stopped. Never match on process name or on a missing /portable
+    # flag — the Owner's tradable GUI (non-/portable, outside the isolate)
+    # can never satisfy containment. A process whose exe path cannot be
+    # resolved is logged and left running.
+    $isolateRoot = [System.IO.Path]::GetFullPath((Split-Path -Parent $MT5)).TrimEnd('\') + '\'
     foreach ($proc in @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe' OR Name='metatester64.exe'" -ErrorAction SilentlyContinue)) {
         $exe = [string]$proc.ExecutablePath
-        if ([string]::IsNullOrWhiteSpace($exe)) { continue }
-        try { $exe = [System.IO.Path]::GetFullPath($exe) } catch { continue }
-        if ($exe -ine $isolateExe) { continue }
-        Write-Status "Closing leftover isolate terminal PID $($proc.ProcessId)" "WARN"
+        if ([string]::IsNullOrWhiteSpace($exe)) {
+            Write-Status "Skip PID $($proc.ProcessId): exe path unavailable, not killed" "WARN"
+            continue
+        }
+        try { $exe = [System.IO.Path]::GetFullPath($exe) } catch {
+            Write-Status "Skip PID $($proc.ProcessId): exe path unresolvable, not killed" "WARN"
+            continue
+        }
+        if (-not $exe.StartsWith($isolateRoot, [System.StringComparison]::OrdinalIgnoreCase)) { continue }
+        Write-Status "Closing leftover isolate process PID $($proc.ProcessId)" "WARN"
         Stop-Process -Id ([int]$proc.ProcessId) -Force -ErrorAction SilentlyContinue
     }
 }
