@@ -83,6 +83,7 @@ param(
     [string]$Calibration = "",
     [switch]$Charts,
     [switch]$TradeCharts,
+    [switch]$Smoke,
     [switch]$Execute
 )
 
@@ -435,6 +436,11 @@ function Assert-BacktestScalarContract($EAName, $Hypothesis, $Sym, $Per, $FromD,
     }
     if ([int64]$ExecutionModeValue -lt 0 -or [int64]$FixedDelayValue -lt 0) {
         throw "ExecutionMode and FixedDelayMs must be non-negative."
+    }
+    # 'smoke' is the quarantined runs/smoke tree — reserving it keeps a real EA
+    # of that name from landing inside evidence-quarantined paths.
+    if ([string]$EAName -ieq 'smoke') {
+        throw "EA name 'smoke' is reserved for the quarantined runs/smoke tier."
     }
 }
 
@@ -2150,7 +2156,7 @@ function Complete-RunManifest($ManifestPath) {
     return $ManifestPath
 }
 
-function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $Model, $ExecutionMode, $FixedDelayMs, $TimeoutSec, $Overrides, $MainFile, $CompiledEx5File, $Ex5File, $ReportPath, $ConfigPath, $Snapshot, $HypothesisId, $RunRole, $Deposit, $Leverage, $Spread, $TelemetryTier, $TelemetryProfile, $RunStartUtc, $GitSnapshot, $RequiredSidecarList, $ReceiptSha256, $SymbolGeometry, $DataQualityContract = $null, $DataQualityJournalDelta = $null, $RequiredInputArtifactList = $null, $InputArtifactSnapshots = $null, $InputArtifactSetSha256 = "") {
+function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $Model, $ExecutionMode, $FixedDelayMs, $TimeoutSec, $Overrides, $MainFile, $CompiledEx5File, $Ex5File, $ReportPath, $ConfigPath, $Snapshot, $HypothesisId, $RunRole, $Deposit, $Leverage, $Spread, $TelemetryTier, $TelemetryProfile, $RunStartUtc, $GitSnapshot, $RequiredSidecarList, $ReceiptSha256, $SymbolGeometry, $DataQualityContract = $null, $DataQualityJournalDelta = $null, $RequiredInputArtifactList = $null, $InputArtifactSnapshots = $null, $InputArtifactSetSha256 = "", $Tier = 'governed', $Plane = '', $TerminalBuild = '') {
     $spreadValue = if ([string]::IsNullOrWhiteSpace($Spread)) { "current" } else { $Spread }
     $manifest = [ordered]@{
         schema_version = "alphafactory_run_manifest.v2"
@@ -2167,6 +2173,9 @@ function Write-RunManifest($RunDir, $RunId, $EAName, $Sym, $Per, $FromD, $ToD, $
         fixed_delay_ms = $FixedDelayMs
         timeout_sec = $TimeoutSec
         execution_lane = "research"
+        tier = $Tier
+        plane = $Plane
+        terminal_build = $TerminalBuild
         overrides = $Overrides
         deposit = $Deposit
         leverage = $Leverage
@@ -2299,7 +2308,150 @@ function Do-Compile($EAName) {
     return $ex5
 }
 
-function Do-Backtest($EAName, $Sym, $Per, $FromD, $ToD, $TimeoutSec, $Overrides = "", $Model = 0, $ExecutionMode = 0, $FixedDelayMs = 0, $Spread = "", $HypothesisId = "", $RunRole = "challenger", $TelemetryTier = "off", $Deposit = 10000, $Leverage = 100, $ContractReceiptPath = "", $ExpectedReceiptSha256 = "", $RequiredSidecarPatterns = "", $RequiredInputArtifactSpec = "") {
+function Resolve-RunPlane {
+    # Plane name identifies broker+machine-class, not a raw path: the Devin VM
+    # isolate is pinned to `mt5-portable-mqdemo`; any other MetaQuotes-Demo
+    # isolate is the local plane. Devin detection needs evidence beyond a
+    # hostname: DEVIN_DIR pointing at a real directory, or the stock
+    # devinbox name plus the Devin program-data directory. Otherwise the
+    # label degrades toward the weaker 'local-mqdemo' claim.
+    $leaf = Split-Path -Leaf ([string]$MT5InstallRoot).TrimEnd('\')
+    $devinDir = [Environment]::GetEnvironmentVariable('DEVIN_DIR')
+    $onDevinVm = ((-not [string]::IsNullOrWhiteSpace($devinDir)) -and
+        (Test-Path -LiteralPath $devinDir -PathType Container)) -or
+        (($env:COMPUTERNAME -ieq 'devinbox') -and
+        (Test-Path -LiteralPath 'C:\ProgramData\devin' -PathType Container))
+    if ($leaf -ieq 'mt5-portable-mqdemo' -and $onDevinVm) { return 'devin-vm-mqdemo' }
+    return 'local-mqdemo'
+}
+
+function Resolve-SmokeSymbolGeometry([string]$Sym) {
+    # Smoke runs carry no receipt, so symbol geometry is measured, not bound:
+    # reuse the geometry already recorded by a prior run manifest for the same
+    # symbol, else attach to the isolate via tools.factory_paths and read
+    # symbol_info. pip_size follows the repo convention: point * 10.
+    $runsRoot = Join-Path $AlphaRoot 'runs'
+    if (Test-Path -LiteralPath $runsRoot -PathType Container) {
+        foreach ($mf in @(Get-ChildItem -LiteralPath $runsRoot -Recurse -Filter 'run_manifest.json' -File -ErrorAction SilentlyContinue | Sort-Object FullName)) {
+            try { $m = Get-Content -LiteralPath $mf.FullName -Raw | ConvertFrom-Json } catch { continue }
+            if ([string]$m.symbol -cne $Sym) { continue }
+            $g = $m.contract_symbol_geometry
+            if ($null -ne $g -and $null -ne $g.digits -and $null -ne $g.point -and $null -ne $g.pip_size) {
+                $d = [int64]$g.digits; $pt = [double]$g.point; $pp = [double]$g.pip_size
+                # Reused geometry gets the same validity envelope as the
+                # measured path; a malformed or edited prior manifest falls
+                # through to the live attach instead of propagating.
+                if ($d -ge 0 -and $d -le 12 -and $pt -gt 0 -and $pp -gt 0) {
+                    return [pscustomobject]@{ digits = $d; point = $pt; pip_size = $pp }
+                }
+            }
+        }
+    }
+    $pyPath = Join-Path $env:TEMP ("alpha_smoke_geometry_" + [guid]::NewGuid().ToString('N') + '.py')
+    $pyScript = @'
+import json
+import sys
+sys.path.insert(0, sys.argv[1])
+from tools.factory_paths import mt5_initialize_kwargs
+import MetaTrader5 as mt5
+try:
+    if not mt5.initialize(**mt5_initialize_kwargs()):
+        print(json.dumps({"ok": False, "error": str(mt5.last_error())}))
+        raise SystemExit(0)
+    sym = sys.argv[2]
+    mt5.symbol_select(sym, True)
+    info = mt5.symbol_info(sym)
+    if info is None:
+        print(json.dumps({"ok": False, "error": "symbol_info returned None"}))
+        raise SystemExit(0)
+    print(json.dumps({"ok": True, "digits": int(info.digits), "point": float(info.point)}))
+finally:
+    mt5.shutdown()
+'@
+    $isolateExe = [System.IO.Path]::GetFullPath($MT5)
+    $preAttachPids = @(
+        Get-CimInstance Win32_Process -Filter "Name='terminal64.exe'" -ErrorAction SilentlyContinue |
+            Where-Object { [string]$_.ExecutablePath -ieq $isolateExe } |
+            ForEach-Object { [int]$_.ProcessId }
+    )
+    try {
+        Set-Content -LiteralPath $pyPath -Value $pyScript -Encoding UTF8
+        $out = & python $pyPath $AlphaRoot $Sym 2>&1
+    } finally {
+        Remove-Item -LiteralPath $pyPath -Force -ErrorAction SilentlyContinue
+        # python attach launches an isolate terminal64 that must not survive
+        # into the /config tester launch (the new invocation would hand off to
+        # it and exit without producing a report). Reap by PID delta scoped to
+        # the isolate exe — cmdline flags of spawned attaches are not reliable.
+        foreach ($proc in @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe'" -ErrorAction SilentlyContinue)) {
+            $exe = [string]$proc.ExecutablePath
+            if ([string]::IsNullOrWhiteSpace($exe)) { continue }
+            try { $exe = [System.IO.Path]::GetFullPath($exe) } catch { continue }
+            if ($exe -ine $isolateExe) { continue }
+            if ($preAttachPids -contains [int]$proc.ProcessId) { continue }
+            Write-Status "Closing attach-spawned isolate terminal PID $($proc.ProcessId)" "WARN"
+            Stop-Process -Id ([int]$proc.ProcessId) -Force -ErrorAction SilentlyContinue
+        }
+        Stop-OrphanPortableTesters
+    }
+    $parsed = $null
+    try { $parsed = ($out | Out-String | ConvertFrom-Json) } catch {}
+    if ($null -eq $parsed -or -not [bool]$parsed.ok) {
+        throw "Smoke symbol geometry attach failed for ${Sym}: $([string]($out | Out-String))."
+    }
+    $point = [double]$parsed.point
+    if ([int]$parsed.digits -lt 0 -or [int]$parsed.digits -gt 12 -or $point -le 0) {
+        throw "Smoke symbol geometry for ${Sym} is invalid."
+    }
+    return [pscustomobject]@{ digits = [int64]$parsed.digits; point = $point; pip_size = [double]($point * 10.0) }
+}
+
+function Stop-IsolateAttachTerminals {
+    # Runs after the runner-owned set has been stopped, so every surviving
+    # isolate process is by definition a leftover (python-attach spawns and
+    # crashed-run strays). Kill law: only a process whose fully-resolved exe
+    # path sits UNDER this run's isolate root (normalized, case-insensitive)
+    # may be stopped. Never match on process name or on a missing /portable
+    # flag — the Owner's tradable GUI (non-/portable, outside the isolate)
+    # can never satisfy containment. A process whose exe path cannot be
+    # resolved is logged and left running.
+    $isolateRoot = [System.IO.Path]::GetFullPath((Split-Path -Parent $MT5)).TrimEnd('\') + '\'
+    foreach ($proc in @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe' OR Name='metatester64.exe'" -ErrorAction SilentlyContinue)) {
+        $exe = [string]$proc.ExecutablePath
+        if ([string]::IsNullOrWhiteSpace($exe)) {
+            Write-Status "Skip PID $($proc.ProcessId): exe path unavailable, not killed" "WARN"
+            continue
+        }
+        try { $exe = [System.IO.Path]::GetFullPath($exe) } catch {
+            Write-Status "Skip PID $($proc.ProcessId): exe path unresolvable, not killed" "WARN"
+            continue
+        }
+        if (-not $exe.StartsWith($isolateRoot, [System.StringComparison]::OrdinalIgnoreCase)) { continue }
+        # Re-verify containment at kill-time: if the target exited and its
+        # PID was recycled onto an unrelated process, the re-query fails the
+        # check and the kill is skipped (TOCTOU guard — the miss is an
+        # Owner-plane process, the exact incident this law prevents).
+        $live = Get-CimInstance Win32_Process -Filter "ProcessId=$($proc.ProcessId)" -ErrorAction SilentlyContinue
+        if ($null -eq $live) { continue }
+        $liveExe = [string]$live.ExecutablePath
+        if ([string]::IsNullOrWhiteSpace($liveExe)) {
+            Write-Status "Skip PID $($proc.ProcessId): exe path unavailable at kill-time, not killed" "WARN"
+            continue
+        }
+        try { $liveExe = [System.IO.Path]::GetFullPath($liveExe) } catch {
+            Write-Status "Skip PID $($proc.ProcessId): exe path unresolvable at kill-time, not killed" "WARN"
+            continue
+        }
+        if (-not $liveExe.StartsWith($isolateRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
+            Write-Status "Skip PID $($proc.ProcessId): exe path changed since enumeration, not killed" "WARN"
+            continue
+        }
+        Write-Status "Closing leftover isolate process PID $($proc.ProcessId)" "WARN"
+        Stop-Process -Id ([int]$proc.ProcessId) -Force -ErrorAction SilentlyContinue
+    }
+}
+
+function Do-Backtest($EAName, $Sym, $Per, $FromD, $ToD, $TimeoutSec, $Overrides = "", $Model = 0, $ExecutionMode = 0, $FixedDelayMs = 0, $Spread = "", $HypothesisId = "", $RunRole = "challenger", $TelemetryTier = "off", $Deposit = 10000, $Leverage = 100, $ContractReceiptPath = "", $ExpectedReceiptSha256 = "", $RequiredSidecarPatterns = "", $RequiredInputArtifactSpec = "", [switch]$Smoke) {
     Write-Status "Backtest: $EAName on $Sym $Per"
     # Sweep crashed-run orphans BEFORE asserting isolation (also re-runs inside
     # Do-Compile below): a leftover portable tester must not block this run.
@@ -2321,8 +2473,27 @@ function Do-Backtest($EAName, $Sym, $Per, $FromD, $ToD, $TimeoutSec, $Overrides 
     }
     # The caller enters the global backtest lock before this function. Rehash all
     # packet-bound evidence immediately before compile/backtest.
-    $receiptCheck = Assert-ContractReceipt $ContractReceiptPath $ExpectedReceiptSha256 $receiptBinding
-    Assert-ReceiptSourceMatchesMain $receiptCheck $main
+    if ($Smoke) {
+        if (-not [string]::IsNullOrWhiteSpace($ContractReceiptPath) -or -not [string]::IsNullOrWhiteSpace($ExpectedReceiptSha256)) {
+            throw "-Smoke cannot be combined with ContractReceipt evidence."
+        }
+        # Smoke bypasses exactly one gate: the ContractReceipt. Everything
+        # downstream — input escrow, journal machinery, owned terminal,
+        # manifest — runs unchanged, and manifest tier=smoke keeps the run
+        # out of every governed evidence consumer.
+        $symbolGeometry = Resolve-SmokeSymbolGeometry $Sym
+        $receiptCheck = [pscustomobject]@{
+            Receipt = $null
+            ReceiptPath = $null
+            ReceiptSha256 = $null
+            Git = Get-GitSnapshot -ActiveSource $main
+            DataQualityContract = $null
+        }
+    } else {
+        $receiptCheck = Assert-ContractReceipt $ContractReceiptPath $ExpectedReceiptSha256 $receiptBinding
+        Assert-ReceiptSourceMatchesMain $receiptCheck $main
+        $symbolGeometry = $receiptCheck.Receipt.binding.symbol_geometry
+    }
     Assert-NoUnrelatedTerminal
     $ex5 = [IO.Path]::ChangeExtension($main, ".ex5")
     Do-Compile $EAName | Out-Null
@@ -2335,7 +2506,10 @@ function Do-Backtest($EAName, $Sym, $Per, $FromD, $ToD, $TimeoutSec, $Overrides 
     New-Item -ItemType Directory -Force -Path $testerRunsDir | Out-Null
     
     # Also create local tracking directory
-    $localRunDir = Join-Path $AlphaRoot "runs\$EAName\$ts"
+    # Smoke evidence is quarantined: research_loop Resolve-ExactRunDir only
+    # accepts runs\<EA>\<ts>, so a runs\smoke\ path can never bind a packet.
+    $runParent = if ($Smoke) { 'runs\smoke' } else { 'runs' }
+    $localRunDir = Join-Path $AlphaRoot "$runParent\$EAName\$ts"
     New-Item -ItemType Directory -Force -Path $localRunDir | Out-Null
     
     # Report path relative from MT5 data folder.
@@ -2433,13 +2607,18 @@ Port=$testerAgentPort
     }
     [void](Assert-RequiredInputArtifactSnapshots $inputArtifactSnapshots $localRunDir $MT5CommonFilesRoot $inputArtifactSetSha256)
     $dataQualityContract = $receiptCheck.DataQualityContract
+    # Journal capture runs for every governed-contracted run AND every smoke
+    # run: smoke skips the receipt/contract gates but keeps the mechanical
+    # journal evidence identical. Only the data-quality *assertion* stays
+    # contract-gated (Assert-DataQualityRunEvidence early-returns without one).
+    $captureJournals = ($null -ne $dataQualityContract) -or $Smoke
     # Scoped journal directories only (terminal/tester/agent logs). Never the
     # whole Tester tree — bases/.hcc/cache are not journals.
     # MT5 creates the Tester manager/agent log directories lazily; if a prior
     # run's cleanup removed them they would be absent from the root list and
     # this run's journals would be silently invisible to the delta collector.
     # Seed the standard locations so coverage never depends on leftovers.
-    if ($null -ne $dataQualityContract) {
+    if ($captureJournals) {
         foreach ($seedDir in @(
             (Join-Path $MT5TesterRoot 'logs'),
             (Join-Path $MT5TesterRoot 'Agent-127.0.0.1-3000\logs'))) {
@@ -2448,7 +2627,7 @@ Port=$testerAgentPort
     }
     $journalRoots = @(Get-Mt5JournalLogRoots -DataRoot $MT5DataRoot -TesterRoot $MT5TesterRoot)
     $journalSnapshot = $null
-    if ($null -ne $dataQualityContract) {
+    if ($captureJournals) {
         $journalSnapshot = @(New-Mt5JournalLogSnapshot $journalRoots)
     }
     Write-Status "Starting MT5..."
@@ -2558,7 +2737,7 @@ Port=$testerAgentPort
     }
     [void](Assert-RequiredInputArtifactSnapshots $inputArtifactSnapshots $localRunDir $MT5CommonFilesRoot $inputArtifactSetSha256)
     $dataQualityJournalDelta = $null
-    if ($null -ne $dataQualityContract) {
+    if ($captureJournals) {
         $deltaPath = Join-Path $logsDir "tester_journal_delta.log"
         # Re-derive roots at export: agent log dirs created during this run
         # (e.g. a fresh Agent-127.0.0.1-3xxx on a different port) are not in
@@ -2568,11 +2747,15 @@ Port=$testerAgentPort
             @($journalRoots) +
             @(Get-Mt5JournalLogRoots -DataRoot $MT5DataRoot -TesterRoot $MT5TesterRoot)
         ) | Sort-Object -Unique
+        $journalMaxBytes = 268435456L
+        if ($null -ne $dataQualityContract) {
+            $journalMaxBytes = [int64]$dataQualityContract.max_journal_delta_bytes
+        }
         $deltaReceipt = Export-Mt5JournalLogDelta `
             -Snapshot $journalSnapshot `
             -Roots $exportJournalRoots `
             -OutputPath $deltaPath `
-            -MaxBytes ([int64]$dataQualityContract.max_journal_delta_bytes)
+            -MaxBytes $journalMaxBytes
         $dataQualityJournalDelta = [ordered]@{
             path = "logs/tester_journal_delta.log"
             sha256 = $deltaReceipt.sha256
@@ -2589,7 +2772,7 @@ Port=$testerAgentPort
     Copy-Item $reportAbsPath (Join-Path $buildDir "report.html") -Force
     Copy-Item $iniPath (Join-Path $localRunDir "config.ini") -Force
     Copy-Item $iniPath (Join-Path $configDir "config.ini") -Force
-    $manifestPath = Write-RunManifest -RunDir $localRunDir -RunId $ts -EAName $EAName -Sym $Sym -Per $Per -FromD $FromD -ToD $ToD -Model $Model -ExecutionMode $ExecutionMode -FixedDelayMs $FixedDelayMs -TimeoutSec $TimeoutSec -Overrides $effectiveOverrides -MainFile $main -CompiledEx5File $ex5 -Ex5File $stagedEx5Path -ReportPath $localReportPath -ConfigPath $iniPath -Snapshot $snapshot -HypothesisId $HypothesisId -RunRole $RunRole -Deposit $Deposit -Leverage $Leverage -Spread $Spread -TelemetryTier $TelemetryTier -TelemetryProfile $sourceContract.TelemetryProfile -RunStartUtc $runStartUtc -GitSnapshot $receiptCheck.Git -RequiredSidecarList $requiredSidecarList -ReceiptSha256 $receiptCheck.ReceiptSha256 -SymbolGeometry $receiptCheck.Receipt.binding.symbol_geometry -DataQualityContract $dataQualityContract -DataQualityJournalDelta $dataQualityJournalDelta -RequiredInputArtifactList $requiredInputArtifactList -InputArtifactSnapshots $inputArtifactSnapshots -InputArtifactSetSha256 $inputArtifactSetSha256
+    $manifestPath = Write-RunManifest -RunDir $localRunDir -RunId $ts -EAName $EAName -Sym $Sym -Per $Per -FromD $FromD -ToD $ToD -Model $Model -ExecutionMode $ExecutionMode -FixedDelayMs $FixedDelayMs -TimeoutSec $TimeoutSec -Overrides $effectiveOverrides -MainFile $main -CompiledEx5File $ex5 -Ex5File $stagedEx5Path -ReportPath $localReportPath -ConfigPath $iniPath -Snapshot $snapshot -HypothesisId $HypothesisId -RunRole $RunRole -Deposit $Deposit -Leverage $Leverage -Spread $Spread -TelemetryTier $TelemetryTier -TelemetryProfile $sourceContract.TelemetryProfile -RunStartUtc $runStartUtc -GitSnapshot $receiptCheck.Git -RequiredSidecarList $requiredSidecarList -ReceiptSha256 $receiptCheck.ReceiptSha256 -SymbolGeometry $symbolGeometry -DataQualityContract $dataQualityContract -DataQualityJournalDelta $dataQualityJournalDelta -RequiredInputArtifactList $requiredInputArtifactList -InputArtifactSnapshots $inputArtifactSnapshots -InputArtifactSetSha256 $inputArtifactSetSha256 -Tier $(if ($Smoke) { 'smoke' } else { 'governed' }) -Plane (Resolve-RunPlane) -TerminalBuild ([string](Get-Item -LiteralPath $MT5).VersionInfo.FileVersion)
     Copy-Item -LiteralPath $manifestPath -Destination (Join-Path $configDir "run_manifest.json") -Force
 
     if ($effectiveOverrides) {
@@ -2651,7 +2834,9 @@ Port=$testerAgentPort
     Copy-Item -LiteralPath $manifestPath -Destination (Join-Path $configDir "run_manifest.json") -Force
 
     # Normal non-collection receipts omit authority; StrictMode must not crash on missing property.
-    $receiptAuthorityProperty = $receiptCheck.Receipt.PSObject.Properties['authority']
+    # Smoke runs carry no receipt at all, so receiptAuthority stays '' and never enters
+    # the data-collection branch.
+    $receiptAuthorityProperty = if ($null -ne $receiptCheck.Receipt) { $receiptCheck.Receipt.PSObject.Properties['authority'] } else { $null }
     $receiptAuthority = if ($null -ne $receiptAuthorityProperty) { [string]$receiptAuthorityProperty.Value } else { '' }
     if ($receiptAuthority -in @(
         'DATA_ACQUISITION_ONLY_NO_MODEL0_PERFORMANCE',
@@ -2896,16 +3081,25 @@ switch ($Action.ToLower()) {
     }
     "backtest" { 
         if (-not $Name) { throw "EA name required" }
-        if ([string]::IsNullOrWhiteSpace($HypothesisId)) { throw "HypothesisId is required for backtest evidence." }
+        if ([string]::IsNullOrWhiteSpace($HypothesisId)) {
+            if (-not $Smoke) { throw "HypothesisId is required for backtest evidence." }
+            $HypothesisId = 'SMOKE'
+        }
+        if ($Smoke -and (-not [string]::IsNullOrWhiteSpace($ContractReceipt) -or -not [string]::IsNullOrWhiteSpace($ContractReceiptSha256))) {
+            throw "-Smoke cannot be combined with ContractReceipt evidence."
+        }
         if ($Deposit -le 0) { throw "Deposit must be greater than zero." }
         if ($Leverage -le 0) { throw "Leverage must be greater than zero." }
         Assert-BacktestScalarContract $Name $HypothesisId $Symbol $Period $From $To $Spread $ExecutionMode $FixedDelayMs
         Enter-GlobalBacktestLock $Name $HypothesisId
         try {
-            Do-Backtest $Name $Symbol $Period $From $To $TimeoutSec $Overrides $Model $ExecutionMode $FixedDelayMs $Spread $HypothesisId $RunRole $TelemetryTier $Deposit $Leverage $ContractReceipt $ContractReceiptSha256 $RequiredSidecars $RequiredInputArtifacts
+            Do-Backtest $Name $Symbol $Period $From $To $TimeoutSec $Overrides $Model $ExecutionMode $FixedDelayMs $Spread $HypothesisId $RunRole $TelemetryTier $Deposit $Leverage $ContractReceipt $ContractReceiptSha256 $RequiredSidecars $RequiredInputArtifacts -Smoke:$Smoke
         } finally {
             try {
-                Stop-AllRunnerOwnedTerminals
+                # Each stop gets its own try so a throw in one cannot skip the
+                # other; the lock release below runs regardless.
+                try { Stop-AllRunnerOwnedTerminals } catch { Write-Status "Runner-owned terminal cleanup failed: $_" "WARN" }
+                try { Stop-IsolateAttachTerminals } catch { Write-Status "Isolate attach sweep failed: $_" "WARN" }
             } finally {
                 Exit-GlobalBacktestLock
             }

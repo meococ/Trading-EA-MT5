@@ -114,6 +114,17 @@ def main() -> int:
         if not p.is_file():
             raise RuntimeError(f"missing required input: {rel(p)}")
 
+    # Smoke-tier runs are mechanical checks (manifest tier='smoke', quarantined
+    # under runs/smoke/); evidence stamped from one can never seed a governed
+    # control packet.
+    for p in (spread_ev, slip_ev, comm_ev):
+        try:
+            payload = json.loads(p.read_text(encoding="utf-8-sig"))
+        except Exception as exc:
+            raise RuntimeError(f"evidence input is not valid JSON: {rel(p)} ({exc})")
+        if isinstance(payload, dict) and str(payload.get("tier", "")).lower() == "smoke":
+            raise RuntimeError(f"evidence input is smoke tier and cannot seed a control packet: {rel(p)}")
+
     ident = json.loads(spread_ev.read_text())["identity"]
     # Packet fingerprints must bind the same basis alpha.ps1 Get-ReportIdentity
     # computes post-run from report.html, not the probe-side terminal_info basis.

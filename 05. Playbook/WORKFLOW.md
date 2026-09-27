@@ -214,6 +214,21 @@ Task packet bắt buộc bind `cost_source_manifest_path` +
 Mọi reference chứng cứ đi kèm task packet (`-WfaArtifact`, `-VariantsDir`, …)
 phải nằm trong workspace và được hash-bound; thiếu hoặc lệch hash là fail-closed.
 
+## Cloud execution (Devin VM)
+
+- Mọi task packet của Lead lưu nguyên văn thành `04. Memory/devin_tasks/<TASK-ID>.md`
+  trước khi làm; context nén thì đọc lại file đó, không làm theo bản tóm tắt.
+- Task packet + báo cáo theo template tại `02. AlphaFactory/tools/vm/README.md`
+  (trỏ tới, không chép lại).
+- Nhịp báo cáo: ở ranh giới vòng + khi STOP; không chờ "ok" giữa chừng.
+- Git: nhánh `devin/<lane>/<task-id>` + draft PR; không push main, không merge;
+  commit message mang task-id.
+- Stop rules: cùng một lỗi 2 lần → dừng và báo; tối đa 3 vòng build→verify mỗi
+  task nếu chưa có ý Lead; engineering fail ≠ market kill.
+- Luật vận hành VM R1–R7: dẫn chiếu Devin blueprint knowledge
+  `vm-operating-rules` (data plane mqdemo, cấm trade tools, evidence receipt,
+  git/process/secrets discipline).
+
 ## Indicator / port TradingView
 
 Look, HUD, object, HTF overlay và gắn chart: không dùng workflow EA-edge này.

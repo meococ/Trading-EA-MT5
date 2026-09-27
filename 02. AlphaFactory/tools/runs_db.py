@@ -301,6 +301,12 @@ def discover_runs(runs_dir: Path) -> List[Tuple[str, str, Path]]:
         if not entry.is_dir():
             continue
 
+        # Smoke-tier evidence is quarantined under runs/smoke/ and must never
+        # enter the governed run database.
+        if entry.name.lower() == "smoke":
+            log.warning(f"SKIP {entry}: smoke-tier run tree is not evidence")
+            continue
+
         if run_id_pattern.match(entry.name):
             # Standalone run at runs/<YYYYMMDD_HHMMSS>/
             results.append(("_unknown_", entry.name, entry))
@@ -316,6 +322,13 @@ def discover_runs(runs_dir: Path) -> List[Tuple[str, str, Path]]:
 
 def parse_run(ea_name: str, run_id: str, run_path: Path) -> Optional[Dict[str, Any]]:
     """Parse all artifacts from a single run folder into a flat dict."""
+
+    # Smoke-tier runs (manifest tier='smoke') are mechanical checks, not
+    # governed evidence; refuse them even if the run dir was moved.
+    manifest = load_json(run_path / "run_manifest.json")
+    if isinstance(manifest, dict) and str(manifest.get("tier", "")).lower() == "smoke":
+        log.warning(f"SKIP {ea_name}/{run_id}: smoke-tier run is not evidence")
+        return None
 
     # ── enhanced_summary.json (primary) ──────────────────────────────
     summary_path = run_path / "analysis" / "enhanced_summary.json"

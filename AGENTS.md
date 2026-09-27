@@ -2,10 +2,11 @@
 
 Authority: Owner request (this message) → `01. GOAL/GOAL.md` → this file →
 `05. Playbook/` → verified artifact. `04. Memory/hot.md` is cache, never
-authority. MT5 planes / MCP / hooks doctrine: `D:\Meta 5\CLAUDE.md`.
+authority. MT5 planes / MCP / hooks doctrine: `<OWNER_DOCS>\CLAUDE.md`
+(Owner machine only).
 
 Implement: research first — duplicate / omission / missing-logic /
-missing-function checks (`D:\Meta 5\AGENTS.md`). Do not commit or push
+missing-function checks (`<OWNER_DOCS>\AGENTS.md`). Do not commit or push
 unless Owner asked in the current message.
 
 ## Indicator / TV→MT5 — làm tới nơi tới chốn (Owner 2026-09-05)

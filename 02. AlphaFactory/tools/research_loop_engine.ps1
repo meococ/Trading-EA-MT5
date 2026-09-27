@@ -973,6 +973,9 @@ function Resolve-MatchedControl($RunId, $ControlHypothesisId, $ExpectedManifestH
     if (-not [string]::IsNullOrWhiteSpace($actualManifestHash)) {
         try {
             $controlManifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
+            if ([string](Get-ObjectProperty $controlManifest 'tier') -ceq 'smoke') {
+                $blockers.Add("Matched control manifest is smoke tier; smoke runs are mechanical checks and can never be control evidence.")
+            }
             $expectedFields = [ordered]@{
                 ea_name = $Binding.EaName
                 hypothesis_id = $ControlHypothesisId
@@ -3431,6 +3434,9 @@ function Assert-RunManifestMatchesPacket($ManifestPath, $PacketResult, $Binding,
         $manifest = Get-Content -LiteralPath $ManifestPath -Raw | ConvertFrom-Json
     } catch {
         throw "Post-run manifest JSON is malformed: $($_.Exception.Message)"
+    }
+    if ([string](Get-ObjectProperty $manifest 'tier') -ceq 'smoke') {
+        throw "Post-run manifest is smoke tier; smoke runs are mechanical checks and cannot bind governed evidence."
     }
     $manifestMain = [System.IO.Path]::GetFullPath([string](Get-ObjectProperty $manifest 'main_file'))
     $contractMain = [System.IO.Path]::GetFullPath([string]$Contract.CanonicalSourceAbsolute)
