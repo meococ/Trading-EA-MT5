@@ -70,15 +70,17 @@ SMOKE_MANIFEST = {
 }
 
 
-def _engine_extract_harness(body: str) -> str:
+def _engine_extract_harness(body: str, alpha_root: Path | None = None) -> str:
     """Dot-source every function definition from research_loop_engine.ps1
-    (top-level script never runs) then evaluate `body`."""
+    (top-level script never runs) then evaluate `body`. alpha_root lets a
+    test point engine functions at a fabricated workspace under tmp_path."""
+    root = alpha_root or ALPHA_ROOT
     return (
         "$tokens=$null;$errs=$null;"
         f"$ast=[System.Management.Automation.Language.Parser]::ParseFile('{ENGINE}',[ref]$tokens,[ref]$errs);"
         "$ast.FindAll({param($n) $n -is [System.Management.Automation.Language.FunctionDefinitionAst]},$true)"
         " | ForEach-Object { . ([ScriptBlock]::Create($_.Extent.Text)) };"
-        f"$alphaRoot='{ALPHA_ROOT}';"
+        f"$alphaRoot='{root}';"
         + body
     )
 
@@ -144,24 +146,40 @@ def test_candidate_registry_refuses_smoke_run_path(tmp_path):
     assert any("smoke" in e for e in errors)
 
 
-def test_candidate_registry_refuses_moved_smoke_manifest():
+def test_candidate_registry_refuses_case_variant_smoke_path(tmp_path, monkeypatch):
+    # Windows resolves case variants onto the real files; a raw recorded as
+    # `RUNS/SMOKE` must still be refused (regex is case-insensitive, and the
+    # resolved-parts check covers anything textual matching misses).
     vcr = _load_module("validate_candidate_registry", REGISTRY_VALIDATOR)
-    staging = WORKSPACE / "02. AlphaFactory" / "runtime" / "smoke_tier_test"
-    manifest = _write_json(staging / "run_manifest.json", SMOKE_MANIFEST)
-    try:
-        rel = manifest.relative_to(WORKSPACE).as_posix()
-        errors: list[str] = []
-        vcr.resolve_hash_bound_path(rel, _sha256(manifest), "test-label", errors)
-        assert any("smoke" in e for e in errors)
+    monkeypatch.setattr(vcr, "WORKSPACE", tmp_path)
+    real = _write_json(
+        tmp_path / "02. AlphaFactory" / "runs" / "smoke" / "EA_Demo"
+        / "20260101_000000" / "report.html",
+        {"stub": True},
+    )
+    raw = "02. AlphaFactory/RUNS/SMOKE/EA_Demo/20260101_000000/report.html"
+    errors: list[str] = []
+    vcr.resolve_hash_bound_path(raw, _sha256(real), "test-label", errors)
+    assert any("smoke" in e for e in errors)
+    assert vcr._is_smoke_run_path(real)
 
-        governed = _write_json(staging / "governed_manifest" / "run_manifest.json",
-                               dict(SMOKE_MANIFEST, tier="governed"))
-        rel_g = governed.relative_to(WORKSPACE).as_posix()
-        errors_g: list[str] = []
-        vcr.resolve_hash_bound_path(rel_g, _sha256(governed), "test-label", errors_g)
-        assert not any("smoke" in e for e in errors_g)
-    finally:
-        shutil.rmtree(staging, ignore_errors=True)
+
+def test_candidate_registry_refuses_moved_smoke_manifest(tmp_path, monkeypatch):
+    vcr = _load_module("validate_candidate_registry", REGISTRY_VALIDATOR)
+    monkeypatch.setattr(vcr, "WORKSPACE", tmp_path)
+    staging = tmp_path / "02. AlphaFactory" / "runtime" / "smoke_tier_test"
+    manifest = _write_json(staging / "run_manifest.json", SMOKE_MANIFEST)
+    rel = manifest.relative_to(tmp_path).as_posix()
+    errors: list[str] = []
+    vcr.resolve_hash_bound_path(rel, _sha256(manifest), "test-label", errors)
+    assert any("smoke" in e for e in errors)
+
+    governed = _write_json(staging / "governed_manifest" / "run_manifest.json",
+                           dict(SMOKE_MANIFEST, tier="governed"))
+    rel_g = governed.relative_to(tmp_path).as_posix()
+    errors_g: list[str] = []
+    vcr.resolve_hash_bound_path(rel_g, _sha256(governed), "test-label", errors_g)
+    assert not any("smoke" in e for e in errors_g)
 
 
 # ---------------------------------------------------------------------------
@@ -204,7 +222,9 @@ def test_engine_assert_run_manifest_refuses_smoke(tmp_path):
 def test_engine_matched_control_refuses_smoke(tmp_path):
     ea = "ZZ_SMOKE_T"
     run_id = "SMKTEST01"
-    run_dir = ALPHA_ROOT / "runs" / ea / run_id
+    # Fabricated run lives under a throwaway workspace — a hard-killed pytest
+    # must not leave smoke artifacts inside the real runs/ tree.
+    run_dir = tmp_path / "runs" / ea / run_id
     manifest = _write_json(run_dir / "run_manifest.json", SMOKE_MANIFEST)
     report = run_dir / "report.html"
     report.write_text("<html>stub</html>", encoding="utf-8")
@@ -225,60 +245,50 @@ $contract = [pscustomobject]@{{
 $res = Resolve-MatchedControl '{run_id}' 'HYP-T-001' '{manifest_sha}' '{report_sha}' $contract $binding
 $res.Blockers -join "`n"
 """
-    try:
-        res = _run_powershell(_engine_extract_harness(body))
-        assert "smoke" in res.stdout.lower(), res.stdout + res.stderr
-    finally:
-        shutil.rmtree(ALPHA_ROOT / "runs" / ea, ignore_errors=True)
+    res = _run_powershell(_engine_extract_harness(body, alpha_root=tmp_path))
+    assert "smoke" in res.stdout.lower(), res.stdout + res.stderr
 
 
 # ---------------------------------------------------------------------------
 # build_control_packet.py — smoke-stamped evidence is refused
 # ---------------------------------------------------------------------------
 
-def test_control_packet_refuses_smoke_evidence():
+def test_control_packet_refuses_smoke_evidence(tmp_path, monkeypatch):
+    # In-process with a fabricated workspace root: never touch the real
+    # 03. EA Developer evidence tree, even if this test is hard-killed.
+    bcp = _load_module("build_control_packet", TOOLS / "build_control_packet.py")
+    monkeypatch.setattr(bcp, "ROOT", tmp_path)
     ea = "EA_LiquiditySweep"
-    hyp = "HYP-LSWEEP-XAU-M5-001"
     sym = "ZZSMKT"
-    evid = WORKSPACE / "03. EA Developer" / ea / "research" / "evidence"
-    fabricated = [
-        evid / f"{sym}_spread_evidence.json",
-        evid / f"{sym}_slippage_evidence.json",
-        evid / f"{sym}_commission_evidence.json",
-    ]
-    for p in fabricated:
-        _write_json(p, {"tier": "smoke", "identity": {}})
-    try:
-        res = subprocess.run(
-            [
-                sys.executable,
-                str(TOOLS / "build_control_packet.py"),
-                "--ea", ea,
-                "--hyp", hyp,
-                "--symbol", sym,
-                "--period", "M5",
-                "--magic", "1",
-                "--spread-points", "1",
-                "--pip", "0.1",
-                "--digits", "3",
-                "--point", "0.001",
-                "--history-quality", "99",
-                "--bars", "1",
-                "--ticks", "1",
-            ],
-            cwd=WORKSPACE,
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-            check=False,
-            timeout=120,
-        )
-        assert res.returncode != 0
-        assert "smoke tier" in (res.stdout + res.stderr).lower()
-    finally:
-        for p in fabricated:
-            p.unlink(missing_ok=True)
+    hyp = "HYP-LSWEEP-XAU-M5-001"
+    pkg = tmp_path / "03. EA Developer" / ea
+    evid = pkg / "research" / "evidence"
+    # Inputs existence-checked before the tier gate fires.
+    _write_json(evid / f"{sym}_spread_evidence.json", {"tier": "smoke", "identity": {}})
+    _write_json(evid / f"{sym}_slippage_evidence.json", {"tier": "smoke", "identity": {}})
+    _write_json(evid / f"{sym}_commission_evidence.json", {"tier": "smoke", "identity": {}})
+    (pkg / f"{ea}.mq5").parent.mkdir(parents=True, exist_ok=True)
+    (pkg / f"{ea}.mq5").write_text("// stub", encoding="utf-8")
+    (pkg / "research").mkdir(parents=True, exist_ok=True)
+    (pkg / "research" / f"{hyp}_FROZEN_PREREG.md").write_text("# stub", encoding="utf-8")
+    _write_json(pkg / "ALPHAFACTORY_EA_CONTRACT.json", {})
+    monkeypatch.setattr(sys, "argv", [
+        "build_control_packet.py",
+        "--ea", ea,
+        "--hyp", hyp,
+        "--symbol", sym,
+        "--period", "M5",
+        "--magic", "1",
+        "--spread-points", "1",
+        "--pip", "0.1",
+        "--digits", "3",
+        "--point", "0.001",
+        "--history-quality", "99",
+        "--bars", "1",
+        "--ticks", "1",
+    ])
+    with pytest.raises(RuntimeError, match="(?i)smoke tier"):
+        bcp.main()
 
 
 # ---------------------------------------------------------------------------

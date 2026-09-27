@@ -345,6 +345,25 @@ def _is_smoke_run_manifest(path: Path) -> bool:
     return isinstance(payload, dict) and str(payload.get("tier", "")).lower() == "smoke"
 
 
+def _is_smoke_run_path(path: Path | None) -> bool:
+    """True when a resolved workspace path lives under runs/smoke/.
+
+    Windows is case-insensitive: a case-variant registry string resolves to
+    real on-disk casing, so the quarantine check runs on the resolved path
+    parts, not just the raw recorded string.
+    """
+    if path is None:
+        return False
+    try:
+        parts = [p.lower() for p in path.resolve().relative_to(WORKSPACE.resolve()).parts]
+    except (ValueError, OSError):
+        return False
+    for i in range(len(parts) - 1):
+        if parts[i] == "runs" and parts[i + 1] == "smoke":
+            return True
+    return False
+
+
 def resolve_hash_bound_path(
     raw: Any,
     hash_value: Any,
@@ -362,8 +381,10 @@ def resolve_hash_bound_path(
     if candidate is None:
         return None
     # Smoke-tier runs live under 02. AlphaFactory/runs/smoke/ and carry
-    # manifest tier='smoke'; neither may bind a governed evidence row.
-    if re.match(r"02\. AlphaFactory/runs/smoke(?:/|$)", raw):
+    # manifest tier='smoke'; neither may bind a governed evidence row. The
+    # raw-string match is case-insensitive and the resolved-path check covers
+    # case variants a caseless regex on `raw` could still miss.
+    if re.match(r"02\. AlphaFactory/runs/smoke(?:/|$)", raw, re.IGNORECASE) or _is_smoke_run_path(candidate):
         errors.append(f"{label}: smoke-tier run evidence cannot bind a candidate row")
         return None
     if not isinstance(hash_value, str) or re.fullmatch(r"[A-Fa-f0-9]{64}", hash_value) is None:

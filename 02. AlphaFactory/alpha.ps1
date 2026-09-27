@@ -437,6 +437,11 @@ function Assert-BacktestScalarContract($EAName, $Hypothesis, $Sym, $Per, $FromD,
     if ([int64]$ExecutionModeValue -lt 0 -or [int64]$FixedDelayValue -lt 0) {
         throw "ExecutionMode and FixedDelayMs must be non-negative."
     }
+    # 'smoke' is the quarantined runs/smoke tree — reserving it keeps a real EA
+    # of that name from landing inside evidence-quarantined paths.
+    if ([string]$EAName -ieq 'smoke') {
+        throw "EA name 'smoke' is reserved for the quarantined runs/smoke tier."
+    }
 }
 
 function ConvertTo-NormalizedOverrideMap([string]$OverrideText) {
@@ -2305,11 +2310,17 @@ function Do-Compile($EAName) {
 
 function Resolve-RunPlane {
     # Plane name identifies broker+machine-class, not a raw path: the Devin VM
-    # isolate is pinned to `mt5-portable-mqdemo` and DEVIN_DIR is only present
-    # on Devin machines; any other MetaQuotes-Demo isolate is the local plane.
+    # isolate is pinned to `mt5-portable-mqdemo`; any other MetaQuotes-Demo
+    # isolate is the local plane. Devin detection needs evidence beyond a
+    # hostname: DEVIN_DIR pointing at a real directory, or the stock
+    # devinbox name plus the Devin program-data directory. Otherwise the
+    # label degrades toward the weaker 'local-mqdemo' claim.
     $leaf = Split-Path -Leaf ([string]$MT5InstallRoot).TrimEnd('\')
-    $onDevinVm = ($env:COMPUTERNAME -ieq 'devinbox') -or
-        (-not [string]::IsNullOrWhiteSpace([Environment]::GetEnvironmentVariable('DEVIN_DIR')))
+    $devinDir = [Environment]::GetEnvironmentVariable('DEVIN_DIR')
+    $onDevinVm = ((-not [string]::IsNullOrWhiteSpace($devinDir)) -and
+        (Test-Path -LiteralPath $devinDir -PathType Container)) -or
+        (($env:COMPUTERNAME -ieq 'devinbox') -and
+        (Test-Path -LiteralPath 'C:\ProgramData\devin' -PathType Container))
     if ($leaf -ieq 'mt5-portable-mqdemo' -and $onDevinVm) { return 'devin-vm-mqdemo' }
     return 'local-mqdemo'
 }
@@ -2326,7 +2337,13 @@ function Resolve-SmokeSymbolGeometry([string]$Sym) {
             if ([string]$m.symbol -cne $Sym) { continue }
             $g = $m.contract_symbol_geometry
             if ($null -ne $g -and $null -ne $g.digits -and $null -ne $g.point -and $null -ne $g.pip_size) {
-                return [pscustomobject]@{ digits = [int64]$g.digits; point = [double]$g.point; pip_size = [double]$g.pip_size }
+                $d = [int64]$g.digits; $pt = [double]$g.point; $pp = [double]$g.pip_size
+                # Reused geometry gets the same validity envelope as the
+                # measured path; a malformed or edited prior manifest falls
+                # through to the live attach instead of propagating.
+                if ($d -ge 0 -and $d -le 12 -and $pt -gt 0 -and $pp -gt 0) {
+                    return [pscustomobject]@{ digits = $d; point = $pt; pip_size = $pp }
+                }
             }
         }
     }
@@ -2362,10 +2379,10 @@ finally:
         $out = & python $pyPath $AlphaRoot $Sym 2>&1
     } finally {
         Remove-Item -LiteralPath $pyPath -Force -ErrorAction SilentlyContinue
-        # python attach launches a terminal64 that must not survive into the
-        # /config tester launch (the new invocation would hand off to it and
-        # exit without producing a report). mt5.initialize() spawns it WITHOUT
-        # /portable, so reap it by PID delta scoped to the isolate exe.
+        # python attach launches an isolate terminal64 that must not survive
+        # into the /config tester launch (the new invocation would hand off to
+        # it and exit without producing a report). Reap by PID delta scoped to
+        # the isolate exe — cmdline flags of spawned attaches are not reliable.
         foreach ($proc in @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe'" -ErrorAction SilentlyContinue)) {
             $exe = [string]$proc.ExecutablePath
             if ([string]::IsNullOrWhiteSpace($exe)) { continue }
@@ -2390,19 +2407,19 @@ finally:
 }
 
 function Stop-IsolateAttachTerminals {
-    # Python attach helpers (mt5.initialize in smoke geometry, trade chart
-    # capture) spawn terminal64 at the isolate exe WITHOUT /portable, so
-    # Stop-OrphanPortableTesters cannot see them and they linger after a run.
-    # Scope: isolate exe only — the Owner's tradable GUI lives outside the
-    # isolate and is never matched.
+    # Runs after the runner-owned set has been stopped, so every surviving
+    # isolate terminal is by definition a leftover (python-attach spawns and
+    # crashed-run strays). mt5.initialize(path=..., portable=True) launches
+    # carry /portable while other attach styles do not, so matching is by exe
+    # path alone — cmdline flag filtering is unreliable. Scope: isolate exe
+    # only — the Owner's tradable GUI lives outside the isolate.
     $isolateExe = [System.IO.Path]::GetFullPath($MT5)
     foreach ($proc in @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe' OR Name='metatester64.exe'" -ErrorAction SilentlyContinue)) {
         $exe = [string]$proc.ExecutablePath
         if ([string]::IsNullOrWhiteSpace($exe)) { continue }
         try { $exe = [System.IO.Path]::GetFullPath($exe) } catch { continue }
         if ($exe -ine $isolateExe) { continue }
-        if ([string]$proc.CommandLine -match '(?i)/portable') { continue }
-        Write-Status "Closing attach-spawned isolate terminal PID $($proc.ProcessId)" "WARN"
+        Write-Status "Closing leftover isolate terminal PID $($proc.ProcessId)" "WARN"
         Stop-Process -Id ([int]$proc.ProcessId) -Force -ErrorAction SilentlyContinue
     }
 }
@@ -2563,13 +2580,18 @@ Port=$testerAgentPort
     }
     [void](Assert-RequiredInputArtifactSnapshots $inputArtifactSnapshots $localRunDir $MT5CommonFilesRoot $inputArtifactSetSha256)
     $dataQualityContract = $receiptCheck.DataQualityContract
+    # Journal capture runs for every governed-contracted run AND every smoke
+    # run: smoke skips the receipt/contract gates but keeps the mechanical
+    # journal evidence identical. Only the data-quality *assertion* stays
+    # contract-gated (Assert-DataQualityRunEvidence early-returns without one).
+    $captureJournals = ($null -ne $dataQualityContract) -or $Smoke
     # Scoped journal directories only (terminal/tester/agent logs). Never the
     # whole Tester tree — bases/.hcc/cache are not journals.
     # MT5 creates the Tester manager/agent log directories lazily; if a prior
     # run's cleanup removed them they would be absent from the root list and
     # this run's journals would be silently invisible to the delta collector.
     # Seed the standard locations so coverage never depends on leftovers.
-    if ($null -ne $dataQualityContract) {
+    if ($captureJournals) {
         foreach ($seedDir in @(
             (Join-Path $MT5TesterRoot 'logs'),
             (Join-Path $MT5TesterRoot 'Agent-127.0.0.1-3000\logs'))) {
@@ -2578,7 +2600,7 @@ Port=$testerAgentPort
     }
     $journalRoots = @(Get-Mt5JournalLogRoots -DataRoot $MT5DataRoot -TesterRoot $MT5TesterRoot)
     $journalSnapshot = $null
-    if ($null -ne $dataQualityContract) {
+    if ($captureJournals) {
         $journalSnapshot = @(New-Mt5JournalLogSnapshot $journalRoots)
     }
     Write-Status "Starting MT5..."
@@ -2688,7 +2710,7 @@ Port=$testerAgentPort
     }
     [void](Assert-RequiredInputArtifactSnapshots $inputArtifactSnapshots $localRunDir $MT5CommonFilesRoot $inputArtifactSetSha256)
     $dataQualityJournalDelta = $null
-    if ($null -ne $dataQualityContract) {
+    if ($captureJournals) {
         $deltaPath = Join-Path $logsDir "tester_journal_delta.log"
         # Re-derive roots at export: agent log dirs created during this run
         # (e.g. a fresh Agent-127.0.0.1-3xxx on a different port) are not in
@@ -2698,11 +2720,15 @@ Port=$testerAgentPort
             @($journalRoots) +
             @(Get-Mt5JournalLogRoots -DataRoot $MT5DataRoot -TesterRoot $MT5TesterRoot)
         ) | Sort-Object -Unique
+        $journalMaxBytes = 268435456L
+        if ($null -ne $dataQualityContract) {
+            $journalMaxBytes = [int64]$dataQualityContract.max_journal_delta_bytes
+        }
         $deltaReceipt = Export-Mt5JournalLogDelta `
             -Snapshot $journalSnapshot `
             -Roots $exportJournalRoots `
             -OutputPath $deltaPath `
-            -MaxBytes ([int64]$dataQualityContract.max_journal_delta_bytes)
+            -MaxBytes $journalMaxBytes
         $dataQualityJournalDelta = [ordered]@{
             path = "logs/tester_journal_delta.log"
             sha256 = $deltaReceipt.sha256
