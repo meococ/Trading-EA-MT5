@@ -2427,6 +2427,25 @@ function Stop-IsolateAttachTerminals {
             continue
         }
         if (-not $exe.StartsWith($isolateRoot, [System.StringComparison]::OrdinalIgnoreCase)) { continue }
+        # Re-verify containment at kill-time: if the target exited and its
+        # PID was recycled onto an unrelated process, the re-query fails the
+        # check and the kill is skipped (TOCTOU guard — the miss is an
+        # Owner-plane process, the exact incident this law prevents).
+        $live = Get-CimInstance Win32_Process -Filter "ProcessId=$($proc.ProcessId)" -ErrorAction SilentlyContinue
+        if ($null -eq $live) { continue }
+        $liveExe = [string]$live.ExecutablePath
+        if ([string]::IsNullOrWhiteSpace($liveExe)) {
+            Write-Status "Skip PID $($proc.ProcessId): exe path unavailable at kill-time, not killed" "WARN"
+            continue
+        }
+        try { $liveExe = [System.IO.Path]::GetFullPath($liveExe) } catch {
+            Write-Status "Skip PID $($proc.ProcessId): exe path unresolvable at kill-time, not killed" "WARN"
+            continue
+        }
+        if (-not $liveExe.StartsWith($isolateRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
+            Write-Status "Skip PID $($proc.ProcessId): exe path changed since enumeration, not killed" "WARN"
+            continue
+        }
         Write-Status "Closing leftover isolate process PID $($proc.ProcessId)" "WARN"
         Stop-Process -Id ([int]$proc.ProcessId) -Force -ErrorAction SilentlyContinue
     }
@@ -3077,8 +3096,10 @@ switch ($Action.ToLower()) {
             Do-Backtest $Name $Symbol $Period $From $To $TimeoutSec $Overrides $Model $ExecutionMode $FixedDelayMs $Spread $HypothesisId $RunRole $TelemetryTier $Deposit $Leverage $ContractReceipt $ContractReceiptSha256 $RequiredSidecars $RequiredInputArtifacts -Smoke:$Smoke
         } finally {
             try {
-                Stop-AllRunnerOwnedTerminals
-                Stop-IsolateAttachTerminals
+                # Each stop gets its own try so a throw in one cannot skip the
+                # other; the lock release below runs regardless.
+                try { Stop-AllRunnerOwnedTerminals } catch { Write-Status "Runner-owned terminal cleanup failed: $_" "WARN" }
+                try { Stop-IsolateAttachTerminals } catch { Write-Status "Isolate attach sweep failed: $_" "WARN" }
             } finally {
                 Exit-GlobalBacktestLock
             }
