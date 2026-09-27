@@ -23,6 +23,7 @@ import argparse
 import csv
 import json
 import os
+import subprocess
 import sys
 import time
 from datetime import datetime, timedelta, timezone
@@ -40,6 +41,56 @@ SYMBOLS = [
 
 DEEP_SYMBOLS = {"EURUSD", "XAUUSD"}
 M1_SYNC_FLOOR = datetime(2000, 1, 1)
+
+# mt5.initialize(path=...) LAUNCHES the isolate terminal when it is not
+# running, and mt5.shutdown() only detaches -- a bare orphan terminal64
+# would linger (holding the demo session and MCP port 22346). Same pattern
+# as analysis/trade_chart_capture.py: snapshot isolate PIDs before attach,
+# reap the delta on exit.
+_LAUNCHED_TERMINAL_PIDS: list[int] = []
+
+
+def _isolate_terminal_pids(isolate_exe: str) -> list[int]:
+    """PIDs of terminal64.exe whose ExecutablePath is exactly the isolate exe."""
+    try:
+        out = subprocess.check_output(
+            [
+                "powershell", "-NoProfile", "-Command",
+                "Get-CimInstance Win32_Process -Filter \"Name='terminal64.exe'\" "
+                "| Select-Object ProcessId,ExecutablePath "
+                "| ConvertTo-Json -Compress",
+            ],
+            timeout=15,
+            text=True,
+        )
+    except Exception:
+        return []
+    try:
+        rows = json.loads(out) if out.strip() else []
+    except json.JSONDecodeError:
+        return []
+    if isinstance(rows, dict):
+        rows = [rows]
+    norm = str(Path(isolate_exe)).lower()
+    return [
+        int(r["ProcessId"])
+        for r in rows
+        if isinstance(r, dict)
+        and str(r.get("ExecutablePath", "")).lower() == norm
+    ]
+
+
+def _reap_launched_terminals() -> None:
+    for pid in _LAUNCHED_TERMINAL_PIDS:
+        try:
+            subprocess.check_call(
+                ["powershell", "-NoProfile", "-Command",
+                 f"Stop-Process -Id {pid} -Force -ErrorAction SilentlyContinue"],
+                timeout=15,
+            )
+        except Exception:
+            pass
+    _LAUNCHED_TERMINAL_PIDS.clear()
 
 
 def m1_sync_walk(mt5, symbol: str, max_iter: int, settle: int, sleep_s: float = 2.5):
@@ -178,12 +229,17 @@ def main() -> int:
 
     isolate = factory_install_root()
     kwargs = mt5_initialize_kwargs()
+    isolate_exe = str(kwargs.get("path") or (isolate / "terminal64.exe"))
+    before_pids = set(_isolate_terminal_pids(isolate_exe))
     ok = mt5.initialize(**kwargs)
     attach_note = "factory_paths.mt5_initialize_kwargs"
     if not ok:
         # Backup per playbook: one explicit retry with path+portable.
-        ok = mt5.initialize(path=str(isolate / "terminal64.exe"), portable=True, timeout=60000)
+        ok = mt5.initialize(path=isolate_exe, portable=True, timeout=60000)
         attach_note = "explicit path+portable retry"
+    _LAUNCHED_TERMINAL_PIDS.extend(
+        pid for pid in _isolate_terminal_pids(isolate_exe) if pid not in before_pids
+    )
     if not ok:
         payload = {
             "schema_version": "alphafactory_vm_data_inventory.v1",
@@ -272,6 +328,7 @@ def main() -> int:
         return 0 if all(r["available"] for r in rows) else 1
     finally:
         mt5.shutdown()
+        _reap_launched_terminals()
 
 
 if __name__ == "__main__":

@@ -146,22 +146,19 @@ Add-Check 'disk_free' $(if ($diskFreeGB -ge 10) { 'PASS' } elseif ($diskFreeGB -
 
 # --- running MT5 processes ----------------------------------------------------
 $mt5Procs = @()
+$lockActive = $false
 try {
-    $mt5Procs = @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe' OR Name='metaeditor64.exe'" -ErrorAction SilentlyContinue |
-        ForEach-Object {
-            $exePath = [string]$_.ExecutablePath
-            [pscustomobject][ordered]@{
-                pid = [int]$_.ProcessId
-                name = $_.Name
-                path = $exePath
-                in_isolate = ($exePath -and $exePath.StartsWith($isolateRoot, [System.StringComparison]::OrdinalIgnoreCase))
-            }
-        })
+    $mt5Procs = @(Get-VmMt5Processes -IsolateRoot $isolateRoot)
+    $lockActive = Test-VmBacktestLockActive -AlphaRoot $alphaRoot
 } catch { }
 $isolateCount = @($mt5Procs | Where-Object { $_.in_isolate }).Count
 $foreignCount = @($mt5Procs | Where-Object { -not $_.in_isolate }).Count
-$procDetail = "isolate=$isolateCount foreign=$foreignCount" + $(if ($mt5Procs.Count) { ' pids=' + (($mt5Procs | ForEach-Object { $_.pid }) -join ',') } else { '' })
-Add-Check 'mt5_processes' $(if ($foreignCount -gt 0) { 'WARN' } else { 'PASS' }) $procDetail
+$procDetail = "isolate=$isolateCount foreign=$foreignCount lock_active=$lockActive" + $(if ($mt5Procs.Count) { ' pids=' + (($mt5Procs | ForEach-Object { $_.pid }) -join ',') } else { '' })
+# Stray isolate terminals outside a live backtest are orphans — the Phase-0
+# gate must not pass a VM carrying them; foreign processes are never ours.
+$procStatus = 'PASS'
+if ($foreignCount -gt 0 -or ($isolateCount -gt 0 -and -not $lockActive)) { $procStatus = 'WARN' }
+Add-Check 'mt5_processes' $procStatus $procDetail
 
 # --- git state -----------------------------------------------------------------
 $gitDetail = ''

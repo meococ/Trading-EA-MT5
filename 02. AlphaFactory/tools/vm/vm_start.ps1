@@ -99,6 +99,7 @@ try {
         Set-Content -LiteralPath $iniPath -Value $ini -Encoding Unicode
         $todayLog = Join-Path $logDir ((Get-Date -Format 'yyyyMMdd') + '.log')
         $ok = $false
+        $sawRejection = $false
         $p = $null
         try {
             $p = Start-Process -FilePath (Join-Path $isolateRoot 'terminal64.exe') `
@@ -110,7 +111,7 @@ try {
                     $ok = $true; break
                 }
                 if ((Test-Path $todayLog) -and ((Get-Content $todayLog -Raw -ErrorAction SilentlyContinue) -match 'authorization .* failed')) {
-                    break
+                    $sawRejection = $true; break
                 }
             }
         } finally {
@@ -119,8 +120,13 @@ try {
         }
         if ($ok) {
             Note 'OK' 'authorize: env creds authorized'
-        } else {
+        } elseif ($sawRejection) {
             Note 'FAIL' 'authorize: env creds bi tu choi (Invalid account) - can sua repo secret values'
+            Bump 2
+        } else {
+            # No auth line within 120 s: network/server reachability or a hung
+            # terminal — distinct fault from credential rejection.
+            Note 'FAIL' 'authorize: khong thay ket qua auth sau 120s (timeout/network, khong phai Invalid account)'
             Bump 2
         }
     } else {

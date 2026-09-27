@@ -40,11 +40,12 @@ New-Item -ItemType Directory -Force -Path $OutDir | Out-Null
 
 function Stop-IsolateTerminal {
     param([string]$Root)
-    $prefix = ([System.IO.Path]::GetFullPath($Root)).TrimEnd('\') + '\'
-    foreach ($p in @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe' OR Name='metatester64.exe'" -ErrorAction SilentlyContinue)) {
-        $exe = [string]$p.ExecutablePath
-        if ($exe -and $exe.StartsWith($prefix, [System.StringComparison]::OrdinalIgnoreCase)) {
-            Stop-Process -Id ([int]$p.ProcessId) -Force -ErrorAction SilentlyContinue
+    # Never murder an in-flight governed run: a live alpha.ps1 backtest owns
+    # its isolate processes and holds runtime\alpha_backtest.lock.
+    if (Test-VmBacktestLockActive -AlphaRoot $layout.AlphaRoot) { return }
+    foreach ($p in @(Get-VmMt5Processes -IsolateRoot $Root)) {
+        if ($p.in_isolate) {
+            Stop-Process -Id $p.pid -Force -ErrorAction SilentlyContinue
         }
     }
 }
@@ -62,6 +63,12 @@ function Get-LogDelta {
         $sr.Close()
         return @($text -split "`r?`n" | Where-Object { $_ -match '\S' })
     } finally { $fs.Close() }
+}
+
+if (Test-VmBacktestLockActive -AlphaRoot $layout.AlphaRoot) {
+    if ($Json) { (@{ error = 'alpha_backtest.lock active - governed run in flight' } | ConvertTo-Json -Depth 4) }
+    else { Write-Host 'probe refused: alpha_backtest.lock active - governed run in flight' }
+    exit 2
 }
 
 $rows = New-Object System.Collections.Generic.List[object]
@@ -121,11 +128,7 @@ Port=3000
         $cleanDeadline = (Get-Date).AddSeconds(20)
         do {
             Start-Sleep -Milliseconds 800
-            $busy = $false
-            foreach ($q in @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe' OR Name='metatester64.exe'" -ErrorAction SilentlyContinue)) {
-                $qexe = [string]$q.ExecutablePath
-                if ($qexe -and $qexe.StartsWith($isolate, [System.StringComparison]::OrdinalIgnoreCase)) { $busy = $true; break }
-            }
+            $busy = @((Get-VmMt5Processes -IsolateRoot $isolate) | Where-Object { $_.in_isolate }).Count -gt 0
         } while ($busy -and (Get-Date) -lt $cleanDeadline)
 
         try {
@@ -141,11 +144,7 @@ Port=3000
                     Start-Sleep -Seconds 3
                     break
                 }
-                $stillRunning = $false
-                foreach ($q in @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe' OR Name='metatester64.exe'" -ErrorAction SilentlyContinue)) {
-                    $qexe = [string]$q.ExecutablePath
-                    if ($qexe -and $qexe.StartsWith($isolate, [System.StringComparison]::OrdinalIgnoreCase)) { $stillRunning = $true; break }
-                }
+                $stillRunning = @((Get-VmMt5Processes -IsolateRoot $isolate) | Where-Object { $_.in_isolate }).Count -gt 0
                 if (-not $stillRunning -and $p.HasExited) { break }
             }
             $delta = @(Get-LogDelta -Path $agentLog -Offset $offA) + @(Get-LogDelta -Path $mgrLog -Offset $offM)

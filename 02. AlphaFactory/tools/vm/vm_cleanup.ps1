@@ -54,24 +54,29 @@ try {
 }
 
 # --- 2. isolate-owned process kill ---------------------------------------------
+# A live alpha.ps1 backtest owns its isolate terminals and holds
+# runtime\alpha_backtest.lock; while that lock is active we never kill.
 $killed = 0
 $skippedForeign = 0
+$skippedLocked = 0
 try {
-    $mt5 = @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe' OR Name='metaeditor64.exe'" -ErrorAction SilentlyContinue)
+    $lockActive = Test-VmBacktestLockActive -AlphaRoot $alphaRoot
+    $mt5 = @(Get-VmMt5Processes -IsolateRoot $isolateRoot)
     foreach ($p in $mt5) {
-        $exePath = [string]$p.ExecutablePath
-        $inIsolate = ($exePath -and $exePath.StartsWith($isolateRoot, [System.StringComparison]::OrdinalIgnoreCase))
-        if ($inIsolate) {
-            if ($Execute) {
-                Stop-Process -Id ([int]$p.ProcessId) -Force -ErrorAction SilentlyContinue
+        if ($p.in_isolate) {
+            if ($lockActive) {
+                $skippedLocked++
+                Add-Action 'skip_isolate_process' ("pid=" + $p.pid + " " + $p.path) 'active backtest lock'
+            } elseif ($Execute) {
+                Stop-Process -Id $p.pid -Force -ErrorAction SilentlyContinue
                 $killed++
-                Add-Action 'kill_isolate_process' ("pid=" + $p.ProcessId + " " + $exePath) 'killed'
+                Add-Action 'kill_isolate_process' ("pid=" + $p.pid + " " + $p.path) 'killed'
             } else {
-                Add-Action 'kill_isolate_process' ("pid=" + $p.ProcessId + " " + $exePath) 'would-kill'
+                Add-Action 'kill_isolate_process' ("pid=" + $p.pid + " " + $p.path) 'would-kill'
             }
         } else {
             $skippedForeign++
-            Add-Action 'skip_foreign_process' ("pid=" + $p.ProcessId + " " + $exePath) 'untouched'
+            Add-Action 'skip_foreign_process' ("pid=" + $p.pid + " " + $p.path) 'untouched'
         }
     }
 } catch {
@@ -104,6 +109,7 @@ $result = [ordered]@{
     isolate_root = $isolateRoot
     processes_killed = $killed
     foreign_processes_untouched = $skippedForeign
+    isolate_processes_skipped_lock = $skippedLocked
     temp_cred_files_removed = $removed
     actions = $actions.ToArray()
 }

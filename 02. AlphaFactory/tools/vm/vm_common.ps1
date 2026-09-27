@@ -30,3 +30,44 @@ function Get-VmRepoLayout {
         IsolateRoot = (Resolve-VmIsolateRoot -AlphaRoot $alphaRoot)
     }
 }
+
+function Get-VmIsolateProcessPrefix {
+    # Sibling dirs sharing the isolate's name prefix (e.g. mt5-portable-mqdemo.bak)
+    # are foreign, not isolate — the trailing separator is the boundary.
+    param([Parameter(Mandatory = $true)][string]$IsolateRoot)
+    return (([System.IO.Path]::GetFullPath($IsolateRoot)).TrimEnd([char[]]'\/') + '\')
+}
+
+function Get-VmMt5Processes {
+    # Every MT5 host process (incl. metatester64 agents), classified by whether
+    # its exe lives under the isolate prefix.
+    param([Parameter(Mandatory = $true)][string]$IsolateRoot)
+    $prefix = Get-VmIsolateProcessPrefix -IsolateRoot $IsolateRoot
+    return @(Get-CimInstance Win32_Process -Filter "Name='terminal64.exe' OR Name='metaeditor64.exe' OR Name='metatester64.exe'" -ErrorAction SilentlyContinue |
+        ForEach-Object {
+            $exePath = [string]$_.ExecutablePath
+            [pscustomobject][ordered]@{
+                pid        = [int]$_.ProcessId
+                name       = [string]$_.Name
+                path       = $exePath
+                in_isolate = ($exePath -and $exePath.StartsWith($prefix, [System.StringComparison]::OrdinalIgnoreCase))
+            }
+        })
+}
+
+function Test-VmBacktestLockActive {
+    # runtime\alpha_backtest.lock is held open FileShare.None by a live
+    # alpha.ps1 backtest; an exclusively-openable file means no live run.
+    param([Parameter(Mandatory = $true)][string]$AlphaRoot)
+    $lockPath = Join-Path $AlphaRoot 'runtime\alpha_backtest.lock'
+    if (-not (Test-Path -LiteralPath $lockPath -PathType Leaf)) { return $false }
+    try {
+        $probe = [System.IO.File]::Open($lockPath, [System.IO.FileMode]::Open, [System.IO.FileAccess]::ReadWrite, [System.IO.FileShare]::None)
+        $probe.Dispose()
+        return $false
+    } catch [System.IO.IOException] {
+        return $true
+    } catch {
+        return $false
+    }
+}
