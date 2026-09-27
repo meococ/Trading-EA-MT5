@@ -334,6 +334,17 @@ def parked_workspace_path(raw: Any) -> Path | None:
     return candidate
 
 
+def _is_smoke_run_manifest(path: Path) -> bool:
+    """True when path is a run_manifest.json whose manifest marks tier=smoke."""
+    if path.name != "run_manifest.json":
+        return False
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return False
+    return isinstance(payload, dict) and str(payload.get("tier", "")).lower() == "smoke"
+
+
 def resolve_hash_bound_path(
     raw: Any,
     hash_value: Any,
@@ -350,6 +361,11 @@ def resolve_hash_bound_path(
     candidate = normalized_workspace_path(raw, label, errors)
     if candidate is None:
         return None
+    # Smoke-tier runs live under 02. AlphaFactory/runs/smoke/ and carry
+    # manifest tier='smoke'; neither may bind a governed evidence row.
+    if re.match(r"02\. AlphaFactory/runs/smoke(?:/|$)", raw):
+        errors.append(f"{label}: smoke-tier run evidence cannot bind a candidate row")
+        return None
     if not isinstance(hash_value, str) or re.fullmatch(r"[A-Fa-f0-9]{64}", hash_value) is None:
         errors.append(f"{label}: SHA256 is invalid")
         return None
@@ -359,11 +375,17 @@ def resolve_hash_bound_path(
         if actual != expected:
             errors.append(f"{label}: SHA256 mismatch expected={expected} actual={actual}")
             return None
+        if _is_smoke_run_manifest(candidate):
+            errors.append(f"{label}: smoke-tier run manifest cannot bind a candidate row")
+            return None
         return candidate
     parked = parked_workspace_path(raw)
     if parked is not None and parked.is_file():
         actual = sha256_file(parked)
         if actual == expected:
+            if _is_smoke_run_manifest(parked):
+                errors.append(f"{label}: smoke-tier run manifest cannot bind a candidate row")
+                return None
             return parked
         errors.append(
             f"{label}: parked SHA256 mismatch expected={expected} actual={actual}"

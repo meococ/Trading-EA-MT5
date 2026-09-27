@@ -3,8 +3,8 @@
 Placeholders: `<REPO_ROOT>` = thư mục gốc repo trên máy đang chạy (local hoặc Devin cloud VM); `<OWNER_GUI_TERMINAL>` = MT5 GUI của Owner — chỉ trên máy Owner.
 
 Persistent specialist seats consulted at mandatory gates inside `/loop`.
-Advisors are **read-only** (`subagent_explore` profile): they review, measure,
-and return verdicts — the lead agent executes all writes and governed runs.
+Advisors are **read-only**: they review, measure, and return verdicts —
+the lead agent executes all writes and governed runs.
 
 ## Invocation contract (every seat)
 
@@ -15,10 +15,38 @@ specific artifact paths to review, and this ban list:
 - NEVER `mt5.initialize(path=...)` — attach bare only if a terminal runs.
 - Compile/backtest ONLY via `02. AlphaFactory\alpha.ps1` (advisors: read logs,
   do not launch).
-- No worktrees, no commits, no writes outside own scratch files.
+- No worktrees, no commits, no pushes, no writes outside own scratch files.
+- No MT5 process launches (no `terminal64.exe`, no metatester).
+- NEVER print secret values to chat/logs/files — including demo credentials.
 
 Output contract: `VERDICT: PASS | FAIL | WARN` + numbered defects with
 file:line / data evidence + one-line "what would change my verdict".
+
+## How to invoke
+
+- **Local (Devin CLI on Owner machine):** `run_subagent` with profile
+  `subagent_explore`, card text + gate context + ban list pasted in.
+- **Devin cloud VM:** seat = ONE child Devin session via
+  `devin_session_create`. Compose the prompt with
+  `02. AlphaFactory\tools\vm\vm_seat_prompt.ps1` (seat card + gate +
+  artifact paths + ban list + output contract). The child runs on its own
+  machine: it must not commit/push or launch MT5; the Builder verifies with
+  `git log`/`git status` on the reviewed branch after the verdict arrives.
+
+## Roles — cloud era
+
+- **Owner (anh Mèo Cọc):** direction, GOAL/contract, signs L3+/demo/live,
+  merges PRs, money/accounts.
+- **Lead (Linh/Claude):** task packets, counter-review, acceptance, keeps the
+  rules, reports to Owner; does not code.
+- **Builder (main Devin cloud session):** runs `/loop` on the VM, owns the
+  processes it opens.
+- **Reviewer (advisory seat = read-only child session, clean context):**
+  gates A–E.
+- **Chart review:** Gemini, routed via Lead.
+- **Plane local (Owner machine):** MT5 GUI observed via MCP only + venue
+  (FivePercent) data; Devin CLI local only does Owner-machine-only work
+  (e.g. git sync).
 
 ## Seats
 

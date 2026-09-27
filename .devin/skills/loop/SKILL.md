@@ -34,9 +34,15 @@ artifact > registry. `04. Memory/hot.md` is cache, never authority.
   probe (the `dk-1 <= day <= dk` bug already cost one fake campaign).
 - NO reading PF of an exit-conditioned subset as mechanism evidence
   (selection-on-survival artifact — HYP-001's "PF 2.42 subset" was this).
-- NO trading live, NO `mt5.initialize(path=...)`, NO bare `terminal64.exe`,
-  NO `mcp__mt5__trade_*`. Compile/backtest ONLY via `alpha.ps1` /
-  `ea_research_loop.ps1` on the portable isolate.
+- NO trading live, NO bare `terminal64.exe`, NO `mcp__mt5__trade_*`.
+  Compile/backtest ONLY via `alpha.ps1` / `ea_research_loop.ps1` on the
+  portable isolate. `mt5.initialize(path=...)` is banned ONLY for
+  `<OWNER_GUI_TERMINAL>` (Owner's GUI plane); attaching the repo isolate
+  via `factory_paths.mt5_initialize_kwargs()` is legal on the VM.
+- NO printing secret VALUES to chat/logs/files — including demo
+  credentials. Refer to them as "the authorized demo creds"; the Owner
+  fetches values themselves. Temp files holding secrets are deleted
+  immediately after use.
 - NO commits/pushes unless Owner asked in the current message.
 - NO removing safety layers to manufacture passes (news blackout,
   daily-flat, sizing/margin checks stay; DD-lock may be disabled only if
@@ -54,15 +60,19 @@ artifact > registry. `04. Memory/hot.md` is cache, never authority.
 
 ### Phase 0 — State load (every iteration)
 
+- On the Devin cloud VM: run `02. AlphaFactory\tools\vm\vm_start.ps1`
+  first; `vm_doctor.ps1` must return PASS or WARN-only before ANY run.
 - Read `01. GOAL/GOAL.md` gates verbatim (PF>1.30 x1, x1.5>=1.25, x2>=1.00,
   cadence 10-40/wk/symbol, HQ>97, no weekend, limited overnight).
 - Scan `04. Memory/research/CANDIDATE_REGISTRY.jsonl`: states, verdicts,
   killed families, pending hypotheses. Validate if edited
   (`04. Memory/research/validate_candidate_registry.py` runs inside the loop).
 - Read `04. Memory/hot.md` tail for the current trap/lesson list.
-- Kill orphan isolate terminals (`terminal64.exe` under
-  `02. AlphaFactory/runtime/` only — never the Owner GUI
-  `<OWNER_GUI_TERMINAL>`).
+- Kill orphan isolate terminals — on the VM this is
+  `02. AlphaFactory\tools\vm\vm_cleanup.ps1 -Execute` (it only kills procs
+  whose exe path is inside the isolate); locally, kill `terminal64.exe`
+  under `02. AlphaFactory/runtime/` only — never the Owner GUI
+  `<OWNER_GUI_TERMINAL>`.
 
 ### Phase 1 — Direction selection (declared before probing)
 
@@ -175,7 +185,8 @@ executed trade (`tools/autopsy_mae_mfe.py` pattern: lifecycle CSV + M5 bars):
   `03. EA Developer/<EA>/research/source_snapshots/`) when canonical
   source will diverge.
 - Append lessons to `04. Memory/hot.md` (new traps, new evidence rules).
-- Kill orphan isolate terminals → Phase 1.
+- On the VM run `vm_cleanup.ps1 -Execute` (kills orphan isolate terminals,
+  removes temp cred files) → Phase 1.
 
 ---
 
@@ -200,11 +211,20 @@ executed trade (`tools/autopsy_mae_mfe.py` pattern: lifecycle CSV + M5 bars):
 
 ## ADVISORY BOARD
 
-Role cards: `.devin/agents/*.md` + routing in `.devin/agents/README.md`.
-Invoke via `run_subagent` profile `subagent_explore` (read-only) with the
-card text + gate context + ban list pasted into the prompt. Gates are
-blocking: a FAIL from any seat halts the phase until resolved or the
-Owner overrules. Advisors run in parallel when independent.
+Role cards: `.devin/agents/*.md` + routing + invocation contract in
+`.devin/agents/README.md`. Gates are blocking: a FAIL from any seat halts
+the phase until resolved or the Owner overrules. Advisors run in parallel
+when independent.
+
+- On local (Devin CLI): `run_subagent` profile `subagent_explore`
+  (read-only) with the card text + gate context + ban list in the prompt.
+- On the Devin cloud VM: seat = ONE child Devin session
+  (`devin_session_create`), prompt composed by
+  `02. AlphaFactory\tools\vm\vm_seat_prompt.ps1` = role card + gate +
+  artifact paths + ban list. Child is read-only: no commit, no push, no
+  MT5 process launch. Output contract `VERDICT: PASS|FAIL|WARN` +
+  numbered defects with file:line. Builder re-checks `git log` on the
+  branch after each review to catch contract violations.
 
 ## STOP / REPORT conditions
 

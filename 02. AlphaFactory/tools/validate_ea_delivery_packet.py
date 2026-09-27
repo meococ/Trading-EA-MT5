@@ -160,6 +160,14 @@ def validate_bindings(
             actual_sha = sha256(path)
             if actual_sha != expected_sha.upper():
                 errors.append(f"{role} SHA256 mismatch: packet={expected_sha.upper()} actual={actual_sha}")
+        if role == "run_manifest":
+            try:
+                bound_manifest = json.loads(path.read_text(encoding="utf-8"))
+            except Exception as exc:
+                errors.append(f"run_manifest cannot be parsed: {exc}")
+            else:
+                if isinstance(bound_manifest, dict) and str(bound_manifest.get("tier", "")).lower() == "smoke":
+                    errors.append("run_manifest is smoke tier and cannot bind a delivery packet")
 
     required = set(BASE_BINDINGS)
     required.add("economic_analysis" if delivery_class == "economic_run" else "funnel_analysis")
